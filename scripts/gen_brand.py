@@ -450,6 +450,75 @@ def banner5():
     Dadi and the logo (logo 25-47% of the width), keeps Golu + Mitthu's head inside the mobile crop."""
     banner4(zoom=1.1, ax=0.85, ay=1.0, ver="v5", logo_frac=0.22)
 
+
+def _ring(img, colour, width=18, inset=22):
+    S = img.width
+    big = Image.new("RGBA", (S * 4, S * 4), (0, 0, 0, 0))
+    ImageDraw.Draw(big).ellipse((inset * 4, inset * 4, S * 4 - inset * 4, S * 4 - inset * 4),
+                                outline=colour + (255,), width=width * 4)
+    img.alpha_composite(big.resize((S, S), Image.LANCZOS))
+
+
+def _glow(img, colour=(255, 196, 64), cy=0.47, radius=0.37, strength=215):
+    S = img.width
+    yy, xx = np.mgrid[0:S, 0:S]
+    r = np.hypot(xx - S / 2, yy - S * cy) / (S * radius)
+    layer = np.zeros((S, S, 4), np.uint8)
+    layer[..., :3] = colour
+    layer[..., 3] = (np.clip(1 - r, 0, 1) ** 1.3 * strength).astype(np.uint8)
+    img.alpha_composite(Image.fromarray(layer, "RGBA"))
+
+
+def dp_concepts():
+    """Free DP concepts from the existing brand assets (no Gemini). Writes _work/dp_concepts/<n>.png + a sheet."""
+    out = WORK / "dp_concepts"
+    out.mkdir(parents=True, exist_ok=True)
+    S = 800
+    ic = Image.open(BRAND / "icon.png").convert("RGBA")
+    concepts = {}
+    # A: current DP v3 (reference)
+    concepts["A_current_v3"] = Image.open(BRAND / "kissago_dp_v3.png").convert("RGBA")
+    # B: Mitthu head close-up (face fills the circle, best at 48 px)
+    b = Image.new("RGBA", (S, S), INDIGO + (255,)); _glow(b, cy=0.45, radius=0.42)
+    w, h = ic.size
+    head = ic.crop((int(w * 0.12), int(h * 0.02), int(w * 0.88), int(h * 0.78))).resize((640, 640), Image.LANCZOS)
+    b.alpha_composite(head, (80, 95)); _ring(b, MARIGOLD); concepts["B_mitthu_closeup"] = b
+    # C: monogram "कि" in Rozha One (marigold) - typographic badge
+    c = Image.new("RGBA", (S, S), INDIGO + (255,))
+    mono = text_layer("कि", "Rozha One", 520, MARIGOLD)
+    k = min(470 / mono.width, 470 / mono.height); mono = mono.resize((int(mono.width * k), int(mono.height * k)), Image.LANCZOS)
+    c.alpha_composite(mono, ((S - mono.width) // 2, (S - mono.height) // 2 + 20)); _ring(c, MARIGOLD); concepts["C_monogram_ki"] = c
+    # D: badge - Mitthu + name "किस्सागो" under him inside the circle
+    d = Image.new("RGBA", (S, S), INDIGO + (255,)); _glow(d, cy=0.40, radius=0.33)
+    small = ic.resize((400, 400), Image.LANCZOS); d.alpha_composite(small, (200, 95))
+    name = text_layer("किस्सागो", "Rozha One", 200, MARIGOLD)
+    k = 430 / name.width; name = name.resize((430, int(name.height * k)), Image.LANCZOS)
+    d.alpha_composite(name, ((S - name.width) // 2, 505)); _ring(d, MARIGOLD); concepts["D_badge_mitthu_name"] = d
+    # E: inverted - cream background, indigo ring, Mitthu (stands out in a dark-mode feed)
+    e = Image.new("RGBA", (S, S), CREAM + (255,)); _glow(e, colour=(244, 163, 0), cy=0.47, radius=0.40, strength=110)
+    e.alpha_composite(ic.resize((560, 560), Image.LANCZOS), (120, 125)); _ring(e, INDIGO, width=24); concepts["E_cream_indigo_ring"] = e
+    # F: marigold background, indigo ring, Mitthu (warm, high-contrast)
+    f = Image.new("RGBA", (S, S), MARIGOLD + (255,)); _glow(f, colour=(255, 244, 220), cy=0.47, radius=0.42, strength=140)
+    f.alpha_composite(ic.resize((560, 560), Image.LANCZOS), (120, 125)); _ring(f, INDIGO, width=22); concepts["F_marigold_bg"] = f
+    for n, im in concepts.items():
+        im.convert("RGB").save(out / f"{n}.png")
+    # sheet: each concept as a circle at 300, 98 and 48 px on a dark (YouTube) background
+    def circ(im, sz):
+        im = im.convert("RGB").resize((sz, sz), Image.LANCZOS)
+        m = Image.new("L", (sz, sz), 0); ImageDraw.Draw(m).ellipse((0, 0, sz - 1, sz - 1), fill=255)
+        o = Image.new("RGB", (sz, sz), (15, 15, 15)); o.paste(im, (0, 0), m); return o
+    cols = 3
+    cw, chh = 470, 440
+    sheet = Image.new("RGB", (cw * cols, chh * 2), (15, 15, 15)); dr = ImageDraw.Draw(sheet)
+    for i, (n, im) in enumerate(concepts.items()):
+        x, y = (i % cols) * cw, (i // cols) * chh
+        dr.text((x + 10, y + 8), n.replace("_", " "), fill=(230, 230, 230))
+        sheet.paste(circ(im, 300), (x + 10, y + 30))
+        sheet.paste(circ(im, 98), (x + 330, y + 60)); sheet.paste(circ(im, 48), (x + 355, y + 180))
+        dr.text((x + 330, y + 40), "98 px", fill=(180, 180, 180)); dr.text((x + 350, y + 160), "48 px", fill=(180, 180, 180))
+    sheet.save(out / "dp_concepts_sheet.jpg", quality=90)
+    print("saved", out / "dp_concepts_sheet.jpg")
+
 if __name__ == "__main__":
     cmd = sys.argv[1]
     if cmd == "icons":

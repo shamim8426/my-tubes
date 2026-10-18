@@ -49526,3 +49526,262 @@ _**Agent (claude-opus-5-5 2026-10-18 17:02:32Z)**_
 <summary>Tool use: **Read**</summary>
  `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\review\cover_check.jpg`
 </details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 17:02:42Z)**_
+
+<think><details><summary>Thought Process</summary>
+Short ka cover ban gaya hai (Long ke thumbnail art se, ₹0 kharch), beech me kadhai-Ghasita-Chhotu aur upar "सोना भी दुगना?" sawaal ke saath, saari placement guidelines follow karte hue. Ab register me row jod kar sync kar raha hoon.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-18 17:02:59Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Register cover and sync
+
+```bash
+.venv/Scripts/python.exe -X utf8 - <<'PYEOF'
+import csv, datetime
+from pathlib import Path
+p = Path("shared/assets_license.csv")
+rows = list(csv.DictReader(p.open(encoding="utf-8", newline="")))
+path = "channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/output/short_01_cover.png"
+if path not in {r["path"] for r in rows}:
+    rows.append({"path": path, "source_url": "own: Long 01 thumbnail art (long/thumbnail_work/long01_thumb_raw.png, Gemini) + libass Mukta text + brand/logo_horizontal.png",
+                 "author": "Kissago (channel owner)", "license": "own (Gemini-generated)", "attribution_text": "",
+                 "date_added": datetime.date.today().isoformat()})
+with p.open("w", encoding="utf-8", newline="") as fh:
+    w = csv.DictWriter(fh, fieldnames=rows[0].keys()); w.writeheader(); w.writerows(rows)
+print(len(rows), "rows")
+PYEOF
+powershell -NoProfile -ExecutionPolicy Bypass -File tools/sync.ps1 -Message "long_01 short_01: vertical cover from the Long 01 thumbnail art" >/dev/null 2>&1; tail -1 shared/sync.log
+```
+
+```text
+48 rows
+2026-10-18 22:32:58  pushed: long_01 short_01: vertical cover from the Long 01 thumbnail art  (repo pack size 337 MB)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 17:03:10Z)**_
+
+Halwai wale Short ka vertical cover ban gaya, Long 01 ke thumbnail art se hi, aur kharcha ₹0. Par API se Shorts ka cover nahi lagta, isliye ise aapko phone se lagana hoga.
+
+**Cover:** `channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/output/short_01_cover.png` (1080×1920, upar preview dikhaya hai)
+- Beech me chamakti kadhai, laalchi Ghasita aur hairan Chhotu, bilkul Long thumbnail wala art.
+- Upar Kissago logo aur bada sawaal **"सोना भी दुगना?"**.
+- Logo aur text upar ke 12% se neeche hain, taki Shorts grid me na katein. Neeche ka 20% khaali hai.
+
+**Text badla hai:** Long thumbnail ka text "जो डालो, दुगना!" yahan nahi rakha, kyunki Short ka title bhi isi se shuru hota hai aur RULES ke hisaab se cover ka text title ko dohra nahi sakta. "सोना भी दुगना?" Short ke cliffhanger (sone ka sikka) se juda hai aur twist nahi kholta. Koi aur text chahiye toh badal dunga, ₹0.
+
+**Cover kaise lagayein:**
+1. Ye PNG apne phone par bhejiye (Drive, WhatsApp waghera).
+2. **YouTube app** → apna channel → Shorts → "जो डालो, दुगना!…" Short → ⋮ → **Edit** → thumbnail/cover par tap kijiye.
+3. Agar **gallery se image chunne** ka option dikhe, toh ye cover chun lijiye.
+4. Agar sirf video ka frame chunne ka option ho, toh 0.5 sec wala frame chuniye (chamakti kadhai aur "ये जादुई कड़ाही है,"). Ye option har account par nahi hota.
+
+Register me cover ki row jod di aur sync ho gaya (`pushed: long_01 short_01: vertical cover from the Long 01 thumbnail art`).
+
+**Abhi baaki hai:**
+- Banner v5 final karna hai ya nahi: (a) ya (b)
+- Short ki checklist: Related video set karna aur comment pin karna
+- Playlists ke IDs
+- Cover me text upar ke 12% se neeche rakhne wala niyam RULES me jodun? "ha" likhiye.
+
+---
+
+_**User (2026-10-18 17:06:23Z)**_
+
+[Image: source: C:\Users\ashamim\AppData\Local\Temp\claude\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7\images\16.png]
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-18 17:06:38Z)**_
+
+Ye achhi khabar hai: YouTube Studio ke desktop par is Short ke liye bhi **Thumbnail** ka option dikh raha hai. Matlab aap hamara cover seedha computer se laga sakte hain.
+
+**Jo image abhi dikh rahi hai,** Ghasita sikka daal raha hai, wo hamara banaya cover nahi hai. Ye shayad video ka koi frame hai, ya "Get suggestions" se YouTube ki AI ne banayi hai. Isme na Kissago logo hai, na hook text. Agar ye AI wali hai, toh ye hamare copyright register me bhi nahi hai. Isliye hamara cover lagana behtar hai.
+
+**Kaise lagayein:**
+1. Us thumbnail box par mouse le jaiye ya click kijiye. **"Upload file"** ya **"Change"** ka option aana chahiye.
+2. Ye file chuniye: `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\output\short_01_cover.png`
+3. Upar-daayein **Save** dabaiye.
+
+Agar upload ka option na mile aur sirf "Get suggestions" ho, toh screenshot bhej dijiye, phir doosra tareeka dekhenge.
+
+Case 01 (दादी जासूस) Short ke liye bhi ye option ho, toh uska naya cover (`case01_thumbnail_vertical.png`, Kissago logo ke saath) bhi isi tarah laga sakte hain.
+
+---
+
+_**User (2026-10-18 17:07:56Z)**_
+
+kissago channe dp k liye  ek logo chahiye kuch logo design dikhao
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-18 17:08:05Z)**_
+
+DP ke liye pehle 6 alag design aapke mojooda brand se bana raha hoon (₹0, koi Gemini call nahi): icon, Rozha One font aur brand ke rang. Har design ka 800 px roop aur 98/48 px par gol DP jaisa dikhna, sab ek sheet me dikhaunga. Inme se koi pasand na aaye, toh naye concept ke liye paid option bhi bataunga.
+
+_**Agent (claude-opus-5-5 2026-10-18 17:08:34Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Build 6 free DP concepts and a comparison sheet
+
+```bash
+.venv/Scripts/python.exe - <<'PYEOF'
+from pathlib import Path
+p = Path("scripts/gen_brand.py"); s = p.read_text(encoding="utf-8")
+marker = '\nif __name__ == "__main__":'
+add = r'''
+
+def _ring(img, colour, width=18, inset=22):
+    S = img.width
+    big = Image.new("RGBA", (S * 4, S * 4), (0, 0, 0, 0))
+    ImageDraw.Draw(big).ellipse((inset * 4, inset * 4, S * 4 - inset * 4, S * 4 - inset * 4),
+                                outline=colour + (255,), width=width * 4)
+    img.alpha_composite(big.resize((S, S), Image.LANCZOS))
+
+
+def _glow(img, colour=(255, 196, 64), cy=0.47, radius=0.37, strength=215):
+    S = img.width
+    yy, xx = np.mgrid[0:S, 0:S]
+    r = np.hypot(xx - S / 2, yy - S * cy) / (S * radius)
+    layer = np.zeros((S, S, 4), np.uint8)
+    layer[..., :3] = colour
+    layer[..., 3] = (np.clip(1 - r, 0, 1) ** 1.3 * strength).astype(np.uint8)
+    img.alpha_composite(Image.fromarray(layer, "RGBA"))
+
+
+def dp_concepts():
+    """Free DP concepts from the existing brand assets (no Gemini). Writes _work/dp_concepts/<n>.png + a sheet."""
+    out = WORK / "dp_concepts"
+    out.mkdir(parents=True, exist_ok=True)
+    S = 800
+    ic = Image.open(BRAND / "icon.png").convert("RGBA")
+    concepts = {}
+    # A: current DP v3 (reference)
+    concepts["A_current_v3"] = Image.open(BRAND / "kissago_dp_v3.png").convert("RGBA")
+    # B: Mitthu head close-up (face fills the circle, best at 48 px)
+    b = Image.new("RGBA", (S, S), INDIGO + (255,)); _glow(b, cy=0.45, radius=0.42)
+    w, h = ic.size
+    head = ic.crop((int(w * 0.12), int(h * 0.02), int(w * 0.88), int(h * 0.78))).resize((640, 640), Image.LANCZOS)
+    b.alpha_composite(head, (80, 95)); _ring(b, MARIGOLD); concepts["B_mitthu_closeup"] = b
+    # C: monogram "कि" in Rozha One (marigold) - typographic badge
+    c = Image.new("RGBA", (S, S), INDIGO + (255,))
+    mono = text_layer("कि", "Rozha One", 520, MARIGOLD)
+    k = min(470 / mono.width, 470 / mono.height); mono = mono.resize((int(mono.width * k), int(mono.height * k)), Image.LANCZOS)
+    c.alpha_composite(mono, ((S - mono.width) // 2, (S - mono.height) // 2 + 20)); _ring(c, MARIGOLD); concepts["C_monogram_ki"] = c
+    # D: badge - Mitthu + name "किस्सागो" under him inside the circle
+    d = Image.new("RGBA", (S, S), INDIGO + (255,)); _glow(d, cy=0.40, radius=0.33)
+    small = ic.resize((400, 400), Image.LANCZOS); d.alpha_composite(small, (200, 95))
+    name = text_layer("किस्सागो", "Rozha One", 200, MARIGOLD)
+    k = 430 / name.width; name = name.resize((430, int(name.height * k)), Image.LANCZOS)
+    d.alpha_composite(name, ((S - name.width) // 2, 505)); _ring(d, MARIGOLD); concepts["D_badge_mitthu_name"] = d
+    # E: inverted - cream background, indigo ring, Mitthu (stands out in a dark-mode feed)
+    e = Image.new("RGBA", (S, S), CREAM + (255,)); _glow(e, colour=(244, 163, 0), cy=0.47, radius=0.40, strength=110)
+    e.alpha_composite(ic.resize((560, 560), Image.LANCZOS), (120, 125)); _ring(e, INDIGO, width=24); concepts["E_cream_indigo_ring"] = e
+    # F: marigold background, indigo ring, Mitthu (warm, high-contrast)
+    f = Image.new("RGBA", (S, S), MARIGOLD + (255,)); _glow(f, colour=(255, 244, 220), cy=0.47, radius=0.42, strength=140)
+    f.alpha_composite(ic.resize((560, 560), Image.LANCZOS), (120, 125)); _ring(f, INDIGO, width=22); concepts["F_marigold_bg"] = f
+    for n, im in concepts.items():
+        im.convert("RGB").save(out / f"{n}.png")
+    # sheet: each concept as a circle at 300, 98 and 48 px on a dark (YouTube) background
+    def circ(im, sz):
+        im = im.convert("RGB").resize((sz, sz), Image.LANCZOS)
+        m = Image.new("L", (sz, sz), 0); ImageDraw.Draw(m).ellipse((0, 0, sz - 1, sz - 1), fill=255)
+        o = Image.new("RGB", (sz, sz), (15, 15, 15)); o.paste(im, (0, 0), m); return o
+    cols = 3
+    cw, chh = 470, 440
+    sheet = Image.new("RGB", (cw * cols, chh * 2), (15, 15, 15)); dr = ImageDraw.Draw(sheet)
+    for i, (n, im) in enumerate(concepts.items()):
+        x, y = (i % cols) * cw, (i // cols) * chh
+        dr.text((x + 10, y + 8), n.replace("_", " "), fill=(230, 230, 230))
+        sheet.paste(circ(im, 300), (x + 10, y + 30))
+        sheet.paste(circ(im, 98), (x + 330, y + 60)); sheet.paste(circ(im, 48), (x + 355, y + 180))
+        dr.text((x + 330, y + 40), "98 px", fill=(180, 180, 180)); dr.text((x + 350, y + 160), "48 px", fill=(180, 180, 180))
+    sheet.save(out / "dp_concepts_sheet.jpg", quality=90)
+    print("saved", out / "dp_concepts_sheet.jpg")
+'''
+s = s.replace(marker, add + marker, 1); p.write_text(s, encoding="utf-8"); print("ok")
+PYEOF
+.venv/Scripts/python.exe -W error -c "
+import ast
+with open('scripts/gen_brand.py',encoding='utf-8') as f: ast.parse(f.read())" && .venv/Scripts/python.exe -X utf8 scripts/gen_brand.py dp_concepts
+```
+
+```text
+ok
+saved D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\dp_concepts\dp_concepts_sheet.jpg
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 17:08:34Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\dp_concepts\dp_concepts_sheet.jpg`
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 17:08:49Z)**_
+
+DP ke 6 design taiyaar hain, sab mojooda brand se aur ₹0 me. Har ek gol DP jaisa dikhaya hai, 300, 98 aur 48 px par.
+
+**Sheet:** `channels/dadi-ki-kahaniyan/brand/_work/dp_concepts/dp_concepts_sheet.jpg` (upar dikhaya hai)
+
+| | Design | Meri raay |
+|---|---|---|
+| **A** | Abhi wali DP v3: Mitthu + kitaab, indigo, marigold ring | Saaf hai, par chhote size par thodi saadi lagti hai |
+| **B** | **Mitthu ka close-up**: chehra poora gola bharta hai | ⭐ **48 px par sabse saaf pehchaan.** Ek kami: neeche kitaab ring se katti hai, use theek kar dunga |
+| **C** | **"कि" monogram**, Rozha One font me marigold rang | Premium aur alag lagta hai, chhote size par bhi tez. Par isme Mitthu ya kahani ka koi ishaara nahi |
+| **D** | Mitthu + "किस्सागो" naam gole ke andar | Bade size par achha, par 48 px par naam padha nahi jaata |
+| **E** | Cream background aur indigo ring | YouTube ke dark mode me sabse zyada **chamakta** hai |
+| **F** | Marigold background aur indigo ring | Garm aur tez, feed me door se dikhta hai |
+
+**Meri salah: B** (kitaab wala katna theek karke), ya **E**, agar aap chahte hain ki DP dark feed me sabse alag dikhe.
+
+**Kuch bilkul naya chahiye?** Gemini se 3 naye concept ban sakte hain, har ek ₹3.24, kul **₹9.72**. Ye aapki "ha" ke baad hi banenge, aur logo me koi AI text nahi hoga:
+- **G:** kitaab se nikalti garm lalten ki roshni, upar Mitthu ki parchhai
+- **H:** Dadi ki saral parchhai (silhouette) kissa sunate hue, kandhe par Mitthu
+- **I:** khuli kitaab se uthte sitare aur chaand, raat ki kahaniyon ka ishaara
+
+Kaunsa design pasand hai: **A–F** me se koi (₹0), ya naye **G/H/I** banwayein (₹9.72)?
+
+---
+
+_**User (2026-10-18 17:21:02Z)**_
+
+C
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-18 17:21:12Z)**_
+
+Design **C** ("कि" monogram) final kar raha hoon. Pehle zoom karke "कि" ki matra check karunga, phir ise DP file banaunga:
+
+_**Agent (claude-opus-5-5 2026-10-18 17:21:16Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Save monogram DP and zoom on the letter
+
+```bash
+B=channels/dadi-ki-kahaniyan/brand && cp $B/_work/dp_concepts/C_monogram_ki.png $B/kissago_dp_ki.png && .venv/Scripts/python.exe -c "
+from PIL import Image
+im=Image.open('$B/kissago_dp_ki.png'); print(im.size)
+im.crop((150,150,650,650)).save('$B/_work/dp_ki_zoom.jpg',quality=92)"
+```
+
+```text
+(800, 800)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 17:21:16Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\dp_ki_zoom.jpg`
+</details></tool-use>
