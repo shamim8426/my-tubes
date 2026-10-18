@@ -41507,3 +41507,70 @@ shared/RULES.md me naya section jodo:
 step-review skill ke "1. Script" stage me jodo: "Originality: run RULES section 12 checks."
 Phir sync.
 </pasted_content id="aeaa">
+
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-18 14:04:48Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Add RULES section 12, step-review bullet, sync
+
+```bash
+grep -c "^## 12" shared/RULES.md; .venv/Scripts/python.exe -X utf8 - <<'PYEOF'
+from pathlib import Path
+p = Path("shared/RULES.md"); s = p.read_text(encoding="utf-8").rstrip("\n")
+s += """
+
+## 12. Originality (YouTube "inauthentic content" policy)
+- Every new story must differ clearly from all previous stories of the channel in at least 3 of: moral, main conflict/plot shape, setting, lead characters, genre/tone (comedy, mystery, emotional, adventure), ending type.
+- At script stage Munshi compares the new script with every previous story.md in the channel and lists the closest match and what is different. If fewer than 3 differ -> BLOCKER (ASK the user).
+- Titles and thumbnails must not follow one fixed template word-for-word across videos.
+- No two videos may reuse the same narration audio. Shorts cut from their own long video are allowed.
+- Every 5th long video Munshi writes a short "channel variety" note in log.md: genres used, morals used, what to try next.
+"""
+p.write_text(s, encoding="utf-8")
+k = Path(".claude/skills/step-review/SKILL.md"); t = k.read_text(encoding="utf-8")
+a = "- Mitthu never does anything that needs hands.\n"
+assert a in t
+t = t.replace(a, a + "- Originality: run RULES section 12 checks.\n", 1)
+k.write_text(t, encoding="utf-8"); print("ok")
+PYEOF
+grep -n "^## 1[0-2]" shared/RULES.md; grep -n "Originality" .claude/skills/step-review/SKILL.md; powershell -NoProfile -ExecutionPolicy Bypass -File tools/sync.ps1 -Message "rules: section 12 originality (inauthentic content)" >/dev/null 2>&1; tail -1 shared/sync.log
+```
+
+```text
+0
+ok
+67:## 10. Copyright (STRICT — any violation is FIX and blocks upload)
+77:## 11. Review limits and severity
+103:## 12. Originality (YouTube "inauthentic content" policy)
+28:- Originality: run RULES section 12 checks.
+2026-10-18 19:34:46  pushed: rules: section 12 originality (inauthentic content)  (repo pack size 179 MB)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 14:04:56Z)**_
+
+Originality ka naya niyam jud gaya aur GitHub par sync ho gaya.
+
+- **`shared/RULES.md`:** naya **section 12, Originality**, bilkul aapke text ke saath.
+- **step-review skill:** "1. Script" stage me "Originality: run RULES section 12 checks." joda.
+- **Sync:** `pushed: rules: section 12 originality (inauthentic content)`
+
+**Aage ke liye ek baat:** Long 01 ka title is pattern par hai: "<naam> | दादी की कहानियाँ | Hindi Moral Story | Hindi Kahani". Agar har long video ka title isi bane-banaye dhaanche me likhenge, toh Munshi ise naye niyam ki "fixed template word-for-word" wali line par pakdega. Isliye agle video se title ka dhaancha badalte rehna hoga. Long 01 ke liye kuch badalne ki zaroorat nahi.
+
+**Short wali checklist abhi baaki hai:**
+- Studio me Short ka Related video Long 01 set karna
+- 21:05 ke baad pehla comment pin karna
+
+Ho jaye toh "ho gaya" likhiye.
+
+---
+
+_**User (2026-10-18 14:12:43Z)**_
+
+shared/RULES.md section 12 ki title wali line ke baad ye jodo:
+"- The channel name suffix (e.g. "| दादी की कहानियाँ") may stay the same in every title — it is branding. The rest of the title (story name, hook, extra keywords) must vary; do not repeat the same keyword block (like "| Hindi Moral Story | Hindi Kahani") in every video. Rotate keywords or put them in tags/description instead."
+Phir sync.

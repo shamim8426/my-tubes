@@ -104,5 +104,6 @@ At the end of each review, add one line to channels/<key>/log.md with the round 
 - Every new story must differ clearly from all previous stories of the channel in at least 3 of: moral, main conflict/plot shape, setting, lead characters, genre/tone (comedy, mystery, emotional, adventure), ending type.
 - At script stage Munshi compares the new script with every previous story.md in the channel and lists the closest match and what is different. If fewer than 3 differ -> BLOCKER (ASK the user).
 - Titles and thumbnails must not follow one fixed template word-for-word across videos.
+- The channel name suffix (e.g. "| दादी की कहानियाँ") may stay the same in every title — it is branding. The rest of the title (story name, hook, extra keywords) must vary; do not repeat the same keyword block (like "| Hindi Moral Story | Hindi Kahani") in every video. Rotate keywords or put them in tags/description instead.
 - No two videos may reuse the same narration audio. Shorts cut from their own long video are allowed.
 - Every 5th long video Munshi writes a short "channel variety" note in log.md: genres used, morals used, what to try next.
