@@ -342,6 +342,112 @@ def banner3(zoom=1.1, ax=1.0, ay=1.0):
     sheet.paste(full.crop(SAFE).resize((773, 212)), (0, 812)); d.text((5, 795), "Mobile (1546x423 safe area)", fill=(0, 0, 0))
     sheet.save(WORK / "banner_v3_devices.jpg", quality=90)
 
+
+BANNER4_PROMPT = """Wide 16:9 YouTube channel banner background, NO text, letters, numbers, signs or logos anywhere.
+STYLE: match the attached banner references exactly (the same night-indigo sky with a crescent moon and soft stars,
+warm marigold lantern light, the same flat 2D cartoon line-art with thick clean outlines and flat colours). Only the
+LAYOUT is new — do not copy the references' composition.
+LAYOUT (percentages of width / height) — follow strictly:
+- 0-20% width: only atmosphere (night sky, a distant tree or rooftops at the bottom). Nothing important.
+- 22-52% width, 25-75% height: EMPTY calm night sky (deep indigo #1F1B4D, a few faint stars). No objects, no people,
+  no buildings, no clouds here: a logo will be placed here later.
+- 56-80% width: the main group, fully visible, nothing cut: Dadi sitting on a low charpai with one hand raised,
+  telling a story (exactly as in her reference sheet: white hair bun, round golden glasses, light green saree with
+  yellow border); Golu sitting close beside her listening with wonder — Golu is CHUBBY with a round face and round
+  body, exactly as in his reference sheet (yellow T-shirt, blue half-pants, white socks, red shoes); Mitthu the parrot
+  perched at the far RIGHT end of the charpai (away from the empty sky), exactly like the attached parrot logo (big
+  round green head, red beak, thin red neck ring). All three faces between 40% and 58% of the image height. The group
+  is lit by a warm marigold lantern hanging just above them.
+- 80-100% width: only atmosphere — the edge of Dadi's small mud house with a KHAPRAIL roof (curved clay tiles, NOT
+  thatch), a lit doorway, a gulmohar tree. Nothing important.
+- Keep the top 12% and bottom 12% free of important details.
+Calm, magical, warm, family-friendly. Colours: night indigo, marigold (#F4A300), cream (#FFF4DC), parrot green."""
+
+
+def banner4_bg():
+    """PAID (2K, ~₹4.86): banner v4 background (new layout, v2/v3 as style references)."""
+    raw = WORK / "banner_v4_raw.png"
+    generate(BANNER4_PROMPT, raw, refs=[WORK / "banner_v2_raw.png", WORK / "banner_v3_raw.png",
+                                        CHAR / "dadi_sheet.png", CHAR / "golu_sheet.png", CHOSEN],
+             aspect_ratio="16:9", size="2K")
+    banner4()
+
+
+def banner4(zoom=1.1, ax=0.6, ay=1.0, ver="v4", logo_frac=0.25):
+    """Free: logo in 25-50% of the width, tagline (cream, ~40% of the wordmark height) below; previews incl. the
+    desktop owner 'Edit' button area and a 360 px mobile downscale."""
+    im = Image.open(WORK / f"banner_{ver}_raw.png").convert("RGB")
+    sc = max(BW / im.width, BH / im.height) * zoom
+    im = im.resize((round(im.width * sc), round(im.height * sc)), Image.LANCZOS)
+    x0, y0 = int((im.width - BW) * ax), int((im.height - BH) * ay)
+    bg = im.crop((x0, y0, x0 + BW, y0 + BH)).convert("RGBA")
+    lg_full = Image.open(BRAND / "logo_horizontal.png").convert("RGBA")
+    lw = int(BW * logo_frac)  # starts at 25% of the width; 0.25 = up to 50%
+    k = lw / lg_full.width
+    lg = lg_full.resize((lw, int(lg_full.height * k)), Image.LANCZOS)
+    wm_h = Image.open(BRAND / "wordmark.png").height * (lg_full.height / 1.12 / 1.35 / Image.open(BRAND / "wordmark.png").height) * k
+    tag = text_layer(TAGLINE, "Mukta", 120, CREAM, bold=True)
+    th = int(wm_h * 0.40)
+    tag = tag.resize((int(tag.width * th / tag.height), th), Image.LANCZOS)
+    gap = int(th * 0.45)
+    block_h = lg.height + gap + tag.height
+    x = int(BW * 0.25)
+    sx0, sy0, sx1, sy1 = SAFE
+    y = sy0 + (sy1 - sy0 - block_h) // 2
+    bg.alpha_composite(lg, (x, y))
+    bg.alpha_composite(tag, (x + (lw - tag.width) // 2, y + lg.height + gap))
+    out = BRAND / f"kissago_banner_{ver}.png"
+    bg.convert("RGB").save(out)
+    print("saved", out, "| logo+tagline box:", (x, y, x + lw, y + block_h), "| tagline h", th, "| safe", SAFE)
+    full = bg.convert("RGB")
+    desk = full.crop((0, sy0, BW, sy1)).resize((1280, 212))
+    dd = ImageDraw.Draw(desk, "RGBA")  # owner-only "Edit" button as seen on the channel page (~89-95% x, 72-92% y)
+    dd.rounded_rectangle((int(1280 * 0.885), int(212 * 0.70), int(1280 * 0.955), int(212 * 0.92)), radius=14,
+                         fill=(0, 0, 0, 140), outline=(255, 255, 255, 160))
+    dd.text((int(1280 * 0.895), int(212 * 0.76)), "Edit (owner only)", fill=(255, 255, 255, 230))
+    mob = full.crop(SAFE)
+    mob360 = mob.resize((360, int(360 * mob.height / mob.width)), Image.LANCZOS)
+    sheet = Image.new("RGB", (1280, 540 + 212 + 212 + mob360.height + 100), (240, 240, 240))
+    d = ImageDraw.Draw(sheet)
+    sheet.paste(full.resize((960, 540)), (0, 20)); d.text((5, 3), "TV (full 2560x1440)", fill=(0, 0, 0))
+    sheet.paste(desk, (0, 580)); d.text((5, 563), "Desktop (2560x423 band) + owner Edit button", fill=(0, 0, 0))
+    sheet.paste(mob.resize((773, 212)), (0, 812)); d.text((5, 795), "Mobile (1546x423 safe area)", fill=(0, 0, 0))
+    sheet.paste(mob360, (0, 1044)); d.text((5, 1027), "Mobile at real phone size (360 px wide)", fill=(0, 0, 0))
+    sheet.save(WORK / f"banner_{ver}_devices.jpg", quality=90)
+
+
+BANNER5_PROMPT = """Wide 16:9 YouTube channel banner background, NO text, letters, numbers, signs or logos anywhere.
+STYLE: match the attached banner references exactly (night-indigo sky with a crescent moon and soft stars, warm
+marigold lantern light, khaprail clay-tile roof, the same flat 2D cartoon line-art with thick clean outlines and flat
+colours). Only the LAYOUT is new — follow it strictly (percentages of width / height):
+- 0-20% width: only atmosphere (night sky, crescent moon, distant tree and rooftops low at the bottom). NO characters.
+- 22-52% width, 22-78% height: EMPTY calm night sky (deep indigo #1F1B4D, a few faint stars). Nothing else here.
+- 55-76% width: ONE compact group, everything fully inside this range: Dadi sitting on a low charpai with one hand
+  raised, telling a story (exactly as in her reference sheet), and Golu sitting close beside her listening — Golu is
+  CHUBBY with a round face, exactly as in his reference sheet. Mitthu the parrot sits ON GOLU'S SHOULDER, inside the
+  group — Mitthu looks exactly like the attached parrot logo: big ROUND green head facing forward, RED beak, thin RED
+  neck ring, cute. All three faces between 38% and 55% of the image height (the group sits HIGH; the charpai legs may
+  reach about 80% of the height). A warm lantern hangs just above them.
+- 80-100% width: only atmosphere — the edge of Dadi's small mud house with a khaprail clay-tile roof, a warm lit
+  doorway, a gulmohar tree. NO characters here.
+- Keep the top 10% and bottom 10% free of important details.
+Calm, magical, warm, family-friendly. Colours: night indigo, marigold (#F4A300), cream (#FFF4DC), parrot green."""
+
+
+def banner5_bg():
+    """PAID (2K, ~₹4.86): banner v5 background, Mitthu inside the group (on Golu's shoulder)."""
+    raw = WORK / "banner_v5_raw.png"
+    generate(BANNER5_PROMPT, raw, refs=[WORK / "banner_v2_raw.png", WORK / "banner_v4_raw.png",
+                                        CHAR / "dadi_sheet.png", CHAR / "golu_sheet.png", CHOSEN],
+             aspect_ratio="16:9", size="2K")
+    banner5()
+
+
+def banner5():
+    """Free: final framing of v5 (Mitthu on Golu's shoulder): lifts the group into the desktop band, keeps a gap between
+    Dadi and the logo (logo 25-47% of the width), keeps Golu + Mitthu's head inside the mobile crop."""
+    banner4(zoom=1.1, ax=0.85, ay=1.0, ver="v5", logo_frac=0.22)
+
 if __name__ == "__main__":
     cmd = sys.argv[1]
     if cmd == "icons":
