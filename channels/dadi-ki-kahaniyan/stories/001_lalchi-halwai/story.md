@@ -13,8 +13,8 @@
 | Long video | `long/` — final 1920x1080, 5:06 (306.2 s), approved by user |
 | Thumbnail | `long/output/long_01_thumbnail.png` ("जो डालो, दुगना!") |
 | Munshi | final build, thumbnail, metadata, copyright, publish dry-run: PASS (see `../../log.md`) |
-| Upload | 2026-10-18 via API: https://youtu.be/Ogfqow8rbGY — scheduled 2026-10-20 19:00 IST (check in Studio) |
-| Shorts | `shorts/short_01_jadui-kadhai/` — final 1080x1920, 48.3 s (speed 1.08, gaps 0.15/0.3), Munshi PASS (build, metadata, copyright); not uploaded yet; publish_at 2026-10-20 21:00 IST |
+| Upload | 2026-10-18 via API: https://youtu.be/Ogfqow8rbGY — scheduled 2026-10-18 19:00 IST (moved by user in Studio) |
+| Shorts | `shorts/short_01_jadui-kadhai/` — final 1080x1920, 48.3 s (speed 1.08, gaps 0.15/0.3), uploaded 2026-10-18: https://youtu.be/kWn4jKte090, scheduled 2026-10-18 21:00 IST; first comment task 21:05 |
 
 ## After the Short is uploaded (do in YouTube Studio)
 - Set the Short's **Related video** to Long 01 (https://youtu.be/Ogfqow8rbGY).

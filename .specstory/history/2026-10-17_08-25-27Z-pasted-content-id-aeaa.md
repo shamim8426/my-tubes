@@ -41120,3 +41120,308 @@ _**Agent (claude-opus-5-5 2026-10-18 12:49:10Z)**_
 The file D:\Story-Channel\.claude\settings.json has been updated successfully. (file state is current in your context — no need to Read it back)
 ```
 </details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 12:49:26Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Validate settings JSON and sync
+
+`.venv/Scripts/python.exe -c "import json;json.load(open('.claude/settings.json'));print('settings.json valid JSON')" && powershell -NoProfile -ExecutionPolicy Bypass -File tools/sync.ps1 -Message "rules: fixed publish times (long 19:00, Short 21:00); short_01 slot 21:00; allow rule for upload tools" >/dev/null 2>&1; tail -1 shared/sync.log; date +%H:%M`
+
+```text
+settings.json valid JSON
+2026-10-18 18:19:25  pushed: rules: fixed publish times (long 19:00, Short 21:00); short_01 slot 21:00; allow rule for upload tools  (repo pack size 179 MB)
+18:19
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 12:49:39Z)**_
+
+Publish ke naye niyam lag gaye, Short ka slot aaj 21:00 hai aur dry-run PASS hai. Short upload karne ke liye bas aapki manzoori chahiye. Sab sync ho gaya hai.
+
+## Publish ke naye niyam
+- **`shared/RULES.md` section 8:** purana 19:00–23:59 window aur 2 ghante wala niyam hata kar aapka text daala: long 19:00, Short 21:00, ek din me ek long aur ek Short.
+- **`channel.json`** (aur `_template`): ab `"publish_times_ist": {"long": "19:00", "short": "21:00"}` hai. Purani teen settings hata di.
+- **`validate()`:** format ke hisaab se samay check karta hai. Test:
+  - Short 19:00 par → `publish_at is 19:00 IST; a short video publishes at 21:00 IST` ❌
+  - Long 21:00 par → `publish_at is 21:00 IST; a long video publishes at 19:00 IST` ❌
+- **Publish skill (step 3) aur setup doc** bhi naye niyam se mila diye.
+
+## Aaj ka hisaab
+- **log.md:** "USER APPROVED ONE-TIME: 18 Oct ko Case 01 aur Long 01 dono 19:00" likh diya. Short 21:00 par hai. Pichhli "dono 19:00" wali exception line ki jagah ab ye wali lagu hai.
+- **Short ki dry-run (21:00 slot):**
+```
+Publish at:   2026-10-18T21:00:00+05:30
+Video check:  1080x1920 h264 yuv420p 48.3s
+Parent long:  Ogfqow8rbGY
+Desc line 1:  पूरी कहानी यहाँ देखें 👉 https://youtu.be/Ogfqow8rbGY
+1st comment:  ... (scheduled task, publish_at + 5 min)  → 21:05
+Dry run OK. Nothing uploaded.
+```
+- **Samay:** abhi 18:19 hai. Naye niyam ke hisaab se Short ka upload **20:45 se pehle** khatam hona chahiye, toh kaafi samay hai.
+
+## Allow rule (`.claude/settings.json`), aapki manzoori ke liye
+```json
+"permissions": {
+  "allow": [
+    "Bash(.venv/Scripts/python.exe -X utf8 tools/youtube_upload.py:*)",
+    "Bash(.venv/Scripts/python.exe -X utf8 tools/post_comment.py:*)"
+  ]
+}
+```
+- Isse sirf ye do script `.venv` ke python se bina rok-tok chal payengi. Koi aur command nahi.
+- SessionEnd hook waise hi hai.
+- Ye rule kab lagu hoga, ye tay nahi. Claude Code shayad ise **naya session shuru hone par** padhe. Agar is session me Munshi phir ruk jaye, toh ya toh Claude Code restart kijiye, ya pichhli baar wala command khud chalaiye. Tab bhi comment task aur pending checklist script khud bana degi.
+
+Rule theek lage toh **"approve, upload karo"** likhiye. Phir Munshi ek aakhri dry-run dikha kar Short upload karega, aur upload ke baad Related video wali checklist dikhayega.
+
+---
+
+_**User (2026-10-18 12:53:50Z)**_
+
+approve, upload karo
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-18 12:55:34Z)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="Agent"><details>
+<summary>Tool use: **Agent**</summary>
+Upload Short 01 at 21:00 slot
+
+```text
+  This agent's report was delivered to you as a message from "a44954b1d262a6db2" (its SubagentHandback call). Read it there; it is not repeated here.
+  
+agentId: a44954b1d262a6db2 (use SendMessage with to: 'a44954b1d262a6db2', summary: '<5-10 word recap>' to continue this agent)
+<usage>subagent_tokens: 20924
+tool_uses: 6
+duration_ms: 93384</usage>
+```
+</details></tool-use>
+
+_**Agent - sidechain (2026-10-18 12:54:01Z)**_
+
+PUBLISH (real upload) for channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai.
+
+User authorisation: the user wrote, in this conversation, directly in reply to the dry-run summary (publish 2026-10-18T21:00:00+05:30, parent Ogfqow8rbGY, 1080x1920 48.3 s, no thumbnail, captions .srt, desc line 1 + first comment = "पूरी कहानी यहाँ देखें 👉 https://youtu.be/Ogfqow8rbGY"): "approve, upload karo". That is their "ha" for exactly this job. RULES section 8 changed (re-read it): fixed slots, long 19:00 / Short 21:00; validate() enforces it. Today's one-time exception (Case 01 + Long 01 both 19:00) is logged as USER APPROVED ONE-TIME.
+
+Steps (use exactly these commands; an allow rule for them was just added to .claude/settings.json):
+1. Confirm output/upload_result.json does not exist and upload.json publish_at = 2026-10-18T21:00:00+05:30 and nothing else changed from the summary.
+2. .venv/Scripts/python.exe -X utf8 tools/youtube_upload.py --job channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/output/upload.json --dry-run
+3. .venv/Scripts/python.exe -X utf8 tools/youtube_upload.py --job channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/output/upload.json
+4. Verify upload_result.json (video_id, url, captions_ok, comment_task, comment_task_at = 21:05 IST), that task StoryChannel-Comment-<video_id> exists (powershell Get-ScheduledTask), and the "related_video: pending, pin_comment: pending" line in channels/dadi-ki-kahaniyan/log.md. Append a PUBLISHED line.
+5. Report URL, Studio URL, results, and the manual checklist (Studio: Related video = https://youtu.be/Ogfqow8rbGY; pin the first comment after ~21:05; check Studio shows Scheduled 18 Oct 21:00 — if only Private, set it by hand or the comment task will retry and log an ERROR).
+If the permission system blocks step 3 again, stop and report; do not work around it. Never print token contents.
+
+_**Agent - sidechain (2026-10-18 12:54:01Z)**_
+
+<system-reminder>
+Your final report is delivered through SubagentHandback: when your work is complete, call SubagentHandback({message: <your full report>}). The call ends your run, so make it your last step. Only a SubagentHandback call reaches your caller as your result; plain text you write at the end is not delivered.
+</system-reminder>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:54:13Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Check output folder, upload job, rules, log
+
+`cd /d/Story-Channel; S=channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai; ls $S/output; cat $S/output/upload.json; echo; sed -n '/^## *8/,/^## *9/p' shared/RULES.md | head -60; tail -15 channels/dadi-ki-kahaniyan/log.md; git diff --stat .claude/settings.json; grep -n youtube_upload .claude/settings.json`
+
+```text
+short_01_jadui-kadhai.mp4
+short_01_jadui-kadhai.srt
+short_01_jadui-kadhai.txt
+short_01_jadui-kadhai_framecheck.png
+short_01_jadui-kadhai_preview.mp4
+short_01_jadui-kadhai_work
+upload.json
+{
+  "channel_key": "dadi-ki-kahaniyan",
+  "channel_name": "दादी की कहानियाँ",
+  "channel_id": "UCy071_4g4vGemktFHybqkhQ",
+  "format": "short",
+  "parent_video_id": "Ogfqow8rbGY",
+  "title": "जो डालो, दुगना! जादुई कड़ाही का राज़ | दादी की कहानियाँ #shorts",
+  "description": "रामपुर के लालची हलवाई घसीटा ने चुरा ली जादुई कड़ाही… पर आगे क्या हुआ? पूरी कहानी चैनल पर देखिए।\n\nMusic: \"Enchanted Valley\" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttp://creativecommons.org/licenses/by/4.0/\n\nMusic: \"Hidden Agenda\" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttp://creativecommons.org/licenses/by/4.0/\n\nSound effects: freesound.org (CC0)\n\n#shorts #दादीकीकहानियाँ #HindiKahani #MoralStory",
+  "tags": [
+    "दादी की कहानियाँ",
+    "Dadi Ki Kahaniyan",
+    "जादुई कड़ाही",
+    "Jadui Kadhai",
+    "लालची हलवाई",
+    "Lalchi Halwai",
+    "हिंदी कहानी",
+    "Hindi Kahani",
+    "Hindi Moral Story",
+    "परिवार की कहानी",
+    "Family Story Hindi",
+    "Hindi Shorts"
+  ],
+  "video": "short_01_jadui-kadhai.mp4",
+  "captions": "short_01_jadui-kadhai.srt",
+  "language": "hi",
+  "captions_name": "Hindi",
+  "made_for_kids": false,
+  "contains_synthetic_media": false,
+  "category_id": "1",
+  "publish_at": "2026-10-18T21:00:00+05:30"
+}
+
+## 8. Publishing
+- Fixed publish times: long video at 19:00 IST, its Short at 21:00 IST the same day.
+  - Long upload finished before 18:45 IST -> long publishes 19:00 the same day; otherwise 19:00 the next day.
+  - Short upload finished before 20:45 IST -> Short publishes 21:00 the same day as its long; otherwise both move to the next day.
+  - A Short not made from a long (e.g. Dadi Jasoos case) also publishes at 21:00.
+- Per day per channel: at most one long (19:00) and one Short (21:00).
+- Planned frequency: long videos 2-3 per week, Shorts daily (from stories already made, ₹0).
+- Nothing goes Public or gets scheduled without the user's OK in that conversation.
+- One upload per video. If `output/upload_result.json` exists, do not upload again.
+- Short -> Long link (MANDATORY): every Short made from a long video must (a) have the long video's URL in its description with a short CTA line, (b) get an automatic first comment "पूरी कहानी यहाँ देखें 👉 <long URL>" posted right after it becomes public, and (c) the user sets in Studio: Related video = the long video, and pins that comment. The YouTube API cannot set Related video or pin comments, so (c) stays manual; Munshi shows this checklist after every Short upload and asks about it at the start of the next session until the user confirms.
+
+## 9. Safety
+2026-10-18 | long_01 | copyright (RULES 10) | PASS | all used assets registered w/ allowed licence (6 Incompetech CC BY 4.0, 3 Freesound CC0, Mukta OFL, 31 scene imgs + 51 TTS + thumb = own Gemini, all in cost_log); 6/6 credits exact in upload.json; mix-voice-music residual = 5 SFX bursts only (floor -98 dB); prompts/text/images clean
+2026-10-18 | long_01 | publish | PUBLISHED | video Ogfqow8rbGY uploaded (scheduled 2026-10-20 19:00 IST requested), thumbnail ok, captions ok, channel UCy071_4g4vGemktFHybqkhQ verified; user must confirm schedule in Studio (unaudited API may lock private)
+2026-10-18 | short_01_jadui-kadhai | preview build R1 (~25 min) | FIX | 51.87s, hook ok, end card 2.0s, music 13.0 LU under voice (stem method), captions match + above bottom 25%, publish 20 Oct 21:00 ok; BLOCKER: scene 22 line 7 shot shows kadhai inside + top of mitti lump (spoiler) -> fy/zoom fix; MINOR: Chhotu's open-mouth face in 0-1.5s hook shot; sharpness acceptable, no ASK
+2026-10-18 | short_01_jadui-kadhai | preview build R2 (~8 min) | PASS | B1 fixed: scene 22 line 7/8 crop shows only coin+rim edge, no kadhai inside/mitti lump (checked preview + simulated 1080x1920 final, start/mid/end of push-in); M1 fixed: hook 0-1.5s kadhai only, Sadhu cut at 1.5s; scenes 17/20/21 from cache, 51.87s unchanged, end card 2.0s, -13.8 LUFS / -1.1 dBTP
+2026-10-18 | short_01_jadui-kadhai | preview build R1 speed 1.08/gap 0.15 (~10 min) | PASS | 47.41s (45-50 ok); atempo ratio 1.075-1.080 on all 8 lines, pitch/voicing/HF same as 1.0x (no warble proxy), no clipped onsets/tails, line gaps ~0.20-0.28s; hook kadhai-only to 1.42s then Sadhu; sc22 coin+rim only; end card 2.0s; music 13.3 LU under voice (stem); -13.8 LUFS / -1.3 dBTP; captions aligned to new line starts; Rs 0 (no new cost_log rows)
+2026-10-18 | short_01_jadui-kadhai | preview build R2 gap 0.15/0.30 (~10 min) | PASS | 48.29s (45-50 ok); voice.wav silence at speaker changes 0.36-0.43s vs same-speaker 6->7 0.28s (TTS edge silence included), line starts match builder log; hook kadhai-only to 1.5s then Sadhu; sc22 coin+rim only; end card 2.05s; music 13.4 LU under voice (stem); -13.8 LUFS / -1.4 dBTP; paid folders (213 files) blob-identical to 464dad0, 7 stray Short wavs in _to_delete match HEAD blobs, line_04 = 464dad0; make_short guard_write+snapshot ok, only writes in paid folder = new TTS into audio/tts_cache with --spend; Rs 0
+2026-10-18 | short_01_jadui-kadhai | 7 final build R1 (~20 min) | FIX | 1080x1920 h264 High yuv420p tv/bt709 30fps + AAC 48k st; 48.30s vs approved preview 48.29s (0%); -13.9 LUFS / -1.3 dBTP; music 13.4 LU under voice (stem, speech sections); residual = magic SFX only; xfade 1.5s; all 8 lines Whisper-timed, line starts exact, chunks within 0.3s (line 5 checked); captions above bottom 25%, Hindi shaping ok; hook kadhai-only to 1.5s then Sadhu; sc22 coin+rim only (start/mid/end); end card 2.0s; right character per line; paid folders: no tracked file modified, 7 D = stray wavs in _to_delete (blob-identical), line_04 = HEAD; MINOR: no .srt in output/ (RULES 4) -> free fix or user waiver
+2026-10-18 | short_01_jadui-kadhai | 9 metadata R1 | PASS | title 63 chars, desc 504, 4 hashtags, 12 tags 201/500, txt TAGS = meta.json, no kids wording, no twist; 2/2 CC BY credits exact from register; publish_at 20 Oct 21:00 IST = 2h after Long 01 19:00 ok, but advance date vs RULES 8 same-day rule -> user decides; Related video = Studio click
+2026-10-18 | short_01_jadui-kadhai | 8 thumbnail R1 | N/A | Shorts: no custom thumbnail planned, RULES 6 has no Shorts requirement; upload.json must carry no thumbnail
+2026-10-18 | short_01_jadui-kadhai | copyright (RULES 10) R1 | PASS | Enchanted Valley + Hidden Agenda CC BY 4.0 (credited exactly), magic_376747 CC0, Mukta-ExtraBold OFL, scene_16/17/20/21/22 + TTS = own Gemini (registered); mix-voice-music residual = SFX only; no brand/franchise in frames or prompts
+2026-10-18 | short_01_jadui-kadhai | 7 final build R2 (~10 min) | PASS | M1 fixed: output/short_01_jadui-kadhai.srt UTF-8 Hindi, 31 cues, text = 8 lines.json lines; cue times = final ASS (scene_16_fe7a/17_34e3/20_8af3/21_38f2/22_db2b per scenes.txt) + scene offsets 0/7.80/19.234/29.168/37.668 within 0.01s; cues inside own line + 0-46.31s < 48.3s; final mp4 unchanged (13856285 B, mtime 17:36:09 before R1, 48.30s); characters/ = 25 files -> 188+25=213 ok
+2026-10-18 | short_01_jadui-kadhai | publish dry-run | PASS | upload.json written (short, parent Ogfqow8rbGY, channel UCy071_4g4vGemktFHybqkhQ, publish 2026-10-20 21:00 IST, kids=false, synthetic=false, cat 1, captions .srt, no thumbnail, no playlist); dry-run OK 1080x1920 h264 48.3s, desc line 1 + 1st comment = parent link; real upload waiting for user's ha after seeing dry-run
+2026-10-18 | short_01_jadui-kadhai | publish slot | USER EXCEPTION | user asked: Short + Long 01 both 2026-10-18 19:00 IST (RULES 8 wants 2 h gap); Long 01 moved by user in Studio to 18 Oct 19:00 (API confirmed)
+2026-10-18 | short_01_jadui-kadhai | publish dry-run R2 (19:00 slot) | PASS | dry-run OK: scheduled 2026-10-18T19:00:00+05:30, kids=false, captions .srt, no thumb/playlist, 1080x1920 h264 48.3s, parent Ogfqow8rbGY, 1st comment task +5 min; real upload NOT run (blocked by permission classifier) -> user must allow or run it
+2026-10-18 | channel | publish slot | USER APPROVED ONE-TIME | 2026-10-18: Case 01 (Short, scheduled 19:00 earlier) and Long 01 both publish at 19:00 IST; short_01_jadui-kadhai at 21:00 (supersedes the earlier 'both 19:00' exception line)
+4:      "Bash(.venv/Scripts/python.exe -X utf8 tools/youtube_upload.py:*)",
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:54:23Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Run upload dry-run
+
+`cd /d/Story-Channel; .venv/Scripts/python.exe -X utf8 tools/youtube_upload.py --job channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/output/upload.json --dry-run 2>&1 | tail -40`
+
+```text
+Channel:      दादी की कहानियाँ UCy071_4g4vGemktFHybqkhQ
+Title:        जो डालो, दुगना! जादुई कड़ाही का राज़ | दादी की कहानियाँ #shorts
+Video:        D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\output\short_01_jadui-kadhai.mp4
+Privacy:      scheduled
+Publish at:   2026-10-18T21:00:00+05:30
+Made for kids: False
+Thumbnail:    -
+Captions:     short_01_jadui-kadhai.srt
+Playlist:     -
+Video check:  1080x1920 h264 yuv420p 48.3s
+Parent long:  Ogfqow8rbGY
+Desc line 1:  पूरी कहानी यहाँ देखें 👉 https://youtu.be/Ogfqow8rbGY
+1st comment:  पूरी कहानी यहाँ देखें 👉 https://youtu.be/Ogfqow8rbGY (scheduled task, publish_at + 5 min)
+
+Dry run OK. Nothing uploaded.
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:54:25Z)**_
+
+Dry-run matches the summary. Running the real upload.
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:54:54Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Upload Short to YouTube (scheduled)
+
+`cd /d/Story-Channel; .venv/Scripts/python.exe -X utf8 tools/youtube_upload.py --job channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/output/upload.json 2>&1 | tail -40`
+
+```text
+Channel:      दादी की कहानियाँ UCy071_4g4vGemktFHybqkhQ
+Title:        जो डालो, दुगना! जादुई कड़ाही का राज़ | दादी की कहानियाँ #shorts
+Video:        D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\output\short_01_jadui-kadhai.mp4
+Privacy:      scheduled
+Publish at:   2026-10-18T21:00:00+05:30
+Made for kids: False
+Thumbnail:    -
+Captions:     short_01_jadui-kadhai.srt
+Playlist:     -
+Video check:  1080x1920 h264 yuv420p 48.3s
+Parent long:  Ogfqow8rbGY
+Desc line 1:  पूरी कहानी यहाँ देखें 👉 https://youtu.be/Ogfqow8rbGY
+1st comment:  पूरी कहानी यहाँ देखें 👉 https://youtu.be/Ogfqow8rbGY (scheduled task, publish_at + 5 min)
+Channel OK: Dadi Ki  Kahaniya (UCy071_4g4vGemktFHybqkhQ)
+upload 60%
+Uploaded: https://youtu.be/kWn4jKte090
+Studio (manual): set Related video = https://youtu.be/Ogfqow8rbGY and pin the first comment after it is posted.
+{
+  "video_id": "kWn4jKte090",
+  "url": "https://youtu.be/kWn4jKte090",
+  "studio_url": "https://studio.youtube.com/video/kWn4jKte090/edit",
+  "uploaded_at": "2026-10-18T12:54:49.410219+00:00",
+  "publish_at": "2026-10-18T21:00:00+05:30",
+  "captions_ok": true,
+  "comment_task": "StoryChannel-Comment-kWn4jKte090",
+  "comment_task_at": "2026-10-18T21:05:00+05:30"
+}
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:55:07Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Verify upload result, scheduled task, log
+
+`cd /d/Story-Channel; S=channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai; cat $S/output/upload_result.json; echo; powershell -NoProfile -Command "Get-ScheduledTask -TaskName 'StoryChannel-Comment-kWn4jKte090' | Select TaskName,State; (Get-ScheduledTask -TaskName 'StoryChannel-Comment-kWn4jKte090').Triggers | Select StartBoundary"; tail -4 channels/dadi-ki-kahaniyan/log.md`
+
+```text
+{
+  "video_id": "kWn4jKte090",
+  "url": "https://youtu.be/kWn4jKte090",
+  "studio_url": "https://studio.youtube.com/video/kWn4jKte090/edit",
+  "uploaded_at": "2026-10-18T12:54:49.410219+00:00",
+  "publish_at": "2026-10-18T21:00:00+05:30",
+  "captions_ok": true,
+  "comment_task": "StoryChannel-Comment-kWn4jKte090",
+  "comment_task_at": "2026-10-18T21:05:00+05:30"
+}
+
+TaskName                         State
+--------                         -----
+StoryChannel-Comment-kWn4jKte090 Ready
+                                      
+
+
+2026-10-18 | short_01_jadui-kadhai | publish slot | USER EXCEPTION | user asked: Short + Long 01 both 2026-10-18 19:00 IST (RULES 8 wants 2 h gap); Long 01 moved by user in Studio to 18 Oct 19:00 (API confirmed)
+2026-10-18 | short_01_jadui-kadhai | publish dry-run R2 (19:00 slot) | PASS | dry-run OK: scheduled 2026-10-18T19:00:00+05:30, kids=false, captions .srt, no thumb/playlist, 1080x1920 h264 48.3s, parent Ogfqow8rbGY, 1st comment task +5 min; real upload NOT run (blocked by permission classifier) -> user must allow or run it
+2026-10-18 | channel | publish slot | USER APPROVED ONE-TIME | 2026-10-18: Case 01 (Short, scheduled 19:00 earlier) and Long 01 both publish at 19:00 IST; short_01_jadui-kadhai at 21:00 (supersedes the earlier 'both 19:00' exception line)
+2026-10-18 | short_01_jadui-kadhai | short->long checklist | video kWn4jKte090 -> long Ogfqow8rbGY | related_video: pending, pin_comment: pending
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:55:20Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Check task trigger time and append PUBLISHED log line
+
+`cd /d/Story-Channel; powershell -NoProfile -Command "(Get-ScheduledTask -TaskName 'StoryChannel-Comment-kWn4jKte090').Triggers[0].StartBoundary"; echo "2026-10-18 | short_01_jadui-kadhai | publish | PUBLISHED | video kWn4jKte090 uploaded (scheduled 2026-10-18 21:00 IST requested), parent Ogfqow8rbGY, desc line 1 + 1st comment task StoryChannel-Comment-kWn4jKte090 at 21:05 IST (Ready), captions ok, no thumb/playlist, channel UCy071_4g4vGemktFHybqkhQ verified; manual: Related video + pin comment + confirm Scheduled in Studio" >> channels/dadi-ki-kahaniyan/log.md; tail -1 channels/dadi-ki-kahaniyan/log.md`
+
+```text
+2026-10-18T21:05:00+05:30
+2026-10-18 | short_01_jadui-kadhai | publish | PUBLISHED | video kWn4jKte090 uploaded (scheduled 2026-10-18 21:00 IST requested), parent Ogfqow8rbGY, desc line 1 + 1st comment task StoryChannel-Comment-kWn4jKte090 at 21:05 IST (Ready), captions ok, no thumb/playlist, channel UCy071_4g4vGemktFHybqkhQ verified; manual: Related video + pin comment + confirm Scheduled in Studio
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:55:34Z)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="SubagentHandback"><details>
+<summary>Tool use: **SubagentHandback**</summary>
+
+```text
+{"success":true,"message":"Report delivered to your caller."}
+```
+</details></tool-use>
