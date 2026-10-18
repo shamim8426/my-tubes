@@ -1,6 +1,6 @@
 """Synthesise our own light 'tiptoe mystery' music bed (no third-party audio -> no copyright risk).
 
-Usage: python scripts/gen_music.py [seconds]   -> assets/music/mystery_bed.wav
+Usage: python scripts/gen_music.py [seconds]   -> shared/music/mystery_bed.wav
 """
 import sys
 import wave
@@ -10,7 +10,7 @@ import numpy as np
 
 SR = 44100
 ROOT = Path(__file__).resolve().parent.parent
-OUT = ROOT / "assets" / "music" / "mystery_bed.wav"
+OUT = ROOT / "shared" / "music" / "mystery_bed.wav"
 BPM = 104
 BEAT = 60 / BPM
 

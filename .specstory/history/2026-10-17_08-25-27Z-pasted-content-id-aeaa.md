@@ -28113,3 +28113,2718 @@ Check stale references, then sync
 2026-10-18 15:07:33  pushed: rules: same-day publish window 7PM-12AM  (repo pack size 179 MB)
 ```
 </details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:37:37Z)**_
+
+Setup doc me purani settings reh gayi thi, use bhi update kar raha hoon:
+
+_**Agent (claude-opus-5-5 2026-10-18 09:37:42Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\docs\YOUTUBE_UPLOADER_SETUP.md has been updated successfully. (file state is current in your context — no need to Read it back)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:37:44Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\docs\YOUTUBE_UPLOADER_SETUP.md has been updated successfully. (file state is current in your context — no need to Read it back)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:37:56Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Sync doc update
+
+`powershell -NoProfile -ExecutionPolicy Bypass -File tools/sync.ps1 -Message "docs: uploader setup matches new publish window" >/dev/null 2>&1; tail -1 munshi/sync.log`
+
+```text
+2026-10-18 15:07:54  pushed: docs: uploader setup matches new publish window  (repo pack size 179 MB)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:38:05Z)**_
+
+Publish ka naya niyam lag gaya hai. Dry-run test me 7 PM–12 AM ke andar ke samay paas hue aur bahar ke fail.
+
+1. **RULES section 8:** purani "7:00 PM" aur "2 din ka gap" wali lines hata kar aapke diye text ke saath nayi lines daal di: same-day 19:00–23:59 slot, ek din me ek long video, aur Short aur long ke beech 2 ghante ka gap.
+2. **`channel_config.json`:** purani do settings ki jagah `publish_window_ist: ["19:00","23:59"]`, `max_long_per_day: 1` aur `min_gap_hours_short_long: 2` rakhe.
+3. **youtube-publish skill, step 3:** naye niyam ke hisaab se badla:
+   - Upload kab khatam ho raha hai, uske hisaab se slot chunna.
+   - Doosre projects ki `upload_result.json` aur `upload.json` padh kar dekhna ki usi din koi aur video toh nahi.
+4. **`youtube_upload.py`:** `publish_at` ko IST me badal kar check karta hai. 19:00–23:59 ke bahar ho toh PROBLEM deta hai. Dry-run test, 25 Oct ki tareekh ke saath:
+
+   | publish_at | Nateeja |
+   |---|---|
+   | 19:00 IST | ✅ Dry run OK |
+   | 23:30 IST | ✅ Dry run OK |
+   | 18:30 IST | ❌ `publish_at is 18:30 IST; must be inside the 19:00-23:59 IST window` |
+   | 15:00 IST | ❌ `publish_at is 15:00 IST; must be inside the 19:00-23:59 IST window` |
+
+   Test ki temp files `_to_delete/tz_test/` me hain.
+5. **Long 01** ka schedule nahi chheda. Wo ab bhi `2026-10-20T19:00:00+05:30` hai.
+
+Setup doc me ye purani settings likhi reh gayi thi, use bhi naye niyam se mila diya.
+
+**Sync:**
+- `pushed: rules: same-day publish window 7PM-12AM` ✅
+- `pushed: docs: uploader setup matches new publish window` ✅
+
+---
+
+_**User (2026-10-18 09:48:16Z)**_
+
+
+
+<pasted_content id="aeaa">
+Migration shuru karne se pehle ye suraksha kadam karo:
+
+0a. Wapsi ka raasta: abhi ki halat ko tag karo aur push karo:
+    git tag pre-migration ; git push origin pre-migration
+    Kuch bhi bigde to isi tag se poora project wapas aa jaayega.
+
+0b. Migration ke dauraan auto-sync band karo:
+    Disable-ScheduledTask -TaskName StoryChannel-Sync
+    aur .claude/settings.json ka SessionEnd hook tab tak hata do. Migration poora hone aur check hone ke baad dono wapas chalu karo aur batao.
+
+0c. RULES ka hisaab: baantne ke baad purane munshi/RULES.md ki HAR line ko check karo ki wo shared/RULES.md ya channel RULES.md me se kisi ek me hai. Ek list dikhao: total lines, kahan gayi, aur koi chhooti to nahi. Ek bhi line chhooti ho to aage mat badhna.
+
+0d. Asli build test (validate mode ke alawa): migration ke baad Long 01 ka sirf pehla 15 second ka preview render karo (960x540, ultrafast, ₹0, TTS cache se) aur Case 01 ka bhi 10 second ka. Dono bina error ke bane, tabhi migration ko poora maano.
+
+Agar kisi bhi step me error aaye jo turant theek na ho, to ruk jao aur mujhe batao. Khud se `git reset` mat karna.
+</pasted_content id="aeaa">
+
+<pasted_content id="aeaa">
+Project ko multi-channel structure me shift karo. Koi paid call nahi, koi file delete nahi (jo hatana ho wo _to_delete/ me). Har file `git mv` se move karo taaki history bani rahe.
+
+NAYA DHAANCHA:
+channels/<channel_key>/
+  channel.json, RULES.md, channel_bible.md, log.md, carry_over.md
+  brand/  characters/   (channel ke permanent characters)
+  stories/<NNN>_<story-slug>/
+    story.md            (script, moral, status: kya bana, kya upload hua, kab)
+    characters/         (sirf is kahani ke characters)
+    images/  audio/     (long aur shorts dono yahin se lenge)
+    long/      -> lines.json, shots.json, meta.json, review/, output/
+    shorts/short_<NN>_<slug>/ -> shots.json, meta.json, review/, output/
+channels/_template/     (upar wala khaali dhaancha, placeholder files ke saath)
+shared/ -> music/, sfx/, fonts/, assets_license.csv, RULES.md
+
+KAAM:
+1. channels/dadi-ki-kahaniyan/ banao:
+   - long-videos/long_01 -> stories/001_lalchi-halwai/ (images, audio, story ke characters story level par; long ki files long/ me).
+   - detective-shorts/case_01 -> stories/002_sharma-ji-ki-cycle/shorts/short_01_case-01/ (images/audio story level par, long/ khaali).
+   - channel_bible.md, banner/DP -> channel level (brand/). Dadi, Golu, Mitthu, Pandey ke sheets aur voices -> channels/dadi-ki-kahaniyan/characters/.
+   - munshi/channel_config.json ki dadi wali entry -> channels/dadi-ki-kahaniyan/channel.json (channel_key, channel_id UCy071_4g4vGemktFHybqkhQ, made_for_kids false, publish window, playlists).
+   - munshi/log.md, carry_over.md -> channel folder me.
+2. Music, SFX, fonts -> shared/. assets_license.csv -> shared/ aur usme saare paths naye kar do.
+3. RULES ko do hisson me baanto:
+   - shared/RULES.md: sab channels ke common niyam (budget, audio, captions, video, thumbnail, metadata limits, copyright section 10, publishing, safety, review limits section 11).
+   - channels/dadi-ki-kahaniyan/RULES.md: sirf is channel ke niyam (Gulmohar Mohalla setting, Mitthu no hands, mitti ka chulha, family wording incl. tags, Dadi Jasoos mystery answer rule).
+   - Upar likho: "Channel RULES can be stricter than shared RULES, never looser. Copyright, channel ID, secrets and upload safety can never be relaxed by a channel."
+   - Purana munshi/RULES.md _to_delete/ me.
+4. Builder, tools/youtube_upload.py, sync.ps1, step-review aur youtube-publish skills, munshi.md agent aur CLAUDE.md me saare paths naye dhaanche ke hisaab se update karo. Munshi pehle shared/RULES.md, phir channels/<key>/RULES.md padhe. upload script channel_key se channels/<key>/channel.json padhe.
+5. cost_log.csv me "channel" column jodo (purani rows me dadi-ki-kahaniyan).
+6. tools/new_channel.ps1 banao: -Key aur -Name leke channels/_template copy kare, channel.json me key/naam bhar de, aur batae ki channel_id aur channel_bible.md bharna baaki hai. Test: "test-channel" banao, check karo, phir _to_delete/ me move karo.
+7. Jaanch (koi upload nahi):
+   - Long 01 ka youtube_upload.py --dry-run naye path se chalao. Ye "Already uploaded" bole ya validation pass kare, dono theek; koi path error na ho.
+   - Builder ko Long 01 ke liye sirf "plan/validate" mode me chalao (render nahi) aur dikhao ki saari images/audio/music naye paths par mil rahi hain.
+   - Puraane folders (long-videos/, detective-shorts/) khaali ho gaye hon to _to_delete/ me move karo.
+8. Naya tree (3 level) dikhao aur sync: tools\sync.ps1 -Message "restructure: multi-channel layout (channels/, shared/)"
+</pasted_content id="aeaa">
+
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-18 09:48:59Z)**_
+
+Ye bada badlav hai, isliye pehle suraksha ke kadam (0a, 0b) le raha hoon, phir migration karunga.
+
+_**Agent (claude-opus-5-5 2026-10-18 09:49:06Z)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="PowerShell"><details>
+<summary>Tool use: **PowerShell**</summary>
+Tag pre-migration, push tag, disable nightly sync
+
+```text
+ M .specstory/history/2026-10-17_08-25-27Z-pasted-content-id-aeaa.md
+ M munshi/sync.log
+?? long-videos/long_01/output/review/music_resid.wav
+To https://github.com/shamim8426/story-channel.git
+ * [new tag]         pre-migration -> pre-migration
+tag push exit=0
+27ee929
+
+TaskName             State
+--------             -----
+StoryChannel-Sync Disabled
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:49:11Z)**_
+
+Tag `pre-migration` (27ee929) GitHub par push ho gaya aur raat ka task band hai. Ab SessionEnd hook hata raha hoon. Original ki copy rakh li hai taki baad me wapas laga sakoon.
+
+_**Agent (claude-opus-5-5 2026-10-18 09:49:15Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Back up and disable SessionEnd hook
+
+`S="C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad" && cp .claude/settings.json "$S/settings.json.pre-migration" && printf '{}\n' > .claude/settings.json && cat .claude/settings.json && ls -la long-videos/long_01/output/review/ | awk '{print $5, $9}' | sort -n | tail -5`
+
+```text
+{}
+2707180 speaker_check.png
+3708473 case01_sheet.png
+29393324 music_only_est.wav
+29393324 voice_in_mix.wav
+58786638 music_resid.wav
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:49:20Z)**_
+
+Hook band ho gaya ✅. Munshi ki review wali `.wav` files (29 MB tak ki) git me chali gayi thi. Inhe migration me ignore me daal dunga. Ab poore project ka naksha dekh raha hoon:
+
+_**Agent (claude-opus-5-5 2026-10-18 09:49:24Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Survey tracked files by directory
+
+`git ls-files | grep -v "^\.specstory\|^claude-home" | sed 's|/[^/]*$||' | sort | uniq -c; echo ---; ls; ls cases images audio characters channel_assets output 2>/dev/null | head -60; ls -d shorts/* long-videos/* 2>/dev/null`
+
+```text
+      1 .claude
+      1 .claude/agents
+      1 .claude/skills/step-review
+      1 .claude/skills/youtube-publish
+      1 .env.example
+      1 .gitattributes
+      1 .gitignore
+      2 .vscode
+      1 CLAUDE.md
+      1 PREVIEW.md
+      3 assets/fonts
+      4 assets/music
+      2 assets/music/comedy
+      2 assets/music/dukh
+      2 assets/music/jaadu
+      2 assets/music/khushi
+      2 assets/music/seekh
+      2 assets/music/tension
+      9 assets/sfx
+     23 audio/case01_cycle_chori
+     26 audio/case01_cycle_chori/tts_cache
+     17 audio/voice_samples
+      8 cases/case01_cycle_chori
+      4 channel_assets
+     21 channel_assets/_work
+      1 channel_assets/_work/fonts
+      1 channel_bible.md
+      4 characters
+      4 characters/_rejected_pollinations
+      1 cost_log.csv
+      1 deploy.ps1
+      1 docs
+     10 images/case01_cycle_chori
+      3 images/case01_cycle_chori/_v1
+      1 images/case01_cycle_chori/_v2
+      7 long-videos/long_01
+     51 long-videos/long_01/audio
+    102 long-videos/long_01/audio/tts_cache
+      4 long-videos/long_01/characters
+     31 long-videos/long_01/images
+      7 long-videos/long_01/output
+     20 long-videos/long_01/output/review
+     24 long-videos/long_01/output/review/rr2
+      1 long-videos/long_01/scripts
+      6 munshi
+      2 output
+      1 requirements.txt
+     15 scripts
+      4 tools
+---
+CLAUDE.md
+PREVIEW.md
+_to_delete
+assets
+audio
+cache
+cases
+channel_assets
+channel_bible.md
+characters
+claude-home
+cost_log.csv
+deploy.ps1
+docs
+images
+long-videos
+munshi
+output
+requirements.txt
+scripts
+secrets
+shorts
+tools
+audio:
+case01_cycle_chori
+voice_samples
+
+cases:
+case01_cycle_chori
+
+channel_assets:
+_work
+case01_thumbnail.png
+case01_thumbnail_vertical.png
+dadi_ki_kahaniyan_banner.png
+dadi_ki_kahaniyan_dp.png
+
+characters:
+_rejected_pollinations
+dadi_sheet.png
+golu_sheet.png
+mitthu_sheet.png
+pandey_sheet.png
+
+images:
+case01_cycle_chori
+
+output:
+case01_cycle_chori.mp4
+case01_cycle_chori.txt
+case01_cycle_chori_framecheck.png
+case01_cycle_chori_preview.mp4
+case01_cycle_chori_work
+long-videos/long_01
+long-videos/long_02
+long-videos/long_03
+shorts/case02
+shorts/case03
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:49:30Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+List key folders and path references in scripts
+
+`ls channel_assets/_work long-videos/long_01 long-videos/long_01/output long-videos/long_01/scripts munshi audio/case01_cycle_chori | head -80; echo ---; grep -n "ROOT /\|Path(\|\"assets\|'assets\|images\|characters\|cases\|channel_assets\|long-videos\|munshi\|cost_log.csv\|voice_samples\|PREVIEW" scripts/*.py tools/*.py | grep -v "^scripts/make_short.py" | head -80`
+
+```text
+audio/case01_cycle_chori:
+line_01_narrator.mp3
+line_01_narrator.wav
+line_02_sharma.mp3
+line_02_sharma.wav
+line_03_narrator.mp3
+line_03_narrator.wav
+line_04_narrator.mp3
+line_04_pappu.wav
+line_05_narrator.mp3
+line_05_raju.wav
+line_06_bunty.wav
+line_06_golu.mp3
+line_07_golu.wav
+line_07_pandey.mp3
+line_08_dadi.mp3
+line_08_pandey.wav
+line_09_dadi.wav
+line_09_mitthu.mp3
+line_10_dadi.mp3
+line_10_mitthu.wav
+line_11_dadi.wav
+line_11_narrator.mp3
+line_12_narrator.wav
+tts_cache
+
+channel_assets/_work:
+art.png
+banner_art.png
+banner_raw.png
+dp_raw.png
+fonts
+long01_thumb.ass
+long01_thumb_art.png
+long01_thumb_in.png
+long01_thumb_raw.png
+long01_thumb_titled.png
+thumb.ass
+thumb_art.png
+thumb_art_sized.png
+thumb_raw.png
+thumb_titled.png
+thumb_v.ass
+thumb_v_art.png
+thumb_v_in.png
+thumb_v_raw.png
+thumb_v_titled.png
+title.ass
+titled.png
+
+long-videos/long_01:
+LONG_01_IDEAS.md
+LONG_01_SCENES.md
+audio
+characters
+images
+lines.json
+meta.json
+output
+project.json
+scene_prompts.json
+scripts
+shots.json
+
+long-videos/long_01/output:
+long_01.mp4
+long_01.srt
+long_01.txt
+long_01_framecheck.png
+long_01_preview.mp4
+long_01_preview.srt
+long_01_thumbnail.png
+long_01_work
+review
+upload.json
+upload_result.json
+
+long-videos/long_01/scripts:
+script.md
+
+---
+scripts/analyze_video.py:16:ROOT = Path(__file__).resolve().parent.parent
+scripts/analyze_video.py:17:FFMPEG = ROOT / "tools" / "ffmpeg" / "ffmpeg.exe"
+scripts/analyze_video.py:19:    FFMPEG = Path(shutil.which("ffmpeg") or FFMPEG)
+scripts/analyze_video.py:20:MODELS = ROOT / "tools" / "whisper-models"
+scripts/analyze_video.py:52:    out_dir = Path(out_dir)
+scripts/analyze_video.py:106:    if cuts_file and Path(cuts_file).exists():
+scripts/analyze_video.py:107:        cuts = [float(x) for x in Path(cuts_file).read_text(encoding="utf-8-sig").split()]
+scripts/cost_log.py:1:"""Track Gemini image spend against the prepaid budget in cost_log.csv."""
+scripts/cost_log.py:6:ROOT = Path(__file__).resolve().parent.parent
+scripts/cost_log.py:7:LOG = ROOT / "cost_log.csv"
+scripts/cost_log.py:44:        "file": Path(file).resolve().relative_to(ROOT).as_posix(),
+scripts/fetch_sfx.py:13:ROOT = Path(__file__).resolve().parent.parent
+scripts/fetch_sfx.py:14:load_dotenv(ROOT / ".env")
+scripts/fetch_sfx.py:15:OUT = ROOT / "assets" / "sfx"
+scripts/gemini_image.py:13:ROOT = Path(__file__).resolve().parent.parent
+scripts/gemini_image.py:14:load_dotenv(ROOT / ".env")
+scripts/gemini_image.py:52:                       "data": base64.b64encode(Path(ref).read_bytes()).decode()})
+scripts/gemini_tts.py:1:"""Gemini TTS helper. Key from .env (never printed). Every call is logged to cost_log.csv."""
+scripts/gemini_tts.py:12:ROOT = Path(__file__).resolve().parent.parent
+scripts/gemini_tts.py:13:load_dotenv(ROOT / ".env")
+scripts/gen_channel_assets.py:3:Usage: python scripts/gen_channel_assets.py banner|dp|text
+scripts/gen_channel_assets.py:17:sys.path.insert(0, str(Path(__file__).parent))
+scripts/gen_channel_assets.py:20:ROOT = Path(__file__).resolve().parent.parent
+scripts/gen_channel_assets.py:21:OUT = ROOT / "channel_assets"
+scripts/gen_channel_assets.py:23:CHAR = ROOT / "characters"
+scripts/gen_channel_assets.py:24:FFMPEG = ROOT / "tools" / "ffmpeg" / "ffmpeg.exe"
+scripts/gen_channel_assets.py:26:    FFMPEG = Path(shutil.which("ffmpeg") or FFMPEG)
+scripts/gen_channel_assets.py:42:COMPOSITION IS CRITICAL: the characters must be fairly small and fit inside the middle horizontal band of the image
+scripts/gen_channel_assets.py:69:    """Title in two lines inside the YouTube safe area (left of the characters), warm gold with dark outline.
+scripts/gen_channel_assets.py:73:    shutil.copy(ROOT / "assets" / "fonts" / "Mukta-Bold.ttf", fonts / "Mukta-Bold.ttf")
+scripts/gen_channel_assets.py:132:style: thick bold outlines, warm colours on the characters, flat cel shading."""
+scripts/gen_channel_assets.py:140:    shutil.copy(ROOT / "assets" / "fonts" / "Mukta-Bold.ttf", fonts / "Mukta-Bold.ttf")
+scripts/gen_channel_assets.py:167:    refs = [CHAR / "dadi_sheet.png"] + [ROOT / "images" / "case01_cycle_chori" / f"scene_0{n}.png" for n in (3, 4, 5)]
+scripts/gen_channel_assets.py:194:style: thick bold outlines, warm colours on the characters, flat cel shading."""
+scripts/gen_channel_assets.py:201:    refs = [CHAR / "dadi_sheet.png"] + [ROOT / "images" / "case01_cycle_chori" / f"scene_0{n}.png" for n in (3, 4, 5)]
+scripts/gen_channel_assets.py:211:    shutil.copy(ROOT / "assets" / "fonts" / "Mukta-Bold.ttf", fonts / "Mukta-Bold.ttf")
+scripts/gen_channel_assets.py:238:LONG01 = ROOT / "long-videos" / "long_01"
+scripts/gen_channel_assets.py:250:with NO characters or objects (a big title goes there). Keep the BOTTOM-RIGHT corner (last 20% of width, bottom 18% of
+scripts/gen_channel_assets.py:257:    c = LONG01 / "characters"
+scripts/gen_channel_assets.py:268:    shutil.copy(ROOT / "assets" / "fonts" / "Mukta-Bold.ttf", fonts / "Mukta-Bold.ttf")
+scripts/gen_characters.py:1:"""Reference sheets for the 4 permanent characters (channel_bible.md section 2).
+scripts/gen_characters.py:3:Usage:  python scripts/gen_characters.py dadi
+scripts/gen_characters.py:4:        python scripts/gen_characters.py golu mitthu pandey   (uses approved dadi sheet as style ref)
+scripts/gen_characters.py:9:sys.path.insert(0, str(Path(__file__).parent))
+scripts/gen_characters.py:12:ROOT = Path(__file__).resolve().parent.parent
+scripts/gen_characters.py:13:OUT = ROOT / "characters"
+scripts/gen_characters.py:20:         "No other characters, no scenery.")
+scripts/gen_long_characters.py:1:"""Reference sheets for long-video characters/props (style matched to the approved channel sheets).
+scripts/gen_long_characters.py:3:Usage: python scripts/gen_long_characters.py long_01 [name ...]
+scripts/gen_long_characters.py:4:Output: long-videos/<id>/characters/<file>
+scripts/gen_long_characters.py:10:sys.path.insert(0, str(Path(__file__).parent))
+scripts/gen_long_characters.py:13:ROOT = Path(__file__).resolve().parent.parent
+scripts/gen_long_characters.py:14:STYLE_REFS = [ROOT / "characters" / "dadi_sheet.png", ROOT / "characters" / "golu_sheet.png"]
+scripts/gen_long_characters.py:15:STYLE_NOTE = ("The attached images are STYLE references only (the channel's approved sheets): match their flat 2D "
+scripts/gen_long_characters.py:21:         "identical in every pose: same face, body, outfit and colours. No other characters, no scenery.")
+scripts/gen_long_characters.py:58:    out_dir = ROOT / "long-videos" / vid / "characters"
+scripts/gen_music.py:12:ROOT = Path(__file__).resolve().parent.parent
+scripts/gen_music.py:13:OUT = ROOT / "assets" / "music" / "mystery_bed.wav"
+scripts/gen_scenes.py:1:"""Generate scene images from a scene_prompts.json.
+scripts/gen_scenes.py:3:Usage:  python scripts/gen_scenes.py case01_cycle_chori [ids...]              (Shorts: cases/<case>/scene_prompts.json)
+scripts/gen_scenes.py:4:        python scripts/gen_scenes.py long-videos/long_01/scene_prompts.json [ids...]
+scripts/gen_scenes.py:6:Refs: "scene:N" -> an earlier image in out_dir; a name in ref_files -> that file; else characters/<name>_sheet.png.
+scripts/gen_scenes.py:13:sys.path.insert(0, str(Path(__file__).parent))
+scripts/gen_scenes.py:16:ROOT = Path(__file__).resolve().parent.parent
+scripts/gen_scenes.py:21:        path = ROOT / arg
+scripts/gen_scenes.py:23:        out_dir = ROOT / spec["out_dir"] if "out_dir" in spec else path.parent / "images"
+scripts/gen_scenes.py:25:        spec = json.loads((ROOT / "cases" / arg / "scene_prompts.json").read_text(encoding="utf-8"))
+scripts/gen_scenes.py:26:        out_dir = ROOT / "images" / arg
+scripts/gen_scenes.py:34:        return ROOT / spec["ref_files"][ref]
+scripts/gen_scenes.py:35:    return ROOT / "characters" / f"{ref}_sheet.png"
+scripts/gen_scenes.py:51:            prompt += ("\n\nThe attached images are approved references. Keep every character's face, body, "
+scripts/gen_scenes.py:53:                       "reference, and match their art style. Draw only the characters this prompt asks for.")
+scripts/gen_scenes.py:55:            refs = [ROOT / "characters" / "dadi_sheet.png"]
+scripts/preview.py:1:"""Build PREVIEW.md (image gallery with costs) and open images inside VS Code.
+scripts/preview.py:3:Usage:  python scripts/preview.py            rebuild PREVIEW.md and open its Markdown preview
+scripts/preview.py:13:ROOT = Path(__file__).resolve().parent.parent
+scripts/preview.py:14:PREVIEW = ROOT / "PREVIEW.md"
+scripts/preview.py:15:SECTIONS = [("Characters", ROOT / "characters"), ("Scenes", ROOT / "images")]
+scripts/preview.py:19:    log = ROOT / "cost_log.csv"
+scripts/preview.py:42:    PREVIEW.write_text("\n".join(lines), encoding="utf-8")
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:50:01Z)**_
+
+<think><details><summary>Thought Process</summary>
+Case 01 ek hi folder me nahi, balki `cases/case01_cycle_chori`, `images/`, `audio/` aur `output/` me bikhra mila, isliye mapping usi hisaab se karunga. Ab baaki path-related scripts padh raha hoon.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:50:03Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Read cost_log, gen_scenes and path bits
+
+`cat scripts/cost_log.py; echo =====; sed -n 1,60p scripts/gen_scenes.py; echo =====; grep -n "ROOT\|OUT\|out_dir\|vid" scripts/gen_long_characters.py scripts/voice_samples.py scripts/fetch_sfx.py scripts/preview.py | head -40; echo =====; grep -n "ref_files\|out_dir\|\"looks\"" -A3 long-videos/long_01/scene_prompts.json cases/case01_cycle_chori/scene_prompts.json | head -30`
+
+```text
+"""Track Gemini image spend against the prepaid budget in cost_log.csv."""
+import csv
+from datetime import datetime
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+LOG = ROOT / "cost_log.csv"
+
+BUDGET_INR = 500.0
+USD_TO_INR = 96.5  # mid-market rate checked 2026-10-17; update if it drifts
+
+# USD per output image (ai.google.dev/gemini-api/docs/pricing, checked 2026-10-17)
+RATES_USD = {
+    ("gemini-nano-banana-2.1", "1K"): 0.0336,
+    ("gemini-nano-banana-2.1", "2K"): 0.0504,
+    ("gemini-nano-banana-2.1", "4K"): 0.113,
+}
+
+FIELDS = ["timestamp", "file", "model", "size", "cost_usd", "cost_inr", "today_total_inr", "remaining_inr"]
+
+
+def _rows():
+    if not LOG.exists():
+        return []
+    with LOG.open(encoding="utf-8", newline="") as f:
+        return list(csv.DictReader(f))
+
+
+def record(file: Path, model: str, size: str, when: datetime | None = None) -> dict:
+    """Image: priced from the per-image rate table."""
+    return record_usd(file, model, size, RATES_USD[(model, size)], when)
+
+
+def record_usd(file: Path, model: str, size: str, usd: float, when: datetime | None = None) -> dict:
+    """Anything with a computed USD cost (e.g. TTS priced by tokens)."""
+    when = when or datetime.now()
+    inr = usd * USD_TO_INR
+    rows = _rows()
+    today = when.strftime("%Y-%m-%d")
+    today_total = inr + sum(float(r["cost_inr"]) for r in rows if r["timestamp"].startswith(today))
+    spent = inr + sum(float(r["cost_inr"]) for r in rows)
+    row = {
+        "timestamp": when.strftime("%Y-%m-%d %H:%M:%S"),
+        "file": Path(file).resolve().relative_to(ROOT).as_posix(),
+        "model": model,
+        "size": size,
+        "cost_usd": f"{usd:.5f}",
+        "cost_inr": f"{inr:.2f}",
+        "today_total_inr": f"{today_total:.2f}",
+        "remaining_inr": f"{BUDGET_INR - spent:.2f}",
+    }
+    new = not LOG.exists()
+    with LOG.open("a", encoding="utf-8", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=FIELDS)
+        if new:
+            w.writeheader()
+        w.writerow(row)
+    return row
+
+
+def summary(row: dict, what="image") -> str:
+    return (f"Is {what} ka cost: ₹{row['cost_inr']}  |  Aaj ka total: ₹{row['today_total_inr']}  |  "
+            f"₹{BUDGET_INR:.0f} me se bacha: ₹{row['remaining_inr']}")
+=====
+"""Generate scene images from a scene_prompts.json.
+
+Usage:  python scripts/gen_scenes.py case01_cycle_chori [ids...]              (Shorts: cases/<case>/scene_prompts.json)
+        python scripts/gen_scenes.py long-videos/long_01/scene_prompts.json [ids...]
+Spec keys: looks, base, scenes[{id, refs, prompt}], optional out_dir, aspect (default 9:16), ref_files {name: path}.
+Refs: "scene:N" -> an earlier image in out_dir; a name in ref_files -> that file; else characters/<name>_sheet.png.
+"""
+import json
+import sys
+import time
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).parent))
+from gemini_image import generate  # noqa: E402
+
+ROOT = Path(__file__).resolve().parent.parent
+
+
+def load(arg):
+    if arg.endswith(".json"):
+        path = ROOT / arg
+        spec = json.loads(path.read_text(encoding="utf-8"))
+        out_dir = ROOT / spec["out_dir"] if "out_dir" in spec else path.parent / "images"
+    else:
+        spec = json.loads((ROOT / "cases" / arg / "scene_prompts.json").read_text(encoding="utf-8"))
+        out_dir = ROOT / "images" / arg
+    return spec, out_dir
+
+
+def ref_path(ref: str, spec, out_dir: Path) -> Path:
+    if ref.startswith("scene:"):
+        return out_dir / f"scene_{int(ref[6:]):02d}.png"
+    if ref in spec.get("ref_files", {}):
+        return ROOT / spec["ref_files"][ref]
+    return ROOT / "characters" / f"{ref}_sheet.png"
+
+
+def main(arg: str, only: list[int]):
+    spec, out_dir = load(arg)
+    aspect = spec.get("aspect", "9:16")
+    for scene in spec["scenes"]:
+        if only and scene["id"] not in only:
+            continue
+        refs = [ref_path(r, spec, out_dir) for r in scene["refs"]]
+        missing = [r for r in refs if not r.exists()]
+        if missing:
+            print(f"SKIPPED scene {scene['id']}: missing refs {missing}", flush=True)
+            continue
+        prompt = scene["prompt"].format(**spec["looks"])
+        if refs:
+            prompt += ("\n\nThe attached images are approved references. Keep every character's face, body, "
+                       "outfit and colours EXACTLY as in the references, keep places consistent with any location "
+                       "reference, and match their art style. Draw only the characters this prompt asks for.")
+        else:
+            refs = [ROOT / "characters" / "dadi_sheet.png"]
+            prompt += ("\n\nThe attached image is a STYLE reference only: match its art style, outline thickness "
+                       "and colour palette exactly. Do NOT draw the grandmother from it in this scene.")
+        out = out_dir / f"scene_{scene['id']:02d}.png"
+        t0 = time.time()
+        try:
+=====
+scripts/gen_long_characters.py:1:"""Reference sheets for long-video characters/props (style matched to the approved channel sheets).
+scripts/gen_long_characters.py:4:Output: long-videos/<id>/characters/<file>
+scripts/gen_long_characters.py:13:ROOT = Path(__file__).resolve().parent.parent
+scripts/gen_long_characters.py:14:STYLE_REFS = [ROOT / "characters" / "dadi_sheet.png", ROOT / "characters" / "golu_sheet.png"]
+scripts/gen_long_characters.py:56:    vid = sys.argv[1]
+scripts/gen_long_characters.py:57:    names = sys.argv[2:] or list(SPECS[vid])
+scripts/gen_long_characters.py:58:    out_dir = ROOT / "long-videos" / vid / "characters"
+scripts/gen_long_characters.py:60:        fname, prompt = SPECS[vid][name]
+scripts/gen_long_characters.py:62:        out = generate(f"{prompt}\n\n{STYLE_NOTE}", out_dir / fname, refs=STYLE_REFS, aspect_ratio="3:2", size="1K")
+scripts/voice_samples.py:15:ROOT = Path(__file__).resolve().parent.parent
+scripts/voice_samples.py:16:OUT = ROOT / "audio" / "voice_samples"
+scripts/voice_samples.py:42:        out = OUT / f"{name}_{voice}.wav"
+scripts/fetch_sfx.py:13:ROOT = Path(__file__).resolve().parent.parent
+scripts/fetch_sfx.py:14:load_dotenv(ROOT / ".env")
+scripts/fetch_sfx.py:15:OUT = ROOT / "assets" / "sfx"
+scripts/fetch_sfx.py:31:    OUT.mkdir(parents=True, exist_ok=True)
+scripts/fetch_sfx.py:32:    cfile = OUT / "CREDITS.md"
+scripts/fetch_sfx.py:45:            f = OUT / f"{kind}_{s['id']}.mp3"
+scripts/preview.py:13:ROOT = Path(__file__).resolve().parent.parent
+scripts/preview.py:14:PREVIEW = ROOT / "PREVIEW.md"
+scripts/preview.py:15:SECTIONS = [("Characters", ROOT / "characters"), ("Scenes", ROOT / "images")]
+scripts/preview.py:19:    log = ROOT / "cost_log.csv"
+scripts/preview.py:38:            rel = img.relative_to(ROOT).as_posix()
+=====
+long-videos/long_01/scene_prompts.json:3:  "out_dir": "long-videos/long_01/images",
+long-videos/long_01/scene_prompts.json-4-  "aspect": "16:9",
+long-videos/long_01/scene_prompts.json:5:  "ref_files": {
+long-videos/long_01/scene_prompts.json-6-    "ghasita": "long-videos/long_01/characters/ghasita_sheet.png",
+long-videos/long_01/scene_prompts.json-7-    "chhotu": "long-videos/long_01/characters/chhotu_sheet.png",
+long-videos/long_01/scene_prompts.json-8-    "sadhu": "long-videos/long_01/characters/sadhu_sheet.png",
+--
+long-videos/long_01/scene_prompts.json:12:  "looks": {
+long-videos/long_01/scene_prompts.json-13-    "dadi": "Dadi: Indian grandmother ~70, round face, white hair bun, round golden spectacles, light green saree with yellow border, gold bangles, wooden walking stick, small red bindi",
+long-videos/long_01/scene_prompts.json-14-    "golu": "Golu: chubby Indian boy ~10, messy black hair, yellow T-shirt, blue half-pants, white socks, red shoes",
+long-videos/long_01/scene_prompts.json-15-    "mitthu": "Mitthu: green parrot with red beak and thin red neck ring",
+--
+cases/case01_cycle_chori/scene_prompts.json:2:  "looks": {
+cases/case01_cycle_chori/scene_prompts.json-3-    "dadi": "Dadi: Indian grandmother ~70, round face, white hair bun, round golden spectacles, light green saree with yellow border, gold bangles, wooden walking stick, small red bindi (exactly as in the Dadi reference sheet)",
+cases/case01_cycle_chori/scene_prompts.json-4-    "golu": "Golu: chubby Indian boy ~10, messy black hair, yellow T-shirt, blue half-pants, white socks, red shoes (exactly as in the Golu reference sheet)",
+cases/case01_cycle_chori/scene_prompts.json-5-    "mitthu": "Mitthu: green parrot with red beak and thin red neck ring (exactly as in the Mitthu reference sheet)",
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:50:06Z)**_
+
+Ab files move kar raha hoon. Tracked files `git mv` se ja rahi hain, taki history bani rahe.
+
+_**Agent (claude-opus-5-5 2026-10-18 09:50:36Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Move files into new channels/ and shared/ layout
+
+```bash
+set -e
+CH=channels/dadi-ki-kahaniyan; S1=$CH/stories/001_lalchi-halwai; S2=$CH/stories/002_sharma-ji-ki-cycle; SH=$S2/shorts/short_01_case-01
+mkdir -p $CH/brand $CH/characters $S1/script $S1/long $S2/script $S2/long $SH shared _to_delete
+# shared
+git mv assets/music shared/music; git mv assets/sfx shared/sfx; git mv assets/fonts shared/fonts
+# channel level
+git mv channel_bible.md $CH/channel_bible.md
+for c in dadi golu mitthu pandey; do git mv characters/${c}_sheet.png $CH/characters/; done
+git mv characters/_rejected_pollinations $CH/characters/_rejected_pollinations
+git mv audio/voice_samples $CH/characters/voices
+git mv channel_assets/dadi_ki_kahaniyan_banner.png channel_assets/dadi_ki_kahaniyan_dp.png $CH/brand/
+git mv munshi/log.md $CH/log.md; git mv munshi/carry_over.md $CH/carry_over.md
+# story 001 (long_01)
+L=long-videos/long_01
+git mv $L/images $S1/images; git mv $L/audio $S1/audio; git mv $L/characters $S1/characters
+git mv $L/scene_prompts.json $S1/scene_prompts.json
+git mv $L/LONG_01_IDEAS.md $S1/script/LONG_01_IDEAS.md; git mv $L/LONG_01_SCENES.md $S1/script/LONG_01_SCENES.md; git mv $L/scripts/script.md $S1/script/script.md
+for f in lines.json shots.json meta.json project.json; do git mv $L/$f $S1/long/$f; done
+git mv $L/output/review $S1/long/review
+git mv $L/output $S1/long/output
+# story 002 (case01)
+C=cases/case01_cycle_chori
+for f in script.md script_v1.md scenes.md answer.md; do git mv $C/$f $S2/script/$f; done
+git mv $C/scene_prompts.json $S2/scene_prompts.json
+for f in lines.json shots.json meta.json; do git mv $C/$f $SH/$f; done
+git mv images/case01_cycle_chori $S2/images
+git mv audio/case01_cycle_chori $S2/audio
+mkdir -p $SH/output
+git mv output/case01_cycle_chori.txt output/case01_cycle_chori_framecheck.png $SH/output/
+mv output/case01_cycle_chori.mp4 output/case01_cycle_chori_preview.mp4 output/case01_cycle_chori_work $SH/output/
+git mv channel_assets/case01_thumbnail.png channel_assets/case01_thumbnail_vertical.png $SH/output/
+# thumbnail work files
+mkdir -p $S1/long/thumbnail_work $SH/thumbnail_work
+for f in channel_assets/_work/long01_thumb*; do git mv "$f" $S1/long/thumbnail_work/; done
+for f in channel_assets/_work/thumb*; do git mv "$f" $SH/thumbnail_work/; done
+git mv channel_assets/_work $CH/brand/_work
+echo MOVED; git status --short | grep -v "^R" | head -20
+```
+
+```text
+MOVED
+ M .claude/settings.json
+ M .specstory/history/2026-10-17_08-25-27Z-pasted-content-id-aeaa.md
+ M munshi/sync.log
+?? channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long/output/long_01_work/
+?? channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long/review/music_resid.wav
+?? channels/dadi-ki-kahaniyan/stories/002_sharma-ji-ki-cycle/shorts/short_01_case-01/output/case01_cycle_chori_work/
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:50:38Z)**_
+
+Saari tracked files move ho gayi. Ab dekh raha hoon ki purane folders me kya bacha hai:
+
+_**Agent (claude-opus-5-5 2026-10-18 09:50:45Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Show leftovers in old folders
+
+`for d in long-videos cases images audio characters channel_assets output assets munshi shorts cache; do echo "== $d"; find $d -mindepth 1 2>/dev/null | head -8; done`
+
+```text
+== long-videos
+long-videos/long_01
+long-videos/long_01/scripts
+long-videos/long_02
+long-videos/long_02/audio
+long-videos/long_02/images
+long-videos/long_02/output
+long-videos/long_02/scripts
+long-videos/long_03
+== cases
+cases/case01_cycle_chori
+== images
+== audio
+== characters
+== channel_assets
+== output
+== assets
+== munshi
+munshi/assets_license.csv
+munshi/channel_config.json
+munshi/RULES.md
+munshi/sync.log
+== shorts
+shorts/case02
+shorts/case03
+== cache
+cache/case01_cycle_chori
+cache/case01_cycle_chori/scene_01_d42310c8b42e4059.mp4
+cache/case01_cycle_chori/scene_01_e1355cf7cf88924f.mp4
+cache/case01_cycle_chori/scene_02_108835317d96ed90.mp4
+cache/case01_cycle_chori/scene_02_4deb71ace10efeb1.mp4
+cache/case01_cycle_chori/scene_03_2070f20d2a233bd1.mp4
+cache/case01_cycle_chori/scene_03_549c66fd93b2aa2d.mp4
+cache/case01_cycle_chori/scene_04_2c8629814886bb64.mp4
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:50:49Z)**_
+
+Purane folders ab sirf khaali dhaanche hain. Inhe step 7 me `_to_delete/` me daalunga. Ab RULES ka bantwara: pehle poori file padh raha hoon.
+
+_**Agent (claude-opus-5-5 2026-10-18 09:50:49Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\munshi\RULES.md`
+
+```text
+1	# Munshi RULES — Story-Channel
+2	
+3	These are the hard rules. If a builder summary, a script or a file disagrees with them, the rule wins and the step is not PASS. Edit this file to add new rules; Munshi reads it fresh every time.
+4	- A measured value outside a RULES limit is always FIX, never PASS, even if small. (in R1; after R2 see section 11)
+5	
+6	## 1. Budget
+7	- Prepaid Google Cloud budget: ₹500, auto-reload off. Current balance is whatever `cost_log.csv` says.
+8	- Every paid call (Gemini image ≈ ₹3.24 each at 1K, Gemini TTS per line) must be in `cost_log.csv` with date, project, item, ₹.
+9	- No paid call without the user's OK first. A fix that costs money is always ASK, never FIX.
+10	- Flag it if a step cost more than 30% above its estimate (e.g. LONG_01 TTS: estimate ₹4.85, actual ₹6.63).
+11	
+12	## 2. Story and characters (from `channel_bible.md`)
+13	- Characters must match their approved sheets: face, clothes, colours, age look. Compare each scene image against the sheet with Read.
+14	- Dadi (Kamla Devi) narrates. Every other character speaks their own lines in their own voice.
+15	- Mitthu (parrot) has no hands: no hand gestures, holding things or pointing with hands.
+16	- Dadi's home (in Gulmohar Mohalla): a kacha mud house with a tiled roof, BROWN wooden door, swept aangan, green fields behind, exactly like the channel banner (`channel_assets/_work/banner_art.png`). There is no green door.
+17	- Setting: Dadi's home, the Golu–Mitthu opening/closing frame and all Dadi Jasoos cases are in Gulmohar Mohalla. The story Dadi narrates inside a moral-story video can be set in any village or town the approved script names (e.g. Rampur in LONG_01); check location consistency against that script. Village kitchens still use a mitti ka chulha, never a gas stove.
+18	- The action in each image must match what the line says at that moment (who is holding what, who is talking).
+19	
+20	## 3. Audio
+21	- Final loudness: -14 LUFS integrated (±1), true peak ≤ -1.0 dBFS.
+22	- Music sits under the voice: 12–14 dB below for Shorts, up to ~18–20 dB for narration-heavy long videos. If it is quieter than 20 dB under, flag it.
+23	- Music level is measured one way only: integrated LUFS of the voice-only stem vs the music-only stem over the same speech sections. Builder and Munshi both use this method.
+24	- Mood changes get a crossfade (≥1 s). No sudden music cuts under dialogue.
+25	- No leaked background audio, clicks, or a line cut off mid-word.
+26	
+27	## 4. Captions
+28	- One `.srt` per video, Hindi, UTF-8.
+29	- Each caption must appear while that line is being spoken (±0.3 s), over the right character's shot.
+30	- Lines whose timing was estimated rather than taken from Whisper must be listed in the report.
+31	
+32	## 5. Video
+33	- Long video: 1920×1080, 30 fps, H.264, 16:9. Short: 1080×1920, ≤60 s, 9:16.
+34	- Target length: the duration the user approved at preview. Before preview, the script estimate is only a guide. Final must be within ±10% of the approved preview length; outside that is ASK.
+35	- Preview builds (960×540) are only for review. They are never uploaded.
+36	
+37	## 6. Thumbnail
+38	- 1280×720, JPG or PNG, ≤ 2 MB.
+39	- Hindi text is rendered by libass/FFmpeg (HarfBuzz shaping), never drawn by the AI. Zoom in and check matras and joined letters (ड़, दु, क्ष, etc.).
+40	- Text readable on a phone: letter height ≥ ~12% of frame height, high contrast, max ~4 words.
+41	- Thumbnail text must not repeat the title word for word.
+42	- No spoilers: no ending, no twist, no mystery answer.
+43	- Bottom-right corner (~15% × 12%) has nothing important, because YouTube puts the duration there.
+44	
+45	## 7. Metadata
+46	- Title ≤ 100 characters, no `<` or `>`. Description ≤ 5000 characters.
+47	- Tags total ≤ 500 characters. 3–5 hashtags in the description (the first 3 show above the title; more than 15 and YouTube ignores all of them).
+48	- Every CC BY music track used (e.g. Incompetech / Kevin MacLeod) is credited in the description exactly as its licence asks.
+49	- Mystery (Dadi Jasoos) videos: the answer never goes in the title, description or thumbnail. It goes in the pinned comment 24 h after publishing.
+50	- Made-for-kids and AI-disclosure values come from `munshi/channel_config.json`. Never guess them.
+51	- Dadi Ki Kahaniyan is set to made_for_kids = false (family audience, decided by the user). So title, thumbnail, description and tags must speak to the whole family, not only to children: no "for kids" / "बच्चों के लिए" / nursery-style wording. Flag any such wording as FIX.
+52	
+53	## 8. Publishing
+54	- Publish slot: the same day as the upload, between 19:00 and 23:59 IST.
+55	  - Upload finished before 18:45 IST -> publish at 19:00 the same day.
+56	  - Upload finished between 18:45 and 23:15 IST -> publish at the next :00 or :30 that is at least 30 minutes after the upload.
+57	  - Upload finished after 23:15 IST -> publish at 19:00 the next day.
+58	- At most one long video per day per channel. If a long video is already scheduled that day, use 19:00 the next day. A Short may share a day with a long video only if their publish times are at least 2 hours apart, still inside 19:00-23:59.
+59	- Nothing goes Public or gets scheduled without the user's OK in that conversation.
+60	- One upload per video. If `output/upload_result.json` exists, do not upload again.
+61	
+62	## 9. Safety
+63	- Never show or commit `.env`, `secrets/`, API keys or OAuth tokens.
+64	- Never delete files; move them to `_to_delete/`.
+65	
+66	## 10. Copyright (STRICT — any violation is FIX and blocks upload)
+67	- Every external file used in any video (music, sound effect, font, image, footage, voice) must have a row in `munshi/assets_license.csv`: path, source_url, author, license, attribution_text, date_added. No row = not allowed.
+68	- Allowed licences only: CC0; CC BY 4.0 (with exact credit in the description); SIL OFL (fonts); YouTube Audio Library tracks (follow their attribution note); our own Gemini-generated images/voices; our own recordings.
+69	- Never allowed: CC BY-NC (non-commercial, conflicts with monetization), CC BY-ND (we edit/mix), CC BY-SA, "free for personal use", Freesound "Sampling+", unknown source, anything ripped from YouTube/Spotify/Instagram/films/TV, Bollywood or any commercial song (even hummed or sung by TTS), Google/Pinterest images.
+70	- Freesound: licence is per sound. Check each file's own licence page; only CC0 or CC BY 4.0.
+71	- Content: no real brand logos, no film/TV/cartoon characters (Chhota Bheem, Motu Patlu, Disney, etc.), no celebrity likeness, no copied song lyrics, no copied text from modern books. Old folk tales (Panchatantra, Jataka, Akbar-Birbal) are public domain, but we always write our own version, never copy a modern retelling.
+72	- Image prompts never name a studio, franchise or living artist ("Pixar style", "Ghibli style", etc.).
+73	- Before upload, Munshi checks: every audio/image/font file in the final build is in the register, every CC BY item is credited in the description exactly as its licence asks, and no source audio from outside our pipeline is in the mix.
+74	- After upload: if YouTube Studio shows any copyright claim or strike, stop all new uploads and tell the user. CC music sometimes gets false Content ID claims; dispute only with the licence proof from the register, after the user agrees.
+75	
+76	## 11. Review limits and severity
+77	Every problem Munshi reports is marked BLOCKER or MINOR.
+78	
+79	BLOCKER (never waived, in any round):
+80	- Copyright (section 10), wrong channel, any secret exposed.
+81	- Wrong character on screen for a line, wrong voice for a character, a line missing or cut off.
+82	- Caption more than 1 s away from its line, or caption text not matching what is spoken.
+83	- Loudness outside -14 LUFS ±1, true peak above -1.0 dBFS, audible clipping or leaked outside audio.
+84	- Wrong resolution/codec, or a preview file used as final.
+85	- Thumbnail: broken Hindi matras, spoiler, unreadable text, important thing in the bottom-right corner.
+86	- Metadata: title over 100 chars, more than 15 hashtags, missing CC BY credit, "for kids" wording (title, thumbnail, description or tags), mystery answer revealed.
+87	- Length outside ±10% of the approved preview length.
+88	- Story problem: moral missing or a scene that contradicts the script.
+89	
+90	MINOR (everything else that breaks a RULES limit only slightly), e.g.: caption off by 0.3–1 s, caption shorter than 0.4 s, music level within 3 dB of target, thumbnail text slightly under the size rule, small silent gaps, missing colour tags, tiny cosmetic issues.
+91	Taste points (pacing feel, colour choice, music phrase) are "Note" only and never count as problems.
+92	
+93	Rounds:
+94	- Round 1 (R1): full review for that stage; BLOCKER and MINOR both come back as FIX (free) or ASK (paid).
+95	- Round 2 (R2): re-check only what changed and what failed in R1.
+96	- After R2: if any BLOCKER remains → ASK the user, stop. If only MINOR remain → verdict "PASS-WITH-NOTES": the stage is passed and the pipeline moves on to the next step (including upload when the user has approved it). No third round.
+97	- Every MINOR waived after R2 is written to munshi/carry_over.md (project, issue, suggested fix). Before the next video's build, the builder reads carry_over.md and fixes those causes in the pipeline, then marks them done.
+98	
+99	These limits never weaken: copyright (section 10), channel ID check, secrets, and the full pre-upload check.
+100	At the end of each review, add one line to munshi/log.md with the round (R1/R2), verdict and approximate time taken.
+101
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:51:02Z)**_
+
+<think><details><summary>Thought Process</summary>
+Main bantwara karunga jisme line ka matlab same rahega, sirf purane paths (`munshi/...`) naye paths (`shared/...` ya `channels/<key>/...`) me badlenge — aur accounting script usi mapping se purani har line ko naye files me dhoondhega.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:51:13Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Split RULES into shared + channel and account every line
+
+```bash
+.venv/Scripts/python.exe -X utf8 - <<'EOF'
+from pathlib import Path
+old = Path("munshi/RULES.md").read_text(encoding="utf-8").splitlines()
+MAP = [("munshi/assets_license.csv", "shared/assets_license.csv"),
+       ("munshi/channel_config.json", "channels/<key>/channel.json"),
+       ("munshi/carry_over.md", "channels/<key>/carry_over.md"),
+       ("munshi/log.md", "channels/<key>/log.md"),
+       ("channel_assets/_work/banner_art.png", "channels/dadi-ki-kahaniyan/brand/_work/banner_art.png")]
+def m(s):
+    for a, b in MAP: s = s.replace(a, b)
+    return s
+L = lambda n: m(old[n - 1])   # old line n, paths updated
+TOP = "- Channel RULES can be stricter than shared RULES, never looser. Copyright, channel ID, secrets and upload safety can never be relaxed by a channel."
+channel_lines = {14, 15, 16, 17, 49, 51}
+shared = [L(1), "", "Shared rules for every channel. Munshi reads this file first, then `channels/<key>/RULES.md`.", TOP, ""]
+for n in range(2, len(old) + 1):
+    if n in channel_lines: continue
+    shared.append(L(n))
+chan = ["# Channel RULES — दादी की कहानियाँ (dadi-ki-kahaniyan)", "",
+        "Only the rules special to this channel. Read `shared/RULES.md` first; everything there applies here too.", TOP, "",
+        old[11].replace("## 2. ", "## "),  # "## Story and characters (from `channel_bible.md`)"
+        *[L(n) for n in (14, 15, 16, 17)], "",
+        "## Metadata", L(49), L(51), ""]
+Path("shared/RULES.md").write_text("\n".join(shared) + "\n", encoding="utf-8")
+Path("channels/dadi-ki-kahaniyan/RULES.md").write_text("\n".join(chan) + "\n", encoding="utf-8")
+# accounting (0c)
+s_lines = set(Path("shared/RULES.md").read_text(encoding="utf-8").splitlines())
+c_lines = set(Path("channels/dadi-ki-kahaniyan/RULES.md").read_text(encoding="utf-8").splitlines())
+tot = sh = ch = both = miss = pathchg = 0
+missing = []
+for n, line in enumerate(old, 1):
+    if not line.strip(): continue
+    tot += 1
+    t = m(line)
+    if t != line: pathchg += 1
+    a, b = t in s_lines, t in c_lines
+    if a and b: both += 1
+    elif a: sh += 1
+    elif b: ch += 1
+    else:
+        # heading moved with renamed section number?
+        if line.startswith("## 2.") and line.replace("## 2. ", "## ") in c_lines and line in s_lines: both += 1
+        else: miss += 1; missing.append((n, line))
+print(f"old non-empty lines: {tot} | in shared: {sh} | in channel: {ch} | in both: {both} | MISSING: {miss} | lines with only path update: {pathchg}")
+for n, l in missing: print("MISSING", n, l)
+print("channel lines (old #):", sorted(channel_lines))
+EOF
+```
+
+```text
+old non-empty lines: 84 | in shared: 78 | in channel: 6 | in both: 0 | MISSING: 0 | lines with only path update: 5
+channel lines (old #): [14, 15, 16, 17, 49, 51]
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:51:19Z)**_
+
+<think><details><summary>Thought Process</summary>
+Saari 84 lines match ho gayi — 78 shared me, 6 channel me, kuch chhoota nahi. Ab purani RULES file ko `_to_delete/` me daal raha hoon, register ke paths update kar raha hoon aur `channel.json` bana raha hoon.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:51:29Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Move register to shared with new paths; create channel.json
+
+```bash
+mv munshi/RULES.md _to_delete/munshi_RULES.md && git mv munshi/assets_license.csv shared/assets_license.csv && .venv/Scripts/python.exe -X utf8 - <<'EOF'
+import csv, json
+from pathlib import Path
+CH = "channels/dadi-ki-kahaniyan"; S1 = f"{CH}/stories/001_lalchi-halwai"; S2 = f"{CH}/stories/002_sharma-ji-ki-cycle"
+MAP = [("assets/music/", "shared/music/"), ("assets/sfx/", "shared/sfx/"), ("assets/fonts/", "shared/fonts/"),
+       ("long-videos/long_01/output/long_01_thumbnail.png", f"{S1}/long/output/long_01_thumbnail.png"),
+       ("long-videos/long_01/characters/", f"{S1}/characters/"), ("long-videos/long_01/images/", f"{S1}/images/"),
+       ("images/case01_cycle_chori/", f"{S2}/images/"), ("characters/", f"{CH}/characters/"),
+       ("channel_assets/", f"{CH}/brand/"),
+       ("audio/ + long-videos/*/audio/tts_cache/", "channels/*/stories/*/audio/tts_cache/")]
+p = Path("shared/assets_license.csv")
+rows = list(csv.DictReader(p.open(encoding="utf-8", newline="")))
+for r in rows:
+    for a, b in MAP:
+        if r["path"].startswith(a) or r["path"] == a:
+            r["path"] = b + r["path"][len(a):] if r["path"] != a else b; break
+    r["source_url"] = r["source_url"].replace("assets/fonts/OFL.txt", "shared/fonts/OFL.txt")
+    r["license"] = r["license"].replace("assets/fonts/OFL.txt", "shared/fonts/OFL.txt")
+with p.open("w", encoding="utf-8", newline="") as fh:
+    w = csv.DictWriter(fh, fieldnames=rows[0].keys()); w.writeheader(); w.writerows(rows)
+bad = [r["path"] for r in rows if "*" not in r["path"] and not Path(r["path"].split(" ")[0]).exists()]
+print(len(rows), "rows; paths not found on disk:", bad)
+cfg = json.loads(Path("munshi/channel_config.json").read_text(encoding="utf-8"))["dadi-ki-kahaniyan"]
+cfg = {"channel_key": cfg.pop("channel_key"), "display_name": cfg.pop("display_name"), "channel_id": cfg.pop("channel_id"), **cfg}
+Path(f"{CH}/channel.json").write_text(json.dumps(cfg, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+print(json.dumps(cfg, ensure_ascii=False))
+EOF
+git mv munshi/channel_config.json _to_delete/ 2>/dev/null || mv munshi/channel_config.json _to_delete/munshi_channel_config.json; ls munshi _to_delete | head
+```
+
+```text
+32 rows; paths not found on disk: []
+{"channel_key": "dadi-ki-kahaniyan", "display_name": "दादी की कहानियाँ", "channel_id": "UCy071_4g4vGemktFHybqkhQ", "made_for_kids": false, "contains_synthetic_media": false, "category_id": "1", "default_language": "hi", "publish_window_ist": ["19:00", "23:59"], "max_long_per_day": 1, "min_gap_hours_short_long": 2, "playlists": {"dadi-jasoos": "", "moral-stories": ""}}
+_to_delete:
+channel_config.json
+munshi_RULES.md
+tmp_test.mp4
+tmp_test_job.json
+tz_test
+upload_safety_prompt.md
+
+munshi:
+sync.log
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:51:37Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Untrack _to_delete file, move sync log, add short project.json
+
+`git rm -q --cached _to_delete/channel_config.json && git mv munshi/sync.log shared/sync.log && rmdir munshi && SH=channels/dadi-ki-kahaniyan/stories/002_sharma-ji-ki-cycle/shorts/short_01_case-01 && printf '{\n  "kind": "short",\n  "name": "case01_cycle_chori",\n  "burn_captions": true\n}\n' > $SH/project.json && cat channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long/project.json && git ls-files _to_delete | head`
+
+```text
+{
+  "kind": "long",
+  "name": "long_01",
+  "burn_captions": false,
+  "_note": "Long videos: 16:9, no burned captions (an .srt is written for upload), music changes by mood (lines.json 'mood')."
+}
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:51:39Z)**_
+
+Ab code ki baari. Pehle ek common `scripts/paths.py` bana raha hoon, taki saari scripts ek hi jagah se naye path lein:
+
+_**Agent (claude-opus-5-5 2026-10-18 09:51:47Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Write"><details>
+<summary>Tool use: **Write**</summary>
+
+```python
+"""Project layout (multi-channel). Every script takes its paths from here.
+
+channels/<channel_key>/
+    channel.json, RULES.md, channel_bible.md, log.md, carry_over.md, brand/, characters/
+    stories/<NNN>_<slug>/
+        story.md, scene_prompts.json, script/, characters/, images/, audio/
+        long/                     project.json, lines.json, shots.json, meta.json, review/, output/
+        shorts/short_<NN>_<slug>/ project.json, lines.json, shots.json, meta.json, review/, output/
+shared/  music/, sfx/, fonts/, assets_license.csv, RULES.md, sync.log
+"""
+import json
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+SHARED = ROOT / "shared"
+MUSIC_DIR = SHARED / "music"
+SFX_DIR = SHARED / "sfx"
+FONTS_DIR = SHARED / "fonts"
+REGISTER = SHARED / "assets_license.csv"
+CHANNELS = ROOT / "channels"
+DEFAULT_CHANNEL = "dadi-ki-kahaniyan"
+
+
+def channel_dir(key: str = DEFAULT_CHANNEL) -> Path:
+    return CHANNELS / key
+
+
+def channel_config(key: str = DEFAULT_CHANNEL) -> dict:
+    return json.loads((channel_dir(key) / "channel.json").read_text(encoding="utf-8"))
+
+
+def channel_of(path) -> str:
+    """channel_key of any path inside channels/<key>/ (DEFAULT_CHANNEL if it is not inside one)."""
+    p = Path(path).resolve()
+    try:
+        return p.relative_to(CHANNELS).parts[0]
+    except (ValueError, IndexError):
+        return DEFAULT_CHANNEL
+
+
+def story_of(variant: Path) -> Path:
+    """Story folder of a long/ or shorts/short_XX/ folder."""
+    variant = Path(variant).resolve()
+    return variant.parent if variant.name == "long" else variant.parent.parent
+
+```
+
+```text
+File created successfully at: D:\Story-Channel\scripts\paths.py (file state is current in your context — no need to Read it back)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:51:47Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\scripts\make_short.py`
+
+```text
+27	import numpy as np
+28	from PIL import Image, ImageDraw, ImageFont
+29	
+30	sys.path.insert(0, str(Path(__file__).parent))
+31	import cost_log  # noqa: E402
+32	import gemini_tts  # noqa: E402
+33	from voices import CAST, pitch_filter  # noqa: E402
+34	
+35	ROOT = Path(__file__).resolve().parent.parent
+36	FFMPEG = ROOT / "tools" / "ffmpeg" / "ffmpeg.exe"
+37	if not FFMPEG.exists():  # new system: ffmpeg from winget on PATH (tools/ffmpeg is not in git)
+38	    FFMPEG = Path(shutil.which("ffmpeg") or FFMPEG)
+39	FONT = ROOT / "assets" / "fonts" / "Mukta-ExtraBold.ttf"
+40	MUSIC_DIR = ROOT / "assets" / "music"
+41	SFX_DIR = ROOT / "assets" / "sfx"
+42
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:51:55Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\scripts\make_short.py has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:51:56Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\scripts\make_short.py has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:51:57Z)**_
+
+<tool-use data-tool-type="search" data-tool-name="Grep"><details>
+<summary>Tool use: **Grep**</summary>
+ path `D:\Story-Channel\scripts\make_short.py` pattern `def load_project`
+
+```text
+620:def load_project(name):
+621-    """Short: cases/<case>/ (+ images/<case>, audio/<case>). Long: a folder with project.json
+622-    (lines.json, meta.json, shots.json, scene_prompts.json, images/, audio/, output/ inside it)."""
+623-    pdir = ROOT / name
+624-    if (pdir / "project.json").exists():
+625-        proj = json.loads((pdir / "project.json").read_text(encoding="utf-8"))
+626-        pid = proj.get("name", pdir.name)
+627-        covers = {c: s["id"] for s in json.loads((pdir / "scene_prompts.json").read_text(encoding="utf-8"))["scenes"]
+628-                  for c in s.get("covers", [s["id"]])}
+629-        img_dir = pdir / "images"
+630-        return {"kind": "long", "name": pid, "dir": pdir, "burn": proj.get("burn_captions", False),
+631-                "image_for": lambda sc: img_dir / f"scene_{covers[sc]:02d}.png",
+632-                "audio_dir": pdir / "audio", "cache_dir": ROOT / "cache" / pid, "out_dir": pdir / "output"}
+633-    cdir = ROOT / "cases" / name
+634-    return {"kind": "short", "name": name, "dir": cdir, "burn": True,
+635-            "image_for": lambda sc: ROOT / "images" / name / f"scene_{sc:02d}.png",
+636-            "audio_dir": ROOT / "audio" / name, "cache_dir": ROOT / "cache" / name, "out_dir": ROOT / "output"}
+637-
+638-
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:52:08Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\scripts\make_short.py has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:52:08Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\scripts\make_short.py`
+
+```text
+642	def main():
+643	    ap = argparse.ArgumentParser()
+644	    ap.add_argument("case_pos", nargs="?", metavar="case")
+645	    ap.add_argument("--case", dest="case_opt", help="same as the positional case name")
+646	    g = ap.add_mutually_exclusive_group()
+647	    g.add_argument("--preview", action="store_true", help="fast 540x960 check build (default)")
+648	    g.add_argument("--final", action="store_true", help="1080x1920 upload build + checks")
+649	    ap.add_argument("--spend", action="store_true", help="allow paid TTS for uncached lines")
+650	    a = ap.parse_args()
+651	    mode = "final" if a.final else "preview"
+652	    t_start = time.perf_counter()
+653	
+654	    name = a.case_opt or a.case_pos
+655	    if not name:
+656	        ap.error("case/project required: a Shorts case name or a long-video folder (e.g. long-videos/long_01)")
+657	    P = load_project(name)
+658	    prof = PROFILES[(P["kind"], mode)]
+659	    case = P["name"]
+660	    lines = json.loads((P["dir"] / "lines.json").read_text(encoding="utf-8"))
+661	    meta = json.loads((P["dir"] / "meta.json").read_text(encoding="utf-8"))
+662	    focus_file = P["dir"] / "shots.json"
+663	    P["focus"] = json.loads(focus_file.read_text(encoding="utf-8")) if focus_file.exists() else {}
+664	    try:
+665	        missing = [s for s in sorted({l["scene"] for l in lines}) if not P["image_for"](s).exists()]
+666	    except KeyError as e:
+667	        sys.exit(f"Scene {e} has no image in scene_prompts.json 'covers'")
+668	    if missing:
+669	        sys.exit(f"Missing scene images: {missing}")
+670	    check_register(meta)
+671	
+672	    out_dir = P["out_dir"]
+673	    work = out_dir / f"{case}_work"
+674	    audio_dir = P["audio_dir"]
+675	    cache_dir = P["cache_dir"]
+676	    for d in (work, audio_dir / "tts_cache", cache_dir, work / "fonts"):
+677	        d.mkdir(parents=True, exist_ok=True)
+678	    shutil.copy(FONT, work / "fonts" / FONT.name)
+679	    font_family = ImageFont.truetype(str(FONT)).getname()[0]
+680	    spend_before = sum(float(r["cost_inr"]) for r in cost_log._rows())
+681	
+682	    print(f"[{P['kind'].upper()} {mode.upper()}] {prof['w']}x{prof['h']} @ {prof['fps']} fps")
+683	    print("1/4 voice")
+684	    check_tts_spend(lines, audio_dir / "tts_cache", a.spend)
+685	    voice, total, timed, events = build_voice(lines, audio_dir, work, run_whisper=(mode == "final"))
+686	    warn = P["kind"] == "short" and not 45 <= total <= 60
+687	    print(f"  total {total:.1f}s" + ("  WARNING: outside 45-60s" if warn else ""))
+688	
+689	    print("2/4 scenes")
+690	    plans = plan_scenes(P, timed, total, prof, font_family, meta.get("final_title", "बताओ, दोषी कौन?"))
+691	    cached, new = build_video(plans, prof, cache_dir, work)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:52:12Z)**_
+
+Builder me do naye mode jod raha hoon: `--plan`, jo bina render ke saare path check karta hai, aur `--seconds N`, jo sirf pehle N second ka test preview banata hai.
+
+_**Agent (claude-opus-5-5 2026-10-18 09:52:29Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\scripts\make_short.py has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:52:30Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\scripts\make_short.py has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:52:32Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\scripts\make_short.py has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:52:33Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\scripts\make_short.py has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:52:34Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\scripts\make_short.py has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:52:34Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Check os import and ROOT usage
+
+`grep -n "^import os\|ROOT\b" scripts/make_short.py | head; grep -n "STORY_CHANNEL" scripts/*.py`
+
+```text
+17:import os
+34:from paths import FONTS_DIR, MUSIC_DIR, REGISTER, ROOT, SFX_DIR, channel_of, story_of  # noqa: E402
+36:FFMPEG = ROOT / "tools" / "ffmpeg" / "ffmpeg.exe"
+161:                                    download_root=str(ROOT / "tools" / "whisper-models"))
+424:        run([sys.executable, ROOT / "scripts" / "gen_music.py"])
+586:    rel = Path(f).resolve().relative_to(ROOT).as_posix()
+624:    pdir = (ROOT / name).resolve()
+637:            "audio_dir": story / "audio", "cache_dir": ROOT / "cache" / channel / story.name / pdir.name,
+643:    rel = lambda p: Path(p).resolve().relative_to(ROOT).as_posix()
+scripts/make_short.py:686:    os.environ["STORY_CHANNEL"] = P["channel"]  # cost_log rows get this channel
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:52:38Z)**_
+
+Ab `cost_log` me "channel" column jod raha hoon. Purani rows me `file` ke paths bhi naye kar raha hoon, kyunki Munshi isi file se images ka saboot milata hai.
+
+_**Agent (claude-opus-5-5 2026-10-18 09:52:46Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Add channel column and update paths in cost_log.csv
+
+```bash
+.venv/Scripts/python.exe -X utf8 - <<'EOF'
+import csv
+from pathlib import Path
+CH = "channels/dadi-ki-kahaniyan"; S1 = f"{CH}/stories/001_lalchi-halwai"; S2 = f"{CH}/stories/002_sharma-ji-ki-cycle"; SH = f"{S2}/shorts/short_01_case-01"
+MAP = [("long-videos/long_01/output/", f"{S1}/long/output/"), ("long-videos/long_01/", f"{S1}/"),
+       ("images/case01_cycle_chori/", f"{S2}/images/"), ("audio/case01_cycle_chori/", f"{S2}/audio/"),
+       ("audio/voice_samples/", f"{CH}/characters/voices/"), ("characters/", f"{CH}/characters/"),
+       ("channel_assets/_work/long01_thumb", f"{S1}/long/thumbnail_work/long01_thumb"),
+       ("channel_assets/_work/thumb", f"{SH}/thumbnail_work/thumb"), ("channel_assets/", f"{CH}/brand/"),
+       ("output/case01_cycle_chori", f"{SH}/output/case01_cycle_chori")]
+p = Path("cost_log.csv")
+rows = list(csv.DictReader(p.open(encoding="utf-8", newline="")))
+fields = list(rows[0].keys()) + ["channel"]
+moved = 0; notfound = []
+for r in rows:
+    r["channel"] = "dadi-ki-kahaniyan"
+    for a, b in MAP:
+        if r["file"].startswith(a):
+            r["file"] = b + r["file"][len(a):]; moved += 1; break
+    if not Path(r["file"]).exists(): notfound.append(r["file"])
+with p.open("w", encoding="utf-8", newline="") as fh:
+    w = csv.DictWriter(fh, fieldnames=fields); w.writeheader(); w.writerows(rows)
+print(len(rows), "rows,", moved, "paths updated; files not on disk now:", len(notfound))
+for f in sorted(set(notfound))[:15]: print("  ", f)
+EOF
+```
+
+```text
+139 rows, 139 paths updated; files not on disk now: 0
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:52:53Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\scripts\cost_log.py has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:52:55Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\scripts\cost_log.py has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:52:56Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\scripts\cost_log.py has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:53:00Z)**_
+
+Ab baaki scripts: `gen_scenes`, characters, channel assets, voices, music, SFX aur preview.
+
+_**Agent (claude-opus-5-5 2026-10-18 09:53:15Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Update path constants in generator scripts
+
+```bash
+.venv/Scripts/python.exe -X utf8 - <<'EOF'
+from pathlib import Path
+def sub(f, pairs):
+    p = Path(f); s = p.read_text(encoding="utf-8")
+    for a, b in pairs:
+        assert a in s, (f, a); s = s.replace(a, b)
+    p.write_text(s, encoding="utf-8"); print("ok", f)
+
+sub("scripts/gen_scenes.py", [
+ ('Usage:  python scripts/gen_scenes.py case01_cycle_chori [ids...]              (Shorts: cases/<case>/scene_prompts.json)\n        python scripts/gen_scenes.py long-videos/long_01/scene_prompts.json [ids...]',
+  'Usage:  python scripts/gen_scenes.py channels/<key>/stories/<story>/scene_prompts.json [ids...]\n        (images go to the story\'s images/, shared by its long video and shorts)'),
+ ('else characters/<name>_sheet.png.', 'else channels/<key>/characters/<name>_sheet.png.'),
+ ('from gemini_image import generate  # noqa: E402\n\nROOT = Path(__file__).resolve().parent.parent\n',
+  'from gemini_image import generate  # noqa: E402\nfrom paths import ROOT, channel_dir, channel_of  # noqa: E402\n'),
+ ('''    if arg.endswith(".json"):
+        path = ROOT / arg
+        spec = json.loads(path.read_text(encoding="utf-8"))
+        out_dir = ROOT / spec["out_dir"] if "out_dir" in spec else path.parent / "images"
+    else:
+        spec = json.loads((ROOT / "cases" / arg / "scene_prompts.json").read_text(encoding="utf-8"))
+        out_dir = ROOT / "images" / arg
+    return spec, out_dir''',
+  '''    path = ROOT / arg
+    if path.is_dir():
+        path = path / "scene_prompts.json"
+    spec = json.loads(path.read_text(encoding="utf-8"))
+    out_dir = ROOT / spec["out_dir"] if "out_dir" in spec else path.parent / "images"
+    spec["_chars"] = channel_dir(channel_of(path)) / "characters"
+    return spec, out_dir'''),
+ ('    return ROOT / "characters" / f"{ref}_sheet.png"', '    return spec["_chars"] / f"{ref}_sheet.png"'),
+ ('            refs = [ROOT / "characters" / "dadi_sheet.png"]', '            refs = [spec["_chars"] / "dadi_sheet.png"]'),
+])
+sub("scripts/gen_long_characters.py", [
+ ('Usage: python scripts/gen_long_characters.py long_01 [name ...]\nOutput: long-videos/<id>/characters/<file>',
+  'Usage: python scripts/gen_long_characters.py long_01 [name ...]\nOutput: the story\'s characters/ folder (STORY_DIRS below)'),
+ ('ROOT = Path(__file__).resolve().parent.parent\nSTYLE_REFS = [ROOT / "characters" / "dadi_sheet.png", ROOT / "characters" / "golu_sheet.png"]',
+  'from paths import ROOT, channel_dir  # noqa: E402\n\nCHAR = channel_dir() / "characters"\nSTYLE_REFS = [CHAR / "dadi_sheet.png", CHAR / "golu_sheet.png"]\nSTORY_DIRS = {"long_01": channel_dir() / "stories" / "001_lalchi-halwai"}'),
+ ('    out_dir = ROOT / "long-videos" / vid / "characters"', '    out_dir = STORY_DIRS[vid] / "characters"'),
+])
+sub("scripts/gen_characters.py", [
+ ('ROOT = Path(__file__).resolve().parent.parent\nOUT = ROOT / "characters"',
+  'from paths import ROOT, channel_dir  # noqa: E402\n\nOUT = channel_dir() / "characters"'),
+])
+sub("scripts/voice_samples.py", [
+ ('ROOT = Path(__file__).resolve().parent.parent\nOUT = ROOT / "audio" / "voice_samples"',
+  'from paths import ROOT, channel_dir  # noqa: E402\n\nOUT = channel_dir() / "characters" / "voices"'),
+])
+sub("scripts/gen_music.py", [
+ ('OUT = ROOT / "assets" / "music" / "mystery_bed.wav"', 'OUT = ROOT / "shared" / "music" / "mystery_bed.wav"'),
+])
+sub("scripts/fetch_sfx.py", [('OUT = ROOT / "assets" / "sfx"', 'OUT = ROOT / "shared" / "sfx"')])
+sub("scripts/preview.py", [
+ ('SECTIONS = [("Characters", ROOT / "characters"), ("Scenes", ROOT / "images")]',
+  'SECTIONS = [("Characters", ROOT / "channels"), ("Scenes", ROOT / "channels")]  # see build(): sheets vs scene images'),
+])
+EOF
+sed -n 1,60p scripts/preview.py
+```
+
+```text
+ok scripts/gen_scenes.py
+ok scripts/gen_long_characters.py
+ok scripts/gen_characters.py
+ok scripts/voice_samples.py
+ok scripts/gen_music.py
+ok scripts/fetch_sfx.py
+ok scripts/preview.py
+"""Build PREVIEW.md (image gallery with costs) and open images inside VS Code.
+
+Usage:  python scripts/preview.py            rebuild PREVIEW.md and open its Markdown preview
+        python scripts/preview.py <image>    open one image in a VS Code tab
+"""
+import csv
+import os
+import shutil
+import subprocess
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+PREVIEW = ROOT / "PREVIEW.md"
+SECTIONS = [("Characters", ROOT / "channels"), ("Scenes", ROOT / "channels")]  # see build(): sheets vs scene images
+
+
+def _costs():
+    log = ROOT / "cost_log.csv"
+    if not log.exists():
+        return {}, None
+    with log.open(encoding="utf-8", newline="") as f:
+        rows = list(csv.DictReader(f))
+    return {r["file"]: r for r in rows}, (rows[-1] if rows else None)
+
+
+def build() -> Path:
+    costs, last = _costs()
+    lines = ["# Preview — दादी की कहानियाँ", ""]
+    if last:
+        lines += [f"**Budget bacha:** ₹{last['remaining_inr']}  ·  **Last image:** {last['timestamp']}", ""]
+    for title, folder in SECTIONS:
+        imgs = sorted(p for p in folder.rglob("*.png") if not any(part.startswith("_") for part in p.relative_to(folder).parts))
+        if not imgs:
+            continue
+        lines += [f"## {title}", ""]
+        for img in imgs:
+            rel = img.relative_to(ROOT).as_posix()
+            c = costs.get(rel)
+            meta = f" — ₹{c['cost_inr']} · {c['timestamp']}" if c else ""
+            lines += [f"### {img.stem}{meta}", "", f"![{img.stem}]({rel})", ""]
+    PREVIEW.write_text("\n".join(lines), encoding="utf-8")
+    return PREVIEW
+
+
+def open_in_vscode(path: Path):
+    if os.environ.get("AUTO_PREVIEW", "1") == "0":
+        return
+    code = shutil.which("code")
+    if code:
+        subprocess.run([code, "--reuse-window", str(path)], check=False, shell=os.name == "nt")
+
+
+if __name__ == "__main__":
+    if len(sys.argv) > 1:
+        open_in_vscode(Path(sys.argv[1]).resolve())
+    else:
+        open_in_vscode(build())
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:53:24Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Fix preview sections; list gen_channel_assets paths
+
+```bash
+.venv/Scripts/python.exe -X utf8 - <<'EOF'
+from pathlib import Path
+p = Path("scripts/preview.py"); s = p.read_text(encoding="utf-8")
+s = s.replace('SECTIONS = [("Characters", ROOT / "channels"), ("Scenes", ROOT / "channels")]  # see build(): sheets vs scene images',
+              'SECTIONS = [("Characters", "characters"), ("Scenes", "images")]  # folder name inside channels/**/')
+s = s.replace('''    for title, folder in SECTIONS:
+        imgs = sorted(p for p in folder.rglob("*.png") if not any(part.startswith("_") for part in p.relative_to(folder).parts))''',
+'''    for title, kind in SECTIONS:
+        imgs = sorted(p for p in (ROOT / "channels").rglob(f"{kind}/*.png")
+                      if not any(part.startswith("_") for part in p.relative_to(ROOT).parts))''')
+p.write_text(s, encoding="utf-8"); print("ok")
+EOF
+grep -n "ROOT\|OUT =\|WORK\|CHAR\|LONG01\|fonts\|images\|channel_assets" scripts/gen_channel_assets.py | head -40
+```
+
+```text
+ok
+3:Usage: python scripts/gen_channel_assets.py banner|dp|text
+20:ROOT = Path(__file__).resolve().parent.parent
+21:OUT = ROOT / "channel_assets"
+22:WORK = OUT / "_work"
+23:CHAR = ROOT / "characters"
+24:FFMPEG = ROOT / "tools" / "ffmpeg" / "ffmpeg.exe"
+71:    fonts = WORK / "fonts"
+72:    fonts.mkdir(parents=True, exist_ok=True)
+73:    shutil.copy(ROOT / "assets" / "fonts" / "Mukta-Bold.ttf", fonts / "Mukta-Bold.ttf")
+89:    (WORK / "title.ass").write_text(ass, encoding="utf-8")
+90:    shutil.copy(art, WORK / "art.png")
+92:                    "subtitles=filename=title.ass:fontsdir=fonts", "-frames:v", "1", "titled.png"],
+93:                   cwd=WORK, check=True)
+94:    shutil.copy(WORK / "titled.png", out)
+98:    raw = WORK / "banner_raw.png"
+99:    generate(BANNER_PROMPT, raw, refs=[CHAR / "dadi_sheet.png", CHAR / "golu_sheet.png", CHAR / "mitthu_sheet.png"],
+101:    cover(raw, BW, BH, WORK / "banner_art.png")
+107:    draw_title(WORK / "banner_art.png", out)
+112:    raw = WORK / "dp_raw.png"
+113:    generate(DP_PROMPT, raw, refs=[CHAR / "dadi_sheet.png"], aspect_ratio="1:1", size="1K")
+138:    fonts = WORK / "fonts"
+139:    fonts.mkdir(parents=True, exist_ok=True)
+140:    shutil.copy(ROOT / "assets" / "fonts" / "Mukta-Bold.ttf", fonts / "Mukta-Bold.ttf")
+157:    (WORK / "thumb.ass").write_text(ass, encoding="utf-8")
+158:    shutil.copy(art, WORK / "thumb_art.png")
+160:                    "subtitles=filename=thumb.ass:fontsdir=fonts", "-frames:v", "1", "thumb_titled.png"],
+161:                   cwd=WORK, check=True)
+162:    shutil.copy(WORK / "thumb_titled.png", out)
+166:    raw = WORK / "thumb_raw.png"
+167:    refs = [CHAR / "dadi_sheet.png"] + [ROOT / "images" / "case01_cycle_chori" / f"scene_0{n}.png" for n in (3, 4, 5)]
+169:    cover(raw, TW, TH, WORK / "thumb_art_sized.png")
+175:    draw_thumb_text(WORK / "thumb_art_sized.png", out)
+200:    raw = WORK / "thumb_v_raw.png"
+201:    refs = [CHAR / "dadi_sheet.png"] + [ROOT / "images" / "case01_cycle_chori" / f"scene_0{n}.png" for n in (3, 4, 5)]
+203:    cover(raw, VW, VH, WORK / "thumb_v_art.png")
+209:    fonts = WORK / "fonts"
+210:    fonts.mkdir(parents=True, exist_ok=True)
+211:    shutil.copy(ROOT / "assets" / "fonts" / "Mukta-Bold.ttf", fonts / "Mukta-Bold.ttf")
+228:    (WORK / "thumb_v.ass").write_text(ass, encoding="utf-8")
+229:    shutil.copy(WORK / "thumb_v_art.png", WORK / "thumb_v_in.png")
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:53:41Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Retarget gen_channel_assets paths per brand/story
+
+```bash
+.venv/Scripts/python.exe -X utf8 - <<'EOF'
+import re
+from pathlib import Path
+p = Path("scripts/gen_channel_assets.py"); s = p.read_text(encoding="utf-8")
+s = s.replace('''ROOT = Path(__file__).resolve().parent.parent
+OUT = ROOT / "channel_assets"
+WORK = OUT / "_work"
+CHAR = ROOT / "characters"''', '''from paths import FONTS_DIR, ROOT, channel_dir  # noqa: E402
+
+OUT = channel_dir() / "brand"  # banner + DP
+WORK = OUT / "_work"
+CHAR = channel_dir() / "characters"
+STORY_002 = channel_dir() / "stories" / "002_sharma-ji-ki-cycle"
+CASE01 = STORY_002 / "shorts" / "short_01_case-01"  # Case 01 thumbnails (work files in thumbnail_work/)''')
+s = s.replace('ROOT / "assets" / "fonts" / "Mukta-Bold.ttf"', 'FONTS_DIR / "Mukta-Bold.ttf"')
+s = s.replace('ROOT / "images" / "case01_cycle_chori" / f"scene_0{n}.png"', 'STORY_002 / "images" / f"scene_0{n}.png"')
+s = s.replace('LONG01 = ROOT / "long-videos" / "long_01"', 'LONG01 = channel_dir() / "stories" / "001_lalchi-halwai"')
+# split into functions and retarget WORK/output inside the thumbnail functions
+parts = re.split(r"(?m)^(?=def |[A-Z0-9_]+ = )", s)
+out = []
+for part in parts:
+    m = re.match(r"def (\w+)", part)
+    name = m.group(1) if m else ""
+    if name in ("draw_thumb_text", "thumb", "thumb_text", "thumb_v", "thumb_v_text"):
+        part = part.replace("WORK", "C1W")
+        part = part.replace('OUT / "case01_thumbnail.png"', 'CASE01 / "output" / "case01_thumbnail.png"')
+        part = part.replace('OUT / "case01_thumbnail_vertical.png"', 'CASE01 / "output" / "case01_thumbnail_vertical.png"')
+    if name in ("long01_thumb", "long01_thumb_text"):
+        part = part.replace("WORK", "L1W")
+        part = part.replace('LONG01 / "output" / "long_01_thumbnail.png"', 'LONG01 / "long" / "output" / "long_01_thumbnail.png"')
+    out.append(part)
+s = "".join(out)
+s = s.replace('''CASE01 = STORY_002 / "shorts" / "short_01_case-01"  # Case 01 thumbnails (work files in thumbnail_work/)''',
+ '''CASE01 = STORY_002 / "shorts" / "short_01_case-01"  # Case 01 thumbnails (work files in thumbnail_work/)
+C1W = CASE01 / "thumbnail_work"''')
+s = s.replace('LONG01 = channel_dir() / "stories" / "001_lalchi-halwai"', 'LONG01 = channel_dir() / "stories" / "001_lalchi-halwai"\nL1W = LONG01 / "long" / "thumbnail_work"')
+s = s.replace('if __name__ == "__main__":\n    WORK.mkdir(parents=True, exist_ok=True)', 'if __name__ == "__main__":\n    for d in (WORK, C1W, L1W):\n        d.mkdir(parents=True, exist_ok=True)')
+p.write_text(s, encoding="utf-8")
+EOF
+grep -n "WORK\|C1W\|L1W\|OUT /\|LONG01 /\|CASE01 /" scripts/gen_channel_assets.py | head -50; grep -n "c = LONG01" scripts/gen_channel_assets.py
+```
+
+```text
+23:WORK = OUT / "_work"
+27:C1W = CASE01 / "thumbnail_work"
+75:    fonts = WORK / "fonts"
+93:    (WORK / "title.ass").write_text(ass, encoding="utf-8")
+94:    shutil.copy(art, WORK / "art.png")
+97:                   cwd=WORK, check=True)
+98:    shutil.copy(WORK / "titled.png", out)
+102:    raw = WORK / "banner_raw.png"
+105:    cover(raw, BW, BH, WORK / "banner_art.png")
+110:    out = OUT / "dadi_ki_kahaniyan_banner.png"
+111:    draw_title(WORK / "banner_art.png", out)
+116:    raw = WORK / "dp_raw.png"
+118:    out = OUT / "dadi_ki_kahaniyan_dp.png"
+142:    fonts = C1W / "fonts"
+161:    (C1W / "thumb.ass").write_text(ass, encoding="utf-8")
+162:    shutil.copy(art, C1W / "thumb_art.png")
+165:                   cwd=C1W, check=True)
+166:    shutil.copy(C1W / "thumb_titled.png", out)
+170:    raw = C1W / "thumb_raw.png"
+173:    cover(raw, TW, TH, C1W / "thumb_art_sized.png")
+178:    out = CASE01 / "output" / "case01_thumbnail.png"
+179:    draw_thumb_text(C1W / "thumb_art_sized.png", out)
+204:    raw = C1W / "thumb_v_raw.png"
+207:    cover(raw, VW, VH, C1W / "thumb_v_art.png")
+213:    fonts = C1W / "fonts"
+232:    (C1W / "thumb_v.ass").write_text(ass, encoding="utf-8")
+233:    shutil.copy(C1W / "thumb_v_art.png", C1W / "thumb_v_in.png")
+236:                   cwd=C1W, check=True)
+237:    out = CASE01 / "output" / "case01_thumbnail_vertical.png"
+238:    shutil.copy(C1W / "thumb_v_titled.png", out)
+243:L1W = LONG01 / "long" / "thumbnail_work"
+261:    raw = L1W / "long01_thumb_raw.png"
+262:    c = LONG01 / "characters"
+265:    cover(raw, TW, TH, L1W / "long01_thumb_art.png")
+271:    fonts = L1W / "fonts"
+290:    (L1W / "long01_thumb.ass").write_text(ass, encoding="utf-8")
+291:    shutil.copy(L1W / "long01_thumb_art.png", L1W / "long01_thumb_in.png")
+294:                   cwd=L1W, check=True)
+295:    out = LONG01 / "long" / "output" / "long_01_thumbnail.png"
+296:    shutil.copy(L1W / "long01_thumb_titled.png", out)
+301:    L1W.mkdir(parents=True, exist_ok=True)
+262:    c = LONG01 / "characters"
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:53:43Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\scripts\gen_channel_assets.py`
+
+```text
+296	    shutil.copy(L1W / "long01_thumb_titled.png", out)
+297	    print("saved", out, Image.open(out).size)
+298	
+299	
+300	if __name__ == "__main__":
+301	    L1W.mkdir(parents=True, exist_ok=True)
+302	    {"banner": banner, "dp": dp, "text": text, "thumb": thumb, "thumb_text": thumb_text,
+303	     "thumb_v": thumb_v, "thumb_v_text": thumb_v_text,
+304	     "long01_thumb": long01_thumb, "long01_thumb_text": long01_thumb_text}[sys.argv[1]]()
+305
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:53:52Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\scripts\gen_channel_assets.py has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:54:33Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Fix scene_prompts ref paths; find remaining old paths
+
+```bash
+.venv/Scripts/python.exe -X utf8 - <<'EOF'
+import json
+from pathlib import Path
+CH = "channels/dadi-ki-kahaniyan"; S1 = f"{CH}/stories/001_lalchi-halwai"
+p = Path(f"{S1}/scene_prompts.json"); s = p.read_text(encoding="utf-8")
+s = s.replace('"long-videos/long_01/images"', f'"{S1}/images"').replace('long-videos/long_01/characters/', f'{S1}/characters/') \
+     .replace('channel_assets/_work/', f'{CH}/brand/_work/')
+p.write_text(s, encoding="utf-8")
+spec = json.loads(s)
+print("out_dir:", spec.get("out_dir")); 
+for k, v in spec.get("ref_files", {}).items(): print(" ", k, v, Path(v).exists())
+q = json.loads(Path(f"{CH}/stories/002_sharma-ji-ki-cycle/scene_prompts.json").read_text(encoding="utf-8"))
+print("case01 keys:", [k for k in q if k not in ("looks", "scenes")], q.get("ref_files"), q.get("out_dir"))
+EOF
+grep -rn "long-videos\|channel_assets\|cases/\|assets/\(music\|sfx\|fonts\)\|munshi/\|\"images\"\|ROOT / \"characters\"\|ROOT / \"images\"\|ROOT / \"audio\"\|ROOT / \"output\"" scripts tools deploy.ps1 .claude/agents .claude/skills CLAUDE.md docs .vscode .gitignore 2>/dev/null | grep -v "^scripts/paths.py"
+```
+
+```text
+out_dir: channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/images
+  ghasita channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/characters/ghasita_sheet.png True
+  chhotu channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/characters/chhotu_sheet.png True
+  sadhu channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/characters/sadhu_sheet.png True
+  kadhai channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/characters/cadhai_prop.png True
+  aangan channels/dadi-ki-kahaniyan/brand/_work/banner_art.png True
+case01 keys: ['base'] None None
+scripts/fetch_sfx.py:4:Output: assets/sfx/<kind>_<id>.mp3 + assets/sfx/CREDITS.md (CC0: no attribution needed, kept for records)
+scripts/gen_channel_assets.py:3:Usage: python scripts/gen_channel_assets.py banner|dp|text
+scripts/gen_channel_assets.py:171:    refs = [CHAR / "dadi_sheet.png"] + [STORY_002 / "images" / f"scene_0{n}.png" for n in (3, 4, 5)]
+scripts/gen_channel_assets.py:205:    refs = [CHAR / "dadi_sheet.png"] + [STORY_002 / "images" / f"scene_0{n}.png" for n in (3, 4, 5)]
+scripts/gen_music.py:3:Usage: python scripts/gen_music.py [seconds]   -> assets/music/mystery_bed.wav
+scripts/gen_scenes.py:23:    out_dir = ROOT / spec["out_dir"] if "out_dir" in spec else path.parent / "images"
+scripts/make_short.py:7:Needs:  cases/<case>/lines.json, meta.json, shots.json, images/<case>/scene_XX.png
+scripts/make_short.py:584:    """The asset's row in munshi/assets_license.csv (RULES section 10). No row -> stop the build."""
+scripts/make_short.py:633:    img_dir = story / "images"
+scripts/preview.py:15:SECTIONS = [("Characters", "characters"), ("Scenes", "images")]  # folder name inside channels/**/
+Binary file scripts/__pycache__/make_short.cpython-314.pyc matches
+tools/youtube_upload.py:5:    python tools/youtube_upload.py --job long-videos/long_01/output/upload.json --dry-run
+tools/youtube_upload.py:6:    python tools/youtube_upload.py --job long-videos/long_01/output/upload.json
+tools/youtube_upload.py:86:        errs.append("channel_id missing/invalid (24 chars, starts with UC; set it in munshi/channel_config.json)")
+tools/youtube_upload.py:108:        errs.append("made_for_kids must be true/false (set it in munshi/channel_config.json)")
+Binary file tools/__pycache__/youtube_upload.cpython-314.pyc matches
+.claude/agents/munshi.md:17:1. Read `munshi/RULES.md`. Those rules override anything a builder summary says.
+.claude/agents/munshi.md:19:3. Read `munshi/log.md` (create it if missing) to see what you already approved for this project.
+.claude/agents/munshi.md:24:- Check against: the approved script, `channel_bible.md`, `munshi/RULES.md`, and the checklist for that stage in the `step-review` skill.
+.claude/agents/munshi.md:26:- You may create files only inside `munshi/` (log, reports, contact sheets) and the project's `output/review/` folder.
+.claude/agents/munshi.md:44:Append one line per verdict to `munshi/log.md`: date, project, step, verdict, one-line reason.
+.claude/agents/munshi.md:49:- `munshi/log.md` has a PASS for this project's **final** build, thumbnail and metadata.
+.claude/skills/step-review/SKILL.md:8:Use this after every production step of a video in the Story-Channel project. Always read `munshi/RULES.md` and `channel_bible.md` first. Verify by opening files yourself; never accept a summary as proof.
+.claude/skills/step-review/SKILL.md:11:1. Identify the project (e.g. `long-videos/long_01`) and the stage just finished.
+.claude/skills/step-review/SKILL.md:15:5. Report in the munshi format and append one line to `munshi/log.md`.
+.claude/skills/step-review/SKILL.md:62:- Copyright: run the RULES section 10 checks against munshi/assets_license.csv. Any miss is FIX.
+.claude/skills/step-review/SKILL.md:74:- made_for_kids and AI disclosure taken from `munshi/channel_config.json`.
+.claude/skills/step-review/SKILL.md:75:- Copyright: run the RULES section 10 checks against munshi/assets_license.csv. Any miss is FIX.
+.claude/skills/youtube-publish/SKILL.md:26:1. Confirm in `munshi/log.md`: PASS for final build, thumbnail and metadata of this project. Confirm `output/upload_result.json` does not exist.
+.claude/skills/youtube-publish/SKILL.md:27:2. Read `munshi/channel_config.json` for made_for_kids, contains_synthetic_media, category_id, language, publish time, playlist id. If made_for_kids is null, ASK the user and save the answer there.
+.claude/skills/youtube-publish/SKILL.md:36:   - channel_key, channel_name, channel_id (from `munshi/channel_config.json`)
+.claude/skills/youtube-publish/SKILL.md:49:9. Append a PUBLISHED line to `munshi/log.md`.
+CLAUDE.md:23:- Naye rules `munshi/RULES.md` me jaate hain.
+CLAUDE.md:29:- Sync log: `munshi/sync.log`. Koi ERROR dikhe to mujhe batao.
+docs/YOUTUBE_UPLOADER_SETUP.md:14:| Channel settings | `munshi/channel_config.json` | yes |
+docs/YOUTUBE_UPLOADER_SETUP.md:43:## 3. Channel config (`munshi/channel_config.json`)
+docs/YOUTUBE_UPLOADER_SETUP.md:73:1. Munshi gives PASS for final build, thumbnail, metadata and copyright (logged in `munshi/log.md`).
+docs/YOUTUBE_UPLOADER_SETUP.md:77:4. Munshi runs the same command without `--dry-run`, then writes a PUBLISHED line in `munshi/log.md`.
+docs/YOUTUBE_UPLOADER_SETUP.md:102:Add a new block to `munshi/channel_config.json` with its own `channel_key` and `channel_id`; the same OAuth client works.
+.gitignore:28:long-videos/*/output/*_work/
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:54:39Z)**_
+
+Kaafi jagah purane path bache hain. Ab inhe ek-ek karke badal raha hoon: upload script, agent, skills, CLAUDE.md, docs, `.gitignore`, sync aur deploy.
+
+_**Agent (claude-opus-5-5 2026-10-18 09:54:51Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Update script docstrings and upload channel.json check
+
+```bash
+.venv/Scripts/python.exe -X utf8 - <<'EOF'
+from pathlib import Path
+def sub(f, pairs):
+    p = Path(f); s = p.read_text(encoding="utf-8")
+    for a, b in pairs:
+        assert a in s, (f, a[:60]); s = s.replace(a, b)
+    p.write_text(s, encoding="utf-8"); print("ok", f)
+L1 = "channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long"
+sub("scripts/fetch_sfx.py", [("Output: assets/sfx/<kind>_<id>.mp3 + assets/sfx/CREDITS.md", "Output: shared/sfx/<kind>_<id>.mp3 + shared/sfx/CREDITS.md")])
+sub("scripts/gen_music.py", [("-> assets/music/mystery_bed.wav", "-> shared/music/mystery_bed.wav")])
+sub("scripts/make_short.py", [("Needs:  cases/<case>/lines.json, meta.json, shots.json, images/<case>/scene_XX.png",
+                               "Needs:  a video folder with project.json (channels/<key>/stories/<story>/long or .../shorts/short_XX_<slug>)\n        + lines.json, meta.json, shots.json; story-level images/scene_XX.png, audio/, scene_prompts.json"),
+                              ("in munshi/assets_license.csv (RULES section 10)", "in shared/assets_license.csv (RULES section 10)")])
+sub("tools/youtube_upload.py", [
+ ("    python tools/youtube_upload.py --job long-videos/long_01/output/upload.json --dry-run\n    python tools/youtube_upload.py --job long-videos/long_01/output/upload.json",
+  f"    python tools/youtube_upload.py --job {L1}/output/upload.json --dry-run\n    python tools/youtube_upload.py --job {L1}/output/upload.json"),
+ ("set it in munshi/channel_config.json)\")\n    fmt", "set it in channels/<key>/channel.json)\")\n    fmt"),
+ ("(set it in munshi/channel_config.json)", "(set it in channels/<key>/channel.json)"),
+ ('''    fmt = job.get("format")''', '''    if key and not errs:  # the job must match the channel's own config (channels/<key>/channel.json)
+        cfg_file = ROOT / "channels" / key / "channel.json"
+        if not cfg_file.exists():
+            errs.append(f"no channel config: {cfg_file.relative_to(ROOT).as_posix()}")
+        else:
+            cfg = json.loads(cfg_file.read_text(encoding="utf-8"))
+            if cfg.get("channel_id") != cid:
+                errs.append(f"channel_id {cid} does not match {cfg_file.relative_to(ROOT).as_posix()} ({cfg.get('channel_id')})")
+            if job.get("made_for_kids") != cfg.get("made_for_kids"):
+                errs.append("made_for_kids differs from the channel config")
+    fmt = job.get("format")'''),
+])
+EOF
+.venv/Scripts/python.exe -m py_compile tools/youtube_upload.py scripts/*.py && echo compiled
+```
+
+```text
+ok scripts/fetch_sfx.py
+ok scripts/gen_music.py
+ok scripts/make_short.py
+ok tools/youtube_upload.py
+compiled
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:54:54Z)**_
+
+Ab Munshi agent aur dono skills:
+
+_**Agent (claude-opus-5-5 2026-10-18 09:55:08Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Update munshi agent and skills to new paths
+
+```bash
+.venv/Scripts/python.exe -X utf8 - <<'EOF'
+from pathlib import Path
+def sub(f, pairs):
+    p = Path(f); s = p.read_text(encoding="utf-8")
+    for a, b in pairs:
+        assert a in s, (f, a[:70]); s = s.replace(a, b)
+    p.write_text(s, encoding="utf-8"); print("ok", f)
+sub(".claude/agents/munshi.md", [
+ ("1. Read `munshi/RULES.md`. Those rules override anything a builder summary says.\n2. Read `channel_bible.md` and the project's own files (`script*.md`, `*_SCENES.md`, `lines.json`, `shots.json`, `meta.json`).\n3. Read `munshi/log.md` (create it if missing) to see what you already approved for this project.",
+  "1. Read `shared/RULES.md`, then `channels/<key>/RULES.md` (channel rules may be stricter, never looser). Those rules override anything a builder summary says.\n2. Read `channels/<key>/channel_bible.md` and the story's own files (`story.md`, `script/`, `scene_prompts.json`, and in the video folder `lines.json`, `shots.json`, `meta.json`).\n3. Read `channels/<key>/log.md` (create it if missing) to see what you already approved for this project.\n\nLayout: `channels/<key>/stories/<NNN>_<slug>/` holds images/, audio/, characters/ for the story; its long video is in `long/` and each Short in `shorts/short_<NN>_<slug>/` (each with project.json, output/, review/). Shared music, SFX, fonts, the licence register `shared/assets_license.csv` and `shared/RULES.md` are in `shared/`. The channel config is `channels/<key>/channel.json`."),
+ ("`channel_bible.md`, `munshi/RULES.md`, and the checklist", "`channels/<key>/channel_bible.md`, `shared/RULES.md` + `channels/<key>/RULES.md`, and the checklist"),
+ ("- You may create files only inside `munshi/` (log, reports, contact sheets) and the project's `output/review/` folder.",
+  "- You may create files only in `channels/<key>/log.md`, `channels/<key>/carry_over.md` and the video folder's `review/` folder (reports, contact sheets)."),
+ ("Append one line per verdict to `munshi/log.md`", "Append one line per verdict to `channels/<key>/log.md`"),
+ ("- `munshi/log.md` has a PASS", "- `channels/<key>/log.md` has a PASS"),
+])
+sub(".claude/skills/step-review/SKILL.md", [
+ ("Always read `munshi/RULES.md` and `channel_bible.md` first.", "Always read `shared/RULES.md`, then `channels/<key>/RULES.md`, and `channels/<key>/channel_bible.md` first."),
+ ("1. Identify the project (e.g. `long-videos/long_01`) and the stage just finished.", "1. Identify the video folder (e.g. `channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long`) and the stage just finished."),
+ ("append one line to `munshi/log.md`.", "append one line to `channels/<key>/log.md`."),
+ ("- made_for_kids and AI disclosure taken from `munshi/channel_config.json`.", "- made_for_kids and AI disclosure taken from `channels/<key>/channel.json`."),
+])
+p = Path(".claude/skills/step-review/SKILL.md"); s = p.read_text(encoding="utf-8")
+s = s.replace("against munshi/assets_license.csv", "against shared/assets_license.csv"); p.write_text(s, encoding="utf-8")
+sub(".claude/skills/youtube-publish/SKILL.md", [
+ ("1. Confirm in `munshi/log.md`:", "1. Confirm in `channels/<key>/log.md`:"),
+ ("2. Read `munshi/channel_config.json` for", "2. Read `channels/<key>/channel.json` for"),
+ ("(from `munshi/channel_config.json`)", "(from `channels/<key>/channel.json`)"),
+ ("9. Append a PUBLISHED line to `munshi/log.md`.", "9. Append a PUBLISHED line to `channels/<key>/log.md` and update the story's `story.md` status."),
+])
+EOF
+grep -n "munshi/" .claude/agents/munshi.md .claude/skills/*/SKILL.md
+```
+
+```text
+ok .claude/agents/munshi.md
+ok .claude/skills/step-review/SKILL.md
+ok .claude/skills/youtube-publish/SKILL.md
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:55:08Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\CLAUDE.md`
+
+```text
+1	# दादी की कहानियाँ (Dadi Ki Kahaniyan) — Story Channel
+2	
+3	Har script, case file aur image prompt se pehle [channel_bible.md](channel_bible.md) padho aur uske rules exactly follow karo:
+4	- Permanent characters ka look kabhi mat badlo — bible ke exact descriptions use karo.
+5	- Script: 110–140 words, 2-sec hook, Golu ka ek galat guess, Dadi ka ek clue observation, end me "बताओ, दोषी कौन?". Answer alag file me.
+6	- Naye suspects ka look case file me likho; dobara aayein to wahi look use karo.
+7	- Har paid image ke baad user ko batao: is image ka cost (₹), aaj ka total, aur ₹500 budget me se kitna bacha. `scripts/gemini_image.py` ye apne aap `cost_log.csv` me likhta aur print karta hai.
+8	- Paisa lagne wala koi bhi naya kaam user se pooch kar hi karo. User se Hinglish me baat karo.
+9	- Paid image/TTS se PEHLE har chinta batao aur jawab ka intezaar karo: answer spoil hona, Shorts (9:16) vs 16:9, YouTube safe area, AI se Hindi text. Kai sudhaar hon to sab ek hi generation me jodo.
+10	
+11	## Video build workflow
+12	Command: `.\.venv\Scripts\python -X utf8 scripts\make_short.py <case> [--preview | --final] [--spend]`
+13	- Koi bhi badlav ho to pehle sirf `--preview` banao. `--final` tabhi banao jab user bole "final banao".
+14	- Sirf badla hua scene ya line dobara banao, baaki cache se lo (`cache/<case>/` scene clips, `audio/<case>/tts_cache/` TTS). Kabhi poori video shuru se mat banao (cache mat mitao) jab tak user na kahe.
+15	- User ke kai badlav ek saath aayein to sab ek hi build me lagao, har badlav par alag build mat chalao.
+16	- Image/TTS par paisa lagne se pehle cost batao aur user se poocho. Paisa sirf cache miss par lage; make_short bina `--spend` ke paid TTS se pehle ruk kar estimate dikhata hai.
+17	- Build ke baad hamesha batao: preview ya final, scenes cached/naye, build time, aur kharcha.
+18	- Yaad rakhna: Shorts ka music agle build me 3-4 dB dheema karna hai (stem method se 12-14 LU target).
+19	
+20	## Munshi (review + publish)
+21	- Har production step ke baad `munshi` subagent ko bulao aur uska verdict mujhe dikhao. FIX ho to free fix karo aur dobara review karwao; ASK ho to mujhse poochho.
+22	- Upload sirf `munshi` karega, `youtube-publish` skill ke hisaab se, meri "ha" ke baad.
+23	- Naye rules `munshi/RULES.md` me jaate hain.
+24	
+25	## GitHub sync
+26	- Har milestone ke baad sync chalao: `powershell -NoProfile -ExecutionPolicy Bypass -File tools\sync.ps1 -Message "<project>: <milestone>"`.
+27	  Milestones: script approved, scene images done, TTS done, final build done, thumbnail done, uploaded (Munshi PUBLISHED ke baad).
+28	- Session band hone par hook aur raat 11:30 ka task apne aap sync karte hain.
+29	- Sync log: `munshi/sync.log`. Koi ERROR dikhe to mujhe batao.
+30	- Secrets (.env, secrets/) kabhi repo me nahi jaate; sync.ps1 aisa hone par ruk jaata hai.
+31
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:55:31Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Update CLAUDE.md, docs, gitignore, sync and deploy paths
+
+```bash
+.venv/Scripts/python.exe -X utf8 - <<'EOF'
+from pathlib import Path
+p = Path("CLAUDE.md"); s = p.read_text(encoding="utf-8")
+pairs = [
+ ("Har script, case file aur image prompt se pehle [channel_bible.md](channel_bible.md) padho aur uske rules exactly follow karo:",
+  "## Project dhaancha (multi-channel)\n"
+  "- `channels/<channel_key>/`: channel.json, RULES.md, channel_bible.md, log.md, carry_over.md, brand/, characters/ (permanent characters + voices/)\n"
+  "- `channels/<key>/stories/<NNN>_<slug>/`: story.md (status), script/, scene_prompts.json, characters/ (sirf is kahani ke), images/, audio/\n"
+  "  - `long/` aur `shorts/short_<NN>_<slug>/`: project.json, lines.json, shots.json, meta.json, review/, output/\n"
+  "- `shared/`: music/, sfx/, fonts/, assets_license.csv, RULES.md (sab channels ke common niyam), sync.log\n"
+  "- `channels/_template/`: naye channel/kahani ka khaali dhaancha. Naya channel: `powershell -File tools\\new_channel.ps1 -Key <key> -Name \"<naam>\"`\n\n"
+  "## दादी की कहानियाँ (channel key: dadi-ki-kahaniyan)\n"
+  "Har script, case file aur image prompt se pehle [channels/dadi-ki-kahaniyan/channel_bible.md](channels/dadi-ki-kahaniyan/channel_bible.md) padho aur uske rules exactly follow karo:"),
+ ("Command: `.\\.venv\\Scripts\\python -X utf8 scripts\\make_short.py <case> [--preview | --final] [--spend]`",
+  "Command: `.\\.venv\\Scripts\\python -X utf8 scripts\\make_short.py <video folder> [--preview | --final] [--spend] [--plan] [--seconds N]`\n"
+  "(video folder = `channels/<key>/stories/<story>/long` ya `.../shorts/short_<NN>_<slug>`; `--plan` sirf paths/inputs check karta hai, `--seconds N` pehle N second ka test preview)"),
+ ("(`cache/<case>/` scene clips, `audio/<case>/tts_cache/` TTS)", "(`cache/<channel>/<story>/<video>/` scene clips, story ka `audio/tts_cache/` TTS)"),
+ ("- Naye rules `munshi/RULES.md` me jaate hain.", "- Naye niyam: sab channels ke liye `shared/RULES.md`, sirf ek channel ke liye `channels/<key>/RULES.md` (channel ke niyam sakht ho sakte hain, dheele kabhi nahi).\n- Munshi ka log aur carry-over: `channels/<key>/log.md`, `channels/<key>/carry_over.md`."),
+ ("- Sync log: `munshi/sync.log`.", "- Sync log: `shared/sync.log`."),
+]
+for a, b in pairs:
+    assert a in s, a[:50]; s = s.replace(a, b)
+p.write_text(s, encoding="utf-8"); print("ok CLAUDE.md")
+d = Path("docs/YOUTUBE_UPLOADER_SETUP.md"); t = d.read_text(encoding="utf-8")
+for a, b in [("`munshi/channel_config.json`", "`channels/dadi-ki-kahaniyan/channel.json`"),
+             ("(`munshi/channel_config.json`)", "(`channels/dadi-ki-kahaniyan/channel.json`)"),
+             ("`munshi/log.md`", "`channels/dadi-ki-kahaniyan/log.md`"),
+             ("Add a new block to `channels/dadi-ki-kahaniyan/channel.json` with its own `channel_key` and `channel_id`; the same OAuth client works.",
+              "Run `tools\\new_channel.ps1 -Key <key> -Name \"<name>\"`, then fill `channel_id` in `channels/<key>/channel.json`; the same OAuth client works."),
+             ("| Per-video job | `<project>/output/upload.json` (written by Munshi) | yes |", "| Per-video job | `<video folder>/output/upload.json` (written by Munshi) | yes |"),
+             ("| Upload result | `<project>/output/upload_result.json` (video id, URLs) | yes |", "| Upload result | `<video folder>/output/upload_result.json` (video id, URLs) | yes |")]:
+    t = t.replace(a, b)
+t = t.replace("Channel config (`channels/dadi-ki-kahaniyan/channel.json`)", "Channel config (`channels/dadi-ki-kahaniyan/channel.json`; the upload script reads it by `channel_key` and stops if the job's channel_id differs)")
+d.write_text(t, encoding="utf-8"); print("ok docs")
+g = Path(".gitignore"); u = g.read_text(encoding="utf-8")
+u = u.replace("# encoded scene clips (make_short rebuilds them from images + TTS cache, free)\ncache/\n# build temp: mixed wavs, framecheck frames, ass files (free, rebuilt every build)\noutput/*_work/\nlong-videos/*/output/*_work/\nshorts/*/output/*_work/",
+              "# encoded scene clips (make_short rebuilds them from images + TTS cache, free)\ncache/\n# build temp: mixed wavs, framecheck frames, ass files (free, rebuilt every build)\n**/output/*_work/\n# Munshi's measurement audio in review folders (regenerable, large)\n**/review/**/*.wav\n**/review/**/*.raw")
+g.write_text(u, encoding="utf-8"); print("ok .gitignore")
+sp = Path("tools/sync.ps1"); v = sp.read_text(encoding="utf-8")
+v = v.replace('$LogDir = Join-Path $Root "munshi"', '$LogDir = Join-Path $Root "shared"'); sp.write_text(v, encoding="utf-8"); print("ok sync.ps1")
+dp = Path("deploy.ps1"); w = dp.read_text(encoding="utf-8")
+w = w.replace('$fontDir = Join-Path $Path "fonts"', '$fontDir = Join-Path $Path "shared\\fonts"'); dp.write_text(w, encoding="utf-8"); print("ok deploy.ps1")
+EOF
+grep -n "LogDir\|fontDir =" tools/sync.ps1 deploy.ps1; grep -n "_work\|review" .gitignore; cat .vscode/tasks.json | head -30
+```
+
+```text
+<stdin>:13: SyntaxWarning: "\." is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\."? A raw string is also an option.
+<stdin>:14: SyntaxWarning: "\." is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\."? A raw string is also an option.
+ok CLAUDE.md
+ok docs
+ok .gitignore
+ok sync.ps1
+ok deploy.ps1
+tools/sync.ps1:8:$LogDir = Join-Path $Root "shared"
+tools/sync.ps1:9:New-Item -ItemType Directory -Force $LogDir | Out-Null
+tools/sync.ps1:10:$Log = Join-Path $LogDir "sync.log"
+deploy.ps1:84:$fontDir = Join-Path $Path "sharedonts"
+27:**/output/*_work/
+28:# Munshi's measurement audio in review folders (regenerable, large)
+29:**/review/**/*.wav
+30:**/review/**/*.raw
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Preview: gallery kholo",
+      "type": "shell",
+      "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
+      "args": ["-X", "utf8", "${workspaceFolder}\\scripts\\preview.py"],
+      "presentation": { "reveal": "silent" },
+      "problemMatcher": []
+    }
+  ]
+}
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:55:35Z)**_
+
+Ek galti hui: Python string me `\f` ka matlab form-feed nikla, isliye deploy.ps1 me path "sharedonts" ban gaya. Use theek kar raha hoon:
+
+_**Agent (claude-opus-5-5 2026-10-18 09:55:40Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Fix form-feed in deploy.ps1, check others
+
+```bash
+.venv/Scripts/python.exe -X utf8 -c "
+from pathlib import Path
+p=Path('deploy.ps1'); s=p.read_text(encoding='utf-8'); bad='shared\x0conts'
+assert bad in s; s=s.replace(bad, 'shared'+chr(92)+'fonts'); p.write_text(s,encoding='utf-8')
+c=Path('CLAUDE.md').read_text(encoding='utf-8'); print('formfeed in CLAUDE.md:', chr(12) in c)
+for f in ['docs/YOUTUBE_UPLOADER_SETUP.md','.gitignore','tools/sync.ps1']: print(f, 'formfeed:', chr(12) in Path(f).read_text(encoding='utf-8'))
+"; grep -n "fontDir =" deploy.ps1; sed -n 1,20p CLAUDE.md
+```
+
+```text
+formfeed in CLAUDE.md: False
+docs/YOUTUBE_UPLOADER_SETUP.md formfeed: False
+.gitignore formfeed: False
+tools/sync.ps1 formfeed: False
+84:$fontDir = Join-Path $Path "shared\fonts"
+# दादी की कहानियाँ (Dadi Ki Kahaniyan) — Story Channel
+
+## Project dhaancha (multi-channel)
+- `channels/<channel_key>/`: channel.json, RULES.md, channel_bible.md, log.md, carry_over.md, brand/, characters/ (permanent characters + voices/)
+- `channels/<key>/stories/<NNN>_<slug>/`: story.md (status), script/, scene_prompts.json, characters/ (sirf is kahani ke), images/, audio/
+  - `long/` aur `shorts/short_<NN>_<slug>/`: project.json, lines.json, shots.json, meta.json, review/, output/
+- `shared/`: music/, sfx/, fonts/, assets_license.csv, RULES.md (sab channels ke common niyam), sync.log
+- `channels/_template/`: naye channel/kahani ka khaali dhaancha. Naya channel: `powershell -File tools
+ew_channel.ps1 -Key <key> -Name "<naam>"`
+
+## दादी की कहानियाँ (channel key: dadi-ki-kahaniyan)
+Har script, case file aur image prompt se pehle [channels/dadi-ki-kahaniyan/channel_bible.md](channels/dadi-ki-kahaniyan/channel_bible.md) padho aur uske rules exactly follow karo:
+- Permanent characters ka look kabhi mat badlo — bible ke exact descriptions use karo.
+- Script: 110–140 words, 2-sec hook, Golu ka ek galat guess, Dadi ka ek clue observation, end me "बताओ, दोषी कौन?". Answer alag file me.
+- Naye suspects ka look case file me likho; dobara aayein to wahi look use karo.
+- Har paid image ke baad user ko batao: is image ka cost (₹), aaj ka total, aur ₹500 budget me se kitna bacha. `scripts/gemini_image.py` ye apne aap `cost_log.csv` me likhta aur print karta hai.
+- Paisa lagne wala koi bhi naya kaam user se pooch kar hi karo. User se Hinglish me baat karo.
+- Paid image/TTS se PEHLE har chinta batao aur jawab ka intezaar karo: answer spoil hona, Shorts (9:16) vs 16:9, YouTube safe area, AI se Hindi text. Kai sudhaar hon to sab ek hi generation me jodo.
+
+## Video build workflow
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:55:44Z)**_
+
+CLAUDE.md me bhi `\n` newline ban gaya. Ise aur docs ko theek kar raha hoon:
+
+_**Agent (claude-opus-5-5 2026-10-18 09:55:47Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\CLAUDE.md has been updated successfully. (note: the file had been modified on disk since you last read it — the edit applied cleanly, but the file contains other changes not in your context. Read it before edits that depend on surrounding content.)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:55:49Z)**_
+
+<tool-use data-tool-type="search" data-tool-name="Grep"><details>
+<summary>Tool use: **Grep**</summary>
+ path `D:\Story-Channel\docs\YOUTUBE_UPLOADER_SETUP.md` pattern `ew_channel`
+
+```text
+102-Run `tools
+103:ew_channel.ps1 -Key <key> -Name "<name>"`, then fill `channel_id` in `channels/<key>/channel.json`; the same OAuth client works.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:55:54Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\docs\YOUTUBE_UPLOADER_SETUP.md has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:55:54Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Check for remaining old path references
+
+`grep -rn "munshi/\|long-videos\|channel_assets\|assets/\(music\|sfx\|fonts\)" CLAUDE.md docs .claude tools/*.ps1 tools/*.py deploy.ps1 shared/RULES.md channels/dadi-ki-kahaniyan/RULES.md | grep -v "_template"`
+
+```text
+(Bash completed with no output)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:55:59Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Find stale paths inside channel/shared docs
+
+`grep -rln "channel_assets\|long-videos/\|cases/case01\|images/case01\|munshi/" channels shared --include=*.md --include=*.json | head; grep -n "channel_assets" channels/dadi-ki-kahaniyan/channel_bible.md`
+
+```text
+channels/dadi-ki-kahaniyan/channel_bible.md
+4:> Channel art: `channel_assets/dadi_ki_kahaniyan_banner.png` (2560x1440), `channel_assets/dadi_ki_kahaniyan_dp.png` (800x800).
+69:- **Dadi ka ghar** (mohalle ke kinare): kacha mitti ka ghar, khaprail ki chhat, **bhoora lakdi ka darwaza**, saaf-supa aangan, peeche hare khet. Look reference: `channel_assets/_work/banner_art.png` (channel banner wala aangan). Golu–Mitthu ka opening/closing frame isi aangan me hota hai.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:56:05Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Update brand paths in channel bible
+
+`sed -i 's#`channel_assets/_work/banner_art.png`#`brand/_work/banner_art.png`#; s#`channel_assets/dadi_ki_kahaniyan_banner.png`#`brand/dadi_ki_kahaniyan_banner.png`#; s#`channel_assets/dadi_ki_kahaniyan_dp.png`#`brand/dadi_ki_kahaniyan_dp.png`#' channels/dadi-ki-kahaniyan/channel_bible.md && grep -n "brand/" channels/dadi-ki-kahaniyan/channel_bible.md | cut -c1-120`
+
+```text
+4:> Channel art: `brand/dadi_ki_kahaniyan_banner.png` (2560x1440), `brand/dadi_ki_kahaniyan_dp.png` (800x800).
+69:- **Dadi ka ghar** (mohalle ke kinare): kacha mitti ka ghar, khaprail ki chhat, **bhoora lakdi ka darwaza**, saaf-sup
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:56:08Z)**_
+
+Ab dono kahaniyon ki `story.md` aur `_template` folder bana raha hoon:
+
+_**Agent (claude-opus-5-5 2026-10-18 09:56:30Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Write story.md files and channels/_template
+
+```bash
+CH=channels/dadi-ki-kahaniyan && cat > $CH/stories/001_lalchi-halwai/story.md <<'EOF'
+# 001 — लालची हलवाई और जादुई कड़ाही
+
+- **Type:** moral story (Dadi narrates; Golu–Mitthu frame in Dadi's aangan, story set in Rampur gaon)
+- **Moral:** लालच का अंत हमेशा बुरा होता है — और बाँटने से ख़ुशी दुगनी होती है।
+- **Script:** `script/script.md` (v2, 54 rows); ideas `script/LONG_01_IDEAS.md`; scene plan `script/LONG_01_SCENES.md`
+- **Story characters:** `characters/` (Ghasita, Chhotu, Sadhu, kadhai prop) + channel characters (Dadi, Golu, Mitthu)
+
+## Status
+| Item | Status |
+|---|---|
+| Scene images | 31 done (`images/`, `scene_prompts.json`) |
+| TTS | 51 lines cached (`audio/tts_cache/`) |
+| Long video | `long/` — final 1920x1080, 5:06 (306.2 s), approved by user |
+| Thumbnail | `long/output/long_01_thumbnail.png` ("जो डालो, दुगना!") |
+| Munshi | final build, thumbnail, metadata, copyright, publish dry-run: PASS (see `../../log.md`) |
+| Upload | 2026-10-18 via API: https://youtu.be/Ogfqow8rbGY — scheduled 2026-10-20 19:00 IST (check in Studio) |
+| Shorts | none yet (`shorts/`) |
+EOF
+cat > $CH/stories/002_sharma-ji-ki-cycle/story.md <<'EOF'
+# 002 — शर्मा जी की नई साइकिल (Dadi Jasoos case 01)
+
+- **Type:** Dadi Jasoos mystery Short (Gulmohar Mohalla), ends with "बताओ, दोषी कौन?"
+- **Script:** `script/script.md` (v2, 128 words; v1 in `script/script_v1.md`), scenes `script/scenes.md`
+- **Answer:** `script/answer.md` only (never in title, description or thumbnail; pinned comment 24 h after publish)
+- **Story characters:** suspects Pappu, Raju, Bunty, and Sharma ji (looks in the channel bible) + Dadi, Golu, Mitthu, Inspector Pandey
+
+## Status
+| Item | Status |
+|---|---|
+| Scene images | 10 done (`images/`, older versions in `images/_v1`, `images/_v2`) |
+| TTS | cached (`audio/tts_cache/`) |
+| Short 01 | `shorts/short_01_case-01/` — final 1080x1920, 57.4 s |
+| Thumbnails | `shorts/short_01_case-01/output/case01_thumbnail.png` (16:9), `case01_thumbnail_vertical.png` |
+| Upload | 2026-10-18, uploaded by the user by hand in YouTube Studio |
+| Long video | none (`long/` empty) |
+EOF
+T=channels/_template && mkdir -p $T/brand $T/characters $T/stories/000_story-slug/{script,characters,images,audio,long/review,long/output,shorts/short_01_slug/review,shorts/short_01_slug/output}
+cat > $T/channel.json <<'EOF'
+{
+  "channel_key": "CHANNEL_KEY",
+  "display_name": "CHANNEL_NAME",
+  "channel_id": "",
+  "made_for_kids": null,
+  "contains_synthetic_media": false,
+  "category_id": "1",
+  "default_language": "hi",
+  "publish_window_ist": ["19:00", "23:59"],
+  "max_long_per_day": 1,
+  "min_gap_hours_short_long": 2,
+  "playlists": {}
+}
+EOF
+printf '# Channel RULES — CHANNEL_NAME (CHANNEL_KEY)\n\nOnly the rules special to this channel. Read `shared/RULES.md` first; everything there applies here too.\n- Channel RULES can be stricter than shared RULES, never looser. Copyright, channel ID, secrets and upload safety can never be relaxed by a channel.\n\n## Story and characters\n- (fill in)\n\n## Metadata\n- (fill in)\n' > $T/RULES.md
+printf '# Channel bible — CHANNEL_NAME\n\nTODO: fill before the first script: characters (exact looks), setting, tone, story format, voices.\n' > $T/channel_bible.md
+printf '# Munshi log\n' > $T/log.md
+printf '# Carry-over (MINOR issues to fix in pipeline)\n' > $T/carry_over.md
+printf '# NNN — story title\n\n- **Type:**\n- **Moral:**\n- **Script:** `script/`\n\n## Status\n| Item | Status |\n|---|---|\n| Scene images | |\n| TTS | |\n| Long video | |\n| Shorts | |\n| Upload | |\n' > $T/stories/000_story-slug/story.md
+printf '{\n  "looks": {},\n  "aspect": "16:9",\n  "scenes": []\n}\n' > $T/stories/000_story-slug/scene_prompts.json
+for v in long shorts/short_01_slug; do d=$T/stories/000_story-slug/$v; k=$([ $v = long ] && echo long || echo short)
+  printf '{\n  "kind": "%s",\n  "name": "VIDEO_NAME",\n  "burn_captions": %s\n}\n' $k $([ $k = short ] && echo true || echo false) > $d/project.json
+  printf '[]\n' > $d/lines.json; printf '{}\n' > $d/shots.json
+  printf '{\n  "title": "",\n  "description": "",\n  "hashtags": [],\n  "tags": [],\n  "pinned_comment": ""\n}\n' > $d/meta.json; done
+find $T -type d -empty -exec touch {}/.gitkeep \;
+find $T | sort
+```
+
+```text
+channels/_template
+channels/_template/RULES.md
+channels/_template/brand
+channels/_template/brand/.gitkeep
+channels/_template/carry_over.md
+channels/_template/channel.json
+channels/_template/channel_bible.md
+channels/_template/characters
+channels/_template/characters/.gitkeep
+channels/_template/log.md
+channels/_template/stories
+channels/_template/stories/000_story-slug
+channels/_template/stories/000_story-slug/audio
+channels/_template/stories/000_story-slug/audio/.gitkeep
+channels/_template/stories/000_story-slug/characters
+channels/_template/stories/000_story-slug/characters/.gitkeep
+channels/_template/stories/000_story-slug/images
+channels/_template/stories/000_story-slug/images/.gitkeep
+channels/_template/stories/000_story-slug/long
+channels/_template/stories/000_story-slug/long/lines.json
+channels/_template/stories/000_story-slug/long/meta.json
+channels/_template/stories/000_story-slug/long/output
+channels/_template/stories/000_story-slug/long/output/.gitkeep
+channels/_template/stories/000_story-slug/long/project.json
+channels/_template/stories/000_story-slug/long/review
+channels/_template/stories/000_story-slug/long/review/.gitkeep
+channels/_template/stories/000_story-slug/long/shots.json
+channels/_template/stories/000_story-slug/scene_prompts.json
+channels/_template/stories/000_story-slug/script
+channels/_template/stories/000_story-slug/script/.gitkeep
+channels/_template/stories/000_story-slug/shorts
+channels/_template/stories/000_story-slug/shorts/short_01_slug
+channels/_template/stories/000_story-slug/shorts/short_01_slug/lines.json
+channels/_template/stories/000_story-slug/shorts/short_01_slug/meta.json
+channels/_template/stories/000_story-slug/shorts/short_01_slug/output
+channels/_template/stories/000_story-slug/shorts/short_01_slug/output/.gitkeep
+channels/_template/stories/000_story-slug/shorts/short_01_slug/project.json
+channels/_template/stories/000_story-slug/shorts/short_01_slug/review
+channels/_template/stories/000_story-slug/shorts/short_01_slug/review/.gitkeep
+channels/_template/stories/000_story-slug/shorts/short_01_slug/shots.json
+channels/_template/stories/000_story-slug/story.md
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:56:32Z)**_
+
+Ab `tools/new_channel.ps1` bana raha hoon:
+
+_**Agent (claude-opus-5-5 2026-10-18 09:56:43Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Write"><details>
+<summary>Tool use: **Write**</summary>
+
+```ps1
+# Create a new channel folder from channels/_template.
+# Usage: powershell -NoProfile -ExecutionPolicy Bypass -File tools\new_channel.ps1 -Key my-channel -Name "My Channel"
+param(
+    [Parameter(Mandatory = $true)][string]$Key,
+    [Parameter(Mandatory = $true)][string]$Name
+)
+
+$ErrorActionPreference = "Stop"
+$Root = Split-Path -Parent $PSScriptRoot
+if ($Key -notmatch '^[a-z0-9][a-z0-9-]*$') { throw "Key must be lowercase letters, digits and '-' (e.g. islamic-stories)." }
+$Template = Join-Path $Root "channels\_template"
+$Dst = Join-Path $Root "channels\$Key"
+if (Test-Path $Dst) { throw "channels\$Key already exists. Nothing changed." }
+
+Copy-Item $Template $Dst -Recurse
+$utf8 = New-Object System.Text.UTF8Encoding($false)
+foreach ($f in @("channel.json", "RULES.md", "channel_bible.md")) {
+    $p = Join-Path $Dst $f
+    $t = [IO.File]::ReadAllText($p, $utf8).Replace("CHANNEL_KEY", $Key).Replace("CHANNEL_NAME", $Name)
+    [IO.File]::WriteAllText($p, $t, $utf8)
+}
+# check the result
+$cfg = Get-Content (Join-Path $Dst "channel.json") -Raw -Encoding UTF8 | ConvertFrom-Json
+if ($cfg.channel_key -ne $Key) { throw "channel.json was not filled correctly." }
+
+Write-Host "Created channels\$Key (from channels\_template)."
+Write-Host "Still to fill before the first video:"
+Write-Host "  1. channels\$Key\channel.json: channel_id (YouTube Studio > Settings > Channel > Advanced, starts with UC), made_for_kids (true/false), playlists"
+Write-Host "  2. channels\$Key\channel_bible.md: characters, setting, tone, story format"
+Write-Host "  3. channels\$Key\RULES.md: rules special to this channel (can only be stricter than shared\RULES.md)"
+Write-Host "  4. Rename stories\000_story-slug for the first story (e.g. 001_<slug>)"
+
+```
+
+```text
+File created successfully at: D:\Story-Channel\tools\new_channel.ps1 (file state is current in your context — no need to Read it back)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:56:48Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Test new_channel.ps1, then move test channel away
+
+`CH=channels/dadi-ki-kahaniyan && touch $CH/stories/002_sharma-ji-ki-cycle/long/.gitkeep && mkdir -p $CH/stories/001_lalchi-halwai/shorts && touch $CH/stories/001_lalchi-halwai/shorts/.gitkeep && powershell -NoProfile -ExecutionPolicy Bypass -File tools/new_channel.ps1 -Key test-channel -Name "टेस्ट चैनल" && echo "--- check" && cat channels/test-channel/channel.json | head -4 && head -1 channels/test-channel/RULES.md && find channels/test-channel -type f | wc -l && echo "--- duplicate run:" && (powershell -NoProfile -ExecutionPolicy Bypass -File tools/new_channel.ps1 -Key test-channel -Name x 2>&1 | grep -i "already" | head -1) ; mv channels/test-channel _to_delete/test-channel && ls channels`
+
+```text
+Created channels\test-channel (from channels\_template).
+Still to fill before the first video:
+  1. channels\test-channel\channel.json: channel_id (YouTube Studio > Settings > Channel > Advanced, starts with UC), made_for_kids (true/false), playlists
+  2. channels\test-channel\channel_bible.md: characters, setting, tone, story format
+  3. channels\test-channel\RULES.md: rules special to this channel (can only be stricter than shared\RULES.md)
+  4. Rename stories\000_story-slug for the first story (e.g. 001_<slug>)
+--- check
+{
+  "channel_key": "test-channel",
+  "display_name": "टेस्ट चैनल",
+  "channel_id": "",
+# Channel RULES — टेस्ट चैनल (test-channel)
+25
+--- duplicate run:
+channels\test-channel already exists. Nothing changed.
+_template
+dadi-ki-kahaniyan
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:56:51Z)**_
+
+`new_channel.ps1` test paas hua aur test channel `_to_delete/` me chala gaya. Ab step 7 ki jaanch, bina koi upload kiye. Pehle builder ka `--plan` mode:
+
+_**Agent (claude-opus-5-5 2026-10-18 09:56:56Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Run builder in plan mode for Long 01 and Case 01
+
+`for v in channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long channels/dadi-ki-kahaniyan/stories/002_sharma-ji-ki-cycle/shorts/short_01_case-01; do .venv/Scripts/python.exe -X utf8 scripts/make_short.py $v --plan; echo "exit=$?"; echo; done`
+
+```text
+[PLAN] long 'long_01'  channel=dadi-ki-kahaniyan  story=001_lalchi-halwai
+  project:  channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long
+  output:   channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long/output
+  cache:    cache/dadi-ki-kahaniyan/001_lalchi-halwai/long
+  images:   31 for 38 scenes, all present: True  (channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/images)
+  TTS:      51/51 lines cached in channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/audio/tts_cache
+  music:    6 files, all present: True  shared/music/comedy/Fluffing_a_Duck.mp3, shared/music/khushi/Carefree.mp3, shared/music/dukh/Heartbreaking.mp3, shared/music/jaadu/Enchanted_Valley.mp3, shared/music/tension/Hidden_Agenda.mp3, shared/music/seekh/Touching_Moments_Two_Higher.mp3
+  sfx:      3 files, all present: True  shared/sfx/comedy_sting_731261.mp3, shared/sfx/tension_sting_578356.mp3, shared/sfx/magic_376747.mp3
+  font:     shared/fonts/Mukta-ExtraBold.ttf present: True
+  register: shared/assets_license.csv has a row for every music/SFX file (checked)
+exit=0
+
+[PLAN] short 'case01_cycle_chori'  channel=dadi-ki-kahaniyan  story=002_sharma-ji-ki-cycle
+  project:  channels/dadi-ki-kahaniyan/stories/002_sharma-ji-ki-cycle/shorts/short_01_case-01
+  output:   channels/dadi-ki-kahaniyan/stories/002_sharma-ji-ki-cycle/shorts/short_01_case-01/output
+  cache:    cache/dadi-ki-kahaniyan/002_sharma-ji-ki-cycle/short_01_case-01
+  images:   10 for 10 scenes, all present: True  (channels/dadi-ki-kahaniyan/stories/002_sharma-ji-ki-cycle/images)
+  TTS:      12/12 lines cached in channels/dadi-ki-kahaniyan/stories/002_sharma-ji-ki-cycle/audio/tts_cache
+  music:    1 files, all present: True  shared/music/Sneaky_Snitch.mp3
+  sfx:      2 files, all present: True  shared/sfx/comedy_sting_731261.mp3, shared/sfx/tension_sting_578356.mp3
+  font:     shared/fonts/Mukta-ExtraBold.ttf present: True
+  register: shared/assets_license.csv has a row for every music/SFX file (checked)
+exit=0
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:56:58Z)**_
+
+Dono plan saaf hain: saari images, TTS (51/51 aur 12/12), music, SFX aur font naye path par mil gaye. Ab upload ka dry-run naye path se:
+
+_**Agent (claude-opus-5-5 2026-10-18 09:57:04Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Dry-run upload job from new path
+
+`.venv/Scripts/python.exe -X utf8 tools/youtube_upload.py --job channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long/output/upload.json --dry-run; echo "exit=$?"`
+
+```text
+Channel:      दादी की कहानियाँ UCy071_4g4vGemktFHybqkhQ
+Title:        लालची हलवाई और जादुई कड़ाही | दादी की कहानियाँ | Hindi Moral Story | Hindi Kahani
+Video:        D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\long\output\long_01.mp4
+Privacy:      scheduled
+Publish at:   2026-10-20T19:00:00+05:30
+Made for kids: False
+Thumbnail:    long_01_thumbnail.png
+Captions:     long_01.srt
+Playlist:     -
+Video check:  1920x1080 h264 yuv420p 306.2s
+
+Dry run OK. Nothing uploaded.
+exit=0
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:57:09Z)**_
+
+<think><details><summary>Thought Process</summary>
+Dry-run clean raha, path aur channel.json match dono theek hain. Ab step 0d mein asli test render karunga — Long 01 ke pehle 15 second aur Case 01 ke pehle 10 second ka preview, ₹0 cost par.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:58:39Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Test-render first seconds of Long 01 and Case 01
+
+`for a in "channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long 15" "channels/dadi-ki-kahaniyan/stories/002_sharma-ji-ki-cycle/shorts/short_01_case-01 10"; do set -- $a; .venv/Scripts/python.exe -X utf8 scripts/make_short.py $1 --preview --seconds $2 2>&1 | grep -v "^  line\|^  scene"; echo "exit=${PIPESTATUS[0]}"; done`
+
+```text
+[LONG PREVIEW] 960x540 @ 24 fps
+1/4 voice
+  total 15.0s
+2/4 scenes
+3/4 audio
+  music: Heartbreaking starts 3.75s in (pause falls on an audible part)
+  music: Touching_Moments_Two_Higher starts 14.50s in (pause falls on an audible part)
+  music: Fluffing_a_Duck@0s -> Carefree@12s -> Heartbreaking@67s -> Enchanted_Valley@103s -> Carefree@141s -> Hidden_Agenda@155s -> Touching_Moments_Two_Higher@225s -> Carefree@237s -> Touching_Moments_Two_Higher@273s -> Carefree@278s
+FAILED: D:\Story-Channel\tools\ffmpeg\ffmpeg.exe -y -i D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\long\output\long_01_work\voice.wav -stream_loop -1 -i D:\Story-Channel\shared\music\comedy\Fluffing_a_Duck.mp3 -stream_loop -1 -i D:\Story-Channel\shared\music\khushi\Carefree.mp3 -st
+le-libvorbis --enable-librav1e --enable-librsvg --disable-libpulse --enable-gmp --enable-lzma --enable-liblcevc-dec --enable-opencl --enable-amf --enable-libaom --enable-avisynth --enable-chromaprint --enable-libdavs2 --enable-libdvdread --enable-libdvdnav --disable-libfdk-aac --enable-ffnvcodec --enable-cuda-llvm --enable-frei0r --enable-libgme --enable-libkvazaar --enable-libaribb24 --enable-libaribcaption --enable-libass --enable-libbluray --enable-libcurl --enable-libjxl --enable-libmp3lame --enable-libopus --enable-libplacebo --enable-librist --enable-libssh --enable-libtheora --enable-libvpx --enable-libwebp --enable-libzmq --enable-lv2 --enable-libvpl --enable-openal --enable-liboapv --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenh264 --enable-libopenjpeg --enable-libopenmpt --enable-librubberband --enable-schannel --enable-sdl2 --enable-libsnappy --enable-libsoxr --enable-libsrt --enable-libsvtav1 --enable-libtwolame --enable-libuavs3d --disable-libdrm --enable-vaapi --enable-vapoursynth --enable-libvidstab --enable-libvvenc --disable-whisper --enable-libx264 --enable-libx265 --enable-libxavs2 --enable-libxvid --enable-libzimg --enable-libzvbi --extra-cflags=-DLIBTWOLAME_STATIC --extra-cxxflags= --extra-libs=-lgomp --extra-ldflags=-pthread --extra-ldexeflags= --cc=x86_64-w64-mingw32-gcc --cxx=x86_64-w64-mingw32-g++ --ar=x86_64-w64-mingw32-gcc-ar --ranlib=x86_64-w64-mingw32-gcc-ranlib --nm=x86_64-w64-mingw32-gcc-nm --extra-version=20261016
+  libavutil      61. 14.100 / 61. 14.100
+  libavcodec     63. 20.100 / 63. 20.100
+  libavformat    63. 10.100 / 63. 10.100
+  libavdevice    63.  2.100 / 63.  2.100
+  libavfilter    12.  5.100 / 12.  5.100
+  libswscale     10.  2.100 / 10.  2.100
+  libswresample   7.  3.101 /  7.  3.101
+[Parsed_afade_69 @ 0000029847297200] Value -264.540000 for parameter 'st' out of range [0 - 9.22337e+12]
+[fc#0 @ 0000029847233bc0] Error applying option 'st' to filter 'afade': Result too large
+Error : Result too large
+
+exit=1
+[SHORT PREVIEW] 540x960 @ 24 fps
+1/4 voice
+  total 10.0s
+2/4 scenes
+3/4 audio
+4/4 mux (video stream copied, no re-encode)
+
+DONE [preview] D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\002_sharma-ji-ki-cycle\shorts\short_01_case-01\output\case01_cycle_chori_test10s_preview.mp4  (10.0s video)
+exit=0
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:58:48Z)**_
+
+<think><details><summary>Thought Process</summary>
+Case 01 ka 10 sec test bina error ban gaya, lekin Long 01 fail hua — isse migration ki galti nahi, balki naye `--seconds` mode mein 15 sec ke baad wale events bhi list mein reh jaane se ek fade ka samay negative ho gaya. Ye jaldi fix ho sakta hai, toh abhi theek kar raha hoon.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:58:49Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\scripts\make_short.py has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:59:38Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Re-run Long 01 15s test render and probe both
+
+`.venv/Scripts/python.exe -X utf8 scripts/make_short.py channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long --preview --seconds 15 2>&1 | grep -v "^  line\|^  scene"; echo "exit=${PIPESTATUS[0]}"; for f in channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long/output/long_01_test15s_preview.mp4 channels/dadi-ki-kahaniyan/stories/002_sharma-ji-ki-cycle/shorts/short_01_case-01/output/case01_cycle_chori_test10s_preview.mp4; do tools/ffmpeg/ffprobe.exe -v error -show_entries stream=codec_type,width,height,pix_fmt,color_primaries -show_entries format=duration -of compact "$f"; done`
+
+```text
+[LONG PREVIEW] 960x540 @ 24 fps
+1/4 voice
+  total 15.0s
+2/4 scenes
+3/4 audio
+  music: Fluffing_a_Duck@0s -> Carefree@12s
+4/4 mux (video stream copied, no re-encode)
+
+DONE [preview] D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\long\output\long_01_test15s_preview.mp4  (15.0s video)
+exit=0
+stream|codec_type=video|width=960|height=540|pix_fmt=yuv420p|color_primaries=bt709
+stream|codec_type=audio
+format|duration=15.000000
+stream|codec_type=video|width=540|height=960|pix_fmt=yuv420p|color_primaries=bt709
+stream|codec_type=audio
+format|duration=10.000000
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:59:45Z)**_
+
+<think><details><summary>Thought Process</summary>
+Dono test render bin error ke saath successfully ban gaye — 15.0s aur 10.0s ke video audio samet, naye bt709 tags ke saath. Ab purane khaali folder aur purana scene cache `_to_delete/` me daal raha hoon.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:59:50Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Move empty old folders and old cache to _to_delete
+
+`mkdir -p _to_delete/old_layout && for d in long-videos cases images audio characters channel_assets output assets shorts; do n=$(find $d -type f 2>/dev/null | wc -l); echo "$d: $n files"; if [ "$n" = 0 ] && [ -d $d ]; then mv $d _to_delete/old_layout/; fi; done; for c in cache/long_01 cache/case01_cycle_chori; do [ -d $c ] && mv $c _to_delete/old_layout/cache_$(basename $c); done; ls; ls _to_delete/old_layout`
+
+```text
+long-videos: 0 files
+cases: 0 files
+images: 0 files
+audio: 0 files
+characters: 0 files
+channel_assets: 0 files
+output: 0 files
+assets: 0 files
+shorts: 0 files
+CLAUDE.md
+PREVIEW.md
+_to_delete
+cache
+channels
+claude-home
+cost_log.csv
+deploy.ps1
+docs
+requirements.txt
+scripts
+secrets
+shared
+tools
+assets
+audio
+cache_case01_cycle_chori
+cache_long_01
+cases
+channel_assets
+characters
+images
+long-videos
+output
+shorts
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:59:54Z)**_
+
+Ab `PREVIEW.md` ko naye paths se dobara bana raha hoon. Review ki jo badi `.wav` files pehle git me chali gayi thi, unhe git se hata raha hoon. Ye files disk par bani rahengi, sirf track nahi hongi.
+
+_**Agent (claude-opus-5-5 2026-10-18 10:00:06Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Regenerate preview, untrack review wavs, stage and check
+
+`AUTO_PREVIEW=0 .venv/Scripts/python.exe -X utf8 scripts/preview.py && grep -c "^### " PREVIEW.md && git ls-files -z | tr '\0' '\n' | grep "/review/.*\.\(wav\|raw\)$" | while read f; do git rm -q --cached "$f" && echo "untracked: $f ($(du -h "$f" | cut -f1))"; done; git add -A && git status --short | awk '{print $1}' | sort | uniq -c && echo "--- secret check:" && git diff --cached --name-only | grep -i "\.env$\|secrets/\|client_secret\|token\|\.mp4$" ; echo "--- staged size:" && git diff --cached --name-only --diff-filter=AM | while read f; do [ -f "$f" ] && stat -c %s "$f"; done | awk '{s+=$1} END {printf "%.1f MB added/modified\n", s/1048576}'`
+
+```text
+49
+untracked: channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long/review/music_only_est.wav (29M)
+untracked: channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long/review/voice_in_mix.wav (29M)
+warning: in the working copy of '.claude/settings.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'channels/dadi-ki-kahaniyan/channel_bible.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'scripts/cost_log.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'shared/assets_license.csv', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'channels/_template/RULES.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'channels/_template/carry_over.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'channels/_template/channel.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'channels/_template/channel_bible.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'channels/_template/log.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'channels/_template/stories/000_story-slug/long/lines.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'channels/_template/stories/000_story-slug/long/meta.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'channels/_template/stories/000_story-slug/long/project.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'channels/_template/stories/000_story-slug/long/shots.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'channels/_template/stories/000_story-slug/scene_prompts.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'channels/_template/stories/000_story-slug/shorts/short_01_slug/lines.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'channels/_template/stories/000_story-slug/shorts/short_01_slug/meta.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'channels/_template/stories/000_story-slug/shorts/short_01_slug/project.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'channels/_template/stories/000_story-slug/shorts/short_01_slug/shots.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'channels/_template/stories/000_story-slug/story.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/story.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'channels/dadi-ki-kahaniyan/stories/002_sharma-ji-ki-cycle/shorts/short_01_case-01/project.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'channels/dadi-ki-kahaniyan/stories/002_sharma-ji-ki-cycle/story.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'scripts/paths.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tools/new_channel.ps1', LF will be replaced by CRLF the next time Git touches it
+     34 A
+      3 D
+     23 M
+    403 R
+--- secret check:
+--- staged size:
+1.7 MB added/modified
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 10:00:13Z)**_
+
+<think><details><summary>Thought Process</summary>
+403 files rename ki tarah dikh rahi hain, history safe hai, aur koi secret ya .mp4 stage nahi hua — migration verify ho gaya hai. Ab SessionEnd hook aur raat ka task wapas enable kar raha hoon.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-18 10:00:20Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Restore SessionEnd hook and re-enable nightly task
+
+`cp "C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad/settings.json.pre-migration" .claude/settings.json && grep -c SessionEnd .claude/settings.json && powershell -NoProfile -Command "Enable-ScheduledTask -TaskName StoryChannel-Sync | Select-Object TaskName,State | Format-Table -HideTableHeaders; (Get-ScheduledTask StoryChannel-Sync).Actions.Arguments"`
+
+```text
+1
+
+StoryChannel-Sync Ready
+
+
+-NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -File "D:\Story-Channel\tools\sync.ps1" -Message "nightly sync"
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 10:00:26Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Print new folder tree
+
+```bash
+.venv/Scripts/python.exe -X utf8 - <<'EOF'
+from pathlib import Path
+ROOT = Path(".")
+SKIP = {".git", ".venv", "_to_delete", "cache", "claude-home", ".specstory", "__pycache__", "secrets", "tools"}
+def tree(p, depth, prefix=""):
+    if depth == 0: return
+    kids = sorted([k for k in p.iterdir() if k.is_dir() and k.name not in SKIP], key=lambda k: k.name)
+    for i, k in enumerate(kids):
+        last = i == len(kids) - 1
+        nfiles = sum(1 for f in k.rglob("*") if f.is_file())
+        print(f"{prefix}{'└── ' if last else '├── '}{k.name}/  ({nfiles} files)")
+        tree(k, depth - 1, prefix + ("    " if last else "│   "))
+for top in ("channels", "shared"):
+    print(top + "/"); tree(ROOT / top, 3 if top == "shared" else 4)
+EOF
+```
+
+```text
+channels/
+├── _template/  (25 files)
+│   ├── brand/  (1 files)
+│   ├── characters/  (1 files)
+│   └── stories/  (18 files)
+│       └── 000_story-slug/  (18 files)
+│           ├── audio/  (1 files)
+│           ├── characters/  (1 files)
+│           ├── images/  (1 files)
+│           ├── long/  (6 files)
+│           ├── script/  (1 files)
+│           └── shorts/  (6 files)
+└── dadi-ki-kahaniyan/  (529 files)
+    ├── brand/  (9 files)
+    │   └── _work/  (7 files)
+    │       └── fonts/  (1 files)
+    ├── characters/  (25 files)
+    │   ├── _rejected_pollinations/  (4 files)
+    │   └── voices/  (17 files)
+    └── stories/  (490 files)
+        ├── 001_lalchi-halwai/  (319 files)
+        │   ├── audio/  (153 files)
+        │   ├── characters/  (4 files)
+        │   ├── images/  (31 files)
+        │   ├── long/  (125 files)
+        │   ├── script/  (3 files)
+        │   └── shorts/  (1 files)
+        └── 002_sharma-ji-ki-cycle/  (171 files)
+            ├── audio/  (49 files)
+            ├── images/  (14 files)
+            ├── long/  (1 files)
+            ├── script/  (4 files)
+            └── shorts/  (101 files)
+shared/
+├── fonts/  (3 files)
+├── music/  (16 files)
+│   ├── comedy/  (2 files)
+│   ├── dukh/  (2 files)
+│   ├── jaadu/  (2 files)
+│   ├── khushi/  (2 files)
+│   ├── seekh/  (2 files)
+│   └── tension/  (2 files)
+└── sfx/  (9 files)
+```
+</details></tool-use>

@@ -1,7 +1,10 @@
 """Track Gemini image spend against the prepaid budget in cost_log.csv."""
 import csv
+import os
 from datetime import datetime
 from pathlib import Path
+
+from paths import DEFAULT_CHANNEL, channel_of
 
 ROOT = Path(__file__).resolve().parent.parent
 LOG = ROOT / "cost_log.csv"
@@ -16,7 +19,7 @@ RATES_USD = {
     ("gemini-nano-banana-2.1", "4K"): 0.113,
 }
 
-FIELDS = ["timestamp", "file", "model", "size", "cost_usd", "cost_inr", "today_total_inr", "remaining_inr"]
+FIELDS = ["timestamp", "file", "model", "size", "cost_usd", "cost_inr", "today_total_inr", "remaining_inr", "channel"]
 
 
 def _rows():
@@ -48,6 +51,9 @@ def record_usd(file: Path, model: str, size: str, usd: float, when: datetime | N
         "cost_inr": f"{inr:.2f}",
         "today_total_inr": f"{today_total:.2f}",
         "remaining_inr": f"{BUDGET_INR - spent:.2f}",
+        # the file's own channel folder, else the channel of the running build (make_short sets STORY_CHANNEL)
+        "channel": (channel_of(file) if "channels" in Path(file).resolve().parts
+                    else os.environ.get("STORY_CHANNEL", DEFAULT_CHANNEL)),
     }
     new = not LOG.exists()
     with LOG.open("a", encoding="utf-8", newline="") as f:

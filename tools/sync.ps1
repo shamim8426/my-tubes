@@ -5,7 +5,7 @@ param([string]$Message = "")
 $ErrorActionPreference = "Stop"
 $Root = Split-Path -Parent $PSScriptRoot
 Set-Location $Root
-$LogDir = Join-Path $Root "munshi"
+$LogDir = Join-Path $Root "shared"
 New-Item -ItemType Directory -Force $LogDir | Out-Null
 $Log = Join-Path $LogDir "sync.log"
 $MaxBytes = 50MB

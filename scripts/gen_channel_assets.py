@@ -17,10 +17,14 @@ from PIL import Image
 sys.path.insert(0, str(Path(__file__).parent))
 from gemini_image import generate  # noqa: E402
 
-ROOT = Path(__file__).resolve().parent.parent
-OUT = ROOT / "channel_assets"
+from paths import FONTS_DIR, ROOT, channel_dir  # noqa: E402
+
+OUT = channel_dir() / "brand"  # banner + DP
 WORK = OUT / "_work"
-CHAR = ROOT / "characters"
+CHAR = channel_dir() / "characters"
+STORY_002 = channel_dir() / "stories" / "002_sharma-ji-ki-cycle"
+CASE01 = STORY_002 / "shorts" / "short_01_case-01"  # Case 01 thumbnails (work files in thumbnail_work/)
+C1W = CASE01 / "thumbnail_work"
 FFMPEG = ROOT / "tools" / "ffmpeg" / "ffmpeg.exe"
 if not FFMPEG.exists():  # new system: ffmpeg from winget on PATH (tools/ffmpeg is not in git)
     FFMPEG = Path(shutil.which("ffmpeg") or FFMPEG)
@@ -70,7 +74,7 @@ def draw_title(art: Path, out: Path):
     Letter spacing must stay 0: any spacing makes libass drop Devanagari shaping (broken matras)."""
     fonts = WORK / "fonts"
     fonts.mkdir(parents=True, exist_ok=True)
-    shutil.copy(ROOT / "assets" / "fonts" / "Mukta-Bold.ttf", fonts / "Mukta-Bold.ttf")
+    shutil.copy(FONTS_DIR / "Mukta-Bold.ttf", fonts / "Mukta-Bold.ttf")
     first, second = TITLE.rsplit(" ", 1)
     ass = f"""[Script Info]
 ScriptType: v4.00+
@@ -135,9 +139,9 @@ TW, TH = 1280, 720
 
 
 def draw_thumb_text(art: Path, out: Path):
-    fonts = WORK / "fonts"
+    fonts = C1W / "fonts"
     fonts.mkdir(parents=True, exist_ok=True)
-    shutil.copy(ROOT / "assets" / "fonts" / "Mukta-Bold.ttf", fonts / "Mukta-Bold.ttf")
+    shutil.copy(FONTS_DIR / "Mukta-Bold.ttf", fonts / "Mukta-Bold.ttf")
     ass = f"""[Script Info]
 ScriptType: v4.00+
 PlayResX: {TW}
@@ -154,25 +158,25 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 Dialogue: 0,0:00:00.00,0:00:01.00,Q,,0,0,0,,बताओ, दोषी कौन?
 Dialogue: 0,0:00:00.00,0:00:01.00,L,,0,0,0,,{{\\c&H0030C8FF&}}दादी की कहानियाँ
 """
-    (WORK / "thumb.ass").write_text(ass, encoding="utf-8")
-    shutil.copy(art, WORK / "thumb_art.png")
+    (C1W / "thumb.ass").write_text(ass, encoding="utf-8")
+    shutil.copy(art, C1W / "thumb_art.png")
     subprocess.run([str(FFMPEG), "-v", "error", "-y", "-i", "thumb_art.png", "-vf",
                     "subtitles=filename=thumb.ass:fontsdir=fonts", "-frames:v", "1", "thumb_titled.png"],
-                   cwd=WORK, check=True)
-    shutil.copy(WORK / "thumb_titled.png", out)
+                   cwd=C1W, check=True)
+    shutil.copy(C1W / "thumb_titled.png", out)
 
 
 def thumb():
-    raw = WORK / "thumb_raw.png"
-    refs = [CHAR / "dadi_sheet.png"] + [ROOT / "images" / "case01_cycle_chori" / f"scene_0{n}.png" for n in (3, 4, 5)]
+    raw = C1W / "thumb_raw.png"
+    refs = [CHAR / "dadi_sheet.png"] + [STORY_002 / "images" / f"scene_0{n}.png" for n in (3, 4, 5)]
     generate(THUMB_PROMPT, raw, refs=refs, aspect_ratio="16:9", size="1K")
-    cover(raw, TW, TH, WORK / "thumb_art_sized.png")
+    cover(raw, TW, TH, C1W / "thumb_art_sized.png")
     thumb_text()
 
 
 def thumb_text():
-    out = OUT / "case01_thumbnail.png"
-    draw_thumb_text(WORK / "thumb_art_sized.png", out)
+    out = CASE01 / "output" / "case01_thumbnail.png"
+    draw_thumb_text(C1W / "thumb_art_sized.png", out)
     print("saved", out, Image.open(out).size)
 
 
@@ -197,18 +201,18 @@ VW, VH = 1080, 1920
 
 
 def thumb_v():
-    raw = WORK / "thumb_v_raw.png"
-    refs = [CHAR / "dadi_sheet.png"] + [ROOT / "images" / "case01_cycle_chori" / f"scene_0{n}.png" for n in (3, 4, 5)]
+    raw = C1W / "thumb_v_raw.png"
+    refs = [CHAR / "dadi_sheet.png"] + [STORY_002 / "images" / f"scene_0{n}.png" for n in (3, 4, 5)]
     generate(THUMB_V_PROMPT, raw, refs=refs, aspect_ratio="9:16", size="1K")
-    cover(raw, VW, VH, WORK / "thumb_v_art.png")
+    cover(raw, VW, VH, C1W / "thumb_v_art.png")
     thumb_v_text()
 
 
 def thumb_v_text():
     """Title + small logo in the top 16%; bottom 20% left clear for the Shorts overlay."""
-    fonts = WORK / "fonts"
+    fonts = C1W / "fonts"
     fonts.mkdir(parents=True, exist_ok=True)
-    shutil.copy(ROOT / "assets" / "fonts" / "Mukta-Bold.ttf", fonts / "Mukta-Bold.ttf")
+    shutil.copy(FONTS_DIR / "Mukta-Bold.ttf", fonts / "Mukta-Bold.ttf")
     ass = f"""[Script Info]
 ScriptType: v4.00+
 PlayResX: {VW}
@@ -225,17 +229,18 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 Dialogue: 0,0:00:00.00,0:00:01.00,L,,0,0,0,,दादी की कहानियाँ
 Dialogue: 0,0:00:00.00,0:00:01.00,Q,,0,0,0,,बताओ, दोषी कौन?
 """
-    (WORK / "thumb_v.ass").write_text(ass, encoding="utf-8")
-    shutil.copy(WORK / "thumb_v_art.png", WORK / "thumb_v_in.png")
+    (C1W / "thumb_v.ass").write_text(ass, encoding="utf-8")
+    shutil.copy(C1W / "thumb_v_art.png", C1W / "thumb_v_in.png")
     subprocess.run([str(FFMPEG), "-v", "error", "-y", "-i", "thumb_v_in.png", "-vf",
                     "subtitles=filename=thumb_v.ass:fontsdir=fonts", "-frames:v", "1", "thumb_v_titled.png"],
-                   cwd=WORK, check=True)
-    out = OUT / "case01_thumbnail_vertical.png"
-    shutil.copy(WORK / "thumb_v_titled.png", out)
+                   cwd=C1W, check=True)
+    out = CASE01 / "output" / "case01_thumbnail_vertical.png"
+    shutil.copy(C1W / "thumb_v_titled.png", out)
     print("saved", out, Image.open(out).size)
 
 
-LONG01 = ROOT / "long-videos" / "long_01"
+LONG01 = channel_dir() / "stories" / "001_lalchi-halwai"
+L1W = LONG01 / "long" / "thumbnail_work"
 
 L01_THUMB_PROMPT = """16:9 YouTube thumbnail illustration for a kids' Hindi moral-story cartoon, NO text or letters
 anywhere. Setting: a small Indian village sweet shop at evening, warm and family-friendly, not scary.
@@ -253,19 +258,19 @@ Match the flat 2D cartoon style of the references: thick bold outlines, warm col
 
 
 def long01_thumb():
-    raw = WORK / "long01_thumb_raw.png"
+    raw = L1W / "long01_thumb_raw.png"
     c = LONG01 / "characters"
     generate(L01_THUMB_PROMPT, raw, refs=[c / "ghasita_sheet.png", c / "chhotu_sheet.png", c / "cadhai_prop.png"],
              aspect_ratio="16:9", size="1K")
-    cover(raw, TW, TH, WORK / "long01_thumb_art.png")
+    cover(raw, TW, TH, L1W / "long01_thumb_art.png")
     long01_thumb_text()
 
 
 def long01_thumb_text():
     """Hook in two big lines in the empty left part; channel name small at bottom-left (bottom-right = timestamp)."""
-    fonts = WORK / "fonts"
+    fonts = L1W / "fonts"
     fonts.mkdir(parents=True, exist_ok=True)
-    shutil.copy(ROOT / "assets" / "fonts" / "Mukta-Bold.ttf", fonts / "Mukta-Bold.ttf")
+    shutil.copy(FONTS_DIR / "Mukta-Bold.ttf", fonts / "Mukta-Bold.ttf")
     ass = f"""[Script Info]
 ScriptType: v4.00+
 PlayResX: {TW}
@@ -282,18 +287,19 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 Dialogue: 0,0:00:00.00,0:00:01.00,Q,,0,0,0,,{{\\an5\\pos(290,300)\\q2}}जो डालो,\\N{{\\c&H0030FFFF&}}दुगना!
 Dialogue: 0,0:00:00.00,0:00:01.00,L,,0,0,0,,दादी की कहानियाँ
 """
-    (WORK / "long01_thumb.ass").write_text(ass, encoding="utf-8")
-    shutil.copy(WORK / "long01_thumb_art.png", WORK / "long01_thumb_in.png")
+    (L1W / "long01_thumb.ass").write_text(ass, encoding="utf-8")
+    shutil.copy(L1W / "long01_thumb_art.png", L1W / "long01_thumb_in.png")
     subprocess.run([str(FFMPEG), "-v", "error", "-y", "-i", "long01_thumb_in.png", "-vf",
                     "subtitles=filename=long01_thumb.ass:fontsdir=fonts", "-frames:v", "1", "long01_thumb_titled.png"],
-                   cwd=WORK, check=True)
-    out = LONG01 / "output" / "long_01_thumbnail.png"
-    shutil.copy(WORK / "long01_thumb_titled.png", out)
+                   cwd=L1W, check=True)
+    out = LONG01 / "long" / "output" / "long_01_thumbnail.png"
+    shutil.copy(L1W / "long01_thumb_titled.png", out)
     print("saved", out, Image.open(out).size)
 
 
 if __name__ == "__main__":
-    WORK.mkdir(parents=True, exist_ok=True)
+    for d in (WORK, C1W, L1W):
+        d.mkdir(parents=True, exist_ok=True)
     {"banner": banner, "dp": dp, "text": text, "thumb": thumb, "thumb_text": thumb_text,
      "thumb_v": thumb_v, "thumb_v_text": thumb_v_text,
      "long01_thumb": long01_thumb, "long01_thumb_text": long01_thumb_text}[sys.argv[1]]()

@@ -11,9 +11,9 @@ Set up on 18 Oct 2026. First upload: Long 01 (https://youtu.be/Ogfqow8rbGY).
 |---|---|---|
 | Upload script | `tools/youtube_upload.py` | yes |
 | Publish steps (for Munshi) | `.claude/skills/youtube-publish/SKILL.md` | yes |
-| Channel settings | `munshi/channel_config.json` | yes |
-| Per-video job | `<project>/output/upload.json` (written by Munshi) | yes |
-| Upload result | `<project>/output/upload_result.json` (video id, URLs) | yes |
+| Channel settings | `channels/dadi-ki-kahaniyan/channel.json` | yes |
+| Per-video job | `<video folder>/output/upload.json` (written by Munshi) | yes |
+| Upload result | `<video folder>/output/upload_result.json` (video id, URLs) | yes |
 | OAuth client | `secrets/client_secret.json` | **no** (keep a copy in Drive / password manager) |
 | Login token | `secrets/youtube_token_dadi-ki-kahaniyan.json` | **no** (re-created by logging in again) |
 | Python libs | `google-api-python-client`, `google-auth-oauthlib` (in `requirements.txt`) | yes |
@@ -40,7 +40,7 @@ The app is not verified by Google. That is fine for our own channel: the login s
 (Advanced → Go to Dadi Ki Kahaniyan Uploader). Scopes asked: `youtube.upload` and `youtube.force-ssl` (captions + playlists;
 the script never deletes anything).
 
-## 3. Channel config (`munshi/channel_config.json`)
+## 3. Channel config (`channels/dadi-ki-kahaniyan/channel.json`; the upload script reads it by `channel_key` and stops if the job's channel_id differs)
 
 | Key | Value |
 |---|---|
@@ -70,11 +70,11 @@ the script never deletes anything).
 
 ## 5. How an upload happens
 
-1. Munshi gives PASS for final build, thumbnail, metadata and copyright (logged in `munshi/log.md`).
+1. Munshi gives PASS for final build, thumbnail, metadata and copyright (logged in `channels/dadi-ki-kahaniyan/log.md`).
 2. Munshi writes `output/upload.json` and runs
    `.venv\Scripts\python tools\youtube_upload.py --job <project>\output\upload.json --dry-run`.
 3. The user sees the summary and says "upload karo" / "ha".
-4. Munshi runs the same command without `--dry-run`, then writes a PUBLISHED line in `munshi/log.md`.
+4. Munshi runs the same command without `--dry-run`, then writes a PUBLISHED line in `channels/dadi-ki-kahaniyan/log.md`.
 5. Builder runs `tools\sync.ps1 -Message "<project>: uploaded"`.
 
 Still done by hand in YouTube Studio: check the schedule (see 6), pin the comment after publish, end screen,
@@ -99,5 +99,5 @@ access completely: https://myaccount.google.com/permissions.
 
 ## 8. Adding another channel later
 
-Add a new block to `munshi/channel_config.json` with its own `channel_key` and `channel_id`; the same OAuth client works.
+Run `tools\new_channel.ps1 -Key <key> -Name "<name>"`, then fill `channel_id` in `channels/<key>/channel.json`; the same OAuth client works.
 On the first upload for that channel, log in and pick that channel; a separate token file is created.

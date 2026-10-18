@@ -1,9 +1,9 @@
 """Generate scene images from a scene_prompts.json.
 
-Usage:  python scripts/gen_scenes.py case01_cycle_chori [ids...]              (Shorts: cases/<case>/scene_prompts.json)
-        python scripts/gen_scenes.py long-videos/long_01/scene_prompts.json [ids...]
+Usage:  python scripts/gen_scenes.py channels/<key>/stories/<story>/scene_prompts.json [ids...]
+        (images go to the story's images/, shared by its long video and shorts)
 Spec keys: looks, base, scenes[{id, refs, prompt}], optional out_dir, aspect (default 9:16), ref_files {name: path}.
-Refs: "scene:N" -> an earlier image in out_dir; a name in ref_files -> that file; else characters/<name>_sheet.png.
+Refs: "scene:N" -> an earlier image in out_dir; a name in ref_files -> that file; else channels/<key>/characters/<name>_sheet.png.
 """
 import json
 import sys
@@ -12,18 +12,16 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 from gemini_image import generate  # noqa: E402
-
-ROOT = Path(__file__).resolve().parent.parent
+from paths import ROOT, channel_dir, channel_of  # noqa: E402
 
 
 def load(arg):
-    if arg.endswith(".json"):
-        path = ROOT / arg
-        spec = json.loads(path.read_text(encoding="utf-8"))
-        out_dir = ROOT / spec["out_dir"] if "out_dir" in spec else path.parent / "images"
-    else:
-        spec = json.loads((ROOT / "cases" / arg / "scene_prompts.json").read_text(encoding="utf-8"))
-        out_dir = ROOT / "images" / arg
+    path = ROOT / arg
+    if path.is_dir():
+        path = path / "scene_prompts.json"
+    spec = json.loads(path.read_text(encoding="utf-8"))
+    out_dir = ROOT / spec["out_dir"] if "out_dir" in spec else path.parent / "images"
+    spec["_chars"] = channel_dir(channel_of(path)) / "characters"
     return spec, out_dir
 
 
@@ -32,7 +30,7 @@ def ref_path(ref: str, spec, out_dir: Path) -> Path:
         return out_dir / f"scene_{int(ref[6:]):02d}.png"
     if ref in spec.get("ref_files", {}):
         return ROOT / spec["ref_files"][ref]
-    return ROOT / "characters" / f"{ref}_sheet.png"
+    return spec["_chars"] / f"{ref}_sheet.png"
 
 
 def main(arg: str, only: list[int]):
@@ -52,7 +50,7 @@ def main(arg: str, only: list[int]):
                        "outfit and colours EXACTLY as in the references, keep places consistent with any location "
                        "reference, and match their art style. Draw only the characters this prompt asks for.")
         else:
-            refs = [ROOT / "characters" / "dadi_sheet.png"]
+            refs = [spec["_chars"] / "dadi_sheet.png"]
             prompt += ("\n\nThe attached image is a STYLE reference only: match its art style, outline thickness "
                        "and colour palette exactly. Do NOT draw the grandmother from it in this scene.")
         out = out_dir / f"scene_{scene['id']:02d}.png"

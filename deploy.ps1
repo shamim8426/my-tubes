@@ -81,7 +81,7 @@ python -m pip install --upgrade pip
 if (Test-Path "requirements.txt") { python -m pip install -r requirements.txt }
 
 Step "7/10 Fonts"
-$fontDir = Join-Path $Path "fonts"
+$fontDir = Join-Path $Path "shared\fonts"
 if (Test-Path $fontDir) {
     $userFonts = Join-Path $env:LOCALAPPDATA "Microsoft\Windows\Fonts"
     New-Item -ItemType Directory -Force $userFonts | Out-Null

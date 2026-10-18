@@ -1,7 +1,7 @@
 """Download CC0 sound-effect candidates from Freesound (HQ previews, token auth).
 
 Usage: python scripts/fetch_sfx.py
-Output: assets/sfx/<kind>_<id>.mp3 + assets/sfx/CREDITS.md (CC0: no attribution needed, kept for records)
+Output: shared/sfx/<kind>_<id>.mp3 + shared/sfx/CREDITS.md (CC0: no attribution needed, kept for records)
 """
 import os
 import sys
@@ -12,7 +12,7 @@ from dotenv import load_dotenv
 
 ROOT = Path(__file__).resolve().parent.parent
 load_dotenv(ROOT / ".env")
-OUT = ROOT / "assets" / "sfx"
+OUT = ROOT / "shared" / "sfx"
 API = "https://freesound.org/apiv2/search/"
 
 WANT = {

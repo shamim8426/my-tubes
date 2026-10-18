@@ -24,9 +24,10 @@ venv/
 # encoded scene clips (make_short rebuilds them from images + TTS cache, free)
 cache/
 # build temp: mixed wavs, framecheck frames, ass files (free, rebuilt every build)
-output/*_work/
-long-videos/*/output/*_work/
-shorts/*/output/*_work/
+**/output/*_work/
+# Munshi's measurement audio in review folders (regenerable, large)
+**/review/**/*.wav
+**/review/**/*.raw
 # big downloadable binaries / models (deploy.ps1 installs ffmpeg; whisper model auto-downloads)
 tools/ffmpeg/
 tools/deno/

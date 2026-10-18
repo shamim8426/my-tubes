@@ -2,8 +2,8 @@
 """YouTube uploader for Story-Channel, used by the Munshi agent.
 
 Usage:
-    python tools/youtube_upload.py --job long-videos/long_01/output/upload.json --dry-run
-    python tools/youtube_upload.py --job long-videos/long_01/output/upload.json
+    python tools/youtube_upload.py --job channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long/output/upload.json --dry-run
+    python tools/youtube_upload.py --job channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long/output/upload.json
     python tools/youtube_upload.py --job ... --extras-only   # retry thumbnail/captions/playlist
 
 Safety: refuses to upload unless the logged-in channel ID matches job["channel_id"],
@@ -83,7 +83,17 @@ def validate(job: dict, job_path: Path) -> list:
         errs.append("channel_key missing/invalid (e.g. dadi-ki-kahaniyan)")
     cid = job.get("channel_id", "")
     if not (isinstance(cid, str) and cid.startswith("UC") and len(cid) == 24):
-        errs.append("channel_id missing/invalid (24 chars, starts with UC; set it in munshi/channel_config.json)")
+        errs.append("channel_id missing/invalid (24 chars, starts with UC; set it in channels/<key>/channel.json)")
+    if key and not errs:  # the job must match the channel's own config (channels/<key>/channel.json)
+        cfg_file = ROOT / "channels" / key / "channel.json"
+        if not cfg_file.exists():
+            errs.append(f"no channel config: {cfg_file.relative_to(ROOT).as_posix()}")
+        else:
+            cfg = json.loads(cfg_file.read_text(encoding="utf-8"))
+            if cfg.get("channel_id") != cid:
+                errs.append(f"channel_id {cid} does not match {cfg_file.relative_to(ROOT).as_posix()} ({cfg.get('channel_id')})")
+            if job.get("made_for_kids") != cfg.get("made_for_kids"):
+                errs.append("made_for_kids differs from the channel config")
     fmt = job.get("format")
     if fmt not in FORMATS:
         errs.append("format must be 'long' or 'short'")
@@ -105,7 +115,7 @@ def validate(job: dict, job_path: Path) -> list:
     if len(hashtags) > 15:
         errs.append(f"{len(hashtags)} hashtags in description (>15: YouTube ignores all)")
     if not isinstance(job.get("made_for_kids"), bool):
-        errs.append("made_for_kids must be true/false (set it in munshi/channel_config.json)")
+        errs.append("made_for_kids must be true/false (set it in channels/<key>/channel.json)")
 
     video = resolve(job_path, job.get("video"))
     if not video or not video.exists():

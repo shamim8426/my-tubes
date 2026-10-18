@@ -9,8 +9,9 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 from gemini_image import generate  # noqa: E402
 
-ROOT = Path(__file__).resolve().parent.parent
-OUT = ROOT / "characters"
+from paths import ROOT, channel_dir  # noqa: E402
+
+OUT = channel_dir() / "characters"
 DADI_REF = OUT / "dadi_sheet.png"
 
 SHEET = ("Character reference sheet of ONE single character on a plain off-white background. "

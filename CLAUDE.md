@@ -1,6 +1,14 @@
 # दादी की कहानियाँ (Dadi Ki Kahaniyan) — Story Channel
 
-Har script, case file aur image prompt se pehle [channel_bible.md](channel_bible.md) padho aur uske rules exactly follow karo:
+## Project dhaancha (multi-channel)
+- `channels/<channel_key>/`: channel.json, RULES.md, channel_bible.md, log.md, carry_over.md, brand/, characters/ (permanent characters + voices/)
+- `channels/<key>/stories/<NNN>_<slug>/`: story.md (status), script/, scene_prompts.json, characters/ (sirf is kahani ke), images/, audio/
+  - `long/` aur `shorts/short_<NN>_<slug>/`: project.json, lines.json, shots.json, meta.json, review/, output/
+- `shared/`: music/, sfx/, fonts/, assets_license.csv, RULES.md (sab channels ke common niyam), sync.log
+- `channels/_template/`: naye channel/kahani ka khaali dhaancha. Naya channel: `powershell -File tools\new_channel.ps1 -Key <key> -Name "<naam>"`
+
+## दादी की कहानियाँ (channel key: dadi-ki-kahaniyan)
+Har script, case file aur image prompt se pehle [channels/dadi-ki-kahaniyan/channel_bible.md](channels/dadi-ki-kahaniyan/channel_bible.md) padho aur uske rules exactly follow karo:
 - Permanent characters ka look kabhi mat badlo — bible ke exact descriptions use karo.
 - Script: 110–140 words, 2-sec hook, Golu ka ek galat guess, Dadi ka ek clue observation, end me "बताओ, दोषी कौन?". Answer alag file me.
 - Naye suspects ka look case file me likho; dobara aayein to wahi look use karo.
@@ -9,9 +17,10 @@ Har script, case file aur image prompt se pehle [channel_bible.md](channel_bible
 - Paid image/TTS se PEHLE har chinta batao aur jawab ka intezaar karo: answer spoil hona, Shorts (9:16) vs 16:9, YouTube safe area, AI se Hindi text. Kai sudhaar hon to sab ek hi generation me jodo.
 
 ## Video build workflow
-Command: `.\.venv\Scripts\python -X utf8 scripts\make_short.py <case> [--preview | --final] [--spend]`
+Command: `.\.venv\Scripts\python -X utf8 scripts\make_short.py <video folder> [--preview | --final] [--spend] [--plan] [--seconds N]`
+(video folder = `channels/<key>/stories/<story>/long` ya `.../shorts/short_<NN>_<slug>`; `--plan` sirf paths/inputs check karta hai, `--seconds N` pehle N second ka test preview)
 - Koi bhi badlav ho to pehle sirf `--preview` banao. `--final` tabhi banao jab user bole "final banao".
-- Sirf badla hua scene ya line dobara banao, baaki cache se lo (`cache/<case>/` scene clips, `audio/<case>/tts_cache/` TTS). Kabhi poori video shuru se mat banao (cache mat mitao) jab tak user na kahe.
+- Sirf badla hua scene ya line dobara banao, baaki cache se lo (`cache/<channel>/<story>/<video>/` scene clips, story ka `audio/tts_cache/` TTS). Kabhi poori video shuru se mat banao (cache mat mitao) jab tak user na kahe.
 - User ke kai badlav ek saath aayein to sab ek hi build me lagao, har badlav par alag build mat chalao.
 - Image/TTS par paisa lagne se pehle cost batao aur user se poocho. Paisa sirf cache miss par lage; make_short bina `--spend` ke paid TTS se pehle ruk kar estimate dikhata hai.
 - Build ke baad hamesha batao: preview ya final, scenes cached/naye, build time, aur kharcha.
@@ -20,11 +29,12 @@ Command: `.\.venv\Scripts\python -X utf8 scripts\make_short.py <case> [--preview
 ## Munshi (review + publish)
 - Har production step ke baad `munshi` subagent ko bulao aur uska verdict mujhe dikhao. FIX ho to free fix karo aur dobara review karwao; ASK ho to mujhse poochho.
 - Upload sirf `munshi` karega, `youtube-publish` skill ke hisaab se, meri "ha" ke baad.
-- Naye rules `munshi/RULES.md` me jaate hain.
+- Naye niyam: sab channels ke liye `shared/RULES.md`, sirf ek channel ke liye `channels/<key>/RULES.md` (channel ke niyam sakht ho sakte hain, dheele kabhi nahi).
+- Munshi ka log aur carry-over: `channels/<key>/log.md`, `channels/<key>/carry_over.md`.
 
 ## GitHub sync
 - Har milestone ke baad sync chalao: `powershell -NoProfile -ExecutionPolicy Bypass -File tools\sync.ps1 -Message "<project>: <milestone>"`.
   Milestones: script approved, scene images done, TTS done, final build done, thumbnail done, uploaded (Munshi PUBLISHED ke baad).
 - Session band hone par hook aur raat 11:30 ka task apne aap sync karte hain.
-- Sync log: `munshi/sync.log`. Koi ERROR dikhe to mujhe batao.
+- Sync log: `shared/sync.log`. Koi ERROR dikhe to mujhe batao.
 - Secrets (.env, secrets/) kabhi repo me nahi jaate; sync.ps1 aisa hone par ruk jaata hai.

@@ -12,7 +12,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 PREVIEW = ROOT / "PREVIEW.md"
-SECTIONS = [("Characters", ROOT / "characters"), ("Scenes", ROOT / "images")]
+SECTIONS = [("Characters", "characters"), ("Scenes", "images")]  # folder name inside channels/**/
 
 
 def _costs():
@@ -29,8 +29,9 @@ def build() -> Path:
     lines = ["# Preview — दादी की कहानियाँ", ""]
     if last:
         lines += [f"**Budget bacha:** ₹{last['remaining_inr']}  ·  **Last image:** {last['timestamp']}", ""]
-    for title, folder in SECTIONS:
-        imgs = sorted(p for p in folder.rglob("*.png") if not any(part.startswith("_") for part in p.relative_to(folder).parts))
+    for title, kind in SECTIONS:
+        imgs = sorted(p for p in (ROOT / "channels").rglob(f"{kind}/*.png")
+                      if not any(part.startswith("_") for part in p.relative_to(ROOT).parts))
         if not imgs:
             continue
         lines += [f"## {title}", ""]

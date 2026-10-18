@@ -1,7 +1,7 @@
 """Reference sheets for long-video characters/props (style matched to the approved channel sheets).
 
 Usage: python scripts/gen_long_characters.py long_01 [name ...]
-Output: long-videos/<id>/characters/<file>
+Output: the story's characters/ folder (STORY_DIRS below)
 """
 import sys
 import time
@@ -10,8 +10,11 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 from gemini_image import generate  # noqa: E402
 
-ROOT = Path(__file__).resolve().parent.parent
-STYLE_REFS = [ROOT / "characters" / "dadi_sheet.png", ROOT / "characters" / "golu_sheet.png"]
+from paths import ROOT, channel_dir  # noqa: E402
+
+CHAR = channel_dir() / "characters"
+STYLE_REFS = [CHAR / "dadi_sheet.png", CHAR / "golu_sheet.png"]
+STORY_DIRS = {"long_01": channel_dir() / "stories" / "001_lalchi-halwai"}
 STYLE_NOTE = ("The attached images are STYLE references only (the channel's approved sheets): match their flat 2D "
               "cartoon style, thick bold black outlines, warm colours, flat cel shading, clean off-white background and "
               "sheet layout with small uppercase labels. Do NOT draw the grandmother or the boy from them.")
@@ -55,7 +58,7 @@ with a soft warm golden glow and a few sparkles). Same object identical in every
 if __name__ == "__main__":
     vid = sys.argv[1]
     names = sys.argv[2:] or list(SPECS[vid])
-    out_dir = ROOT / "long-videos" / vid / "characters"
+    out_dir = STORY_DIRS[vid] / "characters"
     for name in names:
         fname, prompt = SPECS[vid][name]
         t0 = time.time()

@@ -1,0 +1,24 @@
+﻿2026-10-18 12:16:08  pushed: test sync  (repo pack size 179 MB)
+2026-10-18 12:46:57  pushed: auto: session end  (repo pack size 179 MB)
+2026-10-18 12:47:11  pushed: auto: session end  (repo pack size 179 MB)
+2026-10-18 12:50:25  pushed: rules: setting scope + gitattributes  (repo pack size 179 MB)
+2026-10-18 13:21:00  SKIPPED big file (>50MB): long-videos/long_01/output/review/music_resid.wav
+2026-10-18 13:21:31  pushed: upload: channel-id + ffprobe checks  (repo pack size 179 MB)
+2026-10-18 13:29:54  SKIPPED big file (>50MB): long-videos/long_01/output/review/music_resid.wav
+2026-10-18 13:30:04  pushed: long_01: free fixes final rebuild + munshi re-review  (repo pack size 179 MB)
+2026-10-18 13:40:39  SKIPPED big file (>50MB): long-videos/long_01/output/review/music_resid.wav
+2026-10-18 13:40:45  pushed: long_01: final approved + channel config + upload dry-run (copyright check pending)  (repo pack size 179 MB)
+2026-10-18 13:58:44  SKIPPED big file (>50MB): long-videos/long_01/output/review/music_resid.wav
+2026-10-18 13:58:51  pushed: rules: strict copyright + assets register + long_01 copyright review  (repo pack size 179 MB)
+2026-10-18 14:41:29  SKIPPED big file (>50MB): long-videos/long_01/output/review/music_resid.wav
+2026-10-18 14:41:35  pushed: long_01: uploaded + docs: YouTube uploader setup  (repo pack size 179 MB)
+2026-10-18 14:55:27  SKIPPED big file (>50MB): long-videos/long_01/output/review/music_resid.wav
+2026-10-18 14:55:33  pushed: rules: review severity + 2-round limit  (repo pack size 179 MB)
+2026-10-18 14:58:59  SKIPPED big file (>50MB): long-videos/long_01/output/review/music_resid.wav
+2026-10-18 14:59:04  pushed: rules: R1/R2 clarity + family wording + credits from register  (repo pack size 179 MB)
+2026-10-18 15:00:29  SKIPPED big file (>50MB): long-videos/long_01/output/review/music_resid.wav
+2026-10-18 15:00:35  pushed: rules: family wording covers tags  (repo pack size 179 MB)
+2026-10-18 15:07:27  SKIPPED big file (>50MB): long-videos/long_01/output/review/music_resid.wav
+2026-10-18 15:07:33  pushed: rules: same-day publish window 7PM-12AM  (repo pack size 179 MB)
+2026-10-18 15:07:48  SKIPPED big file (>50MB): long-videos/long_01/output/review/music_resid.wav
+2026-10-18 15:07:54  pushed: docs: uploader setup matches new publish window  (repo pack size 179 MB)

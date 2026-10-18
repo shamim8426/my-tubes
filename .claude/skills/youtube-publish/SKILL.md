@@ -23,8 +23,8 @@ Videos uploaded through the API from a project that has not passed YouTube's API
 Quota: default 10,000 units/day; one upload costs about 1,600, thumbnail 50, captions 400. Check the current numbers in the docs if uploads fail with quotaExceeded.
 
 ## Per-video steps
-1. Confirm in `munshi/log.md`: PASS for final build, thumbnail and metadata of this project. Confirm `output/upload_result.json` does not exist.
-2. Read `munshi/channel_config.json` for made_for_kids, contains_synthetic_media, category_id, language, publish time, playlist id. If made_for_kids is null, ASK the user and save the answer there.
+1. Confirm in `channels/<key>/log.md`: PASS for final build, thumbnail and metadata of this project. Confirm `output/upload_result.json` does not exist.
+2. Read `channels/<key>/channel.json` for made_for_kids, contains_synthetic_media, category_id, language, publish time, playlist id. If made_for_kids is null, ASK the user and save the answer there.
 3. Pick publish time per RULES section 8, inside `publish_window_ist` (19:00-23:59 IST), the same day as the upload:
    - upload expected to finish before 18:45 IST -> 19:00 the same day;
    - finishing 18:45-23:15 IST -> the next :00 or :30 at least 30 minutes after the upload finishes;
@@ -33,7 +33,7 @@ Quota: default 10,000 units/day; one upload costs about 1,600, thumbnail 50, cap
    At most `max_long_per_day` long video per day: if a long one is already scheduled that day, use 19:00 the next day.
    A Short and a long video may share a day only if their times are at least `min_gap_hours_short_long` hours apart, still inside the window.
 4. Write `output/upload.json`:
-   - channel_key, channel_name, channel_id (from `munshi/channel_config.json`)
+   - channel_key, channel_name, channel_id (from `channels/<key>/channel.json`)
    - format: "long" or "short"
    - title, description, tags (from the approved metadata file)
    - video: final mp4 (never *_preview*)
@@ -46,4 +46,4 @@ Quota: default 10,000 units/day; one upload costs about 1,600, thumbnail 50, cap
 6. Show the user: title, publish time IST, made-for-kids, playlist, thumbnail file. Wait for ha/ok.
 7. Run without --dry-run. If thumbnail/captions/playlist failed, fix the cause and run with `--extras-only`.
 8. Report: video URL, studio URL, what succeeded, and what still needs a click in Studio (schedule if locked private, pinned comment, end screen). Pinning a comment is not possible through the API.
-9. Append a PUBLISHED line to `munshi/log.md`.
+9. Append a PUBLISHED line to `channels/<key>/log.md` and update the story's `story.md` status.

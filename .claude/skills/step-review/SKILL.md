@@ -5,14 +5,14 @@ description: Stage-by-stage review checklist for Story-Channel videos (script to
 
 # Step review for Story-Channel
 
-Use this after every production step of a video in the Story-Channel project. Always read `munshi/RULES.md` and `channel_bible.md` first. Verify by opening files yourself; never accept a summary as proof.
+Use this after every production step of a video in the Story-Channel project. Always read `shared/RULES.md`, then `channels/<key>/RULES.md`, and `channels/<key>/channel_bible.md` first. Verify by opening files yourself; never accept a summary as proof.
 
 ## General method
-1. Identify the project (e.g. `long-videos/long_01`) and the stage just finished.
+1. Identify the video folder (e.g. `channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long`) and the stage just finished.
 2. List the files the stage produced and confirm each exists, with size and date.
 3. Run the stage checklist below. For every item record what you actually opened or measured.
 4. Decide the verdict: PASS (all verified), FIX (free fix needed), ASK (paid fix, story change, or taste call).
-5. Report in the munshi format and append one line to `munshi/log.md`.
+5. Report in the munshi format and append one line to `channels/<key>/log.md`.
 
 ## Stage checklists
 
@@ -59,7 +59,7 @@ Use this after every production step of a video in the Story-Channel project. Al
 - Same frame-per-line check as preview, at full resolution.
 - `.srt` present, UTF-8; lines estimated rather than Whisper-timed are listed.
 - Duration within the range the user approved at preview.
-- Copyright: run the RULES section 10 checks against munshi/assets_license.csv. Any miss is FIX.
+- Copyright: run the RULES section 10 checks against shared/assets_license.csv. Any miss is FIX.
 
 ### 8. Thumbnail
 - 1280x720, <= 2 MB, jpg/png.
@@ -71,8 +71,8 @@ Use this after every production step of a video in the Story-Channel project. Al
 - Title <= 100 chars, description <= 5000, tags <= 500 chars, 3-5 hashtags.
 - Every CC BY music track used is credited.
 - Mystery: no answer anywhere; pinned-comment text prepared for after 24 h.
-- made_for_kids and AI disclosure taken from `munshi/channel_config.json`.
-- Copyright: run the RULES section 10 checks against munshi/assets_license.csv. Any miss is FIX.
+- made_for_kids and AI disclosure taken from `channels/<key>/channel.json`.
+- Copyright: run the RULES section 10 checks against shared/assets_license.csv. Any miss is FIX.
 
 ## Report format
 Write in Hinglish, friendly but professional, address the user as "bhai". Keep it short.

@@ -4,7 +4,8 @@ Usage:  python scripts/make_short.py <case> [--preview | --final] [--spend]
           --preview (default)  540x960, 24 fps, ultrafast: only for checking -> output/<case>_preview.mp4
           --final              1080x1920, 30 fps, good quality + Whisper/frame/loudness checks -> output/<case>.mp4
           --spend              allow paid TTS for lines not in the cache (otherwise the build stops and shows the cost)
-Needs:  cases/<case>/lines.json, meta.json, shots.json, images/<case>/scene_XX.png
+Needs:  a video folder with project.json (channels/<key>/stories/<story>/long or .../shorts/short_XX_<slug>)
+        + lines.json, meta.json, shots.json; story-level images/scene_XX.png, audio/, scene_prompts.json
 
 Caching: every TTS line (audio/<case>/tts_cache) and every scene clip (cache/<case>/scene_XX_<hash>.mp4, captions
 burned in) is reused while its inputs are unchanged. The final step only concatenates clips (no re-encode),
@@ -31,14 +32,12 @@ sys.path.insert(0, str(Path(__file__).parent))
 import cost_log  # noqa: E402
 import gemini_tts  # noqa: E402
 from voices import CAST, pitch_filter  # noqa: E402
+from paths import FONTS_DIR, MUSIC_DIR, REGISTER, ROOT, SFX_DIR, channel_of, story_of  # noqa: E402
 
-ROOT = Path(__file__).resolve().parent.parent
 FFMPEG = ROOT / "tools" / "ffmpeg" / "ffmpeg.exe"
 if not FFMPEG.exists():  # new system: ffmpeg from winget on PATH (tools/ffmpeg is not in git)
     FFMPEG = Path(shutil.which("ffmpeg") or FFMPEG)
-FONT = ROOT / "assets" / "fonts" / "Mukta-ExtraBold.ttf"
-MUSIC_DIR = ROOT / "assets" / "music"
-SFX_DIR = ROOT / "assets" / "sfx"
+FONT = FONTS_DIR / "Mukta-ExtraBold.ttf"
 
 PROFILES = {
     ("short", "preview"): {"w": 540, "h": 960, "fps": 24, "enc": ["-preset", "ultrafast", "-crf", "30"]},
@@ -582,11 +581,8 @@ def write_srt(timed, path: Path):
                               enumerate(cues, 1)), encoding="utf-8")
 
 
-REGISTER = ROOT / "munshi" / "assets_license.csv"
-
-
 def register_row(f: Path):
-    """The asset's row in munshi/assets_license.csv (RULES section 10). No row -> stop the build."""
+    """The asset's row in shared/assets_license.csv (RULES section 10). No row -> stop the build."""
     rows = {r["path"]: r for r in csv.DictReader(REGISTER.open(encoding="utf-8", newline=""))}
     rel = Path(f).resolve().relative_to(ROOT).as_posix()
     if rel not in rows:
@@ -623,22 +619,48 @@ def music_credits(meta, events, total):
 
 
 def load_project(name):
-    """Short: cases/<case>/ (+ images/<case>, audio/<case>). Long: a folder with project.json
-    (lines.json, meta.json, shots.json, scene_prompts.json, images/, audio/, output/ inside it)."""
-    pdir = ROOT / name
-    if (pdir / "project.json").exists():
-        proj = json.loads((pdir / "project.json").read_text(encoding="utf-8"))
-        pid = proj.get("name", pdir.name)
-        covers = {c: s["id"] for s in json.loads((pdir / "scene_prompts.json").read_text(encoding="utf-8"))["scenes"]
-                  for c in s.get("covers", [s["id"]])}
-        img_dir = pdir / "images"
-        return {"kind": "long", "name": pid, "dir": pdir, "burn": proj.get("burn_captions", False),
-                "image_for": lambda sc: img_dir / f"scene_{covers[sc]:02d}.png",
-                "audio_dir": pdir / "audio", "cache_dir": ROOT / "cache" / pid, "out_dir": pdir / "output"}
-    cdir = ROOT / "cases" / name
-    return {"kind": "short", "name": name, "dir": cdir, "burn": True,
-            "image_for": lambda sc: ROOT / "images" / name / f"scene_{sc:02d}.png",
-            "audio_dir": ROOT / "audio" / name, "cache_dir": ROOT / "cache" / name, "out_dir": ROOT / "output"}
+    """A video folder with project.json: channels/<key>/stories/<story>/long or .../shorts/short_<NN>_<slug>.
+    lines.json, meta.json, shots.json and output/ are in that folder; images/, audio/ and scene_prompts.json are
+    at the story level (shared by the long video and its shorts)."""
+    pdir = (ROOT / name).resolve()
+    if not (pdir / "project.json").exists():
+        sys.exit(f"{pdir} has no project.json (expected .../stories/<story>/long or .../shorts/short_XX_<slug>)")
+    proj = json.loads((pdir / "project.json").read_text(encoding="utf-8"))
+    kind = proj["kind"]
+    story = story_of(pdir)
+    channel = channel_of(pdir)
+    covers = {c: s["id"] for s in json.loads((story / "scene_prompts.json").read_text(encoding="utf-8"))["scenes"]
+              for c in s.get("covers", [s["id"]])}
+    img_dir = story / "images"
+    return {"kind": kind, "name": proj.get("name", pdir.name), "dir": pdir, "story": story, "channel": channel,
+            "burn": proj.get("burn_captions", kind == "short"),
+            "image_for": lambda sc: img_dir / f"scene_{covers[sc]:02d}.png",
+            "audio_dir": story / "audio", "cache_dir": ROOT / "cache" / channel / story.name / pdir.name,
+            "out_dir": pdir / "output"}
+
+
+def plan_report(P, lines, meta):
+    """--plan: show where every input comes from and that it exists. Nothing is rendered or paid for."""
+    rel = lambda p: Path(p).resolve().relative_to(ROOT).as_posix()
+    print(f"[PLAN] {P['kind']} '{P['name']}'  channel={P['channel']}  story={P['story'].name}")
+    print(f"  project:  {rel(P['dir'])}\n  output:   {rel(P['out_dir'])}\n  cache:    {rel(P['cache_dir'])}")
+    scenes = sorted({l["scene"] for l in lines})
+    imgs = sorted({P["image_for"](s) for s in scenes})
+    print(f"  images:   {len(imgs)} for {len(scenes)} scenes, all present: {all(p.exists() for p in imgs)}  "
+          f"({rel(imgs[0].parent)})")
+    cache = P["audio_dir"] / "tts_cache"
+    spoken = [l for l in lines if "text" in l]
+    miss = [l["speaker"] for l in spoken if not (cache / tts_key(l["text"], l["speaker"])).exists()]
+    print(f"  TTS:      {len(spoken) - len(miss)}/{len(spoken)} lines cached in {rel(cache)}"
+          + (f"  MISSING (paid): {miss}" if miss else ""))
+    music = [MUSIC_DIR / f for f in meta.get("music_moods", {}).values()] or \
+            [MUSIC_DIR / meta["music"] if meta.get("music") else MUSIC_DIR / "mystery_bed.wav"]
+    sfx = [SFX_DIR / f for f in meta.get("sfx", {}).values()]
+    for label, files in (("music", music), ("sfx", sfx)):
+        print(f"  {label + ':':9s} {len(files)} files, all present: {all(f.exists() for f in files)}  "
+              + ", ".join(rel(f) for f in files))
+    print(f"  font:     {rel(FONT)} present: {FONT.exists()}")
+    print(f"  register: {rel(REGISTER)} has a row for every music/SFX file (checked)")
 
 
 # ---------- main ----------
@@ -650,14 +672,19 @@ def main():
     g.add_argument("--preview", action="store_true", help="fast 540x960 check build (default)")
     g.add_argument("--final", action="store_true", help="1080x1920 upload build + checks")
     ap.add_argument("--spend", action="store_true", help="allow paid TTS for uncached lines")
+    ap.add_argument("--plan", action="store_true", help="validate only: resolve and check every input path, no render")
+    ap.add_argument("--seconds", type=float, help="preview only the first N seconds (quick test render)")
     a = ap.parse_args()
     mode = "final" if a.final else "preview"
+    if a.seconds and mode == "final":
+        ap.error("--seconds is only for preview test renders")
     t_start = time.perf_counter()
 
     name = a.case_opt or a.case_pos
     if not name:
-        ap.error("case/project required: a Shorts case name or a long-video folder (e.g. long-videos/long_01)")
+        ap.error("project folder required, e.g. channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long")
     P = load_project(name)
+    os.environ["STORY_CHANNEL"] = P["channel"]  # cost_log rows get this channel
     prof = PROFILES[(P["kind"], mode)]
     case = P["name"]
     lines = json.loads((P["dir"] / "lines.json").read_text(encoding="utf-8"))
@@ -671,6 +698,9 @@ def main():
     if missing:
         sys.exit(f"Missing scene images: {missing}")
     check_register(meta)
+    if a.plan:
+        plan_report(P, lines, meta)
+        return
 
     out_dir = P["out_dir"]
     work = out_dir / f"{case}_work"
@@ -686,7 +716,12 @@ def main():
     print("1/4 voice")
     check_tts_spend(lines, audio_dir / "tts_cache", a.spend)
     voice, total, timed, events = build_voice(lines, audio_dir, work, run_whisper=(mode == "final"))
-    warn = P["kind"] == "short" and not 45 <= total <= 60
+    if a.seconds:  # test render: keep the lines that start inside the first N seconds
+        total = min(total, a.seconds)
+        timed = [l for l in timed if l["start"] < total]
+        events = {k: [e for e in v if e[0] < total] for k, v in events.items()}  # music/sfx cues after the cut go too
+        case = f"{case}_test{a.seconds:g}s"
+    warn = P["kind"] == "short" and not a.seconds and not 45 <= total <= 60
     print(f"  total {total:.1f}s" + ("  WARNING: outside 45-60s" if warn else ""))
 
     print("2/4 scenes")
@@ -702,7 +737,7 @@ def main():
     run([FFMPEG, "-y", "-i", "video.mp4", "-i", norm, "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-ar", 48000,
          "-shortest", "-movflags", "+faststart", out], cwd=work)
     report = ""
-    if not P["burn"]:
+    if not P["burn"] and not a.seconds:
         srt = out.with_suffix(".srt")
         write_srt(timed, srt)
         report += f"\n  captions:    {srt}"

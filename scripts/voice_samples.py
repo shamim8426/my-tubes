@@ -12,8 +12,9 @@ import cost_log  # noqa: E402
 from gemini_tts import speak  # noqa: E402
 from voices import CAST  # noqa: E402
 
-ROOT = Path(__file__).resolve().parent.parent
-OUT = ROOT / "audio" / "voice_samples"
+from paths import ROOT, channel_dir  # noqa: E402
+
+OUT = channel_dir() / "characters" / "voices"
 
 SAMPLE_LINES = {
     "narrator": "शर्मा जी की नई साइकिल... रातों-रात गायब!",
