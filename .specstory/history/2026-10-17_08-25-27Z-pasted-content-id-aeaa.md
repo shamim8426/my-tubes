@@ -33990,3 +33990,38 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 10:31:53Z)**_
 {"success":true,"message":"Report delivered to your caller."}
 ```
 </details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 10:31:57Z)**_
+
+R2 **PASS** hai. Ab "Related video" wali yaad aur publish ka samay `story.md` me likh raha hoon, phir sync karunga:
+
+_**Agent (claude-opus-5-5 2026-10-18 10:32:27Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Record status and Related-video reminder, then sync
+
+`S=channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai && sed -i 's#^| Shorts | none yet (`shorts/`) |$#| Shorts | `shorts/short_01_jadui-kadhai/` — preview 51.9 s, Munshi R2 PASS; final not built yet; publish_at 2026-10-20 21:00 IST |\n\n## After the Short is uploaded (do in YouTube Studio)\n- Set the Short'"'"'s **Related video** to Long 01 (https://youtu.be/Ogfqow8rbGY).#' $S/story.md && tail -5 $S/story.md && powershell -NoProfile -ExecutionPolicy Bypass -File tools/sync.ps1 -Message "long_01 short_01: crop option, preview + munshi R1/R2" >/dev/null 2>&1; tail -1 shared/sync.log`
+
+```text
+| Munshi | final build, thumbnail, metadata, copyright, publish dry-run: PASS (see `../../log.md`) |
+| Upload | 2026-10-18 via API: https://youtu.be/Ogfqow8rbGY — scheduled 2026-10-20 19:00 IST (check in Studio) |
+| Shorts | `shorts/short_01_jadui-kadhai/` — preview 51.9 s, Munshi R2 PASS; final not built yet; publish_at 2026-10-20 21:00 IST |
+
+
+2026-10-18 16:02:26  pushed: long_01 short_01: crop option, preview + munshi R1/R2  (repo pack size 179 MB)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 10:32:31Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Verify reminder text was written
+
+`grep -n "Related video\|After the Short" channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/story.md; wc -l channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/story.md`
+
+```text
+19 channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/story.md
+```
+</details></tool-use>

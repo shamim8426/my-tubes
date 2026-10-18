@@ -16,4 +16,5 @@
 | Upload | 2026-10-18 via API: https://youtu.be/Ogfqow8rbGY — scheduled 2026-10-20 19:00 IST (check in Studio) |
 | Shorts | `shorts/short_01_jadui-kadhai/` — preview 51.9 s, Munshi R2 PASS; final not built yet; publish_at 2026-10-20 21:00 IST |
 
-
+## After the Short is uploaded (do in YouTube Studio)
+- Set the Short's **Related video** to Long 01 (https://youtu.be/Ogfqow8rbGY).
