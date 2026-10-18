@@ -266,6 +266,82 @@ def banner():
     sheet.paste(mob, (0, 812)); d.text((5, 795), "Mobile (1546x423 safe area)", fill=(0, 0, 0))
     sheet.save(WORK / "banner_v2_devices.jpg", quality=90)
 
+
+def dp_ring():
+    """DP v3 (free): indigo, soft warm glow behind Mitthu, marigold ring just inside the circle crop."""
+    S = 800
+    d = Image.new("RGBA", (S, S), INDIGO + (255,))
+    # warm radial glow (marigold), strongest behind the head
+    yy, xx = np.mgrid[0:S, 0:S]
+    r = np.hypot(xx - S / 2, yy - S * 0.47) / (S * 0.37)
+    glow = np.clip(1 - r, 0, 1) ** 1.3 * 215
+    layer = np.zeros((S, S, 4), np.uint8)
+    layer[..., 0], layer[..., 1], layer[..., 2] = (255, 196, 64)  # bright warm gold so the glow does not turn brown on indigo
+    layer[..., 3] = glow.astype(np.uint8)
+    d.alpha_composite(Image.fromarray(layer, "RGBA"))
+    ic = Image.open(BRAND / "icon.png").convert("RGBA").resize((548, 548), Image.LANCZOS)
+    d.alpha_composite(ic, ((S - 548) // 2, (S - 548) // 2 + 6))
+    # marigold ring, drawn 4x and scaled down for smooth edges
+    big = Image.new("RGBA", (S * 4, S * 4), (0, 0, 0, 0))
+    w, inset = 18 * 4, 22 * 4
+    ImageDraw.Draw(big).ellipse((inset, inset, S * 4 - inset, S * 4 - inset), outline=MARIGOLD + (255,), width=w)
+    d.alpha_composite(big.resize((S, S), Image.LANCZOS))
+    d.convert("RGB").save(BRAND / "kissago_dp_v3.png")
+    print("saved", BRAND / "kissago_dp_v3.png")
+
+
+BANNER3_PROMPT = """Wide 16:9 YouTube channel banner background, NO text, letters, numbers, signs or logos anywhere.
+A peaceful Indian village night. The LEFT THREE QUARTERS of the image (from 0% to 76% of the width) is OPEN NIGHT SKY:
+deep night-indigo (#1F1B4D) getting slightly lighter towards the horizon, many small soft stars, a thin crescent moon
+in the upper left, a few faint wispy clouds. There are NO walls, NO houses, NO trees and NO objects in this sky area
+between 12% and 78% of the height. Only at the very bottom (below 80% of the height) a low dark silhouette of distant
+village rooftops and a gulmohar tree, with a few tiny warm lit windows.
+On the FAR RIGHT only (from 80% to 97% of the width): the lamp-lit porch of a small mud house with a warm marigold
+lantern; Dadi sits on a low charpai telling a story, Golu sits beside her listening, and Mitthu the parrot perches on
+the charpai frame. Their faces are between 38% and 62% of the height. Dadi and Golu exactly as in their reference
+sheets; Mitthu exactly like the attached parrot logo (big round green head, red beak, thin red neck ring). Warm
+golden light from the lantern falls only on them.
+Flat 2D cartoon style, thick clean outlines, flat colours: night indigo, marigold (#F4A300), cream (#FFF4DC),
+parrot green (#2FA84F). Calm, magical, family-friendly, not scary."""
+
+
+def banner3_bg():
+    """PAID (2K, ~₹4.86): night-sky banner background v3 (no text)."""
+    raw = WORK / "banner_v3_raw.png"
+    generate(BANNER3_PROMPT, raw, refs=[CHAR / "dadi_sheet.png", CHAR / "golu_sheet.png", CHOSEN],
+             aspect_ratio="16:9", size="2K")
+    banner3()
+
+
+def banner3(zoom=1.1, ax=1.0, ay=1.0):
+    """Free: logo (no panel) + tagline on the open sky, inside the safe area; device previews."""
+    im = Image.open(WORK / "banner_v3_raw.png").convert("RGB")
+    s = max(BW / im.width, BH / im.height) * zoom
+    im = im.resize((round(im.width * s), round(im.height * s)), Image.LANCZOS)
+    x0, y0 = int((im.width - BW) * ax), int((im.height - BH) * ay)
+    bg = im.crop((x0, y0, x0 + BW, y0 + BH)).convert("RGBA")
+    lg = Image.open(BRAND / "logo_horizontal.png").convert("RGBA")
+    sx0, sy0, sx1, sy1 = SAFE
+    lw = int((sx1 - sx0) * 0.56)
+    lg = lg.resize((lw, int(lg.height * lw / lg.width)), Image.LANCZOS)
+    tag = text_layer(TAGLINE, "Mukta", 74, CREAM, bold=True)
+    gap = 14
+    block_h = lg.height + gap + tag.height
+    x = sx0 + (int((sx1 - sx0) * 0.80) - lw) // 2  # centred in the sky part of the safe area
+    y = sy0 + (sy1 - sy0 - block_h) // 2
+    bg.alpha_composite(lg, (x, y))
+    bg.alpha_composite(tag, (x + (lw - tag.width) // 2, y + lg.height + gap))
+    out = BRAND / "kissago_banner_v3.png"
+    bg.convert("RGB").save(out)
+    print("saved", out, "| logo+tagline box:", (x, y, x + lw, y + block_h), "inside safe", SAFE)
+    full = bg.convert("RGB")
+    sheet = Image.new("RGB", (1280, 540 + 212 + 212 + 60), (240, 240, 240))
+    d = ImageDraw.Draw(sheet)
+    sheet.paste(full.resize((960, 540)), (0, 20)); d.text((5, 3), "TV (full 2560x1440)", fill=(0, 0, 0))
+    sheet.paste(full.crop((0, sy0, BW, sy1)).resize((1280, 212)), (0, 580)); d.text((5, 563), "Desktop (2560x423 band)", fill=(0, 0, 0))
+    sheet.paste(full.crop(SAFE).resize((773, 212)), (0, 812)); d.text((5, 795), "Mobile (1546x423 safe area)", fill=(0, 0, 0))
+    sheet.save(WORK / "banner_v3_devices.jpg", quality=90)
+
 if __name__ == "__main__":
     cmd = sys.argv[1]
     if cmd == "icons":
