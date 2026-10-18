@@ -30828,3 +30828,460 @@ shared/
 └── sfx/  (9 files)
 ```
 </details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 10:00:29Z)**_
+
+Ab sync kar raha hoon:
+
+_**Agent (claude-opus-5-5 2026-10-18 10:02:04Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Sync restructure to GitHub
+
+`powershell -NoProfile -ExecutionPolicy Bypass -File tools/sync.ps1 -Message "restructure: multi-channel layout (channels/, shared/)" 2>/dev/null | tail -2; tail -1 shared/sync.log; git log --oneline -2; git show --stat HEAD | tail -1`
+
+```text
+2026-10-18 15:32:01  pushed: restructure: multi-channel layout (channels/, shared/)  (repo pack size 179 MB)
+2026-10-18 15:32:01  pushed: restructure: multi-channel layout (channels/, shared/)  (repo pack size 179 MB)
+464dad0 restructure: multi-channel layout (channels/, shared/)
+27ee929 docs: uploader setup matches new publish window
+ 462 files changed, 3487 insertions(+), 354 deletions(-)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 10:02:25Z)**_
+
+Project ab naye multi-channel dhaanche me hai. Saare checks paas hue aur kuch delete nahi hua. Kuch bigde toh tag `pre-migration` (27ee929) se poora project wapas aa sakta hai.
+
+## Suraksha kadam
+| | Nateeja |
+|---|---|
+| **0a** | Tag `pre-migration` (27ee929) ban gaya aur GitHub par push ho gaya ✅ |
+| **0b** | Migration ke dauraan raat ka task aur SessionEnd hook band rahe. Sab check hone ke baad dono **wapas chalu** kar diye (task "Ready", hook laga hua) ✅ |
+| **0c** | Purani RULES ki **84 lines**: 78 `shared/RULES.md` me, 6 channel RULES me. **0 chhooti** ✅. Channel me ye gayi: Dadi narrator, Mitthu no hands, Dadi ka ghar, Gulmohar setting + chulha, mystery answer, family wording. 5 lines me sirf path badla (`munshi/...` → `shared/...` ya `channels/<key>/...`). |
+| **0d** | Long 01 ke pehle 15 sec ka aur Case 01 ke pehle 10 sec ka preview bina error ke bana (960×540 aur 540×960, bt709), ₹0 ✅ |
+
+**0d me ek error aaya, jo maine turant theek kiya:** Long 01 ka test pehli baar fail hua. Galti mere naye `--seconds` mode me thi: 15 sec ke baad wale music cue bhi saath chal rahe the. Ek line ka fix kiya aur dobara chalaya. Ye migration ki galti nahi thi.
+
+## Migration
+- **Case 01 ka asli path alag tha.** Aapne `detective-shorts/case_01` likha tha, par Case 01 4 jagah bikhra tha: `cases/`, `images/`, `audio/` aur `output/`. Sab `002_sharma-ji-ki-cycle` me ikattha kar diya.
+- **Files:** saari `git mv` se move hui. Commit me **403 files rename** ki tarah dikhti hain, toh history bani rahi.
+- **Thumbnails:** Case 01 aur Long 01 ke thumbnail aur unki work files apni-apni kahani me gayi. Banner aur DP `brand/` me hain.
+- **Register:** `shared/assets_license.csv` ki 32 rows me paths naye kiye, sab disk par maujood hain.
+- **cost_log:** `channel` column joda. Saari 139 rows ke file paths bhi naye kiye, taki Munshi ka saboot wala check chalta rahe.
+- **Scripts:**
+  - Naya `scripts/paths.py` hai, aur saari scripts ab isi se path leti hain.
+  - Builder ke naye mode: `--plan` (sirf jaanch) aur `--seconds N` (test render).
+  - Upload script ab `channels/<key>/channel.json` padhti hai. Job ka channel_id ya made_for_kids usse alag ho toh ruk jaati hai.
+- **Munshi:** pehle `shared/RULES.md` padhta hai, phir channel RULES. Skills, CLAUDE.md, docs aur deploy.ps1 bhi naye paths par hain.
+- **`new_channel.ps1`:** "test-channel" banaya, check kiya, aur duplicate key par mana karta hai. Test channel ab `_to_delete/` me hai.
+- **`_to_delete/`:**
+  - Purana `munshi/RULES.md` aur `channel_config.json`
+  - Khaali purane folder (`long-videos`, `cases`, `images`, `audio`, waghera)
+  - Purana scene cache
+- **Do chhote extra badlav:**
+  - Munshi ki review `.wav` files (2 × 29 MB) ab git me nahi jaati, disk par bani hain.
+  - Sync log ab `shared/sync.log` me hai.
+
+## Jaanch (koi upload nahi)
+- **`--plan`:**
+  - Long 01: 31 images, 51/51 TTS, 6 music, 3 SFX, sab naye path par mile.
+  - Case 01: 10 images, 12/12 TTS, music aur SFX bhi mile.
+- **Upload dry-run naye path se:** `Dry run OK. Nothing uploaded.` Channel aur `channel.json` match hue, video check 1920x1080 yuv420p.
+
+## Naya dhaancha
+```
+channels/
+├── _template/           (khaali dhaancha, placeholder files)
+└── dadi-ki-kahaniyan/   channel.json, RULES.md, channel_bible.md, log.md, carry_over.md
+    ├── brand/           banner, DP, _work/
+    ├── characters/      Dadi, Golu, Mitthu, Pandey + voices/
+    └── stories/
+        ├── 001_lalchi-halwai/      story.md, script/, characters/, images/, audio/, long/, shorts/
+        └── 002_sharma-ji-ki-cycle/ story.md, script/, images/, audio/, long/ (khaali), shorts/short_01_case-01/
+shared/                  music/, sfx/, fonts/, assets_license.csv, RULES.md, sync.log
+```
+
+**Sync:** `pushed: restructure: multi-channel layout (channels/, shared/)` → commit `464dad0`, 462 files.
+
+**Aage ke liye:** build command ab video folder leta hai, jaise:
+`.\.venv\Scripts\python -X utf8 scripts\make_short.py channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\long --preview`
+Ye CLAUDE.md me bhi likh diya hai.
+
+---
+
+_**User (2026-10-18 10:05:02Z)**_
+
+
+
+<pasted_content id="aeaa">
+1. shared/RULES.md section 8 (Publishing) check karo: kya usme same-day publish window wala niyam hai ("Publish slot: the same day as the upload, between 19:00 and 23:59 IST..." aur "At most one long video per day per channel...")? Aur kya channels/dadi-ki-kahaniyan/channel.json me "publish_window_ist" hai, aur youtube_upload.py ka validate() 19:00-23:59 ke bahar ka time rokta hai?
+   - Teeno hain to sirf "OK" batao.
+   - Nahi hain to ye niyam lagao: upload 18:45 se pehle -> usi din 19:00; 18:45-23:15 ke beech -> kam se kam 30 min baad ka agla :00 ya :30; 23:15 ke baad -> agle din 19:00. Ek din me ek hi long video; Short usi din ho sakta hai agar long se 2 ghante ka fark ho. channel.json me "publish_window_ist": ["19:00","23:59"], "max_long_per_day": 1, "min_gap_hours_short_long": 2. validate() me window check jodo aur --dry-run se 15:00 (fail) aur 21:00 (pass) dono test dikhao. Long 01 ka 20 Oct wala schedule mat chhedo.
+
+2. API audit form: "YouTube API Services – Audit and Quota Extension Form" ke har sawaal ka jawab draft karo. Batao ki ye mera internal tool hai jo sirf mere apne channels par apni banayi videos upload/schedule karta hai (abhi UCy071_4g4vGemktFHybqkhQ, aage aur channels). Quota extension bhi maango: aage ~10 channels, roz 6-10 uploads. docs/YOUTUBE_UPLOADER_SETUP.md se details lo, koi secret mat likhna. Main khud form bharunga.
+
+3. Long 01 ka Short: channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_<slug>/ me plan banao (abhi build nahi). 45-60 sec, 1080x1920, story ke images/audio se (₹0). Pehle 3 sec me hook, ant ya twist spoil nahi, aakhir me "पूरी कहानी चैनल पर" CTA. Shorts music 3-4 dB dheema. carry_over.md ke MINOR issues bhi dhyan me rakho. Kaunsi lines/scenes loge aur kyon, dikhao.
+
+Ant me sync.
+</pasted_content id="aeaa">
+
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-18 10:05:04Z)**_
+
+Teeno kaam kram se kar raha hoon. Pehle publish window ki jaanch:
+
+_**Agent (claude-opus-5-5 2026-10-18 10:05:08Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Check publish window rule, config, validator; read carry_over
+
+`grep -n "Publish slot\|At most one long video" shared/RULES.md | cut -c1-90; grep -n "publish_window_ist\|max_long_per_day\|min_gap_hours" channels/dadi-ki-kahaniyan/channel.json; grep -n "19:00-23:59 IST window" tools/youtube_upload.py; cat channels/dadi-ki-kahaniyan/carry_over.md`
+
+```text
+52:- Publish slot: the same day as the upload, between 19:00 and 23:59 IST.
+56:- At most one long video per day per channel. If a long video is already scheduled that
+9:  "publish_window_ist": [
+13:  "max_long_per_day": 1,
+14:  "min_gap_hours_short_long": 2,
+168:                    errs.append(f"publish_at is {ist:%H:%M} IST; must be inside the 19:00-23:59 IST window")
+# Carry-over (MINOR issues to fix in pipeline)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 10:05:32Z)**_
+
+<think><details><summary>Thought Process</summary>
+Teeno point confirm ho gaye — RULES.md ke publish slot rules, channel.json ke publish_window_ist/max_long_per_day/min_gap_hours_short_long, aur validate() ka 19:00–23:59 time check. Ab Short ka plan banane ke liye Long 01 ki lines, timing aur scenes nikaal raha hoon.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-18 10:05:59Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+List Long 01 lines with durations and scenes
+
+```bash
+S="C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad" && .venv/Scripts/python.exe -X utf8 -c "
+import sys,json; sys.path.insert(0,'scripts'); sys.argv=['x']
+import make_short as m
+from pathlib import Path
+st=Path('channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai')
+lines=json.load(open(st/'long/lines.json',encoding='utf-8'))
+v,total,timed,ev=m.build_voice(lines,st/'audio',Path('$S/vt'),False)
+for i,l in enumerate(timed,1):
+  extra=' '.join(f'{k}={l[k]}' for k in ('mood','sfx_after','pause','af','chorus','shot') if k in l)
+  print(f\"{i:2d} sc{l['scene']:2d} {l['end']-l['start']:4.1f}s {l['speaker']:10s} {l.get('text','')}  {extra}\")
+" 2>/dev/null | grep -v "^  line"
+```
+
+```text
+The user doesn't want to proceed with this tool use. The tool use was rejected (eg. if it was a file edit, the new_string was NOT written to the file). STOP what you are doing and wait for the user to tell you how to proceed.
+```
+</details></tool-use>
+
+---
+
+_**User (2026-10-18 10:05:59Z)**_
+
+[Request interrupted by user for tool use]
+
+---
+
+_**User (2026-10-18 10:06:31Z)**_
+
+
+
+<pasted_content id="aeaa">
+1. shared/RULES.md section 8 (Publishing) check karo: kya usme same-day publish window wala niyam hai ("Publish slot: the same day as the upload, between 19:00 and 23:59 IST..." aur "At most one long video per day per channel...")? Aur kya channels/dadi-ki-kahaniyan/channel.json me "publish_window_ist" hai, aur youtube_upload.py ka validate() 19:00-23:59 ke bahar ka time rokta hai?
+   - Teeno hain to sirf "OK" batao.
+   - Nahi hain to ye niyam lagao: upload 18:45 se pehle -> usi din 19:00; 18:45-23:15 ke beech -> kam se kam 30 min baad ka agla :00 ya :30; 23:15 ke baad -> agle din 19:00. Ek din me ek hi long video; Short usi din ho sakta hai agar long se 2 ghante ka fark ho. channel.json me "publish_window_ist": ["19:00","23:59"], "max_long_per_day": 1, "min_gap_hours_short_long": 2. validate() me window check jodo aur --dry-run se 15:00 (fail) aur 21:00 (pass) dono test dikhao. Long 01 ka 20 Oct wala schedule mat chhedo.
+
+2. API audit form: "YouTube API Services – Audit and Quota Extension Form" ke har sawaal ka jawab draft karo. Batao ki ye mera internal tool hai jo sirf mere apne channels par apni banayi videos upload/schedule karta hai (abhi UCy071_4g4vGemktFHybqkhQ, aage aur channels). Quota extension bhi maango: aage ~10 channels, roz 6-10 uploads. docs/YOUTUBE_UPLOADER_SETUP.md se details lo, koi secret mat likhna. Main khud form bharunga.
+
+3. Long 01 ka Short: channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_<slug>/ me plan banao (abhi build nahi). 45-60 sec, 1080x1920, story ke images/audio se (₹0). Pehle 3 sec me hook, ant ya twist spoil nahi, aakhir me "पूरी कहानी चैनल पर" CTA. Shorts music 3-4 dB dheema. carry_over.md ke MINOR issues bhi dhyan me rakho. Kaunsi lines/scenes loge aur kyon, dikhao.
+
+Ant me sync.
+</pasted_content id="aeaa">
+
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-18 10:06:43Z)**_
+
+<think><details><summary>Thought Process</summary>
+Pichla command roka tha kyunki wo story ke `audio/` folder me files dobara likh deta - ab sirf TTS cache se har line ki lambai padh ke kuch nahi likhunga. RULES section 8 ke dono niyam, `channel.json` ka `publish_window_ist`, aur `validate()` ka window check - teeno confirm ho gaye hain.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-18 10:06:47Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Read-only: line durations from TTS cache
+
+```bash
+.venv/Scripts/python.exe -X utf8 -c "
+import sys,json,wave; sys.path.insert(0,'scripts'); sys.argv=['x']
+from make_short import tts_key
+from pathlib import Path
+st=Path('channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai')
+L=json.load(open(st/'long/lines.json',encoding='utf-8'))
+for i,l in enumerate(L,1):
+  if 'pause' in l: print(f\"{i:2d} sc{l['scene']:2d} pause {l['pause']}s {l.get('mood','')}\"); continue
+  w=wave.open(str(st/'audio/tts_cache'/tts_key(l['text'],l['speaker']))); d=w.getnframes()/w.getframerate()
+  extra=' '.join(f'{k}={l[k]}' for k in ('mood','sfx_after','chorus') if k in l)
+  print(f\"{i:2d} sc{l['scene']:2d} ~{d:4.1f}s {l['speaker']:10s} {l['text']}  {extra}\")
+"
+```
+
+```text
+ 1 sc 1 ~ 3.4s golu       ये पूरा डिब्बा मेरा है! किसी को नहीं दूँगा!  mood=comedy
+ 2 sc 1 ~ 2.4s mitthu     मिठाई! मिठाई!  
+ 3 sc 2 ~ 6.4s dadi_story अच्छा? तो पहले एक कहानी सुनो... एक लालची हलवाई की।  
+ 4 sc 3 ~ 9.7s dadi_story बहुत पुरानी बात है। रामपुर गाँव के बाज़ार में घसीटा हलवाई की बड़ी-सी दुकान थी।  mood=khushi
+ 5 sc 4 ~ 7.1s dadi_story उसकी जलेबियाँ दूर-दूर तक मशहूर थीं... पर उसका दिल बहुत छोटा था।  
+ 6 sc 5 ~ 2.5s woman      भैया, आधा किलो जलेबी देना।  
+ 7 sc 5 ~ 4.0s ghasita    पैसे पहले! और तराज़ू की तरफ़ मत देखना!  
+ 8 sc 6 ~ 7.5s dadi_story घसीटा तराज़ू में डंडी मारता, और बासी मिठाई भी ताज़ी बताकर बेच देता।  
+ 9 sc 7 ~ 5.0s kid        चाचा, एक जलेबी... बस एक सिक्का कम है।  
+10 sc 7 ~ 3.8s ghasita    एक सिक्का भी कम, तो जलेबी नहीं! भागो यहाँ से!  
+11 sc 8 ~ 7.1s dadi_story उसी दुकान में छोटू काम करता था। ग़रीब था, पर दिल का सोना।  
+12 sc 9 ~ 7.6s dadi_story छोटू ने चुपके से अपनी जेब का सिक्का निकाला और बच्चे को जलेबी दे दी।  
+13 sc 9 ~ 2.4s kid        धन्यवाद, छोटू भैया!  
+14 sc10 ~ 6.8s dadi_story एक दोपहर, कड़ी धूप में एक बूढ़े साधु बाबा दुकान पर आए।  mood=dukh
+15 sc11 ~ 6.8s sadhu      बेटा, दो दिन से भूखा हूँ... थोड़ा खाना मिलेगा?  
+16 sc11 ~ 4.0s ghasita    मुफ़्त में? ये धर्मशाला नहीं है! आगे बढ़ो!  
+17 sc12 ~ 5.9s dadi_story साधु बाबा चुपचाप नीम के पेड़ के नीचे जाकर बैठ गए।  
+18 sc13 ~ 5.8s dadi_story छोटू से रहा नहीं गया। उसने अपने हिस्से की दो रोटियाँ उठाईं...  
+19 sc13 ~ 4.3s chhotu     बाबा, मेरे पास बस यही है। आप खा लीजिए।  
+20 sc14 pause 3.0s 
+21 sc15 ~ 9.8s dadi_story रोटी खाकर साधु बाबा मुस्कुराए, और झोली से एक छोटी-सी पीतल की कड़ाही निकाली।  mood=jaadu sfx_after=magic
+22 sc16 ~ 8.5s sadhu      ये जादुई कड़ाही है, बेटा। इसमें जो डालोगे, दुगना हो जाएगा।  
+23 sc16 ~ 7.5s sadhu      पर याद रखना — ये सिर्फ़ भूखों के लिए है। लालच के लिए नहीं।  
+24 sc17 ~ 9.1s dadi_story उस शाम छोटू ने कड़ाही में एक मुट्ठी आटा डाला... और आटा दो मुट्ठी हो गया!  sfx_after=magic
+25 sc17 ~ 3.6s chhotu     अरे वाह! ये तो सच में जादू है!  
+26 sc18 ~ 6.3s dadi_story अब छोटू रोज़ रोटियाँ बनाता, और गाँव के भूखे बच्चों को खिलाता।  mood=khushi
+27 sc19 ~ 5.8s dadi_story आटा दुगना होता जाता... और बच्चों की मुस्कानें भी।  
+28 sc19 ~ 2.4s kids       छोटू भैया ज़िंदाबाद!  chorus=True
+29 sc20 ~ 4.6s dadi_story पर ये बात घसीटा की नज़रों से छुपी नहीं रही।  mood=tension
+30 sc20 ~ 6.3s ghasita    आटा? हुँह! उस कड़ाही में तो सोना होना चाहिए... मेरा सोना!  
+31 sc21 ~ 9.5s dadi_story उसी रात, जब छोटू सो रहा था, घसीटा दबे पाँव आया और कड़ाही चुरा ले गया।  
+32 sc22 ~ 8.1s dadi_story दुकान में दीया जलाकर उसने कड़ाही में एक सोने का सिक्का डाला...  
+33 sc22 ~ 2.0s ghasita    चल, दुगना कर!  
+34 sc23 ~ 5.6s dadi_story पर सिक्का दुगना नहीं हुआ... वो मिट्टी बन गया!  sfx_after=tension
+35 sc24 ~ 4.0s ghasita    क्या? शायद कम डाला... ये लो, दस और!  
+36 sc24 ~ 8.1s dadi_story दस सिक्के डाले — दसों मिट्टी! पर घसीटा का लालच और भड़क गया।  
+37 sc25 ~ 8.1s dadi_story उसने पूरी तिजोरी उलट दी, फिर मिठाई के थाल, फिर चाँदी के बर्तन...  
+38 sc25 ~ 3.3s ghasita    अब तो दुगना होगा! होना ही होगा!  
+39 sc26 ~11.3s dadi_story पर कड़ाही में जो भी गया, सब मिट्टी बनता गया। सुबह तक दुकान में मिट्टी के ढेर के सिवा कुछ नहीं बचा।  
+40 sc27 pause 1.0s seekh
+41 sc27 ~ 5.5s sadhu      लालच से भरे हाथ में जादू नहीं टिकता।  
+42 sc28 ~ 3.6s ghasita    मेरा सब कुछ... सब कुछ चला गया!  
+43 sc28 pause 2.0s 
+44 sc29 ~ 7.1s dadi_story उधर, गाँव वाले भूले नहीं थे कि छोटू ने कैसे उनके बच्चों को खिलाया था।  mood=khushi
+45 sc30 ~ 7.6s dadi_story सबने मिलकर उसके लिए बाज़ार में एक छोटी-सी जलेबी की दुकान खुलवा दी।  
+46 sc31 ~ 4.3s villager   छोटू की जलेबी! इसमें ईमानदारी का स्वाद है!  
+47 sc32 ~ 9.2s dadi_story छोटू सही तौलता, ताज़ा बनाता, और हर शाम एक थाल भूखों के लिए अलग रखता।  
+48 sc33 ~ 8.2s dadi_story देखते ही देखते उसकी छोटी-सी दुकान पूरे गाँव की सबसे प्यारी दुकान बन गई।  
+49 sc34 ~ 5.5s dadi_story और घसीटा? लालच ने उससे सब कुछ छीन लिया था।  mood=seekh
+50 sc35 ~ 4.0s chhotu     घसीटा चाचा, आइए... एक जलेबी आपके लिए भी।  mood=khushi
+51 sc36 ~ 4.2s golu       दादी... अगर मैं सब अकेले खाऊँगा, तो मैं भी घसीटा बन जाऊँगा!  
+52 sc36 ~ 3.0s golu       ये लो, एक लड्डू आपका... और एक मिठ्ठू का!  
+53 sc37 ~ 3.4s mitthu     लालच! लालच! ना-ना-ना!  sfx_after=comedy
+54 sc38 ~11.3s dadi_story शाबाश बेटा! याद रखना — लालच का अंत हमेशा बुरा होता है, और बाँटने से ख़ुशी दुगनी होती है।
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 10:07:20Z)**_
+
+Lines mil gayi. Ab teeno kaam ke files bana raha hoon. Pehle API audit form ka draft. Isme form ke jawab English me hain, kyunki form Google ke reviewers padhenge:
+
+_**Agent (claude-opus-5-5 2026-10-18 10:07:48Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Write"><details>
+<summary>Tool use: **Write**</summary>
+
+```markdown
+# YouTube API Services — Audit and Quota Extension Form (draft answers)
+
+Draft for the owner to copy into the form by hand. No secrets here (no client secret, no token).
+Form fields change from time to time: match each answer below to the closest field in the live form, and fill the
+`<<...>>` placeholders yourself.
+
+Facts used (from `docs/YOUTUBE_UPLOADER_SETUP.md`):
+- Google Cloud project: "Default Gemini Project" — project number `<<from Cloud console > Project info>>`
+- OAuth client: Desktop app "story-channel-uploader"; app name "Dadi Ki Kahaniyan Uploader"; status In production (unverified)
+- Scopes: `youtube.upload`, `youtube.force-ssl`
+- Privacy policy: https://gist.github.com/shamim8426/9fdc382c9ac9a02777195c7c5969a1b6
+- Channel today: दादी की कहानियाँ (Dadi Ki Kahaniyan), `UCy071_4g4vGemktFHybqkhQ`
+
+---
+
+## 1. Contact / organisation
+
+| Field | Answer |
+|---|---|
+| Name | `<<your full name>>` |
+| Email | shamimx.ali@gmail.com |
+| Organisation | Individual creator (no company) — "Dadi Ki Kahaniyan" |
+| Address | `<<your postal address>>` |
+| Website | https://www.youtube.com/channel/UCy071_4g4vGemktFHybqkhQ |
+| Role | Owner of the channel(s) and sole developer/operator of the API client |
+
+## 2. API client
+
+| Field | Answer |
+|---|---|
+| API client name | Dadi Ki Kahaniyan Uploader |
+| Project number | `<<project number>>` |
+| Type | Private command-line tool (Python) running on the owner's own computer. Not a website, not a mobile app, not offered to anyone else. |
+| Link to the API client | None — it is not public. Description, privacy policy and a screencast are provided instead. |
+| Who uses it | Only the channel owner. One Google account. No third-party users and no end-user sign-up. |
+| Number of users | 1 |
+
+**Describe your API client and how it uses YouTube API Services**
+
+> Dadi Ki Kahaniyan Uploader is a private internal tool that I use to publish my own original animated Hindi story
+> videos to my own YouTube channels. I write and produce every video myself; the tool only uploads and schedules the
+> finished files.
+>
+> For each finished video it: (1) checks that the logged-in channel is the expected channel (channels.list, mine=true)
+> and stops if it is not; (2) uploads the video as private with a scheduled publish time (videos.insert with
+> status.publishAt, selfDeclaredMadeForKids and containsSyntheticMedia set explicitly); (3) sets my custom thumbnail
+> (thumbnails.set); (4) uploads my own Hindi subtitle file (captions.insert); (5) optionally adds the video to one of my
+> playlists (playlistItems.insert).
+>
+> It never reads, stores or displays data from other users or other channels, never deletes or edits other content,
+> and never posts comments. The only data stored is the OAuth token for my own account, kept on my own computer.
+> Today it serves one channel (UCy071_4g4vGemktFHybqkhQ); I plan to add more of my own channels (about 10), each
+> authorised separately by me with its own token.
+
+**Which API features / endpoints**
+
+| Endpoint | Why | Units each* |
+|---|---|---|
+| videos.insert | upload my finished video, private + publishAt | 1,600 |
+| thumbnails.set | my custom thumbnail | 50 |
+| captions.insert | my Hindi .srt subtitles | 400 |
+| playlistItems.insert | add to my playlist (optional) | 50 |
+| channels.list (mine) | safety check: correct channel before upload | 1 |
+
+\*From the YouTube Data API quota table; confirm the current numbers in the quota calculator before submitting.
+
+**Does the client display YouTube data to users? Store it?**
+
+> No display: there are no other users. Stored data: only the OAuth token for my own channel(s) and, per upload, a
+> small local JSON file with my own video's ID and URLs (for my records and to avoid duplicate uploads). Nothing is
+> shared, sold or sent anywhere except to YouTube.
+
+**Data deletion / revoking access**
+
+> I can revoke access at https://myaccount.google.com/permissions; deleting the local token file removes all stored
+> credentials. No other data is kept.
+
+**Do you comply with the YouTube API Services Terms of Service and Developer Policies?**
+
+> Yes. The tool only acts on my own channels with my own authorisation, uploads only content I created and hold the
+> rights to (or properly licensed music with attribution in the description), sets the made-for-kids and
+> altered/synthetic-content declarations explicitly for every upload, and follows the privacy policy linked above.
+
+**Privacy policy / Terms of service URL**
+
+> Privacy policy: https://gist.github.com/shamim8426/9fdc382c9ac9a02777195c7c5969a1b6
+> Terms of service: `<<none yet — if the form requires one, ask Claude Code to draft a short ToS gist>>`
+
+**Screencast / screenshots** (the form usually asks for a demo)
+
+> `<<upload a short screen recording>>`: show (1) running the dry-run command and its summary, (2) the browser OAuth
+> consent screen with the two scopes, (3) a real upload finishing with "Channel OK", and (4) the video in YouTube
+> Studio as Scheduled. Do not show the client secret or token files.
+
+## 3. Quota extension
+
+| Field | Answer |
+|---|---|
+| Current quota | 10,000 units/day (default) |
+| Requested quota | **30,000 units/day** |
+
+**Why do you need more quota?**
+
+> Each upload uses about 2,101 units (videos.insert 1,600 + captions.insert 400 + thumbnails.set 50 +
+> playlistItems.insert 50 + channels.list 1). The default 10,000 units allow only 4 uploads a day. I publish to my own
+> channels (one now, about 10 planned) and expect 6–10 uploads per day in total (long videos and Shorts):
+> 10 × 2,101 = 21,010 units. 30,000 units gives headroom for retries of failed thumbnail/caption calls and an
+> occasional re-upload after a failed attempt. All calls are made by me, for my own content; there are no other users.
+
+> Note for the owner: this assumes 6–10 uploads per day across all channels. If you mean 6–10 per channel per day
+> (60–100 a day), ask for about 220,000 units/day and say so in the answer above.
+
+## 4. Before you submit (checklist)
+
+- [ ] Project number filled; name and address filled.
+- [ ] Privacy policy gist opens in a private browser window.
+- [ ] Screencast recorded without secrets on screen.
+- [ ] Quota numbers checked against the current quota calculator.
+- [ ] Same Google account (shamimx.ali@gmail.com) that owns the Cloud project submits the form.
+
+```
+
+```text
+File created successfully at: D:\Story-Channel\docs\YOUTUBE_API_AUDIT_DRAFT.md (file state is current in your context — no need to Read it back)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 10:07:54Z)**_
+
+<think><details><summary>Thought Process</summary>
+Chuni hui 5 scenes ki 16:9 images check kar raha hoon aur beech ki 9:16 patti mark kar raha hoon taaki pata chale main character crop hone se bachta hai ya nahi.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-18 10:08:01Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Contact sheet of chosen scenes with 9:16 crop window
+
+```bash
+st=channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai && mkdir -p $st/shorts/short_01_jadui-kadhai/review && .venv/Scripts/python.exe -X utf8 -c "
+import json
+from PIL import Image, ImageDraw
+st='$st'
+sp=json.load(open(st+'/scene_prompts.json',encoding='utf-8'))
+cov={c:s['id'] for s in sp['scenes'] for c in s.get('covers',[s['id']])}
+sh=json.load(open(st+'/long/shots.json',encoding='utf-8'))
+tiles=[]
+for sc in (16,17,20,21,22):
+  im=Image.open(f\"{st}/images/scene_{cov[sc]:02d}.png\").convert('RGB'); W,H=im.size
+  im=im.resize((640,int(640*H/W))); w,h=im.size; d=ImageDraw.Draw(im)
+  cw=h*9/16; x0=(w-cw)/2; d.rectangle((x0,0,x0+cw,h-1),outline=(255,0,0),width=4)
+  d.rectangle((0,0,150,26),fill=(0,0,0)); d.text((6,4),f'scene {sc} (img {cov[sc]})',fill=(255,255,0))
+  print(sc,'img',cov[sc],'long close-ups:',sh.get(str(sc)))
+  tiles.append(im)
+s=Image.new('RGB',(640*3,tiles[0].height*2),(30,30,30))
+for i,t in enumerate(tiles): s.paste(t,((i%3)*640,(i//3)*t.height))
+s.save(st+'/shorts/short_01_jadui-kadhai/review/crop_plan.png')
+"
+```
+
+```text
+16 img 16 long close-ups: [[0.3, 0.65, 1.5]]
+17 img 17 long close-ups: [[0.52, 0.45, 1.6]]
+20 img 20 long close-ups: [[0.55, 0.4, 1.7]]
+21 img 21 long close-ups: [[0.78, 0.45, 1.6]]
+22 img 22 long close-ups: [[0.5, 0.3, 1.7]]
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 10:08:03Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\review\crop_plan.png`
+</details></tool-use>
