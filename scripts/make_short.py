@@ -79,6 +79,37 @@ def run(args, cwd=None):
     return r
 
 
+PROTECTED: list[Path] = []  # paid source folders of the current build (set in main): read-only for every build
+_new_tts: set[Path] = set()
+
+
+def guard_write(path, new_tts=False):
+    """Stop the build before it writes into a paid source folder (story/channel images, audio, characters).
+    Only exception: a brand-new TTS cache file (paid call allowed with --spend); existing files are never overwritten."""
+    rp = Path(path).resolve()
+    if any(rp.is_relative_to(d) for d in PROTECTED):
+        if new_tts and not rp.exists():
+            _new_tts.add(rp)
+            return
+        sys.exit(f"STOP (BLOCKER): build tried to write a paid source file: {rp.relative_to(ROOT).as_posix()}. "
+                 "Builds may write only to their own _work/ and output/ folders.")
+
+
+def snapshot(dirs):
+    """{file: (size, mtime_ns)} of every file in the paid source folders."""
+    return {f: (f.stat().st_size, f.stat().st_mtime_ns) for d in dirs if d.exists() for f in d.rglob("*") if f.is_file()}
+
+
+def check_snapshot(before, dirs):
+    after = snapshot(dirs)
+    changed = [f for f in before if after.get(f) != before[f]]
+    added = [f for f in after if f not in before and f.resolve() not in _new_tts]
+    if changed or added:
+        bad = ", ".join(f.relative_to(ROOT).as_posix() for f in changed + added)
+        sys.exit(f"STOP (BLOCKER): paid source files changed during the build: {bad}")
+    return len(after)
+
+
 def sha(*parts) -> str:
     h = hashlib.sha1()
     for p in parts:
@@ -109,7 +140,9 @@ def tts_line(text, speaker, cache: Path, out: Path, extra_af=None, chorus=False)
     """Cached Gemini TTS + optional pitch shift / extra filter (e.g. echo) / chorus (3 detuned, offset copies
     so one voice sounds like a group). Returns PCM s16 mono."""
     raw = cache / tts_key(text, speaker)
+    guard_write(out)
     if not raw.exists():
+        guard_write(raw, new_tts=True)
         voice, style, _ = CAST[speaker]
         res = gemini_tts.speak(text, voice, style, raw)
         print(f"    new TTS {speaker}: ₹{res['row']['cost_inr']} (aaj ₹{res['row']['today_total_inr']}, "
@@ -144,14 +177,17 @@ def _clean_len(s):
     return len(re.sub(r"[^\u0900-\u097F\w]", "", s))
 
 
-def word_times(data: bytes, text: str, cache: Path, run_whisper: bool):
+def word_times(data: bytes, text: str, cache: Path, run_whisper: bool, words_dir: Path | None = None):
     """Script tokens timed by Whisper word timestamps (cached per audio). Whisper's spelling may differ from the
     script, so timings are mapped through character position. Without a cached result, Whisper only runs when
     run_whisper (final); otherwise timings are proportional to word length."""
     global _whisper
     tokens = text.split()
     dur = len(data) / 2 / SR
-    key = cache / f"words_{sha(data)}.json"
+    name = f"words_{sha(data)}.json"
+    key = cache / name  # older builds kept Whisper results next to the TTS; read them, never write there again
+    if not key.exists() and words_dir:
+        key = words_dir / name
     ww, note = [], None
     if key.exists():
         ww = json.loads(key.read_text(encoding="utf-8"))
@@ -165,6 +201,8 @@ def word_times(data: bytes, text: str, cache: Path, run_whisper: bool):
         # no initial_prompt: with the script as prompt Whisper sometimes skips words it thinks were already said
         segs, _ = _whisper.transcribe(x16, language="hi", word_timestamps=True, beam_size=5)
         ww = [(w.start, w.end, w.word.strip()) for s in segs for w in (s.words or []) if _clean_len(w.word)]
+        guard_write(key)
+        key.parent.mkdir(parents=True, exist_ok=True)
         key.write_text(json.dumps(ww, ensure_ascii=False), encoding="utf-8")
     else:
         note = "proportional (Whisper runs on --final)"
@@ -192,11 +230,14 @@ def word_times(data: bytes, text: str, cache: Path, run_whisper: bool):
 
 
 def build_voice(lines, audio_dir: Path, work: Path, run_whisper: bool, end_hold: float = END_HOLD,
-                gap_s: float = GAP, speed: float = 1.0):
+                gap_s: float = GAP, speed: float = 1.0, gap_change: float | None = None):
     """speed: tempo factor for every spoken line (atempo keeps the pitch; cached TTS reused, no new cost).
-    gap_s: silence between lines (meta.json "gap" / "speed" let a Short run tighter than the long video)."""
+    gap_s: silence between two lines of the same speaker; gap_change: when the speaker changes (default = gap_s).
+    meta.json "speed" / "gap" / "gap_speaker_change" let a Short run tighter than the long video."""
     pcm, t = bytearray(), 0.0
     GAP = gap_s  # noqa: N806 - local override of the module default
+    gap_change = GAP if gap_change is None else gap_change
+    prev_speaker = None
     silence = lambda sec: b"\x00\x00" * int(round(sec * SR))
     timed, events = [], {"sfx": [], "music_silent": [], "moods": []}
     cache = audio_dir / "tts_cache"
@@ -219,16 +260,19 @@ def build_voice(lines, audio_dir: Path, work: Path, run_whisper: bool, end_hold:
                              work / f"line_{i + 1:02d}_{line['speaker']}.wav",  # per video, not the shared story audio/
                              extra_af=",".join(f for f in (line.get("af"), tempo) if f) or None,
                              chorus=line.get("chorus", False)))
-        words, note = word_times(data, line["text"], cache, run_whisper)
+        words, note = word_times(data, line["text"], cache, run_whisper, words_dir=work / "words")
+        gap = 0.0
         if i:
-            gap = GAP + line.get("pause_before", 0)
+            base = GAP if line["speaker"] == prev_speaker else gap_change
+            gap = base + line.get("pause_before", 0)
             if line.get("music_silent_before"):
-                events["music_silent"].append((t + GAP / 2, t + gap))
+                events["music_silent"].append((t + base / 2, t + gap))
             pcm += silence(gap)
             t += gap
         start = t
+        prev_speaker = line["speaker"]
         if line.get("mood"):
-            events["moods"].append((start - (line.get("pause_before", 0) + GAP if i else 0), line["mood"]))
+            events["moods"].append((start - gap, line["mood"]))
         pcm += data
         t += len(data) / 2 / SR
         timed.append({**line, "start": start, "end": t, "audio_hash": sha(data),
@@ -724,6 +768,10 @@ def main():
     if a.plan:
         plan_report(P, lines, meta)
         return
+    chan = ROOT / "channels" / P["channel"]
+    PROTECTED[:] = [d.resolve() for d in (P["story"] / "images", P["story"] / "audio", P["story"] / "characters",
+                                          chan / "characters")]
+    paid_before = snapshot(PROTECTED)
 
     out_dir = P["out_dir"]
     work = out_dir / f"{case}_work"
@@ -740,7 +788,7 @@ def main():
     check_tts_spend(lines, audio_dir / "tts_cache", a.spend)
     voice, total, timed, events = build_voice(lines, audio_dir, work, run_whisper=(mode == "final"),
                                               end_hold=meta.get("end_hold", END_HOLD), gap_s=meta.get("gap", GAP),
-                                              speed=meta.get("speed", 1.0))
+                                              speed=meta.get("speed", 1.0), gap_change=meta.get("gap_speaker_change"))
     if a.seconds:  # test render: keep the lines that start inside the first N seconds
         total = min(total, a.seconds)
         timed = [l for l in timed if l["start"] < total]
@@ -763,7 +811,7 @@ def main():
     run([FFMPEG, "-y", "-i", "video.mp4", "-i", norm, "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-ar", 48000,
          "-shortest", "-movflags", "+faststart", out], cwd=work)
     report = ""
-    if not P["burn"] and not a.seconds:
+    if not a.seconds:  # every video gets an .srt (RULES section 4), also Shorts with burned captions
         srt = out.with_suffix(".srt")
         write_srt(timed, srt)
         report += f"\n  captions:    {srt}"
@@ -782,6 +830,9 @@ def main():
                    f"(stem LUFS over speech)"
                    f"\n  frame check: {check}\n  metadata:    {txt}")
 
+    n_paid = check_snapshot(paid_before, PROTECTED)
+    report += (f"\n  paid source files unchanged: {n_paid} files checked"
+               + (f" (+{len(_new_tts)} new TTS)" if _new_tts else ""))
     spent = sum(float(r["cost_inr"]) for r in cost_log._rows()) - spend_before
     print(f"\nDONE [{mode}] {out}  ({total:.1f}s video)"
           f"\n  scenes: {cached} cache se, {new} naye   |   build time {time.perf_counter() - t_start:.0f}s"

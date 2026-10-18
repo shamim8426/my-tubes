@@ -60,6 +60,7 @@ These are the hard rules. If a builder summary, a script or a file disagrees wit
 ## 9. Safety
 - Never show or commit `.env`, `secrets/`, API keys or OAuth tokens.
 - Never delete files; move them to `_to_delete/`.
+- Paid source files (story images/, audio/, characters/) are read-only for every build. Builds write only to their own _work/ and output/ folders. After every build Munshi checks that no paid source file changed (git status / hash). Any change is a BLOCKER.
 
 ## 10. Copyright (STRICT — any violation is FIX and blocks upload)
 - Every external file used in any video (music, sound effect, font, image, footage, voice) must have a row in `shared/assets_license.csv`: path, source_url, author, license, attribution_text, date_added. No row = not allowed.

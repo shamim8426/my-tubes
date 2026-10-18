@@ -35258,3 +35258,4111 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 11:50:04Z)**_
 {"success":true,"message":"Report delivered to your caller."}
 ```
 </details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 11:50:08Z)**_
+
+Munshi ne PASS diya. Long ki file pehle hi git se wapas aa chuki hai; git use "modified" dikhata hai kyunki pichhle commit me overwrite wali version thi. Ab sync:
+
+_**Agent (claude-opus-5-5 2026-10-18 11:50:25Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Update story status and sync
+
+`sed -i 's/preview 51.9 s, Munshi R2 PASS/preview 47.4 s (speed 1.08, gap 0.15), Munshi PASS/' channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/story.md && powershell -NoProfile -ExecutionPolicy Bypass -File tools/sync.ps1 -Message "long_01 short_01: faster pace (1.08x, 0.15 s gaps), 47.4 s preview" >/dev/null 2>&1; tail -1 shared/sync.log`
+
+```text
+2026-10-18 17:20:24  pushed: long_01 short_01: faster pace (1.08x, 0.15 s gaps), 47.4 s preview  (repo pack size 179 MB)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 11:50:38Z)**_
+
+Short ab tez hai aur **47.4 sec** ka hai (pehle 51.9). Munshi ne ise **PASS** kiya, kharcha **₹0**.
+
+**Preview:** `channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/output/short_01_jadui-kadhai_preview.mp4`. Saare 5 scenes naye bane, build me 53 sec lage.
+
+## Kya badla
+- **Awaaz 1.08x tez:** har line purani TTS se hi tez ki, pitch wahi rahi. Nayi TTS nahi bani.
+- **Lines ke beech ka gap:** 0.3 → 0.15 sec.
+- **Sirf is Short par lagu:** dono setting is Short ke `meta.json` me hain. Long 01 aur Case 01 pehle jaise rahenge.
+
+## Munshi ka check
+- Lambai 47.4 sec, 45–50 ke andar ✅
+- Tez awaaz me koi kharabi nahi: pitch wahi, koi lehar ya goonj nahi, kisi shabd ka shuru ya ant nahi kata ✅
+- Lines ek doosre me ghus nahi rahi, beech me ~0.2–0.28 sec ki chuppi hai ✅
+- Hook sirf kadhai, scene 22 me mitti nahi, CTA 2.0 sec ✅
+- Music voice se 13.3 LU neeche, -13.8 LUFS, true peak -1.3 ✅
+
+**Ek baat aap sun kar tay kijiye:** bolne wala badalne par ab kuch jagah thoda chust lag sakta hai, jaise 15.7 sec par Dadi → Chhotu aur 43.9 sec par Dadi → Ghasita. Agar wahan jaldi lage toh sirf un do jagah thoda gap badha sakta hoon. Lambai ~48 sec rahegi.
+
+## Saath me ek gadbad theek ki
+Pichhle Short build ne Long 01 ki ek beech wali audio file (`line_04_dadi_story.wav`) overwrite kar di thi, kyunki dono ek hi `audio/` folder me likhte the. Long 01 ka video aur TTS cache surakshit the. Maine:
+- Wo file git se wapas laa di.
+- Builder badal diya: har video ab ye files apne `_work/` folder me banata hai.
+
+**Sync:** `pushed: long_01 short_01: faster pace (1.08x, 0.15 s gaps), 47.4 s preview`
+
+Preview dekh lijiye. Theek lage toh "final banao" likhiye.
+
+---
+
+_**User (2026-10-18 11:56:36Z)**_
+
+1. Jaanch: is Short ke kaam se pehle wale commit se tulna karke batao ki story ke images/, audio/ aur characters/ me aur koi file to nahi badli (hash/git diff). Sirf line_04_dadi_story.wav badli thi aur wapas aa gayi, ye pakka karo.
+
+2. Suraksha niyam — shared/RULES.md me jodo:
+"- Paid source files (story images/, audio/, characters/) are read-only for every build. Builds write only to their own _work/ and output/ folders. After every build Munshi checks that no paid source file changed (git status / hash). Any change is a BLOCKER."
+Builder me bhi ye lagao: story ke images/audio/characters folders me likhne ki koshish ho to build wahin ruk jaye.
+
+3. Pacing: same speaker ke beech 0.15s gap rakho, bolne wala badle to 0.3s. Isse Short ka preview dobara banao aur Munshi se R2 karwao.
+
+4. Phir final banao (Whisper captions ke saath), Munshi final review. Upload mere "upload karo" bolne par.
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-18 11:56:53Z)**_
+
+Chaaron kaam kram se kar raha hoon. Pehle jaanch: Short ka kaam shuru hone se pehle wala commit `464dad0` (restructure) tha. Usse aaj ki halat ki tulna kar raha hoon. Isme git diff, untracked nayi files, aur saari files ke hash, teeno dekh raha hoon:
+
+_**Agent (claude-opus-5-5 2026-10-18 11:57:07Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Compare story paid folders against pre-Short commit
+
+```bash
+S=channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai && echo "== git diff 464dad0 vs working tree (images/ audio/ characters/):"; git diff --stat 464dad0 -- $S/images $S/audio $S/characters; echo "(end diff)"; echo "== untracked/ignored new files in those folders:"; git status --short --ignored -- $S/images $S/audio $S/characters; echo "(end status)"; echo "== commits touching them since 464dad0:"; git log --oneline 464dad0..HEAD -- $S/images $S/audio $S/characters; echo "== full hash compare (blob hash of every file vs 464dad0):"; .venv/Scripts/python.exe -X utf8 -c "
+import subprocess,hashlib
+from pathlib import Path
+S='$S'
+old={}
+for l in subprocess.run(['git','ls-tree','-r','464dad0','--',S+'/images',S+'/audio',S+'/characters'],capture_output=True,text=True,encoding='utf-8').stdout.splitlines():
+  meta,path=l.split('\t',1); old[path]=meta.split()[2]
+now={}
+for p in Path(S).glob('*'):
+  if p.name in ('images','audio','characters'):
+    for f in p.rglob('*'):
+      if f.is_file():
+        d=f.read_bytes(); now[f.as_posix()]=hashlib.sha1(b'blob %d\0'%len(d)+d).hexdigest()
+changed=[p for p in old if p in now and now[p]!=old[p]]; missing=[p for p in old if p not in now]; new=[p for p in now if p not in old]
+print('files at 464dad0:',len(old),'| now:',len(now),'| changed:',len(changed),'| missing:',len(missing),'| new:',len(new))
+for x in changed+missing+new: print('  ',x)
+"
+```
+
+```text
+== git diff 464dad0 vs working tree (images/ audio/ characters/):
+ .../stories/001_lalchi-halwai/audio/line_01_sadhu.wav  | Bin 0 -> 409038 bytes
+ .../001_lalchi-halwai/audio/line_02_dadi_story.wav     | Bin 0 -> 435918 bytes
+ .../stories/001_lalchi-halwai/audio/line_03_chhotu.wav | Bin 0 -> 172878 bytes
+ .../001_lalchi-halwai/audio/line_05_ghasita.wav        | Bin 0 -> 303438 bytes
+ .../001_lalchi-halwai/audio/line_06_dadi_story.wav     | Bin 0 -> 457038 bytes
+ .../001_lalchi-halwai/audio/line_07_dadi_story.wav     | Bin 0 -> 389838 bytes
+ .../001_lalchi-halwai/audio/line_08_ghasita.wav        | Bin 0 -> 94158 bytes
+ 7 files changed, 0 insertions(+), 0 deletions(-)
+(end diff)
+== untracked/ignored new files in those folders:
+(end status)
+== commits touching them since 464dad0:
+5a7f726 long_01 short_01: faster pace (1.08x, 0.15 s gaps), 47.4 s preview
+54eacdd long_01 short_01: crop option, preview + munshi R1/R2
+== full hash compare (blob hash of every file vs 464dad0):
+files at 464dad0: 188 | now: 195 | changed: 0 | missing: 0 | new: 7
+   channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/audio/line_01_sadhu.wav
+   channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/audio/line_02_dadi_story.wav
+   channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/audio/line_03_chhotu.wav
+   channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/audio/line_05_ghasita.wav
+   channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/audio/line_06_dadi_story.wav
+   channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/audio/line_07_dadi_story.wav
+   channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/audio/line_08_ghasita.wav
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 11:57:17Z)**_
+
+<think><details><summary>Thought Process</summary>
+Koi file badli nahi — `line_04_dadi_story.wav` ka hash match kar raha hai aur baaki sab (images/, characters/, tts_cache/) safe hai. Sirf 7 nayi, bekaar files mili (`line_01_sadhu.wav` se `line_08_ghasita.wav`) jo purane build ne banayi thi; inhe ab `_to_delete/` me move kar raha hoon.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-18 11:57:20Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Move 7 stray short wavs to _to_delete
+
+`S=channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/audio && mkdir -p _to_delete/short01_stray_line_wavs && for n in 01_sadhu 02_dadi_story 03_chhotu 05_ghasita 06_dadi_story 07_dadi_story 08_ghasita; do mv $S/line_$n.wav _to_delete/short01_stray_line_wavs/; done && ls _to_delete/short01_stray_line_wavs | wc -l`
+
+```text
+7
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 11:57:38Z)**_
+
+<think><details><summary>Thought Process</summary>
+Main builder ke write-patterns check kar raha hoon: naya TTS audio sirf cache-miss par banega, aur word-timing files ko `audio/tts_cache/` se video ke `_work/` me shift kar raha hoon. Phir guard laga raha hoon jo `images/`, `audio/`, `characters/` me kisi bhi unauthorized write ya overwrite par build ko snapshot-compare se BLOCKER dega.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-18 11:57:49Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Add write guard, snapshot check, words cache to work dir
+
+```bash
+.venv/Scripts/python.exe -X utf8 - <<'EOF'
+from pathlib import Path
+p = Path("scripts/make_short.py"); s = p.read_text(encoding="utf-8")
+pairs = [
+# guard helpers after run()
+('''def sha(*parts) -> str:''',
+'''PROTECTED: list[Path] = []  # paid source folders of the current build (set in main): read-only for every build
+_new_tts: set[Path] = set()
+
+
+def guard_write(path, new_tts=False):
+    """Stop the build before it writes into a paid source folder (story/channel images, audio, characters).
+    Only exception: a brand-new TTS cache file (paid call allowed with --spend); existing files are never overwritten."""
+    rp = Path(path).resolve()
+    if any(rp.is_relative_to(d) for d in PROTECTED):
+        if new_tts and not rp.exists():
+            _new_tts.add(rp)
+            return
+        sys.exit(f"STOP (BLOCKER): build tried to write a paid source file: {rp.relative_to(ROOT).as_posix()}. "
+                 "Builds may write only to their own _work/ and output/ folders.")
+
+
+def snapshot(dirs):
+    """{file: (size, mtime_ns)} of every file in the paid source folders."""
+    return {f: (f.stat().st_size, f.stat().st_mtime_ns) for d in dirs if d.exists() for f in d.rglob("*") if f.is_file()}
+
+
+def check_snapshot(before, dirs):
+    after = snapshot(dirs)
+    changed = [f for f in before if after.get(f) != before[f]]
+    added = [f for f in after if f not in before and f.resolve() not in _new_tts]
+    if changed or added:
+        bad = ", ".join(f.relative_to(ROOT).as_posix() for f in changed + added)
+        sys.exit(f"STOP (BLOCKER): paid source files changed during the build: {bad}")
+    return len(after)
+
+
+def sha(*parts) -> str:'''),
+# tts_line: guard new TTS + guard output
+('''    raw = cache / tts_key(text, speaker)
+    if not raw.exists():
+        voice, style, _ = CAST[speaker]''',
+'''    raw = cache / tts_key(text, speaker)
+    guard_write(out)
+    if not raw.exists():
+        guard_write(raw, new_tts=True)
+        voice, style, _ = CAST[speaker]'''),
+# word_times: read old cache from tts_cache, write new ones to the video's own work folder
+('''def word_times(data: bytes, text: str, cache: Path, run_whisper: bool):''',
+ '''def word_times(data: bytes, text: str, cache: Path, run_whisper: bool, words_dir: Path | None = None):'''),
+('''    key = cache / f"words_{sha(data)}.json"
+    ww, note = [], None
+    if key.exists():
+        ww = json.loads(key.read_text(encoding="utf-8"))''',
+'''    name = f"words_{sha(data)}.json"
+    key = cache / name  # older builds kept Whisper results next to the TTS; read them, never write there again
+    if not key.exists() and words_dir:
+        key = words_dir / name
+    ww, note = [], None
+    if key.exists():
+        ww = json.loads(key.read_text(encoding="utf-8"))'''),
+('''        key.write_text(json.dumps(ww, ensure_ascii=False), encoding="utf-8")''',
+'''        guard_write(key)
+        key.parent.mkdir(parents=True, exist_ok=True)
+        key.write_text(json.dumps(ww, ensure_ascii=False), encoding="utf-8")'''),
+('''        words, note = word_times(data, line["text"], cache, run_whisper)''',
+ '''        words, note = word_times(data, line["text"], cache, run_whisper, words_dir=work / "words")'''),
+]
+for a, b in pairs:
+    assert a in s, a[:70]; s = s.replace(a, b)
+p.write_text(s, encoding="utf-8"); print("ok")
+EOF
+grep -n "def build_voice" -A 12 scripts/make_short.py | head -14; grep -n "if i:\n\|gap = GAP + line" -n scripts/make_short.py
+```
+
+```text
+ok
+232:def build_voice(lines, audio_dir: Path, work: Path, run_whisper: bool, end_hold: float = END_HOLD,
+233-                gap_s: float = GAP, speed: float = 1.0):
+234-    """speed: tempo factor for every spoken line (atempo keeps the pitch; cached TTS reused, no new cost).
+235-    gap_s: silence between lines (meta.json "gap" / "speed" let a Short run tighter than the long video)."""
+236-    pcm, t = bytearray(), 0.0
+237-    GAP = gap_s  # noqa: N806 - local override of the module default
+238-    silence = lambda sec: b"\x00\x00" * int(round(sec * SR))
+239-    timed, events = [], {"sfx": [], "music_silent": [], "moods": []}
+240-    cache = audio_dir / "tts_cache"
+241-    for i, line in enumerate(lines):
+242-        if "pause" in line:  # music-only beat with its own picture
+243-            gap = GAP if i else 0.0
+244-            pcm += silence(gap + line["pause"])
+262:            gap = GAP + line.get("pause_before", 0)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 11:57:51Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\scripts\make_short.py`
+
+```text
+252	            events.setdefault("pauses", []).append((start - PAUSE_LEAD, t))
+253	            print(f"  line {i + 1:2d} [{'pause':8s}] {start:6.2f}-{t:6.2f}s  music only")
+254	            continue
+255	        tempo = f"atempo={speed}" if speed != 1.0 else None
+256	        data = trim(tts_line(line["text"], line["speaker"], cache,
+257	                             work / f"line_{i + 1:02d}_{line['speaker']}.wav",  # per video, not the shared story audio/
+258	                             extra_af=",".join(f for f in (line.get("af"), tempo) if f) or None,
+259	                             chorus=line.get("chorus", False)))
+260	        words, note = word_times(data, line["text"], cache, run_whisper, words_dir=work / "words")
+261	        if i:
+262	            gap = GAP + line.get("pause_before", 0)
+263	            if line.get("music_silent_before"):
+264	                events["music_silent"].append((t + GAP / 2, t + gap))
+265	            pcm += silence(gap)
+266	            t += gap
+267	        start = t
+268	        if line.get("mood"):
+269	            events["moods"].append((start - (line.get("pause_before", 0) + GAP if i else 0), line["mood"]))
+270	        pcm += data
+271	        t += len(data) / 2 / SR
+272	        timed.append({**line, "start": start, "end": t, "audio_hash": sha(data),
+273	                      "words": [(start + a, start + b, w) for a, b, w in words]})
+274	        if line.get("sfx_after"):
+275	            events["sfx"].append((t + 0.05, line["sfx_after"]))
+276	        print(f"  line {i + 1:2d} [{line['speaker']:8s}] {start:6.2f}-{t:6.2f}s  {note}")
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 11:57:54Z)**_
+
+Ab step 3: bolne wala badle toh 0.3 sec, wahi bole toh 0.15 sec:
+
+_**Agent (claude-opus-5-5 2026-10-18 11:58:05Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Speaker-change gap in build_voice
+
+```bash
+.venv/Scripts/python.exe -X utf8 - <<'EOF'
+from pathlib import Path
+p = Path("scripts/make_short.py"); s = p.read_text(encoding="utf-8")
+pairs = [
+('''                gap_s: float = GAP, speed: float = 1.0):
+    """speed: tempo factor for every spoken line (atempo keeps the pitch; cached TTS reused, no new cost).
+    gap_s: silence between lines (meta.json "gap" / "speed" let a Short run tighter than the long video)."""
+    pcm, t = bytearray(), 0.0
+    GAP = gap_s  # noqa: N806 - local override of the module default''',
+'''                gap_s: float = GAP, speed: float = 1.0, gap_change: float | None = None):
+    """speed: tempo factor for every spoken line (atempo keeps the pitch; cached TTS reused, no new cost).
+    gap_s: silence between two lines of the same speaker; gap_change: when the speaker changes (default = gap_s).
+    meta.json "speed" / "gap" / "gap_speaker_change" let a Short run tighter than the long video."""
+    pcm, t = bytearray(), 0.0
+    GAP = gap_s  # noqa: N806 - local override of the module default
+    gap_change = GAP if gap_change is None else gap_change
+    prev_speaker = None'''),
+('''        if i:
+            gap = GAP + line.get("pause_before", 0)
+            if line.get("music_silent_before"):
+                events["music_silent"].append((t + GAP / 2, t + gap))
+            pcm += silence(gap)
+            t += gap
+        start = t
+        if line.get("mood"):
+            events["moods"].append((start - (line.get("pause_before", 0) + GAP if i else 0), line["mood"]))''',
+'''        gap = 0.0
+        if i:
+            base = GAP if line["speaker"] == prev_speaker else gap_change
+            gap = base + line.get("pause_before", 0)
+            if line.get("music_silent_before"):
+                events["music_silent"].append((t + base / 2, t + gap))
+            pcm += silence(gap)
+            t += gap
+        start = t
+        prev_speaker = line["speaker"]
+        if line.get("mood"):
+            events["moods"].append((start - gap, line["mood"]))'''),
+('''                                              end_hold=meta.get("end_hold", END_HOLD), gap_s=meta.get("gap", GAP),
+                                              speed=meta.get("speed", 1.0))''',
+'''                                              end_hold=meta.get("end_hold", END_HOLD), gap_s=meta.get("gap", GAP),
+                                              speed=meta.get("speed", 1.0), gap_change=meta.get("gap_speaker_change"))'''),
+]
+for a, b in pairs:
+    assert a in s, a[:70]; s = s.replace(a, b)
+p.write_text(s, encoding="utf-8"); print("ok")
+EOF
+grep -n "os.environ\[\"STORY_CHANNEL\"\]" scripts/make_short.py; grep -n "check_tts_spend(lines" scripts/make_short.py; grep -n "spent = sum" scripts/make_short.py
+```
+
+```text
+ok
+754:    os.environ["STORY_CHANNEL"] = P["channel"]  # cost_log rows get this channel
+126:def check_tts_spend(lines, cache: Path, allow: bool):
+784:    check_tts_spend(lines, audio_dir / "tts_cache", a.spend)
+829:    spent = sum(float(r["cost_inr"]) for r in cost_log._rows()) - spend_before
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 11:58:08Z)**_
+
+Ab `main()` me PROTECTED folders aur snapshot jod raha hoon:
+
+_**Agent (claude-opus-5-5 2026-10-18 11:58:16Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Wire snapshot into main; unit-test the guard
+
+```bash
+.venv/Scripts/python.exe -X utf8 - <<'EOF'
+from pathlib import Path
+p = Path("scripts/make_short.py"); s = p.read_text(encoding="utf-8")
+pairs = [
+('''    if a.plan:
+        plan_report(P, lines, meta)
+        return
+''',
+'''    if a.plan:
+        plan_report(P, lines, meta)
+        return
+    chan = ROOT / "channels" / P["channel"]
+    PROTECTED[:] = [d.resolve() for d in (P["story"] / "images", P["story"] / "audio", P["story"] / "characters",
+                                          chan / "characters")]
+    paid_before = snapshot(PROTECTED)
+'''),
+('''    spent = sum(float(r["cost_inr"]) for r in cost_log._rows()) - spend_before''',
+'''    n_paid = check_snapshot(paid_before, PROTECTED)
+    report += f"\\n  paid source files unchanged: {n_paid} files checked" + (f" (+{len(_new_tts)} new TTS)" if _new_tts else "")
+    spent = sum(float(r["cost_inr"]) for r in cost_log._rows()) - spend_before'''),
+]
+for a, b in pairs:
+    assert a in s, a[:70]; s = s.replace(a, b)
+p.write_text(s, encoding="utf-8"); print("ok")
+EOF
+.venv/Scripts/python.exe -m py_compile scripts/make_short.py && echo compiled && .venv/Scripts/python.exe -X utf8 -c "
+import sys; sys.path.insert(0,'scripts'); sys.argv=['x']
+import make_short as m
+from pathlib import Path
+m.PROTECTED[:]=[Path('channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/audio').resolve()]
+try: m.guard_write('channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/audio/line_04_dadi_story.wav')
+except SystemExit as e: print('guard test (existing paid file) ->', e)
+m.guard_write('channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/output/x.wav'); print('guard test (output/) -> allowed')
+"
+```
+
+```text
+Exit code 1
+ok
+  File "scripts/make_short.py", line 834
+    report += f"
+              ^
+SyntaxError: unterminated f-string literal (detected at line 834)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 11:58:19Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\scripts\make_short.py`
+
+```text
+831	                   f"\n  frame check: {check}\n  metadata:    {txt}")
+832	
+833	    n_paid = check_snapshot(paid_before, PROTECTED)
+834	    report += f"
+835	  paid source files unchanged: {n_paid} files checked" + (f" (+{len(_new_tts)} new TTS)" if _new_tts else "")
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 11:58:25Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\scripts\make_short.py has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 11:58:29Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Compile and unit-test the guard
+
+```bash
+.venv/Scripts/python.exe -m py_compile scripts/make_short.py && echo compiled && .venv/Scripts/python.exe -X utf8 -c "
+import sys; sys.path.insert(0,'scripts'); sys.argv=['x']
+import make_short as m
+from pathlib import Path
+m.PROTECTED[:]=[Path('channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/audio').resolve()]
+try: m.guard_write('channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/audio/line_04_dadi_story.wav')
+except SystemExit as e: print('guard test (existing paid file) ->', e)
+m.guard_write('channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/output/x.wav'); print('guard test (output/) -> allowed')
+"
+```
+
+```text
+compiled
+guard test (existing paid file) -> STOP (BLOCKER): build tried to write a paid source file: channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/audio/line_04_dadi_story.wav. Builds may write only to their own _work/ and output/ folders.
+guard test (output/) -> allowed
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 11:58:31Z)**_
+
+Guard kaam kar raha hai. Ab ye niyam `shared/RULES.md` ke Safety section (9) me jod raha hoon, aur Short me `gap_speaker_change` set karke preview bana raha hoon:
+
+_**Agent (claude-opus-5-5 2026-10-18 11:58:38Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\shared\RULES.md has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 11:59:10Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Set speaker-change gap and rebuild preview
+
+```bash
+D=channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai && .venv/Scripts/python.exe -X utf8 -c "
+import json; from pathlib import Path
+p=Path('$D/meta.json'); m=json.loads(p.read_text(encoding='utf-8')); m['gap_speaker_change']=0.3
+p.write_text(json.dumps(m,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')" && .venv/Scripts/python.exe -X utf8 scripts/make_short.py $D --preview 2>&1 | grep -E "line|total|scenes:|paid source|STOP"; git status --short -- channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/images channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/characters channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/audio | grep -v "^ D.*line_0[1235678]_" ; echo "(status end)"
+```
+
+```text
+  line  1 [sadhu   ]   0.00-  7.60s  proportional (Whisper runs on --final)
+  line  2 [dadi_story]   7.90- 15.88s  proportional (Whisper runs on --final)
+  line  3 [chhotu  ]  16.18- 19.02s  proportional (Whisper runs on --final)
+  line  4 [dadi_story]  19.32- 23.21s  proportional (Whisper runs on --final)
+  line  5 [ghasita ]  23.51- 28.95s  proportional (Whisper runs on --final)
+  line  6 [dadi_story]  29.25- 37.63s  proportional (Whisper runs on --final)
+  line  7 [dadi_story]  37.78- 44.67s  proportional (Whisper runs on --final)
+  line  8 [ghasita ]  44.97- 46.31s  proportional (Whisper runs on --final)
+  total 48.3s
+  scenes: 1 cache se, 4 naye   |   build time 28s   |   is build ka kharcha ₹0.00
+  paid source files unchanged: 213 files checked
+(status end)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 11:59:16Z)**_
+
+<think><details><summary>Thought Process</summary>
+Preview ab 48.3 sec ka hai, 213 paid source files bina badlav check ho gayi, aur sirf lines 6→7 (dono Dadi) me gap 0.15 sec hai, baaki har jagah 0.3 sec. Ab Munshi R2 chalata hoon.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-18 12:03:02Z)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="Agent"><details>
+<summary>Tool use: **Agent**</summary>
+R2 review pacing change
+
+```text
+  This agent's report was delivered to you as a message from "a59af0b5a4a91516f" (its SubagentHandback call). Read it there; it is not repeated here.
+  
+agentId: a59af0b5a4a91516f (use SendMessage with to: 'a59af0b5a4a91516f', summary: '<5-10 word recap>' to continue this agent)
+<usage>subagent_tokens: 49581
+tool_uses: 16
+duration_ms: 219665</usage>
+```
+</details></tool-use>
+
+_**Agent - sidechain (2026-10-18 11:59:22Z)**_
+
+R2 for channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai preview (your last R1 at 47.4 s was PASS with a Note that speaker changes felt tight). Per RULES section 11, R2 checks only what changed. REVIEW ONLY, no edits, no paid calls, temp files in review/r4/. Re-read shared/RULES.md first: section 9 has a NEW rule (paid source files read-only; check after every build; any change = BLOCKER).
+
+Changes to verify:
+1. Pacing: meta.json "gap": 0.15 (same speaker) and new "gap_speaker_change": 0.3 (speaker changes). Builder log: lines start 0.00, 7.90, 16.18, 19.32, 23.51, 29.25, 37.78, 44.97; total 48.3 s (45-50 required). Check the silence between lines in output/short_01_jadui-kadhai_work/voice.wav matches (only 6->7 is same speaker).
+2. Nothing else regressed: hook kadhai-only then Sadhu at ~1.5 s, scene 22 no kadhai interior, end card 2.0 s, music 12-14 LU under voice (stem method), loudness/true peak.
+3. NEW safety rule: confirm no paid source file changed. Compare story images/, audio/, characters/ and channels/dadi-ki-kahaniyan/characters/ against git HEAD (git status, plus blob-hash compare against commit 464dad0 for the story folders). Expected: the only differences vs 464dad0 are 7 stray Short line wavs (line_01_sadhu, line_02_dadi_story, line_03_chhotu, line_05_ghasita, line_06_dadi_story, line_07_dadi_story, line_08_ghasita) that the builder moved from the story audio/ to _to_delete/short01_stray_line_wavs/ (they were created by an earlier Short build, are not paid TTS, and are now not in audio/). line_04_dadi_story.wav must equal 464dad0. Report exactly what you find.
+4. Builder code: make_short.py now has guard_write (stops writes into paid folders except brand-new TTS with --spend), a before/after snapshot check, and Whisper word caches go to the video's _work/words/. Read it and say if anything still writes into a paid folder.
+Verdict per RULES 11 (PASS / PASS-WITH-NOTES / ASK). Log one line (R2, verdict, time). Short report.
+
+_**Agent - sidechain (2026-10-18 11:59:23Z)**_
+
+<system-reminder>
+Your final report is delivered through SubagentHandback: when your work is complete, call SubagentHandback({message: <your full report>}). The call ends your run, so make it your last step. Only a SubagentHandback call reaches your caller as your result; plain text you write at the end is not delivered.
+</system-reminder>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 11:59:27Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Read rules sections 9 and 11, log tail
+
+`grep -n "" shared/RULES.md | sed -n '1,400p' | grep -n -A40 "## 9\|## 11" | head -120; ls channels/dadi-ki-kahaniyan/; tail -5 channels/dadi-ki-kahaniyan/log.md`
+
+```text
+60:60:## 9. Safety
+61-61:- Never show or commit `.env`, `secrets/`, API keys or OAuth tokens.
+62-62:- Never delete files; move them to `_to_delete/`.
+63-63:- Paid source files (story images/, audio/, characters/) are read-only for every build. Builds write only to their own _work/ and output/ folders. After every build Munshi checks that no paid source file changed (git status / hash). Any change is a BLOCKER.
+64-64:
+65-65:## 10. Copyright (STRICT — any violation is FIX and blocks upload)
+66-66:- Every external file used in any video (music, sound effect, font, image, footage, voice) must have a row in `shared/assets_license.csv`: path, source_url, author, license, attribution_text, date_added. No row = not allowed.
+67-67:- Allowed licences only: CC0; CC BY 4.0 (with exact credit in the description); SIL OFL (fonts); YouTube Audio Library tracks (follow their attribution note); our own Gemini-generated images/voices; our own recordings.
+68-68:- Never allowed: CC BY-NC (non-commercial, conflicts with monetization), CC BY-ND (we edit/mix), CC BY-SA, "free for personal use", Freesound "Sampling+", unknown source, anything ripped from YouTube/Spotify/Instagram/films/TV, Bollywood or any commercial song (even hummed or sung by TTS), Google/Pinterest images.
+69-69:- Freesound: licence is per sound. Check each file's own licence page; only CC0 or CC BY 4.0.
+70-70:- Content: no real brand logos, no film/TV/cartoon characters (Chhota Bheem, Motu Patlu, Disney, etc.), no celebrity likeness, no copied song lyrics, no copied text from modern books. Old folk tales (Panchatantra, Jataka, Akbar-Birbal) are public domain, but we always write our own version, never copy a modern retelling.
+71-71:- Image prompts never name a studio, franchise or living artist ("Pixar style", "Ghibli style", etc.).
+72-72:- Before upload, Munshi checks: every audio/image/font file in the final build is in the register, every CC BY item is credited in the description exactly as its licence asks, and no source audio from outside our pipeline is in the mix.
+73-73:- After upload: if YouTube Studio shows any copyright claim or strike, stop all new uploads and tell the user. CC music sometimes gets false Content ID claims; dispute only with the licence proof from the register, after the user agrees.
+74-74:
+75:75:## 11. Review limits and severity
+76-76:Every problem Munshi reports is marked BLOCKER or MINOR.
+77-77:
+78-78:BLOCKER (never waived, in any round):
+79-79:- Copyright (section 10), wrong channel, any secret exposed.
+80-80:- Wrong character on screen for a line, wrong voice for a character, a line missing or cut off.
+81-81:- Caption more than 1 s away from its line, or caption text not matching what is spoken.
+82-82:- Loudness outside -14 LUFS ±1, true peak above -1.0 dBFS, audible clipping or leaked outside audio.
+83-83:- Wrong resolution/codec, or a preview file used as final.
+84-84:- Thumbnail: broken Hindi matras, spoiler, unreadable text, important thing in the bottom-right corner.
+85-85:- Metadata: title over 100 chars, more than 15 hashtags, missing CC BY credit, "for kids" wording (title, thumbnail, description or tags), mystery answer revealed.
+86-86:- Length outside ±10% of the approved preview length.
+87-87:- Story problem: moral missing or a scene that contradicts the script.
+88-88:
+89-89:MINOR (everything else that breaks a RULES limit only slightly), e.g.: caption off by 0.3–1 s, caption shorter than 0.4 s, music level within 3 dB of target, thumbnail text slightly under the size rule, small silent gaps, missing colour tags, tiny cosmetic issues.
+90-90:Taste points (pacing feel, colour choice, music phrase) are "Note" only and never count as problems.
+91-91:
+92-92:Rounds:
+93-93:- Round 1 (R1): full review for that stage; BLOCKER and MINOR both come back as FIX (free) or ASK (paid).
+94-94:- Round 2 (R2): re-check only what changed and what failed in R1.
+95-95:- After R2: if any BLOCKER remains → ASK the user, stop. If only MINOR remain → verdict "PASS-WITH-NOTES": the stage is passed and the pipeline moves on to the next step (including upload when the user has approved it). No third round.
+96-96:- Every MINOR waived after R2 is written to channels/<key>/carry_over.md (project, issue, suggested fix). Before the next video's build, the builder reads carry_over.md and fixes those causes in the pipeline, then marks them done.
+97-97:
+98-98:These limits never weaken: copyright (section 10), channel ID check, secrets, and the full pre-upload check.
+99-99:At the end of each review, add one line to channels/<key>/log.md with the round (R1/R2), verdict and approximate time taken.
+RULES.md
+brand
+carry_over.md
+channel.json
+channel_bible.md
+characters
+log.md
+stories
+2026-10-18 | long_01 | copyright (RULES 10) | PASS | all used assets registered w/ allowed licence (6 Incompetech CC BY 4.0, 3 Freesound CC0, Mukta OFL, 31 scene imgs + 51 TTS + thumb = own Gemini, all in cost_log); 6/6 credits exact in upload.json; mix-voice-music residual = 5 SFX bursts only (floor -98 dB); prompts/text/images clean
+2026-10-18 | long_01 | publish | PUBLISHED | video Ogfqow8rbGY uploaded (scheduled 2026-10-20 19:00 IST requested), thumbnail ok, captions ok, channel UCy071_4g4vGemktFHybqkhQ verified; user must confirm schedule in Studio (unaudited API may lock private)
+2026-10-18 | short_01_jadui-kadhai | preview build R1 (~25 min) | FIX | 51.87s, hook ok, end card 2.0s, music 13.0 LU under voice (stem method), captions match + above bottom 25%, publish 20 Oct 21:00 ok; BLOCKER: scene 22 line 7 shot shows kadhai inside + top of mitti lump (spoiler) -> fy/zoom fix; MINOR: Chhotu's open-mouth face in 0-1.5s hook shot; sharpness acceptable, no ASK
+2026-10-18 | short_01_jadui-kadhai | preview build R2 (~8 min) | PASS | B1 fixed: scene 22 line 7/8 crop shows only coin+rim edge, no kadhai inside/mitti lump (checked preview + simulated 1080x1920 final, start/mid/end of push-in); M1 fixed: hook 0-1.5s kadhai only, Sadhu cut at 1.5s; scenes 17/20/21 from cache, 51.87s unchanged, end card 2.0s, -13.8 LUFS / -1.1 dBTP
+2026-10-18 | short_01_jadui-kadhai | preview build R1 speed 1.08/gap 0.15 (~10 min) | PASS | 47.41s (45-50 ok); atempo ratio 1.075-1.080 on all 8 lines, pitch/voicing/HF same as 1.0x (no warble proxy), no clipped onsets/tails, line gaps ~0.20-0.28s; hook kadhai-only to 1.42s then Sadhu; sc22 coin+rim only; end card 2.0s; music 13.3 LU under voice (stem); -13.8 LUFS / -1.3 dBTP; captions aligned to new line starts; Rs 0 (no new cost_log rows)
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 11:59:35Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Read meta.json and list output
+
+`cd /d/Story-Channel/channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai && cat meta.json | head -80; ls output output/short_01_jadui-kadhai_work | head -50; mkdir -p review/r4`
+
+```text
+{
+  "title": "जो डालो, दुगना! जादुई कड़ाही का राज़ | दादी की कहानियाँ #shorts",
+  "description": "रामपुर के लालची हलवाई घसीटा ने चुरा ली जादुई कड़ाही… पर आगे क्या हुआ? पूरी कहानी चैनल पर देखिए।",
+  "hashtags": [
+    "#shorts",
+    "#दादीकीकहानियाँ",
+    "#HindiKahani",
+    "#MoralStory"
+  ],
+  "tags": [
+    "दादी की कहानियाँ",
+    "Dadi Ki Kahaniyan",
+    "जादुई कड़ाही",
+    "Jadui Kadhai",
+    "लालची हलवाई",
+    "Lalchi Halwai",
+    "हिंदी कहानी",
+    "Hindi Kahani",
+    "Hindi Moral Story",
+    "परिवार की कहानी",
+    "Family Story Hindi",
+    "Hindi Shorts"
+  ],
+  "music_moods": {
+    "jaadu": "jaadu/Enchanted_Valley.mp3",
+    "tension": "tension/Hidden_Agenda.mp3"
+  },
+  "sfx": {
+    "magic": "magic_376747.mp3"
+  },
+  "final_title": "पूरी कहानी चैनल पर",
+  "final_title_secs": 2.0,
+  "end_hold": 2.0,
+  "pinned_comment": "पूरी कहानी — लालची हलवाई और जादुई कड़ाही — चैनल पर देखिए! 🙏",
+  "publish_at": "2026-10-20T21:00:00+05:30",
+  "related_video": "https://youtu.be/Ogfqow8rbGY",
+  "speed": 1.08,
+  "gap": 0.15,
+  "gap_speaker_change": 0.3
+}
+output:
+short_01_jadui-kadhai_preview.mp4
+short_01_jadui-kadhai_work
+
+output/short_01_jadui-kadhai_work:
+fonts
+line_01_sadhu.wav
+line_02_dadi_story.wav
+line_03_chhotu.wav
+line_04_dadi_story.wav
+line_05_ghasita.wav
+line_06_dadi_story.wav
+line_07_dadi_story.wav
+line_08_ghasita.wav
+mix.wav
+mix_norm.wav
+music.wav
+scene_16_8ba9dccc598dcd02.ass
+scene_16_99b98094e15bbd2b.ass
+scene_16_c62e8518ba4d3f69.ass
+scene_16_e1a60d5937bfa76e.ass
+scene_17_3db6eba5a9603c47.ass
+scene_17_513507231d8c0300.ass
+scene_17_6ecc75a6b2712ba9.ass
+scene_20_21f057e4fc1c55d3.ass
+scene_20_2fd34eeb4ba36115.ass
+scene_20_85a6a811a81cdc11.ass
+scene_20_b2cba780701ea635.ass
+scene_21_270175636ee6ec2c.ass
+scene_21_7ba1c76520ee9d70.ass
+scene_22_197281e80c648b26.ass
+scene_22_47d156955b6d5d66.ass
+scene_22_5fcbea308ce4ed8b.ass
+scene_22_6329b6ab42bae7a3.ass
+scene_22_8c2c2085e44c4f8e.ass
+scenes.txt
+video.mp4
+voice.wav
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 11:59:36Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Git status and diff for paid folders
+
+`git status --porcelain -- channels/ ; echo ---; git diff --stat 464dad0 HEAD -- channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/images channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/audio channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/characters channels/dadi-ki-kahaniyan/characters; echo ---; git ls-files --others --exclude-standard channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/images channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/audio channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/characters channels/dadi-ki-kahaniyan/characters | head; ls _to_delete/short01_stray_line_wavs/ 2>&1`
+
+```text
+ D channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/audio/line_01_sadhu.wav
+ D channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/audio/line_02_dadi_story.wav
+ D channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/audio/line_03_chhotu.wav
+ D channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/audio/line_05_ghasita.wav
+ D channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/audio/line_06_dadi_story.wav
+ D channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/audio/line_07_dadi_story.wav
+ D channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/audio/line_08_ghasita.wav
+ M channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/meta.json
+---
+ .../stories/001_lalchi-halwai/audio/line_01_sadhu.wav  | Bin 0 -> 409038 bytes
+ .../001_lalchi-halwai/audio/line_02_dadi_story.wav     | Bin 0 -> 435918 bytes
+ .../stories/001_lalchi-halwai/audio/line_03_chhotu.wav | Bin 0 -> 172878 bytes
+ .../001_lalchi-halwai/audio/line_05_ghasita.wav        | Bin 0 -> 303438 bytes
+ .../001_lalchi-halwai/audio/line_06_dadi_story.wav     | Bin 0 -> 457038 bytes
+ .../001_lalchi-halwai/audio/line_07_dadi_story.wav     | Bin 0 -> 389838 bytes
+ .../001_lalchi-halwai/audio/line_08_ghasita.wav        | Bin 0 -> 94158 bytes
+ 7 files changed, 0 insertions(+), 0 deletions(-)
+---
+line_01_sadhu.wav
+line_02_dadi_story.wav
+line_03_chhotu.wav
+line_05_ghasita.wav
+line_06_dadi_story.wav
+line_07_dadi_story.wav
+line_08_ghasita.wav
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:00:19Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Blob-hash compare paid folders vs 464dad0
+
+`S=channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai; for d in $S/images $S/audio $S/characters channels/dadi-ki-kahaniyan/characters; do git ls-tree -r 464dad0 -- $d | awk '{print $3"  "$4}' ; done | sort -k2 > /tmp/m_old.txt; for d in $S/images $S/audio $S/characters channels/dadi-ki-kahaniyan/characters; do find $d -type f; done | sort | while read f; do echo "$(git hash-object "$f")  $f"; done | sort -k2 > /tmp/m_new.txt; wc -l /tmp/m_old.txt /tmp/m_new.txt; diff /tmp/m_old.txt /tmp/m_new.txt && echo IDENTICAL; grep line_04 /tmp/m_old.txt /tmp/m_new.txt; git log --oneline --diff-filter=A -- $S/audio/line_01_sadhu.wav; for f in _to_delete/short01_stray_line_wavs/*; do b=$(basename $f); echo "$b $(git hash-object $f) $(git rev-parse HEAD:$S/audio/$b)"; done`
+
+```text
+  213 /tmp/m_old.txt
+  213 /tmp/m_new.txt
+  426 total
+IDENTICAL
+/tmp/m_old.txt:1522063466bcb079e6eb34f4c7d3ab854fc201cc  channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/audio/line_04_dadi_story.wav
+/tmp/m_new.txt:1522063466bcb079e6eb34f4c7d3ab854fc201cc  channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/audio/line_04_dadi_story.wav
+54eacdd long_01 short_01: crop option, preview + munshi R1/R2
+line_01_sadhu.wav 972fd9f59ed60d8fc6b5cb80affecf6b56f9d245 972fd9f59ed60d8fc6b5cb80affecf6b56f9d245
+line_02_dadi_story.wav 4c1195fb428b79578129df93ed073c7d4826f091 4c1195fb428b79578129df93ed073c7d4826f091
+line_03_chhotu.wav 6fdfce42ec5968316c585b55e46c14cb545c1108 6fdfce42ec5968316c585b55e46c14cb545c1108
+line_05_ghasita.wav 86f857fa2a25fe2990ed28a1bcdb6e0e9ff5eae2 86f857fa2a25fe2990ed28a1bcdb6e0e9ff5eae2
+line_06_dadi_story.wav 8aab03b365c53a431e45185de5b45d9e16b8cbb3 8aab03b365c53a431e45185de5b45d9e16b8cbb3
+line_07_dadi_story.wav 4da1c09f416497a87b8f450716a19a89bf64fa80 4da1c09f416497a87b8f450716a19a89bf64fa80
+line_08_ghasita.wav d9bfd2e2450deb6fc232c5b9c1fdf2f13bdc5b12 d9bfd2e2450deb6fc232c5b9c1fdf2f13bdc5b12
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:00:29Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Probe durations and silences in voice.wav
+
+`cd /d/Story-Channel/channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai && cp /tmp/m_old.txt review/r4/hash_464dad0.txt; cp /tmp/m_new.txt review/r4/hash_worktree.txt; W=output/short_01_jadui-kadhai_work; ffprobe -v error -show_entries format=duration:stream=codec_name,width,height,r_frame_rate,sample_rate -of compact output/short_01_jadui-kadhai_preview.mp4; ffprobe -v error -show_entries format=duration -of csv=p=0 $W/voice.wav; for f in $W/line_0*.wav; do echo "$(basename $f) $(ffprobe -v error -show_entries format=duration -of csv=p=0 $f)"; done; ffmpeg -hide_banner -i $W/voice.wav -af silencedetect=n=-45dB:d=0.08 -f null - 2>&1 | grep silence_`
+
+```text
+/usr/bin/bash: line 1: ffprobe: command not found
+/usr/bin/bash: line 1: ffprobe: command not found
+/usr/bin/bash: line 1: ffprobe: command not found
+line_01_sadhu.wav 
+/usr/bin/bash: line 1: ffprobe: command not found
+line_02_dadi_story.wav 
+/usr/bin/bash: line 1: ffprobe: command not found
+line_03_chhotu.wav 
+/usr/bin/bash: line 1: ffprobe: command not found
+line_04_dadi_story.wav 
+/usr/bin/bash: line 1: ffprobe: command not found
+line_05_ghasita.wav 
+/usr/bin/bash: line 1: ffprobe: command not found
+line_06_dadi_story.wav 
+/usr/bin/bash: line 1: ffprobe: command not found
+line_07_dadi_story.wav 
+/usr/bin/bash: line 1: ffprobe: command not found
+line_08_ghasita.wav
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:00:32Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Find ffmpeg location
+
+`grep -n "ffmpeg\|ffprobe" scripts/make_short.py | head -8; ls .venv/Scripts | grep -i ff; which -a ffmpeg; ls tools | head -30`
+
+```text
+37:FFMPEG = ROOT / "tools" / "ffmpeg" / "ffmpeg.exe"
+38:if not FFMPEG.exists():  # new system: ffmpeg from winget on PATH (tools/ffmpeg is not in git)
+39:    FFMPEG = Path(shutil.which("ffmpeg") or FFMPEG)
+cffi-gen-src.exe
+which: no ffmpeg in (/c/Users/ashamim/bin:/mingw64/bin:/usr/local/bin:/usr/bin:/bin:/mingw64/bin:/usr/bin:/c/Users/ashamim/bin:/c/Program Files (x86)/Common Files/Oracle/Java/java8path:/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/c/WINDOWS/system32:/c/WINDOWS:/c/WINDOWS/System32/Wbem:/c/WINDOWS/System32/WindowsPowerShell/v1.0:/c/WINDOWS/System32/OpenSSH:/c/Program Files/nodejs:/cmd:/c/Program Files/GitHub CLI:/c/Users/ashamim/AppData/Local/Programs/Python/Python314/Scripts:/c/Users/ashamim/AppData/Local/Programs/Python/Python314:/c/Users/ashamim/AppData/Local/Programs/Python/Launcher:/c/Users/ashamim/AppData/Local/Microsoft/WindowsApps:/c/Users/ashamim/AppData/Local/Programs/Microsoft VS Code/bin:/c/Users/ashamim/AppData/Roaming/npm:/usr/bin/vendor_perl:/usr/bin/core_perl)
+__pycache__
+deno
+export_claude_home.ps1
+ffmpeg
+new_channel.ps1
+sync.ps1
+sync_bg.ps1
+whisper-models
+youtube_upload.py
+yt-dlp.exe
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:00:50Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Probe durations and silences in voice.wav
+
+`cd /d/Story-Channel/channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai && FF=/d/Story-Channel/tools/ffmpeg/ffmpeg.exe; FP=/d/Story-Channel/tools/ffmpeg/ffprobe.exe; ls /d/Story-Channel/tools/ffmpeg; W=output/short_01_jadui-kadhai_work; $FP -v error -show_entries format=duration:stream=codec_name,width,height,r_frame_rate -of compact output/short_01_jadui-kadhai_preview.mp4; $FP -v error -show_entries format=duration -of csv=p=0 $W/voice.wav; for f in $W/line_0*.wav; do echo "$(basename $f) $($FP -v error -show_entries format=duration -of csv=p=0 $f)"; done; $FF -hide_banner -i $W/voice.wav -af silencedetect=n=-45dB:d=0.08 -f null - 2>&1 | grep silence_`
+
+```text
+ffmpeg.exe
+ffplay.exe
+ffprobe.exe
+stream|codec_name=h264|width=540|height=960|r_frame_rate=24/1
+stream|codec_name=aac|r_frame_rate=0/0
+format|duration=48.291667
+48.310000
+line_01_sadhu.wav 7.900000
+line_02_dadi_story.wav 8.410000
+line_03_chhotu.wav 3.333875
+line_04_dadi_story.wav 4.297167
+line_05_ghasita.wav 5.869083
+line_06_dadi_story.wav 8.828958
+line_07_dadi_story.wav 7.534542
+line_08_ghasita.wav 1.822667
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_start: 2.891167
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_end: 3.489917 | silence_duration: 0.59875
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_start: 3.52775
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_end: 3.672042 | silence_duration: 0.144292
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_start: 5.381208
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_end: 5.884667 | silence_duration: 0.503458
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_start: 7.553333
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_end: 7.912583 | silence_duration: 0.35925
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_start: 8.823417
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_end: 8.910083 | silence_duration: 0.0866667
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_start: 8.911333
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_end: 9.049042 | silence_duration: 0.137708
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_start: 9.641542
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_end: 9.727875 | silence_duration: 0.0863333
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_start: 10.513083
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_end: 10.804375 | silence_duration: 0.291292
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_start: 11.16575
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_end: 11.251708 | silence_duration: 0.0859583
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_start: 11.459292
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_end: 11.568 | silence_duration: 0.108708
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_start: 12.378167
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_end: 13.082625 | silence_duration: 0.704458
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_start: 13.904417
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_end: 14.359958 | silence_duration: 0.455542
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_start: 15.765167
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_end: 16.185417 | silence_duration: 0.42025
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_start: 16.995667
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_end: 17.121708 | silence_duration: 0.126042
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_start: 18.976542
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_end: 19.337792 | silence_duration: 0.36125
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_start: 23.091167
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_end: 23.52475 | silence_duration: 0.433583
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_start: 24.0955
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_end: 24.359833 | silence_duration: 0.264333
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_start: 24.572125
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_end: 24.657333 | silence_duration: 0.0852083
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_start: 24.72475
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_end: 24.824042 | silence_duration: 0.0992917
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_start: 27.183292
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_end: 27.2895 | silence_duration: 0.106208
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_start: 28.870542
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_end: 29.261375 | silence_duration: 0.390833
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_start: 30.004542
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_end: 30.121792 | silence_duration: 0.11725
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_start: 30.230583
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_end: 30.619875 | silence_duration: 0.389292
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_start: 31.180542
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_end: 31.262625 | silence_duration: 0.0820833
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_start: 32.4175
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_end: 32.842042 | silence_duration: 0.424542
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_start: 32.842083
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_end: 32.960458 | silence_duration: 0.118375
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_start: 33.512792
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_end: 33.596833 | silence_duration: 0.0840417
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_start: 33.8845
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_end: 33.984375 | silence_duration: 0.099875
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_start: 34.4095
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_end: 34.536 | silence_duration: 0.1265
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_start: 35.276
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_end: 35.763792 | silence_duration: 0.487792
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_start: 35.979583
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_end: 36.1075 | silence_duration: 0.127917
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_start: 36.659833
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_end: 36.746833 | silence_duration: 0.087
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_start: 37.514667
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_end: 37.791583 | silence_duration: 0.276917
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_start: 37.982208
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_end: 38.068875 | silence_duration: 0.0866667
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_start: 40.933958
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_end: 41.035917 | silence_duration: 0.101958
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_start: 41.8305
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_end: 42.160917 | silence_duration: 0.330417
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_start: 42.457542
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_end: 42.573417 | silence_duration: 0.115875
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_start: 43.865792
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_end: 44.041167 | silence_duration: 0.175375
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_start: 44.576958
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_end: 44.987625 | silence_duration: 0.410667
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_start: 45.30175
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_end: 45.580792 | silence_duration: 0.279042
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_start: 45.582125
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_end: 45.689667 | silence_duration: 0.107542
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_start: 46.237792
+[Parsed_silencedetect_0 @ 00000205574cde00] silence_end: 48.31 | silence_duration: 2.072208
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:01:01Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Grep make_short.py for writes and guards
+
+`wc -l scripts/make_short.py; grep -n "guard_write\|snapshot\|gap_speaker_change\|\"gap\"\|words\|PAID\|paid\|write_bytes\|write_text\|\.save(\|open(.*\"w\|shutil\.\(copy\|move\)\|os.replace\|rename\|unlink\|rmtree\|-y\b" scripts/make_short.py | head -120`
+
+```text
+843 scripts/make_short.py
+6:          --spend              allow paid TTS for lines not in the cache (otherwise the build stops and shows the cost)
+82:PROTECTED: list[Path] = []  # paid source folders of the current build (set in main): read-only for every build
+86:def guard_write(path, new_tts=False):
+87:    """Stop the build before it writes into a paid source folder (story/channel images, audio, characters).
+88:    Only exception: a brand-new TTS cache file (paid call allowed with --spend); existing files are never overwritten."""
+94:        sys.exit(f"STOP (BLOCKER): build tried to write a paid source file: {rp.relative_to(ROOT).as_posix()}. "
+98:def snapshot(dirs):
+99:    """{file: (size, mtime_ns)} of every file in the paid source folders."""
+103:def check_snapshot(before, dirs):
+104:    after = snapshot(dirs)
+109:        sys.exit(f"STOP (BLOCKER): paid source files changed during the build: {bad}")
+131:    secs = sum(len(l["text"].split()) / 2.4 for l in misses)  # ~2.4 words/s
+143:    guard_write(out)
+145:        guard_write(raw, new_tts=True)
+157:    run([FFMPEG, "-y", "-i", raw, *args, "-ac", "1", "-ar", SR, "-sample_fmt", "s16", out])
+180:def word_times(data: bytes, text: str, cache: Path, run_whisper: bool, words_dir: Path | None = None):
+187:    name = f"words_{sha(data)}.json"
+189:    if not key.exists() and words_dir:
+190:        key = words_dir / name
+201:        # no initial_prompt: with the script as prompt Whisper sometimes skips words it thinks were already said
+203:        ww = [(w.start, w.end, w.word.strip()) for s in segs for w in (s.words or []) if _clean_len(w.word)]
+204:        guard_write(key)
+206:        key.write_text(json.dumps(ww, ensure_ascii=False), encoding="utf-8")
+209:    # only trust Whisper if it heard roughly the whole line (it can drop words)
+225:    tot, acc, words = sum(lens), 0, []
+227:        words.append((float(np.interp(acc / tot, xs, ts)), float(np.interp((acc + n) / tot, xs, ts)), tok))
+229:    return words, note
+236:    meta.json "speed" / "gap" / "gap_speaker_change" let a Short run tighter than the long video."""
+254:                          "audio_hash": f"pause{line['pause']}", "words": []})
+263:        words, note = word_times(data, line["text"], cache, run_whisper, words_dir=work / "words")
+279:                      "words": [(start + a, start + b, w) for a, b, w in words]})
+286:    with wave.open(str(voice), "wb") as w:
+298:    """[(start, end, text)] in global seconds, 2-3 words each, never past the line's audio.
+299:    An optional "caption" in lines.json changes only the on-screen text (no new TTS); its words are timed
+300:    through character position on the spoken words' timeline."""
+301:    words = line["words"]
+303:    if "caption" in line and len(tokens) != len(words):
+304:        lens = [_clean_len(w) + 1 for _, _, w in words]
+306:        ts = [words[0][0]] + [e for _, e, _ in words]
+309:        words = [(float(np.interp(cx[k], xs, ts)), float(np.interp(cx[k + 1], xs, ts)), tok)
+312:    for j, (tok, (s, e, _)) in enumerate(zip(tokens, words)):
+433:                  for l in lines if l["words"] for s, e, txt in caption_chunks(l)]
+452:        (work / ass_name).write_text(p["ass"], encoding="utf-8")
+465:    run([FFMPEG, "-y", "-i", p["img"], "-filter_complex", ";".join(fc), "-map", "[out]", "-frames:v", p["frames"],
+481:    (work / "scenes.txt").write_text("\n".join(listing), encoding="utf-8")
+482:    run([FFMPEG, "-y", "-f", "concat", "-safe", "0", "-i", "scenes.txt", "-c", "copy", "video.mp4"], cwd=work)
+588:    run([FFMPEG, "-y", *inputs, "-filter_complex", ";".join(fc), "-map", "[out]", "-t", f"{total:.3f}", mix,
+597:    run([FFMPEG, "-y", "-i", mix, "-af", ln + ",aresample=48000", "-ar", 48000, norm])
+626:        run([FFMPEG, "-y", "-ss", f"{t:.2f}", "-i", out, "-frames:v", 1, "-vf", "scale=270:-2", f])
+636:    sheet.save(path)
+646:    cues = [c for l in timed if l["words"] for c in caption_chunks(l)]
+647:    path.write_text("\n".join(f"{i}\n{srt_time(a)} --> {srt_time(b)}\n{txt}\n" for i, (a, b, txt) in
+710:    """--plan: show where every input comes from and that it exists. Nothing is rendered or paid for."""
+722:          + (f"  MISSING (paid): {miss}" if miss else ""))
+741:    ap.add_argument("--spend", action="store_true", help="allow paid TTS for uncached lines")
+774:    paid_before = snapshot(PROTECTED)
+782:    shutil.copy(FONT, work / "fonts" / FONT.name)
+790:                                              end_hold=meta.get("end_hold", END_HOLD), gap_s=meta.get("gap", GAP),
+791:                                              speed=meta.get("speed", 1.0), gap_change=meta.get("gap_speaker_change"))
+811:    run([FFMPEG, "-y", "-i", "video.mp4", "-i", norm, "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-ar", 48000,
+825:        txt.write_text(
+833:    n_paid = check_snapshot(paid_before, PROTECTED)
+834:    report += (f"\n  paid source files unchanged: {n_paid} files checked"
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:01:05Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Read guard, snapshot, TTS, timing, main code
+
+`sed -n 75,300p scripts/make_short.py; sed -n 600,660p scripts/make_short.py; sed -n 740,843p scripts/make_short.py`
+
+```text
+def run(args, cwd=None):
+    r = subprocess.run([str(a) for a in args], cwd=cwd, capture_output=True, text=True, encoding="utf-8", errors="replace")
+    if r.returncode:
+        sys.exit(f"FAILED: {' '.join(map(str, args))[:300]}\n{r.stderr[-2000:]}")
+    return r
+
+
+PROTECTED: list[Path] = []  # paid source folders of the current build (set in main): read-only for every build
+_new_tts: set[Path] = set()
+
+
+def guard_write(path, new_tts=False):
+    """Stop the build before it writes into a paid source folder (story/channel images, audio, characters).
+    Only exception: a brand-new TTS cache file (paid call allowed with --spend); existing files are never overwritten."""
+    rp = Path(path).resolve()
+    if any(rp.is_relative_to(d) for d in PROTECTED):
+        if new_tts and not rp.exists():
+            _new_tts.add(rp)
+            return
+        sys.exit(f"STOP (BLOCKER): build tried to write a paid source file: {rp.relative_to(ROOT).as_posix()}. "
+                 "Builds may write only to their own _work/ and output/ folders.")
+
+
+def snapshot(dirs):
+    """{file: (size, mtime_ns)} of every file in the paid source folders."""
+    return {f: (f.stat().st_size, f.stat().st_mtime_ns) for d in dirs if d.exists() for f in d.rglob("*") if f.is_file()}
+
+
+def check_snapshot(before, dirs):
+    after = snapshot(dirs)
+    changed = [f for f in before if after.get(f) != before[f]]
+    added = [f for f in after if f not in before and f.resolve() not in _new_tts]
+    if changed or added:
+        bad = ", ".join(f.relative_to(ROOT).as_posix() for f in changed + added)
+        sys.exit(f"STOP (BLOCKER): paid source files changed during the build: {bad}")
+    return len(after)
+
+
+def sha(*parts) -> str:
+    h = hashlib.sha1()
+    for p in parts:
+        h.update(p if isinstance(p, bytes) else str(p).encode("utf-8"))
+    return h.hexdigest()[:16]
+
+
+# ---------- 1. voice ----------
+def tts_key(text, speaker):
+    voice, style, _ = CAST[speaker]
+    return f"{speaker}_{sha(gemini_tts.MODEL, '|', voice, '|', style, '|', text)}.wav"
+
+
+def check_tts_spend(lines, cache: Path, allow: bool):
+    """Paid TTS only on cache miss, and only with --spend. Otherwise stop and show the estimate."""
+    misses = [l for l in lines if "text" in l and not (cache / tts_key(l["text"], l["speaker"])).exists()]
+    if not misses:
+        return
+    secs = sum(len(l["text"].split()) / 2.4 for l in misses)  # ~2.4 words/s
+    usd = secs * gemini_tts.AUDIO_TOKENS_PER_SEC * gemini_tts.PRICE_OUT / 1e6
+    print(f"  {len(misses)} TTS line(s) not cached: " + ", ".join(l["speaker"] for l in misses)
+          + f"  -> ~₹{usd * cost_log.USD_TO_INR:.2f}")
+    if not allow:
+        sys.exit("  Paid TTS needed. Re-run with --spend to allow it.")
+
+
+def tts_line(text, speaker, cache: Path, out: Path, extra_af=None, chorus=False) -> bytes:
+    """Cached Gemini TTS + optional pitch shift / extra filter (e.g. echo) / chorus (3 detuned, offset copies
+    so one voice sounds like a group). Returns PCM s16 mono."""
+    raw = cache / tts_key(text, speaker)
+    guard_write(out)
+    if not raw.exists():
+        guard_write(raw, new_tts=True)
+        voice, style, _ = CAST[speaker]
+        res = gemini_tts.speak(text, voice, style, raw)
+        print(f"    new TTS {speaker}: ₹{res['row']['cost_inr']} (aaj ₹{res['row']['today_total_inr']}, "
+              f"bacha ₹{res['row']['remaining_inr']})")
+    chain = ",".join(f for f in (pitch_filter(CAST[speaker][2], SR), extra_af) if f) or "anull"
+    if chorus:
+        fc = (f"[0:a]{chain},asplit=3[a][b][c];[b]{pitch_filter(2, SR)},adelay=45[b2];"
+              f"[c]{pitch_filter(-2, SR)},adelay=90[c2];[a][b2][c2]amix=inputs=3:normalize=0,volume=0.6[o]")
+        args = ["-filter_complex", fc, "-map", "[o]"]
+    else:
+        args = ["-af", chain]
+    run([FFMPEG, "-y", "-i", raw, *args, "-ac", "1", "-ar", SR, "-sample_fmt", "s16", out])
+    with wave.open(str(out)) as w:
+        return w.readframes(w.getnframes())
+
+
+def trim(data: bytes) -> bytes:
+    """Trim lead/tail silence by energy so the line's voice starts at its first sample."""
+    x = np.frombuffer(data, np.int16).astype(np.float32) / 32768
+    hop = int(0.01 * SR)
+    lev = 20 * np.log10(np.sqrt(np.mean(x[: len(x) // hop * hop].reshape(-1, hop) ** 2, axis=1)) + 1e-9)
+    voiced = np.where(lev > lev.max() - 35)[0]
+    s0 = max(0, voiced[0] * hop - int(0.01 * SR))
+    e0 = min(len(x), (voiced[-1] + 1) * hop + int(TAIL * SR))
+    return data[s0 * 2:e0 * 2]
+
+
+_whisper = None
+
+
+def _clean_len(s):
+    return len(re.sub(r"[^\u0900-\u097F\w]", "", s))
+
+
+def word_times(data: bytes, text: str, cache: Path, run_whisper: bool, words_dir: Path | None = None):
+    """Script tokens timed by Whisper word timestamps (cached per audio). Whisper's spelling may differ from the
+    script, so timings are mapped through character position. Without a cached result, Whisper only runs when
+    run_whisper (final); otherwise timings are proportional to word length."""
+    global _whisper
+    tokens = text.split()
+    dur = len(data) / 2 / SR
+    name = f"words_{sha(data)}.json"
+    key = cache / name  # older builds kept Whisper results next to the TTS; read them, never write there again
+    if not key.exists() and words_dir:
+        key = words_dir / name
+    ww, note = [], None
+    if key.exists():
+        ww = json.loads(key.read_text(encoding="utf-8"))
+    elif run_whisper:
+        if _whisper is None:
+            from faster_whisper import WhisperModel
+            _whisper = WhisperModel("small", device="cpu", compute_type="int8",
+                                    download_root=str(ROOT / "tools" / "whisper-models"))
+        x = np.frombuffer(data, np.int16).astype(np.float32) / 32768
+        x16 = np.interp(np.arange(0, len(x), SR / 16000), np.arange(len(x)), x).astype(np.float32)
+        # no initial_prompt: with the script as prompt Whisper sometimes skips words it thinks were already said
+        segs, _ = _whisper.transcribe(x16, language="hi", word_timestamps=True, beam_size=5)
+        ww = [(w.start, w.end, w.word.strip()) for s in segs for w in (s.words or []) if _clean_len(w.word)]
+        guard_write(key)
+        key.parent.mkdir(parents=True, exist_ok=True)
+        key.write_text(json.dumps(ww, ensure_ascii=False), encoding="utf-8")
+    else:
+        note = "proportional (Whisper runs on --final)"
+    # only trust Whisper if it heard roughly the whole line (it can drop words)
+    coverage = sum(_clean_len(w) for _, _, w in ww) / max(1, sum(_clean_len(t) for t in tokens))
+    if ww and not 0.75 <= coverage <= 1.35:
+        ww, note = [], f"PROPORTIONAL (whisper coverage {coverage:.0%})"
+    if ww:
+        lens = [_clean_len(w) for _, _, w in ww]
+        tot, acc, xs, ts = sum(lens), 0, [], []
+        for (a, b, _), n in zip(ww, lens):
+            xs += [acc / tot, (acc + n) / tot]
+            ts += [a, b]
+            acc += n
+        xs[0], xs[-1] = 0.0, 1.0
+        note = f"whisper {coverage:.0%}"
+    else:
+        xs, ts = [0.0, 1.0], [0.0, dur]
+    lens = [_clean_len(t) + 1 for t in tokens]
+    tot, acc, words = sum(lens), 0, []
+    for tok, n in zip(tokens, lens):
+        words.append((float(np.interp(acc / tot, xs, ts)), float(np.interp((acc + n) / tot, xs, ts)), tok))
+        acc += n
+    return words, note
+
+
+def build_voice(lines, audio_dir: Path, work: Path, run_whisper: bool, end_hold: float = END_HOLD,
+                gap_s: float = GAP, speed: float = 1.0, gap_change: float | None = None):
+    """speed: tempo factor for every spoken line (atempo keeps the pitch; cached TTS reused, no new cost).
+    gap_s: silence between two lines of the same speaker; gap_change: when the speaker changes (default = gap_s).
+    meta.json "speed" / "gap" / "gap_speaker_change" let a Short run tighter than the long video."""
+    pcm, t = bytearray(), 0.0
+    GAP = gap_s  # noqa: N806 - local override of the module default
+    gap_change = GAP if gap_change is None else gap_change
+    prev_speaker = None
+    silence = lambda sec: b"\x00\x00" * int(round(sec * SR))
+    timed, events = [], {"sfx": [], "music_silent": [], "moods": []}
+    cache = audio_dir / "tts_cache"
+    for i, line in enumerate(lines):
+        if "pause" in line:  # music-only beat with its own picture
+            gap = GAP if i else 0.0
+            pcm += silence(gap + line["pause"])
+            start, t = t + gap, t + gap + line["pause"]
+            if line.get("mood"):
+                events["moods"].append((start, line["mood"]))
+            if line.get("sfx"):
+                events["sfx"].append((start + 0.05, line["sfx"]))
+            timed.append({**line, "speaker": "_pause", "text": "", "start": start, "end": t,
+                          "audio_hash": f"pause{line['pause']}", "words": []})
+            events.setdefault("pauses", []).append((start - PAUSE_LEAD, t))
+            print(f"  line {i + 1:2d} [{'pause':8s}] {start:6.2f}-{t:6.2f}s  music only")
+            continue
+        tempo = f"atempo={speed}" if speed != 1.0 else None
+        data = trim(tts_line(line["text"], line["speaker"], cache,
+                             work / f"line_{i + 1:02d}_{line['speaker']}.wav",  # per video, not the shared story audio/
+                             extra_af=",".join(f for f in (line.get("af"), tempo) if f) or None,
+                             chorus=line.get("chorus", False)))
+        words, note = word_times(data, line["text"], cache, run_whisper, words_dir=work / "words")
+        gap = 0.0
+        if i:
+            base = GAP if line["speaker"] == prev_speaker else gap_change
+            gap = base + line.get("pause_before", 0)
+            if line.get("music_silent_before"):
+                events["music_silent"].append((t + base / 2, t + gap))
+            pcm += silence(gap)
+            t += gap
+        start = t
+        prev_speaker = line["speaker"]
+        if line.get("mood"):
+            events["moods"].append((start - gap, line["mood"]))
+        pcm += data
+        t += len(data) / 2 / SR
+        timed.append({**line, "start": start, "end": t, "audio_hash": sha(data),
+                      "words": [(start + a, start + b, w) for a, b, w in words]})
+        if line.get("sfx_after"):
+            events["sfx"].append((t + 0.05, line["sfx_after"]))
+        print(f"  line {i + 1:2d} [{line['speaker']:8s}] {start:6.2f}-{t:6.2f}s  {note}")
+    pcm += silence(end_hold)
+    total = len(pcm) / 2 / SR
+    voice = work / "voice.wav"
+    with wave.open(str(voice), "wb") as w:
+        w.setnchannels(1), w.setsampwidth(2), w.setframerate(SR), w.writeframes(bytes(pcm))
+    return voice, total, timed, events
+
+
+# ---------- 2. captions ----------
+def ass_time(s):
+    cs = max(0, int(round(s * 100)))
+    return f"{cs // 360000}:{cs // 6000 % 60:02d}:{cs // 100 % 60:02d}.{cs % 100:02d}"
+
+
+def caption_chunks(line):
+    """[(start, end, text)] in global seconds, 2-3 words each, never past the line's audio.
+    An optional "caption" in lines.json changes only the on-screen text (no new TTS); its words are timed
+    through character position on the spoken words' timeline."""
+
+# ---------- 5. final-only checks ----------
+def loudness_report(out: Path, work: Path, timed):
+    """Final loudness + true peak, and music level the RULES way: integrated LUFS of the voice stem vs the music
+    stem, both cut to the same speech sections (both stems are pre-loudnorm; loudnorm gain hits both equally)."""
+    r = run([FFMPEG, "-hide_banner", "-i", out, "-af", "ebur128=peak=true", "-f", "null", "-"])
+    lufs = float(re.findall(r"I:\s+(-?[\d.]+) LUFS", r.stderr)[-1])
+    tp = float(re.findall(r"Peak:\s+(-?[\d.]+) dBFS", r.stderr)[-1])
+    sel = "+".join(f"between(t,{l['start']:.2f},{l['end']:.2f})" for l in timed if l["speaker"] != "_pause")
+
+    def speech_lufs(f):
+        r = run([FFMPEG, "-hide_banner", "-i", f, "-af", f"aresample=48000,aformat=channel_layouts=stereo,"
+                 f"aselect='{sel}',asetpts=N/SR/TB,ebur128", "-f", "null", "-"])
+        return float(re.findall(r"I:\s+(-?[\d.]+) LUFS", r.stderr)[-1])
+
+    below = speech_lufs(work / "voice.wav") - speech_lufs(work / "music.wav")
+    return lufs, tp, below
+
+
+def frame_check(out: Path, timed, path: Path, work: Path):
+    """One frame from the middle of every line, labelled with time + speaker, tiled into one image."""
+    tiles = []
+    font = ImageFont.truetype("arial.ttf", 22) if Path("C:/Windows/Fonts/arial.ttf").exists() else ImageFont.load_default()
+    for i, l in enumerate(timed):
+        t = (l["start"] + l["end"]) / 2
+        f = work / f"check_{i:02d}.png"
+        run([FFMPEG, "-y", "-ss", f"{t:.2f}", "-i", out, "-frames:v", 1, "-vf", "scale=270:-2", f])
+        im = Image.open(f).convert("RGB")
+        ImageDraw.Draw(im).rectangle((0, 0, 270, 30), fill=(0, 0, 0))
+        ImageDraw.Draw(im).text((6, 4), f"{t:5.1f}s {l['speaker']}", fill=(255, 230, 0), font=font)
+        tiles.append(im)
+    cols = 6
+    rows = (len(tiles) + cols - 1) // cols
+    sheet = Image.new("RGB", (cols * 270, rows * tiles[0].height))
+    for i, im in enumerate(tiles):
+        sheet.paste(im, ((i % cols) * 270, (i // cols) * im.height))
+    sheet.save(path)
+
+
+def srt_time(s):
+    ms = max(0, int(round(s * 1000)))
+    return f"{ms // 3600000:02d}:{ms // 60000 % 60:02d}:{ms // 1000 % 60:02d},{ms % 1000:03d}"
+
+
+def write_srt(timed, path: Path):
+    """Captions file for upload (long videos don't burn captions into the picture)."""
+    cues = [c for l in timed if l["words"] for c in caption_chunks(l)]
+    path.write_text("\n".join(f"{i}\n{srt_time(a)} --> {srt_time(b)}\n{txt}\n" for i, (a, b, txt) in
+                              enumerate(cues, 1)), encoding="utf-8")
+
+
+def register_row(f: Path):
+    """The asset's row in shared/assets_license.csv (RULES section 10). No row -> stop the build."""
+    rows = {r["path"]: r for r in csv.DictReader(REGISTER.open(encoding="utf-8", newline=""))}
+    rel = Path(f).resolve().relative_to(ROOT).as_posix()
+    if rel not in rows:
+        sys.exit(f"STOP: {rel} is not in {REGISTER.name} (RULES section 10). Verify its licence and add a row first.")
+    return rows[rel]
+
+
+def check_register(meta):
+    g.add_argument("--final", action="store_true", help="1080x1920 upload build + checks")
+    ap.add_argument("--spend", action="store_true", help="allow paid TTS for uncached lines")
+    ap.add_argument("--plan", action="store_true", help="validate only: resolve and check every input path, no render")
+    ap.add_argument("--seconds", type=float, help="preview only the first N seconds (quick test render)")
+    a = ap.parse_args()
+    mode = "final" if a.final else "preview"
+    if a.seconds and mode == "final":
+        ap.error("--seconds is only for preview test renders")
+    t_start = time.perf_counter()
+
+    name = a.case_opt or a.case_pos
+    if not name:
+        ap.error("project folder required, e.g. channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long")
+    P = load_project(name)
+    os.environ["STORY_CHANNEL"] = P["channel"]  # cost_log rows get this channel
+    prof = PROFILES[(P["kind"], mode)]
+    case = P["name"]
+    lines = json.loads((P["dir"] / "lines.json").read_text(encoding="utf-8"))
+    meta = json.loads((P["dir"] / "meta.json").read_text(encoding="utf-8"))
+    focus_file = P["dir"] / "shots.json"
+    P["focus"] = json.loads(focus_file.read_text(encoding="utf-8")) if focus_file.exists() else {}
+    try:
+        missing = [s for s in sorted({l["scene"] for l in lines}) if not P["image_for"](s).exists()]
+    except KeyError as e:
+        sys.exit(f"Scene {e} has no image in scene_prompts.json 'covers'")
+    if missing:
+        sys.exit(f"Missing scene images: {missing}")
+    check_register(meta)
+    if a.plan:
+        plan_report(P, lines, meta)
+        return
+    chan = ROOT / "channels" / P["channel"]
+    PROTECTED[:] = [d.resolve() for d in (P["story"] / "images", P["story"] / "audio", P["story"] / "characters",
+                                          chan / "characters")]
+    paid_before = snapshot(PROTECTED)
+
+    out_dir = P["out_dir"]
+    work = out_dir / f"{case}_work"
+    audio_dir = P["audio_dir"]
+    cache_dir = P["cache_dir"]
+    for d in (work, audio_dir / "tts_cache", cache_dir, work / "fonts"):
+        d.mkdir(parents=True, exist_ok=True)
+    shutil.copy(FONT, work / "fonts" / FONT.name)
+    font_family = ImageFont.truetype(str(FONT)).getname()[0]
+    spend_before = sum(float(r["cost_inr"]) for r in cost_log._rows())
+
+    print(f"[{P['kind'].upper()} {mode.upper()}] {prof['w']}x{prof['h']} @ {prof['fps']} fps")
+    print("1/4 voice")
+    check_tts_spend(lines, audio_dir / "tts_cache", a.spend)
+    voice, total, timed, events = build_voice(lines, audio_dir, work, run_whisper=(mode == "final"),
+                                              end_hold=meta.get("end_hold", END_HOLD), gap_s=meta.get("gap", GAP),
+                                              speed=meta.get("speed", 1.0), gap_change=meta.get("gap_speaker_change"))
+    if a.seconds:  # test render: keep the lines that start inside the first N seconds
+        total = min(total, a.seconds)
+        timed = [l for l in timed if l["start"] < total]
+        events = {k: [e for e in v if e[0] < total] for k, v in events.items()}  # music/sfx cues after the cut go too
+        case = f"{case}_test{a.seconds:g}s"
+    warn = P["kind"] == "short" and not a.seconds and not 45 <= total <= 60
+    print(f"  total {total:.1f}s" + ("  WARNING: outside 45-60s" if warn else ""))
+
+    print("2/4 scenes")
+    plans = plan_scenes(P, timed, total, prof, font_family, meta.get("final_title", "बताओ, दोषी कौन?"),
+                        meta.get("final_title_secs"))
+    cached, new = build_video(plans, prof, cache_dir, work)
+
+    print("3/4 audio")
+    norm = build_audio(voice, total, events, meta, work, two_pass=(mode == "final"),
+                       below_db=MUSIC_BELOW_VOICE_DB[P["kind"]])
+
+    print("4/4 mux (video stream copied, no re-encode)")
+    out = out_dir / (f"{case}.mp4" if mode == "final" else f"{case}_preview.mp4")
+    run([FFMPEG, "-y", "-i", "video.mp4", "-i", norm, "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-ar", 48000,
+         "-shortest", "-movflags", "+faststart", out], cwd=work)
+    report = ""
+    if not P["burn"] and not a.seconds:
+        srt = out.with_suffix(".srt")
+        write_srt(timed, srt)
+        report += f"\n  captions:    {srt}"
+
+    if mode == "final":
+        lufs, tp, below = loudness_report(out, work, timed)
+        check = out_dir / f"{case}_framecheck.png"
+        frame_check(out, timed, check, work)
+        txt = out_dir / f"{case}.txt"
+        tags = f"TAGS:\n{', '.join(meta['tags'])}\n\n" if meta.get("tags") else ""
+        txt.write_text(
+            f"TITLE:\n{meta['title']}\n\nDESCRIPTION:\n{meta['description']}\n\n"
+            f"{music_credits(meta, events, total)}\n\n{' '.join(meta['hashtags'])}\n\n{tags}"
+            f"PINNED COMMENT (post later):\n{meta['pinned_comment']}\n", encoding="utf-8")
+        report += (f"\n  loudness {lufs:.1f} LUFS, true peak {tp:.1f} dBFS, music {below:.1f} LU under voice "
+                   f"(stem LUFS over speech)"
+                   f"\n  frame check: {check}\n  metadata:    {txt}")
+
+    n_paid = check_snapshot(paid_before, PROTECTED)
+    report += (f"\n  paid source files unchanged: {n_paid} files checked"
+               + (f" (+{len(_new_tts)} new TTS)" if _new_tts else ""))
+    spent = sum(float(r["cost_inr"]) for r in cost_log._rows()) - spend_before
+    print(f"\nDONE [{mode}] {out}  ({total:.1f}s video)"
+          f"\n  scenes: {cached} cache se, {new} naye   |   build time {time.perf_counter() - t_start:.0f}s"
+          f"   |   is build ka kharcha ₹{spent:.2f}{report}")
+
+
+if __name__ == "__main__":
+    main()
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:01:13Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Check project paths and write locations
+
+`grep -n "audio_dir\|cache_dir\|out_dir\|\"story\"" scripts/make_short.py | head -30; sed -n 440,600p scripts/make_short.py | grep -n "work\|cache\|out\b\|mix\|norm" | head -40`
+
+```text
+232:def build_voice(lines, audio_dir: Path, work: Path, run_whisper: bool, end_hold: float = END_HOLD,
+243:    cache = audio_dir / "tts_cache"
+472:def build_video(plans, prof, cache_dir: Path, work: Path):
+473:    todo = [p for p in plans if not (cache_dir / f"scene_{p['scene']:02d}_{p['key']}.mp4").exists()]
+478:        list(pool.map(lambda p: render_scene(p, prof, cache_dir / f"scene_{p['scene']:02d}_{p['key']}.mp4", work),
+480:    listing = [f"file '{(cache_dir / f'scene_{p['scene']:02d}_{p['key']}.mp4').as_posix()}'" for p in plans]
+702:    return {"kind": kind, "name": proj.get("name", pdir.name), "dir": pdir, "story": story, "channel": channel,
+705:            "audio_dir": story / "audio", "cache_dir": ROOT / "cache" / channel / story.name / pdir.name,
+706:            "out_dir": pdir / "output"}
+713:    print(f"  project:  {rel(P['dir'])}\n  output:   {rel(P['out_dir'])}\n  cache:    {rel(P['cache_dir'])}")
+718:    cache = P["audio_dir"] / "tts_cache"
+772:    PROTECTED[:] = [d.resolve() for d in (P["story"] / "images", P["story"] / "audio", P["story"] / "characters",
+776:    out_dir = P["out_dir"]
+777:    work = out_dir / f"{case}_work"
+778:    audio_dir = P["audio_dir"]
+779:    cache_dir = P["cache_dir"]
+780:    for d in (work, audio_dir / "tts_cache", cache_dir, work / "fonts"):
+788:    check_tts_spend(lines, audio_dir / "tts_cache", a.spend)
+789:    voice, total, timed, events = build_voice(lines, audio_dir, work, run_whisper=(mode == "final"),
+803:    cached, new = build_video(plans, prof, cache_dir, work)
+810:    out = out_dir / (f"{case}.mp4" if mode == "final" else f"{case}_preview.mp4")
+821:        check = out_dir / f"{case}_framecheck.png"
+823:        txt = out_dir / f"{case}.txt"
+9:def render_scene(p, prof, clip: Path, work: Path):
+13:        (work / ass_name).write_text(p["ass"], encoding="utf-8")
+24:                f"setparams=range=tv:color_primaries=bt709:color_trc=bt709:colorspace=bt709[out]")
+26:    run([FFMPEG, "-y", "-i", p["img"], "-filter_complex", ";".join(fc), "-map", "[out]", "-frames:v", p["frames"],
+29:         "-video_track_timescale", fps * 1000, tmp], cwd=work)
+33:def build_video(plans, prof, cache_dir: Path, work: Path):
+34:    todo = [p for p in plans if not (cache_dir / f"scene_{p['scene']:02d}_{p['key']}.mp4").exists()]
+36:        state = "NEW" if p in todo else "cache"
+38:    with ThreadPoolExecutor(max_workers=max(2, (os.cpu_count() or 4) // 2)) as pool:
+39:        list(pool.map(lambda p: render_scene(p, prof, cache_dir / f"scene_{p['scene']:02d}_{p['key']}.mp4", work),
+41:    listing = [f"file '{(cache_dir / f'scene_{p['scene']:02d}_{p['key']}.mp4').as_posix()}'" for p in plans]
+42:    (work / "scenes.txt").write_text("\n".join(listing), encoding="utf-8")
+43:    run([FFMPEG, "-y", "-f", "concat", "-safe", "0", "-i", "scenes.txt", "-c", "copy", "video.mp4"], cwd=work)
+47:# ---------- 4. audio mix + loudness ----------
+59:             "-af", "loudnorm=print_format=json", "-f", "null", "-"])
+85:        x = np.frombuffer(r.stdout, np.int16).astype(np.float32) / 32768
+109:def build_audio(voice, total, events, meta, work: Path, two_pass: bool, below_db: float):
+123:        fade_out = f"afade=t=out:st={length - (1.5 if last else MUSIC_XFADE):.2f}:d={1.5 if last else MUSIC_XFADE}"
+131:                  f"volume={gain:.2f}dB,{fade_in}{fade_out},adelay={ms}|{ms}[mu{k}]")
+134:              + f"amix=inputs={len(segs)}:duration=longest:normalize=0,volume='if({mute},0,1)':eval=frame,"
+138:    mix_in, n_in = "[v][m]", len(segs) + 1
+146:        mix_in += f"[s{k}]"
+147:    fc.append(f"{mix_in}amix=inputs={2 + len(events['sfx'])}:duration=first:normalize=0[out]")
+148:    mix = work / "mix.wav"
+149:    run([FFMPEG, "-y", *inputs, "-filter_complex", ";".join(fc), "-map", "[out]", "-t", f"{total:.3f}", mix,
+150:         "-map", "[mstem]", "-t", f"{total:.3f}", work / "music.wav"])
+151:    ln = f"loudnorm=I={TARGET_LUFS}:TP=-1.5:LRA=11"
+153:        r = run([FFMPEG, "-hide_banner", "-i", mix, "-af", ln + ":print_format=json", "-f", "null", "-"])
+157:    norm = work / "mix_norm.wav"
+158:    run([FFMPEG, "-y", "-i", mix, "-af", ln + ",aresample=48000", "-ar", 48000, norm])
+159:    return norm
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:01:20Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Read lines.json, shots.json, scenes list
+
+`cd /d/Story-Channel/channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai && ls; cat lines.json | head -60; cat shots.json 2>/dev/null | head -40; cat output/short_01_jadui-kadhai_work/scenes.txt`
+
+```text
+PLAN.md
+lines.json
+meta.json
+output
+project.json
+review
+shots.json
+[
+  {"scene": 16, "speaker": "sadhu", "text": "ये जादुई कड़ाही है, बेटा। इसमें जो डालोगे, दुगना हो जाएगा।", "mood": "jaadu", "shots": [[[0.5, 0.72, 1.95, 0.48], 1.5], [[0.5, 0.42, 1.25, 0.72], null]]},
+  {"scene": 17, "speaker": "dadi_story", "text": "उस शाम छोटू ने कड़ाही में एक मुट्ठी आटा डाला... और आटा दो मुट्ठी हो गया!", "sfx_after": "magic", "shot": [0.5, 0.55, 1.15, 0.6]},
+  {"scene": 17, "speaker": "chhotu", "text": "अरे वाह! ये तो सच में जादू है!", "shot": [0.5, 0.42, 1.3, 0.36]},
+  {"scene": 20, "speaker": "dadi_story", "text": "पर ये बात घसीटा की नज़रों से छुपी नहीं रही।", "mood": "tension", "shot": [0.5, 0.5, 1.2, 0.25]},
+  {"scene": 20, "speaker": "ghasita", "text": "आटा? हुँह! उस कड़ाही में तो सोना होना चाहिए... मेरा सोना!", "shot": [0.5, 0.42, 1.2, 0.73]},
+  {"scene": 21, "speaker": "dadi_story", "text": "उसी रात, जब छोटू सो रहा था, घसीटा दबे पाँव आया और कड़ाही चुरा ले गया।", "shots": [[[0.5, 0.72, 1.3, 0.22], 3.0], [[0.5, 0.45, 1.15, 0.72], null]]},
+  {"scene": 22, "speaker": "dadi_story", "text": "दुकान में दीया जलाकर उसने कड़ाही में एक सोने का सिक्का डाला...", "shot": [0.5, 0.42, 1.85, 0.53]},
+  {"scene": 22, "speaker": "ghasita", "text": "चल, दुगना कर!", "shot": [0.5, 0.36, 2.0, 0.55]}
+]
+{
+  "_help": "Every line in lines.json has its own shot/shots override; nothing needed here."
+}
+file 'D:/Story-Channel/cache/dadi-ki-kahaniyan/001_lalchi-halwai/short_01_jadui-kadhai/scene_16_e1a60d5937bfa76e.mp4'
+file 'D:/Story-Channel/cache/dadi-ki-kahaniyan/001_lalchi-halwai/short_01_jadui-kadhai/scene_17_513507231d8c0300.mp4'
+file 'D:/Story-Channel/cache/dadi-ki-kahaniyan/001_lalchi-halwai/short_01_jadui-kadhai/scene_20_21f057e4fc1c55d3.mp4'
+file 'D:/Story-Channel/cache/dadi-ki-kahaniyan/001_lalchi-halwai/short_01_jadui-kadhai/scene_21_7ba1c76520ee9d70.mp4'
+file 'D:/Story-Channel/cache/dadi-ki-kahaniyan/001_lalchi-halwai/short_01_jadui-kadhai/scene_22_5fcbea308ce4ed8b.mp4'
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:02:07Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Scene durations, frames, loudness, stem levels
+
+`cd /d/Story-Channel/channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai && FF=/d/Story-Channel/tools/ffmpeg/ffmpeg.exe; FP=/d/Story-Channel/tools/ffmpeg/ffprobe.exe; V=output/short_01_jadui-kadhai_preview.mp4; W=output/short_01_jadui-kadhai_work; for f in $(sed "s/file '//;s/'//" $W/scenes.txt); do echo "$(basename $f) $($FP -v error -show_entries format=duration -of csv=p=0 $f)"; done; for t in 0.3 1.3 1.6 3 8.2 16.5 19.6 23.8 29.6 38.0 41 44.5 45.2 46.2 46.5 47.5 48.2; do $FF -v error -y -ss $t -i $V -frames:v 1 -vf scale=270:-2 review/r4/f_$t.png; done; $FF -hide_banner -i $V -af ebur128=peak=true -f null - 2>&1 | grep -A12 Summary | grep -E "I:|Peak"; for s in voice music; do $FF -hide_banner -i $W/$s.wav -af "aresample=48000,aformat=channel_layouts=stereo,aselect='between(t,0,7.55)+between(t,7.90,15.77)+between(t,16.18,18.98)+between(t,19.32,23.09)+between(t,23.51,28.87)+between(t,29.25,37.51)+between(t,37.78,44.58)+between(t,44.97,46.24)',asetpts=N/SR/TB,ebur128" -f null - 2>&1 | grep -A3 Summary | grep "I:" | sed "s/^/$s /"; done`
+
+```text
+scene_16_e1a60d5937bfa76e.mp4 7.791667
+scene_17_513507231d8c0300.mp4 11.416667
+scene_20_21f057e4fc1c55d3.mp4 9.958333
+scene_21_7ba1c76520ee9d70.mp4 8.500000
+scene_22_5fcbea308ce4ed8b.mp4 10.625000
+    I:         -13.8 LUFS
+voice     I:         -17.8 LUFS
+music     I:         -31.2 LUFS
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:02:23Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+True peak and contact sheet
+
+```bash
+cd /d/Story-Channel/channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai && /d/Story-Channel/tools/ffmpeg/ffmpeg.exe -hide_banner -i output/short_01_jadui-kadhai_preview.mp4 -af ebur128=peak=true -f null - 2>&1 | tail -4; cd review/r4 && /d/Story-Channel/.venv/Scripts/python -I -c "
+from PIL import Image,ImageDraw;import glob
+fs=sorted(glob.glob('f_*.png'),key=lambda f:float(f[2:-4]))
+ims=[Image.open(f).convert('RGB') for f in fs];w,h=ims[0].size;c=6;r=(len(ims)+c-1)//c
+s=Image.new('RGB',(c*w,r*h))
+for i,(f,im) in enumerate(zip(fs,ims)):
+  d=ImageDraw.Draw(im);d.rectangle((0,0,80,22),fill=0);d.text((4,4),f[2:-4]+'s',fill=(255,230,0));s.paste(im,((i%c)*w,(i//c)*h))
+s.save('contact_r4.png');print(s.size)"
+```
+
+```text
+  True peak:
+    Peak:       -1.4 dBFS
+[out#0/null @ 000001ee9f9b2cc0] video:480KiB audio:9052KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown
+frame= 1159 fps=0.0 q=-0.0 Lsize=N/A time=00:00:48.29 bitrate=N/A speed=60.1x elapsed=0:00:00.80    
+(1620, 1440)
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:02:26Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\review\r4\contact_r4.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:02:35Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Append R2 verdict to log
+
+`cd /d/Story-Channel/channels/dadi-ki-kahaniyan && echo "2026-10-18 | short_01_jadui-kadhai | preview build R2 gap 0.15/0.30 (~10 min) | PASS | 48.29s (45-50 ok); voice.wav silence at speaker changes 0.36-0.43s vs same-speaker 6->7 0.28s (TTS edge silence included), line starts match builder log; hook kadhai-only to 1.5s then Sadhu; sc22 coin+rim only; end card 2.05s; music 13.4 LU under voice (stem); -13.8 LUFS / -1.4 dBTP; paid folders (213 files) blob-identical to 464dad0, 7 stray Short wavs in _to_delete match HEAD blobs, line_04 = 464dad0; make_short guard_write+snapshot ok, only writes in paid folder = new TTS into audio/tts_cache with --spend; Rs 0" >> log.md; tail -1 log.md`
+
+```text
+2026-10-18 | short_01_jadui-kadhai | preview build R2 gap 0.15/0.30 (~10 min) | PASS | 48.29s (45-50 ok); voice.wav silence at speaker changes 0.36-0.43s vs same-speaker 6->7 0.28s (TTS edge silence included), line starts match builder log; hook kadhai-only to 1.5s then Sadhu; sc22 coin+rim only; end card 2.05s; music 13.4 LU under voice (stem); -13.8 LUFS / -1.4 dBTP; paid folders (213 files) blob-identical to 464dad0, 7 stray Short wavs in _to_delete match HEAD blobs, line_04 = 464dad0; make_short guard_write+snapshot ok, only writes in paid folder = new TTS into audio/tts_cache with --spend; Rs 0
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:03:02Z)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="SubagentHandback"><details>
+<summary>Tool use: **SubagentHandback**</summary>
+
+```text
+{"success":true,"message":"Report delivered to your caller."}
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 12:03:06Z)**_
+
+R2 **PASS** aaya. Aapne step 4 me "phir final banao" kaha tha, isliye ab Whisper captions ke saath final bana raha hoon (₹0):
+
+_**Agent (claude-opus-5-5 2026-10-18 12:06:25Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Build Short 01 final with Whisper captions
+
+`.venv/Scripts/python.exe -X utf8 scripts/make_short.py channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai --final > "C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad/short01_final.log" 2>&1; echo "exit=$?"; grep -E "line|total|scenes:|loudness|paid source|STOP|FAILED|frame check|metadata|DONE" "C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad/short01_final.log"`
+
+```text
+exit=0
+  line  1 [sadhu   ]   0.00-  7.60s  whisper 96%
+  line  2 [dadi_story]   7.90- 15.88s  whisper 91%
+  line  3 [chhotu  ]  16.18- 19.02s  whisper 95%
+  line  4 [dadi_story]  19.32- 23.21s  whisper 97%
+  line  5 [ghasita ]  23.51- 28.95s  whisper 88%
+  line  6 [dadi_story]  29.25- 37.63s  whisper 92%
+  line  7 [dadi_story]  37.78- 44.67s  whisper 98%
+  line  8 [ghasita ]  44.97- 46.31s  whisper 100%
+  total 48.3s
+DONE [final] D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\output\short_01_jadui-kadhai.mp4  (48.3s video)
+  scenes: 0 cache se, 5 naye   |   build time 190s   |   is build ka kharcha ₹0.00
+  loudness -13.9 LUFS, true peak -1.3 dBFS, music 13.4 LU under voice (stem LUFS over speech)
+  frame check: D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\output\short_01_jadui-kadhai_framecheck.png
+  metadata:    D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\output\short_01_jadui-kadhai.txt
+  paid source files unchanged: 213 files checked
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 12:06:31Z)**_
+
+<think><details><summary>Thought Process</summary>
+Final video ban gaya: 1080×1920, 48.3 sec, Whisper se timed saari 8 lines (88–100% accuracy), -13.9 LUFS, true peak -1.3, music 13.4 LU kam, 213 paid files intact — kharcha ₹0, build time 190 sec. Ab Munshi ka final review karungi.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-18 12:14:02Z)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="Agent"><details>
+<summary>Tool use: **Agent**</summary>
+Final review Short 01
+
+```text
+  This agent's report was delivered to you as a message from "ab7b6c0d296f258ef" (its SubagentHandback call). Read it there; it is not repeated here.
+  
+agentId: ab7b6c0d296f258ef (use SendMessage with to: 'ab7b6c0d296f258ef', summary: '<5-10 word recap>' to continue this agent)
+<usage>subagent_tokens: 78991
+tool_uses: 31
+duration_ms: 442953</usage>
+```
+</details></tool-use>
+
+_**Agent - sidechain (2026-10-18 12:06:39Z)**_
+
+R1 review of the FINAL build of channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai. Stages: (7) final build, (9) metadata, and copyright (RULES section 10). Thumbnail stage: Shorts have no custom thumbnail in our plan (no thumbnail file) — say if RULES require anything here. Read shared/RULES.md then channels/dadi-ki-kahaniyan/RULES.md first. REVIEW ONLY, no edits, no paid calls, temp files in review/final/. Standard format, BLOCKER/MINOR/Note per section 11, one log line per stage in channels/dadi-ki-kahaniyan/log.md (R1, verdict, time).
+
+Files: output/short_01_jadui-kadhai.mp4 (final), output/short_01_jadui-kadhai_framecheck.png, output/short_01_jadui-kadhai.txt (title, description, credits, hashtags, TAGS, pinned comment), meta.json, lines.json, the build log at C:\Users\ashamim\AppData\Local\Temp\claude\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7\scratchpad\short01_final.log. Approved preview length: 48.3 s (user asked 45-50 s).
+
+Builder claims (verify): 1080x1920 30 fps h264 yuv420p bt709 + AAC; 48.3 s; Whisper word timing on all 8 lines (coverage 88-100%); -13.9 LUFS, TP -1.3 dBFS; music 13.4 LU under voice by stem method (Shorts target 12-14); paid source files unchanged (213 files) — also check git status of the story images/audio/characters yourself (RULES section 9 new rule).
+Also check at full resolution: hook (0-1.5 s kadhai only, then Sadhu), scene 22 shows no kadhai interior / mitti (whole push-in), end card "पूरी कहानी चैनल पर" ≤2 s, burned captions match speech (Whisper-timed now, ±0.3 s) and sit above the bottom ~20%, right character per line.
+Metadata: title ≤100, family wording incl. tags (no kids wording), 3-5 hashtags, CC BY credits for Enchanted Valley + Hidden Agenda taken from shared/assets_license.csv, no spoiler of the twist, publish_at 2026-10-20T21:00:00+05:30 vs RULES section 8 (Long 01 19:00 same day; note the same-day-as-upload rule — the user decides on advance scheduling).
+End with the three verdicts and what's needed before upload (user must say "upload karo").
+
+_**Agent - sidechain (2026-10-18 12:06:39Z)**_
+
+<system-reminder>
+Your final report is delivered through SubagentHandback: when your work is complete, call SubagentHandback({message: <your full report>}). The call ends your run, so make it your last step. Only a SubagentHandback call reaches your caller as your result; plain text you write at the end is not delivered.
+</system-reminder>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:06:42Z)**_
+
+I'll start with the rules files.
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:06:42Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\shared\RULES.md`
+
+```text
+1	# Munshi RULES — Story-Channel
+2	
+3	Shared rules for every channel. Munshi reads this file first, then `channels/<key>/RULES.md`.
+4	- Channel RULES can be stricter than shared RULES, never looser. Copyright, channel ID, secrets and upload safety can never be relaxed by a channel.
+5	
+6	
+7	These are the hard rules. If a builder summary, a script or a file disagrees with them, the rule wins and the step is not PASS. Edit this file to add new rules; Munshi reads it fresh every time.
+8	- A measured value outside a RULES limit is always FIX, never PASS, even if small. (in R1; after R2 see section 11)
+9	
+10	## 1. Budget
+11	- Prepaid Google Cloud budget: ₹500, auto-reload off. Current balance is whatever `cost_log.csv` says.
+12	- Every paid call (Gemini image ≈ ₹3.24 each at 1K, Gemini TTS per line) must be in `cost_log.csv` with date, project, item, ₹.
+13	- No paid call without the user's OK first. A fix that costs money is always ASK, never FIX.
+14	- Flag it if a step cost more than 30% above its estimate (e.g. LONG_01 TTS: estimate ₹4.85, actual ₹6.63).
+15	
+16	## 2. Story and characters (from `channel_bible.md`)
+17	- Characters must match their approved sheets: face, clothes, colours, age look. Compare each scene image against the sheet with Read.
+18	- The action in each image must match what the line says at that moment (who is holding what, who is talking).
+19	
+20	## 3. Audio
+21	- Final loudness: -14 LUFS integrated (±1), true peak ≤ -1.0 dBFS.
+22	- Music sits under the voice: 12–14 dB below for Shorts, up to ~18–20 dB for narration-heavy long videos. If it is quieter than 20 dB under, flag it.
+23	- Music level is measured one way only: integrated LUFS of the voice-only stem vs the music-only stem over the same speech sections. Builder and Munshi both use this method.
+24	- Mood changes get a crossfade (≥1 s). No sudden music cuts under dialogue.
+25	- No leaked background audio, clicks, or a line cut off mid-word.
+26	
+27	## 4. Captions
+28	- One `.srt` per video, Hindi, UTF-8.
+29	- Each caption must appear while that line is being spoken (±0.3 s), over the right character's shot.
+30	- Lines whose timing was estimated rather than taken from Whisper must be listed in the report.
+31	
+32	## 5. Video
+33	- Long video: 1920×1080, 30 fps, H.264, 16:9. Short: 1080×1920, ≤60 s, 9:16.
+34	- Target length: the duration the user approved at preview. Before preview, the script estimate is only a guide. Final must be within ±10% of the approved preview length; outside that is ASK.
+35	- Preview builds (960×540) are only for review. They are never uploaded.
+36	
+37	## 6. Thumbnail
+38	- 1280×720, JPG or PNG, ≤ 2 MB.
+39	- Hindi text is rendered by libass/FFmpeg (HarfBuzz shaping), never drawn by the AI. Zoom in and check matras and joined letters (ड़, दु, क्ष, etc.).
+40	- Text readable on a phone: letter height ≥ ~12% of frame height, high contrast, max ~4 words.
+41	- Thumbnail text must not repeat the title word for word.
+42	- No spoilers: no ending, no twist, no mystery answer.
+43	- Bottom-right corner (~15% × 12%) has nothing important, because YouTube puts the duration there.
+44	
+45	## 7. Metadata
+46	- Title ≤ 100 characters, no `<` or `>`. Description ≤ 5000 characters.
+47	- Tags total ≤ 500 characters. 3–5 hashtags in the description (the first 3 show above the title; more than 15 and YouTube ignores all of them).
+48	- Every CC BY music track used (e.g. Incompetech / Kevin MacLeod) is credited in the description exactly as its licence asks.
+49	- Made-for-kids and AI-disclosure values come from `channels/<key>/channel.json`. Never guess them.
+50	
+51	## 8. Publishing
+52	- Publish slot: the same day as the upload, between 19:00 and 23:59 IST.
+53	  - Upload finished before 18:45 IST -> publish at 19:00 the same day.
+54	  - Upload finished between 18:45 and 23:15 IST -> publish at the next :00 or :30 that is at least 30 minutes after the upload.
+55	  - Upload finished after 23:15 IST -> publish at 19:00 the next day.
+56	- At most one long video per day per channel. If a long video is already scheduled that day, use 19:00 the next day. A Short may share a day with a long video only if their publish times are at least 2 hours apart, still inside 19:00-23:59.
+57	- Nothing goes Public or gets scheduled without the user's OK in that conversation.
+58	- One upload per video. If `output/upload_result.json` exists, do not upload again.
+59	
+60	## 9. Safety
+61	- Never show or commit `.env`, `secrets/`, API keys or OAuth tokens.
+62	- Never delete files; move them to `_to_delete/`.
+63	- Paid source files (story images/, audio/, characters/) are read-only for every build. Builds write only to their own _work/ and output/ folders. After every build Munshi checks that no paid source file changed (git status / hash). Any change is a BLOCKER.
+64	
+65	## 10. Copyright (STRICT — any violation is FIX and blocks upload)
+66	- Every external file used in any video (music, sound effect, font, image, footage, voice) must have a row in `shared/assets_license.csv`: path, source_url, author, license, attribution_text, date_added. No row = not allowed.
+67	- Allowed licences only: CC0; CC BY 4.0 (with exact credit in the description); SIL OFL (fonts); YouTube Audio Library tracks (follow their attribution note); our own Gemini-generated images/voices; our own recordings.
+68	- Never allowed: CC BY-NC (non-commercial, conflicts with monetization), CC BY-ND (we edit/mix), CC BY-SA, "free for personal use", Freesound "Sampling+", unknown source, anything ripped from YouTube/Spotify/Instagram/films/TV, Bollywood or any commercial song (even hummed or sung by TTS), Google/Pinterest images.
+69	- Freesound: licence is per sound. Check each file's own licence page; only CC0 or CC BY 4.0.
+70	- Content: no real brand logos, no film/TV/cartoon characters (Chhota Bheem, Motu Patlu, Disney, etc.), no celebrity likeness, no copied song lyrics, no copied text from modern books. Old folk tales (Panchatantra, Jataka, Akbar-Birbal) are public domain, but we always write our own version, never copy a modern retelling.
+71	- Image prompts never name a studio, franchise or living artist ("Pixar style", "Ghibli style", etc.).
+72	- Before upload, Munshi checks: every audio/image/font file in the final build is in the register, every CC BY item is credited in the description exactly as its licence asks, and no source audio from outside our pipeline is in the mix.
+73	- After upload: if YouTube Studio shows any copyright claim or strike, stop all new uploads and tell the user. CC music sometimes gets false Content ID claims; dispute only with the licence proof from the register, after the user agrees.
+74	
+75	## 11. Review limits and severity
+76	Every problem Munshi reports is marked BLOCKER or MINOR.
+77	
+78	BLOCKER (never waived, in any round):
+79	- Copyright (section 10), wrong channel, any secret exposed.
+80	- Wrong character on screen for a line, wrong voice for a character, a line missing or cut off.
+81	- Caption more than 1 s away from its line, or caption text not matching what is spoken.
+82	- Loudness outside -14 LUFS ±1, true peak above -1.0 dBFS, audible clipping or leaked outside audio.
+83	- Wrong resolution/codec, or a preview file used as final.
+84	- Thumbnail: broken Hindi matras, spoiler, unreadable text, important thing in the bottom-right corner.
+85	- Metadata: title over 100 chars, more than 15 hashtags, missing CC BY credit, "for kids" wording (title, thumbnail, description or tags), mystery answer revealed.
+86	- Length outside ±10% of the approved preview length.
+87	- Story problem: moral missing or a scene that contradicts the script.
+88	
+89	MINOR (everything else that breaks a RULES limit only slightly), e.g.: caption off by 0.3–1 s, caption shorter than 0.4 s, music level within 3 dB of target, thumbnail text slightly under the size rule, small silent gaps, missing colour tags, tiny cosmetic issues.
+90	Taste points (pacing feel, colour choice, music phrase) are "Note" only and never count as problems.
+91	
+92	Rounds:
+93	- Round 1 (R1): full review for that stage; BLOCKER and MINOR both come back as FIX (free) or ASK (paid).
+94	- Round 2 (R2): re-check only what changed and what failed in R1.
+95	- After R2: if any BLOCKER remains → ASK the user, stop. If only MINOR remain → verdict "PASS-WITH-NOTES": the stage is passed and the pipeline moves on to the next step (including upload when the user has approved it). No third round.
+96	- Every MINOR waived after R2 is written to channels/<key>/carry_over.md (project, issue, suggested fix). Before the next video's build, the builder reads carry_over.md and fixes those causes in the pipeline, then marks them done.
+97	
+98	These limits never weaken: copyright (section 10), channel ID check, secrets, and the full pre-upload check.
+99	At the end of each review, add one line to channels/<key>/log.md with the round (R1/R2), verdict and approximate time taken.
+100
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:06:42Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\RULES.md`
+
+```text
+1	# Channel RULES — दादी की कहानियाँ (dadi-ki-kahaniyan)
+2	
+3	Only the rules special to this channel. Read `shared/RULES.md` first; everything there applies here too.
+4	- Channel RULES can be stricter than shared RULES, never looser. Copyright, channel ID, secrets and upload safety can never be relaxed by a channel.
+5	
+6	## Story and characters (from `channel_bible.md`)
+7	- Dadi (Kamla Devi) narrates. Every other character speaks their own lines in their own voice.
+8	- Mitthu (parrot) has no hands: no hand gestures, holding things or pointing with hands.
+9	- Dadi's home (in Gulmohar Mohalla): a kacha mud house with a tiled roof, BROWN wooden door, swept aangan, green fields behind, exactly like the channel banner (`channels/dadi-ki-kahaniyan/brand/_work/banner_art.png`). There is no green door.
+10	- Setting: Dadi's home, the Golu–Mitthu opening/closing frame and all Dadi Jasoos cases are in Gulmohar Mohalla. The story Dadi narrates inside a moral-story video can be set in any village or town the approved script names (e.g. Rampur in LONG_01); check location consistency against that script. Village kitchens still use a mitti ka chulha, never a gas stove.
+11	
+12	## Metadata
+13	- Mystery (Dadi Jasoos) videos: the answer never goes in the title, description or thumbnail. It goes in the pinned comment 24 h after publishing.
+14	- Dadi Ki Kahaniyan is set to made_for_kids = false (family audience, decided by the user). So title, thumbnail, description and tags must speak to the whole family, not only to children: no "for kids" / "बच्चों के लिए" / nursery-style wording. Flag any such wording as FIX.
+15	
+16
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:06:43Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\log.md`
+
+```text
+1	# Munshi log
+2	2026-10-18 | long_01 | 7 final build | FIX | spec/loudness/captions ok; Mitthu line 2 on Golu shot, Ghasita shot mid-Sadhu line 15, music only ~9-10 LU under voice (builder's 18.4 dB is a metric artefact); ASK pending: aangan frame not Gulmohar Mohalla/hara darwaza
+3	2026-10-18 | long_01 | 8 thumbnail | PASS | 1280x720 PNG 1.1 MB, Hindi text shaped correctly, no spoiler, BR corner clear; text height ~11% (optional +10% bump)
+4	2026-10-18 | long_01 | 9 metadata | FIX | 7 hashtags (rule 3-5); no tags list yet for upload; title 81 chars, desc 1514, all 6 CC BY tracks credited ok
+5	2026-10-18 | long_01 | 7 final build (re-review) | ASK | all 6 builder fixes verified (line 2 Mitthu+box, line 15 Sadhu only, music 13.0 LU under voice by stem method = inside long range 12-20, offsets 3.75s/14.5s, yuv420p tv bt709 matrix, no caption <0.45s); length 5:06 (306.2s) is outside script target ~3:50 +/-10% and 3-5 min range -> user decision
+6	2026-10-18 | long_01 | 8 thumbnail (re-review) | PASS | 1280x720 PNG 1.09 MB, text 14.3%/13.5% of height, Hindi shaping ok, no spoiler, BR corner clear
+7	2026-10-18 | long_01 | 9 metadata (re-review) | PASS | title 81, desc 1488, 5 hashtags, 21 tags 375/500 chars (YouTube count), 6 CC BY credits ok, TAGS in long_01.txt = meta.json
+8	2026-10-18 | long_01 | 7 final build (length, RULES 5 updated) | PASS | user approved 5:06 preview; final 306.17s = preview 306.17s (0%, within +/-10%); long_01.mp4 unchanged since re-review (13:22), 1920x1080 h264 yuv420p 30fps; all re-review checks stand
+9	2026-10-18 | long_01 | publish dry-run | PASS | upload.json written (channel UCy071_4g4vGemktFHybqkhQ, publish 2026-10-20 19:00 IST, kids=false, synthetic=false, cat 1, no playlist); dry-run OK, no network; copyright register (RULES 10 / assets_license.csv) not yet available -> not reviewed
+10	2026-10-18 | long_01 | copyright (RULES 10) | PASS | all used assets registered w/ allowed licence (6 Incompetech CC BY 4.0, 3 Freesound CC0, Mukta OFL, 31 scene imgs + 51 TTS + thumb = own Gemini, all in cost_log); 6/6 credits exact in upload.json; mix-voice-music residual = 5 SFX bursts only (floor -98 dB); prompts/text/images clean
+11	2026-10-18 | long_01 | publish | PUBLISHED | video Ogfqow8rbGY uploaded (scheduled 2026-10-20 19:00 IST requested), thumbnail ok, captions ok, channel UCy071_4g4vGemktFHybqkhQ verified; user must confirm schedule in Studio (unaudited API may lock private)
+12	2026-10-18 | short_01_jadui-kadhai | preview build R1 (~25 min) | FIX | 51.87s, hook ok, end card 2.0s, music 13.0 LU under voice (stem method), captions match + above bottom 25%, publish 20 Oct 21:00 ok; BLOCKER: scene 22 line 7 shot shows kadhai inside + top of mitti lump (spoiler) -> fy/zoom fix; MINOR: Chhotu's open-mouth face in 0-1.5s hook shot; sharpness acceptable, no ASK
+13	2026-10-18 | short_01_jadui-kadhai | preview build R2 (~8 min) | PASS | B1 fixed: scene 22 line 7/8 crop shows only coin+rim edge, no kadhai inside/mitti lump (checked preview + simulated 1080x1920 final, start/mid/end of push-in); M1 fixed: hook 0-1.5s kadhai only, Sadhu cut at 1.5s; scenes 17/20/21 from cache, 51.87s unchanged, end card 2.0s, -13.8 LUFS / -1.1 dBTP
+14	2026-10-18 | short_01_jadui-kadhai | preview build R1 speed 1.08/gap 0.15 (~10 min) | PASS | 47.41s (45-50 ok); atempo ratio 1.075-1.080 on all 8 lines, pitch/voicing/HF same as 1.0x (no warble proxy), no clipped onsets/tails, line gaps ~0.20-0.28s; hook kadhai-only to 1.42s then Sadhu; sc22 coin+rim only; end card 2.0s; music 13.3 LU under voice (stem); -13.8 LUFS / -1.3 dBTP; captions aligned to new line starts; Rs 0 (no new cost_log rows)
+15	2026-10-18 | short_01_jadui-kadhai | preview build R2 gap 0.15/0.30 (~10 min) | PASS | 48.29s (45-50 ok); voice.wav silence at speaker changes 0.36-0.43s vs same-speaker 6->7 0.28s (TTS edge silence included), line starts match builder log; hook kadhai-only to 1.5s then Sadhu; sc22 coin+rim only; end card 2.05s; music 13.4 LU under voice (stem); -13.8 LUFS / -1.4 dBTP; paid folders (213 files) blob-identical to 464dad0, 7 stray Short wavs in _to_delete match HEAD blobs, line_04 = 464dad0; make_short guard_write+snapshot ok, only writes in paid folder = new TTS into audio/tts_cache with --spend; Rs 0
+16
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:06:48Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+List short folder and read metadata files
+
+`cd "D:/Story-Channel/channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai" && ls -la . output review; cat output/short_01_jadui-kadhai.txt; echo ----; cat meta.json; echo ----; cat lines.json`
+
+```text
+.:
+total 30
+drwxr-xr-x 1 ashamim 1049089    0 Oct 18 15:58 .
+drwxr-xr-x 1 ashamim 1049089    0 Oct 18 15:39 ..
+-rw-r--r-- 1 ashamim 1049089 7052 Oct 18 15:39 PLAN.md
+-rw-r--r-- 1 ashamim 1049089 1833 Oct 18 15:58 lines.json
+-rw-r--r-- 1 ashamim 1049089 1598 Oct 18 17:28 meta.json
+drwxr-xr-x 1 ashamim 1049089    0 Oct 18 17:36 output
+-rw-r--r-- 1 ashamim 1049089  203 Oct 18 15:48 project.json
+drwxr-xr-x 1 ashamim 1049089    0 Oct 18 17:29 review
+-rw-r--r-- 1 ashamim 1049089   99 Oct 18 15:48 shots.json
+
+output:
+total 23884
+drwxr-xr-x 1 ashamim 1049089        0 Oct 18 17:36 .
+drwxr-xr-x 1 ashamim 1049089        0 Oct 18 15:58 ..
+-rw-r--r-- 1 ashamim 1049089 13856285 Oct 18 17:36 short_01_jadui-kadhai.mp4
+-rw-r--r-- 1 ashamim 1049089     1372 Oct 18 17:36 short_01_jadui-kadhai.txt
+-rw-r--r-- 1 ashamim 1049089  1453401 Oct 18 17:36 short_01_jadui-kadhai_framecheck.png
+-rw-r--r-- 1 ashamim 1049089  9124961 Oct 18 17:29 short_01_jadui-kadhai_preview.mp4
+drwxr-xr-x 1 ashamim 1049089        0 Oct 18 17:36 short_01_jadui-kadhai_work
+
+review:
+total 7704
+drwxr-xr-x 1 ashamim 1049089       0 Oct 18 17:29 .
+drwxr-xr-x 1 ashamim 1049089       0 Oct 18 15:58 ..
+-rw-r--r-- 1 ashamim 1049089 1581149 Oct 18 15:38 crop_plan.png
+-rw-r--r-- 1 ashamim 1049089  122165 Oct 18 15:51 f_000.7.png
+-rw-r--r-- 1 ashamim 1049089  124246 Oct 18 15:51 f_001.4.png
+-rw-r--r-- 1 ashamim 1049089  175265 Oct 18 15:51 f_003.0.png
+-rw-r--r-- 1 ashamim 1049089  126393 Oct 18 15:51 f_010.0.png
+-rw-r--r-- 1 ashamim 1049089  118222 Oct 18 15:51 f_019.0.png
+-rw-r--r-- 1 ashamim 1049089  104900 Oct 18 15:51 f_023.0.png
+-rw-r--r-- 1 ashamim 1049089  108947 Oct 18 15:51 f_028.0.png
+-rw-r--r-- 1 ashamim 1049089  109128 Oct 18 15:51 f_033.0.png
+-rw-r--r-- 1 ashamim 1049089  148248 Oct 18 15:51 f_038.0.png
+-rw-r--r-- 1 ashamim 1049089  139442 Oct 18 15:51 f_044.0.png
+-rw-r--r-- 1 ashamim 1049089  138813 Oct 18 15:51 f_048.0.png
+-rw-r--r-- 1 ashamim 1049089  120248 Oct 18 15:51 f_050.8.png
+-rw-r--r-- 1 ashamim 1049089  154636 Oct 18 15:52 fix_26.0.png
+-rw-r--r-- 1 ashamim 1049089  159263 Oct 18 15:52 fix_28.0.png
+-rw-r--r-- 1 ashamim 1049089  159745 Oct 18 15:52 fix_30.0.png
+-rw-r--r-- 1 ashamim 1049089  134166 Oct 18 15:52 fix_42.0.png
+-rw-r--r-- 1 ashamim 1049089  136492 Oct 18 15:52 fix_45.0.png
+-rw-r--r-- 1 ashamim 1049089  110305 Oct 18 15:52 fix_48.5.png
+-rw-r--r-- 1 ashamim 1049089  848921 Oct 18 15:52 fix_sheet.png
+-rw-r--r-- 1 ashamim 1049089 1521279 Oct 18 15:51 preview_sheet.png
+drwxr-xr-x 1 ashamim 1049089       0 Oct 18 15:57 r1
+drwxr-xr-x 1 ashamim 1049089       0 Oct 18 16:01 r2
+-rw-r--r-- 1 ashamim 1049089  128952 Oct 18 15:59 r2_00.3.png
+-rw-r--r-- 1 ashamim 1049089  133664 Oct 18 15:59 r2_01.2.png
+-rw-r--r-- 1 ashamim 1049089  150298 Oct 18 15:59 r2_40.8.png
+-rw-r--r-- 1 ashamim 1049089  167691 Oct 18 15:59 r2_44.0.png
+-rw-r--r-- 1 ashamim 1049089  161460 Oct 18 15:59 r2_48.2.png
+-rw-r--r-- 1 ashamim 1049089  731170 Oct 18 15:59 r2_sheet.png
+drwxr-xr-x 1 ashamim 1049089       0 Oct 18 17:19 r3
+drwxr-xr-x 1 ashamim 1049089       0 Oct 18 17:32 r4
+TITLE:
+जो डालो, दुगना! जादुई कड़ाही का राज़ | दादी की कहानियाँ #shorts
+
+DESCRIPTION:
+रामपुर के लालची हलवाई घसीटा ने चुरा ली जादुई कड़ाही… पर आगे क्या हुआ? पूरी कहानी चैनल पर देखिए।
+
+Music: "Enchanted Valley" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
+Music: "Hidden Agenda" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
+Sound effects: freesound.org (CC0)
+
+#shorts #दादीकीकहानियाँ #HindiKahani #MoralStory
+
+TAGS:
+दादी की कहानियाँ, Dadi Ki Kahaniyan, जादुई कड़ाही, Jadui Kadhai, लालची हलवाई, Lalchi Halwai, हिंदी कहानी, Hindi Kahani, Hindi Moral Story, परिवार की कहानी, Family Story Hindi, Hindi Shorts
+
+PINNED COMMENT (post later):
+पूरी कहानी — लालची हलवाई और जादुई कड़ाही — चैनल पर देखिए! 🙏
+----
+{
+  "title": "जो डालो, दुगना! जादुई कड़ाही का राज़ | दादी की कहानियाँ #shorts",
+  "description": "रामपुर के लालची हलवाई घसीटा ने चुरा ली जादुई कड़ाही… पर आगे क्या हुआ? पूरी कहानी चैनल पर देखिए।",
+  "hashtags": [
+    "#shorts",
+    "#दादीकीकहानियाँ",
+    "#HindiKahani",
+    "#MoralStory"
+  ],
+  "tags": [
+    "दादी की कहानियाँ",
+    "Dadi Ki Kahaniyan",
+    "जादुई कड़ाही",
+    "Jadui Kadhai",
+    "लालची हलवाई",
+    "Lalchi Halwai",
+    "हिंदी कहानी",
+    "Hindi Kahani",
+    "Hindi Moral Story",
+    "परिवार की कहानी",
+    "Family Story Hindi",
+    "Hindi Shorts"
+  ],
+  "music_moods": {
+    "jaadu": "jaadu/Enchanted_Valley.mp3",
+    "tension": "tension/Hidden_Agenda.mp3"
+  },
+  "sfx": {
+    "magic": "magic_376747.mp3"
+  },
+  "final_title": "पूरी कहानी चैनल पर",
+  "final_title_secs": 2.0,
+  "end_hold": 2.0,
+  "pinned_comment": "पूरी कहानी — लालची हलवाई और जादुई कड़ाही — चैनल पर देखिए! 🙏",
+  "publish_at": "2026-10-20T21:00:00+05:30",
+  "related_video": "https://youtu.be/Ogfqow8rbGY",
+  "speed": 1.08,
+  "gap": 0.15,
+  "gap_speaker_change": 0.3
+}
+----
+[
+  {"scene": 16, "speaker": "sadhu", "text": "ये जादुई कड़ाही है, बेटा। इसमें जो डालोगे, दुगना हो जाएगा।", "mood": "jaadu", "shots": [[[0.5, 0.72, 1.95, 0.48], 1.5], [[0.5, 0.42, 1.25, 0.72], null]]},
+  {"scene": 17, "speaker": "dadi_story", "text": "उस शाम छोटू ने कड़ाही में एक मुट्ठी आटा डाला... और आटा दो मुट्ठी हो गया!", "sfx_after": "magic", "shot": [0.5, 0.55, 1.15, 0.6]},
+  {"scene": 17, "speaker": "chhotu", "text": "अरे वाह! ये तो सच में जादू है!", "shot": [0.5, 0.42, 1.3, 0.36]},
+  {"scene": 20, "speaker": "dadi_story", "text": "पर ये बात घसीटा की नज़रों से छुपी नहीं रही।", "mood": "tension", "shot": [0.5, 0.5, 1.2, 0.25]},
+  {"scene": 20, "speaker": "ghasita", "text": "आटा? हुँह! उस कड़ाही में तो सोना होना चाहिए... मेरा सोना!", "shot": [0.5, 0.42, 1.2, 0.73]},
+  {"scene": 21, "speaker": "dadi_story", "text": "उसी रात, जब छोटू सो रहा था, घसीटा दबे पाँव आया और कड़ाही चुरा ले गया।", "shots": [[[0.5, 0.72, 1.3, 0.22], 3.0], [[0.5, 0.45, 1.15, 0.72], null]]},
+  {"scene": 22, "speaker": "dadi_story", "text": "दुकान में दीया जलाकर उसने कड़ाही में एक सोने का सिक्का डाला...", "shot": [0.5, 0.42, 1.85, 0.53]},
+  {"scene": 22, "speaker": "ghasita", "text": "चल, दुगना कर!", "shot": [0.5, 0.36, 2.0, 0.55]}
+]
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:06:54Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Read build log, channel config, licence register
+
+`cat "C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad/short01_final.log"; echo ----; cd D:/Story-Channel; cat channels/dadi-ki-kahaniyan/channel.json | grep -v -i -E "token|secret|key\"" ; echo ----; cat shared/assets_license.csv; echo; cat channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/project.json channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/shots.json`
+
+```text
+[SHORT FINAL] 1080x1920 @ 30 fps
+1/4 voice
+  line  1 [sadhu   ]   0.00-  7.60s  whisper 96%
+  line  2 [dadi_story]   7.90- 15.88s  whisper 91%
+  line  3 [chhotu  ]  16.18- 19.02s  whisper 95%
+  line  4 [dadi_story]  19.32- 23.21s  whisper 97%
+  line  5 [ghasita ]  23.51- 28.95s  whisper 88%
+  line  6 [dadi_story]  29.25- 37.63s  whisper 92%
+  line  7 [dadi_story]  37.78- 44.67s  whisper 98%
+  line  8 [ghasita ]  44.97- 46.31s  whisper 100%
+  total 48.3s
+2/4 scenes
+  scene 16:   0.00-  7.80s  NEW    close1.95@x0.48 | close1.25@x0.72
+  scene 17:   7.80- 19.23s  NEW    close1.15@x0.6 | close1.3@x0.36
+  scene 20:  19.23- 29.17s  NEW    close1.2@x0.25 | close1.2@x0.73
+  scene 21:  29.17- 37.67s  NEW    close1.3@x0.22 | close1.15@x0.72
+  scene 22:  37.67- 48.30s  NEW    close1.85@x0.53 | close2.0@x0.55
+3/4 audio
+  music: Enchanted_Valley@0s -> Hidden_Agenda@19s
+4/4 mux (video stream copied, no re-encode)
+
+DONE [final] D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\output\short_01_jadui-kadhai.mp4  (48.3s video)
+  scenes: 0 cache se, 5 naye   |   build time 190s   |   is build ka kharcha ₹0.00
+  loudness -13.9 LUFS, true peak -1.3 dBFS, music 13.4 LU under voice (stem LUFS over speech)
+  frame check: D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\output\short_01_jadui-kadhai_framecheck.png
+  metadata:    D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\output\short_01_jadui-kadhai.txt
+  paid source files unchanged: 213 files checked
+----
+{
+  "display_name": "दादी की कहानियाँ",
+  "channel_id": "UCy071_4g4vGemktFHybqkhQ",
+  "made_for_kids": false,
+  "contains_synthetic_media": false,
+  "category_id": "1",
+  "default_language": "hi",
+  "publish_window_ist": [
+    "19:00",
+    "23:59"
+  ],
+  "max_long_per_day": 1,
+  "min_gap_hours_short_long": 2,
+  "playlists": {
+    "dadi-jasoos": "",
+    "moral-stories": ""
+  }
+}
+----
+path,source_url,author,license,attribution_text,date_added
+shared/music/Sneaky_Snitch.mp3,https://incompetech.com/music/royalty-free/mp3-royaltyfree/Sneaky%20Snitch.mp3,Kevin MacLeod,CC BY 4.0,"""Sneaky Snitch"" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/",2026-10-17
+shared/music/Investigations.mp3,https://incompetech.com/music/royalty-free/mp3-royaltyfree/Investigations.mp3,Kevin MacLeod,CC BY 4.0,"""Investigations"" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/",2026-10-17
+shared/music/comedy/Fluffing_a_Duck.mp3,https://incompetech.com/music/royalty-free/mp3-royaltyfree/Fluffing%20a%20Duck.mp3,Kevin MacLeod,CC BY 4.0,"""Fluffing a Duck"" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/",2026-10-17
+shared/music/comedy/Monkeys_Spinning_Monkeys.mp3,https://incompetech.com/music/royalty-free/mp3-royaltyfree/Monkeys%20Spinning%20Monkeys.mp3,Kevin MacLeod,CC BY 4.0,"""Monkeys Spinning Monkeys"" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/",2026-10-17
+shared/music/dukh/Heartbreaking.mp3,https://incompetech.com/music/royalty-free/mp3-royaltyfree/Heartbreaking.mp3,Kevin MacLeod,CC BY 4.0,"""Heartbreaking"" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/",2026-10-17
+shared/music/dukh/Sad_Trio.mp3,https://incompetech.com/music/royalty-free/mp3-royaltyfree/Sad%20Trio.mp3,Kevin MacLeod,CC BY 4.0,"""Sad Trio"" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/",2026-10-17
+shared/music/jaadu/Dreams_Become_Real.mp3,https://incompetech.com/music/royalty-free/mp3-royaltyfree/Dreams%20Become%20Real.mp3,Kevin MacLeod,CC BY 4.0,"""Dreams Become Real"" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/",2026-10-17
+shared/music/jaadu/Enchanted_Valley.mp3,https://incompetech.com/music/royalty-free/mp3-royaltyfree/Enchanted%20Valley.mp3,Kevin MacLeod,CC BY 4.0,"""Enchanted Valley"" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/",2026-10-17
+shared/music/khushi/Carefree.mp3,https://incompetech.com/music/royalty-free/mp3-royaltyfree/Carefree.mp3,Kevin MacLeod,CC BY 4.0,"""Carefree"" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/",2026-10-17
+shared/music/khushi/Life_of_Riley.mp3,https://incompetech.com/music/royalty-free/mp3-royaltyfree/Life%20of%20Riley.mp3,Kevin MacLeod,CC BY 4.0,"""Life of Riley"" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/",2026-10-17
+shared/music/seekh/Peaceful_Desolation.mp3,https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolation.mp3,Kevin MacLeod,CC BY 4.0,"""Peaceful Desolation"" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/",2026-10-17
+shared/music/seekh/Touching_Moments_Two_Higher.mp3,https://incompetech.com/music/royalty-free/mp3-royaltyfree/Touching%20Moments%20Two%20-%20Higher.mp3,Kevin MacLeod,CC BY 4.0,"""Touching Moments Two - Higher"" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/",2026-10-17
+shared/music/tension/Hidden_Agenda.mp3,https://incompetech.com/music/royalty-free/mp3-royaltyfree/Hidden%20Agenda.mp3,Kevin MacLeod,CC BY 4.0,"""Hidden Agenda"" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/",2026-10-17
+shared/music/tension/Investigations.mp3,https://incompetech.com/music/royalty-free/mp3-royaltyfree/Investigations.mp3,Kevin MacLeod,CC BY 4.0,"""Investigations"" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/",2026-10-17
+shared/sfx/comedy_sting_731261.mp3,https://freesound.org/people/sdroliasnick/sounds/731261/,sdroliasnick,CC0 (verified via Freesound API),,2026-10-17
+shared/sfx/comedy_sting_731262.mp3,https://freesound.org/people/sdroliasnick/sounds/731262/,sdroliasnick,CC0 (verified via Freesound API),,2026-10-17
+shared/sfx/tension_sting_578356.mp3,https://freesound.org/people/nomiqbomi/sounds/578356/,nomiqbomi,CC0 (verified via Freesound API),,2026-10-17
+shared/sfx/tension_sting_578351.mp3,https://freesound.org/people/nomiqbomi/sounds/578351/,nomiqbomi,CC0 (verified via Freesound API),,2026-10-17
+shared/sfx/whoosh_803771.mp3,https://freesound.org/people/Logicogonist/sounds/803771/,Logicogonist,CC0 (verified via Freesound API),,2026-10-17
+shared/sfx/whoosh_142348.mp3,https://freesound.org/people/BranRainey/sounds/142348/,BranRainey,CC0 (verified via Freesound API),,2026-10-17
+shared/sfx/magic_376747.mp3,https://freesound.org/people/ZenithInfinitiveStudios/sounds/376747/,ZenithInfinitiveStudios,CC0 (verified via Freesound API),,2026-10-17
+shared/sfx/magic_376745.mp3,https://freesound.org/people/ZenithInfinitiveStudios/sounds/376745/,ZenithInfinitiveStudios,CC0 (verified via Freesound API),,2026-10-17
+shared/fonts/Mukta-Bold.ttf,https://fonts.google.com/specimen/Mukta,"Girish Dalvi, Ek Type",SIL OFL 1.1 (shared/fonts/OFL.txt),,2026-10-17
+shared/fonts/Mukta-ExtraBold.ttf,https://fonts.google.com/specimen/Mukta,"Girish Dalvi, Ek Type",SIL OFL 1.1 (shared/fonts/OFL.txt),,2026-10-17
+shared/music/mystery_bed.wav,own: synthesised by scripts/gen_music.py,Dadi Ki Kahaniyan,own,,2026-10-17
+channels/dadi-ki-kahaniyan/characters/,own: Gemini-generated character sheets (cost_log.csv),Dadi Ki Kahaniyan,own (Gemini-generated),,2026-10-17
+channels/dadi-ki-kahaniyan/stories/002_sharma-ji-ki-cycle/images/,own: Gemini-generated scene images (cost_log.csv),Dadi Ki Kahaniyan,own (Gemini-generated),,2026-10-17
+channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/characters/,own: Gemini-generated character/prop sheets (cost_log.csv),Dadi Ki Kahaniyan,own (Gemini-generated),,2026-10-17
+channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/images/,own: Gemini-generated scene images (cost_log.csv),Dadi Ki Kahaniyan,own (Gemini-generated),,2026-10-17
+channels/dadi-ki-kahaniyan/brand/,own: Gemini-generated banner/DP/thumbnail art + our own libass text in Mukta,Dadi Ki Kahaniyan,own (Gemini-generated),,2026-10-17
+channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long/output/long_01_thumbnail.png,own: Gemini art + our own libass text in Mukta,Dadi Ki Kahaniyan,own (Gemini-generated),,2026-10-18
+channels/*/stories/*/audio/tts_cache/,own: Gemini TTS voices (cost_log.csv),Dadi Ki Kahaniyan,own (Gemini-generated),,2026-10-17
+
+{
+  "kind": "short",
+  "name": "short_01_jadui-kadhai",
+  "burn_captions": true,
+  "_note": "Short from story 001 (Long 01). 16:9 story images shown through per-shot 9:16 crop windows (crop_x)."
+}
+{
+  "_help": "Every line in lines.json has its own shot/shots override; nothing needed here."
+}
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:07:06Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Probe final video streams
+
+`cd "D:/Story-Channel/channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/output" && ffprobe -v error -show_entries stream=index,codec_name,profile,width,height,pix_fmt,color_range,color_space,color_transfer,color_primaries,r_frame_rate,avg_frame_rate,sample_rate,channels,bit_rate,duration,nb_frames,sample_aspect_ratio,display_aspect_ratio:format=duration,bit_rate,size -of default=nw=1 short_01_jadui-kadhai.mp4; echo ---; ffprobe -v error -show_entries format=duration:stream=width,height -of csv short_01_jadui-kadhai_preview.mp4; ls short_01_jadui-kadhai_work | head -50`
+
+```text
+/usr/bin/bash: line 1: ffprobe: command not found
+---
+/usr/bin/bash: line 1: ffprobe: command not found
+check_00.png
+check_01.png
+check_02.png
+check_03.png
+check_04.png
+check_05.png
+check_06.png
+check_07.png
+fonts
+line_01_sadhu.wav
+line_02_dadi_story.wav
+line_03_chhotu.wav
+line_04_dadi_story.wav
+line_05_ghasita.wav
+line_06_dadi_story.wav
+line_07_dadi_story.wav
+line_08_ghasita.wav
+mix.wav
+mix_norm.wav
+music.wav
+scene_16_8ba9dccc598dcd02.ass
+scene_16_99b98094e15bbd2b.ass
+scene_16_c62e8518ba4d3f69.ass
+scene_16_e1a60d5937bfa76e.ass
+scene_16_fe7a97e4c19bea9a.ass
+scene_17_34e3fb4d52680162.ass
+scene_17_3db6eba5a9603c47.ass
+scene_17_513507231d8c0300.ass
+scene_17_6ecc75a6b2712ba9.ass
+scene_20_21f057e4fc1c55d3.ass
+scene_20_2fd34eeb4ba36115.ass
+scene_20_85a6a811a81cdc11.ass
+scene_20_8af30ffbc0474796.ass
+scene_20_b2cba780701ea635.ass
+scene_21_270175636ee6ec2c.ass
+scene_21_38f2748b684bbc35.ass
+scene_21_7ba1c76520ee9d70.ass
+scene_22_197281e80c648b26.ass
+scene_22_47d156955b6d5d66.ass
+scene_22_5fcbea308ce4ed8b.ass
+scene_22_6329b6ab42bae7a3.ass
+scene_22_8c2c2085e44c4f8e.ass
+scene_22_db2b0cccf9985fe5.ass
+scenes.txt
+video.mp4
+voice.wav
+words
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:07:11Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Locate ffmpeg binaries
+
+`ls D:/Story-Channel/.venv/Scripts | head -30; where ffprobe 2>/dev/null; ls "D:/Story-Channel/tools" ; grep -n -i "ffmpeg\|ffprobe" D:/Story-Channel/scripts/make_short.py | head -15`
+
+```text
+Activate.ps1
+activate
+activate.bat
+activate.fish
+cffi-gen-src.exe
+ct2-fairseq-converter.exe
+ct2-marian-converter.exe
+ct2-openai-gpt2-converter.exe
+ct2-opennmt-py-converter.exe
+ct2-opennmt-tf-converter.exe
+ct2-opus-mt-converter.exe
+ct2-transformers-converter.exe
+deactivate.bat
+dotenv.exe
+edge-playback.exe
+edge-tts.exe
+f2py.exe
+google-oauthlib-tool.exe
+hf.exe
+httpx2.exe
+idna.exe
+normalizer.exe
+numpy-config.exe
+onnxruntime_test.exe
+pip.exe
+pip3.14.exe
+pip3.exe
+pyav.exe
+python.exe
+pythonw.exe
+__pycache__
+deno
+export_claude_home.ps1
+ffmpeg
+new_channel.ps1
+sync.ps1
+sync_bg.ps1
+whisper-models
+youtube_upload.py
+yt-dlp.exe
+37:FFMPEG = ROOT / "tools" / "ffmpeg" / "ffmpeg.exe"
+38:if not FFMPEG.exists():  # new system: ffmpeg from winget on PATH (tools/ffmpeg is not in git)
+39:    FFMPEG = Path(shutil.which("ffmpeg") or FFMPEG)
+157:    run([FFMPEG, "-y", "-i", raw, *args, "-ac", "1", "-ar", SR, "-sample_fmt", "s16", out])
+465:    run([FFMPEG, "-y", "-i", p["img"], "-filter_complex", ";".join(fc), "-map", "[out]", "-frames:v", p["frames"],
+482:    run([FFMPEG, "-y", "-f", "concat", "-safe", "0", "-i", "scenes.txt", "-c", "copy", "video.mp4"], cwd=work)
+497:    r = run([FFMPEG, "-hide_banner", "-i", path, *(["-t", seconds] if seconds else []),
+522:        r = subprocess.run([str(FFMPEG), "-v", "error", "-i", str(f), "-ac", "1", "-ar", "8000", "-f", "s16le", "-"],
+588:    run([FFMPEG, "-y", *inputs, "-filter_complex", ";".join(fc), "-map", "[out]", "-t", f"{total:.3f}", mix,
+592:        r = run([FFMPEG, "-hide_banner", "-i", mix, "-af", ln + ":print_format=json", "-f", "null", "-"])
+597:    run([FFMPEG, "-y", "-i", mix, "-af", ln + ",aresample=48000", "-ar", 48000, norm])
+605:    r = run([FFMPEG, "-hide_banner", "-i", out, "-af", "ebur128=peak=true", "-f", "null", "-"])
+611:        r = run([FFMPEG, "-hide_banner", "-i", f, "-af", f"aresample=48000,aformat=channel_layouts=stereo,"
+626:        run([FFMPEG, "-y", "-ss", f"{t:.2f}", "-i", out, "-frames:v", 1, "-vf", "scale=270:-2", f])
+811:    run([FFMPEG, "-y", "-i", "video.mp4", "-i", norm, "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-ar", 48000,
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:07:21Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Probe final and preview with local ffprobe
+
+`ls D:/Story-Channel/tools/ffmpeg; F=D:/Story-Channel/tools/ffmpeg; cd "D:/Story-Channel/channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/output" && $F/ffprobe.exe -v error -show_entries stream=index,codec_name,profile,width,height,pix_fmt,color_range,color_space,color_transfer,color_primaries,r_frame_rate,avg_frame_rate,sample_rate,channels,bit_rate,duration,nb_frames,sample_aspect_ratio,display_aspect_ratio:format=duration,bit_rate,size -of default=nw=1 short_01_jadui-kadhai.mp4; echo ---; $F/ffprobe.exe -v error -show_entries format=duration:stream=width,height -of csv short_01_jadui-kadhai_preview.mp4`
+
+```text
+ffmpeg.exe
+ffplay.exe
+ffprobe.exe
+index=0
+codec_name=h264
+profile=High
+width=1080
+height=1920
+sample_aspect_ratio=1:1
+display_aspect_ratio=9:16
+pix_fmt=yuv420p
+color_range=tv
+color_space=bt709
+color_transfer=bt709
+color_primaries=bt709
+r_frame_rate=30/1
+avg_frame_rate=30/1
+duration=48.300000
+bit_rate=2093823
+nb_frames=1449
+index=1
+codec_name=aac
+profile=LC
+sample_rate=48000
+channels=2
+r_frame_rate=0/0
+avg_frame_rate=0/0
+duration=48.298667
+bit_rate=192076
+nb_frames=2265
+duration=48.300000
+size=13856285
+bit_rate=2295036
+---
+stream,540,960
+stream
+format,48.291667
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:07:23Z)**_
+
+Spec verified. Now loudness, and the stem music level.
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:07:32Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Measure loudness, true peak, clipping
+
+`F=D:/Story-Channel/tools/ffmpeg/ffmpeg.exe; cd "D:/Story-Channel/channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/output" && $F -hide_banner -nostats -i short_01_jadui-kadhai.mp4 -map 0:a -af ebur128=peak=true -f null - 2>&1 | tail -14; $F -hide_banner -nostats -i short_01_jadui-kadhai.mp4 -map 0:a -af astats=metadata=0 -f null - 2>&1 | grep -E "Peak level|Number of clipped|Flat factor|Peak count" | head; ls -la short_01_jadui-kadhai_work/*.wav short_01_jadui-kadhai_work/video.mp4`
+
+```text
+  Integrated loudness:
+    I:         -13.9 LUFS
+    Threshold: -24.5 LUFS
+
+  Loudness range:
+    LRA:         6.1 LU
+    Threshold: -34.5 LUFS
+    LRA low:   -18.0 LUFS
+    LRA high:  -11.9 LUFS
+
+  True peak:
+    Peak:       -1.3 dBFS
+[out#0/null @ 0000027dc9d32a80] video:0KiB audio:9056KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown
+size=N/A time=00:00:48.29 bitrate=N/A speed=85.8x elapsed=0:00:00.56    
+[Parsed_astats_0 @ 000001dd4cfb1d00] Peak level dB: -1.333448
+[Parsed_astats_0 @ 000001dd4cfb1d00] Flat factor: 0.000000
+[Parsed_astats_0 @ 000001dd4cfb1d00] Peak count: 2
+[Parsed_astats_0 @ 000001dd4cfb1d00] Abs Peak count: 1
+[Parsed_astats_0 @ 000001dd4cfb1d00] Peak level dB: -1.444608
+[Parsed_astats_0 @ 000001dd4cfb1d00] Flat factor: 0.000000
+[Parsed_astats_0 @ 000001dd4cfb1d00] Peak count: 2
+[Parsed_astats_0 @ 000001dd4cfb1d00] Abs Peak count: 1
+[Parsed_astats_0 @ 000001dd4cfb1d00] Peak level dB: -1.333448
+[Parsed_astats_0 @ 000001dd4cfb1d00] Flat factor: 0.000000
+-rw-r--r-- 1 ashamim 1049089   379278 Oct 18 17:33 short_01_jadui-kadhai_work/line_01_sadhu.wav
+-rw-r--r-- 1 ashamim 1049089   403758 Oct 18 17:33 short_01_jadui-kadhai_work/line_02_dadi_story.wav
+-rw-r--r-- 1 ashamim 1049089   160104 Oct 18 17:33 short_01_jadui-kadhai_work/line_03_chhotu.wav
+-rw-r--r-- 1 ashamim 1049089   206342 Oct 18 17:33 short_01_jadui-kadhai_work/line_04_dadi_story.wav
+-rw-r--r-- 1 ashamim 1049089   281794 Oct 18 17:33 short_01_jadui-kadhai_work/line_05_ghasita.wav
+-rw-r--r-- 1 ashamim 1049089   423868 Oct 18 17:34 short_01_jadui-kadhai_work/line_06_dadi_story.wav
+-rw-r--r-- 1 ashamim 1049089   361736 Oct 18 17:34 short_01_jadui-kadhai_work/line_07_dadi_story.wav
+-rw-r--r-- 1 ashamim 1049089    87566 Oct 18 17:34 short_01_jadui-kadhai_work/line_08_ghasita.wav
+-rw-r--r-- 1 ashamim 1049089  9275598 Oct 18 17:35 short_01_jadui-kadhai_work/mix.wav
+-rw-r--r-- 1 ashamim 1049089  9275598 Oct 18 17:36 short_01_jadui-kadhai_work/mix_norm.wav
+-rw-r--r-- 1 ashamim 1049089  9275598 Oct 18 17:35 short_01_jadui-kadhai_work/music.wav
+-rw-r--r-- 1 ashamim 1049089 12659933 Oct 18 17:35 short_01_jadui-kadhai_work/video.mp4
+-rw-r--r-- 1 ashamim 1049089  2318924 Oct 18 17:34 short_01_jadui-kadhai_work/voice.wav
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:07:50Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Stem LUFS of voice vs music over speech sections
+
+`F=D:/Story-Channel/tools/ffmpeg/ffmpeg.exe; cd "D:/Story-Channel/channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/output/short_01_jadui-kadhai_work" && D:/Story-Channel/tools/ffmpeg/ffprobe.exe -v error -show_entries stream=sample_rate,channels:format=duration -of csv voice.wav music.wav mix.wav 2>&1; S="0.00:7.60 7.90:15.88 16.18:19.02 19.32:23.21 23.51:28.95 29.25:37.63 37.78:44.67 44.97:46.31"; for f in voice.wav music.wav mix.wav; do fc=""; n=0; for s in $S; do a=${s%:*}; b=${s#*:}; fc="$fc[0:a]atrim=$a:$b,asetpts=N/SR/TB[s$n];"; n=$((n+1)); done; ins=""; for i in $(seq 0 $((n-1))); do ins="$ins[s$i]"; done; fc="$fc${ins}concat=n=$n:v=0:a=1,aformat=channel_layouts=stereo,ebur128[o]"; echo "$f: $($F -hide_banner -nostats -i $f -filter_complex "$fc" -map "[o]" -f null - 2>&1 | grep -A1 'Integrated loudness' | grep ' I:')"; done`
+
+```text
+Argument 'music.wav' provided as input filename, but 'voice.wav' was already specified.
+voice.wav:     I:         -17.8 LUFS
+music.wav:     I:         -31.2 LUFS
+mix.wav:     I:         -17.7 LUFS
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:07:55Z)**_
+
+Music 13.4 LU under voice confirmed. Now line boundaries, mood crossfade, and residual (leaked audio) check.
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:08:02Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Detect silences in voice stem
+
+`F=D:/Story-Channel/tools/ffmpeg/ffmpeg.exe; cd "D:/Story-Channel/channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/output/short_01_jadui-kadhai_work" && $F -hide_banner -nostats -i voice.wav -af silencedetect=n=-45dB:d=0.12 -f null - 2>&1 | grep -E "silence_(start|end)"; ls words; cat scenes.txt | head -30`
+
+```text
+[Parsed_silencedetect_0 @ 000002769bd5ce40] silence_start: 2.891167
+[Parsed_silencedetect_0 @ 000002769bd5ce40] silence_end: 3.489917 | silence_duration: 0.59875
+[Parsed_silencedetect_0 @ 000002769bd5ce40] silence_start: 3.52775
+[Parsed_silencedetect_0 @ 000002769bd5ce40] silence_end: 3.672042 | silence_duration: 0.144292
+[Parsed_silencedetect_0 @ 000002769bd5ce40] silence_start: 5.381208
+[Parsed_silencedetect_0 @ 000002769bd5ce40] silence_end: 5.884667 | silence_duration: 0.503458
+[Parsed_silencedetect_0 @ 000002769bd5ce40] silence_start: 7.553333
+[Parsed_silencedetect_0 @ 000002769bd5ce40] silence_end: 7.912583 | silence_duration: 0.35925
+[Parsed_silencedetect_0 @ 000002769bd5ce40] silence_start: 8.911333
+[Parsed_silencedetect_0 @ 000002769bd5ce40] silence_end: 9.049042 | silence_duration: 0.137708
+[Parsed_silencedetect_0 @ 000002769bd5ce40] silence_start: 10.513083
+[Parsed_silencedetect_0 @ 000002769bd5ce40] silence_end: 10.804375 | silence_duration: 0.291292
+[Parsed_silencedetect_0 @ 000002769bd5ce40] silence_start: 12.378167
+[Parsed_silencedetect_0 @ 000002769bd5ce40] silence_end: 13.082625 | silence_duration: 0.704458
+[Parsed_silencedetect_0 @ 000002769bd5ce40] silence_start: 13.904417
+[Parsed_silencedetect_0 @ 000002769bd5ce40] silence_end: 14.359958 | silence_duration: 0.455542
+[Parsed_silencedetect_0 @ 000002769bd5ce40] silence_start: 15.765167
+[Parsed_silencedetect_0 @ 000002769bd5ce40] silence_end: 16.185417 | silence_duration: 0.42025
+[Parsed_silencedetect_0 @ 000002769bd5ce40] silence_start: 16.995667
+[Parsed_silencedetect_0 @ 000002769bd5ce40] silence_end: 17.121708 | silence_duration: 0.126042
+[Parsed_silencedetect_0 @ 000002769bd5ce40] silence_start: 18.976542
+[Parsed_silencedetect_0 @ 000002769bd5ce40] silence_end: 19.337792 | silence_duration: 0.36125
+[Parsed_silencedetect_0 @ 000002769bd5ce40] silence_start: 23.091167
+[Parsed_silencedetect_0 @ 000002769bd5ce40] silence_end: 23.52475 | silence_duration: 0.433583
+[Parsed_silencedetect_0 @ 000002769bd5ce40] silence_start: 24.0955
+[Parsed_silencedetect_0 @ 000002769bd5ce40] silence_end: 24.359833 | silence_duration: 0.264333
+[Parsed_silencedetect_0 @ 000002769bd5ce40] silence_start: 28.870542
+[Parsed_silencedetect_0 @ 000002769bd5ce40] silence_end: 29.261375 | silence_duration: 0.390833
+[Parsed_silencedetect_0 @ 000002769bd5ce40] silence_start: 30.230583
+[Parsed_silencedetect_0 @ 000002769bd5ce40] silence_end: 30.619875 | silence_duration: 0.389292
+[Parsed_silencedetect_0 @ 000002769bd5ce40] silence_start: 32.4175
+[Parsed_silencedetect_0 @ 000002769bd5ce40] silence_end: 32.842042 | silence_duration: 0.424542
+[Parsed_silencedetect_0 @ 000002769bd5ce40] silence_start: 34.4095
+[Parsed_silencedetect_0 @ 000002769bd5ce40] silence_end: 34.536 | silence_duration: 0.1265
+[Parsed_silencedetect_0 @ 000002769bd5ce40] silence_start: 35.276
+[Parsed_silencedetect_0 @ 000002769bd5ce40] silence_end: 35.763792 | silence_duration: 0.487792
+[Parsed_silencedetect_0 @ 000002769bd5ce40] silence_start: 35.979583
+[Parsed_silencedetect_0 @ 000002769bd5ce40] silence_end: 36.1075 | silence_duration: 0.127917
+[Parsed_silencedetect_0 @ 000002769bd5ce40] silence_start: 37.514667
+[Parsed_silencedetect_0 @ 000002769bd5ce40] silence_end: 37.791583 | silence_duration: 0.276917
+[Parsed_silencedetect_0 @ 000002769bd5ce40] silence_start: 41.8305
+[Parsed_silencedetect_0 @ 000002769bd5ce40] silence_end: 42.160917 | silence_duration: 0.330417
+[Parsed_silencedetect_0 @ 000002769bd5ce40] silence_start: 43.865792
+[Parsed_silencedetect_0 @ 000002769bd5ce40] silence_end: 44.041167 | silence_duration: 0.175375
+[Parsed_silencedetect_0 @ 000002769bd5ce40] silence_start: 44.576958
+[Parsed_silencedetect_0 @ 000002769bd5ce40] silence_end: 44.987625 | silence_duration: 0.410667
+[Parsed_silencedetect_0 @ 000002769bd5ce40] silence_start: 45.30175
+[Parsed_silencedetect_0 @ 000002769bd5ce40] silence_end: 45.580792 | silence_duration: 0.279042
+[Parsed_silencedetect_0 @ 000002769bd5ce40] silence_start: 46.237792
+[Parsed_silencedetect_0 @ 000002769bd5ce40] silence_end: 48.31 | silence_duration: 2.072208
+words_000ba4a85dfc3e33.json
+words_15c04b57878e2380.json
+words_7cf52931b1190db9.json
+words_81aac0b892bd29d8.json
+words_835cb7f7fbbd1472.json
+words_a10a638fc30af31b.json
+words_b25728f28d1df8e8.json
+words_e20d755534bf5272.json
+file 'D:/Story-Channel/cache/dadi-ki-kahaniyan/001_lalchi-halwai/short_01_jadui-kadhai/scene_16_fe7a97e4c19bea9a.mp4'
+file 'D:/Story-Channel/cache/dadi-ki-kahaniyan/001_lalchi-halwai/short_01_jadui-kadhai/scene_17_34e3fb4d52680162.mp4'
+file 'D:/Story-Channel/cache/dadi-ki-kahaniyan/001_lalchi-halwai/short_01_jadui-kadhai/scene_20_8af30ffbc0474796.mp4'
+file 'D:/Story-Channel/cache/dadi-ki-kahaniyan/001_lalchi-halwai/short_01_jadui-kadhai/scene_21_38f2748b684bbc35.mp4'
+file 'D:/Story-Channel/cache/dadi-ki-kahaniyan/001_lalchi-halwai/short_01_jadui-kadhai/scene_22_db2b0cccf9985fe5.mp4'
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:08:06Z)**_
+
+Line starts match the builder log. Now the caption files used in this build and the Whisper word data.
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:08:10Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Show caption events from used ASS files
+
+`cd "D:/Story-Channel/channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/output/short_01_jadui-kadhai_work" && for h in 16_fe7a97e4c19bea9a 17_34e3fb4d52680162 20_8af30ffbc0474796 21_38f2748b684bbc35 22_db2b0cccf9985fe5; do echo "== $h"; grep -E "^(PlayResX|PlayResY|Style|Dialogue)" scene_$h.ass; done`
+
+```text
+== 16_fe7a97e4c19bea9a
+PlayResX: 1080
+PlayResY: 1920
+Style: Cap,Mukta,116,&H00FFFFFF,&H000000FF,&H00000000,&H78000000,0,0,0,0,100,100,0,0,1,9,4,2,60,60,480,1
+Style: Title,Mukta,128,&H0000E5FF,&H000000FF,&H00000000,&H78000000,0,0,0,0,100,100,0,0,1,9,4,8,60,60,170,1
+Dialogue: 0,0:00:00.00,0:00:02.12,Cap,,0,0,0,,ये जादुई कड़ाही है,
+Dialogue: 0,0:00:02.12,0:00:03.53,Cap,,0,0,0,,बेटा।
+Dialogue: 0,0:00:03.53,0:00:05.28,Cap,,0,0,0,,इसमें जो डालोगे,
+Dialogue: 0,0:00:05.28,0:00:07.60,Cap,,0,0,0,,दुगना हो जाएगा।
+== 17_34e3fb4d52680162
+PlayResX: 1080
+PlayResY: 1920
+Style: Cap,Mukta,116,&H00FFFFFF,&H000000FF,&H00000000,&H78000000,0,0,0,0,100,100,0,0,1,9,4,2,60,60,480,1
+Style: Title,Mukta,128,&H0000E5FF,&H000000FF,&H00000000,&H78000000,0,0,0,0,100,100,0,0,1,9,4,8,60,60,170,1
+Dialogue: 0,0:00:00.10,0:00:01.41,Cap,,0,0,0,,उस शाम छोटू
+Dialogue: 0,0:00:01.41,0:00:02.84,Cap,,0,0,0,,ने कड़ाही में
+Dialogue: 0,0:00:02.84,0:00:04.50,Cap,,0,0,0,,एक मुट्ठी आटा डाला...
+Dialogue: 0,0:00:04.50,0:00:06.58,Cap,,0,0,0,,और आटा दो
+Dialogue: 0,0:00:06.58,0:00:08.08,Cap,,0,0,0,,मुट्ठी हो गया!
+Dialogue: 0,0:00:08.38,0:00:09.52,Cap,,0,0,0,,अरे वाह!
+Dialogue: 0,0:00:09.52,0:00:10.46,Cap,,0,0,0,,ये तो सच
+Dialogue: 0,0:00:10.46,0:00:11.22,Cap,,0,0,0,,में जादू है!
+== 20_8af30ffbc0474796
+PlayResX: 1080
+PlayResY: 1920
+Style: Cap,Mukta,116,&H00FFFFFF,&H000000FF,&H00000000,&H78000000,0,0,0,0,100,100,0,0,1,9,4,2,60,60,480,1
+Style: Title,Mukta,128,&H0000E5FF,&H000000FF,&H00000000,&H78000000,0,0,0,0,100,100,0,0,1,9,4,8,60,60,170,1
+Dialogue: 0,0:00:00.09,0:00:01.16,Cap,,0,0,0,,पर ये बात
+Dialogue: 0,0:00:01.16,0:00:02.59,Cap,,0,0,0,,घसीटा की नज़रों
+Dialogue: 0,0:00:02.59,0:00:03.98,Cap,,0,0,0,,से छुपी नहीं रही।
+Dialogue: 0,0:00:04.28,0:00:06.11,Cap,,0,0,0,,आटा? हुँह!
+Dialogue: 0,0:00:06.11,0:00:06.92,Cap,,0,0,0,,उस कड़ाही में
+Dialogue: 0,0:00:06.92,0:00:08.43,Cap,,0,0,0,,तो सोना होना चाहिए...
+Dialogue: 0,0:00:08.43,0:00:09.72,Cap,,0,0,0,,मेरा सोना!
+== 21_38f2748b684bbc35
+PlayResX: 1080
+PlayResY: 1920
+Style: Cap,Mukta,116,&H00FFFFFF,&H000000FF,&H00000000,&H78000000,0,0,0,0,100,100,0,0,1,9,4,2,60,60,480,1
+Style: Title,Mukta,128,&H0000E5FF,&H000000FF,&H00000000,&H78000000,0,0,0,0,100,100,0,0,1,9,4,8,60,60,170,1
+Dialogue: 0,0:00:00.08,0:00:00.91,Cap,,0,0,0,,उसी रात,
+Dialogue: 0,0:00:00.91,0:00:02.45,Cap,,0,0,0,,जब छोटू सो
+Dialogue: 0,0:00:02.45,0:00:03.73,Cap,,0,0,0,,रहा था,
+Dialogue: 0,0:00:03.73,0:00:05.64,Cap,,0,0,0,,घसीटा दबे पाँव
+Dialogue: 0,0:00:05.64,0:00:07.52,Cap,,0,0,0,,आया और कड़ाही
+Dialogue: 0,0:00:07.52,0:00:08.46,Cap,,0,0,0,,चुरा ले गया।
+== 22_db2b0cccf9985fe5
+PlayResX: 1080
+PlayResY: 1920
+Style: Cap,Mukta,116,&H00FFFFFF,&H000000FF,&H00000000,&H78000000,0,0,0,0,100,100,0,0,1,9,4,2,60,60,480,1
+Style: Title,Mukta,128,&H0000E5FF,&H000000FF,&H00000000,&H78000000,0,0,0,0,100,100,0,0,1,9,4,8,60,60,170,1
+Dialogue: 0,0:00:00.11,0:00:01.86,Cap,,0,0,0,,दुकान में दीया
+Dialogue: 0,0:00:01.86,0:00:03.81,Cap,,0,0,0,,जलाकर उसने कड़ाही
+Dialogue: 0,0:00:03.81,0:00:05.70,Cap,,0,0,0,,में एक सोने
+Dialogue: 0,0:00:05.70,0:00:07.00,Cap,,0,0,0,,का सिक्का डाला...
+Dialogue: 0,0:00:07.30,0:00:07.89,Cap,,0,0,0,,चल,
+Dialogue: 0,0:00:07.89,0:00:08.64,Cap,,0,0,0,,दुगना कर!
+Dialogue: 1,0:00:08.63,0:00:10.63,Title,,0,0,0,,{\fad(300,0)}पूरी कहानी चैनल पर
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:08:23Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Inspect Whisper word timing files
+
+```bash
+cd "D:/Story-Channel/channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/output/short_01_jadui-kadhai_work/words" && for f in *.json; do D:/Story-Channel/.venv/Scripts/python.exe -I -X utf8 -c "
+import json,sys
+d=json.load(open(sys.argv[1],encoding='utf-8'))
+print(sys.argv[1], str(d)[:600])
+" $f; done
+```
+
+```text
+words_000ba4a85dfc3e33.json [[0.0, 0.38, 'ये'], [0.38, 1.2, 'जादूई'], [1.2, 1.64, 'कड़ा'], [1.64, 1.9, 'ही'], [1.9, 2.16, 'है'], [2.16, 2.7, 'बेटा'], [3.46, 3.9, 'इस'], [3.9, 4.26, 'में'], [4.26, 4.56, 'जो'], [4.56, 5.32, 'डालोगे'], [5.32, 6.52, 'दुगना'], [6.52, 6.74, 'हो'], [6.74, 7.28, 'जाएगा']]
+words_15c04b57878e2380.json [[0.0, 0.2, 'पर'], [0.2, 0.48, 'ये'], [0.48, 1.0, 'बाद'], [1.0, 1.76, 'गसीता'], [1.76, 2.0, 'की'], [2.0, 2.46, 'नजरों'], [2.46, 2.64, 'से'], [2.64, 3.06, 'चुपी'], [3.06, 3.4, 'नहीं'], [3.4, 3.72, 'रहीं']]
+words_7cf52931b1190db9.json [[0.0, 0.26, 'चल,'], [0.56, 1.0, 'तुगना'], [1.0, 1.16, 'कर']]
+words_81aac0b892bd29d8.json [[0.0, 0.48, 'आता,'], [0.9, 1.72, 'उस'], [1.72, 2.18, 'कड़ाई'], [2.18, 2.38, 'में'], [2.38, 2.56, 'तो'], [2.56, 2.94, 'सोना'], [2.94, 3.2, 'हुना'], [3.2, 3.6, 'जाहिए,'], [4.0, 4.58, 'मेरा'], [4.58, 5.1, 'सोना.']]
+words_835cb7f7fbbd1472.json [[0.0, 0.4, 'उसी'], [0.4, 0.88, 'रात,'], [1.28, 1.64, 'जब'], [1.64, 2.18, 'छोटु'], [2.18, 2.58, 'सोर'], [2.58, 3.08, 'अठा,'], [3.56, 4.26, 'गसी'], [4.26, 4.6, 'ता'], [4.6, 5.14, 'दबे'], [5.14, 5.56, 'पाँ'], [5.56, 6.06, 'आया,'], [6.16, 6.76, 'और'], [6.76, 7.18, 'कडा'], [7.18, 7.46, 'ही'], [7.46, 7.82, 'चुरा'], [7.82, 8.02, 'ले'], [8.02, 8.28, 'गया.']]
+words_a10a638fc30af31b.json [[0.0, 0.22, 'उस'], [0.22, 0.8, 'शाम'], [0.8, 1.72, 'छोटूने'], [1.72, 2.28, 'कड़ाई'], [2.28, 2.94, 'में'], [2.94, 3.38, 'एक'], [3.38, 3.8, 'मुछी'], [3.8, 4.12, 'आटा'], [4.12, 4.46, 'डाला'], [4.9, 5.4, 'और'], [5.4, 5.9, 'आटा'], [5.9, 6.82, 'दो'], [6.82, 7.36, 'मुछी'], [7.36, 7.6, 'हो'], [7.6, 7.84, 'गया']]
+words_b25728f28d1df8e8.json [[0.0, 0.22, 'अरे'], [0.22, 0.58, 'वा,'], [0.98, 1.6, 'यह'], [1.6, 1.74, 'तो'], [1.74, 2.04, 'सच'], [2.04, 2.2, 'में'], [2.2, 2.52, 'जादू'], [2.52, 2.68, 'है']]
+words_e20d755534bf5272.json [[0.0, 0.62, 'दुकान'], [0.62, 1.22, 'में'], [1.22, 1.78, 'दिया'], [1.78, 2.44, 'जलाकर'], [2.44, 3.1, 'उसने'], [3.1, 3.72, 'कड़ाई'], [3.72, 4.44, 'में'], [4.44, 4.82, 'एक'], [4.82, 5.54, 'सूने'], [5.54, 5.88, 'का'], [5.88, 6.38, 'सिक्का'], [6.38, 6.74, 'डाला']]
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:08:45Z)**_
+
+Line-level caption starts are exact. I'm spot-checking one chunk boundary in line 5, where Whisper dropped "हुँह".
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:08:50Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+RMS envelope of voice around chunk boundaries
+
+```bash
+cd "D:/Story-Channel/channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/output/short_01_jadui-kadhai_work" && D:/Story-Channel/.venv/Scripts/python.exe -I -X utf8 -c "
+import wave,numpy as np
+w=wave.open('voice.wav');sr=w.getframerate();ch=w.getnchannels();x=np.frombuffer(w.readframes(w.getnframes()),dtype=np.int16).astype(float)
+if ch>1:x=x.reshape(-1,ch).mean(1)
+for a,b in [(24.0,25.8),(12.2,13.3)]:
+  s=''
+  for t in np.arange(a,b,0.05):
+    seg=x[int(t*sr):int((t+0.05)*sr)];db=20*np.log10(np.sqrt((seg**2).mean())/32768+1e-9)
+    s+=f'{t:.2f}:{db:.0f} '
+  print(s)
+"
+```
+
+```text
+24.00:-33 24.05:-41 24.10:-61 24.15:-71 24.20:-73 24.25:-73 24.30:-67 24.35:-45 24.40:-10 24.45:-9 24.50:-35 24.55:-49 24.60:-65 24.65:-52 24.70:-50 24.75:-59 24.80:-51 24.85:-47 24.90:-45 24.95:-46 25.00:-46 25.05:-58 25.10:-15 25.15:-15 25.20:-18 25.25:-28 25.30:-58 25.35:-16 25.40:-14 25.45:-18 25.50:-19 25.55:-12 25.60:-10 25.65:-11 25.70:-14 25.75:-13 25.80:-16 
+12.20:-28 12.25:-31 12.30:-36 12.35:-52 12.40:-59 12.45:-65 12.50:-66 12.55:-62 12.60:-60 12.65:-61 12.70:-65 12.75:-67 12.80:-71 12.85:-58 12.90:-60 12.95:-60 13.00:-64 13.05:-31 13.10:-20 13.15:-14 13.20:-20 13.25:-43 13.30:-58
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:08:57Z)**_
+
+Caption chunk for "उस कड़ाही में" is 0.24 s after speech (inside ±0.3). Now full-resolution frames into review/final/.
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:10:11Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Extract full-res frames and contact sheet
+
+`F=D:/Story-Channel/tools/ffmpeg/ffmpeg.exe; B="D:/Story-Channel/channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai"; mkdir -p "$B/review/final"; cd "$B/review/final"; for t in 0.30 1.00 1.45 1.55 4.00 7.70 7.95 12.00 17.50 21.00 23.40 26.50 30.50 34.00 37.70 39.00 41.00 43.00 44.90 45.80 46.40 47.50 48.25; do $F -v error -y -ss $t -i "$B/output/short_01_jadui-kadhai.mp4" -frames:v 1 f_$t.png; done; $F -v error -y -i f_%*.png 2>/dev/null; ls | head -40; $F -v error -y -pattern_type glob -i 'f_*.png' -vf "scale=270:480,tile=8x3" sheet.png 2>&1 | head -3; ls -la sheet.png`
+
+```text
+Exit code 2
+f_0.30.png
+f_1.00.png
+f_1.45.png
+f_1.55.png
+f_12.00.png
+f_17.50.png
+f_21.00.png
+f_23.40.png
+f_26.50.png
+f_30.50.png
+f_34.00.png
+f_37.70.png
+f_39.00.png
+f_4.00.png
+f_41.00.png
+f_43.00.png
+f_44.90.png
+f_45.80.png
+f_46.40.png
+f_47.50.png
+f_48.25.png
+f_7.70.png
+f_7.95.png
+[in#0 @ 000001fc3c2f1c00] Pattern type 'glob' was selected but globbing is not supported by this libavformat build
+[in#0 @ 000001fc3c2f1900] Error opening input: Function not implemented
+Error opening input file f_*.png.
+ls: cannot access 'sheet.png': No such file or directory
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:10:25Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Build contact sheet with PIL
+
+```bash
+cd "D:/Story-Channel/channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/review/final" && D:/Story-Channel/.venv/Scripts/python.exe -I -c "
+from PIL import Image, ImageDraw
+ts=['0.30','1.00','1.45','1.55','4.00','7.70','7.95','12.00','17.50','21.00','23.40','26.50','30.50','34.00','37.70','39.00','41.00','43.00','44.90','45.80','46.40','47.50','48.25']
+W,H=270,480;cols=8;rows=3
+sh=Image.new('RGB',(W*cols,(H+20)*rows),'black');d=ImageDraw.Draw(sh)
+for i,t in enumerate(ts):
+  im=Image.open(f'f_{t}.png').resize((W,H));x=(i%cols)*W;y=(i//cols)*(H+20)
+  sh.paste(im,(x,y+20));d.text((x+5,y+3),t+'s',fill='yellow')
+sh.save('sheet.png')
+print(Image.open('f_0.30.png').size)
+"
+```
+
+```text
+(1080, 1920)
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:10:33Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\review\final\sheet.png`
+</details></tool-use>
+
+_**Agent - sidechain (2026-10-18 12:10:33Z)**_
+
+[Image: original 2160x1500, displayed at 2000x1389. Multiply coordinates by 1.08 to map to original image.]
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:10:44Z)**_
+
+Hook, character per line, and end card look right. I'm zooming into scene 22 at full resolution (start, mid, end) to check for any kadhai interior or mitti.
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:10:56Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Crop bottom of scene 22 frames at full res
+
+```bash
+cd "D:/Story-Channel/channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/review/final" && D:/Story-Channel/.venv/Scripts/python.exe -I -c "
+from PIL import Image
+ims=[Image.open(f'f_{t}.png').crop((0,1300,1080,1920)) for t in ['37.70','41.00','44.90','48.25']]
+sh=Image.new('RGB',(1080*2,620*2))
+for i,im in enumerate(ims): sh.paste(im,((i%2)*1080,(i//2)*620))
+sh.save('sc22_bottom.png')
+"
+```
+
+```text
+(Bash completed with no output)
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:10:59Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\review\final\sc22_bottom.png`
+</details></tool-use>
+
+_**Agent - sidechain (2026-10-18 12:10:59Z)**_
+
+[Image: original 2160x1240, displayed at 2000x1148. Multiply coordinates by 1.08 to map to original image.]
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:11:04Z)**_
+
+Scene 22 shows only the coin and rim edge, with no interior or mitti. Next I'm checking Hindi shaping at full resolution on a caption frame and on the end card.
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:11:10Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Zoom on caption text and measure caption vertical position
+
+```bash
+cd "D:/Story-Channel/channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/review/final" && D:/Story-Channel/.venv/Scripts/python.exe -I -c "
+from PIL import Image
+a=Image.open('f_26.50.png').crop((0,1250,1080,1480));b=Image.open('f_47.50.png').crop((0,120,1080,330));c=Image.open('f_34.00.png').crop((0,1250,1080,1480))
+sh=Image.new('RGB',(1080,670));sh.paste(a,(0,0));sh.paste(b,(0,230));sh.paste(c,(0,440));sh.save('text_zoom.png')
+import numpy as np
+for t in ['26.50','12.00','41.00']:
+  im=np.array(Image.open(f'f_{t}.png').convert('L'));rows=np.where((im>245).sum(1)>40)[0];rows=rows[rows>900];print(t,rows.min(),rows.max())
+"
+```
+
+```text
+Exit code 1
+Traceback (most recent call last):
+  File "<string>", line 7, in <module>
+    im=np.array(Image.open(f'f_{t}.png').convert('L'));rows=np.where((im>245).sum(1)>40)[0];rows=rows[rows>900];print(t,rows.min(),rows.max())
+                                                                                                                        ~~~~~~~~^^
+  File "D:\Story-Channel\.venv\Lib\site-packages\numpy\_core\_methods.py", line 45, in _amin
+    return umr_minimum(a, axis, None, out, keepdims, initial, where)
+ValueError: zero-size array to reduction operation minimum which has no identity
+26.50 1242 1820
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:11:10Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\review\final\text_zoom.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:11:16Z)**_
+
+Hindi shaping is clean, and the captions sit at about 68-75% of frame height, above the bottom 20%. Now the paid-file integrity check, fonts used, and the mix residual and crossfade.
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:11:23Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Check git status of paid source folders
+
+`cd D:/Story-Channel && S=channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai; git status --porcelain -- $S/images $S/audio $S/characters channels/dadi-ki-kahaniyan/characters; echo "--- untracked/ignored in paid dirs:"; git status --porcelain --ignored -- $S/images $S/audio $S/characters | head; echo "--- diff vs HEAD (tracked):"; git diff --stat HEAD -- $S/images $S/audio $S/characters | tail -3; echo "--- count tracked:"; git ls-files $S/images $S/audio $S/characters | wc -l; ls $S/audio | head; ls _to_delete 2>/dev/null | head; echo; ls "$S/shorts/short_01_jadui-kadhai/output/short_01_jadui-kadhai_work/fonts"; git log -1 --format=%H -- $S/audio`
+
+```text
+ D channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/audio/line_01_sadhu.wav
+ D channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/audio/line_02_dadi_story.wav
+ D channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/audio/line_03_chhotu.wav
+ D channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/audio/line_05_ghasita.wav
+ D channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/audio/line_06_dadi_story.wav
+ D channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/audio/line_07_dadi_story.wav
+ D channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/audio/line_08_ghasita.wav
+--- untracked/ignored in paid dirs:
+ D channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/audio/line_01_sadhu.wav
+ D channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/audio/line_02_dadi_story.wav
+ D channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/audio/line_03_chhotu.wav
+ D channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/audio/line_05_ghasita.wav
+ D channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/audio/line_06_dadi_story.wav
+ D channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/audio/line_07_dadi_story.wav
+ D channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/audio/line_08_ghasita.wav
+--- diff vs HEAD (tracked):
+ .../001_lalchi-halwai/audio/line_07_dadi_story.wav     | Bin 389838 -> 0 bytes
+ .../001_lalchi-halwai/audio/line_08_ghasita.wav        | Bin 94158 -> 0 bytes
+ 7 files changed, 0 insertions(+), 0 deletions(-)
+--- count tracked:
+195
+line_01_golu.wav
+line_02_mitthu.wav
+line_03_dadi_story.wav
+line_04_dadi_story.wav
+line_05_dadi_story.wav
+line_06_woman.wav
+line_07_ghasita.wav
+line_08_dadi_story.wav
+line_09_kid.wav
+line_10_ghasita.wav
+channel_config.json
+munshi_RULES.md
+old_layout
+short01_stray_line_wavs
+test-channel
+tmp_test.mp4
+tmp_test_job.json
+tz_test
+upload_safety_prompt.md
+
+Mukta-ExtraBold.ttf
+5a7f726a9282f7d36a1e76dd85cd03f1d6257a99
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:11:37Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Verify stray wavs and paid file mtimes
+
+`cd D:/Story-Channel && S=channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai; for f in _to_delete/short01_stray_line_wavs/*; do b=$(basename $f); h=$(git hash-object "$f"); hh=$(git rev-parse HEAD:$S/audio/$b 2>/dev/null); [ "$h" = "$hh" ] && echo "same $b" || echo "DIFF $b"; done; echo "--- files in paid dirs total:"; find $S/images $S/audio $S/characters -type f | wc -l; echo "--- modified after 17:00 today:"; find $S/images $S/audio $S/characters -type f -newermt "2026-10-18 17:00" | head; git check-ignore -v $S/audio/tts_cache 2>/dev/null | head -2`
+
+```text
+same line_01_sadhu.wav
+same line_02_dadi_story.wav
+same line_03_chhotu.wav
+same line_05_ghasita.wav
+same line_06_dadi_story.wav
+same line_07_dadi_story.wav
+same line_08_ghasita.wav
+--- files in paid dirs total:
+188
+--- modified after 17:00 today:
+channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/audio/line_04_dadi_story.wav
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:11:42Z)**_
+
+`line_04_dadi_story.wav` in the paid audio folder has a fresh mtime. Checking whether its content changed.
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:11:46Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Compare line_04 wav against HEAD and check writers
+
+`cd D:/Story-Channel && f=channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/audio/line_04_dadi_story.wav; ls -la --time-style=full-iso $f; git hash-object $f; git rev-parse HEAD:$f 464dad0:$f; git log --format="%h %ad %s" --date=iso -- $f | head; stat -c '%w birth' $f 2>/dev/null; grep -n "line_04\|guard_write\|snapshot\|touch\|utime" scripts/make_short.py | head -20`
+
+```text
+-rw-r--r-- 1 ashamim 1049089 464718 2026-10-18 17:14:18.332604300 +0530 channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/audio/line_04_dadi_story.wav
+1522063466bcb079e6eb34f4c7d3ab854fc201cc
+1522063466bcb079e6eb34f4c7d3ab854fc201cc
+1522063466bcb079e6eb34f4c7d3ab854fc201cc
+5a7f726 2026-10-18 17:20:14 +0530 long_01 short_01: faster pace (1.08x, 0.15 s gaps), 47.4 s preview
+54eacdd 2026-10-18 16:02:06 +0530 long_01 short_01: crop option, preview + munshi R1/R2
+464dad0 2026-10-18 15:30:34 +0530 restructure: multi-channel layout (channels/, shared/)
+2026-10-18 17:14:18.332604300 +0530 birth
+86:def guard_write(path, new_tts=False):
+98:def snapshot(dirs):
+103:def check_snapshot(before, dirs):
+104:    after = snapshot(dirs)
+143:    guard_write(out)
+145:        guard_write(raw, new_tts=True)
+204:        guard_write(key)
+774:    paid_before = snapshot(PROTECTED)
+833:    n_paid = check_snapshot(paid_before, PROTECTED)
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:12:00Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Mix residual and music crossfade envelope
+
+```bash
+cd "D:/Story-Channel/channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/output/short_01_jadui-kadhai_work" && D:/Story-Channel/.venv/Scripts/python.exe -I -c "
+import wave,numpy as np
+def rd(p):
+  w=wave.open(p);sr=w.getframerate();ch=w.getnchannels();sw=w.getsampwidth();x=np.frombuffer(w.readframes(w.getnframes()),dtype={2:np.int16,4:np.int32}[sw]).astype(float)/(2**(8*sw-1))
+  return sr,x.reshape(-1,ch)
+for p in ['voice.wav','music.wav','mix.wav']:
+  sr,x=rd(p);print(p,sr,x.shape)
+sv,v=rd('voice.wav');sm,m=rd('music.wav');sx,mx=rd('mix.wav')
+n=min(len(m),len(mx));
+vv=v.mean(1);
+if sv!=sx: vv=np.interp(np.arange(n)/sx,np.arange(len(vv))/sv,vv)
+r=mx[:n].mean(1)-m[:n].mean(1)-vv[:n]
+blk=int(0.1*sx)
+for i in range(0,n-blk,blk):
+  db=20*np.log10(np.sqrt((r[i:i+blk]**2).mean())+1e-12)
+  if db>-60: print(f'{i/sx:.1f}s residual {db:.0f} dB')
+print('floor',20*np.log10(np.sqrt((r**2).mean())+1e-12))
+mm=m.mean(1)
+print(' '.join(f'{t:.1f}:{20*np.log10(np.sqrt((mm[int(t*sm):int((t+0.25)*sm)]**2).mean())+1e-12):.0f}' for t in np.arange(16.5,22,0.25)))
+"
+```
+
+```text
+voice.wav 24000 (1159440, 1)
+music.wav 48000 (2318880, 2)
+mix.wav 48000 (2318880, 2)
+0.0s residual -39 dB
+0.1s residual -32 dB
+0.2s residual -28 dB
+0.3s residual -28 dB
+0.4s residual -33 dB
+0.5s residual -43 dB
+0.6s residual -33 dB
+0.7s residual -29 dB
+0.8s residual -30 dB
+0.9s residual -28 dB
+1.0s residual -24 dB
+1.1s residual -23 dB
+1.2s residual -30 dB
+1.3s residual -31 dB
+1.4s residual -31 dB
+1.5s residual -31 dB
+1.6s residual -34 dB
+1.7s residual -33 dB
+1.8s residual -34 dB
+1.9s residual -36 dB
+2.0s residual -32 dB
+2.1s residual -35 dB
+2.2s residual -38 dB
+2.3s residual -40 dB
+2.4s residual -40 dB
+2.5s residual -41 dB
+2.6s residual -40 dB
+2.7s residual -45 dB
+2.8s residual -51 dB
+3.6s residual -37 dB
+3.7s residual -31 dB
+3.8s residual -34 dB
+3.9s residual -32 dB
+4.0s residual -30 dB
+4.1s residual -31 dB
+4.2s residual -45 dB
+4.3s residual -34 dB
+4.4s residual -29 dB
+4.5s residual -27 dB
+4.6s residual -33 dB
+4.7s residual -30 dB
+4.8s residual -30 dB
+4.9s residual -31 dB
+5.0s residual -32 dB
+5.1s residual -31 dB
+5.2s residual -32 dB
+5.3s residual -40 dB
+5.9s residual -50 dB
+6.0s residual -33 dB
+6.1s residual -26 dB
+6.2s residual -27 dB
+6.3s residual -31 dB
+6.4s residual -33 dB
+6.5s residual -40 dB
+6.6s residual -34 dB
+6.7s residual -40 dB
+6.8s residual -38 dB
+6.9s residual -43 dB
+7.0s residual -48 dB
+7.1s residual -41 dB
+7.2s residual -43 dB
+7.3s residual -49 dB
+7.4s residual -53 dB
+7.9s residual -27 dB
+8.0s residual -28 dB
+8.1s residual -33 dB
+8.2s residual -31 dB
+8.3s residual -27 dB
+8.4s residual -25 dB
+8.5s residual -28 dB
+8.6s residual -32 dB
+8.7s residual -43 dB
+9.0s residual -37 dB
+9.1s residual -25 dB
+9.2s residual -25 dB
+9.3s residual -26 dB
+9.4s residual -26 dB
+9.5s residual -25 dB
+9.6s residual -44 dB
+9.7s residual -35 dB
+9.8s residual -35 dB
+9.9s residual -31 dB
+10.0s residual -26 dB
+10.1s residual -24 dB
+10.2s residual -24 dB
+10.3s residual -25 dB
+10.4s residual -27 dB
+10.5s residual -52 dB
+10.8s residual -36 dB
+10.9s residual -30 dB
+11.0s residual -26 dB
+11.1s residual -31 dB
+11.2s residual -41 dB
+11.3s residual -28 dB
+11.4s residual -29 dB
+11.5s residual -41 dB
+11.6s residual -26 dB
+11.7s residual -29 dB
+11.8s residual -34 dB
+11.9s residual -31 dB
+12.0s residual -33 dB
+12.1s residual -32 dB
+12.2s residual -40 dB
+12.3s residual -50 dB
+13.0s residual -45 dB
+13.1s residual -27 dB
+13.2s residual -34 dB
+13.3s residual -36 dB
+13.4s residual -32 dB
+13.5s residual -36 dB
+13.6s residual -30 dB
+13.7s residual -26 dB
+13.8s residual -48 dB
+14.3s residual -36 dB
+14.4s residual -33 dB
+14.5s residual -22 dB
+14.6s residual -20 dB
+14.7s residual -21 dB
+14.8s residual -27 dB
+14.9s residual -24 dB
+15.0s residual -38 dB
+15.1s residual -25 dB
+15.2s residual -23 dB
+15.3s residual -24 dB
+15.4s residual -27 dB
+15.5s residual -25 dB
+15.6s residual -27 dB
+15.7s residual -39 dB
+15.9s residual -35 dB
+16.0s residual -28 dB
+16.1s residual -21 dB
+16.2s residual -27 dB
+16.3s residual -21 dB
+16.4s residual -30 dB
+16.5s residual -27 dB
+16.6s residual -24 dB
+16.7s residual -25 dB
+16.8s residual -38 dB
+16.9s residual -45 dB
+17.0s residual -48 dB
+17.1s residual -46 dB
+17.2s residual -45 dB
+17.3s residual -49 dB
+17.4s residual -40 dB
+17.5s residual -24 dB
+17.6s residual -24 dB
+17.7s residual -27 dB
+17.8s residual -26 dB
+17.9s residual -32 dB
+18.0s residual -26 dB
+18.1s residual -31 dB
+18.2s residual -25 dB
+18.3s residual -22 dB
+18.4s residual -24 dB
+18.5s residual -25 dB
+18.6s residual -21 dB
+18.7s residual -23 dB
+18.8s residual -30 dB
+18.9s residual -59 dB
+19.3s residual -29 dB
+19.4s residual -24 dB
+19.5s residual -31 dB
+19.6s residual -28 dB
+19.7s residual -25 dB
+19.8s residual -30 dB
+19.9s residual -28 dB
+20.0s residual -29 dB
+20.1s residual -28 dB
+20.2s residual -31 dB
+20.3s residual -37 dB
+20.4s residual -35 dB
+20.5s residual -30 dB
+20.6s residual -35 dB
+20.7s residual -32 dB
+20.8s residual -42 dB
+20.9s residual -27 dB
+21.0s residual -29 dB
+21.1s residual -41 dB
+21.2s residual -28 dB
+21.3s residual -27 dB
+21.4s residual -27 dB
+21.5s residual -28 dB
+21.6s residual -27 dB
+21.7s residual -27 dB
+21.8s residual -27 dB
+21.9s residual -28 dB
+22.0s residual -35 dB
+22.1s residual -36 dB
+22.2s residual -32 dB
+22.3s residual -29 dB
+22.4s residual -28 dB
+22.5s residual -32 dB
+22.6s residual -25 dB
+22.7s residual -26 dB
+22.8s residual -38 dB
+22.9s residual -37 dB
+23.0s residual -60 dB
+23.5s residual -32 dB
+23.6s residual -23 dB
+23.7s residual -30 dB
+23.8s residual -23 dB
+23.9s residual -24 dB
+24.0s residual -47 dB
+24.3s residual -59 dB
+24.4s residual -20 dB
+24.5s residual -49 dB
+24.8s residual -60 dB
+24.9s residual -57 dB
+25.0s residual -60 dB
+25.1s residual -25 dB
+25.2s residual -30 dB
+25.3s residual -30 dB
+25.4s residual -26 dB
+25.5s residual -25 dB
+25.6s residual -21 dB
+25.7s residual -24 dB
+25.8s residual -30 dB
+25.9s residual -24 dB
+26.0s residual -26 dB
+26.1s residual -26 dB
+26.2s residual -23 dB
+26.3s residual -21 dB
+26.4s residual -22 dB
+26.5s residual -22 dB
+26.6s residual -23 dB
+26.7s residual -29 dB
+26.8s residual -32 dB
+26.9s residual -38 dB
+27.0s residual -36 dB
+27.1s residual -44 dB
+27.3s residual -56 dB
+27.4s residual -56 dB
+27.5s residual -38 dB
+27.6s residual -30 dB
+27.7s residual -33 dB
+27.8s residual -29 dB
+27.9s residual -27 dB
+28.0s residual -30 dB
+28.1s residual -24 dB
+28.2s residual -26 dB
+28.3s residual -31 dB
+28.4s residual -31 dB
+28.5s residual -34 dB
+28.6s residual -36 dB
+28.7s residual -43 dB
+28.8s residual -55 dB
+29.2s residual -31 dB
+29.3s residual -30 dB
+29.4s residual -27 dB
+29.5s residual -25 dB
+29.6s residual -25 dB
+29.7s residual -32 dB
+29.8s residual -29 dB
+29.9s residual -33 dB
+30.1s residual -49 dB
+30.6s residual -39 dB
+30.7s residual -27 dB
+30.8s residual -48 dB
+30.9s residual -35 dB
+31.0s residual -35 dB
+31.1s residual -34 dB
+31.2s residual -36 dB
+31.3s residual -34 dB
+31.4s residual -31 dB
+31.5s residual -31 dB
+31.6s residual -31 dB
+31.7s residual -28 dB
+31.8s residual -32 dB
+31.9s residual -36 dB
+32.0s residual -46 dB
+32.1s residual -34 dB
+32.2s residual -35 dB
+32.3s residual -34 dB
+32.9s residual -51 dB
+33.0s residual -40 dB
+33.1s residual -34 dB
+33.2s residual -31 dB
+33.3s residual -31 dB
+33.4s residual -29 dB
+33.5s residual -49 dB
+33.6s residual -28 dB
+33.7s residual -34 dB
+33.8s residual -42 dB
+34.0s residual -38 dB
+34.1s residual -38 dB
+34.2s residual -33 dB
+34.3s residual -31 dB
+34.5s residual -37 dB
+34.6s residual -34 dB
+34.7s residual -29 dB
+34.8s residual -30 dB
+34.9s residual -31 dB
+35.0s residual -30 dB
+35.1s residual -34 dB
+35.2s residual -50 dB
+35.8s residual -33 dB
+35.9s residual -35 dB
+36.1s residual -35 dB
+36.2s residual -37 dB
+36.3s residual -36 dB
+36.4s residual -40 dB
+36.5s residual -27 dB
+36.6s residual -30 dB
+36.7s residual -49 dB
+36.8s residual -30 dB
+36.9s residual -28 dB
+37.0s residual -29 dB
+37.1s residual -31 dB
+37.2s residual -41 dB
+37.3s residual -39 dB
+37.4s residual -37 dB
+37.7s residual -49 dB
+37.8s residual -31 dB
+37.9s residual -23 dB
+38.0s residual -37 dB
+38.1s residual -33 dB
+38.2s residual -26 dB
+38.3s residual -25 dB
+38.4s residual -31 dB
+38.5s residual -29 dB
+38.6s residual -25 dB
+38.7s residual -26 dB
+38.8s residual -48 dB
+38.9s residual -44 dB
+39.0s residual -38 dB
+39.1s residual -37 dB
+39.2s residual -26 dB
+39.3s residual -32 dB
+39.4s residual -31 dB
+39.5s residual -35 dB
+39.6s residual -33 dB
+39.7s residual -34 dB
+39.8s residual -34 dB
+39.9s residual -43 dB
+40.0s residual -30 dB
+40.1s residual -32 dB
+40.2s residual -47 dB
+40.3s residual -48 dB
+40.4s residual -52 dB
+40.5s residual -31 dB
+40.6s residual -32 dB
+40.7s residual -30 dB
+40.8s residual -28 dB
+41.0s residual -33 dB
+41.1s residual -31 dB
+41.2s residual -37 dB
+41.3s residual -33 dB
+41.4s residual -29 dB
+41.5s residual -23 dB
+41.6s residual -27 dB
+41.7s residual -28 dB
+41.8s residual -43 dB
+42.2s residual -30 dB
+42.3s residual -28 dB
+42.4s residual -36 dB
+42.5s residual -46 dB
+42.6s residual -36 dB
+42.7s residual -31 dB
+42.8s residual -31 dB
+42.9s residual -34 dB
+43.0s residual -30 dB
+43.1s residual -31 dB
+43.2s residual -28 dB
+43.3s residual -39 dB
+43.4s residual -41 dB
+43.5s residual -31 dB
+43.6s residual -34 dB
+43.7s residual -29 dB
+43.8s residual -36 dB
+44.0s residual -31 dB
+44.1s residual -31 dB
+44.2s residual -28 dB
+44.3s residual -32 dB
+44.4s residual -30 dB
+44.5s residual -42 dB
+44.9s residual -50 dB
+45.0s residual -18 dB
+45.1s residual -20 dB
+45.2s residual -36 dB
+45.6s residual -39 dB
+45.7s residual -19 dB
+45.8s residual -18 dB
+45.9s residual -23 dB
+46.0s residual -23 dB
+46.1s residual -33 dB
+floor -29.358296059335363
+16.5:-37 16.8:-38 17.0:-38 17.2:-37 17.5:-35 17.8:-34 18.0:-36 18.2:-39 18.5:-40 18.8:-40 19.0:-38 19.2:-36 19.5:-34 19.8:-38 20.0:-33 20.2:-34 20.5:-30 20.8:-31 21.0:-32 21.2:-32 21.5:-41 21.8:-30
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:12:05Z)**_
+
+The residual follows the voice, which points to a gain or resample mismatch in my subtraction. I'll fit the voice gain and run it again.
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:12:25Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Gain-fitted residual mix minus voice minus music
+
+```bash
+cd "D:/Story-Channel/channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/output/short_01_jadui-kadhai_work" && D:/Story-Channel/tools/ffmpeg/ffmpeg.exe -v error -y -i voice.wav -ar 48000 -ac 1 -c:a pcm_f32le "C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad/v48.wav" && D:/Story-Channel/.venv/Scripts/python.exe -I -c "
+import numpy as np,wave,subprocess
+def rd(p,fmt):
+  b=subprocess.run(['D:/Story-Channel/tools/ffmpeg/ffmpeg.exe','-v','error','-i',p,'-ac','1','-ar','48000','-f','f32le','-'],capture_output=True).stdout
+  return np.frombuffer(b,dtype=np.float32).astype(float)
+v=rd('C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad/v48.wav',0);m=rd('music.wav',0);x=rd('mix.wav',0)
+n=min(len(v),len(m),len(x));v,m,x=v[:n],m[:n],x[:n]
+y=x-m
+best=None
+for lag in range(-60,61):
+  vs=np.roll(v,lag);g=(vs@y)/(vs@vs);e=((y-g*vs)**2).sum()
+  if best is None or e<best[0]: best=(e,lag,g)
+e,lag,g=best;r=y-g*np.roll(v,lag);print('lag',lag,'gain',round(g,3))
+sr=48000;blk=int(0.1*sr)
+out=[]
+for i in range(0,n-blk,blk):
+  db=20*np.log10(np.sqrt((r[i:i+blk]**2).mean())+1e-12)
+  if db>-45: out.append(f'{i/sr:.1f}:{db:.0f}')
+print(' '.join(out));print('residual overall',20*np.log10(np.sqrt((r**2).mean())+1e-12),'voice',20*np.log10(np.sqrt(((g*v)**2).mean())))
+"
+```
+
+```text
+lag 0 gain 1.0
+15.9:-32 16.0:-25 16.1:-18 16.2:-31 16.3:-28 16.4:-28 16.5:-36 16.6:-37 16.7:-33 16.8:-39 16.9:-44 17.0:-45
+residual overall -42.87740206932285 voice -18.694782684429068
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:12:28Z)**_
+
+Only the magic SFX shows in the residual (15.9-17.0 s, right after line 2). There is no leaked audio. Quick check of the crossfade length in the builder code.
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:12:31Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Find crossfade settings in builder
+
+`cd D:/Story-Channel && grep -n -i "acrossfade\|afade\|xfade\|crossfade" scripts/make_short.py | head; git diff --stat HEAD -- scripts/make_short.py shared/RULES.md`
+
+```text
+48:MUSIC_XFADE = 1.5  # seconds of crossfade when the mood (music track) changes
+549:    """Voice + music (one track, or a track per mood with crossfades) at a fixed level under the voice + stings;
+561:        length = (b - a) + (0 if last else MUSIC_XFADE)  # overlap into the next mood = crossfade
+562:        fade_out = f"afade=t=out:st={length - (1.5 if last else MUSIC_XFADE):.2f}:d={1.5 if last else MUSIC_XFADE}"
+563:        fade_in = f"afade=t=in:d={MUSIC_XFADE}," if k else ""
+ scripts/make_short.py | 69 ++++++++++++++++++++++++++++++++++++++++++++-------
+ shared/RULES.md       |  1 +
+ 2 files changed, 61 insertions(+), 9 deletions(-)
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:12:34Z)**_
+
+The crossfade is 1.5 s, which meets the ≥1 s rule. Now the metadata counts.
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:12:43Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Validate title, description, tags, credits, register
+
+```bash
+cd "D:/Story-Channel/channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai" && D:/Story-Channel/.venv/Scripts/python.exe -I -X utf8 -c "
+import json,re
+m=json.load(open('meta.json',encoding='utf-8'))
+t=open('output/short_01_jadui-kadhai.txt',encoding='utf-8').read()
+title=t.split('TITLE:\n')[1].split('\n')[0];print('title len',len(title),'<>' ,any(c in title for c in '<>'), title==m['title'])
+desc=t.split('DESCRIPTION:\n')[1].split('\n\nTAGS:')[0];print('desc len',len(desc))
+print('hashtags in desc',re.findall(r'#\S+',desc))
+tags=[s.strip() for s in t.split('TAGS:\n')[1].split('\n')[0].split(',')]
+print('tags==meta',tags==m['tags'],'n',len(tags),'yt chars',sum(len(x)+(2 if ' ' in x else 0) for x in tags)+len(tags)-1)
+alltext=t.lower()
+for w in ['kids','kid','children','child','बच्च','बाल','nursery','cartoon','rhyme','for kids','लोरी']:
+  if w in alltext: print('FOUND',w)
+import csv
+reg={r['path']:r for r in csv.DictReader(open('../../../../../../shared/assets_license.csv',encoding='utf-8'))}
+for p,name in [('shared/music/jaadu/Enchanted_Valley.mp3','Enchanted Valley'),('shared/music/tension/Hidden_Agenda.mp3','Hidden Agenda')]:
+  at=reg[p]['attribution_text'];print(p, reg[p]['license'], ('Music: '+at) in desc or at in desc)
+print('sfx',reg['shared/sfx/magic_376747.mp3']['license'],'font',reg['shared/fonts/Mukta-ExtraBold.ttf']['license'])
+"; grep -rn -i "pixar\|ghibli\|disney\|style of" "D:/Story-Channel/channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/scene_prompts.json" | head -3; ls D:/Story-Channel/channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/images | grep -E "^(scene_)?(16|17|20|21|22)" 
+```
+
+```text
+title len 63 <> False True
+desc len 504
+hashtags in desc ['#shorts', '#दादीकीकहानियाँ', '#HindiKahani', '#MoralStory']
+tags==meta True n 12 yt chars 201
+shared/music/jaadu/Enchanted_Valley.mp3 CC BY 4.0 True
+shared/music/tension/Hidden_Agenda.mp3 CC BY 4.0 True
+sfx CC0 (verified via Freesound API) font SIL OFL 1.1 (shared/fonts/OFL.txt)
+scene_16.png
+scene_17.png
+scene_20.png
+scene_21.png
+scene_22.png
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:12:50Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Read the story ending for the spoiler check
+
+`cd D:/Story-Channel/channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai && ls; tail -c 1500 story.md 2>/dev/null`
+
+```text
+audio
+characters
+images
+long
+scene_prompts.json
+script
+shorts
+story.md
+# 001 — लालची हलवाई और जादुई कड़ाही
+
+- **Type:** moral story (Dadi narrates; Golu–Mitthu frame in Dadi's aangan, story set in Rampur gaon)
+- **Moral:** लालच का अंत हमेशा बुरा होता है — और बाँटने से ख़ुशी दुगनी होती है।
+- **Script:** `script/script.md` (v2, 54 rows); ideas `script/LONG_01_IDEAS.md`; scene plan `script/LONG_01_SCENES.md`
+- **Story characters:** `characters/` (Ghasita, Chhotu, Sadhu, kadhai prop) + channel characters (Dadi, Golu, Mitthu)
+
+## Status
+| Item | Status |
+|---|---|
+| Scene images | 31 done (`images/`, `scene_prompts.json`) |
+| TTS | 51 lines cached (`audio/tts_cache/`) |
+| Long video | `long/` — final 1920x1080, 5:06 (306.2 s), approved by user |
+| Thumbnail | `long/output/long_01_thumbnail.png` ("जो डालो, दुगना!") |
+| Munshi | final build, thumbnail, metadata, copyright, publish dry-run: PASS (see `../../log.md`) |
+| Upload | 2026-10-18 via API: https://youtu.be/Ogfqow8rbGY — scheduled 2026-10-20 19:00 IST (check in Studio) |
+| Shorts | `shorts/short_01_jadui-kadhai/` — preview 47.4 s (speed 1.08, gap 0.15), Munshi PASS; final not built yet; publish_at 2026-10-20 21:00 IST |
+
+## After the Short is uploaded (do in YouTube Studio)
+- Set the Short's **Related video** to Long 01 (https://youtu.be/Ogfqow8rbGY).
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:13:13Z)**_
+
+All checks are done. Writing the log lines now.
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:13:22Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Append R1 verdict lines to channel log
+
+```bash
+cd D:/Story-Channel/channels/dadi-ki-kahaniyan && cat >> log.md <<'EOF'
+2026-10-18 | short_01_jadui-kadhai | 7 final build R1 (~20 min) | FIX | 1080x1920 h264 High yuv420p tv/bt709 30fps + AAC 48k st; 48.30s vs approved preview 48.29s (0%); -13.9 LUFS / -1.3 dBTP; music 13.4 LU under voice (stem, speech sections); residual = magic SFX only; xfade 1.5s; all 8 lines Whisper-timed, line starts exact, chunks within 0.3s (line 5 checked); captions above bottom 25%, Hindi shaping ok; hook kadhai-only to 1.5s then Sadhu; sc22 coin+rim only (start/mid/end); end card 2.0s; right character per line; paid folders: no tracked file modified, 7 D = stray wavs in _to_delete (blob-identical), line_04 = HEAD; MINOR: no .srt in output/ (RULES 4) -> free fix or user waiver
+2026-10-18 | short_01_jadui-kadhai | 9 metadata R1 | PASS | title 63 chars, desc 504, 4 hashtags, 12 tags 201/500, txt TAGS = meta.json, no kids wording, no twist; 2/2 CC BY credits exact from register; publish_at 20 Oct 21:00 IST = 2h after Long 01 19:00 ok, but advance date vs RULES 8 same-day rule -> user decides; Related video = Studio click
+2026-10-18 | short_01_jadui-kadhai | 8 thumbnail R1 | N/A | Shorts: no custom thumbnail planned, RULES 6 has no Shorts requirement; upload.json must carry no thumbnail
+2026-10-18 | short_01_jadui-kadhai | copyright (RULES 10) R1 | PASS | Enchanted Valley + Hidden Agenda CC BY 4.0 (credited exactly), magic_376747 CC0, Mukta-ExtraBold OFL, scene_16/17/20/21/22 + TTS = own Gemini (registered); mix-voice-music residual = SFX only; no brand/franchise in frames or prompts
+EOF
+tail -4 log.md | cut -c1-80
+```
+
+```text
+2026-10-18 | short_01_jadui-kadhai | 7 final build R1 (~20 min) | FIX | 1080x192
+2026-10-18 | short_01_jadui-kadhai | 9 metadata R1 | PASS | title 63 chars, desc
+2026-10-18 | short_01_jadui-kadhai | 8 thumbnail R1 | N/A | Shorts: no custom th
+2026-10-18 | short_01_jadui-kadhai | copyright (RULES 10) R1 | PASS | Enchanted
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:14:02Z)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="SubagentHandback"><details>
+<summary>Tool use: **SubagentHandback**</summary>
+
+```text
+{"success":true,"message":"Report delivered to your caller."}
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 12:14:15Z)**_
+
+<think><details><summary>Thought Process</summary>
+Munshi ki final fix mil gayi — Short ke liye alag `.srt` file missing thi, aur 213 vs 188 count ka farq channel ke `characters/` folder ki 25 extra files se tha. Ab main builder ko har video ke liye `.srt` banane ke liye update kar rahi hoon, aur is Short ki `.srt` wahi purani Whisper timing se bina video dobara banaye generate kar rahi hoon.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-18 12:14:22Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\scripts\make_short.py has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 12:14:40Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Write Short .srt from the final's Whisper timings
+
+```bash
+S="C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad" && D=channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai && .venv/Scripts/python.exe -X utf8 -c "
+import sys,json; sys.path.insert(0,'scripts'); sys.argv=['x']
+import make_short as m
+from pathlib import Path
+D=Path('$D'); P=m.load_project('$D')
+lines=json.load(open(D/'lines.json',encoding='utf-8')); meta=json.load(open(D/'meta.json',encoding='utf-8'))
+work=Path('$S/srt_work'); work.mkdir(exist_ok=True)
+import shutil; shutil.copytree(D/'output/short_01_jadui-kadhai_work/words', work/'words', dirs_exist_ok=True)  # same Whisper results as the final
+v,total,timed,ev=m.build_voice(lines,P['audio_dir'],work,False,end_hold=meta['end_hold'],gap_s=meta['gap'],speed=meta['speed'],gap_change=meta['gap_speaker_change'])
+print('total',round(total,2))
+m.write_srt(timed, D/'output/short_01_jadui-kadhai.srt')
+" | grep -v "^  line" && head -12 $D/output/short_01_jadui-kadhai.srt && grep -c " --> " $D/output/short_01_jadui-kadhai.srt && file -bi $D/output/short_01_jadui-kadhai.srt 2>/dev/null; git status --short -- channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/images channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/audio channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/characters | grep -v "line_0[1235678]_" ; echo "(paid status clean apart from the 7 moved stray wavs)"
+```
+
+```text
+total 48.31
+1
+00:00:00,000 --> 00:00:02,117
+ये जादुई कड़ाही है,
+
+2
+00:00:02,117 --> 00:00:03,526
+बेटा।
+
+3
+00:00:03,526 --> 00:00:05,276
+इसमें जो डालोगे,
+
+31
+application/x-subrip; charset=utf-8
+(paid status clean apart from the 7 moved stray wavs)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 12:14:44Z)**_
+
+`.srt` ban gaya: 31 cues, UTF-8, aur timing wahi Whisper wali jo final video me burned hai. Ab Munshi R2, sirf isi point par:
+
+_**Agent (claude-opus-5-5 2026-10-18 12:18:13Z)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="Agent"><details>
+<summary>Tool use: **Agent**</summary>
+R2 final: check .srt only
+
+```text
+  This agent's report was delivered to you as a message from "a62dfcd82fb489960" (its SubagentHandback call). Read it there; it is not repeated here.
+  
+agentId: a62dfcd82fb489960 (use SendMessage with to: 'a62dfcd82fb489960', summary: '<5-10 word recap>' to continue this agent)
+<usage>subagent_tokens: 30783
+tool_uses: 11
+duration_ms: 203421</usage>
+```
+</details></tool-use>
+
+_**Agent - sidechain (2026-10-18 12:14:50Z)**_
+
+R2 of the final-build review for channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai. Your R1 for stage 7 was FIX with one MINOR: no .srt (RULES section 4). Per section 11, R2 checks only that point. REVIEW ONLY, no edits, no paid calls.
+
+Builder fix (verify): output/short_01_jadui-kadhai.srt written (31 cues, UTF-8) from the same Whisper word timings as the final build (the final's _work/words/ results were reused; the video was NOT re-rendered). make_short.py now writes an .srt for every video, also Shorts with burned captions. Check: file exists, UTF-8, Hindi, cue texts concatenate to the 8 lines in lines.json, cue timings match the burned ASS captions in output/short_01_jadui-kadhai_work/*.ass (the final's) within ±0.05 s, and every cue lies inside its line (±0.3 s) and inside 0-48.3 s. Also confirm the final mp4 is unchanged since your R1 (mtime/size). Re: your note "213 vs 188 files": the builder's snapshot also includes channels/dadi-ki-kahaniyan/characters/ (25 files) — 188 + 25 = 213; confirm quickly.
+Verdict for stage 7 after R2 (PASS / PASS-WITH-NOTES / ASK), one log line (R2, verdict, time). Very short report.
+
+_**Agent - sidechain (2026-10-18 12:14:50Z)**_
+
+<system-reminder>
+Your final report is delivered through SubagentHandback: when your work is complete, call SubagentHandback({message: <your full report>}). The call ends your run, so make it your last step. Only a SubagentHandback call reaches your caller as your result; plain text you write at the end is not delivered.
+</system-reminder>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:14:57Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+List output files and log tail
+
+`cd "D:/Story-Channel/channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai"; ls -la --time-style=full-iso output/ output/short_01_jadui-kadhai_work/ | head -50; tail -15 ../../../../log.md; file output/*.srt`
+
+```text
+output/:
+total 23888
+drwxr-xr-x 1 ashamim 1049089        0 2026-10-18 17:44:38.116314600 +0530 .
+drwxr-xr-x 1 ashamim 1049089        0 2026-10-18 15:58:50.275403700 +0530 ..
+-rw-r--r-- 1 ashamim 1049089 13856285 2026-10-18 17:36:09.222811600 +0530 short_01_jadui-kadhai.mp4
+-rw-r--r-- 1 ashamim 1049089     2187 2026-10-18 17:44:38.116314600 +0530 short_01_jadui-kadhai.srt
+-rw-r--r-- 1 ashamim 1049089     1372 2026-10-18 17:36:23.211150700 +0530 short_01_jadui-kadhai.txt
+-rw-r--r-- 1 ashamim 1049089  1453401 2026-10-18 17:36:23.193883600 +0530 short_01_jadui-kadhai_framecheck.png
+-rw-r--r-- 1 ashamim 1049089  9124961 2026-10-18 17:29:08.388286900 +0530 short_01_jadui-kadhai_preview.mp4
+drwxr-xr-x 1 ashamim 1049089        0 2026-10-18 17:36:22.976805100 +0530 short_01_jadui-kadhai_work
+
+output/short_01_jadui-kadhai_work/:
+total 45656
+drwxr-xr-x 1 ashamim 1049089        0 2026-10-18 17:36:22.976805100 +0530 .
+drwxr-xr-x 1 ashamim 1049089        0 2026-10-18 17:44:38.116314600 +0530 ..
+-rw-r--r-- 1 ashamim 1049089   219734 2026-10-18 17:36:15.675392800 +0530 check_00.png
+-rw-r--r-- 1 ashamim 1049089   177330 2026-10-18 17:36:16.480182100 +0530 check_01.png
+-rw-r--r-- 1 ashamim 1049089   173616 2026-10-18 17:36:19.553883400 +0530 check_02.png
+-rw-r--r-- 1 ashamim 1049089   158785 2026-10-18 17:36:20.153845300 +0530 check_03.png
+-rw-r--r-- 1 ashamim 1049089   212452 2026-10-18 17:36:20.820975100 +0530 check_04.png
+-rw-r--r-- 1 ashamim 1049089   200043 2026-10-18 17:36:21.457202200 +0530 check_05.png
+-rw-r--r-- 1 ashamim 1049089   184314 2026-10-18 17:36:22.295293800 +0530 check_06.png
+-rw-r--r-- 1 ashamim 1049089   161537 2026-10-18 17:36:22.976805100 +0530 check_07.png
+drwxr-xr-x 1 ashamim 1049089        0 2026-10-18 15:50:30.612904500 +0530 fonts
+-rw-r--r-- 1 ashamim 1049089   379278 2026-10-18 17:33:15.770875700 +0530 line_01_sadhu.wav
+-rw-r--r-- 1 ashamim 1049089   403758 2026-10-18 17:33:32.835652100 +0530 line_02_dadi_story.wav
+-rw-r--r-- 1 ashamim 1049089   160104 2026-10-18 17:33:41.703437900 +0530 line_03_chhotu.wav
+-rw-r--r-- 1 ashamim 1049089   206342 2026-10-18 17:33:48.934480500 +0530 line_04_dadi_story.wav
+-rw-r--r-- 1 ashamim 1049089   281794 2026-10-18 17:33:56.663563200 +0530 line_05_ghasita.wav
+-rw-r--r-- 1 ashamim 1049089   423868 2026-10-18 17:34:04.696491000 +0530 line_06_dadi_story.wav
+-rw-r--r-- 1 ashamim 1049089   361736 2026-10-18 17:34:13.819841400 +0530 line_07_dadi_story.wav
+-rw-r--r-- 1 ashamim 1049089    87566 2026-10-18 17:34:23.228009000 +0530 line_08_ghasita.wav
+-rw-r--r-- 1 ashamim 1049089  9275598 2026-10-18 17:35:58.908744900 +0530 mix.wav
+-rw-r--r-- 1 ashamim 1049089  9275598 2026-10-18 17:36:06.589914200 +0530 mix_norm.wav
+-rw-r--r-- 1 ashamim 1049089  9275598 2026-10-18 17:35:58.908744900 +0530 music.wav
+-rw-r--r-- 1 ashamim 1049089     1010 2026-10-18 15:50:35.860529800 +0530 scene_16_8ba9dccc598dcd02.ass
+-rw-r--r-- 1 ashamim 1049089     1010 2026-10-18 15:58:56.464044900 +0530 scene_16_99b98094e15bbd2b.ass
+-rw-r--r-- 1 ashamim 1049089     1010 2026-10-18 17:14:51.726274900 +0530 scene_16_c62e8518ba4d3f69.ass
+-rw-r--r-- 1 ashamim 1049089     1010 2026-10-18 17:28:47.013834300 +0530 scene_16_e1a60d5937bfa76e.ass
+-rw-r--r-- 1 ashamim 1049089     1010 2026-10-18 17:34:27.854550600 +0530 scene_16_fe7a97e4c19bea9a.ass
+-rw-r--r-- 1 ashamim 1049089     1299 2026-10-18 17:34:27.854550600 +0530 scene_17_34e3fb4d52680162.ass
+-rw-r--r-- 1 ashamim 1049089     1299 2026-10-18 17:14:51.726274900 +0530 scene_17_3db6eba5a9603c47.ass
+-rw-r--r-- 1 ashamim 1049089     1299 2026-10-18 17:28:47.013834300 +0530 scene_17_513507231d8c0300.ass
+-rw-r--r-- 1 ashamim 1049089     1299 2026-10-18 15:50:35.864685800 +0530 scene_17_6ecc75a6b2712ba9.ass
+-rw-r--r-- 1 ashamim 1049089     1252 2026-10-18 17:28:47.022273500 +0530 scene_20_21f057e4fc1c55d3.ass
+-rw-r--r-- 1 ashamim 1049089     1299 2026-10-18 15:52:05.890357600 +0530 scene_20_2fd34eeb4ba36115.ass
+-rw-r--r-- 1 ashamim 1049089     1252 2026-10-18 17:14:51.726274900 +0530 scene_20_85a6a811a81cdc11.ass
+-rw-r--r-- 1 ashamim 1049089     1252 2026-10-18 17:34:27.854550600 +0530 scene_20_8af30ffbc0474796.ass
+-rw-r--r-- 1 ashamim 1049089     1299 2026-10-18 15:50:35.865203400 +0530 scene_20_b2cba780701ea635.ass
+-rw-r--r-- 1 ashamim 1049089     1127 2026-10-18 15:50:35.866625600 +0530 scene_21_270175636ee6ec2c.ass
+2026-10-18 | long_01 | 7 final build (re-review) | ASK | all 6 builder fixes verified (line 2 Mitthu+box, line 15 Sadhu only, music 13.0 LU under voice by stem method = inside long range 12-20, offsets 3.75s/14.5s, yuv420p tv bt709 matrix, no caption <0.45s); length 5:06 (306.2s) is outside script target ~3:50 +/-10% and 3-5 min range -> user decision
+2026-10-18 | long_01 | 8 thumbnail (re-review) | PASS | 1280x720 PNG 1.09 MB, text 14.3%/13.5% of height, Hindi shaping ok, no spoiler, BR corner clear
+2026-10-18 | long_01 | 9 metadata (re-review) | PASS | title 81, desc 1488, 5 hashtags, 21 tags 375/500 chars (YouTube count), 6 CC BY credits ok, TAGS in long_01.txt = meta.json
+2026-10-18 | long_01 | 7 final build (length, RULES 5 updated) | PASS | user approved 5:06 preview; final 306.17s = preview 306.17s (0%, within +/-10%); long_01.mp4 unchanged since re-review (13:22), 1920x1080 h264 yuv420p 30fps; all re-review checks stand
+2026-10-18 | long_01 | publish dry-run | PASS | upload.json written (channel UCy071_4g4vGemktFHybqkhQ, publish 2026-10-20 19:00 IST, kids=false, synthetic=false, cat 1, no playlist); dry-run OK, no network; copyright register (RULES 10 / assets_license.csv) not yet available -> not reviewed
+2026-10-18 | long_01 | copyright (RULES 10) | PASS | all used assets registered w/ allowed licence (6 Incompetech CC BY 4.0, 3 Freesound CC0, Mukta OFL, 31 scene imgs + 51 TTS + thumb = own Gemini, all in cost_log); 6/6 credits exact in upload.json; mix-voice-music residual = 5 SFX bursts only (floor -98 dB); prompts/text/images clean
+2026-10-18 | long_01 | publish | PUBLISHED | video Ogfqow8rbGY uploaded (scheduled 2026-10-20 19:00 IST requested), thumbnail ok, captions ok, channel UCy071_4g4vGemktFHybqkhQ verified; user must confirm schedule in Studio (unaudited API may lock private)
+2026-10-18 | short_01_jadui-kadhai | preview build R1 (~25 min) | FIX | 51.87s, hook ok, end card 2.0s, music 13.0 LU under voice (stem method), captions match + above bottom 25%, publish 20 Oct 21:00 ok; BLOCKER: scene 22 line 7 shot shows kadhai inside + top of mitti lump (spoiler) -> fy/zoom fix; MINOR: Chhotu's open-mouth face in 0-1.5s hook shot; sharpness acceptable, no ASK
+2026-10-18 | short_01_jadui-kadhai | preview build R2 (~8 min) | PASS | B1 fixed: scene 22 line 7/8 crop shows only coin+rim edge, no kadhai inside/mitti lump (checked preview + simulated 1080x1920 final, start/mid/end of push-in); M1 fixed: hook 0-1.5s kadhai only, Sadhu cut at 1.5s; scenes 17/20/21 from cache, 51.87s unchanged, end card 2.0s, -13.8 LUFS / -1.1 dBTP
+2026-10-18 | short_01_jadui-kadhai | preview build R1 speed 1.08/gap 0.15 (~10 min) | PASS | 47.41s (45-50 ok); atempo ratio 1.075-1.080 on all 8 lines, pitch/voicing/HF same as 1.0x (no warble proxy), no clipped onsets/tails, line gaps ~0.20-0.28s; hook kadhai-only to 1.42s then Sadhu; sc22 coin+rim only; end card 2.0s; music 13.3 LU under voice (stem); -13.8 LUFS / -1.3 dBTP; captions aligned to new line starts; Rs 0 (no new cost_log rows)
+2026-10-18 | short_01_jadui-kadhai | preview build R2 gap 0.15/0.30 (~10 min) | PASS | 48.29s (45-50 ok); voice.wav silence at speaker changes 0.36-0.43s vs same-speaker 6->7 0.28s (TTS edge silence included), line starts match builder log; hook kadhai-only to 1.5s then Sadhu; sc22 coin+rim only; end card 2.05s; music 13.4 LU under voice (stem); -13.8 LUFS / -1.4 dBTP; paid folders (213 files) blob-identical to 464dad0, 7 stray Short wavs in _to_delete match HEAD blobs, line_04 = 464dad0; make_short guard_write+snapshot ok, only writes in paid folder = new TTS into audio/tts_cache with --spend; Rs 0
+2026-10-18 | short_01_jadui-kadhai | 7 final build R1 (~20 min) | FIX | 1080x1920 h264 High yuv420p tv/bt709 30fps + AAC 48k st; 48.30s vs approved preview 48.29s (0%); -13.9 LUFS / -1.3 dBTP; music 13.4 LU under voice (stem, speech sections); residual = magic SFX only; xfade 1.5s; all 8 lines Whisper-timed, line starts exact, chunks within 0.3s (line 5 checked); captions above bottom 25%, Hindi shaping ok; hook kadhai-only to 1.5s then Sadhu; sc22 coin+rim only (start/mid/end); end card 2.0s; right character per line; paid folders: no tracked file modified, 7 D = stray wavs in _to_delete (blob-identical), line_04 = HEAD; MINOR: no .srt in output/ (RULES 4) -> free fix or user waiver
+2026-10-18 | short_01_jadui-kadhai | 9 metadata R1 | PASS | title 63 chars, desc 504, 4 hashtags, 12 tags 201/500, txt TAGS = meta.json, no kids wording, no twist; 2/2 CC BY credits exact from register; publish_at 20 Oct 21:00 IST = 2h after Long 01 19:00 ok, but advance date vs RULES 8 same-day rule -> user decides; Related video = Studio click
+2026-10-18 | short_01_jadui-kadhai | 8 thumbnail R1 | N/A | Shorts: no custom thumbnail planned, RULES 6 has no Shorts requirement; upload.json must carry no thumbnail
+2026-10-18 | short_01_jadui-kadhai | copyright (RULES 10) R1 | PASS | Enchanted Valley + Hidden Agenda CC BY 4.0 (credited exactly), magic_376747 CC0, Mukta-ExtraBold OFL, scene_16/17/20/21/22 + TTS = own Gemini (registered); mix-voice-music residual = SFX only; no brand/franchise in frames or prompts
+output/short_01_jadui-kadhai.srt: SubRip, Unicode text, UTF-8 text, with CRLF line terminators
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:15:05Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+More listing, srt, lines
+
+`cd "D:/Story-Channel/channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai"; ls -la --time-style=full-iso output/short_01_jadui-kadhai_work/ | tail -n +40; ls -la --time-style=full-iso review/final/; grep -ril "13856285\|17:36:09" review/ 2>/dev/null; cat output/short_01_jadui-kadhai.srt; python -c "import json;d=json.load(open('lines.json',encoding='utf-8'));print(json.dumps(d,ensure_ascii=False)[:3000])"`
+
+```text
+Exit code 1
+-rw-r--r-- 1 ashamim 1049089     1127 2026-10-18 17:14:51.726274900 +0530 scene_21_7ba1c76520ee9d70.ass
+-rw-r--r-- 1 ashamim 1049089     1255 2026-10-18 15:52:05.891356500 +0530 scene_22_197281e80c648b26.ass
+-rw-r--r-- 1 ashamim 1049089     1255 2026-10-18 15:50:35.868098200 +0530 scene_22_47d156955b6d5d66.ass
+-rw-r--r-- 1 ashamim 1049089     1208 2026-10-18 17:28:47.022273500 +0530 scene_22_5fcbea308ce4ed8b.ass
+-rw-r--r-- 1 ashamim 1049089     1255 2026-10-18 15:58:56.464044900 +0530 scene_22_6329b6ab42bae7a3.ass
+-rw-r--r-- 1 ashamim 1049089     1208 2026-10-18 17:14:51.726274900 +0530 scene_22_8c2c2085e44c4f8e.ass
+-rw-r--r-- 1 ashamim 1049089     1255 2026-10-18 17:34:27.854550600 +0530 scene_22_db2b0cccf9985fe5.ass
+-rw-r--r-- 1 ashamim 1049089      593 2026-10-18 17:35:44.035617500 +0530 scenes.txt
+-rw-r--r-- 1 ashamim 1049089 12659933 2026-10-18 17:35:47.348343300 +0530 video.mp4
+-rw-r--r-- 1 ashamim 1049089  2318924 2026-10-18 17:34:27.841542400 +0530 voice.wav
+drwxr-xr-x 1 ashamim 1049089        0 2026-10-18 17:34:27.828784800 +0530 words
+total 38232
+drwxr-xr-x 1 ashamim 1049089       0 2026-10-18 17:41:09.594080400 +0530 .
+drwxr-xr-x 1 ashamim 1049089       0 2026-10-18 17:39:01.848123300 +0530 ..
+-rw-r--r-- 1 ashamim 1049089 1181742 2026-10-18 17:39:05.832444300 +0530 f_0.30.png
+-rw-r--r-- 1 ashamim 1049089 1199044 2026-10-18 17:39:07.862356700 +0530 f_1.00.png
+-rw-r--r-- 1 ashamim 1049089 1218925 2026-10-18 17:39:10.201651700 +0530 f_1.45.png
+-rw-r--r-- 1 ashamim 1049089 1795467 2026-10-18 17:39:14.302452600 +0530 f_1.55.png
+-rw-r--r-- 1 ashamim 1049089 1505302 2026-10-18 17:39:25.420692600 +0530 f_12.00.png
+-rw-r--r-- 1 ashamim 1049089 1392199 2026-10-18 17:39:27.650581900 +0530 f_17.50.png
+-rw-r--r-- 1 ashamim 1049089 1301005 2026-10-18 17:39:31.822020700 +0530 f_21.00.png
+-rw-r--r-- 1 ashamim 1049089 1736998 2026-10-18 17:39:33.662968700 +0530 f_23.40.png
+-rw-r--r-- 1 ashamim 1049089 1787436 2026-10-18 17:39:35.798510200 +0530 f_26.50.png
+-rw-r--r-- 1 ashamim 1049089 1342112 2026-10-18 17:39:40.213125700 +0530 f_30.50.png
+-rw-r--r-- 1 ashamim 1049089 1681771 2026-10-18 17:39:42.251162300 +0530 f_34.00.png
+-rw-r--r-- 1 ashamim 1049089 1309366 2026-10-18 17:39:44.127765300 +0530 f_37.70.png
+-rw-r--r-- 1 ashamim 1049089 1412905 2026-10-18 17:39:48.174379400 +0530 f_39.00.png
+-rw-r--r-- 1 ashamim 1049089 1833130 2026-10-18 17:39:16.576456300 +0530 f_4.00.png
+-rw-r--r-- 1 ashamim 1049089 1415735 2026-10-18 17:39:50.535943100 +0530 f_41.00.png
+-rw-r--r-- 1 ashamim 1049089 1395141 2026-10-18 17:39:52.832526300 +0530 f_43.00.png
+-rw-r--r-- 1 ashamim 1049089 1120141 2026-10-18 17:39:56.936034500 +0530 f_44.90.png
+-rw-r--r-- 1 ashamim 1049089 1178783 2026-10-18 17:39:58.826391600 +0530 f_45.80.png
+-rw-r--r-- 1 ashamim 1049089 1196401 2026-10-18 17:40:00.843824400 +0530 f_46.40.png
+-rw-r--r-- 1 ashamim 1049089 1206196 2026-10-18 17:40:05.080553700 +0530 f_47.50.png
+-rw-r--r-- 1 ashamim 1049089 1229620 2026-10-18 17:40:07.370655800 +0530 f_48.25.png
+-rw-r--r-- 1 ashamim 1049089 1815213 2026-10-18 17:39:19.208999800 +0530 f_7.70.png
+-rw-r--r-- 1 ashamim 1049089 1446708 2026-10-18 17:39:23.363006000 +0530 f_7.95.png
+-rw-r--r-- 1 ashamim 1049089 1535605 2026-10-18 17:40:54.603990800 +0530 sc22_bottom.png
+-rw-r--r-- 1 ashamim 1049089 4273627 2026-10-18 17:40:25.308972600 +0530 sheet.png
+-rw-r--r-- 1 ashamim 1049089  579792 2026-10-18 17:41:09.762837900 +0530 text_zoom.png
+1
+00:00:00,000 --> 00:00:02,117
+ये जादुई कड़ाही है,
+
+2
+00:00:02,117 --> 00:00:03,526
+बेटा।
+
+3
+00:00:03,526 --> 00:00:05,276
+इसमें जो डालोगे,
+
+4
+00:00:05,276 --> 00:00:07,600
+दुगना हो जाएगा।
+
+5
+00:00:07,900 --> 00:00:09,213
+उस शाम छोटू
+
+6
+00:00:09,213 --> 00:00:10,639
+ने कड़ाही में
+
+7
+00:00:10,639 --> 00:00:12,301
+एक मुट्ठी आटा डाला...
+
+8
+00:00:12,301 --> 00:00:14,380
+और आटा दो
+
+9
+00:00:14,380 --> 00:00:15,880
+मुट्ठी हो गया!
+
+10
+00:00:16,180 --> 00:00:17,320
+अरे वाह!
+
+11
+00:00:17,320 --> 00:00:18,259
+ये तो सच
+
+12
+00:00:18,259 --> 00:00:19,020
+में जादू है!
+
+13
+00:00:19,320 --> 00:00:20,396
+पर ये बात
+
+14
+00:00:20,396 --> 00:00:21,825
+घसीटा की नज़रों
+
+15
+00:00:21,825 --> 00:00:23,210
+से छुपी नहीं रही।
+
+16
+00:00:23,510 --> 00:00:25,343
+आटा? हुँह!
+
+17
+00:00:25,343 --> 00:00:26,158
+उस कड़ाही में
+
+18
+00:00:26,158 --> 00:00:27,666
+तो सोना होना चाहिए...
+
+19
+00:00:27,666 --> 00:00:28,950
+मेरा सोना!
+
+20
+00:00:29,250 --> 00:00:30,074
+उसी रात,
+
+21
+00:00:30,074 --> 00:00:31,618
+जब छोटू सो
+
+22
+00:00:31,618 --> 00:00:32,892
+रहा था,
+
+23
+00:00:32,892 --> 00:00:34,802
+घसीटा दबे पाँव
+
+24
+00:00:34,802 --> 00:00:36,685
+आया और कड़ाही
+
+25
+00:00:36,685 --> 00:00:37,630
+चुरा ले गया।
+
+26
+00:00:37,780 --> 00:00:39,525
+दुकान में दीया
+
+27
+00:00:39,525 --> 00:00:41,481
+जलाकर उसने कड़ाही
+
+28
+00:00:41,481 --> 00:00:43,363
+में एक सोने
+
+29
+00:00:43,363 --> 00:00:44,670
+का सिक्का डाला...
+
+30
+00:00:44,970 --> 00:00:45,552
+चल,
+
+31
+00:00:45,552 --> 00:00:46,310
+दुगना कर!
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import json;d=json.load(open('lines.json',encoding='utf-8'));print(json.dumps(d,ensure_ascii=False)[:3000])
+                                                                 ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ashamim\AppData\Local\Programs\Python\Python314\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode characters in position 44-45: character maps to <undefined>
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:15:13Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Scenes, ASS dialogue, lines
+
+`cd "D:/Story-Channel/channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai"; cat output/short_01_jadui-kadhai_work/scenes.txt; for f in fe7a97e4c19bea9a 34e3fb4d52680162 8af30ffbc0474796 db2b0cccf9985fe5; do grep Dialogue output/short_01_jadui-kadhai_work/scene_*_$f.ass; done; grep Dialogue output/short_01_jadui-kadhai_work/scene_21_*.ass; PYTHONIOENCODING=utf-8 python -c "import json;d=json.load(open('lines.json',encoding='utf-8'));print(json.dumps(d,ensure_ascii=False,indent=0)[:4000])"; ls output/short_01_jadui-kadhai_work/words`
+
+```text
+file 'D:/Story-Channel/cache/dadi-ki-kahaniyan/001_lalchi-halwai/short_01_jadui-kadhai/scene_16_fe7a97e4c19bea9a.mp4'
+file 'D:/Story-Channel/cache/dadi-ki-kahaniyan/001_lalchi-halwai/short_01_jadui-kadhai/scene_17_34e3fb4d52680162.mp4'
+file 'D:/Story-Channel/cache/dadi-ki-kahaniyan/001_lalchi-halwai/short_01_jadui-kadhai/scene_20_8af30ffbc0474796.mp4'
+file 'D:/Story-Channel/cache/dadi-ki-kahaniyan/001_lalchi-halwai/short_01_jadui-kadhai/scene_21_38f2748b684bbc35.mp4'
+file 'D:/Story-Channel/cache/dadi-ki-kahaniyan/001_lalchi-halwai/short_01_jadui-kadhai/scene_22_db2b0cccf9985fe5.mp4'Dialogue: 0,0:00:00.00,0:00:02.12,Cap,,0,0,0,,ये जादुई कड़ाही है,
+Dialogue: 0,0:00:02.12,0:00:03.53,Cap,,0,0,0,,बेटा।
+Dialogue: 0,0:00:03.53,0:00:05.28,Cap,,0,0,0,,इसमें जो डालोगे,
+Dialogue: 0,0:00:05.28,0:00:07.60,Cap,,0,0,0,,दुगना हो जाएगा।
+Dialogue: 0,0:00:00.10,0:00:01.41,Cap,,0,0,0,,उस शाम छोटू
+Dialogue: 0,0:00:01.41,0:00:02.84,Cap,,0,0,0,,ने कड़ाही में
+Dialogue: 0,0:00:02.84,0:00:04.50,Cap,,0,0,0,,एक मुट्ठी आटा डाला...
+Dialogue: 0,0:00:04.50,0:00:06.58,Cap,,0,0,0,,और आटा दो
+Dialogue: 0,0:00:06.58,0:00:08.08,Cap,,0,0,0,,मुट्ठी हो गया!
+Dialogue: 0,0:00:08.38,0:00:09.52,Cap,,0,0,0,,अरे वाह!
+Dialogue: 0,0:00:09.52,0:00:10.46,Cap,,0,0,0,,ये तो सच
+Dialogue: 0,0:00:10.46,0:00:11.22,Cap,,0,0,0,,में जादू है!
+Dialogue: 0,0:00:00.09,0:00:01.16,Cap,,0,0,0,,पर ये बात
+Dialogue: 0,0:00:01.16,0:00:02.59,Cap,,0,0,0,,घसीटा की नज़रों
+Dialogue: 0,0:00:02.59,0:00:03.98,Cap,,0,0,0,,से छुपी नहीं रही।
+Dialogue: 0,0:00:04.28,0:00:06.11,Cap,,0,0,0,,आटा? हुँह!
+Dialogue: 0,0:00:06.11,0:00:06.92,Cap,,0,0,0,,उस कड़ाही में
+Dialogue: 0,0:00:06.92,0:00:08.43,Cap,,0,0,0,,तो सोना होना चाहिए...
+Dialogue: 0,0:00:08.43,0:00:09.72,Cap,,0,0,0,,मेरा सोना!
+Dialogue: 0,0:00:00.11,0:00:01.86,Cap,,0,0,0,,दुकान में दीया
+Dialogue: 0,0:00:01.86,0:00:03.81,Cap,,0,0,0,,जलाकर उसने कड़ाही
+Dialogue: 0,0:00:03.81,0:00:05.70,Cap,,0,0,0,,में एक सोने
+Dialogue: 0,0:00:05.70,0:00:07.00,Cap,,0,0,0,,का सिक्का डाला...
+Dialogue: 0,0:00:07.30,0:00:07.89,Cap,,0,0,0,,चल,
+Dialogue: 0,0:00:07.89,0:00:08.64,Cap,,0,0,0,,दुगना कर!
+Dialogue: 1,0:00:08.63,0:00:10.63,Title,,0,0,0,,{\fad(300,0)}पूरी कहानी चैनल पर
+output/short_01_jadui-kadhai_work/scene_21_270175636ee6ec2c.ass:Dialogue: 0,0:00:00.12,0:00:01.08,Cap,,0,0,0,,उसी रात,
+output/short_01_jadui-kadhai_work/scene_21_270175636ee6ec2c.ass:Dialogue: 0,0:00:01.08,0:00:02.79,Cap,,0,0,0,,जब छोटू सो
+output/short_01_jadui-kadhai_work/scene_21_270175636ee6ec2c.ass:Dialogue: 0,0:00:02.79,0:00:03.47,Cap,,0,0,0,,रहा था,
+output/short_01_jadui-kadhai_work/scene_21_270175636ee6ec2c.ass:Dialogue: 0,0:00:03.47,0:00:06.09,Cap,,0,0,0,,घसीटा दबे पाँव
+output/short_01_jadui-kadhai_work/scene_21_270175636ee6ec2c.ass:Dialogue: 0,0:00:06.09,0:00:08.07,Cap,,0,0,0,,आया और कड़ाही
+output/short_01_jadui-kadhai_work/scene_21_270175636ee6ec2c.ass:Dialogue: 0,0:00:08.07,0:00:09.18,Cap,,0,0,0,,चुरा ले गया।
+output/short_01_jadui-kadhai_work/scene_21_38f2748b684bbc35.ass:Dialogue: 0,0:00:00.08,0:00:00.91,Cap,,0,0,0,,उसी रात,
+output/short_01_jadui-kadhai_work/scene_21_38f2748b684bbc35.ass:Dialogue: 0,0:00:00.91,0:00:02.45,Cap,,0,0,0,,जब छोटू सो
+output/short_01_jadui-kadhai_work/scene_21_38f2748b684bbc35.ass:Dialogue: 0,0:00:02.45,0:00:03.73,Cap,,0,0,0,,रहा था,
+output/short_01_jadui-kadhai_work/scene_21_38f2748b684bbc35.ass:Dialogue: 0,0:00:03.73,0:00:05.64,Cap,,0,0,0,,घसीटा दबे पाँव
+output/short_01_jadui-kadhai_work/scene_21_38f2748b684bbc35.ass:Dialogue: 0,0:00:05.64,0:00:07.52,Cap,,0,0,0,,आया और कड़ाही
+output/short_01_jadui-kadhai_work/scene_21_38f2748b684bbc35.ass:Dialogue: 0,0:00:07.52,0:00:08.46,Cap,,0,0,0,,चुरा ले गया।
+output/short_01_jadui-kadhai_work/scene_21_7ba1c76520ee9d70.ass:Dialogue: 0,0:00:00.08,0:00:01.07,Cap,,0,0,0,,उसी रात,
+output/short_01_jadui-kadhai_work/scene_21_7ba1c76520ee9d70.ass:Dialogue: 0,0:00:01.07,0:00:02.42,Cap,,0,0,0,,जब छोटू सो
+output/short_01_jadui-kadhai_work/scene_21_7ba1c76520ee9d70.ass:Dialogue: 0,0:00:02.42,0:00:03.29,Cap,,0,0,0,,रहा था,
+output/short_01_jadui-kadhai_work/scene_21_7ba1c76520ee9d70.ass:Dialogue: 0,0:00:03.29,0:00:05.14,Cap,,0,0,0,,घसीटा दबे पाँव
+output/short_01_jadui-kadhai_work/scene_21_7ba1c76520ee9d70.ass:Dialogue: 0,0:00:05.14,0:00:06.86,Cap,,0,0,0,,आया और कड़ाही
+output/short_01_jadui-kadhai_work/scene_21_7ba1c76520ee9d70.ass:Dialogue: 0,0:00:06.86,0:00:08.46,Cap,,0,0,0,,चुरा ले गया।
+[
+{
+"scene": 16,
+"speaker": "sadhu",
+"text": "ये जादुई कड़ाही है, बेटा। इसमें जो डालोगे, दुगना हो जाएगा।",
+"mood": "jaadu",
+"shots": [
+[
+[
+0.5,
+0.72,
+1.95,
+0.48
+],
+1.5
+],
+[
+[
+0.5,
+0.42,
+1.25,
+0.72
+],
+null
+]
+]
+},
+{
+"scene": 17,
+"speaker": "dadi_story",
+"text": "उस शाम छोटू ने कड़ाही में एक मुट्ठी आटा डाला... और आटा दो मुट्ठी हो गया!",
+"sfx_after": "magic",
+"shot": [
+0.5,
+0.55,
+1.15,
+0.6
+]
+},
+{
+"scene": 17,
+"speaker": "chhotu",
+"text": "अरे वाह! ये तो सच में जादू है!",
+"shot": [
+0.5,
+0.42,
+1.3,
+0.36
+]
+},
+{
+"scene": 20,
+"speaker": "dadi_story",
+"text": "पर ये बात घसीटा की नज़रों से छुपी नहीं रही।",
+"mood": "tension",
+"shot": [
+0.5,
+0.5,
+1.2,
+0.25
+]
+},
+{
+"scene": 20,
+"speaker": "ghasita",
+"text": "आटा? हुँह! उस कड़ाही में तो सोना होना चाहिए... मेरा सोना!",
+"shot": [
+0.5,
+0.42,
+1.2,
+0.73
+]
+},
+{
+"scene": 21,
+"speaker": "dadi_story",
+"text": "उसी रात, जब छोटू सो रहा था, घसीटा दबे पाँव आया और कड़ाही चुरा ले गया।",
+"shots": [
+[
+[
+0.5,
+0.72,
+1.3,
+0.22
+],
+3.0
+],
+[
+[
+0.5,
+0.45,
+1.15,
+0.72
+],
+null
+]
+]
+},
+{
+"scene": 22,
+"speaker": "dadi_story",
+"text": "दुकान में दीया जलाकर उसने कड़ाही में एक सोने का सिक्का डाला...",
+"shot": [
+0.5,
+0.42,
+1.85,
+0.53
+]
+},
+{
+"scene": 22,
+"speaker": "ghasita",
+"text": "चल, दुगना कर!",
+"shot": [
+0.5,
+0.36,
+2.0,
+0.55
+]
+}
+]
+words_000ba4a85dfc3e33.json
+words_15c04b57878e2380.json
+words_7cf52931b1190db9.json
+words_81aac0b892bd29d8.json
+words_835cb7f7fbbd1472.json
+words_a10a638fc30af31b.json
+words_b25728f28d1df8e8.json
+words_e20d755534bf5272.json
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:15:24Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Scene durations, characters count
+
+`cd D:/Story-Channel/cache/dadi-ki-kahaniyan/001_lalchi-halwai/short_01_jadui-kadhai; for f in scene_16_fe7a97e4c19bea9a scene_17_34e3fb4d52680162 scene_20_8af30ffbc0474796 scene_21_38f2748b684bbc35 scene_22_db2b0cccf9985fe5; do ffprobe -v error -show_entries format=duration -of csv=p=0 $f.mp4; done; ffprobe -v error -show_entries format=duration -of csv=p=0 "D:/Story-Channel/channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/output/short_01_jadui-kadhai.mp4"; ls D:/Story-Channel/channels/dadi-ki-kahaniyan/characters | wc -l; cd D:/Story-Channel; git status --short channels/dadi-ki-kahaniyan/characters | head`
+
+```text
+/usr/bin/bash: line 1: ffprobe: command not found
+/usr/bin/bash: line 1: ffprobe: command not found
+/usr/bin/bash: line 1: ffprobe: command not found
+/usr/bin/bash: line 1: ffprobe: command not found
+/usr/bin/bash: line 1: ffprobe: command not found
+/usr/bin/bash: line 1: ffprobe: command not found
+6
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:17:30Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Find ffprobe, scene durations, count character files
+
+`cd D:/Story-Channel; FP=$(ls .venv/Scripts/ffprobe* tools/ffmpeg*/bin/ffprobe* 2>/dev/null | head -1); [ -z "$FP" ] && FP=$(find / -maxdepth 6 -iname ffprobe.exe 2>/dev/null | head -1); echo $FP; C=cache/dadi-ki-kahaniyan/001_lalchi-halwai/short_01_jadui-kadhai; for f in $C/scene_16_fe7a97e4c19bea9a $C/scene_17_34e3fb4d52680162 $C/scene_20_8af30ffbc0474796 $C/scene_21_38f2748b684bbc35 $C/scene_22_db2b0cccf9985fe5; do "$FP" -v error -show_entries format=duration -of csv=p=0 $f.mp4; done; "$FP" -v error -show_entries format=duration -of csv=p=0 channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/output/short_01_jadui-kadhai.mp4; find channels/dadi-ki-kahaniyan/characters -type f | wc -l`
+
+```text
+Command did not complete within its 120s timeout and was moved to the background (ID: blr2yot52). Output is being written to: C:\Users\ashamim\AppData\Local\Temp\claude\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7\tasks\blr2yot52.output. If it exits while you are still working you will be notified, but it is terminated when you give your final response and no notification can follow that — so do not end your turn to wait for it; if you need its result, wait for it before giving your final response. To check interim output, use Read on that file path.
+Session cwd remains D:\Story-Channel; directory changes made by the backgrounded command do not apply to subsequent commands.
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:17:34Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Find how make_short locates ffprobe
+
+`cd D:/Story-Channel; grep -n "ffprobe\|FFPROBE\|ffmpeg_exe\|imageio" scripts/make_short.py | head -5; find channels/dadi-ki-kahaniyan/characters -type f | wc -l`
+
+```text
+25
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:17:38Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Locate ffmpeg path
+
+`cd D:/Story-Channel; grep -rn "ffmpeg" scripts/make_short.py | head -5; where ffmpeg 2>/dev/null; ls "C:/ffmpeg/bin" 2>/dev/null`
+
+```text
+Exit code 2
+37:FFMPEG = ROOT / "tools" / "ffmpeg" / "ffmpeg.exe"
+38:if not FFMPEG.exists():  # new system: ffmpeg from winget on PATH (tools/ffmpeg is not in git)
+39:    FFMPEG = Path(shutil.which("ffmpeg") or FFMPEG)
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:17:42Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Find ffprobe via PowerShell PATH
+
+`powershell -NoProfile -Command "(Get-Command ffprobe -ErrorAction SilentlyContinue).Source; (Get-Command ffmpeg -ErrorAction SilentlyContinue).Source"`
+
+```text
+(Bash completed with no output)
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:17:52Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Read mp4 durations from mvhd
+
+```bash
+cd D:/Story-Channel; cat > "C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad/dur.py" <<'EOF'
+import struct,sys
+def dur(p):
+    d=open(p,'rb').read()
+    i=d.find(b'mvhd'); v=d[i+4]
+    if v==1: ts,du=struct.unpack('>IQ',d[i+24:i+36])
+    else: ts,du=struct.unpack('>II',d[i+16:i+24])
+    return du/ts
+for p in sys.argv[1:]: print(round(dur(p),3),p[-40:])
+EOF
+C=cache/dadi-ki-kahaniyan/001_lalchi-halwai/short_01_jadui-kadhai; python -I "C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad/dur.py" $C/scene_16_fe7a97e4c19bea9a.mp4 $C/scene_17_34e3fb4d52680162.mp4 $C/scene_20_8af30ffbc0474796.mp4 $C/scene_21_38f2748b684bbc35.mp4 $C/scene_22_db2b0cccf9985fe5.mp4 channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/output/short_01_jadui-kadhai.mp4
+```
+
+```text
+7.8 dui-kadhai/scene_16_fe7a97e4c19bea9a.mp4
+11.434 dui-kadhai/scene_17_34e3fb4d52680162.mp4
+9.934 dui-kadhai/scene_20_8af30ffbc0474796.mp4
+8.5 dui-kadhai/scene_21_38f2748b684bbc35.mp4
+10.634 dui-kadhai/scene_22_db2b0cccf9985fe5.mp4
+48.3 -kadhai/output/short_01_jadui-kadhai.mp4
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:18:01Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Append R2 verdict to log
+
+`cd D:/Story-Channel; echo "2026-10-18 | short_01_jadui-kadhai | 7 final build R2 (~10 min) | PASS | M1 fixed: output/short_01_jadui-kadhai.srt UTF-8 Hindi, 31 cues, text = 8 lines.json lines; cue times = final ASS (scene_16_fe7a/17_34e3/20_8af3/21_38f2/22_db2b per scenes.txt) + scene offsets 0/7.80/19.234/29.168/37.668 within 0.01s; cues inside own line + 0-46.31s < 48.3s; final mp4 unchanged (13856285 B, mtime 17:36:09 before R1, 48.30s); characters/ = 25 files -> 188+25=213 ok" >> channels/dadi-ki-kahaniyan/log.md; tail -1 channels/dadi-ki-kahaniyan/log.md | cut -c1-80`
+
+```text
+2026-10-18 | short_01_jadui-kadhai | 7 final build R2 (~10 min) | PASS | M1 fixe
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:18:13Z)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="SubagentHandback"><details>
+<summary>Tool use: **SubagentHandback**</summary>
+
+```text
+{"success":true,"message":"Report delivered to your caller."}
+```
+</details></tool-use>

@@ -35,5 +35,6 @@
   "publish_at": "2026-10-20T21:00:00+05:30",
   "related_video": "https://youtu.be/Ogfqow8rbGY",
   "speed": 1.08,
-  "gap": 0.15
+  "gap": 0.15,
+  "gap_speaker_change": 0.3
 }
