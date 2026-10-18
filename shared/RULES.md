@@ -56,6 +56,7 @@ These are the hard rules. If a builder summary, a script or a file disagrees wit
 - At most one long video per day per channel. If a long video is already scheduled that day, use 19:00 the next day. A Short may share a day with a long video only if their publish times are at least 2 hours apart, still inside 19:00-23:59.
 - Nothing goes Public or gets scheduled without the user's OK in that conversation.
 - One upload per video. If `output/upload_result.json` exists, do not upload again.
+- Short -> Long link (MANDATORY): every Short made from a long video must (a) have the long video's URL in its description with a short CTA line, (b) get an automatic first comment "पूरी कहानी यहाँ देखें 👉 <long URL>" posted right after it becomes public, and (c) the user sets in Studio: Related video = the long video, and pins that comment. The YouTube API cannot set Related video or pin comments, so (c) stays manual; Munshi shows this checklist after every Short upload and asks about it at the start of the next session until the user confirms.
 
 ## 9. Safety
 - Never show or commit `.env`, `secrets/`, API keys or OAuth tokens.

@@ -24,12 +24,13 @@ Command: `.\.venv\Scripts\python -X utf8 scripts\make_short.py <video folder> [-
 - User ke kai badlav ek saath aayein to sab ek hi build me lagao, har badlav par alag build mat chalao.
 - Image/TTS par paisa lagne se pehle cost batao aur user se poocho. Paisa sirf cache miss par lage; make_short bina `--spend` ke paid TTS se pehle ruk kar estimate dikhata hai.
 - Build ke baad hamesha batao: preview ya final, scenes cached/naye, build time, aur kharcha.
-- Yaad rakhna: Shorts ka music agle build me 3-4 dB dheema karna hai (stem method se 12-14 LU target).
+- Shorts ka music ab 3.5 dB dheema hai (`MUSIC_BELOW_VOICE_DB["short"] = 12.5`, stem method se 12-14 LU target); Case 01 ke agle rebuild par bhi lagega.
 
 ## Munshi (review + publish)
 - Har production step ke baad `munshi` subagent ko bulao aur uska verdict mujhe dikhao. FIX ho to free fix karo aur dobara review karwao; ASK ho to mujhse poochho.
 - Upload sirf `munshi` karega, `youtube-publish` skill ke hisaab se, meri "ha" ke baad.
 - Naye niyam: sab channels ke liye `shared/RULES.md`, sirf ek channel ke liye `channels/<key>/RULES.md` (channel ke niyam sakht ho sakte hain, dheele kabhi nahi).
+- **Short -> Long checklist:** session shuru hote hi `channels/<key>/log.md` me `related_video: pending` ya `pin_comment: pending` dikhe to user ko yaad dilao (Studio: Related video = long video, first comment pin). User "ho gaya" bole to us line me `related_video: done, pin_comment: done` (aur date) likho.
 - Munshi ka log aur carry-over: `channels/<key>/log.md`, `channels/<key>/carry_over.md`.
 
 ## GitHub sync

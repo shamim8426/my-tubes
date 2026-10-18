@@ -35,6 +35,7 @@ Quota: default 10,000 units/day; one upload costs about 1,600, thumbnail 50, cap
 4. Write `output/upload.json`:
    - channel_key, channel_name, channel_id (from `channels/<key>/channel.json`)
    - format: "long" or "short"
+   - Short: parent_video_id = the long video's id if the Short is cut from a long video (null for a stand-alone Short). The script then puts "पूरी कहानी यहाँ देखें 👉 <long URL>" at the top of the description and, after upload, schedules the first comment (task StoryChannel-Comment-<video_id>, publish_at + 5 min, tools/post_comment.py) and writes "related_video: pending, pin_comment: pending" to channels/<key>/log.md.
    - title, description, tags (from the approved metadata file)
    - video: final mp4 (never *_preview*)
    - thumbnail, captions (.srt), language "hi", captions_name "Hindi"
@@ -46,4 +47,5 @@ Quota: default 10,000 units/day; one upload costs about 1,600, thumbnail 50, cap
 6. Show the user: title, publish time IST, made-for-kids, playlist, thumbnail file. Wait for ha/ok.
 7. Run without --dry-run. If thumbnail/captions/playlist failed, fix the cause and run with `--extras-only`.
 8. Report: video URL, studio URL, what succeeded, and what still needs a click in Studio (schedule if locked private, pinned comment, end screen). Pinning a comment is not possible through the API.
+8b. Short with a parent: show the user the manual checklist (Studio: Related video = long video; pin the first comment once it is posted) — RULES section 8.
 9. Append a PUBLISHED line to `channels/<key>/log.md` and update the story's `story.md` status.

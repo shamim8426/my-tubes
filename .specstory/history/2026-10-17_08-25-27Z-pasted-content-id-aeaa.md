@@ -39366,3 +39366,1114 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 12:18:13Z)**_
 {"success":true,"message":"Report delivered to your caller."}
 ```
 </details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 12:18:43Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Update story status and sync
+
+`sed -i 's/preview 47.4 s (speed 1.08, gap 0.15), Munshi PASS; final not built yet;/final 1080x1920, 48.3 s (speed 1.08, gaps 0.15\/0.3), Munshi PASS (build, metadata, copyright); not uploaded yet;/' channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/story.md && grep -n "Shorts |" channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/story.md | cut -c1-160 && powershell -NoProfile -ExecutionPolicy Bypass -File tools/sync.ps1 -Message "long_01 short_01: final built + munshi PASS; build guard for paid source files" >/dev/null 2>&1; tail -1 shared/sync.log`
+
+```text
+17:| Shorts | `shorts/short_01_jadui-kadhai/` — final 1080x1920, 48.3 s (speed 1.08, gaps 0.15/0.3), Munshi PASS (build, metadata, copyright); not uploaded ye
+2026-10-18 17:48:42  pushed: long_01 short_01: final built + munshi PASS; build guard for paid source files  (repo pack size 179 MB)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 12:19:01Z)**_
+
+Short ka final ban gaya aur Munshi ne final build, metadata aur copyright teeno ko **PASS** kar diya. Story ki koi paid file nahi badli, aur kharcha ₹0 raha. Upload aapke "upload karo" ka intezaar kar raha hai.
+
+## 1. Paid files ki jaanch
+Short ka kaam shuru hone se pehle wale commit `464dad0` se story ke images/, audio/ aur characters/ ki tulna ki, aur Munshi ne bhi alag se hash milaye:
+- **Purani 188 files me se ek bhi nahi badli.** `line_04_dadi_story.wav` ka hash `464dad0` se exact milta hai, yaani wo wapas aa chuki hai ✅
+- **7 nayi files mili:** `line_01_sadhu.wav` … `line_08_ghasita.wav`. Ye Short ki beech wali files thi, jo fix se pehle wale build ne story ke `audio/` me likh di thi. Purani kisi file ko inhone overwrite nahi kiya. Ab ye `_to_delete/short01_stray_line_wavs/` me hain.
+
+## 2. Suraksha niyam
+- **RULES:** `shared/RULES.md` ke section 9 (Safety) me aapki line jod di.
+- **Builder me teen suraksha:**
+  - **Guard:** story ya channel ke images/, audio/ aur characters/ me likhne ki koshish hote hi build ruk jaata hai, "STOP (BLOCKER)" ke saath. Chhoot sirf nayi TTS file banane ki hai, wo bhi `--spend` ke saath aur kabhi overwrite nahi. Test kiya: purani paid file par likhne ki koshish par build ruka.
+  - **Build ke shuru aur ant me snapshot:** kuch badla toh BLOCKER. Final build ke ant me 213 files check hui: story ki 188 aur channel characters ki 25.
+  - **Whisper ki word-timings** ab video ke `_work/` folder me jaati hain, `tts_cache` me nahi.
+
+## 3. Pacing
+- Bolne wala wahi rahe toh lines ke beech **0.15 sec**, badle toh **0.3 sec**. Is Short me sirf lines 6→7 me bolne wala wahi hai (Dadi).
+- Naya preview **48.3 sec** ka bana. Munshi R2 **PASS**: lines ke beech ab 0.36–0.43 sec ki chuppi hai, jo pehle 0.20–0.28 thi.
+
+## 4. Final: `.../shorts/short_01_jadui-kadhai/output/short_01_jadui-kadhai.mp4`
+- 1080×1920, 30 fps, **48.3 sec**, 5 scenes naye, build time 190 sec, ₹0.
+- Saari 8 lines ke captions ki timing **Whisper** se aayi, koi bhi andaze wali nahi.
+- -13.9 LUFS, true peak -1.3, music voice se 13.4 LU neeche.
+
+**Munshi ka review:**
+| Stage | Verdict |
+|---|---|
+| 7. Final build | R1 **FIX**: Short ki alag `.srt` file nahi thi. Wo bina video dobara banaye usi Whisper timing se bana di (31 cues), aur builder ab har video ki `.srt` likhega. R2 me **PASS**. |
+| 9. Metadata | **PASS**: title 63 chars, 4 hashtags, 12 tags, koi kids wording nahi, koi spoiler nahi, dono CC BY credits register se exact. |
+| Copyright | **PASS**: saare assets register me hain, mix me bahar ki koi awaaz nahi. |
+| 8. Thumbnail | Lagu nahi: Shorts ka thumbnail YouTube khud chunta hai, aur pehla frame chamakti kadhai wala hook hai. |
+
+**Sync:** `pushed: long_01 short_01: final built + munshi PASS; build guard for paid source files`
+
+## Upload se pehle aapke faisle
+1. **Samay:** publish_at 20 Oct 21:00 IST rakha hai, jo Long 01 se 2 ghante baad hai. Par RULES kehta hai ki video upload ke din hi publish ho. Aaj upload karke 20 Oct ko publish karna advance schedule hai, iske liye aapki "ha" chahiye. Doosra raasta: 20 Oct ko hi upload karein.
+2. **Upload:** aap "upload karo" bolein. Munshi pehle dry-run dikhayega, aapki "ha" ke baad asli upload karega.
+
+**Upload ke baad Studio me karna hai:**
+- Short ka **"Related video"** Long 01 (https://youtu.be/Ogfqow8rbGY) set karna.
+- Long 01 aur is Short dono ka schedule confirm karna, kyunki API audit se pehle YouTube video ko "Private" me lock kar sakta hai.
+
+---
+
+_**User (2026-10-18 12:31:10Z)**_
+
+
+
+<pasted_content id="aeaa">
+Short upload ke saath ye MANDATORY karo. Koi paid call nahi.
+
+1. shared/RULES.md section 8 me jodo:
+"- Short -> Long link (MANDATORY): every Short made from a long video must (a) have the long video's URL in its description with a short CTA line, (b) get an automatic first comment "पूरी कहानी यहाँ देखें 👉 <long URL>" posted right after it becomes public, and (c) the user sets in Studio: Related video = the long video, and pins that comment. The YouTube API cannot set Related video or pin comments, so (c) stays manual; Munshi shows this checklist after every Short upload and asks about it at the start of the next session until the user confirms."
+
+2. tools/youtube_upload.py: format "short" aur parent_video_id ho to description me long ka link + CTA line jodo (dry-run me dikhe). Upload ke baad ek Windows scheduled task banao (naam: StoryChannel-Comment-<video_id>) jo publish_at + 5 min par tools/post_comment.py chalaye.
+
+3. tools/post_comment.py banao: commentThreads.insert se comment daale (channel ka token, channel_id check ke saath). Video abhi public nahi ho to 15 min baad dobara koshish (max 6 baar), phir log me ERROR. Safal ho to upload_result.json me comment_id likho aur apna scheduled task hata de. shared/sync.log me ek line likho.
+
+4. Pending checklist: channel log.md me har Short ke liye "related_video: pending, pin_comment: pending". CLAUDE.md me: session shuru hote hi pending checklist ho to mujhe yaad dilao; main "ho gaya" bolun to done karo.
+
+5. Test bina asli comment ke: post_comment.py ka --dry-run, aur scheduled task banne/hatne ka test ek nakli video_id se.
+
+6. Phir short_01_jadui-kadhai ko isi flow se upload karo (parent = Long 01).
+
+Ant me sync.
+</pasted_content id="aeaa">
+
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-18 12:31:48Z)**_
+
+Bada kaam hai, kram se kar raha hoon. Pehle RULES ki line:
+
+_**Agent (claude-opus-5-5 2026-10-18 12:32:11Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\shared\RULES.md has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 12:32:12Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Write"><details>
+<summary>Tool use: **Write**</summary>
+
+```python
+#!/usr/bin/env python3
+"""Post the Short -> Long first comment once the Short is public (RULES section 8, Short -> Long link).
+
+Usage:
+    python tools/post_comment.py --job <short video folder>/output/upload.json --dry-run
+    python tools/post_comment.py --job <short video folder>/output/upload.json      (run by the scheduled task)
+
+Runs from the Windows scheduled task StoryChannel-Comment-<video_id> that youtube_upload.py creates for
+publish_at + 5 min. Checks the logged-in channel, waits while the video is not public yet (15 min, max 6 tries),
+posts "पूरी कहानी यहाँ देखें 👉 <long URL>", writes comment_id to upload_result.json, logs to shared/sync.log and
+removes its own scheduled task. Never prints tokens.
+"""
+import argparse
+import datetime as dt
+import json
+import subprocess
+import sys
+import time
+from pathlib import Path
+
+try:
+    sys.stdout.reconfigure(encoding="utf-8")
+    sys.stderr.reconfigure(encoding="utf-8")
+except Exception:
+    pass
+
+ROOT = Path(__file__).resolve().parent.parent
+SYNC_LOG = ROOT / "shared" / "sync.log"
+CTA = "पूरी कहानी यहाँ देखें 👉 https://youtu.be/{id}"
+TASK_PREFIX = "StoryChannel-Comment-"
+
+
+def comment_text(parent_id: str) -> str:
+    return CTA.format(id=parent_id)
+
+
+def log(msg: str):
+    line = f"{dt.datetime.now():%Y-%m-%d %H:%M:%S}  {msg}"
+    SYNC_LOG.parent.mkdir(parents=True, exist_ok=True)
+    with SYNC_LOG.open("a", encoding="utf-8") as f:
+        f.write(line + "\n")
+    print(line)
+
+
+def task_name(video_id: str) -> str:
+    return TASK_PREFIX + video_id
+
+
+def _ps(cmd: str) -> subprocess.CompletedProcess:
+    return subprocess.run(["powershell", "-NoProfile", "-NonInteractive", "-Command", cmd],
+                          capture_output=True, text=True)
+
+
+def schedule_task(job_path: Path, video_id: str, when: dt.datetime) -> str:
+    """Windows scheduled task that runs this script once at `when` (timezone-aware)."""
+    name = task_name(video_id)
+    at = when.astimezone().replace(tzinfo=None)  # local wall-clock time for the task scheduler
+    args = f'-X utf8 "{Path(__file__).resolve()}" --job "{Path(job_path).resolve()}"'
+    cmd = (f"$a = New-ScheduledTaskAction -Execute '{sys.executable}' -Argument '{args}' -WorkingDirectory '{ROOT}'; "
+           f"$t = New-ScheduledTaskTrigger -Once -At ([datetime]'{at:%Y-%m-%dT%H:%M:%S}'); "
+           f"$s = New-ScheduledTaskSettingsSet -StartWhenAvailable; "
+           f"Register-ScheduledTask -TaskName '{name}' -Action $a -Trigger $t -Settings $s -Force | Out-Null")
+    r = _ps(cmd)
+    if r.returncode:
+        raise RuntimeError(f"could not create task {name}: {r.stderr.strip()[:300]}")
+    return name
+
+
+def task_exists(name: str) -> bool:
+    return _ps(f"if (Get-ScheduledTask -TaskName '{name}' -ErrorAction SilentlyContinue) {{ exit 0 }} else {{ exit 1 }}"
+               ).returncode == 0
+
+
+def remove_task(name: str):
+    _ps(f"Unregister-ScheduledTask -TaskName '{name}' -Confirm:$false -ErrorAction SilentlyContinue")
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--job", required=True, help="the Short's upload.json")
+    ap.add_argument("--dry-run", action="store_true", help="show what would happen; no network, no comment")
+    ap.add_argument("--attempts", type=int, default=6)
+    ap.add_argument("--wait-min", type=float, default=15)
+    a = ap.parse_args()
+
+    job_path = Path(a.job).resolve()
+    job = json.loads(job_path.read_text(encoding="utf-8"))
+    result_path = job_path.parent / "upload_result.json"
+    result = json.loads(result_path.read_text(encoding="utf-8")) if result_path.exists() else {}
+    vid, parent = result.get("video_id"), job.get("parent_video_id")
+    sys.path.insert(0, str(ROOT / "tools"))
+    import youtube_upload as yu  # noqa: E402
+
+    if not parent:
+        sys.exit("job has no parent_video_id: nothing to post")
+    text = comment_text(parent)
+    if a.dry_run:
+        print("DRY RUN (no network, no comment)")
+        print("Channel:   ", job.get("channel_name"), job.get("channel_id"))
+        print("Short id:  ", vid or "<not uploaded yet>")
+        print("Comment:   ", text)
+        print("Token file:", yu.token_path(job).name, "present" if yu.token_path(job).exists() else "MISSING")
+        print("Task name: ", task_name(vid or "<video_id>"))
+        print(f"Plan: check channel; if video not public, retry every {a.wait_min:g} min up to {a.attempts} times; "
+              "post; save comment_id; remove the task; log to shared/sync.log")
+        return
+
+    if not vid:
+        sys.exit("no video_id in upload_result.json")
+    if result.get("comment_id"):
+        log(f"comment: already posted on {vid} ({result['comment_id']}), nothing to do")
+        remove_task(task_name(vid))
+        return
+    if not yu.token_path(job).exists():  # never open a browser from a scheduled task
+        log(f"ERROR: comment for {vid}: no YouTube token ({yu.token_path(job).name}); log in once, then run again")
+        sys.exit(1)
+
+    yt = yu.get_service(job)
+    yu.check_channel(yt, job)
+    for attempt in range(1, a.attempts + 1):
+        items = yt.videos().list(part="status", id=vid).execute().get("items", [])
+        status = items[0]["status"]["privacyStatus"] if items else "missing"
+        if status == "public":
+            resp = yt.commentThreads().insert(part="snippet", body={"snippet": {
+                "videoId": vid, "topLevelComment": {"snippet": {"textOriginal": text}}}}).execute()
+            result["comment_id"] = resp["id"]
+            result["comment_posted_at"] = dt.datetime.now(dt.timezone.utc).isoformat()
+            result_path.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
+            log(f"comment: posted on {vid} (comment {resp['id']}) -> pin it in Studio")
+            remove_task(task_name(vid))
+            return
+        if attempt < a.attempts:
+            log(f"comment: {vid} is {status}, retry in {a.wait_min:g} min ({attempt}/{a.attempts})")
+            time.sleep(a.wait_min * 60)
+    log(f"ERROR: comment for {vid} not posted: video still {status} after {a.attempts} tries "
+        f"(set it Public/Scheduled in Studio, then run tools/post_comment.py --job {job_path.relative_to(ROOT)})")
+    sys.exit(1)
+
+
+if __name__ == "__main__":
+    main()
+
+```
+
+```text
+File created successfully at: D:\Story-Channel\tools\post_comment.py (file state is current in your context — no need to Read it back)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 12:32:12Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\tools\youtube_upload.py`
+
+```text
+80	    errs = []
+81	    key = job.get("channel_key", "")
+82	    if not key or not all(c.isalnum() or c in "-_" for c in key):
+83	        errs.append("channel_key missing/invalid (e.g. dadi-ki-kahaniyan)")
+84	    cid = job.get("channel_id", "")
+85	    if not (isinstance(cid, str) and cid.startswith("UC") and len(cid) == 24):
+86	        errs.append("channel_id missing/invalid (24 chars, starts with UC; set it in channels/<key>/channel.json)")
+87	    if key and not errs:  # the job must match the channel's own config (channels/<key>/channel.json)
+88	        cfg_file = ROOT / "channels" / key / "channel.json"
+89	        if not cfg_file.exists():
+90	            errs.append(f"no channel config: {cfg_file.relative_to(ROOT).as_posix()}")
+91	        else:
+92	            cfg = json.loads(cfg_file.read_text(encoding="utf-8"))
+93	            if cfg.get("channel_id") != cid:
+94	                errs.append(f"channel_id {cid} does not match {cfg_file.relative_to(ROOT).as_posix()} ({cfg.get('channel_id')})")
+95	            if job.get("made_for_kids") != cfg.get("made_for_kids"):
+96	                errs.append("made_for_kids differs from the channel config")
+97	    fmt = job.get("format")
+98	    if fmt not in FORMATS:
+99	        errs.append("format must be 'long' or 'short'")
+100	    title = job.get("title", "")
+101	    desc = job.get("description", "")
+102	    tags = job.get("tags", [])
+103	    if not title:
+104	        errs.append("title missing")
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 12:32:18Z)**_
+
+<think><details><summary>Thought Process</summary>
+`youtube_upload.py` me ye additions kar raha hoon: short ke description me long video ka link aur CTA (dry-run me bhi visible), upload ke baad comment ke liye scheduled task, aur channel log me pending checklist.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-18 12:32:29Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Add parent link, follow-ups and checks to uploader
+
+```bash
+.venv/Scripts/python.exe -X utf8 - <<'EOF'
+from pathlib import Path
+p = Path("tools/youtube_upload.py"); s = p.read_text(encoding="utf-8")
+pairs = [
+('''    fmt = job.get("format")
+    if fmt not in FORMATS:
+        errs.append("format must be 'long' or 'short'")''',
+'''    fmt = job.get("format")
+    if fmt not in FORMATS:
+        errs.append("format must be 'long' or 'short'")
+    if fmt == "short" and "parent_video_id" not in job:
+        errs.append("short needs parent_video_id (the long video's id; null only for a stand-alone Short)")'''),
+('''def get_service(job):''',
+'''def add_parent_link(job):
+    """Short made from a long video: put the long video's link with a CTA line at the top of the description
+    (RULES section 8, Short -> Long link). Returns the line (or None)."""
+    pid = job.get("parent_video_id")
+    if job.get("format") != "short" or not pid:
+        return None
+    from post_comment import comment_text
+    line = comment_text(pid)
+    if line not in job.get("description", ""):
+        job["description"] = line + "\\n\\n" + job.get("description", "")
+    return line
+
+
+def short_followups(job, job_path, result):
+    """After a Short upload: schedule the first comment (publish_at + 5 min) and add the manual checklist to the
+    channel log (Related video + pin comment stay manual; the API cannot do them)."""
+    from post_comment import schedule_task
+    when = (dt.datetime.fromisoformat(job["publish_at"]) if job.get("publish_at")
+            else dt.datetime.now(dt.timezone.utc)) + dt.timedelta(minutes=5)
+    try:
+        result["comment_task"] = schedule_task(job_path, result["video_id"], when)
+        result["comment_task_at"] = when.isoformat()
+    except Exception as e:
+        result["comment_task_error"] = str(e)[:300]
+    log_file = ROOT / "channels" / job["channel_key"] / "log.md"
+    with log_file.open("a", encoding="utf-8") as f:
+        f.write(f"{dt.date.today().isoformat()} | {Path(job['video']).stem} | short->long checklist | "
+                f"video {result['video_id']} -> long {job['parent_video_id']} | "
+                "related_video: pending, pin_comment: pending\\n")
+
+
+def get_service(job):'''),
+('''    errs = validate(job, job_path)
+    print("Channel:     ", job.get("channel_name") or job.get("channel_key"), job.get("channel_id"))''',
+'''    parent_line = add_parent_link(job)
+    errs = validate(job, job_path)
+    print("Channel:     ", job.get("channel_name") or job.get("channel_key"), job.get("channel_id"))'''),
+('''    print("Video check: ", job.get("_probe", "-"))''',
+'''    print("Video check: ", job.get("_probe", "-"))
+    if job.get("format") == "short":
+        print("Parent long: ", job.get("parent_video_id") or "- (stand-alone Short)")
+        if parent_line:
+            print("Desc line 1: ", parent_line)
+            print("1st comment: ", parent_line, "(scheduled task, publish_at + 5 min)")'''),
+('''    do_extras(yt, job, job_path, result["video_id"], result)
+    result_path.write_text''',
+'''    do_extras(yt, job, job_path, result["video_id"], result)
+    if parent_line and not result.get("comment_task") and not result.get("comment_id"):
+        short_followups(job, job_path, result)
+        print("Studio (manual): set Related video =", f"https://youtu.be/{job['parent_video_id']}",
+              "and pin the first comment after it is posted.")
+    result_path.write_text'''),
+]
+for a, b in pairs:
+    assert a in s, a[:70]; s = s.replace(a, b)
+p.write_text(s, encoding="utf-8"); print("ok")
+EOF
+.venv/Scripts/python.exe -m py_compile tools/youtube_upload.py tools/post_comment.py && echo compiled
+```
+
+```text
+Exit code 1
+ok
+  File "tools/youtube_upload.py", line 187
+    job["description"] = line + "
+                                ^
+SyntaxError: unterminated string literal (detected at line 187)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 12:32:33Z)**_
+
+Heredoc me `\n` asli newline ban gaya. Edit tool se theek kar raha hoon:
+
+_**Agent (claude-opus-5-5 2026-10-18 12:32:33Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\tools\youtube_upload.py`
+
+```text
+185	    line = comment_text(pid)
+186	    if line not in job.get("description", ""):
+187	        job["description"] = line + "
+188	
+189	" + job.get("description", "")
+190	    return line
+191	
+192	
+193	def short_followups(job, job_path, result):
+194	    """After a Short upload: schedule the first comment (publish_at + 5 min) and add the manual checklist to the
+195	    channel log (Related video + pin comment stay manual; the API cannot do them)."""
+196	    from post_comment import schedule_task
+197	    when = (dt.datetime.fromisoformat(job["publish_at"]) if job.get("publish_at")
+198	            else dt.datetime.now(dt.timezone.utc)) + dt.timedelta(minutes=5)
+199	    try:
+200	        result["comment_task"] = schedule_task(job_path, result["video_id"], when)
+201	        result["comment_task_at"] = when.isoformat()
+202	    except Exception as e:
+203	        result["comment_task_error"] = str(e)[:300]
+204	    log_file = ROOT / "channels" / job["channel_key"] / "log.md"
+205	    with log_file.open("a", encoding="utf-8") as f:
+206	        f.write(f"{dt.date.today().isoformat()} | {Path(job['video']).stem} | short->long checklist | "
+207	                f"video {result['video_id']} -> long {job['parent_video_id']} | "
+208	                "related_video: pending, pin_comment: pending
+209	")
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 12:32:40Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\tools\youtube_upload.py has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 12:32:41Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\tools\youtube_upload.py has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 12:32:43Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Compile both tools
+
+`.venv/Scripts/python.exe -m py_compile tools/youtube_upload.py tools/post_comment.py && echo compiled && grep -n "sys.path\|^from\|^import" tools/youtube_upload.py | head`
+
+```text
+compiled
+17:import argparse
+18:import datetime as dt
+19:import json
+20:import random
+21:import sys
+22:import time
+23:from pathlib import Path
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 12:32:47Z)**_
+
+Ab skill aur CLAUDE.md me Short → Long ka flow aur pending checklist ka niyam jod raha hoon:
+
+_**Agent (claude-opus-5-5 2026-10-18 12:32:56Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Update publish skill and CLAUDE.md
+
+```bash
+.venv/Scripts/python.exe -X utf8 - <<'PYEOF'
+from pathlib import Path
+p = Path(".claude/skills/youtube-publish/SKILL.md"); s = p.read_text(encoding="utf-8")
+a = '   - format: "long" or "short"\n'
+assert a in s
+s = s.replace(a, a + '   - Short: parent_video_id = the long video\'s id if the Short is cut from a long video (null for a stand-alone Short). The script then puts "पूरी कहानी यहाँ देखें 👉 <long URL>" at the top of the description and, after upload, schedules the first comment (task StoryChannel-Comment-<video_id>, publish_at + 5 min, tools/post_comment.py) and writes "related_video: pending, pin_comment: pending" to channels/<key>/log.md.\n')
+b = "9. Append a PUBLISHED line"
+assert b in s
+s = s.replace(b, "8b. Short with a parent: show the user the manual checklist (Studio: Related video = long video; pin the first comment once it is posted) — RULES section 8.\n" + b)
+p.write_text(s, encoding="utf-8")
+c = Path("CLAUDE.md"); t = c.read_text(encoding="utf-8")
+anchor = "- Munshi ka log aur carry-over:"
+assert anchor in t
+t = t.replace(anchor, "- **Short -> Long checklist:** session shuru hote hi `channels/<key>/log.md` me `related_video: pending` ya `pin_comment: pending` dikhe to user ko yaad dilao (Studio: Related video = long video, first comment pin). User \"ho gaya\" bole to us line me `related_video: done, pin_comment: done` (aur date) likho.\n" + anchor)
+c.write_text(t, encoding="utf-8"); print("ok")
+PYEOF
+grep -n "parent_video_id\|8b" .claude/skills/youtube-publish/SKILL.md | cut -c1-100; grep -n "checklist" CLAUDE.md | cut -c1-100
+```
+
+```text
+ok
+38:   - Short: parent_video_id = the long video's id if the Short is cut from a long video (null for
+50:8b. Short with a parent: show the user the manual checklist (Studio: Related video = long video; 
+33:- **Short -> Long checklist:** session shuru hote hi `channels/<key>/log.md` me `related_video: p
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 12:32:59Z)**_
+
+CLAUDE.md me Shorts music wala note ab poora ho chuka hai (12.5), use bhi update kar raha hoon. Phir step 5 ke test: comment ka dry-run aur nakli video_id se scheduled task.
+
+_**Agent (claude-opus-5-5 2026-10-18 12:33:08Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\CLAUDE.md has been updated successfully. (file state is current in your context — no need to Read it back)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 12:33:28Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Test comment dry-run and scheduled task lifecycle
+
+```bash
+T=_to_delete/comment_test && mkdir -p $T && .venv/Scripts/python.exe -X utf8 -c "
+import json
+j=json.load(open('channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long/output/upload.json',encoding='utf-8'))
+j.update({'format':'short','parent_video_id':'Ogfqow8rbGY','video':'D:/nowhere.mp4'})
+json.dump(j,open('$T/upload.json','w',encoding='utf-8'),ensure_ascii=False)
+json.dump({'video_id':'TESTFAKE001'},open('$T/upload_result.json','w'))
+" && echo "=== post_comment --dry-run" && .venv/Scripts/python.exe -X utf8 tools/post_comment.py --job $T/upload.json --dry-run && echo "=== task create/remove test (fake id TESTFAKE001)" && .venv/Scripts/python.exe -X utf8 -c "
+import sys, datetime as dt; sys.path.insert(0,'tools')
+import post_comment as pc
+when=dt.datetime(2030,1,1,21,5,tzinfo=dt.timezone(dt.timedelta(hours=5,minutes=30)))
+n=pc.schedule_task('$T/upload.json','TESTFAKE001',when); print('created:',n,'exists:',pc.task_exists(n))
+" && powershell -NoProfile -Command "\$t=Get-ScheduledTask StoryChannel-Comment-TESTFAKE001; 'trigger: ' + \$t.Triggers[0].StartBoundary; 'action:  ' + \$t.Actions[0].Execute + ' ' + \$t.Actions[0].Arguments" && .venv/Scripts/python.exe -X utf8 -c "
+import sys; sys.path.insert(0,'tools'); import post_comment as pc
+pc.remove_task('StoryChannel-Comment-TESTFAKE001'); print('after remove, exists:', pc.task_exists('StoryChannel-Comment-TESTFAKE001'))"
+```
+
+```text
+=== post_comment --dry-run
+DRY RUN (no network, no comment)
+Channel:    दादी की कहानियाँ UCy071_4g4vGemktFHybqkhQ
+Short id:   TESTFAKE001
+Comment:    पूरी कहानी यहाँ देखें 👉 https://youtu.be/Ogfqow8rbGY
+Token file: youtube_token_dadi-ki-kahaniyan.json present
+Task name:  StoryChannel-Comment-TESTFAKE001
+Plan: check channel; if video not public, retry every 15 min up to 6 times; post; save comment_id; remove the task; log to shared/sync.log
+=== task create/remove test (fake id TESTFAKE001)
+created: StoryChannel-Comment-TESTFAKE001 exists: True
+trigger: 2030-01-01T21:05:00+05:30
+action:  D:\Story-Channel\.venv\Scripts\python.exe -X utf8 "D:\Story-Channel\tools\post_comment.py" --job "D:\Story-Channel\_to_delete\comment_test\upload.json"
+after remove, exists: False
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 12:33:35Z)**_
+
+<think><details><summary>Thought Process</summary>
+Dono test pass ho gaye — dry-run sahi comment dikha raha hai bina network call ke, aur nakli video_id ka task sahi samay-command ke saath ban kar hat gaya. Ab step 6 mein Munshi se short ka upload isi flow se karunga, 20 Oct 21:00 IST ke advance schedule ke saath.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-18 12:35:11Z)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="Agent"><details>
+<summary>Tool use: **Agent**</summary>
+Upload Short 01 with Short->Long flow
+
+```text
+  This agent's report was delivered to you as a message from "a1322184247ab0e5b" (its SubagentHandback call). Read it there; it is not repeated here.
+  
+agentId: a1322184247ab0e5b (use SendMessage with to: 'a1322184247ab0e5b', summary: '<5-10 word recap>' to continue this agent)
+<usage>subagent_tokens: 30798
+tool_uses: 8
+duration_ms: 86875</usage>
+```
+</details></tool-use>
+
+_**Agent - sidechain (2026-10-18 12:33:44Z)**_
+
+PUBLISH task: channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai, following the youtube-publish skill (updated: Short -> Long flow) and shared/RULES.md section 8 (new "Short -> Long link (MANDATORY)" rule — re-read it).
+
+User authorisation in this conversation (main session): the user wrote "Phir short_01_jadui-kadhai ko isi flow se upload karo (parent = Long 01)". Before that they had been told publish_at is 2026-10-20T21:00:00+05:30 (advance schedule, not same-day) and asked to decide; telling us to upload now with that plan is their OK for this exact job: format short, parent_video_id Ogfqow8rbGY, publish_at 2026-10-20T21:00:00+05:30, no thumbnail, captions = output/short_01_jadui-kadhai.srt. If anything differs from this, STOP and report instead.
+
+Steps:
+1. Confirm channels/dadi-ki-kahaniyan/log.md has PASS for this Short's final build (R2), metadata and copyright; confirm output/upload_result.json does not exist.
+2. Write output/upload.json: channel_key, channel_name, channel_id (channels/dadi-ki-kahaniyan/channel.json), format "short", parent_video_id "Ogfqow8rbGY", title/description/tags from output/short_01_jadui-kadhai.txt (description = description text + music credits + hashtags exactly as in the .txt, NOT tags/pinned comment; the script itself adds the "पूरी कहानी यहाँ देखें 👉 https://youtu.be/Ogfqow8rbGY" line at the top), video short_01_jadui-kadhai.mp4 (never the preview), captions short_01_jadui-kadhai.srt, language hi, captions_name Hindi, made_for_kids/contains_synthetic_media/category_id from channel.json, publish_at as above, NO thumbnail field, no playlist.
+3. Dry-run: .venv/Scripts/python.exe tools/youtube_upload.py --job <that upload.json> --dry-run. ffprobe is not on this shell's PATH but the script has a fallback. Must be OK and show "Desc line 1" and "1st comment" lines. Show the output verbatim.
+4. Real upload (same command without --dry-run). Then read upload_result.json: video_id, captions_ok, comment_task + comment_task_at (should be 2026-10-20 21:05 IST), and confirm the task exists (powershell Get-ScheduledTask StoryChannel-Comment-<video_id>) and that channels/dadi-ki-kahaniyan/log.md got the "related_video: pending, pin_comment: pending" line.
+5. Append a PUBLISHED line to the channel log; update the story.md Shorts row status is the builder's job — just report.
+6. Report: URL, Studio URL, what succeeded, the scheduled comment task, and the MANUAL checklist for the user (Studio: Related video = https://youtu.be/Ogfqow8rbGY; pin the first comment after it is posted ~21:05 on 20 Oct; check the schedule since the API project is unaudited — if Studio shows only Private, set Schedule 20 Oct 21:00 IST by hand, otherwise the comment task will retry 6× and log an ERROR). Never print token contents.
+
+_**Agent - sidechain (2026-10-18 12:33:44Z)**_
+
+<system-reminder>
+Your final report is delivered through SubagentHandback: when your work is complete, call SubagentHandback({message: <your full report>}). The call ends your run, so make it your last step. Only a SubagentHandback call reaches your caller as your result; plain text you write at the end is not delivered.
+</system-reminder>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:33:51Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Read rules files
+
+`cd /d/Story-Channel; cat shared/RULES.md | sed -n '1,400p' | grep -n "" | sed -n '1,40p'; echo ----; grep -n -A30 -i "Short -> Long" shared/RULES.md; echo ----; cat channels/dadi-ki-kahaniyan/RULES.md 2>/dev/null | head -80`
+
+```text
+1:# Munshi RULES — Story-Channel
+2:
+3:Shared rules for every channel. Munshi reads this file first, then `channels/<key>/RULES.md`.
+4:- Channel RULES can be stricter than shared RULES, never looser. Copyright, channel ID, secrets and upload safety can never be relaxed by a channel.
+5:
+6:
+7:These are the hard rules. If a builder summary, a script or a file disagrees with them, the rule wins and the step is not PASS. Edit this file to add new rules; Munshi reads it fresh every time.
+8:- A measured value outside a RULES limit is always FIX, never PASS, even if small. (in R1; after R2 see section 11)
+9:
+10:## 1. Budget
+11:- Prepaid Google Cloud budget: ₹500, auto-reload off. Current balance is whatever `cost_log.csv` says.
+12:- Every paid call (Gemini image ≈ ₹3.24 each at 1K, Gemini TTS per line) must be in `cost_log.csv` with date, project, item, ₹.
+13:- No paid call without the user's OK first. A fix that costs money is always ASK, never FIX.
+14:- Flag it if a step cost more than 30% above its estimate (e.g. LONG_01 TTS: estimate ₹4.85, actual ₹6.63).
+15:
+16:## 2. Story and characters (from `channel_bible.md`)
+17:- Characters must match their approved sheets: face, clothes, colours, age look. Compare each scene image against the sheet with Read.
+18:- The action in each image must match what the line says at that moment (who is holding what, who is talking).
+19:
+20:## 3. Audio
+21:- Final loudness: -14 LUFS integrated (±1), true peak ≤ -1.0 dBFS.
+22:- Music sits under the voice: 12–14 dB below for Shorts, up to ~18–20 dB for narration-heavy long videos. If it is quieter than 20 dB under, flag it.
+23:- Music level is measured one way only: integrated LUFS of the voice-only stem vs the music-only stem over the same speech sections. Builder and Munshi both use this method.
+24:- Mood changes get a crossfade (≥1 s). No sudden music cuts under dialogue.
+25:- No leaked background audio, clicks, or a line cut off mid-word.
+26:
+27:## 4. Captions
+28:- One `.srt` per video, Hindi, UTF-8.
+29:- Each caption must appear while that line is being spoken (±0.3 s), over the right character's shot.
+30:- Lines whose timing was estimated rather than taken from Whisper must be listed in the report.
+31:
+32:## 5. Video
+33:- Long video: 1920×1080, 30 fps, H.264, 16:9. Short: 1080×1920, ≤60 s, 9:16.
+34:- Target length: the duration the user approved at preview. Before preview, the script estimate is only a guide. Final must be within ±10% of the approved preview length; outside that is ASK.
+35:- Preview builds (960×540) are only for review. They are never uploaded.
+36:
+37:## 6. Thumbnail
+38:- 1280×720, JPG or PNG, ≤ 2 MB.
+39:- Hindi text is rendered by libass/FFmpeg (HarfBuzz shaping), never drawn by the AI. Zoom in and check matras and joined letters (ड़, दु, क्ष, etc.).
+40:- Text readable on a phone: letter height ≥ ~12% of frame height, high contrast, max ~4 words.
+----
+59:- Short -> Long link (MANDATORY): every Short made from a long video must (a) have the long video's URL in its description with a short CTA line, (b) get an automatic first comment "पूरी कहानी यहाँ देखें 👉 <long URL>" posted right after it becomes public, and (c) the user sets in Studio: Related video = the long video, and pins that comment. The YouTube API cannot set Related video or pin comments, so (c) stays manual; Munshi shows this checklist after every Short upload and asks about it at the start of the next session until the user confirms.
+60-
+61-## 9. Safety
+62-- Never show or commit `.env`, `secrets/`, API keys or OAuth tokens.
+63-- Never delete files; move them to `_to_delete/`.
+64-- Paid source files (story images/, audio/, characters/) are read-only for every build. Builds write only to their own _work/ and output/ folders. After every build Munshi checks that no paid source file changed (git status / hash). Any change is a BLOCKER.
+65-
+66-## 10. Copyright (STRICT — any violation is FIX and blocks upload)
+67-- Every external file used in any video (music, sound effect, font, image, footage, voice) must have a row in `shared/assets_license.csv`: path, source_url, author, license, attribution_text, date_added. No row = not allowed.
+68-- Allowed licences only: CC0; CC BY 4.0 (with exact credit in the description); SIL OFL (fonts); YouTube Audio Library tracks (follow their attribution note); our own Gemini-generated images/voices; our own recordings.
+69-- Never allowed: CC BY-NC (non-commercial, conflicts with monetization), CC BY-ND (we edit/mix), CC BY-SA, "free for personal use", Freesound "Sampling+", unknown source, anything ripped from YouTube/Spotify/Instagram/films/TV, Bollywood or any commercial song (even hummed or sung by TTS), Google/Pinterest images.
+70-- Freesound: licence is per sound. Check each file's own licence page; only CC0 or CC BY 4.0.
+71-- Content: no real brand logos, no film/TV/cartoon characters (Chhota Bheem, Motu Patlu, Disney, etc.), no celebrity likeness, no copied song lyrics, no copied text from modern books. Old folk tales (Panchatantra, Jataka, Akbar-Birbal) are public domain, but we always write our own version, never copy a modern retelling.
+72-- Image prompts never name a studio, franchise or living artist ("Pixar style", "Ghibli style", etc.).
+73-- Before upload, Munshi checks: every audio/image/font file in the final build is in the register, every CC BY item is credited in the description exactly as its licence asks, and no source audio from outside our pipeline is in the mix.
+74-- After upload: if YouTube Studio shows any copyright claim or strike, stop all new uploads and tell the user. CC music sometimes gets false Content ID claims; dispute only with the licence proof from the register, after the user agrees.
+75-
+76-## 11. Review limits and severity
+77-Every problem Munshi reports is marked BLOCKER or MINOR.
+78-
+79-BLOCKER (never waived, in any round):
+80-- Copyright (section 10), wrong channel, any secret exposed.
+81-- Wrong character on screen for a line, wrong voice for a character, a line missing or cut off.
+82-- Caption more than 1 s away from its line, or caption text not matching what is spoken.
+83-- Loudness outside -14 LUFS ±1, true peak above -1.0 dBFS, audible clipping or leaked outside audio.
+84-- Wrong resolution/codec, or a preview file used as final.
+85-- Thumbnail: broken Hindi matras, spoiler, unreadable text, important thing in the bottom-right corner.
+86-- Metadata: title over 100 chars, more than 15 hashtags, missing CC BY credit, "for kids" wording (title, thumbnail, description or tags), mystery answer revealed.
+87-- Length outside ±10% of the approved preview length.
+88-- Story problem: moral missing or a scene that contradicts the script.
+89-
+----
+# Channel RULES — दादी की कहानियाँ (dadi-ki-kahaniyan)
+
+Only the rules special to this channel. Read `shared/RULES.md` first; everything there applies here too.
+- Channel RULES can be stricter than shared RULES, never looser. Copyright, channel ID, secrets and upload safety can never be relaxed by a channel.
+
+## Story and characters (from `channel_bible.md`)
+- Dadi (Kamla Devi) narrates. Every other character speaks their own lines in their own voice.
+- Mitthu (parrot) has no hands: no hand gestures, holding things or pointing with hands.
+- Dadi's home (in Gulmohar Mohalla): a kacha mud house with a tiled roof, BROWN wooden door, swept aangan, green fields behind, exactly like the channel banner (`channels/dadi-ki-kahaniyan/brand/_work/banner_art.png`). There is no green door.
+- Setting: Dadi's home, the Golu–Mitthu opening/closing frame and all Dadi Jasoos cases are in Gulmohar Mohalla. The story Dadi narrates inside a moral-story video can be set in any village or town the approved script names (e.g. Rampur in LONG_01); check location consistency against that script. Village kitchens still use a mitti ka chulha, never a gas stove.
+
+## Metadata
+- Mystery (Dadi Jasoos) videos: the answer never goes in the title, description or thumbnail. It goes in the pinned comment 24 h after publishing.
+- Dadi Ki Kahaniyan is set to made_for_kids = false (family audience, decided by the user). So title, thumbnail, description and tags must speak to the whole family, not only to children: no "for kids" / "बच्चों के लिए" / nursery-style wording. Flag any such wording as FIX.
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:33:55Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Read skill, log, channel config
+
+`cd /d/Story-Channel; cat .claude/skills/youtube-publish/SKILL.md; echo ----; cat channels/dadi-ki-kahaniyan/log.md | tail -40; echo ----; cat channels/dadi-ki-kahaniyan/channel.json`
+
+```text
+---
+name: youtube-publish
+description: Upload and schedule an approved Story-Channel video to YouTube with tools/youtube_upload.py, including one-time OAuth setup. Used by the munshi agent after the user approves the final build.
+---
+
+# Publish a video to YouTube
+
+Uses `tools/youtube_upload.py` (YouTube Data API v3). Never upload without the user's explicit OK in this conversation.
+
+## One-time setup (guide the user, they do the clicks in Google Cloud Console)
+1. Use the same Google Cloud project as Gemini, or a new one. Enable **YouTube Data API v3**.
+2. OAuth consent screen: User type External. Add the channel's Google account as a test user. Then **Publish app** (move it to In production). If it stays in Testing, the refresh token expires every 7 days and uploads stop working.
+3. Credentials: Create OAuth client ID, type **Desktop app**. Download JSON and save it as `secrets/client_secret.json`. Make sure `secrets/` is in `.gitignore`.
+4. `pip install google-api-python-client google-auth-oauthlib`
+5. First real run opens a browser: pick the right Google account AND the right channel, accept the "unverified app" warning (it is the user's own app). Token is saved to `secrets/youtube_token_<channel_key>.json`; later runs are silent.
+6. Phone-verify the channel in YouTube Studio, otherwise custom thumbnails fail.
+
+## Important limit: unaudited API projects
+Videos uploaded through the API from a project that has not passed YouTube's API audit are locked to **private**, and scheduling may not take effect. Until the audit is approved:
+- Upload as private (the script does this when `publish_at` is set).
+- Tell the user the one Studio step left: open the studio_url and set Schedule / Public.
+- Suggest applying for the audit (YouTube API Services audit and quota extension form, free, takes a few weeks). After approval, scheduling becomes fully automatic.
+Quota: default 10,000 units/day; one upload costs about 1,600, thumbnail 50, captions 400. Check the current numbers in the docs if uploads fail with quotaExceeded.
+
+## Per-video steps
+1. Confirm in `channels/<key>/log.md`: PASS for final build, thumbnail and metadata of this project. Confirm `output/upload_result.json` does not exist.
+2. Read `channels/<key>/channel.json` for made_for_kids, contains_synthetic_media, category_id, language, publish time, playlist id. If made_for_kids is null, ASK the user and save the answer there.
+3. Pick publish time per RULES section 8, inside `publish_window_ist` (19:00-23:59 IST), the same day as the upload:
+   - upload expected to finish before 18:45 IST -> 19:00 the same day;
+   - finishing 18:45-23:15 IST -> the next :00 or :30 at least 30 minutes after the upload finishes;
+   - after 23:15 IST -> 19:00 the next day.
+   Then check clashes: read every other project's `output/upload_result.json` (`publish_at`) and its `upload.json` (`format`).
+   At most `max_long_per_day` long video per day: if a long one is already scheduled that day, use 19:00 the next day.
+   A Short and a long video may share a day only if their times are at least `min_gap_hours_short_long` hours apart, still inside the window.
+4. Write `output/upload.json`:
+   - channel_key, channel_name, channel_id (from `channels/<key>/channel.json`)
+   - format: "long" or "short"
+   - Short: parent_video_id = the long video's id if the Short is cut from a long video (null for a stand-alone Short). The script then puts "पूरी कहानी यहाँ देखें 👉 <long URL>" at the top of the description and, after upload, schedules the first comment (task StoryChannel-Comment-<video_id>, publish_at + 5 min, tools/post_comment.py) and writes "related_video: pending, pin_comment: pending" to channels/<key>/log.md.
+   - title, description, tags (from the approved metadata file)
+   - video: final mp4 (never *_preview*)
+   - thumbnail, captions (.srt), language "hi", captions_name "Hindi"
+   - made_for_kids, contains_synthetic_media, category_id
+   - publish_at like 2026-10-21T19:00:00+05:30 (or privacy "private" with no publish_at)
+   - playlist_id if configured
+5. `python tools/youtube_upload.py --job <upload.json> --dry-run`. Fix any PROBLEMS.
+   If the script says WRONG CHANNEL, stop and tell the user; never edit channel_id to make it pass.
+6. Show the user: title, publish time IST, made-for-kids, playlist, thumbnail file. Wait for ha/ok.
+7. Run without --dry-run. If thumbnail/captions/playlist failed, fix the cause and run with `--extras-only`.
+8. Report: video URL, studio URL, what succeeded, and what still needs a click in Studio (schedule if locked private, pinned comment, end screen). Pinning a comment is not possible through the API.
+8b. Short with a parent: show the user the manual checklist (Studio: Related video = long video; pin the first comment once it is posted) — RULES section 8.
+9. Append a PUBLISHED line to `channels/<key>/log.md` and update the story's `story.md` status.
+----
+# Munshi log
+2026-10-18 | long_01 | 7 final build | FIX | spec/loudness/captions ok; Mitthu line 2 on Golu shot, Ghasita shot mid-Sadhu line 15, music only ~9-10 LU under voice (builder's 18.4 dB is a metric artefact); ASK pending: aangan frame not Gulmohar Mohalla/hara darwaza
+2026-10-18 | long_01 | 8 thumbnail | PASS | 1280x720 PNG 1.1 MB, Hindi text shaped correctly, no spoiler, BR corner clear; text height ~11% (optional +10% bump)
+2026-10-18 | long_01 | 9 metadata | FIX | 7 hashtags (rule 3-5); no tags list yet for upload; title 81 chars, desc 1514, all 6 CC BY tracks credited ok
+2026-10-18 | long_01 | 7 final build (re-review) | ASK | all 6 builder fixes verified (line 2 Mitthu+box, line 15 Sadhu only, music 13.0 LU under voice by stem method = inside long range 12-20, offsets 3.75s/14.5s, yuv420p tv bt709 matrix, no caption <0.45s); length 5:06 (306.2s) is outside script target ~3:50 +/-10% and 3-5 min range -> user decision
+2026-10-18 | long_01 | 8 thumbnail (re-review) | PASS | 1280x720 PNG 1.09 MB, text 14.3%/13.5% of height, Hindi shaping ok, no spoiler, BR corner clear
+2026-10-18 | long_01 | 9 metadata (re-review) | PASS | title 81, desc 1488, 5 hashtags, 21 tags 375/500 chars (YouTube count), 6 CC BY credits ok, TAGS in long_01.txt = meta.json
+2026-10-18 | long_01 | 7 final build (length, RULES 5 updated) | PASS | user approved 5:06 preview; final 306.17s = preview 306.17s (0%, within +/-10%); long_01.mp4 unchanged since re-review (13:22), 1920x1080 h264 yuv420p 30fps; all re-review checks stand
+2026-10-18 | long_01 | publish dry-run | PASS | upload.json written (channel UCy071_4g4vGemktFHybqkhQ, publish 2026-10-20 19:00 IST, kids=false, synthetic=false, cat 1, no playlist); dry-run OK, no network; copyright register (RULES 10 / assets_license.csv) not yet available -> not reviewed
+2026-10-18 | long_01 | copyright (RULES 10) | PASS | all used assets registered w/ allowed licence (6 Incompetech CC BY 4.0, 3 Freesound CC0, Mukta OFL, 31 scene imgs + 51 TTS + thumb = own Gemini, all in cost_log); 6/6 credits exact in upload.json; mix-voice-music residual = 5 SFX bursts only (floor -98 dB); prompts/text/images clean
+2026-10-18 | long_01 | publish | PUBLISHED | video Ogfqow8rbGY uploaded (scheduled 2026-10-20 19:00 IST requested), thumbnail ok, captions ok, channel UCy071_4g4vGemktFHybqkhQ verified; user must confirm schedule in Studio (unaudited API may lock private)
+2026-10-18 | short_01_jadui-kadhai | preview build R1 (~25 min) | FIX | 51.87s, hook ok, end card 2.0s, music 13.0 LU under voice (stem method), captions match + above bottom 25%, publish 20 Oct 21:00 ok; BLOCKER: scene 22 line 7 shot shows kadhai inside + top of mitti lump (spoiler) -> fy/zoom fix; MINOR: Chhotu's open-mouth face in 0-1.5s hook shot; sharpness acceptable, no ASK
+2026-10-18 | short_01_jadui-kadhai | preview build R2 (~8 min) | PASS | B1 fixed: scene 22 line 7/8 crop shows only coin+rim edge, no kadhai inside/mitti lump (checked preview + simulated 1080x1920 final, start/mid/end of push-in); M1 fixed: hook 0-1.5s kadhai only, Sadhu cut at 1.5s; scenes 17/20/21 from cache, 51.87s unchanged, end card 2.0s, -13.8 LUFS / -1.1 dBTP
+2026-10-18 | short_01_jadui-kadhai | preview build R1 speed 1.08/gap 0.15 (~10 min) | PASS | 47.41s (45-50 ok); atempo ratio 1.075-1.080 on all 8 lines, pitch/voicing/HF same as 1.0x (no warble proxy), no clipped onsets/tails, line gaps ~0.20-0.28s; hook kadhai-only to 1.42s then Sadhu; sc22 coin+rim only; end card 2.0s; music 13.3 LU under voice (stem); -13.8 LUFS / -1.3 dBTP; captions aligned to new line starts; Rs 0 (no new cost_log rows)
+2026-10-18 | short_01_jadui-kadhai | preview build R2 gap 0.15/0.30 (~10 min) | PASS | 48.29s (45-50 ok); voice.wav silence at speaker changes 0.36-0.43s vs same-speaker 6->7 0.28s (TTS edge silence included), line starts match builder log; hook kadhai-only to 1.5s then Sadhu; sc22 coin+rim only; end card 2.05s; music 13.4 LU under voice (stem); -13.8 LUFS / -1.4 dBTP; paid folders (213 files) blob-identical to 464dad0, 7 stray Short wavs in _to_delete match HEAD blobs, line_04 = 464dad0; make_short guard_write+snapshot ok, only writes in paid folder = new TTS into audio/tts_cache with --spend; Rs 0
+2026-10-18 | short_01_jadui-kadhai | 7 final build R1 (~20 min) | FIX | 1080x1920 h264 High yuv420p tv/bt709 30fps + AAC 48k st; 48.30s vs approved preview 48.29s (0%); -13.9 LUFS / -1.3 dBTP; music 13.4 LU under voice (stem, speech sections); residual = magic SFX only; xfade 1.5s; all 8 lines Whisper-timed, line starts exact, chunks within 0.3s (line 5 checked); captions above bottom 25%, Hindi shaping ok; hook kadhai-only to 1.5s then Sadhu; sc22 coin+rim only (start/mid/end); end card 2.0s; right character per line; paid folders: no tracked file modified, 7 D = stray wavs in _to_delete (blob-identical), line_04 = HEAD; MINOR: no .srt in output/ (RULES 4) -> free fix or user waiver
+2026-10-18 | short_01_jadui-kadhai | 9 metadata R1 | PASS | title 63 chars, desc 504, 4 hashtags, 12 tags 201/500, txt TAGS = meta.json, no kids wording, no twist; 2/2 CC BY credits exact from register; publish_at 20 Oct 21:00 IST = 2h after Long 01 19:00 ok, but advance date vs RULES 8 same-day rule -> user decides; Related video = Studio click
+2026-10-18 | short_01_jadui-kadhai | 8 thumbnail R1 | N/A | Shorts: no custom thumbnail planned, RULES 6 has no Shorts requirement; upload.json must carry no thumbnail
+2026-10-18 | short_01_jadui-kadhai | copyright (RULES 10) R1 | PASS | Enchanted Valley + Hidden Agenda CC BY 4.0 (credited exactly), magic_376747 CC0, Mukta-ExtraBold OFL, scene_16/17/20/21/22 + TTS = own Gemini (registered); mix-voice-music residual = SFX only; no brand/franchise in frames or prompts
+2026-10-18 | short_01_jadui-kadhai | 7 final build R2 (~10 min) | PASS | M1 fixed: output/short_01_jadui-kadhai.srt UTF-8 Hindi, 31 cues, text = 8 lines.json lines; cue times = final ASS (scene_16_fe7a/17_34e3/20_8af3/21_38f2/22_db2b per scenes.txt) + scene offsets 0/7.80/19.234/29.168/37.668 within 0.01s; cues inside own line + 0-46.31s < 48.3s; final mp4 unchanged (13856285 B, mtime 17:36:09 before R1, 48.30s); characters/ = 25 files -> 188+25=213 ok
+----
+{
+  "channel_key": "dadi-ki-kahaniyan",
+  "display_name": "दादी की कहानियाँ",
+  "channel_id": "UCy071_4g4vGemktFHybqkhQ",
+  "made_for_kids": false,
+  "contains_synthetic_media": false,
+  "category_id": "1",
+  "default_language": "hi",
+  "publish_window_ist": [
+    "19:00",
+    "23:59"
+  ],
+  "max_long_per_day": 1,
+  "min_gap_hours_short_long": 2,
+  "playlists": {
+    "dadi-jasoos": "",
+    "moral-stories": ""
+  }
+}
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:33:58Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+List Short output and metadata
+
+`cd "/d/Story-Channel/channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai"; ls -la output; echo ----; cat output/short_01_jadui-kadhai.txt; echo ----; cat ../../long/output/upload.json 2>/dev/null; ls ../../long/output`
+
+```text
+total 23888
+drwxr-xr-x 1 ashamim 1049089        0 Oct 18 17:44 .
+drwxr-xr-x 1 ashamim 1049089        0 Oct 18 15:58 ..
+-rw-r--r-- 1 ashamim 1049089 13856285 Oct 18 17:36 short_01_jadui-kadhai.mp4
+-rw-r--r-- 1 ashamim 1049089     2187 Oct 18 17:44 short_01_jadui-kadhai.srt
+-rw-r--r-- 1 ashamim 1049089     1372 Oct 18 17:36 short_01_jadui-kadhai.txt
+-rw-r--r-- 1 ashamim 1049089  1453401 Oct 18 17:36 short_01_jadui-kadhai_framecheck.png
+-rw-r--r-- 1 ashamim 1049089  9124961 Oct 18 17:29 short_01_jadui-kadhai_preview.mp4
+drwxr-xr-x 1 ashamim 1049089        0 Oct 18 17:36 short_01_jadui-kadhai_work
+----
+TITLE:
+जो डालो, दुगना! जादुई कड़ाही का राज़ | दादी की कहानियाँ #shorts
+
+DESCRIPTION:
+रामपुर के लालची हलवाई घसीटा ने चुरा ली जादुई कड़ाही… पर आगे क्या हुआ? पूरी कहानी चैनल पर देखिए।
+
+Music: "Enchanted Valley" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
+Music: "Hidden Agenda" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
+Sound effects: freesound.org (CC0)
+
+#shorts #दादीकीकहानियाँ #HindiKahani #MoralStory
+
+TAGS:
+दादी की कहानियाँ, Dadi Ki Kahaniyan, जादुई कड़ाही, Jadui Kadhai, लालची हलवाई, Lalchi Halwai, हिंदी कहानी, Hindi Kahani, Hindi Moral Story, परिवार की कहानी, Family Story Hindi, Hindi Shorts
+
+PINNED COMMENT (post later):
+पूरी कहानी — लालची हलवाई और जादुई कड़ाही — चैनल पर देखिए! 🙏
+----
+{
+  "channel_key": "dadi-ki-kahaniyan",
+  "channel_name": "दादी की कहानियाँ",
+  "channel_id": "UCy071_4g4vGemktFHybqkhQ",
+  "format": "long",
+  "title": "लालची हलवाई और जादुई कड़ाही | दादी की कहानियाँ | Hindi Moral Story | Hindi Kahani",
+  "description": "रामपुर गाँव का घसीटा हलवाई बहुत लालची था — तराज़ू में डंडी मारता और भूखे को भी भगा देता। पर उसका नौकर छोटू दिल का सोना था। एक दिन एक भूखे साधु बाबा ने छोटू को दी एक जादुई कड़ाही... जो डालो, दुगना! पर जब घसीटा ने लालच में उसे चुराया, तो क्या हुआ? 🍯✨\n\nसीख: लालच का अंत हमेशा बुरा होता है — और बाँटने से ख़ुशी दुगनी होती है।\n\nदादी की कहानियाँ — दादी हर हफ़्ते सुनाती हैं एक नई कहानी, जो हँसाए भी और सिखाए भी।\n\nMusic: \"Fluffing a Duck\" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttp://creativecommons.org/licenses/by/4.0/\n\nMusic: \"Carefree\" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttp://creativecommons.org/licenses/by/4.0/\n\nMusic: \"Heartbreaking\" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttp://creativecommons.org/licenses/by/4.0/\n\nMusic: \"Enchanted Valley\" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttp://creativecommons.org/licenses/by/4.0/\n\nMusic: \"Hidden Agenda\" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttp://creativecommons.org/licenses/by/4.0/\n\nMusic: \"Touching Moments Two - Higher\" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttp://creativecommons.org/licenses/by/4.0/\n\nSound effects: freesound.org (CC0)\n\n#दादीकीकहानियाँ #HindiKahani #MoralStory #DadiKiKahaniyan #HindiStory",
+  "tags": [
+    "दादी की कहानियाँ",
+    "Dadi Ki Kahaniyan",
+    "लालची हलवाई",
+    "Lalchi Halwai",
+    "जादुई कड़ाही",
+    "Jadui Kadhai",
+    "हिंदी कहानी",
+    "Hindi Kahani",
+    "नैतिक कहानी",
+    "Hindi Moral Story",
+    "Moral Stories in Hindi",
+    "बच्चों की कहानी",
+    "Kids Story Hindi",
+    "Hindi Cartoon Story",
+    "दादी माँ की कहानी",
+    "Dadi Maa Ki Kahani",
+    "Bedtime Story Hindi",
+    "लालच का फल",
+    "Greed Moral Story",
+    "Magic Story Hindi",
+    "जादुई कहानी"
+  ],
+  "video": "long_01.mp4",
+  "thumbnail": "long_01_thumbnail.png",
+  "captions": "long_01.srt",
+  "language": "hi",
+  "captions_name": "Hindi",
+  "made_for_kids": false,
+  "contains_synthetic_media": false,
+  "category_id": "1",
+  "publish_at": "2026-10-20T19:00:00+05:30"
+}
+long_01.mp4
+long_01.srt
+long_01.txt
+long_01_framecheck.png
+long_01_preview.mp4
+long_01_preview.srt
+long_01_test15s_preview.mp4
+long_01_thumbnail.png
+long_01_work
+upload.json
+upload_result.json
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:34:04Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Check long result and upload script
+
+`cd /d/Story-Channel; cat channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long/output/upload_result.json | grep -v -i token; echo ----; grep -n -i "parent\|comment\|dry\|thumbnail\|def \|publish_at\|ffprobe" tools/youtube_upload.py | head -120`
+
+```text
+{
+  "video_id": "Ogfqow8rbGY",
+  "url": "https://youtu.be/Ogfqow8rbGY",
+  "studio_url": "https://studio.youtube.com/video/Ogfqow8rbGY/edit",
+  "uploaded_at": "2026-10-18T09:10:24.399858+00:00",
+  "publish_at": "2026-10-20T19:00:00+05:30",
+  "thumbnail_ok": true,
+  "captions_ok": true
+}
+----
+5:    python tools/youtube_upload.py --job channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long/output/upload.json --dry-run
+7:    python tools/youtube_upload.py --job ... --extras-only   # retry thumbnail/captions/playlist
+10:and unless ffprobe confirms the file is a real final build (size, codec, pix_fmt).
+31:ROOT = Path(__file__).resolve().parent.parent
+46:def resolve(job_path: Path, p):
+50:    return p if p.is_absolute() else (job_path.parent / p).resolve()
+53:def token_path(job):
+57:def probe(video: Path):
+58:    """Return (width, height, codec, pix_fmt, seconds) using ffprobe."""
+62:    ffprobe = shutil.which("ffprobe")
+63:    if not ffprobe:  # fallback: project's own FFmpeg build (bin/ layout, or flat tools/ffmpeg on this PC)
+64:        ffprobe = next((str(p) for p in (ROOT / "tools" / "ffmpeg" / "bin" / "ffprobe.exe",
+65:                                          ROOT / "tools" / "ffmpeg" / "ffprobe.exe") if p.exists()), None)
+66:    if not ffprobe:
+67:        raise RuntimeError("ffprobe not found (install FFmpeg)")
+69:        [ffprobe, "-v", "error", "-select_streams", "v:0",
+79:def validate(job: dict, job_path: Path) -> list:
+100:    if fmt == "short" and "parent_video_id" not in job:
+101:        errs.append("short needs parent_video_id (the long video's id; null only for a stand-alone Short)")
+144:                errs.append(f"ffprobe failed: {e}")
+146:    thumb = resolve(job_path, job.get("thumbnail"))
+149:            errs.append(f"thumbnail not found: {thumb}")
+151:            errs.append("thumbnail larger than 2 MB")
+153:            errs.append("thumbnail must be .jpg or .png")
+159:    pub = job.get("publish_at")
+164:                errs.append("publish_at needs a timezone, e.g. 2026-10-21T19:00:00+05:30")
+166:                errs.append("publish_at must be at least 15 minutes in the future")
+170:                    errs.append(f"publish_at is {ist:%H:%M} IST; must be inside the 19:00-23:59 IST window")
+172:            errs.append("publish_at is not ISO 8601")
+178:def add_parent_link(job):
+181:    pid = job.get("parent_video_id")
+184:    from post_comment import comment_text
+185:    line = comment_text(pid)
+191:def short_followups(job, job_path, result):
+192:    """After a Short upload: schedule the first comment (publish_at + 5 min) and add the manual checklist to the
+193:    channel log (Related video + pin comment stay manual; the API cannot do them)."""
+194:    from post_comment import schedule_task
+195:    when = (dt.datetime.fromisoformat(job["publish_at"]) if job.get("publish_at")
+198:        result["comment_task"] = schedule_task(job_path, result["video_id"], when)
+199:        result["comment_task_at"] = when.isoformat()
+201:        result["comment_task_error"] = str(e)[:300]
+205:                f"video {result['video_id']} -> long {job['parent_video_id']} | "
+206:                "related_video: pending, pin_comment: pending\n")
+209:def get_service(job):
+233:def check_channel(yt, job):
+246:def with_retry(fn, label):
+263:def upload_video(yt, job, job_path):
+272:    if job.get("publish_at"):
+274:        status["publishAt"] = job["publish_at"]
+298:def do_extras(yt, job, job_path, video_id, result):
+301:    thumb = resolve(job_path, job.get("thumbnail"))
+302:    if thumb and not result.get("thumbnail_ok"):
+305:            with_retry(lambda: yt.thumbnails().set(
+307:                "thumbnail")
+308:            result["thumbnail_ok"] = True
+310:            result["thumbnail_error"] = str(e)[:300]
+339:def main():
+342:    ap.add_argument("--dry-run", action="store_true", help="validate only, no network")
+344:                    help="retry thumbnail/captions/playlist for an already uploaded video")
+349:    result_path = job_path.parent / "upload_result.json"
+352:    parent_line = add_parent_link(job)
+357:    print("Privacy:     ", "scheduled" if job.get("publish_at") else job.get("privacy", "private"))
+358:    print("Publish at:  ", job.get("publish_at") or "-")
+360:    print("Thumbnail:   ", job.get("thumbnail") or "-")
+365:        print("Parent long: ", job.get("parent_video_id") or "- (stand-alone Short)")
+366:        if parent_line:
+367:            print("Desc line 1: ", parent_line)
+368:            print("1st comment: ", parent_line, "(scheduled task, publish_at + 5 min)")
+374:    if args.dry_run:
+375:        print("\nDry run OK. Nothing uploaded.")
+392:            "publish_at": job.get("publish_at"),
+398:    if parent_line and not result.get("comment_task") and not result.get("comment_id"):
+400:        print("Studio (manual): set Related video =", f"https://youtu.be/{job['parent_video_id']}",
+401:              "and pin the first comment after it is posted.")
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:34:16Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Write Short upload.json from metadata
+
+```bash
+cd "/d/Story-Channel/channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/output"; test -e upload_result.json && echo EXISTS || echo "no upload_result"; /d/Story-Channel/.venv/Scripts/python.exe -X utf8 - <<'EOF'
+import json, re
+t = open("short_01_jadui-kadhai.txt", encoding="utf-8").read()
+title = t.split("TITLE:\n",1)[1].split("\n\nDESCRIPTION:",1)[0].strip()
+desc = t.split("DESCRIPTION:\n",1)[1].split("\n\nTAGS:",1)[0].strip()
+tags = [x.strip() for x in t.split("TAGS:\n",1)[1].split("\n\nPINNED",1)[0].strip().split(",")]
+ch = json.load(open("../../../../../channel.json", encoding="utf-8"))
+job = {
+ "channel_key": ch["channel_key"], "channel_name": ch["display_name"], "channel_id": ch["channel_id"],
+ "format": "short", "parent_video_id": "Ogfqow8rbGY",
+ "title": title, "description": desc, "tags": tags,
+ "video": "short_01_jadui-kadhai.mp4", "captions": "short_01_jadui-kadhai.srt",
+ "language": "hi", "captions_name": "Hindi",
+ "made_for_kids": ch["made_for_kids"], "contains_synthetic_media": ch["contains_synthetic_media"],
+ "category_id": ch["category_id"], "publish_at": "2026-10-20T21:00:00+05:30"}
+json.dump(job, open("upload.json","w",encoding="utf-8"), ensure_ascii=False, indent=2)
+print(len(title), len(desc), len(tags))
+EOF
+cat upload.json
+```
+
+```text
+no upload_result
+63 504 12
+{
+  "channel_key": "dadi-ki-kahaniyan",
+  "channel_name": "दादी की कहानियाँ",
+  "channel_id": "UCy071_4g4vGemktFHybqkhQ",
+  "format": "short",
+  "parent_video_id": "Ogfqow8rbGY",
+  "title": "जो डालो, दुगना! जादुई कड़ाही का राज़ | दादी की कहानियाँ #shorts",
+  "description": "रामपुर के लालची हलवाई घसीटा ने चुरा ली जादुई कड़ाही… पर आगे क्या हुआ? पूरी कहानी चैनल पर देखिए।\n\nMusic: \"Enchanted Valley\" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttp://creativecommons.org/licenses/by/4.0/\n\nMusic: \"Hidden Agenda\" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttp://creativecommons.org/licenses/by/4.0/\n\nSound effects: freesound.org (CC0)\n\n#shorts #दादीकीकहानियाँ #HindiKahani #MoralStory",
+  "tags": [
+    "दादी की कहानियाँ",
+    "Dadi Ki Kahaniyan",
+    "जादुई कड़ाही",
+    "Jadui Kadhai",
+    "लालची हलवाई",
+    "Lalchi Halwai",
+    "हिंदी कहानी",
+    "Hindi Kahani",
+    "Hindi Moral Story",
+    "परिवार की कहानी",
+    "Family Story Hindi",
+    "Hindi Shorts"
+  ],
+  "video": "short_01_jadui-kadhai.mp4",
+  "captions": "short_01_jadui-kadhai.srt",
+  "language": "hi",
+  "captions_name": "Hindi",
+  "made_for_kids": false,
+  "contains_synthetic_media": false,
+  "category_id": "1",
+  "publish_at": "2026-10-20T21:00:00+05:30"
+}
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:34:42Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Dry-run the Short upload job
+
+`cd /d/Story-Channel; .venv/Scripts/python.exe -X utf8 tools/youtube_upload.py --job channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/output/upload.json --dry-run 2>&1`
+
+```text
+Channel:      दादी की कहानियाँ UCy071_4g4vGemktFHybqkhQ
+Title:        जो डालो, दुगना! जादुई कड़ाही का राज़ | दादी की कहानियाँ #shorts
+Video:        D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\output\short_01_jadui-kadhai.mp4
+Privacy:      scheduled
+Publish at:   2026-10-20T21:00:00+05:30
+Made for kids: False
+Thumbnail:    -
+Captions:     short_01_jadui-kadhai.srt
+Playlist:     -
+Video check:  1080x1920 h264 yuv420p 48.3s
+Parent long:  Ogfqow8rbGY
+Desc line 1:  पूरी कहानी यहाँ देखें 👉 https://youtu.be/Ogfqow8rbGY
+1st comment:  पूरी कहानी यहाँ देखें 👉 https://youtu.be/Ogfqow8rbGY (scheduled task, publish_at + 5 min)
+
+Dry run OK. Nothing uploaded.
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:34:52Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Append dry-run PASS line to channel log
+
+`cd /d/Story-Channel; echo "2026-10-18 | short_01_jadui-kadhai | publish dry-run | PASS | upload.json written (short, parent Ogfqow8rbGY, channel UCy071_4g4vGemktFHybqkhQ, publish 2026-10-20 21:00 IST, kids=false, synthetic=false, cat 1, captions .srt, no thumbnail, no playlist); dry-run OK 1080x1920 h264 48.3s, desc line 1 + 1st comment = parent link; real upload waiting for user's ha after seeing dry-run" >> channels/dadi-ki-kahaniyan/log.md; tail -1 channels/dadi-ki-kahaniyan/log.md`
+
+```text
+2026-10-18 | short_01_jadui-kadhai | publish dry-run | PASS | upload.json written (short, parent Ogfqow8rbGY, channel UCy071_4g4vGemktFHybqkhQ, publish 2026-10-20 21:00 IST, kids=false, synthetic=false, cat 1, captions .srt, no thumbnail, no playlist); dry-run OK 1080x1920 h264 48.3s, desc line 1 + 1st comment = parent link; real upload waiting for user's ha after seeing dry-run
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 12:35:11Z)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="SubagentHandback"><details>
+<summary>Tool use: **SubagentHandback**</summary>
+
+```text
+{"success":true,"message":"Report delivered to your caller."}
+```
+</details></tool-use>

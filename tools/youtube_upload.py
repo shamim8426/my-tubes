@@ -97,6 +97,8 @@ def validate(job: dict, job_path: Path) -> list:
     fmt = job.get("format")
     if fmt not in FORMATS:
         errs.append("format must be 'long' or 'short'")
+    if fmt == "short" and "parent_video_id" not in job:
+        errs.append("short needs parent_video_id (the long video's id; null only for a stand-alone Short)")
     title = job.get("title", "")
     desc = job.get("description", "")
     tags = job.get("tags", [])
@@ -171,6 +173,37 @@ def validate(job: dict, job_path: Path) -> list:
     if job.get("privacy", "private") not in ("private", "unlisted", "public"):
         errs.append("privacy must be private, unlisted or public")
     return errs
+
+
+def add_parent_link(job):
+    """Short made from a long video: put the long video's link with a CTA line at the top of the description
+    (RULES section 8, Short -> Long link). Returns the line (or None)."""
+    pid = job.get("parent_video_id")
+    if job.get("format") != "short" or not pid:
+        return None
+    from post_comment import comment_text
+    line = comment_text(pid)
+    if line not in job.get("description", ""):
+        job["description"] = line + "\n\n" + job.get("description", "")
+    return line
+
+
+def short_followups(job, job_path, result):
+    """After a Short upload: schedule the first comment (publish_at + 5 min) and add the manual checklist to the
+    channel log (Related video + pin comment stay manual; the API cannot do them)."""
+    from post_comment import schedule_task
+    when = (dt.datetime.fromisoformat(job["publish_at"]) if job.get("publish_at")
+            else dt.datetime.now(dt.timezone.utc)) + dt.timedelta(minutes=5)
+    try:
+        result["comment_task"] = schedule_task(job_path, result["video_id"], when)
+        result["comment_task_at"] = when.isoformat()
+    except Exception as e:
+        result["comment_task_error"] = str(e)[:300]
+    log_file = ROOT / "channels" / job["channel_key"] / "log.md"
+    with log_file.open("a", encoding="utf-8") as f:
+        f.write(f"{dt.date.today().isoformat()} | {Path(job['video']).stem} | short->long checklist | "
+                f"video {result['video_id']} -> long {job['parent_video_id']} | "
+                "related_video: pending, pin_comment: pending\n")
 
 
 def get_service(job):
@@ -316,6 +349,7 @@ def main():
     result_path = job_path.parent / "upload_result.json"
     result = json.loads(result_path.read_text(encoding="utf-8")) if result_path.exists() else {}
 
+    parent_line = add_parent_link(job)
     errs = validate(job, job_path)
     print("Channel:     ", job.get("channel_name") or job.get("channel_key"), job.get("channel_id"))
     print("Title:       ", job.get("title"))
@@ -327,6 +361,11 @@ def main():
     print("Captions:    ", job.get("captions") or "-")
     print("Playlist:    ", job.get("playlist_id") or "-")
     print("Video check: ", job.get("_probe", "-"))
+    if job.get("format") == "short":
+        print("Parent long: ", job.get("parent_video_id") or "- (stand-alone Short)")
+        if parent_line:
+            print("Desc line 1: ", parent_line)
+            print("1st comment: ", parent_line, "(scheduled task, publish_at + 5 min)")
     if errs:
         print("\nPROBLEMS:")
         for e in errs:
@@ -356,6 +395,10 @@ def main():
         print("Uploaded:", result["url"])
 
     do_extras(yt, job, job_path, result["video_id"], result)
+    if parent_line and not result.get("comment_task") and not result.get("comment_id"):
+        short_followups(job, job_path, result)
+        print("Studio (manual): set Related video =", f"https://youtu.be/{job['parent_video_id']}",
+              "and pin the first comment after it is posted.")
     result_path.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
     print(json.dumps(result, ensure_ascii=False, indent=2))
 
