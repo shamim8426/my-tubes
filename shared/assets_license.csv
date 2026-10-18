@@ -59,3 +59,6 @@ channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/images/,own: Gemini-generat
 channels/dadi-ki-kahaniyan/brand/,own: Gemini-generated banner/DP/thumbnail art + our own libass text in Mukta,Dadi Ki Kahaniyan,own (Gemini-generated),,2026-10-17
 channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long/output/long_01_thumbnail.png,own: Gemini art + our own libass text in Mukta,Dadi Ki Kahaniyan,own (Gemini-generated),,2026-10-18
 channels/*/stories/*/audio/tts_cache/,own: Gemini TTS voices (cost_log.csv),Dadi Ki Kahaniyan,own (Gemini-generated),,2026-10-17
+channels/dadi-ki-kahaniyan/brand/kissago_banner.png,"own: Gemini banner art (brand/_work/banner_art.png) + our own libass text in Mukta (shared/fonts, SIL OFL)",Kissago (channel owner),own (Gemini-generated),,2026-10-18
+channels/dadi-ki-kahaniyan/stories/002_sharma-ji-ki-cycle/shorts/short_01_case-01/output/case01_thumbnail.png,own: Gemini art + our own libass text in Mukta,Kissago (channel owner),own (Gemini-generated),,2026-10-18
+channels/dadi-ki-kahaniyan/stories/002_sharma-ji-ki-cycle/shorts/short_01_case-01/output/case01_thumbnail_vertical.png,own: Gemini art + our own libass text in Mukta,Kissago (channel owner),own (Gemini-generated),,2026-10-18

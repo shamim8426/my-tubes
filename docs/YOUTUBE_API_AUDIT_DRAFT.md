@@ -9,7 +9,7 @@ Facts used (from `docs/YOUTUBE_UPLOADER_SETUP.md`):
 - OAuth client: Desktop app "story-channel-uploader"; app name "Dadi Ki Kahaniyan Uploader"; status In production (unverified)
 - Scopes: `youtube.upload`, `youtube.force-ssl`
 - Privacy policy: https://gist.github.com/shamim8426/9fdc382c9ac9a02777195c7c5969a1b6
-- Channel today: दादी की कहानियाँ (Dadi Ki Kahaniyan), `UCy071_4g4vGemktFHybqkhQ`
+- Channel today: किस्सागो | Kissago (formerly दादी की कहानियाँ), `UCy071_4g4vGemktFHybqkhQ`
 
 ---
 
@@ -19,7 +19,7 @@ Facts used (from `docs/YOUTUBE_UPLOADER_SETUP.md`):
 |---|---|
 | Name | `<<your full name>>` |
 | Email | shamimx.ali@gmail.com |
-| Organisation | Individual creator (no company) — "Dadi Ki Kahaniyan" |
+| Organisation | Individual creator (no company) — "Kissago" |
 | Address | `<<your postal address>>` |
 | Website | https://www.youtube.com/channel/UCy071_4g4vGemktFHybqkhQ |
 | Role | Owner of the channel(s) and sole developer/operator of the API client |

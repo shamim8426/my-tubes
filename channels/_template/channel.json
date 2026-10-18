@@ -1,6 +1,8 @@
 {
   "channel_key": "CHANNEL_KEY",
   "display_name": "CHANNEL_NAME",
+  "title_suffix": "| CHANNEL_NAME",
+  "brand_label": "CHANNEL_NAME",
   "channel_id": "",
   "made_for_kids": null,
   "contains_synthetic_media": false,

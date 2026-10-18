@@ -1,4 +1,4 @@
-# Channel RULES — दादी की कहानियाँ (dadi-ki-kahaniyan)
+# Channel RULES — किस्सागो | Kissago (key: dadi-ki-kahaniyan; formerly दादी की कहानियाँ)
 
 Only the rules special to this channel. Read `shared/RULES.md` first; everything there applies here too.
 - Channel RULES can be stricter than shared RULES, never looser. Copyright, channel ID, secrets and upload safety can never be relaxed by a channel.
@@ -11,5 +11,7 @@ Only the rules special to this channel. Read `shared/RULES.md` first; everything
 
 ## Metadata
 - Mystery (Dadi Jasoos) videos: the answer never goes in the title, description or thumbnail. It goes in the pinned comment 24 h after publishing.
-- Dadi Ki Kahaniyan is set to made_for_kids = false (family audience, decided by the user). So title, thumbnail, description and tags must speak to the whole family, not only to children: no "for kids" / "बच्चों के लिए" / nursery-style wording. Flag any such wording as FIX.
-
+- किस्सागो (Kissago) is set to made_for_kids = false (family audience, decided by the user). So title, thumbnail, description and tags must speak to the whole family, not only to children: no "for kids" / "बच्चों के लिए" / nursery-style wording. Flag any such wording as FIX.
+- Titles end with the channel brand: `title_suffix` from channel.json ("| किस्सागो"). The old suffix "| दादी की कहानियाँ" is not used any more.
+- Thumbnail corner label = `brand_label` from channel.json ("किस्सागो").
+- Dadi, Golu and Mitthu stay the channel's hosts/characters; the mystery series keeps its name "दादी जासूस" (Dadi Jasoos).

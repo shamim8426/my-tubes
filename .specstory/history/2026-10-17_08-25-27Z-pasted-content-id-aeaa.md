@@ -42111,3 +42111,997 @@ short short_01_jadui-kadhai 48.3 no warnings
 351:Style: Title,{font_family},128,&H0000E5FF,&H000000FF,&H00000000,&H78000000,0,0,0,0,100,100,0,0,1,9,4,8,{CAP_SIDE},{CAP_SIDE},170,1
 ```
 </details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 14:29:10Z)**_
+
+<think><details><summary>Thought Process</summary>
+Checks sahi se kaam kar rahe hain — Long 01 par dono expected warnings aayi (missing intro mark, sawaal par na khatam hona), isliye use upload hone ki wajah se chheda nahi. Ab agli kahani ke liye script template aur Script stage dekhta hoon.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-18 14:29:20Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Write"><details>
+<summary>Tool use: **Write**</summary>
+
+```markdown
+# <Story title> — script
+
+Format: Line # | Time | Speaker | Dialogue / Action | Narration notes
+(Checks: shared/RULES.md sections 12 Originality and 13 Audience & algorithm; channel RULES.md.)
+
+## 0. Opening frame (max 10 s in total) — mark these lines `"part": "intro"` in lines.json
+- First spoken line starts at 0 s (within 1.0 s). One quick hook from the frame characters, then straight into the story.
+| 1 | 0:00 | ... | ... | hook |
+
+## 1. Story (first 30 s set up the main question / conflict)
+- Whatever the title and thumbnail promise must be on screen within the first 60 s.
+| 2 | ... | ... | ... | ... |
+
+## 2. Ending
+- Moral said clearly.
+- **Last spoken line = one specific question to the viewers about THIS story** (for comments), e.g. "आप छोटू की जगह होते तो क्या करते?" — not a generic "like and subscribe".
+- The last 20 s keep the end-screen area free of essential visuals and captions.
+| N | ... | dadi_story | ...? | question to viewers |
+
+```
+
+```text
+File created successfully at: D:\Story-Channel\channels\_template\stories\000_story-slug\script\script.md (file state is current in your context — no need to Read it back)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 14:29:21Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\.claude\skills\step-review\SKILL.md has been updated successfully. (note: the file had been modified on disk since you last read it — the edit applied cleanly, but the file contains other changes not in your context. Read it before edits that depend on surrounding content.)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 14:29:32Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Write carry-over, sync, report repo size
+
+```bash
+rm -f channels/_template/stories/000_story-slug/script/.gitkeep 2>/dev/null; cat >> channels/dadi-ki-kahaniyan/carry_over.md <<'EOF'
+
+| Date | Project | Issue (RULES 13) | Fix | Status |
+|---|---|---|---|---|
+| 2026-10-18 | long_01 (uploaded, not changed) | Dadi–Golu opening ~12.8 s (max 10 s) | builder warns when lines marked `"part": "intro"` end after 10 s; script template section 0 | fixed in pipeline |
+| 2026-10-18 | long_01 (uploaded, not changed) | last spoken line is the moral, not a question to viewers | builder warns if the last spoken line is not a question; script template + step-review Script stage | fixed in pipeline |
+| 2026-10-18 | short_01_jadui-kadhai (uploaded, not changed) | burned captions had 60 px side margins (right 15% not kept free) | caption margins 170 px left/right, bottom 480 px (25%) for all Shorts | fixed in pipeline |
+EOF
+tail -5 channels/dadi-ki-kahaniyan/carry_over.md | cut -c1-90; powershell -NoProfile -ExecutionPolicy Bypass -File tools/sync.ps1 -Message "review files out of git (reports only), JPG frames; RULES 13 builder defaults + carry-over" >/dev/null 2>&1; tail -1 shared/sync.log; gh api repos/shamim8426/story-channel --jq '.size' | awk '{printf "GitHub repo size: %.1f MB\n",$1/1024}'
+```
+
+```text
+| Date | Project | Issue (RULES 13) | Fix | Status |
+|---|---|---|---|---|
+| 2026-10-18 | long_01 (uploaded, not changed) | Dadi–Golu opening ~12.8 s (max 10 s) | 
+| 2026-10-18 | long_01 (uploaded, not changed) | last spoken line is the moral, not a ques
+| 2026-10-18 | short_01_jadui-kadhai (uploaded, not changed) | burned captions had 60 px s
+2026-10-18 19:59:30  pushed: review files out of git (reports only), JPG frames; RULES 13 builder defaults + carry-over  (repo pack size 387 MB)
+GitHub repo size: 338.4 MB
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 14:29:44Z)**_
+
+Review files ab git me nahi jaayengi aur section 13 ke teeno default builder me lag gaye. Repo ka size abhi **338 MB** hi hai, kyunki purani history waisi hi hai, par aage ye review ki wajah se nahi badhega.
+
+## Review files
+- **`.gitignore`:** `**/review/**` ignore hota hai, sirf `review/*.md` reports GitHub par jaati hain. Test kiya: `.png` ignore hoti hai, `.md` nahi.
+- **194 review files** (frames, sheets, `.wav`) `git rm --cached` se git se hata di. Disk par 205 review files maujood hain.
+- **Munshi:** agent aur step-review skill me niyam joda ki review frames aur contact sheets **JPG (quality ~85)** me bane, PNG me nahi.
+
+## Section 13 ke builder defaults
+Upload ho chuki videos nahi chhedi.
+- **Long intro max 10 sec:** script me intro lines par `"part": "intro"` lagana hoga. Intro 10 sec se lamba ho, ya ye mark na ho, toh builder "SECTION 13" warning deta hai.
+- **Aakhri line ek khaas sawaal:** long video ki aakhri boli gayi line sawaal na ho toh builder warning deta hai. Naya script template `channels/_template/.../script/script.md` banaya, jisme intro ≤10 sec aur aakhir me sawaal ka dhaancha hai. step-review ke Script stage me bhi ye yaad dilaya.
+- **Short captions:** left aur right dono taraf 170 px margin, taki text beech me rahe aur right 15% khali rahe. Neeche 480 px (25%) ka margin hai. Shorts ki lambai ka check ab 30–58 sec hai.
+- **Test:** Long 01 par dono warnings aayi, jo sahi hai kyunki purana video hai. Short 01 par koi warning nahi aayi.
+- **`carry_over.md`:** teeno issues "fixed in pipeline" ke saath likh diye.
+
+## Sync aur repo size
+- `pushed: review files out of git (reports only), JPG frames; RULES 13 builder defaults + carry-over`
+- **GitHub repo: 338.4 MB.** Purani history me jo review images ja chuki hain, wo tab tak rahengi jab tak history dobara na likhi jaye (force-push). Wo jokhim wala kaam hai, isliye nahi kiya.
+- Sync log ka "387 MB" aapke computer par git ki do pack files ka jod hai. `git gc` se ye ghatkar ~338 MB ho jayega. Kahein toh chala doon.
+
+**Abhi baaki:** Short ka Related video set karna, aur 21:05 ke baad pehla comment pin karna. Ho jaye toh "ho gaya" likhiye.
+
+---
+
+_**User (2026-10-18 14:40:05Z)**_
+
+ha, git gc chala do aur naya local size batao.
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-18 14:40:16Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Run git gc and report local pack size
+
+`echo "before:"; git count-objects -vH | grep -E "size-pack|packs"; git gc --quiet; echo "after:"; git count-objects -vH | grep -E "size-pack|packs|garbage"; git fsck --no-progress --connectivity-only 2>&1 | tail -2; echo "fsck exit=$?"`
+
+```text
+before:
+packs: 2
+size-pack: 386.99 MiB
+after:
+packs: 2
+size-pack: 387.00 MiB
+garbage: 0
+size-garbage: 0 bytes
+dangling commit 454ccfd5dc6b123dbee860fce6d90f8a36dd0d00
+dangling commit ac1fdf794ec6476b2f2d5106fef4cedd7c312748
+fsck exit=0
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 14:40:19Z)**_
+
+`git gc` ke baad bhi 2 pack hain aur size 387 MB hi hai. Kaaran dekh raha hoon:
+
+_**Agent (claude-opus-5-5 2026-10-18 14:40:22Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Inspect pack files and gc config
+
+`ls -la .git/objects/pack/ | awk '{print $5, $9}'; git config --get-regexp "gc\.|pack\." ; echo "---"; git rev-list --objects --all | wc -l`
+
+```text
+0 .
+0 ..
+2584 pack-00cd9566af8a6714fddb1ff8650582407c67c667.idx
+268 pack-00cd9566af8a6714fddb1ff8650582407c67c667.mtimes
+52026846 pack-00cd9566af8a6714fddb1ff8650582407c67c667.pack
+268 pack-00cd9566af8a6714fddb1ff8650582407c67c667.rev
+32712 pack-1c0ed12a4a187c9792d916bac58c8e1f6ba3c7de.idx
+353734315 pack-1c0ed12a4a187c9792d916bac58c8e1f6ba3c7de.pack
+4572 pack-1c0ed12a4a187c9792d916bac58c8e1f6ba3c7de.rev
+---
+1130
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 14:40:32Z)**_
+
+<think><details><summary>Thought Process</summary>
+Chhota pack ek "cruft pack" hai jisme unreferenced objects hain — shayad wahi 58 MB `music_resid.wav` jo size guard ne baad mein unstage kar diya tha, aur Git unhe 2 hafte tak rakhta hai. Hatane se pehle 2 dangling commits check kar leta hoon.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-18 14:40:34Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Inspect dangling commits and cruft pack
+
+`for c in 454ccfd5dc6b123dbee860fce6d90f8a36dd0d00 ac1fdf794ec6476b2f2d5106fef4cedd7c312748; do git log -1 --format="%h %ci %s" $c; git show --stat --format= $c | tail -1; done; git show-index < .git/objects/pack/pack-00cd9566af8a6714fddb1ff8650582407c67c667.idx | wc -l`
+
+```text
+454ccfd 2026-10-18 13:21:03 +0530 On main: autostash
+ 1 file changed, 1 insertion(+)
+ac1fdf7 2026-10-18 14:55:30 +0530 On main: autostash
+ 1 file changed, 1 insertion(+)
+54
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 14:40:37Z)**_
+
+Dono dangling commits sirf `git pull --autostash` ke bache hue stash hain, aur dono me ek-ek line ka badlav hai (sync log). Inme kuch kaam ka nahi. Ab cruft hata raha hoon:
+
+_**Agent (claude-opus-5-5 2026-10-18 14:40:47Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Prune unreachable objects and report size
+
+`git gc --prune=now --quiet && git count-objects -vH | grep -E "size-pack|packs|garbage"; git fsck --no-progress 2>&1 | tail -2; echo "fsck exit=$?"; git status --short | head -3; du -sh .git | cut -f1`
+
+```text
+packs: 1
+size-pack: 337.38 MiB
+garbage: 0
+size-garbage: 0 bytes
+fsck exit=0
+ M .specstory/history/2026-10-17_08-25-27Z-pasted-content-id-aeaa.md
+ M shared/sync.log
+338M
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 14:40:54Z)**_
+
+`git gc` ho gaya. Computer par repo ab **337.4 MB** ka hai (pehle 387 MB), jo ab GitHub ke 338 MB ke barabar hai.
+
+| | Pehle | Ab |
+|---|---|---|
+| Pack files | 2 | **1** |
+| Local size | 387.0 MB | **337.4 MB** |
+| `.git` folder | — | 338 MB |
+
+- **Pehla `git gc`:** isse size nahi ghata. Chhoti pack ek "cruft pack" thi, jisme wo objects the jinka kisi commit me hawala nahi tha. Git inhe 2 hafte tak rakhta hai.
+  - Usme zyaada hissa shayad 58 MB ki `music_resid.wav` ka tha. Sync ke size guard ne use stage karne ke baad wapas hata diya tha, par object reh gaya tha.
+- **Hatane se pehle check kiya:** cruft me 2 dangling commits the. Dono `git pull --autostash` ke bache stash the, ek-ek line ke sync log badlav ke saath. Inme kaam ka kuch nahi tha.
+- **Phir `git gc --prune=now`:** cruft hat gaya.
+- **Jaanch:** `git fsck` me koi error nahi aaya. Saari history aur files sahi hain, aur GitHub par kuch nahi badla.
+
+Short ke liye Related video set karna aur 21:05 ke baad pehla comment pin karna abhi baaki hai. Ho jaye toh "ho gaya" likhiye.
+
+---
+
+_**User (2026-10-18 15:13:24Z)**_
+
+
+
+<pasted_content id="aeaa">
+Channel ka naya naam "किस्सागो | Kissago" hai. Rebrand karo, koi paid call bina meri "ha" ke nahi.
+
+1. channels/dadi-ki-kahaniyan/channel.json me display_name "किस्सागो | Kissago" aur "title_suffix": "| किस्सागो". Andar ka channel_key aur folder naam mat badlo.
+
+2. RULES (channel aur shared) aur templates me jahan "| दादी की कहानियाँ" title suffix hai, wahan channel.json ka title_suffix use ho. Dadi Jasoos series ka naam waisa hi rahe — Dadi, Golu, Mitthu channel ke host/characters rahenge.
+
+3. Brand:
+   - Banner: purane banner art par sirf text badlo (libass, Mukta): bada "किस्सागो", neeche chhota "Kissago · हर शाम एक नया किस्सा". ₹0. Preview dikhao.
+   - DP: agar purani DP me naam likha hai to wahi text badlo; nahi to DP waisi hi rahe.
+   - Thumbnail ke kone ka "दादी की कहानियाँ" text aage se "किस्सागो" ho.
+   - Teeno uploaded videos (Case 01, Long 01, short_01) ke thumbnails par kone ka text badal kar naye thumbnail banao (₹0), dikhao.
+
+4. Uploaded teeno videos ke titles aur description me purana naam naye se badlo — videos.update API se. Pehle har video ka "purana -> naya" title/description dry-run me dikhao, meri "ha" ke baad hi update karo. Saath me naye thumbnails --extras-only se lagao (Shorts ka thumbnail API se nahi badalta, use chhodo).
+
+5. Channel description ka draft likho (Hindi, 2-3 line + upload schedule "रोज़ शाम 7 बजे"), main Studio me khud daalunga.
+
+6. assets_license.csv me naye brand files ki rows, phir sync.
+</pasted_content id="aeaa">
+
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-18 15:13:56Z)**_
+
+Rebrand bada kaam hai, isliye kram se karunga. Upload hui videos me badlav sirf dry-run dikhane aur aapki "ha" ke baad hoga. Pehle dekh raha hoon ki purana naam kahan-kahan hai:
+
+_**Agent (claude-opus-5-5 2026-10-18 15:14:08Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Find all old channel name references
+
+`grep -rln "दादी की कहानियाँ\|Dadi Ki Kahaniyan\|दादीकीकहानियाँ\|DadiKiKahaniyan" --include=*.md --include=*.json --include=*.py --include=*.ps1 --include=*.txt --include=*.srt . 2>/dev/null | grep -v "^./.specstory\|^./_to_delete\|^./claude-home\|/review/\|^./.venv" ; echo ---; grep -n "दादी की कहानियाँ\|Dadi Ki Kahaniyan" shared/RULES.md channels/dadi-ki-kahaniyan/RULES.md channels/dadi-ki-kahaniyan/channel_bible.md scripts/*.py | cut -c1-160`
+
+```text
+./.claude/agents/munshi.md
+./channels/dadi-ki-kahaniyan/channel.json
+./channels/dadi-ki-kahaniyan/channel_bible.md
+./channels/dadi-ki-kahaniyan/RULES.md
+./channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long/meta.json
+./channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long/output/long_01.txt
+./channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long/output/upload.json
+./channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/script/LONG_01_IDEAS.md
+./channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/meta.json
+./channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/output/short_01_jadui-kadhai.txt
+./channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/output/upload.json
+./channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/PLAN.md
+./channels/dadi-ki-kahaniyan/stories/002_sharma-ji-ki-cycle/shorts/short_01_case-01/meta.json
+./channels/dadi-ki-kahaniyan/stories/002_sharma-ji-ki-cycle/shorts/short_01_case-01/output/case01_cycle_chori.txt
+./CLAUDE.md
+./docs/YOUTUBE_API_AUDIT_DRAFT.md
+./docs/YOUTUBE_UPLOADER_SETUP.md
+./PREVIEW.md
+./scripts/gen_channel_assets.py
+./scripts/preview.py
+./shared/RULES.md
+---
+shared/RULES.md:107:- The channel name suffix (e.g. "| दादी की कहानियाँ") may stay the same in every title — it is branding. The r
+channels/dadi-ki-kahaniyan/RULES.md:1:# Channel RULES — दादी की कहानियाँ (dadi-ki-kahaniyan)
+channels/dadi-ki-kahaniyan/RULES.md:14:- Dadi Ki Kahaniyan is set to made_for_kids = false (family audience, decided by the user). So title, thumbnail, descript
+channels/dadi-ki-kahaniyan/channel_bible.md:1:# CHANNEL BIBLE — "दादी की कहानियाँ"
+channels/dadi-ki-kahaniyan/channel_bible.md:3:> Channel ka naam: **दादी की कहानियाँ** (Dadi Ki Kahaniyan). Pehle "दादी ज�
+scripts/gen_channel_assets.py:31:TITLE = "दादी की कहानियाँ"
+scripts/gen_channel_assets.py:159:Dialogue: 0,0:00:00.00,0:00:01.00,L,,0,0,0,,{{\\c&H0030C8FF&}}दादी की कहानियाँ
+scripts/gen_channel_assets.py:229:Dialogue: 0,0:00:00.00,0:00:01.00,L,,0,0,0,,दादी की कहानियाँ
+scripts/gen_channel_assets.py:288:Dialogue: 0,0:00:00.00,0:00:01.00,L,,0,0,0,,दादी की कहानियाँ
+scripts/preview.py:29:    lines = ["# Preview — दादी की कहानियाँ", ""]
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:14:10Z)**_
+
+**Step 1: `channel.json`.** `channel_key` aur folder ka naam waise hi rahenge:
+
+_**Agent (claude-opus-5-5 2026-10-18 15:14:17Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Set new display name and title suffix
+
+```bash
+.venv/Scripts/python.exe -X utf8 - <<'PYEOF'
+import json
+from pathlib import Path
+p = Path("channels/dadi-ki-kahaniyan/channel.json"); c = json.loads(p.read_text(encoding="utf-8"))
+out = {}
+for k, v in c.items():
+    out[k] = v
+    if k == "display_name":
+        out[k] = "किस्सागो | Kissago"
+        out["title_suffix"] = "| किस्सागो"
+        out["brand_label"] = "किस्सागो"
+        out["former_names"] = ["दादी की कहानियाँ (Dadi Ki Kahaniyan)", "दादी जासूस"]
+p.write_text(json.dumps(out, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+t = Path("channels/_template/channel.json"); d = json.loads(t.read_text(encoding="utf-8")); o2 = {}
+for k, v in d.items():
+    o2[k] = v
+    if k == "display_name":
+        o2["title_suffix"] = "| CHANNEL_NAME"; o2["brand_label"] = "CHANNEL_NAME"
+t.write_text(json.dumps(o2, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+print(json.dumps({k: out[k] for k in ("channel_key", "display_name", "title_suffix", "brand_label", "channel_id")}, ensure_ascii=False))
+PYEOF
+```
+
+```text
+{"channel_key": "dadi-ki-kahaniyan", "display_name": "किस्सागो | Kissago", "title_suffix": "| किस्सागो", "brand_label": "किस्सागो", "channel_id": "UCy071_4g4vGemktFHybqkhQ"}
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:14:24Z)**_
+
+Ab step 2. Pehle bible, munshi aur docs me purana naam kis jagah hai, wo dekh raha hoon:
+
+_**Agent (claude-opus-5-5 2026-10-18 15:14:26Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Show bible header and other mentions
+
+`sed -n 1,8p channels/dadi-ki-kahaniyan/channel_bible.md; echo ---; grep -n "दादी की कहानियाँ\|Dadi Ki Kahaniyan" .claude/agents/munshi.md CLAUDE.md docs/*.md | cut -c1-170`
+
+```text
+# CHANNEL BIBLE — "दादी की कहानियाँ"
+
+> Channel ka naam: **दादी की कहानियाँ** (Dadi Ki Kahaniyan). Pehle "दादी जासूस" tha. Mystery format wahi hai — Dadi har case ki jaasoos hain.
+> Channel art: `brand/dadi_ki_kahaniyan_banner.png` (2560x1440), `brand/dadi_ki_kahaniyan_dp.png` (800x800).
+
+> Har script aur har image isi bible ko follow karegi. Koi bhi naya case likhne ya image banane se pehle ise padho.
+
+---
+---
+.claude/agents/munshi.md:3:description: Quality-checker and publisher for the Story-Channel project (Dadi Ki Kahaniyan and future channels). Use proactively after EVERY p
+CLAUDE.md:1:# दादी की कहानियाँ (Dadi Ki Kahaniyan) — Story Channel
+CLAUDE.md:10:## दादी की कहानियाँ (channel key: dadi-ki-kahaniyan)
+docs/YOUTUBE_API_AUDIT_DRAFT.md:9:- OAuth client: Desktop app "story-channel-uploader"; app name "Dadi Ki Kahaniyan Uploader"; status In production (unverified)
+docs/YOUTUBE_API_AUDIT_DRAFT.md:12:- Channel today: दादी की कहानियाँ (Dadi Ki Kahaniyan), `UCy071_4g4vGemktFHybqkhQ`
+docs/YOUTUBE_API_AUDIT_DRAFT.md:22:| Organisation | Individual creator (no company) — "Dadi Ki Kahaniyan" |
+docs/YOUTUBE_API_AUDIT_DRAFT.md:31:| API client name | Dadi Ki Kahaniyan Uploader |
+docs/YOUTUBE_API_AUDIT_DRAFT.md:40:> Dadi Ki Kahaniyan Uploader is a private internal tool that I use to publish my own original animated Hindi story
+docs/YOUTUBE_UPLOADER_SETUP.md:3:How the automatic YouTube upload for **दादी की कहानियाँ (Dadi Ki Kahaniyan)** is set up, and how to use or re
+docs/YOUTUBE_UPLOADER_SETUP.md:27:   - App name: `Dadi Ki Kahaniyan Uploader`
+docs/YOUTUBE_UPLOADER_SETUP.md:40:(Advanced → Go to Dadi Ki Kahaniyan Uploader). Scopes asked: `youtube.upload` and `youtube.force-ssl` (captions + playlists;
+docs/YOUTUBE_UPLOADER_SETUP.md:92:3. First upload (or a login test) opens the browser: choose `shamimx.ali@gmail.com`, channel **दादी की कहानिया
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:14:46Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Update RULES, bible, CLAUDE.md, docs to new brand
+
+```bash
+.venv/Scripts/python.exe -X utf8 - <<'PYEOF'
+from pathlib import Path
+def sub(f, pairs):
+    p = Path(f); s = p.read_text(encoding="utf-8")
+    for a, b in pairs:
+        assert a in s, (f, a[:60]); s = s.replace(a, b)
+    p.write_text(s, encoding="utf-8"); print("ok", f)
+sub("shared/RULES.md", [('- The channel name suffix (e.g. "| दादी की कहानियाँ") may stay the same',
+                         '- The channel name suffix (`title_suffix` in channels/<key>/channel.json, e.g. "| किस्सागो") may stay the same')])
+sub("channels/dadi-ki-kahaniyan/RULES.md", [
+ ("# Channel RULES — दादी की कहानियाँ (dadi-ki-kahaniyan)", "# Channel RULES — किस्सागो | Kissago (key: dadi-ki-kahaniyan; formerly दादी की कहानियाँ)"),
+ ("- Dadi Ki Kahaniyan is set to made_for_kids = false", "- किस्सागो (Kissago) is set to made_for_kids = false"),
+])
+p = Path("channels/dadi-ki-kahaniyan/RULES.md"); s = p.read_text(encoding="utf-8").rstrip("\n")
+s += ('\n- Titles end with the channel brand: `title_suffix` from channel.json ("| किस्सागो"). The old suffix "| दादी की कहानियाँ" is not used any more.\n'
+      '- Thumbnail corner label = `brand_label` from channel.json ("किस्सागो").\n'
+      '- Dadi, Golu and Mitthu stay the channel\'s hosts/characters; the mystery series keeps its name "दादी जासूस" (Dadi Jasoos).\n')
+p.write_text(s, encoding="utf-8")
+sub("channels/dadi-ki-kahaniyan/channel_bible.md", [
+ ('# CHANNEL BIBLE — "दादी की कहानियाँ"', '# CHANNEL BIBLE — "किस्सागो | Kissago"'),
+ ('> Channel ka naam: **दादी की कहानियाँ** (Dadi Ki Kahaniyan). Pehle "दादी जासूस" tha. Mystery format wahi hai — Dadi har case ki jaasoos hain.',
+  '> Channel ka naam: **किस्सागो | Kissago** (18 Oct 2026 se; pehle "दादी की कहानियाँ", usse pehle "दादी जासूस"). Folder/key `dadi-ki-kahaniyan` wahi hai.\n> Dadi, Golu aur Mitthu channel ke host/characters hain. Mystery series ka naam **"दादी जासूस"** hi rahega — Dadi har case ki jaasoos hain.\n> Title ke ant me `| किस्सागो` (channel.json `title_suffix`); thumbnail ke kone me "किस्सागो".'),
+ ("> Channel art: `brand/dadi_ki_kahaniyan_banner.png` (2560x1440), `brand/dadi_ki_kahaniyan_dp.png` (800x800).",
+  "> Channel art: `brand/kissago_banner.png` (2560x1440), `brand/dadi_ki_kahaniyan_dp.png` (800x800, no text). Old banner kept: `brand/dadi_ki_kahaniyan_banner.png`."),
+])
+sub("CLAUDE.md", [("# दादी की कहानियाँ (Dadi Ki Kahaniyan) — Story Channel", "# किस्सागो | Kissago — Story Channel"),
+                  ("## दादी की कहानियाँ (channel key: dadi-ki-kahaniyan)", "## किस्सागो | Kissago (channel key: dadi-ki-kahaniyan; pehle \"दादी की कहानियाँ\")\nTitle suffix aur thumbnail label `channels/dadi-ki-kahaniyan/channel.json` (`title_suffix`, `brand_label`) se lo.")])
+sub(".claude/agents/munshi.md", [("(Dadi Ki Kahaniyan and future channels)", "(Kissago / किस्सागो, key dadi-ki-kahaniyan, and future channels)")])
+sub("docs/YOUTUBE_UPLOADER_SETUP.md", [("for **दादी की कहानियाँ (Dadi Ki Kahaniyan)** is set up", "for **किस्सागो | Kissago** (formerly दादी की कहानियाँ; key `dadi-ki-kahaniyan`) is set up")])
+d = Path("docs/YOUTUBE_UPLOADER_SETUP.md"); t = d.read_text(encoding="utf-8")
+t = t.replace("channel **दादी की कहानियाँ**", "channel **किस्सागो | Kissago**"); d.write_text(t, encoding="utf-8")
+sub("docs/YOUTUBE_API_AUDIT_DRAFT.md", [("- Channel today: दादी की कहानियाँ (Dadi Ki Kahaniyan), `UCy071_4g4vGemktFHybqkhQ`", "- Channel today: किस्सागो | Kissago (formerly दादी की कहानियाँ), `UCy071_4g4vGemktFHybqkhQ`"),
+                                     ('| Organisation | Individual creator (no company) — "Dadi Ki Kahaniyan" |', '| Organisation | Individual creator (no company) — "Kissago" |')])
+sub("scripts/preview.py", [('lines = ["# Preview — दादी की कहानियाँ", ""]', 'lines = ["# Preview — किस्सागो | Kissago", ""]')])
+PYEOF
+```
+
+```text
+ok shared/RULES.md
+ok channels/dadi-ki-kahaniyan/RULES.md
+ok channels/dadi-ki-kahaniyan/channel_bible.md
+ok CLAUDE.md
+ok .claude/agents/munshi.md
+ok docs/YOUTUBE_UPLOADER_SETUP.md
+ok docs/YOUTUBE_API_AUDIT_DRAFT.md
+ok scripts/preview.py
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:14:50Z)**_
+
+**Step 3: brand.** Ab `gen_channel_assets.py` me naam `channel.json` se lena shuru kar raha hoon, aur banner ka naya text jod raha hoon:
+
+_**Agent (claude-opus-5-5 2026-10-18 15:14:51Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\scripts\gen_channel_assets.py`
+
+```text
+18	from gemini_image import generate  # noqa: E402
+19	
+20	from paths import FONTS_DIR, ROOT, channel_dir  # noqa: E402
+21	
+22	OUT = channel_dir() / "brand"  # banner + DP
+23	WORK = OUT / "_work"
+24	CHAR = channel_dir() / "characters"
+25	STORY_002 = channel_dir() / "stories" / "002_sharma-ji-ki-cycle"
+26	CASE01 = STORY_002 / "shorts" / "short_01_case-01"  # Case 01 thumbnails (work files in thumbnail_work/)
+27	C1W = CASE01 / "thumbnail_work"
+28	FFMPEG = ROOT / "tools" / "ffmpeg" / "ffmpeg.exe"
+29	if not FFMPEG.exists():  # new system: ffmpeg from winget on PATH (tools/ffmpeg is not in git)
+30	    FFMPEG = Path(shutil.which("ffmpeg") or FFMPEG)
+31	TITLE = "दादी की कहानियाँ"
+32	
+33	BW, BH = 2560, 1440
+34	SAFE_W, SAFE_H = 1546, 423  # YouTube: area visible on every device
+35	SAFE_TOP = (BH - SAFE_H) // 2  # 508
+36	
+37	LOOKS = ("Keep Dadi, Golu and Mitthu EXACTLY as in the attached reference sheets (faces, outfits, colours) "
+38	         "and match their flat 2D cartoon style: thick bold outlines, warm colours, flat cel shading.")
+39	
+40	BANNER_PROMPT = f"""Wide 16:9 YouTube channel banner illustration, NO text or letters anywhere.
+41	Scene: warm, cozy Indian village at golden sunset - green fields in the distance, a mud house with a tiled roof,
+42	the swept courtyard (aangan) in front, warm golden light, a few birds in the sky. Family-friendly, welcoming, not scary.
+43	Exactly in the horizontal CENTER of the image: Dadi sits on a low wooden charpai, thoughtful, with a peaceful smile,
+44	as if telling a story. Golu sits on the ground right beside her, looking up at her, listening happily.
+45	Mitthu the green parrot sits on a low tree branch just to the side of them.
+46	COMPOSITION IS CRITICAL: the characters must be fairly small and fit inside the middle horizontal band of the image
+47	(between 36% and 58% of the image height, and within the central 55% of the width). Directly below them, from 58% to
+48	66% of the height across the centre, keep a plain, smooth, slightly darker courtyard floor with no objects, for a title.
+49	Fill the left and right sides with scenery only (fields, house, trees), no important details near the top and bottom edges.
+50	{LOOKS}"""
+51	
+52	DP_PROMPT = f"""Square profile picture, NO text. Close-up portrait of Dadi (head and shoulders), centred, with a gentle
+53	warm smile, looking slightly towards the viewer. Golden round glasses, white hair bun clearly visible, light green saree
+54	with yellow border visible on the shoulders, small red bindi. Soft warm lighting. Plain softly blurred cream / light warm
+55	background. Her face fills about 60% of the frame and sits in the centre, with margin all around so it survives a circle
+56	crop. Simple, bold, very clear at small sizes.
+57	{LOOKS}"""
+58	
+59	
+60	def cover(src: Path, w: int, h: int, dst: Path):
+61	    """Resize to cover w x h and centre-crop."""
+62	    im = Image.open(src).convert("RGB")
+63	    s = max(w / im.width, h / im.height)
+64	    im = im.resize((round(im.width * s), round(im.height * s)), Image.LANCZOS)
+65	    x, y = (im.width - w) // 2, (im.height - h) // 2
+66	    im.crop((x, y, x + w, y + h)).save(dst)
+67	
+68	
+69	TITLE_POS = (805, 720)  # centre of the empty house wall, left part of the safe area (x 507-1100)
+70	
+71	
+72	def draw_title(art: Path, out: Path):
+73	    """Title in two lines inside the YouTube safe area (left of the characters), warm gold with dark outline.
+74	    Letter spacing must stay 0: any spacing makes libass drop Devanagari shaping (broken matras)."""
+75	    fonts = WORK / "fonts"
+76	    fonts.mkdir(parents=True, exist_ok=True)
+77	    shutil.copy(FONTS_DIR / "Mukta-Bold.ttf", fonts / "Mukta-Bold.ttf")
+78	    first, second = TITLE.rsplit(" ", 1)
+79	    ass = f"""[Script Info]
+80	ScriptType: v4.00+
+81	PlayResX: {BW}
+82	PlayResY: {BH}
+83	ScaledBorderAndShadow: yes
+84	
+85	[V4+ Styles]
+86	Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+87	Style: T,Mukta,150,&H0030C8FF,&H000000FF,&H00102040,&H96000000,-1,0,0,0,100,100,0,0,1,10,6,5,0,0,0,1
+88	
+89	[Events]
+90	Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+91	Dialogue: 0,0:00:00.00,0:00:01.00,T,,0,0,0,,{{\\an5\\pos({TITLE_POS[0]},{TITLE_POS[1]})\\q2}}{first}\\N{second}
+92	"""
+93	    (WORK / "title.ass").write_text(ass, encoding="utf-8")
+94	    shutil.copy(art, WORK / "art.png")
+95	    subprocess.run([str(FFMPEG), "-v", "error", "-y", "-i", "art.png", "-vf",
+96	                    "subtitles=filename=title.ass:fontsdir=fonts", "-frames:v", "1", "titled.png"],
+97	                   cwd=WORK, check=True)
+98	    shutil.copy(WORK / "titled.png", out)
+99	
+100	
+101	def banner():
+102	    raw = WORK / "banner_raw.png"
+103	    generate(BANNER_PROMPT, raw, refs=[CHAR / "dadi_sheet.png", CHAR / "golu_sheet.png", CHAR / "mitthu_sheet.png"],
+104	             aspect_ratio="16:9", size="2K")
+105	    cover(raw, BW, BH, WORK / "banner_art.png")
+106	    text()
+107	
+108	
+109	def text():
+110	    out = OUT / "dadi_ki_kahaniyan_banner.png"
+111	    draw_title(WORK / "banner_art.png", out)
+112	    print("saved", out, Image.open(out).size)
+113	
+114	
+115	def dp():
+116	    raw = WORK / "dp_raw.png"
+117	    generate(DP_PROMPT, raw, refs=[CHAR / "dadi_sheet.png"], aspect_ratio="1:1", size="1K")
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:15:05Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Banner title/tagline and thumbnail label from brand
+
+```bash
+.venv/Scripts/python.exe -X utf8 - <<'PYEOF'
+from pathlib import Path
+p = Path("scripts/gen_channel_assets.py"); s = p.read_text(encoding="utf-8")
+pairs = [
+('from paths import FONTS_DIR, ROOT, channel_dir  # noqa: E402\n',
+ 'from paths import FONTS_DIR, ROOT, channel_config, channel_dir  # noqa: E402\n'),
+('TITLE = "दादी की कहानियाँ"\n',
+ 'CFG = channel_config()\nBRAND = CFG["brand_label"]  # "किस्सागो": banner title + thumbnail corner label\nTAGLINE = "Kissago · हर शाम एक नया किस्सा"  # small line under the banner title\n'),
+('''    first, second = TITLE.rsplit(" ", 1)
+''', ''),
+('''Style: T,Mukta,150,&H0030C8FF,&H000000FF,&H00102040,&H96000000,-1,0,0,0,100,100,0,0,1,10,6,5,0,0,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:01.00,T,,0,0,0,,{{\\\\an5\\\\pos({TITLE_POS[0]},{TITLE_POS[1]})\\\\q2}}{first}\\\\N{second}
+''',
+'''Style: T,Mukta,190,&H0030C8FF,&H000000FF,&H00102040,&H96000000,-1,0,0,0,100,100,0,0,1,11,7,5,0,0,0,1
+Style: S,Mukta,62,&H00FFFFFF,&H000000FF,&H00102040,&H96000000,-1,0,0,0,100,100,0,0,1,5,3,5,0,0,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:01.00,T,,0,0,0,,{{\\\\an5\\\\pos({TITLE_POS[0]},{TITLE_POS[1] - 40})\\\\q2}}{BRAND}
+Dialogue: 0,0:00:00.00,0:00:01.00,S,,0,0,0,,{{\\\\an5\\\\pos({TITLE_POS[0]},{TITLE_POS[1] + 110})\\\\q2}}{TAGLINE}
+'''),
+('''    out = OUT / "dadi_ki_kahaniyan_banner.png"''', '''    out = OUT / "kissago_banner.png"  # the old dadi_ki_kahaniyan_banner.png is kept as it was'''),
+("Dialogue: 0,0:00:00.00,0:00:01.00,L,,0,0,0,,{{\\\\c&H0030C8FF&}}दादी की कहानियाँ", "Dialogue: 0,0:00:00.00,0:00:01.00,L,,0,0,0,,{{\\\\c&H0030C8FF&}}{BRAND}"),
+]
+for a, b in pairs:
+    assert a in s, a[:70]; s = s.replace(a, b)
+n = s.count("Dialogue: 0,0:00:00.00,0:00:01.00,L,,0,0,0,,दादी की कहानियाँ")
+s = s.replace("Dialogue: 0,0:00:00.00,0:00:01.00,L,,0,0,0,,दादी की कहानियाँ", "Dialogue: 0,0:00:00.00,0:00:01.00,L,,0,0,0,,{BRAND}")
+p.write_text(s, encoding="utf-8"); print("ok; plain labels replaced:", n)
+PYEOF
+grep -n "BRAND\|TAGLINE\|दादी की कहानियाँ" scripts/gen_channel_assets.py; .venv/Scripts/python.exe -m py_compile scripts/gen_channel_assets.py && echo compiled
+```
+
+```text
+Traceback (most recent call last):
+  File "<stdin>", line 28, in <module>
+AssertionError: Style: T,Mukta,150,&H0030C8FF,&H000000FF,&H00102040,&H96000000,-1,0,0,
+31:TITLE = "दादी की कहानियाँ"
+159:Dialogue: 0,0:00:00.00,0:00:01.00,L,,0,0,0,,{{\\c&H0030C8FF&}}दादी की कहानियाँ
+229:Dialogue: 0,0:00:00.00,0:00:01.00,L,,0,0,0,,दादी की कहानियाँ
+288:Dialogue: 0,0:00:00.00,0:00:01.00,L,,0,0,0,,दादी की कहानियाँ
+compiled
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:15:07Z)**_
+
+Backslash ki escaping me match nahi hua, isliye kuch nahi badla. Edit tool se seedha badal raha hoon:
+
+_**Agent (claude-opus-5-5 2026-10-18 15:15:19Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\scripts\gen_channel_assets.py has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:15:20Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\scripts\gen_channel_assets.py has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:15:22Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\scripts\gen_channel_assets.py has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:15:23Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\scripts\gen_channel_assets.py has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:15:24Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\scripts\gen_channel_assets.py has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:15:26Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Replace thumbnail labels with BRAND, compile
+
+`sed -i 's/}}दादी की कहानियाँ$/}}{BRAND}/; s/^\(Dialogue: 0,0:00:00.00,0:00:01.00,L,,0,0,0,,\)दादी की कहानियाँ$/\1{BRAND}/' scripts/gen_channel_assets.py && grep -n "BRAND\|TAGLINE\|दादी की कहानियाँ" scripts/gen_channel_assets.py && .venv/Scripts/python.exe -m py_compile scripts/gen_channel_assets.py && echo compiled`
+
+```text
+31:BRAND = channel_config()["brand_label"]  # "किस्सागो": banner title + thumbnail corner label
+32:TAGLINE = "Kissago · हर शाम एक नया किस्सा"  # small line under the banner title
+92:Dialogue: 0,0:00:00.00,0:00:01.00,T,,0,0,0,,{{\\an5\\pos({TITLE_POS[0]},{TITLE_POS[1] - 40})\\q2}}{BRAND}
+93:Dialogue: 0,0:00:00.00,0:00:01.00,S,,0,0,0,,{{\\an5\\pos({TITLE_POS[0]},{TITLE_POS[1] + 110})\\q2}}{TAGLINE}
+161:Dialogue: 0,0:00:00.00,0:00:01.00,L,,0,0,0,,{{\\c&H0030C8FF&}}{BRAND}
+231:Dialogue: 0,0:00:00.00,0:00:01.00,L,,0,0,0,,{BRAND}
+290:Dialogue: 0,0:00:00.00,0:00:01.00,L,,0,0,0,,{BRAND}
+compiled
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:15:31Z)**_
+
+Ab banner aur teeno thumbnails dobara bana raha hoon. Purani art hi use ho rahi hai, sirf text badla hai, isliye ₹0 aur koi Gemini call nahi:
+
+_**Agent (claude-opus-5-5 2026-10-18 15:16:03Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Re-render banner and thumbnails with new brand text
+
+`for f in text thumb_text thumb_v_text long01_thumb_text; do AUTO_PREVIEW=0 .venv/Scripts/python.exe -X utf8 scripts/gen_channel_assets.py $f || echo "FAILED $f"; done; tail -1 cost_log.csv | cut -d, -f1,2`
+
+```text
+saved D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\kissago_banner.png (2560, 1440)
+saved D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\002_sharma-ji-ki-cycle\shorts\short_01_case-01\output\case01_thumbnail.png (1280, 720)
+saved D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\002_sharma-ji-ki-cycle\shorts\short_01_case-01\output\case01_thumbnail_vertical.png (1080, 1920)
+saved D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\long\output\long_01_thumbnail.png (1280, 720)
+2026-10-18 10:20:14,channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long/thumbnail_work/long01_thumb_raw.png
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:16:06Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\kissago_banner.png`
+</details></tool-use>
+
+---
+
+_**User (2026-10-18 15:16:06Z)**_
+
+[Image: original 2560x1440, displayed at 2000x1125. Multiply coordinates by 1.28 to map to original image.]
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-18 15:16:22Z)**_
+
+<think><details><summary>Thought Process</summary>
+"किस्सागो" बैनर safe area में ठीक दिख रहा है, पर नीचे की tagline का दाहिना सिरा charpai से टकरा रहा है। इसे थोड़ा छोटा करके बायीं तरफ खिसका रहा हूं।
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:16:33Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Shrink/shift tagline, re-render banner, crop safe area
+
+```bash
+sed -i 's/^Style: S,Mukta,62,/Style: S,Mukta,52,/; s/{{\\\\an5\\\\pos({TITLE_POS\[0\]},{TITLE_POS\[1\] + 110})\\\\q2}}{TAGLINE}/{{\\\\an5\\\\pos({TITLE_POS[0] - 50},{TITLE_POS[1] + 100})\\\\q2}}{TAGLINE}/' scripts/gen_channel_assets.py && grep -n "Style: S\|TAGLINE}" scripts/gen_channel_assets.py && AUTO_PREVIEW=0 .venv/Scripts/python.exe -X utf8 scripts/gen_channel_assets.py text && .venv/Scripts/python.exe -c "
+from PIL import Image
+im=Image.open(r'channels/dadi-ki-kahaniyan/brand/kissago_banner.png')
+im.crop((507,508,1500,931)).save(r'C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad/banner_safe_crop.png')"
+```
+
+```text
+88:Style: S,Mukta,52,&H00FFFFFF,&H000000FF,&H00102040,&H96000000,-1,0,0,0,100,100,0,0,1,5,3,5,0,0,0,1
+93:Dialogue: 0,0:00:00.00,0:00:01.00,S,,0,0,0,,{{\\an5\\pos({TITLE_POS[0]},{TITLE_POS[1] + 110})\\q2}}{TAGLINE}
+saved D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\kissago_banner.png (2560, 1440)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:16:33Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `C:\Users\ashamim\AppData\Local\Temp\claude\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7\scratchpad\banner_safe_crop.png`
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:16:37Z)**_
+
+Font chhota ho gaya, par position wala badlav laga nahi. Tagline ab bhi charpai ke paaye ko chhoo rahi hai. Edit tool se position badal raha hoon:
+
+_**Agent (claude-opus-5-5 2026-10-18 15:16:43Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\scripts\gen_channel_assets.py has been updated successfully. (note: the file had been modified on disk since you last read it — the edit applied cleanly, but the file contains other changes not in your context. Read it before edits that depend on surrounding content.)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:16:51Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Re-render banner with shifted tagline
+
+```bash
+AUTO_PREVIEW=0 .venv/Scripts/python.exe -X utf8 scripts/gen_channel_assets.py text && .venv/Scripts/python.exe -c "
+from PIL import Image
+im=Image.open(r'channels/dadi-ki-kahaniyan/brand/kissago_banner.png')
+im.crop((507,508,1500,931)).save(r'C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad/banner_safe_crop.png')"
+```
+
+```text
+saved D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\kissago_banner.png (2560, 1440)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:16:51Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `C:\Users\ashamim\AppData\Local\Temp\claude\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7\scratchpad\banner_safe_crop.png`
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:16:57Z)**_
+
+<think><details><summary>Thought Process</summary>
+Tagline charpai se alag aur safe area ke andar hai, aur Hindi spelling bhi sahi hai. Ab main DP aur teeno thumbnails check karta hoon.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:17:02Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Contact sheet: DP and three thumbnails
+
+```bash
+.venv/Scripts/python.exe -c "
+from PIL import Image
+B='channels/dadi-ki-kahaniyan/'
+dp=Image.open(B+'brand/dadi_ki_kahaniyan_dp.png').convert('RGB').resize((360,360))
+l=Image.open(B+'stories/001_lalchi-halwai/long/output/long_01_thumbnail.png').convert('RGB').resize((640,360))
+c=Image.open(B+'stories/002_sharma-ji-ki-cycle/shorts/short_01_case-01/output/case01_thumbnail.png').convert('RGB').resize((640,360))
+v=Image.open(B+'stories/002_sharma-ji-ki-cycle/shorts/short_01_case-01/output/case01_thumbnail_vertical.png').convert('RGB').resize((203,360))
+s=Image.new('RGB',(360+640+640+203,360),(30,30,30)); x=0
+for im in (dp,l,c,v): s.paste(im,(x,0)); x+=im.width
+s.save(r'C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad/brand_sheet.jpg',quality=88)"
+```
+
+```text
+(Bash completed with no output)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:17:02Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `C:\Users\ashamim\AppData\Local\Temp\claude\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7\scratchpad\brand_sheet.jpg`
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:17:20Z)**_
+
+<think><details><summary>Thought Process</summary>
+DP me text nahi hoga, isliye wo waisi rahegi, aur teeno thumbnails ke kone me "किस्सागो" add ho gaya hai. Ab main title/description update karne ke liye ek script bana raha hoon jo pehle sirf "purana → naya" dikhayegi, change tabhi hoga jab aap haan karke `--apply` lagwaenge; Case 01 ki video ID local files me nahi hai to script use channel ki uploads list me dhoondhegi.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:17:35Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Write"><details>
+<summary>Tool use: **Write**</summary>
+
+```python
+#!/usr/bin/env python3
+"""One-off rebrand: replace the old channel name in already uploaded videos (title, description, tags).
+
+Usage:
+    python tools/rebrand_update.py --channel dadi-ki-kahaniyan              (dry run: read + show old -> new, change nothing)
+    python tools/rebrand_update.py --channel dadi-ki-kahaniyan --apply      (after the user's OK: videos.update)
+    add --thumb <video_id>=<png> to also set a new custom thumbnail on --apply (not for Shorts)
+
+Reads the videos through the API (videos.list, 1 unit each); --apply calls videos.update (50 units each, snippet only:
+privacy and schedule are not touched). Never prints tokens.
+"""
+import argparse
+import json
+import sys
+from pathlib import Path
+
+try:
+    sys.stdout.reconfigure(encoding="utf-8")
+except Exception:
+    pass
+
+ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "tools"))
+import youtube_upload as yu  # noqa: E402
+
+# order matters: the full old tagline first, then names and hashtags
+REPLACE = [
+    ("दादी की कहानियाँ — दादी हर हफ़्ते सुनाती हैं एक नई कहानी, जो हँसाए भी और सिखाए भी।",
+     "किस्सागो — हर शाम एक नया किस्सा, जो हँसाए भी और सिखाए भी।"),
+    ("#दादीकीकहानियाँ", "#किस्सागो"),
+    ("#DadiKiKahaniyan", "#Kissago"),
+    ("दादी की कहानियाँ", "किस्सागो"),
+    ("Dadi Ki Kahaniyan", "Kissago"),
+]
+
+
+def rebrand(text: str) -> str:
+    for a, b in REPLACE:
+        text = text.replace(a, b)
+    return text
+
+
+def find_video_ids(yt, channel_id, known):
+    """Our known video ids + every upload on the channel that still carries the old name."""
+    ch = yt.channels().list(part="contentDetails", id=channel_id).execute()["items"][0]
+    uploads = ch["contentDetails"]["relatedPlaylists"]["uploads"]
+    ids, page = list(known), None
+    while True:
+        r = yt.playlistItems().list(part="contentDetails", playlistId=uploads, maxResults=50, pageToken=page).execute()
+        ids += [i["contentDetails"]["videoId"] for i in r.get("items", [])]
+        page = r.get("nextPageToken")
+        if not page:
+            return list(dict.fromkeys(ids))
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--channel", required=True)
+    ap.add_argument("--apply", action="store_true")
+    ap.add_argument("--thumb", action="append", default=[], help="video_id=path.png (applied with --apply)")
+    a = ap.parse_args()
+    cfg = json.loads((ROOT / "channels" / a.channel / "channel.json").read_text(encoding="utf-8"))
+    job = {"channel_key": cfg["channel_key"], "channel_id": cfg["channel_id"], "channel_name": cfg["display_name"]}
+    yt = yu.get_service(job)
+    yu.check_channel(yt, job)
+    known = [json.loads(p.read_text(encoding="utf-8"))["video_id"]
+             for p in (ROOT / "channels" / a.channel).rglob("upload_result.json")]
+    ids = find_video_ids(yt, cfg["channel_id"], known)
+    items = []
+    for i in range(0, len(ids), 50):
+        items += yt.videos().list(part="snippet,status", id=",".join(ids[i:i + 50])).execute().get("items", [])
+    thumbs = dict(t.split("=", 1) for t in a.thumb)
+    changed = 0
+    for v in items:
+        sn = v["snippet"]
+        new_title, new_desc = rebrand(sn["title"]), rebrand(sn.get("description", ""))
+        new_tags = list(dict.fromkeys(rebrand(t) for t in sn.get("tags", [])))
+        if (new_title, new_desc, new_tags) == (sn["title"], sn.get("description", ""), sn.get("tags", [])) \
+                and v["id"] not in thumbs:
+            continue
+        changed += 1
+        print(f"=== {v['id']}  ({v['status'].get('privacyStatus')}, publishAt {v['status'].get('publishAt', '-')})")
+        print(f"TITLE old: {sn['title']}\nTITLE new: {new_title}")
+        old_lines, new_lines = sn.get("description", "").splitlines(), new_desc.splitlines()
+        for o, n in zip(old_lines, new_lines):
+            if o != n:
+                print(f"DESC  old: {o}\nDESC  new: {n}")
+        if new_tags != sn.get("tags", []):
+            print(f"TAGS  old: {', '.join(sn.get('tags', []))}\nTAGS  new: {', '.join(new_tags)}")
+        if v["id"] in thumbs:
+            print(f"THUMB new: {thumbs[v['id']]}")
+        if len(new_title) > 100 or len(new_desc) > 5000:
+            sys.exit(f"STOP: {v['id']} new title/description too long")
+        if a.apply:
+            body = {"id": v["id"], "snippet": {**{k: sn[k] for k in ("categoryId", "defaultLanguage", "defaultAudioLanguage")
+                                                  if k in sn},
+                                               "title": new_title, "description": new_desc, "tags": new_tags}}
+            yt.videos().update(part="snippet", body=body).execute()
+            print("  -> updated")
+            if v["id"] in thumbs:
+                from googleapiclient.http import MediaFileUpload
+                p = Path(thumbs[v["id"]])
+                yt.thumbnails().set(videoId=v["id"], media_body=MediaFileUpload(str(p), mimetype="image/png")).execute()
+                print("  -> thumbnail set")
+    print(f"\n{changed} video(s) {'updated' if a.apply else 'would change'}; {'' if a.apply else 'DRY RUN, nothing changed.'}")
+
+
+if __name__ == "__main__":
+    main()
+
+```
+
+```text
+File created successfully at: D:\Story-Channel\tools\rebrand_update.py (file state is current in your context — no need to Read it back)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:17:39Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Dry-run rebrand: show old->new for uploaded videos
+
+`.venv/Scripts/python.exe -m py_compile tools/rebrand_update.py && .venv/Scripts/python.exe -X utf8 tools/rebrand_update.py --channel dadi-ki-kahaniyan --thumb "Ogfqow8rbGY=channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long/output/long_01_thumbnail.png"`
+
+```text
+Channel OK: Dadi Ki  Kahaniya (UCy071_4g4vGemktFHybqkhQ)
+=== kWn4jKte090  (private, publishAt 2026-10-18T15:30:00Z)
+TITLE old: जो डालो, दुगना! जादुई कड़ाही का राज़ | दादी की कहानियाँ #shorts
+TITLE new: जो डालो, दुगना! जादुई कड़ाही का राज़ | किस्सागो #shorts
+DESC  old: #shorts #दादीकीकहानियाँ #HindiKahani #MoralStory
+DESC  new: #shorts #किस्सागो #HindiKahani #MoralStory
+TAGS  old: Dadi Ki Kahaniyan, Family Story Hindi, Hindi Kahani, Hindi Moral Story, Hindi Shorts, Jadui Kadhai, Lalchi Halwai, जादुई कड़ाही, दादी की कहानियाँ, परिवार की कहानी, लालची हलवाई, हिंदी कहानी
+TAGS  new: Kissago, Family Story Hindi, Hindi Kahani, Hindi Moral Story, Hindi Shorts, Jadui Kadhai, Lalchi Halwai, जादुई कड़ाही, किस्सागो, परिवार की कहानी, लालची हलवाई, हिंदी कहानी
+=== Ogfqow8rbGY  (public, publishAt -)
+TITLE old: लालची हलवाई और जादुई कड़ाही | दादी की कहानियाँ | Hindi Moral Story | Hindi Kahani
+TITLE new: लालची हलवाई और जादुई कड़ाही | किस्सागो | Hindi Moral Story | Hindi Kahani
+DESC  old: दादी की कहानियाँ — दादी हर हफ़्ते सुनाती हैं एक नई कहानी, जो हँसाए भी और सिखाए भी।
+DESC  new: किस्सागो — हर शाम एक नया किस्सा, जो हँसाए भी और सिखाए भी।
+DESC  old: #दादीकीकहानियाँ #HindiKahani #MoralStory #DadiKiKahaniyan #HindiStory
+DESC  new: #किस्सागो #HindiKahani #MoralStory #Kissago #HindiStory
+TAGS  old: Bedtime Story Hindi, Dadi Ki Kahaniyan, Dadi Maa Ki Kahani, Greed Moral Story, Hindi Cartoon Story, Hindi Kahani, Hindi Moral Story, Jadui Kadhai, Kids Story Hindi, Lalchi Halwai, Magic Story Hindi, Moral Stories in Hindi, जादुई कड़ाही, जादुई कहानी, दादी की कहानियाँ, दादी माँ की कहानी, नैतिक कहानी, बच्चों की कहानी, लालच का फल, लालची हलवाई, हिंदी कहानी
+TAGS  new: Bedtime Story Hindi, Kissago, Dadi Maa Ki Kahani, Greed Moral Story, Hindi Cartoon Story, Hindi Kahani, Hindi Moral Story, Jadui Kadhai, Kids Story Hindi, Lalchi Halwai, Magic Story Hindi, Moral Stories in Hindi, जादुई कड़ाही, जादुई कहानी, किस्सागो, दादी माँ की कहानी, नैतिक कहानी, बच्चों की कहानी, लालच का फल, लालची हलवाई, हिंदी कहानी
+THUMB new: channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long/output/long_01_thumbnail.png
+=== 8P2Sa_tRpd4  (public, publishAt -)
+TITLE old: शर्मा जी की साइकिल किसने चुराई? | दादी की कहानियाँ केस #1 #shorts
+TITLE new: शर्मा जी की साइकिल किसने चुराई? | किस्सागो केस #1 #shorts
+DESC  old: दादी की कहानियाँ — हर हफ़्ते दादी का एक नया केस, दिमाग़ लगाओ और दादी से पहले चोर पकड़ो!
+DESC  new: किस्सागो — हर हफ़्ते दादी का एक नया केस, दिमाग़ लगाओ और दादी से पहले चोर पकड़ो!
+DESC  old: #दादीकीकहानियाँ #DadiKiKahaniyan #HindiMystery #पहेली #MysteryShorts #HindiCartoon #DetectiveStory #Shorts
+DESC  new: #किस्सागो #Kissago #HindiMystery #पहेली #MysteryShorts #HindiCartoon #DetectiveStory #Shorts
+
+3 video(s) would change; DRY RUN, nothing changed.
+```
+</details></tool-use>

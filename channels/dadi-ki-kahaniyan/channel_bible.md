@@ -1,7 +1,9 @@
-# CHANNEL BIBLE — "दादी की कहानियाँ"
+# CHANNEL BIBLE — "किस्सागो | Kissago"
 
-> Channel ka naam: **दादी की कहानियाँ** (Dadi Ki Kahaniyan). Pehle "दादी जासूस" tha. Mystery format wahi hai — Dadi har case ki jaasoos hain.
-> Channel art: `brand/dadi_ki_kahaniyan_banner.png` (2560x1440), `brand/dadi_ki_kahaniyan_dp.png` (800x800).
+> Channel ka naam: **किस्सागो | Kissago** (18 Oct 2026 se; pehle "दादी की कहानियाँ", usse pehle "दादी जासूस"). Folder/key `dadi-ki-kahaniyan` wahi hai.
+> Dadi, Golu aur Mitthu channel ke host/characters hain. Mystery series ka naam **"दादी जासूस"** hi rahega — Dadi har case ki jaasoos hain.
+> Title ke ant me `| किस्सागो` (channel.json `title_suffix`); thumbnail ke kone me "किस्सागो".
+> Channel art: `brand/kissago_banner.png` (2560x1440), `brand/dadi_ki_kahaniyan_dp.png` (800x800, no text). Old banner kept: `brand/dadi_ki_kahaniyan_banner.png`.
 
 > Har script aur har image isi bible ko follow karegi. Koi bhi naya case likhne ya image banane se pehle ise padho.
 

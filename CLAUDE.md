@@ -1,4 +1,4 @@
-# दादी की कहानियाँ (Dadi Ki Kahaniyan) — Story Channel
+# किस्सागो | Kissago — Story Channel
 
 ## Project dhaancha (multi-channel)
 - `channels/<channel_key>/`: channel.json, RULES.md, channel_bible.md, log.md, carry_over.md, brand/, characters/ (permanent characters + voices/)
@@ -7,7 +7,8 @@
 - `shared/`: music/, sfx/, fonts/, assets_license.csv, RULES.md (sab channels ke common niyam), sync.log
 - `channels/_template/`: naye channel/kahani ka khaali dhaancha. Naya channel: `powershell -File tools\new_channel.ps1 -Key <key> -Name "<naam>"`
 
-## दादी की कहानियाँ (channel key: dadi-ki-kahaniyan)
+## किस्सागो | Kissago (channel key: dadi-ki-kahaniyan; pehle "दादी की कहानियाँ")
+Title suffix aur thumbnail label `channels/dadi-ki-kahaniyan/channel.json` (`title_suffix`, `brand_label`) se lo.
 Har script, case file aur image prompt se pehle [channels/dadi-ki-kahaniyan/channel_bible.md](channels/dadi-ki-kahaniyan/channel_bible.md) padho aur uske rules exactly follow karo:
 - Permanent characters ka look kabhi mat badlo — bible ke exact descriptions use karo.
 - Script: 110–140 words, 2-sec hook, Golu ka ek galat guess, Dadi ka ek clue observation, end me "बताओ, दोषी कौन?". Answer alag file me.

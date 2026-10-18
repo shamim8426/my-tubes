@@ -1,6 +1,6 @@
 # YouTube Uploader — setup record
 
-How the automatic YouTube upload for **दादी की कहानियाँ (Dadi Ki Kahaniyan)** is set up, and how to use or rebuild it.
+How the automatic YouTube upload for **किस्सागो | Kissago** (formerly दादी की कहानियाँ; key `dadi-ki-kahaniyan`) is set up, and how to use or rebuild it.
 Set up on 18 Oct 2026. First upload: Long 01 (https://youtu.be/Ogfqow8rbGY).
 
 > No secrets are in this file. `secrets/` and `.env` are never committed.
@@ -89,7 +89,7 @@ says Private, set Schedule by hand. Applying for the audit (free, a few weeks) r
 1. `deploy.ps1` installs Python libs and FFmpeg.
 2. Copy `client_secret.json` from your backup into `secrets/` (or download it again: Google Auth Platform → Clients →
    story-channel-uploader → download).
-3. First upload (or a login test) opens the browser: choose `shamimx.ali@gmail.com`, channel **दादी की कहानियाँ**,
+3. First upload (or a login test) opens the browser: choose `shamimx.ali@gmail.com`, channel **किस्सागो | Kissago**,
    accept the unverified-app warning and both permissions. The token is saved again.
 
 If the login ever stops working: delete `secrets/youtube_token_dadi-ki-kahaniyan.json` and log in again. To remove

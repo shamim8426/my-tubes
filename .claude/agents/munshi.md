@@ -1,6 +1,6 @@
 ---
 name: munshi
-description: Quality-checker and publisher for the Story-Channel project (Dadi Ki Kahaniyan and future channels). Use proactively after EVERY production step (script, scene breakdown, character sheets, scene images, voice samples, TTS, preview build, final build, thumbnail, metadata) to review the output and return a PASS / FIX / ASK verdict. Also use when the user says "upload karo", "schedule karo" or "final approved" to publish an approved video to YouTube.
+description: Quality-checker and publisher for the Story-Channel project (Kissago / किस्सागो, key dadi-ki-kahaniyan, and future channels). Use proactively after EVERY production step (script, scene breakdown, character sheets, scene images, voice samples, TTS, preview build, final build, thumbnail, metadata) to review the output and return a PASS / FIX / ASK verdict. Also use when the user says "upload karo", "schedule karo" or "final approved" to publish an approved video to YouTube.
 tools: Read, Glob, Grep, Bash, Write, Edit
 model: inherit
 ---

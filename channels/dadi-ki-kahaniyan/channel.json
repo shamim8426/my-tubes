@@ -1,6 +1,12 @@
 {
   "channel_key": "dadi-ki-kahaniyan",
-  "display_name": "दादी की कहानियाँ",
+  "display_name": "किस्सागो | Kissago",
+  "title_suffix": "| किस्सागो",
+  "brand_label": "किस्सागो",
+  "former_names": [
+    "दादी की कहानियाँ (Dadi Ki Kahaniyan)",
+    "दादी जासूस"
+  ],
   "channel_id": "UCy071_4g4vGemktFHybqkhQ",
   "made_for_kids": false,
   "contains_synthetic_media": false,

@@ -17,7 +17,7 @@ from PIL import Image
 sys.path.insert(0, str(Path(__file__).parent))
 from gemini_image import generate  # noqa: E402
 
-from paths import FONTS_DIR, ROOT, channel_dir  # noqa: E402
+from paths import FONTS_DIR, ROOT, channel_config, channel_dir  # noqa: E402
 
 OUT = channel_dir() / "brand"  # banner + DP
 WORK = OUT / "_work"
@@ -28,7 +28,8 @@ C1W = CASE01 / "thumbnail_work"
 FFMPEG = ROOT / "tools" / "ffmpeg" / "ffmpeg.exe"
 if not FFMPEG.exists():  # new system: ffmpeg from winget on PATH (tools/ffmpeg is not in git)
     FFMPEG = Path(shutil.which("ffmpeg") or FFMPEG)
-TITLE = "दादी की कहानियाँ"
+BRAND = channel_config()["brand_label"]  # "किस्सागो": banner title + thumbnail corner label
+TAGLINE = "Kissago · हर शाम एक नया किस्सा"  # small line under the banner title
 
 BW, BH = 2560, 1440
 SAFE_W, SAFE_H = 1546, 423  # YouTube: area visible on every device
@@ -75,7 +76,6 @@ def draw_title(art: Path, out: Path):
     fonts = WORK / "fonts"
     fonts.mkdir(parents=True, exist_ok=True)
     shutil.copy(FONTS_DIR / "Mukta-Bold.ttf", fonts / "Mukta-Bold.ttf")
-    first, second = TITLE.rsplit(" ", 1)
     ass = f"""[Script Info]
 ScriptType: v4.00+
 PlayResX: {BW}
@@ -84,11 +84,13 @@ ScaledBorderAndShadow: yes
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: T,Mukta,150,&H0030C8FF,&H000000FF,&H00102040,&H96000000,-1,0,0,0,100,100,0,0,1,10,6,5,0,0,0,1
+Style: T,Mukta,190,&H0030C8FF,&H000000FF,&H00102040,&H96000000,-1,0,0,0,100,100,0,0,1,11,7,5,0,0,0,1
+Style: S,Mukta,52,&H00FFFFFF,&H000000FF,&H00102040,&H96000000,-1,0,0,0,100,100,0,0,1,5,3,5,0,0,0,1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
-Dialogue: 0,0:00:00.00,0:00:01.00,T,,0,0,0,,{{\\an5\\pos({TITLE_POS[0]},{TITLE_POS[1]})\\q2}}{first}\\N{second}
+Dialogue: 0,0:00:00.00,0:00:01.00,T,,0,0,0,,{{\\an5\\pos({TITLE_POS[0]},{TITLE_POS[1] - 40})\\q2}}{BRAND}
+Dialogue: 0,0:00:00.00,0:00:01.00,S,,0,0,0,,{{\\an5\\pos({TITLE_POS[0] - 55},{TITLE_POS[1] + 100})\\q2}}{TAGLINE}
 """
     (WORK / "title.ass").write_text(ass, encoding="utf-8")
     shutil.copy(art, WORK / "art.png")
@@ -107,7 +109,7 @@ def banner():
 
 
 def text():
-    out = OUT / "dadi_ki_kahaniyan_banner.png"
+    out = OUT / "kissago_banner.png"  # the old dadi_ki_kahaniyan_banner.png is kept as it was
     draw_title(WORK / "banner_art.png", out)
     print("saved", out, Image.open(out).size)
 
@@ -156,7 +158,7 @@ Style: L,Mukta,40,&H00FFFFFF,&H000000FF,&H00000000,&H96000000,-1,0,0,0,100,100,0
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 Dialogue: 0,0:00:00.00,0:00:01.00,Q,,0,0,0,,बताओ, दोषी कौन?
-Dialogue: 0,0:00:00.00,0:00:01.00,L,,0,0,0,,{{\\c&H0030C8FF&}}दादी की कहानियाँ
+Dialogue: 0,0:00:00.00,0:00:01.00,L,,0,0,0,,{{\\c&H0030C8FF&}}{BRAND}
 """
     (C1W / "thumb.ass").write_text(ass, encoding="utf-8")
     shutil.copy(art, C1W / "thumb_art.png")
@@ -226,7 +228,7 @@ Style: L,Mukta,52,&H0030C8FF,&H000000FF,&H00000000,&H96000000,-1,0,0,0,100,100,0
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
-Dialogue: 0,0:00:00.00,0:00:01.00,L,,0,0,0,,दादी की कहानियाँ
+Dialogue: 0,0:00:00.00,0:00:01.00,L,,0,0,0,,{BRAND}
 Dialogue: 0,0:00:00.00,0:00:01.00,Q,,0,0,0,,बताओ, दोषी कौन?
 """
     (C1W / "thumb_v.ass").write_text(ass, encoding="utf-8")
@@ -285,7 +287,7 @@ Style: L,Mukta,40,&H0030C8FF,&H000000FF,&H00000000,&H96000000,-1,0,0,0,100,100,0
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 Dialogue: 0,0:00:00.00,0:00:01.00,Q,,0,0,0,,{{\\an5\\pos(290,300)\\q2}}जो डालो,\\N{{\\c&H0030FFFF&}}दुगना!
-Dialogue: 0,0:00:00.00,0:00:01.00,L,,0,0,0,,दादी की कहानियाँ
+Dialogue: 0,0:00:00.00,0:00:01.00,L,,0,0,0,,{BRAND}
 """
     (L1W / "long01_thumb.ass").write_text(ass, encoding="utf-8")
     shutil.copy(L1W / "long01_thumb_art.png", L1W / "long01_thumb_in.png")
