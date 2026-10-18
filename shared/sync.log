@@ -30,3 +30,4 @@
 2026-10-18 17:48:42  pushed: long_01 short_01: final built + munshi PASS; build guard for paid source files  (repo pack size 179 MB)
 2026-10-18 18:05:25  pushed: rules+tools: Short->Long link (desc CTA, auto first comment task, pending checklist); short_01 upload dry-run  (repo pack size 179 MB)
 2026-10-18 18:19:25  pushed: rules: fixed publish times (long 19:00, Short 21:00); short_01 slot 21:00; allow rule for upload tools  (repo pack size 179 MB)
+2026-10-18 18:25:53  pushed: long_01 short_01: uploaded (kWn4jKte090), 21:00 IST  (repo pack size 179 MB)

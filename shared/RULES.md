@@ -99,3 +99,10 @@ Rounds:
 
 These limits never weaken: copyright (section 10), channel ID check, secrets, and the full pre-upload check.
 At the end of each review, add one line to channels/<key>/log.md with the round (R1/R2), verdict and approximate time taken.
+
+## 12. Originality (YouTube "inauthentic content" policy)
+- Every new story must differ clearly from all previous stories of the channel in at least 3 of: moral, main conflict/plot shape, setting, lead characters, genre/tone (comedy, mystery, emotional, adventure), ending type.
+- At script stage Munshi compares the new script with every previous story.md in the channel and lists the closest match and what is different. If fewer than 3 differ -> BLOCKER (ASK the user).
+- Titles and thumbnails must not follow one fixed template word-for-word across videos.
+- No two videos may reuse the same narration audio. Shorts cut from their own long video are allowed.
+- Every 5th long video Munshi writes a short "channel variety" note in log.md: genres used, morals used, what to try next.

@@ -25,6 +25,7 @@ Use this after every production step of a video in the Story-Channel project. Al
 - Opening hook in the first 10 s; moral stated clearly at the end.
 - Mystery videos: the clue is fair and visible, and the answer is not in the title.
 - Mitthu never does anything that needs hands.
+- Originality: run RULES section 12 checks.
 
 ### 2. Scene breakdown (`*_SCENES.md`, `shots.json`)
 - Every script line maps to a scene; no scene without a line or a music-only note.

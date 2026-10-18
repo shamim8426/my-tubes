@@ -41425,3 +41425,85 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 12:55:34Z)**_
 {"success":true,"message":"Report delivered to your caller."}
 ```
 </details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 12:55:37Z)**_
+
+Upload ho gaya. API se Short ka schedule bhi pakka kar leta hoon. Ye sirf padhne wali call hai, 1 quota unit:
+
+_**Agent (claude-opus-5-5 2026-10-18 12:55:54Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Confirm schedules via API, update story.md, sync
+
+```bash
+.venv/Scripts/python.exe -X utf8 -c "
+import sys,json; sys.path.insert(0,'tools'); import youtube_upload as yu
+cfg=json.load(open('channels/dadi-ki-kahaniyan/channel.json',encoding='utf-8'))
+yt=yu.get_service({'channel_key':cfg['channel_key'],'channel_id':cfg['channel_id']})
+for v in yt.videos().list(part='status',id='kWn4jKte090,Ogfqow8rbGY').execute()['items']:
+  print(v['id'], v['status'].get('privacyStatus'), 'publishAt', v['status'].get('publishAt'))
+" && S=channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/story.md && sed -i 's#Munshi PASS (build, metadata, copyright); not uploaded yet; publish_at 2026-10-20 21:00 IST#uploaded 2026-10-18: https://youtu.be/kWn4jKte090, scheduled 2026-10-18 21:00 IST; first comment task 21:05#; s#scheduled 2026-10-20 19:00 IST (check in Studio)#scheduled 2026-10-18 19:00 IST (moved by user in Studio)#' $S && grep -n "Upload\|Shorts" $S | cut -c1-150 && powershell -NoProfile -ExecutionPolicy Bypass -File tools/sync.ps1 -Message "long_01 short_01: uploaded (kWn4jKte090), 21:00 IST" >/dev/null 2>&1; tail -1 shared/sync.log
+```
+
+```text
+kWn4jKte090 private publishAt 2026-10-18T15:30:00Z
+Ogfqow8rbGY private publishAt 2026-10-18T13:30:00Z
+16:| Upload | 2026-10-18 via API: https://youtu.be/Ogfqow8rbGY — scheduled 2026-10-18 19:00 IST (moved by user in Studio) |
+17:| Shorts | `shorts/short_01_jadui-kadhai/` — final 1080x1920, 48.3 s (speed 1.08, gaps 0.15/0.3), uploaded 2026-10-18: https://youtu.be/kWn4jKte0
+2026-10-18 18:25:53  pushed: long_01 short_01: uploaded (kWn4jKte090), 21:00 IST  (repo pack size 179 MB)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 12:56:05Z)**_
+
+Short upload ho gaya aur aaj raat 21:00 IST ke liye schedule hai. Kharcha ₹0. Teen kaam aapko Studio me khud karne honge (neeche).
+
+**Video:** https://youtu.be/kWn4jKte090
+**Studio:** https://studio.youtube.com/video/kWn4jKte090/edit
+
+## Kya hua
+- Asli upload is baar chal gaya, permission ne nahi roka. Munshi ne pehle dry-run dobara chalaya, phir upload kiya. Channel check OK raha.
+- Hindi captions lag gaye.
+- Description ki pehli line me Long 01 ka link hai.
+- **Comment task** `StoryChannel-Comment-kWn4jKte090` ban gaya hai. Ye aaj **21:05** par "पूरी कहानी यहाँ देखें 👉 https://youtu.be/Ogfqow8rbGY" comment karega.
+- Log me "related_video: pending, pin_comment: pending" aur PUBLISHED line jud gayi.
+
+**API se dono schedule pakke kiye:**
+| Video | publishAt | IST |
+|---|---|---|
+| Long 01 (Ogfqow8rbGY) | 2026-10-18T13:30:00Z | **aaj 19:00** ✅ |
+| Short (kWn4jKte090) | 2026-10-18T15:30:00Z | **aaj 21:00** ✅ |
+
+Dono abhi "private + scheduled" hain, jo sahi hai. YouTube ne samay maana hai, isliye Studio me haath se schedule lagane ki zaroorat nahi lagti.
+
+**Sync:** `pushed: long_01 short_01: uploaded (kWn4jKte090), 21:00 IST`
+
+## Aapko Studio me karna hai
+1. **Related video:** Short ke Studio page par Related video me **Long 01** (https://youtu.be/Ogfqow8rbGY) chuniye. Ye abhi kar sakte hain.
+2. **Comment pin:** aaj **21:05 ke baad** Short par aaya pehla comment ("पूरी कहानी यहाँ देखें 👉 ...") pin kijiye.
+3. **Long 01:** 19:00 ke baad pinned comment daal dijiye: "आपको कहानी की कौन-सी सीख सबसे अच्छी लगी? कमेंट में बताइए! 🙏"
+
+Teeno ho jayein toh **"ho gaya"** likhiye. Main log me pending line ko "done" kar dunga. Tab tak har naye session ki shuruaat me ye yaad dilata rahunga.
+
+Agar 21:05 ka comment kisi wajah se na jaaye, toh `shared/sync.log` me ERROR dikhega aur main aapko bataunga.
+
+---
+
+_**User (2026-10-18 14:04:19Z)**_
+
+
+
+<pasted_content id="aeaa">
+shared/RULES.md me naya section jodo:
+
+## 12. Originality (YouTube "inauthentic content" policy)
+- Every new story must differ clearly from all previous stories of the channel in at least 3 of: moral, main conflict/plot shape, setting, lead characters, genre/tone (comedy, mystery, emotional, adventure), ending type.
+- At script stage Munshi compares the new script with every previous story.md in the channel and lists the closest match and what is different. If fewer than 3 differ -> BLOCKER (ASK the user).
+- Titles and thumbnails must not follow one fixed template word-for-word across videos.
+- No two videos may reuse the same narration audio. Shorts cut from their own long video are allowed.
+- Every 5th long video Munshi writes a short "channel variety" note in log.md: genres used, morals used, what to try next.
+
+step-review skill ke "1. Script" stage me jodo: "Originality: run RULES section 12 checks."
+Phir sync.
+</pasted_content id="aeaa">
