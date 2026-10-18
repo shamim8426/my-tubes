@@ -14,4 +14,6 @@
 | Thumbnail | `long/output/long_01_thumbnail.png` ("जो डालो, दुगना!") |
 | Munshi | final build, thumbnail, metadata, copyright, publish dry-run: PASS (see `../../log.md`) |
 | Upload | 2026-10-18 via API: https://youtu.be/Ogfqow8rbGY — scheduled 2026-10-20 19:00 IST (check in Studio) |
-| Shorts | none yet (`shorts/`) |
+| Shorts | `shorts/short_01_jadui-kadhai/` — preview 51.9 s, Munshi R2 PASS; final not built yet; publish_at 2026-10-20 21:00 IST |
+
+

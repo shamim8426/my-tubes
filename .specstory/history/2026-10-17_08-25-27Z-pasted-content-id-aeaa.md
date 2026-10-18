@@ -31285,3 +31285,2708 @@ _**Agent (claude-opus-5-5 2026-10-18 10:08:03Z)**_
 <summary>Tool use: **Read**</summary>
  `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\review\crop_plan.png`
 </details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 10:08:44Z)**_
+
+<think><details><summary>Thought Process</summary>
+Image check se pata chala ki beech ki 9:16 patti kai scenes (20, 16) me galat crop deti hai, isliye builder me har shot ke liye crop position chunne ka option jodunga. Scene 22 me kadhai ke andar bhoori mitti dikh rahi hai jo twist leak kar sakti hai, isliye wahan sirf Ghasita ke chehre aur sikke ka close-up use karunga.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-18 10:09:10Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Write"><details>
+<summary>Tool use: **Write**</summary>
+
+```markdown
+# Short 01 — जादुई कड़ाही (from story 001, Long 01) — PLAN (not built yet)
+
+- **Format:** 1080x1920, ~54 s (target 45–60 s), burned Hindi captions, same story images + cached TTS → **₹0**
+- **Goal:** pull viewers to the full Long 01 video. Hook in the first 3 s, stop on a cliffhanger **before** the twist
+  (coin → mitti), end card text "पूरी कहानी चैनल पर".
+- **Folder:** this folder gets `project.json` (kind short, name `short_01_jadui-kadhai`), `lines.json`, `shots.json`,
+  `meta.json` after approval. Images/audio come from the story (`../../images`, `../../audio/tts_cache`).
+
+## Lines (all already in the TTS cache — exact same text + speaker, so no new TTS)
+
+| # | Long line | Scene/img | Speaker | Text | ~sec | Why |
+|---|---|---|---|---|---|---|
+| 1 | 22 | 16 | sadhu | ये जादुई कड़ाही है, बेटा। इसमें जो डालोगे, दुगना हो जाएगा। | 8.3 | **Hook:** "ये जादुई कड़ाही है" is heard in the first ~1.5 s; the promise "जो डालो, दुगना" matches the Long 01 thumbnail |
+| 2 | 24 | 17 | dadi_story | उस शाम छोटू ने कड़ाही में एक मुट्ठी आटा डाला... और आटा दो मुट्ठी हो गया! (+ magic sting) | 8.9 | proof the magic works — the visual payoff |
+| 3 | 25 | 17 | chhotu | अरे वाह! ये तो सच में जादू है! | 3.4 | reaction, keeps pace |
+| 4 | 29 | 20 | dadi_story | पर ये बात घसीटा की नज़रों से छुपी नहीं रही। | 4.4 | turn: the villain sees it (music → tension) |
+| 5 | 30 | 20 | ghasita | आटा? हुँह! उस कड़ाही में तो सोना होना चाहिए... मेरा सोना! | 6.1 | greed = the theme of the story |
+| 6 | 31 | 21 | dadi_story | उसी रात, जब छोटू सो रहा था, घसीटा दबे पाँव आया और कड़ाही चुरा ले गया। | 9.3 | rising tension |
+| 7 | 32 | 22 | dadi_story | दुकान में दीया जलाकर उसने कड़ाही में एक सोने का सिक्का डाला... | 7.9 | set-up of the payoff |
+| 8 | 33 | 22 | ghasita | चल, दुगना कर! | 1.8 | **cliffhanger** — cut here, before line 34 "...वो मिट्टी बन गया!" |
+| — | — | 22 | — | end card "पूरी कहानी चैनल पर" (burned text, no voice) | 3.0 | CTA, ₹0 (no new TTS) |
+
+Estimate: ~50 s voice after trimming + 7 gaps × 0.3 s + 3 s end card ≈ **54–55 s**.
+
+**Left out on purpose:** lines 34–39 (coin turns to mitti, everything turns to mitti) = the twist; lines 41–54 (moral,
+ending, Chhotu's shop) = the ending; line 23 ("…लालच के लिए नहीं") would fit the theme but pushes the Short past 60 s.
+Option if you prefer the warning in: swap line 29 (4.4 s) for line 23 (7.3 s) → ~57 s.
+
+## Framing (16:9 story images → 9:16) — needs a small free builder change
+
+A plain centre crop loses the speaker in 2 of 5 scenes (see `review/crop_plan.png`, red box = centre 9:16):
+
+| Scene | Centre crop shows | Plan (crop window centre x on the source image) |
+|---|---|---|
+| 16 (line 1, Sadhu speaks) | kadhai + half Chhotu, Sadhu cut off | window at x≈0.62: Sadhu + glowing kadhai |
+| 17 (lines 2–3) | kadhai with flour ✅ | centre; 2nd shot window x≈0.36 on Chhotu for line 3 |
+| 20 (lines 4–5) | empty ground ✗ | line 4: window x≈0.30 on the glowing kadhai; line 5: window x≈0.85 on Ghasita |
+| 21 (line 6) | between Chhotu and Ghasita | slow pan from Chhotu asleep (x≈0.25) to Ghasita with the kadhai (x≈0.75) |
+| 22 (lines 7–8 + end card) | Ghasita + kadhai ✅ but the kadhai already holds brown lumps that **hint at the mitti twist** | close-up on face + hand + coin only (top part), kadhai inside kept out of frame |
+
+Builder change (₹0): let each shot choose where the 9:16 window sits on a wider image (`crop_x`, default = centre,
+so Long 01 / Case 01 stay identical). Then `shots.json` + per-line `shot` overrides use it.
+
+## Audio
+- Music moods: jaadu (Enchanted Valley) for lines 1–3 → tension (Hidden Agenda) from line 4, 1.5 s crossfade;
+  magic sting after line 2. Both tracks are in `shared/assets_license.csv` (CC BY 4.0) → credits in the description
+  come from the register automatically.
+- **Shorts music 3–4 dB quieter** (CLAUDE.md note): `MUSIC_BELOW_VOICE_DB["short"]` 9 → 12.5, checked with the stem
+  method; target 12–14 LU. (Case 01 is not rebuilt; this only applies to new Short builds.)
+- Loudness -14 LUFS, true peak ≤ -1 dBFS (final build).
+
+## Captions
+- Burned in (Shorts), Mukta, above the bottom 20% (Shorts UI overlay). Captions shorter than 0.45 s are merged
+  automatically. All 8 lines had good Whisper coverage in Long 01 (only lines 2 and 50 of Long 01 were proportional —
+  neither is used here).
+
+## Carry-over / known MINORs
+- `channels/dadi-ki-kahaniyan/carry_over.md` is empty (no MINOR waived after an R2 yet).
+- Already fixed in the pipeline and so covered here: short captions merged, bt709 tags, pause-music offset,
+  music level by stem method. Still to do in this build: Shorts music −3.5 dB (above).
+
+## Concerns to decide before the preview (all ₹0 unless you choose the paid option)
+1. **Sharpness:** a 9:16 window from a 1376x768 image is ~432x768 px, upscaled ~2.5x to 1080x1920 (more on
+   close-ups). It will look softer than Case 01. The preview will show how much. Paid option only if you want it:
+   5 new vertical images ≈ 5 × ₹3.24 = ₹16.20 (not planned).
+2. **Hook wording on screen:** the first caption is "ये जादुई कड़ाही है, बेटा।" — no extra title text in the first 3 s,
+   so the picture stays clean. Say if you want a top title like "जो डालो, दुगना!" for the first 3 s (₹0).
+3. **Publish slot:** Long 01 is scheduled 20 Oct 19:00 IST. Under RULES section 8 the Short can go the same day at
+   ≥ 21:00 (2-hour gap), so viewers can already find the full story — or any later day 19:00–23:59.
+
+## Draft metadata (for approval)
+- Title: `जो डालो, दुगना! जादुई कड़ाही का राज़ | दादी की कहानियाँ #shorts`
+- Description: "रामपुर के लालची हलवाई घसीटा ने चुरा ली जादुई कड़ाही… पर आगे क्या हुआ? पूरी कहानी चैनल पर देखिए।"
+  + music credits (from the register) + 3–5 hashtags: `#shorts #दादीकीकहानियाँ #HindiKahani #MoralStory`
+- No "for kids" wording anywhere (title, description, tags, end card).
+
+```
+
+```text
+File created successfully at: D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\PLAN.md (file state is current in your context — no need to Read it back)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 10:09:22Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Remove placeholder and sync to GitHub
+
+`rm -f channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/.gitkeep && powershell -NoProfile -ExecutionPolicy Bypass -File tools/sync.ps1 -Message "docs: API audit draft + long_01 short_01 plan" >/dev/null 2>&1; tail -1 shared/sync.log`
+
+```text
+2026-10-18 15:39:21  pushed: docs: API audit draft + long_01 short_01 plan  (repo pack size 179 MB)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 10:09:45Z)**_
+
+Teeno kaam ho gaye: publish window pehle se sahi tha, API audit form ka draft taiyaar hai, aur Long 01 ke Short ka plan bana hai. Sab GitHub par sync ho gaya (`pushed: docs: API audit draft + long_01 short_01 plan`).
+
+## 1. Publish window: OK ✅
+
+## 2. API audit form ka draft
+**File:** [docs/YOUTUBE_API_AUDIT_DRAFT.md](docs/YOUTUBE_API_AUDIT_DRAFT.md). Jawab English me hain, kyunki form Google ke reviewers padhenge.
+
+- **Tool ka bayan:** ek private internal tool jo sirf aapke apne channels par aapki banayi videos upload aur schedule karta hai. Abhi ek channel (UCy071_4g4vGemktFHybqkhQ) hai, aage ~10 apne channels.
+- **Endpoints:** saare 5 endpoints, har ek ki wajah aur quota units ke saath. Data storage, access hatane ka tareeka, ToS compliance aur privacy policy ka link bhi likha hai.
+- **Quota maang: 30,000 units/din.** Ek upload me ~2,101 units lagte hain, toh 10 upload roz = ~21,010, upar se retry ke liye gunjaish.
+  - ⚠️ Ye hisaab maanta hai ki **sab channels milakar** roz 6–10 upload honge. Agar aapka matlab **har channel par** 6–10 roz tha, toh ~220,000 maangna hoga. Draft me dono likha hai.
+- **Aapko khud bharna hoga:**
+  - Apna naam aur pata
+  - **Project number** (Cloud console → Project info)
+  - Ek chhoti **screen recording**, jisme secret files na dikhein
+- Agar form Terms of Service ka link maange, toh uska gist bhi bana sakta hoon.
+- Isme koi secret nahi likha hai.
+
+## 3. Long 01 ka Short: plan
+**File:** `channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/PLAN.md`. Abhi build nahi kiya.
+
+| # | Line | Scene | Kaun | Kyon |
+|---|---|---|---|---|
+| 1 | 22 | 16 | Sadhu: "ये जादुई कड़ाही है, बेटा… जो डालोगे, दुगना!" | **Hook:** pehle ~1.5 sec me "जादुई कड़ाही", thumbnail se match |
+| 2–3 | 24, 25 | 17 | Dadi aur Chhotu: aata dugna, "ये तो सच में जादू है!" | Jaadu ka saboot |
+| 4–5 | 29, 30 | 20 | Dadi aur Ghasita: "…मेरा सोना!" | Laalach, yahi kahani ki theme hai |
+| 6 | 31 | 21 | Dadi: "…कड़ाही चुरा ले गया" | Tension |
+| 7–8 | 32, 33 | 22 | Dadi aur Ghasita: "…सिक्का डाला… **चल, दुगना कर!**" | **Cliffhanger.** Yahin kaatenge, mitti wala twist (line 34) nahi dikhega |
+| — | — | 22 | Likha hua "पूरी कहानी चैनल पर" | CTA, bina awaaz, ₹0 |
+
+- **Lambai:** ~54–55 sec.
+- **Kharcha ₹0:** saari 8 lines TTS cache me hain, aur images story wali hi hain.
+- **Music:** jaadu → tension. Shorts ka music **3.5 dB dheema** (9 → 12.5), stem method se 12–14 LU target.
+- **carry_over.md** khaali hai. Pehle ke saare MINOR (chhote captions, bt709, pause music) pipeline me pehle hi theek ho chuke hain.
+
+**Preview se pehle ki chintayein:**
+1. **Crop:** images 16:9 ki hain. Beech se seedhi 9:16 patti kaatne par scene 20 me sirf khaali zameen aati hai, aur scene 16 me bolne wale Sadhu kat jaate hain (`review/crop_plan.png`). Builder me har shot ke liye crop ki jagah chunne ka option jodna hoga (₹0). Long 01 aur Case 01 par iska asar nahi padega.
+2. **Spoiler ka khatra:** scene 22 me kadhai ke andar bhoori mitti jaisi cheez dikhti hai. Wahan sirf Ghasita ke chehre aur sikke ka close-up lunga.
+3. **Sharpness:** 16:9 image se 9:16 nikaal kar bada karne par video ~2.5x upscale hoga, isliye Case 01 se thoda dhundhla dikhega. Preview me dikh jayega. Agar zyada dhundhla lage, toh 5 nayi vertical images (~₹16.20) ka option hai, par wo plan me nahi hai.
+4. **Publish slot:** Long 01 20 Oct 19:00 par hai. Short usi din **21:00 ya baad me** ja sakta hai (2 ghante ka gap).
+
+Draft title aur description bhi PLAN.md me hain. Plan theek lage toh "preview banao" likhiye. Main crop wala option jodkar Short ka pehla preview bana dunga, ₹0.
+
+---
+
+_**User (2026-10-18 10:16:42Z)**_
+
+
+
+<pasted_content id="aeaa">
+Plan approve, kuch badlav ke saath preview banao (₹0):
+
+1. Shot 1: pehle ~1.5 sec chamakti kadhai ka close-up (scene 16/17 se), Sadhu ki line uske upar chale; phir Sadhu par cut.
+2. CTA "पूरी कहानी चैनल पर" max 2 sec.
+3. Builder me har shot ke liye crop position chunne ka option jodo (Long 01 aur Case 01 par asar nahi hona chahiye, unka --plan dobara chala kar dikhao).
+4. Scene 22 me kadhai ke andar ka hissa frame me na aaye — sirf Ghasita ka chehra aur sikka.
+5. publish_at: 2026-10-20T21:00:00+05:30.
+6. Preview ke baad Munshi se review karwao (R1). Sharpness par alag se raay do: hook (scene 16) aur cliffhanger (scene 22) dhundhle lagein to sirf in 2 ki vertical image ka option (~₹6.48) ASK me rakho, khud mat banao.
+7. Upload ke baad mujhe yaad dilana ki Studio me Short ka "Related video" Long 01 set karna hai.
+
+Ant me sync.
+</pasted_content id="aeaa">
+
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-18 10:17:35Z)**_
+
+Plan approve hua. Builder me crop position ka option, ek line me kai shots, aur chhota CTA jod raha hoon. Purane projects ka output aur cache key nahi badlenge.
+
+_**Agent (claude-opus-5-5 2026-10-18 10:17:58Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\scripts\make_short.py has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 10:17:59Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\scripts\make_short.py has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 10:18:01Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\scripts\make_short.py has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 10:18:02Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\scripts\make_short.py has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 10:18:03Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\scripts\make_short.py has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 10:18:04Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\scripts\make_short.py has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 10:18:05Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\scripts\make_short.py has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 10:18:06Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\scripts\make_short.py has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 10:18:08Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\scripts\make_short.py has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 10:18:09Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\scripts\make_short.py has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 10:18:10Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\scripts\make_short.py has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 10:18:19Z)**_
+
+Ab Short ki files bana raha hoon. Har shot ka crop us character ke beech par rakha hai jo us waqt bol raha hai ya jis par line hai.
+
+_**Agent (claude-opus-5-5 2026-10-18 10:18:42Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Write short files; run --plan for Long 01, Case 01, new short
+
+```bash
+D=channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai && .venv/Scripts/python.exe -X utf8 - <<EOF
+import json
+from pathlib import Path
+D = Path("$D")
+L = {l_i: l for l_i, l in enumerate(json.load(open("channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long/lines.json", encoding="utf-8")), 1)}
+def take(n, **extra):
+    l = {k: L[n][k] for k in ("scene", "speaker", "text")}
+    l.update(extra); return l
+# shot spec: [x, y, zoom, crop_x, crop_y]  x,y inside the 9:16 window; crop_x/crop_y = window centre on the 16:9 image
+lines = [
+  take(22, mood="jaadu", shots=[[[0.5, 0.64, 1.7, 0.43], 1.5],      # glowing kadhai in Chhotu's hands
+                                [[0.5, 0.42, 1.25, 0.72], None]]),   # Sadhu speaking
+  take(24, sfx_after="magic", shot=[0.5, 0.55, 1.15, 0.6]),          # kadhai overflowing with flour
+  take(25, shot=[0.5, 0.42, 1.3, 0.36]),                              # Chhotu amazed
+  take(29, mood="tension", shot=[0.5, 0.5, 1.2, 0.25]),               # glowing kadhai seen through the door
+  take(30, shot=[0.5, 0.42, 1.2, 0.85]),                              # Ghasita, greedy
+  take(31, shots=[[[0.5, 0.72, 1.3, 0.22], 3.0],                      # Chhotu asleep
+                  [[0.5, 0.45, 1.15, 0.72], None]]),                  # Ghasita sneaking off with the kadhai
+  take(32, shot=[0.5, 0.40, 1.75, 0.53]),                             # face + hand + coin, kadhai inside kept out
+  take(33, shot=[0.5, 0.36, 2.0, 0.55]),                              # Ghasita's face: "चल, दुगना कर!"
+]
+(D / "lines.json").write_text("[\n" + ",\n".join("  " + json.dumps(l, ensure_ascii=False) for l in lines) + "\n]\n", encoding="utf-8")
+(D / "project.json").write_text(json.dumps({"kind": "short", "name": "short_01_jadui-kadhai", "burn_captions": True,
+    "_note": "Short from story 001 (Long 01). 16:9 story images shown through per-shot 9:16 crop windows (crop_x)."}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+(D / "shots.json").write_text(json.dumps({"_help": "Every line in lines.json has its own shot/shots override; nothing needed here."}, indent=2) + "\n", encoding="utf-8")
+lm = json.load(open("channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long/meta.json", encoding="utf-8"))
+meta = {
+  "title": "जो डालो, दुगना! जादुई कड़ाही का राज़ | दादी की कहानियाँ #shorts",
+  "description": "रामपुर के लालची हलवाई घसीटा ने चुरा ली जादुई कड़ाही… पर आगे क्या हुआ? पूरी कहानी चैनल पर देखिए।",
+  "hashtags": ["#shorts", "#दादीकीकहानियाँ", "#HindiKahani", "#MoralStory"],
+  "tags": ["दादी की कहानियाँ", "Dadi Ki Kahaniyan", "जादुई कड़ाही", "Jadui Kadhai", "लालची हलवाई", "Lalchi Halwai",
+           "हिंदी कहानी", "Hindi Kahani", "Hindi Moral Story", "परिवार की कहानी", "Family Story Hindi", "Hindi Shorts"],
+  "music_moods": {"jaadu": lm["music_moods"]["jaadu"], "tension": lm["music_moods"]["tension"]},
+  "sfx": {"magic": lm["sfx"]["magic"]},
+  "final_title": "पूरी कहानी चैनल पर",
+  "final_title_secs": 2.0,
+  "end_hold": 2.0,
+  "pinned_comment": "पूरी कहानी — लालची हलवाई और जादुई कड़ाही — चैनल पर देखिए! 🙏",
+  "publish_at": "2026-10-20T21:00:00+05:30",
+  "related_video": "https://youtu.be/Ogfqow8rbGY"
+}
+(D / "meta.json").write_text(json.dumps(meta, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+print("written:", sorted(p.name for p in D.iterdir()))
+EOF
+.venv/Scripts/python.exe -m py_compile scripts/make_short.py && for v in channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long channels/dadi-ki-kahaniyan/stories/002_sharma-ji-ki-cycle/shorts/short_01_case-01 $D; do .venv/Scripts/python.exe -X utf8 scripts/make_short.py $v --plan | grep -v "^  \(project\|output\|cache\|font\|register\)"; echo "exit=$?"; done
+```
+
+```text
+written: ['PLAN.md', 'lines.json', 'meta.json', 'project.json', 'review', 'shots.json']
+[PLAN] long 'long_01'  channel=dadi-ki-kahaniyan  story=001_lalchi-halwai
+  images:   31 for 38 scenes, all present: True  (channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/images)
+  TTS:      51/51 lines cached in channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/audio/tts_cache
+  music:    6 files, all present: True  shared/music/comedy/Fluffing_a_Duck.mp3, shared/music/khushi/Carefree.mp3, shared/music/dukh/Heartbreaking.mp3, shared/music/jaadu/Enchanted_Valley.mp3, shared/music/tension/Hidden_Agenda.mp3, shared/music/seekh/Touching_Moments_Two_Higher.mp3
+  sfx:      3 files, all present: True  shared/sfx/comedy_sting_731261.mp3, shared/sfx/tension_sting_578356.mp3, shared/sfx/magic_376747.mp3
+exit=0
+[PLAN] short 'case01_cycle_chori'  channel=dadi-ki-kahaniyan  story=002_sharma-ji-ki-cycle
+  images:   10 for 10 scenes, all present: True  (channels/dadi-ki-kahaniyan/stories/002_sharma-ji-ki-cycle/images)
+  TTS:      12/12 lines cached in channels/dadi-ki-kahaniyan/stories/002_sharma-ji-ki-cycle/audio/tts_cache
+  music:    1 files, all present: True  shared/music/Sneaky_Snitch.mp3
+  sfx:      2 files, all present: True  shared/sfx/comedy_sting_731261.mp3, shared/sfx/tension_sting_578356.mp3
+exit=0
+[PLAN] short 'short_01_jadui-kadhai'  channel=dadi-ki-kahaniyan  story=001_lalchi-halwai
+  images:   5 for 5 scenes, all present: True  (channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/images)
+  TTS:      8/8 lines cached in channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/audio/tts_cache
+  music:    2 files, all present: True  shared/music/jaadu/Enchanted_Valley.mp3, shared/music/tension/Hidden_Agenda.mp3
+  sfx:      1 files, all present: True  shared/sfx/magic_376747.mp3
+exit=0
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 10:18:48Z)**_
+
+<think><details><summary>Thought Process</summary>
+Plan saaf hain aur naye Short ki saari 8 lines cache me hain. Ab Long 01 aur Case 01 ke test render dobara chala kar confirm karta hoon ki unki render keys bilkul nahi badli.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-18 10:20:25Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Re-run old test renders to confirm cache keys unchanged
+
+`for a in "channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long 15" "channels/dadi-ki-kahaniyan/stories/002_sharma-ji-ki-cycle/shorts/short_01_case-01 10"; do set -- $a; .venv/Scripts/python.exe -X utf8 scripts/make_short.py $1 --preview --seconds $2 2>&1 | grep -E "^  scene|scenes:"; done`
+
+```text
+  scene  1:   0.00-  5.42s  cache  in | close1.5
+  scene  2:   5.42- 12.33s  cache  pan | close1.6 | top
+  scene  3:  12.33- 15.00s  cache  out | close1.5
+  scenes: 3 cache se, 0 naye   |   build time 77s   |   is build ka kharcha ₹0.00
+  scene  1:   0.00-  3.50s  cache  in | close1.8
+  scene  2:   3.50-  9.38s  cache  pan | close1.8
+  scene  3:   9.38- 10.00s  cache  close1.7
+  scenes: 3 cache se, 0 naye   |   build time 15s   |   is build ka kharcha ₹0.00
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 10:20:27Z)**_
+
+Long 01 aur Case 01 ke saare scenes **cache se** aaye. Matlab crop option jodne se purane projects ki render keys nahi badli. Ab naye Short ka preview bana raha hoon:
+
+_**Agent (claude-opus-5-5 2026-10-18 10:20:55Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Build Short 01 preview
+
+`.venv/Scripts/python.exe -X utf8 scripts/make_short.py channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai --preview 2>&1 | grep -v "^  line"`
+
+```text
+[SHORT PREVIEW] 540x960 @ 24 fps
+1/4 voice
+  total 51.9s
+2/4 scenes
+  scene 16:   0.00-  8.42s  NEW    close1.7@x0.43 | close1.25@x0.72
+  scene 17:   8.42- 20.62s  NEW    close1.15@x0.6 | close1.3@x0.36
+  scene 20:  20.62- 31.25s  NEW    close1.2@x0.25 | close1.2@x0.85
+  scene 21:  31.25- 40.62s  NEW    close1.3@x0.22 | close1.15@x0.72
+  scene 22:  40.62- 51.88s  NEW    close1.75@x0.53 | close2.0@x0.55
+3/4 audio
+  music: Enchanted_Valley@0s -> Hidden_Agenda@20s
+4/4 mux (video stream copied, no re-encode)
+
+DONE [preview] D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\output\short_01_jadui-kadhai_preview.mp4  (51.9s video)
+  scenes: 0 cache se, 5 naye   |   build time 24s   |   is build ka kharcha ₹0.00
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 10:20:59Z)**_
+
+Preview ban gaya: 51.9 sec, ₹0, build me 24 sec lage. Munshi ko bhejne se pehle main khud frames dekh raha hoon, khaas kar shot 1, scene 22 aur CTA:
+
+_**Agent (claude-opus-5-5 2026-10-18 10:21:05Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Extract key frames into a contact sheet
+
+```bash
+D=channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai && V=$D/output/short_01_jadui-kadhai_preview.mp4 && .venv/Scripts/python.exe -X utf8 -c "
+import subprocess
+from PIL import Image, ImageDraw
+ts=[0.7,1.4,3.0,10,19,23,28,33,38,44,48,50.8]
+tiles=[]
+for t in ts:
+  f='$D/review/f_%05.1f.png'%t
+  subprocess.run(['tools/ffmpeg/ffmpeg.exe','-v','error','-y','-ss',str(t),'-i','$V','-frames:v','1','-vf','scale=240:-2',f],check=True)
+  im=Image.open(f).convert('RGB'); d=ImageDraw.Draw(im); d.rectangle((0,0,60,18),fill=(0,0,0)); d.text((3,3),f'{t}s',fill=(255,255,0)); tiles.append(im)
+s=Image.new('RGB',(240*6,tiles[0].height*2))
+for i,t in enumerate(tiles): s.paste(t,((i%6)*240,(i//6)*t.height))
+s.save('$D/review/preview_sheet.png')
+"
+```
+
+```text
+Exit code 1
+Traceback (most recent call last):
+  File "<string>", line 8, in <module>
+    subprocess.run(['tools/ffmpeg/ffmpeg.exe','-v','error','-y','-ss',str(t),'-i','channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/output/short_01_jadui-kadhai_preview.mp4','-frames:v','1','-vf','scale=240:-2',f],check=True)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ashamim\AppData\Local\Programs\Python\Python314\Lib\subprocess.py", line 555, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ashamim\AppData\Local\Programs\Python\Python314\Lib\subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ashamim\AppData\Local\Programs\Python\Python314\Lib\subprocess.py", line 1553, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+                             # no special security
+                             ^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+                             cwd,
+                             ^^^^
+                             startupinfo)
+                             ^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] The system cannot find the file specified
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 10:21:05Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\review\preview_sheet.png`
+
+```text
+File does not exist. Note: your current working directory is D:\Story-Channel.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 10:21:39Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Extract key frames with absolute ffmpeg path
+
+```bash
+D=channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai && V=$D/output/short_01_jadui-kadhai_preview.mp4 && .venv/Scripts/python.exe -X utf8 -c "
+import subprocess
+from PIL import Image, ImageDraw
+FF=r'D:\Story-Channel\tools\ffmpeg\ffmpeg.exe'
+ts=[0.7,1.4,3.0,10,19,23,28,33,38,44,48,50.8]
+tiles=[]
+for t in ts:
+  f='$D/review/f_%05.1f.png'%t
+  subprocess.run([FF,'-v','error','-y','-ss',str(t),'-i','$V','-frames:v','1','-vf','scale=240:-2',f],check=True)
+  im=Image.open(f).convert('RGB'); d=ImageDraw.Draw(im); d.rectangle((0,0,60,18),fill=(0,0,0)); d.text((3,3),f'{t}s',fill=(255,255,0)); tiles.append(im)
+s=Image.new('RGB',(240*6,tiles[0].height*2))
+for i,t in enumerate(tiles): s.paste(t,((i%6)*240,(i//6)*t.height))
+s.save('$D/review/preview_sheet.png')
+"
+```
+
+```text
+(Bash completed with no output)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 10:21:39Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\review\preview_sheet.png`
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 10:21:54Z)**_
+
+<think><details><summary>Thought Process</summary>
+Zyaadatar frames sahi hain, par 28 sec par Ghasita aadha kat raha tha (maine unki position x≈0.85 ki jagah x≈0.73 maani thi) aur scene 22 me sikka niche zyada kat raha hai — ab sirf ye 2 scenes dobara bana raha hoon.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-18 10:22:28Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Fix two crops, rebuild preview, extract check frames
+
+```bash
+D=channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai && sed -i 's/"shot": \[0.5, 0.42, 1.2, 0.85\]/"shot": [0.5, 0.42, 1.2, 0.73]/; s/"shot": \[0.5, 0.4, 1.75, 0.53\]/"shot": [0.5, 0.44, 1.75, 0.53]/' $D/lines.json && grep -c "0.73\]\|0.44, 1.75" $D/lines.json && .venv/Scripts/python.exe -X utf8 scripts/make_short.py $D --preview 2>&1 | grep -E "^  scene|scenes:|total" && .venv/Scripts/python.exe -X utf8 -c "
+import subprocess
+from PIL import Image
+FF=r'D:\Story-Channel\tools\ffmpeg\ffmpeg.exe'; V='$D/output/short_01_jadui-kadhai_preview.mp4'
+ims=[]
+for t in (26,28,30,42,45,48.5):
+  f='$D/review/fix_%04.1f.png'%t; subprocess.run([FF,'-v','error','-y','-ss',str(t),'-i',V,'-frames:v','1','-vf','scale=240:-2',f],check=True); ims.append(Image.open(f))
+s=Image.new('RGB',(240*6,ims[0].height)); [s.paste(im,(i*240,0)) for i,im in enumerate(ims)]; s.save('$D/review/fix_sheet.png')"
+```
+
+```text
+2
+  total 51.9s
+  scene 16:   0.00-  8.42s  cache  close1.7@x0.43 | close1.25@x0.72
+  scene 17:   8.42- 20.62s  cache  close1.15@x0.6 | close1.3@x0.36
+  scene 20:  20.62- 31.25s  NEW    close1.2@x0.25 | close1.2@x0.73
+  scene 21:  31.25- 40.62s  cache  close1.3@x0.22 | close1.15@x0.72
+  scene 22:  40.62- 51.88s  NEW    close1.75@x0.53 | close2.0@x0.55
+  scenes: 3 cache se, 2 naye   |   build time 23s   |   is build ka kharcha ₹0.00
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 10:22:28Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\review\fix_sheet.png`
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 10:22:34Z)**_
+
+Ghasita ab poore frame me hai, aur scene 22 me sikka saaf dikhta hai. Neeche sirf kadhai ka kinara aata hai, andar ka hissa nahi. Ab Munshi se R1 review karwa raha hoon:
+
+_**Agent (claude-opus-5-5 2026-10-18 10:28:34Z)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="Agent"><details>
+<summary>Tool use: **Agent**</summary>
+R1 review Short 01 preview
+
+```text
+  This agent's report was delivered to you as a message from "a17668a78286fa7aa" (its SubagentHandback call). Read it there; it is not repeated here.
+  
+agentId: a17668a78286fa7aa (use SendMessage with to: 'a17668a78286fa7aa', summary: '<5-10 word recap>' to continue this agent)
+<usage>subagent_tokens: 76868
+tool_uses: 37
+duration_ms: 348095</usage>
+```
+</details></tool-use>
+
+_**Agent - sidechain (2026-10-18 10:22:46Z)**_
+
+Round 1 (R1) review of a PREVIEW build: channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai (a Short cut from story 001 / Long 01). Read shared/RULES.md, then channels/dadi-ki-kahaniyan/RULES.md, the channel bible, the folder's PLAN.md, lines.json, meta.json, project.json. REVIEW ONLY, no edits to production files, no paid calls. Use your standard format, classify each problem BLOCKER / MINOR / Note per RULES section 11, and log one line (R1, verdict, approx time) in channels/dadi-ki-kahaniyan/log.md. Temp files only in the folder's review/.
+
+Preview file: output/short_01_jadui-kadhai_preview.mp4 (540x960 preview profile — a preview is never uploaded; judge resolution rules for the final as "not applicable yet").
+
+User's requirements for this Short (check each):
+1. 45-60 s; hook in the first 3 s; first ~1.5 s is a close-up of the glowing kadhai with the Sadhu's line playing over it, then a cut to the Sadhu.
+2. No spoiler: it must stop before the coin turns to mitti (Long 01 line 34); in scene 22 the inside of the kadhai must NOT be in frame (only Ghasita's face, hand and coin).
+3. End card "पूरी कहानी चैनल पर" on screen for at most 2 s.
+4. Shorts music 3-4 dB quieter than before: builder now uses MUSIC_BELOW_VOICE_DB short = 12.5; measure with the RULES stem method (voice stem output/short_01_jadui-kadhai_work/voice.wav vs music stem output/short_01_jadui-kadhai_work/music.wav over speech sections); Shorts target 12-14 LU.
+5. Right character on screen for every line; burned captions match the speech and sit above the bottom ~20% (Shorts UI) — note preview captions use proportional timing (Whisper runs only on --final), so judge caption timing as a Note unless clearly wrong.
+6. Copyright: all music/SFX in shared/assets_license.csv; images/voice are the story's own Gemini assets.
+7. Metadata draft in meta.json: family wording (no "for kids" incl. tags), hashtag count, publish_at 2026-10-20T21:00:00+05:30 must fit RULES section 8 (Long 01 is at 2026-10-20 19:00 → 2 h gap, window 19:00-23:59).
+
+SHARPNESS — give a separate opinion: these are 16:9 1376x768 story images shown through 9:16 crop windows and upscaled (~2.5x, more on close-ups). Look closely at full-resolution frames (extract from the preview AND, to judge the final, crop-and-scale the source images yourself to 1080x1920 the same way) especially the hook (scene 16, 0-3 s) and the cliffhanger (scene 22, ~41-52 s). If either looks too soft for a 1080x1920 Short, put ONLY "new vertical 9:16 images for scene 16 and scene 22, 2 × ₹3.24 = ₹6.48" as an ASK item. Do not generate anything.
+
+End with: verdict, BLOCKER list, MINOR list, Notes, the sharpness opinion, and the next step.
+
+_**Agent - sidechain (2026-10-18 10:22:46Z)**_
+
+<system-reminder>
+Your final report is delivered through SubagentHandback: when your work is complete, call SubagentHandback({message: <your full report>}). The call ends your run, so make it your last step. Only a SubagentHandback call reaches your caller as your result; plain text you write at the end is not delivered.
+</system-reminder>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 10:22:48Z)**_
+
+Starting with the rules and project files.
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 10:22:52Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+List rule files and project folder
+
+`wc -l shared/RULES.md channels/dadi-ki-kahaniyan/RULES.md channels/dadi-ki-kahaniyan/channel_bible.md channels/dadi-ki-kahaniyan/log.md; ls channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/ channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/output channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/review channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/`
+
+```text
+   98 shared/RULES.md
+   15 channels/dadi-ki-kahaniyan/RULES.md
+  100 channels/dadi-ki-kahaniyan/channel_bible.md
+   11 channels/dadi-ki-kahaniyan/log.md
+  224 total
+channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/:
+audio
+characters
+images
+long
+scene_prompts.json
+script
+shorts
+story.md
+
+channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/:
+PLAN.md
+lines.json
+meta.json
+output
+project.json
+review
+shots.json
+
+channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/output:
+short_01_jadui-kadhai_preview.mp4
+short_01_jadui-kadhai_work
+
+channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/review:
+crop_plan.png
+f_000.7.png
+f_001.4.png
+f_003.0.png
+f_010.0.png
+f_019.0.png
+f_023.0.png
+f_028.0.png
+f_033.0.png
+f_038.0.png
+f_044.0.png
+f_048.0.png
+f_050.8.png
+fix_26.0.png
+fix_28.0.png
+fix_30.0.png
+fix_42.0.png
+fix_45.0.png
+fix_48.5.png
+fix_sheet.png
+preview_sheet.png
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 10:22:57Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Read rules and log
+
+`cat shared/RULES.md channels/dadi-ki-kahaniyan/RULES.md channels/dadi-ki-kahaniyan/log.md`
+
+```text
+# Munshi RULES — Story-Channel
+
+Shared rules for every channel. Munshi reads this file first, then `channels/<key>/RULES.md`.
+- Channel RULES can be stricter than shared RULES, never looser. Copyright, channel ID, secrets and upload safety can never be relaxed by a channel.
+
+
+These are the hard rules. If a builder summary, a script or a file disagrees with them, the rule wins and the step is not PASS. Edit this file to add new rules; Munshi reads it fresh every time.
+- A measured value outside a RULES limit is always FIX, never PASS, even if small. (in R1; after R2 see section 11)
+
+## 1. Budget
+- Prepaid Google Cloud budget: ₹500, auto-reload off. Current balance is whatever `cost_log.csv` says.
+- Every paid call (Gemini image ≈ ₹3.24 each at 1K, Gemini TTS per line) must be in `cost_log.csv` with date, project, item, ₹.
+- No paid call without the user's OK first. A fix that costs money is always ASK, never FIX.
+- Flag it if a step cost more than 30% above its estimate (e.g. LONG_01 TTS: estimate ₹4.85, actual ₹6.63).
+
+## 2. Story and characters (from `channel_bible.md`)
+- Characters must match their approved sheets: face, clothes, colours, age look. Compare each scene image against the sheet with Read.
+- The action in each image must match what the line says at that moment (who is holding what, who is talking).
+
+## 3. Audio
+- Final loudness: -14 LUFS integrated (±1), true peak ≤ -1.0 dBFS.
+- Music sits under the voice: 12–14 dB below for Shorts, up to ~18–20 dB for narration-heavy long videos. If it is quieter than 20 dB under, flag it.
+- Music level is measured one way only: integrated LUFS of the voice-only stem vs the music-only stem over the same speech sections. Builder and Munshi both use this method.
+- Mood changes get a crossfade (≥1 s). No sudden music cuts under dialogue.
+- No leaked background audio, clicks, or a line cut off mid-word.
+
+## 4. Captions
+- One `.srt` per video, Hindi, UTF-8.
+- Each caption must appear while that line is being spoken (±0.3 s), over the right character's shot.
+- Lines whose timing was estimated rather than taken from Whisper must be listed in the report.
+
+## 5. Video
+- Long video: 1920×1080, 30 fps, H.264, 16:9. Short: 1080×1920, ≤60 s, 9:16.
+- Target length: the duration the user approved at preview. Before preview, the script estimate is only a guide. Final must be within ±10% of the approved preview length; outside that is ASK.
+- Preview builds (960×540) are only for review. They are never uploaded.
+
+## 6. Thumbnail
+- 1280×720, JPG or PNG, ≤ 2 MB.
+- Hindi text is rendered by libass/FFmpeg (HarfBuzz shaping), never drawn by the AI. Zoom in and check matras and joined letters (ड़, दु, क्ष, etc.).
+- Text readable on a phone: letter height ≥ ~12% of frame height, high contrast, max ~4 words.
+- Thumbnail text must not repeat the title word for word.
+- No spoilers: no ending, no twist, no mystery answer.
+- Bottom-right corner (~15% × 12%) has nothing important, because YouTube puts the duration there.
+
+## 7. Metadata
+- Title ≤ 100 characters, no `<` or `>`. Description ≤ 5000 characters.
+- Tags total ≤ 500 characters. 3–5 hashtags in the description (the first 3 show above the title; more than 15 and YouTube ignores all of them).
+- Every CC BY music track used (e.g. Incompetech / Kevin MacLeod) is credited in the description exactly as its licence asks.
+- Made-for-kids and AI-disclosure values come from `channels/<key>/channel.json`. Never guess them.
+
+## 8. Publishing
+- Publish slot: the same day as the upload, between 19:00 and 23:59 IST.
+  - Upload finished before 18:45 IST -> publish at 19:00 the same day.
+  - Upload finished between 18:45 and 23:15 IST -> publish at the next :00 or :30 that is at least 30 minutes after the upload.
+  - Upload finished after 23:15 IST -> publish at 19:00 the next day.
+- At most one long video per day per channel. If a long video is already scheduled that day, use 19:00 the next day. A Short may share a day with a long video only if their publish times are at least 2 hours apart, still inside 19:00-23:59.
+- Nothing goes Public or gets scheduled without the user's OK in that conversation.
+- One upload per video. If `output/upload_result.json` exists, do not upload again.
+
+## 9. Safety
+- Never show or commit `.env`, `secrets/`, API keys or OAuth tokens.
+- Never delete files; move them to `_to_delete/`.
+
+## 10. Copyright (STRICT — any violation is FIX and blocks upload)
+- Every external file used in any video (music, sound effect, font, image, footage, voice) must have a row in `shared/assets_license.csv`: path, source_url, author, license, attribution_text, date_added. No row = not allowed.
+- Allowed licences only: CC0; CC BY 4.0 (with exact credit in the description); SIL OFL (fonts); YouTube Audio Library tracks (follow their attribution note); our own Gemini-generated images/voices; our own recordings.
+- Never allowed: CC BY-NC (non-commercial, conflicts with monetization), CC BY-ND (we edit/mix), CC BY-SA, "free for personal use", Freesound "Sampling+", unknown source, anything ripped from YouTube/Spotify/Instagram/films/TV, Bollywood or any commercial song (even hummed or sung by TTS), Google/Pinterest images.
+- Freesound: licence is per sound. Check each file's own licence page; only CC0 or CC BY 4.0.
+- Content: no real brand logos, no film/TV/cartoon characters (Chhota Bheem, Motu Patlu, Disney, etc.), no celebrity likeness, no copied song lyrics, no copied text from modern books. Old folk tales (Panchatantra, Jataka, Akbar-Birbal) are public domain, but we always write our own version, never copy a modern retelling.
+- Image prompts never name a studio, franchise or living artist ("Pixar style", "Ghibli style", etc.).
+- Before upload, Munshi checks: every audio/image/font file in the final build is in the register, every CC BY item is credited in the description exactly as its licence asks, and no source audio from outside our pipeline is in the mix.
+- After upload: if YouTube Studio shows any copyright claim or strike, stop all new uploads and tell the user. CC music sometimes gets false Content ID claims; dispute only with the licence proof from the register, after the user agrees.
+
+## 11. Review limits and severity
+Every problem Munshi reports is marked BLOCKER or MINOR.
+
+BLOCKER (never waived, in any round):
+- Copyright (section 10), wrong channel, any secret exposed.
+- Wrong character on screen for a line, wrong voice for a character, a line missing or cut off.
+- Caption more than 1 s away from its line, or caption text not matching what is spoken.
+- Loudness outside -14 LUFS ±1, true peak above -1.0 dBFS, audible clipping or leaked outside audio.
+- Wrong resolution/codec, or a preview file used as final.
+- Thumbnail: broken Hindi matras, spoiler, unreadable text, important thing in the bottom-right corner.
+- Metadata: title over 100 chars, more than 15 hashtags, missing CC BY credit, "for kids" wording (title, thumbnail, description or tags), mystery answer revealed.
+- Length outside ±10% of the approved preview length.
+- Story problem: moral missing or a scene that contradicts the script.
+
+MINOR (everything else that breaks a RULES limit only slightly), e.g.: caption off by 0.3–1 s, caption shorter than 0.4 s, music level within 3 dB of target, thumbnail text slightly under the size rule, small silent gaps, missing colour tags, tiny cosmetic issues.
+Taste points (pacing feel, colour choice, music phrase) are "Note" only and never count as problems.
+
+Rounds:
+- Round 1 (R1): full review for that stage; BLOCKER and MINOR both come back as FIX (free) or ASK (paid).
+- Round 2 (R2): re-check only what changed and what failed in R1.
+- After R2: if any BLOCKER remains → ASK the user, stop. If only MINOR remain → verdict "PASS-WITH-NOTES": the stage is passed and the pipeline moves on to the next step (including upload when the user has approved it). No third round.
+- Every MINOR waived after R2 is written to channels/<key>/carry_over.md (project, issue, suggested fix). Before the next video's build, the builder reads carry_over.md and fixes those causes in the pipeline, then marks them done.
+
+These limits never weaken: copyright (section 10), channel ID check, secrets, and the full pre-upload check.
+At the end of each review, add one line to channels/<key>/log.md with the round (R1/R2), verdict and approximate time taken.
+# Channel RULES — दादी की कहानियाँ (dadi-ki-kahaniyan)
+
+Only the rules special to this channel. Read `shared/RULES.md` first; everything there applies here too.
+- Channel RULES can be stricter than shared RULES, never looser. Copyright, channel ID, secrets and upload safety can never be relaxed by a channel.
+
+## Story and characters (from `channel_bible.md`)
+- Dadi (Kamla Devi) narrates. Every other character speaks their own lines in their own voice.
+- Mitthu (parrot) has no hands: no hand gestures, holding things or pointing with hands.
+- Dadi's home (in Gulmohar Mohalla): a kacha mud house with a tiled roof, BROWN wooden door, swept aangan, green fields behind, exactly like the channel banner (`channels/dadi-ki-kahaniyan/brand/_work/banner_art.png`). There is no green door.
+- Setting: Dadi's home, the Golu–Mitthu opening/closing frame and all Dadi Jasoos cases are in Gulmohar Mohalla. The story Dadi narrates inside a moral-story video can be set in any village or town the approved script names (e.g. Rampur in LONG_01); check location consistency against that script. Village kitchens still use a mitti ka chulha, never a gas stove.
+
+## Metadata
+- Mystery (Dadi Jasoos) videos: the answer never goes in the title, description or thumbnail. It goes in the pinned comment 24 h after publishing.
+- Dadi Ki Kahaniyan is set to made_for_kids = false (family audience, decided by the user). So title, thumbnail, description and tags must speak to the whole family, not only to children: no "for kids" / "बच्चों के लिए" / nursery-style wording. Flag any such wording as FIX.
+
+# Munshi log
+2026-10-18 | long_01 | 7 final build | FIX | spec/loudness/captions ok; Mitthu line 2 on Golu shot, Ghasita shot mid-Sadhu line 15, music only ~9-10 LU under voice (builder's 18.4 dB is a metric artefact); ASK pending: aangan frame not Gulmohar Mohalla/hara darwaza
+2026-10-18 | long_01 | 8 thumbnail | PASS | 1280x720 PNG 1.1 MB, Hindi text shaped correctly, no spoiler, BR corner clear; text height ~11% (optional +10% bump)
+2026-10-18 | long_01 | 9 metadata | FIX | 7 hashtags (rule 3-5); no tags list yet for upload; title 81 chars, desc 1514, all 6 CC BY tracks credited ok
+2026-10-18 | long_01 | 7 final build (re-review) | ASK | all 6 builder fixes verified (line 2 Mitthu+box, line 15 Sadhu only, music 13.0 LU under voice by stem method = inside long range 12-20, offsets 3.75s/14.5s, yuv420p tv bt709 matrix, no caption <0.45s); length 5:06 (306.2s) is outside script target ~3:50 +/-10% and 3-5 min range -> user decision
+2026-10-18 | long_01 | 8 thumbnail (re-review) | PASS | 1280x720 PNG 1.09 MB, text 14.3%/13.5% of height, Hindi shaping ok, no spoiler, BR corner clear
+2026-10-18 | long_01 | 9 metadata (re-review) | PASS | title 81, desc 1488, 5 hashtags, 21 tags 375/500 chars (YouTube count), 6 CC BY credits ok, TAGS in long_01.txt = meta.json
+2026-10-18 | long_01 | 7 final build (length, RULES 5 updated) | PASS | user approved 5:06 preview; final 306.17s = preview 306.17s (0%, within +/-10%); long_01.mp4 unchanged since re-review (13:22), 1920x1080 h264 yuv420p 30fps; all re-review checks stand
+2026-10-18 | long_01 | publish dry-run | PASS | upload.json written (channel UCy071_4g4vGemktFHybqkhQ, publish 2026-10-20 19:00 IST, kids=false, synthetic=false, cat 1, no playlist); dry-run OK, no network; copyright register (RULES 10 / assets_license.csv) not yet available -> not reviewed
+2026-10-18 | long_01 | copyright (RULES 10) | PASS | all used assets registered w/ allowed licence (6 Incompetech CC BY 4.0, 3 Freesound CC0, Mukta OFL, 31 scene imgs + 51 TTS + thumb = own Gemini, all in cost_log); 6/6 credits exact in upload.json; mix-voice-music residual = 5 SFX bursts only (floor -98 dB); prompts/text/images clean
+2026-10-18 | long_01 | publish | PUBLISHED | video Ogfqow8rbGY uploaded (scheduled 2026-10-20 19:00 IST requested), thumbnail ok, captions ok, channel UCy071_4g4vGemktFHybqkhQ verified; user must confirm schedule in Studio (unaudited API may lock private)
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 10:22:57Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Read short's plan and json files
+
+`cd /d/Story-Channel/channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai && cat PLAN.md lines.json meta.json project.json shots.json`
+
+```text
+# Short 01 — जादुई कड़ाही (from story 001, Long 01) — PLAN (not built yet)
+
+- **Format:** 1080x1920, ~54 s (target 45–60 s), burned Hindi captions, same story images + cached TTS → **₹0**
+- **Goal:** pull viewers to the full Long 01 video. Hook in the first 3 s, stop on a cliffhanger **before** the twist
+  (coin → mitti), end card text "पूरी कहानी चैनल पर".
+- **Folder:** this folder gets `project.json` (kind short, name `short_01_jadui-kadhai`), `lines.json`, `shots.json`,
+  `meta.json` after approval. Images/audio come from the story (`../../images`, `../../audio/tts_cache`).
+
+## Lines (all already in the TTS cache — exact same text + speaker, so no new TTS)
+
+| # | Long line | Scene/img | Speaker | Text | ~sec | Why |
+|---|---|---|---|---|---|---|
+| 1 | 22 | 16 | sadhu | ये जादुई कड़ाही है, बेटा। इसमें जो डालोगे, दुगना हो जाएगा। | 8.3 | **Hook:** "ये जादुई कड़ाही है" is heard in the first ~1.5 s; the promise "जो डालो, दुगना" matches the Long 01 thumbnail |
+| 2 | 24 | 17 | dadi_story | उस शाम छोटू ने कड़ाही में एक मुट्ठी आटा डाला... और आटा दो मुट्ठी हो गया! (+ magic sting) | 8.9 | proof the magic works — the visual payoff |
+| 3 | 25 | 17 | chhotu | अरे वाह! ये तो सच में जादू है! | 3.4 | reaction, keeps pace |
+| 4 | 29 | 20 | dadi_story | पर ये बात घसीटा की नज़रों से छुपी नहीं रही। | 4.4 | turn: the villain sees it (music → tension) |
+| 5 | 30 | 20 | ghasita | आटा? हुँह! उस कड़ाही में तो सोना होना चाहिए... मेरा सोना! | 6.1 | greed = the theme of the story |
+| 6 | 31 | 21 | dadi_story | उसी रात, जब छोटू सो रहा था, घसीटा दबे पाँव आया और कड़ाही चुरा ले गया। | 9.3 | rising tension |
+| 7 | 32 | 22 | dadi_story | दुकान में दीया जलाकर उसने कड़ाही में एक सोने का सिक्का डाला... | 7.9 | set-up of the payoff |
+| 8 | 33 | 22 | ghasita | चल, दुगना कर! | 1.8 | **cliffhanger** — cut here, before line 34 "...वो मिट्टी बन गया!" |
+| — | — | 22 | — | end card "पूरी कहानी चैनल पर" (burned text, no voice) | 3.0 | CTA, ₹0 (no new TTS) |
+
+Estimate: ~50 s voice after trimming + 7 gaps × 0.3 s + 3 s end card ≈ **54–55 s**.
+
+**Left out on purpose:** lines 34–39 (coin turns to mitti, everything turns to mitti) = the twist; lines 41–54 (moral,
+ending, Chhotu's shop) = the ending; line 23 ("…लालच के लिए नहीं") would fit the theme but pushes the Short past 60 s.
+Option if you prefer the warning in: swap line 29 (4.4 s) for line 23 (7.3 s) → ~57 s.
+
+## Framing (16:9 story images → 9:16) — needs a small free builder change
+
+A plain centre crop loses the speaker in 2 of 5 scenes (see `review/crop_plan.png`, red box = centre 9:16):
+
+| Scene | Centre crop shows | Plan (crop window centre x on the source image) |
+|---|---|---|
+| 16 (line 1, Sadhu speaks) | kadhai + half Chhotu, Sadhu cut off | window at x≈0.62: Sadhu + glowing kadhai |
+| 17 (lines 2–3) | kadhai with flour ✅ | centre; 2nd shot window x≈0.36 on Chhotu for line 3 |
+| 20 (lines 4–5) | empty ground ✗ | line 4: window x≈0.30 on the glowing kadhai; line 5: window x≈0.85 on Ghasita |
+| 21 (line 6) | between Chhotu and Ghasita | slow pan from Chhotu asleep (x≈0.25) to Ghasita with the kadhai (x≈0.75) |
+| 22 (lines 7–8 + end card) | Ghasita + kadhai ✅ but the kadhai already holds brown lumps that **hint at the mitti twist** | close-up on face + hand + coin only (top part), kadhai inside kept out of frame |
+
+Builder change (₹0): let each shot choose where the 9:16 window sits on a wider image (`crop_x`, default = centre,
+so Long 01 / Case 01 stay identical). Then `shots.json` + per-line `shot` overrides use it.
+
+## Audio
+- Music moods: jaadu (Enchanted Valley) for lines 1–3 → tension (Hidden Agenda) from line 4, 1.5 s crossfade;
+  magic sting after line 2. Both tracks are in `shared/assets_license.csv` (CC BY 4.0) → credits in the description
+  come from the register automatically.
+- **Shorts music 3–4 dB quieter** (CLAUDE.md note): `MUSIC_BELOW_VOICE_DB["short"]` 9 → 12.5, checked with the stem
+  method; target 12–14 LU. (Case 01 is not rebuilt; this only applies to new Short builds.)
+- Loudness -14 LUFS, true peak ≤ -1 dBFS (final build).
+
+## Captions
+- Burned in (Shorts), Mukta, above the bottom 20% (Shorts UI overlay). Captions shorter than 0.45 s are merged
+  automatically. All 8 lines had good Whisper coverage in Long 01 (only lines 2 and 50 of Long 01 were proportional —
+  neither is used here).
+
+## Carry-over / known MINORs
+- `channels/dadi-ki-kahaniyan/carry_over.md` is empty (no MINOR waived after an R2 yet).
+- Already fixed in the pipeline and so covered here: short captions merged, bt709 tags, pause-music offset,
+  music level by stem method. Still to do in this build: Shorts music −3.5 dB (above).
+
+## Concerns to decide before the preview (all ₹0 unless you choose the paid option)
+1. **Sharpness:** a 9:16 window from a 1376x768 image is ~432x768 px, upscaled ~2.5x to 1080x1920 (more on
+   close-ups). It will look softer than Case 01. The preview will show how much. Paid option only if you want it:
+   5 new vertical images ≈ 5 × ₹3.24 = ₹16.20 (not planned).
+2. **Hook wording on screen:** the first caption is "ये जादुई कड़ाही है, बेटा।" — no extra title text in the first 3 s,
+   so the picture stays clean. Say if you want a top title like "जो डालो, दुगना!" for the first 3 s (₹0).
+3. **Publish slot:** Long 01 is scheduled 20 Oct 19:00 IST. Under RULES section 8 the Short can go the same day at
+   ≥ 21:00 (2-hour gap), so viewers can already find the full story — or any later day 19:00–23:59.
+
+## Draft metadata (for approval)
+- Title: `जो डालो, दुगना! जादुई कड़ाही का राज़ | दादी की कहानियाँ #shorts`
+- Description: "रामपुर के लालची हलवाई घसीटा ने चुरा ली जादुई कड़ाही… पर आगे क्या हुआ? पूरी कहानी चैनल पर देखिए।"
+  + music credits (from the register) + 3–5 hashtags: `#shorts #दादीकीकहानियाँ #HindiKahani #MoralStory`
+- No "for kids" wording anywhere (title, description, tags, end card).
+[
+  {"scene": 16, "speaker": "sadhu", "text": "ये जादुई कड़ाही है, बेटा। इसमें जो डालोगे, दुगना हो जाएगा।", "mood": "jaadu", "shots": [[[0.5, 0.64, 1.7, 0.43], 1.5], [[0.5, 0.42, 1.25, 0.72], null]]},
+  {"scene": 17, "speaker": "dadi_story", "text": "उस शाम छोटू ने कड़ाही में एक मुट्ठी आटा डाला... और आटा दो मुट्ठी हो गया!", "sfx_after": "magic", "shot": [0.5, 0.55, 1.15, 0.6]},
+  {"scene": 17, "speaker": "chhotu", "text": "अरे वाह! ये तो सच में जादू है!", "shot": [0.5, 0.42, 1.3, 0.36]},
+  {"scene": 20, "speaker": "dadi_story", "text": "पर ये बात घसीटा की नज़रों से छुपी नहीं रही।", "mood": "tension", "shot": [0.5, 0.5, 1.2, 0.25]},
+  {"scene": 20, "speaker": "ghasita", "text": "आटा? हुँह! उस कड़ाही में तो सोना होना चाहिए... मेरा सोना!", "shot": [0.5, 0.42, 1.2, 0.73]},
+  {"scene": 21, "speaker": "dadi_story", "text": "उसी रात, जब छोटू सो रहा था, घसीटा दबे पाँव आया और कड़ाही चुरा ले गया।", "shots": [[[0.5, 0.72, 1.3, 0.22], 3.0], [[0.5, 0.45, 1.15, 0.72], null]]},
+  {"scene": 22, "speaker": "dadi_story", "text": "दुकान में दीया जलाकर उसने कड़ाही में एक सोने का सिक्का डाला...", "shot": [0.5, 0.44, 1.75, 0.53]},
+  {"scene": 22, "speaker": "ghasita", "text": "चल, दुगना कर!", "shot": [0.5, 0.36, 2.0, 0.55]}
+]
+{
+  "title": "जो डालो, दुगना! जादुई कड़ाही का राज़ | दादी की कहानियाँ #shorts",
+  "description": "रामपुर के लालची हलवाई घसीटा ने चुरा ली जादुई कड़ाही… पर आगे क्या हुआ? पूरी कहानी चैनल पर देखिए।",
+  "hashtags": [
+    "#shorts",
+    "#दादीकीकहानियाँ",
+    "#HindiKahani",
+    "#MoralStory"
+  ],
+  "tags": [
+    "दादी की कहानियाँ",
+    "Dadi Ki Kahaniyan",
+    "जादुई कड़ाही",
+    "Jadui Kadhai",
+    "लालची हलवाई",
+    "Lalchi Halwai",
+    "हिंदी कहानी",
+    "Hindi Kahani",
+    "Hindi Moral Story",
+    "परिवार की कहानी",
+    "Family Story Hindi",
+    "Hindi Shorts"
+  ],
+  "music_moods": {
+    "jaadu": "jaadu/Enchanted_Valley.mp3",
+    "tension": "tension/Hidden_Agenda.mp3"
+  },
+  "sfx": {
+    "magic": "magic_376747.mp3"
+  },
+  "final_title": "पूरी कहानी चैनल पर",
+  "final_title_secs": 2.0,
+  "end_hold": 2.0,
+  "pinned_comment": "पूरी कहानी — लालची हलवाई और जादुई कड़ाही — चैनल पर देखिए! 🙏",
+  "publish_at": "2026-10-20T21:00:00+05:30",
+  "related_video": "https://youtu.be/Ogfqow8rbGY"
+}
+{
+  "kind": "short",
+  "name": "short_01_jadui-kadhai",
+  "burn_captions": true,
+  "_note": "Short from story 001 (Long 01). 16:9 story images shown through per-shot 9:16 crop windows (crop_x)."
+}
+{
+  "_help": "Every line in lines.json has its own shot/shots override; nothing needed here."
+}
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 10:23:01Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Read bible, channel config, work dir
+
+`cat channels/dadi-ki-kahaniyan/channel_bible.md | head -100; cat channels/dadi-ki-kahaniyan/channel.json; ls channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/output/short_01_jadui-kadhai_work`
+
+```text
+# CHANNEL BIBLE — "दादी की कहानियाँ"
+
+> Channel ka naam: **दादी की कहानियाँ** (Dadi Ki Kahaniyan). Pehle "दादी जासूस" tha. Mystery format wahi hai — Dadi har case ki jaasoos hain.
+> Channel art: `brand/dadi_ki_kahaniyan_banner.png` (2560x1440), `brand/dadi_ki_kahaniyan_dp.png` (800x800).
+
+> Har script aur har image isi bible ko follow karegi. Koi bhi naya case likhne ya image banane se pehle ise padho.
+
+---
+
+## 1. Channel
+
+- **Format:** Hindi mystery Shorts, 45–60 sec, 9:16, flat 2D cartoon style.
+- **Har episode ka dhaancha:** ek chhota case → 3 suspects → chhupe clues → end me **"बताओ, दोषी कौन?"** → answer agle Short ya pinned comment me.
+- **Maqsad:** dimaag chalana + halki comedy + ek chhoti seekh.
+- **Tone:** Family-friendly. Koi khoon-kharaba ya darawni cheez nahi.
+
+---
+
+## 2. Permanent Characters (look KABHI nahi badlega)
+
+### 1. दादी (Kamla Devi)
+- **Look:** ~70 saal, gol chehra, safed baalon ka joora, gol sunehra chashma, halki hari saree with pali border, lakdi ki chhadi, maathe par chhoti bindi.
+- **Swabhav:** shaant, tez nazar, meethi par chubhti baatein.
+- **Catchphrase:** "बेटा, चोर कितना भी चालाक हो... दादी से नहीं बच सकता!"
+
+### 2. गोलू
+- **Look:** ~10 saal ka pota, gol-matol, bikhre kaale baal, peeli T-shirt, neeli half-pant, laal joote.
+- **Swabhav:** jaldbaaz, hamesha galat andaza lagata hai, comedy deta hai.
+- **Catchphrase:** "दादी, मुझे पता है चोर कौन है!" *(aur hamesha galat)*
+
+### 3. मिठ्ठू
+- **Look:** dadi ka hara tota (parrot), laal choonch.
+- **Role:** kabhi-kabhi ek shabd dohrata hai jo clue ban jaata hai.
+
+### 4. Inspector Pandey
+- **Look:** ~45 saal, mote, khaki uniform, ghani moonchh.
+- **Role:** har baar dadi se pehle galat aadmi pakadne ki koshish karta hai, phir dadi se haar maanta hai.
+
+---
+
+## 3. Recurring Side Characters (kabhi-kabhi aayenge, look fixed)
+
+| Character | Look / Pehchaan |
+|---|---|
+| **Sharma ji** (padosi) | ~55 saal, ganja sar with grey side hair, rectangular chashma, cream kurta-pyjama, brown sleeveless jacket. Hamesha kuch khota rehta hai. Ghar ka gate lohe ka (Case 01 se laal paint). |
+| **Pappu doodhwala** | ~30 saal, patla, safed kurta, gale me laal gamchha, purani kaali cycle with 2 steel doodh ke dibbe. |
+| **Mrs. Gupta** (gossip queen) | gulabi saree |
+| **Chaiwala Raju** | ~35 saal, chhoti moonchh, bhoori half-sleeve shirt, kamar par apron, kaali-dhuandaar ketli, mohalle ka chai stall. |
+
+### Case se aaye characters (dobara aayein to yahi look)
+
+| Character | Pehli baar | Look |
+|---|---|---|
+| **Bunty** | Case 01 | ~17 saal, lamba-patla, khade baal, aasmaani shirt, neeli jeans, safed sneakers, college bag. |
+
+---
+
+## 4. New Characters
+
+- Har case ke suspects naye ho sakte hain.
+- Unka look **case file me likho**.
+- Agar dobara aayein to **wahi look** use karo.
+
+---
+
+## 5. Setting — "Gulmohar Mohalla"
+
+- Chhoti galiyan, gulmohar ka ped, chhat, chai stall, park, mandir.
+- **Dadi ka ghar** (mohalle ke kinare): kacha mitti ka ghar, khaprail ki chhat, **bhoora lakdi ka darwaza**, saaf-supa aangan, peeche hare khet. Look reference: `brand/_work/banner_art.png` (channel banner wala aangan). Golu–Mitthu ka opening/closing frame isi aangan me hota hai.
+- Kabhi-kabhi special cases: shaadi, mela, train.
+
+---
+
+## 6. Case Topics
+
+- **Choriyan:** cycle, haar, mithai, ped ke aam
+- **Jhooth pakadna:** alibi galat
+- **Ajeeb ghatnayein:** raat ko chhat par kaun?
+- **Gayab cheezein / janwar**
+
+> **Niyam:** Clue hamesha kahani me dikhna chahiye — viewer ke saath imaandari.
+
+---
+
+## 7. Script Rules
+
+- 110–140 words, simple boli jaane wali Hindi.
+- 2-sec hook.
+- Golu ka **ek galat guess**.
+- Dadi ka **ek clue observation**.
+- End me sawal: **"बताओ, दोषी कौन?"**
+- **Answer alag file me.**
+
+---
+
+## 8. Image Rules
+
+- Pehle har permanent character ka ek **reference sheet** banao (front, side, 3 expressions).
+- Har scene image me in references aur in **exact descriptions** ka use karo.
+- **Style:** flat 2D cartoon, moti outlines, garam rang.
+{
+  "channel_key": "dadi-ki-kahaniyan",
+  "display_name": "दादी की कहानियाँ",
+  "channel_id": "UCy071_4g4vGemktFHybqkhQ",
+  "made_for_kids": false,
+  "contains_synthetic_media": false,
+  "category_id": "1",
+  "default_language": "hi",
+  "publish_window_ist": [
+    "19:00",
+    "23:59"
+  ],
+  "max_long_per_day": 1,
+  "min_gap_hours_short_long": 2,
+  "playlists": {
+    "dadi-jasoos": "",
+    "moral-stories": ""
+  }
+}
+fonts
+mix.wav
+mix_norm.wav
+music.wav
+scene_16_8ba9dccc598dcd02.ass
+scene_17_6ecc75a6b2712ba9.ass
+scene_20_2fd34eeb4ba36115.ass
+scene_20_b2cba780701ea635.ass
+scene_21_270175636ee6ec2c.ass
+scene_22_197281e80c648b26.ass
+scene_22_47d156955b6d5d66.ass
+scenes.txt
+video.mp4
+voice.wav
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 10:23:04Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Grep crop/shot logic in builder
+
+`grep -n "crop_x\|def .*shot\|zoom\|MUSIC_BELOW_VOICE_DB\|final_title\|end_hold\|PREVIEW\|SAFE\|MarginV\|margin" scripts/make_short.py | head -80`
+
+```text
+60:MUSIC_BELOW_VOICE_DB = {"short": 12.5, "long": 13}  # short: 9 -> 12.5 (3.5 dB quieter, target 12-14 LU)
+65:# Ken Burns moves for wide shots (cycled): zoom-in, pan, zoom-out, zoom-to-top
+67:    "in": ("1+0.08*on/{n}", "iw/2-iw/zoom/2", "ih/2-ih/zoom/2"),
+68:    "out": ("1.08-0.08*on/{n}", "iw/2-iw/zoom/2", "ih/2-ih/zoom/2"),
+69:    "pan": ("1.08", "(iw-iw/zoom)*on/{n}", "ih/2-ih/zoom/2"),
+70:    "top": ("1+0.08*on/{n}", "iw/2-iw/zoom/2", "(ih-ih/zoom)*0.3"),
+194:def build_voice(lines, audio_dir: Path, work: Path, run_whisper: bool, end_hold: float = END_HOLD):
+233:    pcm += silence(end_hold)
+296:Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+301:Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+306:def shot_times(timed, total):
+309:    A line with "shot" in lines.json ("wide" or [x, y, zoom(, crop_x, crop_y)]) gets that one shot for its whole
+350:def plan_scenes(P, timed, total, prof, font_family, final_title, title_secs=None):
+371:                # x, y: inside the frame-shaped window; optional crop_x/crop_y: where that window sits on a wider or
+375:                x = f"max(0,min(iw-iw/zoom,{fx}*iw-iw/zoom/2))"
+376:                y = f"max(0,min(ih-ih/zoom,{fy}*ih-ih/zoom/2))"
+384:            if idx == len(shots_all) - 1 and final_title:
+388:                          f"{{\\fad(300,0)}}{final_title}")
+410:        fc.append(f"[i{k}]{win},zoompan=z='{z}':x='{x}':y='{y}':d={d}:s={w}x{h}:fps={fps}[z{k}]")
+736:                                              end_hold=meta.get("end_hold", END_HOLD))
+746:    plans = plan_scenes(P, timed, total, prof, font_family, meta.get("final_title", "बताओ, दोषी कौन?"),
+747:                        meta.get("final_title_secs"))
+752:                       below_db=MUSIC_BELOW_VOICE_DB[P["kind"]])
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 10:23:08Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Read scene planning code
+
+`sed -n 280,420p scripts/make_short.py; grep -n "PROFILES\|\"preview\"\|\"final\"" scripts/make_short.py | head`
+
+```text
+    out = []
+    for k, ch in enumerate(chunks):
+        end = chunks[k + 1][0][1] if k + 1 < len(chunks) else line["end"]
+        out.append((ch[0][1], end, " ".join(tok for tok, _, _ in ch)))
+    return out
+
+
+def ass_doc(font_family, events):
+    return f"""[Script Info]
+ScriptType: v4.00+
+PlayResX: {PLAY_W}
+PlayResY: {PLAY_H}
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Cap,{font_family},116,&H00FFFFFF,&H000000FF,&H00000000,&H78000000,0,0,0,0,100,100,0,0,1,9,4,2,60,60,480,1
+Style: Title,{font_family},128,&H0000E5FF,&H000000FF,&H00000000,&H78000000,0,0,0,0,100,100,0,0,1,9,4,8,60,60,170,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+""" + "\n".join(events) + "\n"
+
+
+# ---------- 3. video: one cached clip per scene ----------
+def shot_times(timed, total):
+    """Per scene: cut points (seconds). A scene starts CUT_LEAD before its first line's voice; inside a scene
+    every new speaker's line also starts a shot CUT_LEAD early; long stretches are split every ~SHOT_LEN.
+    A line with "shot" in lines.json ("wide" or [x, y, zoom(, crop_x, crop_y)]) gets that one shot for its whole
+    stretch; "shots": [[spec, seconds], ..., [spec, null]] splits the stretch (last one takes the rest).
+    Returns (scene, cut points, per-shot override or None)."""
+    scenes = []
+    for i, line in enumerate(timed):
+        t = 0.0 if i == 0 else line["start"] - CUT_LEAD
+        if not scenes or scenes[-1][0] != line["scene"]:
+            scenes.append([line["scene"], [t], [i]])
+        elif line["speaker"] != timed[i - 1]["speaker"]:
+            scenes[-1][1].append(t)
+            scenes[-1][2].append(i)
+    out = []
+    for k, (sc, cuts, owners) in enumerate(scenes):
+        end = scenes[k + 1][1][0] if k + 1 < len(scenes) else total
+        pts = cuts + [end]
+        fine, tags = [pts[0]], []
+        for a, b, own in zip(pts, pts[1:], owners):
+            if timed[own].get("shots"):
+                t = a
+                for spec, secs in timed[own]["shots"]:
+                    end = b if secs is None else min(b, t + secs)
+                    if end > t:
+                        fine.append(end)
+                        tags.append(spec)
+                        t = end
+                fine[-1] = b
+                continue
+            if timed[own].get("shot"):
+                fine.append(b)
+                tags.append(timed[own]["shot"])
+                continue
+            n = max(1, min(round((b - a) / SHOT_LEN), int((b - a) / MIN_SHOT)))
+            fine += [a + (b - a) * j / n for j in range(1, n + 1)]
+            tags += [None] * n
+        if len(fine) == 2 and tags[0] is None and fine[1] - fine[0] >= 2 * MIN_SHOT:  # at least wide + close
+            fine.insert(1, (fine[0] + fine[1]) / 2)
+            tags.append(None)
+        out.append((sc, fine, tags))
+    return out
+
+
+def plan_scenes(P, timed, total, prof, font_family, final_title, title_secs=None):
+    """Everything needed to render each scene clip, plus its cache hash."""
+    focus = P["focus"]
+    fps, plans = prof["fps"], []
+    shots_all = shot_times(timed, total)
+    for idx, (sc, cuts, tags) in enumerate(shots_all):
+        fcuts = [round(c * fps) for c in cuts]  # one global frame grid -> no drift between clips
+        t0 = fcuts[0] / fps
+        spec = focus.get(str(sc), [])
+        closes, wide = (spec["closes"], spec.get("wide", True)) if isinstance(spec, dict) else (spec, True)
+        # 1 shot: close-up matters more; "wide": false (scene sharing an image with another) -> close-ups only
+        cycle = closes if (closes and (len(cuts) == 2 or not wide)) else ["wide"] + closes
+        shots, desc = [], []
+        for k in range(len(cuts) - 1):
+            n = fcuts[k + 1] - fcuts[k]
+            shot = tags[k] or cycle[k % len(cycle)]
+            if shot == "wide":
+                move = MOVE_CYCLE[(idx + k) % len(MOVE_CYCLE)]
+                z, x, y = (e.format(n=n) for e in MOVES[move])
+                desc.append(move)
+            else:
+                # x, y: inside the frame-shaped window; optional crop_x/crop_y: where that window sits on a wider or
+                # taller image (subject centre, 0-1; default centre) - e.g. a 9:16 Short from 16:9 story images
+                fx, fy, zc, *crop = shot
+                z = f"{zc}+{zc * 0.06:.3f}*on/{n}"  # slow push-in on the close-up
+                x = f"max(0,min(iw-iw/zoom,{fx}*iw-iw/zoom/2))"
+                y = f"max(0,min(ih-ih/zoom,{fy}*ih-ih/zoom/2))"
+                desc.append(f"close{zc}" + (f"@x{crop[0]}" if crop else ""))
+            shots.append((n, z, x, y) + (tuple(crop) if shot != "wide" and crop else ()))
+        lines = [l for l in timed if l["scene"] == sc]
+        ass = None
+        if P["burn"]:
+            ev = [f"Dialogue: 0,{ass_time(s - t0)},{ass_time(e - t0)},Cap,,0,0,0,,{txt}"
+                  for l in lines if l["words"] for s, e, txt in caption_chunks(l)]
+            if idx == len(shots_all) - 1 and final_title:
+                t_end = fcuts[-1] / fps - t0
+                t_beg = max(0.0, t_end - title_secs) if title_secs else 0.0  # e.g. a 2 s end card only
+                ev.append(f"Dialogue: 1,{ass_time(t_beg)},{ass_time(t_end)},Title,,0,0,0,,"
+                          f"{{\\fad(300,0)}}{final_title}")
+            ass = ass_doc(font_family, ev)
+        img = P["image_for"](sc)
+        key = sha(RENDER_VERSION, json.dumps(prof, sort_keys=True), sha(img.read_bytes()),
+                  [l["audio_hash"] for l in lines], json.dumps(shots), ass)
+        plans.append({"scene": sc, "t0": t0, "t1": fcuts[-1] / fps, "frames": fcuts[-1] - fcuts[0],
+                      "shots": shots, "ass": ass, "img": img, "key": key, "desc": desc})
+    return plans
+
+
+def render_scene(p, prof, clip: Path, work: Path):
+    w, h, fps = prof["w"], prof["h"], prof["fps"]
+    ass_name = f"scene_{p['scene']:02d}_{p['key']}.ass"
+    if p["ass"]:
+        (work / ass_name).write_text(p["ass"], encoding="utf-8")
+    subs = f",subtitles=filename={ass_name}:fontsdir=fonts" if p["ass"] else ""
+    n = len(p["shots"])
+    pre = f"[0:v]scale={w * 2}:{h * 2}:force_original_aspect_ratio=increase"
+    fc = [pre + (f",split={n}" + "".join(f"[i{k}]" for k in range(n)) if n > 1 else "[i0]")]
+    for k, (d, z, x, y, *crop) in enumerate(p["shots"]):
+        cx, cy = (list(crop) + [0.5, 0.5])[:2]  # frame-shaped window on the image, centred on (cx, cy)
+        win = (f"crop={w * 2}:{h * 2}:x='max(0,min(iw-ow,{cx}*iw-ow/2))':y='max(0,min(ih-oh,{cy}*ih-oh/2))'")
+        fc.append(f"[i{k}]{win},zoompan=z='{z}':x='{x}':y='{y}':d={d}:s={w}x{h}:fps={fps}[z{k}]")
+    fc.append("".join(f"[z{k}]" for k in range(n)) + (f"concat=n={n}:v=1:a=0" if n > 1 else "null")
+              + f"{subs},scale=out_color_matrix=bt709:out_range=tv,format=yuv420p,setsar=1,"
+                f"setparams=range=tv:color_primaries=bt709:color_trc=bt709:colorspace=bt709[out]")
+    tmp = clip.with_suffix(".part.mp4")
+    run([FFMPEG, "-y", "-i", p["img"], "-filter_complex", ";".join(fc), "-map", "[out]", "-frames:v", p["frames"],
+         "-c:v", "libx264", *prof["enc"], "-pix_fmt", "yuv420p", "-color_range", "tv", "-colorspace", "bt709",
+         "-color_primaries", "bt709", "-color_trc", "bt709", "-r", fps,
+         "-video_track_timescale", fps * 1000, tmp], cwd=work)
+    tmp.replace(clip)
+
+42:PROFILES = {
+43:    ("short", "preview"): {"w": 540, "h": 960, "fps": 24, "enc": ["-preset", "ultrafast", "-crf", "30"]},
+44:    ("short", "final"): {"w": 1080, "h": 1920, "fps": 30, "enc": ["-preset", "slow", "-crf", "18"]},
+45:    ("long", "preview"): {"w": 960, "h": 540, "fps": 24, "enc": ["-preset", "ultrafast", "-crf", "30"]},
+46:    ("long", "final"): {"w": 1920, "h": 1080, "fps": 30, "enc": ["-preset", "slow", "-crf", "18"]},
+695:    mode = "final" if a.final else "preview"
+696:    if a.seconds and mode == "final":
+705:    prof = PROFILES[(P["kind"], mode)]
+735:    voice, total, timed, events = build_voice(lines, audio_dir, work, run_whisper=(mode == "final"),
+751:    norm = build_audio(voice, total, events, meta, work, two_pass=(mode == "final"),
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 10:23:16Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Probe preview and stems
+
+`cd /d/Story-Channel/channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/output && ffprobe -v error -show_entries stream=codec_name,width,height,r_frame_rate,pix_fmt,duration,sample_rate,channels:format=duration,size -of compact short_01_jadui-kadhai_preview.mp4; for f in short_01_jadui-kadhai_work/voice.wav short_01_jadui-kadhai_work/music.wav short_01_jadui-kadhai_work/mix_norm.wav; do ffprobe -v error -show_entries format=duration -of csv=p=0 $f; done; cat short_01_jadui-kadhai_work/scenes.txt; ls -la short_01_jadui-kadhai_work`
+
+```text
+/usr/bin/bash: line 1: ffprobe: command not found
+/usr/bin/bash: line 1: ffprobe: command not found
+/usr/bin/bash: line 1: ffprobe: command not found
+/usr/bin/bash: line 1: ffprobe: command not found
+file 'D:/Story-Channel/cache/dadi-ki-kahaniyan/001_lalchi-halwai/short_01_jadui-kadhai/scene_16_8ba9dccc598dcd02.mp4'
+file 'D:/Story-Channel/cache/dadi-ki-kahaniyan/001_lalchi-halwai/short_01_jadui-kadhai/scene_17_6ecc75a6b2712ba9.mp4'
+file 'D:/Story-Channel/cache/dadi-ki-kahaniyan/001_lalchi-halwai/short_01_jadui-kadhai/scene_20_2fd34eeb4ba36115.mp4'
+file 'D:/Story-Channel/cache/dadi-ki-kahaniyan/001_lalchi-halwai/short_01_jadui-kadhai/scene_21_270175636ee6ec2c.mp4'
+file 'D:/Story-Channel/cache/dadi-ki-kahaniyan/001_lalchi-halwai/short_01_jadui-kadhai/scene_22_197281e80c648b26.mp4'total 40140
+drwxr-xr-x 1 ashamim 1049089       0 Oct 18 15:52 .
+drwxr-xr-x 1 ashamim 1049089       0 Oct 18 15:50 ..
+drwxr-xr-x 1 ashamim 1049089       0 Oct 18 15:50 fonts
+-rw-r--r-- 1 ashamim 1049089 9959118 Oct 18 15:52 mix.wav
+-rw-r--r-- 1 ashamim 1049089 9959118 Oct 18 15:52 mix_norm.wav
+-rw-r--r-- 1 ashamim 1049089 9959118 Oct 18 15:52 music.wav
+-rw-r--r-- 1 ashamim 1049089    1010 Oct 18 15:50 scene_16_8ba9dccc598dcd02.ass
+-rw-r--r-- 1 ashamim 1049089    1299 Oct 18 15:50 scene_17_6ecc75a6b2712ba9.ass
+-rw-r--r-- 1 ashamim 1049089    1299 Oct 18 15:52 scene_20_2fd34eeb4ba36115.ass
+-rw-r--r-- 1 ashamim 1049089    1299 Oct 18 15:50 scene_20_b2cba780701ea635.ass
+-rw-r--r-- 1 ashamim 1049089    1127 Oct 18 15:50 scene_21_270175636ee6ec2c.ass
+-rw-r--r-- 1 ashamim 1049089    1255 Oct 18 15:52 scene_22_197281e80c648b26.ass
+-rw-r--r-- 1 ashamim 1049089    1255 Oct 18 15:50 scene_22_47d156955b6d5d66.ass
+-rw-r--r-- 1 ashamim 1049089     593 Oct 18 15:52 scenes.txt
+-rw-r--r-- 1 ashamim 1049089 8690617 Oct 18 15:52 video.mp4
+-rw-r--r-- 1 ashamim 1049089 2489804 Oct 18 15:52 voice.wav
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 10:23:20Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Locate ffmpeg binary
+
+`grep -n "^FFMPEG\|^FFPROBE\|FFMPEG =" scripts/make_short.py; ls tools/ 2>/dev/null | head; which ffmpeg; ls .venv/Scripts | head -50`
+
+```text
+37:FFMPEG = ROOT / "tools" / "ffmpeg" / "ffmpeg.exe"
+39:    FFMPEG = Path(shutil.which("ffmpeg") or FFMPEG)
+__pycache__
+deno
+export_claude_home.ps1
+ffmpeg
+new_channel.ps1
+sync.ps1
+sync_bg.ps1
+whisper-models
+youtube_upload.py
+yt-dlp.exe
+which: no ffmpeg in (/c/Users/ashamim/bin:/mingw64/bin:/usr/local/bin:/usr/bin:/bin:/mingw64/bin:/usr/bin:/c/Users/ashamim/bin:/c/Program Files (x86)/Common Files/Oracle/Java/java8path:/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/c/WINDOWS/system32:/c/WINDOWS:/c/WINDOWS/System32/Wbem:/c/WINDOWS/System32/WindowsPowerShell/v1.0:/c/WINDOWS/System32/OpenSSH:/c/Program Files/nodejs:/cmd:/c/Program Files/GitHub CLI:/c/Users/ashamim/AppData/Local/Programs/Python/Python314/Scripts:/c/Users/ashamim/AppData/Local/Programs/Python/Python314:/c/Users/ashamim/AppData/Local/Programs/Python/Launcher:/c/Users/ashamim/AppData/Local/Microsoft/WindowsApps:/c/Users/ashamim/AppData/Local/Programs/Microsoft VS Code/bin:/c/Users/ashamim/AppData/Roaming/npm:/usr/bin/vendor_perl:/usr/bin/core_perl)
+Activate.ps1
+activate
+activate.bat
+activate.fish
+cffi-gen-src.exe
+ct2-fairseq-converter.exe
+ct2-marian-converter.exe
+ct2-openai-gpt2-converter.exe
+ct2-opennmt-py-converter.exe
+ct2-opennmt-tf-converter.exe
+ct2-opus-mt-converter.exe
+ct2-transformers-converter.exe
+deactivate.bat
+dotenv.exe
+edge-playback.exe
+edge-tts.exe
+f2py.exe
+google-oauthlib-tool.exe
+hf.exe
+httpx2.exe
+idna.exe
+normalizer.exe
+numpy-config.exe
+onnxruntime_test.exe
+pip.exe
+pip3.14.exe
+pip3.exe
+pyav.exe
+python.exe
+pythonw.exe
+tabulate.exe
+tiny-agents.exe
+tqdm.exe
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 10:23:41Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Probe preview and stems with bundled ffprobe
+
+`ls /d/Story-Channel/tools/ffmpeg/; cd /d/Story-Channel/channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/output && FP=/d/Story-Channel/tools/ffmpeg/ffprobe.exe; $FP -v error -show_entries stream=codec_name,width,height,r_frame_rate,pix_fmt,sample_rate,channels,duration:format=duration,size -of compact short_01_jadui-kadhai_preview.mp4; for f in short_01_jadui-kadhai_work/voice.wav short_01_jadui-kadhai_work/music.wav short_01_jadui-kadhai_work/mix_norm.wav; do $FP -v error -show_entries stream=sample_rate,channels:format=duration -of compact $f; done`
+
+```text
+ffmpeg.exe
+ffplay.exe
+ffprobe.exe
+stream|codec_name=h264|width=540|height=960|pix_fmt=yuv420p|r_frame_rate=24/1|duration=51.833333
+stream|codec_name=aac|sample_rate=48000|channels=2|r_frame_rate=0/0|duration=51.870000
+format|duration=51.870000|size=9953840
+stream|sample_rate=24000|channels=1
+format|duration=51.870000
+stream|sample_rate=48000|channels=2
+format|duration=51.870000
+stream|sample_rate=48000|channels=2
+format|duration=51.870000
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 10:23:47Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Read caption ASS events per scene
+
+`cd /d/Story-Channel/channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/output/short_01_jadui-kadhai_work && for f in scene_16_8ba9dccc598dcd02 scene_17_6ecc75a6b2712ba9 scene_20_2fd34eeb4ba36115 scene_21_270175636ee6ec2c scene_22_197281e80c648b26; do echo "== $f"; grep -A1 "^Style\|^Dialogue" $f.ass | grep "Style\|Dialogue"; done; ls ../; ls /d/Story-Channel/cache/dadi-ki-kahaniyan/001_lalchi-halwai/short_01_jadui-kadhai/`
+
+```text
+== scene_16_8ba9dccc598dcd02
+Style: Cap,Mukta,116,&H00FFFFFF,&H000000FF,&H00000000,&H78000000,0,0,0,0,100,100,0,0,1,9,4,2,60,60,480,1
+Style: Title,Mukta,128,&H0000E5FF,&H000000FF,&H00000000,&H78000000,0,0,0,0,100,100,0,0,1,9,4,8,60,60,170,1
+Dialogue: 0,0:00:00.00,0:00:02.35,Cap,,0,0,0,,ये जादुई कड़ाही है,
+Dialogue: 0,0:00:02.35,0:00:03.95,Cap,,0,0,0,,बेटा।
+Dialogue: 0,0:00:03.95,0:00:05.77,Cap,,0,0,0,,इसमें जो डालोगे,
+Dialogue: 0,0:00:05.77,0:00:08.20,Cap,,0,0,0,,दुगना हो जाएगा।
+== scene_17_6ecc75a6b2712ba9
+Style: Cap,Mukta,116,&H00FFFFFF,&H000000FF,&H00000000,&H78000000,0,0,0,0,100,100,0,0,1,9,4,2,60,60,480,1
+Style: Title,Mukta,128,&H0000E5FF,&H000000FF,&H00000000,&H78000000,0,0,0,0,100,100,0,0,1,9,4,8,60,60,170,1
+Dialogue: 0,0:00:00.08,0:00:01.38,Cap,,0,0,0,,उस शाम छोटू
+Dialogue: 0,0:00:01.38,0:00:02.99,Cap,,0,0,0,,ने कड़ाही में
+Dialogue: 0,0:00:02.99,0:00:04.76,Cap,,0,0,0,,एक मुट्ठी आटा डाला...
+Dialogue: 0,0:00:04.76,0:00:06.89,Cap,,0,0,0,,और आटा दो
+Dialogue: 0,0:00:06.89,0:00:08.67,Cap,,0,0,0,,मुट्ठी हो गया!
+Dialogue: 0,0:00:08.97,0:00:10.19,Cap,,0,0,0,,अरे वाह!
+Dialogue: 0,0:00:10.19,0:00:11.20,Cap,,0,0,0,,ये तो सच
+Dialogue: 0,0:00:11.20,0:00:12.02,Cap,,0,0,0,,में जादू है!
+== scene_20_2fd34eeb4ba36115
+Style: Cap,Mukta,116,&H00FFFFFF,&H000000FF,&H00000000,&H78000000,0,0,0,0,100,100,0,0,1,9,4,2,60,60,480,1
+Style: Title,Mukta,128,&H0000E5FF,&H000000FF,&H00000000,&H78000000,0,0,0,0,100,100,0,0,1,9,4,8,60,60,170,1
+Dialogue: 0,0:00:00.12,0:00:01.26,Cap,,0,0,0,,पर ये बात
+Dialogue: 0,0:00:01.26,0:00:02.80,Cap,,0,0,0,,घसीटा की नज़रों
+Dialogue: 0,0:00:02.80,0:00:04.31,Cap,,0,0,0,,से छुपी नहीं रही।
+Dialogue: 0,0:00:04.61,0:00:05.09,Cap,,0,0,0,,आटा?
+Dialogue: 0,0:00:05.09,0:00:06.59,Cap,,0,0,0,,हुँह!
+Dialogue: 0,0:00:06.59,0:00:07.46,Cap,,0,0,0,,उस कड़ाही में
+Dialogue: 0,0:00:07.46,0:00:09.09,Cap,,0,0,0,,तो सोना होना चाहिए...
+Dialogue: 0,0:00:09.09,0:00:10.45,Cap,,0,0,0,,मेरा सोना!
+== scene_21_270175636ee6ec2c
+Style: Cap,Mukta,116,&H00FFFFFF,&H000000FF,&H00000000,&H78000000,0,0,0,0,100,100,0,0,1,9,4,2,60,60,480,1
+Style: Title,Mukta,128,&H0000E5FF,&H000000FF,&H00000000,&H78000000,0,0,0,0,100,100,0,0,1,9,4,8,60,60,170,1
+Dialogue: 0,0:00:00.12,0:00:01.08,Cap,,0,0,0,,उसी रात,
+Dialogue: 0,0:00:01.08,0:00:02.79,Cap,,0,0,0,,जब छोटू सो
+Dialogue: 0,0:00:02.79,0:00:03.47,Cap,,0,0,0,,रहा था,
+Dialogue: 0,0:00:03.47,0:00:06.09,Cap,,0,0,0,,घसीटा दबे पाँव
+Dialogue: 0,0:00:06.09,0:00:08.07,Cap,,0,0,0,,आया और कड़ाही
+Dialogue: 0,0:00:08.07,0:00:09.18,Cap,,0,0,0,,चुरा ले गया।
+== scene_22_197281e80c648b26
+Style: Cap,Mukta,116,&H00FFFFFF,&H000000FF,&H00000000,&H78000000,0,0,0,0,100,100,0,0,1,9,4,2,60,60,480,1
+Style: Title,Mukta,128,&H0000E5FF,&H000000FF,&H00000000,&H78000000,0,0,0,0,100,100,0,0,1,9,4,8,60,60,170,1
+Dialogue: 0,0:00:00.11,0:00:01.99,Cap,,0,0,0,,दुकान में दीया
+Dialogue: 0,0:00:01.99,0:00:04.09,Cap,,0,0,0,,जलाकर उसने कड़ाही
+Dialogue: 0,0:00:04.09,0:00:06.16,Cap,,0,0,0,,में एक सोने
+Dialogue: 0,0:00:06.16,0:00:07.53,Cap,,0,0,0,,का सिक्का डाला...
+Dialogue: 0,0:00:07.83,0:00:08.43,Cap,,0,0,0,,चल,
+Dialogue: 0,0:00:08.43,0:00:09.25,Cap,,0,0,0,,दुगना कर!
+Dialogue: 1,0:00:09.25,0:00:11.25,Title,,0,0,0,,{\fad(300,0)}पूरी कहानी चैनल पर
+short_01_jadui-kadhai_preview.mp4
+short_01_jadui-kadhai_work
+scene_16_8ba9dccc598dcd02.mp4
+scene_17_6ecc75a6b2712ba9.mp4
+scene_20_2fd34eeb4ba36115.mp4
+scene_20_b2cba780701ea635.mp4
+scene_21_270175636ee6ec2c.mp4
+scene_22_197281e80c648b26.mp4
+scene_22_47d156955b6d5d66.mp4
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 10:23:57Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Get scene clip durations
+
+`cd /d/Story-Channel/cache/dadi-ki-kahaniyan/001_lalchi-halwai/short_01_jadui-kadhai/ && for f in scene_16_8ba9dccc598dcd02 scene_17_6ecc75a6b2712ba9 scene_20_2fd34eeb4ba36115 scene_21_270175636ee6ec2c scene_22_197281e80c648b26; do /d/Story-Channel/tools/ffmpeg/ffprobe.exe -v error -show_entries stream=duration,nb_frames -of csv=p=0 $f.mp4; done`
+
+```text
+8.416667,202
+12.208333,293
+10.625000,255
+9.375000,225
+11.250000,270
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 10:24:22Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Extract preview frames and contact sheet
+
+`cd /d/Story-Channel/channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai && mkdir -p review/r1 && FF=/d/Story-Channel/tools/ffmpeg/ffmpeg.exe; for t in 0.3 1.0 1.45 1.6 3.0 6.0 9.0 13.0 18.5 22.0 27.0 30.5 32.0 34.5 39.0 42.0 46.0 49.0 50.5 51.7; do $FF -v error -y -ss $t -i output/short_01_jadui-kadhai_preview.mp4 -frames:v 1 review/r1/p_$t.png; done; $FF -v error -y -pattern_type glob -i 'review/r1/p_*.png' -vf "scale=270:480,tile=10x2" review/r1/sheet.png 2>&1 | tail -2; ls review/r1`
+
+```text
+Error opening input file review/r1/p_*.png.
+Error opening input files: Function not implemented
+p_0.3.png
+p_1.0.png
+p_1.45.png
+p_1.6.png
+p_13.0.png
+p_18.5.png
+p_22.0.png
+p_27.0.png
+p_3.0.png
+p_30.5.png
+p_32.0.png
+p_34.5.png
+p_39.0.png
+p_42.0.png
+p_46.0.png
+p_49.0.png
+p_50.5.png
+p_51.7.png
+p_6.0.png
+p_9.0.png
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 10:24:35Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Build contact sheet from preview
+
+`cd /d/Story-Channel/channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai && FF=/d/Story-Channel/tools/ffmpeg/ffmpeg.exe; sel=""; for t in 0.3 1.0 1.45 1.6 3.0 6.0 9.0 13.0 18.5 22.0 27.0 30.5 32.0 34.5 39.0 42.0 46.0 49.0 50.5 51.7; do n=$(python -c "print(round($t*24))"); sel="$sel+eq(n\,$n)"; done; sel=${sel:1}; $FF -v error -y -i output/short_01_jadui-kadhai_preview.mp4 -vf "select='$sel',scale=270:480,tile=10x2" -frames:v 1 review/r1/sheet.png && echo ok`
+
+```text
+ok
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 10:24:37Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\review\r1\sheet.png`
+</details></tool-use>
+
+_**Agent - sidechain (2026-10-18 10:24:37Z)**_
+
+[Image: original 2700x960, displayed at 2000x711. Multiply coordinates by 1.35 to map to original image.]
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 10:24:54Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Stack key preview frames side by side
+
+`cd /d/Story-Channel/channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai && FF=/d/Story-Channel/tools/ffmpeg/ffmpeg.exe; $FF -v error -y -i review/r1/p_1.0.png -i review/r1/p_3.0.png -i review/r1/p_42.0.png -i review/r1/p_46.0.png -filter_complex "[0][1][2][3]hstack=4" review/r1/key4.png && echo ok`
+
+```text
+ok
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 10:24:56Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\review\r1\key4.png`
+</details></tool-use>
+
+_**Agent - sidechain (2026-10-18 10:24:56Z)**_
+
+[Image: original 2160x960, displayed at 2000x889. Multiply coordinates by 1.08 to map to original image.]
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 10:25:06Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+List story images
+
+`cd /d/Story-Channel/channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai && ls images | head -40; /d/Story-Channel/tools/ffmpeg/ffprobe.exe -v error -show_entries stream=width,height -of csv=p=0 images/$(ls images | grep -m1 "22")`
+
+```text
+scene_01.png
+scene_02.png
+scene_03.png
+scene_05.png
+scene_07.png
+scene_08.png
+scene_09.png
+scene_10.png
+scene_12.png
+scene_13.png
+scene_14.png
+scene_15.png
+scene_16.png
+scene_17.png
+scene_18.png
+scene_19.png
+scene_20.png
+scene_21.png
+scene_22.png
+scene_24.png
+scene_25.png
+scene_26.png
+scene_27.png
+scene_29.png
+scene_30.png
+scene_31.png
+scene_32.png
+scene_34.png
+scene_35.png
+scene_36.png
+scene_38.png
+1376,768
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 10:25:08Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\images\scene_22.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 10:25:08Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\images\scene_16.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 10:25:19Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Extract bottom strips of scene 22 frames
+
+`cd /d/Story-Channel/channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai && FF=/d/Story-Channel/tools/ffmpeg/ffmpeg.exe; $FF -v error -y -i output/short_01_jadui-kadhai_preview.mp4 -vf "select='eq(n\,976)+eq(n\,1000)+eq(n\,1160)+eq(n\,1165)',crop=540:300:0:660,tile=1x4" -frames:v 1 review/r1/s22_bottom.png && echo ok`
+
+```text
+ok
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 10:25:22Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\review\r1\s22_bottom.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 10:25:42Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Check python libs and detect speech gaps
+
+`.venv/Scripts/python -c "import numpy, soundfile; print('ok')"; .venv/Scripts/python -c "import pyloudnorm; print('pln')"; FF=tools/ffmpeg/ffmpeg.exe; W=channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/output/short_01_jadui-kadhai_work; $FF -hide_banner -i $W/voice.wav -af silencedetect=n=-45dB:d=0.25 -f null - 2>&1 | grep silence_`
+
+```text
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import numpy, soundfile; print('ok')
+    ^^^^^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'soundfile'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import pyloudnorm; print('pln')
+    ^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'pyloudnorm'
+[Parsed_silencedetect_0 @ 000001beca6e5900] silence_start: 3.124375
+[Parsed_silencedetect_0 @ 000001beca6e5900] silence_end: 3.76 | silence_duration: 0.635625
+[Parsed_silencedetect_0 @ 000001beca6e5900] silence_start: 5.823042
+[Parsed_silencedetect_0 @ 000001beca6e5900] silence_end: 6.365875 | silence_duration: 0.542833
+[Parsed_silencedetect_0 @ 000001beca6e5900] silence_start: 8.150083
+[Parsed_silencedetect_0 @ 000001beca6e5900] silence_end: 8.509083 | silence_duration: 0.359
+[Parsed_silencedetect_0 @ 000001beca6e5900] silence_start: 11.313792
+[Parsed_silencedetect_0 @ 000001beca6e5900] silence_end: 11.623042 | silence_duration: 0.30925
+[Parsed_silencedetect_0 @ 000001beca6e5900] silence_start: 13.324
+[Parsed_silencedetect_0 @ 000001beca6e5900] silence_end: 14.099125 | silence_duration: 0.775125
+[Parsed_silencedetect_0 @ 000001beca6e5900] silence_start: 14.967667
+[Parsed_silencedetect_0 @ 000001beca6e5900] silence_end: 15.471875 | silence_duration: 0.504208
+[Parsed_silencedetect_0 @ 000001beca6e5900] silence_start: 16.98025
+[Parsed_silencedetect_0 @ 000001beca6e5900] silence_end: 17.390708 | silence_duration: 0.410458
+[Parsed_silencedetect_0 @ 000001beca6e5900] silence_start: 20.403667
+[Parsed_silencedetect_0 @ 000001beca6e5900] silence_end: 20.752292 | silence_duration: 0.348625
+[Parsed_silencedetect_0 @ 000001beca6e5900] silence_start: 24.80775
+[Parsed_silencedetect_0 @ 000001beca6e5900] silence_end: 25.238958 | silence_duration: 0.431208
+[Parsed_silencedetect_0 @ 000001beca6e5900] silence_start: 25.849875
+[Parsed_silencedetect_0 @ 000001beca6e5900] silence_end: 26.131333 | silence_duration: 0.281458
+[Parsed_silencedetect_0 @ 000001beca6e5900] silence_start: 31.005458
+[Parsed_silencedetect_0 @ 000001beca6e5900] silence_end: 31.382458 | silence_duration: 0.377
+[Parsed_silencedetect_0 @ 000001beca6e5900] silence_start: 32.453458
+[Parsed_silencedetect_0 @ 000001beca6e5900] silence_end: 32.868583 | silence_duration: 0.415125
+[Parsed_silencedetect_0 @ 000001beca6e5900] silence_start: 34.813542
+[Parsed_silencedetect_0 @ 000001beca6e5900] silence_end: 35.269417 | silence_duration: 0.455875
+[Parsed_silencedetect_0 @ 000001beca6e5900] silence_start: 37.903208
+[Parsed_silencedetect_0 @ 000001beca6e5900] silence_end: 38.440083 | silence_duration: 0.536875
+[Parsed_silencedetect_0 @ 000001beca6e5900] silence_start: 40.318125
+[Parsed_silencedetect_0 @ 000001beca6e5900] silence_end: 40.745458 | silence_duration: 0.427333
+[Parsed_silencedetect_0 @ 000001beca6e5900] silence_start: 45.111208
+[Parsed_silencedetect_0 @ 000001beca6e5900] silence_end: 45.4515 | silence_duration: 0.340292
+[Parsed_silencedetect_0 @ 000001beca6e5900] silence_start: 48.060667
+[Parsed_silencedetect_0 @ 000001beca6e5900] silence_end: 48.459833 | silence_duration: 0.399167
+[Parsed_silencedetect_0 @ 000001beca6e5900] silence_start: 48.7955
+[Parsed_silencedetect_0 @ 000001beca6e5900] silence_end: 49.094292 | silence_duration: 0.298792
+[Parsed_silencedetect_0 @ 000001beca6e5900] silence_start: 49.797583
+[Parsed_silencedetect_0 @ 000001beca6e5900] silence_end: 51.87 | silence_duration: 2.072417
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 10:25:58Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Measure stem loudness over speech sections
+
+`FF=tools/ffmpeg/ffmpeg.exe; W=channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/output/short_01_jadui-kadhai_work; SEL="between(t,0,3.124)+between(t,3.76,5.823)+between(t,6.366,8.15)+between(t,8.509,11.314)+between(t,11.623,13.324)+between(t,14.099,14.968)+between(t,15.472,16.98)+between(t,17.391,20.404)+between(t,20.752,24.808)+between(t,25.239,25.85)+between(t,26.131,31.005)+between(t,31.382,32.453)+between(t,32.869,34.814)+between(t,35.269,37.903)+between(t,38.44,40.318)+between(t,40.745,45.111)+between(t,45.452,48.061)+between(t,48.46,48.796)+between(t,49.094,49.798)"; for f in voice music; do echo "$f full0-49.8:"; $FF -hide_banner -i $W/$f.wav -af "aresample=48000,atrim=0:49.8,ebur128=peak=true" -f null - 2>&1 | grep -E "^\s+I:|Peak:" | head -2; echo "$f speech-only:"; $FF -hide_banner -i $W/$f.wav -af "aresample=48000,aselect='$SEL',ebur128" -f null - 2>&1 | grep -E "^\s+I:" ; done; echo mix_norm; $FF -hide_banner -i $W/mix_norm.wav -af "ebur128=peak=true" -f null - 2>&1 | grep -E "^\s+I:|Peak:"; echo preview; $FF -hide_banner -i channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/output/short_01_jadui-kadhai_preview.mp4 -vn -af "ebur128=peak=true" -f null - 2>&1 | grep -E "^\s+I:|Peak:"`
+
+```text
+voice full0-49.8:
+    I:         -17.8 LUFS
+    Peak:       -0.6 dBFS
+voice speech-only:
+    I:         -17.6 LUFS
+music full0-49.8:
+    I:         -30.8 LUFS
+    Peak:      -12.3 dBFS
+music speech-only:
+    I:         -30.7 LUFS
+mix_norm
+    I:         -13.8 LUFS
+    Peak:       -1.5 dBFS
+preview
+    I:         -13.8 LUFS
+    Peak:       -1.1 dBFS
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 10:26:08Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Music momentary loudness timeline and licence rows
+
+`FF=tools/ffmpeg/ffmpeg.exe; W=channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/output/short_01_jadui-kadhai_work; $FF -hide_banner -i $W/music.wav -af "ebur128=metadata=1,ametadata=print:key=lavfi.r128.M" -f null - 2>&1 | grep -A0 "lavfi.r128.M" | awk 'NR%5==0' | awk -F= '{print $2}' | tr '\n' ' ' ; echo; grep -n "magic\|Enchanted\|Hidden_Agenda" shared/assets_license.csv`
+
+```text
+-120.691  -37.502  -32.113  -35.668  -36.808  -33.484  -34.978  -31.943  -32.341  -34.461  -35.148  -33.976  -35.737  -36.127  -33.654  -32.646  -33.941  -33.062  -33.068  -31.904  -33.333  -34.145  -35.503  -34.083  -35.721  -36.303  -30.130  -29.140  -28.896  -28.454  -29.975  -32.642  -29.020  -29.378  -30.638  -29.433  -30.636  -32.236  -32.544  -29.027  -30.226  -31.597  -32.191  -32.133  -27.981  -30.314  -30.358  -34.352  -33.661  -27.739  -31.409  -30.352  -30.231  -32.115  -34.671  -29.916  -35.018  -33.454  -34.593  -31.836  -28.536  -32.211  -30.559  -31.042  -29.120  -34.886  -30.618  -26.545  -30.481  -35.115  -32.275  -28.954  -30.920  -30.062  -28.705  -31.121  -32.420  -32.201  -25.533  -29.157  -29.775  -31.503  -29.393  -46.723  -42.900  -31.681  -31.245  -31.359  -32.259  -29.491  -32.222  -30.183  -28.804  -25.497  -31.181  -32.803  -29.443  -28.613  -25.427  -27.332  -30.494  -27.651  -35.982  -44.039 
+23:shared/music/jaadu/Enchanted_Valley.mp3,https://incompetech.com/music/royalty-free/mp3-royaltyfree/Enchanted%20Valley.mp3,Kevin MacLeod,CC BY 4.0,"""Enchanted Valley"" Kevin MacLeod (incompetech.com)
+38:shared/music/tension/Hidden_Agenda.mp3,https://incompetech.com/music/royalty-free/mp3-royaltyfree/Hidden%20Agenda.mp3,Kevin MacLeod,CC BY 4.0,"""Hidden Agenda"" Kevin MacLeod (incompetech.com)
+50:shared/sfx/magic_376747.mp3,https://freesound.org/people/ZenithInfinitiveStudios/sounds/376747/,ZenithInfinitiveStudios,CC0 (verified via Freesound API),,2026-10-17
+51:shared/sfx/magic_376745.mp3,https://freesound.org/people/ZenithInfinitiveStudios/sounds/376745/,ZenithInfinitiveStudios,CC0 (verified via Freesound API),,2026-10-17
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 10:26:21Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Inspect music dip near 42 s
+
+`FF=tools/ffmpeg/ffmpeg.exe; W=channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/output/short_01_jadui-kadhai_work; $FF -hide_banner -ss 39.5 -t 5 -i $W/music.wav -af "astats=metadata=1:reset=2,ametadata=print:key=lavfi.astats.Overall.RMS_level" -f null - 2>&1 | grep RMS | awk -F= '{print $2}' | awk 'NR%5==1' | tr '\n' ' '; echo; tools/ffmpeg/ffprobe.exe -v error -show_entries format=duration -of csv=p=0 shared/music/tension/Hidden_Agenda.mp3; grep -n "loop\|afade\|acrossfade\|music_offset\|offset" scripts/make_short.py | head -20`
+
+```text
+-35.039244 -40.111964 -38.740401 -32.132516 -44.676419 -50.095355 -53.795627 -40.134817 -33.947792 -32.449457 -34.969889 -36.258542    
+135.000000
+109:    """Cached Gemini TTS + optional pitch shift / extra filter (e.g. echo) / chorus (3 detuned, offset copies
+480:def music_offset(f: Path, a, b, windows):
+512:        fade_out = f"afade=t=out:st={length - (1.5 if last else MUSIC_XFADE):.2f}:d={1.5 if last else MUSIC_XFADE}"
+513:        fade_in = f"afade=t=in:d={MUSIC_XFADE}," if k else ""
+515:        off = music_offset(f, a, b, events.get("pauses", []))
+518:        inputs += ["-stream_loop", "-1", *(["-ss", f"{off:.2f}"] if off else []), "-i", f]
+545:               f":measured_thresh={m['input_thresh']}:offset={m['target_offset']}:linear=true")
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 10:26:26Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Read music offset logic
+
+`sed -n 480,530p scripts/make_short.py`
+
+```text
+def music_offset(f: Path, a, b, windows):
+    """Seconds into the track to start a segment [a, b] so no music-only pause (plus PAUSE_LEAD before it) lands
+    in a near-silent gap of the track (e.g. between piano phrases). 0 when the segment has no pause."""
+    wins = [(max(s, a), min(e, b)) for s, e in windows if e > a and s < b]
+    if not wins:
+        return 0.0
+    lev = track_levels(f)
+    n = len(lev)
+    idx = [i for s, e in wins if len(i := np.arange(int((s - a) * 10), int((e - a) * 10)))]
+    if not idx:
+        return 0.0
+    score = lambda off: min(lev[(i + int(off * 10)) % n].min() for i in idx)
+    ok = np.median(lev) - 10  # within 10 dB of the track's usual level counts as audible
+    if score(0) >= ok:
+        return 0.0
+    return float(max(np.arange(0, 20.01, 0.25), key=lambda off: (min(score(off), ok), -off)))
+
+
+def build_audio(voice, total, events, meta, work: Path, two_pass: bool, below_db: float):
+    """Voice + music (one track, or a track per mood with crossfades) at a fixed level under the voice + stings;
+    music muted in any music_silent window. Also writes music.wav (music stem) for the level check."""
+    v_lufs = integrated_lufs(voice)
+    segs = music_segments(events, meta, total)
+    lufs_of = {}
+    inputs = ["-i", voice]
+    fc = [f"[0:a]aresample=48000,aformat=channel_layouts=stereo[v]"]
+    for k, (a, b, f) in enumerate(segs):
+        if f not in lufs_of:
+            lufs_of[f] = integrated_lufs(f, 60)
+        gain = v_lufs - below_db - lufs_of[f]
+        last = k == len(segs) - 1
+        length = (b - a) + (0 if last else MUSIC_XFADE)  # overlap into the next mood = crossfade
+        fade_out = f"afade=t=out:st={length - (1.5 if last else MUSIC_XFADE):.2f}:d={1.5 if last else MUSIC_XFADE}"
+        fade_in = f"afade=t=in:d={MUSIC_XFADE}," if k else ""
+        ms = int(a * 1000)
+        off = music_offset(f, a, b, events.get("pauses", []))
+        if off:
+            print(f"  music: {Path(f).stem} starts {off:.2f}s in (pause falls on an audible part)")
+        inputs += ["-stream_loop", "-1", *(["-ss", f"{off:.2f}"] if off else []), "-i", f]
+        fc.append(f"[{k + 1}:a]aresample=48000,aformat=channel_layouts=stereo,atrim=0:{length:.3f},"
+                  f"volume={gain:.2f}dB,{fade_in}{fade_out},adelay={ms}|{ms}[mu{k}]")
+    mute = "+".join(f"between(t,{a:.2f},{b:.2f})" for a, b in events["music_silent"]) or "0"
+    fc.append("".join(f"[mu{k}]" for k in range(len(segs)))
+              + f"amix=inputs={len(segs)}:duration=longest:normalize=0,volume='if({mute},0,1)':eval=frame,"
+                f"asplit=2[m][mstem]")
+    if len(segs) > 1:
+        print("  music: " + " -> ".join(f"{Path(f).stem}@{a:.0f}s" for a, _, f in segs))
+    mix_in, n_in = "[v][m]", len(segs) + 1
+    for k, (at, kind) in enumerate(events["sfx"]):
+        f = SFX_DIR / meta["sfx"][kind]
+        gain = v_lufs - SFX_BELOW_VOICE_DB - integrated_lufs(f)
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 10:26:31Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Check constants and builder diff
+
+`grep -n "^MUSIC_XFADE\|^END_HOLD\|^CUT_LEAD\|^PLAY_W\|^PLAY_H" scripts/make_short.py; git diff --stat scripts/make_short.py; cat channels/dadi-ki-kahaniyan/carry_over.md 2>/dev/null | head`
+
+```text
+48:MUSIC_XFADE = 1.5  # seconds of crossfade when the mood (music track) changes
+50:PLAY_W, PLAY_H = 1080, 1920  # caption coordinate space (libass scales it to the output size)
+56:CUT_LEAD = 0.1  # a speaker's shot starts this long before their voice, never earlier
+ scripts/make_short.py | 47 +++++++++++++++++++++++++++++++++--------------
+ 1 file changed, 33 insertions(+), 14 deletions(-)
+# Carry-over (MINOR issues to fix in pipeline)
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 10:26:51Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Check metadata lengths and credit handling
+
+```bash
+grep -n -i "credit\|assets_license\|attribution" tools/youtube_upload.py scripts/make_short.py | head; .venv/Scripts/python -X utf8 -c "
+import json;m=json.load(open('channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/meta.json',encoding='utf-8'))
+print('title',len(m['title']));print('desc',len(m['description']));t=m['tags'];print('tags',len(t),sum(len(x)+ (2 if ' ' in x else 0) for x in t)+len(t)-1)
+import re;print([x for x in t+[m['title'],m['description']] if re.search('kid|child|बच्च|बाल',x,re.I)])"; sed -n 20,40p shared/assets_license.csv | grep -n "Enchanted\|Hidden" 
+```
+
+```text
+scripts/make_short.py:602:    """The asset's row in shared/assets_license.csv (RULES section 10). No row -> stop the build."""
+scripts/make_short.py:619:def music_credits(meta, events, total):
+scripts/make_short.py:620:    """Description credits, taken word for word from the register's attribution_text."""
+scripts/make_short.py:625:    credits = []
+scripts/make_short.py:628:        text = row["attribution_text"].strip()
+scripts/make_short.py:630:            sys.exit(f"STOP: {f.name} is {row['license']} but has no attribution_text in {REGISTER.name}.")
+scripts/make_short.py:632:            credits.append(f"Music: {text}")
+scripts/make_short.py:633:    if not credits:
+scripts/make_short.py:634:        return meta.get("credits", "")
+scripts/make_short.py:635:    return "\n\n".join(credits) + ("\n\nSound effects: freesound.org (CC0)" if meta.get("sfx") else "")
+title 63
+desc 95
+tags 12 201
+[]
+4:shared/music/jaadu/Enchanted_Valley.mp3,https://incompetech.com/music/royalty-free/mp3-royaltyfree/Enchanted%20Valley.mp3,Kevin MacLeod,CC BY 4.0,"""Enchanted Valley"" Kevin MacLeod (incompetech.com)
+19:shared/music/tension/Hidden_Agenda.mp3,https://incompetech.com/music/royalty-free/mp3-royaltyfree/Hidden%20Agenda.mp3,Kevin MacLeod,CC BY 4.0,"""Hidden Agenda"" Kevin MacLeod (incompetech.com)
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 10:27:15Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Simulate final 1080x1920 crops from source
+
+```bash
+FF=tools/ffmpeg/ffmpeg.exe; I=channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/images; R=channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/review/r1; 
+mk(){ $FF -v error -y -i $I/$1 -vf "scale=6880:3840,crop=2160:3840:$2:0,crop=$3:$4:$5:$6,scale=1080:1920" $R/$7.png; }
+mk scene_16.png 1878 1271 2259 445 1328 sim16_hook
+mk scene_16.png 3874 1728 3072 216 77 sim16_sadhu
+mk scene_22.png 2566 1234 2194 463 592 sim22_l7
+mk scene_22.png 2704 1080 1920 540 422 sim22_l8
+grep -c "Mukta" shared/assets_license.csv; for f in sim16_hook sim22_l8; do $FF -v error -y -i $R/$f.png -vf "crop=1080:960:0:0" $R/${f}_top1to1.png; done; ls $R
+```
+
+```text
+4
+key4.png
+p_0.3.png
+p_1.0.png
+p_1.45.png
+p_1.6.png
+p_13.0.png
+p_18.5.png
+p_22.0.png
+p_27.0.png
+p_3.0.png
+p_30.5.png
+p_32.0.png
+p_34.5.png
+p_39.0.png
+p_42.0.png
+p_46.0.png
+p_49.0.png
+p_50.5.png
+p_51.7.png
+p_6.0.png
+p_9.0.png
+s22_bottom.png
+sheet.png
+sim16_hook.png
+sim16_hook_top1to1.png
+sim16_sadhu.png
+sim22_l7.png
+sim22_l8.png
+sim22_l8_top1to1.png
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 10:27:18Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\review\r1\sim16_hook_top1to1.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 10:27:18Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\review\r1\sim22_l8_top1to1.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 10:27:34Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Stack simulated crops vs preview frame
+
+`cd /d/Story-Channel/channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/review/r1 && FF=/d/Story-Channel/tools/ffmpeg/ffmpeg.exe; $FF -v error -y -i sim16_hook.png -i sim16_sadhu.png -i sim22_l7.png -i sim22_l8.png -i p_49.0.png -filter_complex "[0]scale=540:960[a];[1]scale=540:960[b];[2]scale=540:960[c];[3]scale=540:960[d];[a][b][c][d][4]hstack=5" sims.png && echo ok`
+
+```text
+ok
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 10:27:36Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\review\r1\sims.png`
+</details></tool-use>
+
+_**Agent - sidechain (2026-10-18 10:27:36Z)**_
+
+[Image: original 2700x960, displayed at 2000x711. Multiply coordinates by 1.35 to map to original image.]
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 10:27:45Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Crop bottom of simulated scene 22 final frame
+
+`cd /d/Story-Channel/channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/review/r1 && /d/Story-Channel/tools/ffmpeg/ffmpeg.exe -v error -y -i sim22_l7.png -vf "crop=1080:700:0:1220" sim22_l7_bottom1to1.png && echo ok`
+
+```text
+ok
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 10:27:47Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\review\r1\sim22_l7_bottom1to1.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 10:28:05Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Append R1 verdict to channel log
+
+`echo "2026-10-18 | short_01_jadui-kadhai | preview build R1 (~25 min) | FIX | 51.87s, hook ok, end card 2.0s, music 13.0 LU under voice (stem method), captions match + above bottom 25%, publish 20 Oct 21:00 ok; BLOCKER: scene 22 line 7 shot shows kadhai inside + top of mitti lump (spoiler) -> fy/zoom fix; MINOR: Chhotu's open-mouth face in 0-1.5s hook shot; sharpness acceptable, no ASK" >> channels/dadi-ki-kahaniyan/log.md; tail -1 channels/dadi-ki-kahaniyan/log.md`
+
+```text
+2026-10-18 | short_01_jadui-kadhai | preview build R1 (~25 min) | FIX | 51.87s, hook ok, end card 2.0s, music 13.0 LU under voice (stem method), captions match + above bottom 25%, publish 20 Oct 21:00 ok; BLOCKER: scene 22 line 7 shot shows kadhai inside + top of mitti lump (spoiler) -> fy/zoom fix; MINOR: Chhotu's open-mouth face in 0-1.5s hook shot; sharpness acceptable, no ASK
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 10:28:34Z)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="SubagentHandback"><details>
+<summary>Tool use: **SubagentHandback**</summary>
+
+```text
+{"success":true,"message":"Report delivered to your caller."}
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 10:28:46Z)**_
+
+<think><details><summary>Thought Process</summary>
+Munshi ne R1 me do problem pakde hain - B1: scene 22 me kadhai ke andar ki mitti dikh rahi hai, aur M1: hook me Chhotu ka chehra dikhne se line uske bolne jaisi lag sakti hai. CLAUDE.md ke niyam ke mutabik dono fix karke R2 karwa raha hoon.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-18 10:29:18Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Apply B1/M1 crop fixes, rebuild preview, check frames
+
+```bash
+D=channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai && sed -i 's/\[\[0.5, 0.64, 1.7, 0.43\], 1.5\]/[[0.5, 0.72, 1.95, 0.48], 1.5]/; s/"shot": \[0.5, 0.44, 1.75, 0.53\]/"shot": [0.5, 0.42, 1.85, 0.53]/' $D/lines.json && grep -c "0.72, 1.95, 0.48\|0.42, 1.85, 0.53" $D/lines.json && .venv/Scripts/python.exe -X utf8 scripts/make_short.py $D --preview 2>&1 | grep -E "^  scene|scenes:|total" && .venv/Scripts/python.exe -X utf8 -c "
+import subprocess
+from PIL import Image
+FF=r'D:\Story-Channel\tools\ffmpeg\ffmpeg.exe'; V='$D/output/short_01_jadui-kadhai_preview.mp4'
+ims=[]
+for t in (0.3,1.2,40.8,44,48.2):
+  f='$D/review/r2_%04.1f.png'%t; subprocess.run([FF,'-v','error','-y','-ss',str(t),'-i',V,'-frames:v','1','-vf','scale=270:-2',f],check=True); ims.append(Image.open(f))
+s=Image.new('RGB',(270*5,ims[0].height)); [s.paste(im,(i*270,0)) for i,im in enumerate(ims)]; s.save('$D/review/r2_sheet.png')"
+```
+
+```text
+2
+  total 51.9s
+  scene 16:   0.00-  8.42s  NEW    close1.95@x0.48 | close1.25@x0.72
+  scene 17:   8.42- 20.62s  cache  close1.15@x0.6 | close1.3@x0.36
+  scene 20:  20.62- 31.25s  cache  close1.2@x0.25 | close1.2@x0.73
+  scene 21:  31.25- 40.62s  cache  close1.3@x0.22 | close1.15@x0.72
+  scene 22:  40.62- 51.88s  NEW    close1.85@x0.53 | close2.0@x0.55
+  scenes: 3 cache se, 2 naye   |   build time 22s   |   is build ka kharcha ₹0.00
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 10:29:18Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\review\r2_sheet.png`
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 10:29:22Z)**_
+
+Hook me ab sirf chamakti kadhai hai aur Chhotu ka chehra bahar hai. Scene 22 me chehra, haath aur sikka hain, neeche sirf kadhai ka kinara. Ab Munshi R2:
+
+_**Agent (claude-opus-5-5 2026-10-18 10:31:54Z)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="Agent"><details>
+<summary>Tool use: **Agent**</summary>
+R2 review Short 01 preview
+
+```text
+  This agent's report was delivered to you as a message from "a5f36645014f9891b" (its SubagentHandback call). Read it there; it is not repeated here.
+  
+agentId: a5f36645014f9891b (use SendMessage with to: 'a5f36645014f9891b', summary: '<5-10 word recap>' to continue this agent)
+<usage>subagent_tokens: 40905
+tool_uses: 19
+duration_ms: 145704</usage>
+```
+</details></tool-use>
+
+_**Agent - sidechain (2026-10-18 10:29:28Z)**_
+
+Round 2 (R2) of the preview review for channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai (your R1 was FIX: B1 scene-22 kadhai interior/mitti lump visible; M1 Chhotu's face in the 0-1.5 s hook). Per RULES section 11, R2 re-checks ONLY what changed and what failed in R1. REVIEW ONLY, no edits, no paid calls; temp files only in the folder's review/ (use review/r2/).
+
+What the builder changed (verify, don't trust):
+- lines.json line 1 hook shot: [0.5, 0.64, 1.7, 0.43] -> [0.5, 0.72, 1.95, 0.48] (kadhai only).
+- lines.json line 7 (scene 22) shot: [0.5, 0.44, 1.75, 0.53] -> [0.5, 0.42, 1.85, 0.53] (your suggested bottom edge ~y=530 on the source).
+- Only scene 16 and scene 22 clips were re-rendered; preview: output/short_01_jadui-kadhai_preview.mp4 (still 51.9 s).
+
+Check B1 at full resolution too (simulate the 1080x1920 final crop of scene 22 for lines 7 and 8 over the whole shot incl. the slow push-in), and M1 (no face in the hook; Sadhu still cut in at ~1.5 s). Also quickly confirm nothing else changed (other scenes came from cache, duration, end card 2 s).
+
+Verdict per RULES section 11 after R2: PASS / PASS-WITH-NOTES (MINOR only — write each waived MINOR to channels/dadi-ki-kahaniyan/carry_over.md) / ASK (any BLOCKER left). Log one line (R2, verdict, approx time) in channels/dadi-ki-kahaniyan/log.md. Standard report format, short.
+
+_**Agent - sidechain (2026-10-18 10:29:28Z)**_
+
+<system-reminder>
+Your final report is delivered through SubagentHandback: when your work is complete, call SubagentHandback({message: <your full report>}). The call ends your run, so make it your last step. Only a SubagentHandback call reaches your caller as your result; plain text you write at the end is not delivered.
+</system-reminder>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 10:29:35Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Read rules section 11, log, lines.json, folder listing
+
+`cd /d/Story-Channel; S=channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai; sed -n '/^## *11/,/^## *12/p' shared/RULES.md; echo ----; grep -n -i "11\|blocker\|minor" channels/dadi-ki-kahaniyan/RULES.md | head -20; echo ----; tail -8 channels/dadi-ki-kahaniyan/log.md; echo ----; cat $S/lines.json; ls -la $S $S/output $S/review; cat channels/dadi-ki-kahaniyan/carry_over.md 2>/dev/null | tail -20`
+
+```text
+## 11. Review limits and severity
+Every problem Munshi reports is marked BLOCKER or MINOR.
+
+BLOCKER (never waived, in any round):
+- Copyright (section 10), wrong channel, any secret exposed.
+- Wrong character on screen for a line, wrong voice for a character, a line missing or cut off.
+- Caption more than 1 s away from its line, or caption text not matching what is spoken.
+- Loudness outside -14 LUFS ±1, true peak above -1.0 dBFS, audible clipping or leaked outside audio.
+- Wrong resolution/codec, or a preview file used as final.
+- Thumbnail: broken Hindi matras, spoiler, unreadable text, important thing in the bottom-right corner.
+- Metadata: title over 100 chars, more than 15 hashtags, missing CC BY credit, "for kids" wording (title, thumbnail, description or tags), mystery answer revealed.
+- Length outside ±10% of the approved preview length.
+- Story problem: moral missing or a scene that contradicts the script.
+
+MINOR (everything else that breaks a RULES limit only slightly), e.g.: caption off by 0.3–1 s, caption shorter than 0.4 s, music level within 3 dB of target, thumbnail text slightly under the size rule, small silent gaps, missing colour tags, tiny cosmetic issues.
+Taste points (pacing feel, colour choice, music phrase) are "Note" only and never count as problems.
+
+Rounds:
+- Round 1 (R1): full review for that stage; BLOCKER and MINOR both come back as FIX (free) or ASK (paid).
+- Round 2 (R2): re-check only what changed and what failed in R1.
+- After R2: if any BLOCKER remains → ASK the user, stop. If only MINOR remain → verdict "PASS-WITH-NOTES": the stage is passed and the pipeline moves on to the next step (including upload when the user has approved it). No third round.
+- Every MINOR waived after R2 is written to channels/<key>/carry_over.md (project, issue, suggested fix). Before the next video's build, the builder reads carry_over.md and fixes those causes in the pipeline, then marks them done.
+
+These limits never weaken: copyright (section 10), channel ID check, secrets, and the full pre-upload check.
+At the end of each review, add one line to channels/<key>/log.md with the round (R1/R2), verdict and approximate time taken.
+----
+----
+2026-10-18 | long_01 | 7 final build (re-review) | ASK | all 6 builder fixes verified (line 2 Mitthu+box, line 15 Sadhu only, music 13.0 LU under voice by stem method = inside long range 12-20, offsets 3.75s/14.5s, yuv420p tv bt709 matrix, no caption <0.45s); length 5:06 (306.2s) is outside script target ~3:50 +/-10% and 3-5 min range -> user decision
+2026-10-18 | long_01 | 8 thumbnail (re-review) | PASS | 1280x720 PNG 1.09 MB, text 14.3%/13.5% of height, Hindi shaping ok, no spoiler, BR corner clear
+2026-10-18 | long_01 | 9 metadata (re-review) | PASS | title 81, desc 1488, 5 hashtags, 21 tags 375/500 chars (YouTube count), 6 CC BY credits ok, TAGS in long_01.txt = meta.json
+2026-10-18 | long_01 | 7 final build (length, RULES 5 updated) | PASS | user approved 5:06 preview; final 306.17s = preview 306.17s (0%, within +/-10%); long_01.mp4 unchanged since re-review (13:22), 1920x1080 h264 yuv420p 30fps; all re-review checks stand
+2026-10-18 | long_01 | publish dry-run | PASS | upload.json written (channel UCy071_4g4vGemktFHybqkhQ, publish 2026-10-20 19:00 IST, kids=false, synthetic=false, cat 1, no playlist); dry-run OK, no network; copyright register (RULES 10 / assets_license.csv) not yet available -> not reviewed
+2026-10-18 | long_01 | copyright (RULES 10) | PASS | all used assets registered w/ allowed licence (6 Incompetech CC BY 4.0, 3 Freesound CC0, Mukta OFL, 31 scene imgs + 51 TTS + thumb = own Gemini, all in cost_log); 6/6 credits exact in upload.json; mix-voice-music residual = 5 SFX bursts only (floor -98 dB); prompts/text/images clean
+2026-10-18 | long_01 | publish | PUBLISHED | video Ogfqow8rbGY uploaded (scheduled 2026-10-20 19:00 IST requested), thumbnail ok, captions ok, channel UCy071_4g4vGemktFHybqkhQ verified; user must confirm schedule in Studio (unaudited API may lock private)
+2026-10-18 | short_01_jadui-kadhai | preview build R1 (~25 min) | FIX | 51.87s, hook ok, end card 2.0s, music 13.0 LU under voice (stem method), captions match + above bottom 25%, publish 20 Oct 21:00 ok; BLOCKER: scene 22 line 7 shot shows kadhai inside + top of mitti lump (spoiler) -> fy/zoom fix; MINOR: Chhotu's open-mouth face in 0-1.5s hook shot; sharpness acceptable, no ASK
+----
+[
+  {"scene": 16, "speaker": "sadhu", "text": "ये जादुई कड़ाही है, बेटा। इसमें जो डालोगे, दुगना हो जाएगा।", "mood": "jaadu", "shots": [[[0.5, 0.72, 1.95, 0.48], 1.5], [[0.5, 0.42, 1.25, 0.72], null]]},
+  {"scene": 17, "speaker": "dadi_story", "text": "उस शाम छोटू ने कड़ाही में एक मुट्ठी आटा डाला... और आटा दो मुट्ठी हो गया!", "sfx_after": "magic", "shot": [0.5, 0.55, 1.15, 0.6]},
+  {"scene": 17, "speaker": "chhotu", "text": "अरे वाह! ये तो सच में जादू है!", "shot": [0.5, 0.42, 1.3, 0.36]},
+  {"scene": 20, "speaker": "dadi_story", "text": "पर ये बात घसीटा की नज़रों से छुपी नहीं रही।", "mood": "tension", "shot": [0.5, 0.5, 1.2, 0.25]},
+  {"scene": 20, "speaker": "ghasita", "text": "आटा? हुँह! उस कड़ाही में तो सोना होना चाहिए... मेरा सोना!", "shot": [0.5, 0.42, 1.2, 0.73]},
+  {"scene": 21, "speaker": "dadi_story", "text": "उसी रात, जब छोटू सो रहा था, घसीटा दबे पाँव आया और कड़ाही चुरा ले गया।", "shots": [[[0.5, 0.72, 1.3, 0.22], 3.0], [[0.5, 0.45, 1.15, 0.72], null]]},
+  {"scene": 22, "speaker": "dadi_story", "text": "दुकान में दीया जलाकर उसने कड़ाही में एक सोने का सिक्का डाला...", "shot": [0.5, 0.42, 1.85, 0.53]},
+  {"scene": 22, "speaker": "ghasita", "text": "चल, दुगना कर!", "shot": [0.5, 0.36, 2.0, 0.55]}
+]
+channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai:
+total 26
+drwxr-xr-x 1 ashamim 1049089    0 Oct 18 15:58 .
+drwxr-xr-x 1 ashamim 1049089    0 Oct 18 15:39 ..
+-rw-r--r-- 1 ashamim 1049089 7052 Oct 18 15:39 PLAN.md
+-rw-r--r-- 1 ashamim 1049089 1833 Oct 18 15:58 lines.json
+-rw-r--r-- 1 ashamim 1049089 1534 Oct 18 15:48 meta.json
+drwxr-xr-x 1 ashamim 1049089    0 Oct 18 15:50 output
+-rw-r--r-- 1 ashamim 1049089  203 Oct 18 15:48 project.json
+drwxr-xr-x 1 ashamim 1049089    0 Oct 18 15:59 review
+-rw-r--r-- 1 ashamim 1049089   99 Oct 18 15:48 shots.json
+
+channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/output:
+total 9584
+drwxr-xr-x 1 ashamim 1049089       0 Oct 18 15:50 .
+drwxr-xr-x 1 ashamim 1049089       0 Oct 18 15:58 ..
+-rw-r--r-- 1 ashamim 1049089 9802736 Oct 18 15:59 short_01_jadui-kadhai_preview.mp4
+drwxr-xr-x 1 ashamim 1049089       0 Oct 18 15:58 short_01_jadui-kadhai_work
+
+channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/review:
+total 7692
+drwxr-xr-x 1 ashamim 1049089       0 Oct 18 15:59 .
+drwxr-xr-x 1 ashamim 1049089       0 Oct 18 15:58 ..
+-rw-r--r-- 1 ashamim 1049089 1581149 Oct 18 15:38 crop_plan.png
+-rw-r--r-- 1 ashamim 1049089  122165 Oct 18 15:51 f_000.7.png
+-rw-r--r-- 1 ashamim 1049089  124246 Oct 18 15:51 f_001.4.png
+-rw-r--r-- 1 ashamim 1049089  175265 Oct 18 15:51 f_003.0.png
+-rw-r--r-- 1 ashamim 1049089  126393 Oct 18 15:51 f_010.0.png
+-rw-r--r-- 1 ashamim 1049089  118222 Oct 18 15:51 f_019.0.png
+-rw-r--r-- 1 ashamim 1049089  104900 Oct 18 15:51 f_023.0.png
+-rw-r--r-- 1 ashamim 1049089  108947 Oct 18 15:51 f_028.0.png
+-rw-r--r-- 1 ashamim 1049089  109128 Oct 18 15:51 f_033.0.png
+-rw-r--r-- 1 ashamim 1049089  148248 Oct 18 15:51 f_038.0.png
+-rw-r--r-- 1 ashamim 1049089  139442 Oct 18 15:51 f_044.0.png
+-rw-r--r-- 1 ashamim 1049089  138813 Oct 18 15:51 f_048.0.png
+-rw-r--r-- 1 ashamim 1049089  120248 Oct 18 15:51 f_050.8.png
+-rw-r--r-- 1 ashamim 1049089  154636 Oct 18 15:52 fix_26.0.png
+-rw-r--r-- 1 ashamim 1049089  159263 Oct 18 15:52 fix_28.0.png
+-rw-r--r-- 1 ashamim 1049089  159745 Oct 18 15:52 fix_30.0.png
+-rw-r--r-- 1 ashamim 1049089  134166 Oct 18 15:52 fix_42.0.png
+-rw-r--r-- 1 ashamim 1049089  136492 Oct 18 15:52 fix_45.0.png
+-rw-r--r-- 1 ashamim 1049089  110305 Oct 18 15:52 fix_48.5.png
+-rw-r--r-- 1 ashamim 1049089  848921 Oct 18 15:52 fix_sheet.png
+-rw-r--r-- 1 ashamim 1049089 1521279 Oct 18 15:51 preview_sheet.png
+drwxr-xr-x 1 ashamim 1049089       0 Oct 18 15:57 r1
+-rw-r--r-- 1 ashamim 1049089  128952 Oct 18 15:59 r2_00.3.png
+-rw-r--r-- 1 ashamim 1049089  133664 Oct 18 15:59 r2_01.2.png
+-rw-r--r-- 1 ashamim 1049089  150298 Oct 18 15:59 r2_40.8.png
+-rw-r--r-- 1 ashamim 1049089  167691 Oct 18 15:59 r2_44.0.png
+-rw-r--r-- 1 ashamim 1049089  161460 Oct 18 15:59 r2_48.2.png
+-rw-r--r-- 1 ashamim 1049089  731170 Oct 18 15:59 r2_sheet.png
+# Carry-over (MINOR issues to fix in pipeline)
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 10:29:42Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Inspect work dir, probe preview, find crop code
+
+`cd /d/Story-Channel; S=channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai; ls -la --time-style=+%H:%M:%S $S/output/short_01_jadui-kadhai_work; ls -la --time-style=+%H:%M:%S $S/review/r1 | head; cat $S/project.json $S/shots.json; ffprobe -v error -show_entries format=duration:stream=codec_name,width,height,r_frame_rate,pix_fmt -of compact $S/output/short_01_jadui-kadhai_preview.mp4; ls channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/images | grep -E "16|22"; grep -n "shot\|zoom\|push\|end_card\|endcard" scripts/make_short.py | head -60`
+
+```text
+total 40000
+drwxr-xr-x 1 ashamim 1049089       0 15:58:56 .
+drwxr-xr-x 1 ashamim 1049089       0 15:50:52 ..
+drwxr-xr-x 1 ashamim 1049089       0 15:50:30 fonts
+-rw-r--r-- 1 ashamim 1049089 9959118 15:59:06 mix.wav
+-rw-r--r-- 1 ashamim 1049089 9959118 15:59:11 mix_norm.wav
+-rw-r--r-- 1 ashamim 1049089 9959118 15:59:06 music.wav
+-rw-r--r-- 1 ashamim 1049089    1010 15:50:35 scene_16_8ba9dccc598dcd02.ass
+-rw-r--r-- 1 ashamim 1049089    1010 15:58:56 scene_16_99b98094e15bbd2b.ass
+-rw-r--r-- 1 ashamim 1049089    1299 15:50:35 scene_17_6ecc75a6b2712ba9.ass
+-rw-r--r-- 1 ashamim 1049089    1299 15:52:05 scene_20_2fd34eeb4ba36115.ass
+-rw-r--r-- 1 ashamim 1049089    1299 15:50:35 scene_20_b2cba780701ea635.ass
+-rw-r--r-- 1 ashamim 1049089    1127 15:50:35 scene_21_270175636ee6ec2c.ass
+-rw-r--r-- 1 ashamim 1049089    1255 15:52:05 scene_22_197281e80c648b26.ass
+-rw-r--r-- 1 ashamim 1049089    1255 15:50:35 scene_22_47d156955b6d5d66.ass
+-rw-r--r-- 1 ashamim 1049089    1255 15:58:56 scene_22_6329b6ab42bae7a3.ass
+-rw-r--r-- 1 ashamim 1049089     593 15:58:57 scenes.txt
+-rw-r--r-- 1 ashamim 1049089 8539513 15:58:58 video.mp4
+-rw-r--r-- 1 ashamim 1049089 2489804 15:58:56 voice.wav
+total 24248
+drwxr-xr-x 1 ashamim 1049089       0 15:57:44 .
+drwxr-xr-x 1 ashamim 1049089       0 15:59:17 ..
+-rw-r--r-- 1 ashamim 1049089 1936924 15:54:53 key4.png
+-rw-r--r-- 1 ashamim 1049089  355520 15:54:09 p_0.3.png
+-rw-r--r-- 1 ashamim 1049089  393292 15:54:09 p_1.0.png
+-rw-r--r-- 1 ashamim 1049089  402954 15:54:10 p_1.45.png
+-rw-r--r-- 1 ashamim 1049089  444022 15:54:10 p_1.6.png
+-rw-r--r-- 1 ashamim 1049089  458165 15:54:12 p_13.0.png
+-rw-r--r-- 1 ashamim 1049089  399687 15:54:13 p_18.5.png
+{
+  "kind": "short",
+  "name": "short_01_jadui-kadhai",
+  "burn_captions": true,
+  "_note": "Short from story 001 (Long 01). 16:9 story images shown through per-shot 9:16 crop windows (crop_x)."
+}
+{
+  "_help": "Every line in lines.json has its own shot/shots override; nothing needed here."
+}
+/usr/bin/bash: line 1: ffprobe: command not found
+scene_16.png
+scene_22.png
+8:        + lines.json, meta.json, shots.json; story-level images/scene_XX.png, audio/, scene_prompts.json
+54:SHOT_LEN = 2.6  # target seconds per shot -> visual changes every 2-3s
+56:CUT_LEAD = 0.1  # a speaker's shot starts this long before their voice, never earlier
+65:# Ken Burns moves for wide shots (cycled): zoom-in, pan, zoom-out, zoom-to-top
+67:    "in": ("1+0.08*on/{n}", "iw/2-iw/zoom/2", "ih/2-ih/zoom/2"),
+68:    "out": ("1.08-0.08*on/{n}", "iw/2-iw/zoom/2", "ih/2-ih/zoom/2"),
+69:    "pan": ("1.08", "(iw-iw/zoom)*on/{n}", "ih/2-ih/zoom/2"),
+70:    "top": ("1+0.08*on/{n}", "iw/2-iw/zoom/2", "(ih-ih/zoom)*0.3"),
+306:def shot_times(timed, total):
+308:    every new speaker's line also starts a shot CUT_LEAD early; long stretches are split every ~SHOT_LEN.
+309:    A line with "shot" in lines.json ("wide" or [x, y, zoom(, crop_x, crop_y)]) gets that one shot for its whole
+310:    stretch; "shots": [[spec, seconds], ..., [spec, null]] splits the stretch (last one takes the rest).
+311:    Returns (scene, cut points, per-shot override or None)."""
+326:            if timed[own].get("shots"):
+328:                for spec, secs in timed[own]["shots"]:
+336:            if timed[own].get("shot"):
+338:                tags.append(timed[own]["shot"])
+354:    shots_all = shot_times(timed, total)
+355:    for idx, (sc, cuts, tags) in enumerate(shots_all):
+360:        # 1 shot: close-up matters more; "wide": false (scene sharing an image with another) -> close-ups only
+362:        shots, desc = [], []
+365:            shot = tags[k] or cycle[k % len(cycle)]
+366:            if shot == "wide":
+373:                fx, fy, zc, *crop = shot
+374:                z = f"{zc}+{zc * 0.06:.3f}*on/{n}"  # slow push-in on the close-up
+375:                x = f"max(0,min(iw-iw/zoom,{fx}*iw-iw/zoom/2))"
+376:                y = f"max(0,min(ih-ih/zoom,{fy}*ih-ih/zoom/2))"
+378:            shots.append((n, z, x, y) + (tuple(crop) if shot != "wide" and crop else ()))
+384:            if idx == len(shots_all) - 1 and final_title:
+392:                  [l["audio_hash"] for l in lines], json.dumps(shots), ass)
+394:                      "shots": shots, "ass": ass, "img": img, "key": key, "desc": desc})
+404:    n = len(p["shots"])
+407:    for k, (d, z, x, y, *crop) in enumerate(p["shots"]):
+410:        fc.append(f"[i{k}]{win},zoompan=z='{z}':x='{x}':y='{y}':d={d}:s={w}x{h}:fps={fps}[z{k}]")
+640:    lines.json, meta.json, shots.json and output/ are in that folder; images/, audio/ and scene_prompts.json are
+709:    focus_file = P["dir"] / "shots.json"
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 10:29:47Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Find ffmpeg and crop logic
+
+`cd /d/Story-Channel; ls .venv/Scripts | grep -i ff; which ffmpeg; ls tools | head -30; sed -n 395,440p scripts/make_short.py; grep -n "crop_x\|win =\|win=" scripts/make_short.py | head; ls cache 2>/dev/null | head; cat channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/output/short_01_jadui-kadhai_work/scenes.txt`
+
+```text
+cffi-gen-src.exe
+which: no ffmpeg in (/c/Users/ashamim/bin:/mingw64/bin:/usr/local/bin:/usr/bin:/bin:/mingw64/bin:/usr/bin:/c/Users/ashamim/bin:/c/Program Files (x86)/Common Files/Oracle/Java/java8path:/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/c/WINDOWS/system32:/c/WINDOWS:/c/WINDOWS/System32/Wbem:/c/WINDOWS/System32/WindowsPowerShell/v1.0:/c/WINDOWS/System32/OpenSSH:/c/Program Files/nodejs:/cmd:/c/Program Files/GitHub CLI:/c/Users/ashamim/AppData/Local/Programs/Python/Python314/Scripts:/c/Users/ashamim/AppData/Local/Programs/Python/Python314:/c/Users/ashamim/AppData/Local/Programs/Python/Launcher:/c/Users/ashamim/AppData/Local/Microsoft/WindowsApps:/c/Users/ashamim/AppData/Local/Programs/Microsoft VS Code/bin:/c/Users/ashamim/AppData/Roaming/npm:/usr/bin/vendor_perl:/usr/bin/core_perl)
+__pycache__
+deno
+export_claude_home.ps1
+ffmpeg
+new_channel.ps1
+sync.ps1
+sync_bg.ps1
+whisper-models
+youtube_upload.py
+yt-dlp.exe
+    return plans
+
+
+def render_scene(p, prof, clip: Path, work: Path):
+    w, h, fps = prof["w"], prof["h"], prof["fps"]
+    ass_name = f"scene_{p['scene']:02d}_{p['key']}.ass"
+    if p["ass"]:
+        (work / ass_name).write_text(p["ass"], encoding="utf-8")
+    subs = f",subtitles=filename={ass_name}:fontsdir=fonts" if p["ass"] else ""
+    n = len(p["shots"])
+    pre = f"[0:v]scale={w * 2}:{h * 2}:force_original_aspect_ratio=increase"
+    fc = [pre + (f",split={n}" + "".join(f"[i{k}]" for k in range(n)) if n > 1 else "[i0]")]
+    for k, (d, z, x, y, *crop) in enumerate(p["shots"]):
+        cx, cy = (list(crop) + [0.5, 0.5])[:2]  # frame-shaped window on the image, centred on (cx, cy)
+        win = (f"crop={w * 2}:{h * 2}:x='max(0,min(iw-ow,{cx}*iw-ow/2))':y='max(0,min(ih-oh,{cy}*ih-oh/2))'")
+        fc.append(f"[i{k}]{win},zoompan=z='{z}':x='{x}':y='{y}':d={d}:s={w}x{h}:fps={fps}[z{k}]")
+    fc.append("".join(f"[z{k}]" for k in range(n)) + (f"concat=n={n}:v=1:a=0" if n > 1 else "null")
+              + f"{subs},scale=out_color_matrix=bt709:out_range=tv,format=yuv420p,setsar=1,"
+                f"setparams=range=tv:color_primaries=bt709:color_trc=bt709:colorspace=bt709[out]")
+    tmp = clip.with_suffix(".part.mp4")
+    run([FFMPEG, "-y", "-i", p["img"], "-filter_complex", ";".join(fc), "-map", "[out]", "-frames:v", p["frames"],
+         "-c:v", "libx264", *prof["enc"], "-pix_fmt", "yuv420p", "-color_range", "tv", "-colorspace", "bt709",
+         "-color_primaries", "bt709", "-color_trc", "bt709", "-r", fps,
+         "-video_track_timescale", fps * 1000, tmp], cwd=work)
+    tmp.replace(clip)
+
+
+def build_video(plans, prof, cache_dir: Path, work: Path):
+    todo = [p for p in plans if not (cache_dir / f"scene_{p['scene']:02d}_{p['key']}.mp4").exists()]
+    for p in plans:
+        state = "NEW" if p in todo else "cache"
+        print(f"  scene {p['scene']:2d}: {p['t0']:6.2f}-{p['t1']:6.2f}s  {state:5s}  {' | '.join(p['desc'])}")
+    with ThreadPoolExecutor(max_workers=max(2, (os.cpu_count() or 4) // 2)) as pool:
+        list(pool.map(lambda p: render_scene(p, prof, cache_dir / f"scene_{p['scene']:02d}_{p['key']}.mp4", work),
+                      todo))
+    listing = [f"file '{(cache_dir / f'scene_{p['scene']:02d}_{p['key']}.mp4').as_posix()}'" for p in plans]
+    (work / "scenes.txt").write_text("\n".join(listing), encoding="utf-8")
+    run([FFMPEG, "-y", "-f", "concat", "-safe", "0", "-i", "scenes.txt", "-c", "copy", "video.mp4"], cwd=work)
+    return len(plans) - len(todo), len(todo)
+
+
+# ---------- 4. audio mix + loudness ----------
+def pick_music(meta):
+    if meta.get("music"):
+        return MUSIC_DIR / meta["music"]
+    bed = MUSIC_DIR / "mystery_bed.wav"
+309:    A line with "shot" in lines.json ("wide" or [x, y, zoom(, crop_x, crop_y)]) gets that one shot for its whole
+371:                # x, y: inside the frame-shaped window; optional crop_x/crop_y: where that window sits on a wider or
+409:        win = (f"crop={w * 2}:{h * 2}:x='max(0,min(iw-ow,{cx}*iw-ow/2))':y='max(0,min(ih-oh,{cy}*ih-oh/2))'")
+dadi-ki-kahaniyan
+file 'D:/Story-Channel/cache/dadi-ki-kahaniyan/001_lalchi-halwai/short_01_jadui-kadhai/scene_16_99b98094e15bbd2b.mp4'
+file 'D:/Story-Channel/cache/dadi-ki-kahaniyan/001_lalchi-halwai/short_01_jadui-kadhai/scene_17_6ecc75a6b2712ba9.mp4'
+file 'D:/Story-Channel/cache/dadi-ki-kahaniyan/001_lalchi-halwai/short_01_jadui-kadhai/scene_20_2fd34eeb4ba36115.mp4'
+file 'D:/Story-Channel/cache/dadi-ki-kahaniyan/001_lalchi-halwai/short_01_jadui-kadhai/scene_21_270175636ee6ec2c.mp4'
+file 'D:/Story-Channel/cache/dadi-ki-kahaniyan/001_lalchi-halwai/short_01_jadui-kadhai/scene_22_6329b6ab42bae7a3.mp4'
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 10:29:55Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+List cache clips, profiles, plan code
+
+`cd /d/Story-Channel; ls tools/ffmpeg; C=cache/dadi-ki-kahaniyan/001_lalchi-halwai/short_01_jadui-kadhai; ls -la --time-style=+%m-%d_%H:%M:%S $C; grep -n "\"w\"\|'w'\|PROFILES\|preview.*:\|final.*:" scripts/make_short.py | head -20; sed -n 355,395p scripts/make_short.py`
+
+```text
+ffmpeg.exe
+ffplay.exe
+ffprobe.exe
+total 14312
+drwxr-xr-x 1 ashamim 1049089       0 10-18_15:58:57 .
+drwxr-xr-x 1 ashamim 1049089       0 10-18_15:50:30 ..
+-rw-r--r-- 1 ashamim 1049089 1509669 10-18_15:50:38 scene_16_8ba9dccc598dcd02.mp4
+-rw-r--r-- 1 ashamim 1049089 1466055 10-18_15:58:57 scene_16_99b98094e15bbd2b.mp4
+-rw-r--r-- 1 ashamim 1049089 1964190 10-18_15:50:38 scene_17_6ecc75a6b2712ba9.mp4
+-rw-r--r-- 1 ashamim 1049089 1942509 10-18_15:52:07 scene_20_2fd34eeb4ba36115.mp4
+-rw-r--r-- 1 ashamim 1049089 1431988 10-18_15:50:38 scene_20_b2cba780701ea635.mp4
+-rw-r--r-- 1 ashamim 1049089 1676182 10-18_15:50:38 scene_21_270175636ee6ec2c.mp4
+-rw-r--r-- 1 ashamim 1049089 1601183 10-18_15:52:07 scene_22_197281e80c648b26.mp4
+-rw-r--r-- 1 ashamim 1049089 1552127 10-18_15:50:38 scene_22_47d156955b6d5d66.mp4
+-rw-r--r-- 1 ashamim 1049089 1493693 10-18_15:58:57 scene_22_6329b6ab42bae7a3.mp4
+4:          --preview (default)  540x960, 24 fps, ultrafast: only for checking -> output/<case>_preview.mp4
+42:PROFILES = {
+43:    ("short", "preview"): {"w": 540, "h": 960, "fps": 24, "enc": ["-preset", "ultrafast", "-crf", "30"]},
+44:    ("short", "final"): {"w": 1080, "h": 1920, "fps": 30, "enc": ["-preset", "slow", "-crf", "18"]},
+45:    ("long", "preview"): {"w": 960, "h": 540, "fps": 24, "enc": ["-preset", "ultrafast", "-crf", "30"]},
+46:    ("long", "final"): {"w": 1920, "h": 1080, "fps": 30, "enc": ["-preset", "slow", "-crf", "18"]},
+350:def plan_scenes(P, timed, total, prof, font_family, final_title, title_secs=None):
+384:            if idx == len(shots_all) - 1 and final_title:
+399:    w, h, fps = prof["w"], prof["h"], prof["fps"]
+696:    if a.seconds and mode == "final":
+705:    prof = PROFILES[(P["kind"], mode)]
+732:    print(f"[{P['kind'].upper()} {mode.upper()}] {prof['w']}x{prof['h']} @ {prof['fps']} fps")
+764:    if mode == "final":
+    for idx, (sc, cuts, tags) in enumerate(shots_all):
+        fcuts = [round(c * fps) for c in cuts]  # one global frame grid -> no drift between clips
+        t0 = fcuts[0] / fps
+        spec = focus.get(str(sc), [])
+        closes, wide = (spec["closes"], spec.get("wide", True)) if isinstance(spec, dict) else (spec, True)
+        # 1 shot: close-up matters more; "wide": false (scene sharing an image with another) -> close-ups only
+        cycle = closes if (closes and (len(cuts) == 2 or not wide)) else ["wide"] + closes
+        shots, desc = [], []
+        for k in range(len(cuts) - 1):
+            n = fcuts[k + 1] - fcuts[k]
+            shot = tags[k] or cycle[k % len(cycle)]
+            if shot == "wide":
+                move = MOVE_CYCLE[(idx + k) % len(MOVE_CYCLE)]
+                z, x, y = (e.format(n=n) for e in MOVES[move])
+                desc.append(move)
+            else:
+                # x, y: inside the frame-shaped window; optional crop_x/crop_y: where that window sits on a wider or
+                # taller image (subject centre, 0-1; default centre) - e.g. a 9:16 Short from 16:9 story images
+                fx, fy, zc, *crop = shot
+                z = f"{zc}+{zc * 0.06:.3f}*on/{n}"  # slow push-in on the close-up
+                x = f"max(0,min(iw-iw/zoom,{fx}*iw-iw/zoom/2))"
+                y = f"max(0,min(ih-ih/zoom,{fy}*ih-ih/zoom/2))"
+                desc.append(f"close{zc}" + (f"@x{crop[0]}" if crop else ""))
+            shots.append((n, z, x, y) + (tuple(crop) if shot != "wide" and crop else ()))
+        lines = [l for l in timed if l["scene"] == sc]
+        ass = None
+        if P["burn"]:
+            ev = [f"Dialogue: 0,{ass_time(s - t0)},{ass_time(e - t0)},Cap,,0,0,0,,{txt}"
+                  for l in lines if l["words"] for s, e, txt in caption_chunks(l)]
+            if idx == len(shots_all) - 1 and final_title:
+                t_end = fcuts[-1] / fps - t0
+                t_beg = max(0.0, t_end - title_secs) if title_secs else 0.0  # e.g. a 2 s end card only
+                ev.append(f"Dialogue: 1,{ass_time(t_beg)},{ass_time(t_end)},Title,,0,0,0,,"
+                          f"{{\\fad(300,0)}}{final_title}")
+            ass = ass_doc(font_family, ev)
+        img = P["image_for"](sc)
+        key = sha(RENDER_VERSION, json.dumps(prof, sort_keys=True), sha(img.read_bytes()),
+                  [l["audio_hash"] for l in lines], json.dumps(shots), ass)
+        plans.append({"scene": sc, "t0": t0, "t1": fcuts[-1] / fps, "frames": fcuts[-1] - fcuts[0],
+                      "shots": shots, "ass": ass, "img": img, "key": key, "desc": desc})
+    return plans
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 10:30:09Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Probe preview and cached clips
+
+`cd /d/Story-Channel; FP=tools/ffmpeg/ffprobe.exe; S=channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai; C=cache/dadi-ki-kahaniyan/001_lalchi-halwai/short_01_jadui-kadhai; $FP -v error -show_entries format=duration:stream=codec_name,width,height,r_frame_rate,pix_fmt,nb_frames -of compact $S/output/short_01_jadui-kadhai_preview.mp4; for f in 16_99b98094e15bbd2b 17_6ecc75a6b2712ba9 20_2fd34eeb4ba36115 21_270175636ee6ec2c 22_6329b6ab42bae7a3; do echo -n "$f "; $FP -v error -show_entries stream=nb_frames,width,height -of csv=p=0 $C/scene_$f.mp4; done; cat $S/output/short_01_jadui-kadhai_work/scene_22_6329b6ab42bae7a3.ass | tail -5; tools/ffmpeg/ffprobe.exe -v error -show_entries stream=width,height -of csv=p=0 channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/images/scene_22.png`
+
+```text
+stream|codec_name=h264|width=540|height=960|pix_fmt=yuv420p|r_frame_rate=24/1|nb_frames=1244
+stream|codec_name=aac|r_frame_rate=0/0|nb_frames=2433
+format|duration=51.870000
+16_99b98094e15bbd2b 540,960,202
+17_6ecc75a6b2712ba9 540,960,293
+20_2fd34eeb4ba36115 540,960,255
+21_270175636ee6ec2c 540,960,225
+22_6329b6ab42bae7a3 540,960,270
+Dialogue: 0,0:00:04.09,0:00:06.16,Cap,,0,0,0,,में एक सोने
+Dialogue: 0,0:00:06.16,0:00:07.53,Cap,,0,0,0,,का सिक्का डाला...
+Dialogue: 0,0:00:07.83,0:00:08.43,Cap,,0,0,0,,चल,
+Dialogue: 0,0:00:08.43,0:00:09.25,Cap,,0,0,0,,दुगना कर!
+Dialogue: 1,0:00:09.25,0:00:11.25,Title,,0,0,0,,{\fad(300,0)}पूरी कहानी चैनल पर
+1376,768
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 10:30:22Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Simulate final 1080x1920 crop of scene 22
+
+```bash
+cd /d/Story-Channel; FF=tools/ffmpeg/ffmpeg.exe; S=channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai; R=$S/review/r2; mkdir -p $R; IMG=channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/images/scene_22.png
+w=1080; h=1920
+mk(){ fx=$1; fy=$2; zc=$3; cx=$4; n=$5; out=$6; z="$zc+$(python -c "print(f'{$zc*0.06:.3f}')")*on/$n"
+$FF -v error -y -i $IMG -filter_complex "[0:v]scale=$((w*2)):$((h*2)):force_original_aspect_ratio=increase,crop=$((w*2)):$((h*2)):x='max(0,min(iw-ow,$cx*iw-ow/2))':y='max(0,min(ih-oh,0.5*ih-oh/2))',zoompan=z='$z':x='max(0,min(iw-iw/zoom,$fx*iw-iw/zoom/2))':y='max(0,min(ih-ih/zoom,$fy*ih-ih/zoom/2))':d=$n:s=${w}x${h}:fps=30,select='eq(n\,0)+eq(n\,$((n/2)))+eq(n\,$((n-1)))'" -vsync 0 $R/$out_%d.png; }
+mk 0.5 0.42 1.85 0.53 232 l7; mk 0.5 0.36 2.0 0.55 106 l8
+ls $R; $FF -v error -y -i $R/l7_1.png -i $R/l7_2.png -i $R/l7_3.png -i $R/l8_1.png -i $R/l8_2.png -i $R/l8_3.png -filter_complex "[0][1][2][3][4][5]hstack=6,scale=1620:-1" $R/sc22_final_sim_sheet.png
+```
+
+```text
+Exit code 127
+Unrecognized option 'vsync'.
+Error splitting the argument list: Option not found
+Unrecognized option 'vsync'.
+Error splitting the argument list: Option not found
+[in#0 @ 00000257d5e13840] Error opening input: No such file or directory
+Error opening input file channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/review/r2/l7_1.png.
+Error opening input files: No such file or directory
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 10:30:37Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Simulate final crop frames for scene 22
+
+```bash
+cd /d/Story-Channel; FF=tools/ffmpeg/ffmpeg.exe; S=channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai; R=$S/review/r2; IMG=channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/images/scene_22.png
+w=1080; h=1920
+mk(){ fx=$1; fy=$2; zc=$3; cx=$4; n=$5; out=$6; z="$zc+$(awk "BEGIN{printf \"%.3f\", $zc*0.06}")*on/$n"
+$FF -v error -y -i $IMG -filter_complex "[0:v]scale=$((w*2)):$((h*2)):force_original_aspect_ratio=increase,crop=$((w*2)):$((h*2)):x='max(0,min(iw-ow,$cx*iw-ow/2))':y='max(0,min(ih-oh,0.5*ih-oh/2))',zoompan=z='$z':x='max(0,min(iw-iw/zoom,$fx*iw-iw/zoom/2))':y='max(0,min(ih-ih/zoom,$fy*ih-ih/zoom/2))':d=$n:s=${w}x${h}:fps=30,select='eq(n\,0)+eq(n\,$((n/2)))+eq(n\,$((n-1)))'" -fps_mode passthrough "$R/${out}_%d.png"; }
+mk 0.5 0.42 1.85 0.53 232 l7; mk 0.5 0.36 2.0 0.55 106 l8
+ls $R; $FF -v error -y -i $R/l7_1.png -i $R/l7_2.png -i $R/l7_3.png -i $R/l8_1.png -i $R/l8_2.png -i $R/l8_3.png -filter_complex "[0][1][2][3][4][5]hstack=6,scale=1944:-1" $R/sc22_final_sim_sheet.png
+```
+
+```text
+l7_1.png
+l7_2.png
+l7_3.png
+l8_1.png
+l8_2.png
+l8_3.png
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 10:30:40Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\review\r2\sc22_final_sim_sheet.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 10:30:48Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Crop bottom of line-7 frames at full res
+
+`cd /d/Story-Channel; FF=tools/ffmpeg/ffmpeg.exe; R=channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/review/r2; $FF -v error -y -i $R/l7_1.png -i $R/l7_3.png -filter_complex "[0]crop=1080:500:0:1420[a];[1]crop=1080:500:0:1420[b];[a][b]vstack" $R/l7_bottom.png`
+
+```text
+(Bash completed with no output)
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 10:30:48Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\images\scene_22.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 10:30:51Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\review\r2\l7_bottom.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 10:31:12Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Extract hook and scene 22 preview frames
+
+`cd /d/Story-Channel; FF=tools/ffmpeg/ffmpeg.exe; S=channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai; R=$S/review/r2; V=$S/output/short_01_jadui-kadhai_preview.mp4; i=0; args=""; for t in 0.0 0.7 1.4 1.5 1.6 2.2 40.7 44.5 48.3 48.5 49.9 51.8; do $FF -v error -y -ss $t -i $V -frames:v 1 $R/p_$t.png; done; $FF -v error -y $(for t in 0.0 0.7 1.4 1.5 1.6 2.2; do echo -i $R/p_$t.png; done) -filter_complex "hstack=6,scale=1620:-1" $R/hook_sheet.png; $FF -v error -y $(for t in 40.7 44.5 48.3 48.5 49.9 51.8; do echo -i $R/p_$t.png; done) -filter_complex "hstack=6,scale=1620:-1" $R/sc22_preview_sheet.png`
+
+```text
+Exit code 127
+[in#5 @ 0000020b2f13efc0] Error opening input: No such file or directory
+Error opening input file channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/review/r2/p_51.8.png.
+Error opening input files: No such file or directory
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 10:31:12Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\review\r2\hook_sheet.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 10:31:12Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\review\r2\sc22_preview_sheet.png`
+
+```text
+File does not exist. Note: your current working directory is D:\Story-Channel.
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 10:31:24Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Scene 22 preview sheet and loudness
+
+`cd /d/Story-Channel; FF=tools/ffmpeg/ffmpeg.exe; S=channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai; R=$S/review/r2; V=$S/output/short_01_jadui-kadhai_preview.mp4; $FF -v error -y -ss 51.7 -i $V -frames:v 1 $R/p_51.7.png; $FF -v error -y $(for t in 40.7 44.5 48.3 48.5 49.9 51.7; do echo -i $R/p_$t.png; done) -filter_complex "hstack=6,scale=1620:-1" $R/sc22_preview_sheet.png; $FF -hide_banner -i $V -af ebur128=peak=true -f null - 2>&1 | grep -A12 Summary | grep -E "I:|Peak:"`
+
+```text
+    I:         -13.8 LUFS
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 10:31:24Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\review\r2\sc22_preview_sheet.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 10:31:32Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Loudness summary tail
+
+`cd /d/Story-Channel; tools/ffmpeg/ffmpeg.exe -hide_banner -i channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/output/short_01_jadui-kadhai_preview.mp4 -af ebur128=peak=true -f null - 2>&1 | tail -12`
+
+```text
+    Threshold: -24.4 LUFS
+
+  Loudness range:
+    LRA:         6.2 LU
+    Threshold: -34.3 LUFS
+    LRA low:   -18.0 LUFS
+    LRA high:  -11.8 LUFS
+
+  True peak:
+    Peak:       -1.1 dBFS
+[out#0/null @ 0000016cae330900] video:515KiB audio:9726KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown
+frame= 1244 fps=0.0 q=-0.0 Lsize=N/A time=00:00:51.87 bitrate=N/A speed= 139x elapsed=0:00:00.37
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 10:31:33Z)**_
+
+All good. Logging the verdict.
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 10:31:37Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Append R2 verdict to log
+
+`cd /d/Story-Channel; echo "2026-10-18 | short_01_jadui-kadhai | preview build R2 (~8 min) | PASS | B1 fixed: scene 22 line 7/8 crop shows only coin+rim edge, no kadhai inside/mitti lump (checked preview + simulated 1080x1920 final, start/mid/end of push-in); M1 fixed: hook 0-1.5s kadhai only, Sadhu cut at 1.5s; scenes 17/20/21 from cache, 51.87s unchanged, end card 2.0s, -13.8 LUFS / -1.1 dBTP" >> channels/dadi-ki-kahaniyan/log.md; tail -1 channels/dadi-ki-kahaniyan/log.md`
+
+```text
+2026-10-18 | short_01_jadui-kadhai | preview build R2 (~8 min) | PASS | B1 fixed: scene 22 line 7/8 crop shows only coin+rim edge, no kadhai inside/mitti lump (checked preview + simulated 1080x1920 final, start/mid/end of push-in); M1 fixed: hook 0-1.5s kadhai only, Sadhu cut at 1.5s; scenes 17/20/21 from cache, 51.87s unchanged, end card 2.0s, -13.8 LUFS / -1.1 dBTP
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 10:31:53Z)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="SubagentHandback"><details>
+<summary>Tool use: **SubagentHandback**</summary>
+
+```text
+{"success":true,"message":"Report delivered to your caller."}
+```
+</details></tool-use>

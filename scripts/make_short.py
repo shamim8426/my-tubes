@@ -57,7 +57,7 @@ CUT_LEAD = 0.1  # a speaker's shot starts this long before their voice, never ea
 TARGET_LUFS = -14
 # Music gain: voice LUFS minus this, per video kind. Checked in loudness_report the RULES way: integrated LUFS
 # of the voice stem vs the music stem over the speech sections (long: 13 = old 9 lowered by 4 dB).
-MUSIC_BELOW_VOICE_DB = {"short": 9, "long": 13}
+MUSIC_BELOW_VOICE_DB = {"short": 12.5, "long": 13}  # short: 9 -> 12.5 (3.5 dB quieter, target 12-14 LU)
 SFX_BELOW_VOICE_DB = 5
 MIN_CAPTION = 0.45  # a caption shorter than this only flashes; it is merged into its neighbour in the same line
 PAUSE_LEAD = 2.0  # music must be audible in a music-only pause and this long before it
@@ -191,7 +191,7 @@ def word_times(data: bytes, text: str, cache: Path, run_whisper: bool):
     return words, note
 
 
-def build_voice(lines, audio_dir: Path, work: Path, run_whisper: bool):
+def build_voice(lines, audio_dir: Path, work: Path, run_whisper: bool, end_hold: float = END_HOLD):
     pcm, t = bytearray(), 0.0
     silence = lambda sec: b"\x00\x00" * int(round(sec * SR))
     timed, events = [], {"sfx": [], "music_silent": [], "moods": []}
@@ -230,7 +230,7 @@ def build_voice(lines, audio_dir: Path, work: Path, run_whisper: bool):
         if line.get("sfx_after"):
             events["sfx"].append((t + 0.05, line["sfx_after"]))
         print(f"  line {i + 1:2d} [{line['speaker']:8s}] {start:6.2f}-{t:6.2f}s  {note}")
-    pcm += silence(END_HOLD)
+    pcm += silence(end_hold)
     total = len(pcm) / 2 / SR
     voice = work / "voice.wav"
     with wave.open(str(voice), "wb") as w:
@@ -306,7 +306,8 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 def shot_times(timed, total):
     """Per scene: cut points (seconds). A scene starts CUT_LEAD before its first line's voice; inside a scene
     every new speaker's line also starts a shot CUT_LEAD early; long stretches are split every ~SHOT_LEN.
-    A line with "shot" in lines.json ("wide" or [x, y, zoom]) gets that one shot for its whole stretch.
+    A line with "shot" in lines.json ("wide" or [x, y, zoom(, crop_x, crop_y)]) gets that one shot for its whole
+    stretch; "shots": [[spec, seconds], ..., [spec, null]] splits the stretch (last one takes the rest).
     Returns (scene, cut points, per-shot override or None)."""
     scenes = []
     for i, line in enumerate(timed):
@@ -322,6 +323,16 @@ def shot_times(timed, total):
         pts = cuts + [end]
         fine, tags = [pts[0]], []
         for a, b, own in zip(pts, pts[1:], owners):
+            if timed[own].get("shots"):
+                t = a
+                for spec, secs in timed[own]["shots"]:
+                    end = b if secs is None else min(b, t + secs)
+                    if end > t:
+                        fine.append(end)
+                        tags.append(spec)
+                        t = end
+                fine[-1] = b
+                continue
             if timed[own].get("shot"):
                 fine.append(b)
                 tags.append(timed[own]["shot"])
@@ -336,7 +347,7 @@ def shot_times(timed, total):
     return out
 
 
-def plan_scenes(P, timed, total, prof, font_family, final_title):
+def plan_scenes(P, timed, total, prof, font_family, final_title, title_secs=None):
     """Everything needed to render each scene clip, plus its cache hash."""
     focus = P["focus"]
     fps, plans = prof["fps"], []
@@ -357,19 +368,23 @@ def plan_scenes(P, timed, total, prof, font_family, final_title):
                 z, x, y = (e.format(n=n) for e in MOVES[move])
                 desc.append(move)
             else:
-                fx, fy, zc = shot
+                # x, y: inside the frame-shaped window; optional crop_x/crop_y: where that window sits on a wider or
+                # taller image (subject centre, 0-1; default centre) - e.g. a 9:16 Short from 16:9 story images
+                fx, fy, zc, *crop = shot
                 z = f"{zc}+{zc * 0.06:.3f}*on/{n}"  # slow push-in on the close-up
                 x = f"max(0,min(iw-iw/zoom,{fx}*iw-iw/zoom/2))"
                 y = f"max(0,min(ih-ih/zoom,{fy}*ih-ih/zoom/2))"
-                desc.append(f"close{zc}")
-            shots.append((n, z, x, y))
+                desc.append(f"close{zc}" + (f"@x{crop[0]}" if crop else ""))
+            shots.append((n, z, x, y) + (tuple(crop) if shot != "wide" and crop else ()))
         lines = [l for l in timed if l["scene"] == sc]
         ass = None
         if P["burn"]:
             ev = [f"Dialogue: 0,{ass_time(s - t0)},{ass_time(e - t0)},Cap,,0,0,0,,{txt}"
                   for l in lines if l["words"] for s, e, txt in caption_chunks(l)]
             if idx == len(shots_all) - 1 and final_title:
-                ev.append(f"Dialogue: 1,{ass_time(0)},{ass_time(fcuts[-1] / fps - t0)},Title,,0,0,0,,"
+                t_end = fcuts[-1] / fps - t0
+                t_beg = max(0.0, t_end - title_secs) if title_secs else 0.0  # e.g. a 2 s end card only
+                ev.append(f"Dialogue: 1,{ass_time(t_beg)},{ass_time(t_end)},Title,,0,0,0,,"
                           f"{{\\fad(300,0)}}{final_title}")
             ass = ass_doc(font_family, ev)
         img = P["image_for"](sc)
@@ -387,10 +402,12 @@ def render_scene(p, prof, clip: Path, work: Path):
         (work / ass_name).write_text(p["ass"], encoding="utf-8")
     subs = f",subtitles=filename={ass_name}:fontsdir=fonts" if p["ass"] else ""
     n = len(p["shots"])
-    pre = f"[0:v]scale={w * 2}:{h * 2}:force_original_aspect_ratio=increase,crop={w * 2}:{h * 2}"
+    pre = f"[0:v]scale={w * 2}:{h * 2}:force_original_aspect_ratio=increase"
     fc = [pre + (f",split={n}" + "".join(f"[i{k}]" for k in range(n)) if n > 1 else "[i0]")]
-    for k, (d, z, x, y) in enumerate(p["shots"]):
-        fc.append(f"[i{k}]zoompan=z='{z}':x='{x}':y='{y}':d={d}:s={w}x{h}:fps={fps}[z{k}]")
+    for k, (d, z, x, y, *crop) in enumerate(p["shots"]):
+        cx, cy = (list(crop) + [0.5, 0.5])[:2]  # frame-shaped window on the image, centred on (cx, cy)
+        win = (f"crop={w * 2}:{h * 2}:x='max(0,min(iw-ow,{cx}*iw-ow/2))':y='max(0,min(ih-oh,{cy}*ih-oh/2))'")
+        fc.append(f"[i{k}]{win},zoompan=z='{z}':x='{x}':y='{y}':d={d}:s={w}x{h}:fps={fps}[z{k}]")
     fc.append("".join(f"[z{k}]" for k in range(n)) + (f"concat=n={n}:v=1:a=0" if n > 1 else "null")
               + f"{subs},scale=out_color_matrix=bt709:out_range=tv,format=yuv420p,setsar=1,"
                 f"setparams=range=tv:color_primaries=bt709:color_trc=bt709:colorspace=bt709[out]")
@@ -715,7 +732,8 @@ def main():
     print(f"[{P['kind'].upper()} {mode.upper()}] {prof['w']}x{prof['h']} @ {prof['fps']} fps")
     print("1/4 voice")
     check_tts_spend(lines, audio_dir / "tts_cache", a.spend)
-    voice, total, timed, events = build_voice(lines, audio_dir, work, run_whisper=(mode == "final"))
+    voice, total, timed, events = build_voice(lines, audio_dir, work, run_whisper=(mode == "final"),
+                                              end_hold=meta.get("end_hold", END_HOLD))
     if a.seconds:  # test render: keep the lines that start inside the first N seconds
         total = min(total, a.seconds)
         timed = [l for l in timed if l["start"] < total]
@@ -725,7 +743,8 @@ def main():
     print(f"  total {total:.1f}s" + ("  WARNING: outside 45-60s" if warn else ""))
 
     print("2/4 scenes")
-    plans = plan_scenes(P, timed, total, prof, font_family, meta.get("final_title", "बताओ, दोषी कौन?"))
+    plans = plan_scenes(P, timed, total, prof, font_family, meta.get("final_title", "बताओ, दोषी कौन?"),
+                        meta.get("final_title_secs"))
     cached, new = build_video(plans, prof, cache_dir, work)
 
     print("3/4 audio")
