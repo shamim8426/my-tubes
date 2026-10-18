@@ -1,0 +1,14 @@
+[
+  {"scene": 1, "speaker": "narrator", "text": "शर्मा जी की नई साइकिल... रातों-रात गायब!"},
+  {"scene": 2, "speaker": "sharma", "text": "कल ही ख़रीदी थी! रात को गेट से बाँधी थी... और गेट पर कल शाम ही लाल पेंट करवाया था!"},
+  {"scene": 3, "speaker": "narrator", "text": "शक तीन लोगों पर।"},
+  {"scene": 3, "speaker": "pappu", "text": "मैं तो रोज़ सुबह दूध देने निकलता हूँ, मैंने कुछ नहीं देखा!"},
+  {"scene": 4, "speaker": "raju", "text": "हाँ, मैंने कहा था ऐसी साइकिल मुझे भी चाहिए... पर चोरी? कभी नहीं!"},
+  {"scene": 5, "speaker": "bunty", "text": "मैं तो रात भर घर पर पढ़ाई कर रहा था!"},
+  {"scene": 6, "speaker": "golu", "text": "दादी, मुझे पता है चोर कौन है! पप्पू! देखो, उसका गमछा लाल है!", "sfx_after": "comedy"},
+  {"scene": 7, "speaker": "pandey", "text": "पकड़ो इसे!", "pause_before": 0.6},
+  {"scene": 8, "speaker": "dadi", "text": "रुकिए पांडे जी। गमछा तो पप्पू रोज़ पहनता है। पेंट अभी भी गीला है... जिसने ताला तोड़ा, उसके हाथ पर रंग ज़रूर लगा होगा।", "sfx_after": "tension"},
+  {"scene": 9, "speaker": "mitthu", "text": "गीला! गीला!", "pause_before": 0.9},
+  {"scene": 9, "speaker": "dadi", "text": "बेटा, चोर कितना भी चालाक हो... दादी से नहीं बच सकता!"},
+  {"scene": 10, "speaker": "narrator", "text": "आपने ध्यान से देखा? बताओ, दोषी कौन? जवाब कमेंट में!", "pause_before": 1.0, "music_silent_before": true}
+]

@@ -1,0 +1,41 @@
+# ---- secrets: never on GitHub ----
+.env
+secrets/
+**/client_secret*.json
+**/youtube_token*.json
+*.pem
+.claude/settings.local.json
+
+# ---- big media: not on GitHub ----
+*.mp4
+*.mov
+*.mkv
+*.webm
+*.avi
+
+# ---- regenerable caches / models ----
+# (Claude Code: add only FREE-to-regenerate cache folders here.
+#  Paid outputs - Gemini images, TTS audio - must stay tracked.)
+__pycache__/
+*.pyc
+*.pt
+.venv/
+venv/
+# encoded scene clips (make_short rebuilds them from images + TTS cache, free)
+cache/
+# build temp: mixed wavs, framecheck frames, ass files (free, rebuilt every build)
+output/*_work/
+long-videos/*/output/*_work/
+shorts/*/output/*_work/
+# big downloadable binaries / models (deploy.ps1 installs ffmpeg; whisper model auto-downloads)
+tools/ffmpeg/
+tools/deno/
+tools/whisper-models/
+tools/yt-dlp.exe
+# Claude account's auto-synced built-in skills (come back by themselves after login)
+claude-home/skills/synced/
+
+# ---- misc ----
+_to_delete/
+Thumbs.db
+desktop.ini

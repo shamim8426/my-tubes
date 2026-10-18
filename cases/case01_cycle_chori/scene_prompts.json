@@ -1,0 +1,36 @@
+{
+  "looks": {
+    "dadi": "Dadi: Indian grandmother ~70, round face, white hair bun, round golden spectacles, light green saree with yellow border, gold bangles, wooden walking stick, small red bindi (exactly as in the Dadi reference sheet)",
+    "golu": "Golu: chubby Indian boy ~10, messy black hair, yellow T-shirt, blue half-pants, white socks, red shoes (exactly as in the Golu reference sheet)",
+    "mitthu": "Mitthu: green parrot with red beak and thin red neck ring (exactly as in the Mitthu reference sheet)",
+    "pandey": "Inspector Pandey: fat Indian police inspector ~45, khaki uniform, brown belt, khaki cap, thick bushy black moustache (exactly as in the Pandey reference sheet)",
+    "sharma": "Sharma ji: Indian man ~55, bald head with grey hair on the sides, rectangular spectacles, cream kurta-pyjama, brown sleeveless jacket",
+    "pappu": "Pappu the milkman: thin Indian man ~30, white kurta, red gamchha (cotton scarf) around his neck, old black bicycle with two steel milk cans",
+    "raju": "Raju the tea seller: Indian man ~35, small moustache, brown half-sleeve shirt, apron, holding a soot-blackened kettle",
+    "bunty": "Bunty: tall thin Indian teenager ~17, spiky black hair, sky-blue shirt, blue jeans, white sneakers, college backpack",
+    "gate": "Sharma ji's iron gate freshly painted glossy RED, with a small hanging board that says \"गीला पेंट\""
+  },
+  "base": "Vertical 9:16 scene for a kids' mystery cartoon. Setting: Gulmohar Mohalla, a small cosy Indian neighbourhood lane in early morning sunlight, gulmohar tree with orange flowers. Keep the bottom quarter of the frame visually simple (captions go there). No speech bubbles and no other text unless asked.",
+  "scenes": [
+    {"id": 1, "chars": ["sharma", "gate"], "refs": [],
+     "prompt": "Wide shot. {gate}; a broken chain and an open padlock lie on the ground in front of it, and the spot where a bicycle was parked is empty. {sharma} stands beside it, holding his head with both hands in shock."},
+    {"id": 2, "chars": ["sharma", "gate"], "refs": ["scene:1"],
+     "prompt": "Medium-full shot of {sharma}, sad and upset, holding up a broken padlock in one hand. His WHOLE body is inside the frame from head to feet, standing on the road; the road and ground continue naturally all the way to the bottom edge of the image. Behind him clearly visible: {gate}, the red paint looks wet and glossy (shine shown only with flat highlights, NO sparkles or stars). No flat blocks, panels or borders anywhere."},
+    {"id": 3, "chars": ["pappu"], "refs": [],
+     "prompt": "{pappu} riding his bicycle down the lane, red gamchha fluttering in the wind. His hands on the handlebar are clean, normal skin colour."},
+    {"id": 4, "chars": ["raju"], "refs": [],
+     "prompt": "{raju} at his small roadside chai stall, pouring tea from the kettle into small glass cups, smiling. His fingers are clearly stained black with soot from the kettle."},
+    {"id": 5, "chars": ["bunty"], "refs": [],
+     "prompt": "{bunty} standing in the lane, casually scratching his head with his right hand. His right hand is fully visible against his black hair, and the tips of three fingers have small but clearly visible bright RED paint smudges - subtle, not dramatic, but readable on a phone screen. No drips or drops of paint anywhere. Innocent expression."},
+    {"id": 6, "chars": ["golu", "dadi", "pappu"], "refs": ["golu", "dadi", "scene:3"],
+     "prompt": "{golu} jumping excitedly and pointing his finger at {pappu}'s red gamchha. {dadi} stands behind Golu with one eyebrow raised, unconvinced. Pappu looks confused, standing next to his bicycle."},
+    {"id": 7, "chars": ["pandey", "pappu"], "refs": ["pandey", "scene:3"],
+     "prompt": "Comedy moment: {pandey} grabbing {pappu} by the arm with a stern face. Pappu looks shocked, a steel milk can on his bicycle tilts and a little milk splashes."},
+    {"id": 8, "chars": ["dadi", "mitthu", "pandey", "gate"], "refs": ["dadi", "mitthu", "pandey", "scene:2"],
+     "prompt": "{dadi} with {mitthu} sitting on her shoulder. Dadi holds HER OWN wooden walking stick firmly in her LEFT hand. She has just touched {gate} and now raises her RIGHT index finger toward {pandey} as if saying 'wait!', showing a clear bright RED wet paint mark on her fingertip; a small fresh finger smudge is visible on the gate. Inspector Pandey stands a little behind her looking surprised, with his hands empty - he has NO stick. Dadi's WHOLE body is in the frame from head to feet, standing on the road; the ground continues naturally to the bottom edge of the image, no flat blocks or panels. Dadi stands to the RIGHT of the board so the board \"गीला पेंट\" is completely visible and fully readable, not covered by anyone."},
+    {"id": 9, "chars": ["mitthu", "dadi"], "refs": ["mitthu", "dadi"],
+     "prompt": "{mitthu} flapping its wings and squawking excitedly on {dadi}'s shoulder. Dadi smiles knowingly and adjusts her spectacles with one finger. Warm, confident mood."},
+    {"id": 10, "chars": ["pappu", "raju", "bunty"], "refs": ["scene:3", "scene:4", "scene:5"],
+     "prompt": "Line-up of the three suspects standing side by side facing the viewer, each holding BOTH hands forward toward the camera, palms open, hands large and clearly visible. Left: {pappu} - clean hands, red gamchha. Middle: {raju} - fingers black with soot. Right: {bunty} - fingertips clearly smeared with RED paint. Neutral faces, mystery mood. Leave empty space at the top of the frame for a title."}
+  ]
+}

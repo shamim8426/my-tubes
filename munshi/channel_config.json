@@ -1,0 +1,15 @@
+{
+  "dadi-ki-kahaniyan": {
+    "display_name": "दादी की कहानियाँ",
+    "made_for_kids": false,
+    "contains_synthetic_media": false,
+    "category_id": "1",
+    "default_language": "hi",
+    "publish_time_ist": "19:00",
+    "min_days_between_long": 2,
+    "playlists": {
+      "dadi-jasoos": "",
+      "moral-stories": ""
+    }
+  }
+}

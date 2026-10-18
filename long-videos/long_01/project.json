@@ -1,0 +1,6 @@
+{
+  "kind": "long",
+  "name": "long_01",
+  "burn_captions": false,
+  "_note": "Long videos: 16:9, no burned captions (an .srt is written for upload), music changes by mood (lines.json 'mood')."
+}

@@ -1,0 +1,12 @@
+# Story-Channel Python packages (versions from the working setup, Python 3.14)
+requests==2.34.2
+python-dotenv==1.2.4
+numpy==2.5.4
+pillow==13.0.0
+# Whisper word timestamps (make_short.py, analyze_video.py); pulls ctranslate2 + av
+faster-whisper==1.2.1
+ctranslate2==4.8.3
+av==19.0.1
+# YouTube upload (tools/youtube_upload.py)
+google-api-python-client==2.201.0
+google-auth-oauthlib==1.5.0
