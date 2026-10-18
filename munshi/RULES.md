@@ -12,7 +12,7 @@ These are the hard rules. If a builder summary, a script or a file disagrees wit
 - Characters must match their approved sheets: face, clothes, colours, age look. Compare each scene image against the sheet with Read.
 - Dadi (Kamla Devi) narrates. Every other character speaks their own lines in their own voice.
 - Mitthu (parrot) has no hands: no hand gestures, holding things or pointing with hands.
-- Setting: Gulmohar Mohalla. Village kitchens use a mitti ka chulha, never a gas stove.
+- Setting: Dadi's home, the Golu–Mitthu opening/closing frame and all Dadi Jasoos cases are in Gulmohar Mohalla. The story Dadi narrates inside a moral-story video can be set in any village or town the approved script names (e.g. Rampur in LONG_01); check location consistency against that script. Village kitchens still use a mitti ka chulha, never a gas stove.
 - The action in each image must match what the line says at that moment (who is holding what, who is talking).
 
 ## 3. Audio
