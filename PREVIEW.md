@@ -1,6 +1,6 @@
-# Preview — दादी की कहानियाँ
+# Preview — किस्सागो | Kissago
 
-**Budget bacha:** ₹300.70  ·  **Last image:** 2026-10-18 10:20:14
+**Budget bacha:** ₹282.88  ·  **Last image:** 2026-10-18 21:10:08
 
 ## Characters
 

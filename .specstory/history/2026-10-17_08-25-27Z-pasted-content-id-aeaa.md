@@ -43105,3 +43105,2700 @@ DESC  new: #किस्सागो #Kissago #HindiMystery #पहेली #My
 3 video(s) would change; DRY RUN, nothing changed.
 ```
 </details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:17:58Z)**_
+
+<think><details><summary>Thought Process</summary>
+Dry-run se pata chala ki YouTube par abhi kuch update nahi hua — Long 01 ke purane tags bane hue hain, Case 01 ka title ajeeb lag raha hai, aur uska description RULES se zyada hashtags rakhta hai. Ab main step 5 aur 6 kar raha hoon, sujhaav upload step ke saath niche denge.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:18:06Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Write"><details>
+<summary>Tool use: **Write**</summary>
+
+```markdown
+# Channel description — किस्सागो | Kissago (draft, paste in YouTube Studio → Customization → Basic info)
+
+## Draft (as asked)
+किस्सागो — जहाँ दादी हर शाम सुनाती हैं एक नया किस्सा। कभी जादू, कभी लालच की सीख, और कभी "दादी जासूस" के साथ एक मज़ेदार पहेली — पूरे परिवार के लिए हिंदी कार्टून कहानियाँ।
+नया किस्सा: रोज़ शाम 7 बजे।
+सब्सक्राइब करें और घंटी दबाएँ, ताकि कोई किस्सा न छूटे!
+
+## Alternative that matches RULES section 8 (long videos 2-3 per week at 19:00, a Short every day at 21:00)
+किस्सागो — जहाँ दादी सुनाती हैं हँसाने और सिखाने वाले किस्से: जादू, लालच की सीख, और "दादी जासूस" की मज़ेदार पहेलियाँ — पूरे परिवार के लिए हिंदी कार्टून कहानियाँ।
+पूरी कहानियाँ: हफ़्ते में 2-3 बार, शाम 7 बजे | Shorts: रोज़ रात 9 बजे।
+सब्सक्राइब करें और घंटी दबाएँ, ताकि कोई किस्सा न छूटे!
+
+```
+
+```text
+File created successfully at: D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\channel_description.md (file state is current in your context — no need to Read it back)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:18:22Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Add register rows and sync
+
+```bash
+.venv/Scripts/python.exe -X utf8 - <<'PYEOF'
+import csv, datetime
+from pathlib import Path
+p = Path("shared/assets_license.csv")
+rows = list(csv.DictReader(p.open(encoding="utf-8", newline="")))
+today = datetime.date.today().isoformat()
+SH = "channels/dadi-ki-kahaniyan/stories/002_sharma-ji-ki-cycle/shorts/short_01_case-01/output/"
+new = [
+ ("channels/dadi-ki-kahaniyan/brand/kissago_banner.png", "own: Gemini banner art (brand/_work/banner_art.png) + our own libass text in Mukta (shared/fonts, SIL OFL)"),
+ (SH + "case01_thumbnail.png", "own: Gemini art + our own libass text in Mukta"),
+ (SH + "case01_thumbnail_vertical.png", "own: Gemini art + our own libass text in Mukta"),
+]
+have = {r["path"] for r in rows}
+for path, src in new:
+    if path not in have and Path(path).exists():
+        rows.append({"path": path, "source_url": src, "author": "Kissago (channel owner)", "license": "own (Gemini-generated)",
+                     "attribution_text": "", "date_added": today})
+with p.open("w", encoding="utf-8", newline="") as fh:
+    w = csv.DictWriter(fh, fieldnames=rows[0].keys()); w.writeheader(); w.writerows(rows)
+print(len(rows), "rows")
+PYEOF
+powershell -NoProfile -ExecutionPolicy Bypass -File tools/sync.ps1 -Message "rebrand: किस्सागो | Kissago (config, rules, banner, thumbnails, register); videos not updated yet" >/dev/null 2>&1; tail -1 shared/sync.log
+```
+
+```text
+35 rows
+2026-10-18 20:48:21  pushed: rebrand: किस्सागो | Kissago (config, rules, banner, thumbnails, register); videos not updated yet  (repo pack size 337 MB)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:18:45Z)**_
+
+Project ke andar ka rebrand ho gaya aur GitHub par sync hai. Upload hui videos ke title, description aur Long 01 ka thumbnail abhi nahi badle, kyunki unke liye aapki "ha" chahiye. Koi paid call nahi hua, kharcha ₹0.
+
+## Ho gaya
+1. **`channel.json`:**
+   - `display_name` ab "किस्सागो | Kissago" hai, aur `title_suffix` "| किस्सागो".
+   - Maine `"brand_label": "किस्सागो"` bhi joda (thumbnail ke kone ke liye) aur purane naam ka record rakha.
+   - `channel_key` aur folder ka naam nahi badla.
+2. **RULES, bible, CLAUDE.md, munshi aur docs:**
+   - Title ke ant ka hissa aur thumbnail label ab `channel.json` se aate hain.
+   - Dadi, Golu aur Mitthu host bane rahenge, aur series ka naam **"दादी जासूस"** hi rahega.
+   - OAuth app ka naam "Dadi Ki Kahaniyan Uploader" Google Cloud me hai, use nahi chheda.
+3. **Brand (₹0, sirf text badla):**
+   - **Banner:** `brand/kissago_banner.png` me bada "किस्सागो" aur neeche "Kissago · हर शाम एक नया किस्सा" hai, YouTube safe area ke andar. Pehli baar tagline charpai ko chhoo rahi thi, use thoda chhota karke khiska diya. Purana banner bhi rakha hai.
+   - **DP:** isme koi naam likha nahi tha, isliye waisi hi hai.
+   - **Thumbnails:** `long_01_thumbnail.png`, `case01_thumbnail.png` aur `case01_thumbnail_vertical.png` ke kone me ab "किस्सागो" hai. Short 01 ki apni koi thumbnail file nahi hai, YouTube khud frame chunta hai.
+   - **Aage ki thumbnails** me naam apne aap `brand_label` se aayega.
+5. **Channel description ka draft:** `channels/dadi-ki-kahaniyan/brand/channel_description.md`
+   > किस्सागो — जहाँ दादी हर शाम सुनाती हैं एक नया किस्सा। कभी जादू, कभी लालच की सीख, और कभी "दादी जासूस" के साथ एक मज़ेदार पहेली — पूरे परिवार के लिए हिंदी कार्टून कहानियाँ।
+   > नया किस्सा: रोज़ शाम 7 बजे।
+   > सब्सक्राइब करें और घंटी दबाएँ, ताकि कोई किस्सा न छूटे!
+
+   ⚠️ RULES ke hisaab se long videos hafte me 2–3 aati hain (7 baje) aur Shorts roz 9 baje. Isliye "रोज़ शाम 7 बजे" thoda zyada vaada hai. Usi file me ek doosra draft bhi hai, jo RULES se mel khata hai.
+6. **Register:** naye banner aur dono Case 01 thumbnails ki rows jodi, ab kul 35 rows hain.
+
+**Sync:** `pushed: rebrand: किस्सागो | Kissago (...); videos not updated yet`
+
+## 4. Upload hui videos: dry-run (abhi kuch nahi badla)
+| Video | Title: purana → naya | Description / tags |
+|---|---|---|
+| **Long 01** (public) | …\| दादी की कहानियाँ \| Hindi Moral Story… → …\| **किस्सागो** \| Hindi Moral Story… | "दादी हर हफ़्ते…" → "किस्सागो — हर शाम एक नया किस्सा…", hashtags #किस्सागो #Kissago, tags me naya naam, **naya thumbnail** |
+| **Short 01** (21:00 scheduled) | …का राज़ \| दादी की कहानियाँ #shorts → …का राज़ \| **किस्सागो** #shorts | hashtag #किस्सागो, tags me naya naam |
+| **Case 01** (public) | …चुराई? \| दादी की कहानियाँ केस #1 #shorts → …चुराई? \| **किस्सागो** केस #1 #shorts | description me naya naam, #किस्सागो #Kissago |
+
+Badlav sirf title, description aur tags me hoga. Privacy aur schedule nahi chhede jayenge. Lagbhag 200 API units lagenge, ₹0.
+
+**Meri salah, isi update me jod doon?**
+- **(a) Long 01 ke tags:** "Kids Story Hindi" aur "बच्चों की कहानी" hata kar "Family Story Hindi" aur "परिवार की कहानी" daal doon. Ye `meta.json` ke mutabik hai, aur RULES 7 ka family wording niyam bhi yahi kehta hai.
+- **(b) Case 01 ka title:** "| किस्सागो केस #1" ki jagah **"शर्मा जी की साइकिल किसने चुराई? | दादी जासूस केस #1 | किस्सागो #shorts"** rakhoon. Isme series ka naam bhi aa jata hai.
+- **(c) Case 01 ke hashtags:** 8 se ghata kar 5 kar doon: #Shorts #किस्सागो #दादीजासूस #HindiMystery #पहेली
+
+Jawab aise de sakte hain: **"ha"** (sirf naam badlo), **"ha + a b c"** (salah bhi lagao), ya inme se jo chahiye wo chuniye.
+
+**Aapke karne ke kaam:**
+- YouTube Studio me channel ka naam "किस्सागो | Kissago" karna, aur naya banner aur description daalna. Ye kaam API se nahi hote.
+- Short ka Related video set karna aur 21:05 ke baad pehla comment pin karna.
+
+---
+
+_**User (2026-10-18 15:29:03Z)**_
+
+https://www.youtube.com/@Kissagokahaniya
+
+<pasted_content id="aeaa">
+Kissago ka professional brand kit banao. Paid calls ke liye meri "ha" zaroori hai — pehle plan aur kharcha dikhao.
+
+1. Brand guide: channels/dadi-ki-kahaniyan/brand/BRAND.md banao:
+   - Naam: किस्सागो | Kissago, handle @KissagoKahaniya, tagline "हर शाम एक नया किस्सा".
+   - Rang: #1F1B4D (night indigo, background), #F4A300 (marigold, naam/highlight), #FFF4DC (cream), #2FA84F (parrot green, accent).
+   - Font: wordmark "Rozha One" (OFL, Google Fonts) — shared/fonts me laao aur assets_license.csv me OFL row jodo. Baaki text Mukta.
+   - Logo ka istemaal: kab sirf icon, kab icon + naam, kam se kam size, aas-paas khaali jagah.
+
+2. Logo icon (Gemini, sirf icon, KOI TEXT NAHI): Mitthu tota (channel_bible wala look) ek khuli kitaab par baitha, flat vector style, moti saaf outline, sirf brand ke 3-4 rang, saada background, beech me centered. 4 variations banao (~₹13), contact sheet dikhao. Main ek chununga. Phir chuna hua icon saaf karke transparent PNG (icon.png, 2048x2048) banao.
+
+3. Wordmark: "किस्सागो" Rozha One me marigold rang, aur neeche chhota "KISSAGO" Mukta me — libass/PIL se render, AI se nahi. Lockups banao:
+   - logo_horizontal.png (icon baayein + naam daayein)
+   - logo_stacked.png (icon upar + naam neeche)
+   Transparent background, matra zoom karke check karo.
+
+4. DP: 800x800, #1F1B4D gol background par sirf icon, circle-safe (icon beech ke 70% me). 98x98 par downscale karke check karo ki pehchaan aata hai.
+
+5. Banner: 2560x1440. Background Gemini se (~₹3.24): raat ka halka gulmohar mohalla, garm roshni, Dadi-Golu-Mitthu ki halki jhalak ek taraf, KOI TEXT NAHI, beech ka hissa saada. Upar logo_horizontal + tagline "हर शाम एक नया किस्सा · शाम 7 बजे" — sab 1546x423 safe area ke andar. Desktop, TV aur mobile teeno crop ka preview dikhao.
+
+6. Watermark: 150x150 icon (YouTube Studio branding ke liye).
+
+7. Thumbnail template update: kone ka purana text hata kar chhota logo_horizontal (ya icon + "किस्सागो"), BRAND.md ke hisaab se.
+
+8. Munshi se brand review: matra, rang, chhote size par pehchaan, safe area, copyright (koi copyrighted cheez nahi). Saari files channels/dadi-ki-kahaniyan/brand/ me, assets_license.csv me rows, phir sync.
+
+Kul andaaza ~₹16-20. Pehle step 2 ka kharcha confirm karke shuru karo.
+</pasted_content id="aeaa">
+
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-18 15:29:26Z)**_
+
+Brand kit ka plan aur kharcha neeche hai, paid kaam aapki "ha" ke baad hi shuru hoga. Tab tak free kaam kar raha hoon: Rozha One font laana aur BRAND.md. Pehle font, jo seedha Google Fonts ki official GitHub repo se aayega:
+
+_**Agent (claude-opus-5-5 2026-10-18 15:29:38Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Download Rozha One font + OFL licence; check budget
+
+```bash
+mkdir -p "C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad/font_dl" && cd "C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad/font_dl" && curl -sSLf -o RozhaOne-Regular.ttf https://raw.githubusercontent.com/google/fonts/main/ofl/rozhaone/RozhaOne-Regular.ttf && curl -sSLf -o OFL.txt https://raw.githubusercontent.com/google/fonts/main/ofl/rozhaone/OFL.txt && ls -l && head -3 OFL.txt && grep -c "SIL Open Font License" OFL.txt && /d/Story-Channel/.venv/Scripts/python.exe -I -c "
+from PIL import ImageFont
+f=ImageFont.truetype('RozhaOne-Regular.ttf',40); print('font name:',f.getname())
+from fontTools.ttLib import TTFont" 2>&1 | head -3; tail -1 /d/Story-Channel/cost_log.csv | awk -F, '{print "budget remaining: ₹"$8}'
+```
+
+```text
+total 324
+-rw-r--r-- 1 ashamim 1049089   4373 Oct 18 20:59 OFL.txt
+-rw-r--r-- 1 ashamim 1049089 322828 Oct 18 20:59 RozhaOne-Regular.ttf
+Copyright (c) 2014, Indian Type Foundry (info@indiantypefoundry.com).
+
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+1
+Traceback (most recent call last):
+  File "<string>", line 4, in <module>
+    from fontTools.ttLib import TTFont
+budget remaining: ₹300.70
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:29:45Z)**_
+
+<think><details><summary>Thought Process</summary>
+Font mil gaya — Indian Type Foundry ka, SIL OFL 1.1 licence wala. Isse `shared/fonts/` me daal raha hoon, phir libass se "किस्सागो" ka test render karunga taki Rozha One me matrayein sahi judti hain confirm ho jaye.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:30:10Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Install Rozha One and test-render wordmark
+
+```bash
+DL="C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad/font_dl" && cp "$DL/RozhaOne-Regular.ttf" shared/fonts/ && cp "$DL/OFL.txt" shared/fonts/OFL_RozhaOne.txt && W="C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad/wm_test" && mkdir -p "$W/fonts" && cp shared/fonts/RozhaOne-Regular.ttf shared/fonts/Mukta-Bold.ttf "$W/fonts/" && cat > "$W/t.ass" <<'EOF'
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1200
+PlayResY: 420
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: W,Rozha One,200,&H0000A3F4,&H000000FF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,5,0,0,0,1
+Style: K,Mukta,60,&H00DCF4FF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,0,0,5,0,0,0,1
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:01.00,W,,0,0,0,,{\pos(600,170)}किस्सागो
+Dialogue: 0,0:00:00.00,0:00:01.00,K,,0,0,0,,{\pos(600,350)}KISSAGO
+EOF
+cd "$W" && /d/Story-Channel/tools/ffmpeg/ffmpeg.exe -v error -y -f lavfi -i "color=c=0x1F1B4D:s=1200x420" -vf "subtitles=filename=t.ass:fontsdir=fonts" -frames:v 1 wm.png && echo rendered
+```
+
+```text
+rendered
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:30:10Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `C:\Users\ashamim\AppData\Local\Temp\claude\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7\scratchpad\wm_test\wm.png`
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:30:14Z)**_
+
+Rozha One me "किस्सागो" sahi bana: "कि" ki matra, "स्स" ka jod aur "गो" sab theek hain. Marigold aur indigo rang bhi sahi aaye. Ab register me font ki row aur BRAND.md:
+
+_**Agent (claude-opus-5-5 2026-10-18 15:30:30Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Add Rozha One OFL row to register
+
+```bash
+.venv/Scripts/python.exe -X utf8 - <<'PYEOF'
+import csv, datetime
+from pathlib import Path
+p = Path("shared/assets_license.csv")
+rows = list(csv.DictReader(p.open(encoding="utf-8", newline="")))
+if not any(r["path"] == "shared/fonts/RozhaOne-Regular.ttf" for r in rows):
+    rows.append({"path": "shared/fonts/RozhaOne-Regular.ttf",
+                 "source_url": "https://github.com/google/fonts/tree/main/ofl/rozhaone (Google Fonts)",
+                 "author": "Indian Type Foundry", "license": "SIL OFL 1.1 (shared/fonts/OFL_RozhaOne.txt)",
+                 "attribution_text": "", "date_added": datetime.date.today().isoformat()})
+with p.open("w", encoding="utf-8", newline="") as fh:
+    w = csv.DictWriter(fh, fieldnames=rows[0].keys()); w.writeheader(); w.writerows(rows)
+print(len(rows), "rows")
+PYEOF
+```
+
+```text
+36 rows
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:30:31Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Write"><details>
+<summary>Tool use: **Write**</summary>
+
+```markdown
+# Brand guide — किस्सागो | Kissago
+
+- **Name:** किस्सागो | Kissago (channel key `dadi-ki-kahaniyan`, formerly दादी की कहानियाँ)
+- **Handle:** @KissagoKahaniya — https://www.youtube.com/@Kissagokahaniya
+- **Tagline:** हर शाम एक नया किस्सा
+- **Hosts / characters:** Dadi, Golu, Mitthu (looks: `channel_bible.md`). Mystery series: "दादी जासूस".
+
+## Colours
+| Name | Hex | Use |
+|---|---|---|
+| Night indigo | `#1F1B4D` | backgrounds (DP circle, banner sky, cards) |
+| Marigold | `#F4A300` | the name "किस्सागो", highlights |
+| Cream | `#FFF4DC` | secondary text ("KISSAGO", tagline), light backgrounds |
+| Parrot green | `#2FA84F` | accent only (Mitthu, small details) |
+
+libass/ASS colours are BGR: marigold `&H0000A3F4&`, cream `&H00DCF4FF&`, indigo `&H004D1B1F&`, green `&H004FA82F&`.
+
+## Fonts
+- **Wordmark:** Rozha One (Indian Type Foundry, SIL OFL 1.1) — `shared/fonts/RozhaOne-Regular.ttf`. Only for the name "किस्सागो" (and big titles if wanted).
+- **Everything else:** Mukta (Bold/ExtraBold) — `shared/fonts/`.
+- Hindi text is always rendered by libass/HarfBuzz (letter spacing 0), never by an image model. Zoom-check matras.
+
+## Logo
+Files (in `brand/`, transparent PNG unless noted): `icon.png` (2048x2048, Mitthu on an open book, no text),
+`logo_horizontal.png` (icon left + name right), `logo_stacked.png` (icon top + name below),
+`kissago_dp.png` (800x800), `kissago_banner_v2.png` (2560x1440), `watermark.png` (150x150).
+
+When to use what:
+- **Icon only:** profile picture, video watermark, favicon-size places, anything smaller than ~200 px wide.
+- **Horizontal (icon + name):** banner, thumbnail corner, end cards, wide layouts.
+- **Stacked:** square / vertical layouts (Shorts covers, posters, social posts).
+
+Rules:
+- **Minimum size:** icon 48 px; horizontal lockup 240 px wide (name must stay readable); stacked 160 px wide.
+- **Clear space:** keep empty space around the logo of at least the height of the "क" in "किस्सागो" (about 1/4 of the icon height) on every side.
+- On busy pictures put the logo on a soft indigo or cream patch (60-80% opacity) instead of stretching or outlining it.
+- Do not recolour, stretch, rotate, add effects, or redraw the name in another font. Do not put the icon inside another shape except the DP circle.
+
+## Thumbnails
+- Corner brand: small `logo_horizontal` (about 18-20% of the thumbnail width) at bottom-left — never bottom-right (video length sits there).
+- Main title text: Mukta ExtraBold, max 4 words, high contrast (RULES sections 6 and 13).
+
+## Banner
+- Everything important inside the 1546x423 safe area (centre of the 2560x1440 canvas); check desktop, TV and mobile crops.
+
+```
+
+```text
+File created successfully at: D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\BRAND.md (file state is current in your context — no need to Read it back)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:30:58Z)**_
+
+Free kaam ho gaya. Ab paid kaam ka plan aur chintayein, niyam ke mutabik paisa lagne se pehle:
+
+## Ho gaya (₹0)
+- **Rozha One** font `shared/fonts/` me aa gaya, saath me licence (`OFL_RozhaOne.txt`). Register me OFL row bhi jod di. Test render me "किस्सागो" ki matrayein sahi aayi.
+- **`brand/BRAND.md`** ban gaya: naam, handle, tagline, 4 rang (saath me libass ke BGR codes), fonts, logo kab aur kaise use karna hai, kam se kam size, khaali jagah, aur thumbnail/banner ke niyam.
+- Budget me abhi **₹300.70** bache hain.
+
+## Paid plan (aapki "ha" ke baad)
+| Kadam | Kya | Kharcha |
+|---|---|---|
+| 2. Logo icon | 4 variations, 1K, flat vector Mitthu ek khuli kitaab par, koi text nahi | 4 × ₹3.24 = **₹12.96** |
+| 5. Banner background | raat ka gulmohar mohalla, ek taraf Dadi, Golu aur Mitthu, beech saada, koi text nahi. **2K** me, kyunki banner 2560 px chauda hai | **₹4.86** |
+| Baaki sab | wordmark, lockups, DP, watermark, thumbnail template, Munshi review | ₹0 |
+| **Kul** | | **₹17.82** |
+
+Aapne pehle sirf step 2 (₹12.96) ki "ha" maangi thi. Banner wala ₹4.86 baad me alag se poochhunga.
+
+## Chintayein, generate karne se pehle
+1. **Mitthu ke rang:** bible ke hisaab se Mitthu ki **chonch laal aur gale me patli laal patti** hai. Brand ke 4 rang me laal nahi hai. Meri salah hai ki chonch aur patti laal hi rahe, kyunki permanent character ka look nahi badalna chahiye. Baaki sab brand ke rangon me aur moti gahri outline ke saath hoga. Doosra option: chonch marigold, par tab Mitthu bible se alag dikhega.
+2. **Transparent PNG:** Gemini transparent background nahi deta. Isliye icon **saade safed background** par banwaunga aur kinaron se background hata dunga. Moti outline kitaab ke safed panno ko bachayegi.
+3. **2048×2048:** 1K image (1024) ko 2x bada karna padega. Flat vector art me ye theek dikhta hai. Chahein toh chuna hua icon 2K me dobara bana sakta hoon (+₹4.86), par tab design thoda badal sakta hai. Salah: 1K hi kaafi hai.
+4. **Copyright:** prompt me kisi studio, franchise ya artist ka naam nahi hoga. Kitaab aur tota aam cheezein hain.
+5. **Banner ki tagline "शाम 7 बजे":** long videos hafte me 2–3 baar aati hain, isliye "हर शाम 7 बजे" thoda zyada vaada lagta hai. Chahein toh sirf "हर शाम एक नया किस्सा" rakhein.
+
+**Icon ka prompt (draft):**
+> Flat vector logo icon, NO text or letters. A green parrot (Mitthu: green body, red beak, thin red neck ring — exactly as in the reference sheet) sitting on top of an open book, friendly, simple shapes, thick clean dark outlines, flat colours only from: night indigo #1F1B4D, marigold #F4A300, cream #FFF4DC, parrot green #2FA84F (+ red beak/ring). Centered, fills ~70% of the square, plain flat pure white background, no shadows, no gradients, no scenery. Reference: Mitthu sheet.
+>
+> Ek prompt se 4 alag images banengi: (1) kitaab seedhi saamne se, (2) kitaab thodi tirchhi, (3) Mitthu ke pankh thode khule, (4) kitaab ke panno se chhoti chamak nikalti hui.
+
+**Jawab:** "ha" likhiye, toh step 2 ki 4 images (₹12.96) is draft ke saath, laal chonch rakh kar bana dunga. Koi badlav chahiye toh bata dijiye.
+
+**Pichhla kaam bhi baaki hai:** teeno upload hui videos me naya naam lagana. Uske liye "ha" ya "ha + a b c" ka jawab abhi tak nahi aaya.
+
+---
+
+_**User (2026-10-18 15:33:01Z)**_
+
+
+
+<pasted_content id="aeaa">
+ha, step 2 ke liye (₹12.96). Badlav:
+- Laal chonch aur gale ki laal patti rakho (bible wala look).
+- Variation (2) ki jagah: "close-up — Mitthu bada (frame ka ~60%), kitaab neeche chhoti", taaki chhoti DP me bhi pehchaan aaye. Baaki (1), (3), (4) waise hi.
+- 1K hi rakho, 2K regenerate nahi.
+- Banner tagline sirf "हर शाम एक नया किस्सा" — "शाम 7 बजे" hatao. BRAND.md me bhi yahi.
+Contact sheet ke saath har icon ka 48x48 aur 98x98 downscale bhi dikhao.
+</pasted_content id="aeaa">
+
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-18 15:33:06Z)**_
+
+"Ha" mil gayi. Step 2 ke 4 icons bana raha hoon (₹12.96): laal chonch aur patti bible jaisi, variation 2 ab close-up hoga, aur size 1K. BRAND.md me "शाम 7 बजे" pehle se nahi tha, wahan tagline sirf "हर शाम एक नया किस्सा" hai.
+
+_**Agent (claude-opus-5-5 2026-10-18 15:33:16Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Write"><details>
+<summary>Tool use: **Write**</summary>
+
+```python
+"""Kissago brand kit (BRAND.md). Paid steps only with the user's OK.
+
+Usage: python scripts/gen_brand.py icons [1 2 3 4]   -> brand/_work/icon_v<N>.png (Gemini 1K, ₹3.24 each)
+"""
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).parent))
+from gemini_image import generate  # noqa: E402
+from paths import channel_dir  # noqa: E402
+
+BRAND = channel_dir() / "brand"
+WORK = BRAND / "_work"
+CHAR = channel_dir() / "characters"
+
+ICON_BASE = """Flat vector logo icon, NO text, letters or numbers anywhere. {scene}
+Mitthu is EXACTLY the parrot in the attached reference sheet: green body, RED beak, thin RED neck ring, friendly eyes.
+Simple bold shapes, thick clean dark outlines (dark indigo #1F1B4D), flat colours only from: night indigo #1F1B4D,
+marigold #F4A300, cream #FFF4DC, parrot green #2FA84F, plus the red of the beak and neck ring. No gradients, no
+shadows, no texture, no scenery. The icon is centred and fills about 70% of the square. Plain flat PURE WHITE
+background (#FFFFFF) all around, nothing else in the image."""
+
+VARIANTS = {
+    1: "Mitthu the green parrot sits on top of an open book seen straight from the front; the book is cream with "
+       "marigold covers.",
+    2: "CLOSE-UP: Mitthu the green parrot is big (about 60% of the frame, head and upper body clearly readable at a tiny "
+       "size), and a small open book sits below him, partly visible.",
+    3: "Mitthu the green parrot sits on top of an open book, wings slightly open as if starting a story; cream pages, "
+       "marigold covers.",
+    4: "Mitthu the green parrot sits on top of an open book; a few small marigold sparkles rise from the open pages.",
+}
+
+
+def icons(ids):
+    WORK.mkdir(parents=True, exist_ok=True)
+    for n in ids:
+        generate(ICON_BASE.format(scene=VARIANTS[n]), WORK / f"icon_v{n}.png", refs=[CHAR / "mitthu_sheet.png"],
+                 aspect_ratio="1:1", size="1K")
+
+
+if __name__ == "__main__":
+    if sys.argv[1] == "icons":
+        icons([int(x) for x in sys.argv[2:]] or [1, 2, 3, 4])
+
+```
+
+```text
+File created successfully at: D:\Story-Channel\scripts\gen_brand.py (file state is current in your context — no need to Read it back)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:33:17Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Check gemini_image style suffix behaviour
+
+`grep -n "STYLE\|def generate" scripts/gemini_image.py | head`
+
+```text
+18:STYLE = ("Art style: flat 2D cartoon, thick bold black outlines, warm colours, flat cel shading, "
+43:def generate(prompt: str, out: Path, refs: list[Path] = (), aspect_ratio="1:1", size="1K") -> Path:
+48:    inputs = [{"type": "text", "text": f"{prompt}\n\n{STYLE}"}]
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:33:19Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\scripts\gemini_image.py`
+
+```text
+16	ENDPOINT = "https://generativelanguage.googleapis.com/v1beta/interactions"
+17	MODEL = "gemini-nano-banana-2.1"
+18	STYLE = ("Art style: flat 2D cartoon, thick bold black outlines, warm colours, flat cel shading, "
+19	         "no gradients, no realism, clean vector look, kid-friendly.")
+20	
+21	
+22	def _find_image(obj):
+23	    """Return base64 image data from anywhere in the response JSON."""
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:33:25Z)**_
+
+<think><details><summary>Thought Process</summary>
+Theek hai, `gemini_image.py` apni style line add karta hai jo flat vector logo look se match karti hai, isliye koi conflict nahi. Ab main chaaron icons ek-ek karke banata hoon, har ek ke liye 90 second ki time limit rakhte hue.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:35:11Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Generate 4 logo icon variations (paid, approved)
+
+`for n in 1 2 3 4; do AUTO_PREVIEW=0 timeout 120 .venv/Scripts/python.exe -X utf8 scripts/gen_brand.py icons $n 2>&1 | grep -E "cost|bacha|SKIP|Error|error|saved" | head -3; done`
+
+```text
+Is image ka cost: ₹3.24  |  Aaj ka total: ₹13.11  |  ₹500 me se bacha: ₹297.46
+Is image ka cost: ₹3.24  |  Aaj ka total: ₹16.35  |  ₹500 me se bacha: ₹294.22
+Is image ka cost: ₹3.24  |  Aaj ka total: ₹19.59  |  ₹500 me se bacha: ₹290.98
+Is image ka cost: ₹3.24  |  Aaj ka total: ₹22.83  |  ₹500 me se bacha: ₹287.74
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:35:14Z)**_
+
+Chaaron icon ban gaye. Ab contact sheet bana raha hoon, jisme har icon bada dikhega aur saath me 98×98 aur 48×48 ka chhota roop bhi. Chhote roop DP ke gol frame me hain, indigo background par:
+
+_**Agent (claude-opus-5-5 2026-10-18 15:35:23Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Contact sheet with 98 and 48 px downscales
+
+```bash
+.venv/Scripts/python.exe -X utf8 -c "
+from PIL import Image, ImageDraw
+W='channels/dadi-ki-kahaniyan/brand/_work/'
+IND=(0x1F,0x1B,0x4D)
+cols=[]
+for n in (1,2,3,4):
+  im=Image.open(W+f'icon_v{n}.png').convert('RGB')
+  big=im.resize((360,360),Image.LANCZOS)
+  def circ(sz):
+    c=Image.new('RGB',(sz,sz),IND); ic=im.resize((int(sz*0.86),int(sz*0.86)),Image.LANCZOS)
+    m=Image.new('L',(sz,sz),0); ImageDraw.Draw(m).ellipse((0,0,sz-1,sz-1),fill=255)
+    bg=Image.new('RGB',(sz,sz),(255,255,255)); bg.paste(c,(0,0),m); o=(sz-ic.width)//2; bg.paste(ic,(o,o)); return bg
+  col=Image.new('RGB',(380,560),(245,245,245)); d=ImageDraw.Draw(col)
+  col.paste(big,(10,30)); d.text((10,8),f'option {n} (1024 px)',fill=(0,0,0))
+  col.paste(im.resize((98,98),Image.LANCZOS),(10,420)); d.text((10,402),'98x98',fill=(0,0,0))
+  col.paste(circ(98),(120,420)); d.text((120,402),'98 DP circle',fill=(0,0,0))
+  col.paste(im.resize((48,48),Image.LANCZOS),(240,420)); d.text((240,402),'48x48',fill=(0,0,0))
+  col.paste(circ(48),(300,420)); d.text((290,402),'48 circle',fill=(0,0,0))
+  print(n, im.size)
+  cols.append(col)
+s=Image.new('RGB',(380*4,560),(255,255,255)); [s.paste(c,(i*380,0)) for i,c in enumerate(cols)]
+s.save(W+'icon_contact_sheet.jpg',quality=90)"
+```
+
+```text
+1 (1024, 1024)
+2 (1024, 1024)
+3 (1024, 1024)
+4 (1024, 1024)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:35:23Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\icon_contact_sheet.jpg`
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:35:40Z)**_
+
+Chaaron icon ban gaye. Har image ka kharcha ₹3.24 tha, step 2 ka kul **₹12.96**. Aaj ka total **₹22.83** hai aur ₹500 me se **₹287.74** bache hain.
+
+**Contact sheet:** `channels/dadi-ki-kahaniyan/brand/_work/icon_contact_sheet.jpg` (upar dikhaya hai)
+
+Gol DP wale preview me abhi icon ka safed background bhi dikh raha hai, kyunki background abhi hataya nahi hai. Asli DP me background hatega aur Mitthu indigo gole par hoga. Chhote size par pehchaan ke liye "98×98" aur "48×48" wale dekhiye.
+
+| Option | Kaisa hai | 98 px | 48 px |
+|---|---|---|---|
+| **1** Kitaab saamne se | Saaf aur santulit. Mitthu kitaab par baitha hai, laal chonch aur patti saaf. | ✅ achha | Mitthu chhota pad jaata hai, kitaab hi zyada dikhti hai |
+| **2** Close-up | Mitthu bada, chehra aur laal chonch frame bharte hain, kitaab neeche. | ✅ sabse saaf | ✅ **sabse achhi pehchaan** |
+| **3** Pankh khule | Zinda aur khushnuma, par pankh failne se frame bhara-bhara lagta hai. | theek | ❌ uljha hua |
+| **4** Chamak | Chamakte sitare aur indigo kitaab. Mitthu side se dikhta hai, aur gale ki patti laal ke saath kaali bhi lagti hai, jo bible se thoda alag hai. | theek | ❌ chamak gayab, Mitthu chhota |
+
+**Meri salah: option 2.** DP aur watermark jaisi chhoti jagahon par yahi sabse achha pehchana jaata hai, aur lockup me naam ke saath bhi santulit lagega. Agar lockup ke liye "kitaab par baitha" wala poora roop chahiye, toh option 1 bhi achha hai.
+
+Kaunsa option chunna hai? Number likh dijiye. Uske baad ye sab bana dunga, sab ₹0:
+- background hata kar `icon.png` (2048×2048, transparent)
+- wordmark ke saath dono lockups
+- DP aur watermark
+- thumbnail template
+
+Banner background (₹4.86) ke liye alag se poochhunga.
+
+---
+
+_**User (2026-10-18 15:36:16Z)**_
+
+Option 2 — har jagah yahi icon (DP, watermark, dono lockups, thumbnail template). Free kaam (icon.png, lockups, DP, watermark, thumbnail template) shuru karo.
+Banner background ke liye bhi "ha" (₹4.86, 2K). Banner me Mitthu option 2 wale look me hi ho.
+Sab banne ke baad Munshi se brand review, phir DP, banner (desktop/TV/mobile crop), watermark aur ek naye thumbnail ka sample dikhao.
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-18 15:36:38Z)**_
+
+Option 2 tay hua. Pehle free kaam: icon ka background hata kar `icon.png` bana raha hoon. Kinaron se judi safed jagah hategi, jabki kitaab ke panne moti outline ke andar hone ki wajah se bache rahenge.
+
+_**Agent (claude-opus-5-5 2026-10-18 15:37:00Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Cut out chosen icon to transparent 2048 PNG
+
+```bash
+cat >> scripts/gen_brand.py <<'PYEOF'
+
+
+# ---------------- free steps (no Gemini) ----------------
+import numpy as np  # noqa: E402
+from PIL import Image, ImageDraw, ImageFilter  # noqa: E402
+
+CHOSEN = WORK / "icon_v2.png"  # user picked option 2 (close-up Mitthu) on 2026-10-18
+INDIGO, MARIGOLD, CREAM, GREEN = (0x1F, 0x1B, 0x4D), (0xF4, 0xA3, 0x00), (0xFF, 0xF4, 0xDC), (0x2F, 0xA8, 0x4F)
+
+
+def cutout(src: Path, size=2048, margin=0.06) -> Image.Image:
+    """White background -> transparent. Only white connected to the image border is removed (pages inside the thick
+    outline stay); the light fringe next to the outline gets partial alpha so edges stay smooth."""
+    im = Image.open(src).convert("RGB")
+    a = np.asarray(im).astype(np.int16)
+    light = (a.min(axis=2) > 225)
+    # flood fill from the border over light pixels
+    bg = np.zeros(light.shape, bool)
+    h, w = light.shape
+    stack = [(y, x) for x in range(w) for y in (0, h - 1)] + [(y, x) for y in range(h) for x in (0, w - 1)]
+    while stack:
+        y, x = stack.pop()
+        if 0 <= y < h and 0 <= x < w and light[y, x] and not bg[y, x]:
+            bg[y, x] = True
+            stack += [(y + 1, x), (y - 1, x), (y, x + 1), (y, x - 1)]
+    alpha = np.where(bg, 0, 255).astype(np.float32)
+    # soft edge: pixels next to the background get alpha from how dark they are
+    near = np.asarray(Image.fromarray((bg * 255).astype(np.uint8)).filter(ImageFilter.MaxFilter(5))) > 0
+    fringe = near & ~bg
+    lum = a.mean(axis=2)
+    alpha[fringe] = np.clip((255 - lum[fringe]) / (255 - 60) * 255, 0, 255)
+    rgba = np.dstack([a.astype(np.uint8), alpha.astype(np.uint8)])
+    out = Image.fromarray(rgba, "RGBA")
+    out = out.crop(out.getbbox())
+    side = int(max(out.size) * (1 + 2 * margin))
+    sq = Image.new("RGBA", (side, side), (0, 0, 0, 0))
+    sq.paste(out, ((side - out.width) // 2, (side - out.height) // 2), out)
+    return sq.resize((size, size), Image.LANCZOS)
+
+
+def icon():
+    ic = cutout(CHOSEN)
+    ic.save(BRAND / "icon.png")
+    print("saved", BRAND / "icon.png", ic.size)
+PYEOF
+.venv/Scripts/python.exe - <<'PYEOF'
+from pathlib import Path
+p = Path("scripts/gen_brand.py"); s = p.read_text(encoding="utf-8")
+s = s.replace('''if __name__ == "__main__":
+    if sys.argv[1] == "icons":
+        icons([int(x) for x in sys.argv[2:]] or [1, 2, 3, 4])
+''', "")
+s += '''
+
+if __name__ == "__main__":
+    cmd = sys.argv[1]
+    if cmd == "icons":
+        icons([int(x) for x in sys.argv[2:]] or [1, 2, 3, 4])
+    else:
+        globals()[cmd]()
+'''
+p.write_text(s, encoding="utf-8")
+PYEOF
+.venv/Scripts/python.exe -X utf8 -c "import sys; sys.setrecursionlimit(10000)" && .venv/Scripts/python.exe -X utf8 scripts/gen_brand.py icon && .venv/Scripts/python.exe -c "
+from PIL import Image
+ic=Image.open('channels/dadi-ki-kahaniyan/brand/icon.png')
+s=Image.new('RGB',(1100,560),(255,255,255))
+for i,bg in enumerate([(0x1F,0x1B,0x4D),(255,255,255)]):
+  t=Image.new('RGB',(540,540),bg); t.paste(ic.resize((540,540),Image.LANCZOS),(0,0),ic.resize((540,540),Image.LANCZOS)); s.paste(t,(i*550,10))
+s.save(r'C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad/icon_check.jpg',quality=90)"
+```
+
+```text
+saved D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\icon.png (2048, 2048)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:37:00Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `C:\Users\ashamim\AppData\Local\Temp\claude\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7\scratchpad\icon_check.jpg`
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:37:13Z)**_
+
+<think><details><summary>Thought Process</summary>
+icon.png ban gaya: 2048×2048, transparent, dono background par saaf dikhta hai. Ab wordmark, lockups, DP, aur watermark banata hoon — text libass se render karke alpha mask nikalunga, AI-generated text nahi use karunga.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:37:43Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Add wordmark/lockups/DP/watermark and run them
+
+```bash
+.venv/Scripts/python.exe - <<'PYEOF'
+from pathlib import Path
+p = Path("scripts/gen_brand.py"); s = p.read_text(encoding="utf-8")
+marker = '\nif __name__ == "__main__":'
+add = r'''
+import shutil  # noqa: E402
+import subprocess  # noqa: E402
+
+from paths import FONTS_DIR, ROOT  # noqa: E402
+
+FFMPEG = ROOT / "tools" / "ffmpeg" / "ffmpeg.exe"
+if not FFMPEG.exists():
+    FFMPEG = Path(shutil.which("ffmpeg") or FFMPEG)
+TAGLINE = "हर शाम एक नया किस्सा"
+
+
+def text_layer(text, family, size, rgb, bold=False, spacing=0) -> Image.Image:
+    """Text rendered by libass (HarfBuzz shaping) white-on-black, turned into a coloured RGBA layer cropped to the ink.
+    Spacing must stay 0 for Devanagari (any spacing breaks the matras); Latin may use spacing."""
+    tmp = WORK / "txt"
+    (tmp / "fonts").mkdir(parents=True, exist_ok=True)
+    for f in ("RozhaOne-Regular.ttf", "Mukta-Bold.ttf", "Mukta-ExtraBold.ttf"):
+        shutil.copy(FONTS_DIR / f, tmp / "fonts" / f)
+    W, H = int(size * max(len(text), 4) * 0.9) + 200, int(size * 2.2)
+    ass = f"""[Script Info]
+ScriptType: v4.00+
+PlayResX: {W}
+PlayResY: {H}
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: A,{family},{size},&H00FFFFFF,&H000000FF,&H00000000,&H00000000,{-1 if bold else 0},0,0,0,100,100,{spacing},0,1,0,0,5,0,0,0,1
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:01.00,A,,0,0,0,,{{\\pos({W // 2},{H // 2})}}{text}
+"""
+    (tmp / "t.ass").write_text(ass, encoding="utf-8")
+    subprocess.run([str(FFMPEG), "-v", "error", "-y", "-f", "lavfi", "-i", f"color=c=black:s={W}x{H}",
+                    "-vf", "subtitles=filename=t.ass:fontsdir=fonts", "-frames:v", "1", "t.png"], cwd=tmp, check=True)
+    mask = Image.open(tmp / "t.png").convert("L")
+    layer = Image.new("RGBA", mask.size, rgb + (0,))
+    layer.putalpha(mask)
+    return layer.crop(mask.getbbox())
+
+
+def wordmark() -> Image.Image:
+    """'किस्सागो' (Rozha One, marigold) over a small 'KISSAGO' (Mukta Bold, cream, letter-spaced)."""
+    name = text_layer("किस्सागो", "Rozha One", 420, MARIGOLD)
+    sub = text_layer("KISSAGO", "Mukta", 120, CREAM, bold=True, spacing=28)
+    sub = sub.resize((int(name.width * 0.62), int(sub.height * name.width * 0.62 / sub.width)), Image.LANCZOS)
+    gap = int(name.height * 0.10)
+    wm = Image.new("RGBA", (name.width, name.height + gap + sub.height), (0, 0, 0, 0))
+    wm.alpha_composite(name, (0, 0))
+    wm.alpha_composite(sub, ((name.width - sub.width) // 2, name.height + gap))
+    return wm
+
+
+def pad(img, frac=0.06):
+    m = int(max(img.size) * frac)
+    out = Image.new("RGBA", (img.width + 2 * m, img.height + 2 * m), (0, 0, 0, 0))
+    out.alpha_composite(img, (m, m))
+    return out
+
+
+def lockups():
+    ic, wm = Image.open(BRAND / "icon.png").convert("RGBA"), wordmark()
+    wm.save(BRAND / "wordmark.png")
+    # horizontal: icon left, name right, both vertically centred
+    ih = int(wm.height * 1.35)
+    ich = ic.resize((ih, ih), Image.LANCZOS)
+    gap = int(ih * 0.10)
+    hz = Image.new("RGBA", (ih + gap + wm.width, ih), (0, 0, 0, 0))
+    hz.alpha_composite(ich, (0, 0))
+    hz.alpha_composite(wm, (ih + gap, (ih - wm.height) // 2))
+    pad(hz).save(BRAND / "logo_horizontal.png")
+    # stacked: icon on top, name below
+    iw = int(wm.width * 0.85)
+    ics = ic.resize((iw, iw), Image.LANCZOS)
+    gap = int(iw * 0.04)
+    st = Image.new("RGBA", (max(iw, wm.width), iw + gap + wm.height), (0, 0, 0, 0))
+    st.alpha_composite(ics, ((st.width - iw) // 2, 0))
+    st.alpha_composite(wm, ((st.width - wm.width) // 2, iw + gap))
+    pad(st).save(BRAND / "logo_stacked.png")
+    for f in ("wordmark.png", "logo_horizontal.png", "logo_stacked.png"):
+        print("saved", BRAND / f, Image.open(BRAND / f).size)
+
+
+def dp():
+    """800x800 indigo, icon in the middle 70% (survives the circle crop)."""
+    ic = Image.open(BRAND / "icon.png").convert("RGBA").resize((560, 560), Image.LANCZOS)
+    d = Image.new("RGBA", (800, 800), INDIGO + (255,))
+    d.alpha_composite(ic, (120, 120))
+    d.convert("RGB").save(BRAND / "kissago_dp.png")
+    print("saved", BRAND / "kissago_dp.png")
+
+
+def watermark():
+    Image.open(BRAND / "icon.png").convert("RGBA").resize((150, 150), Image.LANCZOS).save(BRAND / "watermark.png")
+    print("saved", BRAND / "watermark.png")
+
+
+def brand_corner(path, where="bl", width_frac=0.19):
+    """Thumbnail brand: small logo_horizontal on a soft indigo patch (BRAND.md). bl = bottom-left, tc = top-centre."""
+    im = Image.open(path).convert("RGBA")
+    lg = Image.open(BRAND / "logo_horizontal.png").convert("RGBA")
+    w = int(im.width * width_frac)
+    lg = lg.resize((w, int(lg.height * w / lg.width)), Image.LANCZOS)
+    m = int(im.width * 0.015)
+    patch = Image.new("RGBA", (lg.width + 2 * m, lg.height + 2 * m), (0, 0, 0, 0))
+    ImageDraw.Draw(patch).rounded_rectangle((0, 0, patch.width - 1, patch.height - 1), radius=m * 2,
+                                           fill=INDIGO + (190,))
+    patch.alpha_composite(lg, (m, m))
+    edge = int(im.width * 0.02)
+    xy = (edge, im.height - patch.height - edge) if where == "bl" else ((im.width - patch.width) // 2, edge)
+    im.alpha_composite(patch, xy)
+    im.convert("RGB").save(path)
+'''
+s = s.replace(marker, add + marker, 1)
+p.write_text(s, encoding="utf-8"); print("ok")
+PYEOF
+for f in lockups dp watermark; do .venv/Scripts/python.exe -X utf8 scripts/gen_brand.py $f || echo FAIL $f; done
+```
+
+```text
+ok
+D:\Story-Channel\scripts\gen_brand.py:116: SyntaxWarning: "\p" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\p"? A raw string is also an option.
+  """
+saved D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\wordmark.png (1012, 339)
+saved D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\logo_horizontal.png (1694, 637)
+saved D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\logo_stacked.png (1158, 1379)
+D:\Story-Channel\scripts\gen_brand.py:116: SyntaxWarning: "\p" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\p"? A raw string is also an option.
+  """
+saved D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\kissago_dp.png
+D:\Story-Channel\scripts\gen_brand.py:116: SyntaxWarning: "\p" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\p"? A raw string is also an option.
+  """
+saved D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\watermark.png
+[This command modified 1 file you've previously read: scripts\gen_brand.py. Call Read before editing.]
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:37:48Z)**_
+
+Saari files ban gayi. Ek Python warning aayi (`\p` escape), jo aage chalkar error ban sakti hai, use theek kar raha hoon. Phir lockups dekhunga:
+
+_**Agent (claude-opus-5-5 2026-10-18 15:37:56Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Fix escape, rerender lockups, preview on indigo
+
+```bash
+grep -n 'pos({W' scripts/gen_brand.py && sed -i 's/{{\\pos({W/{{\\\\pos({W/' scripts/gen_brand.py && grep -n 'pos({W' scripts/gen_brand.py && .venv/Scripts/python.exe -W error -c "import ast;ast.parse(open('scripts/gen_brand.py',encoding='utf-8').read())" && echo "no warnings" && .venv/Scripts/python.exe -X utf8 scripts/gen_brand.py lockups | tail -1 && .venv/Scripts/python.exe -c "
+from PIL import Image
+B='channels/dadi-ki-kahaniyan/brand/'
+IND=(0x1F,0x1B,0x4D)
+h=Image.open(B+'logo_horizontal.png'); s=Image.open(B+'logo_stacked.png')
+c=Image.new('RGB',(1900,1500),IND)
+c.paste(h,(20,20),h); s2=s.resize((int(s.width*0.6),int(s.height*0.6))); c.paste(s2,(20,680),s2)
+wm=Image.open(B+'wordmark.png'); z=wm.resize((wm.width*1,wm.height*1)); c.paste(z,(850,750),z)
+c.save(r'C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad/lockups.jpg',quality=90)"
+```
+
+```text
+Exit code 1
+115:Dialogue: 0,0:00:00.00,0:00:01.00,A,,0,0,0,,{{\pos({W // 2},{H // 2})}}{text}
+115:Dialogue: 0,0:00:00.00,0:00:01.00,A,,0,0,0,,{{\pos({W // 2},{H // 2})}}{text}
+Exception ignored while finalizing file <_io.FileIO name='scripts/gen_brand.py' mode='rb' closefd=True>:
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+ResourceWarning: unclosed file <_io.TextIOWrapper name='scripts/gen_brand.py' mode='r' encoding='utf-8'>
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import ast;ast.parse(open('scripts/gen_brand.py',encoding='utf-8').read())
+               ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ashamim\AppData\Local\Programs\Python\Python314\Lib\ast.py", line 46, in parse
+    return compile(source, filename, mode, flags,
+                   _feature_version=feature_version, optimize=optimize)
+  File "<unknown>", line 116
+    """
+       ^
+SyntaxError: "\p" is an invalid escape sequence. Did you mean "\\p"? A raw string is also an option.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:37:56Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `C:\Users\ashamim\AppData\Local\Temp\claude\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7\scratchpad\lockups.jpg`
+
+```text
+File does not exist. Note: your current working directory is D:\Story-Channel.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:38:05Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\scripts\gen_brand.py has been updated successfully. (note: the file had been modified on disk since you last read it — the edit applied cleanly, but the file contains other changes not in your context. Read it before edits that depend on surrounding content.)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:38:24Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Verify fix, rerender lockups, preview
+
+```bash
+.venv/Scripts/python.exe -W error -c "
+import ast
+with open('scripts/gen_brand.py',encoding='utf-8') as f: ast.parse(f.read())
+print('no warnings')" && .venv/Scripts/python.exe -X utf8 scripts/gen_brand.py lockups | tail -1 && .venv/Scripts/python.exe -c "
+from PIL import Image
+B='channels/dadi-ki-kahaniyan/brand/'
+IND=(0x1F,0x1B,0x4D)
+h=Image.open(B+'logo_horizontal.png'); s=Image.open(B+'logo_stacked.png')
+c=Image.new('RGB',(1900,1500),IND)
+c.paste(h,(20,20),h); s2=s.resize((int(s.width*0.6),int(s.height*0.6))); c.paste(s2,(20,680),s2)
+wm=Image.open(B+'wordmark.png'); c.paste(wm,(850,750),wm)
+c.save(r'C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad/lockups.jpg',quality=90)"
+```
+
+```text
+no warnings
+saved D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\logo_stacked.png (1158, 1379)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:38:24Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `C:\Users\ashamim\AppData\Local\Temp\claude\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7\scratchpad\lockups.jpg`
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:38:38Z)**_
+
+<think><details><summary>Thought Process</summary>
+Wordmark aur lockups sahi ban gaye, matrayein bhi theek hain. Ab thumbnail template update karunga — purana corner text hatakar chhota `logo_horizontal` indigo patch par lagaunga, 16:9 me neeche-baayein aur vertical me upar beech me, saath hi sawaal wala title thoda neeche shift karunga.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:38:38Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Locate label lines and output copies
+
+`grep -n "^Dialogue: 0,0:00:00.00,0:00:01.00,L,\|shutil.copy(C1W / \"thumb_titled.png\", out)\|shutil.copy(C1W / \"thumb_v_titled.png\", out)\|shutil.copy(L1W / \"long01_thumb_titled.png\", out)\|^Style: Q,Mukta,150\|^from gemini_image" scripts/gen_channel_assets.py`
+
+```text
+18:from gemini_image import generate  # noqa: E402
+161:Dialogue: 0,0:00:00.00,0:00:01.00,L,,0,0,0,,{{\\c&H0030C8FF&}}{BRAND}
+168:    shutil.copy(C1W / "thumb_titled.png", out)
+226:Style: Q,Mukta,150,&H0000E5FF,&H000000FF,&H00000000,&H96000000,-1,0,0,0,100,100,0,0,1,11,6,8,30,30,70,1
+231:Dialogue: 0,0:00:00.00,0:00:01.00,L,,0,0,0,,{BRAND}
+240:    shutil.copy(C1W / "thumb_v_titled.png", out)
+290:Dialogue: 0,0:00:00.00,0:00:01.00,L,,0,0,0,,{BRAND}
+298:    shutil.copy(L1W / "long01_thumb_titled.png", out)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:39:00Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Swap corner text for logo patch; rerender thumbnails
+
+```bash
+sed -i -e '/^Dialogue: 0,0:00:00.00,0:00:01.00,L,,0,0,0,,.*{BRAND}$/d' \
+ -e 's/^\(    shutil.copy(C1W \/ "thumb_titled.png", out)\)$/\1\n    brand_corner(out, "bl")  # BRAND.md: small logo_horizontal bottom-left/' \
+ -e 's/^\(    shutil.copy(L1W \/ "long01_thumb_titled.png", out)\)$/\1\n    brand_corner(out, "bl")/' \
+ -e 's/^\(    shutil.copy(C1W \/ "thumb_v_titled.png", out)\)$/\1\n    brand_corner(out, "tc", width_frac=0.32)  # vertical: top centre, above the question/' \
+ -e 's/^Style: Q,Mukta,150,&H0000E5FF,&H000000FF,&H00000000,&H96000000,-1,0,0,0,100,100,0,0,1,11,6,8,30,30,70,1$/Style: Q,Mukta,150,\&H0000E5FF,\&H000000FF,\&H00000000,\&H96000000,-1,0,0,0,100,100,0,0,1,11,6,8,30,30,210,1/' \
+ -e 's/^from gemini_image import generate  # noqa: E402$/from gemini_image import generate  # noqa: E402\nfrom gen_brand import brand_corner  # noqa: E402/' scripts/gen_channel_assets.py && grep -n "brand_corner\|{BRAND}\|30,30,210" scripts/gen_channel_assets.py && .venv/Scripts/python.exe -m py_compile scripts/gen_channel_assets.py && for f in thumb_text thumb_v_text long01_thumb_text; do AUTO_PREVIEW=0 .venv/Scripts/python.exe -X utf8 scripts/gen_channel_assets.py $f; done
+```
+
+```text
+19:from gen_brand import brand_corner  # noqa: E402
+93:Dialogue: 0,0:00:00.00,0:00:01.00,T,,0,0,0,,{{\\an5\\pos({TITLE_POS[0]},{TITLE_POS[1] - 40})\\q2}}{BRAND}
+169:    brand_corner(out, "bl")  # BRAND.md: small logo_horizontal bottom-left
+227:Style: Q,Mukta,150,&H0000E5FF,&H000000FF,&H00000000,&H96000000,-1,0,0,0,100,100,0,0,1,11,6,8,30,30,210,1
+241:    brand_corner(out, "tc", width_frac=0.32)  # vertical: top centre, above the question
+299:    brand_corner(out, "bl")
+saved D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\002_sharma-ji-ki-cycle\shorts\short_01_case-01\output\case01_thumbnail.png (1280, 720)
+saved D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\002_sharma-ji-ki-cycle\shorts\short_01_case-01\output\case01_thumbnail_vertical.png (1080, 1920)
+saved D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\long\output\long_01_thumbnail.png (1280, 720)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:39:11Z)**_
+
+<think><details><summary>Thought Process</summary>
+Thumbnails ban gaye hain, Munshi ke review ke baad dikha dunga. Ab banner ka background Gemini se 2K quality me ₹4.86 me banata hoon, Mitthu option 2 wale look me rakhunga aur reference ke liye Dadi-Golu ki sheets bhi bhej dunga.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:40:17Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Generate banner background (paid 2K) and compose
+
+```bash
+.venv/Scripts/python.exe - <<'PYEOF'
+from pathlib import Path
+p = Path("scripts/gen_brand.py"); s = p.read_text(encoding="utf-8")
+marker = '\nif __name__ == "__main__":'
+add = r'''
+
+BANNER_PROMPT = """Wide 16:9 YouTube channel banner background illustration, NO text, letters, numbers or signs anywhere.
+Scene: a cosy Indian mohalla lane at night (Gulmohar Mohalla): deep night-indigo sky (#1F1B4D) with a few soft stars,
+small houses with warm marigold (#F4A300) lamp-lit windows, a gulmohar tree with soft orange-red flowers, warm and
+peaceful, family-friendly, not scary.
+On the RIGHT side only (between 68% and 92% of the width, between 35% and 70% of the height), a gentle glimpse of
+Dadi sitting on a low charpai telling a story, Golu sitting beside her listening, and Mitthu the parrot perched on the
+charpai — Dadi and Golu exactly as in their reference sheets, Mitthu exactly like the attached parrot logo (big round
+green head, red beak, thin red neck ring), all fairly small.
+COMPOSITION IS CRITICAL: the whole CENTRE and LEFT-CENTRE of the image (from 20% to 65% of the width, from 30% to 70%
+of the height) must be calm and plain: dark night sky and a softly lit plain wall, no objects, no people, for a logo.
+Keep important details away from the top and bottom edges. Flat 2D cartoon style, thick clean outlines, flat colours
+in the brand palette: night indigo, marigold, cream (#FFF4DC), parrot green (#2FA84F)."""
+
+BW, BH = 2560, 1440
+SAFE = (507, 508, 2053, 931)  # 1546x423 visible on every device
+
+
+def banner_bg():
+    """PAID (2K, ~₹4.86): banner background, no text."""
+    raw = WORK / "banner_v2_raw.png"
+    generate(BANNER_PROMPT, raw, refs=[CHAR / "dadi_sheet.png", CHAR / "golu_sheet.png", CHOSEN],
+             aspect_ratio="16:9", size="2K")
+    im = Image.open(raw).convert("RGB")
+    s = max(BW / im.width, BH / im.height)
+    im = im.resize((round(im.width * s), round(im.height * s)), Image.LANCZOS)
+    x, y = (im.width - BW) // 2, (im.height - BH) // 2
+    im.crop((x, y, x + BW, y + BH)).save(WORK / "banner_v2_art.png")
+    banner()
+
+
+def banner():
+    """Free: logo_horizontal + tagline inside the safe area on the background; plus device crop previews."""
+    bg = Image.open(WORK / "banner_v2_art.png").convert("RGBA")
+    lg = Image.open(BRAND / "logo_horizontal.png").convert("RGBA")
+    sx0, sy0, sx1, sy1 = SAFE
+    lw = int((sx1 - sx0) * 0.50)
+    lg = lg.resize((lw, int(lg.height * lw / lg.width)), Image.LANCZOS)
+    tag = text_layer(TAGLINE, "Mukta", 70, CREAM, bold=True)
+    gap = 18
+    block_h = lg.height + gap + tag.height
+    x = sx0 + 60
+    y = sy0 + (sy1 - sy0 - block_h) // 2
+    bg.alpha_composite(lg, (x, y))
+    bg.alpha_composite(tag, (x + (lg.width - tag.width) // 2, y + lg.height + gap))
+    out = BRAND / "kissago_banner_v2.png"
+    bg.convert("RGB").save(out)
+    print("saved", out, bg.size, "| logo+tagline box:", (x, y, x + lg.width, y + block_h), "inside safe", SAFE)
+    # device previews: TV = full, desktop = full-width middle band, mobile = safe area
+    full = bg.convert("RGB")
+    tv = full.resize((960, 540))
+    desk = full.crop((0, sy0, BW, sy1)).resize((1280, 212))
+    mob = full.crop(SAFE).resize((773, 212))
+    sheet = Image.new("RGB", (1280, 540 + 212 + 212 + 60), (240, 240, 240))
+    d = ImageDraw.Draw(sheet)
+    sheet.paste(tv, (0, 20)); d.text((5, 3), "TV (full 2560x1440)", fill=(0, 0, 0))
+    sheet.paste(desk, (0, 580)); d.text((5, 563), "Desktop (2560x423 band)", fill=(0, 0, 0))
+    sheet.paste(mob, (0, 812)); d.text((5, 795), "Mobile (1546x423 safe area)", fill=(0, 0, 0))
+    sheet.save(WORK / "banner_v2_devices.jpg", quality=90)
+'''
+s = s.replace(marker, add + marker, 1)
+p.write_text(s, encoding="utf-8"); print("ok")
+PYEOF
+.venv/Scripts/python.exe -W error -c "
+import ast
+with open('scripts/gen_brand.py',encoding='utf-8') as f: ast.parse(f.read())" && AUTO_PREVIEW=0 timeout 150 .venv/Scripts/python.exe -X utf8 scripts/gen_brand.py banner_bg 2>&1 | grep -E "cost|saved|rror|SKIP"
+```
+
+```text
+ok
+Is image ka cost: ₹4.86  |  Aaj ka total: ₹27.69  |  ₹500 me se bacha: ₹282.88
+saved D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\kissago_banner_v2.png (2560, 1440) | logo+tagline box: (567, 544, 1340, 894) inside safe (507, 508, 2053, 931)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:40:19Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\banner_v2_devices.jpg`
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:40:46Z)**_
+
+<think><details><summary>Thought Process</summary>
+Banner background ban gaya (₹4.86, kharcha update), lekin preview me logo cream background par padhne mushkil hai aur desktop crop me Golu-Dadi ke chehre kat rahe hain. Main dono free fixes kar raha hoon — logo ke peeche halka indigo panel add karunga aur background ko bada/upar khisaka kar dobara crop karunga, bina naya image generate kiye.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:40:59Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Add indigo panel and reframe background (free)
+
+```bash
+.venv/Scripts/python.exe - <<'PYEOF'
+from pathlib import Path
+p = Path("scripts/gen_brand.py"); s = p.read_text(encoding="utf-8")
+old_crop = '''    im = Image.open(raw).convert("RGB")
+    s = max(BW / im.width, BH / im.height)
+    im = im.resize((round(im.width * s), round(im.height * s)), Image.LANCZOS)
+    x, y = (im.width - BW) // 2, (im.height - BH) // 2
+    im.crop((x, y, x + BW, y + BH)).save(WORK / "banner_v2_art.png")
+    banner()'''
+new_crop = '''    reframe()
+
+
+def reframe(zoom=1.2, ax=1.0, ay=1.0):
+    """Free: re-crop the generated background. zoom > 1 and ay=1 (keep the bottom) lift the characters into the
+    desktop band (y 508-931); ax=1 keeps the right edge, where Dadi, Golu and Mitthu sit."""
+    im = Image.open(WORK / "banner_v2_raw.png").convert("RGB")
+    s = max(BW / im.width, BH / im.height) * zoom
+    im = im.resize((round(im.width * s), round(im.height * s)), Image.LANCZOS)
+    x, y = int((im.width - BW) * ax), int((im.height - BH) * ay)
+    im.crop((x, y, x + BW, y + BH)).save(WORK / "banner_v2_art.png")
+    banner()'''
+assert old_crop in s; s = s.replace(old_crop, new_crop)
+old_place = '''    bg.alpha_composite(lg, (x, y))
+    bg.alpha_composite(tag, (x + (lg.width - tag.width) // 2, y + lg.height + gap))'''
+new_place = '''    # BRAND.md: on a busy/light picture the logo sits on a soft indigo panel (cream text needs a dark ground)
+    m = 34
+    panel = Image.new("RGBA", (lg.width + 2 * m, block_h + 2 * m), (0, 0, 0, 0))
+    ImageDraw.Draw(panel).rounded_rectangle((0, 0, panel.width - 1, panel.height - 1), radius=40, fill=INDIGO + (225,))
+    bg.alpha_composite(panel, (x - m, y - m))
+    bg.alpha_composite(lg, (x, y))
+    bg.alpha_composite(tag, (x + (lg.width - tag.width) // 2, y + lg.height + gap))'''
+assert old_place in s; s = s.replace(old_place, new_place)
+s = s.replace("    x = sx0 + 60\n    y = sy0 + (sy1 - sy0 - block_h) // 2\n", "    x = sx0 + 80\n    y = sy0 + (sy1 - sy0 - block_h) // 2\n")
+p.write_text(s, encoding="utf-8"); print("ok")
+PYEOF
+.venv/Scripts/python.exe -X utf8 scripts/gen_brand.py reframe
+```
+
+```text
+ok
+saved D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\kissago_banner_v2.png (2560, 1440) | logo+tagline box: (587, 544, 1360, 894) inside safe (507, 508, 2053, 931)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:40:59Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\banner_v2_devices.jpg`
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:41:07Z)**_
+
+<think><details><summary>Thought Process</summary>
+Teeno crop me logo aur tagline saaf hain, aur Dadi-Golu ke chehre poore dikh rahe hain, bas Mitthu ka sar thoda kat raha hai. Ab nayi brand files ki register rows jod kar Munshi se brand review karwa raha hoon.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:41:24Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Register brand files; list brand outputs
+
+```bash
+.venv/Scripts/python.exe -X utf8 - <<'PYEOF'
+import csv, datetime
+from pathlib import Path
+p = Path("shared/assets_license.csv")
+rows = list(csv.DictReader(p.open(encoding="utf-8", newline="")))
+have = {r["path"] for r in rows}
+B = "channels/dadi-ki-kahaniyan/brand/"
+new = {
+ B + "icon.png": "own: Gemini icon (brand/_work/icon_v2.png, option 2), background removed by script",
+ B + "wordmark.png": "own: libass render, Rozha One + Mukta (shared/fonts, SIL OFL)",
+ B + "logo_horizontal.png": "own: icon.png + wordmark.png",
+ B + "logo_stacked.png": "own: icon.png + wordmark.png",
+ B + "kissago_dp.png": "own: icon.png on indigo",
+ B + "watermark.png": "own: icon.png 150x150",
+ B + "kissago_banner_v2.png": "own: Gemini background (brand/_work/banner_v2_raw.png) + logo + Mukta tagline",
+}
+for path, src in new.items():
+    if path not in have and Path(path).exists():
+        rows.append({"path": path, "source_url": src, "author": "Kissago (channel owner)",
+                     "license": "own (Gemini-generated)" if "Gemini" in src else "own",
+                     "attribution_text": "", "date_added": datetime.date.today().isoformat()})
+with p.open("w", encoding="utf-8", newline="") as fh:
+    w = csv.DictWriter(fh, fieldnames=rows[0].keys()); w.writeheader(); w.writerows(rows)
+print(len(rows), "rows")
+PYEOF
+ls -la channels/dadi-ki-kahaniyan/brand/*.png | awk '{printf "%7.0f KB %s\n",$5/1024,$9}'
+```
+
+```text
+43 rows
+   4537 KB channels/dadi-ki-kahaniyan/brand/dadi_ki_kahaniyan_banner.png
+    611 KB channels/dadi-ki-kahaniyan/brand/dadi_ki_kahaniyan_dp.png
+   1713 KB channels/dadi-ki-kahaniyan/brand/icon.png
+   4542 KB channels/dadi-ki-kahaniyan/brand/kissago_banner.png
+   3651 KB channels/dadi-ki-kahaniyan/brand/kissago_banner_v2.png
+    197 KB channels/dadi-ki-kahaniyan/brand/kissago_dp.png
+    215 KB channels/dadi-ki-kahaniyan/brand/logo_horizontal.png
+    540 KB channels/dadi-ki-kahaniyan/brand/logo_stacked.png
+     22 KB channels/dadi-ki-kahaniyan/brand/watermark.png
+     45 KB channels/dadi-ki-kahaniyan/brand/wordmark.png
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:44:48Z)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="Agent"><details>
+<summary>Tool use: **Agent**</summary>
+Brand kit review
+
+```text
+  This agent's report was delivered to you as a message from "aa3375e4ed4c4ed61" (its SubagentHandback call). Read it there; it is not repeated here.
+  
+agentId: aa3375e4ed4c4ed61 (use SendMessage with to: 'aa3375e4ed4c4ed61', summary: '<5-10 word recap>' to continue this agent)
+<usage>subagent_tokens: 73928
+tool_uses: 30
+duration_ms: 203430</usage>
+```
+</details></tool-use>
+
+_**Agent - sidechain (2026-10-18 15:41:24Z)**_
+
+R1 BRAND REVIEW for the rebrand किस्सागो | Kissago (channel key dadi-ki-kahaniyan). REVIEW ONLY, no edits to production files, no paid calls. Temp files (as JPG) in channels/dadi-ki-kahaniyan/brand/_work/review/. Read shared/RULES.md (sections 6, 10, 12, 13), channels/dadi-ki-kahaniyan/RULES.md, channel_bible.md (Mitthu's look) and brand/BRAND.md first.
+
+Files to check (channels/dadi-ki-kahaniyan/brand/): icon.png (2048, transparent, from _work/icon_v2.png chosen by the user), wordmark.png, logo_horizontal.png, logo_stacked.png, kissago_dp.png (800x800), watermark.png (150x150), kissago_banner_v2.png (2560x1440, background _work/banner_v2_raw.png from Gemini, logo + tagline "हर शाम एक नया किस्सा" on an indigo panel; device previews in _work/banner_v2_devices.jpg). Thumbnails with the new corner logo: stories/001_lalchi-halwai/long/output/long_01_thumbnail.png, stories/002_sharma-ji-ki-cycle/shorts/short_01_case-01/output/case01_thumbnail.png and case01_thumbnail_vertical.png.
+
+Check:
+1. Hindi text: zoom on "किस्सागो" (Rozha One) in wordmark/lockups/banner and the tagline (Mukta): matras, the स्स conjunct, ो — no broken shaping. Text must be rendered by libass/fonts, not AI (scripts/gen_brand.py text_layer).
+2. Colours: name marigold #F4A300, KISSAGO/tagline cream #FFF4DC, panels/DP indigo #1F1B4D (sample pixels); icon uses the palette + Mitthu's red beak/neck ring (allowed: bible look).
+3. Small sizes: downscale DP to 98x98 and 48x48 and the icon/watermark to 48x48 — is Mitthu recognisable? Thumbnail corner logo legible on a phone (downscale 1280x720 thumbnails to 320x180 and 160x90).
+4. Transparency: icon/lockups/watermark have a clean alpha (no white halo on indigo, no holes in the book pages).
+5. Banner: everything important inside the 1546x423 safe area (x 507-2053, y 508-931); desktop/TV/mobile crops OK; characters (Dadi, Golu as in their sheets; Mitthu) not awkwardly cut in the desktop band; no text/letters drawn by the AI in the background.
+6. DP: icon within the middle ~70%, survives a circle crop.
+7. Copyright (RULES 10): all brand files have rows in shared/assets_license.csv; Rozha One OFL row + shared/fonts/OFL_RozhaOne.txt present; no brand logos, no franchise characters, no studio/artist style names in scripts/gen_brand.py prompts.
+8. Thumbnails: corner logo bottom-left (never bottom-right), doesn't cover faces/key object; vertical: logo top-centre above the question; RULES 6/13.
+Verdict per RULES 11 (BLOCKER/MINOR/Note), log one line (R1, verdict, time) in channels/dadi-ki-kahaniyan/log.md. Short report in standard format.
+
+_**Agent - sidechain (2026-10-18 15:41:24Z)**_
+
+<system-reminder>
+Your final report is delivered through SubagentHandback: when your work is complete, call SubagentHandback({message: <your full report>}). The call ends your run, so make it your last step. Only a SubagentHandback call reaches your caller as your result; plain text you write at the end is not delivered.
+</system-reminder>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 15:41:30Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+List relevant directories and file sizes
+
+`cd /d/Story-Channel; ls shared channels/dadi-ki-kahaniyan channels/dadi-ki-kahaniyan/brand channels/dadi-ki-kahaniyan/brand/_work shared/fonts; wc -l shared/RULES.md channels/dadi-ki-kahaniyan/RULES.md channels/dadi-ki-kahaniyan/channel_bible.md channels/dadi-ki-kahaniyan/brand/BRAND.md`
+
+```text
+channels/dadi-ki-kahaniyan:
+RULES.md
+brand
+carry_over.md
+channel.json
+channel_bible.md
+characters
+log.md
+stories
+
+channels/dadi-ki-kahaniyan/brand:
+BRAND.md
+_work
+channel_description.md
+dadi_ki_kahaniyan_banner.png
+dadi_ki_kahaniyan_dp.png
+icon.png
+kissago_banner.png
+kissago_banner_v2.png
+kissago_dp.png
+logo_horizontal.png
+logo_stacked.png
+watermark.png
+wordmark.png
+
+channels/dadi-ki-kahaniyan/brand/_work:
+art.png
+banner_art.png
+banner_raw.png
+banner_v2_art.png
+banner_v2_devices.jpg
+banner_v2_raw.png
+dp_raw.png
+fonts
+icon_contact_sheet.jpg
+icon_v1.png
+icon_v2.png
+icon_v3.png
+icon_v4.png
+title.ass
+titled.png
+txt
+
+shared:
+RULES.md
+assets_license.csv
+fonts
+music
+sfx
+sync.log
+
+shared/fonts:
+Mukta-Bold.ttf
+Mukta-ExtraBold.ttf
+OFL.txt
+OFL_RozhaOne.txt
+RozhaOne-Regular.ttf
+  129 shared/RULES.md
+   17 channels/dadi-ki-kahaniyan/RULES.md
+  102 channels/dadi-ki-kahaniyan/channel_bible.md
+   44 channels/dadi-ki-kahaniyan/brand/BRAND.md
+  292 total
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 15:41:34Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Read rules, brand doc, log
+
+`cd /d/Story-Channel; cat shared/RULES.md channels/dadi-ki-kahaniyan/RULES.md channels/dadi-ki-kahaniyan/brand/BRAND.md; tail -20 channels/dadi-ki-kahaniyan/log.md`
+
+```text
+# Munshi RULES — Story-Channel
+
+Shared rules for every channel. Munshi reads this file first, then `channels/<key>/RULES.md`.
+- Channel RULES can be stricter than shared RULES, never looser. Copyright, channel ID, secrets and upload safety can never be relaxed by a channel.
+
+
+These are the hard rules. If a builder summary, a script or a file disagrees with them, the rule wins and the step is not PASS. Edit this file to add new rules; Munshi reads it fresh every time.
+- A measured value outside a RULES limit is always FIX, never PASS, even if small. (in R1; after R2 see section 11)
+
+## 1. Budget
+- Prepaid Google Cloud budget: ₹500, auto-reload off. Current balance is whatever `cost_log.csv` says.
+- Every paid call (Gemini image ≈ ₹3.24 each at 1K, Gemini TTS per line) must be in `cost_log.csv` with date, project, item, ₹.
+- No paid call without the user's OK first. A fix that costs money is always ASK, never FIX.
+- Flag it if a step cost more than 30% above its estimate (e.g. LONG_01 TTS: estimate ₹4.85, actual ₹6.63).
+
+## 2. Story and characters (from `channel_bible.md`)
+- Characters must match their approved sheets: face, clothes, colours, age look. Compare each scene image against the sheet with Read.
+- The action in each image must match what the line says at that moment (who is holding what, who is talking).
+
+## 3. Audio
+- Final loudness: -14 LUFS integrated (±1), true peak ≤ -1.0 dBFS.
+- Music sits under the voice: 12–14 dB below for Shorts, up to ~18–20 dB for narration-heavy long videos. If it is quieter than 20 dB under, flag it.
+- Music level is measured one way only: integrated LUFS of the voice-only stem vs the music-only stem over the same speech sections. Builder and Munshi both use this method.
+- Mood changes get a crossfade (≥1 s). No sudden music cuts under dialogue.
+- No leaked background audio, clicks, or a line cut off mid-word.
+
+## 4. Captions
+- One `.srt` per video, Hindi, UTF-8.
+- Each caption must appear while that line is being spoken (±0.3 s), over the right character's shot.
+- Lines whose timing was estimated rather than taken from Whisper must be listed in the report.
+
+## 5. Video
+- Long video: 1920×1080, 30 fps, H.264, 16:9. Short: 1080×1920, ≤60 s, 9:16.
+- Target length: the duration the user approved at preview. Before preview, the script estimate is only a guide. Final must be within ±10% of the approved preview length; outside that is ASK.
+- Preview builds (960×540) are only for review. They are never uploaded.
+
+## 6. Thumbnail
+- 1280×720, JPG or PNG, ≤ 2 MB.
+- Hindi text is rendered by libass/FFmpeg (HarfBuzz shaping), never drawn by the AI. Zoom in and check matras and joined letters (ड़, दु, क्ष, etc.).
+- Text readable on a phone: letter height ≥ ~12% of frame height, high contrast, max ~4 words.
+- Thumbnail text must not repeat the title word for word.
+- No spoilers: no ending, no twist, no mystery answer.
+- Bottom-right corner (~15% × 12%) has nothing important, because YouTube puts the duration there.
+
+## 7. Metadata
+- Title ≤ 100 characters, no `<` or `>`. Description ≤ 5000 characters.
+- Tags total ≤ 500 characters. 3–5 hashtags in the description (the first 3 show above the title; more than 15 and YouTube ignores all of them).
+- Every CC BY music track used (e.g. Incompetech / Kevin MacLeod) is credited in the description exactly as its licence asks.
+- Made-for-kids and AI-disclosure values come from `channels/<key>/channel.json`. Never guess them.
+
+## 8. Publishing
+- Fixed publish times: long video at 19:00 IST, its Short at 21:00 IST the same day.
+  - Long upload finished before 18:45 IST -> long publishes 19:00 the same day; otherwise 19:00 the next day.
+  - Short upload finished before 20:45 IST -> Short publishes 21:00 the same day as its long; otherwise both move to the next day.
+  - A Short not made from a long (e.g. Dadi Jasoos case) also publishes at 21:00.
+- Per day per channel: at most one long (19:00) and one Short (21:00).
+- Planned frequency: long videos 2-3 per week, Shorts daily (from stories already made, ₹0).
+- Nothing goes Public or gets scheduled without the user's OK in that conversation.
+- One upload per video. If `output/upload_result.json` exists, do not upload again.
+- Short -> Long link (MANDATORY): every Short made from a long video must (a) have the long video's URL in its description with a short CTA line, (b) get an automatic first comment "पूरी कहानी यहाँ देखें 👉 <long URL>" posted right after it becomes public, and (c) the user sets in Studio: Related video = the long video, and pins that comment. The YouTube API cannot set Related video or pin comments, so (c) stays manual; Munshi shows this checklist after every Short upload and asks about it at the start of the next session until the user confirms.
+
+## 9. Safety
+- Never show or commit `.env`, `secrets/`, API keys or OAuth tokens.
+- Never delete files; move them to `_to_delete/`.
+- Paid source files (story images/, audio/, characters/) are read-only for every build. Builds write only to their own _work/ and output/ folders. After every build Munshi checks that no paid source file changed (git status / hash). Any change is a BLOCKER.
+
+## 10. Copyright (STRICT — any violation is FIX and blocks upload)
+- Every external file used in any video (music, sound effect, font, image, footage, voice) must have a row in `shared/assets_license.csv`: path, source_url, author, license, attribution_text, date_added. No row = not allowed.
+- Allowed licences only: CC0; CC BY 4.0 (with exact credit in the description); SIL OFL (fonts); YouTube Audio Library tracks (follow their attribution note); our own Gemini-generated images/voices; our own recordings.
+- Never allowed: CC BY-NC (non-commercial, conflicts with monetization), CC BY-ND (we edit/mix), CC BY-SA, "free for personal use", Freesound "Sampling+", unknown source, anything ripped from YouTube/Spotify/Instagram/films/TV, Bollywood or any commercial song (even hummed or sung by TTS), Google/Pinterest images.
+- Freesound: licence is per sound. Check each file's own licence page; only CC0 or CC BY 4.0.
+- Content: no real brand logos, no film/TV/cartoon characters (Chhota Bheem, Motu Patlu, Disney, etc.), no celebrity likeness, no copied song lyrics, no copied text from modern books. Old folk tales (Panchatantra, Jataka, Akbar-Birbal) are public domain, but we always write our own version, never copy a modern retelling.
+- Image prompts never name a studio, franchise or living artist ("Pixar style", "Ghibli style", etc.).
+- Before upload, Munshi checks: every audio/image/font file in the final build is in the register, every CC BY item is credited in the description exactly as its licence asks, and no source audio from outside our pipeline is in the mix.
+- After upload: if YouTube Studio shows any copyright claim or strike, stop all new uploads and tell the user. CC music sometimes gets false Content ID claims; dispute only with the licence proof from the register, after the user agrees.
+
+## 11. Review limits and severity
+Every problem Munshi reports is marked BLOCKER or MINOR.
+
+BLOCKER (never waived, in any round):
+- Copyright (section 10), wrong channel, any secret exposed.
+- Wrong character on screen for a line, wrong voice for a character, a line missing or cut off.
+- Caption more than 1 s away from its line, or caption text not matching what is spoken.
+- Loudness outside -14 LUFS ±1, true peak above -1.0 dBFS, audible clipping or leaked outside audio.
+- Wrong resolution/codec, or a preview file used as final.
+- Thumbnail: broken Hindi matras, spoiler, unreadable text, important thing in the bottom-right corner.
+- Metadata: title over 100 chars, more than 15 hashtags, missing CC BY credit, "for kids" wording (title, thumbnail, description or tags), mystery answer revealed.
+- Length outside ±10% of the approved preview length.
+- Story problem: moral missing or a scene that contradicts the script.
+
+MINOR (everything else that breaks a RULES limit only slightly), e.g.: caption off by 0.3–1 s, caption shorter than 0.4 s, music level within 3 dB of target, thumbnail text slightly under the size rule, small silent gaps, missing colour tags, tiny cosmetic issues.
+Taste points (pacing feel, colour choice, music phrase) are "Note" only and never count as problems.
+
+Rounds:
+- Round 1 (R1): full review for that stage; BLOCKER and MINOR both come back as FIX (free) or ASK (paid).
+- Round 2 (R2): re-check only what changed and what failed in R1.
+- After R2: if any BLOCKER remains → ASK the user, stop. If only MINOR remain → verdict "PASS-WITH-NOTES": the stage is passed and the pipeline moves on to the next step (including upload when the user has approved it). No third round.
+- Every MINOR waived after R2 is written to channels/<key>/carry_over.md (project, issue, suggested fix). Before the next video's build, the builder reads carry_over.md and fixes those causes in the pipeline, then marks them done.
+
+These limits never weaken: copyright (section 10), channel ID check, secrets, and the full pre-upload check.
+At the end of each review, add one line to channels/<key>/log.md with the round (R1/R2), verdict and approximate time taken.
+
+## 12. Originality (YouTube "inauthentic content" policy)
+- Every new story must differ clearly from all previous stories of the channel in at least 3 of: moral, main conflict/plot shape, setting, lead characters, genre/tone (comedy, mystery, emotional, adventure), ending type.
+- At script stage Munshi compares the new script with every previous story.md in the channel and lists the closest match and what is different. If fewer than 3 differ -> BLOCKER (ASK the user).
+- Titles and thumbnails must not follow one fixed template word-for-word across videos.
+- The channel name suffix (`title_suffix` in channels/<key>/channel.json, e.g. "| किस्सागो") may stay the same in every title — it is branding. The rest of the title (story name, hook, extra keywords) must vary; do not repeat the same keyword block (like "| Hindi Moral Story | Hindi Kahani") in every video. Rotate keywords or put them in tags/description instead.
+- No two videos may reuse the same narration audio. Shorts cut from their own long video are allowed.
+- Every 5th long video Munshi writes a short "channel variety" note in log.md: genres used, morals used, what to try next.
+
+## 13. Audience & algorithm (CTR, retention, session)
+Long videos:
+- Hook: the first spoken line must start within 1.0 s. The first 30 s must set up the story's main question or conflict. Any frame/intro before the story itself (Dadi-Golu opening) is max 10 s.
+- Promise kept: whatever the title and thumbnail promise (e.g. the magic cauldron) must appear on screen within the first 60 s. A title/thumbnail that promises something the video does not show is a BLOCKER (misleading).
+- Visual change: no single shot stays without a cut or new camera move for more than 8 s.
+- End: the last 20 s carry no essential visuals or captions in the end-screen area, so end-screen elements can sit there. The last spoken line asks viewers one specific question about the story (for comments), not a generic "like and subscribe".
+Shorts:
+- First frame is a strong visual (no title card, no black frame). First word within 0.5 s.
+- Length 30-58 s.
+- Captions and key visuals stay out of the bottom 20% and right 15% (YouTube buttons).
+- Ending is either a cliffhanger towards the long video or a clean loop back to the first frame.
+Thumbnail:
+- Readable at phone size: Munshi downscales it to 160x90 px and checks the main face/emotion and the text are still recognisable.
+- One clear focal point (a face with strong emotion or the key object), max 4 words, high contrast.
+Title:
+- The hook words come in the first 40 characters (mobile cuts long titles). Curiosity is fine, misleading is not.
+Session:
+- Every long video goes into its channel playlist, gets an end screen (next video + subscribe), and every Short from it has Related video = that long (manual Studio checklist).
+Severity: a misleading title/thumbnail is a BLOCKER; the rest are FIX in R1 and MINOR after R2 (section 11).
+# Channel RULES — किस्सागो | Kissago (key: dadi-ki-kahaniyan; formerly दादी की कहानियाँ)
+
+Only the rules special to this channel. Read `shared/RULES.md` first; everything there applies here too.
+- Channel RULES can be stricter than shared RULES, never looser. Copyright, channel ID, secrets and upload safety can never be relaxed by a channel.
+
+## Story and characters (from `channel_bible.md`)
+- Dadi (Kamla Devi) narrates. Every other character speaks their own lines in their own voice.
+- Mitthu (parrot) has no hands: no hand gestures, holding things or pointing with hands.
+- Dadi's home (in Gulmohar Mohalla): a kacha mud house with a tiled roof, BROWN wooden door, swept aangan, green fields behind, exactly like the channel banner (`channels/dadi-ki-kahaniyan/brand/_work/banner_art.png`). There is no green door.
+- Setting: Dadi's home, the Golu–Mitthu opening/closing frame and all Dadi Jasoos cases are in Gulmohar Mohalla. The story Dadi narrates inside a moral-story video can be set in any village or town the approved script names (e.g. Rampur in LONG_01); check location consistency against that script. Village kitchens still use a mitti ka chulha, never a gas stove.
+
+## Metadata
+- Mystery (Dadi Jasoos) videos: the answer never goes in the title, description or thumbnail. It goes in the pinned comment 24 h after publishing.
+- किस्सागो (Kissago) is set to made_for_kids = false (family audience, decided by the user). So title, thumbnail, description and tags must speak to the whole family, not only to children: no "for kids" / "बच्चों के लिए" / nursery-style wording. Flag any such wording as FIX.
+- Titles end with the channel brand: `title_suffix` from channel.json ("| किस्सागो"). The old suffix "| दादी की कहानियाँ" is not used any more.
+- Thumbnail corner label = `brand_label` from channel.json ("किस्सागो").
+- Dadi, Golu and Mitthu stay the channel's hosts/characters; the mystery series keeps its name "दादी जासूस" (Dadi Jasoos).
+# Brand guide — किस्सागो | Kissago
+
+- **Name:** किस्सागो | Kissago (channel key `dadi-ki-kahaniyan`, formerly दादी की कहानियाँ)
+- **Handle:** @KissagoKahaniya — https://www.youtube.com/@Kissagokahaniya
+- **Tagline:** हर शाम एक नया किस्सा
+- **Hosts / characters:** Dadi, Golu, Mitthu (looks: `channel_bible.md`). Mystery series: "दादी जासूस".
+
+## Colours
+| Name | Hex | Use |
+|---|---|---|
+| Night indigo | `#1F1B4D` | backgrounds (DP circle, banner sky, cards) |
+| Marigold | `#F4A300` | the name "किस्सागो", highlights |
+| Cream | `#FFF4DC` | secondary text ("KISSAGO", tagline), light backgrounds |
+| Parrot green | `#2FA84F` | accent only (Mitthu, small details) |
+
+libass/ASS colours are BGR: marigold `&H0000A3F4&`, cream `&H00DCF4FF&`, indigo `&H004D1B1F&`, green `&H004FA82F&`.
+
+## Fonts
+- **Wordmark:** Rozha One (Indian Type Foundry, SIL OFL 1.1) — `shared/fonts/RozhaOne-Regular.ttf`. Only for the name "किस्सागो" (and big titles if wanted).
+- **Everything else:** Mukta (Bold/ExtraBold) — `shared/fonts/`.
+- Hindi text is always rendered by libass/HarfBuzz (letter spacing 0), never by an image model. Zoom-check matras.
+
+## Logo
+Files (in `brand/`, transparent PNG unless noted): `icon.png` (2048x2048, Mitthu on an open book, no text),
+`logo_horizontal.png` (icon left + name right), `logo_stacked.png` (icon top + name below),
+`kissago_dp.png` (800x800), `kissago_banner_v2.png` (2560x1440), `watermark.png` (150x150).
+
+When to use what:
+- **Icon only:** profile picture, video watermark, favicon-size places, anything smaller than ~200 px wide.
+- **Horizontal (icon + name):** banner, thumbnail corner, end cards, wide layouts.
+- **Stacked:** square / vertical layouts (Shorts covers, posters, social posts).
+
+Rules:
+- **Minimum size:** icon 48 px; horizontal lockup 240 px wide (name must stay readable); stacked 160 px wide.
+- **Clear space:** keep empty space around the logo of at least the height of the "क" in "किस्सागो" (about 1/4 of the icon height) on every side.
+- On busy pictures put the logo on a soft indigo or cream patch (60-80% opacity) instead of stretching or outlining it.
+- Do not recolour, stretch, rotate, add effects, or redraw the name in another font. Do not put the icon inside another shape except the DP circle.
+
+## Thumbnails
+- Corner brand: small `logo_horizontal` (about 18-20% of the thumbnail width) at bottom-left — never bottom-right (video length sits there).
+- Main title text: Mukta ExtraBold, max 4 words, high contrast (RULES sections 6 and 13).
+
+## Banner
+- Everything important inside the 1546x423 safe area (centre of the 2560x1440 canvas); check desktop, TV and mobile crops.
+2026-10-18 | long_01 | 9 metadata (re-review) | PASS | title 81, desc 1488, 5 hashtags, 21 tags 375/500 chars (YouTube count), 6 CC BY credits ok, TAGS in long_01.txt = meta.json
+2026-10-18 | long_01 | 7 final build (length, RULES 5 updated) | PASS | user approved 5:06 preview; final 306.17s = preview 306.17s (0%, within +/-10%); long_01.mp4 unchanged since re-review (13:22), 1920x1080 h264 yuv420p 30fps; all re-review checks stand
+2026-10-18 | long_01 | publish dry-run | PASS | upload.json written (channel UCy071_4g4vGemktFHybqkhQ, publish 2026-10-20 19:00 IST, kids=false, synthetic=false, cat 1, no playlist); dry-run OK, no network; copyright register (RULES 10 / assets_license.csv) not yet available -> not reviewed
+2026-10-18 | long_01 | copyright (RULES 10) | PASS | all used assets registered w/ allowed licence (6 Incompetech CC BY 4.0, 3 Freesound CC0, Mukta OFL, 31 scene imgs + 51 TTS + thumb = own Gemini, all in cost_log); 6/6 credits exact in upload.json; mix-voice-music residual = 5 SFX bursts only (floor -98 dB); prompts/text/images clean
+2026-10-18 | long_01 | publish | PUBLISHED | video Ogfqow8rbGY uploaded (scheduled 2026-10-20 19:00 IST requested), thumbnail ok, captions ok, channel UCy071_4g4vGemktFHybqkhQ verified; user must confirm schedule in Studio (unaudited API may lock private)
+2026-10-18 | short_01_jadui-kadhai | preview build R1 (~25 min) | FIX | 51.87s, hook ok, end card 2.0s, music 13.0 LU under voice (stem method), captions match + above bottom 25%, publish 20 Oct 21:00 ok; BLOCKER: scene 22 line 7 shot shows kadhai inside + top of mitti lump (spoiler) -> fy/zoom fix; MINOR: Chhotu's open-mouth face in 0-1.5s hook shot; sharpness acceptable, no ASK
+2026-10-18 | short_01_jadui-kadhai | preview build R2 (~8 min) | PASS | B1 fixed: scene 22 line 7/8 crop shows only coin+rim edge, no kadhai inside/mitti lump (checked preview + simulated 1080x1920 final, start/mid/end of push-in); M1 fixed: hook 0-1.5s kadhai only, Sadhu cut at 1.5s; scenes 17/20/21 from cache, 51.87s unchanged, end card 2.0s, -13.8 LUFS / -1.1 dBTP
+2026-10-18 | short_01_jadui-kadhai | preview build R1 speed 1.08/gap 0.15 (~10 min) | PASS | 47.41s (45-50 ok); atempo ratio 1.075-1.080 on all 8 lines, pitch/voicing/HF same as 1.0x (no warble proxy), no clipped onsets/tails, line gaps ~0.20-0.28s; hook kadhai-only to 1.42s then Sadhu; sc22 coin+rim only; end card 2.0s; music 13.3 LU under voice (stem); -13.8 LUFS / -1.3 dBTP; captions aligned to new line starts; Rs 0 (no new cost_log rows)
+2026-10-18 | short_01_jadui-kadhai | preview build R2 gap 0.15/0.30 (~10 min) | PASS | 48.29s (45-50 ok); voice.wav silence at speaker changes 0.36-0.43s vs same-speaker 6->7 0.28s (TTS edge silence included), line starts match builder log; hook kadhai-only to 1.5s then Sadhu; sc22 coin+rim only; end card 2.05s; music 13.4 LU under voice (stem); -13.8 LUFS / -1.4 dBTP; paid folders (213 files) blob-identical to 464dad0, 7 stray Short wavs in _to_delete match HEAD blobs, line_04 = 464dad0; make_short guard_write+snapshot ok, only writes in paid folder = new TTS into audio/tts_cache with --spend; Rs 0
+2026-10-18 | short_01_jadui-kadhai | 7 final build R1 (~20 min) | FIX | 1080x1920 h264 High yuv420p tv/bt709 30fps + AAC 48k st; 48.30s vs approved preview 48.29s (0%); -13.9 LUFS / -1.3 dBTP; music 13.4 LU under voice (stem, speech sections); residual = magic SFX only; xfade 1.5s; all 8 lines Whisper-timed, line starts exact, chunks within 0.3s (line 5 checked); captions above bottom 25%, Hindi shaping ok; hook kadhai-only to 1.5s then Sadhu; sc22 coin+rim only (start/mid/end); end card 2.0s; right character per line; paid folders: no tracked file modified, 7 D = stray wavs in _to_delete (blob-identical), line_04 = HEAD; MINOR: no .srt in output/ (RULES 4) -> free fix or user waiver
+2026-10-18 | short_01_jadui-kadhai | 9 metadata R1 | PASS | title 63 chars, desc 504, 4 hashtags, 12 tags 201/500, txt TAGS = meta.json, no kids wording, no twist; 2/2 CC BY credits exact from register; publish_at 20 Oct 21:00 IST = 2h after Long 01 19:00 ok, but advance date vs RULES 8 same-day rule -> user decides; Related video = Studio click
+2026-10-18 | short_01_jadui-kadhai | 8 thumbnail R1 | N/A | Shorts: no custom thumbnail planned, RULES 6 has no Shorts requirement; upload.json must carry no thumbnail
+2026-10-18 | short_01_jadui-kadhai | copyright (RULES 10) R1 | PASS | Enchanted Valley + Hidden Agenda CC BY 4.0 (credited exactly), magic_376747 CC0, Mukta-ExtraBold OFL, scene_16/17/20/21/22 + TTS = own Gemini (registered); mix-voice-music residual = SFX only; no brand/franchise in frames or prompts
+2026-10-18 | short_01_jadui-kadhai | 7 final build R2 (~10 min) | PASS | M1 fixed: output/short_01_jadui-kadhai.srt UTF-8 Hindi, 31 cues, text = 8 lines.json lines; cue times = final ASS (scene_16_fe7a/17_34e3/20_8af3/21_38f2/22_db2b per scenes.txt) + scene offsets 0/7.80/19.234/29.168/37.668 within 0.01s; cues inside own line + 0-46.31s < 48.3s; final mp4 unchanged (13856285 B, mtime 17:36:09 before R1, 48.30s); characters/ = 25 files -> 188+25=213 ok
+2026-10-18 | short_01_jadui-kadhai | publish dry-run | PASS | upload.json written (short, parent Ogfqow8rbGY, channel UCy071_4g4vGemktFHybqkhQ, publish 2026-10-20 21:00 IST, kids=false, synthetic=false, cat 1, captions .srt, no thumbnail, no playlist); dry-run OK 1080x1920 h264 48.3s, desc line 1 + 1st comment = parent link; real upload waiting for user's ha after seeing dry-run
+2026-10-18 | short_01_jadui-kadhai | publish slot | USER EXCEPTION | user asked: Short + Long 01 both 2026-10-18 19:00 IST (RULES 8 wants 2 h gap); Long 01 moved by user in Studio to 18 Oct 19:00 (API confirmed)
+2026-10-18 | short_01_jadui-kadhai | publish dry-run R2 (19:00 slot) | PASS | dry-run OK: scheduled 2026-10-18T19:00:00+05:30, kids=false, captions .srt, no thumb/playlist, 1080x1920 h264 48.3s, parent Ogfqow8rbGY, 1st comment task +5 min; real upload NOT run (blocked by permission classifier) -> user must allow or run it
+2026-10-18 | channel | publish slot | USER APPROVED ONE-TIME | 2026-10-18: Case 01 (Short, scheduled 19:00 earlier) and Long 01 both publish at 19:00 IST; short_01_jadui-kadhai at 21:00 (supersedes the earlier 'both 19:00' exception line)
+2026-10-18 | short_01_jadui-kadhai | short->long checklist | video kWn4jKte090 -> long Ogfqow8rbGY | related_video: pending, pin_comment: pending
+2026-10-18 | short_01_jadui-kadhai | publish | PUBLISHED | video kWn4jKte090 uploaded (scheduled 2026-10-18 21:00 IST requested), parent Ogfqow8rbGY, desc line 1 + 1st comment task StoryChannel-Comment-kWn4jKte090 at 21:05 IST (Ready), captions ok, no thumb/playlist, channel UCy071_4g4vGemktFHybqkhQ verified; manual: Related video + pin comment + confirm Scheduled in Studio
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 15:41:34Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Read Mitthu bible description
+
+`cd /d/Story-Channel; grep -n -i -A8 "mitthu\|tota\|parrot" channels/dadi-ki-kahaniyan/channel_bible.md | head -60; ls scripts | grep -i brand`
+
+```text
+4:> Dadi, Golu aur Mitthu channel ke host/characters hain. Mystery series ka naam **"दादी जासूस"** hi rahega — Dadi har case ki jaasoos hain.
+5-> Title ke ant me `| किस्सागो` (channel.json `title_suffix`); thumbnail ke kone me "किस्सागो".
+6-> Channel art: `brand/kissago_banner.png` (2560x1440), `brand/dadi_ki_kahaniyan_dp.png` (800x800, no text). Old banner kept: `brand/dadi_ki_kahaniyan_banner.png`.
+7-
+8-> Har script aur har image isi bible ko follow karegi. Koi bhi naya case likhne ya image banane se pehle ise padho.
+9-
+10----
+11-
+12-## 1. Channel
+--
+34:- **Look:** dadi ka hara tota (parrot), laal choonch.
+35-- **Role:** kabhi-kabhi ek shabd dohrata hai jo clue ban jaata hai.
+36-
+37-### 4. Inspector Pandey
+38-- **Look:** ~45 saal, mote, khaki uniform, ghani moonchh.
+39-- **Role:** har baar dadi se pehle galat aadmi pakadne ki koshish karta hai, phir dadi se haar maanta hai.
+40-
+41----
+42-
+--
+71:- **Dadi ka ghar** (mohalle ke kinare): kacha mitti ka ghar, khaprail ki chhat, **bhoora lakdi ka darwaza**, saaf-supa aangan, peeche hare khet. Look reference: `brand/_work/banner_art.png` (channel banner wala aangan). Golu–Mitthu ka opening/closing frame isi aangan me hota hai.
+72-- Kabhi-kabhi special cases: shaadi, mela, train.
+73-
+74----
+75-
+76-## 6. Case Topics
+77-
+78-- **Choriyan:** cycle, haar, mithai, ped ke aam
+79-- **Jhooth pakadna:** alibi galat
+gen_brand.py
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 15:41:38Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Read bible header and gen_brand.py
+
+`cd /d/Story-Channel; sed -n 1,35p channels/dadi-ki-kahaniyan/channel_bible.md; wc -l scripts/gen_brand.py; cat scripts/gen_brand.py`
+
+```text
+# CHANNEL BIBLE — "किस्सागो | Kissago"
+
+> Channel ka naam: **किस्सागो | Kissago** (18 Oct 2026 se; pehle "दादी की कहानियाँ", usse pehle "दादी जासूस"). Folder/key `dadi-ki-kahaniyan` wahi hai.
+> Dadi, Golu aur Mitthu channel ke host/characters hain. Mystery series ka naam **"दादी जासूस"** hi rahega — Dadi har case ki jaasoos hain.
+> Title ke ant me `| किस्सागो` (channel.json `title_suffix`); thumbnail ke kone me "किस्सागो".
+> Channel art: `brand/kissago_banner.png` (2560x1440), `brand/dadi_ki_kahaniyan_dp.png` (800x800, no text). Old banner kept: `brand/dadi_ki_kahaniyan_banner.png`.
+
+> Har script aur har image isi bible ko follow karegi. Koi bhi naya case likhne ya image banane se pehle ise padho.
+
+---
+
+## 1. Channel
+
+- **Format:** Hindi mystery Shorts, 45–60 sec, 9:16, flat 2D cartoon style.
+- **Har episode ka dhaancha:** ek chhota case → 3 suspects → chhupe clues → end me **"बताओ, दोषी कौन?"** → answer agle Short ya pinned comment me.
+- **Maqsad:** dimaag chalana + halki comedy + ek chhoti seekh.
+- **Tone:** Family-friendly. Koi khoon-kharaba ya darawni cheez nahi.
+
+---
+
+## 2. Permanent Characters (look KABHI nahi badlega)
+
+### 1. दादी (Kamla Devi)
+- **Look:** ~70 saal, gol chehra, safed baalon ka joora, gol sunehra chashma, halki hari saree with pali border, lakdi ki chhadi, maathe par chhoti bindi.
+- **Swabhav:** shaant, tez nazar, meethi par chubhti baatein.
+- **Catchphrase:** "बेटा, चोर कितना भी चालाक हो... दादी से नहीं बच सकता!"
+
+### 2. गोलू
+- **Look:** ~10 saal ka pota, gol-matol, bikhre kaale baal, peeli T-shirt, neeli half-pant, laal joote.
+- **Swabhav:** jaldbaaz, hamesha galat andaza lagata hai, comedy deta hai.
+- **Catchphrase:** "दादी, मुझे पता है चोर कौन है!" *(aur hamesha galat)*
+
+### 3. मिठ्ठू
+- **Look:** dadi ka hara tota (parrot), laal choonch.
+- **Role:** kabhi-kabhi ek shabd dohrata hai jo clue ban jaata hai.
+274 scripts/gen_brand.py
+"""Kissago brand kit (BRAND.md). Paid steps only with the user's OK.
+
+Usage: python scripts/gen_brand.py icons [1 2 3 4]   -> brand/_work/icon_v<N>.png (Gemini 1K, ₹3.24 each)
+"""
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).parent))
+from gemini_image import generate  # noqa: E402
+from paths import channel_dir  # noqa: E402
+
+BRAND = channel_dir() / "brand"
+WORK = BRAND / "_work"
+CHAR = channel_dir() / "characters"
+
+ICON_BASE = """Flat vector logo icon, NO text, letters or numbers anywhere. {scene}
+Mitthu is EXACTLY the parrot in the attached reference sheet: green body, RED beak, thin RED neck ring, friendly eyes.
+Simple bold shapes, thick clean dark outlines (dark indigo #1F1B4D), flat colours only from: night indigo #1F1B4D,
+marigold #F4A300, cream #FFF4DC, parrot green #2FA84F, plus the red of the beak and neck ring. No gradients, no
+shadows, no texture, no scenery. The icon is centred and fills about 70% of the square. Plain flat PURE WHITE
+background (#FFFFFF) all around, nothing else in the image."""
+
+VARIANTS = {
+    1: "Mitthu the green parrot sits on top of an open book seen straight from the front; the book is cream with "
+       "marigold covers.",
+    2: "CLOSE-UP: Mitthu the green parrot is big (about 60% of the frame, head and upper body clearly readable at a tiny "
+       "size), and a small open book sits below him, partly visible.",
+    3: "Mitthu the green parrot sits on top of an open book, wings slightly open as if starting a story; cream pages, "
+       "marigold covers.",
+    4: "Mitthu the green parrot sits on top of an open book; a few small marigold sparkles rise from the open pages.",
+}
+
+
+def icons(ids):
+    WORK.mkdir(parents=True, exist_ok=True)
+    for n in ids:
+        generate(ICON_BASE.format(scene=VARIANTS[n]), WORK / f"icon_v{n}.png", refs=[CHAR / "mitthu_sheet.png"],
+                 aspect_ratio="1:1", size="1K")
+
+
+
+
+# ---------------- free steps (no Gemini) ----------------
+import numpy as np  # noqa: E402
+from PIL import Image, ImageDraw, ImageFilter  # noqa: E402
+
+CHOSEN = WORK / "icon_v2.png"  # user picked option 2 (close-up Mitthu) on 2026-10-18
+INDIGO, MARIGOLD, CREAM, GREEN = (0x1F, 0x1B, 0x4D), (0xF4, 0xA3, 0x00), (0xFF, 0xF4, 0xDC), (0x2F, 0xA8, 0x4F)
+
+
+def cutout(src: Path, size=2048, margin=0.06) -> Image.Image:
+    """White background -> transparent. Only white connected to the image border is removed (pages inside the thick
+    outline stay); the light fringe next to the outline gets partial alpha so edges stay smooth."""
+    im = Image.open(src).convert("RGB")
+    a = np.asarray(im).astype(np.int16)
+    light = (a.min(axis=2) > 225)
+    # flood fill from the border over light pixels
+    bg = np.zeros(light.shape, bool)
+    h, w = light.shape
+    stack = [(y, x) for x in range(w) for y in (0, h - 1)] + [(y, x) for y in range(h) for x in (0, w - 1)]
+    while stack:
+        y, x = stack.pop()
+        if 0 <= y < h and 0 <= x < w and light[y, x] and not bg[y, x]:
+            bg[y, x] = True
+            stack += [(y + 1, x), (y - 1, x), (y, x + 1), (y, x - 1)]
+    alpha = np.where(bg, 0, 255).astype(np.float32)
+    # soft edge: pixels next to the background get alpha from how dark they are
+    near = np.asarray(Image.fromarray((bg * 255).astype(np.uint8)).filter(ImageFilter.MaxFilter(5))) > 0
+    fringe = near & ~bg
+    lum = a.mean(axis=2)
+    alpha[fringe] = np.clip((255 - lum[fringe]) / (255 - 60) * 255, 0, 255)
+    rgba = np.dstack([a.astype(np.uint8), alpha.astype(np.uint8)])
+    out = Image.fromarray(rgba, "RGBA")
+    out = out.crop(out.getbbox())
+    side = int(max(out.size) * (1 + 2 * margin))
+    sq = Image.new("RGBA", (side, side), (0, 0, 0, 0))
+    sq.paste(out, ((side - out.width) // 2, (side - out.height) // 2), out)
+    return sq.resize((size, size), Image.LANCZOS)
+
+
+def icon():
+    ic = cutout(CHOSEN)
+    ic.save(BRAND / "icon.png")
+    print("saved", BRAND / "icon.png", ic.size)
+
+
+import shutil  # noqa: E402
+import subprocess  # noqa: E402
+
+from paths import FONTS_DIR, ROOT  # noqa: E402
+
+FFMPEG = ROOT / "tools" / "ffmpeg" / "ffmpeg.exe"
+if not FFMPEG.exists():
+    FFMPEG = Path(shutil.which("ffmpeg") or FFMPEG)
+TAGLINE = "हर शाम एक नया किस्सा"
+
+
+def text_layer(text, family, size, rgb, bold=False, spacing=0) -> Image.Image:
+    """Text rendered by libass (HarfBuzz shaping) white-on-black, turned into a coloured RGBA layer cropped to the ink.
+    Spacing must stay 0 for Devanagari (any spacing breaks the matras); Latin may use spacing."""
+    tmp = WORK / "txt"
+    (tmp / "fonts").mkdir(parents=True, exist_ok=True)
+    for f in ("RozhaOne-Regular.ttf", "Mukta-Bold.ttf", "Mukta-ExtraBold.ttf"):
+        shutil.copy(FONTS_DIR / f, tmp / "fonts" / f)
+    W, H = int(size * max(len(text), 4) * 0.9) + 200, int(size * 2.2)
+    ass = f"""[Script Info]
+ScriptType: v4.00+
+PlayResX: {W}
+PlayResY: {H}
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: A,{family},{size},&H00FFFFFF,&H000000FF,&H00000000,&H00000000,{-1 if bold else 0},0,0,0,100,100,{spacing},0,1,0,0,5,0,0,0,1
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:01.00,A,,0,0,0,,{{\\pos({W // 2},{H // 2})}}{text}
+"""
+    (tmp / "t.ass").write_text(ass, encoding="utf-8")
+    subprocess.run([str(FFMPEG), "-v", "error", "-y", "-f", "lavfi", "-i", f"color=c=black:s={W}x{H}",
+                    "-vf", "subtitles=filename=t.ass:fontsdir=fonts", "-frames:v", "1", "t.png"], cwd=tmp, check=True)
+    mask = Image.open(tmp / "t.png").convert("L")
+    layer = Image.new("RGBA", mask.size, rgb + (0,))
+    layer.putalpha(mask)
+    return layer.crop(mask.getbbox())
+
+
+def wordmark() -> Image.Image:
+    """'किस्सागो' (Rozha One, marigold) over a small 'KISSAGO' (Mukta Bold, cream, letter-spaced)."""
+    name = text_layer("किस्सागो", "Rozha One", 420, MARIGOLD)
+    sub = text_layer("KISSAGO", "Mukta", 120, CREAM, bold=True, spacing=28)
+    sub = sub.resize((int(name.width * 0.62), int(sub.height * name.width * 0.62 / sub.width)), Image.LANCZOS)
+    gap = int(name.height * 0.10)
+    wm = Image.new("RGBA", (name.width, name.height + gap + sub.height), (0, 0, 0, 0))
+    wm.alpha_composite(name, (0, 0))
+    wm.alpha_composite(sub, ((name.width - sub.width) // 2, name.height + gap))
+    return wm
+
+
+def pad(img, frac=0.06):
+    m = int(max(img.size) * frac)
+    out = Image.new("RGBA", (img.width + 2 * m, img.height + 2 * m), (0, 0, 0, 0))
+    out.alpha_composite(img, (m, m))
+    return out
+
+
+def lockups():
+    ic, wm = Image.open(BRAND / "icon.png").convert("RGBA"), wordmark()
+    wm.save(BRAND / "wordmark.png")
+    # horizontal: icon left, name right, both vertically centred
+    ih = int(wm.height * 1.35)
+    ich = ic.resize((ih, ih), Image.LANCZOS)
+    gap = int(ih * 0.10)
+    hz = Image.new("RGBA", (ih + gap + wm.width, ih), (0, 0, 0, 0))
+    hz.alpha_composite(ich, (0, 0))
+    hz.alpha_composite(wm, (ih + gap, (ih - wm.height) // 2))
+    pad(hz).save(BRAND / "logo_horizontal.png")
+    # stacked: icon on top, name below
+    iw = int(wm.width * 0.85)
+    ics = ic.resize((iw, iw), Image.LANCZOS)
+    gap = int(iw * 0.04)
+    st = Image.new("RGBA", (max(iw, wm.width), iw + gap + wm.height), (0, 0, 0, 0))
+    st.alpha_composite(ics, ((st.width - iw) // 2, 0))
+    st.alpha_composite(wm, ((st.width - wm.width) // 2, iw + gap))
+    pad(st).save(BRAND / "logo_stacked.png")
+    for f in ("wordmark.png", "logo_horizontal.png", "logo_stacked.png"):
+        print("saved", BRAND / f, Image.open(BRAND / f).size)
+
+
+def dp():
+    """800x800 indigo, icon in the middle 70% (survives the circle crop)."""
+    ic = Image.open(BRAND / "icon.png").convert("RGBA").resize((560, 560), Image.LANCZOS)
+    d = Image.new("RGBA", (800, 800), INDIGO + (255,))
+    d.alpha_composite(ic, (120, 120))
+    d.convert("RGB").save(BRAND / "kissago_dp.png")
+    print("saved", BRAND / "kissago_dp.png")
+
+
+def watermark():
+    Image.open(BRAND / "icon.png").convert("RGBA").resize((150, 150), Image.LANCZOS).save(BRAND / "watermark.png")
+    print("saved", BRAND / "watermark.png")
+
+
+def brand_corner(path, where="bl", width_frac=0.19):
+    """Thumbnail brand: small logo_horizontal on a soft indigo patch (BRAND.md). bl = bottom-left, tc = top-centre."""
+    im = Image.open(path).convert("RGBA")
+    lg = Image.open(BRAND / "logo_horizontal.png").convert("RGBA")
+    w = int(im.width * width_frac)
+    lg = lg.resize((w, int(lg.height * w / lg.width)), Image.LANCZOS)
+    m = int(im.width * 0.015)
+    patch = Image.new("RGBA", (lg.width + 2 * m, lg.height + 2 * m), (0, 0, 0, 0))
+    ImageDraw.Draw(patch).rounded_rectangle((0, 0, patch.width - 1, patch.height - 1), radius=m * 2,
+                                           fill=INDIGO + (190,))
+    patch.alpha_composite(lg, (m, m))
+    edge = int(im.width * 0.02)
+    xy = (edge, im.height - patch.height - edge) if where == "bl" else ((im.width - patch.width) // 2, edge)
+    im.alpha_composite(patch, xy)
+    im.convert("RGB").save(path)
+
+
+BANNER_PROMPT = """Wide 16:9 YouTube channel banner background illustration, NO text, letters, numbers or signs anywhere.
+Scene: a cosy Indian mohalla lane at night (Gulmohar Mohalla): deep night-indigo sky (#1F1B4D) with a few soft stars,
+small houses with warm marigold (#F4A300) lamp-lit windows, a gulmohar tree with soft orange-red flowers, warm and
+peaceful, family-friendly, not scary.
+On the RIGHT side only (between 68% and 92% of the width, between 35% and 70% of the height), a gentle glimpse of
+Dadi sitting on a low charpai telling a story, Golu sitting beside her listening, and Mitthu the parrot perched on the
+charpai — Dadi and Golu exactly as in their reference sheets, Mitthu exactly like the attached parrot logo (big round
+green head, red beak, thin red neck ring), all fairly small.
+COMPOSITION IS CRITICAL: the whole CENTRE and LEFT-CENTRE of the image (from 20% to 65% of the width, from 30% to 70%
+of the height) must be calm and plain: dark night sky and a softly lit plain wall, no objects, no people, for a logo.
+Keep important details away from the top and bottom edges. Flat 2D cartoon style, thick clean outlines, flat colours
+in the brand palette: night indigo, marigold, cream (#FFF4DC), parrot green (#2FA84F)."""
+
+BW, BH = 2560, 1440
+SAFE = (507, 508, 2053, 931)  # 1546x423 visible on every device
+
+
+def banner_bg():
+    """PAID (2K, ~₹4.86): banner background, no text."""
+    raw = WORK / "banner_v2_raw.png"
+    generate(BANNER_PROMPT, raw, refs=[CHAR / "dadi_sheet.png", CHAR / "golu_sheet.png", CHOSEN],
+             aspect_ratio="16:9", size="2K")
+    reframe()
+
+
+def reframe(zoom=1.2, ax=1.0, ay=1.0):
+    """Free: re-crop the generated background. zoom > 1 and ay=1 (keep the bottom) lift the characters into the
+    desktop band (y 508-931); ax=1 keeps the right edge, where Dadi, Golu and Mitthu sit."""
+    im = Image.open(WORK / "banner_v2_raw.png").convert("RGB")
+    s = max(BW / im.width, BH / im.height) * zoom
+    im = im.resize((round(im.width * s), round(im.height * s)), Image.LANCZOS)
+    x, y = int((im.width - BW) * ax), int((im.height - BH) * ay)
+    im.crop((x, y, x + BW, y + BH)).save(WORK / "banner_v2_art.png")
+    banner()
+
+
+def banner():
+    """Free: logo_horizontal + tagline inside the safe area on the background; plus device crop previews."""
+    bg = Image.open(WORK / "banner_v2_art.png").convert("RGBA")
+    lg = Image.open(BRAND / "logo_horizontal.png").convert("RGBA")
+    sx0, sy0, sx1, sy1 = SAFE
+    lw = int((sx1 - sx0) * 0.50)
+    lg = lg.resize((lw, int(lg.height * lw / lg.width)), Image.LANCZOS)
+    tag = text_layer(TAGLINE, "Mukta", 70, CREAM, bold=True)
+    gap = 18
+    block_h = lg.height + gap + tag.height
+    x = sx0 + 80
+    y = sy0 + (sy1 - sy0 - block_h) // 2
+    # BRAND.md: on a busy/light picture the logo sits on a soft indigo panel (cream text needs a dark ground)
+    m = 34
+    panel = Image.new("RGBA", (lg.width + 2 * m, block_h + 2 * m), (0, 0, 0, 0))
+    ImageDraw.Draw(panel).rounded_rectangle((0, 0, panel.width - 1, panel.height - 1), radius=40, fill=INDIGO + (225,))
+    bg.alpha_composite(panel, (x - m, y - m))
+    bg.alpha_composite(lg, (x, y))
+    bg.alpha_composite(tag, (x + (lg.width - tag.width) // 2, y + lg.height + gap))
+    out = BRAND / "kissago_banner_v2.png"
+    bg.convert("RGB").save(out)
+    print("saved", out, bg.size, "| logo+tagline box:", (x, y, x + lg.width, y + block_h), "inside safe", SAFE)
+    # device previews: TV = full, desktop = full-width middle band, mobile = safe area
+    full = bg.convert("RGB")
+    tv = full.resize((960, 540))
+    desk = full.crop((0, sy0, BW, sy1)).resize((1280, 212))
+    mob = full.crop(SAFE).resize((773, 212))
+    sheet = Image.new("RGB", (1280, 540 + 212 + 212 + 60), (240, 240, 240))
+    d = ImageDraw.Draw(sheet)
+    sheet.paste(tv, (0, 20)); d.text((5, 3), "TV (full 2560x1440)", fill=(0, 0, 0))
+    sheet.paste(desk, (0, 580)); d.text((5, 563), "Desktop (2560x423 band)", fill=(0, 0, 0))
+    sheet.paste(mob, (0, 812)); d.text((5, 795), "Mobile (1546x423 safe area)", fill=(0, 0, 0))
+    sheet.save(WORK / "banner_v2_devices.jpg", quality=90)
+
+if __name__ == "__main__":
+    cmd = sys.argv[1]
+    if cmd == "icons":
+        icons([int(x) for x in sys.argv[2:]] or [1, 2, 3, 4])
+    else:
+        globals()[cmd]()
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 15:41:45Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Probe sizes and modes of brand files
+
+```bash
+cd /d/Story-Channel/channels/dadi-ki-kahaniyan; mkdir -p brand/_work/review; ls /d/Story-Channel/.venv/Scripts/python.exe; /d/Story-Channel/.venv/Scripts/python -c "
+from PIL import Image; import os
+fs=['brand/icon.png','brand/wordmark.png','brand/logo_horizontal.png','brand/logo_stacked.png','brand/kissago_dp.png','brand/watermark.png','brand/kissago_banner_v2.png','brand/_work/icon_v2.png','brand/_work/banner_v2_raw.png','brand/_work/banner_v2_art.png','stories/001_lalchi-halwai/long/output/long_01_thumbnail.png','stories/002_sharma-ji-ki-cycle/shorts/short_01_case-01/output/case01_thumbnail.png','stories/002_sharma-ji-ki-cycle/shorts/short_01_case-01/output/case01_thumbnail_vertical.png']
+for f in fs:
+  im=Image.open(f); print(f, im.size, im.mode, os.path.getsize(f))
+"
+```
+
+```text
+/d/Story-Channel/.venv/Scripts/python.exe
+brand/icon.png (2048, 2048) RGBA 1754383
+brand/wordmark.png (1012, 339) RGBA 45804
+brand/logo_horizontal.png (1694, 637) RGBA 220439
+brand/logo_stacked.png (1158, 1379) RGBA 552579
+brand/kissago_dp.png (800, 800) RGB 202135
+brand/watermark.png (150, 150) RGBA 22886
+brand/kissago_banner_v2.png (2560, 1440) RGB 3738931
+brand/_work/icon_v2.png (1024, 1024) RGB 325434
+brand/_work/banner_v2_raw.png (2752, 1536) RGB 2041484
+brand/_work/banner_v2_art.png (2560, 1440) RGB 3856205
+stories/001_lalchi-halwai/long/output/long_01_thumbnail.png (1280, 720) RGB 1073659
+stories/002_sharma-ji-ki-cycle/shorts/short_01_case-01/output/case01_thumbnail.png (1280, 720) RGB 1203787
+stories/002_sharma-ji-ki-cycle/shorts/short_01_case-01/output/case01_thumbnail_vertical.png (1080, 1920) RGB 2161660
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 15:42:01Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Build review sheets and alpha stats
+
+```bash
+cd /d/Story-Channel/channels/dadi-ki-kahaniyan; cat > /c/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad/r1.py <<'EOF'
+from PIL import Image
+import numpy as np
+R='brand/_work/review/'
+IND=(0x1F,0x1B,0x4D); WH=(255,255,255)
+def on(img,bg,size=None):
+    im=Image.open(img).convert('RGBA')
+    if size: im=im.resize(size,Image.LANCZOS)
+    b=Image.new('RGBA',im.size,bg+(255,)); b.alpha_composite(im); return b.convert('RGB')
+# sheet 1: icon on indigo, white, checker
+ic='brand/icon.png'
+s=Image.new('RGB',(1536,512),(128,128,128))
+s.paste(on(ic,IND,(512,512)),(0,0)); s.paste(on(ic,WH,(512,512)),(512,0)); s.paste(on(ic,(255,0,255),(512,512)),(1024,0))
+s.save(R+'r1_icon_bgs.jpg',quality=85)
+# lockups on indigo and magenta
+for f in ['wordmark','logo_horizontal','logo_stacked']:
+    a=on('brand/%s.png'%f,IND); b=on('brand/%s.png'%f,(255,0,255))
+    c=Image.new('RGB',(a.width*2,a.height)); c.paste(a,(0,0)); c.paste(b,(a.width,0))
+    c.save(R+'r1_%s_bgs.jpg'%f,quality=85)
+# small sizes
+dp=Image.open('brand/kissago_dp.png').convert('RGB')
+sm=Image.new('RGB',(400,120),(255,255,255))
+x=5
+for im in [dp.resize((98,98),Image.LANCZOS),dp.resize((48,48),Image.LANCZOS),on(ic,IND,(48,48)),on('brand/watermark.png',IND,(48,48)),on('brand/watermark.png',WH,(48,48))]:
+    sm.paste(im,(x,5)); x+=im.width+10
+sm.save(R+'r1_small_actual.jpg',quality=92)
+sm.resize((1600,480),Image.NEAREST).save(R+'r1_small_x4.jpg',quality=90)
+# circle crop of dp
+m=Image.new('L',(800,800),0)
+from PIL import ImageDraw
+ImageDraw.Draw(m).ellipse((0,0,799,799),fill=255)
+c=Image.new('RGB',(800,800),(255,255,255)); c.paste(dp,(0,0),m); c.save(R+'r1_dp_circle.jpg',quality=85)
+# alpha stats
+for f in ['icon','wordmark','logo_horizontal','logo_stacked','watermark']:
+    a=np.asarray(Image.open('brand/%s.png'%f).convert('RGBA'))
+    al=a[...,3]; print(f,'alpha0',(al==0).mean().round(3),'alpha255',(al==255).mean().round(3),'partial',((al>0)&(al<255)).mean().round(4))
+    # corners
+    print('  corners',al[0,0],al[0,-1],al[-1,0],al[-1,-1])
+    # light semi-transparent fringe pixels (white halo): partial alpha and bright
+    p=(al>0)&(al<255); rgb=a[...,:3].astype(int)
+    if p.any(): print('  partial mean lum',rgb[p].mean().round(1),'bright partial share',((rgb[p].min(axis=1)>200)).mean().round(3))
+    op=al>0
+    print('  opaque bbox',Image.open('brand/%s.png'%f).getbbox())
+EOF
+/d/Story-Channel/.venv/Scripts/python /c/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad/r1.py
+```
+
+```text
+icon alpha0 0.564 alpha255 0.426 partial 0.0096
+  corners 0 0 0 0
+  partial mean lum 59.1 bright partial share 0.018
+  opaque bbox (347, 103, 1699, 1943)
+wordmark alpha0 0.694 alpha255 0.26 partial 0.0463
+  corners 0 0 0 0
+  partial mean lum 191.8 bright partial share 0.508
+  opaque bbox (0, 0, 1012, 339)
+logo_horizontal alpha0 0.817 alpha255 0.164 partial 0.0186
+  corners 0 0 0 0
+  partial mean lum 161.5 bright partial share 0.404
+  opaque bbox (166, 112, 1604, 525)
+logo_stacked alpha0 0.732 alpha255 0.252 partial 0.016
+  corners 0 0 0 0
+  partial mean lum 140.5 bright partial share 0.325
+  opaque bbox (73, 116, 1085, 1306)
+watermark alpha0 0.539 alpha255 0.401 partial 0.0595
+  corners 0 0 0 0
+  partial mean lum 56.0 bright partial share 0.0
+  opaque bbox (23, 5, 127, 144)
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 15:42:04Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\review\r1_icon_bgs.jpg`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 15:42:04Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\review\r1_logo_horizontal_bgs.jpg`
+</details></tool-use>
+
+_**Agent - sidechain (2026-10-18 15:42:04Z)**_
+
+[Image: original 3388x637, displayed at 2000x376. Multiply coordinates by 1.69 to map to original image.]
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 15:42:05Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\review\r1_logo_stacked_bgs.jpg`
+</details></tool-use>
+
+_**Agent - sidechain (2026-10-18 15:42:05Z)**_
+
+[Image: original 2316x1379, displayed at 2000x1191. Multiply coordinates by 1.16 to map to original image.]
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 15:42:15Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Zoom crops of icon edges and wordmark
+
+```bash
+cd /d/Story-Channel/channels/dadi-ki-kahaniyan; /d/Story-Channel/.venv/Scripts/python -c "
+from PIL import Image
+R='brand/_work/review/'
+IND=(0x1F,0x1B,0x4D)
+def on(f,bg):
+    im=Image.open(f).convert('RGBA'); b=Image.new('RGBA',im.size,bg+(255,)); b.alpha_composite(im); return b.convert('RGB')
+i=on('brand/icon.png',IND)
+# edges: head top, book bottom-left corner, wing
+c=Image.new('RGB',(1200,400))
+c.paste(i.crop((850,80,1250,280)).resize((400,200)),(0,0))
+c.paste(i.crop((330,1700,530,1900)).resize((400,400),Image.NEAREST),(400,0))
+c.paste(i.crop((1050,1050,1250,1250)).resize((400,400),Image.NEAREST),(800,0))
+c.save(R+'r1_icon_edges.jpg',quality=90)
+w=on('brand/wordmark.png',IND); w.resize((w.width*2,w.height*2),Image.LANCZOS).save(R+'r1_wordmark_x2.jpg',quality=90)
+"
+```
+
+```text
+(Bash completed with no output)
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 15:42:15Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\review\r1_icon_edges.jpg`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 15:42:15Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\review\r1_wordmark_x2.jpg`
+</details></tool-use>
+
+_**Agent - sidechain (2026-10-18 15:42:15Z)**_
+
+[Image: original 2024x678, displayed at 2000x670. Multiply coordinates by 1.01 to map to original image.]
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 15:42:39Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Render text parts for shaping comparison (scratch)
+
+```bash
+cd /d/Story-Channel; .venv/Scripts/python -X utf8 -c "
+import sys; sys.path.insert(0,'scripts')
+import gen_brand as g
+from PIL import Image
+parts=['कि','स्स','स्','सा','गो','किस्सागो']
+ims=[g.text_layer(p,'Rozha One',200,(244,163,0)) for p in parts]
+ims.append(g.text_layer('किस्सागो','Mukta',200,(244,163,0),bold=True))
+W=sum(i.width for i in ims)+40*len(ims); H=max(i.height for i in ims)+40
+c=Image.new('RGB',(W,H),(31,27,77)); x=20
+for i in ims: c.paste(i,(x,20),i); x+=i.width+40
+c.save('channels/dadi-ki-kahaniyan/brand/_work/review/r1_shaping_parts.jpg',quality=90)
+" ; ls channels/dadi-ki-kahaniyan/brand/_work/txt
+```
+
+```text
+fonts
+t.ass
+t.png
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 15:42:42Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\review\r1_shaping_parts.jpg`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 15:42:45Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\review\r1_small_x4.jpg`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 15:42:45Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\review\r1_dp_circle.jpg`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 15:42:46Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\kissago_banner_v2.png`
+</details></tool-use>
+
+_**Agent - sidechain (2026-10-18 15:42:46Z)**_
+
+[Image: original 2560x1440, displayed at 2000x1125. Multiply coordinates by 1.28 to map to original image.]
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 15:42:57Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\banner_v2_devices.jpg`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 15:43:14Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Measure banner panel, colours, Mitthu crop
+
+```bash
+cd /d/Story-Channel/channels/dadi-ki-kahaniyan; /d/Story-Channel/.venv/Scripts/python -c "
+from PIL import Image
+import numpy as np
+R='brand/_work/review/'
+b=Image.open('brand/kissago_banner_v2.png').convert('RGB'); a=np.asarray(b).astype(int)
+# panel bbox: pixels close to panel colour
+pc=a[700,600]; print('panel px',pc, 'cream text?')
+m=(np.abs(a-pc).sum(axis=2)<12)
+ys,xs=np.where(m[:, :1450]); print('panel bbox',xs.min(),ys.min(),xs.max(),ys.max())
+c=b.crop((1250,820,1650,1180)); 
+from PIL import ImageDraw
+d=ImageDraw.Draw(c); d.line((0,931-820,400,931-820),fill=(255,0,0),width=2)
+c.save(R+'r1_banner_mitthu_band.jpg',quality=85)
+b.crop((600,600,1450,960)).save(R+'r1_banner_text_zoom.jpg',quality=92)
+# colour samples
+w=np.asarray(Image.open('brand/wordmark.png').convert('RGBA')).astype(int)
+op=w[...,3]==255
+cols=w[op][:,:3]; u,cnt=np.unique(cols,axis=0,return_counts=True); print('wordmark opaque colours', [(tuple(x),c) for x,c in zip(u,cnt)][:5])
+dp=np.asarray(Image.open('brand/kissago_dp.png').convert('RGB')); print('dp corner',dp[5,5],dp[400,40])
+i=np.asarray(Image.open('brand/icon.png').convert('RGBA')).astype(int)
+for nm,(y,x) in {'head':(400,1000),'beak':(700,1020),'ring':(1170,1020),'page':(1600,800),'cover':(1880,700),'outline?':(110,1020)}.items(): print(nm,i[y,x])
+"
+```
+
+```text
+panel px [57 52 93] cream text?
+panel bbox 0 4 1393 1107
+wordmark opaque colours [((np.int64(244), np.int64(163), np.int64(0)), np.int64(81664)), ((np.int64(255), np.int64(243), np.int64(218)), np.int64(1)), ((np.int64(255), np.int64(243), np.int64(219)), np.int64(22)), ((np.int64(255), np.int64(243), np.int64(220)), np.int64(4)), ((np.int64(255), np.int64(244), np.int64(219)), np.int64(7))]
+dp corner [31 27 77] [31 27 77]
+head [ 63 167  82 255]
+beak [209  61  61 255]
+ring [209  59  60 255]
+page [251 237 200 255]
+cover [0 0 0 0]
+outline? [ 46  47  79 255]
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 15:43:18Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\review\r1_banner_mitthu_band.jpg`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 15:43:19Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\review\r1_banner_text_zoom.jpg`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 15:43:32Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Build thumbnail review sheets
+
+```bash
+cd /d/Story-Channel/channels/dadi-ki-kahaniyan; /d/Story-Channel/.venv/Scripts/python -c "
+from PIL import Image
+R='brand/_work/review/'
+L='stories/001_lalchi-halwai/long/output/long_01_thumbnail.png'; C='stories/002_sharma-ji-ki-cycle/shorts/short_01_case-01/output/case01_thumbnail.png'; V='stories/002_sharma-ji-ki-cycle/shorts/short_01_case-01/output/case01_thumbnail_vertical.png'
+s=Image.new('RGB',(1280+20+480, 720*2+20),(255,255,255))
+for k,(f,y) in enumerate([(L,0),(C,740)]):
+    im=Image.open(f).convert('RGB'); s.paste(im,(0,y))
+    s.paste(im.resize((320,180),Image.LANCZOS),(1300,y)); s.paste(im.resize((160,90),Image.LANCZOS),(1300,y+200))
+    s.paste(im.resize((160,90),Image.LANCZOS).resize((480,270),Image.NEAREST),(1300,y+310))
+s.save(R+'r1_thumbs.jpg',quality=85)
+v=Image.open(V).convert('RGB'); v.resize((540,960)).save(R+'r1_thumb_v.jpg',quality=85)
+for f in (L,C): Image.open(f).convert('RGB').crop((0,540,400,720)).resize((800,360),Image.LANCZOS).save(R+'r1_corner_'+f.split('/')[-1].replace('.png','.jpg'),quality=90)
+"; git -C /d/Story-Channel diff --stat HEAD -- channels/dadi-ki-kahaniyan/stories | tail -3
+```
+
+```text
+ .../short_01_case-01/thumbnail_work/thumb_v.ass    |   3 +--
+ .../thumbnail_work/thumb_v_titled.png              | Bin 2192938 -> 2190899 bytes
+ 10 files changed, 4 insertions(+), 5 deletions(-)
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 15:43:32Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\review\r1_thumbs.jpg`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 15:43:40Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\review\r1_corner_case01_thumbnail.jpg`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 15:43:40Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\review\r1_thumb_v.jpg`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 15:43:47Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Check ASS diffs, license rows, cost log
+
+`cd /d/Story-Channel; git diff HEAD -- '*.ass' | grep '^[-+]' ; grep -n -i "kissago\|किस्सागो\|rozha\|icon\|banner\|logo\|wordmark\|watermark\|_dp" shared/assets_license.csv; head -c 300 shared/fonts/OFL_RozhaOne.txt; echo; grep -n -i "brand\|banner\|icon" cost_log.csv | tail -8`
+
+```text
+--- a/channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long/thumbnail_work/long01_thumb.ass
++++ b/channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long/thumbnail_work/long01_thumb.ass
+-Dialogue: 0,0:00:00.00,0:00:01.00,L,,0,0,0,,किस्सागो
+--- a/channels/dadi-ki-kahaniyan/stories/002_sharma-ji-ki-cycle/shorts/short_01_case-01/thumbnail_work/thumb.ass
++++ b/channels/dadi-ki-kahaniyan/stories/002_sharma-ji-ki-cycle/shorts/short_01_case-01/thumbnail_work/thumb.ass
+-Dialogue: 0,0:00:00.00,0:00:01.00,L,,0,0,0,,{\c&H0030C8FF&}किस्सागो
+--- a/channels/dadi-ki-kahaniyan/stories/002_sharma-ji-ki-cycle/shorts/short_01_case-01/thumbnail_work/thumb_v.ass
++++ b/channels/dadi-ki-kahaniyan/stories/002_sharma-ji-ki-cycle/shorts/short_01_case-01/thumbnail_work/thumb_v.ass
+-Style: Q,Mukta,150,&H0000E5FF,&H000000FF,&H00000000,&H96000000,-1,0,0,0,100,100,0,0,1,11,6,8,30,30,70,1
++Style: Q,Mukta,150,&H0000E5FF,&H000000FF,&H00000000,&H96000000,-1,0,0,0,100,100,0,0,1,11,6,8,30,30,210,1
+-Dialogue: 0,0:00:00.00,0:00:01.00,L,,0,0,0,,किस्सागो
+59:channels/dadi-ki-kahaniyan/brand/,own: Gemini-generated banner/DP/thumbnail art + our own libass text in Mukta,Dadi Ki Kahaniyan,own (Gemini-generated),,2026-10-17
+62:channels/dadi-ki-kahaniyan/brand/kissago_banner.png,"own: Gemini banner art (brand/_work/banner_art.png) + our own libass text in Mukta (shared/fonts, SIL OFL)",Kissago (channel owner),own (Gemini-generated),,2026-10-18
+63:channels/dadi-ki-kahaniyan/stories/002_sharma-ji-ki-cycle/shorts/short_01_case-01/output/case01_thumbnail.png,own: Gemini art + our own libass text in Mukta,Kissago (channel owner),own (Gemini-generated),,2026-10-18
+64:channels/dadi-ki-kahaniyan/stories/002_sharma-ji-ki-cycle/shorts/short_01_case-01/output/case01_thumbnail_vertical.png,own: Gemini art + our own libass text in Mukta,Kissago (channel owner),own (Gemini-generated),,2026-10-18
+65:shared/fonts/RozhaOne-Regular.ttf,https://github.com/google/fonts/tree/main/ofl/rozhaone (Google Fonts),Indian Type Foundry,SIL OFL 1.1 (shared/fonts/OFL_RozhaOne.txt),,2026-10-18
+66:channels/dadi-ki-kahaniyan/brand/icon.png,"own: Gemini icon (brand/_work/icon_v2.png, option 2), background removed by script",Kissago (channel owner),own (Gemini-generated),,2026-10-18
+67:channels/dadi-ki-kahaniyan/brand/wordmark.png,"own: libass render, Rozha One + Mukta (shared/fonts, SIL OFL)",Kissago (channel owner),own,,2026-10-18
+68:channels/dadi-ki-kahaniyan/brand/logo_horizontal.png,own: icon.png + wordmark.png,Kissago (channel owner),own,,2026-10-18
+69:channels/dadi-ki-kahaniyan/brand/logo_stacked.png,own: icon.png + wordmark.png,Kissago (channel owner),own,,2026-10-18
+70:channels/dadi-ki-kahaniyan/brand/kissago_dp.png,own: icon.png on indigo,Kissago (channel owner),own,,2026-10-18
+71:channels/dadi-ki-kahaniyan/brand/watermark.png,own: icon.png 150x150,Kissago (channel owner),own,,2026-10-18
+72:channels/dadi-ki-kahaniyan/brand/kissago_banner_v2.png,own: Gemini background (brand/_work/banner_v2_raw.png) + logo + Mukta tagline,Kissago (channel owner),own (Gemini-generated),,2026-10-18
+Copyright (c) 2014, Indian Type Foundry (info@indiantypefoundry.com).
+
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+This license is copied below, and is also available with a FAQ at:
+http://scripts.sil.org/OFL
+
+
+--------------------------------------------------------
+43:2026-10-17 20:33:33,channels/dadi-ki-kahaniyan/brand/_work/banner_raw.png,gemini-nano-banana-2.1,2K,0.05040,4.86,65.64,434.36,dadi-ki-kahaniyan
+44:2026-10-17 20:35:40,channels/dadi-ki-kahaniyan/brand/_work/dp_raw.png,gemini-nano-banana-2.1,1K,0.03360,3.24,68.88,431.12,dadi-ki-kahaniyan
+141:2026-10-18 21:03:51,channels/dadi-ki-kahaniyan/brand/_work/icon_v1.png,gemini-nano-banana-2.1,1K,0.03360,3.24,13.11,297.46,dadi-ki-kahaniyan
+142:2026-10-18 21:04:15,channels/dadi-ki-kahaniyan/brand/_work/icon_v2.png,gemini-nano-banana-2.1,1K,0.03360,3.24,16.35,294.22,dadi-ki-kahaniyan
+143:2026-10-18 21:04:35,channels/dadi-ki-kahaniyan/brand/_work/icon_v3.png,gemini-nano-banana-2.1,1K,0.03360,3.24,19.59,290.98,dadi-ki-kahaniyan
+144:2026-10-18 21:05:09,channels/dadi-ki-kahaniyan/brand/_work/icon_v4.png,gemini-nano-banana-2.1,1K,0.03360,3.24,22.83,287.74,dadi-ki-kahaniyan
+145:2026-10-18 21:10:08,channels/dadi-ki-kahaniyan/brand/_work/banner_v2_raw.png,gemini-nano-banana-2.1,2K,0.05040,4.86,27.69,282.88,dadi-ki-kahaniyan
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 15:43:52Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Check long thumb register row, Mukta row
+
+`cd /d/Story-Channel; grep -n "long_01_thumbnail\|long/output" shared/assets_license.csv; grep -n -i "mukta" shared/assets_license.csv | head -3; ls channels/dadi-ki-kahaniyan/characters | grep -i mitthu`
+
+```text
+60:channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long/output/long_01_thumbnail.png,own: Gemini art + our own libass text in Mukta,Dadi Ki Kahaniyan,own (Gemini-generated),,2026-10-18
+52:shared/fonts/Mukta-Bold.ttf,https://fonts.google.com/specimen/Mukta,"Girish Dalvi, Ek Type",SIL OFL 1.1 (shared/fonts/OFL.txt),,2026-10-17
+53:shared/fonts/Mukta-ExtraBold.ttf,https://fonts.google.com/specimen/Mukta,"Girish Dalvi, Ek Type",SIL OFL 1.1 (shared/fonts/OFL.txt),,2026-10-17
+59:channels/dadi-ki-kahaniyan/brand/,own: Gemini-generated banner/DP/thumbnail art + our own libass text in Mukta,Dadi Ki Kahaniyan,own (Gemini-generated),,2026-10-17
+mitthu_sheet.png
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 15:43:56Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\characters\mitthu_sheet.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 15:44:14Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Append R1 verdict to channel log
+
+`cd /d/Story-Channel; echo "2026-10-18 | channel brand (Kissago rebrand) | brand R1 (~20 min) | FIX | no BLOCKER; Hindi shaping ok (Rozha One/Mukta via libass, स्स conjunct + ि/ो ok), colours ok (marigold F4A300, cream FFF4DC, DP indigo 1F1B4D exact), alpha clean, DP 98/48 + icon 48 recognisable, banner logo+tagline inside safe area, no AI text, prompts clean, thumbs logo bottom-left/top-centre ok; MINOR: desktop/mobile band edge y=931 cuts Mitthu through the eye (reframe, free); register rows 60/63/64 thumbs still say 'text in Mukta' only (add logo/Rozha One, row 60 author); channel_bible line 6 stale banner/DP paths" >> channels/dadi-ki-kahaniyan/log.md; tail -1 channels/dadi-ki-kahaniyan/log.md | cut -c1-80; ls channels/dadi-ki-kahaniyan/brand/_work/review`
+
+```text
+2026-10-18 | channel brand (Kissago rebrand) | brand R1 (~20 min) | FIX | no BLO
+r1_banner_mitthu_band.jpg
+r1_banner_text_zoom.jpg
+r1_corner_case01_thumbnail.jpg
+r1_corner_long_01_thumbnail.jpg
+r1_dp_circle.jpg
+r1_icon_bgs.jpg
+r1_icon_edges.jpg
+r1_logo_horizontal_bgs.jpg
+r1_logo_stacked_bgs.jpg
+r1_shaping_parts.jpg
+r1_small_actual.jpg
+r1_small_x4.jpg
+r1_thumb_v.jpg
+r1_thumbs.jpg
+r1_wordmark_bgs.jpg
+r1_wordmark_x2.jpg
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 15:44:48Z)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="SubagentHandback"><details>
+<summary>Tool use: **SubagentHandback**</summary>
+
+```text
+{"success":true,"message":"Report delivered to your caller."}
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:44:51Z)**_
+
+Munshi ne R1 me **FIX** diya. Teen MINOR hain aur koi BLOCKER nahi. Teeno free me theek kar raha hoon. Pehla: banner ka reframe, taki Mitthu desktop patti me aankh se na kate.
+
+_**Agent (claude-opus-5-5 2026-10-18 15:45:06Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Try two reframe zooms for the desktop band
+
+```bash
+for z in 1.28 1.34; do .venv/Scripts/python.exe -X utf8 -c "
+import sys; sys.path.insert(0,'scripts'); sys.argv=['x']
+import gen_brand as g
+g.reframe(zoom=$z)
+from PIL import Image
+b=Image.open(g.BRAND/'kissago_banner_v2.png').crop((0,508,2560,931)).resize((1280,212)); b.save(str(g.WORK/'band_$z.jpg'))
+" | tail -0; done; .venv/Scripts/python.exe -c "
+from PIL import Image
+W='channels/dadi-ki-kahaniyan/brand/_work/'
+a=Image.open(W+'band_1.28.jpg'); b=Image.open(W+'band_1.34.jpg')
+s=Image.new('RGB',(1280,440),(255,255,255)); s.paste(a,(0,0)); s.paste(b,(0,226)); s.save(W+'band_compare.jpg',quality=88)"
+```
+
+```text
+Exception ignored while flushing sys.stdout:
+OSError: [Errno 22] Invalid argument
+Exception ignored while flushing sys.stdout:
+OSError: [Errno 22] Invalid argument
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:45:06Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\band_compare.jpg`
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:45:14Z)**_
+
+<think><details><summary>Thought Process</summary>
+Zoom 1.28 sabse sahi hai kyunki Mitthu, Dadi aur Golu sab poore frame mein aa jaate hain, jabki 1.34 par Mitthu chhup jaata hai. Isliye 1.28 ko default set kar raha hoon, aur saath hi register ki rows aur bible ki line bhi fix kar raha hoon.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:45:27Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Apply zoom 1.28, update register rows and bible line
+
+```bash
+sed -i 's/^def reframe(zoom=1.2, ax=1.0, ay=1.0):/def reframe(zoom=1.28, ax=1.0, ay=1.0):/' scripts/gen_brand.py && grep -n "def reframe" scripts/gen_brand.py && .venv/Scripts/python.exe -X utf8 scripts/gen_brand.py reframe > /dev/null 2>&1; ls -la channels/dadi-ki-kahaniyan/brand/kissago_banner_v2.png | awk '{print $6,$7,$8}' && .venv/Scripts/python.exe -X utf8 - <<'PYEOF'
+import csv
+from pathlib import Path
+p = Path("shared/assets_license.csv")
+rows = list(csv.DictReader(p.open(encoding="utf-8", newline="")))
+n = 0
+for r in rows:
+    if r["path"].endswith(("long_01_thumbnail.png", "case01_thumbnail.png", "case01_thumbnail_vertical.png")):
+        r["source_url"] = "own: Gemini thumbnail art + our libass text in Mukta + brand/logo_horizontal.png (Gemini icon + Rozha One/Mukta, SIL OFL)"
+        r["author"] = "Kissago (channel owner)"; n += 1
+with p.open("w", encoding="utf-8", newline="") as fh:
+    w = csv.DictWriter(fh, fieldnames=rows[0].keys()); w.writeheader(); w.writerows(rows)
+print("register rows updated:", n)
+b = Path("channels/dadi-ki-kahaniyan/channel_bible.md"); s = b.read_text(encoding="utf-8")
+old = "> Channel art: `brand/kissago_banner.png` (2560x1440), `brand/dadi_ki_kahaniyan_dp.png` (800x800, no text). Old banner kept: `brand/dadi_ki_kahaniyan_banner.png`."
+assert old in s
+s = s.replace(old, "> Channel art: `brand/kissago_banner_v2.png` (2560x1440), `brand/kissago_dp.png` (800x800), `brand/watermark.png` (150x150); logo files and rules in `brand/BRAND.md`. Older banners kept: `brand/kissago_banner.png`, `brand/dadi_ki_kahaniyan_banner.png`.")
+b.write_text(s, encoding="utf-8"); print("bible line updated")
+PYEOF
+```
+
+```text
+224:def reframe(zoom=1.28, ax=1.0, ay=1.0):
+Oct 18 21:15
+register rows updated: 3
+bible line updated
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:46:21Z)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="Agent"><details>
+<summary>Tool use: **Agent**</summary>
+Brand R2 review
+
+```text
+  This agent's report was delivered to you as a message from "abc76ad3802965924" (its SubagentHandback call). Read it there; it is not repeated here.
+  
+agentId: abc76ad3802965924 (use SendMessage with to: 'abc76ad3802965924', summary: '<5-10 word recap>' to continue this agent)
+<usage>subagent_tokens: 21820
+tool_uses: 8
+duration_ms: 47846</usage>
+```
+</details></tool-use>
+
+_**Agent - sidechain (2026-10-18 15:45:33Z)**_
+
+R2 of the brand review (your R1 = FIX with 3 MINORs). Per RULES section 11 check ONLY these; REVIEW ONLY, no edits, JPG temp files in channels/dadi-ki-kahaniyan/brand/_work/review/.
+1. Banner reframe: scripts/gen_brand.py reframe() default zoom 1.2 -> 1.28 and channels/dadi-ki-kahaniyan/brand/kissago_banner_v2.png re-rendered (21:15). Check the desktop band (y 508-931) and the mobile safe crop (x 507-2053): Mitthu not cut through the eye (head should now be inside the band), Dadi/Golu faces OK, logo panel + tagline still fully inside the safe area and readable.
+2. shared/assets_license.csv rows for long_01_thumbnail.png, case01_thumbnail.png, case01_thumbnail_vertical.png now describe the logo (Gemini icon + Rozha One/Mukta) and author "Kissago (channel owner)".
+3. channels/dadi-ki-kahaniyan/channel_bible.md "Channel art" line now points to kissago_banner_v2.png, kissago_dp.png, watermark.png and BRAND.md.
+Verdict after R2 (PASS / PASS-WITH-NOTES with carry_over entries / ASK), one log line (R2, verdict, time). Very short report.
+
+_**Agent - sidechain (2026-10-18 15:45:33Z)**_
+
+<system-reminder>
+Your final report is delivered through SubagentHandback: when your work is complete, call SubagentHandback({message: <your full report>}). The call ends your run, so make it your last step. Only a SubagentHandback call reaches your caller as your result; plain text you write at the end is not delivered.
+</system-reminder>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 15:45:40Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Gather R2 evidence
+
+`cd /d/Story-Channel; ls -la channels/dadi-ki-kahaniyan/brand/; grep -n "def reframe" -A5 scripts/gen_brand.py; grep -n -i "thumbnail.png\|thumbnail_vertical" shared/assets_license.csv; grep -n -i "channel art" channels/dadi-ki-kahaniyan/channel_bible.md; ffprobe -v error -show_entries stream=width,height -of csv=p=0 channels/dadi-ki-kahaniyan/brand/kissago_banner_v2.png; tail -5 channels/dadi-ki-kahaniyan/log.md`
+
+```text
+total 16032
+drwxr-xr-x 1 ashamim 1049089       0 Oct 18 21:10 .
+drwxr-xr-x 1 ashamim 1049089       0 Oct 18 15:26 ..
+-rw-r--r-- 1 ashamim 1049089    2806 Oct 18 21:00 BRAND.md
+drwxr-xr-x 1 ashamim 1049089       0 Oct 18 21:15 _work
+-rw-r--r-- 1 ashamim 1049089    1612 Oct 18 20:48 channel_description.md
+-rw-r--r-- 1 ashamim 1049089 4646167 Oct 17 20:34 dadi_ki_kahaniyan_banner.png
+-rw-r--r-- 1 ashamim 1049089  625704 Oct 17 20:35 dadi_ki_kahaniyan_dp.png
+-rw-r--r-- 1 ashamim 1049089 1754383 Oct 18 21:06 icon.png
+-rw-r--r-- 1 ashamim 1049089 4650523 Oct 18 20:46 kissago_banner.png
+-rw-r--r-- 1 ashamim 1049089 3657635 Oct 18 21:15 kissago_banner_v2.png
+-rw-r--r-- 1 ashamim 1049089  202135 Oct 18 21:07 kissago_dp.png
+-rw-r--r-- 1 ashamim 1049089  220439 Oct 18 21:08 logo_horizontal.png
+-rw-r--r-- 1 ashamim 1049089  552579 Oct 18 21:08 logo_stacked.png
+-rw-r--r-- 1 ashamim 1049089   22886 Oct 18 21:07 watermark.png
+-rw-r--r-- 1 ashamim 1049089   45804 Oct 18 21:08 wordmark.png
+224:def reframe(zoom=1.28, ax=1.0, ay=1.0):
+225-    """Free: re-crop the generated background. zoom > 1 and ay=1 (keep the bottom) lift the characters into the
+226-    desktop band (y 508-931); ax=1 keeps the right edge, where Dadi, Golu and Mitthu sit."""
+227-    im = Image.open(WORK / "banner_v2_raw.png").convert("RGB")
+228-    s = max(BW / im.width, BH / im.height) * zoom
+229-    im = im.resize((round(im.width * s), round(im.height * s)), Image.LANCZOS)
+60:channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long/output/long_01_thumbnail.png,"own: Gemini thumbnail art + our libass text in Mukta + brand/logo_horizontal.png (Gemini icon + Rozha One/Mukta, SIL OFL)",Kissago (channel owner),own (Gemini-generated),,2026-10-18
+63:channels/dadi-ki-kahaniyan/stories/002_sharma-ji-ki-cycle/shorts/short_01_case-01/output/case01_thumbnail.png,"own: Gemini thumbnail art + our libass text in Mukta + brand/logo_horizontal.png (Gemini icon + Rozha One/Mukta, SIL OFL)",Kissago (channel owner),own (Gemini-generated),,2026-10-18
+64:channels/dadi-ki-kahaniyan/stories/002_sharma-ji-ki-cycle/shorts/short_01_case-01/output/case01_thumbnail_vertical.png,"own: Gemini thumbnail art + our libass text in Mukta + brand/logo_horizontal.png (Gemini icon + Rozha One/Mukta, SIL OFL)",Kissago (channel owner),own (Gemini-generated),,2026-10-18
+6:> Channel art: `brand/kissago_banner_v2.png` (2560x1440), `brand/kissago_dp.png` (800x800), `brand/watermark.png` (150x150); logo files and rules in `brand/BRAND.md`. Older banners kept: `brand/kissago_banner.png`, `brand/dadi_ki_kahaniyan_banner.png`.
+/usr/bin/bash: line 1: ffprobe: command not found
+2026-10-18 | short_01_jadui-kadhai | publish dry-run R2 (19:00 slot) | PASS | dry-run OK: scheduled 2026-10-18T19:00:00+05:30, kids=false, captions .srt, no thumb/playlist, 1080x1920 h264 48.3s, parent Ogfqow8rbGY, 1st comment task +5 min; real upload NOT run (blocked by permission classifier) -> user must allow or run it
+2026-10-18 | channel | publish slot | USER APPROVED ONE-TIME | 2026-10-18: Case 01 (Short, scheduled 19:00 earlier) and Long 01 both publish at 19:00 IST; short_01_jadui-kadhai at 21:00 (supersedes the earlier 'both 19:00' exception line)
+2026-10-18 | short_01_jadui-kadhai | short->long checklist | video kWn4jKte090 -> long Ogfqow8rbGY | related_video: pending, pin_comment: pending
+2026-10-18 | short_01_jadui-kadhai | publish | PUBLISHED | video kWn4jKte090 uploaded (scheduled 2026-10-18 21:00 IST requested), parent Ogfqow8rbGY, desc line 1 + 1st comment task StoryChannel-Comment-kWn4jKte090 at 21:05 IST (Ready), captions ok, no thumb/playlist, channel UCy071_4g4vGemktFHybqkhQ verified; manual: Related video + pin comment + confirm Scheduled in Studio
+2026-10-18 | channel brand (Kissago rebrand) | brand R1 (~20 min) | FIX | no BLOCKER; Hindi shaping ok (Rozha One/Mukta via libass, स्स conjunct + ि/ो ok), colours ok (marigold F4A300, cream FFF4DC, DP indigo 1F1B4D exact), alpha clean, DP 98/48 + icon 48 recognisable, banner logo+tagline inside safe area, no AI text, prompts clean, thumbs logo bottom-left/top-centre ok; MINOR: desktop/mobile band edge y=931 cuts Mitthu through the eye (reframe, free); register rows 60/63/64 thumbs still say 'text in Mukta' only (add logo/Rozha One, row 60 author); channel_bible line 6 stale banner/DP paths
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 15:45:41Z)**_
+
+Items 2 and 3 verified. Now the banner crops.
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 15:45:47Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Make review crops of banner
+
+```bash
+cd /d/Story-Channel; mkdir -p channels/dadi-ki-kahaniyan/brand/_work/review; ls .venv/Scripts/python.exe && .venv/Scripts/python -X utf8 -c "
+from PIL import Image
+im=Image.open('channels/dadi-ki-kahaniyan/brand/kissago_banner_v2.png').convert('RGB'); print(im.size)
+d='channels/dadi-ki-kahaniyan/brand/_work/review/'
+im.crop((0,508,2560,931)).save(d+'r2_desktop_band.jpg',quality=85)
+im.crop((507,508,2053,931)).save(d+'r2_mobile_safe.jpg',quality=85)
+im.resize((1280,720)).save(d+'r2_full.jpg',quality=85)
+"
+```
+
+```text
+.venv/Scripts/python.exe
+(2560, 1440)
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 15:45:47Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\review\r2_full.jpg`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 15:45:47Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\review\r2_desktop_band.jpg`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 15:45:47Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\review\r2_mobile_safe.jpg`
+</details></tool-use>
+
+_**Agent - sidechain (2026-10-18 15:45:47Z)**_
+
+[Image: original 2560x423, displayed at 2000x330. Multiply coordinates by 1.28 to map to original image.]
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 15:46:00Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Append log and carry-over entries
+
+```bash
+cd /d/Story-Channel/channels/dadi-ki-kahaniyan; ls carry_over.md 2>/dev/null && tail -3 carry_over.md; date +%H:%M
+cat >> log.md <<'EOF'
+2026-10-18 | channel brand (Kissago rebrand) | brand R2 | PASS-WITH-NOTES | banner_v2 zoom 1.28: Mitthu head fully inside desktop band (eye clear), Golu+Dadi faces in band, logo panel+tagline inside mobile safe x507-2053 and readable; register rows 60/63/64 now list logo (Gemini icon + Rozha One/Mukta) + author Kissago; bible line 6 points to banner_v2/dp/watermark/BRAND.md. Notes -> carry_over (panel corner touches Mitthu head; mobile crop shows only Golu, Dadi face cut at right edge)
+EOF
+cat >> carry_over.md <<'EOF'
+
+## 2026-10-18 brand R2 (Kissago banner_v2) - MINOR notes, not blocking
+- Banner: logo panel's bottom-right rounded corner overlaps the back of Mitthu's head (~x1300-1400, y850-930). Next banner revision: nudge panel left/up ~40 px or Mitthu right.
+- Banner mobile safe crop (x507-2053): only Golu fully visible, Dadi's face cut at right edge (glasses only). Acceptable (desktop/TV show both); consider shifting characters left if banner is redone.
+EOF
+```
+
+```text
+carry_over.md
+| 2026-10-18 | long_01 (uploaded, not changed) | Dadi–Golu opening ~12.8 s (max 10 s) | builder warns when lines marked `"part": "intro"` end after 10 s; script template section 0 | fixed in pipeline |
+| 2026-10-18 | long_01 (uploaded, not changed) | last spoken line is the moral, not a question to viewers | builder warns if the last spoken line is not a question; script template + step-review Script stage | fixed in pipeline |
+| 2026-10-18 | short_01_jadui-kadhai (uploaded, not changed) | burned captions had 60 px side margins (right 15% not kept free) | caption margins 170 px left/right, bottom 480 px (25%) for all Shorts | fixed in pipeline |
+21:15
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 15:46:07Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Reformat carry-over entries as table rows
+
+```bash
+cd /d/Story-Channel/channels/dadi-ki-kahaniyan; head -n -4 carry_over.md > c.tmp && mv c.tmp carry_over.md
+cat >> carry_over.md <<'EOF'
+| 2026-10-18 | brand banner_v2 (R2 PASS-WITH-NOTES) | logo panel bottom-right corner overlaps back of Mitthu's head (~x1300-1400, y850-930) | next banner revision: nudge panel left/up ~40 px or Mitthu right (free) | open |
+| 2026-10-18 | brand banner_v2 (R2 PASS-WITH-NOTES) | mobile safe crop (x507-2053) shows Golu only, Dadi's face cut at right edge | if banner is redone, shift characters left so both faces sit inside x507-2053 | open |
+EOF
+tail -4 carry_over.md
+```
+
+```text
+| 2026-10-18 | long_01 (uploaded, not changed) | last spoken line is the moral, not a question to viewers | builder warns if the last spoken line is not a question; script template + step-review Script stage | fixed in pipeline |
+| 2026-10-18 | short_01_jadui-kadhai (uploaded, not changed) | burned captions had 60 px side margins (right 15% not kept free) | caption margins 170 px left/right, bottom 480 px (25%) for all Shorts | fixed in pipeline |
+| 2026-10-18 | brand banner_v2 (R2 PASS-WITH-NOTES) | logo panel bottom-right corner overlaps back of Mitthu's head (~x1300-1400, y850-930) | next banner revision: nudge panel left/up ~40 px or Mitthu right (free) | open |
+| 2026-10-18 | brand banner_v2 (R2 PASS-WITH-NOTES) | mobile safe crop (x507-2053) shows Golu only, Dadi's face cut at right edge | if banner is redone, shift characters left so both faces sit inside x507-2053 | open |
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 15:46:21Z)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="SubagentHandback"><details>
+<summary>Tool use: **SubagentHandback**</summary>
+
+```text
+{"success":true,"message":"Report delivered to your caller."}
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:46:26Z)**_
+
+Munshi R2 me **PASS-WITH-NOTES** aaya, aur do chhoti baatein carry_over me gayi. Ab DP, watermark aur thumbnail ek saath dikhane ke liye sheet bana raha hoon:
+
+_**Agent (claude-opus-5-5 2026-10-18 15:46:35Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Build showcase sheet: DP, watermark, thumbnail
+
+```bash
+.venv/Scripts/python.exe -c "
+from PIL import Image, ImageDraw
+B='channels/dadi-ki-kahaniyan/brand/'
+S='channels/dadi-ki-kahaniyan/stories/'
+dp=Image.open(B+'kissago_dp.png').convert('RGB')
+def circ(sz):
+  im=dp.resize((sz,sz),Image.LANCZOS); m=Image.new('L',(sz,sz),0); ImageDraw.Draw(m).ellipse((0,0,sz-1,sz-1),fill=255)
+  o=Image.new('RGB',(sz,sz),(255,255,255)); o.paste(im,(0,0),m); return o
+wm=Image.open(B+'watermark.png')
+frame=Image.open(S+'001_lalchi-halwai/images/scene_17.png').convert('RGB').resize((640,360))
+frame.paste(wm.resize((60,60)),(640-72,360-72),wm.resize((60,60)))
+th=Image.open(S+'001_lalchi-halwai/long/output/long_01_thumbnail.png').convert('RGB').resize((640,360))
+c=Image.new('RGB',(1700,800),(245,245,245)); d=ImageDraw.Draw(c)
+c.paste(circ(360),(20,40)); d.text((20,15),'DP (circle crop, 360 px)',fill=(0,0,0))
+c.paste(circ(98),(400,80)); d.text((400,55),'98 px',fill=(0,0,0))
+c.paste(circ(48),(520,105)); d.text((520,80),'48 px',fill=(0,0,0))
+c.paste(frame,(20,430)); d.text((20,410),'Watermark on a video frame (bottom-right, as YouTube shows it)',fill=(0,0,0))
+c.paste(th,(700,40)); d.text((700,15),'New thumbnail sample: Long 01 (corner logo)',fill=(0,0,0))
+c.paste(th.resize((160,90)),(700,420)); d.text((700,400),'phone size 160x90',fill=(0,0,0))
+c.save(B+'_work/brand_showcase.jpg',quality=90)"
+```
+
+```text
+(Bash completed with no output)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:46:35Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\brand_showcase.jpg`
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:46:35Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\banner_v2_devices.jpg`
+</details></tool-use>

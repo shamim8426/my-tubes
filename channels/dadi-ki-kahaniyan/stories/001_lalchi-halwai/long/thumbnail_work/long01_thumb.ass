@@ -12,4 +12,3 @@ Style: L,Mukta,40,&H0030C8FF,&H000000FF,&H00000000,&H96000000,-1,0,0,0,100,100,0
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 Dialogue: 0,0:00:00.00,0:00:01.00,Q,,0,0,0,,{\an5\pos(290,300)\q2}जो डालो,\N{\c&H0030FFFF&}दुगना!
-Dialogue: 0,0:00:00.00,0:00:01.00,L,,0,0,0,,किस्सागो

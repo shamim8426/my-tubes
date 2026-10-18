@@ -57,8 +57,16 @@ channels/dadi-ki-kahaniyan/stories/002_sharma-ji-ki-cycle/images/,own: Gemini-ge
 channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/characters/,own: Gemini-generated character/prop sheets (cost_log.csv),Dadi Ki Kahaniyan,own (Gemini-generated),,2026-10-17
 channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/images/,own: Gemini-generated scene images (cost_log.csv),Dadi Ki Kahaniyan,own (Gemini-generated),,2026-10-17
 channels/dadi-ki-kahaniyan/brand/,own: Gemini-generated banner/DP/thumbnail art + our own libass text in Mukta,Dadi Ki Kahaniyan,own (Gemini-generated),,2026-10-17
-channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long/output/long_01_thumbnail.png,own: Gemini art + our own libass text in Mukta,Dadi Ki Kahaniyan,own (Gemini-generated),,2026-10-18
+channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long/output/long_01_thumbnail.png,"own: Gemini thumbnail art + our libass text in Mukta + brand/logo_horizontal.png (Gemini icon + Rozha One/Mukta, SIL OFL)",Kissago (channel owner),own (Gemini-generated),,2026-10-18
 channels/*/stories/*/audio/tts_cache/,own: Gemini TTS voices (cost_log.csv),Dadi Ki Kahaniyan,own (Gemini-generated),,2026-10-17
 channels/dadi-ki-kahaniyan/brand/kissago_banner.png,"own: Gemini banner art (brand/_work/banner_art.png) + our own libass text in Mukta (shared/fonts, SIL OFL)",Kissago (channel owner),own (Gemini-generated),,2026-10-18
-channels/dadi-ki-kahaniyan/stories/002_sharma-ji-ki-cycle/shorts/short_01_case-01/output/case01_thumbnail.png,own: Gemini art + our own libass text in Mukta,Kissago (channel owner),own (Gemini-generated),,2026-10-18
-channels/dadi-ki-kahaniyan/stories/002_sharma-ji-ki-cycle/shorts/short_01_case-01/output/case01_thumbnail_vertical.png,own: Gemini art + our own libass text in Mukta,Kissago (channel owner),own (Gemini-generated),,2026-10-18
+channels/dadi-ki-kahaniyan/stories/002_sharma-ji-ki-cycle/shorts/short_01_case-01/output/case01_thumbnail.png,"own: Gemini thumbnail art + our libass text in Mukta + brand/logo_horizontal.png (Gemini icon + Rozha One/Mukta, SIL OFL)",Kissago (channel owner),own (Gemini-generated),,2026-10-18
+channels/dadi-ki-kahaniyan/stories/002_sharma-ji-ki-cycle/shorts/short_01_case-01/output/case01_thumbnail_vertical.png,"own: Gemini thumbnail art + our libass text in Mukta + brand/logo_horizontal.png (Gemini icon + Rozha One/Mukta, SIL OFL)",Kissago (channel owner),own (Gemini-generated),,2026-10-18
+shared/fonts/RozhaOne-Regular.ttf,https://github.com/google/fonts/tree/main/ofl/rozhaone (Google Fonts),Indian Type Foundry,SIL OFL 1.1 (shared/fonts/OFL_RozhaOne.txt),,2026-10-18
+channels/dadi-ki-kahaniyan/brand/icon.png,"own: Gemini icon (brand/_work/icon_v2.png, option 2), background removed by script",Kissago (channel owner),own (Gemini-generated),,2026-10-18
+channels/dadi-ki-kahaniyan/brand/wordmark.png,"own: libass render, Rozha One + Mukta (shared/fonts, SIL OFL)",Kissago (channel owner),own,,2026-10-18
+channels/dadi-ki-kahaniyan/brand/logo_horizontal.png,own: icon.png + wordmark.png,Kissago (channel owner),own,,2026-10-18
+channels/dadi-ki-kahaniyan/brand/logo_stacked.png,own: icon.png + wordmark.png,Kissago (channel owner),own,,2026-10-18
+channels/dadi-ki-kahaniyan/brand/kissago_dp.png,own: icon.png on indigo,Kissago (channel owner),own,,2026-10-18
+channels/dadi-ki-kahaniyan/brand/watermark.png,own: icon.png 150x150,Kissago (channel owner),own,,2026-10-18
+channels/dadi-ki-kahaniyan/brand/kissago_banner_v2.png,own: Gemini background (brand/_work/banner_v2_raw.png) + logo + Mukta tagline,Kissago (channel owner),own (Gemini-generated),,2026-10-18

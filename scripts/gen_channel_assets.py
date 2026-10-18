@@ -16,6 +16,7 @@ from PIL import Image
 
 sys.path.insert(0, str(Path(__file__).parent))
 from gemini_image import generate  # noqa: E402
+from gen_brand import brand_corner  # noqa: E402
 
 from paths import FONTS_DIR, ROOT, channel_config, channel_dir  # noqa: E402
 
@@ -158,7 +159,6 @@ Style: L,Mukta,40,&H00FFFFFF,&H000000FF,&H00000000,&H96000000,-1,0,0,0,100,100,0
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 Dialogue: 0,0:00:00.00,0:00:01.00,Q,,0,0,0,,बताओ, दोषी कौन?
-Dialogue: 0,0:00:00.00,0:00:01.00,L,,0,0,0,,{{\\c&H0030C8FF&}}{BRAND}
 """
     (C1W / "thumb.ass").write_text(ass, encoding="utf-8")
     shutil.copy(art, C1W / "thumb_art.png")
@@ -166,6 +166,7 @@ Dialogue: 0,0:00:00.00,0:00:01.00,L,,0,0,0,,{{\\c&H0030C8FF&}}{BRAND}
                     "subtitles=filename=thumb.ass:fontsdir=fonts", "-frames:v", "1", "thumb_titled.png"],
                    cwd=C1W, check=True)
     shutil.copy(C1W / "thumb_titled.png", out)
+    brand_corner(out, "bl")  # BRAND.md: small logo_horizontal bottom-left
 
 
 def thumb():
@@ -223,12 +224,11 @@ ScaledBorderAndShadow: yes
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: Q,Mukta,150,&H0000E5FF,&H000000FF,&H00000000,&H96000000,-1,0,0,0,100,100,0,0,1,11,6,8,30,30,70,1
+Style: Q,Mukta,150,&H0000E5FF,&H000000FF,&H00000000,&H96000000,-1,0,0,0,100,100,0,0,1,11,6,8,30,30,210,1
 Style: L,Mukta,52,&H0030C8FF,&H000000FF,&H00000000,&H96000000,-1,0,0,0,100,100,0,0,1,5,3,8,30,30,20,1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
-Dialogue: 0,0:00:00.00,0:00:01.00,L,,0,0,0,,{BRAND}
 Dialogue: 0,0:00:00.00,0:00:01.00,Q,,0,0,0,,बताओ, दोषी कौन?
 """
     (C1W / "thumb_v.ass").write_text(ass, encoding="utf-8")
@@ -238,6 +238,7 @@ Dialogue: 0,0:00:00.00,0:00:01.00,Q,,0,0,0,,बताओ, दोषी कौन
                    cwd=C1W, check=True)
     out = CASE01 / "output" / "case01_thumbnail_vertical.png"
     shutil.copy(C1W / "thumb_v_titled.png", out)
+    brand_corner(out, "tc", width_frac=0.32)  # vertical: top centre, above the question
     print("saved", out, Image.open(out).size)
 
 
@@ -287,7 +288,6 @@ Style: L,Mukta,40,&H0030C8FF,&H000000FF,&H00000000,&H96000000,-1,0,0,0,100,100,0
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 Dialogue: 0,0:00:00.00,0:00:01.00,Q,,0,0,0,,{{\\an5\\pos(290,300)\\q2}}जो डालो,\\N{{\\c&H0030FFFF&}}दुगना!
-Dialogue: 0,0:00:00.00,0:00:01.00,L,,0,0,0,,{BRAND}
 """
     (L1W / "long01_thumb.ass").write_text(ass, encoding="utf-8")
     shutil.copy(L1W / "long01_thumb_art.png", L1W / "long01_thumb_in.png")
@@ -296,6 +296,7 @@ Dialogue: 0,0:00:00.00,0:00:01.00,L,,0,0,0,,{BRAND}
                    cwd=L1W, check=True)
     out = LONG01 / "long" / "output" / "long_01_thumbnail.png"
     shutil.copy(L1W / "long01_thumb_titled.png", out)
+    brand_corner(out, "bl")
     print("saved", out, Image.open(out).size)
 
 
