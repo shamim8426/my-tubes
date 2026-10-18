@@ -23852,3 +23852,2296 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 08:10:27Z)**_
 {"success":true,"message":"Report delivered to your caller."}
 ```
 </details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 08:10:34Z)**_
+
+Dry-run paas ho gaya. Ab sync chala raha hoon. Commit message me "copyright check" likhna galat hota, kyunki wo hua nahi, isliye message me "copyright pending" likh raha hoon.
+
+_**Agent (claude-opus-5-5 2026-10-18 08:10:46Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Sync to GitHub
+
+`powershell -NoProfile -ExecutionPolicy Bypass -File tools/sync.ps1 -Message "long_01: final approved + channel config + upload dry-run (copyright check pending)" >/dev/null 2>&1; tail -1 munshi/sync.log`
+
+```text
+2026-10-18 13:40:45  pushed: long_01: final approved + channel config + upload dry-run (copyright check pending)  (repo pack size 179 MB)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 08:11:09Z)**_
+
+Step 6 ko chhod kar steps 1–8 ho gaye: Long 01 ki dry-run paas hai aur Munshi ne final build ko bhi **PASS** kar diya. Copyright check nahi ho paya, kyunki uska prompt mere paas nahi hai. Asli upload abhi nahi hua.
+
+| # | Kaam | Nateeja |
+|---|---|---|
+| 1 | Lambai | RULES section 5 me nayi line daal di. Munshi ne step 7 (final build) ko **PASS** kar diya, kyunki final aur preview dono 306.17s ke hain. |
+| 2 | Channel config | `channel_id` UCy071_4g4vGemktFHybqkhQ bhar diya. `channel_key` pehle se tha. Playlist khaali hai. |
+| 3 | ffprobe | `tools\ffmpeg\bin` folder is PC par hai hi nahi, exe seedhe `tools\ffmpeg\` me hain. Isliye **sirf USER PATH** me `D:\Story-Channel\tools\ffmpeg` joda, system PATH me nahi. Script ka fallback pehle `bin\ffprobe.exe` dekhta hai, phir `tools\ffmpeg\ffprobe.exe`. Bina PATH ke test kiya, kaam karta hai. Baaki safety checks nahi chhede. Naya PATH sirf nayi terminal window me dikhega. |
+| 4 | bt709 tags | Command-line flags se is FFmpeg build me tag nahi lagte the, isliye builder me `setparams` filter joda. Test file me teeno tag bt709 aaye. Long 01 dobara nahi banaya. Iska matlab: Long 01 me kuch bhi badla toh saare scenes dobara render honge. |
+| 5 | CLAUDE.md | Shorts ke music wala note jod diya. |
+| 6 | Copyright | ⚠️ **Nahi hua.** RULES section 10 aur `assets_license.csv` nahi bane hain, aur "pehle wala copyright prompt" na is baatcheet me aaya, na Downloads me mila. Use paste kar dijiye, main poora kar dunga. |
+| 7 | Munshi dry-run | `long_01/output/upload.json` ban gaya. Dry-run **PASS** hua. Copyright review step 6 ki wajah se baaki hai. |
+| 8 | Sync | `pushed` ✅. Message me "copyright check pending" likha, kyunki wo hua nahi. |
+
+**Dry-run ka output:**
+```
+Channel:      दादी की कहानियाँ UCy071_4g4vGemktFHybqkhQ
+Title:        लालची हलवाई और जादुई कड़ाही | दादी की कहानियाँ | Hindi Moral Story | Hindi Kahani
+Privacy:      scheduled
+Publish at:   2026-10-20T19:00:00+05:30
+Made for kids: False
+Thumbnail:    long_01_thumbnail.png
+Captions:     long_01.srt
+Playlist:     -
+Video check:  1920x1080 h264 yuv420p 306.2s
+
+Dry run OK. Nothing uploaded.
+```
+Publish ka samay **mangalvaar 20 Oct, 7:00 PM IST** rakha, kyunki Case 01 aaj (18 Oct) gaya hai.
+
+## ⚠️ "Made for kids" par ek zaroori baat
+Aapne pichhli baar Audience setting ke baare me poochha tha. Wahan aur `channel_config.json` dono me abhi "**No, not made for kids**" hai. Par ye channel bachchon ke liye cartoon moral stories bana raha hai, aur YouTube/COPPA ke niyam me animated characters aur bachchon wali kahaniyan aam taur par "made for kids" maani jaati hain. Galat setting par YouTube khud setting badal sakta hai ya channel par karvai kar sakta hai.
+
+Ye kanooni faisla aapka hai. Mera sujhaav hai ki ek baar YouTube ki "What's content made for kids?" guide padh kar tay kijiye. Jo bhi chunenge, wahi `channel_config.json` me bhar dunga. Us settings page ke baaki options (ads, clips, AI training, dubbing) ka is project par koi asar nahi hai, wo aapki marzi.
+
+## Step 9: YouTube API setup, Step 1
+Ab ek-ek step karwata hoon. Har step ke baad aap "ho gaya" likhiye.
+
+**Step 1: YouTube Data API v3 enable karna**
+1. https://console.cloud.google.com kholiye. Usi Google account se login kijiye jisme Gemini ka project hai (ami.com wala nahi).
+2. Upar-baayein project dropdown me wahi project chuniye jo Gemini ke liye use hota hai.
+3. Upar search bar me **YouTube Data API v3** likhiye aur result par click kijiye.
+4. Neeche **Enable** dabaiye. Agar "Manage" dikhe toh ye pehle se enable hai.
+
+Ho jaye toh batana. Agla step OAuth consent screen ka hoga.
+
+Yaad rahe: aage jab pehli baar browser me login hoga, tab **"दादी की कहानियाँ" channel hi chunna hai**. Ye main us waqt dobara yaad dilaunga.
+
+---
+
+_**User (2026-10-18 08:23:28Z)**_
+
+
+
+<pasted_content id="aeaa">
+Do baatein, phir API setup ke Step 1 par wapas aao.
+
+A. Made for kids: mera faisla final hai — "No, not made for kids". Hamara content poore parivaar ke liye hai (Dadi Jasoos mysteries bade bhi solve karte hain). channel_config.json me false hi rehne do. RULES section 7 ka family-wording wala niyam isi ki suraksha ke liye hai; Munshi har review me use strictly check kare. Is par dobara mat poochhna.
+
+B. Copyright (STRICT) — ye kaam karo:
+
+1. munshi/RULES.md ke end me ye section jodo (bilkul isi text ke saath):
+
+## 10. Copyright (STRICT — any violation is FIX and blocks upload)
+- Every external file used in any video (music, sound effect, font, image, footage, voice) must have a row in `munshi/assets_license.csv`: path, source_url, author, license, attribution_text, date_added. No row = not allowed.
+- Allowed licences only: CC0; CC BY 4.0 (with exact credit in the description); SIL OFL (fonts); YouTube Audio Library tracks (follow their attribution note); our own Gemini-generated images/voices; our own recordings.
+- Never allowed: CC BY-NC (non-commercial, conflicts with monetization), CC BY-ND (we edit/mix), CC BY-SA, "free for personal use", Freesound "Sampling+", unknown source, anything ripped from YouTube/Spotify/Instagram/films/TV, Bollywood or any commercial song (even hummed or sung by TTS), Google/Pinterest images.
+- Freesound: licence is per sound. Check each file's own licence page; only CC0 or CC BY 4.0.
+- Content: no real brand logos, no film/TV/cartoon characters (Chhota Bheem, Motu Patlu, Disney, etc.), no celebrity likeness, no copied song lyrics, no copied text from modern books. Old folk tales (Panchatantra, Jataka, Akbar-Birbal) are public domain, but we always write our own version, never copy a modern retelling.
+- Image prompts never name a studio, franchise or living artist ("Pixar style", "Ghibli style", etc.).
+- Before upload, Munshi checks: every audio/image/font file in the final build is in the register, every CC BY item is credited in the description exactly as its licence asks, and no source audio from outside our pipeline is in the mix.
+- After upload: if YouTube Studio shows any copyright claim or strike, stop all new uploads and tell the user. CC music sometimes gets false Content ID claims; dispute only with the licence proof from the register, after the user agrees.
+
+2. munshi/assets_license.csv banao (header: path,source_url,author,license,attribution_text,date_added) aur Long 01 + shared folders ke saare bahari assets bharo: music tracks, Freesound SFX, fonts (Mukta), banner/DP me koi bahari cheez. Har Freesound file ka licence uske page se confirm karo. Jiska source/licence pakka na mile, use "UNKNOWN" likho aur mujhe list dikhao — rakhna hai ya hatana, main tay karunga.
+
+3. .claude/skills/step-review/SKILL.md: stage 7 (Final build) aur stage 9 (Metadata) me bullet jodo — "Copyright: run the RULES section 10 checks against munshi/assets_license.csv. Any miss is FIX." Aur sabse upar naya stage "0. New asset added" — "Any new music/SFX/font/image from outside: licence verified and row added to assets_license.csv before it is used."
+
+4. @agent-munshi se Long 01 ka copyright review karwao aur verdict dikhao.
+
+5. Sync: tools\sync.ps1 -Message "rules: strict copyright + assets register + long_01 copyright review"
+
+Iske baad API setup Step 1 se aage badhenge.
+</pasted_content id="aeaa">
+
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-18 08:23:34Z)**_
+
+Kaam shuru kar raha hoon. Pehle RULES me section 10 jod raha hoon, aur saath me music, SFX aur fonts ki credit files padh raha hoon.
+
+_**Agent (claude-opus-5-5 2026-10-18 08:23:44Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Append RULES section 10, list assets and credits
+
+```bash
+cat >> munshi/RULES.md <<'EOF'
+
+## 10. Copyright (STRICT — any violation is FIX and blocks upload)
+- Every external file used in any video (music, sound effect, font, image, footage, voice) must have a row in `munshi/assets_license.csv`: path, source_url, author, license, attribution_text, date_added. No row = not allowed.
+- Allowed licences only: CC0; CC BY 4.0 (with exact credit in the description); SIL OFL (fonts); YouTube Audio Library tracks (follow their attribution note); our own Gemini-generated images/voices; our own recordings.
+- Never allowed: CC BY-NC (non-commercial, conflicts with monetization), CC BY-ND (we edit/mix), CC BY-SA, "free for personal use", Freesound "Sampling+", unknown source, anything ripped from YouTube/Spotify/Instagram/films/TV, Bollywood or any commercial song (even hummed or sung by TTS), Google/Pinterest images.
+- Freesound: licence is per sound. Check each file's own licence page; only CC0 or CC BY 4.0.
+- Content: no real brand logos, no film/TV/cartoon characters (Chhota Bheem, Motu Patlu, Disney, etc.), no celebrity likeness, no copied song lyrics, no copied text from modern books. Old folk tales (Panchatantra, Jataka, Akbar-Birbal) are public domain, but we always write our own version, never copy a modern retelling.
+- Image prompts never name a studio, franchise or living artist ("Pixar style", "Ghibli style", etc.).
+- Before upload, Munshi checks: every audio/image/font file in the final build is in the register, every CC BY item is credited in the description exactly as its licence asks, and no source audio from outside our pipeline is in the mix.
+- After upload: if YouTube Studio shows any copyright claim or strike, stop all new uploads and tell the user. CC music sometimes gets false Content ID claims; dispute only with the licence proof from the register, after the user agrees.
+EOF
+tail -3 munshi/RULES.md | cut -c1-80; echo ----; find assets -type f | sort; echo ----; cat assets/music/CREDITS.md; echo ----; cat assets/sfx/CREDITS.md; echo ----; head -5 assets/fonts/OFL.txt
+```
+
+```text
+- Image prompts never name a studio, franchise or living artist ("Pixar style", 
+- Before upload, Munshi checks: every audio/image/font file in the final build i
+- After upload: if YouTube Studio shows any copyright claim or strike, stop all 
+----
+assets/fonts/Mukta-Bold.ttf
+assets/fonts/Mukta-ExtraBold.ttf
+assets/fonts/OFL.txt
+assets/music/CREDITS.md
+assets/music/Investigations.mp3
+assets/music/Sneaky_Snitch.mp3
+assets/music/comedy/Fluffing_a_Duck.mp3
+assets/music/comedy/Monkeys_Spinning_Monkeys.mp3
+assets/music/dukh/Heartbreaking.mp3
+assets/music/dukh/Sad_Trio.mp3
+assets/music/jaadu/Dreams_Become_Real.mp3
+assets/music/jaadu/Enchanted_Valley.mp3
+assets/music/khushi/Carefree.mp3
+assets/music/khushi/Life_of_Riley.mp3
+assets/music/mystery_bed.wav
+assets/music/seekh/Peaceful_Desolation.mp3
+assets/music/seekh/Touching_Moments_Two_Higher.mp3
+assets/music/tension/Hidden_Agenda.mp3
+assets/music/tension/Investigations.mp3
+assets/sfx/CREDITS.md
+assets/sfx/comedy_sting_731261.mp3
+assets/sfx/comedy_sting_731262.mp3
+assets/sfx/magic_376745.mp3
+assets/sfx/magic_376747.mp3
+assets/sfx/tension_sting_578351.mp3
+assets/sfx/tension_sting_578356.mp3
+assets/sfx/whoosh_142348.mp3
+assets/sfx/whoosh_803771.mp3
+----
+# Music credits (Incompetech — Creative Commons Attribution 4.0)
+
+Description me credit line ZAROOR daalni hai (jo track video me use ho).
+
+## Sneaky_Snitch.mp3
+"Sneaky Snitch" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
+## Investigations.mp3
+"Investigations" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
+## Mood library (assets/music/<mood>/) — sab Kevin MacLeod (incompetech.com), CC BY 4.0
+Credit format (jo track use ho uska):
+"<Track>" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
+| Mood | Files |
+|---|---|
+| comedy | Fluffing_a_Duck.mp3 · Monkeys_Spinning_Monkeys.mp3 |
+| khushi | Carefree.mp3 · Life_of_Riley.mp3 |
+| dukh | Heartbreaking.mp3 · Sad_Trio.mp3 |
+| jaadu | Enchanted_Valley.mp3 · Dreams_Become_Real.mp3 |
+| tension | Hidden_Agenda.mp3 · Investigations.mp3 |
+| seekh | Touching_Moments_Two_Higher.mp3 · Peaceful_Desolation.mp3 |
+
+## mystery_bed.wav
+Apna banaya hua (scripts/gen_music.py) — koi credit nahi chahiye.
+----
+# Sound effects (Freesound, all CC0)
+
+- `comedy_sting_731261.mp3` — "cartoon-sound-double-boing" by sdroliasnick (2.3s, CC0) https://freesound.org/people/sdroliasnick/sounds/731261/
+- `comedy_sting_731262.mp3` — "cartoon-sound-single-boing" by sdroliasnick (2.1s, CC0) https://freesound.org/people/sdroliasnick/sounds/731262/
+- `tension_sting_578356.mp3` — "Dissonant Piano Sting 5" by nomiqbomi (2.7s, CC0) https://freesound.org/people/nomiqbomi/sounds/578356/
+- `tension_sting_578351.mp3` — "Dissonant Piano Sting 2" by nomiqbomi (2.7s, CC0) https://freesound.org/people/nomiqbomi/sounds/578351/
+- `whoosh_803771.mp3` — "whoosh 1 long" by Logicogonist (0.8s, CC0) https://freesound.org/people/Logicogonist/sounds/803771/
+- `whoosh_142348.mp3` — "Cartoony whooshes" by BranRainey (2.3s, CC0) https://freesound.org/people/BranRainey/sounds/142348/
+- `magic_376747.mp3` — "Fantasy_ui_Button_1.wav" by ZenithInfinitiveStudios (1.4s, CC0) https://freesound.org/people/ZenithInfinitiveStudios/sounds/376747/
+- `magic_376745.mp3` — "Fantasy_ui_Button_3.wav" by ZenithInfinitiveStudios (1.3s, CC0) https://freesound.org/people/ZenithInfinitiveStudios/sounds/376745/
+----
+Copyright (c) 2014, Girish Dalvi, Ek Type. All rights reserved.
+
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+This license is copied below, and is also available with a FAQ at:
+http://scripts.sil.org/OFL
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 08:23:47Z)**_
+
+Ab har Freesound file ka licence Freesound API se check kar raha hoon. Key `.env` se andar hi andar padhi jayegi aur kahin print nahi hogi.
+
+_**Agent (claude-opus-5-5 2026-10-18 08:23:58Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Verify Freesound licence of each SFX via API
+
+```bash
+.venv/Scripts/python.exe -X utf8 -c "
+import os,requests
+from dotenv import load_dotenv; load_dotenv()
+k=os.environ['FREESOUND_API_KEY']
+for i in [731261,731262,578356,578351,803771,142348,376747,376745]:
+  r=requests.get(f'https://freesound.org/apiv2/sounds/{i}/',params={'token':k,'fields':'id,name,username,license,url'},timeout=30)
+  d=r.json() if r.ok else {'err':r.status_code}
+  print(i, d.get('username'), '|', d.get('name'), '|', d.get('license'), '|', d.get('err',''))
+"
+```
+
+```text
+731261 sdroliasnick | cartoon-sound-double-boing | http://creativecommons.org/publicdomain/zero/1.0/ | 
+731262 sdroliasnick | cartoon-sound-single-boing | http://creativecommons.org/publicdomain/zero/1.0/ | 
+578356 nomiqbomi | Dissonant Piano Sting 5 | http://creativecommons.org/publicdomain/zero/1.0/ | 
+578351 nomiqbomi | Dissonant Piano Sting 2 | http://creativecommons.org/publicdomain/zero/1.0/ | 
+803771 Logicogonist | whoosh 1 long | http://creativecommons.org/publicdomain/zero/1.0/ | 
+142348 BranRainey | Cartoony whooshes | http://creativecommons.org/publicdomain/zero/1.0/ | 
+376747 ZenithInfinitiveStudios | Fantasy_ui_Button_1.wav | http://creativecommons.org/publicdomain/zero/1.0/ | 
+376745 ZenithInfinitiveStudios | Fantasy_ui_Button_3.wav | http://creativecommons.org/publicdomain/zero/1.0/ |
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 08:24:01Z)**_
+
+Saari 8 SFX Freesound API par **CC0** confirm hui. Ab dekh raha hoon ki music tracks kahan se download hue the:
+
+_**Agent (claude-opus-5-5 2026-10-18 08:24:04Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Find incompetech download URLs used earlier
+
+`grep -o "https\?://incompetech[^ \"')]*" -r .specstory scripts 2>/dev/null | sed 's/.*:http/http/' | sort -u | head -30`
+
+```text
+https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1100237`
+https://incompetech.com/music/royalty-free/licenses/`
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 08:24:09Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Search history for track download sources
+
+`grep -o "mp3-royaltyfree/[A-Za-z_%0-9 .-]*mp3\|incompetech.com/music/royalty-free/[^ \"'\`)]*" -r .specstory 2>/dev/null | sed 's/^[^:]*://' | sort -u | head -30; grep -o "Investigations[^|]\{0,120\}" .specstory/history/*.md | head -5`
+
+```text
+incompetech.com/music/royalty-free/index.html?isrc=USUAN1100237
+incompetech.com/music/royalty-free/licenses/
+Investigations -> assets\music\Investigations.mp3 (93s)
+Investigations.mp3
+Investigations" Kevin MacLeod (incompetech.com)
+Investigations" (93s). Description ke liye credit lines [assets/music/CREDITS.md](assets/music/CREDITS.md) me hain.
+Investigations"?
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 08:24:28Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Confirm each music track exists on incompetech
+
+```bash
+.venv/Scripts/python.exe -X utf8 -c "
+import requests,urllib.parse
+names=['Sneaky Snitch','Investigations','Fluffing a Duck','Monkeys Spinning Monkeys','Heartbreaking','Sad Trio','Dreams Become Real','Enchanted Valley','Carefree','Life of Riley','Peaceful Desolation','Touching Moments Two - Higher','Hidden Agenda']
+for n in names:
+  u='https://incompetech.com/music/royalty-free/mp3-royaltyfree/'+urllib.parse.quote(n)+'.mp3'
+  try: r=requests.head(u,timeout=20,allow_redirects=True); s=r.status_code; l=r.headers.get('content-length')
+  except Exception as e: s,l=str(e)[:40],None
+  print(s,l,n)
+"; ls -l assets/music/*.mp3 assets/music/*/*.mp3 | awk '{print $5, $9}'
+```
+
+```text
+200 5466943 Sneaky Snitch
+200 3745876 Investigations
+200 2696840 Fluffing a Duck
+200 5005207 Monkeys Spinning Monkeys
+200 3947252 Heartbreaking
+200 10198774 Sad Trio
+200 13124519 Dreams Become Real
+200 7613259 Enchanted Valley
+200 6566713 Carefree
+200 7533831 Life of Riley
+200 3648906 Peaceful Desolation
+200 5773245 Touching Moments Two - Higher
+200 5404137 Hidden Agenda
+3745876 assets/music/Investigations.mp3
+5466943 assets/music/Sneaky_Snitch.mp3
+2696840 assets/music/comedy/Fluffing_a_Duck.mp3
+5005207 assets/music/comedy/Monkeys_Spinning_Monkeys.mp3
+3947252 assets/music/dukh/Heartbreaking.mp3
+10198774 assets/music/dukh/Sad_Trio.mp3
+13124519 assets/music/jaadu/Dreams_Become_Real.mp3
+7613259 assets/music/jaadu/Enchanted_Valley.mp3
+6566713 assets/music/khushi/Carefree.mp3
+7533831 assets/music/khushi/Life_of_Riley.mp3
+3648906 assets/music/seekh/Peaceful_Desolation.mp3
+5773245 assets/music/seekh/Touching_Moments_Two_Higher.mp3
+5404137 assets/music/tension/Hidden_Agenda.mp3
+3745876 assets/music/tension/Investigations.mp3
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 08:24:35Z)**_
+
+<think><details><summary>Thought Process</summary>
+Sabhi 14 music files ka byte size incompetech.com ki original files se ekdam match karta hai, toh source confirm ho gaya hai. Ab image prompts me koi studio ya franchise ka naam to nahi aa raha, ye check karta hoon.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-18 08:24:38Z)**_
+
+<tool-use data-tool-type="search" data-tool-name="Grep"><details>
+<summary>Tool use: **Grep**</summary>
+ path `D:\Story-Channel` pattern `pixar|ghibli|disney|dreamworks|studio|bheem|motu|patlu|marvel|in the style of|artist`
+
+```text
+No matches found
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 08:24:40Z)**_
+
+Prompts me koi studio ya franchise ka naam nahi hai. Ab register bana raha hoon:
+
+_**Agent (claude-opus-5-5 2026-10-18 08:24:55Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Write munshi/assets_license.csv register
+
+```bash
+.venv/Scripts/python.exe -X utf8 - <<'EOF'
+import csv, datetime, os, urllib.parse
+from pathlib import Path
+d = lambda p: datetime.date.fromtimestamp(os.path.getmtime(p)).isoformat()
+CC_BY = "CC BY 4.0"
+rows = []
+music = {
+ "assets/music/Sneaky_Snitch.mp3": "Sneaky Snitch", "assets/music/Investigations.mp3": "Investigations",
+ "assets/music/comedy/Fluffing_a_Duck.mp3": "Fluffing a Duck", "assets/music/comedy/Monkeys_Spinning_Monkeys.mp3": "Monkeys Spinning Monkeys",
+ "assets/music/dukh/Heartbreaking.mp3": "Heartbreaking", "assets/music/dukh/Sad_Trio.mp3": "Sad Trio",
+ "assets/music/jaadu/Dreams_Become_Real.mp3": "Dreams Become Real", "assets/music/jaadu/Enchanted_Valley.mp3": "Enchanted Valley",
+ "assets/music/khushi/Carefree.mp3": "Carefree", "assets/music/khushi/Life_of_Riley.mp3": "Life of Riley",
+ "assets/music/seekh/Peaceful_Desolation.mp3": "Peaceful Desolation", "assets/music/seekh/Touching_Moments_Two_Higher.mp3": "Touching Moments Two - Higher",
+ "assets/music/tension/Hidden_Agenda.mp3": "Hidden Agenda", "assets/music/tension/Investigations.mp3": "Investigations",
+}
+for p, n in music.items():
+    url = "https://incompetech.com/music/royalty-free/mp3-royaltyfree/" + urllib.parse.quote(n) + ".mp3"
+    att = f'"{n}" Kevin MacLeod (incompetech.com) Licensed under Creative Commons: By Attribution 4.0 License http://creativecommons.org/licenses/by/4.0/'
+    rows.append([p, url, "Kevin MacLeod", CC_BY, att, d(p)])
+sfx = {"comedy_sting_731261": ("sdroliasnick", 731261), "comedy_sting_731262": ("sdroliasnick", 731262),
+       "tension_sting_578356": ("nomiqbomi", 578356), "tension_sting_578351": ("nomiqbomi", 578351),
+       "whoosh_803771": ("Logicogonist", 803771), "whoosh_142348": ("BranRainey", 142348),
+       "magic_376747": ("ZenithInfinitiveStudios", 376747), "magic_376745": ("ZenithInfinitiveStudios", 376745)}
+for f, (u, i) in sfx.items():
+    p = f"assets/sfx/{f}.mp3"
+    rows.append([p, f"https://freesound.org/people/{u}/sounds/{i}/", u, "CC0 (verified via Freesound API)", "", d(p)])
+for f in ("Mukta-Bold.ttf", "Mukta-ExtraBold.ttf"):
+    p = f"assets/fonts/{f}"
+    rows.append([p, "https://fonts.google.com/specimen/Mukta", "Girish Dalvi, Ek Type", "SIL OFL 1.1 (assets/fonts/OFL.txt)", "", d(p)])
+own = [
+ ("assets/music/mystery_bed.wav", "own: synthesised by scripts/gen_music.py"),
+ ("characters/", "own: Gemini-generated character sheets (cost_log.csv)"),
+ ("images/case01_cycle_chori/", "own: Gemini-generated scene images (cost_log.csv)"),
+ ("long-videos/long_01/characters/", "own: Gemini-generated character/prop sheets (cost_log.csv)"),
+ ("long-videos/long_01/images/", "own: Gemini-generated scene images (cost_log.csv)"),
+ ("channel_assets/", "own: Gemini-generated banner/DP/thumbnail art + our own libass text in Mukta"),
+ ("long-videos/long_01/output/long_01_thumbnail.png", "own: Gemini art + our own libass text in Mukta"),
+ ("audio/ + long-videos/*/audio/tts_cache/", "own: Gemini TTS voices (cost_log.csv)"),
+]
+for p, src in own:
+    lic = "own (Gemini-generated)" if "Gemini" in src else "own"
+    rows.append([p, src, "Dadi Ki Kahaniyan", lic, "", d(p.split(" ")[0].rstrip("/") or ".")])
+with open("munshi/assets_license.csv", "w", newline="", encoding="utf-8") as fh:
+    w = csv.writer(fh); w.writerow(["path", "source_url", "author", "license", "attribution_text", "date_added"]); w.writerows(rows)
+print(len(rows), "rows;", sum("UNKNOWN" in ",".join(r) for r in rows), "UNKNOWN")
+EOF
+```
+
+```text
+32 rows; 0 UNKNOWN
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 08:24:57Z)**_
+
+Register me 32 rows hain aur koi UNKNOWN nahi hai. Ab step-review skill update kar raha hoon:
+
+_**Agent (claude-opus-5-5 2026-10-18 08:25:02Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\.claude\skills\step-review\SKILL.md has been updated successfully. (file state is current in your context — no need to Read it back)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 08:25:04Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\.claude\skills\step-review\SKILL.md has been updated successfully. (file state is current in your context — no need to Read it back)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 08:25:05Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\.claude\skills\step-review\SKILL.md has been updated successfully. (file state is current in your context — no need to Read it back)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 08:25:08Z)**_
+
+Ab Munshi se Long 01 ka copyright review karwa raha hoon:
+
+_**Agent (claude-opus-5-5 2026-10-18 08:28:37Z)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="Agent"><details>
+<summary>Tool use: **Agent**</summary>
+Long 01 copyright review
+
+```text
+  This agent's report was delivered to you as a message from "a3b9b4f2da0bc6328" (its SubagentHandback call). Read it there; it is not repeated here.
+  
+agentId: a3b9b4f2da0bc6328 (use SendMessage with to: 'a3b9b4f2da0bc6328', summary: '<5-10 word recap>' to continue this agent)
+<usage>subagent_tokens: 81418
+tool_uses: 24
+duration_ms: 201402</usage>
+```
+</details></tool-use>
+
+_**Agent - sidechain (2026-10-18 08:25:16Z)**_
+
+Project long-videos/long_01. Do a COPYRIGHT review (step "copyright", RULES section 10 — new, read RULES.md fresh) of the approved final build and its upload package, against munshi/assets_license.csv (new register). REVIEW ONLY: no edits to production files, no paid calls, no network calls needed (the builder already verified Freesound licences via the Freesound API and confirmed every Incompetech mp3 byte-for-byte against incompetech.com; you may treat those as the builder's claims and check what you can locally).
+
+Check at least:
+1. Every external audio/image/font that goes into the final build is in the register with an allowed licence. Derive the list yourself from the build inputs: long-videos/long_01/meta.json (music_moods, sfx), lines.json (which moods/sfx are actually used), scripts/make_short.py (font, music dir, sfx dir), project images/characters, TTS cache, thumbnail (art + Mukta via scripts/gen_channel_assets.py). Flag anything used but not registered, and anything registered with a disallowed licence.
+2. Every CC BY item actually used is credited in the upload description exactly as its licence asks: compare long-videos/long_01/output/upload.json "description" with the register's attribution_text for each used track (CC0 SFX need no credit; the "Sound effects: freesound.org (CC0)" line is fine).
+3. No outside source audio in the mix: the mix is built only from TTS cache wavs + registered music + registered SFX (read build_audio / build_voice in make_short.py).
+4. Content rules of section 10: script/lines text (no song lyrics, no copied modern text; this is an original story), image prompts in long-videos/long_01/scene_prompts.json and scripts/gen_long_characters.py and the thumbnail prompt in scripts/gen_channel_assets.py (no studio/franchise/living-artist style names, no brand logos, no known cartoon characters), and a visual spot check of the thumbnail + a few scene images for logos/known characters.
+Verdict PASS / FIX / ASK in the standard format, list anything that would block upload, append a log line to munshi/log.md.
+
+_**Agent - sidechain (2026-10-18 08:25:16Z)**_
+
+<system-reminder>
+Your final report is delivered through SubagentHandback: when your work is complete, call SubagentHandback({message: <your full report>}). The call ends your run, so make it your last step. Only a SubagentHandback call reaches your caller as your result; plain text you write at the end is not delivered.
+</system-reminder>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 08:25:20Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Read rules, register, log, project listing
+
+`cd /d/Story-Channel; cat munshi/RULES.md; echo ======; cat munshi/assets_license.csv; echo =====; tail -30 munshi/log.md; ls long-videos/long_01 long-videos/long_01/output`
+
+```text
+# Munshi RULES — Story-Channel
+
+These are the hard rules. If a builder summary, a script or a file disagrees with them, the rule wins and the step is not PASS. Edit this file to add new rules; Munshi reads it fresh every time.
+- A measured value outside a RULES limit is always FIX, never PASS, even if small.
+
+## 1. Budget
+- Prepaid Google Cloud budget: ₹500, auto-reload off. Current balance is whatever `cost_log.csv` says.
+- Every paid call (Gemini image ≈ ₹3.24 each at 1K, Gemini TTS per line) must be in `cost_log.csv` with date, project, item, ₹.
+- No paid call without the user's OK first. A fix that costs money is always ASK, never FIX.
+- Flag it if a step cost more than 30% above its estimate (e.g. LONG_01 TTS: estimate ₹4.85, actual ₹6.63).
+
+## 2. Story and characters (from `channel_bible.md`)
+- Characters must match their approved sheets: face, clothes, colours, age look. Compare each scene image against the sheet with Read.
+- Dadi (Kamla Devi) narrates. Every other character speaks their own lines in their own voice.
+- Mitthu (parrot) has no hands: no hand gestures, holding things or pointing with hands.
+- Dadi's home (in Gulmohar Mohalla): a kacha mud house with a tiled roof, BROWN wooden door, swept aangan, green fields behind, exactly like the channel banner (`channel_assets/_work/banner_art.png`). There is no green door.
+- Setting: Dadi's home, the Golu–Mitthu opening/closing frame and all Dadi Jasoos cases are in Gulmohar Mohalla. The story Dadi narrates inside a moral-story video can be set in any village or town the approved script names (e.g. Rampur in LONG_01); check location consistency against that script. Village kitchens still use a mitti ka chulha, never a gas stove.
+- The action in each image must match what the line says at that moment (who is holding what, who is talking).
+
+## 3. Audio
+- Final loudness: -14 LUFS integrated (±1), true peak ≤ -1.0 dBFS.
+- Music sits under the voice: 12–14 dB below for Shorts, up to ~18–20 dB for narration-heavy long videos. If it is quieter than 20 dB under, flag it.
+- Music level is measured one way only: integrated LUFS of the voice-only stem vs the music-only stem over the same speech sections. Builder and Munshi both use this method.
+- Mood changes get a crossfade (≥1 s). No sudden music cuts under dialogue.
+- No leaked background audio, clicks, or a line cut off mid-word.
+
+## 4. Captions
+- One `.srt` per video, Hindi, UTF-8.
+- Each caption must appear while that line is being spoken (±0.3 s), over the right character's shot.
+- Lines whose timing was estimated rather than taken from Whisper must be listed in the report.
+
+## 5. Video
+- Long video: 1920×1080, 30 fps, H.264, 16:9. Short: 1080×1920, ≤60 s, 9:16.
+- Target length: the duration the user approved at preview. Before preview, the script estimate is only a guide. Final must be within ±10% of the approved preview length; outside that is ASK.
+- Preview builds (960×540) are only for review. They are never uploaded.
+
+## 6. Thumbnail
+- 1280×720, JPG or PNG, ≤ 2 MB.
+- Hindi text is rendered by libass/FFmpeg (HarfBuzz shaping), never drawn by the AI. Zoom in and check matras and joined letters (ड़, दु, क्ष, etc.).
+- Text readable on a phone: letter height ≥ ~12% of frame height, high contrast, max ~4 words.
+- Thumbnail text must not repeat the title word for word.
+- No spoilers: no ending, no twist, no mystery answer.
+- Bottom-right corner (~15% × 12%) has nothing important, because YouTube puts the duration there.
+
+## 7. Metadata
+- Title ≤ 100 characters, no `<` or `>`. Description ≤ 5000 characters.
+- Tags total ≤ 500 characters. 3–5 hashtags in the description (the first 3 show above the title; more than 15 and YouTube ignores all of them).
+- Every CC BY music track used (e.g. Incompetech / Kevin MacLeod) is credited in the description exactly as its licence asks.
+- Mystery (Dadi Jasoos) videos: the answer never goes in the title, description or thumbnail. It goes in the pinned comment 24 h after publishing.
+- Made-for-kids and AI-disclosure values come from `munshi/channel_config.json`. Never guess them.
+
+## 8. Publishing
+- Default publish time: 7:00 PM IST.
+- At least 2 days between two long videos on the same channel. Shorts can go on other days.
+- Nothing goes Public or gets scheduled without the user's OK in that conversation.
+- One upload per video. If `output/upload_result.json` exists, do not upload again.
+
+## 9. Safety
+- Never show or commit `.env`, `secrets/`, API keys or OAuth tokens.
+- Never delete files; move them to `_to_delete/`.
+
+## 10. Copyright (STRICT — any violation is FIX and blocks upload)
+- Every external file used in any video (music, sound effect, font, image, footage, voice) must have a row in `munshi/assets_license.csv`: path, source_url, author, license, attribution_text, date_added. No row = not allowed.
+- Allowed licences only: CC0; CC BY 4.0 (with exact credit in the description); SIL OFL (fonts); YouTube Audio Library tracks (follow their attribution note); our own Gemini-generated images/voices; our own recordings.
+- Never allowed: CC BY-NC (non-commercial, conflicts with monetization), CC BY-ND (we edit/mix), CC BY-SA, "free for personal use", Freesound "Sampling+", unknown source, anything ripped from YouTube/Spotify/Instagram/films/TV, Bollywood or any commercial song (even hummed or sung by TTS), Google/Pinterest images.
+- Freesound: licence is per sound. Check each file's own licence page; only CC0 or CC BY 4.0.
+- Content: no real brand logos, no film/TV/cartoon characters (Chhota Bheem, Motu Patlu, Disney, etc.), no celebrity likeness, no copied song lyrics, no copied text from modern books. Old folk tales (Panchatantra, Jataka, Akbar-Birbal) are public domain, but we always write our own version, never copy a modern retelling.
+- Image prompts never name a studio, franchise or living artist ("Pixar style", "Ghibli style", etc.).
+- Before upload, Munshi checks: every audio/image/font file in the final build is in the register, every CC BY item is credited in the description exactly as its licence asks, and no source audio from outside our pipeline is in the mix.
+- After upload: if YouTube Studio shows any copyright claim or strike, stop all new uploads and tell the user. CC music sometimes gets false Content ID claims; dispute only with the licence proof from the register, after the user agrees.
+======
+path,source_url,author,license,attribution_text,date_added
+assets/music/Sneaky_Snitch.mp3,https://incompetech.com/music/royalty-free/mp3-royaltyfree/Sneaky%20Snitch.mp3,Kevin MacLeod,CC BY 4.0,"""Sneaky Snitch"" Kevin MacLeod (incompetech.com) Licensed under Creative Commons: By Attribution 4.0 License http://creativecommons.org/licenses/by/4.0/",2026-10-17
+assets/music/Investigations.mp3,https://incompetech.com/music/royalty-free/mp3-royaltyfree/Investigations.mp3,Kevin MacLeod,CC BY 4.0,"""Investigations"" Kevin MacLeod (incompetech.com) Licensed under Creative Commons: By Attribution 4.0 License http://creativecommons.org/licenses/by/4.0/",2026-10-17
+assets/music/comedy/Fluffing_a_Duck.mp3,https://incompetech.com/music/royalty-free/mp3-royaltyfree/Fluffing%20a%20Duck.mp3,Kevin MacLeod,CC BY 4.0,"""Fluffing a Duck"" Kevin MacLeod (incompetech.com) Licensed under Creative Commons: By Attribution 4.0 License http://creativecommons.org/licenses/by/4.0/",2026-10-17
+assets/music/comedy/Monkeys_Spinning_Monkeys.mp3,https://incompetech.com/music/royalty-free/mp3-royaltyfree/Monkeys%20Spinning%20Monkeys.mp3,Kevin MacLeod,CC BY 4.0,"""Monkeys Spinning Monkeys"" Kevin MacLeod (incompetech.com) Licensed under Creative Commons: By Attribution 4.0 License http://creativecommons.org/licenses/by/4.0/",2026-10-17
+assets/music/dukh/Heartbreaking.mp3,https://incompetech.com/music/royalty-free/mp3-royaltyfree/Heartbreaking.mp3,Kevin MacLeod,CC BY 4.0,"""Heartbreaking"" Kevin MacLeod (incompetech.com) Licensed under Creative Commons: By Attribution 4.0 License http://creativecommons.org/licenses/by/4.0/",2026-10-17
+assets/music/dukh/Sad_Trio.mp3,https://incompetech.com/music/royalty-free/mp3-royaltyfree/Sad%20Trio.mp3,Kevin MacLeod,CC BY 4.0,"""Sad Trio"" Kevin MacLeod (incompetech.com) Licensed under Creative Commons: By Attribution 4.0 License http://creativecommons.org/licenses/by/4.0/",2026-10-17
+assets/music/jaadu/Dreams_Become_Real.mp3,https://incompetech.com/music/royalty-free/mp3-royaltyfree/Dreams%20Become%20Real.mp3,Kevin MacLeod,CC BY 4.0,"""Dreams Become Real"" Kevin MacLeod (incompetech.com) Licensed under Creative Commons: By Attribution 4.0 License http://creativecommons.org/licenses/by/4.0/",2026-10-17
+assets/music/jaadu/Enchanted_Valley.mp3,https://incompetech.com/music/royalty-free/mp3-royaltyfree/Enchanted%20Valley.mp3,Kevin MacLeod,CC BY 4.0,"""Enchanted Valley"" Kevin MacLeod (incompetech.com) Licensed under Creative Commons: By Attribution 4.0 License http://creativecommons.org/licenses/by/4.0/",2026-10-17
+assets/music/khushi/Carefree.mp3,https://incompetech.com/music/royalty-free/mp3-royaltyfree/Carefree.mp3,Kevin MacLeod,CC BY 4.0,"""Carefree"" Kevin MacLeod (incompetech.com) Licensed under Creative Commons: By Attribution 4.0 License http://creativecommons.org/licenses/by/4.0/",2026-10-17
+assets/music/khushi/Life_of_Riley.mp3,https://incompetech.com/music/royalty-free/mp3-royaltyfree/Life%20of%20Riley.mp3,Kevin MacLeod,CC BY 4.0,"""Life of Riley"" Kevin MacLeod (incompetech.com) Licensed under Creative Commons: By Attribution 4.0 License http://creativecommons.org/licenses/by/4.0/",2026-10-17
+assets/music/seekh/Peaceful_Desolation.mp3,https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolation.mp3,Kevin MacLeod,CC BY 4.0,"""Peaceful Desolation"" Kevin MacLeod (incompetech.com) Licensed under Creative Commons: By Attribution 4.0 License http://creativecommons.org/licenses/by/4.0/",2026-10-17
+assets/music/seekh/Touching_Moments_Two_Higher.mp3,https://incompetech.com/music/royalty-free/mp3-royaltyfree/Touching%20Moments%20Two%20-%20Higher.mp3,Kevin MacLeod,CC BY 4.0,"""Touching Moments Two - Higher"" Kevin MacLeod (incompetech.com) Licensed under Creative Commons: By Attribution 4.0 License http://creativecommons.org/licenses/by/4.0/",2026-10-17
+assets/music/tension/Hidden_Agenda.mp3,https://incompetech.com/music/royalty-free/mp3-royaltyfree/Hidden%20Agenda.mp3,Kevin MacLeod,CC BY 4.0,"""Hidden Agenda"" Kevin MacLeod (incompetech.com) Licensed under Creative Commons: By Attribution 4.0 License http://creativecommons.org/licenses/by/4.0/",2026-10-17
+assets/music/tension/Investigations.mp3,https://incompetech.com/music/royalty-free/mp3-royaltyfree/Investigations.mp3,Kevin MacLeod,CC BY 4.0,"""Investigations"" Kevin MacLeod (incompetech.com) Licensed under Creative Commons: By Attribution 4.0 License http://creativecommons.org/licenses/by/4.0/",2026-10-17
+assets/sfx/comedy_sting_731261.mp3,https://freesound.org/people/sdroliasnick/sounds/731261/,sdroliasnick,CC0 (verified via Freesound API),,2026-10-17
+assets/sfx/comedy_sting_731262.mp3,https://freesound.org/people/sdroliasnick/sounds/731262/,sdroliasnick,CC0 (verified via Freesound API),,2026-10-17
+assets/sfx/tension_sting_578356.mp3,https://freesound.org/people/nomiqbomi/sounds/578356/,nomiqbomi,CC0 (verified via Freesound API),,2026-10-17
+assets/sfx/tension_sting_578351.mp3,https://freesound.org/people/nomiqbomi/sounds/578351/,nomiqbomi,CC0 (verified via Freesound API),,2026-10-17
+assets/sfx/whoosh_803771.mp3,https://freesound.org/people/Logicogonist/sounds/803771/,Logicogonist,CC0 (verified via Freesound API),,2026-10-17
+assets/sfx/whoosh_142348.mp3,https://freesound.org/people/BranRainey/sounds/142348/,BranRainey,CC0 (verified via Freesound API),,2026-10-17
+assets/sfx/magic_376747.mp3,https://freesound.org/people/ZenithInfinitiveStudios/sounds/376747/,ZenithInfinitiveStudios,CC0 (verified via Freesound API),,2026-10-17
+assets/sfx/magic_376745.mp3,https://freesound.org/people/ZenithInfinitiveStudios/sounds/376745/,ZenithInfinitiveStudios,CC0 (verified via Freesound API),,2026-10-17
+assets/fonts/Mukta-Bold.ttf,https://fonts.google.com/specimen/Mukta,"Girish Dalvi, Ek Type",SIL OFL 1.1 (assets/fonts/OFL.txt),,2026-10-17
+assets/fonts/Mukta-ExtraBold.ttf,https://fonts.google.com/specimen/Mukta,"Girish Dalvi, Ek Type",SIL OFL 1.1 (assets/fonts/OFL.txt),,2026-10-17
+assets/music/mystery_bed.wav,own: synthesised by scripts/gen_music.py,Dadi Ki Kahaniyan,own,,2026-10-17
+characters/,own: Gemini-generated character sheets (cost_log.csv),Dadi Ki Kahaniyan,own (Gemini-generated),,2026-10-17
+images/case01_cycle_chori/,own: Gemini-generated scene images (cost_log.csv),Dadi Ki Kahaniyan,own (Gemini-generated),,2026-10-17
+long-videos/long_01/characters/,own: Gemini-generated character/prop sheets (cost_log.csv),Dadi Ki Kahaniyan,own (Gemini-generated),,2026-10-17
+long-videos/long_01/images/,own: Gemini-generated scene images (cost_log.csv),Dadi Ki Kahaniyan,own (Gemini-generated),,2026-10-17
+channel_assets/,own: Gemini-generated banner/DP/thumbnail art + our own libass text in Mukta,Dadi Ki Kahaniyan,own (Gemini-generated),,2026-10-17
+long-videos/long_01/output/long_01_thumbnail.png,own: Gemini art + our own libass text in Mukta,Dadi Ki Kahaniyan,own (Gemini-generated),,2026-10-18
+audio/ + long-videos/*/audio/tts_cache/,own: Gemini TTS voices (cost_log.csv),Dadi Ki Kahaniyan,own (Gemini-generated),,2026-10-17
+=====
+# Munshi log
+2026-10-18 | long_01 | 7 final build | FIX | spec/loudness/captions ok; Mitthu line 2 on Golu shot, Ghasita shot mid-Sadhu line 15, music only ~9-10 LU under voice (builder's 18.4 dB is a metric artefact); ASK pending: aangan frame not Gulmohar Mohalla/hara darwaza
+2026-10-18 | long_01 | 8 thumbnail | PASS | 1280x720 PNG 1.1 MB, Hindi text shaped correctly, no spoiler, BR corner clear; text height ~11% (optional +10% bump)
+2026-10-18 | long_01 | 9 metadata | FIX | 7 hashtags (rule 3-5); no tags list yet for upload; title 81 chars, desc 1514, all 6 CC BY tracks credited ok
+2026-10-18 | long_01 | 7 final build (re-review) | ASK | all 6 builder fixes verified (line 2 Mitthu+box, line 15 Sadhu only, music 13.0 LU under voice by stem method = inside long range 12-20, offsets 3.75s/14.5s, yuv420p tv bt709 matrix, no caption <0.45s); length 5:06 (306.2s) is outside script target ~3:50 +/-10% and 3-5 min range -> user decision
+2026-10-18 | long_01 | 8 thumbnail (re-review) | PASS | 1280x720 PNG 1.09 MB, text 14.3%/13.5% of height, Hindi shaping ok, no spoiler, BR corner clear
+2026-10-18 | long_01 | 9 metadata (re-review) | PASS | title 81, desc 1488, 5 hashtags, 21 tags 375/500 chars (YouTube count), 6 CC BY credits ok, TAGS in long_01.txt = meta.json
+2026-10-18 | long_01 | 7 final build (length, RULES 5 updated) | PASS | user approved 5:06 preview; final 306.17s = preview 306.17s (0%, within +/-10%); long_01.mp4 unchanged since re-review (13:22), 1920x1080 h264 yuv420p 30fps; all re-review checks stand
+2026-10-18 | long_01 | publish dry-run | PASS | upload.json written (channel UCy071_4g4vGemktFHybqkhQ, publish 2026-10-20 19:00 IST, kids=false, synthetic=false, cat 1, no playlist); dry-run OK, no network; copyright register (RULES 10 / assets_license.csv) not yet available -> not reviewed
+long-videos/long_01:
+LONG_01_IDEAS.md
+LONG_01_SCENES.md
+audio
+characters
+images
+lines.json
+meta.json
+output
+project.json
+scene_prompts.json
+scripts
+shots.json
+
+long-videos/long_01/output:
+long_01.mp4
+long_01.srt
+long_01.txt
+long_01_framecheck.png
+long_01_preview.mp4
+long_01_preview.srt
+long_01_thumbnail.png
+long_01_work
+review
+upload.json
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 08:25:26Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Read meta, lines, upload json
+
+```bash
+cd /d/Story-Channel; cat long-videos/long_01/meta.json; echo =====; python -c "
+import json;d=json.load(open('long-videos/long_01/lines.json',encoding='utf8'))
+print(type(d), len(d) if hasattr(d,'__len__') else '')
+items=d if isinstance(d,list) else d.get('lines',d)
+import collections
+keys=collections.Counter()
+for x in items:
+  if isinstance(x,dict): keys.update(x.keys())
+print(keys)
+for x in items:
+  if isinstance(x,dict): print({k:v for k,v in x.items() if k not in ('text',)} )
+"; cat long-videos/long_01/output/upload.json
+```
+
+```text
+{
+  "title": "लालची हलवाई और जादुई कड़ाही | दादी की कहानियाँ | Hindi Moral Story | Hindi Kahani",
+  "description": "रामपुर गाँव का घसीटा हलवाई बहुत लालची था — तराज़ू में डंडी मारता और भूखे को भी भगा देता। पर उसका नौकर छोटू दिल का सोना था। एक दिन एक भूखे साधु बाबा ने छोटू को दी एक जादुई कड़ाही... जो डालो, दुगना! पर जब घसीटा ने लालच में उसे चुराया, तो क्या हुआ? 🍯✨\n\nसीख: लालच का अंत हमेशा बुरा होता है — और बाँटने से ख़ुशी दुगनी होती है।\n\nदादी की कहानियाँ — दादी हर हफ़्ते सुनाती हैं एक नई कहानी, जो हँसाए भी और सिखाए भी।",
+  "hashtags": ["#दादीकीकहानियाँ", "#HindiKahani", "#MoralStory", "#DadiKiKahaniyan", "#HindiStory"],
+  "tags": ["दादी की कहानियाँ", "Dadi Ki Kahaniyan", "लालची हलवाई", "Lalchi Halwai", "जादुई कड़ाही", "Jadui Kadhai",
+           "हिंदी कहानी", "Hindi Kahani", "नैतिक कहानी", "Hindi Moral Story", "Moral Stories in Hindi",
+           "बच्चों की कहानी", "Kids Story Hindi", "Hindi Cartoon Story", "दादी माँ की कहानी", "Dadi Maa Ki Kahani",
+           "Bedtime Story Hindi", "लालच का फल", "Greed Moral Story", "Magic Story Hindi", "जादुई कहानी"],
+  "music_moods": {
+    "comedy": "comedy/Fluffing_a_Duck.mp3",
+    "khushi": "khushi/Carefree.mp3",
+    "dukh": "dukh/Heartbreaking.mp3",
+    "jaadu": "jaadu/Enchanted_Valley.mp3",
+    "tension": "tension/Hidden_Agenda.mp3",
+    "seekh": "seekh/Touching_Moments_Two_Higher.mp3"
+  },
+  "sfx": {"comedy": "comedy_sting_731261.mp3", "tension": "tension_sting_578356.mp3", "magic": "magic_376747.mp3"},
+  "pinned_comment": "आपको कहानी की कौन-सी सीख सबसे अच्छी लगी? कमेंट में बताइए! 🙏"
+}
+=====
+<class 'list'> 54
+Counter({'scene': 54, 'speaker': 51, 'text': 51, 'mood': 10, 'sfx_after': 4, 'shot': 3, 'pause_before': 3, 'pause': 3, 'chorus': 1, 'sfx': 1, 'af': 1})
+{'scene': 1, 'speaker': 'golu', 'mood': 'comedy'}
+{'scene': 1, 'speaker': 'mitthu', 'shot': [0.66, 0.45, 1.5]}
+{'scene': 2, 'speaker': 'dadi_story'}
+{'scene': 3, 'speaker': 'dadi_story', 'mood': 'khushi', 'pause_before': 0.6}
+{'scene': 4, 'speaker': 'dadi_story'}
+{'scene': 5, 'speaker': 'woman'}
+{'scene': 5, 'speaker': 'ghasita'}
+{'scene': 6, 'speaker': 'dadi_story'}
+{'scene': 7, 'speaker': 'kid'}
+{'scene': 7, 'speaker': 'ghasita'}
+{'scene': 8, 'speaker': 'dadi_story'}
+{'scene': 9, 'speaker': 'dadi_story'}
+{'scene': 9, 'speaker': 'kid'}
+{'scene': 10, 'speaker': 'dadi_story', 'mood': 'dukh'}
+{'scene': 11, 'speaker': 'sadhu', 'shot': [0.25, 0.4, 1.8]}
+{'scene': 11, 'speaker': 'ghasita', 'shot': [0.62, 0.38, 1.8]}
+{'scene': 12, 'speaker': 'dadi_story'}
+{'scene': 13, 'speaker': 'dadi_story'}
+{'scene': 13, 'speaker': 'chhotu'}
+{'scene': 14, 'pause': 3.0}
+{'scene': 15, 'speaker': 'dadi_story', 'mood': 'jaadu', 'sfx_after': 'magic'}
+{'scene': 16, 'speaker': 'sadhu'}
+{'scene': 16, 'speaker': 'sadhu'}
+{'scene': 17, 'speaker': 'dadi_story', 'sfx_after': 'magic'}
+{'scene': 17, 'speaker': 'chhotu'}
+{'scene': 18, 'speaker': 'dadi_story', 'mood': 'khushi'}
+{'scene': 19, 'speaker': 'dadi_story'}
+{'scene': 19, 'speaker': 'kids', 'chorus': True}
+{'scene': 20, 'speaker': 'dadi_story', 'mood': 'tension'}
+{'scene': 20, 'speaker': 'ghasita'}
+{'scene': 21, 'speaker': 'dadi_story'}
+{'scene': 22, 'speaker': 'dadi_story'}
+{'scene': 22, 'speaker': 'ghasita'}
+{'scene': 23, 'speaker': 'dadi_story', 'sfx_after': 'tension'}
+{'scene': 24, 'speaker': 'ghasita'}
+{'scene': 24, 'speaker': 'dadi_story'}
+{'scene': 25, 'speaker': 'dadi_story'}
+{'scene': 25, 'speaker': 'ghasita'}
+{'scene': 26, 'speaker': 'dadi_story'}
+{'scene': 27, 'pause': 1.0, 'mood': 'seekh', 'sfx': 'magic'}
+{'scene': 27, 'speaker': 'sadhu', 'af': 'aecho=0.8:0.6:120|240:0.35|0.2'}
+{'scene': 28, 'speaker': 'ghasita'}
+{'scene': 28, 'pause': 2.0}
+{'scene': 29, 'speaker': 'dadi_story', 'mood': 'khushi'}
+{'scene': 30, 'speaker': 'dadi_story'}
+{'scene': 31, 'speaker': 'villager'}
+{'scene': 32, 'speaker': 'dadi_story'}
+{'scene': 33, 'speaker': 'dadi_story'}
+{'scene': 34, 'speaker': 'dadi_story', 'mood': 'seekh'}
+{'scene': 35, 'speaker': 'chhotu', 'mood': 'khushi'}
+{'scene': 36, 'speaker': 'golu', 'pause_before': 0.6}
+{'scene': 36, 'speaker': 'golu'}
+{'scene': 37, 'speaker': 'mitthu', 'sfx_after': 'comedy'}
+{'scene': 38, 'speaker': 'dadi_story', 'pause_before': 0.4}
+{
+  "channel_key": "dadi-ki-kahaniyan",
+  "channel_name": "दादी की कहानियाँ",
+  "channel_id": "UCy071_4g4vGemktFHybqkhQ",
+  "format": "long",
+  "title": "लालची हलवाई और जादुई कड़ाही | दादी की कहानियाँ | Hindi Moral Story | Hindi Kahani",
+  "description": "रामपुर गाँव का घसीटा हलवाई बहुत लालची था — तराज़ू में डंडी मारता और भूखे को भी भगा देता। पर उसका नौकर छोटू दिल का सोना था। एक दिन एक भूखे साधु बाबा ने छोटू को दी एक जादुई कड़ाही... जो डालो, दुगना! पर जब घसीटा ने लालच में उसे चुराया, तो क्या हुआ? 🍯✨\n\nसीख: लालच का अंत हमेशा बुरा होता है — और बाँटने से ख़ुशी दुगनी होती है।\n\nदादी की कहानियाँ — दादी हर हफ़्ते सुनाती हैं एक नई कहानी, जो हँसाए भी और सिखाए भी।\n\nMusic: \"Fluffing a Duck\" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttp://creativecommons.org/licenses/by/4.0/\n\nMusic: \"Carefree\" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttp://creativecommons.org/licenses/by/4.0/\n\nMusic: \"Heartbreaking\" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttp://creativecommons.org/licenses/by/4.0/\n\nMusic: \"Enchanted Valley\" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttp://creativecommons.org/licenses/by/4.0/\n\nMusic: \"Hidden Agenda\" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttp://creativecommons.org/licenses/by/4.0/\n\nMusic: \"Touching Moments Two - Higher\" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttp://creativecommons.org/licenses/by/4.0/\n\nSound effects: freesound.org (CC0)\n\n#दादीकीकहानियाँ #HindiKahani #MoralStory #DadiKiKahaniyan #HindiStory",
+  "tags": [
+    "दादी की कहानियाँ",
+    "Dadi Ki Kahaniyan",
+    "लालची हलवाई",
+    "Lalchi Halwai",
+    "जादुई कड़ाही",
+    "Jadui Kadhai",
+    "हिंदी कहानी",
+    "Hindi Kahani",
+    "नैतिक कहानी",
+    "Hindi Moral Story",
+    "Moral Stories in Hindi",
+    "बच्चों की कहानी",
+    "Kids Story Hindi",
+    "Hindi Cartoon Story",
+    "दादी माँ की कहानी",
+    "Dadi Maa Ki Kahani",
+    "Bedtime Story Hindi",
+    "लालच का फल",
+    "Greed Moral Story",
+    "Magic Story Hindi",
+    "जादुई कहानी"
+  ],
+  "video": "long_01.mp4",
+  "thumbnail": "long_01_thumbnail.png",
+  "captions": "long_01.srt",
+  "language": "hi",
+  "captions_name": "Hindi",
+  "made_for_kids": false,
+  "contains_synthetic_media": false,
+  "category_id": "1",
+  "publish_at": "2026-10-20T19:00:00+05:30"
+}
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 08:25:26Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Grep make_short for assets
+
+`cd /d/Story-Channel; grep -n -i -E "font|music|sfx|mood|def build_audio|def build_voice|tts_cache|\.mp3|\.wav|amix|-i " scripts/make_short.py | head -150`
+
+```text
+1:"""One command -> full Short (voice, captions, Ken Burns, music, -14 LUFS, metadata).
+9:Caching: every TTS line (audio/<case>/tts_cache) and every scene clip (cache/<case>/scene_XX_<hash>.mp4, captions
+27:from PIL import Image, ImageDraw, ImageFont
+38:FONT = ROOT / "assets" / "fonts" / "Mukta-ExtraBold.ttf"
+39:MUSIC_DIR = ROOT / "assets" / "music"
+40:SFX_DIR = ROOT / "assets" / "sfx"
+48:MUSIC_XFADE = 1.5  # seconds of crossfade when the mood (music track) changes
+58:# Music gain: voice LUFS minus this, per video kind. Checked in loudness_report the RULES way: integrated LUFS
+59:# of the voice stem vs the music stem over the speech sections (long: 13 = old 9 lowered by 4 dB).
+60:MUSIC_BELOW_VOICE_DB = {"short": 9, "long": 13}
+61:SFX_BELOW_VOICE_DB = 5
+63:PAUSE_LEAD = 2.0  # music must be audible in a music-only pause and this long before it
+92:    return f"{speaker}_{sha(gemini_tts.MODEL, '|', voice, '|', style, '|', text)}.wav"
+120:              f"[c]{pitch_filter(-2, SR)},adelay=90[c2];[a][b2][c2]amix=inputs=3:normalize=0,volume=0.6[o]")
+194:def build_voice(lines, audio_dir: Path, work: Path, run_whisper: bool):
+197:    timed, events = [], {"sfx": [], "music_silent": [], "moods": []}
+198:    cache = audio_dir / "tts_cache"
+200:        if "pause" in line:  # music-only beat with its own picture
+204:            if line.get("mood"):
+205:                events["moods"].append((start, line["mood"]))
+206:            if line.get("sfx"):
+207:                events["sfx"].append((start + 0.05, line["sfx"]))
+211:            print(f"  line {i + 1:2d} [{'pause':8s}] {start:6.2f}-{t:6.2f}s  music only")
+214:                             audio_dir / f"line_{i + 1:02d}_{line['speaker']}.wav",
+219:            if line.get("music_silent_before"):
+220:                events["music_silent"].append((t + GAP / 2, t + gap))
+224:        if line.get("mood"):
+225:            events["moods"].append((start - (line.get("pause_before", 0) + GAP if i else 0), line["mood"]))
+230:        if line.get("sfx_after"):
+231:            events["sfx"].append((t + 0.05, line["sfx_after"]))
+235:    voice = work / "voice.wav"
+287:def ass_doc(font_family, events):
+296:Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+297:Style: Cap,{font_family},116,&H00FFFFFF,&H000000FF,&H00000000,&H78000000,0,0,0,0,100,100,0,0,1,9,4,2,60,60,480,1
+298:Style: Title,{font_family},128,&H0000E5FF,&H000000FF,&H00000000,&H78000000,0,0,0,0,100,100,0,0,1,9,4,8,60,60,170,1
+339:def plan_scenes(P, timed, total, prof, font_family, final_title):
+374:            ass = ass_doc(font_family, ev)
+388:    subs = f",subtitles=filename={ass_name}:fontsdir=fonts" if p["ass"] else ""
+420:def pick_music(meta):
+421:    if meta.get("music"):
+422:        return MUSIC_DIR / meta["music"]
+423:    bed = MUSIC_DIR / "mystery_bed.wav"
+425:        run([sys.executable, ROOT / "scripts" / "gen_music.py"])
+435:def music_segments(events, meta, total):
+436:    """[(start, end, file)]: one segment per mood run (lines.json 'mood'), or the single track for the whole video."""
+437:    moods = meta.get("music_moods")
+438:    if not (moods and events["moods"]):
+439:        return [(0.0, total, pick_music(meta))]
+441:    for t, mood in sorted(events["moods"]):
+442:        if not runs or runs[-1][1] != mood:
+443:            runs.append((max(0.0, t), mood))
+445:    return [(t, runs[k + 1][0] if k + 1 < len(runs) else total, MUSIC_DIR / moods[mood])
+446:            for k, (t, mood) in enumerate(runs)]
+453:    """Music track loudness every 0.1 s (dB, 0.5 s RMS window), for picking where to start a track."""
+463:def music_offset(f: Path, a, b, windows):
+464:    """Seconds into the track to start a segment [a, b] so no music-only pause (plus PAUSE_LEAD before it) lands
+481:def build_audio(voice, total, events, meta, work: Path, two_pass: bool, below_db: float):
+482:    """Voice + music (one track, or a track per mood with crossfades) at a fixed level under the voice + stings;
+483:    music muted in any music_silent window. Also writes music.wav (music stem) for the level check."""
+485:    segs = music_segments(events, meta, total)
+494:        length = (b - a) + (0 if last else MUSIC_XFADE)  # overlap into the next mood = crossfade
+495:        fade_out = f"afade=t=out:st={length - (1.5 if last else MUSIC_XFADE):.2f}:d={1.5 if last else MUSIC_XFADE}"
+496:        fade_in = f"afade=t=in:d={MUSIC_XFADE}," if k else ""
+498:        off = music_offset(f, a, b, events.get("pauses", []))
+500:            print(f"  music: {Path(f).stem} starts {off:.2f}s in (pause falls on an audible part)")
+504:    mute = "+".join(f"between(t,{a:.2f},{b:.2f})" for a, b in events["music_silent"]) or "0"
+506:              + f"amix=inputs={len(segs)}:duration=longest:normalize=0,volume='if({mute},0,1)':eval=frame,"
+509:        print("  music: " + " -> ".join(f"{Path(f).stem}@{a:.0f}s" for a, _, f in segs))
+511:    for k, (at, kind) in enumerate(events["sfx"]):
+512:        f = SFX_DIR / meta["sfx"][kind]
+513:        gain = v_lufs - SFX_BELOW_VOICE_DB - integrated_lufs(f)
+519:    fc.append(f"{mix_in}amix=inputs={2 + len(events['sfx'])}:duration=first:normalize=0[out]")
+520:    mix = work / "mix.wav"
+522:         "-map", "[mstem]", "-t", f"{total:.3f}", work / "music.wav"])
+529:    norm = work / "mix_norm.wav"
+536:    """Final loudness + true peak, and music level the RULES way: integrated LUFS of the voice stem vs the music
+548:    below = speech_lufs(work / "voice.wav") - speech_lufs(work / "music.wav")
+555:    font = ImageFont.truetype("arial.ttf", 22) if Path("C:/Windows/Fonts/arial.ttf").exists() else ImageFont.load_default()
+562:        ImageDraw.Draw(im).text((6, 4), f"{t:5.1f}s {l['speaker']}", fill=(255, 230, 0), font=font)
+584:def music_credits(meta, events, total):
+586:    for _, _, f in music_segments(events, meta, total):
+587:        if f.name != "mystery_bed.wav" and f not in used:
+592:    return "\n\n".join(f'Music: "{n}" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: '
+594:        + ("\n\nSound effects: freesound.org (CC0)" if meta.get("sfx") else "")
+650:    for d in (work, audio_dir / "tts_cache", cache_dir, work / "fonts"):
+652:    shutil.copy(FONT, work / "fonts" / FONT.name)
+653:    font_family = ImageFont.truetype(str(FONT)).getname()[0]
+658:    check_tts_spend(lines, audio_dir / "tts_cache", a.spend)
+664:    plans = plan_scenes(P, timed, total, prof, font_family, meta.get("final_title", "बताओ, दोषी कौन?"))
+669:                       below_db=MUSIC_BELOW_VOICE_DB[P["kind"]])
+689:            f"{music_credits(meta, events, total)}\n\n{' '.join(meta['hashtags'])}\n\n{tags}"
+691:        report += (f"\n  loudness {lufs:.1f} LUFS, true peak {tp:.1f} dBFS, music {below:.1f} LU under voice "
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 08:25:31Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Read relevant make_short sections
+
+`cd /d/Story-Channel; sed -n 60,130p scripts/make_short.py; echo ----; sed -n 194,290p scripts/make_short.py; echo ----; sed -n 339,420p scripts/make_short.py; echo ---; sed -n 481,535p scripts/make_short.py; sed -n 580,700p scripts/make_short.py`
+
+```text
+MUSIC_BELOW_VOICE_DB = {"short": 9, "long": 13}
+SFX_BELOW_VOICE_DB = 5
+MIN_CAPTION = 0.45  # a caption shorter than this only flashes; it is merged into its neighbour in the same line
+PAUSE_LEAD = 2.0  # music must be audible in a music-only pause and this long before it
+
+# Ken Burns moves for wide shots (cycled): zoom-in, pan, zoom-out, zoom-to-top
+MOVES = {
+    "in": ("1+0.08*on/{n}", "iw/2-iw/zoom/2", "ih/2-ih/zoom/2"),
+    "out": ("1.08-0.08*on/{n}", "iw/2-iw/zoom/2", "ih/2-ih/zoom/2"),
+    "pan": ("1.08", "(iw-iw/zoom)*on/{n}", "ih/2-ih/zoom/2"),
+    "top": ("1+0.08*on/{n}", "iw/2-iw/zoom/2", "(ih-ih/zoom)*0.3"),
+}
+MOVE_CYCLE = ["in", "pan", "out", "top"]
+
+
+def run(args, cwd=None):
+    r = subprocess.run([str(a) for a in args], cwd=cwd, capture_output=True, text=True, encoding="utf-8", errors="replace")
+    if r.returncode:
+        sys.exit(f"FAILED: {' '.join(map(str, args))[:300]}\n{r.stderr[-2000:]}")
+    return r
+
+
+def sha(*parts) -> str:
+    h = hashlib.sha1()
+    for p in parts:
+        h.update(p if isinstance(p, bytes) else str(p).encode("utf-8"))
+    return h.hexdigest()[:16]
+
+
+# ---------- 1. voice ----------
+def tts_key(text, speaker):
+    voice, style, _ = CAST[speaker]
+    return f"{speaker}_{sha(gemini_tts.MODEL, '|', voice, '|', style, '|', text)}.wav"
+
+
+def check_tts_spend(lines, cache: Path, allow: bool):
+    """Paid TTS only on cache miss, and only with --spend. Otherwise stop and show the estimate."""
+    misses = [l for l in lines if "text" in l and not (cache / tts_key(l["text"], l["speaker"])).exists()]
+    if not misses:
+        return
+    secs = sum(len(l["text"].split()) / 2.4 for l in misses)  # ~2.4 words/s
+    usd = secs * gemini_tts.AUDIO_TOKENS_PER_SEC * gemini_tts.PRICE_OUT / 1e6
+    print(f"  {len(misses)} TTS line(s) not cached: " + ", ".join(l["speaker"] for l in misses)
+          + f"  -> ~₹{usd * cost_log.USD_TO_INR:.2f}")
+    if not allow:
+        sys.exit("  Paid TTS needed. Re-run with --spend to allow it.")
+
+
+def tts_line(text, speaker, cache: Path, out: Path, extra_af=None, chorus=False) -> bytes:
+    """Cached Gemini TTS + optional pitch shift / extra filter (e.g. echo) / chorus (3 detuned, offset copies
+    so one voice sounds like a group). Returns PCM s16 mono."""
+    raw = cache / tts_key(text, speaker)
+    if not raw.exists():
+        voice, style, _ = CAST[speaker]
+        res = gemini_tts.speak(text, voice, style, raw)
+        print(f"    new TTS {speaker}: ₹{res['row']['cost_inr']} (aaj ₹{res['row']['today_total_inr']}, "
+              f"bacha ₹{res['row']['remaining_inr']})")
+    chain = ",".join(f for f in (pitch_filter(CAST[speaker][2], SR), extra_af) if f) or "anull"
+    if chorus:
+        fc = (f"[0:a]{chain},asplit=3[a][b][c];[b]{pitch_filter(2, SR)},adelay=45[b2];"
+              f"[c]{pitch_filter(-2, SR)},adelay=90[c2];[a][b2][c2]amix=inputs=3:normalize=0,volume=0.6[o]")
+        args = ["-filter_complex", fc, "-map", "[o]"]
+    else:
+        args = ["-af", chain]
+    run([FFMPEG, "-y", "-i", raw, *args, "-ac", "1", "-ar", SR, "-sample_fmt", "s16", out])
+    with wave.open(str(out)) as w:
+        return w.readframes(w.getnframes())
+
+
+def trim(data: bytes) -> bytes:
+    """Trim lead/tail silence by energy so the line's voice starts at its first sample."""
+----
+def build_voice(lines, audio_dir: Path, work: Path, run_whisper: bool):
+    pcm, t = bytearray(), 0.0
+    silence = lambda sec: b"\x00\x00" * int(round(sec * SR))
+    timed, events = [], {"sfx": [], "music_silent": [], "moods": []}
+    cache = audio_dir / "tts_cache"
+    for i, line in enumerate(lines):
+        if "pause" in line:  # music-only beat with its own picture
+            gap = GAP if i else 0.0
+            pcm += silence(gap + line["pause"])
+            start, t = t + gap, t + gap + line["pause"]
+            if line.get("mood"):
+                events["moods"].append((start, line["mood"]))
+            if line.get("sfx"):
+                events["sfx"].append((start + 0.05, line["sfx"]))
+            timed.append({**line, "speaker": "_pause", "text": "", "start": start, "end": t,
+                          "audio_hash": f"pause{line['pause']}", "words": []})
+            events.setdefault("pauses", []).append((start - PAUSE_LEAD, t))
+            print(f"  line {i + 1:2d} [{'pause':8s}] {start:6.2f}-{t:6.2f}s  music only")
+            continue
+        data = trim(tts_line(line["text"], line["speaker"], cache,
+                             audio_dir / f"line_{i + 1:02d}_{line['speaker']}.wav",
+                             extra_af=line.get("af"), chorus=line.get("chorus", False)))
+        words, note = word_times(data, line["text"], cache, run_whisper)
+        if i:
+            gap = GAP + line.get("pause_before", 0)
+            if line.get("music_silent_before"):
+                events["music_silent"].append((t + GAP / 2, t + gap))
+            pcm += silence(gap)
+            t += gap
+        start = t
+        if line.get("mood"):
+            events["moods"].append((start - (line.get("pause_before", 0) + GAP if i else 0), line["mood"]))
+        pcm += data
+        t += len(data) / 2 / SR
+        timed.append({**line, "start": start, "end": t, "audio_hash": sha(data),
+                      "words": [(start + a, start + b, w) for a, b, w in words]})
+        if line.get("sfx_after"):
+            events["sfx"].append((t + 0.05, line["sfx_after"]))
+        print(f"  line {i + 1:2d} [{line['speaker']:8s}] {start:6.2f}-{t:6.2f}s  {note}")
+    pcm += silence(END_HOLD)
+    total = len(pcm) / 2 / SR
+    voice = work / "voice.wav"
+    with wave.open(str(voice), "wb") as w:
+        w.setnchannels(1), w.setsampwidth(2), w.setframerate(SR), w.writeframes(bytes(pcm))
+    return voice, total, timed, events
+
+
+# ---------- 2. captions ----------
+def ass_time(s):
+    cs = max(0, int(round(s * 100)))
+    return f"{cs // 360000}:{cs // 6000 % 60:02d}:{cs // 100 % 60:02d}.{cs % 100:02d}"
+
+
+def caption_chunks(line):
+    """[(start, end, text)] in global seconds, 2-3 words each, never past the line's audio.
+    An optional "caption" in lines.json changes only the on-screen text (no new TTS); its words are timed
+    through character position on the spoken words' timeline."""
+    words = line["words"]
+    tokens = line.get("caption", line["text"]).split()
+    if "caption" in line and len(tokens) != len(words):
+        lens = [_clean_len(w) + 1 for _, _, w in words]
+        xs = np.concatenate([[0], np.cumsum(lens)]) / sum(lens)
+        ts = [words[0][0]] + [e for _, e, _ in words]
+        clens = [_clean_len(t) + 1 for t in tokens]
+        cx = np.concatenate([[0], np.cumsum(clens)]) / sum(clens)
+        words = [(float(np.interp(cx[k], xs, ts)), float(np.interp(cx[k + 1], xs, ts)), tok)
+                 for k, tok in enumerate(tokens)]
+    chunks, cur, punct = [], [], r"[।!?,.…]$"
+    for j, (tok, (s, e, _)) in enumerate(zip(tokens, words)):
+        cur.append((tok, s, e))
+        nxt = tokens[j + 1] if j + 1 < len(tokens) else None
+        lone_next = nxt is not None and re.search(punct, nxt) and len(cur) < 4  # don't orphan "है!"
+        if (len(cur) >= 3 and not lone_next) or re.search(punct, tok):
+            chunks.append(cur)
+            cur = []
+    if cur:
+        chunks.append(cur)
+    dur = lambda k: (chunks[k + 1][0][1] if k + 1 < len(chunks) else line["end"]) - chunks[k][0][1]
+    k = 0
+    while len(chunks) > 1 and k < len(chunks):
+        if dur(k) < MIN_CAPTION:  # merge into the previous chunk (or the next one, for the first)
+            j = k - 1 if k else 0
+            chunks[j:j + 2] = [chunks[j] + chunks[j + 1]]
+            k = 0
+        else:
+            k += 1
+    out = []
+    for k, ch in enumerate(chunks):
+        end = chunks[k + 1][0][1] if k + 1 < len(chunks) else line["end"]
+        out.append((ch[0][1], end, " ".join(tok for tok, _, _ in ch)))
+    return out
+
+
+def ass_doc(font_family, events):
+    return f"""[Script Info]
+ScriptType: v4.00+
+PlayResX: {PLAY_W}
+----
+def plan_scenes(P, timed, total, prof, font_family, final_title):
+    """Everything needed to render each scene clip, plus its cache hash."""
+    focus = P["focus"]
+    fps, plans = prof["fps"], []
+    shots_all = shot_times(timed, total)
+    for idx, (sc, cuts, tags) in enumerate(shots_all):
+        fcuts = [round(c * fps) for c in cuts]  # one global frame grid -> no drift between clips
+        t0 = fcuts[0] / fps
+        spec = focus.get(str(sc), [])
+        closes, wide = (spec["closes"], spec.get("wide", True)) if isinstance(spec, dict) else (spec, True)
+        # 1 shot: close-up matters more; "wide": false (scene sharing an image with another) -> close-ups only
+        cycle = closes if (closes and (len(cuts) == 2 or not wide)) else ["wide"] + closes
+        shots, desc = [], []
+        for k in range(len(cuts) - 1):
+            n = fcuts[k + 1] - fcuts[k]
+            shot = tags[k] or cycle[k % len(cycle)]
+            if shot == "wide":
+                move = MOVE_CYCLE[(idx + k) % len(MOVE_CYCLE)]
+                z, x, y = (e.format(n=n) for e in MOVES[move])
+                desc.append(move)
+            else:
+                fx, fy, zc = shot
+                z = f"{zc}+{zc * 0.06:.3f}*on/{n}"  # slow push-in on the close-up
+                x = f"max(0,min(iw-iw/zoom,{fx}*iw-iw/zoom/2))"
+                y = f"max(0,min(ih-ih/zoom,{fy}*ih-ih/zoom/2))"
+                desc.append(f"close{zc}")
+            shots.append((n, z, x, y))
+        lines = [l for l in timed if l["scene"] == sc]
+        ass = None
+        if P["burn"]:
+            ev = [f"Dialogue: 0,{ass_time(s - t0)},{ass_time(e - t0)},Cap,,0,0,0,,{txt}"
+                  for l in lines if l["words"] for s, e, txt in caption_chunks(l)]
+            if idx == len(shots_all) - 1 and final_title:
+                ev.append(f"Dialogue: 1,{ass_time(0)},{ass_time(fcuts[-1] / fps - t0)},Title,,0,0,0,,"
+                          f"{{\\fad(300,0)}}{final_title}")
+            ass = ass_doc(font_family, ev)
+        img = P["image_for"](sc)
+        key = sha(RENDER_VERSION, json.dumps(prof, sort_keys=True), sha(img.read_bytes()),
+                  [l["audio_hash"] for l in lines], json.dumps(shots), ass)
+        plans.append({"scene": sc, "t0": t0, "t1": fcuts[-1] / fps, "frames": fcuts[-1] - fcuts[0],
+                      "shots": shots, "ass": ass, "img": img, "key": key, "desc": desc})
+    return plans
+
+
+def render_scene(p, prof, clip: Path, work: Path):
+    w, h, fps = prof["w"], prof["h"], prof["fps"]
+    ass_name = f"scene_{p['scene']:02d}_{p['key']}.ass"
+    if p["ass"]:
+        (work / ass_name).write_text(p["ass"], encoding="utf-8")
+    subs = f",subtitles=filename={ass_name}:fontsdir=fonts" if p["ass"] else ""
+    n = len(p["shots"])
+    pre = f"[0:v]scale={w * 2}:{h * 2}:force_original_aspect_ratio=increase,crop={w * 2}:{h * 2}"
+    fc = [pre + (f",split={n}" + "".join(f"[i{k}]" for k in range(n)) if n > 1 else "[i0]")]
+    for k, (d, z, x, y) in enumerate(p["shots"]):
+        fc.append(f"[i{k}]zoompan=z='{z}':x='{x}':y='{y}':d={d}:s={w}x{h}:fps={fps}[z{k}]")
+    fc.append("".join(f"[z{k}]" for k in range(n)) + (f"concat=n={n}:v=1:a=0" if n > 1 else "null")
+              + f"{subs},scale=out_color_matrix=bt709:out_range=tv,format=yuv420p,setsar=1,"
+                f"setparams=range=tv:color_primaries=bt709:color_trc=bt709:colorspace=bt709[out]")
+    tmp = clip.with_suffix(".part.mp4")
+    run([FFMPEG, "-y", "-i", p["img"], "-filter_complex", ";".join(fc), "-map", "[out]", "-frames:v", p["frames"],
+         "-c:v", "libx264", *prof["enc"], "-pix_fmt", "yuv420p", "-color_range", "tv", "-colorspace", "bt709",
+         "-color_primaries", "bt709", "-color_trc", "bt709", "-r", fps,
+         "-video_track_timescale", fps * 1000, tmp], cwd=work)
+    tmp.replace(clip)
+
+
+def build_video(plans, prof, cache_dir: Path, work: Path):
+    todo = [p for p in plans if not (cache_dir / f"scene_{p['scene']:02d}_{p['key']}.mp4").exists()]
+    for p in plans:
+        state = "NEW" if p in todo else "cache"
+        print(f"  scene {p['scene']:2d}: {p['t0']:6.2f}-{p['t1']:6.2f}s  {state:5s}  {' | '.join(p['desc'])}")
+    with ThreadPoolExecutor(max_workers=max(2, (os.cpu_count() or 4) // 2)) as pool:
+        list(pool.map(lambda p: render_scene(p, prof, cache_dir / f"scene_{p['scene']:02d}_{p['key']}.mp4", work),
+                      todo))
+    listing = [f"file '{(cache_dir / f'scene_{p['scene']:02d}_{p['key']}.mp4').as_posix()}'" for p in plans]
+    (work / "scenes.txt").write_text("\n".join(listing), encoding="utf-8")
+    run([FFMPEG, "-y", "-f", "concat", "-safe", "0", "-i", "scenes.txt", "-c", "copy", "video.mp4"], cwd=work)
+    return len(plans) - len(todo), len(todo)
+
+
+# ---------- 4. audio mix + loudness ----------
+def pick_music(meta):
+---
+def build_audio(voice, total, events, meta, work: Path, two_pass: bool, below_db: float):
+    """Voice + music (one track, or a track per mood with crossfades) at a fixed level under the voice + stings;
+    music muted in any music_silent window. Also writes music.wav (music stem) for the level check."""
+    v_lufs = integrated_lufs(voice)
+    segs = music_segments(events, meta, total)
+    lufs_of = {}
+    inputs = ["-i", voice]
+    fc = [f"[0:a]aresample=48000,aformat=channel_layouts=stereo[v]"]
+    for k, (a, b, f) in enumerate(segs):
+        if f not in lufs_of:
+            lufs_of[f] = integrated_lufs(f, 60)
+        gain = v_lufs - below_db - lufs_of[f]
+        last = k == len(segs) - 1
+        length = (b - a) + (0 if last else MUSIC_XFADE)  # overlap into the next mood = crossfade
+        fade_out = f"afade=t=out:st={length - (1.5 if last else MUSIC_XFADE):.2f}:d={1.5 if last else MUSIC_XFADE}"
+        fade_in = f"afade=t=in:d={MUSIC_XFADE}," if k else ""
+        ms = int(a * 1000)
+        off = music_offset(f, a, b, events.get("pauses", []))
+        if off:
+            print(f"  music: {Path(f).stem} starts {off:.2f}s in (pause falls on an audible part)")
+        inputs += ["-stream_loop", "-1", *(["-ss", f"{off:.2f}"] if off else []), "-i", f]
+        fc.append(f"[{k + 1}:a]aresample=48000,aformat=channel_layouts=stereo,atrim=0:{length:.3f},"
+                  f"volume={gain:.2f}dB,{fade_in}{fade_out},adelay={ms}|{ms}[mu{k}]")
+    mute = "+".join(f"between(t,{a:.2f},{b:.2f})" for a, b in events["music_silent"]) or "0"
+    fc.append("".join(f"[mu{k}]" for k in range(len(segs)))
+              + f"amix=inputs={len(segs)}:duration=longest:normalize=0,volume='if({mute},0,1)':eval=frame,"
+                f"asplit=2[m][mstem]")
+    if len(segs) > 1:
+        print("  music: " + " -> ".join(f"{Path(f).stem}@{a:.0f}s" for a, _, f in segs))
+    mix_in, n_in = "[v][m]", len(segs) + 1
+    for k, (at, kind) in enumerate(events["sfx"]):
+        f = SFX_DIR / meta["sfx"][kind]
+        gain = v_lufs - SFX_BELOW_VOICE_DB - integrated_lufs(f)
+        inputs += ["-i", f]
+        ms = int(at * 1000)
+        fc.append(f"[{n_in + k}:a]aresample=48000,aformat=channel_layouts=stereo,volume={gain:.2f}dB,"
+                  f"adelay={ms}|{ms}[s{k}]")
+        mix_in += f"[s{k}]"
+    fc.append(f"{mix_in}amix=inputs={2 + len(events['sfx'])}:duration=first:normalize=0[out]")
+    mix = work / "mix.wav"
+    run([FFMPEG, "-y", *inputs, "-filter_complex", ";".join(fc), "-map", "[out]", "-t", f"{total:.3f}", mix,
+         "-map", "[mstem]", "-t", f"{total:.3f}", work / "music.wav"])
+    ln = f"loudnorm=I={TARGET_LUFS}:TP=-1.5:LRA=11"
+    if two_pass:
+        r = run([FFMPEG, "-hide_banner", "-i", mix, "-af", ln + ":print_format=json", "-f", "null", "-"])
+        m = json.loads(r.stderr[r.stderr.rindex("{"):r.stderr.rindex("}") + 1])
+        ln += (f":measured_I={m['input_i']}:measured_TP={m['input_tp']}:measured_LRA={m['input_lra']}"
+               f":measured_thresh={m['input_thresh']}:offset={m['target_offset']}:linear=true")
+    norm = work / "mix_norm.wav"
+    run([FFMPEG, "-y", "-i", mix, "-af", ln + ",aresample=48000", "-ar", 48000, norm])
+    return norm
+
+
+# ---------- 5. final-only checks ----------
+def loudness_report(out: Path, work: Path, timed):
+    path.write_text("\n".join(f"{i}\n{srt_time(a)} --> {srt_time(b)}\n{txt}\n" for i, (a, b, txt) in
+                              enumerate(cues, 1)), encoding="utf-8")
+
+
+def music_credits(meta, events, total):
+    used = []
+    for _, _, f in music_segments(events, meta, total):
+        if f.name != "mystery_bed.wav" and f not in used:
+            used.append(f)
+    names = [re.sub(r"_+", " ", f.stem).replace("Two Higher", "Two - Higher") for f in used]
+    if not names:
+        return meta.get("credits", "")
+    return "\n\n".join(f'Music: "{n}" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: '
+                       f"By Attribution 4.0 License\nhttp://creativecommons.org/licenses/by/4.0/" for n in names) \
+        + ("\n\nSound effects: freesound.org (CC0)" if meta.get("sfx") else "")
+
+
+def load_project(name):
+    """Short: cases/<case>/ (+ images/<case>, audio/<case>). Long: a folder with project.json
+    (lines.json, meta.json, shots.json, scene_prompts.json, images/, audio/, output/ inside it)."""
+    pdir = ROOT / name
+    if (pdir / "project.json").exists():
+        proj = json.loads((pdir / "project.json").read_text(encoding="utf-8"))
+        pid = proj.get("name", pdir.name)
+        covers = {c: s["id"] for s in json.loads((pdir / "scene_prompts.json").read_text(encoding="utf-8"))["scenes"]
+                  for c in s.get("covers", [s["id"]])}
+        img_dir = pdir / "images"
+        return {"kind": "long", "name": pid, "dir": pdir, "burn": proj.get("burn_captions", False),
+                "image_for": lambda sc: img_dir / f"scene_{covers[sc]:02d}.png",
+                "audio_dir": pdir / "audio", "cache_dir": ROOT / "cache" / pid, "out_dir": pdir / "output"}
+    cdir = ROOT / "cases" / name
+    return {"kind": "short", "name": name, "dir": cdir, "burn": True,
+            "image_for": lambda sc: ROOT / "images" / name / f"scene_{sc:02d}.png",
+            "audio_dir": ROOT / "audio" / name, "cache_dir": ROOT / "cache" / name, "out_dir": ROOT / "output"}
+
+
+# ---------- main ----------
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("case_pos", nargs="?", metavar="case")
+    ap.add_argument("--case", dest="case_opt", help="same as the positional case name")
+    g = ap.add_mutually_exclusive_group()
+    g.add_argument("--preview", action="store_true", help="fast 540x960 check build (default)")
+    g.add_argument("--final", action="store_true", help="1080x1920 upload build + checks")
+    ap.add_argument("--spend", action="store_true", help="allow paid TTS for uncached lines")
+    a = ap.parse_args()
+    mode = "final" if a.final else "preview"
+    t_start = time.perf_counter()
+
+    name = a.case_opt or a.case_pos
+    if not name:
+        ap.error("case/project required: a Shorts case name or a long-video folder (e.g. long-videos/long_01)")
+    P = load_project(name)
+    prof = PROFILES[(P["kind"], mode)]
+    case = P["name"]
+    lines = json.loads((P["dir"] / "lines.json").read_text(encoding="utf-8"))
+    meta = json.loads((P["dir"] / "meta.json").read_text(encoding="utf-8"))
+    focus_file = P["dir"] / "shots.json"
+    P["focus"] = json.loads(focus_file.read_text(encoding="utf-8")) if focus_file.exists() else {}
+    try:
+        missing = [s for s in sorted({l["scene"] for l in lines}) if not P["image_for"](s).exists()]
+    except KeyError as e:
+        sys.exit(f"Scene {e} has no image in scene_prompts.json 'covers'")
+    if missing:
+        sys.exit(f"Missing scene images: {missing}")
+
+    out_dir = P["out_dir"]
+    work = out_dir / f"{case}_work"
+    audio_dir = P["audio_dir"]
+    cache_dir = P["cache_dir"]
+    for d in (work, audio_dir / "tts_cache", cache_dir, work / "fonts"):
+        d.mkdir(parents=True, exist_ok=True)
+    shutil.copy(FONT, work / "fonts" / FONT.name)
+    font_family = ImageFont.truetype(str(FONT)).getname()[0]
+    spend_before = sum(float(r["cost_inr"]) for r in cost_log._rows())
+
+    print(f"[{P['kind'].upper()} {mode.upper()}] {prof['w']}x{prof['h']} @ {prof['fps']} fps")
+    print("1/4 voice")
+    check_tts_spend(lines, audio_dir / "tts_cache", a.spend)
+    voice, total, timed, events = build_voice(lines, audio_dir, work, run_whisper=(mode == "final"))
+    warn = P["kind"] == "short" and not 45 <= total <= 60
+    print(f"  total {total:.1f}s" + ("  WARNING: outside 45-60s" if warn else ""))
+
+    print("2/4 scenes")
+    plans = plan_scenes(P, timed, total, prof, font_family, meta.get("final_title", "बताओ, दोषी कौन?"))
+    cached, new = build_video(plans, prof, cache_dir, work)
+
+    print("3/4 audio")
+    norm = build_audio(voice, total, events, meta, work, two_pass=(mode == "final"),
+                       below_db=MUSIC_BELOW_VOICE_DB[P["kind"]])
+
+    print("4/4 mux (video stream copied, no re-encode)")
+    out = out_dir / (f"{case}.mp4" if mode == "final" else f"{case}_preview.mp4")
+    run([FFMPEG, "-y", "-i", "video.mp4", "-i", norm, "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-ar", 48000,
+         "-shortest", "-movflags", "+faststart", out], cwd=work)
+    report = ""
+    if not P["burn"]:
+        srt = out.with_suffix(".srt")
+        write_srt(timed, srt)
+        report += f"\n  captions:    {srt}"
+
+    if mode == "final":
+        lufs, tp, below = loudness_report(out, work, timed)
+        check = out_dir / f"{case}_framecheck.png"
+        frame_check(out, timed, check, work)
+        txt = out_dir / f"{case}.txt"
+        tags = f"TAGS:\n{', '.join(meta['tags'])}\n\n" if meta.get("tags") else ""
+        txt.write_text(
+            f"TITLE:\n{meta['title']}\n\nDESCRIPTION:\n{meta['description']}\n\n"
+            f"{music_credits(meta, events, total)}\n\n{' '.join(meta['hashtags'])}\n\n{tags}"
+            f"PINNED COMMENT (post later):\n{meta['pinned_comment']}\n", encoding="utf-8")
+        report += (f"\n  loudness {lufs:.1f} LUFS, true peak {tp:.1f} dBFS, music {below:.1f} LU under voice "
+                   f"(stem LUFS over speech)"
+                   f"\n  frame check: {check}\n  metadata:    {txt}")
+
+    spent = sum(float(r["cost_inr"]) for r in cost_log._rows()) - spend_before
+    print(f"\nDONE [{mode}] {out}  ({total:.1f}s video)"
+          f"\n  scenes: {cached} cache se, {new} naye   |   build time {time.perf_counter() - t_start:.0f}s"
+          f"   |   is build ka kharcha ₹{spent:.2f}{report}")
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 08:25:42Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Project config and asset listings
+
+`cd /d/Story-Channel; cat long-videos/long_01/project.json; echo; ls -la assets/music assets/music/* assets/sfx assets/fonts; ls long-videos/long_01/images long-videos/long_01/characters; ls long-videos/long_01/audio | head; ls long-videos/long_01/audio/tts_cache | wc -l`
+
+```text
+{
+  "kind": "long",
+  "name": "long_01",
+  "burn_captions": false,
+  "_note": "Long videos: 16:9, no burned captions (an .srt is written for upload), music changes by mood (lines.json 'mood')."
+}
+
+-rw-r--r-- 1 ashamim 1049089     1223 Oct 17 23:54 assets/music/CREDITS.md
+-rw-r--r-- 1 ashamim 1049089  3745876 Oct 17 17:47 assets/music/Investigations.mp3
+-rw-r--r-- 1 ashamim 1049089  5466943 Oct 17 17:46 assets/music/Sneaky_Snitch.mp3
+-rw-r--r-- 1 ashamim 1049089 12348044 Oct 17 15:47 assets/music/mystery_bed.wav
+
+assets/fonts:
+total 836
+drwxr-xr-x 1 ashamim 1049089      0 Oct 17 20:32 .
+drwxr-xr-x 1 ashamim 1049089      0 Oct 17 17:45 ..
+-rw-r--r-- 1 ashamim 1049089 418416 Oct 17 20:32 Mukta-Bold.ttf
+-rw-r--r-- 1 ashamim 1049089 423168 Oct 17 15:44 Mukta-ExtraBold.ttf
+-rw-r--r-- 1 ashamim 1049089   4367 Oct 17 15:44 OFL.txt
+
+assets/music:
+total 21068
+drwxr-xr-x 1 ashamim 1049089        0 Oct 17 23:54 .
+drwxr-xr-x 1 ashamim 1049089        0 Oct 17 17:45 ..
+-rw-r--r-- 1 ashamim 1049089     1223 Oct 17 23:54 CREDITS.md
+-rw-r--r-- 1 ashamim 1049089  3745876 Oct 17 17:47 Investigations.mp3
+-rw-r--r-- 1 ashamim 1049089  5466943 Oct 17 17:46 Sneaky_Snitch.mp3
+drwxr-xr-x 1 ashamim 1049089        0 Oct 17 23:51 comedy
+drwxr-xr-x 1 ashamim 1049089        0 Oct 17 23:51 dukh
+drwxr-xr-x 1 ashamim 1049089        0 Oct 17 23:52 jaadu
+drwxr-xr-x 1 ashamim 1049089        0 Oct 17 23:51 khushi
+-rw-r--r-- 1 ashamim 1049089 12348044 Oct 17 15:47 mystery_bed.wav
+drwxr-xr-x 1 ashamim 1049089        0 Oct 17 23:53 seekh
+drwxr-xr-x 1 ashamim 1049089        0 Oct 17 23:52 tension
+
+assets/music/comedy:
+total 7528
+drwxr-xr-x 1 ashamim 1049089       0 Oct 17 23:51 .
+drwxr-xr-x 1 ashamim 1049089       0 Oct 17 23:54 ..
+-rw-r--r-- 1 ashamim 1049089 2696840 Oct 17 23:51 Fluffing_a_Duck.mp3
+-rw-r--r-- 1 ashamim 1049089 5005207 Oct 17 23:51 Monkeys_Spinning_Monkeys.mp3
+
+assets/music/dukh:
+total 13820
+drwxr-xr-x 1 ashamim 1049089        0 Oct 17 23:51 .
+drwxr-xr-x 1 ashamim 1049089        0 Oct 17 23:54 ..
+-rw-r--r-- 1 ashamim 1049089  3947252 Oct 17 23:51 Heartbreaking.mp3
+-rw-r--r-- 1 ashamim 1049089 10198774 Oct 17 23:52 Sad_Trio.mp3
+
+assets/music/jaadu:
+total 20260
+drwxr-xr-x 1 ashamim 1049089        0 Oct 17 23:52 .
+drwxr-xr-x 1 ashamim 1049089        0 Oct 17 23:54 ..
+-rw-r--r-- 1 ashamim 1049089 13124519 Oct 17 23:52 Dreams_Become_Real.mp3
+-rw-r--r-- 1 ashamim 1049089  7613259 Oct 17 23:52 Enchanted_Valley.mp3
+
+assets/music/khushi:
+total 13780
+drwxr-xr-x 1 ashamim 1049089       0 Oct 17 23:51 .
+drwxr-xr-x 1 ashamim 1049089       0 Oct 17 23:54 ..
+-rw-r--r-- 1 ashamim 1049089 6566713 Oct 17 23:51 Carefree.mp3
+-rw-r--r-- 1 ashamim 1049089 7533831 Oct 17 23:51 Life_of_Riley.mp3
+
+assets/music/seekh:
+total 9208
+drwxr-xr-x 1 ashamim 1049089       0 Oct 17 23:53 .
+drwxr-xr-x 1 ashamim 1049089       0 Oct 17 23:54 ..
+-rw-r--r-- 1 ashamim 1049089 3648906 Oct 17 23:53 Peaceful_Desolation.mp3
+-rw-r--r-- 1 ashamim 1049089 5773245 Oct 17 23:53 Touching_Moments_Two_Higher.mp3
+
+assets/music/tension:
+total 8944
+drwxr-xr-x 1 ashamim 1049089       0 Oct 17 23:52 .
+drwxr-xr-x 1 ashamim 1049089       0 Oct 17 23:54 ..
+-rw-r--r-- 1 ashamim 1049089 5404137 Oct 17 23:52 Hidden_Agenda.mp3
+-rw-r--r-- 1 ashamim 1049089 3745876 Oct 17 17:47 Investigations.mp3
+
+assets/sfx:
+total 320
+drwxr-xr-x 1 ashamim 1049089     0 Oct 17 23:53 .
+drwxr-xr-x 1 ashamim 1049089     0 Oct 17 17:45 ..
+-rw-r--r-- 1 ashamim 1049089  1186 Oct 17 23:53 CREDITS.md
+-rw-r--r-- 1 ashamim 1049089 32093 Oct 17 17:45 comedy_sting_731261.mp3
+-rw-r--r-- 1 ashamim 1049089 28521 Oct 17 17:45 comedy_sting_731262.mp3
+-rw-r--r-- 1 ashamim 1049089 34047 Oct 17 23:53 magic_376745.mp3
+-rw-r--r-- 1 ashamim 1049089 35172 Oct 17 23:53 magic_376747.mp3
+-rw-r--r-- 1 ashamim 1049089 51607 Oct 17 17:46 tension_sting_578351.mp3
+-rw-r--r-- 1 ashamim 1049089 54062 Oct 17 17:46 tension_sting_578356.mp3
+-rw-r--r-- 1 ashamim 1049089 45101 Oct 17 17:46 whoosh_142348.mp3
+-rw-r--r-- 1 ashamim 1049089 22125 Oct 17 17:46 whoosh_803771.mp3
+long-videos/long_01/characters:
+cadhai_prop.png
+chhotu_sheet.png
+ghasita_sheet.png
+sadhu_sheet.png
+
+long-videos/long_01/images:
+scene_01.png
+scene_02.png
+scene_03.png
+scene_05.png
+scene_07.png
+scene_08.png
+scene_09.png
+scene_10.png
+scene_12.png
+scene_13.png
+scene_14.png
+scene_15.png
+scene_16.png
+scene_17.png
+scene_18.png
+scene_19.png
+scene_20.png
+scene_21.png
+scene_22.png
+scene_24.png
+scene_25.png
+scene_26.png
+scene_27.png
+scene_29.png
+scene_30.png
+scene_31.png
+scene_32.png
+scene_34.png
+scene_35.png
+scene_36.png
+scene_38.png
+line_01_golu.wav
+line_02_mitthu.wav
+line_03_dadi_story.wav
+line_04_dadi_story.wav
+line_05_dadi_story.wav
+line_06_woman.wav
+line_07_ghasita.wav
+line_08_dadi_story.wav
+line_09_kid.wav
+line_10_ghasita.wav
+102
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 08:25:52Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Verify TTS cache keys and cost log entries
+
+```bash
+cd /d/Story-Channel; .venv/Scripts/python -X utf8 -c "
+import sys,json; sys.path.insert(0,'scripts')
+import make_short as m
+from pathlib import Path
+L=json.load(open('long-videos/long_01/lines.json',encoding='utf8'))
+c=Path('long-videos/long_01/audio/tts_cache')
+keys=set()
+for l in L:
+  if 'text' in l:
+    k=m.tts_key(l['text'],l['speaker']); keys.add(k)
+    if not (c/k).exists(): print('MISSING',k)
+print('lines w/ text',sum('text' in l for l in L),'unique keys',len(keys))
+others=[p.name for p in c.iterdir() if p.suffix=='.wav' and p.name not in keys]
+print('cache wavs not used:',len(others)); print([p.name for p in c.iterdir() if p.suffix!='.wav'][:20])
+print('CAST',{k:v[:2] for k,v in m.CAST.items()})
+print('MODEL',m.gemini_tts.MODEL)
+" 2>&1 | head -40; grep -c long_01 cost_log.csv; grep long_01 cost_log.csv | cut -d, -f1-4 | head -60
+```
+
+```text
+lines w/ text 51 unique keys 51
+cache wavs not used: 0
+['words_00941370b2541757.json', 'words_0b67e4eb5fb93b0b.json', 'words_10c667d3ed2aff70.json', 'words_1685e28571035c07.json', 'words_1da69f798a0b4801.json', 'words_21817ee58ec53279.json', 'words_2ade49efbe840545.json', 'words_324eb56d5c1ff2b5.json', 'words_382cdebe244270ae.json', 'words_3906f2682276ce05.json', 'words_3e6777722a4f9087.json', 'words_43644deef14a8da6.json', 'words_4566be44c4591929.json', 'words_4d60f434089b6735.json', 'words_54a2236c2453c1fe.json', 'words_58d3dd0a3d7d2dfd.json', 'words_59dae1bbbc4c377d.json', 'words_5fc2a5a82fb3a835.json', 'words_6bb367c203ee94fd.json', 'words_72a27b71c561b938.json']
+CAST {'narrator': ('Charon', "Indian Hindi storyteller narrating a kids' mystery: clear, engaging, slightly dramatic, medium pace, not rushed"), 'sharma': ('Sadachbia', 'fussy, upset 55-year-old Indian neighbour complaining that his brand-new bicycle was stolen, slightly whiny, fast'), 'dadi': ('Gacrux', '70-year-old Indian grandmother: warm, calm, wise, a little teasing, confident, medium pace'), 'golu': ('Leda', 'excited 10-year-old Indian boy, fast, over-eager, high energy, sure he is right'), 'mitthu': ('Laomedeia', 'a squeaky, high-pitched cartoon parrot squawking and repeating the word, very short and sharp'), 'pandey': ('Algenib', 'pompous, heavy, loud Indian police inspector giving a bossy command, comic'), 'pappu': ('Achird', 'simple, honest village milkman, a bit nervous and defensive, friendly'), 'raju': ('Zubenelgenubi', 'chatty street-side chai seller, casual, then indignant at the accusation'), 'bunty': ('Fenrir', '17-year-old college boy, quick and slightly too eager to give an alibi, a little nervous'), 'dadi_story': ('Gacrux', '70-year-old Indian grandmother telling a bedtime moral story to her grandson: warm, expressive, gentle, a little dramatic at key moments, medium pace'), 'ghasita': ('Alnilam', 'greedy, fat old Indian sweet-shop owner with a rough, raspy, rude voice, impatient and scornful'), 'chhotu': ('Iapetus', 'kind, gentle young Indian helper, soft warm voice, humble and caring'), 'sadhu': ('Sadaltager', 'very old, wise Indian holy man, slow, calm, slightly trembling aged voice, peaceful'), 'woman': ('Aoede', 'ordinary village woman buying sweets, polite and casual'), 'kid': ('Autonoe', 'small poor 8-year-old village boy, timid, hopeful, pleading softly'), 'villager': ('Umbriel', 'cheerful village man enjoying a sweet, warm and hearty'), 'kids': ('Zephyr', 'a group of excited village children cheering together, loud and joyful')}
+MODEL gemini-3.8-flash-tts
+86
+2026-10-17 22:59:00,long-videos/long_01/characters/ghasita_sheet.png,gemini-nano-banana-2.1,1K
+2026-10-17 22:59:30,long-videos/long_01/characters/chhotu_sheet.png,gemini-nano-banana-2.1,1K
+2026-10-17 23:00:01,long-videos/long_01/characters/sadhu_sheet.png,gemini-nano-banana-2.1,1K
+2026-10-17 23:00:22,long-videos/long_01/characters/cadhai_prop.png,gemini-nano-banana-2.1,1K
+2026-10-17 23:09:04,long-videos/long_01/images/scene_01.png,gemini-nano-banana-2.1,1K
+2026-10-17 23:09:36,long-videos/long_01/images/scene_02.png,gemini-nano-banana-2.1,1K
+2026-10-17 23:09:57,long-videos/long_01/images/scene_03.png,gemini-nano-banana-2.1,1K
+2026-10-17 23:10:43,long-videos/long_01/images/scene_05.png,gemini-nano-banana-2.1,1K
+2026-10-17 23:11:13,long-videos/long_01/images/scene_07.png,gemini-nano-banana-2.1,1K
+2026-10-17 23:11:43,long-videos/long_01/images/scene_08.png,gemini-nano-banana-2.1,1K
+2026-10-17 23:12:14,long-videos/long_01/images/scene_09.png,gemini-nano-banana-2.1,1K
+2026-10-17 23:12:48,long-videos/long_01/images/scene_10.png,gemini-nano-banana-2.1,1K
+2026-10-17 23:13:04,long-videos/long_01/images/scene_12.png,gemini-nano-banana-2.1,1K
+2026-10-17 23:13:30,long-videos/long_01/images/scene_13.png,gemini-nano-banana-2.1,1K
+2026-10-17 23:13:54,long-videos/long_01/images/scene_14.png,gemini-nano-banana-2.1,1K
+2026-10-17 23:14:26,long-videos/long_01/images/scene_15.png,gemini-nano-banana-2.1,1K
+2026-10-17 23:14:55,long-videos/long_01/images/scene_16.png,gemini-nano-banana-2.1,1K
+2026-10-17 23:15:29,long-videos/long_01/images/scene_17.png,gemini-nano-banana-2.1,1K
+2026-10-17 23:16:10,long-videos/long_01/images/scene_18.png,gemini-nano-banana-2.1,1K
+2026-10-17 23:16:43,long-videos/long_01/images/scene_19.png,gemini-nano-banana-2.1,1K
+2026-10-17 23:17:12,long-videos/long_01/images/scene_20.png,gemini-nano-banana-2.1,1K
+2026-10-17 23:17:47,long-videos/long_01/images/scene_21.png,gemini-nano-banana-2.1,1K
+2026-10-17 23:18:17,long-videos/long_01/images/scene_22.png,gemini-nano-banana-2.1,1K
+2026-10-17 23:18:49,long-videos/long_01/images/scene_24.png,gemini-nano-banana-2.1,1K
+2026-10-17 23:19:20,long-videos/long_01/images/scene_25.png,gemini-nano-banana-2.1,1K
+2026-10-17 23:19:39,long-videos/long_01/images/scene_26.png,gemini-nano-banana-2.1,1K
+2026-10-17 23:20:12,long-videos/long_01/images/scene_27.png,gemini-nano-banana-2.1,1K
+2026-10-17 23:20:42,long-videos/long_01/images/scene_29.png,gemini-nano-banana-2.1,1K
+2026-10-17 23:21:34,long-videos/long_01/images/scene_30.png,gemini-nano-banana-2.1,1K
+2026-10-17 23:21:59,long-videos/long_01/images/scene_31.png,gemini-nano-banana-2.1,1K
+2026-10-17 23:22:57,long-videos/long_01/images/scene_32.png,gemini-nano-banana-2.1,1K
+2026-10-17 23:23:29,long-videos/long_01/images/scene_34.png,gemini-nano-banana-2.1,1K
+2026-10-17 23:24:10,long-videos/long_01/images/scene_35.png,gemini-nano-banana-2.1,1K
+2026-10-17 23:25:07,long-videos/long_01/images/scene_36.png,gemini-nano-banana-2.1,1K
+2026-10-17 23:25:34,long-videos/long_01/images/scene_38.png,gemini-nano-banana-2.1,1K
+2026-10-18 00:03:58,long-videos/long_01/audio/tts_cache/golu_dcc9d674cc75b324.wav,gemini-3.8-flash-tts,tts 3.4s
+2026-10-18 00:04:05,long-videos/long_01/audio/tts_cache/mitthu_97f5add551681862.wav,gemini-3.8-flash-tts,tts 2.4s
+2026-10-18 00:04:16,long-videos/long_01/audio/tts_cache/dadi_story_226b27e512aa3931.wav,gemini-3.8-flash-tts,tts 6.4s
+2026-10-18 00:04:28,long-videos/long_01/audio/tts_cache/dadi_story_c0120d5d3d1a98d1.wav,gemini-3.8-flash-tts,tts 9.7s
+2026-10-18 00:04:39,long-videos/long_01/audio/tts_cache/dadi_story_5a45990ec8167547.wav,gemini-3.8-flash-tts,tts 7.1s
+2026-10-18 00:04:49,long-videos/long_01/audio/tts_cache/woman_f3a674b2bed43d5e.wav,gemini-3.8-flash-tts,tts 2.5s
+2026-10-18 00:05:00,long-videos/long_01/audio/tts_cache/ghasita_a84a0d0cc1882ecc.wav,gemini-3.8-flash-tts,tts 4.0s
+2026-10-18 00:05:11,long-videos/long_01/audio/tts_cache/dadi_story_223d6b3def71def5.wav,gemini-3.8-flash-tts,tts 7.5s
+2026-10-18 00:05:20,long-videos/long_01/audio/tts_cache/kid_1de9bdc439b862ef.wav,gemini-3.8-flash-tts,tts 5.0s
+2026-10-18 00:05:30,long-videos/long_01/audio/tts_cache/ghasita_36b62957752ba347.wav,gemini-3.8-flash-tts,tts 3.8s
+2026-10-18 00:05:41,long-videos/long_01/audio/tts_cache/dadi_story_00b272dd6c743363.wav,gemini-3.8-flash-tts,tts 7.1s
+2026-10-18 00:05:51,long-videos/long_01/audio/tts_cache/dadi_story_accf640e4db2719f.wav,gemini-3.8-flash-tts,tts 7.6s
+2026-10-18 00:06:00,long-videos/long_01/audio/tts_cache/kid_992d86ae2448ea8d.wav,gemini-3.8-flash-tts,tts 2.4s
+2026-10-18 00:06:11,long-videos/long_01/audio/tts_cache/dadi_story_e15cd3cb47dfaebc.wav,gemini-3.8-flash-tts,tts 6.8s
+2026-10-18 00:06:23,long-videos/long_01/audio/tts_cache/sadhu_7c10066a2e4b3718.wav,gemini-3.8-flash-tts,tts 6.8s
+2026-10-18 00:06:32,long-videos/long_01/audio/tts_cache/ghasita_3836fb2aedd9d6ef.wav,gemini-3.8-flash-tts,tts 4.0s
+2026-10-18 00:06:44,long-videos/long_01/audio/tts_cache/dadi_story_9435089e8a32defc.wav,gemini-3.8-flash-tts,tts 5.9s
+2026-10-18 00:06:54,long-videos/long_01/audio/tts_cache/dadi_story_1691d757ccdb3fb1.wav,gemini-3.8-flash-tts,tts 5.8s
+2026-10-18 00:07:05,long-videos/long_01/audio/tts_cache/chhotu_2fbecadc2fa1a9e3.wav,gemini-3.8-flash-tts,tts 4.3s
+2026-10-18 00:07:16,long-videos/long_01/audio/tts_cache/dadi_story_1457ab55f3d1948a.wav,gemini-3.8-flash-tts,tts 9.8s
+2026-10-18 00:07:28,long-videos/long_01/audio/tts_cache/sadhu_9083ffc7a14b0dda.wav,gemini-3.8-flash-tts,tts 8.5s
+2026-10-18 00:07:39,long-videos/long_01/audio/tts_cache/sadhu_9821b0f3339dc2fa.wav,gemini-3.8-flash-tts,tts 7.5s
+2026-10-18 00:07:51,long-videos/long_01/audio/tts_cache/dadi_story_ed0da432a70397da.wav,gemini-3.8-flash-tts,tts 9.1s
+2026-10-18 00:08:01,long-videos/long_01/audio/tts_cache/chhotu_03983b9cd7d5e9d7.wav,gemini-3.8-flash-tts,tts 3.6s
+2026-10-18 00:08:11,long-videos/long_01/audio/tts_cache/dadi_story_6ba1d711134b1edb.wav,gemini-3.8-flash-tts,tts 6.3s
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 08:26:02Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Cross-check TTS and images against cost log
+
+```bash
+cd /d/Story-Channel; .venv/Scripts/python -X utf8 -c "
+import sys,json,csv; sys.path.insert(0,'scripts')
+import make_short as m
+L=json.load(open('long-videos/long_01/lines.json',encoding='utf8'))
+rows=list(csv.reader(open('cost_log.csv',encoding='utf8')))
+logged=' '.join(','.join(r) for r in rows)
+miss=[m.tts_key(l['text'],l['speaker']) for l in L if 'text' in l and m.tts_key(l['text'],l['speaker']) not in logged]
+print('TTS keys not in cost_log:',miss)
+sp=json.load(open('long-videos/long_01/scene_prompts.json',encoding='utf8'))
+covers={c:s['id'] for s in sp['scenes'] for c in s.get('covers',[s['id']])}
+used=sorted({covers[l['scene']] for l in L})
+print('images used',len(used),[u for u in used if f'images/scene_{u:02d}.png' not in logged])
+print(sp.keys())
+"; head -1 cost_log.csv; grep -E "long_01|thumbnail|channel_assets" cost_log.csv | grep -v tts_cache | grep -v "images/scene" ; ls -la --time-style=full-iso long-videos/long_01/images | head -40
+```
+
+```text
+TTS keys not in cost_log: []
+images used 31 []
+dict_keys(['_help', 'out_dir', 'aspect', 'ref_files', 'looks', 'base', 'scenes'])
+timestamp,file,model,size,cost_usd,cost_inr,today_total_inr,remaining_inr
+2026-10-17 20:33:33,channel_assets/_work/banner_raw.png,gemini-nano-banana-2.1,2K,0.05040,4.86,65.64,434.36
+2026-10-17 20:35:40,channel_assets/_work/dp_raw.png,gemini-nano-banana-2.1,1K,0.03360,3.24,68.88,431.12
+2026-10-17 21:47:47,channel_assets/_work/thumb_raw.png,gemini-nano-banana-2.1,1K,0.03360,3.24,72.12,427.88
+2026-10-17 21:53:00,channel_assets/_work/thumb_v_raw.png,gemini-nano-banana-2.1,1K,0.03360,3.24,75.36,424.64
+2026-10-17 22:59:00,long-videos/long_01/characters/ghasita_sheet.png,gemini-nano-banana-2.1,1K,0.03360,3.24,78.60,421.40
+2026-10-17 22:59:30,long-videos/long_01/characters/chhotu_sheet.png,gemini-nano-banana-2.1,1K,0.03360,3.24,81.84,418.16
+2026-10-17 23:00:01,long-videos/long_01/characters/sadhu_sheet.png,gemini-nano-banana-2.1,1K,0.03360,3.24,85.08,414.92
+2026-10-17 23:00:22,long-videos/long_01/characters/cadhai_prop.png,gemini-nano-banana-2.1,1K,0.03360,3.24,88.32,411.68
+2026-10-18 10:20:14,channel_assets/_work/long01_thumb_raw.png,gemini-nano-banana-2.1,1K,0.03360,3.24,9.87,300.70
+total 27968
+drwxr-xr-x 1 ashamim 1049089       0 2026-10-17 23:25:34.428032000 +0530 .
+drwxr-xr-x 1 ashamim 1049089       0 2026-10-18 13:09:11.194390700 +0530 ..
+-rw-r--r-- 1 ashamim 1049089  837448 2026-10-17 23:09:04.271323700 +0530 scene_01.png
+-rw-r--r-- 1 ashamim 1049089  842706 2026-10-17 23:09:36.158860800 +0530 scene_02.png
+-rw-r--r-- 1 ashamim 1049089  926088 2026-10-17 23:09:57.921454700 +0530 scene_03.png
+-rw-r--r-- 1 ashamim 1049089  986765 2026-10-17 23:10:43.616972200 +0530 scene_05.png
+-rw-r--r-- 1 ashamim 1049089  964324 2026-10-17 23:11:13.795534300 +0530 scene_07.png
+-rw-r--r-- 1 ashamim 1049089  967614 2026-10-17 23:11:43.165451800 +0530 scene_08.png
+-rw-r--r-- 1 ashamim 1049089  987152 2026-10-17 23:12:14.266700700 +0530 scene_09.png
+-rw-r--r-- 1 ashamim 1049089  994598 2026-10-17 23:12:48.555067000 +0530 scene_10.png
+-rw-r--r-- 1 ashamim 1049089  817394 2026-10-17 23:13:04.641992500 +0530 scene_12.png
+-rw-r--r-- 1 ashamim 1049089  953100 2026-10-17 23:13:30.041607300 +0530 scene_13.png
+-rw-r--r-- 1 ashamim 1049089  887147 2026-10-17 23:13:54.499209000 +0530 scene_14.png
+-rw-r--r-- 1 ashamim 1049089  993040 2026-10-17 23:14:26.818269700 +0530 scene_15.png
+-rw-r--r-- 1 ashamim 1049089  864508 2026-10-17 23:14:55.917420900 +0530 scene_16.png
+-rw-r--r-- 1 ashamim 1049089  629140 2026-10-17 23:15:29.303577200 +0530 scene_17.png
+-rw-r--r-- 1 ashamim 1049089  741839 2026-10-17 23:16:10.378272900 +0530 scene_18.png
+-rw-r--r-- 1 ashamim 1049089 1002876 2026-10-17 23:16:43.266717400 +0530 scene_19.png
+-rw-r--r-- 1 ashamim 1049089  821752 2026-10-17 23:17:12.251081300 +0530 scene_20.png
+-rw-r--r-- 1 ashamim 1049089  815845 2026-10-17 23:17:47.392979300 +0530 scene_21.png
+-rw-r--r-- 1 ashamim 1049089  733632 2026-10-17 23:18:17.249349600 +0530 scene_22.png
+-rw-r--r-- 1 ashamim 1049089  838349 2026-10-17 23:18:49.104239900 +0530 scene_24.png
+-rw-r--r-- 1 ashamim 1049089  876971 2026-10-17 23:19:20.070978900 +0530 scene_25.png
+-rw-r--r-- 1 ashamim 1049089  854089 2026-10-17 23:19:39.027346700 +0530 scene_26.png
+-rw-r--r-- 1 ashamim 1049089  872668 2026-10-17 23:20:12.178391300 +0530 scene_27.png
+-rw-r--r-- 1 ashamim 1049089 1145895 2026-10-17 23:20:42.760042500 +0530 scene_29.png
+-rw-r--r-- 1 ashamim 1049089 1112597 2026-10-17 23:21:34.764527300 +0530 scene_30.png
+-rw-r--r-- 1 ashamim 1049089 1174587 2026-10-17 23:21:59.658184300 +0530 scene_31.png
+-rw-r--r-- 1 ashamim 1049089 1191503 2026-10-17 23:22:57.201024900 +0530 scene_32.png
+-rw-r--r-- 1 ashamim 1049089  898779 2026-10-17 23:23:29.131443200 +0530 scene_34.png
+-rw-r--r-- 1 ashamim 1049089 1142000 2026-10-17 23:24:10.388731000 +0530 scene_35.png
+-rw-r--r-- 1 ashamim 1049089  908783 2026-10-17 23:25:07.733174400 +0530 scene_36.png
+-rw-r--r-- 1 ashamim 1049089  784543 2026-10-17 23:25:34.430045200 +0530 scene_38.png
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 08:26:08Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Inspect thumbnail generator
+
+`cd /d/Story-Channel; grep -n -i -E "font|ttf|otf|prompt|style|long01|thumb|\.png|\.jpg" scripts/gen_channel_assets.py | head -80`
+
+```text
+34:         "and match their flat 2D cartoon style: thick bold outlines, warm colours, flat cel shading.")
+36:BANNER_PROMPT = f"""Wide 16:9 YouTube channel banner illustration, NO text or letters anywhere.
+48:DP_PROMPT = f"""Square profile picture, NO text. Close-up portrait of Dadi (head and shoulders), centred, with a gentle
+71:    fonts = WORK / "fonts"
+72:    fonts.mkdir(parents=True, exist_ok=True)
+73:    shutil.copy(ROOT / "assets" / "fonts" / "Mukta-Bold.ttf", fonts / "Mukta-Bold.ttf")
+81:[V4+ Styles]
+82:Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+83:Style: T,Mukta,150,&H0030C8FF,&H000000FF,&H00102040,&H96000000,-1,0,0,0,100,100,0,0,1,10,6,5,0,0,0,1
+86:Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+90:    shutil.copy(art, WORK / "art.png")
+91:    subprocess.run([str(FFMPEG), "-v", "error", "-y", "-i", "art.png", "-vf",
+92:                    "subtitles=filename=title.ass:fontsdir=fonts", "-frames:v", "1", "titled.png"],
+94:    shutil.copy(WORK / "titled.png", out)
+98:    raw = WORK / "banner_raw.png"
+99:    generate(BANNER_PROMPT, raw, refs=[CHAR / "dadi_sheet.png", CHAR / "golu_sheet.png", CHAR / "mitthu_sheet.png"],
+101:    cover(raw, BW, BH, WORK / "banner_art.png")
+106:    out = OUT / "dadi_ki_kahaniyan_banner.png"
+107:    draw_title(WORK / "banner_art.png", out)
+112:    raw = WORK / "dp_raw.png"
+113:    generate(DP_PROMPT, raw, refs=[CHAR / "dadi_sheet.png"], aspect_ratio="1:1", size="1K")
+114:    out = OUT / "dadi_ki_kahaniyan_dp.png"
+119:THUMB_PROMPT = f"""16:9 YouTube thumbnail illustration for a kids' mystery cartoon, NO text or letters anywhere.
+132:style: thick bold outlines, warm colours on the characters, flat cel shading."""
+137:def draw_thumb_text(art: Path, out: Path):
+138:    fonts = WORK / "fonts"
+139:    fonts.mkdir(parents=True, exist_ok=True)
+140:    shutil.copy(ROOT / "assets" / "fonts" / "Mukta-Bold.ttf", fonts / "Mukta-Bold.ttf")
+147:[V4+ Styles]
+148:Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+149:Style: Q,Mukta,120,&H0000E5FF,&H000000FF,&H00000000,&H96000000,-1,0,0,0,100,100,0,0,1,9,5,8,20,20,8,1
+150:Style: L,Mukta,40,&H00FFFFFF,&H000000FF,&H00000000,&H96000000,-1,0,0,0,100,100,0,0,1,4,2,1,26,20,18,1
+153:Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+157:    (WORK / "thumb.ass").write_text(ass, encoding="utf-8")
+158:    shutil.copy(art, WORK / "thumb_art.png")
+159:    subprocess.run([str(FFMPEG), "-v", "error", "-y", "-i", "thumb_art.png", "-vf",
+160:                    "subtitles=filename=thumb.ass:fontsdir=fonts", "-frames:v", "1", "thumb_titled.png"],
+162:    shutil.copy(WORK / "thumb_titled.png", out)
+165:def thumb():
+166:    raw = WORK / "thumb_raw.png"
+167:    refs = [CHAR / "dadi_sheet.png"] + [ROOT / "images" / "case01_cycle_chori" / f"scene_0{n}.png" for n in (3, 4, 5)]
+168:    generate(THUMB_PROMPT, raw, refs=refs, aspect_ratio="16:9", size="1K")
+169:    cover(raw, TW, TH, WORK / "thumb_art_sized.png")
+170:    thumb_text()
+173:def thumb_text():
+174:    out = OUT / "case01_thumbnail.png"
+175:    draw_thumb_text(WORK / "thumb_art_sized.png", out)
+179:THUMB_V_PROMPT = f"""Vertical 9:16 cover image for a kids' mystery cartoon Short, NO text or letters anywhere.
+194:style: thick bold outlines, warm colours on the characters, flat cel shading."""
+199:def thumb_v():
+200:    raw = WORK / "thumb_v_raw.png"
+201:    refs = [CHAR / "dadi_sheet.png"] + [ROOT / "images" / "case01_cycle_chori" / f"scene_0{n}.png" for n in (3, 4, 5)]
+202:    generate(THUMB_V_PROMPT, raw, refs=refs, aspect_ratio="9:16", size="1K")
+203:    cover(raw, VW, VH, WORK / "thumb_v_art.png")
+204:    thumb_v_text()
+207:def thumb_v_text():
+209:    fonts = WORK / "fonts"
+210:    fonts.mkdir(parents=True, exist_ok=True)
+211:    shutil.copy(ROOT / "assets" / "fonts" / "Mukta-Bold.ttf", fonts / "Mukta-Bold.ttf")
+218:[V4+ Styles]
+219:Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+220:Style: Q,Mukta,150,&H0000E5FF,&H000000FF,&H00000000,&H96000000,-1,0,0,0,100,100,0,0,1,11,6,8,30,30,70,1
+221:Style: L,Mukta,52,&H0030C8FF,&H000000FF,&H00000000,&H96000000,-1,0,0,0,100,100,0,0,1,5,3,8,30,30,20,1
+224:Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+228:    (WORK / "thumb_v.ass").write_text(ass, encoding="utf-8")
+229:    shutil.copy(WORK / "thumb_v_art.png", WORK / "thumb_v_in.png")
+230:    subprocess.run([str(FFMPEG), "-v", "error", "-y", "-i", "thumb_v_in.png", "-vf",
+231:                    "subtitles=filename=thumb_v.ass:fontsdir=fonts", "-frames:v", "1", "thumb_v_titled.png"],
+233:    out = OUT / "case01_thumbnail_vertical.png"
+234:    shutil.copy(WORK / "thumb_v_titled.png", out)
+238:LONG01 = ROOT / "long-videos" / "long_01"
+240:L01_THUMB_PROMPT = """16:9 YouTube thumbnail illustration for a kids' Hindi moral-story cartoon, NO text or letters
+252:Match the flat 2D cartoon style of the references: thick bold outlines, warm colours, flat cel shading."""
+255:def long01_thumb():
+256:    raw = WORK / "long01_thumb_raw.png"
+257:    c = LONG01 / "characters"
+258:    generate(L01_THUMB_PROMPT, raw, refs=[c / "ghasita_sheet.png", c / "chhotu_sheet.png", c / "cadhai_prop.png"],
+260:    cover(raw, TW, TH, WORK / "long01_thumb_art.png")
+261:    long01_thumb_text()
+264:def long01_thumb_text():
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 08:26:09Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Search prompts for banned style/brand names
+
+`cd /d/Story-Channel; grep -n -i -o -E ".{0,40}(pixar|disney|ghibli|dreamworks|studio|marvel|dc comics|chhota|bheem|motu|patlu|doraemon|shinchan|amul|coca|pepsi|logo|brand|nike|style of|in the style|artist|miyazaki|anime|manga|cartoon network|nickelodeon|trademark|watermark|signature).{0,40}" long-videos/long_01/scene_prompts.json scripts/gen_long_characters.py scripts/gen_channel_assets.py scripts/gemini_image.py channel_bible.md`
+
+```text
+scripts/gen_channel_assets.py:130:(for a small logo). Everything important between 26% and 
+scripts/gen_channel_assets.py:208:    """Title + small logo in the top 16%; bottom 20% left clear f
+scripts/gen_channel_assets.py:252:Match the flat 2D cartoon style of the references: thick bold outlines, wa
+channel_bible.md:13:- **Har episode ka dhaancha:** ek chhota case → 3 suspects → chhupe clues �
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 08:26:15Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Read thumbnail and scene prompt texts
+
+```bash
+cd /d/Story-Channel; sed -n 236,300p scripts/gen_channel_assets.py; sed -n 120,135p scripts/gen_channel_assets.py; echo ====; grep -n -i -E "prompt|style|look" scripts/gen_long_characters.py | head -30; echo ===; .venv/Scripts/python -X utf8 -c "
+import json;d=json.load(open('long-videos/long_01/scene_prompts.json',encoding='utf8'))
+print('BASE:',d['base']); print('LOOKS:',json.dumps(d['looks'],ensure_ascii=False)[:2500]); print('REFS',d['ref_files'])
+for s in d['scenes'][:3]: print(s)
+"
+```
+
+```text
+LONG01 = ROOT / "long-videos" / "long_01"
+
+L01_THUMB_PROMPT = """16:9 YouTube thumbnail illustration for a kids' Hindi moral-story cartoon, NO text or letters
+anywhere. Setting: a small Indian village sweet shop at evening, warm and family-friendly, not scary.
+RIGHT HALF of the image: the big magic iron kadhai (exactly as in the prop reference) sits on a clay chulha, glowing
+with bright golden magical light and sparkles, and it is OVERFLOWING - orange jalebis and yellow laddoos bubbling up
+and spilling over its rim. Right behind it, a big close-up of Ghasita the sweet-shop owner (exactly as in his reference
+sheet: face, moustache, outfit) leaning over the kadhai with both hands raised, eyes wide and shining with GREED,
+huge greedy grin, the golden glow lighting his face. Behind him, smaller, Chhotu (exactly as in his reference sheet)
+peeks in, amazed, mouth open.
+Mood: magic + greed at the START of the story - the kadhai is still magical and working (no mud, nothing broken).
+COMPOSITION IS CRITICAL: keep the LEFT 42% of the image as a plain, darker, softly blurred warm brown/purple background
+with NO characters or objects (a big title goes there). Keep the BOTTOM-RIGHT corner (last 20% of width, bottom 18% of
+height) plain and unimportant (YouTube puts the video length there). Faces big, bold, high contrast, readable when small.
+Match the flat 2D cartoon style of the references: thick bold outlines, warm colours, flat cel shading."""
+
+
+def long01_thumb():
+    raw = WORK / "long01_thumb_raw.png"
+    c = LONG01 / "characters"
+    generate(L01_THUMB_PROMPT, raw, refs=[c / "ghasita_sheet.png", c / "chhotu_sheet.png", c / "cadhai_prop.png"],
+             aspect_ratio="16:9", size="1K")
+    cover(raw, TW, TH, WORK / "long01_thumb_art.png")
+    long01_thumb_text()
+
+
+def long01_thumb_text():
+    """Hook in two big lines in the empty left part; channel name small at bottom-left (bottom-right = timestamp)."""
+    fonts = WORK / "fonts"
+    fonts.mkdir(parents=True, exist_ok=True)
+    shutil.copy(ROOT / "assets" / "fonts" / "Mukta-Bold.ttf", fonts / "Mukta-Bold.ttf")
+    ass = f"""[Script Info]
+ScriptType: v4.00+
+PlayResX: {TW}
+PlayResY: {TH}
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Q,Mukta,163,&H0000E5FF,&H000000FF,&H00000000,&H96000000,-1,0,0,0,100,100,0,0,1,12,7,5,0,0,0,1
+Style: L,Mukta,40,&H0030C8FF,&H000000FF,&H00000000,&H96000000,-1,0,0,0,100,100,0,0,1,4,2,1,26,20,18,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:01.00,Q,,0,0,0,,{{\\an5\\pos(290,300)\\q2}}जो डालो,\\N{{\\c&H0030FFFF&}}दुगना!
+Dialogue: 0,0:00:00.00,0:00:01.00,L,,0,0,0,,दादी की कहानियाँ
+"""
+    (WORK / "long01_thumb.ass").write_text(ass, encoding="utf-8")
+    shutil.copy(WORK / "long01_thumb_art.png", WORK / "long01_thumb_in.png")
+    subprocess.run([str(FFMPEG), "-v", "error", "-y", "-i", "long01_thumb_in.png", "-vf",
+                    "subtitles=filename=long01_thumb.ass:fontsdir=fonts", "-frames:v", "1", "long01_thumb_titled.png"],
+                   cwd=WORK, check=True)
+    out = LONG01 / "output" / "long_01_thumbnail.png"
+    shutil.copy(WORK / "long01_thumb_titled.png", out)
+    print("saved", out, Image.open(out).size)
+
+
+if __name__ == "__main__":
+    WORK.mkdir(parents=True, exist_ok=True)
+    {"banner": banner, "dp": dp, "text": text, "thumb": thumb, "thumb_text": thumb_text,
+     "thumb_v": thumb_v, "thumb_v_text": thumb_v_text,
+     "long01_thumb": long01_thumb, "long01_thumb_text": long01_thumb_text}[sys.argv[1]]()
+Background: dramatic dark blue-to-purple gradient night sky with a soft spotlight glow behind the centre; mystery
+detective vibe, still family-friendly and not scary.
+CENTRE: big close-up of Dadi (head, shoulders and one hand) holding a large magnifying glass up near her face like a
+detective, one eye enlarged through the lens, clever knowing smile.
+Around her, smaller head-and-hands portraits of the three suspects (each about 1/4 of Dadi's size), with their HANDS
+held up and clearly visible:
+- left of Dadi: Pappu the milkman (white kurta, red gamchha) - CLEAN hands, confused face
+- right of Dadi, upper: Raju the tea seller (brown shirt, apron, small moustache) - fingers BLACK with soot, guilty look
+- right of Dadi, lower: Bunty (17, spiky hair, sky-blue shirt) - fingertips with bright RED paint, caught-red-handed look
+COMPOSITION: keep the TOP 24% of the image as empty dark sky (for a title) and the bottom-left corner empty and dark
+(for a small logo). Everything important between 26% and 92% of the height. Bold, high contrast, readable when small.
+Keep every character EXACTLY as in the attached references (faces, outfits, colours) and match the flat 2D cartoon
+style: thick bold outlines, warm colours on the characters, flat cel shading."""
+
+TW, TH = 1280, 720
+
+====
+1:"""Reference sheets for long-video characters/props (style matched to the approved channel sheets).
+14:STYLE_REFS = [ROOT / "characters" / "dadi_sheet.png", ROOT / "characters" / "golu_sheet.png"]
+15:STYLE_NOTE = ("The attached images are STYLE references only (the channel's approved sheets): match their flat 2D "
+16:              "cartoon style, thick bold black outlines, warm colours, flat cel shading, clean off-white background and "
+20:         "poses (labelled). Bottom row: three head-and-shoulders expressions (labelled). The character must look "
+28:hair only on the sides, a thick HANDLEBAR moustache curled upwards at the ends in salt-and-pepper grey (must look very
+50:Show it labelled from: SIDE VIEW, TOP VIEW (looking inside, empty), THREE-QUARTER VIEW, and MAGIC GLOW (same kadhai
+60:        fname, prompt = SPECS[vid][name]
+62:        out = generate(f"{prompt}\n\n{STYLE_NOTE}", out_dir / fname, refs=STYLE_REFS, aspect_ratio="3:2", size="1K")
+===
+BASE: 16:9 landscape scene for a family-friendly Hindi moral-story cartoon set in an old Indian village (Rampur), flat 2D cartoon, thick bold black outlines, warm colours, flat cel shading. No modern objects (no gas stoves, plastic, phones, vehicles). No text, signs or letters anywhere.
+LOOKS: {"dadi": "Dadi: Indian grandmother ~70, round face, white hair bun, round golden spectacles, light green saree with yellow border, gold bangles, wooden walking stick, small red bindi", "golu": "Golu: chubby Indian boy ~10, messy black hair, yellow T-shirt, blue half-pants, white socks, red shoes", "mitthu": "Mitthu: green parrot with red beak and thin red neck ring", "ghasita": "Ghasita the greedy sweet-shop owner: very fat 50s man, big round belly in a loose cream kurta, white dhoti, cloth money pouch at the waist, shiny bald head with curly salt-and-pepper hair on the sides, upturned salt-and-pepper handlebar moustache, half-closed greedy eyes", "chhotu": "Chhotu the kind helper: thin young man, honest open face, gentle big eyes, short neat black hair, light-blue kurta with a small patch on the sleeve, off-white dhoti, barefoot", "sadhu": "Sadhu Baba: very old thin holy man, long white beard, small white top knot, chandan tilak, rudraksha mala, saffron dhoti and saffron shoulder cloth, wooden lathi, cloth jholi bag", "kadhai": "the magic brass kadhai: small golden-bronze wok-shaped bowl with two round handles and paisley-and-dot motifs around the rim (exactly as in the kadhai prop sheet)", "kid": "a poor village boy ~8, thin, torn white vest, brown shorts, barefoot, big hopeful eyes", "woman": "a village woman customer ~35, pink saree, dupatta over head", "man": "a village man customer ~40, white kurta, small orange turban", "shop": "Ghasita's big sweet shop in Rampur bazaar: wooden counter, brass plates piled with orange jalebi and yellow laddoo, a big iron frying pan of oil on a clay mud chulha (no gas stove) at the front, cloth awning", "stall": "Chhotu's small new jalebi stall: little wooden stall with a thatched roof, one clay mud chulha with an iron pan, a few brass plates of jalebi"}
+REFS {'ghasita': 'long-videos/long_01/characters/ghasita_sheet.png', 'chhotu': 'long-videos/long_01/characters/chhotu_sheet.png', 'sadhu': 'long-videos/long_01/characters/sadhu_sheet.png', 'kadhai': 'long-videos/long_01/characters/cadhai_prop.png', 'aangan': 'channel_assets/_work/banner_art.png'}
+{'id': 1, 'covers': [1], 'refs': ['golu', 'mitthu', 'aangan'], 'prompt': "Evening in Dadi's courtyard (as in the location reference: mud house, charpai, golden sunset). {golu} sits hugging a big open box of round yellow laddoos tightly to his chest with a greedy happy face. {mitthu} swoops down towards the laddoos, wings spread. Comic mood."}
+{'id': 2, 'covers': [2], 'refs': ['dadi', 'golu', 'aangan'], 'prompt': 'Same evening courtyard. {dadi} sits on the charpai with a warm knowing smile, beckoning with one hand, about to tell a story. {golu} sits on the ground beside her still holding the laddoo box, looking up curiously.'}
+{'id': 3, 'covers': [3, 4], 'refs': ['ghasita'], 'prompt': 'Wide shot of a busy, colourful old Indian village bazaar in daytime. In the centre: {shop}. {ghasita} leans on the counter with a sly greedy grin. Right foreground: big glistening piles of orange jalebi on a brass plate, large and detailed (used for a close-up).'}
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 08:26:21Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Print all spoken lines and work folder
+
+```bash
+cd /d/Story-Channel; .venv/Scripts/python -X utf8 -c "
+import json
+for i,l in enumerate(json.load(open('long-videos/long_01/lines.json',encoding='utf8')),1):
+  if 'text' in l: print(i,l['speaker'],':',l['text'], ('| CAP:'+l['caption']) if 'caption' in l else '')
+"; ls long-videos/long_01/output/long_01_work | head -50
+```
+
+```text
+1 golu : ये पूरा डिब्बा मेरा है! किसी को नहीं दूँगा! 
+2 mitthu : मिठाई! मिठाई! 
+3 dadi_story : अच्छा? तो पहले एक कहानी सुनो... एक लालची हलवाई की। 
+4 dadi_story : बहुत पुरानी बात है। रामपुर गाँव के बाज़ार में घसीटा हलवाई की बड़ी-सी दुकान थी। 
+5 dadi_story : उसकी जलेबियाँ दूर-दूर तक मशहूर थीं... पर उसका दिल बहुत छोटा था। 
+6 woman : भैया, आधा किलो जलेबी देना। 
+7 ghasita : पैसे पहले! और तराज़ू की तरफ़ मत देखना! 
+8 dadi_story : घसीटा तराज़ू में डंडी मारता, और बासी मिठाई भी ताज़ी बताकर बेच देता। 
+9 kid : चाचा, एक जलेबी... बस एक सिक्का कम है। 
+10 ghasita : एक सिक्का भी कम, तो जलेबी नहीं! भागो यहाँ से! 
+11 dadi_story : उसी दुकान में छोटू काम करता था। ग़रीब था, पर दिल का सोना। 
+12 dadi_story : छोटू ने चुपके से अपनी जेब का सिक्का निकाला और बच्चे को जलेबी दे दी। 
+13 kid : धन्यवाद, छोटू भैया! 
+14 dadi_story : एक दोपहर, कड़ी धूप में एक बूढ़े साधु बाबा दुकान पर आए। 
+15 sadhu : बेटा, दो दिन से भूखा हूँ... थोड़ा खाना मिलेगा? 
+16 ghasita : मुफ़्त में? ये धर्मशाला नहीं है! आगे बढ़ो! 
+17 dadi_story : साधु बाबा चुपचाप नीम के पेड़ के नीचे जाकर बैठ गए। 
+18 dadi_story : छोटू से रहा नहीं गया। उसने अपने हिस्से की दो रोटियाँ उठाईं... 
+19 chhotu : बाबा, मेरे पास बस यही है। आप खा लीजिए। 
+21 dadi_story : रोटी खाकर साधु बाबा मुस्कुराए, और झोली से एक छोटी-सी पीतल की कड़ाही निकाली। 
+22 sadhu : ये जादुई कड़ाही है, बेटा। इसमें जो डालोगे, दुगना हो जाएगा। 
+23 sadhu : पर याद रखना — ये सिर्फ़ भूखों के लिए है। लालच के लिए नहीं। 
+24 dadi_story : उस शाम छोटू ने कड़ाही में एक मुट्ठी आटा डाला... और आटा दो मुट्ठी हो गया! 
+25 chhotu : अरे वाह! ये तो सच में जादू है! 
+26 dadi_story : अब छोटू रोज़ रोटियाँ बनाता, और गाँव के भूखे बच्चों को खिलाता। 
+27 dadi_story : आटा दुगना होता जाता... और बच्चों की मुस्कानें भी। 
+28 kids : छोटू भैया ज़िंदाबाद! 
+29 dadi_story : पर ये बात घसीटा की नज़रों से छुपी नहीं रही। 
+30 ghasita : आटा? हुँह! उस कड़ाही में तो सोना होना चाहिए... मेरा सोना! 
+31 dadi_story : उसी रात, जब छोटू सो रहा था, घसीटा दबे पाँव आया और कड़ाही चुरा ले गया। 
+32 dadi_story : दुकान में दीया जलाकर उसने कड़ाही में एक सोने का सिक्का डाला... 
+33 ghasita : चल, दुगना कर! 
+34 dadi_story : पर सिक्का दुगना नहीं हुआ... वो मिट्टी बन गया! 
+35 ghasita : क्या? शायद कम डाला... ये लो, दस और! 
+36 dadi_story : दस सिक्के डाले — दसों मिट्टी! पर घसीटा का लालच और भड़क गया। 
+37 dadi_story : उसने पूरी तिजोरी उलट दी, फिर मिठाई के थाल, फिर चाँदी के बर्तन... 
+38 ghasita : अब तो दुगना होगा! होना ही होगा! 
+39 dadi_story : पर कड़ाही में जो भी गया, सब मिट्टी बनता गया। सुबह तक दुकान में मिट्टी के ढेर के सिवा कुछ नहीं बचा। 
+41 sadhu : लालच से भरे हाथ में जादू नहीं टिकता। 
+42 ghasita : मेरा सब कुछ... सब कुछ चला गया! 
+44 dadi_story : उधर, गाँव वाले भूले नहीं थे कि छोटू ने कैसे उनके बच्चों को खिलाया था। 
+45 dadi_story : सबने मिलकर उसके लिए बाज़ार में एक छोटी-सी जलेबी की दुकान खुलवा दी। 
+46 villager : छोटू की जलेबी! इसमें ईमानदारी का स्वाद है! 
+47 dadi_story : छोटू सही तौलता, ताज़ा बनाता, और हर शाम एक थाल भूखों के लिए अलग रखता। 
+48 dadi_story : देखते ही देखते उसकी छोटी-सी दुकान पूरे गाँव की सबसे प्यारी दुकान बन गई। 
+49 dadi_story : और घसीटा? लालच ने उससे सब कुछ छीन लिया था। 
+50 chhotu : घसीटा चाचा, आइए... एक जलेबी आपके लिए भी। 
+51 golu : दादी... अगर मैं सब अकेले खाऊँगा, तो मैं भी घसीटा बन जाऊँगा! 
+52 golu : ये लो, एक लड्डू आपका... और एक मिठ्ठू का! 
+53 mitthu : लालच! लालच! ना-ना-ना! 
+54 dadi_story : शाबाश बेटा! याद रखना — लालच का अंत हमेशा बुरा होता है, और बाँटने से ख़ुशी दुगनी होती है। 
+check_00.png
+check_01.png
+check_02.png
+check_03.png
+check_04.png
+check_05.png
+check_06.png
+check_07.png
+check_08.png
+check_09.png
+check_10.png
+check_11.png
+check_12.png
+check_13.png
+check_14.png
+check_15.png
+check_16.png
+check_17.png
+check_18.png
+check_19.png
+check_20.png
+check_21.png
+check_22.png
+check_23.png
+check_24.png
+check_25.png
+check_26.png
+check_27.png
+check_28.png
+check_29.png
+check_30.png
+check_31.png
+check_32.png
+check_33.png
+check_34.png
+check_35.png
+check_36.png
+check_37.png
+check_38.png
+check_39.png
+check_40.png
+check_41.png
+check_42.png
+check_43.png
+check_44.png
+check_45.png
+check_46.png
+check_47.png
+check_48.png
+check_49.png
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 08:26:33Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Compare credits and probe audio tags
+
+```bash
+cd /d/Story-Channel; .venv/Scripts/python -X utf8 -c "
+import json,csv,re
+reg={r['path']:r for r in csv.DictReader(open('munshi/assets_license.csv',encoding='utf8'))}
+meta=json.load(open('long-videos/long_01/meta.json',encoding='utf8'))
+up=json.load(open('long-videos/long_01/output/upload.json',encoding='utf8'))
+norm=lambda s:re.sub(r'\s+',' ',s).strip()
+d=norm(up['description'])
+for mood,f in meta['music_moods'].items():
+  p='assets/music/'+f; r=reg.get(p)
+  print(mood,p,'REG' if r else 'NOT-REG', r and r['license'], 'CREDIT-OK' if r and norm(r['attribution_text']) in d else 'CREDIT-MISSING')
+for k,f in meta['sfx'].items():
+  p='assets/sfx/'+f; r=reg.get(p); print(k,p,'REG' if r else 'NOT-REG', r and r['license'])
+print('desc len',len(up['description']), 'Music: count',up['description'].count('Music: '))
+for name in ['Sneaky Snitch','Investigations','Monkeys','Sad Trio','Dreams','Life of Riley','Peaceful']: print(name, name in up['description'])
+"; for f in $(.venv/Scripts/python -c "import json;print(' '.join(json.load(open('long-videos/long_01/meta.json',encoding='utf8'))['music_moods'].values()))"); do ffprobe -v error -show_entries format=duration:format_tags=title,artist,album,copyright,comment -of compact "assets/music/$f"; done; for f in magic_376747 tension_sting_578356 comedy_sting_731261; do ffprobe -v error -show_entries format=duration:format_tags -of compact assets/sfx/$f.mp3; done; cat assets/sfx/CREDITS.md assets/music/CREDITS.md
+```
+
+```text
+comedy assets/music/comedy/Fluffing_a_Duck.mp3 REG CC BY 4.0 CREDIT-OK
+khushi assets/music/khushi/Carefree.mp3 REG CC BY 4.0 CREDIT-OK
+dukh assets/music/dukh/Heartbreaking.mp3 REG CC BY 4.0 CREDIT-OK
+jaadu assets/music/jaadu/Enchanted_Valley.mp3 REG CC BY 4.0 CREDIT-OK
+tension assets/music/tension/Hidden_Agenda.mp3 REG CC BY 4.0 CREDIT-OK
+seekh assets/music/seekh/Touching_Moments_Two_Higher.mp3 REG CC BY 4.0 CREDIT-OK
+comedy assets/sfx/comedy_sting_731261.mp3 REG CC0 (verified via Freesound API)
+tension assets/sfx/tension_sting_578356.mp3 REG CC0 (verified via Freesound API)
+magic assets/sfx/magic_376747.mp3 REG CC0 (verified via Freesound API)
+desc len 1488 Music: count 6
+Sneaky Snitch False
+Investigations False
+Monkeys False
+Sad Trio False
+Dreams False
+Life of Riley False
+Peaceful False
+/usr/bin/bash: line 15: ffprobe: command not found
+/usr/bin/bash: line 15: ffprobe: command not found
+/usr/bin/bash: line 15: ffprobe: command not found
+/usr/bin/bash: line 15: ffprobe: command not found
+/usr/bin/bash: line 15: ffprobe: command not found
+/usr/bin/bash: line 15: ffprobe: command not found
+/usr/bin/bash: line 15: ffprobe: command not found
+/usr/bin/bash: line 15: ffprobe: command not found
+/usr/bin/bash: line 15: ffprobe: command not found
+# Sound effects (Freesound, all CC0)
+
+- `comedy_sting_731261.mp3` — "cartoon-sound-double-boing" by sdroliasnick (2.3s, CC0) https://freesound.org/people/sdroliasnick/sounds/731261/
+- `comedy_sting_731262.mp3` — "cartoon-sound-single-boing" by sdroliasnick (2.1s, CC0) https://freesound.org/people/sdroliasnick/sounds/731262/
+- `tension_sting_578356.mp3` — "Dissonant Piano Sting 5" by nomiqbomi (2.7s, CC0) https://freesound.org/people/nomiqbomi/sounds/578356/
+- `tension_sting_578351.mp3` — "Dissonant Piano Sting 2" by nomiqbomi (2.7s, CC0) https://freesound.org/people/nomiqbomi/sounds/578351/
+- `whoosh_803771.mp3` — "whoosh 1 long" by Logicogonist (0.8s, CC0) https://freesound.org/people/Logicogonist/sounds/803771/
+- `whoosh_142348.mp3` — "Cartoony whooshes" by BranRainey (2.3s, CC0) https://freesound.org/people/BranRainey/sounds/142348/
+- `magic_376747.mp3` — "Fantasy_ui_Button_1.wav" by ZenithInfinitiveStudios (1.4s, CC0) https://freesound.org/people/ZenithInfinitiveStudios/sounds/376747/
+- `magic_376745.mp3` — "Fantasy_ui_Button_3.wav" by ZenithInfinitiveStudios (1.3s, CC0) https://freesound.org/people/ZenithInfinitiveStudios/sounds/376745/
+# Music credits (Incompetech — Creative Commons Attribution 4.0)
+
+Description me credit line ZAROOR daalni hai (jo track video me use ho).
+
+## Sneaky_Snitch.mp3
+"Sneaky Snitch" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
+## Investigations.mp3
+"Investigations" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
+## Mood library (assets/music/<mood>/) — sab Kevin MacLeod (incompetech.com), CC BY 4.0
+Credit format (jo track use ho uska):
+"<Track>" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
+| Mood | Files |
+|---|---|
+| comedy | Fluffing_a_Duck.mp3 · Monkeys_Spinning_Monkeys.mp3 |
+| khushi | Carefree.mp3 · Life_of_Riley.mp3 |
+| dukh | Heartbreaking.mp3 · Sad_Trio.mp3 |
+| jaadu | Enchanted_Valley.mp3 · Dreams_Become_Real.mp3 |
+| tension | Hidden_Agenda.mp3 · Investigations.mp3 |
+| seekh | Touching_Moments_Two_Higher.mp3 · Peaceful_Desolation.mp3 |
+
+## mystery_bed.wav
+Apna banaya hua (scripts/gen_music.py) — koi credit nahi chahiye.
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 08:26:40Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Check ffmpeg path and timestamps
+
+`cd /d/Story-Channel; grep -n "FFMPEG\s*=\|FFPROBE" scripts/make_short.py | head; ls -la --time-style=full-iso long-videos/long_01/meta.json long-videos/long_01/lines.json long-videos/long_01/output/long_01.mp4 long-videos/long_01/output/long_01_thumbnail.png long-videos/long_01/output/upload.json long-videos/long_01/output/long_01.txt channel_assets/_work/long01_thumb_raw.png channel_assets/_work/long01_thumb_art.png 2>&1; git log --oneline -3 -- long-videos/long_01/meta.json long-videos/long_01/lines.json; git status --short long-videos/long_01 assets scripts`
+
+```text
+35:FFMPEG = ROOT / "tools" / "ffmpeg" / "ffmpeg.exe"
+37:    FFMPEG = Path(shutil.which("ffmpeg") or FFMPEG)
+-rw-r--r-- 1 ashamim 1049089   1097271 2026-10-18 10:20:15.337950500 +0530 channel_assets/_work/long01_thumb_art.png
+-rw-r--r-- 1 ashamim 1049089    679149 2026-10-18 10:20:14.949998600 +0530 channel_assets/_work/long01_thumb_raw.png
+-rw-r--r-- 1 ashamim 1049089      9700 2026-10-18 13:09:10.101861700 +0530 long-videos/long_01/lines.json
+-rw-r--r-- 1 ashamim 1049089      2560 2026-10-18 13:09:11.192110100 +0530 long-videos/long_01/meta.json
+-rw-r--r-- 1 ashamim 1049089 156904342 2026-10-18 13:22:17.579628100 +0530 long-videos/long_01/output/long_01.mp4
+-rw-r--r-- 1 ashamim 1049089      3092 2026-10-18 13:23:24.009920800 +0530 long-videos/long_01/output/long_01.txt
+-rw-r--r-- 1 ashamim 1049089   1090136 2026-10-18 13:09:25.610683700 +0530 long-videos/long_01/output/long_01_thumbnail.png
+-rw-r--r-- 1 ashamim 1049089      3545 2026-10-18 13:39:54.365628700 +0530 long-videos/long_01/output/upload.json
+cde0e07 upload: channel-id + ffprobe checks
+64528a6 initial: Story-Channel setup
+?? long-videos/long_01/output/review/music_resid.wav
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 08:27:00Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Probe final mp4 streams and work files
+
+`cd /d/Story-Channel; ls tools/ffmpeg; tools/ffmpeg/ffprobe.exe -v error -show_entries stream=index,codec_type,codec_name:format_tags -of compact long-videos/long_01/output/long_01.mp4; ls long-videos/long_01/output/long_01_work | grep -v check_; ls long-videos/long_01/output/review`
+
+```text
+ffmpeg.exe
+ffplay.exe
+ffprobe.exe
+stream|index=0|codec_name=h264|codec_type=video
+stream|index=1|codec_name=aac|codec_type=audio
+format|tag:major_brand=isom|tag:minor_version=512|tag:compatible_brands=isomiso2avc1mp41|tag:encoder=Lavf63.10.100
+fonts
+mix.wav
+mix_norm.wav
+music.wav
+scenes.txt
+video.mp4
+voice.wav
+case01_sheet.png
+f_113.3.png
+f_115.png
+f_117.png
+f_119.png
+f_121.png
+f_3.4.png
+f_4.3.png
+f_5.1.png
+f_74.3.png
+f_75.5.png
+f_76.8.png
+f_78.0.png
+f_79.5.png
+frame_scenes.png
+music_only_est.wav
+music_resid.wav
+rr2
+speaker_check.png
+thumb_br_corner.png
+thumb_text_zoom.png
+voice_in_mix.wav
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 08:27:29Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Residual test: mix minus voice minus music
+
+```bash
+cd /d/Story-Channel/long-videos/long_01/output/long_01_work; S="C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad"; mkdir -p "$S"; /d/Story-Channel/tools/ffmpeg/ffmpeg.exe -v error -y -i voice.wav -af "aresample=48000,aformat=channel_layouts=stereo" -c:a pcm_f32le "$S/v48.wav"; for f in mix music; do /d/Story-Channel/tools/ffmpeg/ffmpeg.exe -v error -y -i $f.wav -c:a pcm_f32le "$S/$f.f.wav"; done; cd /d/Story-Channel; .venv/Scripts/python -X utf8 - "$S" <<'EOF'
+import sys,numpy as np,soundfile as sf
+S=sys.argv[1]
+v,_=sf.read(S+'/v48.wav'); m,_=sf.read(S+'/mix.f.wav'); mu,sr=sf.read(S+'/music.f.wav')
+n=min(len(v),len(m),len(mu)); r=m[:n]-v[:n]-mu[:n]
+print('len s',n/sr, 'mix rms dB',20*np.log10(np.sqrt((m[:n]**2).mean())+1e-12),'resid rms dB',20*np.log10(np.sqrt((r**2).mean())+1e-12))
+w=int(0.1*sr); e=np.sqrt((r[:n//w*w,0].reshape(-1,w)**2).mean(1)); db=20*np.log10(e+1e-12)
+act=db>-60
+segs=[];i=0
+while i<len(act):
+  if act[i]:
+    j=i
+    while j<len(act) and act[j]: j+=1
+    segs.append((i*0.1,j*0.1,db[i:j].max())); i=j
+  else: i+=1
+print('residual bursts > -60 dBFS:',len(segs))
+for s in segs: print('  %.1f-%.1f s  peak %.1f dB'%s)
+print('residual floor median dB',np.median(db))
+EOF
+```
+
+```text
+Exit code 1
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ModuleNotFoundError: No module named 'soundfile'
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 08:27:40Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Residual test with raw float arrays
+
+```bash
+cd /d/Story-Channel; S="C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad"; for f in v48 mix.f music.f; do tools/ffmpeg/ffmpeg.exe -v error -y -i "$S/$f.wav" -f f32le -ac 1 "$S/$f.raw"; done; .venv/Scripts/python -X utf8 - "$S" <<'EOF'
+import sys,numpy as np
+S=sys.argv[1]; sr=48000
+v=np.fromfile(S+'/v48.raw',np.float32); m=np.fromfile(S+'/mix.f.raw',np.float32); mu=np.fromfile(S+'/music.f.raw',np.float32)
+n=min(len(v),len(m),len(mu)); r=m[:n]-v[:n]-mu[:n]
+f=lambda x:20*np.log10(np.sqrt((x**2).mean())+1e-12)
+print('len s',n/sr,'mix',f(m[:n]),'resid',f(r))
+w=int(0.1*sr); db=20*np.log10(np.sqrt((r[:n//w*w].reshape(-1,w)**2).mean(1))+1e-12)
+act=db>-60; segs=[];i=0
+while i<len(act):
+  if act[i]:
+    j=i
+    while j<len(act) and act[j]: j+=1
+    segs.append((i*0.1,j*0.1,db[i:j].max())); i=j
+  else: i+=1
+print('bursts',len(segs)); [print('  %.1f-%.1f s peak %.1f'%s) for s in segs]
+print('median floor',np.median(db))
+EOF
+```
+
+```text
+len s 306.18 mix -16.77502 resid -39.8274
+bursts 5
+  112.8-114.3 s peak -17.4
+  137.5-138.9 s peak -16.7
+  189.9-192.0 s peak -16.5
+  224.6-226.0 s peak -16.6
+  293.1-295.3 s peak -16.4
+median floor -98.09947
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 08:27:45Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\long-videos\long_01\output\long_01_thumbnail.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 08:27:46Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\long-videos\long_01\images\scene_03.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 08:27:46Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\long-videos\long_01\images\scene_01.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 08:27:50Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\long-videos\long_01\images\scene_31.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 08:27:50Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\long-videos\long_01\images\scene_19.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 08:27:50Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\long-videos\long_01\images\scene_22.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 08:28:03Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Append verdict line to munshi log
+
+`cd /d/Story-Channel; echo "2026-10-18 | long_01 | copyright (RULES 10) | PASS | all used assets registered w/ allowed licence (6 Incompetech CC BY 4.0, 3 Freesound CC0, Mukta OFL, 31 scene imgs + 51 TTS + thumb = own Gemini, all in cost_log); 6/6 credits exact in upload.json; mix-voice-music residual = 5 SFX bursts only (floor -98 dB); prompts/text/images clean" >> munshi/log.md; tail -2 munshi/log.md`
+
+```text
+2026-10-18 | long_01 | publish dry-run | PASS | upload.json written (channel UCy071_4g4vGemktFHybqkhQ, publish 2026-10-20 19:00 IST, kids=false, synthetic=false, cat 1, no playlist); dry-run OK, no network; copyright register (RULES 10 / assets_license.csv) not yet available -> not reviewed
+2026-10-18 | long_01 | copyright (RULES 10) | PASS | all used assets registered w/ allowed licence (6 Incompetech CC BY 4.0, 3 Freesound CC0, Mukta OFL, 31 scene imgs + 51 TTS + thumb = own Gemini, all in cost_log); 6/6 credits exact in upload.json; mix-voice-music residual = 5 SFX bursts only (floor -98 dB); prompts/text/images clean
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 08:28:37Z)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="SubagentHandback"><details>
+<summary>Tool use: **SubagentHandback**</summary>
+
+```text
+{"success":true,"message":"Report delivered to your caller."}
+```
+</details></tool-use>

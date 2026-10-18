@@ -16,6 +16,9 @@ Use this after every production step of a video in the Story-Channel project. Al
 
 ## Stage checklists
 
+### 0. New asset added
+- Any new music/SFX/font/image from outside: licence verified and row added to assets_license.csv before it is used.
+
 ### 1. Script
 - Duration estimate vs target (narration ~2.5 words/sec in Hindi; Gemini Dadi voice runs slower, so add ~25%).
 - Every line has a speaker that exists in `channel_bible.md` or in the project's character list.
@@ -56,6 +59,7 @@ Use this after every production step of a video in the Story-Channel project. Al
 - Same frame-per-line check as preview, at full resolution.
 - `.srt` present, UTF-8; lines estimated rather than Whisper-timed are listed.
 - Duration within the range the user approved at preview.
+- Copyright: run the RULES section 10 checks against munshi/assets_license.csv. Any miss is FIX.
 
 ### 8. Thumbnail
 - 1280x720, <= 2 MB, jpg/png.
@@ -68,6 +72,7 @@ Use this after every production step of a video in the Story-Channel project. Al
 - Every CC BY music track used is credited.
 - Mystery: no answer anywhere; pinned-comment text prepared for after 24 h.
 - made_for_kids and AI disclosure taken from `munshi/channel_config.json`.
+- Copyright: run the RULES section 10 checks against munshi/assets_license.csv. Any miss is FIX.
 
 ## Report format
 Write in Hinglish, friendly but professional, address the user as "bhai". Keep it short.

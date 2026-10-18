@@ -58,3 +58,13 @@ These are the hard rules. If a builder summary, a script or a file disagrees wit
 ## 9. Safety
 - Never show or commit `.env`, `secrets/`, API keys or OAuth tokens.
 - Never delete files; move them to `_to_delete/`.
+
+## 10. Copyright (STRICT — any violation is FIX and blocks upload)
+- Every external file used in any video (music, sound effect, font, image, footage, voice) must have a row in `munshi/assets_license.csv`: path, source_url, author, license, attribution_text, date_added. No row = not allowed.
+- Allowed licences only: CC0; CC BY 4.0 (with exact credit in the description); SIL OFL (fonts); YouTube Audio Library tracks (follow their attribution note); our own Gemini-generated images/voices; our own recordings.
+- Never allowed: CC BY-NC (non-commercial, conflicts with monetization), CC BY-ND (we edit/mix), CC BY-SA, "free for personal use", Freesound "Sampling+", unknown source, anything ripped from YouTube/Spotify/Instagram/films/TV, Bollywood or any commercial song (even hummed or sung by TTS), Google/Pinterest images.
+- Freesound: licence is per sound. Check each file's own licence page; only CC0 or CC BY 4.0.
+- Content: no real brand logos, no film/TV/cartoon characters (Chhota Bheem, Motu Patlu, Disney, etc.), no celebrity likeness, no copied song lyrics, no copied text from modern books. Old folk tales (Panchatantra, Jataka, Akbar-Birbal) are public domain, but we always write our own version, never copy a modern retelling.
+- Image prompts never name a studio, franchise or living artist ("Pixar style", "Ghibli style", etc.).
+- Before upload, Munshi checks: every audio/image/font file in the final build is in the register, every CC BY item is credited in the description exactly as its licence asks, and no source audio from outside our pipeline is in the mix.
+- After upload: if YouTube Studio shows any copyright claim or strike, stop all new uploads and tell the user. CC music sometimes gets false Content ID claims; dispute only with the licence proof from the register, after the user agrees.
