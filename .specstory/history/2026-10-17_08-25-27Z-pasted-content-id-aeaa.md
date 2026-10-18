@@ -15521,3 +15521,116 @@ push exit=0
 size-pack: 178.60 MiB
 ```
 </details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 06:45:58Z)**_
+
+Push ho gaya. Repo **PRIVATE** hai aur pack size 178.6 MB hai. Ab test sync chala raha hoon (step 11).
+
+_**Agent (claude-opus-5-5 2026-10-18 06:46:09Z)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="PowerShell"><details>
+<summary>Tool use: **PowerShell**</summary>
+Run test sync and show log
+
+```text
+warning: in the working copy of 'claude-home/settings.json', LF will be replaced by CRLF the next time Git touches it
+2026-10-18 12:16:08  pushed: test sync  (repo pack size 179 MB)
+exit=0
+--- last line:
+2026-10-18 12:16:08  pushed: test sync  (repo pack size 179 MB)
+--- committed files:
+test sync
+
+ .env.example                                       |  2 +
+ .../2026-10-17_08-25-27Z-pasted-content-id-aeaa.md | 70 ++++++++++++++++++++++
+ 2 files changed, 72 insertions(+)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 06:46:12Z)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="PowerShell"><details>
+<summary>Tool use: **PowerShell**</summary>
+Verify .env.example has key names only
+
+```text
+GEMINI_API_KEY=
+FREESOUND_API_KEY=
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 06:46:14Z)**_
+
+`.env.example` me sirf key ke naam hain, values nahi. Ab raat 11:30 ka scheduled task bana raha hoon (step 12).
+
+_**Agent (claude-opus-5-5 2026-10-18 06:46:23Z)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="PowerShell"><details>
+<summary>Tool use: **PowerShell**</summary>
+Register nightly 11:30 PM sync task
+
+```text
+registered
+
+TaskName          State
+--------          -----
+StoryChannel-Sync Ready
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 06:46:30Z)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="PowerShell"><details>
+<summary>Tool use: **PowerShell**</summary>
+Confirm next run time of the task
+
+```text
+next run: 10/18/2026 23:30:00
+
+StartBoundary             DaysInterval
+-------------             ------------
+2026-10-18T23:30:00+05:30            1
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 06:46:46Z)**_
+
+GitHub backup ka setup poora ho gaya. Repo private hai, pehla push aur ek test sync dono kaam kar gaye, aur raat 11:30 ka sync bhi set hai.
+
+**Repo:** https://github.com/shamim8426/story-channel. Ye **PRIVATE** hai, maine `gh repo view` se confirm kiya.
+- Pehla push: 393 files, ~221 MB, aur GitHub par pack size 178.6 MB.
+- Test sync chala aur `munshi/sync.log` ki aakhri line ye hai: `2026-10-18 12:16:08  pushed: test sync  (repo pack size 179 MB)`
+- Raat ka task `StoryChannel-Sync` ban gaya hai (State: Ready). Pehli baar aaj 23:30 par chalega, phir roz. PC band ho toh agli baar chalu hone par chalega.
+- Session band hone par bhi sync apne aap chalega (SessionEnd hook).
+
+## Kya repo me nahi gaya
+- **Secrets:** `.env` aur `secrets/`. Sirf `.env.example` gaya, jisme `GEMINI_API_KEY=` aur `FREESOUND_API_KEY=` jaise key ke naam hain, values nahi.
+- **Videos:** saari `.mp4`.
+- **Free me dobara banne wali cheezein:**
+  - `cache/` (scene clips)
+  - `*_work/` build temp
+- **Bade downloads:**
+  - `tools/ffmpeg` (485 MB)
+  - `tools/whisper-models` (464 MB)
+  - `tools/deno`
+  - `yt-dlp.exe`
+- **Claude ke built-in skills:** `claude-home/skills/synced/`. Ye account se apne aap aa jaate hain.
+
+Paid cheezein sab repo me hain: images, character sheets, TTS cache, thumbnails aur raw Gemini art.
+
+## Do baatein jo maine apne hisaab se ki
+- Purani `.gitignore` me `*.png`, `*.mp3` aur `output/` ignore the. Ye merge me hata diye, warna paid images aur thumbnails backup me nahi jaate.
+- Git ka naam/email sirf is repo ke liye set kiya, poore system ke liye nahi, taaki ami.com ke kaam par asar na pade.
+- Push ke waqt "LF will be replaced by CRLF" wali warnings aayi thi. Ye sirf line-ending ki soochna hai, inse koi nuksaan nahi.
+
+## Naye system par
+1. Repo page se `deploy.ps1` download kijiye.
+2. Ise chalaiye: `powershell -ExecutionPolicy Bypass -File deploy.ps1 -Repo shamim8426/story-channel`
+3. Ye apne aap install karega: Git, gh, Python, FFmpeg, Claude Code aur Python packages. Phir code clone karega aur Claude setup wapas laayega.
+4. Browser me GitHub login karna hoga, aur dono API keys ek baar type karni hongi.
+5. Whisper model pehli final build par apne aap download hoga (~460 MB).
+
+## ⚠️ Reminder
+`.env` ki dono API keys (Gemini, Freesound) aur `secrets/client_secret.json` (YouTube API setup ke baad banegi) **repo me nahi hain**. Inki copy password manager ya Google Drive me alag se rakhiye, warna naye system par ye nahi milengi.
+
+**Agla kadam:** aapke plan ke hisaab se Claude Code ek baar restart kijiye, taaki Munshi load ho jaye. Phir Long 01 ka review karwaate hain. Usse pehle RULES.md ki "Gulmohar Mohalla" wali line badalni hai, uska naya text bhej dijiye.

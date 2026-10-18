@@ -1,5 +1,6 @@
 {
   "workbench.editorAssociations": {
     "**/PREVIEW.md": "vscode.markdown.preview.editor"
-  }
+  },
+  "specstory.cloudSync.enabled": "never"
 }
