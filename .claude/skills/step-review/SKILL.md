@@ -13,6 +13,7 @@ Use this after every production step of a video in the Story-Channel project. Al
 3. Run the stage checklist below. For every item record what you actually opened or measured.
 4. Decide the verdict: PASS (all verified), FIX (free fix needed), ASK (paid fix, story change, or taste call).
 5. Report in the munshi format and append one line to `channels/<key>/log.md`.
+6. Frames/contact sheets you extract go to the video's `review/` as JPG (quality ~85), never PNG. Only `review/*.md` reports are kept in git.
 
 ## Stage checklists
 
@@ -23,6 +24,7 @@ Use this after every production step of a video in the Story-Channel project. Al
 - Duration estimate vs target (narration ~2.5 words/sec in Hindi; Gemini Dadi voice runs slower, so add ~25%).
 - Every line has a speaker that exists in `channel_bible.md` or in the project's character list.
 - Opening hook in the first 10 s; moral stated clearly at the end.
+- Long video: the Dadi–Golu opening is max 10 s (lines marked `"part": "intro"`), and the last spoken line is one specific question to viewers about the story (template: `channels/_template/stories/000_story-slug/script/script.md`).
 - Mystery videos: the clue is fair and visible, and the answer is not in the title.
 - Mitthu never does anything that needs hands.
 - Originality: run RULES section 12 checks.

@@ -41713,3 +41713,401 @@ ok
 [This command modified 2 files you've previously read: shared\RULES.md, .claude\skills\step-review\SKILL.md. Call Read before editing.]
 ```
 </details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 14:23:37Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Sync rules change
+
+`powershell -NoProfile -ExecutionPolicy Bypass -File tools/sync.ps1 -Message "rules: section 13 audience & algorithm; step-review algorithm checks" >/dev/null 2>&1; tail -1 shared/sync.log`
+
+```text
+2026-10-18 19:53:36  pushed: rules: section 13 audience & algorithm; step-review algorithm checks  (repo pack size 387 MB)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 14:23:40Z)**_
+
+Section 13 jud gaya aur sync ho gaya. Par sync log me ek gadbad dikhi: **repo ka size 179 MB se 387 MB** ho gaya. Kuch bada commit hua hai, dekh raha hoon:
+
+_**Agent (claude-opus-5-5 2026-10-18 14:23:46Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Find large recently committed files
+
+`git log --oneline -6 && for c in $(git log --format=%h -6); do echo "== $c"; git show --stat --format= $c | sort -t'|' -k2 -rn | head -3; done 2>/dev/null | head -40; git rev-list --objects --all | git cat-file --batch-check='%(objecttype) %(objectsize) %(rest)' | awk '$1=="blob" && $2>5000000 {printf "%.1f MB %s\n",$2/1048576,$3}' | sort -rn | head -15`
+
+```text
+01177b5 rules: section 13 audience & algorithm; step-review algorithm checks
+67f1263 rules: section 12 title suffix vs keyword block
+4fbde9a rules: section 12 originality (inauthentic content)
+b65ab20 long_01 short_01: uploaded (kWn4jKte090), 21:00 IST
+125c506 rules: fixed publish times (long 19:00, Short 21:00); short_01 slot 21:00; allow rule for upload tools
+dc694b7 rules+tools: Short->Long link (desc CTA, auto first comment task, pending checklist); short_01 upload dry-run
+== 01177b5
+ .../2026-10-17_08-25-27Z-pasted-content-id-aeaa.md | 139 +++++++++++++++++++++
+ shared/RULES.md                                    |  20 +++
+ .claude/skills/step-review/SKILL.md                |   5 +
+== 67f1263
+ .../2026-10-17_08-25-27Z-pasted-content-id-aeaa.md | 67 ++++++++++++++++++++++
+ shared/sync.log                                    |  1 +
+ shared/RULES.md                                    |  1 +
+== 4fbde9a
+ .../2026-10-17_08-25-27Z-pasted-content-id-aeaa.md | 82 ++++++++++++++++++++++
+ shared/RULES.md                                    |  7 ++
+ shared/sync.log                                    |  1 +
+== b65ab20
+ .../2026-10-17_08-25-27Z-pasted-content-id-aeaa.md | 305 +++++++++++++++++++++
+ .../output/upload_result.json                      |  10 +
+ .../stories/001_lalchi-halwai/story.md             |   4 +-
+== 125c506
+ .../2026-10-17_08-25-27Z-pasted-content-id-aeaa.md | 643 +++++++++++++++++++++
+ .claude/skills/youtube-publish/SKILL.md            |  12 +-
+ shared/RULES.md                                    |  11 +-
+== dc694b7
+ .../2026-10-17_08-25-27Z-pasted-content-id-aeaa.md | 1111 ++++++++++++++++++++
+ tools/post_comment.py                              |  141 +++
+ tools/youtube_upload.py                            |   43 +
+28.0 MB long-videos/long_01/output/review/voice_in_mix.wav
+28.0 MB long-videos/long_01/output/review/music_only_est.wav
+12.5 MB shared/music/jaadu/Dreams_Become_Real.mp3
+11.8 MB shared/music/mystery_bed.wav
+9.7 MB shared/music/dukh/Sad_Trio.mp3
+7.3 MB shared/music/jaadu/Enchanted_Valley.mp3
+7.2 MB shared/music/khushi/Life_of_Riley.mp3
+6.3 MB shared/music/khushi/Carefree.mp3
+5.5 MB shared/music/seekh/Touching_Moments_Two_Higher.mp3
+5.2 MB shared/music/tension/Hidden_Agenda.mp3
+5.2 MB shared/music/Sneaky_Snitch.mp3
+4.8 MB shared/music/comedy/Monkeys_Spinning_Monkeys.mp3
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 14:23:53Z)**_
+
+<think><details><summary>Thought Process</summary>
+Recent commits me koi badi file nahi mili — sirf text, RULES aur chat history, aur purani do review `.wav` files pehle se thi. Ab 387 MB wala number kahan se aaya, woh dhoondh raha hoon.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-18 14:23:59Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Inspect local pack files and GitHub repo size
+
+`git count-objects -vH; ls -la .git/objects/pack/*.pack | awk '{printf "%.1f MB %s\n",$5/1048576,$9}'; gh api repos/shamim8426/story-channel --jq '.size' | awk '{printf "GitHub repo size: %.1f MB\n",$1/1024}'`
+
+```text
+count: 0
+size: 0 bytes
+in-pack: 1152
+packs: 2
+size-pack: 386.99 MiB
+prune-packable: 0
+garbage: 0
+size-garbage: 0 bytes
+49.6 MB .git/objects/pack/pack-00cd9566af8a6714fddb1ff8650582407c67c667.pack
+337.3 MB .git/objects/pack/pack-44b96c85633563cf395bd5ad7b1ac6d912778fd4.pack
+GitHub repo size: 338.4 MB
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 14:24:08Z)**_
+
+<think><details><summary>Thought Process</summary>
+Local pack files mila diya (337 MB + 49.6 MB) jisse log 387 MB dikha raha hai, par GitHub par asli size ~338 MB hai jo shuruaati 179 MB se zyada hai. Ab history me check kar raha hoon ki kya-kya bada add hua.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-18 14:24:11Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Sum blob sizes in history by folder
+
+`git rev-list --objects --all | git cat-file --batch-check='%(objecttype) %(objectsize:disk) %(objectsize) %(rest)' | awk '$1=="blob" {n=split($4,a,"/"); k=a[1]; if(n>2)k=k"/"a[2]; if(n>3 && (a[1]=="channels"||a[1]=="long-videos"))k=k"/"a[3]"/"a[4]; d[k]+=$2; s[k]+=$3} END {for(k in d) printf "%7.1f MB disk %7.1f MB raw  %s\n", d[k]/1048576, s[k]/1048576, k}' | sort -rn | head -20`
+
+```text
+  165.0 MB disk   175.0 MB raw  channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai
+   81.4 MB disk    88.8 MB raw  shared/music
+   43.1 MB disk    56.1 MB raw  long-videos/long_01/output/review
+   25.2 MB disk    27.3 MB raw  channels/dadi-ki-kahaniyan/stories/002_sharma-ji-ki-cycle
+   11.7 MB disk    12.0 MB raw  channels/dadi-ki-kahaniyan/brand/_work
+    3.2 MB disk     3.2 MB raw  long-videos/long_01/output/long_01_framecheck.png
+    2.6 MB disk     3.2 MB raw  channels/dadi-ki-kahaniyan/characters/voices
+    1.1 MB disk     1.1 MB raw  channel_assets/_work
+    0.6 MB disk    38.9 MB raw  .specstory/history
+    0.6 MB disk     0.6 MB raw  channels/dadi-ki-kahaniyan/characters/dadi_sheet.png
+    0.6 MB disk     0.6 MB raw  channels/dadi-ki-kahaniyan/brand/dadi_ki_kahaniyan_dp.png
+    0.5 MB disk     0.6 MB raw  channels/dadi-ki-kahaniyan/characters/pandey_sheet.png
+    0.5 MB disk     0.5 MB raw  channels/dadi-ki-kahaniyan/characters/golu_sheet.png
+    0.4 MB disk     0.5 MB raw  channels/dadi-ki-kahaniyan/characters/mitthu_sheet.png
+    0.3 MB disk     0.3 MB raw  shared/sfx
+    0.2 MB disk     0.4 MB raw  shared/fonts
+    0.2 MB disk     0.3 MB raw  channels/dadi-ki-kahaniyan/characters/_rejected_pollinations
+    0.0 MB disk     0.4 MB raw  scripts
+    0.0 MB disk     0.1 MB raw  tools
+    0.0 MB disk     0.1 MB raw  shared
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 14:24:15Z)**_
+
+Story 001 akele 165 MB ki hai. Isme andar dekh raha hoon:
+
+_**Agent (claude-opus-5-5 2026-10-18 14:24:20Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Break down story 001 history size
+
+`git rev-list --objects --all | git cat-file --batch-check='%(objecttype) %(objectsize:disk) %(rest)' | awk '$1=="blob" && $3 ~ /^channels\/dadi-ki-kahaniyan\/stories\/001_lalchi-halwai/ {n=split($3,a,"/"); k=a[5]"/"a[6]; if(a[6]=="shorts"||a[5]=="shorts")k=k"/"a[7]"/"a[8]; if(a[6]=="review"||a[7]=="review")k=k"/"a[7]; d[k]+=$2; c[k]++} END {for(k in d) printf "%7.1f MB %4d files  %s\n", d[k]/1048576, c[k], k}' | sort -rn | head -15`
+
+```text
+   37.3 MB   26 files  shorts/short_01_jadui-kadhai/review/final/review
+   23.1 MB   31 files  shorts/short_01_jadui-kadhai/review/r1/review
+   13.7 MB   20 files  shorts/short_01_jadui-kadhai/review/r2/review
+   11.3 MB  102 files  audio/tts_cache
+    6.9 MB   24 files  long/review/rr2
+    5.1 MB   24 files  shorts/short_01_jadui-kadhai/review/r3/review
+    4.8 MB   18 files  shorts/short_01_jadui-kadhai/review/r4/review
+    4.3 MB    8 files  long/output
+    3.5 MB    1 files  long/review/case01_sheet.png
+    2.6 MB    1 files  long/review/speaker_check.png
+    2.2 MB    1 files  long/review/frame_scenes.png
+    1.6 MB    3 files  long/thumbnail_work
+    1.5 MB    1 files  shorts/short_01_jadui-kadhai/review/preview_sheet.png/review
+    1.5 MB    1 files  shorts/short_01_jadui-kadhai/review/crop_plan.png/review
+    1.4 MB    1 files  shorts/short_01_jadui-kadhai/output/short_01_jadui-kadhai_framecheck.png
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 14:24:40Z)**_
+
+Section 13 aur step-review ke "Algorithm" checks jud gaye, sync ho gaya. Par repo ka size bina zaroorat ke tezi se badh raha hai, aur uska kaaran mil gaya hai.
+
+**Section 13:** `shared/RULES.md` me bilkul aapke text ke saath joda. step-review ke 5 stages (Script, Preview, Final, Thumbnail, Metadata) me "- Algorithm: run RULES section 13 checks." bhi joda.
+**Sync:** `pushed: rules: section 13 audience & algorithm; step-review algorithm checks`
+
+## ⚠️ Repo kyun bada ho raha hai
+GitHub repo **179 MB se 338 MB** ho gaya hai. Sync log me 387 MB dikha, kyunki computer par kuch hissa do baar gina gaya. Kaaran Munshi ke review folder hain:
+- Har review me Munshi poori resolution ke frame PNG banata hai, aur sync unhe GitHub par bhej deta hai.
+- Akele is Short ke 5 reviews ne **~85 MB** joda. Long 01 ke reviews se ~15 MB aur aaya, aur purani do review `.wav` files 43 MB ki hain.
+- Ye sab jaanch ke liye bane hain aur dobara ban sakte hain, inme koi paid cheez nahi hai.
+
+**Sujhaav (₹0):**
+- `.gitignore` me `**/review/**` daal doon, par review ki `.md` reports aage bhi GitHub par jaati rahein.
+- Abhi git me jo review images hain, unhe git se hata doon. Ye files aapke disk par bani rahengi.
+- Isse har Short par ~80–100 MB ka badhna band ho jayega.
+
+Purani history me jo ~140 MB pehle hi ja chuka hai, wo tab tak rahega jab tak history ko dobara na likha jaye (force-push). Wo jokhim wala kaam hai, isliye abhi nahi kar raha. GitHub par 1 GB tak koi dikkat nahi hai.
+
+**Section 13 se ye cheezein agli videos me badalni padengi:**
+- **Long intro max 10 sec:** Long 01 ka Dadi–Golu intro ~12.8 sec ka tha.
+- **Long ki aakhri line koi khaas sawaal pooche:** Long 01 seekh par khatam hota hai, sawaal par nahi.
+- **Short me right 15% khali:** captions ka right margin abhi 60 px hai, use ~170 px karna hoga.
+- Uploaded videos ko dobara nahi chheda jayega.
+
+Review images wala sujhaav lagaun? "ha" likhiye.
+
+---
+
+_**User (2026-10-18 14:27:04Z)**_
+
+
+
+<pasted_content id="aeaa">
+ha, review images wala sujhaav lagao:
+- .gitignore me **/review/** daalo, par **/review/*.md (reports) GitHub par jaati rahein.
+- Jo review images/wav abhi git me hain unhe `git rm --cached` se hatao (disk par rahen).
+- Munshi aage review frames JPG (quality ~85) me banaye, PNG nahi, taaki disk bhi kam bhare.
+
+Section 13 ke liye builder ke defaults abhi badlo (uploaded videos mat chhedo):
+- Long: Dadi–Golu opening max 10 sec.
+- Long: aakhri bolne wali line kahani par ek khaas sawaal ho — script template aur step-review "Script" stage me yaad dilao.
+- Short: captions ka right margin ~170 px (right 15% khali), bottom 20% khali.
+In teeno ko carry_over.md me bhi "fixed in pipeline" ke saath likho.
+
+Phir sync aur repo ka naya size batao.
+</pasted_content id="aeaa">
+
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-18 14:27:16Z)**_
+
+Kaam shuru kar raha hoon. Pehle `.gitignore` aur review files:
+
+_**Agent (claude-opus-5-5 2026-10-18 14:27:26Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Ignore review working files, untrack them
+
+```bash
+.venv/Scripts/python.exe -X utf8 - <<'PYEOF'
+from pathlib import Path
+g = Path(".gitignore"); s = g.read_text(encoding="utf-8")
+old = "# Munshi's measurement audio in review folders (regenerable, large)\n**/review/**/*.wav\n**/review/**/*.raw\n"
+assert old in s
+s = s.replace(old, "# Munshi review working files (frames, sheets, stems: regenerable, large); only the .md reports go to GitHub\n**/review/**\n!**/review/*.md\n")
+g.write_text(s, encoding="utf-8"); print("gitignore ok")
+PYEOF
+git ls-files | grep "/review/" | grep -v "/review/[^/]*\.md$" > /tmp/rev.txt; echo "tracked review files to untrack: $(wc -l < /tmp/rev.txt)"; tr '\n' '\0' < /tmp/rev.txt | xargs -0 git rm -q --cached && echo "untracked"; git ls-files | grep "/review/" | head; echo "--- still on disk: $(find channels -path '*/review/*' -type f | wc -l) files"; git check-ignore -q channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long/review/x.png && echo "png ignored"; git check-ignore -q channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long/review/report.md || echo "md NOT ignored (good)"
+```
+
+```text
+gitignore ok
+tracked review files to untrack: 194
+untracked
+--- still on disk: 205 files
+png ignored
+md NOT ignored (good)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 14:27:28Z)**_
+
+194 review files git se hat gayi, aur disk par sab maujood hain. Ab Munshi ke liye JPG wala niyam:
+
+_**Agent (claude-opus-5-5 2026-10-18 14:27:36Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Munshi JPG rule; inspect template and ass_doc
+
+```bash
+.venv/Scripts/python.exe -X utf8 - <<'PYEOF'
+from pathlib import Path
+m = Path(".claude/agents/munshi.md"); s = m.read_text(encoding="utf-8")
+a = "- You may create files only in `channels/<key>/log.md`, `channels/<key>/carry_over.md` and the video folder's `review/` folder (reports, contact sheets)."
+assert a in s
+s = s.replace(a, a + "\n- Save review frames and contact sheets as **JPG (quality ~85)**, not PNG, and keep measurement audio out of git (review/ is git-ignored except `review/*.md` reports). Write the short written findings as `review/<round>.md` if a record is useful.")
+m.write_text(s, encoding="utf-8")
+k = Path(".claude/skills/step-review/SKILL.md"); t = k.read_text(encoding="utf-8")
+b = "5. Report in the munshi format and append one line to `channels/<key>/log.md`."
+assert b in t
+t = t.replace(b, b + "\n6. Frames/contact sheets you extract go to the video's `review/` as JPG (quality ~85), never PNG. Only `review/*.md` reports are kept in git.")
+k.write_text(t, encoding="utf-8"); print("ok")
+PYEOF
+ls channels/_template/stories/000_story-slug/script/; grep -n "### 1. Script" -A 8 .claude/skills/step-review/SKILL.md; grep -n "def ass_doc" -A 12 scripts/make_short.py | head -14
+```
+
+```text
+ok
+23:### 1. Script
+24-- Duration estimate vs target (narration ~2.5 words/sec in Hindi; Gemini Dadi voice runs slower, so add ~25%).
+25-- Every line has a speaker that exists in `channel_bible.md` or in the project's character list.
+26-- Opening hook in the first 10 s; moral stated clearly at the end.
+27-- Mystery videos: the clue is fair and visible, and the answer is not in the title.
+28-- Mitthu never does anything that needs hands.
+29-- Originality: run RULES section 12 checks.
+30-- Algorithm: run RULES section 13 checks.
+31-
+337:def ass_doc(font_family, events):
+338-    return f"""[Script Info]
+339-ScriptType: v4.00+
+340-PlayResX: {PLAY_W}
+341-PlayResY: {PLAY_H}
+342-WrapStyle: 0
+343-ScaledBorderAndShadow: yes
+344-
+345-[V4+ Styles]
+346-Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+347-Style: Cap,{font_family},116,&H00FFFFFF,&H000000FF,&H00000000,&H78000000,0,0,0,0,100,100,0,0,1,9,4,2,60,60,480,1
+348-Style: Title,{font_family},128,&H0000E5FF,&H000000FF,&H00000000,&H78000000,0,0,0,0,100,100,0,0,1,9,4,8,60,60,170,1
+349-
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 14:27:48Z)**_
+
+<think><details><summary>Thought Process</summary>
+Builder defaults update kar rahа hoon: shorts ke margins adjust (left/right 170px, bottom 480px) aur section 13 ke checks add kar rahа hoon — long video intro/last-line warning aur shorts ki 30–58 sec duration validation.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-18 14:27:59Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Caption margins, section 13 builder warnings
+
+```bash
+.venv/Scripts/python.exe -X utf8 - <<'PYEOF'
+from pathlib import Path
+p = Path("scripts/make_short.py"); s = p.read_text(encoding="utf-8")
+pairs = [
+("Style: Cap,{font_family},116,&H00FFFFFF,&H000000FF,&H00000000,&H78000000,0,0,0,0,100,100,0,0,1,9,4,2,60,60,480,1\nStyle: Title,{font_family},128,&H0000E5FF,&H000000FF,&H00000000,&H78000000,0,0,0,0,100,100,0,0,1,9,4,8,60,60,170,1",
+ "Style: Cap,{font_family},116,&H00FFFFFF,&H000000FF,&H00000000,&H78000000,0,0,0,0,100,100,0,0,1,9,4,2,{CAP_SIDE},{CAP_SIDE},{CAP_BOTTOM},1\nStyle: Title,{font_family},128,&H0000E5FF,&H000000FF,&H00000000,&H78000000,0,0,0,0,100,100,0,0,1,9,4,8,{CAP_SIDE},{CAP_SIDE},170,1"),
+("MIN_CAPTION = 0.45", "# Burned captions (Shorts, 1080x1920 caption space): keep the right 15% (YouTube buttons) and bottom 20% free\nCAP_SIDE, CAP_BOTTOM = 170, 480  # px left/right margin (symmetric keeps captions centred), bottom margin (25%)\nINTRO_MAX_S = 10.0  # RULES section 13: Dadi-Golu opening before the story itself\nMIN_CAPTION = 0.45"),
+("    warn = P[\"kind\"] == \"short\" and not a.seconds and not 45 <= total <= 60\n    print(f\"  total {total:.1f}s\" + (\"  WARNING: outside 45-60s\" if warn else \"\"))",
+ "    warn = P[\"kind\"] == \"short\" and not a.seconds and not 30 <= total <= 58\n    print(f\"  total {total:.1f}s\" + (\"  WARNING: Short outside 30-58 s (RULES 13)\" if warn else \"\"))\n    for w in section13_warnings(P, timed):\n        print(\"  SECTION 13:\", w)"),
+("def plan_report(P, lines, meta):",
+ '''def section13_warnings(P, timed):
+    """RULES section 13 checks the builder can do from the line timings (Munshi still reviews the rest)."""
+    spoken = [l for l in timed if l["speaker"] != "_pause"]
+    out = []
+    if spoken and spoken[0]["start"] > (1.0 if P["kind"] == "long" else 0.5):
+        out.append(f"first word at {spoken[0]['start']:.2f} s (long <= 1.0 s, Short <= 0.5 s)")
+    if P["kind"] == "long" and spoken:
+        intro = [l for l in timed if l.get("part") == "intro"]
+        if not intro:
+            out.append('no line marked "part": "intro" in lines.json; cannot check the <= 10 s opening')
+        elif intro[-1]["end"] > INTRO_MAX_S:
+            out.append(f"Dadi-Golu opening ends at {intro[-1]['end']:.1f} s (max {INTRO_MAX_S:g} s)")
+        if not spoken[-1]["text"].rstrip(" !।.\\u0964").endswith("?"):
+            out.append("last spoken line is not a question to the viewers about the story")
+    return out
+
+
+def plan_report(P, lines, meta):'''),
+]
+for a, b in pairs:
+    assert a in s, a[:60]; s = s.replace(a, b)
+p.write_text(s, encoding="utf-8"); print("ok")
+PYEOF
+.venv/Scripts/python.exe -m py_compile scripts/make_short.py && echo compiled
+```
+
+```text
+ok
+compiled
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 14:28:04Z)**_
+
+Ab Long 01 aur naye Short par in checks ka dry test kar raha hoon. Isme kuch render nahi hoga, bas timing padhi jayegi:
+
+_**Agent (claude-opus-5-5 2026-10-18 14:29:04Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Test section 13 warnings on Long 01 and Short 01
+
+```bash
+grep -n 'rstrip(" !' scripts/make_short.py && S="C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad" && .venv/Scripts/python.exe -X utf8 -c "
+import sys,json; sys.path.insert(0,'scripts'); sys.argv=['x']
+import make_short as m
+from pathlib import Path
+for v in ('channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long','channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai'):
+  P=m.load_project(v); lines=json.load(open(P['dir']/'lines.json',encoding='utf-8')); meta=json.load(open(P['dir']/'meta.json',encoding='utf-8'))
+  w=Path('$S/s13'); w.mkdir(exist_ok=True)
+  _,total,timed,_=m.build_voice(lines,P['audio_dir'],w,False,end_hold=meta.get('end_hold',m.END_HOLD),gap_s=meta.get('gap',m.GAP),speed=meta.get('speed',1.0),gap_change=meta.get('gap_speaker_change'))
+  print(P['kind'], P['name'], round(total,1), m.section13_warnings(P,timed) or 'no warnings')
+" 2>&1 | grep -v "^  line"; grep -n "CAP_SIDE" scripts/make_short.py | head -3
+```
+
+```text
+724:        if not spoken[-1]["text"].rstrip(" !।.।").endswith("?"):
+long long_01 306.2 ['no line marked "part": "intro" in lines.json; cannot check the <= 10 s opening', 'last spoken line is not a question to the viewers about the story']
+short short_01_jadui-kadhai 48.3 no warnings
+63:CAP_SIDE, CAP_BOTTOM = 170, 480  # px left/right margin (symmetric keeps captions centred), bottom margin (25%)
+350:Style: Cap,{font_family},116,&H00FFFFFF,&H000000FF,&H00000000,&H78000000,0,0,0,0,100,100,0,0,1,9,4,2,{CAP_SIDE},{CAP_SIDE},{CAP_BOTTOM},1
+351:Style: Title,{font_family},128,&H0000E5FF,&H000000FF,&H00000000,&H78000000,0,0,0,0,100,100,0,0,1,9,4,8,{CAP_SIDE},{CAP_SIDE},170,1
+```
+</details></tool-use>

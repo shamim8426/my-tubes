@@ -59,6 +59,9 @@ TARGET_LUFS = -14
 # of the voice stem vs the music stem over the speech sections (long: 13 = old 9 lowered by 4 dB).
 MUSIC_BELOW_VOICE_DB = {"short": 12.5, "long": 13}  # short: 9 -> 12.5 (3.5 dB quieter, target 12-14 LU)
 SFX_BELOW_VOICE_DB = 5
+# Burned captions (Shorts, 1080x1920 caption space): keep the right 15% (YouTube buttons) and bottom 20% free
+CAP_SIDE, CAP_BOTTOM = 170, 480  # px left/right margin (symmetric keeps captions centred), bottom margin (25%)
+INTRO_MAX_S = 10.0  # RULES section 13: Dadi-Golu opening before the story itself
 MIN_CAPTION = 0.45  # a caption shorter than this only flashes; it is merged into its neighbour in the same line
 PAUSE_LEAD = 2.0  # music must be audible in a music-only pause and this long before it
 
@@ -344,8 +347,8 @@ ScaledBorderAndShadow: yes
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: Cap,{font_family},116,&H00FFFFFF,&H000000FF,&H00000000,&H78000000,0,0,0,0,100,100,0,0,1,9,4,2,60,60,480,1
-Style: Title,{font_family},128,&H0000E5FF,&H000000FF,&H00000000,&H78000000,0,0,0,0,100,100,0,0,1,9,4,8,60,60,170,1
+Style: Cap,{font_family},116,&H00FFFFFF,&H000000FF,&H00000000,&H78000000,0,0,0,0,100,100,0,0,1,9,4,2,{CAP_SIDE},{CAP_SIDE},{CAP_BOTTOM},1
+Style: Title,{font_family},128,&H0000E5FF,&H000000FF,&H00000000,&H78000000,0,0,0,0,100,100,0,0,1,9,4,8,{CAP_SIDE},{CAP_SIDE},170,1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
@@ -706,6 +709,23 @@ def load_project(name):
             "out_dir": pdir / "output"}
 
 
+def section13_warnings(P, timed):
+    """RULES section 13 checks the builder can do from the line timings (Munshi still reviews the rest)."""
+    spoken = [l for l in timed if l["speaker"] != "_pause"]
+    out = []
+    if spoken and spoken[0]["start"] > (1.0 if P["kind"] == "long" else 0.5):
+        out.append(f"first word at {spoken[0]['start']:.2f} s (long <= 1.0 s, Short <= 0.5 s)")
+    if P["kind"] == "long" and spoken:
+        intro = [l for l in timed if l.get("part") == "intro"]
+        if not intro:
+            out.append('no line marked "part": "intro" in lines.json; cannot check the <= 10 s opening')
+        elif intro[-1]["end"] > INTRO_MAX_S:
+            out.append(f"Dadi-Golu opening ends at {intro[-1]['end']:.1f} s (max {INTRO_MAX_S:g} s)")
+        if not spoken[-1]["text"].rstrip(" !।.।").endswith("?"):
+            out.append("last spoken line is not a question to the viewers about the story")
+    return out
+
+
 def plan_report(P, lines, meta):
     """--plan: show where every input comes from and that it exists. Nothing is rendered or paid for."""
     rel = lambda p: Path(p).resolve().relative_to(ROOT).as_posix()
@@ -794,8 +814,10 @@ def main():
         timed = [l for l in timed if l["start"] < total]
         events = {k: [e for e in v if e[0] < total] for k, v in events.items()}  # music/sfx cues after the cut go too
         case = f"{case}_test{a.seconds:g}s"
-    warn = P["kind"] == "short" and not a.seconds and not 45 <= total <= 60
-    print(f"  total {total:.1f}s" + ("  WARNING: outside 45-60s" if warn else ""))
+    warn = P["kind"] == "short" and not a.seconds and not 30 <= total <= 58
+    print(f"  total {total:.1f}s" + ("  WARNING: Short outside 30-58 s (RULES 13)" if warn else ""))
+    for w in section13_warnings(P, timed):
+        print("  SECTION 13:", w)
 
     print("2/4 scenes")
     plans = plan_scenes(P, timed, total, prof, font_family, meta.get("final_title", "बताओ, दोषी कौन?"),

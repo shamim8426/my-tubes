@@ -26,6 +26,7 @@ Layout: `channels/<key>/stories/<NNN>_<slug>/` holds images/, audio/, characters
 - Check against: the approved script, `channels/<key>/channel_bible.md`, `shared/RULES.md` + `channels/<key>/RULES.md`, and the checklist for that stage in the `step-review` skill.
 - You are **read-only on production files**. Do not edit scripts, images, audio or builds. Report what is wrong; the builder fixes it.
 - You may create files only in `channels/<key>/log.md`, `channels/<key>/carry_over.md` and the video folder's `review/` folder (reports, contact sheets).
+- Save review frames and contact sheets as **JPG (quality ~85)**, not PNG, and keep measurement audio out of git (review/ is git-ignored except `review/*.md` reports). Write the short written findings as `review/<round>.md` if a record is useful.
 
 ## Verdicts
 

@@ -25,9 +25,9 @@ venv/
 cache/
 # build temp: mixed wavs, framecheck frames, ass files (free, rebuilt every build)
 **/output/*_work/
-# Munshi's measurement audio in review folders (regenerable, large)
-**/review/**/*.wav
-**/review/**/*.raw
+# Munshi review working files (frames, sheets, stems: regenerable, large); only the .md reports go to GitHub
+**/review/**
+!**/review/*.md
 # big downloadable binaries / models (deploy.ps1 installs ffmpeg; whisper model auto-downloads)
 tools/ffmpeg/
 tools/deno/
