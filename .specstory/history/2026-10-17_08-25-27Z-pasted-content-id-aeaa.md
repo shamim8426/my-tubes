@@ -27790,3 +27790,114 @@ credits block identical to long_01.txt: True
 missing-row test -> STOP: assets/sfx/not_registered.mp3 is not in assets_license.csv (RULES section 10). Verify its licence and add a row first.
 ```
 </details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:29:05Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Sync changes to GitHub
+
+`powershell -NoProfile -ExecutionPolicy Bypass -File tools/sync.ps1 -Message "rules: R1/R2 clarity + family wording + credits from register" >/dev/null 2>&1; tail -1 munshi/sync.log`
+
+```text
+2026-10-18 14:59:04  pushed: rules: R1/R2 clarity + family wording + credits from register  (repo pack size 179 MB)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:29:18Z)**_
+
+Teeno kaam ho gaye aur sync bhi ho gaya. Long 01 ke title, description aur thumbnail me koi kids-only wording nahi mili, par uske tags me do aise tag hain.
+
+**1. Takraav theek kiya:** RULES ki us line ke aakhir me "(in R1; after R2 see section 11)" jod diya.
+
+**2. Family-wording niyam** section 7 ke aakhir me bilkul diye text ke saath joda. Long 01 ki jaanch:
+
+| Kya | Nateeja |
+|---|---|
+| Title | ✅ "for kids", "बच्चों के लिए" ya nursery jaisa koi shabd nahi |
+| Description | ✅ Saaf hai. "हँसाए भी और सिखाए भी" jaisi wording poore parivaar ke liye hai |
+| Thumbnail text "जो डालो, दुगना!" | ✅ Saaf hai |
+| **Tags** | ⚠️ **"बच्चों की कहानी"** aur **"Kids Story Hindi"** |
+
+Niyam sirf title, thumbnail aur description par lagta hai, isliye tags uske bahar hain. Phir bhi ye do tags video ko "bachchon ka content" batate hain, jo aapke not-for-kids faisle ke ulat hai. Ye tags maine hi banaye the. Video upload ho chuka hai, isliye maine kuch nahi badla. Inhe aap Studio → Details → Tags se hata sakte hain. Kahein toh `meta.json` se bhi hata doon, aur tags ko bhi family-wording niyam me jod doon.
+
+**3. Credits ab register se aate hain:**
+- `music_credits()` ab har track ka credit `assets_license.csv` ke `attribution_text` se bilkul waisa hi leta hai. Isme "Kevin MacLeod" ya koi aur naam code me pehle se likha hua nahi hai.
+- Register me 14 music rows ka credit Incompetech ke 3-line format me rakha hai, taki description bilkul pehle jaisa bane.
+- **Build shuru hote hi register check hota hai.** Kisi music ya SFX file ki row na mile toh build wahin ruk jaata hai. CC BY track ka credit khaali ho toh bhi ruk jaata hai. Maine SFX ko bhi is check me joda, kyunki RULES 10 sab bahari files par lagta hai.
+- **Compare kiya, video render nahi kiya:**
+  - Naya description upload hue description se **IDENTICAL** hai (1488 = 1488 chars).
+  - Credits ka hissa `long_01.txt` se bhi exact milta hai.
+  - Ek nakli bina register wali SFX ke saath test chalaya. Build ruk gaya aur ye message aaya: `STOP: assets/sfx/not_registered.mp3 is not in assets_license.csv (RULES section 10)...`
+
+**Sync:** `pushed: rules: R1/R2 clarity + family wording + credits from register` ✅
+
+---
+
+_**User (2026-10-18 09:30:11Z)**_
+
+
+
+<pasted_content id="aeaa">
+Haan, dono karo:
+1. Long 01 ke meta.json / long_01.txt se "बच्चों की कहानी" aur "Kids Story Hindi" tags hatao. Unki jagah family wale tags daalo, jaise "परिवार की कहानी", "Family Story Hindi" (500 characters ke andar). Studio me maine khud hata diye hain, isliye upload dobara mat karna.
+2. RULES section 7 ki family-wording line me "title, thumbnail and description" ki jagah "title, thumbnail, description and tags" karo. Section 11 ke BLOCKER list me "for kids" wording wali line me bhi tags jodo.
+Phir sync: tools\sync.ps1 -Message "rules: family wording covers tags"
+</pasted_content id="aeaa">
+
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-18 09:30:22Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Replace kids tags with family tags in meta and txt
+
+```bash
+.venv/Scripts/python.exe -X utf8 - <<'EOF'
+import json, re
+from pathlib import Path
+d = Path("long-videos/long_01")
+mp = d / "meta.json"
+s = mp.read_text(encoding="utf-8")
+s2 = s.replace('"बच्चों की कहानी", "Kids Story Hindi"', '"परिवार की कहानी", "Family Story Hindi"')
+assert s2 != s, "tags not found"
+mp.write_text(s2, encoding="utf-8")
+tags = json.loads(s2)["tags"]
+tp = d / "output" / "long_01.txt"
+t = tp.read_text(encoding="utf-8")
+t2 = re.sub(r"TAGS:\n[^\n]*\n", "TAGS:\n" + ", ".join(tags) + "\n", t)
+assert t2 != t
+tp.write_text(t2, encoding="utf-8")
+print("tags:", len(tags), "| api chars", sum(map(len, tags)) + len(tags) - 1,
+      "| youtube count", sum(len(x) + (2 if " " in x else 0) for x in tags) + len(tags) - 1)
+print("kids words left:", [x for x in tags if re.search(r"(?i)kid|child|बच्च", x)])
+EOF
+```
+
+```text
+tags: 21 | api chars 335 | youtube count 377
+kids words left: []
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:30:23Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\munshi\RULES.md has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:30:24Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\munshi\RULES.md has been updated successfully.
+```
+</details></tool-use>

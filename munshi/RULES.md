@@ -48,7 +48,7 @@ These are the hard rules. If a builder summary, a script or a file disagrees wit
 - Every CC BY music track used (e.g. Incompetech / Kevin MacLeod) is credited in the description exactly as its licence asks.
 - Mystery (Dadi Jasoos) videos: the answer never goes in the title, description or thumbnail. It goes in the pinned comment 24 h after publishing.
 - Made-for-kids and AI-disclosure values come from `munshi/channel_config.json`. Never guess them.
-- Dadi Ki Kahaniyan is set to made_for_kids = false (family audience, decided by the user). So title, thumbnail and description must speak to the whole family, not only to children: no "for kids" / "बच्चों के लिए" / nursery-style wording. Flag any such wording as FIX.
+- Dadi Ki Kahaniyan is set to made_for_kids = false (family audience, decided by the user). So title, thumbnail, description and tags must speak to the whole family, not only to children: no "for kids" / "बच्चों के लिए" / nursery-style wording. Flag any such wording as FIX.
 
 ## 8. Publishing
 - Default publish time: 7:00 PM IST.
@@ -80,7 +80,7 @@ BLOCKER (never waived, in any round):
 - Loudness outside -14 LUFS ±1, true peak above -1.0 dBFS, audible clipping or leaked outside audio.
 - Wrong resolution/codec, or a preview file used as final.
 - Thumbnail: broken Hindi matras, spoiler, unreadable text, important thing in the bottom-right corner.
-- Metadata: title over 100 chars, more than 15 hashtags, missing CC BY credit, "for kids" wording, mystery answer revealed.
+- Metadata: title over 100 chars, more than 15 hashtags, missing CC BY credit, "for kids" wording (title, thumbnail, description or tags), mystery answer revealed.
 - Length outside ±10% of the approved preview length.
 - Story problem: moral missing or a scene that contradicts the script.
 
