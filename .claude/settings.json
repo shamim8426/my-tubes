@@ -1,4 +1,10 @@
 {
+  "permissions": {
+    "allow": [
+      "Bash(.venv/Scripts/python.exe -X utf8 tools/youtube_upload.py:*)",
+      "Bash(.venv/Scripts/python.exe -X utf8 tools/post_comment.py:*)"
+    ]
+  },
   "hooks": {
     "SessionEnd": [
       {

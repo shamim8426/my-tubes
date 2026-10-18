@@ -49,11 +49,12 @@ These are the hard rules. If a builder summary, a script or a file disagrees wit
 - Made-for-kids and AI-disclosure values come from `channels/<key>/channel.json`. Never guess them.
 
 ## 8. Publishing
-- Publish slot: the same day as the upload, between 19:00 and 23:59 IST.
-  - Upload finished before 18:45 IST -> publish at 19:00 the same day.
-  - Upload finished between 18:45 and 23:15 IST -> publish at the next :00 or :30 that is at least 30 minutes after the upload.
-  - Upload finished after 23:15 IST -> publish at 19:00 the next day.
-- At most one long video per day per channel. If a long video is already scheduled that day, use 19:00 the next day. A Short may share a day with a long video only if their publish times are at least 2 hours apart, still inside 19:00-23:59.
+- Fixed publish times: long video at 19:00 IST, its Short at 21:00 IST the same day.
+  - Long upload finished before 18:45 IST -> long publishes 19:00 the same day; otherwise 19:00 the next day.
+  - Short upload finished before 20:45 IST -> Short publishes 21:00 the same day as its long; otherwise both move to the next day.
+  - A Short not made from a long (e.g. Dadi Jasoos case) also publishes at 21:00.
+- Per day per channel: at most one long (19:00) and one Short (21:00).
+- Planned frequency: long videos 2-3 per week, Shorts daily (from stories already made, ₹0).
 - Nothing goes Public or gets scheduled without the user's OK in that conversation.
 - One upload per video. If `output/upload_result.json` exists, do not upload again.
 - Short -> Long link (MANDATORY): every Short made from a long video must (a) have the long video's URL in its description with a short CTA line, (b) get an automatic first comment "पूरी कहानी यहाँ देखें 👉 <long URL>" posted right after it becomes public, and (c) the user sets in Studio: Related video = the long video, and pins that comment. The YouTube API cannot set Related video or pin comments, so (c) stays manual; Munshi shows this checklist after every Short upload and asks about it at the start of the next session until the user confirms.

@@ -84,6 +84,7 @@ def validate(job: dict, job_path: Path) -> list:
     cid = job.get("channel_id", "")
     if not (isinstance(cid, str) and cid.startswith("UC") and len(cid) == 24):
         errs.append("channel_id missing/invalid (24 chars, starts with UC; set it in channels/<key>/channel.json)")
+    cfg = {}
     if key and not errs:  # the job must match the channel's own config (channels/<key>/channel.json)
         cfg_file = ROOT / "channels" / key / "channel.json"
         if not cfg_file.exists():
@@ -164,10 +165,11 @@ def validate(job: dict, job_path: Path) -> list:
                 errs.append("publish_at needs a timezone, e.g. 2026-10-21T19:00:00+05:30")
             elif t <= dt.datetime.now(dt.timezone.utc) + dt.timedelta(minutes=15):
                 errs.append("publish_at must be at least 15 minutes in the future")
-            if t.tzinfo is not None:
+            if t.tzinfo is not None:  # fixed slot per format (RULES section 8; channel.json publish_times_ist)
                 ist = t.astimezone(dt.timezone(dt.timedelta(hours=5, minutes=30)))
-                if not dt.time(19, 0) <= ist.time() <= dt.time(23, 59, 59):
-                    errs.append(f"publish_at is {ist:%H:%M} IST; must be inside the 19:00-23:59 IST window")
+                want = cfg.get("publish_times_ist", {"long": "19:00", "short": "21:00"}).get(fmt)
+                if want and f"{ist:%H:%M}" != want:
+                    errs.append(f"publish_at is {ist:%H:%M} IST; a {fmt} video publishes at {want} IST")
         except ValueError:
             errs.append("publish_at is not ISO 8601")
     if job.get("privacy", "private") not in ("private", "unlisted", "public"):

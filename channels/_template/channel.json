@@ -6,8 +6,9 @@
   "contains_synthetic_media": false,
   "category_id": "1",
   "default_language": "hi",
-  "publish_window_ist": ["19:00", "23:59"],
-  "max_long_per_day": 1,
-  "min_gap_hours_short_long": 2,
+  "publish_times_ist": {
+    "long": "19:00",
+    "short": "21:00"
+  },
   "playlists": {}
 }
