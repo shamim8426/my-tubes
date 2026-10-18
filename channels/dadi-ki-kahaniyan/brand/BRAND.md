@@ -23,7 +23,8 @@ libass/ASS colours are BGR: marigold `&H0000A3F4&`, cream `&H00DCF4FF&`, indigo 
 ## Logo
 Files (in `brand/`, transparent PNG unless noted): `icon.png` (2048x2048, Mitthu on an open book, no text),
 `logo_horizontal.png` (icon left + name right), `logo_stacked.png` (icon top + name below),
-`kissago_dp.png` (800x800), `kissago_banner_v2.png` (2560x1440), `watermark.png` (150x150).
+`kissago_dp_v3.png` (800x800, indigo + marigold ring + warm glow — live), `kissago_banner_v3.png` (2560x1440, night sky, logo without panel — live), `watermark.png` (150x150).
+Known notes on banner v3 (accepted by the user): Golu looks slimmer than his sheet and the roof is thatched instead of khaprail; a regen (~₹4.86) can fix both if wanted.
 
 When to use what:
 - **Icon only:** profile picture, video watermark, favicon-size places, anything smaller than ~200 px wide.
