@@ -68,3 +68,29 @@ These are the hard rules. If a builder summary, a script or a file disagrees wit
 - Image prompts never name a studio, franchise or living artist ("Pixar style", "Ghibli style", etc.).
 - Before upload, Munshi checks: every audio/image/font file in the final build is in the register, every CC BY item is credited in the description exactly as its licence asks, and no source audio from outside our pipeline is in the mix.
 - After upload: if YouTube Studio shows any copyright claim or strike, stop all new uploads and tell the user. CC music sometimes gets false Content ID claims; dispute only with the licence proof from the register, after the user agrees.
+
+## 11. Review limits and severity
+Every problem Munshi reports is marked BLOCKER or MINOR.
+
+BLOCKER (never waived, in any round):
+- Copyright (section 10), wrong channel, any secret exposed.
+- Wrong character on screen for a line, wrong voice for a character, a line missing or cut off.
+- Caption more than 1 s away from its line, or caption text not matching what is spoken.
+- Loudness outside -14 LUFS ±1, true peak above -1.0 dBFS, audible clipping or leaked outside audio.
+- Wrong resolution/codec, or a preview file used as final.
+- Thumbnail: broken Hindi matras, spoiler, unreadable text, important thing in the bottom-right corner.
+- Metadata: title over 100 chars, more than 15 hashtags, missing CC BY credit, "for kids" wording, mystery answer revealed.
+- Length outside ±10% of the approved preview length.
+- Story problem: moral missing or a scene that contradicts the script.
+
+MINOR (everything else that breaks a RULES limit only slightly), e.g.: caption off by 0.3–1 s, caption shorter than 0.4 s, music level within 3 dB of target, thumbnail text slightly under the size rule, small silent gaps, missing colour tags, tiny cosmetic issues.
+Taste points (pacing feel, colour choice, music phrase) are "Note" only and never count as problems.
+
+Rounds:
+- Round 1 (R1): full review for that stage; BLOCKER and MINOR both come back as FIX (free) or ASK (paid).
+- Round 2 (R2): re-check only what changed and what failed in R1.
+- After R2: if any BLOCKER remains → ASK the user, stop. If only MINOR remain → verdict "PASS-WITH-NOTES": the stage is passed and the pipeline moves on to the next step (including upload when the user has approved it). No third round.
+- Every MINOR waived after R2 is written to munshi/carry_over.md (project, issue, suggested fix). Before the next video's build, the builder reads carry_over.md and fixes those causes in the pipeline, then marks them done.
+
+These limits never weaken: copyright (section 10), channel ID check, secrets, and the full pre-upload check.
+At the end of each review, add one line to munshi/log.md with the round (R1/R2), verdict and approximate time taken.

@@ -27243,3 +27243,324 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 09:10:59Z)**_
 {"success":true,"message":"Report delivered to your caller."}
 ```
 </details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:11:02Z)**_
+
+Upload ho gaya ✅. Ab uploader setup ki MD file bana raha hoon.
+
+_**Agent (claude-opus-5-5 2026-10-18 09:11:25Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Write"><details>
+<summary>Tool use: **Write**</summary>
+
+```markdown
+# YouTube Uploader — setup record
+
+How the automatic YouTube upload for **दादी की कहानियाँ (Dadi Ki Kahaniyan)** is set up, and how to use or rebuild it.
+Set up on 18 Oct 2026. First upload: Long 01 (https://youtu.be/Ogfqow8rbGY).
+
+> No secrets are in this file. `secrets/` and `.env` are never committed.
+
+## 1. Pieces
+
+| Piece | Where | In git? |
+|---|---|---|
+| Upload script | `tools/youtube_upload.py` | yes |
+| Publish steps (for Munshi) | `.claude/skills/youtube-publish/SKILL.md` | yes |
+| Channel settings | `munshi/channel_config.json` | yes |
+| Per-video job | `<project>/output/upload.json` (written by Munshi) | yes |
+| Upload result | `<project>/output/upload_result.json` (video id, URLs) | yes |
+| OAuth client | `secrets/client_secret.json` | **no** (keep a copy in Drive / password manager) |
+| Login token | `secrets/youtube_token_dadi-ki-kahaniyan.json` | **no** (re-created by logging in again) |
+| Python libs | `google-api-python-client`, `google-auth-oauthlib` (in `requirements.txt`) | yes |
+
+## 2. Google Cloud settings (project: "Default Gemini Project")
+
+Account: `shamimx.ali@gmail.com` (personal, not the ami.com work account).
+
+1. **APIs & Services:** *YouTube Data API v3* enabled. The API itself is free (daily quota 10,000 units; one upload ≈ 1,600, thumbnail 50, captions 400).
+2. **Google Auth Platform → Branding**
+   - App name: `Dadi Ki Kahaniyan Uploader`
+   - Support / developer email: `shamimx.ali@gmail.com`
+   - Home page: https://www.youtube.com/channel/UCy071_4g4vGemktFHybqkhQ
+   - Privacy policy: https://gist.github.com/shamim8426/9fdc382c9ac9a02777195c7c5969a1b6 (public gist on GitHub `shamim8426`)
+   - Authorized domains: `youtube.com`, `github.com`
+   - No logo (a logo would trigger Google verification).
+3. **Audience:** User type *External*, test user `shamimx.ali@gmail.com`, publishing status **In production**
+   (in *Testing* the login expires every 7 days).
+4. **Clients:** OAuth client `story-channel-uploader`, type **Desktop app**, "AI-powered agent" option **off**.
+   Its JSON is saved as `secrets/client_secret.json`.
+5. **YouTube:** channel phone-verified (needed for custom thumbnails).
+
+The app is not verified by Google. That is fine for our own channel: the login screen shows an "unverified app" warning
+(Advanced → Go to Dadi Ki Kahaniyan Uploader). Scopes asked: `youtube.upload` and `youtube.force-ssl` (captions + playlists;
+the script never deletes anything).
+
+## 3. Channel config (`munshi/channel_config.json`)
+
+| Key | Value |
+|---|---|
+| channel_key | `dadi-ki-kahaniyan` |
+| channel_id | `UCy071_4g4vGemktFHybqkhQ` |
+| made_for_kids | `false` (user's final decision: family content) |
+| contains_synthetic_media | `false` |
+| category_id | `1` |
+| default_language | `hi` |
+| publish_time_ist | `19:00` |
+| min_days_between_long | `2` |
+| playlists | not filled yet |
+
+## 4. Safety checks in the script
+
+- **Channel lock:** after login it asks YouTube which channel is logged in; if it is not `channel_id`, it stops with
+  `WRONG CHANNEL` and uploads nothing. Never edit `channel_id` to make it pass.
+- **One token per channel:** `secrets/youtube_token_<channel_key>.json`.
+- **Real final only:** `ffprobe` checks size (long 1920x1080, short 1080x1920 and ≤60 s), h264, yuv420p. A renamed
+  preview is caught. ffprobe comes from PATH, else `tools/ffmpeg/bin/ffprobe.exe` or `tools/ffmpeg/ffprobe.exe`.
+- **Metadata limits:** title ≤100, description ≤5000, tags ≤500 chars, ≤15 hashtags, no `<` `>`.
+- **No duplicates:** if `upload_result.json` already has a video id, it refuses (use `--extras-only` to retry
+  thumbnail/captions/playlist).
+- `publish_at` must have a timezone and be ≥15 min in the future; scheduled videos go up as private + publishAt.
+
+## 5. How an upload happens
+
+1. Munshi gives PASS for final build, thumbnail, metadata and copyright (logged in `munshi/log.md`).
+2. Munshi writes `output/upload.json` and runs
+   `.venv\Scripts\python tools\youtube_upload.py --job <project>\output\upload.json --dry-run`.
+3. The user sees the summary and says "upload karo" / "ha".
+4. Munshi runs the same command without `--dry-run`, then writes a PUBLISHED line in `munshi/log.md`.
+5. Builder runs `tools\sync.ps1 -Message "<project>: uploaded"`.
+
+Still done by hand in YouTube Studio: check the schedule (see 6), pin the comment after publish, end screen,
+playlist (until playlist ids are in the config), and watch for copyright claims (RULES section 10).
+
+## 6. Known limit: API audit
+
+Until the Google Cloud project passes the *YouTube API Services audit*, videos uploaded through the API can be locked to
+private and the `publishAt` time may be ignored. After every upload, open the Studio link and check Visibility; if it only
+says Private, set Schedule by hand. Applying for the audit (free, a few weeks) removes this step.
+
+## 7. New PC / lost token
+
+1. `deploy.ps1` installs Python libs and FFmpeg.
+2. Copy `client_secret.json` from your backup into `secrets/` (or download it again: Google Auth Platform → Clients →
+   story-channel-uploader → download).
+3. First upload (or a login test) opens the browser: choose `shamimx.ali@gmail.com`, channel **दादी की कहानियाँ**,
+   accept the unverified-app warning and both permissions. The token is saved again.
+
+If the login ever stops working: delete `secrets/youtube_token_dadi-ki-kahaniyan.json` and log in again. To remove
+access completely: https://myaccount.google.com/permissions.
+
+## 8. Adding another channel later
+
+Add a new block to `munshi/channel_config.json` with its own `channel_key` and `channel_id`; the same OAuth client works.
+On the first upload for that channel, log in and pick that channel; a separate token file is created.
+
+```
+
+```text
+File created successfully at: D:\Story-Channel\docs\YOUTUBE_UPLOADER_SETUP.md (file state is current in your context — no need to Read it back)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:11:36Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Sync upload milestone and new doc to GitHub
+
+`powershell -NoProfile -ExecutionPolicy Bypass -File tools/sync.ps1 -Message "long_01: uploaded + docs: YouTube uploader setup" >/dev/null 2>&1; tail -1 munshi/sync.log; git log --oneline -1 --stat | head -8`
+
+```text
+2026-10-18 14:41:35  pushed: long_01: uploaded + docs: YouTube uploader setup  (repo pack size 179 MB)
+0cc7814 long_01: uploaded + docs: YouTube uploader setup
+ .../2026-10-17_08-25-27Z-pasted-content-id-aeaa.md | 1098 ++++++++++++++++++++
+ docs/YOUTUBE_UPLOADER_SETUP.md                     |  101 ++
+ long-videos/long_01/output/upload_result.json      |    9 +
+ munshi/log.md                                      |    1 +
+ munshi/sync.log                                    |    2 +
+ 5 files changed, 1211 insertions(+)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:11:46Z)**_
+
+Long 01 YouTube par upload ho gaya, aur thumbnail aur Hindi captions bhi lag gaye. Bas Studio me ek baar check kar lijiye ki 20 Oct, 7:00 PM IST ka schedule laga ya nahi.
+
+## Upload
+- **Video:** https://youtu.be/Ogfqow8rbGY
+- **Studio:** https://studio.youtube.com/video/Ogfqow8rbGY/edit
+- Upload se pehle Munshi ne dry-run dobara chalaya. Sab kuch pehle dikhaye summary se exact mila aur channel check bhi "OK" aaya.
+
+## Aapko Studio me karna hai
+1. **Schedule check kijiye.** Hamara API project abhi audit nahi hua hai, isliye YouTube video ko "Private" me lock kar sakta hai aur schedule ignore kar sakta hai. Studio link kholiye aur Visibility dekhiye.
+   - "Scheduled: 20 Oct, 7:00 PM" dikhe toh sab theek hai.
+   - Sirf "Private" dikhe toh wahan khud **Schedule → 20 Oct 2026, 7:00 PM IST** set kar dijiye.
+2. **Publish hone ke baad pinned comment daaliye:** "आपको कहानी की कौन-सी सीख सबसे अच्छी लगी? कमेंट में बताइए! 🙏"
+3. **End screen lagaiye:** Subscribe aur ek video/playlist. Ye API se nahi lagti.
+4. **Playlist me jodiye:** Studio me khud jod dijiye, ya playlist ID de dijiye toh main jod dunga.
+5. Kuch din tak **copyright claims** dekhte rahiye. Koi claim aaye toh pehle mujhe batana.
+
+## Uploader ki MD file
+[docs/YOUTUBE_UPLOADER_SETUP.md](docs/YOUTUBE_UPLOADER_SETUP.md) ban gayi aur GitHub par commit ho gayi: `0cc7814 long_01: uploaded + docs: YouTube uploader setup` ✅
+
+Isme ye sab hai:
+- Kaunsi file kahan hai aur kaunsi git me jaati hai
+- Google Cloud ki saari settings: API, Branding, privacy gist, Audience (In production) aur Desktop client
+- Channel config
+- Script ke safety checks
+- Upload ka tareeka
+- API audit wali seema
+- Naye PC par ya token kho jaane par kya karna hai
+- Aage naya channel kaise jodna hai
+
+Isme koi secret nahi likha hai. Na client ID/secret, na token, na `.env`.
+
+Isi sync me `upload_result.json` aur Munshi ki PUBLISHED log line bhi GitHub par chali gayi.
+
+---
+
+_**User (2026-10-18 09:21:30Z)**_
+
+abhi tk hane kya achieve kiya h , briefly summarize kro
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-18 09:21:44Z)**_
+
+Ab tak ka kaam, short me:
+
+## Channel
+- Naam **"दादी की कहानियाँ"**, aur characters, setting aur rules `channel_bible.md` me likhe hain.
+- Banner, profile picture aur thumbnails bane. Hindi text hum khud likhte hain, isliye matrayein nahi tootti.
+
+## Videos
+- **Case 01 (Short):** "शर्मा जी की नई साइकिल", 57 sec ka. Aapne 18 Oct ko upload kiya.
+- **Long 01:** "लालची हलवाई और जादुई कड़ाही", 5:06 min. **Upload ho gaya hai** (https://youtu.be/Ogfqow8rbGY), 20 Oct 7 PM ke liye schedule bheja gaya hai.
+
+## Video banane ki pipeline (ek command me)
+- Gemini se images aur awaazein, har character ki alag awaaz.
+- Captions, zoom/pan, mood ke hisaab se music, sound effects aur -14 LUFS loudness apne aap lagte hain.
+- Cache ki wajah se badlav sasta padta hai: sirf badla hua hissa dobara banta hai.
+
+## Munshi (quality checker)
+- Har step ke baad Munshi PASS, FIX ya ASK deta hai.
+- Ab tak usne kai galtiyan pakdi: galat shot, zyada tez music, galat color format, hashtags aur meri ek galat naap.
+- Copyright ke sakht niyam hain, aur saari music, SFX aur fonts ka licence ek register me pakka kiya gaya hai.
+
+## Backup aur upload
+- Poora project private GitHub repo me hai. Har milestone par, session band hone par aur roz raat 11:30 baje apne aap sync hota hai.
+- `deploy.ps1` se naya PC ek command me taiyaar ho jata hai.
+- YouTube API setup poora hai. Upload script galat channel ya preview video par ruk jaati hai.
+- Iska poora record [docs/YOUTUBE_UPLOADER_SETUP.md](docs/YOUTUBE_UPLOADER_SETUP.md) me hai.
+
+## Kharcha
+₹500 me se **~₹199 kharch** hue, **₹300.70 bache** hain.
+
+## Aage
+- Studio me Long 01 ka schedule check karna.
+- Playlist ID dena.
+- API audit ka form bharna, taki schedule apne aap lage.
+- Shorts ka music 3–4 dB dheema karna.
+- Case 02 aur Long 02 banana.
+
+---
+
+_**User (2026-10-18 09:25:04Z)**_
+
+
+
+<pasted_content id="aeaa">
+munshi/RULES.md me section 11 (Review limits) agar hai to use poora is text se REPLACE karo, nahi hai to naya jodo (bilkul isi text ke saath). Phir .claude/agents/munshi.md ke "Verdicts" section me ek line jodo: "Classify every problem as BLOCKER or MINOR per RULES section 11; after round 2, MINOR-only means PASS-WITH-NOTES."
+
+## 11. Review limits and severity
+Every problem Munshi reports is marked BLOCKER or MINOR.
+
+BLOCKER (never waived, in any round):
+- Copyright (section 10), wrong channel, any secret exposed.
+- Wrong character on screen for a line, wrong voice for a character, a line missing or cut off.
+- Caption more than 1 s away from its line, or caption text not matching what is spoken.
+- Loudness outside -14 LUFS ±1, true peak above -1.0 dBFS, audible clipping or leaked outside audio.
+- Wrong resolution/codec, or a preview file used as final.
+- Thumbnail: broken Hindi matras, spoiler, unreadable text, important thing in the bottom-right corner.
+- Metadata: title over 100 chars, more than 15 hashtags, missing CC BY credit, "for kids" wording, mystery answer revealed.
+- Length outside ±10% of the approved preview length.
+- Story problem: moral missing or a scene that contradicts the script.
+
+MINOR (everything else that breaks a RULES limit only slightly), e.g.: caption off by 0.3–1 s, caption shorter than 0.4 s, music level within 3 dB of target, thumbnail text slightly under the size rule, small silent gaps, missing colour tags, tiny cosmetic issues.
+Taste points (pacing feel, colour choice, music phrase) are "Note" only and never count as problems.
+
+Rounds:
+- Round 1 (R1): full review for that stage; BLOCKER and MINOR both come back as FIX (free) or ASK (paid).
+- Round 2 (R2): re-check only what changed and what failed in R1.
+- After R2: if any BLOCKER remains → ASK the user, stop. If only MINOR remain → verdict "PASS-WITH-NOTES": the stage is passed and the pipeline moves on to the next step (including upload when the user has approved it). No third round.
+- Every MINOR waived after R2 is written to munshi/carry_over.md (project, issue, suggested fix). Before the next video's build, the builder reads carry_over.md and fixes those causes in the pipeline, then marks them done.
+
+These limits never weaken: copyright (section 10), channel ID check, secrets, and the full pre-upload check.
+At the end of each review, add one line to munshi/log.md with the round (R1/R2), verdict and approximate time taken.
+
+Phir munshi/carry_over.md khaali file banao (heading "# Carry-over (MINOR issues to fix in pipeline)"), aur sync: tools\sync.ps1 -Message "rules: review severity + 2-round limit"
+</pasted_content id="aeaa">
+
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-18 09:25:07Z)**_
+
+Section 11 abhi RULES me nahi hai, isliye naya jod raha hoon.
+
+_**Agent (claude-opus-5-5 2026-10-18 09:25:19Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Append RULES section 11 and create carry_over.md
+
+```bash
+grep -c "^## 11" munshi/RULES.md; cat >> munshi/RULES.md <<'EOF'
+
+## 11. Review limits and severity
+Every problem Munshi reports is marked BLOCKER or MINOR.
+
+BLOCKER (never waived, in any round):
+- Copyright (section 10), wrong channel, any secret exposed.
+- Wrong character on screen for a line, wrong voice for a character, a line missing or cut off.
+- Caption more than 1 s away from its line, or caption text not matching what is spoken.
+- Loudness outside -14 LUFS ±1, true peak above -1.0 dBFS, audible clipping or leaked outside audio.
+- Wrong resolution/codec, or a preview file used as final.
+- Thumbnail: broken Hindi matras, spoiler, unreadable text, important thing in the bottom-right corner.
+- Metadata: title over 100 chars, more than 15 hashtags, missing CC BY credit, "for kids" wording, mystery answer revealed.
+- Length outside ±10% of the approved preview length.
+- Story problem: moral missing or a scene that contradicts the script.
+
+MINOR (everything else that breaks a RULES limit only slightly), e.g.: caption off by 0.3–1 s, caption shorter than 0.4 s, music level within 3 dB of target, thumbnail text slightly under the size rule, small silent gaps, missing colour tags, tiny cosmetic issues.
+Taste points (pacing feel, colour choice, music phrase) are "Note" only and never count as problems.
+
+Rounds:
+- Round 1 (R1): full review for that stage; BLOCKER and MINOR both come back as FIX (free) or ASK (paid).
+- Round 2 (R2): re-check only what changed and what failed in R1.
+- After R2: if any BLOCKER remains → ASK the user, stop. If only MINOR remain → verdict "PASS-WITH-NOTES": the stage is passed and the pipeline moves on to the next step (including upload when the user has approved it). No third round.
+- Every MINOR waived after R2 is written to munshi/carry_over.md (project, issue, suggested fix). Before the next video's build, the builder reads carry_over.md and fixes those causes in the pipeline, then marks them done.
+
+These limits never weaken: copyright (section 10), channel ID check, secrets, and the full pre-upload check.
+At the end of each review, add one line to munshi/log.md with the round (R1/R2), verdict and approximate time taken.
+EOF
+printf '# Carry-over (MINOR issues to fix in pipeline)\n' > munshi/carry_over.md; grep -n "^## " munshi/RULES.md | tail -3
+```
+
+```text
+0
+58:## 9. Safety
+62:## 10. Copyright (STRICT — any violation is FIX and blocks upload)
+72:## 11. Review limits and severity
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:25:20Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\.claude\agents\munshi.md has been updated successfully. (file state is current in your context — no need to Read it back)
+```
+</details></tool-use>
