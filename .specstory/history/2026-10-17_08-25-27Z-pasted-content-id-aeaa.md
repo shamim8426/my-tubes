@@ -57,7 +57,7 @@ _**Agent (claude-opus-5-5 2026-10-17 08:25:34Z)**_
 
 <tool-use data-tool-type="search" data-tool-name="Glob"><details>
 <summary>Tool use: **Glob**</summary>
- path `./` pattern `*`
+ path `d:\Story-Channel` pattern `*`
 
 ```text
 .specstory\.gitignore
@@ -710,7 +710,7 @@ _**Agent (claude-opus-5-5 2026-10-17 08:45:36Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\characters\_test.png`
+ `./characters/_test.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 08:45:43Z)**_
@@ -846,28 +846,28 @@ _**Agent (claude-opus-5-5 2026-10-17 08:51:38Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\characters\dadi_sheet.png`
+ `./characters/dadi_sheet.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 08:51:39Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\characters\golu_sheet.png`
+ `./characters/golu_sheet.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 08:51:39Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\characters\mitthu_sheet.png`
+ `./characters/mitthu_sheet.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 08:51:39Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\characters\pandey_sheet.png`
+ `./characters/pandey_sheet.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 08:51:40Z)**_
@@ -1267,7 +1267,7 @@ _**Agent (claude-opus-5-5 2026-10-17 09:41:01Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\characters\dadi_sheet.png`
+ `./characters/dadi_sheet.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 09:41:11Z)**_
@@ -1498,21 +1498,21 @@ _**Agent (claude-opus-5-5 2026-10-17 09:45:51Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\characters\golu_sheet.png`
+ `./characters/golu_sheet.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 09:45:52Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\characters\mitthu_sheet.png`
+ `./characters/mitthu_sheet.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 09:45:52Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\characters\pandey_sheet.png`
+ `./characters/pandey_sheet.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 09:46:05Z)**_
@@ -2263,35 +2263,35 @@ _**Agent (claude-opus-5-5 2026-10-17 09:56:57Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\images\case01_cycle_chori\scene_01.png`
+ `./images/case01_cycle_chori/scene_01.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 09:56:57Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\images\case01_cycle_chori\scene_02.png`
+ `./images/case01_cycle_chori/scene_02.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 09:56:58Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\images\case01_cycle_chori\scene_03.png`
+ `./images/case01_cycle_chori/scene_03.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 09:56:58Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\images\case01_cycle_chori\scene_04.png`
+ `./images/case01_cycle_chori/scene_04.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 09:56:58Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\images\case01_cycle_chori\scene_05.png`
+ `./images/case01_cycle_chori/scene_05.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 09:57:06Z)**_
@@ -2344,35 +2344,35 @@ _**Agent (claude-opus-5-5 2026-10-17 10:01:39Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\images\case01_cycle_chori\scene_06.png`
+ `./images/case01_cycle_chori/scene_06.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 10:01:40Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\images\case01_cycle_chori\scene_07.png`
+ `./images/case01_cycle_chori/scene_07.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 10:01:41Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\images\case01_cycle_chori\scene_08.png`
+ `./images/case01_cycle_chori/scene_08.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 10:01:41Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\images\case01_cycle_chori\scene_09.png`
+ `./images/case01_cycle_chori/scene_09.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 10:01:41Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\images\case01_cycle_chori\scene_10.png`
+ `./images/case01_cycle_chori/scene_10.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 10:02:08Z)**_
@@ -2496,21 +2496,21 @@ _**Agent (claude-opus-5-5 2026-10-17 10:14:02Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\images\case01_cycle_chori\scene_02.png`
+ `./images/case01_cycle_chori/scene_02.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 10:14:02Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\images\case01_cycle_chori\scene_05.png`
+ `./images/case01_cycle_chori/scene_05.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 10:14:02Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\images\case01_cycle_chori\scene_08.png`
+ `./images/case01_cycle_chori/scene_08.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 10:14:28Z)**_
@@ -3584,7 +3584,7 @@ _**Agent (claude-opus-5-5 2026-10-17 10:54:37Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\images\case01_cycle_chori\scene_08.png`
+ `./images/case01_cycle_chori/scene_08.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 10:55:06Z)**_
@@ -5788,7 +5788,7 @@ _**Agent (claude-opus-5-5 2026-10-17 12:22:28Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\scripts\make_short.py`
+ `./scripts/make_short.py`
 
 ```text
 1	"""One command -> full Short (voice, captions, Ken Burns, music, -14 LUFS, metadata).
@@ -5971,7 +5971,7 @@ _**Agent (claude-opus-5-5 2026-10-17 12:23:03Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\scripts\make_short.py`
+ `./scripts/make_short.py`
 
 ```text
 240	         "-map", "[out]", "-t", f"{total:.3f}", mix])
@@ -6047,7 +6047,7 @@ _**Agent (claude-opus-5-5 2026-10-17 12:23:06Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\scripts\make_short.py`
+ `./scripts/make_short.py`
 
 ```text
 218	
@@ -6436,7 +6436,7 @@ _**Agent (claude-opus-5-5 2026-10-17 12:54:01Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\scripts\make_short.py`
+ `./scripts/make_short.py`
 
 ```text
 68	        print(f"    new TTS {speaker}: ₹{res['row']['cost_inr']} (aaj ₹{res['row']['today_total_inr']}, "
@@ -7054,7 +7054,7 @@ _**Agent (claude-opus-5-5 2026-10-17 13:57:03Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\scripts\make_short.py`
+ `./scripts/make_short.py`
 
 ```text
 1	"""One command -> full Short (voice, captions, Ken Burns, music, -14 LUFS, metadata).
@@ -8007,7 +8007,7 @@ _**Agent (claude-opus-5-5 2026-10-17 13:58:59Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\CLAUDE.md`
+ `./CLAUDE.md`
 
 ```text
 1	# दादी जासूस — Story Channel
@@ -8591,7 +8591,7 @@ _**Agent (claude-opus-5-5 2026-10-17 15:37:38Z)**_
 
 <tool-use data-tool-type="search" data-tool-name="Grep"><details>
 <summary>Tool use: **Grep**</summary>
- path `D:\Story-Channel` pattern `दादी जासूस|दादीजासूस|DadiJasoos|Dadi Jasoos|dadi jasoos`
+ path `./` pattern `दादी जासूस|दादीजासूस|DadiJasoos|Dadi Jasoos|dadi jasoos`
 
 ```text
 channel_bible.md:1:# CHANNEL BIBLE — "दादी जासूस"
@@ -8883,7 +8883,7 @@ _**Agent (claude-opus-5-5 2026-10-17 16:09:09Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\output\case01_cycle_chori_framecheck.png`
+ `./output/case01_cycle_chori_framecheck.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 16:09:30Z)**_
@@ -9054,7 +9054,7 @@ _**Agent (claude-opus-5-5 2026-10-17 16:17:53Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channel_assets\case01_thumbnail.png`
+ `./channel_assets/case01_thumbnail.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 16:18:14Z)**_
@@ -9273,7 +9273,7 @@ _**Agent (claude-opus-5-5 2026-10-17 16:30:55Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\output\case01_cycle_chori.txt`
+ `./output/case01_cycle_chori.txt`
 
 ```text
 1	TITLE:
@@ -10570,28 +10570,28 @@ _**Agent (claude-opus-5-5 2026-10-17 17:30:25Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\long-videos\long_01\characters\ghasita_sheet.png`
+ `./long-videos/long_01/characters/ghasita_sheet.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 17:30:26Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\long-videos\long_01\characters\chhotu_sheet.png`
+ `./long-videos/long_01/characters/chhotu_sheet.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 17:30:26Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\long-videos\long_01\characters\sadhu_sheet.png`
+ `./long-videos/long_01/characters/sadhu_sheet.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 17:30:26Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\long-videos\long_01\characters\cadhai_prop.png`
+ `./long-videos/long_01/characters/cadhai_prop.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 17:30:34Z)**_
@@ -11464,7 +11464,7 @@ _**Agent (claude-opus-5-5 2026-10-17 18:24:55Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\scripts\make_short.py`
+ `./scripts/make_short.py`
 
 ```text
 80	
@@ -11638,7 +11638,7 @@ _**Agent (claude-opus-5-5 2026-10-17 18:25:20Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\scripts\make_short.py`
+ `./scripts/make_short.py`
 
 ```text
 225	    pcm += silence(END_HOLD)
@@ -12457,14 +12457,14 @@ _**Agent (claude-opus-5-5 2026-10-17 19:21:17Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\long-videos\long_01\output\long_01_framecheck.png`
+ `./long-videos/long_01/output/long_01_framecheck.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 19:21:17Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\long-videos\long_01\output\long_01.txt`
+ `./long-videos/long_01/output/long_01.txt`
 
 ```text
 1	TITLE:
@@ -12818,7 +12818,7 @@ _**Agent (claude-opus-5-5 2026-10-18 04:47:31Z)**_
 
 <tool-use data-tool-type="search" data-tool-name="Grep"><details>
 <summary>Tool use: **Grep**</summary>
- path `D:\Story-Channel\scripts\gen_channel_assets.py` pattern `def |thumb|PROMPT|prompt`
+ path `./scripts/gen_channel_assets.py` pattern `def |thumb|PROMPT|prompt`
 
 ```text
 34:BANNER_PROMPT = f"""Wide 16:9 YouTube channel banner illustration, NO text or letters anywhere.
@@ -12897,7 +12897,7 @@ _**Agent (claude-opus-5-5 2026-10-18 04:49:10Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\scripts\gen_channel_assets.py`
+ `./scripts/gen_channel_assets.py`
 
 ```text
 1	"""YouTube channel art: banner (2560x1440) + profile picture (800x800).
@@ -13183,7 +13183,7 @@ _**Agent (claude-opus-5-5 2026-10-18 04:50:43Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\long-videos\long_01\output\long_01_thumbnail.png`
+ `./long-videos/long_01/output/long_01_thumbnail.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-18 04:50:46Z)**_
@@ -13219,7 +13219,7 @@ _**Agent (claude-opus-5-5 2026-10-18 04:50:56Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\long-videos\long_01\characters\cadhai_prop.png`
+ `./long-videos/long_01/characters/cadhai_prop.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-18 04:51:07Z)**_
@@ -14284,7 +14284,7 @@ _**Agent (claude-opus-5-5 2026-10-18 06:37:36Z)**_
 
 <tool-use data-tool-type="search" data-tool-name="Grep"><details>
 <summary>Tool use: **Grep**</summary>
- path `D:\Story-Channel\scripts` pattern `\.ttf|fontsdir|Mukta|arial`
+ path `./scripts` pattern `\.ttf|fontsdir|Mukta|arial`
 
 ```text
 scripts\gen_channel_assets.py:8:Mukta Bold through libass (correct Devanagari shaping), never by the image model.
@@ -14313,7 +14313,7 @@ _**Agent (claude-opus-5-5 2026-10-18 06:37:36Z)**_
 
 <tool-use data-tool-type="search" data-tool-name="Grep"><details>
 <summary>Tool use: **Grep**</summary>
- path `D:\Story-Channel` pattern `^\s*(import|from)\s+\w+`
+ path `./` pattern `^\s*(import|from)\s+\w+`
 
 ```text
 scripts\analyze_video.py:import json
@@ -14422,7 +14422,7 @@ _**Agent (claude-opus-5-5 2026-10-18 06:37:43Z)**_
 
 <tool-use data-tool-type="search" data-tool-name="Grep"><details>
 <summary>Tool use: **Grep**</summary>
- path `D:\Story-Channel\scripts` pattern `ffmpeg\.exe|ffprobe|whisper-models|deno|yt-dlp`
+ path `./scripts` pattern `ffmpeg\.exe|ffprobe|whisper-models|deno|yt-dlp`
 
 ```text
 scripts\analyze_video.py:16:FFMPEG = ROOT / "tools" / "ffmpeg" / "ffmpeg.exe"
@@ -14490,7 +14490,7 @@ _**Agent (claude-opus-5-5 2026-10-18 06:37:59Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\scripts\make_short.py`
+ `./scripts/make_short.py`
 
 ```text
 25	
@@ -14540,7 +14540,7 @@ _**Agent (claude-opus-5-5 2026-10-18 06:38:00Z)**_
 
 <tool-use data-tool-type="search" data-tool-name="Grep"><details>
 <summary>Tool use: **Grep**</summary>
- path `D:\Story-Channel\scripts` pattern `FFMPEG|ffprobe`
+ path `./scripts` pattern `FFMPEG|ffprobe`
 
 ```text
 scripts\analyze_video.py:2
@@ -14555,7 +14555,7 @@ _**Agent (claude-opus-5-5 2026-10-18 06:38:04Z)**_
 
 <tool-use data-tool-type="search" data-tool-name="Grep"><details>
 <summary>Tool use: **Grep**</summary>
- path `D:\Story-Channel\scripts` pattern `ffprobe|with_name|FFMPEG\.parent`
+ path `./scripts` pattern `ffprobe|with_name|FFMPEG\.parent`
 
 ```text
 No matches found
@@ -14586,7 +14586,7 @@ _**Agent (claude-opus-5-5 2026-10-18 06:38:11Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\scripts\analyze_video.py`
+ `./scripts/analyze_video.py`
 
 ```text
 1	"""Analyse a video's pacing/audio for learning (no content reuse).
@@ -15212,7 +15212,7 @@ _**Agent (claude-opus-5-5 2026-10-18 06:40:16Z)**_
 
 <tool-use data-tool-type="search" data-tool-name="Grep"><details>
 <summary>Tool use: **Grep**</summary>
- path `D:\Story-Channel` pattern `AIza[0-9A-Za-z_-]{20,}|ghp_[0-9A-Za-z]{20,}|GOCSPX-`
+ path `./` pattern `AIza[0-9A-Za-z_-]{20,}|ghp_[0-9A-Za-z]{20,}|GOCSPX-`
 
 ```text
 No files found
