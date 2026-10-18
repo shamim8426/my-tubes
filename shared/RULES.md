@@ -107,3 +107,23 @@ At the end of each review, add one line to channels/<key>/log.md with the round 
 - The channel name suffix (e.g. "| दादी की कहानियाँ") may stay the same in every title — it is branding. The rest of the title (story name, hook, extra keywords) must vary; do not repeat the same keyword block (like "| Hindi Moral Story | Hindi Kahani") in every video. Rotate keywords or put them in tags/description instead.
 - No two videos may reuse the same narration audio. Shorts cut from their own long video are allowed.
 - Every 5th long video Munshi writes a short "channel variety" note in log.md: genres used, morals used, what to try next.
+
+## 13. Audience & algorithm (CTR, retention, session)
+Long videos:
+- Hook: the first spoken line must start within 1.0 s. The first 30 s must set up the story's main question or conflict. Any frame/intro before the story itself (Dadi-Golu opening) is max 10 s.
+- Promise kept: whatever the title and thumbnail promise (e.g. the magic cauldron) must appear on screen within the first 60 s. A title/thumbnail that promises something the video does not show is a BLOCKER (misleading).
+- Visual change: no single shot stays without a cut or new camera move for more than 8 s.
+- End: the last 20 s carry no essential visuals or captions in the end-screen area, so end-screen elements can sit there. The last spoken line asks viewers one specific question about the story (for comments), not a generic "like and subscribe".
+Shorts:
+- First frame is a strong visual (no title card, no black frame). First word within 0.5 s.
+- Length 30-58 s.
+- Captions and key visuals stay out of the bottom 20% and right 15% (YouTube buttons).
+- Ending is either a cliffhanger towards the long video or a clean loop back to the first frame.
+Thumbnail:
+- Readable at phone size: Munshi downscales it to 160x90 px and checks the main face/emotion and the text are still recognisable.
+- One clear focal point (a face with strong emotion or the key object), max 4 words, high contrast.
+Title:
+- The hook words come in the first 40 characters (mobile cuts long titles). Curiosity is fine, misleading is not.
+Session:
+- Every long video goes into its channel playlist, gets an end screen (next video + subscribe), and every Short from it has Related video = that long (manual Studio checklist).
+Severity: a misleading title/thumbnail is a BLOCKER; the rest are FIX in R1 and MINOR after R2 (section 11).

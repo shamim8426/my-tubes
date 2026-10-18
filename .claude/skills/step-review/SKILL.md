@@ -26,6 +26,7 @@ Use this after every production step of a video in the Story-Channel project. Al
 - Mystery videos: the clue is fair and visible, and the answer is not in the title.
 - Mitthu never does anything that needs hands.
 - Originality: run RULES section 12 checks.
+- Algorithm: run RULES section 13 checks.
 
 ### 2. Scene breakdown (`*_SCENES.md`, `shots.json`)
 - Every script line maps to a scene; no scene without a line or a music-only note.
@@ -52,6 +53,7 @@ Use this after every production step of a video in the Story-Channel project. Al
 - Extract one frame per line (mid-line timestamp) and check the right character/scene is on screen.
 - Music cue list matches the mood plan; crossfades present.
 - Captions: count, and timing of a sample of lines vs Whisper.
+- Algorithm: run RULES section 13 checks.
 
 ### 7. Final build
 - `ffprobe`: 1920x1080 (or 1080x1920 for shorts), 30 fps, H.264 + AAC.
@@ -61,12 +63,14 @@ Use this after every production step of a video in the Story-Channel project. Al
 - `.srt` present, UTF-8; lines estimated rather than Whisper-timed are listed.
 - Duration within the range the user approved at preview.
 - Copyright: run the RULES section 10 checks against shared/assets_license.csv. Any miss is FIX.
+- Algorithm: run RULES section 13 checks.
 
 ### 8. Thumbnail
 - 1280x720, <= 2 MB, jpg/png.
 - Zoom on the Hindi text: matras and joined letters correct.
 - Text large enough for phone (letter height >= ~12% of frame), <= ~4 words, does not repeat the title.
 - No spoiler. Bottom-right corner clear. Characters match their sheets.
+- Algorithm: run RULES section 13 checks.
 
 ### 9. Metadata (`meta.json` / `long_XX.txt`)
 - Title <= 100 chars, description <= 5000, tags <= 500 chars, 3-5 hashtags.
@@ -74,6 +78,7 @@ Use this after every production step of a video in the Story-Channel project. Al
 - Mystery: no answer anywhere; pinned-comment text prepared for after 24 h.
 - made_for_kids and AI disclosure taken from `channels/<key>/channel.json`.
 - Copyright: run the RULES section 10 checks against shared/assets_license.csv. Any miss is FIX.
+- Algorithm: run RULES section 13 checks.
 
 ## Report format
 Write in Hinglish, friendly but professional, address the user as "bhai". Keep it short.

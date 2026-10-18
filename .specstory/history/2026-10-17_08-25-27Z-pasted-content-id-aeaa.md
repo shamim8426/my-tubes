@@ -41574,3 +41574,142 @@ _**User (2026-10-18 14:12:43Z)**_
 shared/RULES.md section 12 ki title wali line ke baad ye jodo:
 "- The channel name suffix (e.g. "| दादी की कहानियाँ") may stay the same in every title — it is branding. The rest of the title (story name, hook, extra keywords) must vary; do not repeat the same keyword block (like "| Hindi Moral Story | Hindi Kahani") in every video. Rotate keywords or put them in tags/description instead."
 Phir sync.
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-18 14:12:55Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\shared\RULES.md has been updated successfully. (note: the file had been modified on disk since you last read it — the edit applied cleanly, but the file contains other changes not in your context. Read it before edits that depend on surrounding content.)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 14:13:07Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Sync rules change
+
+`powershell -NoProfile -ExecutionPolicy Bypass -File tools/sync.ps1 -Message "rules: section 12 title suffix vs keyword block" >/dev/null 2>&1; tail -1 shared/sync.log`
+
+```text
+2026-10-18 19:43:05  pushed: rules: section 12 title suffix vs keyword block  (repo pack size 179 MB)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 14:13:10Z)**_
+
+Title wali nayi line `shared/RULES.md` ke section 12 me jud gayi, aur GitHub par sync ho gaya (`pushed: rules: section 12 title suffix vs keyword block`).
+
+Ab title ke aakhir me "| दादी की कहानियाँ" har video me same reh sakta hai. Par "| Hindi Moral Story | Hindi Kahani" jaisa keywords ka hissa har video me badalna hoga, ya fir tags/description me jayega.
+
+Short wali checklist abhi baaki hai: Related video set karna aur 21:05 ke baad pehla comment pin karna.
+
+---
+
+_**User (2026-10-18 14:22:48Z)**_
+
+
+
+<pasted_content id="aeaa">
+shared/RULES.md me naya section jodo (bilkul isi text ke saath), aur step-review skill ke Script, Preview, Final, Thumbnail aur Metadata stages me "Algorithm: run RULES section 13 checks." jodo.
+
+## 13. Audience & algorithm (CTR, retention, session)
+Long videos:
+- Hook: the first spoken line must start within 1.0 s. The first 30 s must set up the story's main question or conflict. Any frame/intro before the story itself (Dadi-Golu opening) is max 10 s.
+- Promise kept: whatever the title and thumbnail promise (e.g. the magic cauldron) must appear on screen within the first 60 s. A title/thumbnail that promises something the video does not show is a BLOCKER (misleading).
+- Visual change: no single shot stays without a cut or new camera move for more than 8 s.
+- End: the last 20 s carry no essential visuals or captions in the end-screen area, so end-screen elements can sit there. The last spoken line asks viewers one specific question about the story (for comments), not a generic "like and subscribe".
+Shorts:
+- First frame is a strong visual (no title card, no black frame). First word within 0.5 s.
+- Length 30-58 s.
+- Captions and key visuals stay out of the bottom 20% and right 15% (YouTube buttons).
+- Ending is either a cliffhanger towards the long video or a clean loop back to the first frame.
+Thumbnail:
+- Readable at phone size: Munshi downscales it to 160x90 px and checks the main face/emotion and the text are still recognisable.
+- One clear focal point (a face with strong emotion or the key object), max 4 words, high contrast.
+Title:
+- The hook words come in the first 40 characters (mobile cuts long titles). Curiosity is fine, misleading is not.
+Session:
+- Every long video goes into its channel playlist, gets an end screen (next video + subscribe), and every Short from it has Related video = that long (manual Studio checklist).
+Severity: a misleading title/thumbnail is a BLOCKER; the rest are FIX in R1 and MINOR after R2 (section 11).
+
+Phir sync.
+</pasted_content id="aeaa">
+
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-18 14:23:04Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Add RULES section 13 and step-review bullets
+
+```bash
+grep -c "^## 13" shared/RULES.md; .venv/Scripts/python.exe -X utf8 - <<'PYEOF'
+from pathlib import Path
+p = Path("shared/RULES.md"); s = p.read_text(encoding="utf-8").rstrip("\n")
+s += """
+
+## 13. Audience & algorithm (CTR, retention, session)
+Long videos:
+- Hook: the first spoken line must start within 1.0 s. The first 30 s must set up the story's main question or conflict. Any frame/intro before the story itself (Dadi-Golu opening) is max 10 s.
+- Promise kept: whatever the title and thumbnail promise (e.g. the magic cauldron) must appear on screen within the first 60 s. A title/thumbnail that promises something the video does not show is a BLOCKER (misleading).
+- Visual change: no single shot stays without a cut or new camera move for more than 8 s.
+- End: the last 20 s carry no essential visuals or captions in the end-screen area, so end-screen elements can sit there. The last spoken line asks viewers one specific question about the story (for comments), not a generic "like and subscribe".
+Shorts:
+- First frame is a strong visual (no title card, no black frame). First word within 0.5 s.
+- Length 30-58 s.
+- Captions and key visuals stay out of the bottom 20% and right 15% (YouTube buttons).
+- Ending is either a cliffhanger towards the long video or a clean loop back to the first frame.
+Thumbnail:
+- Readable at phone size: Munshi downscales it to 160x90 px and checks the main face/emotion and the text are still recognisable.
+- One clear focal point (a face with strong emotion or the key object), max 4 words, high contrast.
+Title:
+- The hook words come in the first 40 characters (mobile cuts long titles). Curiosity is fine, misleading is not.
+Session:
+- Every long video goes into its channel playlist, gets an end screen (next video + subscribe), and every Short from it has Related video = that long (manual Studio checklist).
+Severity: a misleading title/thumbnail is a BLOCKER; the rest are FIX in R1 and MINOR after R2 (section 11).
+"""
+p.write_text(s, encoding="utf-8")
+k = Path(".claude/skills/step-review/SKILL.md"); t = k.read_text(encoding="utf-8")
+anchors = {"### 1. Script": "- Originality: run RULES section 12 checks.\n",
+           "### 6. Preview build": "- Captions: count, and timing of a sample of lines vs Whisper.\n",
+           "### 7. Final build": "- Copyright: run the RULES section 10 checks against shared/assets_license.csv. Any miss is FIX.\n",
+           "### 8. Thumbnail": "- No spoiler. Bottom-right corner clear. Characters match their sheets.\n",
+           "### 9. Metadata": "- Copyright: run the RULES section 10 checks against shared/assets_license.csv. Any miss is FIX.\n"}
+for head, line in anchors.items():
+    i = t.index(head); j = t.index(line, i)
+    assert j - i < 2000, head
+    t = t[:j + len(line)] + "- Algorithm: run RULES section 13 checks.\n" + t[j + len(line):]
+k.write_text(t, encoding="utf-8"); print("ok")
+PYEOF
+grep -n "^### \|Algorithm" .claude/skills/step-review/SKILL.md; grep -n "^## 13" shared/RULES.md
+```
+
+```text
+0
+ok
+19:### 0. New asset added
+22:### 1. Script
+29:- Algorithm: run RULES section 13 checks.
+31:### 2. Scene breakdown (`*_SCENES.md`, `shots.json`)
+36:### 3. Character sheets
+40:### 4. Scene images
+45:### 5. Voice samples / TTS
+51:### 6. Preview build
+56:- Algorithm: run RULES section 13 checks.
+58:### 7. Final build
+66:- Algorithm: run RULES section 13 checks.
+68:### 8. Thumbnail
+73:- Algorithm: run RULES section 13 checks.
+75:### 9. Metadata (`meta.json` / `long_XX.txt`)
+81:- Algorithm: run RULES section 13 checks.
+111:## 13. Audience & algorithm (CTR, retention, session)
+[This command modified 2 files you've previously read: shared\RULES.md, .claude\skills\step-review\SKILL.md. Call Read before editing.]
+```
+</details></tool-use>
