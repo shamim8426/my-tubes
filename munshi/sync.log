@@ -2,3 +2,5 @@
 2026-10-18 12:46:57  pushed: auto: session end  (repo pack size 179 MB)
 2026-10-18 12:47:11  pushed: auto: session end  (repo pack size 179 MB)
 2026-10-18 12:50:25  pushed: rules: setting scope + gitattributes  (repo pack size 179 MB)
+2026-10-18 13:21:00  SKIPPED big file (>50MB): long-videos/long_01/output/review/music_resid.wav
+2026-10-18 13:21:31  pushed: upload: channel-id + ffprobe checks  (repo pack size 179 MB)

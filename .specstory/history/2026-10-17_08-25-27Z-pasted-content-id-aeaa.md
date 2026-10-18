@@ -20431,3 +20431,2114 @@ tmp_test.mp4
 tmp_test_job.json
 ```
 </details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 07:51:33Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Move prompt file, run GitHub sync
+
+`mv /c/Users/ashamim/Downloads/upload_safety_prompt.md _to_delete/ && ls _to_delete && powershell -NoProfile -ExecutionPolicy Bypass -File tools/sync.ps1 -Message "upload: channel-id + ffprobe checks" 2>/dev/null | tail -1; tail -1 munshi/sync.log`
+
+```text
+tmp_test.mp4
+tmp_test_job.json
+upload_safety_prompt.md
+2026-10-18 13:21:31  pushed: upload: channel-id + ffprobe checks  (repo pack size 179 MB)
+2026-10-18 13:21:31  pushed: upload: channel-id + ffprobe checks  (repo pack size 179 MB)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 07:51:48Z)**_
+
+Upload ke dono safety checks lag gaye hain aur bina login wala test paas hua. Ek kami hai: is PC par asli upload abhi ruk jayega, kyunki `ffprobe` PATH par nahi hai (neeche dekhiye).
+
+**1. `tools/youtube_upload.py`:** prompt ke content se bilkul waisa hi replace kiya. Ab script upload se pehle ye check karti hai:
+- Kis channel se login hai. `channel_id` na mile toh ruk jaati hai aur kuch upload nahi hota.
+- Har channel ka token alag file me rehta hai.
+- ffprobe se video ka asli size, codec, pix_fmt aur lambai.
+
+**2. `munshi/channel_config.json`:** `"channel_id": ""` aur `"channel_key": "dadi-ki-kahaniyan"` jod diye.
+
+**3. youtube-publish skill:**
+- Token ka naya naam `youtube_token_<channel_key>.json` likha.
+- Login ke waqt sahi account aur sahi channel dono chunne ki baat jodi.
+- Step 4 me `channel_key`, `channel_name`, `channel_id` aur `format` jode.
+- WRONG CHANNEL wali line jodi: aisa ho toh ruk kar aapko batana hai, `channel_id` kabhi nahi badalna.
+
+**4. Test:** `py_compile` paas hua. Preview ko `tmp_test.mp4` naam dekar dry-run chalaya. Naam se "preview" hata dene par bhi script ne use pakad liya:
+```
+Video check:  960x540 h264 yuvj420p 306.2s
+PROBLEMS:
+ - video is 960x540, a final long must be 1920x1080
+ - pixel format is yuvj420p, expected yuv420p
+```
+Dono temp files aur `upload_safety_prompt.md` (Downloads me thi) ab `_to_delete/` me hain.
+
+**5. Sync:** `pushed: upload: channel-id + ffprobe checks`. Is sync me Long 01 ke chal rahe fixes ke code/json badlav bhi chale gaye: `make_short.py`, `lines.json`, `meta.json`, bible, RULES aur naya thumbnail. Video files nahi gayi.
+
+## ⚠️ Is PC par ek kami
+Ye script `ffprobe` ko PATH par dhoondhti hai. Is PC par ye sirf `tools\ffmpeg\` me hai, isliye bina PATH jode test me "ffprobe not found" aaya, aur asli upload bhi isi wajah se ruk jayega. Naye system par `deploy.ps1` FFmpeg ko PATH par install karta hai, toh wahan dikkat nahi hogi.
+
+Is PC ke liye aasaan ilaaj: `D:\Story-Channel\tools\ffmpeg` ko user PATH me jod doon. Isme ₹0 lagega aur script nahi badlegi. Kahein toh kar doon.
+
+## Aapse chahiye
+**Channel ID:** YouTube Studio → Settings → Channel → Advanced settings se copy karke bhejiye. Ye UC se shuru hota hai aur 24 characters ka hota hai.
+
+Long 01 ka final build abhi background me chal raha hai. Khatam hote hi Munshi se review karwa kar verdict dikhaunga.
+
+---
+
+_**User (2026-10-18 07:53:24Z)**_
+
+<task-notification>
+<task-id>b516h9lht</task-id>
+<tool-use-id>toolu_01Wn7PJrRviq9Lsry35hV1bJ</tool-use-id>
+<output-file>C:\Users\ashamim\AppData\Local\Temp\claude\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7\tasks\b516h9lht.output</output-file>
+<status>completed</status>
+<summary>Background command "Run Long 01 final build with all fixes" completed (exit code 0)</summary>
+</task-notification>
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-18 07:53:32Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Summarize final build log and probe output
+
+`L="C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad/final2.log"; grep -E "PROPORTIONAL|music:|total |DONE|scenes:|loudness|FAILED|Error|Traceback" "$L"; tail -5 "$L"; tools/ffmpeg/ffprobe.exe -v error -select_streams v -show_entries stream=width,height,pix_fmt,color_range,r_frame_rate -show_entries format=duration -of compact long-videos/long_01/output/long_01.mp4`
+
+```text
+  line  2 [mitthu  ]   3.30-  5.21s  PROPORTIONAL (whisper coverage 50%)
+  line 50 [chhotu  ] 278.34-282.04s  PROPORTIONAL (whisper coverage 55%)
+  total 306.2s
+  music: Heartbreaking starts 3.75s in (pause falls on an audible part)
+  music: Touching_Moments_Two_Higher starts 14.50s in (pause falls on an audible part)
+  music: Fluffing_a_Duck@0s -> Carefree@12s -> Heartbreaking@67s -> Enchanted_Valley@103s -> Carefree@141s -> Hidden_Agenda@155s -> Touching_Moments_Two_Higher@225s -> Carefree@237s -> Touching_Moments_Two_Higher@273s -> Carefree@278s
+DONE [final] D:\Story-Channel\long-videos\long_01\output\long_01.mp4  (306.2s video)
+  scenes: 0 cache se, 38 naye   |   build time 782s   |   is build ka kharcha ₹0.00
+  loudness -14.0 LUFS, true peak -1.4 dBFS, music 13.0 LU under voice (stem LUFS over speech)
+  scenes: 0 cache se, 38 naye   |   build time 782s   |   is build ka kharcha ₹0.00
+  captions:    D:\Story-Channel\long-videos\long_01\output\long_01.srt
+  loudness -14.0 LUFS, true peak -1.4 dBFS, music 13.0 LU under voice (stem LUFS over speech)
+  frame check: D:\Story-Channel\long-videos\long_01\output\long_01_framecheck.png
+  metadata:    D:\Story-Channel\long-videos\long_01\output\long_01.txt
+stream|width=1920|height=1080|pix_fmt=yuv420p|color_range=tv|r_frame_rate=30/1
+format|duration=306.166667
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 07:53:34Z)**_
+
+Build ho gaya: final, 38 scenes naye, 782s me, ₹0. Ab Munshi se dobara review karwa raha hoon.
+
+_**Agent (claude-opus-5-5 2026-10-18 07:59:44Z)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="Agent"><details>
+<summary>Tool use: **Agent**</summary>
+Re-review Long 01 after fixes
+
+```text
+  This agent's report was delivered to you as a message from "a11180672e2c92dbb" (its SubagentHandback call). Read it there; it is not repeated here.
+  
+agentId: a11180672e2c92dbb (use SendMessage with to: 'a11180672e2c92dbb', summary: '<5-10 word recap>' to continue this agent)
+<usage>subagent_tokens: 77807
+tool_uses: 32
+duration_ms: 359875</usage>
+```
+</details></tool-use>
+
+_**Agent - sidechain (2026-10-18 07:53:44Z)**_
+
+Re-review project long-videos/long_01 after the builder's free fixes. Three stages again: (7) final build, (8) thumbnail, (9) metadata. Separate verdict for each, standard report format, one log line per verdict in munshi/log.md. REVIEW ONLY: no edits to production files, no paid calls. Re-read munshi/RULES.md first: it changed (new rules: music level measured ONLY as integrated LUFS of voice-only stem vs music-only stem over the same speech sections; any measured value outside a RULES limit is FIX; Dadi's home = banner aangan with brown door, so the earlier ASK about the aangan is resolved by the user choosing option (a), and channel_bible.md section 5 was updated).
+
+What the builder says it changed (verify each yourself, don't trust):
+1. Line 2 (mitthu, ~3.3-5.2s) now on a close-up showing Mitthu + the laddoo box (lines.json "shot" override; new per-line shot feature in scripts/make_short.py shot_times).
+2. Line 15 (sadhu, ~74.1-80.3s) is one Sadhu close-up; Ghasita's close-up only on line 16.
+3. Long-video music gain lowered 4 dB (MUSIC_BELOW_VOICE_DB long=13). Builder's new measurement (stem method) says 13.0 LU under voice. Stems from this build: long-videos/long_01/output/long_01_work/voice.wav (voice stem, 24 kHz mono) and long-videos/long_01/output/long_01_work/music.wav (music stem, pre-loudnorm; same gain is applied to both by loudnorm). Speech sections = spoken line start/end times (you can recompute them; the earlier build's log timings are unchanged).
+4. Music near the 3 s music-only pause (~100.1-103.1s) and the 1 s/2 s pauses (~224.6s, ~234.8s): track start offsets chosen so those pauses fall on audible music (Heartbreaking starts 3.75s in, Touching Moments 14.5s in).
+5. Video now yuv420p, tv range, bt709.
+6. Captions shorter than 0.45s merged into the neighbouring caption of the same line.
+7. Thumbnail text ~25% bigger, same position (upper-left), same art.
+8. meta.json: 5 hashtags; new tags list (Hindi + English); long_01.txt now has a TAGS section.
+
+Final: long-videos/long_01/output/long_01.mp4, .srt, _framecheck.png, long_01.txt, long_01_thumbnail.png. Tools: tools/ffmpeg/ffmpeg.exe, ffprobe.exe; .venv/Scripts/python.exe. Temp files only in long-videos/long_01/output/review/.
+
+Note for RULES section 3: music for long videos must be within the long-video range in RULES; state clearly what range you applied. End with a short combined summary (3 verdicts + any remaining problems with fix and ₹).
+
+_**Agent - sidechain (2026-10-18 07:53:44Z)**_
+
+<system-reminder>
+Your final report is delivered through SubagentHandback: when your work is complete, call SubagentHandback({message: <your full report>}). The call ends your run, so make it your last step. Only a SubagentHandback call reaches your caller as your result; plain text you write at the end is not delivered.
+</system-reminder>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 07:53:46Z)**_
+
+Main sabse pehle RULES, bible, log aur project files padhta hoon.
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 07:53:47Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\munshi\RULES.md`
+
+```text
+1	# Munshi RULES — Story-Channel
+2	
+3	These are the hard rules. If a builder summary, a script or a file disagrees with them, the rule wins and the step is not PASS. Edit this file to add new rules; Munshi reads it fresh every time.
+4	- A measured value outside a RULES limit is always FIX, never PASS, even if small.
+5	
+6	## 1. Budget
+7	- Prepaid Google Cloud budget: ₹500, auto-reload off. Current balance is whatever `cost_log.csv` says.
+8	- Every paid call (Gemini image ≈ ₹3.24 each at 1K, Gemini TTS per line) must be in `cost_log.csv` with date, project, item, ₹.
+9	- No paid call without the user's OK first. A fix that costs money is always ASK, never FIX.
+10	- Flag it if a step cost more than 30% above its estimate (e.g. LONG_01 TTS: estimate ₹4.85, actual ₹6.63).
+11	
+12	## 2. Story and characters (from `channel_bible.md`)
+13	- Characters must match their approved sheets: face, clothes, colours, age look. Compare each scene image against the sheet with Read.
+14	- Dadi (Kamla Devi) narrates. Every other character speaks their own lines in their own voice.
+15	- Mitthu (parrot) has no hands: no hand gestures, holding things or pointing with hands.
+16	- Dadi's home (in Gulmohar Mohalla): a kacha mud house with a tiled roof, BROWN wooden door, swept aangan, green fields behind, exactly like the channel banner (`channel_assets/_work/banner_art.png`). There is no green door.
+17	- Setting: Dadi's home, the Golu–Mitthu opening/closing frame and all Dadi Jasoos cases are in Gulmohar Mohalla. The story Dadi narrates inside a moral-story video can be set in any village or town the approved script names (e.g. Rampur in LONG_01); check location consistency against that script. Village kitchens still use a mitti ka chulha, never a gas stove.
+18	- The action in each image must match what the line says at that moment (who is holding what, who is talking).
+19	
+20	## 3. Audio
+21	- Final loudness: -14 LUFS integrated (±1), true peak ≤ -1.0 dBFS.
+22	- Music sits under the voice: 12–14 dB below for Shorts, up to ~18–20 dB for narration-heavy long videos. If it is quieter than 20 dB under, flag it.
+23	- Music level is measured one way only: integrated LUFS of the voice-only stem vs the music-only stem over the same speech sections. Builder and Munshi both use this method.
+24	- Mood changes get a crossfade (≥1 s). No sudden music cuts under dialogue.
+25	- No leaked background audio, clicks, or a line cut off mid-word.
+26	
+27	## 4. Captions
+28	- One `.srt` per video, Hindi, UTF-8.
+29	- Each caption must appear while that line is being spoken (±0.3 s), over the right character's shot.
+30	- Lines whose timing was estimated rather than taken from Whisper must be listed in the report.
+31	
+32	## 5. Video
+33	- Long video: 1920×1080, 30 fps, H.264, 16:9. Short: 1080×1920, ≤60 s, 9:16.
+34	- Target length is set in the script. Allowed: ±10%, or inside the user's stated range. Anything beyond that is ASK.
+35	- Preview builds (960×540) are only for review. They are never uploaded.
+36	
+37	## 6. Thumbnail
+38	- 1280×720, JPG or PNG, ≤ 2 MB.
+39	- Hindi text is rendered by libass/FFmpeg (HarfBuzz shaping), never drawn by the AI. Zoom in and check matras and joined letters (ड़, दु, क्ष, etc.).
+40	- Text readable on a phone: letter height ≥ ~12% of frame height, high contrast, max ~4 words.
+41	- Thumbnail text must not repeat the title word for word.
+42	- No spoilers: no ending, no twist, no mystery answer.
+43	- Bottom-right corner (~15% × 12%) has nothing important, because YouTube puts the duration there.
+44	
+45	## 7. Metadata
+46	- Title ≤ 100 characters, no `<` or `>`. Description ≤ 5000 characters.
+47	- Tags total ≤ 500 characters. 3–5 hashtags in the description (the first 3 show above the title; more than 15 and YouTube ignores all of them).
+48	- Every CC BY music track used (e.g. Incompetech / Kevin MacLeod) is credited in the description exactly as its licence asks.
+49	- Mystery (Dadi Jasoos) videos: the answer never goes in the title, description or thumbnail. It goes in the pinned comment 24 h after publishing.
+50	- Made-for-kids and AI-disclosure values come from `munshi/channel_config.json`. Never guess them.
+51	
+52	## 8. Publishing
+53	- Default publish time: 7:00 PM IST.
+54	- At least 2 days between two long videos on the same channel. Shorts can go on other days.
+55	- Nothing goes Public or gets scheduled without the user's OK in that conversation.
+56	- One upload per video. If `output/upload_result.json` exists, do not upload again.
+57	
+58	## 9. Safety
+59	- Never show or commit `.env`, `secrets/`, API keys or OAuth tokens.
+60	- Never delete files; move them to `_to_delete/`.
+61
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 07:53:48Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\munshi\log.md`
+
+```text
+1	# Munshi log
+2	2026-10-18 | long_01 | 7 final build | FIX | spec/loudness/captions ok; Mitthu line 2 on Golu shot, Ghasita shot mid-Sadhu line 15, music only ~9-10 LU under voice (builder's 18.4 dB is a metric artefact); ASK pending: aangan frame not Gulmohar Mohalla/hara darwaza
+3	2026-10-18 | long_01 | 8 thumbnail | PASS | 1280x720 PNG 1.1 MB, Hindi text shaped correctly, no spoiler, BR corner clear; text height ~11% (optional +10% bump)
+4	2026-10-18 | long_01 | 9 metadata | FIX | 7 hashtags (rule 3-5); no tags list yet for upload; title 81 chars, desc 1514, all 6 CC BY tracks credited ok
+5
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 07:53:49Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+List project files
+
+`ls -la /d/Story-Channel/long-videos/long_01 /d/Story-Channel/long-videos/long_01/output /d/Story-Channel/long-videos/long_01/output/review /d/Story-Channel/long-videos/long_01/output/long_01_work | head -100`
+
+```text
+/d/Story-Channel/long-videos/long_01:
+total 73
+drwxr-xr-x 1 ashamim 1049089     0 Oct 18 13:09 .
+drwxr-xr-x 1 ashamim 1049089     0 Oct 17 22:28 ..
+-rw-r--r-- 1 ashamim 1049089  5184 Oct 17 22:33 LONG_01_IDEAS.md
+-rw-r--r-- 1 ashamim 1049089  7676 Oct 17 23:00 LONG_01_SCENES.md
+drwxr-xr-x 1 ashamim 1049089     0 Oct 18 00:12 audio
+drwxr-xr-x 1 ashamim 1049089     0 Oct 17 23:00 characters
+drwxr-xr-x 1 ashamim 1049089     0 Oct 17 23:25 images
+-rw-r--r-- 1 ashamim 1049089  9700 Oct 18 13:09 lines.json
+-rw-r--r-- 1 ashamim 1049089  2560 Oct 18 13:09 meta.json
+drwxr-xr-x 1 ashamim 1049089     0 Oct 18 12:51 output
+-rw-r--r-- 1 ashamim 1049089   196 Oct 17 23:54 project.json
+-rw-r--r-- 1 ashamim 1049089 11250 Oct 17 23:08 scene_prompts.json
+drwxr-xr-x 1 ashamim 1049089     0 Oct 17 22:54 scripts
+-rw-r--r-- 1 ashamim 1049089  1555 Oct 17 23:54 shots.json
+
+/d/Story-Channel/long-videos/long_01/output:
+total 279576
+drwxr-xr-x 1 ashamim 1049089         0 Oct 18 12:51 .
+drwxr-xr-x 1 ashamim 1049089         0 Oct 18 13:09 ..
+-rw-r--r-- 1 ashamim 1049089 156904342 Oct 18 13:22 long_01.mp4
+-rw-r--r-- 1 ashamim 1049089     13872 Oct 18 13:22 long_01.srt
+-rw-r--r-- 1 ashamim 1049089      3092 Oct 18 13:23 long_01.txt
+-rw-r--r-- 1 ashamim 1049089   3447745 Oct 18 13:23 long_01_framecheck.png
+-rw-r--r-- 1 ashamim 1049089 124776058 Oct 18 00:15 long_01_preview.mp4
+-rw-r--r-- 1 ashamim 1049089     14028 Oct 18 00:15 long_01_preview.srt
+-rw-r--r-- 1 ashamim 1049089   1090136 Oct 18 13:09 long_01_thumbnail.png
+drwxr-xr-x 1 ashamim 1049089         0 Oct 18 13:21 long_01_work
+drwxr-xr-x 1 ashamim 1049089         0 Oct 18 13:20 review
+
+/d/Story-Channel/long-videos/long_01/output/long_01_work:
+total 336636
+drwxr-xr-x 1 ashamim 1049089         0 Oct 18 13:21 .
+drwxr-xr-x 1 ashamim 1049089         0 Oct 18 12:51 ..
+-rw-r--r-- 1 ashamim 1049089     74600 Oct 18 13:22 check_00.png
+-rw-r--r-- 1 ashamim 1049089     80230 Oct 18 13:22 check_01.png
+-rw-r--r-- 1 ashamim 1049089     81364 Oct 18 13:22 check_02.png
+-rw-r--r-- 1 ashamim 1049089     82866 Oct 18 13:22 check_03.png
+-rw-r--r-- 1 ashamim 1049089     80135 Oct 18 13:22 check_04.png
+-rw-r--r-- 1 ashamim 1049089     89754 Oct 18 13:22 check_05.png
+-rw-r--r-- 1 ashamim 1049089     86891 Oct 18 13:22 check_06.png
+-rw-r--r-- 1 ashamim 1049089     89073 Oct 18 13:22 check_07.png
+-rw-r--r-- 1 ashamim 1049089     87915 Oct 18 13:22 check_08.png
+-rw-r--r-- 1 ashamim 1049089     88481 Oct 18 13:22 check_09.png
+-rw-r--r-- 1 ashamim 1049089     81938 Oct 18 13:22 check_10.png
+-rw-r--r-- 1 ashamim 1049089     83362 Oct 18 13:22 check_11.png
+-rw-r--r-- 1 ashamim 1049089     83442 Oct 18 13:22 check_12.png
+-rw-r--r-- 1 ashamim 1049089     85607 Oct 18 13:22 check_13.png
+-rw-r--r-- 1 ashamim 1049089     85899 Oct 18 13:22 check_14.png
+-rw-r--r-- 1 ashamim 1049089     81929 Oct 18 13:22 check_15.png
+-rw-r--r-- 1 ashamim 1049089     80202 Oct 18 13:22 check_16.png
+-rw-r--r-- 1 ashamim 1049089     85860 Oct 18 13:22 check_17.png
+-rw-r--r-- 1 ashamim 1049089     84433 Oct 18 13:22 check_18.png
+-rw-r--r-- 1 ashamim 1049089     81610 Oct 18 13:22 check_19.png
+-rw-r--r-- 1 ashamim 1049089     83057 Oct 18 13:23 check_20.png
+-rw-r--r-- 1 ashamim 1049089     66203 Oct 18 13:23 check_21.png
+-rw-r--r-- 1 ashamim 1049089     80237 Oct 18 13:23 check_22.png
+-rw-r--r-- 1 ashamim 1049089     62600 Oct 18 13:23 check_23.png
+-rw-r--r-- 1 ashamim 1049089     62600 Oct 18 13:23 check_24.png
+-rw-r--r-- 1 ashamim 1049089     59411 Oct 18 13:23 check_25.png
+-rw-r--r-- 1 ashamim 1049089     78746 Oct 18 13:23 check_26.png
+-rw-r--r-- 1 ashamim 1049089     79126 Oct 18 13:23 check_27.png
+-rw-r--r-- 1 ashamim 1049089     68647 Oct 18 13:23 check_28.png
+-rw-r--r-- 1 ashamim 1049089     67444 Oct 18 13:23 check_29.png
+-rw-r--r-- 1 ashamim 1049089     68148 Oct 18 13:23 check_30.png
+-rw-r--r-- 1 ashamim 1049089     60223 Oct 18 13:23 check_31.png
+-rw-r--r-- 1 ashamim 1049089     60132 Oct 18 13:23 check_32.png
+-rw-r--r-- 1 ashamim 1049089     72415 Oct 18 13:23 check_33.png
+-rw-r--r-- 1 ashamim 1049089     71988 Oct 18 13:23 check_34.png
+-rw-r--r-- 1 ashamim 1049089     78188 Oct 18 13:23 check_35.png
+-rw-r--r-- 1 ashamim 1049089     76297 Oct 18 13:23 check_36.png
+-rw-r--r-- 1 ashamim 1049089     76459 Oct 18 13:23 check_37.png
+-rw-r--r-- 1 ashamim 1049089     72552 Oct 18 13:23 check_38.png
+-rw-r--r-- 1 ashamim 1049089     72278 Oct 18 13:23 check_39.png
+-rw-r--r-- 1 ashamim 1049089     75179 Oct 18 13:23 check_40.png
+-rw-r--r-- 1 ashamim 1049089     72423 Oct 18 13:23 check_41.png
+-rw-r--r-- 1 ashamim 1049089     72489 Oct 18 13:23 check_42.png
+-rw-r--r-- 1 ashamim 1049089     87395 Oct 18 13:23 check_43.png
+-rw-r--r-- 1 ashamim 1049089     72603 Oct 18 13:23 check_44.png
+-rw-r--r-- 1 ashamim 1049089     75811 Oct 18 13:23 check_45.png
+-rw-r--r-- 1 ashamim 1049089     80935 Oct 18 13:23 check_46.png
+-rw-r--r-- 1 ashamim 1049089     88840 Oct 18 13:23 check_47.png
+-rw-r--r-- 1 ashamim 1049089     81721 Oct 18 13:23 check_48.png
+-rw-r--r-- 1 ashamim 1049089     75555 Oct 18 13:23 check_49.png
+-rw-r--r-- 1 ashamim 1049089     81679 Oct 18 13:23 check_50.png
+-rw-r--r-- 1 ashamim 1049089     81242 Oct 18 13:23 check_51.png
+-rw-r--r-- 1 ashamim 1049089     81665 Oct 18 13:23 check_52.png
+-rw-r--r-- 1 ashamim 1049089     77034 Oct 18 13:23 check_53.png
+drwxr-xr-x 1 ashamim 1049089         0 Oct 17 23:57 fonts
+-rw-r--r-- 1 ashamim 1049089  58786638 Oct 18 13:21 mix.wav
+-rw-r--r-- 1 ashamim 1049089  58786638 Oct 18 13:22 mix_norm.wav
+-rw-r--r-- 1 ashamim 1049089  58786638 Oct 18 13:21 music.wav
+-rw-r--r-- 1 ashamim 1049089      2620 Oct 18 13:20 scenes.txt
+-rw-r--r-- 1 ashamim 1049089 149329404 Oct 18 13:20 video.mp4
+-rw-r--r-- 1 ashamim 1049089  14696684 Oct 18 13:10 voice.wav
+
+/d/Story-Channel/long-videos/long_01/output/review:
+total 126336
+drwxr-xr-x 1 ashamim 1049089        0 Oct 18 13:20 .
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 07:53:53Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Read project data files
+
+`cd /d/Story-Channel/long-videos/long_01; cat lines.json; echo ----; cat meta.json; echo ----; cat shots.json; echo ----; cat project.json; echo ---; cat output/long_01.txt; echo ---; cat output/long_01_work/scenes.txt; ls output/review; ls scripts audio`
+
+```text
+[
+  {"scene": 1, "speaker": "golu", "mood": "comedy", "text": "ये पूरा डिब्बा मेरा है! किसी को नहीं दूँगा!"},
+  {"scene": 1, "speaker": "mitthu", "shot": [0.66, 0.45, 1.5], "text": "मिठाई! मिठाई!"},
+  {"scene": 2, "speaker": "dadi_story", "text": "अच्छा? तो पहले एक कहानी सुनो... एक लालची हलवाई की।"},
+
+  {"scene": 3, "speaker": "dadi_story", "mood": "khushi", "pause_before": 0.6, "text": "बहुत पुरानी बात है। रामपुर गाँव के बाज़ार में घसीटा हलवाई की बड़ी-सी दुकान थी।"},
+  {"scene": 4, "speaker": "dadi_story", "text": "उसकी जलेबियाँ दूर-दूर तक मशहूर थीं... पर उसका दिल बहुत छोटा था।"},
+  {"scene": 5, "speaker": "woman", "text": "भैया, आधा किलो जलेबी देना।"},
+  {"scene": 5, "speaker": "ghasita", "text": "पैसे पहले! और तराज़ू की तरफ़ मत देखना!"},
+  {"scene": 6, "speaker": "dadi_story", "text": "घसीटा तराज़ू में डंडी मारता, और बासी मिठाई भी ताज़ी बताकर बेच देता।"},
+  {"scene": 7, "speaker": "kid", "text": "चाचा, एक जलेबी... बस एक सिक्का कम है।"},
+  {"scene": 7, "speaker": "ghasita", "text": "एक सिक्का भी कम, तो जलेबी नहीं! भागो यहाँ से!"},
+  {"scene": 8, "speaker": "dadi_story", "text": "उसी दुकान में छोटू काम करता था। ग़रीब था, पर दिल का सोना।"},
+  {"scene": 9, "speaker": "dadi_story", "text": "छोटू ने चुपके से अपनी जेब का सिक्का निकाला और बच्चे को जलेबी दे दी।"},
+  {"scene": 9, "speaker": "kid", "text": "धन्यवाद, छोटू भैया!"},
+
+  {"scene": 10, "speaker": "dadi_story", "mood": "dukh", "text": "एक दोपहर, कड़ी धूप में एक बूढ़े साधु बाबा दुकान पर आए।"},
+  {"scene": 11, "speaker": "sadhu", "shot": [0.25, 0.4, 1.8], "text": "बेटा, दो दिन से भूखा हूँ... थोड़ा खाना मिलेगा?"},
+  {"scene": 11, "speaker": "ghasita", "shot": [0.62, 0.38, 1.8], "text": "मुफ़्त में? ये धर्मशाला नहीं है! आगे बढ़ो!"},
+  {"scene": 12, "speaker": "dadi_story", "text": "साधु बाबा चुपचाप नीम के पेड़ के नीचे जाकर बैठ गए।"},
+  {"scene": 13, "speaker": "dadi_story", "text": "छोटू से रहा नहीं गया। उसने अपने हिस्से की दो रोटियाँ उठाईं..."},
+  {"scene": 13, "speaker": "chhotu", "text": "बाबा, मेरे पास बस यही है। आप खा लीजिए।"},
+  {"scene": 14, "pause": 3.0},
+
+  {"scene": 15, "speaker": "dadi_story", "mood": "jaadu", "text": "रोटी खाकर साधु बाबा मुस्कुराए, और झोली से एक छोटी-सी पीतल की कड़ाही निकाली।", "sfx_after": "magic"},
+  {"scene": 16, "speaker": "sadhu", "text": "ये जादुई कड़ाही है, बेटा। इसमें जो डालोगे, दुगना हो जाएगा।"},
+  {"scene": 16, "speaker": "sadhu", "text": "पर याद रखना — ये सिर्फ़ भूखों के लिए है। लालच के लिए नहीं।"},
+  {"scene": 17, "speaker": "dadi_story", "text": "उस शाम छोटू ने कड़ाही में एक मुट्ठी आटा डाला... और आटा दो मुट्ठी हो गया!", "sfx_after": "magic"},
+  {"scene": 17, "speaker": "chhotu", "text": "अरे वाह! ये तो सच में जादू है!"},
+
+  {"scene": 18, "speaker": "dadi_story", "mood": "khushi", "text": "अब छोटू रोज़ रोटियाँ बनाता, और गाँव के भूखे बच्चों को खिलाता।"},
+  {"scene": 19, "speaker": "dadi_story", "text": "आटा दुगना होता जाता... और बच्चों की मुस्कानें भी।"},
+  {"scene": 19, "speaker": "kids", "chorus": true, "text": "छोटू भैया ज़िंदाबाद!"},
+
+  {"scene": 20, "speaker": "dadi_story", "mood": "tension", "text": "पर ये बात घसीटा की नज़रों से छुपी नहीं रही।"},
+  {"scene": 20, "speaker": "ghasita", "text": "आटा? हुँह! उस कड़ाही में तो सोना होना चाहिए... मेरा सोना!"},
+  {"scene": 21, "speaker": "dadi_story", "text": "उसी रात, जब छोटू सो रहा था, घसीटा दबे पाँव आया और कड़ाही चुरा ले गया।"},
+  {"scene": 22, "speaker": "dadi_story", "text": "दुकान में दीया जलाकर उसने कड़ाही में एक सोने का सिक्का डाला..."},
+  {"scene": 22, "speaker": "ghasita", "text": "चल, दुगना कर!"},
+  {"scene": 23, "speaker": "dadi_story", "text": "पर सिक्का दुगना नहीं हुआ... वो मिट्टी बन गया!", "sfx_after": "tension"},
+  {"scene": 24, "speaker": "ghasita", "text": "क्या? शायद कम डाला... ये लो, दस और!"},
+  {"scene": 24, "speaker": "dadi_story", "text": "दस सिक्के डाले — दसों मिट्टी! पर घसीटा का लालच और भड़क गया।"},
+  {"scene": 25, "speaker": "dadi_story", "text": "उसने पूरी तिजोरी उलट दी, फिर मिठाई के थाल, फिर चाँदी के बर्तन..."},
+  {"scene": 25, "speaker": "ghasita", "text": "अब तो दुगना होगा! होना ही होगा!"},
+  {"scene": 26, "speaker": "dadi_story", "text": "पर कड़ाही में जो भी गया, सब मिट्टी बनता गया। सुबह तक दुकान में मिट्टी के ढेर के सिवा कुछ नहीं बचा।"},
+
+  {"scene": 27, "pause": 1.0, "mood": "seekh", "sfx": "magic"},
+  {"scene": 27, "speaker": "sadhu", "text": "लालच से भरे हाथ में जादू नहीं टिकता।", "af": "aecho=0.8:0.6:120|240:0.35|0.2"},
+  {"scene": 28, "speaker": "ghasita", "text": "मेरा सब कुछ... सब कुछ चला गया!"},
+  {"scene": 28, "pause": 2.0},
+
+  {"scene": 29, "speaker": "dadi_story", "mood": "khushi", "text": "उधर, गाँव वाले भूले नहीं थे कि छोटू ने कैसे उनके बच्चों को खिलाया था।"},
+  {"scene": 30, "speaker": "dadi_story", "text": "सबने मिलकर उसके लिए बाज़ार में एक छोटी-सी जलेबी की दुकान खुलवा दी।"},
+  {"scene": 31, "speaker": "villager", "text": "छोटू की जलेबी! इसमें ईमानदारी का स्वाद है!"},
+  {"scene": 32, "speaker": "dadi_story", "text": "छोटू सही तौलता, ताज़ा बनाता, और हर शाम एक थाल भूखों के लिए अलग रखता।"},
+  {"scene": 33, "speaker": "dadi_story", "text": "देखते ही देखते उसकी छोटी-सी दुकान पूरे गाँव की सबसे प्यारी दुकान बन गई।"},
+  {"scene": 34, "speaker": "dadi_story", "mood": "seekh", "text": "और घसीटा? लालच ने उससे सब कुछ छीन लिया था।"},
+  {"scene": 35, "speaker": "chhotu", "mood": "khushi", "text": "घसीटा चाचा, आइए... एक जलेबी आपके लिए भी।"},
+
+  {"scene": 36, "speaker": "golu", "pause_before": 0.6, "text": "दादी... अगर मैं सब अकेले खाऊँगा, तो मैं भी घसीटा बन जाऊँगा!"},
+  {"scene": 36, "speaker": "golu", "text": "ये लो, एक लड्डू आपका... और एक मिठ्ठू का!"},
+  {"scene": 37, "speaker": "mitthu", "text": "लालच! लालच! ना-ना-ना!", "sfx_after": "comedy"},
+  {"scene": 38, "speaker": "dadi_story", "pause_before": 0.4, "text": "शाबाश बेटा! याद रखना — लालच का अंत हमेशा बुरा होता है, और बाँटने से ख़ुशी दुगनी होती है।"}
+]
+----
+{
+  "title": "लालची हलवाई और जादुई कड़ाही | दादी की कहानियाँ | Hindi Moral Story | Hindi Kahani",
+  "description": "रामपुर गाँव का घसीटा हलवाई बहुत लालची था — तराज़ू में डंडी मारता और भूखे को भी भगा देता। पर उसका नौकर छोटू दिल का सोना था। एक दिन एक भूखे साधु बाबा ने छोटू को दी एक जादुई कड़ाही... जो डालो, दुगना! पर जब घसीटा ने लालच में उसे चुराया, तो क्या हुआ? 🍯✨\n\nसीख: लालच का अंत हमेशा बुरा होता है — और बाँटने से ख़ुशी दुगनी होती है।\n\nदादी की कहानियाँ — दादी हर हफ़्ते सुनाती हैं एक नई कहानी, जो हँसाए भी और सिखाए भी।",
+  "hashtags": ["#दादीकीकहानियाँ", "#HindiKahani", "#MoralStory", "#DadiKiKahaniyan", "#HindiStory"],
+  "tags": ["दादी की कहानियाँ", "Dadi Ki Kahaniyan", "लालची हलवाई", "Lalchi Halwai", "जादुई कड़ाही", "Jadui Kadhai",
+           "हिंदी कहानी", "Hindi Kahani", "नैतिक कहानी", "Hindi Moral Story", "Moral Stories in Hindi",
+           "बच्चों की कहानी", "Kids Story Hindi", "Hindi Cartoon Story", "दादी माँ की कहानी", "Dadi Maa Ki Kahani",
+           "Bedtime Story Hindi", "लालच का फल", "Greed Moral Story", "Magic Story Hindi", "जादुई कहानी"],
+  "music_moods": {
+    "comedy": "comedy/Fluffing_a_Duck.mp3",
+    "khushi": "khushi/Carefree.mp3",
+    "dukh": "dukh/Heartbreaking.mp3",
+    "jaadu": "jaadu/Enchanted_Valley.mp3",
+    "tension": "tension/Hidden_Agenda.mp3",
+    "seekh": "seekh/Touching_Moments_Two_Higher.mp3"
+  },
+  "sfx": {"comedy": "comedy_sting_731261.mp3", "tension": "tension_sting_578356.mp3", "magic": "magic_376747.mp3"},
+  "pinned_comment": "आपको कहानी की कौन-सी सीख सबसे अच्छी लगी? कमेंट में बताइए! 🙏"
+}
+----
+{
+  "_help": "Per scene close-ups [x, y, zoom] (x,y = 0-1 of the image). A dict {\"wide\": false, \"closes\": [...]} skips the wide shot (used when two scenes share one image).",
+  "1":  [[0.30, 0.55, 1.6]],
+  "2":  [[0.55, 0.55, 1.6]],
+  "3":  [[0.52, 0.40, 1.5]],
+  "4":  {"wide": false, "closes": [[0.80, 0.72, 1.9], [0.55, 0.30, 1.8]]},
+  "5":  [[0.25, 0.40, 1.6]],
+  "6":  {"wide": false, "closes": [[0.50, 0.33, 2.2], [0.82, 0.90, 1.9]]},
+  "7":  [[0.35, 0.55, 1.6]],
+  "8":  [[0.62, 0.40, 1.6]],
+  "9":  [[0.22, 0.55, 1.6]],
+  "10": [[0.25, 0.45, 1.7]],
+  "11": {"wide": false, "closes": [[0.25, 0.40, 1.8], [0.62, 0.38, 1.8]]},
+  "12": [[0.30, 0.55, 1.6]],
+  "13": [[0.45, 0.55, 1.5]],
+  "14": [[0.30, 0.50, 1.8]],
+  "15": [[0.42, 0.60, 1.6]],
+  "16": [[0.30, 0.65, 1.5]],
+  "17": [[0.52, 0.45, 1.6]],
+  "18": [[0.40, 0.45, 1.6]],
+  "19": [[0.25, 0.55, 1.5]],
+  "20": [[0.55, 0.40, 1.7]],
+  "21": [[0.78, 0.45, 1.6]],
+  "22": [[0.50, 0.30, 1.7]],
+  "23": {"wide": false, "closes": [[0.38, 0.75, 2.2]]},
+  "24": [[0.48, 0.55, 1.6]],
+  "25": [[0.55, 0.45, 1.5]],
+  "26": [[0.48, 0.40, 1.6]],
+  "27": [[0.30, 0.35, 1.7]],
+  "28": {"wide": false, "closes": [[0.48, 0.38, 1.9]]},
+  "29": [[0.55, 0.50, 1.5]],
+  "30": [[0.15, 0.45, 1.7]],
+  "31": {"wide": false, "closes": [[0.18, 0.55, 1.8]]},
+  "32": [[0.58, 0.40, 1.6]],
+  "33": {"wide": false, "closes": [[0.62, 0.45, 1.4]]},
+  "34": [[0.55, 0.40, 1.6]],
+  "35": [[0.50, 0.40, 1.5]],
+  "36": [[0.70, 0.50, 1.6]],
+  "37": {"wide": false, "closes": [[0.88, 0.55, 2.0]]},
+  "38": [[0.55, 0.45, 1.3]]
+}
+----
+{
+  "kind": "long",
+  "name": "long_01",
+  "burn_captions": false,
+  "_note": "Long videos: 16:9, no burned captions (an .srt is written for upload), music changes by mood (lines.json 'mood')."
+}
+---
+TITLE:
+लालची हलवाई और जादुई कड़ाही | दादी की कहानियाँ | Hindi Moral Story | Hindi Kahani
+
+DESCRIPTION:
+रामपुर गाँव का घसीटा हलवाई बहुत लालची था — तराज़ू में डंडी मारता और भूखे को भी भगा देता। पर उसका नौकर छोटू दिल का सोना था। एक दिन एक भूखे साधु बाबा ने छोटू को दी एक जादुई कड़ाही... जो डालो, दुगना! पर जब घसीटा ने लालच में उसे चुराया, तो क्या हुआ? 🍯✨
+
+सीख: लालच का अंत हमेशा बुरा होता है — और बाँटने से ख़ुशी दुगनी होती है।
+
+दादी की कहानियाँ — दादी हर हफ़्ते सुनाती हैं एक नई कहानी, जो हँसाए भी और सिखाए भी।
+
+Music: "Fluffing a Duck" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
+Music: "Carefree" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
+Music: "Heartbreaking" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
+Music: "Enchanted Valley" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
+Music: "Hidden Agenda" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
+Music: "Touching Moments Two - Higher" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
+Sound effects: freesound.org (CC0)
+
+#दादीकीकहानियाँ #HindiKahani #MoralStory #DadiKiKahaniyan #HindiStory
+
+TAGS:
+दादी की कहानियाँ, Dadi Ki Kahaniyan, लालची हलवाई, Lalchi Halwai, जादुई कड़ाही, Jadui Kadhai, हिंदी कहानी, Hindi Kahani, नैतिक कहानी, Hindi Moral Story, Moral Stories in Hindi, बच्चों की कहानी, Kids Story Hindi, Hindi Cartoon Story, दादी माँ की कहानी, Dadi Maa Ki Kahani, Bedtime Story Hindi, लालच का फल, Greed Moral Story, Magic Story Hindi, जादुई कहानी
+
+PINNED COMMENT (post later):
+आपको कहानी की कौन-सी सीख सबसे अच्छी लगी? कमेंट में बताइए! 🙏
+---
+file 'D:/Story-Channel/cache/long_01/scene_01_ecd6a8ce99928a45.mp4'
+file 'D:/Story-Channel/cache/long_01/scene_02_e64e5de90efe78f3.mp4'
+file 'D:/Story-Channel/cache/long_01/scene_03_487cde2dd9318fa0.mp4'
+file 'D:/Story-Channel/cache/long_01/scene_04_90470ec48f144b2c.mp4'
+file 'D:/Story-Channel/cache/long_01/scene_05_60005a52b3af2dbc.mp4'
+file 'D:/Story-Channel/cache/long_01/scene_06_4895cb0a707d23c6.mp4'
+file 'D:/Story-Channel/cache/long_01/scene_07_f885aeac015f015e.mp4'
+file 'D:/Story-Channel/cache/long_01/scene_08_a3b7337430780eec.mp4'
+file 'D:/Story-Channel/cache/long_01/scene_09_fd4366a4881ac74e.mp4'
+file 'D:/Story-Channel/cache/long_01/scene_10_a6f094e6d34233f0.mp4'
+file 'D:/Story-Channel/cache/long_01/scene_11_d9616206c56a4890.mp4'
+file 'D:/Story-Channel/cache/long_01/scene_12_90123a0028619df7.mp4'
+file 'D:/Story-Channel/cache/long_01/scene_13_8d6bc33a1296c38c.mp4'
+file 'D:/Story-Channel/cache/long_01/scene_14_e93e83322be6aa04.mp4'
+file 'D:/Story-Channel/cache/long_01/scene_15_fec3d920f3902b32.mp4'
+file 'D:/Story-Channel/cache/long_01/scene_16_35b7f2625e0ce6aa.mp4'
+file 'D:/Story-Channel/cache/long_01/scene_17_f831857fc268a3fa.mp4'
+file 'D:/Story-Channel/cache/long_01/scene_18_6577a99a52d87fe6.mp4'
+file 'D:/Story-Channel/cache/long_01/scene_19_a0b7e40f8ecd4aa3.mp4'
+file 'D:/Story-Channel/cache/long_01/scene_20_5f6d89e32734eaf9.mp4'
+file 'D:/Story-Channel/cache/long_01/scene_21_764fe949ae8ea354.mp4'
+file 'D:/Story-Channel/cache/long_01/scene_22_b4a9d9bc4b82f732.mp4'
+file 'D:/Story-Channel/cache/long_01/scene_23_7b74ccafa6fe75e2.mp4'
+file 'D:/Story-Channel/cache/long_01/scene_24_d5389684bd5d43fa.mp4'
+file 'D:/Story-Channel/cache/long_01/scene_25_3bde0fcb4f225a25.mp4'
+file 'D:/Story-Channel/cache/long_01/scene_26_a92a45f521f6e271.mp4'
+file 'D:/Story-Channel/cache/long_01/scene_27_bbe77c02570bed52.mp4'
+file 'D:/Story-Channel/cache/long_01/scene_28_448be3c64c247fe2.mp4'
+file 'D:/Story-Channel/cache/long_01/scene_29_abcbc96de8930392.mp4'
+file 'D:/Story-Channel/cache/long_01/scene_30_f38e488fdbd228ae.mp4'
+file 'D:/Story-Channel/cache/long_01/scene_31_3b98e5a82996c603.mp4'
+file 'D:/Story-Channel/cache/long_01/scene_32_4936fd77b40ddeab.mp4'
+file 'D:/Story-Channel/cache/long_01/scene_33_29c075d8ee207921.mp4'
+file 'D:/Story-Channel/cache/long_01/scene_34_4ee24c57ac8fafbc.mp4'
+file 'D:/Story-Channel/cache/long_01/scene_35_5cce0fc7077b263f.mp4'
+file 'D:/Story-Channel/cache/long_01/scene_36_218d6f4546d7845f.mp4'
+file 'D:/Story-Channel/cache/long_01/scene_37_5e469e30735f7239.mp4'
+file 'D:/Story-Channel/cache/long_01/scene_38_bcad7e71024b5d9f.mp4'case01_sheet.png
+f_113.3.png
+f_115.png
+f_117.png
+f_119.png
+f_121.png
+f_3.4.png
+f_4.3.png
+f_5.1.png
+f_74.3.png
+f_75.5.png
+f_76.8.png
+f_78.0.png
+f_79.5.png
+frame_scenes.png
+music_only_est.wav
+music_resid.wav
+speaker_check.png
+thumb_br_corner.png
+thumb_text_zoom.png
+voice_in_mix.wav
+audio:
+line_01_golu.wav
+line_02_mitthu.wav
+line_03_dadi_story.wav
+line_04_dadi_story.wav
+line_05_dadi_story.wav
+line_06_woman.wav
+line_07_ghasita.wav
+line_08_dadi_story.wav
+line_09_kid.wav
+line_10_ghasita.wav
+line_11_dadi_story.wav
+line_12_dadi_story.wav
+line_13_kid.wav
+line_14_dadi_story.wav
+line_15_sadhu.wav
+line_16_ghasita.wav
+line_17_dadi_story.wav
+line_18_dadi_story.wav
+line_19_chhotu.wav
+line_21_dadi_story.wav
+line_22_sadhu.wav
+line_23_sadhu.wav
+line_24_dadi_story.wav
+line_25_chhotu.wav
+line_26_dadi_story.wav
+line_27_dadi_story.wav
+line_28_kids.wav
+line_29_dadi_story.wav
+line_30_ghasita.wav
+line_31_dadi_story.wav
+line_32_dadi_story.wav
+line_33_ghasita.wav
+line_34_dadi_story.wav
+line_35_ghasita.wav
+line_36_dadi_story.wav
+line_37_dadi_story.wav
+line_38_ghasita.wav
+line_39_dadi_story.wav
+line_41_sadhu.wav
+line_42_ghasita.wav
+line_44_dadi_story.wav
+line_45_dadi_story.wav
+line_46_villager.wav
+line_47_dadi_story.wav
+line_48_dadi_story.wav
+line_49_dadi_story.wav
+line_50_chhotu.wav
+line_51_golu.wav
+line_52_golu.wav
+line_53_mitthu.wav
+line_54_dadi_story.wav
+tts_cache
+
+scripts:
+script.md
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 07:53:59Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Bible section 5 and make_short key functions
+
+`cd /d/Story-Channel; grep -n "^## " channel_bible.md; awk '/^## 5/,/^## 6/' channel_bible.md | head -40; grep -n "shot_times\|MUSIC_BELOW\|def \|0.45\|offset\|yuv420p\|bt709\|loudnorm\|music.wav\|voice.wav" scripts/make_short.py | head -120`
+
+```text
+10:## 1. Channel
+19:## 2. Permanent Characters (look KABHI nahi badlega)
+41:## 3. Recurring Side Characters (kabhi-kabhi aayenge, look fixed)
+58:## 4. New Characters
+66:## 5. Setting — "Gulmohar Mohalla"
+74:## 6. Case Topics
+85:## 7. Script Rules
+96:## 8. Image Rules
+## 5. Setting — "Gulmohar Mohalla"
+
+- Chhoti galiyan, gulmohar ka ped, chhat, chai stall, park, mandir.
+- **Dadi ka ghar** (mohalle ke kinare): kacha mitti ka ghar, khaprail ki chhat, **bhoora lakdi ka darwaza**, saaf-supa aangan, peeche hare khet. Look reference: `channel_assets/_work/banner_art.png` (channel banner wala aangan). Golu–Mitthu ka opening/closing frame isi aangan me hota hai.
+- Kabhi-kabhi special cases: shaadi, mela, train.
+
+---
+
+## 6. Case Topics
+49:RENDER_VERSION = 2  # bump when scene rendering code changes, to invalidate the clip cache (2: tv-range bt709)
+60:MUSIC_BELOW_VOICE_DB = {"short": 9, "long": 13}
+62:MIN_CAPTION = 0.45  # a caption shorter than this only flashes; it is merged into its neighbour in the same line
+75:def run(args, cwd=None):
+82:def sha(*parts) -> str:
+90:def tts_key(text, speaker):
+95:def check_tts_spend(lines, cache: Path, allow: bool):
+108:def tts_line(text, speaker, cache: Path, out: Path, extra_af=None, chorus=False) -> bytes:
+109:    """Cached Gemini TTS + optional pitch shift / extra filter (e.g. echo) / chorus (3 detuned, offset copies
+129:def trim(data: bytes) -> bytes:
+143:def _clean_len(s):
+147:def word_times(data: bytes, text: str, cache: Path, run_whisper: bool):
+194:def build_voice(lines, audio_dir: Path, work: Path, run_whisper: bool):
+235:    voice = work / "voice.wav"
+242:def ass_time(s):
+247:def caption_chunks(line):
+287:def ass_doc(font_family, events):
+306:def shot_times(timed, total):
+339:def plan_scenes(P, timed, total, prof, font_family, final_title):
+343:    shots_all = shot_times(timed, total)
+383:def render_scene(p, prof, clip: Path, work: Path):
+395:              + f"{subs},scale=out_color_matrix=bt709:out_range=tv,format=yuv420p,setsar=1[out]")
+398:         "-c:v", "libx264", *prof["enc"], "-pix_fmt", "yuv420p", "-color_range", "tv", "-colorspace", "bt709",
+399:         "-color_primaries", "bt709", "-color_trc", "bt709", "-r", fps,
+404:def build_video(plans, prof, cache_dir: Path, work: Path):
+419:def pick_music(meta):
+428:def integrated_lufs(path, seconds=None):
+430:             "-af", "loudnorm=print_format=json", "-f", "null", "-"])
+434:def music_segments(events, meta, total):
+451:def track_levels(f: Path):
+462:def music_offset(f: Path, a, b, windows):
+480:def build_audio(voice, total, events, meta, work: Path, two_pass: bool, below_db: float):
+482:    music muted in any music_silent window. Also writes music.wav (music stem) for the level check."""
+497:        off = music_offset(f, a, b, events.get("pauses", []))
+521:         "-map", "[mstem]", "-t", f"{total:.3f}", work / "music.wav"])
+522:    ln = f"loudnorm=I={TARGET_LUFS}:TP=-1.5:LRA=11"
+527:               f":measured_thresh={m['input_thresh']}:offset={m['target_offset']}:linear=true")
+534:def loudness_report(out: Path, work: Path, timed):
+536:    stem, both cut to the same speech sections (both stems are pre-loudnorm; loudnorm gain hits both equally)."""
+542:    def speech_lufs(f):
+547:    below = speech_lufs(work / "voice.wav") - speech_lufs(work / "music.wav")
+551:def frame_check(out: Path, timed, path: Path, work: Path):
+571:def srt_time(s):
+576:def write_srt(timed, path: Path):
+583:def music_credits(meta, events, total):
+596:def load_project(name):
+616:def main():
+668:                       below_db=MUSIC_BELOW_VOICE_DB[P["kind"]])
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 07:54:04Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\scripts\make_short.py`
+
+```text
+194	def build_voice(lines, audio_dir: Path, work: Path, run_whisper: bool):
+195	    pcm, t = bytearray(), 0.0
+196	    silence = lambda sec: b"\x00\x00" * int(round(sec * SR))
+197	    timed, events = [], {"sfx": [], "music_silent": [], "moods": []}
+198	    cache = audio_dir / "tts_cache"
+199	    for i, line in enumerate(lines):
+200	        if "pause" in line:  # music-only beat with its own picture
+201	            gap = GAP if i else 0.0
+202	            pcm += silence(gap + line["pause"])
+203	            start, t = t + gap, t + gap + line["pause"]
+204	            if line.get("mood"):
+205	                events["moods"].append((start, line["mood"]))
+206	            if line.get("sfx"):
+207	                events["sfx"].append((start + 0.05, line["sfx"]))
+208	            timed.append({**line, "speaker": "_pause", "text": "", "start": start, "end": t,
+209	                          "audio_hash": f"pause{line['pause']}", "words": []})
+210	            events.setdefault("pauses", []).append((start - PAUSE_LEAD, t))
+211	            print(f"  line {i + 1:2d} [{'pause':8s}] {start:6.2f}-{t:6.2f}s  music only")
+212	            continue
+213	        data = trim(tts_line(line["text"], line["speaker"], cache,
+214	                             audio_dir / f"line_{i + 1:02d}_{line['speaker']}.wav",
+215	                             extra_af=line.get("af"), chorus=line.get("chorus", False)))
+216	        words, note = word_times(data, line["text"], cache, run_whisper)
+217	        if i:
+218	            gap = GAP + line.get("pause_before", 0)
+219	            if line.get("music_silent_before"):
+220	                events["music_silent"].append((t + GAP / 2, t + gap))
+221	            pcm += silence(gap)
+222	            t += gap
+223	        start = t
+224	        if line.get("mood"):
+225	            events["moods"].append((start - (line.get("pause_before", 0) + GAP if i else 0), line["mood"]))
+226	        pcm += data
+227	        t += len(data) / 2 / SR
+228	        timed.append({**line, "start": start, "end": t, "audio_hash": sha(data),
+229	                      "words": [(start + a, start + b, w) for a, b, w in words]})
+230	        if line.get("sfx_after"):
+231	            events["sfx"].append((t + 0.05, line["sfx_after"]))
+232	        print(f"  line {i + 1:2d} [{line['speaker']:8s}] {start:6.2f}-{t:6.2f}s  {note}")
+233	    pcm += silence(END_HOLD)
+234	    total = len(pcm) / 2 / SR
+235	    voice = work / "voice.wav"
+236	    with wave.open(str(voice), "wb") as w:
+237	        w.setnchannels(1), w.setsampwidth(2), w.setframerate(SR), w.writeframes(bytes(pcm))
+238	    return voice, total, timed, events
+239	
+240	
+241	# ---------- 2. captions ----------
+242	def ass_time(s):
+243	    cs = max(0, int(round(s * 100)))
+244	    return f"{cs // 360000}:{cs // 6000 % 60:02d}:{cs // 100 % 60:02d}.{cs % 100:02d}"
+245	
+246	
+247	def caption_chunks(line):
+248	    """[(start, end, text)] in global seconds, 2-3 words each, never past the line's audio.
+249	    An optional "caption" in lines.json changes only the on-screen text (no new TTS); its words are timed
+250	    through character position on the spoken words' timeline."""
+251	    words = line["words"]
+252	    tokens = line.get("caption", line["text"]).split()
+253	    if "caption" in line and len(tokens) != len(words):
+254	        lens = [_clean_len(w) + 1 for _, _, w in words]
+255	        xs = np.concatenate([[0], np.cumsum(lens)]) / sum(lens)
+256	        ts = [words[0][0]] + [e for _, e, _ in words]
+257	        clens = [_clean_len(t) + 1 for t in tokens]
+258	        cx = np.concatenate([[0], np.cumsum(clens)]) / sum(clens)
+259	        words = [(float(np.interp(cx[k], xs, ts)), float(np.interp(cx[k + 1], xs, ts)), tok)
+260	                 for k, tok in enumerate(tokens)]
+261	    chunks, cur, punct = [], [], r"[।!?,.…]$"
+262	    for j, (tok, (s, e, _)) in enumerate(zip(tokens, words)):
+263	        cur.append((tok, s, e))
+264	        nxt = tokens[j + 1] if j + 1 < len(tokens) else None
+265	        lone_next = nxt is not None and re.search(punct, nxt) and len(cur) < 4  # don't orphan "है!"
+266	        if (len(cur) >= 3 and not lone_next) or re.search(punct, tok):
+267	            chunks.append(cur)
+268	            cur = []
+269	    if cur:
+270	        chunks.append(cur)
+271	    dur = lambda k: (chunks[k + 1][0][1] if k + 1 < len(chunks) else line["end"]) - chunks[k][0][1]
+272	    k = 0
+273	    while len(chunks) > 1 and k < len(chunks):
+274	        if dur(k) < MIN_CAPTION:  # merge into the previous chunk (or the next one, for the first)
+275	            j = k - 1 if k else 0
+276	            chunks[j:j + 2] = [chunks[j] + chunks[j + 1]]
+277	            k = 0
+278	        else:
+279	            k += 1
+280	    out = []
+281	    for k, ch in enumerate(chunks):
+282	        end = chunks[k + 1][0][1] if k + 1 < len(chunks) else line["end"]
+283	        out.append((ch[0][1], end, " ".join(tok for tok, _, _ in ch)))
+284	    return out
+285	
+286	
+287	def ass_doc(font_family, events):
+288	    return f"""[Script Info]
+289	ScriptType: v4.00+
+290	PlayResX: {PLAY_W}
+291	PlayResY: {PLAY_H}
+292	WrapStyle: 0
+293	ScaledBorderAndShadow: yes
+294	
+295	[V4+ Styles]
+296	Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+297	Style: Cap,{font_family},116,&H00FFFFFF,&H000000FF,&H00000000,&H78000000,0,0,0,0,100,100,0,0,1,9,4,2,60,60,480,1
+298	Style: Title,{font_family},128,&H0000E5FF,&H000000FF,&H00000000,&H78000000,0,0,0,0,100,100,0,0,1,9,4,8,60,60,170,1
+299	
+300	[Events]
+301	Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+302	""" + "\n".join(events) + "\n"
+303	
+304	
+305	# ---------- 3. video: one cached clip per scene ----------
+306	def shot_times(timed, total):
+307	    """Per scene: cut points (seconds). A scene starts CUT_LEAD before its first line's voice; inside a scene
+308	    every new speaker's line also starts a shot CUT_LEAD early; long stretches are split every ~SHOT_LEN.
+309	    A line with "shot" in lines.json ("wide" or [x, y, zoom]) gets that one shot for its whole stretch.
+310	    Returns (scene, cut points, per-shot override or None)."""
+311	    scenes = []
+312	    for i, line in enumerate(timed):
+313	        t = 0.0 if i == 0 else line["start"] - CUT_LEAD
+314	        if not scenes or scenes[-1][0] != line["scene"]:
+315	            scenes.append([line["scene"], [t], [i]])
+316	        elif line["speaker"] != timed[i - 1]["speaker"]:
+317	            scenes[-1][1].append(t)
+318	            scenes[-1][2].append(i)
+319	    out = []
+320	    for k, (sc, cuts, owners) in enumerate(scenes):
+321	        end = scenes[k + 1][1][0] if k + 1 < len(scenes) else total
+322	        pts = cuts + [end]
+323	        fine, tags = [pts[0]], []
+324	        for a, b, own in zip(pts, pts[1:], owners):
+325	            if timed[own].get("shot"):
+326	                fine.append(b)
+327	                tags.append(timed[own]["shot"])
+328	                continue
+329	            n = max(1, min(round((b - a) / SHOT_LEN), int((b - a) / MIN_SHOT)))
+330	            fine += [a + (b - a) * j / n for j in range(1, n + 1)]
+331	            tags += [None] * n
+332	        if len(fine) == 2 and tags[0] is None and fine[1] - fine[0] >= 2 * MIN_SHOT:  # at least wide + close
+333	            fine.insert(1, (fine[0] + fine[1]) / 2)
+334	            tags.append(None)
+335	        out.append((sc, fine, tags))
+336	    return out
+337	
+338	
+339	def plan_scenes(P, timed, total, prof, font_family, final_title):
+340	    """Everything needed to render each scene clip, plus its cache hash."""
+341	    focus = P["focus"]
+342	    fps, plans = prof["fps"], []
+343	    shots_all = shot_times(timed, total)
+344	    for idx, (sc, cuts, tags) in enumerate(shots_all):
+345	        fcuts = [round(c * fps) for c in cuts]  # one global frame grid -> no drift between clips
+346	        t0 = fcuts[0] / fps
+347	        spec = focus.get(str(sc), [])
+348	        closes, wide = (spec["closes"], spec.get("wide", True)) if isinstance(spec, dict) else (spec, True)
+349	        # 1 shot: close-up matters more; "wide": false (scene sharing an image with another) -> close-ups only
+350	        cycle = closes if (closes and (len(cuts) == 2 or not wide)) else ["wide"] + closes
+351	        shots, desc = [], []
+352	        for k in range(len(cuts) - 1):
+353	            n = fcuts[k + 1] - fcuts[k]
+354	            shot = tags[k] or cycle[k % len(cycle)]
+355	            if shot == "wide":
+356	                move = MOVE_CYCLE[(idx + k) % len(MOVE_CYCLE)]
+357	                z, x, y = (e.format(n=n) for e in MOVES[move])
+358	                desc.append(move)
+359	            else:
+360	                fx, fy, zc = shot
+361	                z = f"{zc}+{zc * 0.06:.3f}*on/{n}"  # slow push-in on the close-up
+362	                x = f"max(0,min(iw-iw/zoom,{fx}*iw-iw/zoom/2))"
+363	                y = f"max(0,min(ih-ih/zoom,{fy}*ih-ih/zoom/2))"
+364	                desc.append(f"close{zc}")
+365	            shots.append((n, z, x, y))
+366	        lines = [l for l in timed if l["scene"] == sc]
+367	        ass = None
+368	        if P["burn"]:
+369	            ev = [f"Dialogue: 0,{ass_time(s - t0)},{ass_time(e - t0)},Cap,,0,0,0,,{txt}"
+370	                  for l in lines if l["words"] for s, e, txt in caption_chunks(l)]
+371	            if idx == len(shots_all) - 1 and final_title:
+372	                ev.append(f"Dialogue: 1,{ass_time(0)},{ass_time(fcuts[-1] / fps - t0)},Title,,0,0,0,,"
+373	                          f"{{\\fad(300,0)}}{final_title}")
+374	            ass = ass_doc(font_family, ev)
+375	        img = P["image_for"](sc)
+376	        key = sha(RENDER_VERSION, json.dumps(prof, sort_keys=True), sha(img.read_bytes()),
+377	                  [l["audio_hash"] for l in lines], json.dumps(shots), ass)
+378	        plans.append({"scene": sc, "t0": t0, "t1": fcuts[-1] / fps, "frames": fcuts[-1] - fcuts[0],
+379	                      "shots": shots, "ass": ass, "img": img, "key": key, "desc": desc})
+380	    return plans
+381	
+382	
+383	def render_scene(p, prof, clip: Path, work: Path):
+384	    w, h, fps = prof["w"], prof["h"], prof["fps"]
+385	    ass_name = f"scene_{p['scene']:02d}_{p['key']}.ass"
+386	    if p["ass"]:
+387	        (work / ass_name).write_text(p["ass"], encoding="utf-8")
+388	    subs = f",subtitles=filename={ass_name}:fontsdir=fonts" if p["ass"] else ""
+389	    n = len(p["shots"])
+390	    pre = f"[0:v]scale={w * 2}:{h * 2}:force_original_aspect_ratio=increase,crop={w * 2}:{h * 2}"
+391	    fc = [pre + (f",split={n}" + "".join(f"[i{k}]" for k in range(n)) if n > 1 else "[i0]")]
+392	    for k, (d, z, x, y) in enumerate(p["shots"]):
+393	        fc.append(f"[i{k}]zoompan=z='{z}':x='{x}':y='{y}':d={d}:s={w}x{h}:fps={fps}[z{k}]")
+394	    fc.append("".join(f"[z{k}]" for k in range(n)) + (f"concat=n={n}:v=1:a=0" if n > 1 else "null")
+395	              + f"{subs},scale=out_color_matrix=bt709:out_range=tv,format=yuv420p,setsar=1[out]")
+396	    tmp = clip.with_suffix(".part.mp4")
+397	    run([FFMPEG, "-y", "-i", p["img"], "-filter_complex", ";".join(fc), "-map", "[out]", "-frames:v", p["frames"],
+398	         "-c:v", "libx264", *prof["enc"], "-pix_fmt", "yuv420p", "-color_range", "tv", "-colorspace", "bt709",
+399	         "-color_primaries", "bt709", "-color_trc", "bt709", "-r", fps,
+400	         "-video_track_timescale", fps * 1000, tmp], cwd=work)
+401	    tmp.replace(clip)
+402	
+403	
+404	def build_video(plans, prof, cache_dir: Path, work: Path):
+405	    todo = [p for p in plans if not (cache_dir / f"scene_{p['scene']:02d}_{p['key']}.mp4").exists()]
+406	    for p in plans:
+407	        state = "NEW" if p in todo else "cache"
+408	        print(f"  scene {p['scene']:2d}: {p['t0']:6.2f}-{p['t1']:6.2f}s  {state:5s}  {' | '.join(p['desc'])}")
+409	    with ThreadPoolExecutor(max_workers=max(2, (os.cpu_count() or 4) // 2)) as pool:
+410	        list(pool.map(lambda p: render_scene(p, prof, cache_dir / f"scene_{p['scene']:02d}_{p['key']}.mp4", work),
+411	                      todo))
+412	    listing = [f"file '{(cache_dir / f'scene_{p['scene']:02d}_{p['key']}.mp4').as_posix()}'" for p in plans]
+413	    (work / "scenes.txt").write_text("\n".join(listing), encoding="utf-8")
+414	    run([FFMPEG, "-y", "-f", "concat", "-safe", "0", "-i", "scenes.txt", "-c", "copy", "video.mp4"], cwd=work)
+415	    return len(plans) - len(todo), len(todo)
+416	
+417	
+418	# ---------- 4. audio mix + loudness ----------
+419	def pick_music(meta):
+420	    if meta.get("music"):
+421	        return MUSIC_DIR / meta["music"]
+422	    bed = MUSIC_DIR / "mystery_bed.wav"
+423	    if not bed.exists():
+424	        run([sys.executable, ROOT / "scripts" / "gen_music.py"])
+425	    return bed
+426	
+427	
+428	def integrated_lufs(path, seconds=None):
+429	    r = run([FFMPEG, "-hide_banner", "-i", path, *(["-t", seconds] if seconds else []),
+430	             "-af", "loudnorm=print_format=json", "-f", "null", "-"])
+431	    return float(json.loads(r.stderr[r.stderr.rindex("{"):r.stderr.rindex("}") + 1])["input_i"])
+432	
+433	
+434	def music_segments(events, meta, total):
+435	    """[(start, end, file)]: one segment per mood run (lines.json 'mood'), or the single track for the whole video."""
+436	    moods = meta.get("music_moods")
+437	    if not (moods and events["moods"]):
+438	        return [(0.0, total, pick_music(meta))]
+439	    runs = []
+440	    for t, mood in sorted(events["moods"]):
+441	        if not runs or runs[-1][1] != mood:
+442	            runs.append((max(0.0, t), mood))
+443	    runs[0] = (0.0, runs[0][1])
+444	    return [(t, runs[k + 1][0] if k + 1 < len(runs) else total, MUSIC_DIR / moods[mood])
+445	            for k, (t, mood) in enumerate(runs)]
+446	
+447	
+448	_levels = {}
+449	
+450	
+451	def track_levels(f: Path):
+452	    """Music track loudness every 0.1 s (dB, 0.5 s RMS window), for picking where to start a track."""
+453	    if f not in _levels:
+454	        r = subprocess.run([str(FFMPEG), "-v", "error", "-i", str(f), "-ac", "1", "-ar", "8000", "-f", "s16le", "-"],
+455	                           capture_output=True)
+456	        x = np.frombuffer(r.stdout, np.int16).astype(np.float32) / 32768
+457	        e = np.convolve(x ** 2, np.ones(4000) / 4000, mode="same")[::800]
+458	        _levels[f] = 10 * np.log10(e + 1e-12)
+459	    return _levels[f]
+460	
+461	
+462	def music_offset(f: Path, a, b, windows):
+463	    """Seconds into the track to start a segment [a, b] so no music-only pause (plus PAUSE_LEAD before it) lands
+464	    in a near-silent gap of the track (e.g. between piano phrases). 0 when the segment has no pause."""
+465	    wins = [(max(s, a), min(e, b)) for s, e in windows if e > a and s < b]
+466	    if not wins:
+467	        return 0.0
+468	    lev = track_levels(f)
+469	    n = len(lev)
+470	    idx = [i for s, e in wins if len(i := np.arange(int((s - a) * 10), int((e - a) * 10)))]
+471	    if not idx:
+472	        return 0.0
+473	    score = lambda off: min(lev[(i + int(off * 10)) % n].min() for i in idx)
+474	    ok = np.median(lev) - 10  # within 10 dB of the track's usual level counts as audible
+475	    if score(0) >= ok:
+476	        return 0.0
+477	    return float(max(np.arange(0, 20.01, 0.25), key=lambda off: (min(score(off), ok), -off)))
+478	
+479	
+480	def build_audio(voice, total, events, meta, work: Path, two_pass: bool, below_db: float):
+481	    """Voice + music (one track, or a track per mood with crossfades) at a fixed level under the voice + stings;
+482	    music muted in any music_silent window. Also writes music.wav (music stem) for the level check."""
+483	    v_lufs = integrated_lufs(voice)
+484	    segs = music_segments(events, meta, total)
+485	    lufs_of = {}
+486	    inputs = ["-i", voice]
+487	    fc = [f"[0:a]aresample=48000,aformat=channel_layouts=stereo[v]"]
+488	    for k, (a, b, f) in enumerate(segs):
+489	        if f not in lufs_of:
+490	            lufs_of[f] = integrated_lufs(f, 60)
+491	        gain = v_lufs - below_db - lufs_of[f]
+492	        last = k == len(segs) - 1
+493	        length = (b - a) + (0 if last else MUSIC_XFADE)  # overlap into the next mood = crossfade
+494	        fade_out = f"afade=t=out:st={length - (1.5 if last else MUSIC_XFADE):.2f}:d={1.5 if last else MUSIC_XFADE}"
+495	        fade_in = f"afade=t=in:d={MUSIC_XFADE}," if k else ""
+496	        ms = int(a * 1000)
+497	        off = music_offset(f, a, b, events.get("pauses", []))
+498	        if off:
+499	            print(f"  music: {Path(f).stem} starts {off:.2f}s in (pause falls on an audible part)")
+500	        inputs += ["-stream_loop", "-1", *(["-ss", f"{off:.2f}"] if off else []), "-i", f]
+501	        fc.append(f"[{k + 1}:a]aresample=48000,aformat=channel_layouts=stereo,atrim=0:{length:.3f},"
+502	                  f"volume={gain:.2f}dB,{fade_in}{fade_out},adelay={ms}|{ms}[mu{k}]")
+503	    mute = "+".join(f"between(t,{a:.2f},{b:.2f})" for a, b in events["music_silent"]) or "0"
+504	    fc.append("".join(f"[mu{k}]" for k in range(len(segs)))
+505	              + f"amix=inputs={len(segs)}:duration=longest:normalize=0,volume='if({mute},0,1)':eval=frame,"
+506	                f"asplit=2[m][mstem]")
+507	    if len(segs) > 1:
+508	        print("  music: " + " -> ".join(f"{Path(f).stem}@{a:.0f}s" for a, _, f in segs))
+509	    mix_in, n_in = "[v][m]", len(segs) + 1
+510	    for k, (at, kind) in enumerate(events["sfx"]):
+511	        f = SFX_DIR / meta["sfx"][kind]
+512	        gain = v_lufs - SFX_BELOW_VOICE_DB - integrated_lufs(f)
+513	        inputs += ["-i", f]
+514	        ms = int(at * 1000)
+515	        fc.append(f"[{n_in + k}:a]aresample=48000,aformat=channel_layouts=stereo,volume={gain:.2f}dB,"
+516	                  f"adelay={ms}|{ms}[s{k}]")
+517	        mix_in += f"[s{k}]"
+518	    fc.append(f"{mix_in}amix=inputs={2 + len(events['sfx'])}:duration=first:normalize=0[out]")
+519	    mix = work / "mix.wav"
+520	    run([FFMPEG, "-y", *inputs, "-filter_complex", ";".join(fc), "-map", "[out]", "-t", f"{total:.3f}", mix,
+521	         "-map", "[mstem]", "-t", f"{total:.3f}", work / "music.wav"])
+522	    ln = f"loudnorm=I={TARGET_LUFS}:TP=-1.5:LRA=11"
+523	    if two_pass:
+524	        r = run([FFMPEG, "-hide_banner", "-i", mix, "-af", ln + ":print_format=json", "-f", "null", "-"])
+525	        m = json.loads(r.stderr[r.stderr.rindex("{"):r.stderr.rindex("}") + 1])
+526	        ln += (f":measured_I={m['input_i']}:measured_TP={m['input_tp']}:measured_LRA={m['input_lra']}"
+527	               f":measured_thresh={m['input_thresh']}:offset={m['target_offset']}:linear=true")
+528	    norm = work / "mix_norm.wav"
+529	    run([FFMPEG, "-y", "-i", mix, "-af", ln + ",aresample=48000", "-ar", 48000, norm])
+530	    return norm
+531	
+532	
+533	# ---------- 5. final-only checks ----------
+534	def loudness_report(out: Path, work: Path, timed):
+535	    """Final loudness + true peak, and music level the RULES way: integrated LUFS of the voice stem vs the music
+536	    stem, both cut to the same speech sections (both stems are pre-loudnorm; loudnorm gain hits both equally)."""
+537	    r = run([FFMPEG, "-hide_banner", "-i", out, "-af", "ebur128=peak=true", "-f", "null", "-"])
+538	    lufs = float(re.findall(r"I:\s+(-?[\d.]+) LUFS", r.stderr)[-1])
+539	    tp = float(re.findall(r"Peak:\s+(-?[\d.]+) dBFS", r.stderr)[-1])
+540	    sel = "+".join(f"between(t,{l['start']:.2f},{l['end']:.2f})" for l in timed if l["speaker"] != "_pause")
+541	
+542	    def speech_lufs(f):
+543	        r = run([FFMPEG, "-hide_banner", "-i", f, "-af", f"aresample=48000,aformat=channel_layouts=stereo,"
+544	                 f"aselect='{sel}',asetpts=N/SR/TB,ebur128", "-f", "null", "-"])
+545	        return float(re.findall(r"I:\s+(-?[\d.]+) LUFS", r.stderr)[-1])
+546	
+547	    below = speech_lufs(work / "voice.wav") - speech_lufs(work / "music.wav")
+548	    return lufs, tp, below
+549	
+550	
+551	def frame_check(out: Path, timed, path: Path, work: Path):
+552	    """One frame from the middle of every line, labelled with time + speaker, tiled into one image."""
+553	    tiles = []
+554	    font = ImageFont.truetype("arial.ttf", 22) if Path("C:/Windows/Fonts/arial.ttf").exists() else ImageFont.load_default()
+555	    for i, l in enumerate(timed):
+556	        t = (l["start"] + l["end"]) / 2
+557	        f = work / f"check_{i:02d}.png"
+558	        run([FFMPEG, "-y", "-ss", f"{t:.2f}", "-i", out, "-frames:v", 1, "-vf", "scale=270:-2", f])
+559	        im = Image.open(f).convert("RGB")
+560	        ImageDraw.Draw(im).rectangle((0, 0, 270, 30), fill=(0, 0, 0))
+561	        ImageDraw.Draw(im).text((6, 4), f"{t:5.1f}s {l['speaker']}", fill=(255, 230, 0), font=font)
+562	        tiles.append(im)
+563	    cols = 6
+564	    rows = (len(tiles) + cols - 1) // cols
+565	    sheet = Image.new("RGB", (cols * 270, rows * tiles[0].height))
+566	    for i, im in enumerate(tiles):
+567	        sheet.paste(im, ((i % cols) * 270, (i // cols) * im.height))
+568	    sheet.save(path)
+569	
+570	
+571	def srt_time(s):
+572	    ms = max(0, int(round(s * 1000)))
+573	    return f"{ms // 3600000:02d}:{ms // 60000 % 60:02d}:{ms // 1000 % 60:02d},{ms % 1000:03d}"
+574	
+575	
+576	def write_srt(timed, path: Path):
+577	    """Captions file for upload (long videos don't burn captions into the picture)."""
+578	    cues = [c for l in timed if l["words"] for c in caption_chunks(l)]
+579	    path.write_text("\n".join(f"{i}\n{srt_time(a)} --> {srt_time(b)}\n{txt}\n" for i, (a, b, txt) in
+580	                              enumerate(cues, 1)), encoding="utf-8")
+581	
+582	
+583	def music_credits(meta, events, total):
+584	    used = []
+585	    for _, _, f in music_segments(events, meta, total):
+586	        if f.name != "mystery_bed.wav" and f not in used:
+587	            used.append(f)
+588	    names = [re.sub(r"_+", " ", f.stem).replace("Two Higher", "Two - Higher") for f in used]
+589	    if not names:
+590	        return meta.get("credits", "")
+591	    return "\n\n".join(f'Music: "{n}" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: '
+592	                       f"By Attribution 4.0 License\nhttp://creativecommons.org/licenses/by/4.0/" for n in names) \
+593	        + ("\n\nSound effects: freesound.org (CC0)" if meta.get("sfx") else "")
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 07:54:12Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Constants and trim function
+
+`cd /d/Story-Channel; sed -n 40,74p scripts/make_short.py; sed -n 129,142p scripts/make_short.py; ls munshi; ls logs 2>/dev/null | tail; git log --oneline -3 -- scripts/make_short.py`
+
+```text
+SFX_DIR = ROOT / "assets" / "sfx"
+
+PROFILES = {
+    ("short", "preview"): {"w": 540, "h": 960, "fps": 24, "enc": ["-preset", "ultrafast", "-crf", "30"]},
+    ("short", "final"): {"w": 1080, "h": 1920, "fps": 30, "enc": ["-preset", "slow", "-crf", "18"]},
+    ("long", "preview"): {"w": 960, "h": 540, "fps": 24, "enc": ["-preset", "ultrafast", "-crf", "30"]},
+    ("long", "final"): {"w": 1920, "h": 1080, "fps": 30, "enc": ["-preset", "slow", "-crf", "18"]},
+}
+MUSIC_XFADE = 1.5  # seconds of crossfade when the mood (music track) changes
+RENDER_VERSION = 2  # bump when scene rendering code changes, to invalidate the clip cache (2: tv-range bt709)
+PLAY_W, PLAY_H = 1080, 1920  # caption coordinate space (libass scales it to the output size)
+SR = 24000  # Gemini TTS output rate
+GAP, END_HOLD = 0.30, 1.5  # silence between lines; hold on the final question
+TAIL = 0.12  # kept after the last voiced frame of each line
+SHOT_LEN = 2.6  # target seconds per shot -> visual changes every 2-3s
+MIN_SHOT = 1.2  # never cut faster than this
+CUT_LEAD = 0.1  # a speaker's shot starts this long before their voice, never earlier
+TARGET_LUFS = -14
+# Music gain: voice LUFS minus this, per video kind. Checked in loudness_report the RULES way: integrated LUFS
+# of the voice stem vs the music stem over the speech sections (long: 13 = old 9 lowered by 4 dB).
+MUSIC_BELOW_VOICE_DB = {"short": 9, "long": 13}
+SFX_BELOW_VOICE_DB = 5
+MIN_CAPTION = 0.45  # a caption shorter than this only flashes; it is merged into its neighbour in the same line
+PAUSE_LEAD = 2.0  # music must be audible in a music-only pause and this long before it
+
+# Ken Burns moves for wide shots (cycled): zoom-in, pan, zoom-out, zoom-to-top
+MOVES = {
+    "in": ("1+0.08*on/{n}", "iw/2-iw/zoom/2", "ih/2-ih/zoom/2"),
+    "out": ("1.08-0.08*on/{n}", "iw/2-iw/zoom/2", "ih/2-ih/zoom/2"),
+    "pan": ("1.08", "(iw-iw/zoom)*on/{n}", "ih/2-ih/zoom/2"),
+    "top": ("1+0.08*on/{n}", "iw/2-iw/zoom/2", "(ih-ih/zoom)*0.3"),
+}
+MOVE_CYCLE = ["in", "pan", "out", "top"]
+
+
+def trim(data: bytes) -> bytes:
+    """Trim lead/tail silence by energy so the line's voice starts at its first sample."""
+    x = np.frombuffer(data, np.int16).astype(np.float32) / 32768
+    hop = int(0.01 * SR)
+    lev = 20 * np.log10(np.sqrt(np.mean(x[: len(x) // hop * hop].reshape(-1, hop) ** 2, axis=1)) + 1e-9)
+    voiced = np.where(lev > lev.max() - 35)[0]
+    s0 = max(0, voiced[0] * hop - int(0.01 * SR))
+    e0 = min(len(x), (voiced[-1] + 1) * hop + int(TAIL * SR))
+    return data[s0 * 2:e0 * 2]
+
+
+_whisper = None
+
+
+RULES.md
+channel_config.json
+log.md
+sync.log
+cde0e07 upload: channel-id + ffprobe checks
+64528a6 initial: Story-Channel setup
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 07:54:17Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Read tts_line
+
+`cd /d/Story-Channel; sed -n 90,128p scripts/make_short.py; ls -la long-videos/long_01/audio | head -5`
+
+```text
+def tts_key(text, speaker):
+    voice, style, _ = CAST[speaker]
+    return f"{speaker}_{sha(gemini_tts.MODEL, '|', voice, '|', style, '|', text)}.wav"
+
+
+def check_tts_spend(lines, cache: Path, allow: bool):
+    """Paid TTS only on cache miss, and only with --spend. Otherwise stop and show the estimate."""
+    misses = [l for l in lines if "text" in l and not (cache / tts_key(l["text"], l["speaker"])).exists()]
+    if not misses:
+        return
+    secs = sum(len(l["text"].split()) / 2.4 for l in misses)  # ~2.4 words/s
+    usd = secs * gemini_tts.AUDIO_TOKENS_PER_SEC * gemini_tts.PRICE_OUT / 1e6
+    print(f"  {len(misses)} TTS line(s) not cached: " + ", ".join(l["speaker"] for l in misses)
+          + f"  -> ~₹{usd * cost_log.USD_TO_INR:.2f}")
+    if not allow:
+        sys.exit("  Paid TTS needed. Re-run with --spend to allow it.")
+
+
+def tts_line(text, speaker, cache: Path, out: Path, extra_af=None, chorus=False) -> bytes:
+    """Cached Gemini TTS + optional pitch shift / extra filter (e.g. echo) / chorus (3 detuned, offset copies
+    so one voice sounds like a group). Returns PCM s16 mono."""
+    raw = cache / tts_key(text, speaker)
+    if not raw.exists():
+        voice, style, _ = CAST[speaker]
+        res = gemini_tts.speak(text, voice, style, raw)
+        print(f"    new TTS {speaker}: ₹{res['row']['cost_inr']} (aaj ₹{res['row']['today_total_inr']}, "
+              f"bacha ₹{res['row']['remaining_inr']})")
+    chain = ",".join(f for f in (pitch_filter(CAST[speaker][2], SR), extra_af) if f) or "anull"
+    if chorus:
+        fc = (f"[0:a]{chain},asplit=3[a][b][c];[b]{pitch_filter(2, SR)},adelay=45[b2];"
+              f"[c]{pitch_filter(-2, SR)},adelay=90[c2];[a][b2][c2]amix=inputs=3:normalize=0,volume=0.6[o]")
+        args = ["-filter_complex", fc, "-map", "[o]"]
+    else:
+        args = ["-af", chain]
+    run([FFMPEG, "-y", "-i", raw, *args, "-ac", "1", "-ar", SR, "-sample_fmt", "s16", out])
+    with wave.open(str(out)) as w:
+        return w.readframes(w.getnframes())
+
+
+total 14388
+drwxr-xr-x 1 ashamim 1049089      0 Oct 18 00:12 .
+drwxr-xr-x 1 ashamim 1049089      0 Oct 18 13:09 ..
+-rw-r--r-- 1 ashamim 1049089 163278 Oct 18 13:10 line_01_golu.wav
+-rw-r--r-- 1 ashamim 1049089 112416 Oct 18 13:10 line_02_mitthu.wav
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 07:54:22Z)**_
+
+Ab main khud line timings dobara nikaal raha hoon (audio files + trim logic se), aur voice.wav se match karunga.
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 07:54:32Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Recompute line timings independently
+
+```bash
+mkdir -p /d/Story-Channel/long-videos/long_01/output/review/rr2; cat > /d/Story-Channel/long-videos/long_01/output/review/rr2/timings.py <<'EOF'
+import json, wave, numpy as np, sys
+P="D:/Story-Channel/long-videos/long_01/"
+SR=24000; GAP=0.30; END_HOLD=1.5; TAIL=0.12
+lines=json.load(open(P+"lines.json",encoding="utf-8"))
+def trim(x):
+    hop=int(0.01*SR)
+    lev=20*np.log10(np.sqrt(np.mean(x[:len(x)//hop*hop].reshape(-1,hop)**2,axis=1))+1e-9)
+    v=np.where(lev>lev.max()-35)[0]
+    s0=max(0,v[0]*hop-int(0.01*SR)); e0=min(len(x),(v[-1]+1)*hop+int(TAIL*SR))
+    return x[s0:e0]
+t=0.0; out=[]; pcm=[]
+for i,l in enumerate(lines):
+    if "pause" in l:
+        gap=GAP if i else 0
+        s=t+gap; t=s+l["pause"]; pcm.append(np.zeros(int(round((gap+l["pause"])*SR))))
+        out.append(dict(n=i+1,sp="_pause",scene=l["scene"],start=s,end=t)); continue
+    w=wave.open(P+f"audio/line_{i+1:02d}_{l['speaker']}.wav"); x=np.frombuffer(w.readframes(w.getnframes()),np.int16).astype(np.float32)/32768
+    d=trim(x)
+    if i:
+        gap=GAP+l.get("pause_before",0); pcm.append(np.zeros(int(round(gap*SR)))); t+=gap
+    s=t; pcm.append(d); t+=len(d)/SR
+    out.append(dict(n=i+1,sp=l["speaker"],scene=l["scene"],start=s,end=t))
+tot=t+END_HOLD
+pcm.append(np.zeros(int(round(END_HOLD*SR))))
+rec=np.concatenate(pcm)
+w=wave.open(P+"output/long_01_work/voice.wav"); vw=np.frombuffer(w.readframes(w.getnframes()),np.int16).astype(np.float32)/32768
+print("total",tot,"rec samples",len(rec),"voice.wav samples",len(vw), "sr",w.getframerate())
+m=min(len(rec),len(vw)); print("max abs diff", np.abs(rec[:m]-vw[:m]).max())
+json.dump(out,open(P+"output/review/rr2/timed.json","w"),indent=0)
+for o in out: print(f"{o['n']:2d} sc{o['scene']:2d} {o['sp']:10s} {o['start']:7.2f}-{o['end']:7.2f}")
+EOF
+cd /d/Story-Channel && .venv/Scripts/python.exe -X utf8 long-videos/long_01/output/review/rr2/timings.py
+```
+
+```text
+total 306.1800000000002 rec samples 7348320 voice.wav samples 7348320 sr 24000
+max abs diff 0.0
+ 1 sc 1 golu          0.00-   3.00
+ 2 sc 1 mitthu        3.30-   5.21
+ 3 sc 2 dadi_story    5.51-  11.54
+ 4 sc 3 dadi_story   12.44-  21.51
+ 5 sc 4 dadi_story   21.81-  28.31
+ 6 sc 5 woman        28.61-  30.62
+ 7 sc 5 ghasita      30.92-  34.25
+ 8 sc 6 dadi_story   34.55-  41.70
+ 9 sc 7 kid          42.00-  46.59
+10 sc 7 ghasita      46.89-  50.36
+11 sc 8 dadi_story   50.66-  57.37
+12 sc 9 dadi_story   57.67-  64.70
+13 sc 9 kid          65.00-  67.07
+14 sc10 dadi_story   67.37-  73.78
+15 sc11 sadhu        74.08-  80.32
+16 sc11 ghasita      80.62-  84.20
+17 sc12 dadi_story   84.50-  89.99
+18 sc13 dadi_story   90.29-  95.71
+19 sc13 chhotu       96.01-  99.80
+20 sc14 _pause      100.10- 103.10
+21 sc15 dadi_story  103.40- 112.82
+22 sc16 sadhu       113.12- 121.32
+23 sc16 sadhu       121.62- 128.61
+24 sc17 dadi_story  128.91- 137.50
+25 sc17 chhotu      137.80- 140.85
+26 sc18 dadi_story  141.15- 146.87
+27 sc19 dadi_story  147.17- 152.50
+28 sc19 kids        152.80- 154.95
+29 sc20 dadi_story  155.25- 159.44
+30 sc20 ghasita     159.74- 165.58
+31 sc21 dadi_story  165.88- 174.94
+32 sc22 dadi_story  175.24- 182.66
+33 sc22 ghasita     182.96- 184.38
+34 sc23 dadi_story  184.68- 189.76
+35 sc24 ghasita     190.06- 193.76
+36 sc24 dadi_story  194.06- 201.84
+37 sc25 dadi_story  202.14- 209.84
+38 sc25 ghasita     210.14- 213.04
+39 sc26 dadi_story  213.34- 224.29
+40 sc27 _pause      224.59- 225.59
+41 sc27 sadhu       225.89- 230.98
+42 sc28 ghasita     231.28- 234.52
+43 sc28 _pause      234.82- 236.82
+44 sc29 dadi_story  237.12- 244.01
+45 sc30 dadi_story  244.31- 251.42
+46 sc31 villager    251.72- 255.60
+47 sc32 dadi_story  255.90- 264.67
+48 sc33 dadi_story  264.97- 272.71
+49 sc34 dadi_story  273.01- 278.04
+50 sc35 chhotu      278.34- 282.04
+51 sc36 golu        282.94- 286.82
+52 sc36 golu        287.12- 289.86
+53 sc37 mitthu      290.16- 293.09
+54 sc38 dadi_story  293.79- 304.68
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 07:54:34Z)**_
+
+Timings voice.wav se bit-exact match. Ab final mp4 ka spec, loudness aur stems.
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 07:54:45Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Probe final video and measure loudness
+
+`cd /d/Story-Channel/long-videos/long_01/output; F=/d/Story-Channel/tools/ffmpeg; $F/ffprobe.exe -v error -show_entries stream=index,codec_name,codec_type,profile,width,height,r_frame_rate,avg_frame_rate,pix_fmt,color_range,color_space,color_primaries,color_transfer,sample_rate,channels,duration,nb_frames,display_aspect_ratio,sample_aspect_ratio:format=duration,size,bit_rate -of default=nw=1 long_01.mp4; $F/ffmpeg.exe -hide_banner -nostats -i long_01.mp4 -vn -af ebur128=peak=true -f null - 2>&1 | tail -14`
+
+```text
+index=0
+codec_name=h264
+profile=High
+codec_type=video
+width=1920
+height=1080
+sample_aspect_ratio=1:1
+display_aspect_ratio=16:9
+pix_fmt=yuv420p
+color_range=tv
+color_space=bt709
+color_transfer=unknown
+color_primaries=unknown
+r_frame_rate=30/1
+avg_frame_rate=30/1
+duration=306.166667
+nb_frames=9185
+index=1
+codec_name=aac
+profile=LC
+codec_type=audio
+sample_rate=48000
+channels=2
+r_frame_rate=0/0
+avg_frame_rate=0/0
+duration=306.154667
+nb_frames=14352
+duration=306.166667
+size=156904342
+bit_rate=4099841
+  Integrated loudness:
+    I:         -14.0 LUFS
+    Threshold: -24.6 LUFS
+
+  Loudness range:
+    LRA:         7.5 LU
+    Threshold: -34.6 LUFS
+    LRA low:   -18.4 LUFS
+    LRA high:  -10.9 LUFS
+
+  True peak:
+    Peak:       -1.4 dBFS
+[out#0/null @ 000001c591cd3640] video:0KiB audio:57404KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown
+size=N/A time=00:05:06.15 bitrate=N/A speed= 203x elapsed=0:00:01.50
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 07:55:08Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Measure voice vs music stem LUFS over speech
+
+```bash
+cd /d/Story-Channel/long-videos/long_01/output; F=/d/Story-Channel/tools/ffmpeg; R=review/rr2; for f in long_01_work/voice.wav long_01_work/music.wav long_01_work/mix.wav; do $F/ffprobe.exe -v error -show_entries stream=sample_rate,channels,codec_name,duration -of csv=p=0 $f; done
+SEL=$(/d/Story-Channel/.venv/Scripts/python.exe -c "
+import json;t=json.load(open('$R/timed.json'));print('+'.join(f\"between(t,{o['start']:.2f},{o['end']:.2f})\" for o in t if o['sp']!='_pause'))")
+for f in voice music; do echo "== $f"; $F/ffmpeg.exe -hide_banner -nostats -i long_01_work/$f.wav -af "aresample=48000,aformat=channel_layouts=stereo,aselect='$SEL',asetpts=N/SR/TB,ebur128" -f null - 2>&1 | grep -A1 "Integrated loudness" | tail -1; done
+echo "== full-length (no selection)"; for f in voice music; do $F/ffmpeg.exe -hide_banner -nostats -i long_01_work/$f.wav -af "aresample=48000,aformat=channel_layouts=stereo,ebur128" -f null - 2>&1 | grep -A1 "Integrated loudness" | tail -1; done
+```
+
+```text
+pcm_s16le,24000,1,306.180000
+pcm_s16le,48000,2,306.180000
+pcm_s16le,48000,2,306.180000
+== voice
+    I:         -16.2 LUFS
+== music
+    I:         -29.2 LUFS
+== full-length (no selection)
+    I:         -16.2 LUFS
+    I:         -29.2 LUFS
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 07:55:12Z)**_
+
+Stem method se 13.0 LU confirm. Ab check karta hoon ki music.wav sach me mix ka music hai (mix minus voice minus music residual), aur mood-wise level.
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 07:55:31Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Validate music stem and pause audibility
+
+```bash
+cat > /d/Story-Channel/long-videos/long_01/output/review/rr2/stemcheck.py <<'EOF'
+import json, wave, numpy as np, subprocess
+P="D:/Story-Channel/long-videos/long_01/output/"; FF="D:/Story-Channel/tools/ffmpeg/ffmpeg.exe"
+def rd(f, extra=[]):
+    r=subprocess.run([FF,"-v","error","-i",f,*extra,"-ac","2","-ar","48000","-f","f32le","-"],capture_output=True)
+    return np.frombuffer(r.stdout,np.float32).reshape(-1,2)
+mix=rd(P+"long_01_work/mix.wav"); mus=rd(P+"long_01_work/music.wav"); voi=rd(P+"long_01_work/voice.wav")
+n=min(len(mix),len(mus),len(voi)); mix,mus,voi=mix[:n],mus[:n],voi[:n]
+res=mix-mus-voi
+t=json.load(open(P+"review/rr2/timed.json"))
+db=lambda x:10*np.log10(np.mean(x**2)+1e-15)
+print("whole: mix %.1f  music %.1f  voice %.1f  residual(mix-music-voice) %.1f dB"%(db(mix),db(mus),db(voi),db(res)))
+# residual excluding sfx: check residual vs music in pause sections
+for o in t:
+    if o['sp']=='_pause':
+        a,b=int(o['start']*48000),int(o['end']*48000)
+        print("pause %.2f-%.2f: music rms %.1f dB, mix %.1f dB, min 0.5s-window music %.1f dB"%(o['start'],o['end'],db(mus[a:b]),db(mix[a:b]),
+              min(db(mus[k:k+24000]) for k in range(a,b-24000,4800))))
+# per-scene-ish: voice rms vs music rms per line
+out=[]
+for o in t:
+    if o['sp']=='_pause': continue
+    a,b=int(o['start']*48000),int(o['end']*48000)
+    out.append((o['n'],o['sp'],o['start'],db(voi[a:b])-db(mus[a:b])))
+d=[x[3] for x in out]
+print("per-line voice-minus-music RMS dB: min %.1f max %.1f median %.1f"%(min(d),max(d),np.median(d)))
+for x in sorted(out,key=lambda x:x[3])[:6]: print("  closest line",x)
+# music near pauses with lead 2s
+for a0,b0 in [(98.1,103.1),(222.6,225.6),(232.8,236.8)]:
+    a,b=int(a0*48000),int(b0*48000)
+    w=[db(mus[k:k+12000]) for k in range(a,b-12000,2400)]
+    print("window %.1f-%.1f music 0.25s rms min %.1f max %.1f"%(a0,b0,min(w),max(w)))
+EOF
+cd /d/Story-Channel && .venv/Scripts/python.exe -X utf8 long-videos/long_01/output/review/rr2/stemcheck.py
+```
+
+```text
+whole: mix -19.7  music -32.1  voice -20.0  residual(mix-music-voice) -41.2 dB
+pause 100.10-103.10: music rms -34.8 dB, mix -34.8 dB, min 0.5s-window music -45.8 dB
+pause 224.59-225.59: music rms -32.7 dB, mix -24.1 dB, min 0.5s-window music -33.2 dB
+pause 234.82-236.82: music rms -36.4 dB, mix -36.4 dB, min 0.5s-window music -42.6 dB
+per-line voice-minus-music RMS dB: min 6.2 max 18.5 median 12.3
+  closest line (31, 'dadi_story', 165.88000000000005, np.float32(6.175541))
+  closest line (9, 'kid', 41.99999999999999, np.float32(7.8053074))
+  closest line (22, 'sadhu', 113.11999999999993, np.float32(8.122629))
+  closest line (13, 'kid', 64.99999999999997, np.float32(8.730135))
+  closest line (24, 'dadi_story', 128.90999999999994, np.float32(8.811846))
+  closest line (47, 'dadi_story', 255.9000000000002, np.float32(8.8887615))
+window 98.1-103.1 music 0.25s rms min -48.5 max -23.4
+window 222.6-225.6 music 0.25s rms min -40.9 max -30.5
+window 232.8-236.8 music 0.25s rms min -44.0 max -26.2
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 07:55:48Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Profile music level across pauses at 0.25s
+
+```bash
+cat > /d/Story-Channel/long-videos/long_01/output/review/rr2/pauseprof.py <<'EOF'
+import numpy as np, subprocess
+FF="D:/Story-Channel/tools/ffmpeg/ffmpeg.exe"; P="D:/Story-Channel/long-videos/long_01/output/"
+for f in ["long_01_work/music.wav","long_01.mp4"]:
+    r=subprocess.run([FF,"-v","error","-i",P+f,"-vn","-ac","1","-ar","48000","-f","f32le","-"],capture_output=True)
+    x=np.frombuffer(r.stdout,np.float32)
+    db=lambda s:10*np.log10(np.mean(s**2)+1e-15)
+    for a0,b0 in [(97.0,104.0),(222.0,226.5),(232.0,237.5)]:
+        print(f, a0,b0, " ".join("%.0f"%db(x[int(t*48000):int((t+0.25)*48000)]) for t in np.arange(a0,b0,0.25)))
+EOF
+cd /d/Story-Channel && .venv/Scripts/python.exe -X utf8 long-videos/long_01/output/review/rr2/pauseprof.py
+```
+
+```text
+long_01_work/music.wav 97.0 104.0 -53 -43 -45 -52 -39 -24 -28 -34 -32 -31 -37 -24 -29 -33 -31 -35 -36 -29 -31 -36 -41 -41 -43 -47 -48 -51 -48 -40
+long_01_work/music.wav 222.0 226.5 -30 -36 -30 -28 -33 -34 -32 -31 -29 -29 -28 -31 -30 -31 -37 -40 -44 -46
+long_01_work/music.wav 232.0 237.5 -59 -62 -61 -27 -37 -30 -40 -31 -42 -27 -40 -28 -32 -39 -39 -39 -37 -43 -44 -43 -43 -33
+long_01.mp4 97.0 104.0 -11 -12 -14 -13 -10 -17 -26 -18 -15 -12 -17 -22 -26 -31 -28 -33 -33 -24 -26 -30 -34 -35 -37 -43 -44 -24 -18 -7
+long_01.mp4 222.0 226.5 -10 -16 -15 -20 -17 -14 -14 -16 -22 -27 -24 -17 -23 -26 -32 -25 -17 -17
+long_01.mp4 232.0 237.5 -11 -11 -25 -16 -7 -18 -12 -8 -9 -17 -37 -26 -30 -37 -36 -36 -33 -38 -38 -38 -16 -15
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 07:56:15Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Verify music track start offsets by correlation
+
+```bash
+ls /d/Story-Channel/assets/music/dukh /d/Story-Channel/assets/music/seekh 2>&1; cat > /d/Story-Channel/long-videos/long_01/output/review/rr2/offs.py <<'EOF'
+import numpy as np, subprocess
+FF="D:/Story-Channel/tools/ffmpeg/ffmpeg.exe"; P="D:/Story-Channel/long-videos/long_01/output/"
+def rd(f):
+    r=subprocess.run([FF,"-v","error","-i",f,"-ac","1","-ar","8000","-f","f32le","-"],capture_output=True); return np.frombuffer(r.stdout,np.float32)
+mus=rd(P+"long_01_work/music.wav")
+for name,seg_start,probe in [("dukh/Heartbreaking.mp3",67.07,80.0),("seekh/Touching_Moments_Two_Higher.mp3",224.59,228.0)]:
+    tr=rd("D:/Story-Channel/assets/music/"+name)
+    snip=mus[int(probe*8000):int((probe+3)*8000)]
+    best=max(((np.dot(snip,tr[k:k+len(snip)])/ (np.linalg.norm(tr[k:k+len(snip)])*np.linalg.norm(snip)+1e-9),k/8000) for k in range(0,int(40*8000),40)))
+    print(name,"best corr %.3f at track time %.2f -> offset %.2f"%(best[0],best[1],best[1]-(probe-seg_start)))
+EOF
+cd /d/Story-Channel && .venv/Scripts/python.exe -X utf8 long-videos/long_01/output/review/rr2/offs.py
+```
+
+```text
+/d/Story-Channel/assets/music/dukh:
+Heartbreaking.mp3
+Sad_Trio.mp3
+
+/d/Story-Channel/assets/music/seekh:
+Peaceful_Desolation.mp3
+Touching_Moments_Two_Higher.mp3
+dukh/Heartbreaking.mp3 best corr 0.857 at track time 4.09 -> offset -8.84
+seekh/Touching_Moments_Two_Higher.mp3 best corr 1.000 at track time 17.91 -> offset 14.50
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 07:56:38Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Refine Heartbreaking offset check
+
+```bash
+cat > /d/Story-Channel/long-videos/long_01/output/review/rr2/offs2.py <<'EOF'
+import numpy as np, subprocess
+FF="D:/Story-Channel/tools/ffmpeg/ffmpeg.exe"; P="D:/Story-Channel/long-videos/long_01/output/"
+def rd(f):
+    r=subprocess.run([FF,"-v","error","-i",f,"-ac","1","-ar","8000","-f","f32le","-"],capture_output=True); return np.frombuffer(r.stdout,np.float32)
+mus=rd(P+"long_01_work/music.wav"); tr=rd("D:/Story-Channel/assets/music/dukh/Heartbreaking.mp3")
+for probe in [70.0,85.0,95.0]:
+    snip=mus[int(probe*8000):int((probe+3)*8000)]
+    c=[(np.dot(snip,tr[k:k+len(snip)])/(np.linalg.norm(tr[k:k+len(snip)])*np.linalg.norm(snip)+1e-9),k/8000) for k in range(0,len(tr)-len(snip),8)]
+    b=max(c); print(probe,"corr %.3f track %.3f offset(seg start 67.07) %.2f"%(b[0],b[1],b[1]-(probe-67.07)))
+EOF
+cd /d/Story-Channel && .venv/Scripts/python.exe -X utf8 long-videos/long_01/output/review/rr2/offs2.py
+```
+
+```text
+70.0 corr 1.000 track 6.681 offset(seg start 67.07) 3.75
+85.0 corr 1.000 track 21.681 offset(seg start 67.07) 3.75
+95.0 corr 1.000 track 31.681 offset(seg start 67.07) 3.75
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 07:56:42Z)**_
+
+Offsets 3.75 s aur 14.5 s dono correlation se confirm. Ab captions.
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 07:56:46Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Read word_times and check SRT encoding
+
+`cd /d/Story-Channel; sed -n 143,192p scripts/make_short.py; file long-videos/long_01/output/long_01.srt; head -c 3 long-videos/long_01/output/long_01.srt | xxd | head -1`
+
+```text
+def _clean_len(s):
+    return len(re.sub(r"[^\u0900-\u097F\w]", "", s))
+
+
+def word_times(data: bytes, text: str, cache: Path, run_whisper: bool):
+    """Script tokens timed by Whisper word timestamps (cached per audio). Whisper's spelling may differ from the
+    script, so timings are mapped through character position. Without a cached result, Whisper only runs when
+    run_whisper (final); otherwise timings are proportional to word length."""
+    global _whisper
+    tokens = text.split()
+    dur = len(data) / 2 / SR
+    key = cache / f"words_{sha(data)}.json"
+    ww, note = [], None
+    if key.exists():
+        ww = json.loads(key.read_text(encoding="utf-8"))
+    elif run_whisper:
+        if _whisper is None:
+            from faster_whisper import WhisperModel
+            _whisper = WhisperModel("small", device="cpu", compute_type="int8",
+                                    download_root=str(ROOT / "tools" / "whisper-models"))
+        x = np.frombuffer(data, np.int16).astype(np.float32) / 32768
+        x16 = np.interp(np.arange(0, len(x), SR / 16000), np.arange(len(x)), x).astype(np.float32)
+        # no initial_prompt: with the script as prompt Whisper sometimes skips words it thinks were already said
+        segs, _ = _whisper.transcribe(x16, language="hi", word_timestamps=True, beam_size=5)
+        ww = [(w.start, w.end, w.word.strip()) for s in segs for w in (s.words or []) if _clean_len(w.word)]
+        key.write_text(json.dumps(ww, ensure_ascii=False), encoding="utf-8")
+    else:
+        note = "proportional (Whisper runs on --final)"
+    # only trust Whisper if it heard roughly the whole line (it can drop words)
+    coverage = sum(_clean_len(w) for _, _, w in ww) / max(1, sum(_clean_len(t) for t in tokens))
+    if ww and not 0.75 <= coverage <= 1.35:
+        ww, note = [], f"PROPORTIONAL (whisper coverage {coverage:.0%})"
+    if ww:
+        lens = [_clean_len(w) for _, _, w in ww]
+        tot, acc, xs, ts = sum(lens), 0, [], []
+        for (a, b, _), n in zip(ww, lens):
+            xs += [acc / tot, (acc + n) / tot]
+            ts += [a, b]
+            acc += n
+        xs[0], xs[-1] = 0.0, 1.0
+        note = f"whisper {coverage:.0%}"
+    else:
+        xs, ts = [0.0, 1.0], [0.0, dur]
+    lens = [_clean_len(t) + 1 for t in tokens]
+    tot, acc, words = sum(lens), 0, []
+    for tok, n in zip(tokens, lens):
+        words.append((float(np.interp(acc / tot, xs, ts)), float(np.interp((acc + n) / tot, xs, ts)), tok))
+        acc += n
+    return words, note
+
+long-videos/long_01/output/long_01.srt: SubRip, Unicode text, UTF-8 text, with CRLF line terminators
+00000000: 310d 0a                                  1..
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 07:56:50Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Read sha function
+
+`cd /d/Story-Channel; sed -n 82,89p scripts/make_short.py; ls long-videos/long_01/audio/tts_cache | grep -c words_`
+
+```text
+def sha(*parts) -> str:
+    h = hashlib.sha1()
+    for p in parts:
+        h.update(p if isinstance(p, bytes) else str(p).encode("utf-8"))
+    return h.hexdigest()[:16]
+
+
+# ---------- 1. voice ----------
+51
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 07:57:05Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Check SRT cues against line timings and whisper status
+
+```bash
+cat > /d/Story-Channel/long-videos/long_01/output/review/rr2/caps.py <<'EOF'
+import json, wave, numpy as np, re, hashlib
+P="D:/Story-Channel/long-videos/long_01/"; SR=24000
+lines=json.load(open(P+"lines.json",encoding="utf-8")); t=json.load(open(P+"output/review/rr2/timed.json"))
+cl=lambda s:len(re.sub(r"[^\u0900-\u097F\w]","",s))
+def trim(b):
+    x=np.frombuffer(b,np.int16).astype(np.float32)/32768; hop=240
+    lev=20*np.log10(np.sqrt(np.mean(x[:len(x)//hop*hop].reshape(-1,hop)**2,axis=1))+1e-9)
+    v=np.where(lev>lev.max()-35)[0]; s0=max(0,v[0]*hop-240); e0=min(len(x),(v[-1]+1)*hop+int(0.12*SR)); return b[s0*2:e0*2]
+print("-- whisper status")
+for i,l in enumerate(lines):
+    if "pause" in l: continue
+    w=wave.open(P+f"audio/line_{i+1:02d}_{l['speaker']}.wav"); d=trim(w.readframes(w.getnframes()))
+    k=P+"audio/tts_cache/words_"+hashlib.sha1(d).hexdigest()[:16]+".json"
+    try: ww=json.load(open(k,encoding="utf-8")); cov=sum(cl(x[2]) for x in ww)/max(1,sum(cl(x) for x in l["text"].split()))
+    except FileNotFoundError: ww=None; cov=None
+    st="NO CACHE" if ww is None else ("whisper %.0f%%"%(cov*100) if ww and 0.75<=cov<=1.35 else "PROPORTIONAL cov %s"%cov)
+    if st.startswith("whisper")==False or True:
+        if not st.startswith("whisper"): print(" line",i+1,l["speaker"],st)
+print("-- srt")
+s=open(P+"output/long_01.srt",encoding="utf-8").read().replace("\r","")
+cues=[]
+for blk in s.strip().split("\n\n"):
+    ls=blk.split("\n"); a,b=ls[1].split(" --> ")
+    f=lambda x:int(x[:2])*3600+int(x[3:5])*60+int(x[6:8])+int(x[9:])/1000
+    cues.append((int(ls[0]),f(a),f(b)," ".join(ls[2:])))
+print("cues",len(cues),"min dur %.3f"%min(c[2]-c[1] for c in cues))
+short=[c for c in cues if c[2]-c[1]<0.45]; print("cues <0.45s:",short)
+sp=[o for o in t if o["sp"]!="_pause"]
+bad=[]; joined={}
+for c in cues:
+    own=[o for o in sp if c[1]>=o["start"]-0.3 and c[2]<=o["end"]+0.3]
+    if not own: bad.append(c)
+    else: joined.setdefault(own[0]["n"],[]).append(c[3])
+print("cues outside any line ±0.3:",bad)
+for o in sp:
+    txt=" ".join(joined.get(o["n"],[])); ref=lines[o["n"]-1]["text"]
+    if txt.split()!=ref.split(): print("TEXT MISMATCH line",o["n"],"|",txt,"|",ref)
+ov=[(a,b) for a,b in zip(cues,cues[1:]) if b[1]<a[2]-1e-3]; print("overlaps",ov)
+print("first/last", cues[0][:3], cues[-1][:3])
+EOF
+cd /d/Story-Channel && .venv/Scripts/python.exe -X utf8 long-videos/long_01/output/review/rr2/caps.py
+```
+
+```text
+-- whisper status
+ line 2 mitthu PROPORTIONAL cov 0.5
+ line 50 chhotu PROPORTIONAL cov 0.5517241379310345
+-- srt
+cues 191 min dur 0.480
+cues <0.45s: []
+cues outside any line ±0.3: []
+overlaps []
+first/last (1, 0.0, 1.234) (191, 302.942, 304.68)
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 07:57:09Z)**_
+
+Captions theek. Ab line 2 aur line 15/16 ke frames khud nikaal ke dekhta hoon.
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 07:57:43Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Extract frames around lines 2, 15, 16
+
+`cd /d/Story-Channel/long-videos/long_01/output; F=/d/Story-Channel/tools/ffmpeg/ffmpeg.exe; R=review/rr2; for t in 2.9 3.25 4.2 5.15 5.45 73.9 74.1 75.5 77.2 79.0 80.25 80.55 80.7 82.4 84.1; do $F -v error -y -ss $t -i long_01.mp4 -frames:v 1 -vf "scale=480:-2,drawtext=text='$t':fontcolor=yellow:fontsize=28:box=1:boxcolor=black" $R/f_$t.png; done; $F -v error -y -pattern_type glob -i "$R/f_*.png" -filter_complex tile=5x3 $R/sheet_l2_l15.png 2>&1 || (cd $R && ls f_*.png)`
+
+```text
+Fontconfig error: Cannot load default config file: File not found
+Fontconfig error: Cannot load default config file: File not found
+Fontconfig error: Cannot load default config file: File not found
+Fontconfig error: Cannot load default config file: File not found
+Fontconfig error: Cannot load default config file: File not found
+Fontconfig error: Cannot load default config file: File not found
+Fontconfig error: Cannot load default config file: File not found
+Fontconfig error: Cannot load default config file: File not found
+Fontconfig error: Cannot load default config file: File not found
+Fontconfig error: Cannot load default config file: File not found
+Fontconfig error: Cannot load default config file: File not found
+Fontconfig error: Cannot load default config file: File not found
+Fontconfig error: Cannot load default config file: File not found
+Fontconfig error: Cannot load default config file: File not found
+Fontconfig error: Cannot load default config file: File not found
+Fontconfig error: Cannot load default config file: File not found
+Fontconfig error: Cannot load default config file: File not found
+Fontconfig error: Cannot load default config file: File not found
+Fontconfig error: Cannot load default config file: File not found
+Fontconfig error: Cannot load default config file: File not found
+Fontconfig error: Cannot load default config file: File not found
+Fontconfig error: Cannot load default config file: File not found
+Fontconfig error: Cannot load default config file: File not found
+Fontconfig error: Cannot load default config file: File not found
+Fontconfig error: Cannot load default config file: File not found
+Fontconfig error: Cannot load default config file: File not found
+Fontconfig error: Cannot load default config file: File not found
+Fontconfig error: Cannot load default config file: File not found
+Fontconfig error: Cannot load default config file: File not found
+Fontconfig error: Cannot load default config file: File not found
+Fontconfig error: Cannot load default config file: File not found
+Fontconfig error: Cannot load default config file: File not found
+Fontconfig error: Cannot load default config file: File not found
+Fontconfig error: Cannot load default config file: File not found
+Fontconfig error: Cannot load default config file: File not found
+Fontconfig error: Cannot load default config file: File not found
+Fontconfig error: Cannot load default config file: File not found
+Fontconfig error: Cannot load default config file: File not found
+Fontconfig error: Cannot load default config file: File not found
+Fontconfig error: Cannot load default config file: File not found
+Fontconfig error: Cannot load default config file: File not found
+Fontconfig error: Cannot load default config file: File not found
+Fontconfig error: Cannot load default config file: File not found
+Fontconfig error: Cannot load default config file: File not found
+Fontconfig error: Cannot load default config file: File not found
+[in#0 @ 000002a8b2815e40] Pattern type 'glob' was selected but globbing is not supported by this libavformat build
+[in#0 @ 000002a8b2813fc0] Error opening input: Function not implemented
+Error opening input file review/rr2/f_*.png.
+Error opening input files: Function not implemented
+f_2.9.png
+f_3.25.png
+f_4.2.png
+f_5.15.png
+f_5.45.png
+f_73.9.png
+f_74.1.png
+f_75.5.png
+f_77.2.png
+f_79.0.png
+f_80.25.png
+f_80.55.png
+f_80.7.png
+f_82.4.png
+f_84.1.png
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 07:57:49Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Tile frames into contact sheet
+
+```bash
+cd /d/Story-Channel/long-videos/long_01/output/review/rr2 && /d/Story-Channel/.venv/Scripts/python.exe -c "
+from PIL import Image
+fs=['2.9','3.25','4.2','5.15','5.45','73.9','74.1','75.5','77.2','79.0','80.25','80.55','80.7','82.4','84.1']
+ims=[Image.open(f'f_{f}.png') for f in fs]; w,h=ims[0].size
+s=Image.new('RGB',(5*w,3*h))
+for i,im in enumerate(ims): s.paste(im,((i%5)*w,(i//5)*h))
+s.save('sheet_l2_l15.png')"
+```
+
+```text
+(Bash completed with no output)
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 07:57:50Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\long-videos\long_01\output\review\rr2\sheet_l2_l15.png`
+</details></tool-use>
+
+_**Agent - sidechain (2026-10-18 07:57:50Z)**_
+
+[Image: original 2400x810, displayed at 2000x675. Multiply coordinates by 1.20 to map to original image.]
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 07:57:55Z)**_
+
+Line 2 aur 15/16 sahi dikh rahe hain. Ab poora framecheck sheet ek baar dekh leta hoon.
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 07:57:56Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\long-videos\long_01\output\long_01_framecheck.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 07:57:59Z)**_
+
+Ab color tags (primaries/transfer "unknown" aaye the) ka source dekhta hoon, aur thumbnail check karta hoon.
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 07:58:08Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Check color tags and thumbnail specs
+
+`cd /d/Story-Channel; P=tools/ffmpeg/ffprobe.exe; $P -v error -select_streams v -show_entries stream=pix_fmt,color_range,color_space,color_primaries,color_transfer -of csv=p=0 cache/long_01/scene_01_ecd6a8ce99928a45.mp4; $P -v error -select_streams v -show_entries stream=color_range,color_space,color_primaries,color_transfer -of csv=p=0 long-videos/long_01/output/long_01_work/video.mp4; grep -n "video.mp4\|-c:v\|copy" scripts/make_short.py | sed -n 1,20p; $P -v error -show_entries stream=width,height,codec_name,pix_fmt -of csv=p=0 long-videos/long_01/output/long_01_thumbnail.png; ls -la long-videos/long_01/output/long_01_thumbnail.png`
+
+```text
+yuv420p,tv,bt709,unknown,unknown
+tv,bt709,unknown,unknown
+398:         "-c:v", "libx264", *prof["enc"], "-pix_fmt", "yuv420p", "-color_range", "tv", "-colorspace", "bt709",
+414:    run([FFMPEG, "-y", "-f", "concat", "-safe", "0", "-i", "scenes.txt", "-c", "copy", "video.mp4"], cwd=work)
+651:    shutil.copy(FONT, work / "fonts" / FONT.name)
+672:    run([FFMPEG, "-y", "-i", "video.mp4", "-i", norm, "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-ar", 48000,
+png,1280,720,rgb24
+-rw-r--r-- 1 ashamim 1049089 1090136 Oct 18 13:09 long-videos/long_01/output/long_01_thumbnail.png
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 07:58:15Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\long-videos\long_01\output\long_01_thumbnail.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 07:58:28Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Measure thumbnail text height and zoom crop
+
+```bash
+cd /d/Story-Channel/long-videos/long_01/output && /d/Story-Channel/.venv/Scripts/python.exe -c "
+from PIL import Image; import numpy as np
+a=np.asarray(Image.open('long_01_thumbnail.png').convert('RGB')).astype(int)[:, :560]
+y=(a[:,:,0]>220)&(a[:,:,1]>200)&(a[:,:,2]<90)
+rows=np.where(y.sum(1)>3)[0]; print('yellow rows', rows.min(), rows.max())
+# split into runs
+r=rows; br=np.where(np.diff(r)>8)[0]; s=[r[0]]+list(r[br+1]); e=list(r[br])+[r[-1]]
+for a0,b0 in zip(s,e): 
+  cols=np.where(y[a0:b0+1].sum(0)>0)[0]; print('run',a0,b0,'h',b0-a0+1,'= %.1f%%'%((b0-a0+1)/7.2),'x',cols.min(),cols.max())
+"; /d/Story-Channel/tools/ffmpeg/ffmpeg.exe -v error -y -i long_01_thumbnail.png -vf "crop=380:330:100:150,scale=760:-1" review/rr2/thumb_zoom.png
+```
+
+```text
+yellow rows 160 438
+run 160 262 h 103 = 14.3% x 132 443
+run 342 438 h 97 = 13.5% x 182 391
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 07:58:28Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\long-videos\long_01\output\review\rr2\thumb_zoom.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 07:58:32Z)**_
+
+Thumbnail theek. Ab metadata numbers.
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 07:58:37Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Measure metadata limits
+
+```bash
+.venv/Scripts/python.exe -X utf8 -c "
+import json,re
+m=json.load(open('long-videos/long_01/meta.json',encoding='utf-8'))
+txt=open('long-videos/long_01/output/long_01.txt',encoding='utf-8').read()
+t=m['title']; print('title len',len(t),'<>' ,any(c in t for c in '<>'))
+d=txt.split('DESCRIPTION:\n')[1].split('\nTAGS:')[0].strip(); print('desc len',len(d), '<>',any(c in d for c in '<>'))
+hs=re.findall(r'#\S+',d); print('hashtags in desc',len(hs),hs)
+tags=m['tags']; plain=sum(len(x) for x in tags)+len(tags)-1; yt=sum(len(x)+(2 if ' ' in x else 0) for x in tags)+len(tags)-1
+print('tags',len(tags),'plain',plain,'youtube-count',yt, 'dups',len(tags)-len(set(t.lower() for t in tags)))
+tt=txt.split('TAGS:\n')[1].split('\n\n')[0]; print('txt tags == meta tags', [x.strip() for x in tt.split(',')]==tags)
+print('thumb text in title', 'जो डालो' in t, 'दुगना' in t)
+"; cat munshi/channel_config.json; ls long-videos/long_01/output/upload* 2>&1
+```
+
+```text
+Exit code 2
+title len 81 <> False
+desc len 1488 <> False
+hashtags in desc 5 ['#दादीकीकहानियाँ', '#HindiKahani', '#MoralStory', '#DadiKiKahaniyan', '#HindiStory']
+tags 21 plain 333 youtube-count 375 dups 0
+txt tags == meta tags True
+thumb text in title False False
+{
+  "dadi-ki-kahaniyan": {
+    "display_name": "दादी की कहानियाँ",
+    "channel_id": "",
+    "channel_key": "dadi-ki-kahaniyan",
+    "made_for_kids": false,
+    "contains_synthetic_media": false,
+    "category_id": "1",
+    "default_language": "hi",
+    "publish_time_ist": "19:00",
+    "min_days_between_long": 2,
+    "playlists": {
+      "dadi-jasoos": "",
+      "moral-stories": ""
+    }
+  }
+}
+ls: cannot access 'long-videos/long_01/output/upload*': No such file or directory
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 07:58:44Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Find target length in script
+
+`cd /d/Story-Channel/long-videos/long_01; grep -n -i "target\|length\|minute\|min\b\|मिनट" scripts/script.md LONG_01_SCENES.md | head`
+
+```text
+scripts/script.md:4:**Narrator:** दादी (Golu ko kahani suna rahi hain) · **Format:** 16:9 · **Target:** ~3:50
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 07:58:51Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Search for user-stated length range
+
+`cd /d/Story-Channel; grep -rn -i "3:50\|4-6\|5 min\|range\|5:0\|minute\|मिनट\|lambai\|length" long-videos/long_01/LONG_01_IDEAS.md channel_bible.md munshi/ 2>/dev/null | grep -v sync.log | head -20; grep -rln "long_01" .specstory 2>/dev/null | head -3`
+
+```text
+long-videos/long_01/LONG_01_IDEAS.md:1:# Long video ideas — दादी की कहानियाँ (moral stories, 3–5 min)
+long-videos/long_01/LONG_01_IDEAS.md:4:Narration ~130 shabd/min → 3–5 min = **~400–650 shabd** per video. Family-friendly, koi darawni cheez nahi (bible ke hisaab se).
+long-videos/long_01/LONG_01_IDEAS.md:43:- **Andazan kharcha per long video (current rates):** 3–5 min me ~35–55 scene images × ₹3.24 = **~₹115–180**, TTS ~₹5–10. Abhi budget me ~₹424 bache hain → **~2–3 long videos**.
+munshi/RULES.md:34:- Target length is set in the script. Allowed: ±10%, or inside the user's stated range. Anything beyond that is ASK.
+.specstory/history/2026-10-17_08-25-27Z-pasted-content-id-aeaa.md
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 07:58:55Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Search conversation history for length approvals
+
+`cd /d/Story-Channel; grep -n -i "3-5\|3–5\|5 min\|5:06\|306\|5:0[0-9]\|length\|lamb" .specstory/history/2026-10-17_08-25-27Z-pasted-content-id-aeaa.md | head -30`
+
+```text
+472:+ ... e; $r.Headers['Content-Type']; (Get-Item characters\_test.png).Length
+625:FullName                                                Length
+633:FFmpeg 15 minute me sirf 2.3 MB download hua hai, gyan.dev server bahut dheema hai. Use rokkar GitHub mirror try karta hoon.
+1748:### golu_sheet — ₹3.24 · 2026-10-17 15:15:02
+1874:| **Bunty** (naya) | ~17 saal, lamba-patla, khade baal, aasmaani shirt, neeli jeans, safed sneakers, college bag. **Daayen haath ki ungliyon par laal paint ke nishaan.** |
+2550:_**Agent (claude-opus-5-5 2026-10-17 10:15:08Z)**_
+2557:Name                Length
+2874:    silence = lambda sec: b"\x00\x00" * int(round(sec * SR))
+3388:Video ban gaya hai, lekin ek caption me aakhri shabd "है!" alag tukde me reh gaya, isse main fix karke video dobara bana raha hoon (~4-5 min).
+3502:| Lambai | 59.8 sec (45-60 ke andar) |
+3515:Ise poora chalne me ~4.5 min lagte hain, aur zyada time video encoding me jaata hai. Pichhli baar aapne isi ko roka tha.
+3551:Fir make_short.py se video dobara banao aur nayi lambai batao.
+3590:_**Agent (claude-opus-5-5 2026-10-17 10:55:06Z)**_
+3857:Video ab ~5 min me banta hai, pehle ~10 min lagte the, kyunki shots ab parallel render hote hain.
+3877:1. Video ki lambai, aur scene change har kitne second me hota hai (ffmpeg scene detection)
+4010:Name      Length
+4065:_**Agent (claude-opus-5-5 2026-10-17 11:25:07Z)**_
+4369:_**Agent (claude-opus-5-5 2026-10-17 11:35:08Z)**_
+4436:1. ffmpeg se sirf pehle 5 minute ka audio kaat lo.
+4437:2. Usi 5 minute par Whisper chalao aur transcript nikalo.
+4459:Stop Whisper, cut first 5 minutes
+4462:cuts in first 5 min: 21
+4468:Whisper rok diya, aur koi Python process peeche nahi chal raha. Pehle 5 minute alag kar liye hain, unme 21 cuts hain. Ab sirf in 5 minute par analysis chala raha hoon.
+4474:Analyze first 5 minutes of reference
+4521:5 minute ke clip par bhi Whisper 10 min se zyada le raha hai. Shayad lagatar chalte music ki wajah se, kyunki maine VAD band rakha hai taaki gaps naap sakun. Ye background me chal raha hai. Khatam hote hi table aur 5 sujhaav dunga, aur phir video aur audio delete kar dunga.
+4532:<summary>Background command "Analyze first 5 minutes of reference" completed (exit code 0)</summary>
+4706:Reference video ke pehle 5 minute aur hamara Case 01, dono ek hi tareeke se nape gaye hain. Neeche table aur 5 sujhaav hain. Analysis ke baad video aur 5 min ka clip delete kar diye hain (`tools\ref` ab maujood nahi).
+4711:| | Reference (Duniya Stories, pehle 5 min) | Hamara Case 01 |
+4714:| Scene kitni der me badalta hai | Median 8.8 sec, avg 13.6 sec (5 min me 21 cuts). Lekin characters shot ke andar chalte-firte rehte hain. | Avg 2.35 sec (21 cuts), images still hain, sirf zoom/pan |
+4719:| Music kab badalta hai | 5 min me ~7 baar aata-jaata hai, har 20-60 sec me | Ek hi loop, shuru se ant tak same |
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 07:59:03Z)**_
+
+Length rule 5 ke hisaab se ASK banta hai (306 s; script target ~3:50, ideas file range 3–5 min). Ab log me teeno verdict likhta hoon.
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 07:59:09Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Append three verdict lines to Munshi log
+
+```bash
+cd /d/Story-Channel/munshi && cat >> log.md <<'EOF'
+2026-10-18 | long_01 | 7 final build (re-review) | ASK | all 6 builder fixes verified (line 2 Mitthu+box, line 15 Sadhu only, music 13.0 LU under voice by stem method = inside long range 12-20, offsets 3.75s/14.5s, yuv420p tv bt709 matrix, no caption <0.45s); length 5:06 (306.2s) is outside script target ~3:50 +/-10% and 3-5 min range -> user decision
+2026-10-18 | long_01 | 8 thumbnail (re-review) | PASS | 1280x720 PNG 1.09 MB, text 14.3%/13.5% of height, Hindi shaping ok, no spoiler, BR corner clear
+2026-10-18 | long_01 | 9 metadata (re-review) | PASS | title 81, desc 1488, 5 hashtags, 21 tags 375/500 chars (YouTube count), 6 CC BY credits ok, TAGS in long_01.txt = meta.json
+EOF
+tail -3 log.md
+```
+
+```text
+2026-10-18 | long_01 | 7 final build (re-review) | ASK | all 6 builder fixes verified (line 2 Mitthu+box, line 15 Sadhu only, music 13.0 LU under voice by stem method = inside long range 12-20, offsets 3.75s/14.5s, yuv420p tv bt709 matrix, no caption <0.45s); length 5:06 (306.2s) is outside script target ~3:50 +/-10% and 3-5 min range -> user decision
+2026-10-18 | long_01 | 8 thumbnail (re-review) | PASS | 1280x720 PNG 1.09 MB, text 14.3%/13.5% of height, Hindi shaping ok, no spoiler, BR corner clear
+2026-10-18 | long_01 | 9 metadata (re-review) | PASS | title 81, desc 1488, 5 hashtags, 21 tags 375/500 chars (YouTube count), 6 CC BY credits ok, TAGS in long_01.txt = meta.json
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 07:59:44Z)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="SubagentHandback"><details>
+<summary>Tool use: **SubagentHandback**</summary>
+
+```text
+{"success":true,"message":"Report delivered to your caller."}
+```
+</details></tool-use>
