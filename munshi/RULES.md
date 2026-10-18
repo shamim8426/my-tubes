@@ -51,8 +51,11 @@ These are the hard rules. If a builder summary, a script or a file disagrees wit
 - Dadi Ki Kahaniyan is set to made_for_kids = false (family audience, decided by the user). So title, thumbnail, description and tags must speak to the whole family, not only to children: no "for kids" / "बच्चों के लिए" / nursery-style wording. Flag any such wording as FIX.
 
 ## 8. Publishing
-- Default publish time: 7:00 PM IST.
-- At least 2 days between two long videos on the same channel. Shorts can go on other days.
+- Publish slot: the same day as the upload, between 19:00 and 23:59 IST.
+  - Upload finished before 18:45 IST -> publish at 19:00 the same day.
+  - Upload finished between 18:45 and 23:15 IST -> publish at the next :00 or :30 that is at least 30 minutes after the upload.
+  - Upload finished after 23:15 IST -> publish at 19:00 the next day.
+- At most one long video per day per channel. If a long video is already scheduled that day, use 19:00 the next day. A Short may share a day with a long video only if their publish times are at least 2 hours apart, still inside 19:00-23:59.
 - Nothing goes Public or gets scheduled without the user's OK in that conversation.
 - One upload per video. If `output/upload_result.json` exists, do not upload again.
 

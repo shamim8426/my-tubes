@@ -152,6 +152,10 @@ def validate(job: dict, job_path: Path) -> list:
                 errs.append("publish_at needs a timezone, e.g. 2026-10-21T19:00:00+05:30")
             elif t <= dt.datetime.now(dt.timezone.utc) + dt.timedelta(minutes=15):
                 errs.append("publish_at must be at least 15 minutes in the future")
+            if t.tzinfo is not None:
+                ist = t.astimezone(dt.timezone(dt.timedelta(hours=5, minutes=30)))
+                if not dt.time(19, 0) <= ist.time() <= dt.time(23, 59, 59):
+                    errs.append(f"publish_at is {ist:%H:%M} IST; must be inside the 19:00-23:59 IST window")
         except ValueError:
             errs.append("publish_at is not ISO 8601")
     if job.get("privacy", "private") not in ("private", "unlisted", "public"):

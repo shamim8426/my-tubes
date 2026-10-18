@@ -25,7 +25,13 @@ Quota: default 10,000 units/day; one upload costs about 1,600, thumbnail 50, cap
 ## Per-video steps
 1. Confirm in `munshi/log.md`: PASS for final build, thumbnail and metadata of this project. Confirm `output/upload_result.json` does not exist.
 2. Read `munshi/channel_config.json` for made_for_kids, contains_synthetic_media, category_id, language, publish time, playlist id. If made_for_kids is null, ASK the user and save the answer there.
-3. Pick publish time: next free day at 19:00 IST respecting min_days_between_long (check other projects' upload_result.json).
+3. Pick publish time per RULES section 8, inside `publish_window_ist` (19:00-23:59 IST), the same day as the upload:
+   - upload expected to finish before 18:45 IST -> 19:00 the same day;
+   - finishing 18:45-23:15 IST -> the next :00 or :30 at least 30 minutes after the upload finishes;
+   - after 23:15 IST -> 19:00 the next day.
+   Then check clashes: read every other project's `output/upload_result.json` (`publish_at`) and its `upload.json` (`format`).
+   At most `max_long_per_day` long video per day: if a long one is already scheduled that day, use 19:00 the next day.
+   A Short and a long video may share a day only if their times are at least `min_gap_hours_short_long` hours apart, still inside the window.
 4. Write `output/upload.json`:
    - channel_key, channel_name, channel_id (from `munshi/channel_config.json`)
    - format: "long" or "short"

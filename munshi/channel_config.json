@@ -7,8 +7,9 @@
     "contains_synthetic_media": false,
     "category_id": "1",
     "default_language": "hi",
-    "publish_time_ist": "19:00",
-    "min_days_between_long": 2,
+    "publish_window_ist": ["19:00", "23:59"],
+    "max_long_per_day": 1,
+    "min_gap_hours_short_long": 2,
     "playlists": {
       "dadi-jasoos": "",
       "moral-stories": ""

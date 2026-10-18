@@ -27901,3 +27901,200 @@ _**Agent (claude-opus-5-5 2026-10-18 09:30:24Z)**_
 The file D:\Story-Channel\munshi\RULES.md has been updated successfully.
 ```
 </details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:30:36Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Sync changes to GitHub
+
+`powershell -NoProfile -ExecutionPolicy Bypass -File tools/sync.ps1 -Message "rules: family wording covers tags" >/dev/null 2>&1; tail -1 munshi/sync.log`
+
+```text
+2026-10-18 15:00:35  pushed: rules: family wording covers tags  (repo pack size 179 MB)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:30:41Z)**_
+
+Dono kaam ho gaye aur sync bhi ho gaya. Kuch dobara upload nahi kiya.
+
+**1. Tags badle (Long 01):**
+- `meta.json` aur `long_01.txt` me "बच्चों की कहानी" ki jagah **"परिवार की कहानी"** aur "Kids Story Hindi" ki jagah **"Family Story Hindi"** daala.
+- Ab bhi 21 tags hain. Kul **377/500** characters hain, YouTube ke ginne ke tareeke se.
+- Kisi tag me ab "kid", "child" ya "बच्च" nahi bacha.
+- `long_01.txt` me sirf TAGS wali line badli. Video dobara nahi banaya.
+- `upload.json` aur `upload_result.json` ko nahi chheda. Ye record hain ki upload ke waqt kya bheja gaya tha, aur Studio me aap tags pehle hi badal chuke hain.
+
+**2. RULES:**
+- Section 7: "title, thumbnail, description **and tags** must speak to the whole family…"
+- Section 11 BLOCKER: "\"for kids\" wording (title, thumbnail, description **or tags**)"
+
+**Sync:** `pushed: rules: family wording covers tags`
+
+---
+
+_**User (2026-10-18 09:35:59Z)**_
+
+
+
+<pasted_content id="aeaa">
+Munshi ka publish-time niyam badlo:
+
+1. munshi/RULES.md section 8 (Publishing) me "Default publish time: 7:00 PM IST." aur "At least 2 days between two long videos..." wali dono lines ki jagah ye lines rakho (bilkul isi text ke saath):
+- Publish slot: the same day as the upload, between 19:00 and 23:59 IST.
+  - Upload finished before 18:45 IST -> publish at 19:00 the same day.
+  - Upload finished between 18:45 and 23:15 IST -> publish at the next :00 or :30 that is at least 30 minutes after the upload.
+  - Upload finished after 23:15 IST -> publish at 19:00 the next day.
+- At most one long video per day per channel. If a long video is already scheduled that day, use 19:00 the next day. A Short may share a day with a long video only if their publish times are at least 2 hours apart, still inside 19:00-23:59.
+
+2. munshi/channel_config.json me "publish_time_ist" aur "min_days_between_long" ki jagah ye rakho: "publish_window_ist": ["19:00", "23:59"], "max_long_per_day": 1, "min_gap_hours_short_long": 2.
+
+3. .claude/skills/youtube-publish/SKILL.md ke per-video step 3 ko naye niyam ke hisaab se badlo (doosre projects ke upload_result.json dekh kar same-day clash check karna).
+
+4. tools/youtube_upload.py ke validate() me check jodo: publish_at IST me 19:00-23:59 ke beech na ho to PROBLEM de. Test: 18:30 aur 23:30 ke beech wala time pass, 15:00 wala fail, --dry-run se dikhao.
+
+5. Long 01 (20 Oct 7:00 PM) ka schedule mat chhedo.
+
+Phir sync: tools\sync.ps1 -Message "rules: same-day publish window 7PM-12AM"
+</pasted_content id="aeaa">
+
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-18 09:36:04Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\munshi\RULES.md`
+
+```text
+52	
+53	## 8. Publishing
+54	- Default publish time: 7:00 PM IST.
+55	- At least 2 days between two long videos on the same channel. Shorts can go on other days.
+56	- Nothing goes Public or gets scheduled without the user's OK in that conversation.
+57	- One upload per video. If `output/upload_result.json` exists, do not upload again.
+58	
+59	## 9. Safety
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:36:04Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\munshi\channel_config.json`
+
+```text
+1	{
+2	  "dadi-ki-kahaniyan": {
+3	    "display_name": "दादी की कहानियाँ",
+4	    "channel_id": "UCy071_4g4vGemktFHybqkhQ",
+5	    "channel_key": "dadi-ki-kahaniyan",
+6	    "made_for_kids": false,
+7	    "contains_synthetic_media": false,
+8	    "category_id": "1",
+9	    "default_language": "hi",
+10	    "publish_time_ist": "19:00",
+11	    "min_days_between_long": 2,
+12	    "playlists": {
+13	      "dadi-jasoos": "",
+14	      "moral-stories": ""
+15	    }
+16	  }
+17	}
+18
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:36:09Z)**_
+
+<tool-use data-tool-type="search" data-tool-name="Grep"><details>
+<summary>Tool use: **Grep**</summary>
+ path `D:\Story-Channel\.claude\skills\youtube-publish\SKILL.md` pattern `^3\. Pick publish time.*`
+
+```text
+28:3. Pick publish time: next free day at 19:00 IST respecting min_days_between_long (check other projects' upload_result.json).
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:36:21Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\munshi\RULES.md has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:36:22Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\munshi\channel_config.json has been updated successfully. (file state is current in your context — no need to Read it back)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:36:23Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\.claude\skills\youtube-publish\SKILL.md has been updated successfully. (file state is current in your context — no need to Read it back)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:36:25Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\tools\youtube_upload.py has been updated successfully. (file state is current in your context — no need to Read it back)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:36:29Z)**_
+
+Rules, config, skill aur script badal diye. Ab dry-run se test kar raha hoon. Test ke liye alag temp job banaya hai aur Long 01 ki `upload.json` ko chheda nahi hai.
+
+_**Agent (claude-opus-5-5 2026-10-18 09:37:09Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Dry-run publish window test at four times
+
+```bash
+.venv/Scripts/python.exe -m py_compile tools/youtube_upload.py && R=long-videos/long_01/output/review/tz_test && mkdir -p $R && for T in "19:00" "23:30" "18:30" "15:00"; do
+.venv/Scripts/python.exe -X utf8 -c "
+import json; j=json.load(open('long-videos/long_01/output/upload.json',encoding='utf-8'))
+base='D:/Story-Channel/long-videos/long_01/output/'
+for k in ('video','thumbnail','captions'): j[k]=base+j[k]
+j['publish_at']='2026-10-25T$T:00+05:30'
+json.dump(j,open('$R/job.json','w',encoding='utf-8'),ensure_ascii=False)"
+echo "=== publish_at 25 Oct $T IST"; .venv/Scripts/python.exe tools/youtube_upload.py --job $R/job.json --dry-run | grep -E "Publish at|PROBLEMS|^ - |Dry run"; done; mkdir -p _to_delete && mv $R _to_delete/tz_test; echo "Long 01 publish_at still: $(grep -o '"publish_at": "[^"]*"' long-videos/long_01/output/upload.json)"
+```
+
+```text
+=== publish_at 25 Oct 19:00 IST
+Publish at:   2026-10-25T19:00:00+05:30
+Dry run OK. Nothing uploaded.
+=== publish_at 25 Oct 23:30 IST
+Publish at:   2026-10-25T23:30:00+05:30
+Dry run OK. Nothing uploaded.
+=== publish_at 25 Oct 18:30 IST
+Publish at:   2026-10-25T18:30:00+05:30
+PROBLEMS:
+ - publish_at is 18:30 IST; must be inside the 19:00-23:59 IST window
+=== publish_at 25 Oct 15:00 IST
+Publish at:   2026-10-25T15:00:00+05:30
+PROBLEMS:
+ - publish_at is 15:00 IST; must be inside the 19:00-23:59 IST window
+Long 01 publish_at still: "publish_at": "2026-10-20T19:00:00+05:30"
+```
+</details></tool-use>
