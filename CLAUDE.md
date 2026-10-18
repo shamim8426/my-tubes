@@ -15,6 +15,7 @@ Command: `.\.venv\Scripts\python -X utf8 scripts\make_short.py <case> [--preview
 - User ke kai badlav ek saath aayein to sab ek hi build me lagao, har badlav par alag build mat chalao.
 - Image/TTS par paisa lagne se pehle cost batao aur user se poocho. Paisa sirf cache miss par lage; make_short bina `--spend` ke paid TTS se pehle ruk kar estimate dikhata hai.
 - Build ke baad hamesha batao: preview ya final, scenes cached/naye, build time, aur kharcha.
+- Yaad rakhna: Shorts ka music agle build me 3-4 dB dheema karna hai (stem method se 12-14 LU target).
 
 ## Munshi (review + publish)
 - Har production step ke baad `munshi` subagent ko bulao aur uska verdict mujhe dikhao. FIX ho to free fix karo aur dobara review karwao; ASK ho to mujhse poochho.

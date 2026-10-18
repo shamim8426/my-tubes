@@ -46,7 +46,7 @@ PROFILES = {
     ("long", "final"): {"w": 1920, "h": 1080, "fps": 30, "enc": ["-preset", "slow", "-crf", "18"]},
 }
 MUSIC_XFADE = 1.5  # seconds of crossfade when the mood (music track) changes
-RENDER_VERSION = 2  # bump when scene rendering code changes, to invalidate the clip cache (2: tv-range bt709)
+RENDER_VERSION = 3  # bump when scene rendering code changes, to invalidate the clip cache (3: full bt709 tags)
 PLAY_W, PLAY_H = 1080, 1920  # caption coordinate space (libass scales it to the output size)
 SR = 24000  # Gemini TTS output rate
 GAP, END_HOLD = 0.30, 1.5  # silence between lines; hold on the final question
@@ -392,7 +392,8 @@ def render_scene(p, prof, clip: Path, work: Path):
     for k, (d, z, x, y) in enumerate(p["shots"]):
         fc.append(f"[i{k}]zoompan=z='{z}':x='{x}':y='{y}':d={d}:s={w}x{h}:fps={fps}[z{k}]")
     fc.append("".join(f"[z{k}]" for k in range(n)) + (f"concat=n={n}:v=1:a=0" if n > 1 else "null")
-              + f"{subs},scale=out_color_matrix=bt709:out_range=tv,format=yuv420p,setsar=1[out]")
+              + f"{subs},scale=out_color_matrix=bt709:out_range=tv,format=yuv420p,setsar=1,"
+                f"setparams=range=tv:color_primaries=bt709:color_trc=bt709:colorspace=bt709[out]")
     tmp = clip.with_suffix(".part.mp4")
     run([FFMPEG, "-y", "-i", p["img"], "-filter_complex", ";".join(fc), "-map", "[out]", "-frames:v", p["frames"],
          "-c:v", "libx264", *prof["enc"], "-pix_fmt", "yuv420p", "-color_range", "tv", "-colorspace", "bt709",

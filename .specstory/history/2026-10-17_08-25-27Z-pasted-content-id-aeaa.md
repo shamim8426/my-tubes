@@ -22542,3 +22542,1313 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 07:59:44Z)**_
 {"success":true,"message":"Report delivered to your caller."}
 ```
 </details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 07:59:48Z)**_
+
+Munshi ka review aa gaya. Ab sync chala raha hoon.
+
+_**Agent (claude-opus-5-5 2026-10-18 08:00:05Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Sync to GitHub after rebuild and review
+
+`powershell -NoProfile -ExecutionPolicy Bypass -File tools/sync.ps1 -Message "long_01: free fixes final rebuild + munshi re-review" >/dev/null 2>&1; tail -1 munshi/sync.log`
+
+```text
+2026-10-18 13:30:04  pushed: long_01: free fixes final rebuild + munshi re-review  (repo pack size 179 MB)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 08:00:24Z)**_
+
+Saare free fixes ke saath Long 01 ka final dobara ban gaya hai. Munshi ke re-review me thumbnail aur metadata **PASS** hue. Final build **ASK** par ruka hai, sirf video ki lambai ke faisle par.
+
+**Build:** final, 38 scenes naye (nayi color range ki wajah se saare dobara bane), 782 sec, **₹0**. Bacha budget pehle jaisa **₹300.70** hai. `pushed: long_01: free fixes final rebuild + munshi re-review`.
+
+**Case 01 check:** Dadi ka ghar kisi bhi scene me nahi dikhta, saare scenes gali me hain. Isliye bible ke section 5 aur RULES me Dadi ka ghar banner jaisa likh diya: kacha ghar, bhoora darwaza, peeche khet, Gulmohar Mohalla ke kinare. RULES me aapki do nayi lines bhi jud gayi.
+
+## 7. Final build: ASK
+Munshi ne har fix khud check kiya:
+- **Mitthu (line 2):** close-up me Mitthu aur laddoo ka dibba dono dikhte hain ✅
+- **Sadhu (line 15):** poori line par sirf Sadhu dikhta hai. Ghasita uski apni line 16 par hi aata hai ✅
+- **Music:** naye stem method se **13.0 LU** neeche hai. Pehle ~9.8 tha ✅
+- **Pause:** teeno music-only pause me music sunai deta hai ✅. 3 sec wale pause ke aakhri ~1 sec me piano track ka phrase khatam hone se music dheema hota hai. Ye taste ki baat hai, rule ka issue nahi.
+- **Video:** `yuv420p`, tv range ✅. Munshi ne meri ek galti pakdi: `color_primaries` aur `color_trc` ke tag ab bhi "unknown" hain, jabki maine bt709 kaha tha. Ye RULES me nahi hai aur YouTube HD video ko bt709 hi maanta hai, isliye upload nahi rukta. Agle build me ₹0 me theek ho sakta hai.
+- **Captions:** 0.45 sec se chhota koi nahi bacha ✅. Loudness -14.0 LUFS, true peak -1.4 dBFS ✅. Lines 2 aur 50 ki timing ab bhi andaze se hai (proportional).
+
+**Ek hi baat bachi hai: lambai.** Video 5:06 ka hai, jabki script ka target ~3:50 tha. Ye RULES ki ±10% seema se bahar hai.
+- **(a)** 5:06 approve kijiye, ₹0. Aapne preview par ye lambai pehle hi approve ki thi, par RULES ke hisaab se Munshi ko ye aapse dobara poochhna padta hai.
+- **(b)** Lines ke beech ka gap aur ant ka hold chhota karke ~6 sec ghatayein, ₹0. Iske liye final dobara banana hoga (~13 min) aur pacing thodi tez ho jayegi.
+
+## 8. Thumbnail: PASS
+Text ab frame ka **14.3% / 13.5%** ooncha hai (pehle ~11%). Matrayein sahi, koi spoiler nahi, neeche-daayein kona khali.
+
+## 9. Metadata: PASS
+- 5 hashtags.
+- 21 tags, Hindi aur English, 375 / 500 characters.
+- `long_01.txt` me naya TAGS section hai.
+- Saare 6 music credits sahi.
+
+## Ek nayi baat: Case 01
+Naye stem method se Shorts ka music shayad ~9–10 LU neeche aata hai, jabki RULES 12–14 maangta hai. Agle Short (ya Case 01 ke kisi rebuild) me Munshi ise FIX bolega. Tab Shorts ka music bhi ~3–4 dB dheema karna hoga. Abhi kuch nahi badla.
+
+## Aapse chahiye
+1. Lambai ke liye **(a)** ya **(b)**?
+2. Upload ke liye **channel ID** (UC se shuru, 24 characters), aur chahein toh **playlist ID**.
+3. Kya is PC par `tools\ffmpeg` ko PATH me jod doon, taki upload script ko `ffprobe` mil jaye?
+
+---
+
+_**User (2026-10-18 08:04:23Z)**_
+
+
+
+<pasted_content id="aeaa">
+Audience
+Simplify your workflow by selecting a channel setting. If you skip this question, you'll be required to identify each video on your channel that's made for kids. This setting will affect existing and future videos. Settings for individual videos will override the channel setting.
+Do you want to set your channel as made for kids?
+Regardless of your location, you're legally required to comply with the Children's Online Privacy Protection Act (COPPA) and/or other laws. You're required to tell us whether your videos are made for kids. What's content made for kids?
+Yes, set this channel as made for kids. I mostly upload content that's made for kids.Changes to your channel. Ads won’t be personalized. Viewers can still be shown non-personalized ads. Notifications, comments, and stories will be disabled. 
+
+See all changes
+No, set this channel as not made for kids. I almost never upload content that's made for kids.
+I want to review this setting for every video.
+Google Ads account linking
+
+Link account
+Link your YouTube channel to a Google Ads account to let the linked Google Ads account run ads based on interactions with your channel's videos and to access insights from your channel's videos. Learn more
+
+Automatic captions
+Don’t show potentially inappropriate words
+Auto-captioning occasionally makes mistakes. This setting prevents potentially inappropriate words from being displayed. Learn more
+Automatic dubbing
+You are eligible for early access to automatic dubbing. Enable it to try dubbing on your next upload. Learn more
+
+Enable
+Advertisements 
+Disable interest-based ads
+If you select this option, personalized ads will not be shown on videos on your channel, such as ads based on a viewer's interests or remarketing ads. This may significantly reduce your channel's revenue. In addition, earned action reports and remarketing lists will stop working for your channel.
+Clips 
+Allow viewers to clip my content
+If you deselect this option, viewers will not be able to clip your content, and existing clips of your content will be disabled. Selecting this option again will re-enable existing clips of your content.
+Video quality enhancements
+Let YouTube enhance your content's visual and audio quality to improve the viewer experience. For example, we may boost image clarity, increase image resolution, or adjust volume levels so dialogue is easier to hear. Changing this setting won't affect videos you already uploaded. Learn more
+Let YouTube enhance visual quality
+Let YouTube enhance audio quality
+Third-party training
+Allow third-party companies to train AI models using my channel content
+If you select this option, YouTube may share your videos with a third-party company provided that you and all other applicable rights holders have chosen to allow that company. The training permission status of all videos will be available through a publicly accessible interface. Learn more
+Other settings
+Manage YouTube account
+Remove YouTube content
+</pasted_content id="aeaa">
+
+kya krna h isme ?
+
+---
+
+_**User (2026-10-18 08:04:27Z)**_
+
+[Request interrupted by user]
+
+---
+
+_**User (2026-10-18 08:07:40Z)**_
+
+
+
+<pasted_content id="aeaa">
+Ye saare kaam kram se karo. Koi paid (Gemini) call nahi, koi file delete nahi, .env/secrets ka content print nahi.
+
+1. Lambai: Long 01 ki 5:06 lambai approve hai. munshi/RULES.md section 5 me "Target length is set in the script..." wali line ki jagah ye line rakho:
+"- Target length: the duration the user approved at preview. Before preview, the script estimate is only a guide. Final must be within ±10% of the approved preview length; outside that is ASK."
+
+2. Channel config: munshi/channel_config.json me "dadi-ki-kahaniyan" ke andar ye bharo:
+   "channel_id": "UCy071_4g4vGemktFHybqkhQ"
+   "channel_key": "dadi-ki-kahaniyan"
+   Playlist ID abhi khaali rakho; baad me dunga.
+
+3. ffprobe: tools\ffmpeg\bin ko sirf USER PATH me jodo (system PATH nahi). tools/youtube_upload.py ke probe() me fallback jodo: PATH me ffprobe na mile to ROOT/tools/ffmpeg/bin/ffprobe.exe use kare. Ye fallback upload script ke baaki safety checks ko na chhede.
+
+4. Builder ki default encode settings me bt709 color tags jodo (color_primaries, color_trc, colorspace = bt709), taaki agle build se sahi aayein. Long 01 dobara mat banao.
+
+5. Yaad rakhne ke liye CLAUDE.md me note: "Shorts ka music agle build me 3-4 dB dheema karna hai (stem method se 12-14 LU target)."
+
+6. Copyright: agar RULES section 10 (Copyright STRICT) aur munshi/assets_license.csv abhi tak nahi bane hain, to pehle wala copyright prompt poora karo. Bane hue hain to skip. Register me koi "UNKNOWN" ho to mujhe list dikhao.
+
+7. Munshi se Long 01 ka copyright check aur upload dry-run: `@agent-munshi` se Long 01 ka copyright review karwao (RULES section 10, assets_license.csv ke against). Phir output/upload.json banwao (channel_key, channel_name, channel_id, format "long", publish_at = agla khaali din 7:00 PM IST, Case 01 se kam se kam 2 din baad) aur `python tools/youtube_upload.py --job <path> --dry-run` chalao. Verdict aur dry-run ka output mujhe dikhao. Asli upload abhi NAHI.
+
+8. Sync: tools\sync.ps1 -Message "long_01: final approved + channel config + copyright check"
+
+9. Iske baad YouTube API ka one-time setup shuru karo (youtube-publish skill ka "One-time setup" section). Har step par mujhe batao kahan click karna hai aur meri confirmation ka intezaar karo. Pehla browser login karte waqt mujhe yaad dilana ki "दादी की कहानियाँ" channel hi chunna hai.
+</pasted_content id="aeaa">
+
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-18 08:07:50Z)**_
+
+Kaam kram se kar raha hoon. Pehle ffmpeg ka folder aur copyright files dekh raha hoon.
+
+_**Agent (claude-opus-5-5 2026-10-18 08:07:53Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Check ffmpeg folder and copyright files
+
+`ls tools/ffmpeg; ls munshi; grep -n "^## " munshi/RULES.md; grep -rn -i "copyright\|assets_license" --include=*.md . 2>/dev/null | grep -v "^./.venv\|^./claude-home\|_to_delete" | head`
+
+```text
+ffmpeg.exe
+ffplay.exe
+ffprobe.exe
+RULES.md
+channel_config.json
+log.md
+sync.log
+6:## 1. Budget
+12:## 2. Story and characters (from `channel_bible.md`)
+20:## 3. Audio
+27:## 4. Captions
+32:## 5. Video
+37:## 6. Thumbnail
+45:## 7. Metadata
+52:## 8. Publishing
+58:## 9. Safety
+./.specstory/history/2026-10-17_08-25-27Z-pasted-content-id-aeaa.md:246:- FFmpeg: har image par halka zoom/pan, bade Hindi captions (Noto Sans Devanagari ya Mukta font), copyright-free halka music, -14 LUFS.
+./.specstory/history/2026-10-17_08-25-27Z-pasted-content-id-aeaa.md:880:1	ffmpeg version N-127579-g5cb9fcd211-20261016 Copyright (c) 2000-2026 the FFmpeg developers
+./.specstory/history/2026-10-17_08-25-27Z-pasted-content-id-aeaa.md:894:ffmpeg version N-127579-g5cb9fcd211-20261016 Copyright (c) 2000-2026 the FFmpeg developers
+./.specstory/history/2026-10-17_08-25-27Z-pasted-content-id-aeaa.md:2602:"""Synthesise our own light 'tiptoe mystery' music bed (no third-party audio -> no copyright risk).
+./.specstory/history/2026-10-17_08-25-27Z-pasted-content-id-aeaa.md:3507:| Music | Code se banaya hua apna mystery track (`assets/music/mystery_bed.wav`). Ye kisi aur ka nahi hai, isliye copyright ka risk nahi. Jab bhi koi bole, music apne aap dheema ho jaata hai. |
+./.specstory/history/2026-10-17_08-25-27Z-pasted-content-id-aeaa.md:5467:The only credit-related text is the site footer, "© 1997–2026 Incompetech Inc.," which is site-wide copyright, not track-specific attribution.
+./.specstory/history/2026-10-17_08-25-27Z-pasted-content-id-aeaa.md:9734:Copyright Disclaimer Under Section 107 of the Copyright Act 1976, allowance is made for "fair use" for purpose such as criticism, comment, news reporting, teaching, scholarship, and research. Fair use is a use permitted by copyright statute that might otherwise be infringing. Non-profit, educational or personal use tips the balance in favour of fair use.
+./.specstory/history/2026-10-17_08-25-27Z-pasted-content-id-aeaa.md:9750:Description me ek aur baat dikhi jo **copy nahi karni chahiye:** unhone "Copyright Disclaimer Under Section 107... fair use" likha hai. Ye koi licence nahi hai, aur iske bharose kisi ka music lagane se copyright claim se bachaav nahi hota. Hamara tareeka, yaani CC0 sound effects aur Incompetech ka credit, sahi hai.
+./.specstory/history/2026-10-17_08-25-27Z-pasted-content-id-aeaa.md:22678:6. Copyright: agar RULES section 10 (Copyright STRICT) aur munshi/assets_license.csv abhi tak nahi bane hain, to pehle wala copyright prompt poora karo. Bane hue hain to skip. Register me koi "UNKNOWN" ho to mujhe list dikhao.
+./.specstory/history/2026-10-17_08-25-27Z-pasted-content-id-aeaa.md:22680:7. Munshi se Long 01 ka copyright check aur upload dry-run: `@agent-munshi` se Long 01 ka copyright review karwao (RULES section 10, assets_license.csv ke against). Phir output/upload.json banwao (channel_key, channel_name, channel_id, format "long", publish_at = agla khaali din 7:00 PM IST, Case 01 se kam se kam 2 din baad) aur `python tools/youtube_upload.py --job <path> --dry-run` chalao. Verdict aur dry-run ka output mujhe dikhao. Asli upload abhi NAHI.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 08:07:56Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Look for copyright prompt file
+
+`ls -t /c/Users/ashamim/Downloads/*.md 2>/dev/null | head; ls /c/Users/ashamim/Desktop/*.md 2>/dev/null`
+
+```text
+Exit code 2
+/c/Users/ashamim/Downloads/github_sync_setup_prompt.md
+/c/Users/ashamim/Downloads/munshi_setup_prompt.md
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 08:08:01Z)**_
+
+Copyright wala prompt na is baatcheet me kabhi aaya, na Downloads me mila. Isliye step 6 abhi nahi ho sakta (iske baare me ant me poochhunga). Steps 1–5 kar raha hoon.
+
+_**Agent (claude-opus-5-5 2026-10-18 08:08:09Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\munshi\RULES.md has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 08:08:10Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\munshi\channel_config.json has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 08:08:11Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\tools\youtube_upload.py has been updated successfully. (file state is current in your context — no need to Read it back)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 08:08:12Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\CLAUDE.md has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 08:08:16Z)**_
+
+Is PC par `tools\ffmpeg\bin` folder hai hi nahi, exe seedhe `tools\ffmpeg\` me hain. Isliye USER PATH me wahi folder jod raha hoon jahan exe hain. Fallback dono jagah dekhta hai.
+
+_**Agent (claude-opus-5-5 2026-10-18 08:08:24Z)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="PowerShell"><details>
+<summary>Tool use: **PowerShell**</summary>
+Add ffmpeg folder to user PATH only
+
+```text
+added to USER PATH
+user PATH has it: True
+system PATH has it: False
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 08:08:26Z)**_
+
+Ab step 4: bt709 tags. Pehle ek chhote test se dekh raha hoon ki pichhli baar tags kyun nahi lage.
+
+_**Agent (claude-opus-5-5 2026-10-18 08:08:40Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Test color tagging with flags vs setparams
+
+```bash
+S="C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad"; F=tools/ffmpeg/ffmpeg.exe; I=long-videos/long_01/images/scene_01.png
+$F -v error -y -loop 1 -i $I -vf "scale=640:360,scale=out_color_matrix=bt709:out_range=tv,format=yuv420p" -frames:v 10 -c:v libx264 -pix_fmt yuv420p -color_range tv -colorspace bt709 -color_primaries bt709 -color_trc bt709 $S/t1.mp4
+$F -v error -y -loop 1 -i $I -vf "scale=640:360,scale=out_color_matrix=bt709:out_range=tv,format=yuv420p,setparams=range=tv:color_primaries=bt709:color_trc=bt709:colorspace=bt709" -frames:v 10 -c:v libx264 -pix_fmt yuv420p $S/t2.mp4
+for f in t1 t2; do tools/ffmpeg/ffprobe.exe -v error -select_streams v -show_entries stream=pix_fmt,color_range,color_space,color_primaries,color_transfer -of compact $S/$f.mp4; done
+```
+
+```text
+stream|pix_fmt=yuv420p|color_range=tv|color_space=bt709|color_transfer=unknown|color_primaries=unknown
+stream|pix_fmt=yuv420p|color_range=tv|color_space=bt709|color_transfer=bt709|color_primaries=bt709
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 08:08:43Z)**_
+
+Kaaran mil gaya. Is FFmpeg build me sirf command-line flags se primaries/transfer tag nahi lagte, `setparams` filter se lag jaate hain. Ye builder me jod raha hoon:
+
+_**Agent (claude-opus-5-5 2026-10-18 08:08:49Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\scripts\make_short.py has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 08:08:50Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\scripts\make_short.py has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 08:08:55Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Compile and test ffprobe fallback without PATH
+
+```bash
+.venv/Scripts/python.exe -m py_compile scripts/make_short.py tools/youtube_upload.py && echo compiled && PATH="/c/Windows/System32" .venv/Scripts/python.exe -c "
+import sys; sys.path.insert(0,'tools'); import shutil; print('ffprobe on PATH:', shutil.which('ffprobe'))
+import youtube_upload as y; from pathlib import Path
+print('probe via fallback:', y.probe(Path('long-videos/long_01/output/long_01.mp4')))"
+```
+
+```text
+compiled
+ffprobe on PATH: None
+probe via fallback: (1920, 1080, 'h264', 'yuv420p', 306.166667)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 08:09:05Z)**_
+
+<think><details><summary>Thought Process</summary>
+Fallback kaam kar gaya — PATH empty hone par bhi `ffprobe` mil gaya aur final video ki sahi info aa gayi. Ab Munshi se `upload.json` banwa kar dry-run karwa raha hoon, step 6 (copyright review) is baar skip kar raha hoon kyunki wo iske bina nahi ho sakta.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-18 08:10:27Z)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="Agent"><details>
+<summary>Tool use: **Agent**</summary>
+Long 01 upload.json + dry-run
+
+```text
+  This agent's report was delivered to you as a message from "ae8652fca2dd3eaea" (its SubagentHandback call). Read it there; it is not repeated here.
+  
+agentId: ae8652fca2dd3eaea (use SendMessage with to: 'ae8652fca2dd3eaea', summary: '<5-10 word recap>' to continue this agent)
+<usage>subagent_tokens: 36938
+tool_uses: 10
+duration_ms: 75286</usage>
+```
+</details></tool-use>
+
+_**Agent - sidechain (2026-10-18 08:09:12Z)**_
+
+Project long-videos/long_01. Task: prepare the upload job and run a DRY-RUN only. Do NOT do a real upload, do not log in, no network calls.
+
+Context:
+- The user has now approved the 5:06 (306.2s) length. munshi/RULES.md section 5 was changed: target length = the duration approved at preview (5:06 preview → final 306.2s is within ±10%). So the earlier step-7 ASK is resolved: re-read RULES and, if everything else from your last re-review still holds (final build file unchanged since then), log step 7 as PASS in munshi/log.md with that reason. Thumbnail and metadata already PASS.
+- Copyright review is NOT part of this run: RULES section 10 and munshi/assets_license.csv don't exist yet (pending from the user). Say so in your report; do not invent them.
+- munshi/channel_config.json now has channel_id and channel_key; playlists are still empty (leave playlist_id out).
+- Publish time: Case 01 (a Short) was published by the user on 2026-10-18. User wants Long 01 at least 2 days after Case 01, on the next free day at 19:00 IST → use 2026-10-20T19:00:00+05:30 unless you find a reason it's not free (check other projects' upload_result.json).
+
+Do (follow the youtube-publish skill, per-video steps 1-5):
+1. Write long-videos/long_01/output/upload.json with: channel_key, channel_name, channel_id (from channel_config), format "long", title, description (description text + the music/SFX credit blocks + the 5 hashtags, exactly as in long_01.txt — i.e. the full description the viewer should see; NOT the TAGS section and NOT the pinned comment), tags (meta.json list), video long_01.mp4, thumbnail long_01_thumbnail.png, captions long_01.srt, language "hi", captions_name "Hindi", made_for_kids, contains_synthetic_media, category_id (from channel_config), publish_at. Use paths relative to the job file.
+2. Run: .venv/Scripts/python.exe tools/youtube_upload.py --job long-videos/long_01/output/upload.json --dry-run   (ffprobe is found via the script's fallback). Show the full output.
+3. Report in your standard format: step "publish dry-run", verdict, what you checked, the dry-run output verbatim, and what the user still has to provide/confirm before a real upload (copyright register, playlist id, OAuth setup). Append a log line.
+
+_**Agent - sidechain (2026-10-18 08:09:12Z)**_
+
+<system-reminder>
+Your final report is delivered through SubagentHandback: when your work is complete, call SubagentHandback({message: <your full report>}). The call ends your run, so make it your last step. Only a SubagentHandback call reaches your caller as your result; plain text you write at the end is not delivered.
+</system-reminder>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 08:09:14Z)**_
+
+Starting with the rules, the log, the channel config and the project files.
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 08:09:16Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Read rules, log, config, list project
+
+`cat munshi/RULES.md; echo ======; cat munshi/log.md; echo =====; cat munshi/channel_config.json; echo =====; ls -la long-videos/long_01 long-videos/long_01/output; ls .claude/skills 2>/dev/null`
+
+```text
+# Munshi RULES — Story-Channel
+
+These are the hard rules. If a builder summary, a script or a file disagrees with them, the rule wins and the step is not PASS. Edit this file to add new rules; Munshi reads it fresh every time.
+- A measured value outside a RULES limit is always FIX, never PASS, even if small.
+
+## 1. Budget
+- Prepaid Google Cloud budget: ₹500, auto-reload off. Current balance is whatever `cost_log.csv` says.
+- Every paid call (Gemini image ≈ ₹3.24 each at 1K, Gemini TTS per line) must be in `cost_log.csv` with date, project, item, ₹.
+- No paid call without the user's OK first. A fix that costs money is always ASK, never FIX.
+- Flag it if a step cost more than 30% above its estimate (e.g. LONG_01 TTS: estimate ₹4.85, actual ₹6.63).
+
+## 2. Story and characters (from `channel_bible.md`)
+- Characters must match their approved sheets: face, clothes, colours, age look. Compare each scene image against the sheet with Read.
+- Dadi (Kamla Devi) narrates. Every other character speaks their own lines in their own voice.
+- Mitthu (parrot) has no hands: no hand gestures, holding things or pointing with hands.
+- Dadi's home (in Gulmohar Mohalla): a kacha mud house with a tiled roof, BROWN wooden door, swept aangan, green fields behind, exactly like the channel banner (`channel_assets/_work/banner_art.png`). There is no green door.
+- Setting: Dadi's home, the Golu–Mitthu opening/closing frame and all Dadi Jasoos cases are in Gulmohar Mohalla. The story Dadi narrates inside a moral-story video can be set in any village or town the approved script names (e.g. Rampur in LONG_01); check location consistency against that script. Village kitchens still use a mitti ka chulha, never a gas stove.
+- The action in each image must match what the line says at that moment (who is holding what, who is talking).
+
+## 3. Audio
+- Final loudness: -14 LUFS integrated (±1), true peak ≤ -1.0 dBFS.
+- Music sits under the voice: 12–14 dB below for Shorts, up to ~18–20 dB for narration-heavy long videos. If it is quieter than 20 dB under, flag it.
+- Music level is measured one way only: integrated LUFS of the voice-only stem vs the music-only stem over the same speech sections. Builder and Munshi both use this method.
+- Mood changes get a crossfade (≥1 s). No sudden music cuts under dialogue.
+- No leaked background audio, clicks, or a line cut off mid-word.
+
+## 4. Captions
+- One `.srt` per video, Hindi, UTF-8.
+- Each caption must appear while that line is being spoken (±0.3 s), over the right character's shot.
+- Lines whose timing was estimated rather than taken from Whisper must be listed in the report.
+
+## 5. Video
+- Long video: 1920×1080, 30 fps, H.264, 16:9. Short: 1080×1920, ≤60 s, 9:16.
+- Target length: the duration the user approved at preview. Before preview, the script estimate is only a guide. Final must be within ±10% of the approved preview length; outside that is ASK.
+- Preview builds (960×540) are only for review. They are never uploaded.
+
+## 6. Thumbnail
+- 1280×720, JPG or PNG, ≤ 2 MB.
+- Hindi text is rendered by libass/FFmpeg (HarfBuzz shaping), never drawn by the AI. Zoom in and check matras and joined letters (ड़, दु, क्ष, etc.).
+- Text readable on a phone: letter height ≥ ~12% of frame height, high contrast, max ~4 words.
+- Thumbnail text must not repeat the title word for word.
+- No spoilers: no ending, no twist, no mystery answer.
+- Bottom-right corner (~15% × 12%) has nothing important, because YouTube puts the duration there.
+
+## 7. Metadata
+- Title ≤ 100 characters, no `<` or `>`. Description ≤ 5000 characters.
+- Tags total ≤ 500 characters. 3–5 hashtags in the description (the first 3 show above the title; more than 15 and YouTube ignores all of them).
+- Every CC BY music track used (e.g. Incompetech / Kevin MacLeod) is credited in the description exactly as its licence asks.
+- Mystery (Dadi Jasoos) videos: the answer never goes in the title, description or thumbnail. It goes in the pinned comment 24 h after publishing.
+- Made-for-kids and AI-disclosure values come from `munshi/channel_config.json`. Never guess them.
+
+## 8. Publishing
+- Default publish time: 7:00 PM IST.
+- At least 2 days between two long videos on the same channel. Shorts can go on other days.
+- Nothing goes Public or gets scheduled without the user's OK in that conversation.
+- One upload per video. If `output/upload_result.json` exists, do not upload again.
+
+## 9. Safety
+- Never show or commit `.env`, `secrets/`, API keys or OAuth tokens.
+- Never delete files; move them to `_to_delete/`.
+======
+# Munshi log
+2026-10-18 | long_01 | 7 final build | FIX | spec/loudness/captions ok; Mitthu line 2 on Golu shot, Ghasita shot mid-Sadhu line 15, music only ~9-10 LU under voice (builder's 18.4 dB is a metric artefact); ASK pending: aangan frame not Gulmohar Mohalla/hara darwaza
+2026-10-18 | long_01 | 8 thumbnail | PASS | 1280x720 PNG 1.1 MB, Hindi text shaped correctly, no spoiler, BR corner clear; text height ~11% (optional +10% bump)
+2026-10-18 | long_01 | 9 metadata | FIX | 7 hashtags (rule 3-5); no tags list yet for upload; title 81 chars, desc 1514, all 6 CC BY tracks credited ok
+2026-10-18 | long_01 | 7 final build (re-review) | ASK | all 6 builder fixes verified (line 2 Mitthu+box, line 15 Sadhu only, music 13.0 LU under voice by stem method = inside long range 12-20, offsets 3.75s/14.5s, yuv420p tv bt709 matrix, no caption <0.45s); length 5:06 (306.2s) is outside script target ~3:50 +/-10% and 3-5 min range -> user decision
+2026-10-18 | long_01 | 8 thumbnail (re-review) | PASS | 1280x720 PNG 1.09 MB, text 14.3%/13.5% of height, Hindi shaping ok, no spoiler, BR corner clear
+2026-10-18 | long_01 | 9 metadata (re-review) | PASS | title 81, desc 1488, 5 hashtags, 21 tags 375/500 chars (YouTube count), 6 CC BY credits ok, TAGS in long_01.txt = meta.json
+=====
+{
+  "dadi-ki-kahaniyan": {
+    "display_name": "दादी की कहानियाँ",
+    "channel_id": "UCy071_4g4vGemktFHybqkhQ",
+    "channel_key": "dadi-ki-kahaniyan",
+    "made_for_kids": false,
+    "contains_synthetic_media": false,
+    "category_id": "1",
+    "default_language": "hi",
+    "publish_time_ist": "19:00",
+    "min_days_between_long": 2,
+    "playlists": {
+      "dadi-jasoos": "",
+      "moral-stories": ""
+    }
+  }
+}
+=====
+long-videos/long_01:
+total 73
+drwxr-xr-x 1 ashamim 1049089     0 Oct 18 13:09 .
+drwxr-xr-x 1 ashamim 1049089     0 Oct 17 22:28 ..
+-rw-r--r-- 1 ashamim 1049089  5184 Oct 17 22:33 LONG_01_IDEAS.md
+-rw-r--r-- 1 ashamim 1049089  7676 Oct 17 23:00 LONG_01_SCENES.md
+drwxr-xr-x 1 ashamim 1049089     0 Oct 18 00:12 audio
+drwxr-xr-x 1 ashamim 1049089     0 Oct 17 23:00 characters
+drwxr-xr-x 1 ashamim 1049089     0 Oct 17 23:25 images
+-rw-r--r-- 1 ashamim 1049089  9700 Oct 18 13:09 lines.json
+-rw-r--r-- 1 ashamim 1049089  2560 Oct 18 13:09 meta.json
+drwxr-xr-x 1 ashamim 1049089     0 Oct 18 12:51 output
+-rw-r--r-- 1 ashamim 1049089   196 Oct 17 23:54 project.json
+-rw-r--r-- 1 ashamim 1049089 11250 Oct 17 23:08 scene_prompts.json
+drwxr-xr-x 1 ashamim 1049089     0 Oct 17 22:54 scripts
+-rw-r--r-- 1 ashamim 1049089  1555 Oct 17 23:54 shots.json
+
+long-videos/long_01/output:
+total 279576
+drwxr-xr-x 1 ashamim 1049089         0 Oct 18 12:51 .
+drwxr-xr-x 1 ashamim 1049089         0 Oct 18 13:09 ..
+-rw-r--r-- 1 ashamim 1049089 156904342 Oct 18 13:22 long_01.mp4
+-rw-r--r-- 1 ashamim 1049089     13872 Oct 18 13:22 long_01.srt
+-rw-r--r-- 1 ashamim 1049089      3092 Oct 18 13:23 long_01.txt
+-rw-r--r-- 1 ashamim 1049089   3447745 Oct 18 13:23 long_01_framecheck.png
+-rw-r--r-- 1 ashamim 1049089 124776058 Oct 18 00:15 long_01_preview.mp4
+-rw-r--r-- 1 ashamim 1049089     14028 Oct 18 00:15 long_01_preview.srt
+-rw-r--r-- 1 ashamim 1049089   1090136 Oct 18 13:09 long_01_thumbnail.png
+drwxr-xr-x 1 ashamim 1049089         0 Oct 18 13:21 long_01_work
+drwxr-xr-x 1 ashamim 1049089         0 Oct 18 13:24 review
+step-review
+youtube-publish
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 08:09:21Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Read publish skill, timestamps, metadata files
+
+`cat .claude/skills/youtube-publish/SKILL.md; ls .claude/skills/youtube-publish; echo ====; ls -la --time-style=full-iso long-videos/long_01/output/review long-videos/long_01/output/*.* munshi/; echo ===; cat long-videos/long_01/output/long_01.txt; echo ===; cat long-videos/long_01/meta.json`
+
+```text
+---
+name: youtube-publish
+description: Upload and schedule an approved Story-Channel video to YouTube with tools/youtube_upload.py, including one-time OAuth setup. Used by the munshi agent after the user approves the final build.
+---
+
+# Publish a video to YouTube
+
+Uses `tools/youtube_upload.py` (YouTube Data API v3). Never upload without the user's explicit OK in this conversation.
+
+## One-time setup (guide the user, they do the clicks in Google Cloud Console)
+1. Use the same Google Cloud project as Gemini, or a new one. Enable **YouTube Data API v3**.
+2. OAuth consent screen: User type External. Add the channel's Google account as a test user. Then **Publish app** (move it to In production). If it stays in Testing, the refresh token expires every 7 days and uploads stop working.
+3. Credentials: Create OAuth client ID, type **Desktop app**. Download JSON and save it as `secrets/client_secret.json`. Make sure `secrets/` is in `.gitignore`.
+4. `pip install google-api-python-client google-auth-oauthlib`
+5. First real run opens a browser: pick the right Google account AND the right channel, accept the "unverified app" warning (it is the user's own app). Token is saved to `secrets/youtube_token_<channel_key>.json`; later runs are silent.
+6. Phone-verify the channel in YouTube Studio, otherwise custom thumbnails fail.
+
+## Important limit: unaudited API projects
+Videos uploaded through the API from a project that has not passed YouTube's API audit are locked to **private**, and scheduling may not take effect. Until the audit is approved:
+- Upload as private (the script does this when `publish_at` is set).
+- Tell the user the one Studio step left: open the studio_url and set Schedule / Public.
+- Suggest applying for the audit (YouTube API Services audit and quota extension form, free, takes a few weeks). After approval, scheduling becomes fully automatic.
+Quota: default 10,000 units/day; one upload costs about 1,600, thumbnail 50, captions 400. Check the current numbers in the docs if uploads fail with quotaExceeded.
+
+## Per-video steps
+1. Confirm in `munshi/log.md`: PASS for final build, thumbnail and metadata of this project. Confirm `output/upload_result.json` does not exist.
+2. Read `munshi/channel_config.json` for made_for_kids, contains_synthetic_media, category_id, language, publish time, playlist id. If made_for_kids is null, ASK the user and save the answer there.
+3. Pick publish time: next free day at 19:00 IST respecting min_days_between_long (check other projects' upload_result.json).
+4. Write `output/upload.json`:
+   - channel_key, channel_name, channel_id (from `munshi/channel_config.json`)
+   - format: "long" or "short"
+   - title, description, tags (from the approved metadata file)
+   - video: final mp4 (never *_preview*)
+   - thumbnail, captions (.srt), language "hi", captions_name "Hindi"
+   - made_for_kids, contains_synthetic_media, category_id
+   - publish_at like 2026-10-21T19:00:00+05:30 (or privacy "private" with no publish_at)
+   - playlist_id if configured
+5. `python tools/youtube_upload.py --job <upload.json> --dry-run`. Fix any PROBLEMS.
+   If the script says WRONG CHANNEL, stop and tell the user; never edit channel_id to make it pass.
+6. Show the user: title, publish time IST, made-for-kids, playlist, thumbnail file. Wait for ha/ok.
+7. Run without --dry-run. If thumbnail/captions/playlist failed, fix the cause and run with `--extras-only`.
+8. Report: video URL, studio URL, what succeeded, and what still needs a click in Studio (schedule if locked private, pinned comment, end screen). Pinning a comment is not possible through the API.
+9. Append a PUBLISHED line to `munshi/log.md`.
+SKILL.md
+====
+-rw-r--r-- 1 ashamim 1049089 156904342 2026-10-18 13:22:17.579628100 +0530 long-videos/long_01/output/long_01.mp4
+-rw-r--r-- 1 ashamim 1049089     13872 2026-10-18 13:22:17.594307400 +0530 long-videos/long_01/output/long_01.srt
+-rw-r--r-- 1 ashamim 1049089      3092 2026-10-18 13:23:24.009920800 +0530 long-videos/long_01/output/long_01.txt
+-rw-r--r-- 1 ashamim 1049089   3447745 2026-10-18 13:23:24.009920800 +0530 long-videos/long_01/output/long_01_framecheck.png
+-rw-r--r-- 1 ashamim 1049089 124776058 2026-10-18 00:15:57.579226400 +0530 long-videos/long_01/output/long_01_preview.mp4
+-rw-r--r-- 1 ashamim 1049089     14028 2026-10-18 00:15:57.615484800 +0530 long-videos/long_01/output/long_01_preview.srt
+-rw-r--r-- 1 ashamim 1049089   1090136 2026-10-18 13:09:25.610683700 +0530 long-videos/long_01/output/long_01_thumbnail.png
+
+long-videos/long_01/output/review:
+total 126340
+drwxr-xr-x 1 ashamim 1049089        0 2026-10-18 13:24:30.707706700 +0530 .
+drwxr-xr-x 1 ashamim 1049089        0 2026-10-18 12:51:36.250765200 +0530 ..
+-rw-r--r-- 1 ashamim 1049089  3708473 2026-10-18 13:03:58.824848300 +0530 case01_sheet.png
+-rw-r--r-- 1 ashamim 1049089   209795 2026-10-18 12:56:40.919778500 +0530 f_113.3.png
+-rw-r--r-- 1 ashamim 1049089   215261 2026-10-18 12:56:41.513310500 +0530 f_115.png
+-rw-r--r-- 1 ashamim 1049089   175557 2026-10-18 12:56:42.083187400 +0530 f_117.png
+-rw-r--r-- 1 ashamim 1049089   213951 2026-10-18 12:56:42.670721900 +0530 f_119.png
+-rw-r--r-- 1 ashamim 1049089   173662 2026-10-18 12:56:43.202570600 +0530 f_121.png
+-rw-r--r-- 1 ashamim 1049089   203377 2026-10-18 12:56:33.527792100 +0530 f_3.4.png
+-rw-r--r-- 1 ashamim 1049089   202883 2026-10-18 12:56:34.256222300 +0530 f_4.3.png
+-rw-r--r-- 1 ashamim 1049089   201400 2026-10-18 12:56:34.918519600 +0530 f_5.1.png
+-rw-r--r-- 1 ashamim 1049089   234507 2026-10-18 12:56:35.526469300 +0530 f_74.3.png
+-rw-r--r-- 1 ashamim 1049089   234100 2026-10-18 12:56:36.154520400 +0530 f_75.5.png
+-rw-r--r-- 1 ashamim 1049089   224859 2026-10-18 12:56:36.787349400 +0530 f_76.8.png
+-rw-r--r-- 1 ashamim 1049089   224154 2026-10-18 12:56:37.540503500 +0530 f_78.0.png
+-rw-r--r-- 1 ashamim 1049089   234602 2026-10-18 12:56:38.279682500 +0530 f_79.5.png
+-rw-r--r-- 1 ashamim 1049089  2315769 2026-10-18 12:57:47.641176600 +0530 frame_scenes.png
+-rw-r--r-- 1 ashamim 1049089 29393324 2026-10-18 12:54:30.152259700 +0530 music_only_est.wav
+-rw-r--r-- 1 ashamim 1049089 58786638 2026-10-18 12:52:56.341949600 +0530 music_resid.wav
+drwxr-xr-x 1 ashamim 1049089        0 2026-10-18 13:28:27.753638700 +0530 rr2
+-rw-r--r-- 1 ashamim 1049089  2707180 2026-10-18 12:56:43.865014600 +0530 speaker_check.png
+-rw-r--r-- 1 ashamim 1049089    74312 2026-10-18 12:56:10.754583200 +0530 thumb_br_corner.png
+-rw-r--r-- 1 ashamim 1049089   180534 2026-10-18 12:56:10.737748800 +0530 thumb_text_zoom.png
+-rw-r--r-- 1 ashamim 1049089 29393324 2026-10-18 12:54:30.331309500 +0530 voice_in_mix.wav
+
+munshi/:
+total 21
+drwxr-xr-x 1 ashamim 1049089    0 2026-10-18 13:38:09.799777400 +0530 .
+drwxr-xr-x 1 ashamim 1049089    0 2026-10-18 13:38:11.941993900 +0530 ..
+-rw-r--r-- 1 ashamim 1049089 4600 2026-10-18 13:38:08.706896600 +0530 RULES.md
+-rw-r--r-- 1 ashamim 1049089  449 2026-10-18 13:38:09.793955300 +0530 channel_config.json
+-rw-r--r-- 1 ashamim 1049089 1277 2026-10-18 13:29:08.597611700 +0530 log.md
+-rw-r--r-- 1 ashamim 1049089  701 2026-10-18 13:30:04.053946200 +0530 sync.log
+===
+TITLE:
+लालची हलवाई और जादुई कड़ाही | दादी की कहानियाँ | Hindi Moral Story | Hindi Kahani
+
+DESCRIPTION:
+रामपुर गाँव का घसीटा हलवाई बहुत लालची था — तराज़ू में डंडी मारता और भूखे को भी भगा देता। पर उसका नौकर छोटू दिल का सोना था। एक दिन एक भूखे साधु बाबा ने छोटू को दी एक जादुई कड़ाही... जो डालो, दुगना! पर जब घसीटा ने लालच में उसे चुराया, तो क्या हुआ? 🍯✨
+
+सीख: लालच का अंत हमेशा बुरा होता है — और बाँटने से ख़ुशी दुगनी होती है।
+
+दादी की कहानियाँ — दादी हर हफ़्ते सुनाती हैं एक नई कहानी, जो हँसाए भी और सिखाए भी।
+
+Music: "Fluffing a Duck" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
+Music: "Carefree" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
+Music: "Heartbreaking" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
+Music: "Enchanted Valley" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
+Music: "Hidden Agenda" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
+Music: "Touching Moments Two - Higher" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
+Sound effects: freesound.org (CC0)
+
+#दादीकीकहानियाँ #HindiKahani #MoralStory #DadiKiKahaniyan #HindiStory
+
+TAGS:
+दादी की कहानियाँ, Dadi Ki Kahaniyan, लालची हलवाई, Lalchi Halwai, जादुई कड़ाही, Jadui Kadhai, हिंदी कहानी, Hindi Kahani, नैतिक कहानी, Hindi Moral Story, Moral Stories in Hindi, बच्चों की कहानी, Kids Story Hindi, Hindi Cartoon Story, दादी माँ की कहानी, Dadi Maa Ki Kahani, Bedtime Story Hindi, लालच का फल, Greed Moral Story, Magic Story Hindi, जादुई कहानी
+
+PINNED COMMENT (post later):
+आपको कहानी की कौन-सी सीख सबसे अच्छी लगी? कमेंट में बताइए! 🙏
+===
+{
+  "title": "लालची हलवाई और जादुई कड़ाही | दादी की कहानियाँ | Hindi Moral Story | Hindi Kahani",
+  "description": "रामपुर गाँव का घसीटा हलवाई बहुत लालची था — तराज़ू में डंडी मारता और भूखे को भी भगा देता। पर उसका नौकर छोटू दिल का सोना था। एक दिन एक भूखे साधु बाबा ने छोटू को दी एक जादुई कड़ाही... जो डालो, दुगना! पर जब घसीटा ने लालच में उसे चुराया, तो क्या हुआ? 🍯✨\n\nसीख: लालच का अंत हमेशा बुरा होता है — और बाँटने से ख़ुशी दुगनी होती है।\n\nदादी की कहानियाँ — दादी हर हफ़्ते सुनाती हैं एक नई कहानी, जो हँसाए भी और सिखाए भी।",
+  "hashtags": ["#दादीकीकहानियाँ", "#HindiKahani", "#MoralStory", "#DadiKiKahaniyan", "#HindiStory"],
+  "tags": ["दादी की कहानियाँ", "Dadi Ki Kahaniyan", "लालची हलवाई", "Lalchi Halwai", "जादुई कड़ाही", "Jadui Kadhai",
+           "हिंदी कहानी", "Hindi Kahani", "नैतिक कहानी", "Hindi Moral Story", "Moral Stories in Hindi",
+           "बच्चों की कहानी", "Kids Story Hindi", "Hindi Cartoon Story", "दादी माँ की कहानी", "Dadi Maa Ki Kahani",
+           "Bedtime Story Hindi", "लालच का फल", "Greed Moral Story", "Magic Story Hindi", "जादुई कहानी"],
+  "music_moods": {
+    "comedy": "comedy/Fluffing_a_Duck.mp3",
+    "khushi": "khushi/Carefree.mp3",
+    "dukh": "dukh/Heartbreaking.mp3",
+    "jaadu": "jaadu/Enchanted_Valley.mp3",
+    "tension": "tension/Hidden_Agenda.mp3",
+    "seekh": "seekh/Touching_Moments_Two_Higher.mp3"
+  },
+  "sfx": {"comedy": "comedy_sting_731261.mp3", "tension": "tension_sting_578356.mp3", "magic": "magic_376747.mp3"},
+  "pinned_comment": "आपको कहानी की कौन-सी सीख सबसे अच्छी लगी? कमेंट में बताइए! 🙏"
+}
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 08:09:28Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Check rr2, other uploads, git diffs
+
+`ls -la --time-style=full-iso long-videos/long_01/output/review/rr2; find . -name "upload_result.json" -o -name "upload.json" | grep -v .venv; ls; git log -3 --format='%h %ci %s' -- long-videos/long_01 munshi/log.md; git diff --stat; git diff munshi/RULES.md munshi/channel_config.json`
+
+```text
+total 7090
+drwxr-xr-x 1 ashamim 1049089       0 2026-10-18 13:28:27.753638700 +0530 .
+drwxr-xr-x 1 ashamim 1049089       0 2026-10-18 13:24:30.707706700 +0530 ..
+-rw-r--r-- 1 ashamim 1049089    2245 2026-10-18 13:27:04.195943600 +0530 caps.py
+-rw-r--r-- 1 ashamim 1049089  213415 2026-10-18 13:27:23.909340200 +0530 f_2.9.png
+-rw-r--r-- 1 ashamim 1049089  227008 2026-10-18 13:27:27.057576300 +0530 f_3.25.png
+-rw-r--r-- 1 ashamim 1049089  228336 2026-10-18 13:27:27.791017900 +0530 f_4.2.png
+-rw-r--r-- 1 ashamim 1049089  228179 2026-10-18 13:27:28.667087400 +0530 f_5.15.png
+-rw-r--r-- 1 ashamim 1049089  218945 2026-10-18 13:27:29.508494100 +0530 f_5.45.png
+-rw-r--r-- 1 ashamim 1049089  255214 2026-10-18 13:27:30.457390700 +0530 f_73.9.png
+-rw-r--r-- 1 ashamim 1049089  239792 2026-10-18 13:27:31.313996400 +0530 f_74.1.png
+-rw-r--r-- 1 ashamim 1049089  241337 2026-10-18 13:27:34.512717800 +0530 f_75.5.png
+-rw-r--r-- 1 ashamim 1049089  240777 2026-10-18 13:27:35.296879800 +0530 f_77.2.png
+-rw-r--r-- 1 ashamim 1049089  240657 2026-10-18 13:27:36.084193300 +0530 f_79.0.png
+-rw-r--r-- 1 ashamim 1049089  240302 2026-10-18 13:27:36.888573100 +0530 f_80.25.png
+-rw-r--r-- 1 ashamim 1049089  228837 2026-10-18 13:27:37.521534200 +0530 f_80.55.png
+-rw-r--r-- 1 ashamim 1049089  229569 2026-10-18 13:27:38.128637300 +0530 f_80.7.png
+-rw-r--r-- 1 ashamim 1049089  229940 2026-10-18 13:27:38.772182800 +0530 f_82.4.png
+-rw-r--r-- 1 ashamim 1049089  228684 2026-10-18 13:27:39.512743400 +0530 f_84.1.png
+-rw-r--r-- 1 ashamim 1049089     810 2026-10-18 13:26:09.624051500 +0530 offs.py
+-rw-r--r-- 1 ashamim 1049089     725 2026-10-18 13:26:24.110972200 +0530 offs2.py
+-rw-r--r-- 1 ashamim 1049089     558 2026-10-18 13:25:41.185514800 +0530 pauseprof.py
+-rw-r--r-- 1 ashamim 1049089 3456393 2026-10-18 13:27:48.702112100 +0530 sheet_l2_l15.png
+-rw-r--r-- 1 ashamim 1049089    1797 2026-10-18 13:25:22.260613700 +0530 stemcheck.py
+-rw-r--r-- 1 ashamim 1049089  247293 2026-10-18 13:28:27.753638700 +0530 thumb_zoom.png
+-rw-r--r-- 1 ashamim 1049089    5499 2026-10-18 13:24:31.326095900 +0530 timed.json
+-rw-r--r-- 1 ashamim 1049089    1630 2026-10-18 13:24:30.781322900 +0530 timings.py
+CLAUDE.md
+PREVIEW.md
+_to_delete
+assets
+audio
+cache
+cases
+channel_assets
+channel_bible.md
+characters
+claude-home
+cost_log.csv
+deploy.ps1
+images
+long-videos
+munshi
+output
+requirements.txt
+scripts
+secrets
+shorts
+tools
+733d56c 2026-10-18 13:29:54 +0530 long_01: free fixes final rebuild + munshi re-review
+cde0e07 2026-10-18 13:21:00 +0530 upload: channel-id + ffprobe checks
+64528a6 2026-10-18 12:14:55 +0530 initial: Story-Channel setup
+warning: in the working copy of 'CLAUDE.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'munshi/RULES.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'munshi/channel_config.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'scripts/make_short.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tools/youtube_upload.py', LF will be replaced by CRLF the next time Git touches it
+ .../2026-10-17_08-25-27Z-pasted-content-id-aeaa.md | 364 +++++++++++++++++++++
+ CLAUDE.md                                          |   1 +
+ munshi/RULES.md                                    |   2 +-
+ munshi/channel_config.json                         |   2 +-
+ munshi/sync.log                                    |   2 +
+ scripts/make_short.py                              |   5 +-
+ tools/youtube_upload.py                            |   8 +-
+ 7 files changed, 378 insertions(+), 6 deletions(-)
+warning: in the working copy of 'munshi/RULES.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'munshi/channel_config.json', LF will be replaced by CRLF the next time Git touches it
+diff --git a/munshi/RULES.md b/munshi/RULES.md
+index 68b7c6e..969844e 100644
+--- a/munshi/RULES.md
++++ b/munshi/RULES.md
+@@ -31,7 +31,7 @@ These are the hard rules. If a builder summary, a script or a file disagrees wit
+ 
+ ## 5. Video
+ - Long video: 1920×1080, 30 fps, H.264, 16:9. Short: 1080×1920, ≤60 s, 9:16.
+-- Target length is set in the script. Allowed: ±10%, or inside the user's stated range. Anything beyond that is ASK.
++- Target length: the duration the user approved at preview. Before preview, the script estimate is only a guide. Final must be within ±10% of the approved preview length; outside that is ASK.
+ - Preview builds (960×540) are only for review. They are never uploaded.
+ 
+ ## 6. Thumbnail
+diff --git a/munshi/channel_config.json b/munshi/channel_config.json
+index 11d7585..a182dcc 100644
+--- a/munshi/channel_config.json
++++ b/munshi/channel_config.json
+@@ -1,7 +1,7 @@
+ {
+   "dadi-ki-kahaniyan": {
+     "display_name": "दादी की कहानियाँ",
+-    "channel_id": "",
++    "channel_id": "UCy071_4g4vGemktFHybqkhQ",
+     "channel_key": "dadi-ki-kahaniyan",
+     "made_for_kids": false,
+     "contains_synthetic_media": false,
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 08:09:31Z)**_
+
+Final mp4 (13:22:17) predates the re-review (rr2 13:24–13:28, log 13:29), so it's unchanged. Now probing both builds and reading the uploader to match job keys.
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 08:09:35Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Probe final and preview, show uploader diff
+
+`FP=$(command -v ffprobe || ls tools/*/ffprobe* 2>/dev/null | head -1); echo "ffprobe=$FP"; for f in long-videos/long_01/output/long_01.mp4 long-videos/long_01/output/long_01_preview.mp4; do ffprobe -v error -show_entries format=duration:stream=codec_name,width,height,r_frame_rate -of compact "$f"; done; git diff tools/youtube_upload.py; wc -l tools/youtube_upload.py`
+
+```text
+ffprobe=tools/ffmpeg/ffprobe.exe
+/usr/bin/bash: line 1: ffprobe: command not found
+/usr/bin/bash: line 1: ffprobe: command not found
+warning: in the working copy of 'tools/youtube_upload.py', LF will be replaced by CRLF the next time Git touches it
+diff --git a/tools/youtube_upload.py b/tools/youtube_upload.py
+index 573a955..a683832 100644
+--- a/tools/youtube_upload.py
++++ b/tools/youtube_upload.py
+@@ -59,10 +59,14 @@ def probe(video: Path):
+     import shutil
+     import subprocess
+ 
+-    if not shutil.which("ffprobe"):
++    ffprobe = shutil.which("ffprobe")
++    if not ffprobe:  # fallback: project's own FFmpeg build (bin/ layout, or flat tools/ffmpeg on this PC)
++        ffprobe = next((str(p) for p in (ROOT / "tools" / "ffmpeg" / "bin" / "ffprobe.exe",
++                                          ROOT / "tools" / "ffmpeg" / "ffprobe.exe") if p.exists()), None)
++    if not ffprobe:
+         raise RuntimeError("ffprobe not found (install FFmpeg)")
+     out = subprocess.run(
+-        ["ffprobe", "-v", "error", "-select_streams", "v:0",
++        [ffprobe, "-v", "error", "-select_streams", "v:0",
+          "-show_entries", "stream=width,height,codec_name,pix_fmt",
+          "-show_entries", "format=duration", "-of", "json", str(video)],
+         capture_output=True, text=True, check=True).stdout
+350 tools/youtube_upload.py
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 08:09:35Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\tools\youtube_upload.py`
+
+```text
+1	#!/usr/bin/env python3
+2	"""YouTube uploader for Story-Channel, used by the Munshi agent.
+3	
+4	Usage:
+5	    python tools/youtube_upload.py --job long-videos/long_01/output/upload.json --dry-run
+6	    python tools/youtube_upload.py --job long-videos/long_01/output/upload.json
+7	    python tools/youtube_upload.py --job ... --extras-only   # retry thumbnail/captions/playlist
+8	
+9	Safety: refuses to upload unless the logged-in channel ID matches job["channel_id"],
+10	and unless ffprobe confirms the file is a real final build (size, codec, pix_fmt).
+11	One token per channel: secrets/youtube_token_<channel_key>.json.
+12	
+13	One-time setup: see the youtube-publish skill. Needs
+14	    pip install google-api-python-client google-auth-oauthlib
+15	and secrets/client_secret.json (OAuth "Desktop app" client).
+16	"""
+17	import argparse
+18	import datetime as dt
+19	import json
+20	import random
+21	import sys
+22	import time
+23	from pathlib import Path
+24	
+25	try:
+26	    sys.stdout.reconfigure(encoding="utf-8")
+27	    sys.stderr.reconfigure(encoding="utf-8")
+28	except Exception:
+29	    pass
+30	
+31	ROOT = Path(__file__).resolve().parent.parent
+32	SECRETS = ROOT / "secrets"
+33	CLIENT_SECRET = SECRETS / "client_secret.json"
+34	FORMATS = {  # what a final upload must look like
+35	    "long": {"width": 1920, "height": 1080, "max_seconds": None},
+36	    "short": {"width": 1080, "height": 1920, "max_seconds": 60},
+37	}
+38	SCOPES = [
+39	    "https://www.googleapis.com/auth/youtube.upload",
+40	    "https://www.googleapis.com/auth/youtube.force-ssl",  # captions + playlists
+41	]
+42	RETRY_STATUS = {500, 502, 503, 504}
+43	MAX_RETRIES = 8
+44	
+45	
+46	def resolve(job_path: Path, p):
+47	    if not p:
+48	        return None
+49	    p = Path(p)
+50	    return p if p.is_absolute() else (job_path.parent / p).resolve()
+51	
+52	
+53	def token_path(job):
+54	    return SECRETS / f"youtube_token_{job['channel_key']}.json"
+55	
+56	
+57	def probe(video: Path):
+58	    """Return (width, height, codec, pix_fmt, seconds) using ffprobe."""
+59	    import shutil
+60	    import subprocess
+61	
+62	    ffprobe = shutil.which("ffprobe")
+63	    if not ffprobe:  # fallback: project's own FFmpeg build (bin/ layout, or flat tools/ffmpeg on this PC)
+64	        ffprobe = next((str(p) for p in (ROOT / "tools" / "ffmpeg" / "bin" / "ffprobe.exe",
+65	                                          ROOT / "tools" / "ffmpeg" / "ffprobe.exe") if p.exists()), None)
+66	    if not ffprobe:
+67	        raise RuntimeError("ffprobe not found (install FFmpeg)")
+68	    out = subprocess.run(
+69	        [ffprobe, "-v", "error", "-select_streams", "v:0",
+70	         "-show_entries", "stream=width,height,codec_name,pix_fmt",
+71	         "-show_entries", "format=duration", "-of", "json", str(video)],
+72	        capture_output=True, text=True, check=True).stdout
+73	    d = json.loads(out)
+74	    st = (d.get("streams") or [{}])[0]
+75	    return (st.get("width"), st.get("height"), st.get("codec_name"),
+76	            st.get("pix_fmt"), float(d.get("format", {}).get("duration", 0)))
+77	
+78	
+79	def validate(job: dict, job_path: Path) -> list:
+80	    errs = []
+81	    key = job.get("channel_key", "")
+82	    if not key or not all(c.isalnum() or c in "-_" for c in key):
+83	        errs.append("channel_key missing/invalid (e.g. dadi-ki-kahaniyan)")
+84	    cid = job.get("channel_id", "")
+85	    if not (isinstance(cid, str) and cid.startswith("UC") and len(cid) == 24):
+86	        errs.append("channel_id missing/invalid (24 chars, starts with UC; set it in munshi/channel_config.json)")
+87	    fmt = job.get("format")
+88	    if fmt not in FORMATS:
+89	        errs.append("format must be 'long' or 'short'")
+90	    title = job.get("title", "")
+91	    desc = job.get("description", "")
+92	    tags = job.get("tags", [])
+93	    if not title:
+94	        errs.append("title missing")
+95	    if len(title) > 100:
+96	        errs.append(f"title too long ({len(title)} > 100)")
+97	    if len(desc) > 5000:
+98	        errs.append(f"description too long ({len(desc)} > 5000)")
+99	    for name, val in (("title", title), ("description", desc)):
+100	        if "<" in val or ">" in val:
+101	            errs.append(f"{name} contains < or >")
+102	    if sum(len(t) for t in tags) + max(len(tags) - 1, 0) > 500:
+103	        errs.append("tags exceed 500 characters")
+104	    hashtags = [w for w in desc.split() if w.startswith("#")]
+105	    if len(hashtags) > 15:
+106	        errs.append(f"{len(hashtags)} hashtags in description (>15: YouTube ignores all)")
+107	    if not isinstance(job.get("made_for_kids"), bool):
+108	        errs.append("made_for_kids must be true/false (set it in munshi/channel_config.json)")
+109	
+110	    video = resolve(job_path, job.get("video"))
+111	    if not video or not video.exists():
+112	        errs.append(f"video not found: {video}")
+113	    else:
+114	        if "preview" in video.name.lower():
+115	            errs.append("video looks like a preview build; upload final only")
+116	        if fmt in FORMATS:
+117	            try:
+118	                w, h, codec, pix, secs = probe(video)
+119	                want = FORMATS[fmt]
+120	                if (w, h) != (want["width"], want["height"]):
+121	                    errs.append(f"video is {w}x{h}, a final {fmt} must be {want['width']}x{want['height']}")
+122	                if codec != "h264":
+123	                    errs.append(f"video codec is {codec}, expected h264")
+124	                if pix != "yuv420p":
+125	                    errs.append(f"pixel format is {pix}, expected yuv420p")
+126	                if secs < 5:
+127	                    errs.append(f"video is only {secs:.1f}s long")
+128	                if want["max_seconds"] and secs > want["max_seconds"]:
+129	                    errs.append(f"short is {secs:.1f}s, max {want['max_seconds']}s")
+130	                job["_probe"] = f"{w}x{h} {codec} {pix} {secs:.1f}s"
+131	            except Exception as e:
+132	                errs.append(f"ffprobe failed: {e}")
+133	
+134	    thumb = resolve(job_path, job.get("thumbnail"))
+135	    if thumb:
+136	        if not thumb.exists():
+137	            errs.append(f"thumbnail not found: {thumb}")
+138	        elif thumb.stat().st_size > 2 * 1024 * 1024:
+139	            errs.append("thumbnail larger than 2 MB")
+140	        elif thumb.suffix.lower() not in (".jpg", ".jpeg", ".png"):
+141	            errs.append("thumbnail must be .jpg or .png")
+142	
+143	    srt = resolve(job_path, job.get("captions"))
+144	    if srt and not srt.exists():
+145	        errs.append(f"captions not found: {srt}")
+146	
+147	    pub = job.get("publish_at")
+148	    if pub:
+149	        try:
+150	            t = dt.datetime.fromisoformat(pub)
+151	            if t.tzinfo is None:
+152	                errs.append("publish_at needs a timezone, e.g. 2026-10-21T19:00:00+05:30")
+153	            elif t <= dt.datetime.now(dt.timezone.utc) + dt.timedelta(minutes=15):
+154	                errs.append("publish_at must be at least 15 minutes in the future")
+155	        except ValueError:
+156	            errs.append("publish_at is not ISO 8601")
+157	    if job.get("privacy", "private") not in ("private", "unlisted", "public"):
+158	        errs.append("privacy must be private, unlisted or public")
+159	    return errs
+160	
+161	
+162	def get_service(job):
+163	    from google.auth.transport.requests import Request
+164	    from google.oauth2.credentials import Credentials
+165	    from google_auth_oauthlib.flow import InstalledAppFlow
+166	    from googleapiclient.discovery import build
+167	
+168	    tok = token_path(job)
+169	    creds = None
+170	    if tok.exists():
+171	        creds = Credentials.from_authorized_user_file(str(tok), SCOPES)
+172	    if not creds or not creds.valid:
+173	        if creds and creds.expired and creds.refresh_token:
+174	            creds.refresh(Request())
+175	        else:
+176	            if not CLIENT_SECRET.exists():
+177	                sys.exit(f"Missing {CLIENT_SECRET}. Do the one-time setup first.")
+178	            print(f"Browser login: pick the Google account AND the channel '{job.get('channel_name', job['channel_key'])}'.")
+179	            flow = InstalledAppFlow.from_client_secrets_file(str(CLIENT_SECRET), SCOPES)
+180	            creds = flow.run_local_server(port=0)
+181	        SECRETS.mkdir(exist_ok=True)
+182	        tok.write_text(creds.to_json(), encoding="utf-8")
+183	    return build("youtube", "v3", credentials=creds)
+184	
+185	
+186	def check_channel(yt, job):
+187	    """Stop unless the logged-in channel is exactly the configured one."""
+188	    items = yt.channels().list(part="id,snippet", mine=True).execute().get("items", [])
+189	    if not items:
+190	        sys.exit("Logged-in Google account has no YouTube channel. Nothing uploaded.")
+191	    got = items[0]["id"]
+192	    title = items[0]["snippet"]["title"]
+193	    if got != job["channel_id"]:
+194	        sys.exit(f"WRONG CHANNEL: logged in as '{title}' ({got}), expected {job['channel_id']}. "
+195	                 f"Nothing uploaded. Delete {token_path(job).name} in secrets/ and log in again with the right channel.")
+196	    print(f"Channel OK: {title} ({got})")
+197	
+198	
+199	def with_retry(fn, label):
+200	    from googleapiclient.errors import HttpError
+201	
+202	    for attempt in range(MAX_RETRIES + 1):
+203	        try:
+204	            return fn()
+205	        except HttpError as e:
+206	            if e.resp.status not in RETRY_STATUS or attempt == MAX_RETRIES:
+207	                raise
+208	        except (ConnectionError, OSError, TimeoutError):
+209	            if attempt == MAX_RETRIES:
+210	                raise
+211	        wait = min(2 ** attempt + random.random(), 60)
+212	        print(f"{label}: retry {attempt + 1} in {wait:.0f}s")
+213	        time.sleep(wait)
+214	
+215	
+216	def upload_video(yt, job, job_path):
+217	    from googleapiclient.http import MediaFileUpload
+218	
+219	    status = {
+220	        "privacyStatus": job.get("privacy", "private"),
+221	        "selfDeclaredMadeForKids": job["made_for_kids"],
+222	    }
+223	    if "contains_synthetic_media" in job:
+224	        status["containsSyntheticMedia"] = bool(job["contains_synthetic_media"])
+225	    if job.get("publish_at"):
+226	        status["privacyStatus"] = "private"  # required by YouTube for scheduling
+227	        status["publishAt"] = job["publish_at"]
+228	
+229	    body = {
+230	        "snippet": {
+231	            "title": job["title"],
+232	            "description": job.get("description", ""),
+233	            "tags": job.get("tags", []),
+234	            "categoryId": str(job.get("category_id", "1")),
+235	            "defaultLanguage": job.get("language", "hi"),
+236	            "defaultAudioLanguage": job.get("language", "hi"),
+237	        },
+238	        "status": status,
+239	    }
+240	    media = MediaFileUpload(str(resolve(job_path, job["video"])), mimetype="video/mp4",
+241	                            chunksize=8 * 1024 * 1024, resumable=True)
+242	    req = yt.videos().insert(part="snippet,status", body=body, media_body=media)
+243	    response = None
+244	    while response is None:
+245	        st, response = with_retry(req.next_chunk, "upload")
+246	        if st:
+247	            print(f"upload {int(st.progress() * 100)}%")
+248	    return response["id"]
+249	
+250	
+251	def do_extras(yt, job, job_path, video_id, result):
+252	    from googleapiclient.http import MediaFileUpload
+253	
+254	    thumb = resolve(job_path, job.get("thumbnail"))
+255	    if thumb and not result.get("thumbnail_ok"):
+256	        try:
+257	            mt = "image/png" if thumb.suffix.lower() == ".png" else "image/jpeg"
+258	            with_retry(lambda: yt.thumbnails().set(
+259	                videoId=video_id, media_body=MediaFileUpload(str(thumb), mimetype=mt)).execute(),
+260	                "thumbnail")
+261	            result["thumbnail_ok"] = True
+262	        except Exception as e:  # usually: channel not phone-verified
+263	            result["thumbnail_error"] = str(e)[:300]
+264	
+265	    srt = resolve(job_path, job.get("captions"))
+266	    if srt and not result.get("captions_ok"):
+267	        try:
+268	            lang = job.get("language", "hi")
+269	            with_retry(lambda: yt.captions().insert(
+270	                part="snippet",
+271	                body={"snippet": {"videoId": video_id, "language": lang,
+272	                                  "name": job.get("captions_name", "Hindi"), "isDraft": False}},
+273	                media_body=MediaFileUpload(str(srt), mimetype="application/octet-stream"),
+274	            ).execute(), "captions")
+275	            result["captions_ok"] = True
+276	        except Exception as e:
+277	            result["captions_error"] = str(e)[:300]
+278	
+279	    pl = job.get("playlist_id")
+280	    if pl and not result.get("playlist_ok"):
+281	        try:
+282	            with_retry(lambda: yt.playlistItems().insert(
+283	                part="snippet",
+284	                body={"snippet": {"playlistId": pl,
+285	                                  "resourceId": {"kind": "youtube#video", "videoId": video_id}}},
+286	            ).execute(), "playlist")
+287	            result["playlist_ok"] = True
+288	        except Exception as e:
+289	            result["playlist_error"] = str(e)[:300]
+290	
+291	
+292	def main():
+293	    ap = argparse.ArgumentParser()
+294	    ap.add_argument("--job", required=True, help="path to upload.json")
+295	    ap.add_argument("--dry-run", action="store_true", help="validate only, no network")
+296	    ap.add_argument("--extras-only", action="store_true",
+297	                    help="retry thumbnail/captions/playlist for an already uploaded video")
+298	    args = ap.parse_args()
+299	
+300	    job_path = Path(args.job).resolve()
+301	    job = json.loads(job_path.read_text(encoding="utf-8"))
+302	    result_path = job_path.parent / "upload_result.json"
+303	    result = json.loads(result_path.read_text(encoding="utf-8")) if result_path.exists() else {}
+304	
+305	    errs = validate(job, job_path)
+306	    print("Channel:     ", job.get("channel_name") or job.get("channel_key"), job.get("channel_id"))
+307	    print("Title:       ", job.get("title"))
+308	    print("Video:       ", resolve(job_path, job.get("video")))
+309	    print("Privacy:     ", "scheduled" if job.get("publish_at") else job.get("privacy", "private"))
+310	    print("Publish at:  ", job.get("publish_at") or "-")
+311	    print("Made for kids:", job.get("made_for_kids"))
+312	    print("Thumbnail:   ", job.get("thumbnail") or "-")
+313	    print("Captions:    ", job.get("captions") or "-")
+314	    print("Playlist:    ", job.get("playlist_id") or "-")
+315	    print("Video check: ", job.get("_probe", "-"))
+316	    if errs:
+317	        print("\nPROBLEMS:")
+318	        for e in errs:
+319	            print(" -", e)
+320	        sys.exit(1)
+321	    if args.dry_run:
+322	        print("\nDry run OK. Nothing uploaded.")
+323	        return
+324	
+325	    if result.get("video_id") and not args.extras_only:
+326	        sys.exit(f"Already uploaded as {result['video_id']}. Use --extras-only to retry extras.")
+327	    if args.extras_only and not result.get("video_id"):
+328	        sys.exit("No video_id in upload_result.json; nothing to retry.")
+329	
+330	    yt = get_service(job)
+331	    check_channel(yt, job)
+332	    if not result.get("video_id"):
+333	        vid = upload_video(yt, job, job_path)
+334	        result.update({
+335	            "video_id": vid,
+336	            "url": f"https://youtu.be/{vid}",
+337	            "studio_url": f"https://studio.youtube.com/video/{vid}/edit",
+338	            "uploaded_at": dt.datetime.now(dt.timezone.utc).isoformat(),
+339	            "publish_at": job.get("publish_at"),
+340	        })
+341	        result_path.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
+342	        print("Uploaded:", result["url"])
+343	
+344	    do_extras(yt, job, job_path, result["video_id"], result)
+345	    result_path.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
+346	    print(json.dumps(result, ensure_ascii=False, indent=2))
+347	
+348	
+349	if __name__ == "__main__":
+350	    main()
+351
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 08:09:42Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Probe builds, check srt, look for other uploads
+
+`FP=tools/ffmpeg/ffprobe.exe; for f in long-videos/long_01/output/long_01.mp4 long-videos/long_01/output/long_01_preview.mp4; do $FP -v error -select_streams v:0 -show_entries format=duration:stream=codec_name,width,height,r_frame_rate,pix_fmt -of compact "$f"; done; grep -c -- '-->' long-videos/long_01/output/long_01.srt; tail -4 long-videos/long_01/output/long_01.srt; find shorts cases output -maxdepth 3 -iname "*upload*" 2>/dev/null`
+
+```text
+stream|codec_name=h264|width=1920|height=1080|pix_fmt=yuv420p|r_frame_rate=30/1
+format|duration=306.166667
+stream|codec_name=h264|width=960|height=540|pix_fmt=yuvj420p|r_frame_rate=24/1
+format|duration=306.166667
+191
+
+191
+00:05:02,942 --> 00:05:04,680
+ख़ुशी दुगनी होती है।
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 08:09:45Z)**_
+
+Preview and final are both 306.17 s (0% difference), so step 7 is within the new rule. Next I'll build the job file, taking the description straight out of long_01.txt.
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 08:09:55Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Build upload.json from approved metadata
+
+```bash
+cat > "C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad/mkjob.py" <<'EOF'
+import json, re
+from pathlib import Path
+R = Path(r"D:\Story-Channel")
+out = R/"long-videos/long_01/output"
+txt = (out/"long_01.txt").read_text(encoding="utf-8").replace("\r\n","\n")
+title = txt.split("TITLE:\n",1)[1].split("\n",1)[0].strip()
+desc = txt.split("DESCRIPTION:\n",1)[1].split("\n\nTAGS:",1)[0].strip()
+tags_txt = [t.strip() for t in txt.split("TAGS:\n",1)[1].split("\n",1)[0].split(",")]
+meta = json.loads((R/"long-videos/long_01/meta.json").read_text(encoding="utf-8"))
+cfg = json.loads((R/"munshi/channel_config.json").read_text(encoding="utf-8"))["dadi-ki-kahaniyan"]
+assert title == meta["title"], "title mismatch"
+assert desc.startswith(meta["description"]), "desc text mismatch"
+assert desc.endswith(" ".join(meta["hashtags"])), "hashtags mismatch"
+assert tags_txt == meta["tags"], "tags mismatch"
+assert "TAGS" not in desc and "PINNED" not in desc
+job = {
+ "channel_key": cfg["channel_key"], "channel_name": cfg["display_name"], "channel_id": cfg["channel_id"],
+ "format": "long", "title": title, "description": desc, "tags": meta["tags"],
+ "video": "long_01.mp4", "thumbnail": "long_01_thumbnail.png", "captions": "long_01.srt",
+ "language": cfg["default_language"], "captions_name": "Hindi",
+ "made_for_kids": cfg["made_for_kids"], "contains_synthetic_media": cfg["contains_synthetic_media"],
+ "category_id": cfg["category_id"], "publish_at": "2026-10-20T19:00:00+05:30",
+}
+(out/"upload.json").write_text(json.dumps(job, ensure_ascii=False, indent=2)+"\n", encoding="utf-8")
+print("title", len(title), "desc", len(desc), "hashtags", len([w for w in desc.split() if w.startswith('#')]),
+      "tags", len(meta["tags"]), sum(len(t) for t in meta["tags"])+len(meta["tags"])-1,
+      "credits", desc.count("Kevin MacLeod"), "CC BY lines", desc.count("By Attribution 4.0"))
+EOF
+.venv/Scripts/python.exe -I "C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad/mkjob.py"
+```
+
+```text
+title 81 desc 1488 hashtags 5 tags 21 333 credits 6 CC BY lines 6
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 08:10:01Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Run uploader in dry-run mode
+
+`.venv/Scripts/python.exe tools/youtube_upload.py --job long-videos/long_01/output/upload.json --dry-run; echo "exit=$?"; ls long-videos/long_01/output/upload_result.json 2>&1`
+
+```text
+Exit code 2
+Channel:      दादी की कहानियाँ UCy071_4g4vGemktFHybqkhQ
+Title:        लालची हलवाई और जादुई कड़ाही | दादी की कहानियाँ | Hindi Moral Story | Hindi Kahani
+Video:        D:\Story-Channel\long-videos\long_01\output\long_01.mp4
+Privacy:      scheduled
+Publish at:   2026-10-20T19:00:00+05:30
+Made for kids: False
+Thumbnail:    long_01_thumbnail.png
+Captions:     long_01.srt
+Playlist:     -
+Video check:  1920x1080 h264 yuv420p 306.2s
+
+Dry run OK. Nothing uploaded.
+exit=0
+ls: cannot access 'long-videos/long_01/output/upload_result.json': No such file or directory
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 08:10:03Z)**_
+
+Dry run came back clean (exit 0; the exit code 2 is only from `ls` confirming there's no upload_result.json). Now appending the log lines.
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 08:10:07Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Append step 7 and dry-run verdicts to log
+
+```bash
+cat >> munshi/log.md <<'EOF'
+2026-10-18 | long_01 | 7 final build (length, RULES 5 updated) | PASS | user approved 5:06 preview; final 306.17s = preview 306.17s (0%, within +/-10%); long_01.mp4 unchanged since re-review (13:22), 1920x1080 h264 yuv420p 30fps; all re-review checks stand
+2026-10-18 | long_01 | publish dry-run | PASS | upload.json written (channel UCy071_4g4vGemktFHybqkhQ, publish 2026-10-20 19:00 IST, kids=false, synthetic=false, cat 1, no playlist); dry-run OK, no network; copyright register (RULES 10 / assets_license.csv) not yet available -> not reviewed
+EOF
+tail -2 munshi/log.md
+```
+
+```text
+2026-10-18 | long_01 | 7 final build (length, RULES 5 updated) | PASS | user approved 5:06 preview; final 306.17s = preview 306.17s (0%, within +/-10%); long_01.mp4 unchanged since re-review (13:22), 1920x1080 h264 yuv420p 30fps; all re-review checks stand
+2026-10-18 | long_01 | publish dry-run | PASS | upload.json written (channel UCy071_4g4vGemktFHybqkhQ, publish 2026-10-20 19:00 IST, kids=false, synthetic=false, cat 1, no playlist); dry-run OK, no network; copyright register (RULES 10 / assets_license.csv) not yet available -> not reviewed
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 08:10:27Z)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="SubagentHandback"><details>
+<summary>Tool use: **SubagentHandback**</summary>
+
+```text
+{"success":true,"message":"Report delivered to your caller."}
+```
+</details></tool-use>

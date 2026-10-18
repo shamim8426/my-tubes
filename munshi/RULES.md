@@ -31,7 +31,7 @@ These are the hard rules. If a builder summary, a script or a file disagrees wit
 
 ## 5. Video
 - Long video: 1920×1080, 30 fps, H.264, 16:9. Short: 1080×1920, ≤60 s, 9:16.
-- Target length is set in the script. Allowed: ±10%, or inside the user's stated range. Anything beyond that is ASK.
+- Target length: the duration the user approved at preview. Before preview, the script estimate is only a guide. Final must be within ±10% of the approved preview length; outside that is ASK.
 - Preview builds (960×540) are only for review. They are never uploaded.
 
 ## 6. Thumbnail

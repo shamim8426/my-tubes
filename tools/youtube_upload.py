@@ -59,10 +59,14 @@ def probe(video: Path):
     import shutil
     import subprocess
 
-    if not shutil.which("ffprobe"):
+    ffprobe = shutil.which("ffprobe")
+    if not ffprobe:  # fallback: project's own FFmpeg build (bin/ layout, or flat tools/ffmpeg on this PC)
+        ffprobe = next((str(p) for p in (ROOT / "tools" / "ffmpeg" / "bin" / "ffprobe.exe",
+                                          ROOT / "tools" / "ffmpeg" / "ffprobe.exe") if p.exists()), None)
+    if not ffprobe:
         raise RuntimeError("ffprobe not found (install FFmpeg)")
     out = subprocess.run(
-        ["ffprobe", "-v", "error", "-select_streams", "v:0",
+        [ffprobe, "-v", "error", "-select_streams", "v:0",
          "-show_entries", "stream=width,height,codec_name,pix_fmt",
          "-show_entries", "format=duration", "-of", "json", str(video)],
         capture_output=True, text=True, check=True).stdout
