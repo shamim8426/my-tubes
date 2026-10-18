@@ -191,8 +191,12 @@ def word_times(data: bytes, text: str, cache: Path, run_whisper: bool):
     return words, note
 
 
-def build_voice(lines, audio_dir: Path, work: Path, run_whisper: bool, end_hold: float = END_HOLD):
+def build_voice(lines, audio_dir: Path, work: Path, run_whisper: bool, end_hold: float = END_HOLD,
+                gap_s: float = GAP, speed: float = 1.0):
+    """speed: tempo factor for every spoken line (atempo keeps the pitch; cached TTS reused, no new cost).
+    gap_s: silence between lines (meta.json "gap" / "speed" let a Short run tighter than the long video)."""
     pcm, t = bytearray(), 0.0
+    GAP = gap_s  # noqa: N806 - local override of the module default
     silence = lambda sec: b"\x00\x00" * int(round(sec * SR))
     timed, events = [], {"sfx": [], "music_silent": [], "moods": []}
     cache = audio_dir / "tts_cache"
@@ -210,9 +214,11 @@ def build_voice(lines, audio_dir: Path, work: Path, run_whisper: bool, end_hold:
             events.setdefault("pauses", []).append((start - PAUSE_LEAD, t))
             print(f"  line {i + 1:2d} [{'pause':8s}] {start:6.2f}-{t:6.2f}s  music only")
             continue
+        tempo = f"atempo={speed}" if speed != 1.0 else None
         data = trim(tts_line(line["text"], line["speaker"], cache,
-                             audio_dir / f"line_{i + 1:02d}_{line['speaker']}.wav",
-                             extra_af=line.get("af"), chorus=line.get("chorus", False)))
+                             work / f"line_{i + 1:02d}_{line['speaker']}.wav",  # per video, not the shared story audio/
+                             extra_af=",".join(f for f in (line.get("af"), tempo) if f) or None,
+                             chorus=line.get("chorus", False)))
         words, note = word_times(data, line["text"], cache, run_whisper)
         if i:
             gap = GAP + line.get("pause_before", 0)
@@ -733,7 +739,8 @@ def main():
     print("1/4 voice")
     check_tts_spend(lines, audio_dir / "tts_cache", a.spend)
     voice, total, timed, events = build_voice(lines, audio_dir, work, run_whisper=(mode == "final"),
-                                              end_hold=meta.get("end_hold", END_HOLD))
+                                              end_hold=meta.get("end_hold", END_HOLD), gap_s=meta.get("gap", GAP),
+                                              speed=meta.get("speed", 1.0))
     if a.seconds:  # test render: keep the lines that start inside the first N seconds
         total = min(total, a.seconds)
         timed = [l for l in timed if l["start"] < total]
