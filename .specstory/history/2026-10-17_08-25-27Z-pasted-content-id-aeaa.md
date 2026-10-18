@@ -26145,3 +26145,1101 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 08:28:37Z)**_
 {"success":true,"message":"Report delivered to your caller."}
 ```
 </details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 08:28:39Z)**_
+
+Copyright review PASS aaya. Ab sync chala raha hoon:
+
+_**Agent (claude-opus-5-5 2026-10-18 08:28:52Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Sync to GitHub
+
+`powershell -NoProfile -ExecutionPolicy Bypass -File tools/sync.ps1 -Message "rules: strict copyright + assets register + long_01 copyright review" >/dev/null 2>&1; tail -1 munshi/sync.log`
+
+```text
+2026-10-18 13:58:51  pushed: rules: strict copyright + assets register + long_01 copyright review  (repo pack size 179 MB)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 08:29:10Z)**_
+
+Copyright ka saara kaam ho gaya aur Munshi ke review me Long 01 **PASS** hai. Upload rokne wala kuch nahi mila. Ek dikkat: jis family-wording niyam ki baat aapne ki, wo RULES me hai hi nahi.
+
+## A. Made for kids
+`false` hi rakha hai, aur is par dobara nahi poochhunga.
+
+⚠️ RULES section 7 me abhi koi family-wording wala niyam nahi hai. Section 7 me sirf title, hashtags, credits aur mystery answer ke niyam hain. Isliye Munshi abhi ise check nahi kar sakta. Agar aap uska text bhej dein, toh main ise section 7 me jod dunga. Ya kahein toh main ek draft likh kar dikha doon.
+
+## B. Copyright (STRICT)
+| # | Kaam | Nateeja |
+|---|---|---|
+| 1 | RULES section 10 | Aapke diye text ke saath bilkul waisa hi joda. |
+| 2 | `munshi/assets_license.csv` | **32 rows, 0 UNKNOWN.** Details neeche. |
+| 3 | step-review skill | Sabse upar naya "0. New asset added" stage joda. Stage 7 aur 9 me copyright wala bullet joda. |
+| 4 | Munshi copyright review | **PASS.** Details neeche. |
+| 5 | Sync | `pushed: rules: strict copyright + assets register + long_01 copyright review` ✅ |
+
+**Register me kya hai aur kaise pakka kiya:**
+- **14 music files (Kevin MacLeod, CC BY 4.0):** har file ka byte size incompetech.com ki original file se ekdam match karta hai. Har row me poori credit line likhi hai.
+- **8 Freesound SFX:** har sound ka licence Freesound API se check kiya, sab **CC0** hain. Isme API key kahin print nahi hui.
+- **Mukta font (2 files):** SIL OFL, Ek Type. `OFL.txt` repo me hai.
+- **Apni cheezein:** `mystery_bed.wav` humne khud synthesise kiya. Gemini images, TTS voices, banner, DP aur thumbnail sab apne hain, aur unka saboot `cost_log.csv` me hai.
+- Kisi bhi image prompt me kisi studio ya franchise ka naam nahi hai (Pixar, Ghibli, Disney, Chhota Bheem waghera).
+
+**Munshi ne kya check kiya:**
+- Video me jo bhi jaata hai, uski list Munshi ne khud nikali: 6 tracks, 3 SFX, 31 images, 51 TTS lines aur thumbnail ka font. Sab register me hain aur sabka licence allowed hai.
+- `upload.json` ke description me 6 me se 6 credits register ki credit lines se exact milte hain.
+- **Bahar ka koi audio mix me nahi:** mix me se voice aur music ghata kar dekha. Bache hisse me sirf 5 SFX mile, baaki sab −98 dB par khamosh tha.
+- Script original hai, koi gaane ke bol nahi. Thumbnail aur scenes me koi logo ya jaana-pehchaana cartoon character nahi.
+
+**Upload rokne wali koi baat nahi, bas aage ke liye 2 note:**
+1. `music_credits()` me har track ke credit me "Kevin MacLeod (incompetech.com)" pehle se likha hai. Kabhi kisi aur artist ka CC BY track aaya toh credit galat banega. Ise register se credit lene wala banana free hai (₹0). Abhi zaroori nahi.
+2. Upload ke baad YouTube Studio me Content ID claim dikhe toh naye upload rok kar pehle aapko batana hai. Kevin MacLeod ke tracks par kabhi-kabhi galat claim aa jaata hai.
+
+Long 01 ab har check par PASS hai: final build, thumbnail, metadata, copyright aur upload dry-run. Asli upload sirf aapke "upload karo" bolne par hoga.
+
+## YouTube API setup: Step 1 (wahin se aage)
+**YouTube Data API v3 enable karna**
+1. https://console.cloud.google.com kholiye. Us Google account se login kijiye jisme Gemini ka project hai, ami.com wala nahi.
+2. Upar-baayein project dropdown me Gemini wala project chuniye.
+3. Upar search bar me **YouTube Data API v3** likhiye aur result par click kijiye.
+4. **Enable** dabaiye. Agar "Manage" dikhe toh ye pehle se enable hai.
+
+Ho jaye toh "ho gaya" likhiye. Agla step OAuth consent screen ka hai.
+
+---
+
+_**User (2026-10-18 08:35:12Z)**_
+
+ho gaya
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-18 08:35:26Z)**_
+
+Step 1 ho gaya. Ab Step 2 hai: OAuth consent screen banana. Isse Google ko pata chalta hai ki "kaun si app" aapke channel par upload karegi. Ye app aapki apni hogi.
+
+## Step 2: OAuth consent screen
+1. Usi Google Cloud project me baayein menu (☰) se **APIs & Services → OAuth consent screen** kholiye. Naye UI me ye **Google Auth Platform** ke naam se dikhta hai.
+2. Agar **Get started** button dikhe toh dabaiye aur form bhariye:
+   - **App name:** `Dadi Ki Kahaniyan Uploader`
+   - **User support email:** apna personal Gmail chuniye
+   - **Next** dabaiye.
+   - **Audience:** **External** chuniye, phir **Next**.
+   - **Contact information:** wahi Gmail daaliye, phir **Next**.
+   - Policy wala checkbox tick kijiye, phir **Continue → Create**.
+3. Baayein menu me **Audience** kholiye:
+   - **Test users** ke neeche **+ Add users** dabaiye aur wo Google account daaliye jisse "दादी की कहानियाँ" channel chalta hai. Phir **Save**.
+   - Upar **Publishing status: Testing** ke paas **Publish app** dabaiye aur confirm kijiye. Status **In production** ho jana chahiye.
+
+**"In production" kyun zaroori hai:** "Testing" me login har 7 din me khatam ho jaata hai aur upload ruk jaate hain.
+
+**Kya dikhega:** "In production" karte waqt Google "verification" ke baare me kuch keh sakta hai. Ise abhi ignore kijiye. Apni khud ki app ke liye verification ki zaroorat nahi. Bas pehli login par ek "unverified app" chetavani aayegi, jise hum aage paar kar lenge.
+
+**Scopes / Data access** wale page par abhi kuch mat bhariye. Script login ke waqt khud maang legi.
+
+Ho jaye toh "ho gaya" likhiye, aur batana ki status **In production** dikh raha hai ya nahi. Agla step Desktop OAuth client banana hai.
+
+---
+
+_**User (2026-10-18 08:37:24Z)**_
+
+[Image: source: C:\Users\ashamim\AppData\Local\Temp\claude\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7\images\5.png]
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-18 08:37:35Z)**_
+
+OAuth configuration ban gayi ✅. Screenshot me Audience wala hissa nahi dikh raha, toh pehle wo poora kar lijiye, phir client banayenge.
+
+**Billing wali patti:** ye Gemini ke prepaid credit ki wajah se hai, jo 17 Oct se chalu hai. **YouTube Data API ka koi charge nahi lagta**, ye free quota par chalta hai. Ise "Dismiss" kar sakte hain.
+
+## Step 2 ka bacha hissa: Audience
+1. Baayein menu me **Audience** par click kijiye.
+2. **Test users** ke neeche **+ Add users** dabaiye, "दादी की कहानियाँ" channel wala Google account daaliye aur **Save** kijiye.
+3. Usi page par upar **Publishing status** ke paas **Publish app** dabaiye, phir **Confirm** kijiye.
+4. Status **In production** dikhna chahiye.
+
+## Step 3: Desktop OAuth client
+Audience ke baad hi ye kijiye:
+1. Baayein menu me **Clients** kholiye, phir **+ Create client** dabaiye. Overview page ka "Create OAuth client" button bhi yahi karta hai.
+2. **Application type:** **Desktop app** chuniye.
+3. **Name:** `story-channel-uploader`, phir **Create** dabaiye.
+4. Jo popup aaye usme **Download JSON** dabaiye.
+5. Downloaded file ka naam `client_secret_....json` jaisa hoga. Ise **`D:\Story-Channel\secrets\client_secret.json`** naam se save kijiye. Ise `secrets` folder me move karke rename kijiye.
+   - Is file ko kisi chat me paste mat kijiye aur na mujhe uska content dikhaiye. Main bhi ise nahi kholunga, sirf check karunga ki file sahi jagah par hai.
+6. Iski ek copy Google Drive ya password manager me bhi rakh lijiye. Ye GitHub par nahi jaati.
+
+Dono ho jayein toh "ho gaya" likhiye aur batana ki status **In production** hai ya nahi. Uske baad main file ki jagah check karunga aur ek bina-upload wala test login karwaunga.
+
+---
+
+_**User (2026-10-18 08:50:06Z)**_
+
+[Image: source: C:\Users\ashamim\AppData\Local\Temp\claude\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7\images\6.png]
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-18 08:50:14Z)**_
+
+Test user jud gaya ✅ (`shamimx.ali@gmail.com`). Bas ek baat pakki kar lijiye: "दादी की कहानियाँ" channel isi Gmail account se chalta hai na? Agar channel kisi aur account ya Brand Account me hai, toh wo account bhi yahan add karna hoga.
+
+**Ab Publish app:** isi Audience page par **upar scroll** kijiye. Screenshot me "OAuth user cap" ke upar ka hissa kat gaya hai.
+1. Sabse upar **Publishing status: Testing** likha hoga, aur uske neeche **Publish app** button hoga. Use dabaiye.
+2. Popup me **Confirm** dabaiye.
+3. Status **In production** ho jayega. "User type: External" bhi dikhega.
+
+Uske baad **Step 3 (Desktop client)** kijiye, jaisa pichhle message me likha hai:
+- Clients → + Create client → Desktop app → `story-channel-uploader` → Create
+- Download JSON → `D:\Story-Channel\secrets\client_secret.json`
+
+Dono ho jayein toh "ho gaya" likhiye. Ya status ka screenshot bhej dijiye.
+
+---
+
+_**User (2026-10-18 08:51:49Z)**_
+
+[Image: source: C:\Users\ashamim\AppData\Local\Temp\claude\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7\images\7.png]
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-18 08:52:00Z)**_
+
+Google "In production" se pehle do link maangta hai: **homepage** aur **privacy policy**. Ye Branding page par bharne hote hain. Apni khud ki app ke liye ye seedhe-saade public page bhi ho sakte hain:
+
+- **Homepage URL:** apne channel ka link chalega: `https://www.youtube.com/channel/UCy071_4g4vGemktFHybqkhQ`
+- **Privacy policy URL:** iske liye ek chhota public page chahiye. Aasaan raaste ye hain:
+
+_**Agent (claude-opus-5-5 2026-10-18 08:52:37Z)**_
+
+<tool-use data-tool-type="generic" data-tool-name="AskUserQuestion"><details>
+<summary>Tool use: **AskUserQuestion**</summary>
+**Privacy policy ka public page kaise banayein?**
+
+Options:
+- **GitHub Gist (Recommended)** - Main ek chhoti privacy policy likh kar aapke shamim8426 GitHub par ek PUBLIC gist bana dunga, aur aapko uska link mil jayega. Isme sirf app ka naam, aapka support email aur ye baat hogi ki ye app sirf aapke apne channel par upload karti hai. ₹0. Ye public hoga, isliye pehle text aapko dikhaunga.
+- **Google Doc khud publish karunga** - Main text dunga. Aap Google Docs me paste karenge, File → Share → Publish to web karenge aur link mujhe denge.
+- **Testing me hi rehne do** - Kuch publish nahi hoga. Par login har 7 din me khatam hoga, aur har hafte ek baar browser me dobara login karna padega.
+
+
+**Answer:** GitHub Gist (Recommended)
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 08:52:47Z)**_
+
+Gist banane se pehle uska text dikha raha hoon, kyunki ye page **public** hoga. Isme aapka email `shamimx.ali@gmail.com` bhi dikhega, kyunki Google ko support contact chahiye. Agar aap koi alag email dikhana chahte hain toh bata dijiye.
+
+**Draft (`privacy-policy.md`):**
+
+```markdown
+# Privacy Policy — Dadi Ki Kahaniyan Uploader
+
+Last updated: 18 October 2026
+
+"Dadi Ki Kahaniyan Uploader" is a private tool used only by the owner of the
+YouTube channel "दादी की कहानियाँ (Dadi Ki Kahaniyan)" to upload and schedule
+the channel's own videos, thumbnails and captions through the YouTube Data API.
+
+**What data it accesses:** only the owner's own YouTube channel, with the
+owner's permission (Google OAuth). It uploads videos, sets thumbnails,
+uploads captions and adds videos to the channel's playlists.
+
+**What it stores:** an OAuth access token, kept only on the owner's own
+computer. No data about any other person is collected, stored, sold or shared.
+
+**Third parties:** none. Data is sent only to Google/YouTube.
+
+**Revoking access:** the owner can remove access at any time at
+https://myaccount.google.com/permissions
+
+**Contact:** shamimx.ali@gmail.com
+
+Use of information received from Google APIs follows the
+[Google API Services User Data Policy](https://developers.google.com/terms/api-services-user-data-policy),
+including the Limited Use requirements.
+
+Channel: https://www.youtube.com/channel/UCy071_4g4vGemktFHybqkhQ
+```
+
+Text theek ho toh **"ok, gist banao"** likhiye. Main `gh` se public gist banaunga aur aapko 2 link dunga:
+1. Privacy policy ka link
+2. Homepage ka link (channel URL)
+
+Phir aapko Branding page par ye bharne honge:
+- **App home page:** channel link
+- **Privacy policy link:** gist link
+- **Authorized domains:** `youtube.com` aur `github.com`
+
+Uske baad **Publish app** chal jayega.
+
+---
+
+_**User (2026-10-18 08:54:06Z)**_
+
+ok, gist banao
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-18 08:54:15Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Write"><details>
+<summary>Tool use: **Write**</summary>
+
+```markdown
+# Privacy Policy — Dadi Ki Kahaniyan Uploader
+
+Last updated: 18 October 2026
+
+"Dadi Ki Kahaniyan Uploader" is a private tool used only by the owner of the
+YouTube channel "दादी की कहानियाँ (Dadi Ki Kahaniyan)" to upload and schedule
+the channel's own videos, thumbnails and captions through the YouTube Data API.
+
+**What data it accesses:** only the owner's own YouTube channel, with the
+owner's permission (Google OAuth). It uploads videos, sets thumbnails,
+uploads captions and adds videos to the channel's playlists.
+
+**What it stores:** an OAuth access token, kept only on the owner's own
+computer. No data about any other person is collected, stored, sold or shared.
+
+**Third parties:** none. Data is sent only to Google/YouTube.
+
+**Revoking access:** the owner can remove access at any time at
+https://myaccount.google.com/permissions
+
+**Contact:** shamimx.ali@gmail.com
+
+Use of information received from Google APIs follows the
+[Google API Services User Data Policy](https://developers.google.com/terms/api-services-user-data-policy),
+including the Limited Use requirements.
+
+Channel: https://www.youtube.com/channel/UCy071_4g4vGemktFHybqkhQ
+
+```
+
+```text
+File created successfully at: C:\Users\ashamim\AppData\Local\Temp\claude\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7\scratchpad\gist\privacy-policy.md (file state is current in your context — no need to Read it back)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 08:54:20Z)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="PowerShell"><details>
+<summary>Tool use: **PowerShell**</summary>
+Create public gist with privacy policy
+
+```text
+- Creating gist privacy-policy.md
+✓ Created public gist privacy-policy.md
+https://gist.github.com/shamim8426/9fdc382c9ac9a02777195c7c5969a1b6
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 08:54:27Z)**_
+
+Public gist ban gaya ✅
+
+## Ab Branding page par ye bhariye
+Baayein menu me **Branding** kholiye:
+
+| Field | Kya daalna hai |
+|---|---|
+| **App name** | `Dadi Ki Kahaniyan Uploader` (pehle se hoga) |
+| **User support email** | `shamimx.ali@gmail.com` (pehle se hoga) |
+| **App logo** | Khaali chhodiye. Logo daalne se Google verification maangta hai. |
+| **Application home page** | `https://www.youtube.com/channel/UCy071_4g4vGemktFHybqkhQ` |
+| **Application privacy policy link** | `https://gist.github.com/shamim8426/9fdc382c9ac9a02777195c7c5969a1b6` |
+| **Terms of service link** | Khaali chhod sakte hain |
+| **Authorized domains** | **+ Add domain** dabaiye aur do domain jodiye: `youtube.com`, `github.com` |
+| **Developer contact email** | `shamimx.ali@gmail.com` |
+
+Neeche **Save** dabaiye.
+
+**Phir:** **Audience** page par jaiye → **Publish app** → **Confirm**. Status **In production** hona chahiye.
+
+**Phir Step 3 (client):**
+1. **Clients** kholiye → **+ Create client** → **Desktop app** chuniye.
+2. Name me `story-channel-uploader` likhiye aur **Create** dabaiye.
+3. **Download JSON** dabaiye aur file ko `D:\Story-Channel\secrets\client_secret.json` naam se save kijiye.
+
+Ho jaye toh "ho gaya" likhiye. Agar "Publish app" phir bhi na chale, toh uska screenshot bhej dijiye.
+
+---
+
+_**User (2026-10-18 08:57:40Z)**_
+
+[Image: source: C:\Users\ashamim\AppData\Local\Temp\claude\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7\images\8.png]
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-18 08:57:47Z)**_
+
+Branding save ho gayi ✅. Dono domain (`youtube.com`, `github.com`) aur contact email sahi hain. Upar ke hisse me homepage aur privacy link screenshot me nahi dikh rahe. Agar "Saved!" aaya hai toh wo bhi save ho gaye honge.
+
+**Ab dobara Audience par:**
+1. Baayein menu me **Audience** kholiye.
+2. **Publish app** ab chalna chahiye. Use dabaiye aur phir **Confirm**.
+3. Status **In production** ho jayega.
+
+Agar button ab bhi grey ho, toh Branding page par upar scroll karke dekhiye ki **Application home page** aur **privacy policy link** dono bhare hain, phir Save kijiye.
+
+**Phir Step 3: client banana**
+1. Baayein menu me **Clients** kholiye → **+ Create client**.
+2. **Application type:** Desktop app.
+3. **Name:** `story-channel-uploader` → **Create**.
+4. Popup me **Download JSON** dabaiye.
+5. File ko `D:\Story-Channel\secrets\` folder me rakhiye aur naam badal kar **`client_secret.json`** kar dijiye.
+
+Ho jaye toh "ho gaya" likhiye. Main sirf check karunga ki file sahi jagah hai, uska content nahi kholunga.
+
+---
+
+_**User (2026-10-18 08:58:50Z)**_
+
+[Image: source: C:\Users\ashamim\AppData\Local\Temp\claude\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7\images\9.png]
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-18 08:58:55Z)**_
+
+**In production** ✅. Ab login har 7 din me khatam nahi hoga. Step 2 poora hua.
+
+## Step 3: Desktop OAuth client
+1. Baayein menu me **Clients** par click kijiye.
+2. Upar **+ Create client** dabaiye.
+3. **Application type** me **Desktop app** chuniye.
+4. **Name** me `story-channel-uploader` likh kar **Create** dabaiye.
+5. Popup me **Download JSON** dabaiye. Agar popup band ho gaya ho, toh Clients list me client ke aage ⬇ (download) icon dabaiye.
+6. Downloaded file ka naam `client_secret_123....apps.googleusercontent.com.json` jaisa hoga. Use **`D:\Story-Channel\secrets\`** folder me move kijiye aur naam badal kar **`client_secret.json`** kar dijiye.
+7. Iski ek copy Google Drive ya password manager me bhi rakh lijiye.
+
+⚠️ Is file ka content kahin paste mat kijiye, na yahan, na kisi chat me.
+
+Ho jaye toh "ho gaya" likhiye. Main bina file khole sirf check karunga ki wo sahi jagah aur sahi naam se hai.
+
+---
+
+_**User (2026-10-18 09:00:13Z)**_
+
+[Image: source: C:\Users\ashamim\AppData\Local\Temp\claude\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7\images\10.png]
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-18 09:00:19Z)**_
+
+Form theek bhara hai: Desktop app aur `story-channel-uploader`. Bas ek baat:
+
+**"Use this client for an AI-powered agent" ka tick hata dijiye.** Hamari upload script ek saadhi Python script hai jo normal Desktop login use karti hai. Ye naya option kisi alag tarah ke agent-login ke liye lagta hai. Main pakka nahi jaanta ki ye token ke kaam karne ke tareeke me kya badalta hai, isliye ise band rakhna hi surakshit hai. Zaroorat padi toh baad me naya client bana sakte hain.
+
+Phir:
+1. **Create** dabaiye.
+2. Popup me **Download JSON** dabaiye.
+3. File ko `D:\Story-Channel\secrets\` me rakh kar naam **`client_secret.json`** kar dijiye.
+
+Ho jaye toh "ho gaya" likhiye.
+
+---
+
+_**User (2026-10-18 09:01:25Z)**_
+
+ho gya
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-18 09:01:32Z)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="PowerShell"><details>
+<summary>Tool use: **PowerShell**</summary>
+Check client_secret.json location/type without printing it
+
+```text
+Exit code 1
+Invoke-Expression : At line:1 char:960
++ ...  ignored: " + (git check-ignore -q secrets/client_secret.json; if ($L ...
++                                                                  ~
+Missing closing ')' in expression.
+At line:1 char:1007
++ ... ts/client_secret.json; if ($LASTEXITCODE -eq 0) {'yes'} else {'NO!'})
++                                                                         ~
+Unexpected token ')' in expression or statement.
+At line:1 char:111
++ ... UNCHER_SCRIPT = $null; Invoke-Expression -Command $__claudeCodeScript
++                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ParserError: (:) [Invoke-Expression], ParseException
+    + FullyQualifiedErrorId : MissingEndParenthesisInExpression,Microsoft.PowerShell.Commands.InvokeExpressionCommand
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:01:37Z)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="PowerShell"><details>
+<summary>Tool use: **PowerShell**</summary>
+Check client_secret.json location/type without printing it
+
+```text
+Name               Length
+----               ------
+client_secret.json    415
+
+
+type: installed (Desktop app)
+git-ignored exit: 0 (0 = ignored)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:01:49Z)**_
+
+`client_secret.json` sahi jagah hai ✅. Maine iska content nahi khola, sirf ye check kiya:
+- Naam aur jagah: `secrets\client_secret.json` (415 bytes)
+- Type: **Desktop app**
+- Git ise ignore karta hai, toh ye GitHub par nahi jayegi
+
+## Step 4: Channel ka phone verification
+Iske bina custom thumbnail upload fail hota hai.
+1. https://www.youtube.com/verify kholiye. Wahi Gmail aur **दादी की कहानियाँ** channel chuna hona chahiye.
+2. Phone number daaliye, SMS se code lijiye aur verify kijiye.
+3. Agar pehle se verified hai toh "already verified" jaisa dikhega.
+
+## Step 5: Pehla login (sirf test, koi upload nahi)
+Iske liye main ek chhota test chalaunga. Ye sirf login karega aur YouTube se poochhega "kaunsa channel hai?". Koi video upload nahi hoga.
+- Login sahi hone par token `secrets\youtube_token_dadi-ki-kahaniyan.json` me save hoga, aur aage upload bina login ke chalenge.
+- Script channel ID match karegi. Galat channel chuna gaya toh wahin ruk jayegi.
+
+🔔 **Yaad dilana tha:** browser khulne par
+1. `shamimx.ali@gmail.com` chuniye.
+2. Agar channel chunne ka option aaye, toh **"दादी की कहानियाँ"** hi chuniye.
+3. **"Google hasn't verified this app"** dikhega. **Advanced** → **Go to Dadi Ki Kahaniyan Uploader (unsafe)** dabaiye. Ye aapki apni app hai, isliye ye safe hai.
+4. Permissions par **Continue/Allow** dabaiye. Upload aur YouTube account manage karne ki permission maangi jayegi.
+
+Phone verification ho jaye aur aap browser ke liye tayyar hon, toh **"login test chalao"** likhiye.
+
+---
+
+_**User (2026-10-18 09:02:19Z)**_
+
+[Image: source: C:\Users\ashamim\AppData\Local\Temp\claude\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7\images\11.png]
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-18 09:02:24Z)**_
+
+Phone pehle se verified hai ✅, toh custom thumbnail upload ho payega. Step 4 poora hua.
+
+Ab sirf **Step 5: pehla login test** bacha hai. Ye pehle wale message me bataya gaya hai: sirf login hoga aur channel ka match check hoga, **koi upload nahi**.
+
+Browser khulne par ye yaad rakhiye:
+1. `shamimx.ali@gmail.com` chuniye.
+2. Channel chunne ko kahe toh **"दादी की कहानियाँ"** chuniye.
+3. "Google hasn't verified this app" aaye toh **Advanced → Go to Dadi Ki Kahaniyan Uploader (unsafe)** dabaiye.
+4. Permissions par **Continue** dabaiye.
+
+Tayyar hon toh **"login test chalao"** likhiye.
+
+---
+
+_**User (2026-10-18 09:02:59Z)**_
+
+login test chalao
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-18 09:03:02Z)**_
+
+Login test chala raha hoon. Isme sirf login aur channel check hoga, upload nahi.
+
+_**Agent (claude-opus-5-5 2026-10-18 09:03:06Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Write"><details>
+<summary>Tool use: **Write**</summary>
+
+```python
+"""Login-only test: OAuth login + channel-ID check. Uploads nothing."""
+import json
+import sys
+from pathlib import Path
+
+ROOT = Path(r"D:\Story-Channel")
+sys.path.insert(0, str(ROOT / "tools"))
+import youtube_upload as yu  # noqa: E402
+
+cfg = json.loads((ROOT / "munshi" / "channel_config.json").read_text(encoding="utf-8"))["dadi-ki-kahaniyan"]
+job = {"channel_key": cfg["channel_key"], "channel_name": cfg["display_name"], "channel_id": cfg["channel_id"]}
+yt = yu.get_service(job)
+yu.check_channel(yt, job)
+print("token saved:", yu.token_path(job).name, "| nothing uploaded")
+
+```
+
+```text
+File created successfully at: C:\Users\ashamim\AppData\Local\Temp\claude\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7\scratchpad\login_test.py (file state is current in your context — no need to Read it back)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:03:07Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Run OAuth login-only test (opens browser)
+
+`.venv/Scripts/python.exe -X utf8 "C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad/login_test.py" 2>&1 | grep -v -i "token\":\|refresh_token\|client_secret\"" `
+
+```text
+Command running in background with ID: byfnvgjkh. Output is being written to: C:\Users\ashamim\AppData\Local\Temp\claude\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7\tasks\byfnvgjkh.output. You will be notified when it completes — do not poll that file or sleep while waiting. Read the file only if the user asks for progress, or if you need a line it prints before you can go on, such as a server's ready line or port.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:03:12Z)**_
+
+Login test chal raha hai, aur browser me Google login page khul jana chahiye. Is test me koi video upload nahi hoga.
+
+🔔 **Yaad rakhiye:**
+1. Account: **`shamimx.ali@gmail.com`**. ami.com wala nahi. Agar browser me ami.com pehle se login hai, toh "Use another account" chuniye.
+2. Channel chunne ko kahe toh **"दादी की कहानियाँ"** hi chuniye.
+3. "Google hasn't verified this app" aaye toh **Advanced → Go to Dadi Ki Kahaniyan Uploader (unsafe)** dabaiye.
+4. Permissions par **Continue** dabaiye.
+5. Aakhir me "The authentication flow has completed" dikhega. Wo tab band kar dijiye.
+
+Agar browser apne aap na khule, toh bata dijiye. Main login ka link nikaal kar de dunga.
+
+Login poora hote hi nateeja mujhe mil jayega: "Channel OK" ya "WRONG CHANNEL".
+
+---
+
+_**User (2026-10-18 09:04:19Z)**_
+
+??
+
+---
+
+_**User (2026-10-18 09:04:19Z)**_
+
+[Image: source: C:\Users\ashamim\AppData\Local\Temp\claude\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7\images\12.png]
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-18 09:04:27Z)**_
+
+Ye sahi page hai, sab theek chal raha hai. Account bhi sahi hai: `shamimx.ali@gmail.com`.
+
+**Dono checkbox tick rehne dijiye**, phir neeche scroll karke **Continue** dabaiye.
+
+**Dono permission kyun chahiye:**
+- **"Manage your YouTube videos"**: video upload aur schedule karne ke liye.
+- **"See, edit, and permanently delete…"**: ye sunne me bada lagta hai, par Hindi captions (.srt) aur playlist me video jodne ke liye Google ka yahi ek scope hai. Hamari script me delete karne ka koi code nahi hai. Wo sirf upload karti hai, thumbnail aur captions lagati hai aur playlist me jodti hai.
+
+**Orange box** wahi "unverified app" wali soochna hai. Apni khud ki app ke liye ise ignore kar sakte hain.
+
+Continue ke baad "The authentication flow has completed" dikhega. Tab ko band kar dijiye. Script ka nateeja mujhe apne aap mil jayega.
+
+Agar is account par ek se zyada channel hain aur channel chunne ka page nahi aaya, toh koi baat nahi. Script khud check karegi, aur galat channel hua toh "WRONG CHANNEL" bol kar ruk jayegi.
+
+---
+
+_**User (2026-10-18 09:05:04Z)**_
+
+<task-notification>
+<task-id>byfnvgjkh</task-id>
+<tool-use-id>toolu_01EbhaQL2ZLKNFdaCFnhxkff</tool-use-id>
+<output-file>C:\Users\ashamim\AppData\Local\Temp\claude\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7\tasks\byfnvgjkh.output</output-file>
+<status>completed</status>
+<summary>Background command "Run OAuth login-only test (opens browser)" completed (exit code 0)</summary>
+</task-notification>
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-18 09:05:08Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `C:\Users\ashamim\AppData\Local\Temp\claude\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7\tasks\byfnvgjkh.output`
+
+```text
+1	Browser login: pick the Google account AND the channel 'दादी की कहानियाँ'.
+2	Please visit this URL to authorize this application: https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=358103683098-c2qp04bamiu5643c780r8m9t2ehj5ttc.apps.googleusercontent.com&redirect_uri=http%3A%2F%2Flocalhost%3A50881%2F&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fyoutube.upload+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fyoutube.force-ssl&state=28Ywfe5ypLgdilIenfxsDnpqoWbEjC&code_challenge=XoXhiKnxFePg7EM8_mmrT4Xk1SAU1k-h9a-1OfKCcPU&code_challenge_method=S256&access_type=offline
+3	Channel OK: Dadi Ki  Kahaniya (UCy071_4g4vGemktFHybqkhQ)
+4	token saved: youtube_token_dadi-ki-kahaniyan.json | nothing uploaded
+5	
+6	[exited with code 0]
+7
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:05:21Z)**_
+
+Login test paas ho gaya: script ne aapka channel sahi pehchana aur koi video upload nahi hua.
+
+```
+Channel OK: Dadi Ki  Kahaniya (UCy071_4g4vGemktFHybqkhQ)
+token saved: youtube_token_dadi-ki-kahaniyan.json | nothing uploaded
+```
+
+- Channel ID config se **exact match** hua, yaani sahi channel chuna gaya.
+- Token `secrets\` me save ho gaya hai. Ab aage upload bina browser login ke chalenge. Ye file GitHub par nahi jaati.
+
+**Channel ke naam me shayad typo hai:** YouTube par naam **"Dadi Ki  Kahaniya"** dikh raha hai. Isme "Ki" ke baad do space hain aur aakhir me "n" nahi hai. Banner aur videos me naam "दादी की कहानियाँ" hai. Agar naam theek karna ho toh YouTube Studio → Customization → Basic info me kar sakte hain. Isse upload par koi asar nahi padega, kyunki check channel ID se hota hai.
+
+## API setup poora ✅
+| Step | Status |
+|---|---|
+| 1. YouTube Data API v3 | Enabled |
+| 2. Consent screen | In production, privacy policy gist ke saath |
+| 3. Desktop client | `secrets\client_secret.json` |
+| 4. Phone verification | Verified |
+| 5. Pehla login | Channel OK, token saved |
+
+## Ek zaroori seema: API audit
+Jab tak YouTube ka API audit approve nahi hota, API se upload hui videos **private me lock** reh sakti hain, aur 20 Oct 7 PM ka schedule shayad apne aap na lage. Tab upload ke baad aapko Studio me khud schedule set karna hoga, jo ek click ka kaam hai.
+
+Audit ke liye "YouTube API Services – Audit and Quota Extension Form" free hai aur isme kuch hafte lagte hain. Kahein toh agla kaam yahi form bharwana rakhein.
+
+## Ab
+- Long 01 har check par PASS hai: final build, thumbnail, metadata, copyright aur dry-run.
+- **Asli upload** sirf aapke **"upload karo"** bolne par hoga. Tab Munshi dry-run summary dobara dikhayega, aapki "ha" ka intezaar karega, aur phir upload karega. Schedule **20 Oct, 7:00 PM IST** hai.
+- Playlist ID abhi khaali hai. Chahein toh pehle de dijiye, warna baad me `--extras-only` se jod denge.
+
+---
+
+_**User (2026-10-18 09:08:07Z)**_
+
+jo uploader k liye hmne setting ki h uska ek md file create kro or vo file github me bhi commit krna.
+
+
+pehle upload kro
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-18 09:08:14Z)**_
+
+Upload Munshi se karwa raha hoon, jaisa CLAUDE.md me tay hai. Aapne pichhla dry-run summary dekh liya tha aur ab "upload karo" kaha hai, isliye Munshi ko asli upload chalane ke liye bhej raha hoon. Uploader ki MD file iske baad banaunga.
+
+_**Agent (claude-opus-5-5 2026-10-18 09:10:59Z)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="Agent"><details>
+<summary>Tool use: **Agent**</summary>
+Upload Long 01 to YouTube
+
+```text
+  This agent's report was delivered to you as a message from "aa22cbc309a54c05f" (its SubagentHandback call). Read it there; it is not repeated here.
+  
+agentId: aa22cbc309a54c05f (use SendMessage with to: 'aa22cbc309a54c05f', summary: '<5-10 word recap>' to continue this agent)
+<usage>subagent_tokens: 25027
+tool_uses: 9
+duration_ms: 156252</usage>
+```
+</details></tool-use>
+
+_**Agent - sidechain (2026-10-18 09:08:22Z)**_
+
+PUBLISH task for long-videos/long_01, following the youtube-publish skill (per-video steps).
+
+User authorisation: in this conversation the user (main session) has explicitly said "pehle upload kro" (= upload it now), AFTER being shown the full dry-run summary (channel दादी की कहानियाँ UCy071_4g4vGemktFHybqkhQ, title, scheduled 2026-10-20T19:00:00+05:30, made_for_kids False, thumbnail long_01_thumbnail.png, captions long_01.srt, no playlist, video check 1920x1080 h264 yuv420p 306.2s). Treat that as the user's "ha" for exactly this job. If anything in upload.json or the files has changed from that summary, STOP and report instead of uploading.
+
+OAuth is set up: secrets/client_secret.json and secrets/youtube_token_dadi-ki-kahaniyan.json exist (a login test returned "Channel OK"). Never print or open their contents.
+
+Steps:
+1. Confirm munshi/log.md has PASS for long_01 final build, thumbnail, metadata, copyright and publish dry-run, and that long-videos/long_01/output/upload_result.json does NOT exist.
+2. Re-run the dry-run: .venv/Scripts/python.exe tools/youtube_upload.py --job long-videos/long_01/output/upload.json --dry-run  — must be OK and match the summary above (publish_at must still be >15 min in the future).
+3. Run the real upload (same command without --dry-run). It is ~165 MB; use a long timeout (up to 10 min). If the channel check says WRONG CHANNEL, stop.
+4. Read upload_result.json. If thumbnail/captions failed, report the error (do not retry blindly; one --extras-only retry is OK only if the error looks transient).
+5. Report: video URL, studio URL, privacy/schedule status, what succeeded (video, thumbnail, captions), and what still needs a click in YouTube Studio. Important: an unaudited API project may lock the video to private and ignore publishAt — say clearly that the user must open the Studio URL and check/set the schedule to 20 Oct 7:00 PM IST. Also list: pinned comment text to post after publish (from long_01.txt), end screen, playlist.
+6. Append a PUBLISHED line to munshi/log.md.
+
+_**Agent - sidechain (2026-10-18 09:08:22Z)**_
+
+<system-reminder>
+Your final report is delivered through SubagentHandback: when your work is complete, call SubagentHandback({message: <your full report>}). The call ends your run, so make it your last step. Only a SubagentHandback call reaches your caller as your result; plain text you write at the end is not delivered.
+</system-reminder>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 09:08:32Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Read rules, log, and upload job
+
+`cat munshi/RULES.md | head -150; echo ----; grep -n "long_01" munshi/log.md | tail -30; echo ----; ls long-videos/long_01/output/; cat long-videos/long_01/output/upload.json`
+
+```text
+# Munshi RULES — Story-Channel
+
+These are the hard rules. If a builder summary, a script or a file disagrees with them, the rule wins and the step is not PASS. Edit this file to add new rules; Munshi reads it fresh every time.
+- A measured value outside a RULES limit is always FIX, never PASS, even if small.
+
+## 1. Budget
+- Prepaid Google Cloud budget: ₹500, auto-reload off. Current balance is whatever `cost_log.csv` says.
+- Every paid call (Gemini image ≈ ₹3.24 each at 1K, Gemini TTS per line) must be in `cost_log.csv` with date, project, item, ₹.
+- No paid call without the user's OK first. A fix that costs money is always ASK, never FIX.
+- Flag it if a step cost more than 30% above its estimate (e.g. LONG_01 TTS: estimate ₹4.85, actual ₹6.63).
+
+## 2. Story and characters (from `channel_bible.md`)
+- Characters must match their approved sheets: face, clothes, colours, age look. Compare each scene image against the sheet with Read.
+- Dadi (Kamla Devi) narrates. Every other character speaks their own lines in their own voice.
+- Mitthu (parrot) has no hands: no hand gestures, holding things or pointing with hands.
+- Dadi's home (in Gulmohar Mohalla): a kacha mud house with a tiled roof, BROWN wooden door, swept aangan, green fields behind, exactly like the channel banner (`channel_assets/_work/banner_art.png`). There is no green door.
+- Setting: Dadi's home, the Golu–Mitthu opening/closing frame and all Dadi Jasoos cases are in Gulmohar Mohalla. The story Dadi narrates inside a moral-story video can be set in any village or town the approved script names (e.g. Rampur in LONG_01); check location consistency against that script. Village kitchens still use a mitti ka chulha, never a gas stove.
+- The action in each image must match what the line says at that moment (who is holding what, who is talking).
+
+## 3. Audio
+- Final loudness: -14 LUFS integrated (±1), true peak ≤ -1.0 dBFS.
+- Music sits under the voice: 12–14 dB below for Shorts, up to ~18–20 dB for narration-heavy long videos. If it is quieter than 20 dB under, flag it.
+- Music level is measured one way only: integrated LUFS of the voice-only stem vs the music-only stem over the same speech sections. Builder and Munshi both use this method.
+- Mood changes get a crossfade (≥1 s). No sudden music cuts under dialogue.
+- No leaked background audio, clicks, or a line cut off mid-word.
+
+## 4. Captions
+- One `.srt` per video, Hindi, UTF-8.
+- Each caption must appear while that line is being spoken (±0.3 s), over the right character's shot.
+- Lines whose timing was estimated rather than taken from Whisper must be listed in the report.
+
+## 5. Video
+- Long video: 1920×1080, 30 fps, H.264, 16:9. Short: 1080×1920, ≤60 s, 9:16.
+- Target length: the duration the user approved at preview. Before preview, the script estimate is only a guide. Final must be within ±10% of the approved preview length; outside that is ASK.
+- Preview builds (960×540) are only for review. They are never uploaded.
+
+## 6. Thumbnail
+- 1280×720, JPG or PNG, ≤ 2 MB.
+- Hindi text is rendered by libass/FFmpeg (HarfBuzz shaping), never drawn by the AI. Zoom in and check matras and joined letters (ड़, दु, क्ष, etc.).
+- Text readable on a phone: letter height ≥ ~12% of frame height, high contrast, max ~4 words.
+- Thumbnail text must not repeat the title word for word.
+- No spoilers: no ending, no twist, no mystery answer.
+- Bottom-right corner (~15% × 12%) has nothing important, because YouTube puts the duration there.
+
+## 7. Metadata
+- Title ≤ 100 characters, no `<` or `>`. Description ≤ 5000 characters.
+- Tags total ≤ 500 characters. 3–5 hashtags in the description (the first 3 show above the title; more than 15 and YouTube ignores all of them).
+- Every CC BY music track used (e.g. Incompetech / Kevin MacLeod) is credited in the description exactly as its licence asks.
+- Mystery (Dadi Jasoos) videos: the answer never goes in the title, description or thumbnail. It goes in the pinned comment 24 h after publishing.
+- Made-for-kids and AI-disclosure values come from `munshi/channel_config.json`. Never guess them.
+
+## 8. Publishing
+- Default publish time: 7:00 PM IST.
+- At least 2 days between two long videos on the same channel. Shorts can go on other days.
+- Nothing goes Public or gets scheduled without the user's OK in that conversation.
+- One upload per video. If `output/upload_result.json` exists, do not upload again.
+
+## 9. Safety
+- Never show or commit `.env`, `secrets/`, API keys or OAuth tokens.
+- Never delete files; move them to `_to_delete/`.
+
+## 10. Copyright (STRICT — any violation is FIX and blocks upload)
+- Every external file used in any video (music, sound effect, font, image, footage, voice) must have a row in `munshi/assets_license.csv`: path, source_url, author, license, attribution_text, date_added. No row = not allowed.
+- Allowed licences only: CC0; CC BY 4.0 (with exact credit in the description); SIL OFL (fonts); YouTube Audio Library tracks (follow their attribution note); our own Gemini-generated images/voices; our own recordings.
+- Never allowed: CC BY-NC (non-commercial, conflicts with monetization), CC BY-ND (we edit/mix), CC BY-SA, "free for personal use", Freesound "Sampling+", unknown source, anything ripped from YouTube/Spotify/Instagram/films/TV, Bollywood or any commercial song (even hummed or sung by TTS), Google/Pinterest images.
+- Freesound: licence is per sound. Check each file's own licence page; only CC0 or CC BY 4.0.
+- Content: no real brand logos, no film/TV/cartoon characters (Chhota Bheem, Motu Patlu, Disney, etc.), no celebrity likeness, no copied song lyrics, no copied text from modern books. Old folk tales (Panchatantra, Jataka, Akbar-Birbal) are public domain, but we always write our own version, never copy a modern retelling.
+- Image prompts never name a studio, franchise or living artist ("Pixar style", "Ghibli style", etc.).
+- Before upload, Munshi checks: every audio/image/font file in the final build is in the register, every CC BY item is credited in the description exactly as its licence asks, and no source audio from outside our pipeline is in the mix.
+- After upload: if YouTube Studio shows any copyright claim or strike, stop all new uploads and tell the user. CC music sometimes gets false Content ID claims; dispute only with the licence proof from the register, after the user agrees.
+----
+2:2026-10-18 | long_01 | 7 final build | FIX | spec/loudness/captions ok; Mitthu line 2 on Golu shot, Ghasita shot mid-Sadhu line 15, music only ~9-10 LU under voice (builder's 18.4 dB is a metric artefact); ASK pending: aangan frame not Gulmohar Mohalla/hara darwaza
+3:2026-10-18 | long_01 | 8 thumbnail | PASS | 1280x720 PNG 1.1 MB, Hindi text shaped correctly, no spoiler, BR corner clear; text height ~11% (optional +10% bump)
+4:2026-10-18 | long_01 | 9 metadata | FIX | 7 hashtags (rule 3-5); no tags list yet for upload; title 81 chars, desc 1514, all 6 CC BY tracks credited ok
+5:2026-10-18 | long_01 | 7 final build (re-review) | ASK | all 6 builder fixes verified (line 2 Mitthu+box, line 15 Sadhu only, music 13.0 LU under voice by stem method = inside long range 12-20, offsets 3.75s/14.5s, yuv420p tv bt709 matrix, no caption <0.45s); length 5:06 (306.2s) is outside script target ~3:50 +/-10% and 3-5 min range -> user decision
+6:2026-10-18 | long_01 | 8 thumbnail (re-review) | PASS | 1280x720 PNG 1.09 MB, text 14.3%/13.5% of height, Hindi shaping ok, no spoiler, BR corner clear
+7:2026-10-18 | long_01 | 9 metadata (re-review) | PASS | title 81, desc 1488, 5 hashtags, 21 tags 375/500 chars (YouTube count), 6 CC BY credits ok, TAGS in long_01.txt = meta.json
+8:2026-10-18 | long_01 | 7 final build (length, RULES 5 updated) | PASS | user approved 5:06 preview; final 306.17s = preview 306.17s (0%, within +/-10%); long_01.mp4 unchanged since re-review (13:22), 1920x1080 h264 yuv420p 30fps; all re-review checks stand
+9:2026-10-18 | long_01 | publish dry-run | PASS | upload.json written (channel UCy071_4g4vGemktFHybqkhQ, publish 2026-10-20 19:00 IST, kids=false, synthetic=false, cat 1, no playlist); dry-run OK, no network; copyright register (RULES 10 / assets_license.csv) not yet available -> not reviewed
+10:2026-10-18 | long_01 | copyright (RULES 10) | PASS | all used assets registered w/ allowed licence (6 Incompetech CC BY 4.0, 3 Freesound CC0, Mukta OFL, 31 scene imgs + 51 TTS + thumb = own Gemini, all in cost_log); 6/6 credits exact in upload.json; mix-voice-music residual = 5 SFX bursts only (floor -98 dB); prompts/text/images clean
+----
+long_01.mp4
+long_01.srt
+long_01.txt
+long_01_framecheck.png
+long_01_preview.mp4
+long_01_preview.srt
+long_01_thumbnail.png
+long_01_work
+review
+upload.json
+{
+  "channel_key": "dadi-ki-kahaniyan",
+  "channel_name": "दादी की कहानियाँ",
+  "channel_id": "UCy071_4g4vGemktFHybqkhQ",
+  "format": "long",
+  "title": "लालची हलवाई और जादुई कड़ाही | दादी की कहानियाँ | Hindi Moral Story | Hindi Kahani",
+  "description": "रामपुर गाँव का घसीटा हलवाई बहुत लालची था — तराज़ू में डंडी मारता और भूखे को भी भगा देता। पर उसका नौकर छोटू दिल का सोना था। एक दिन एक भूखे साधु बाबा ने छोटू को दी एक जादुई कड़ाही... जो डालो, दुगना! पर जब घसीटा ने लालच में उसे चुराया, तो क्या हुआ? 🍯✨\n\nसीख: लालच का अंत हमेशा बुरा होता है — और बाँटने से ख़ुशी दुगनी होती है।\n\nदादी की कहानियाँ — दादी हर हफ़्ते सुनाती हैं एक नई कहानी, जो हँसाए भी और सिखाए भी।\n\nMusic: \"Fluffing a Duck\" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttp://creativecommons.org/licenses/by/4.0/\n\nMusic: \"Carefree\" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttp://creativecommons.org/licenses/by/4.0/\n\nMusic: \"Heartbreaking\" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttp://creativecommons.org/licenses/by/4.0/\n\nMusic: \"Enchanted Valley\" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttp://creativecommons.org/licenses/by/4.0/\n\nMusic: \"Hidden Agenda\" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttp://creativecommons.org/licenses/by/4.0/\n\nMusic: \"Touching Moments Two - Higher\" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttp://creativecommons.org/licenses/by/4.0/\n\nSound effects: freesound.org (CC0)\n\n#दादीकीकहानियाँ #HindiKahani #MoralStory #DadiKiKahaniyan #HindiStory",
+  "tags": [
+    "दादी की कहानियाँ",
+    "Dadi Ki Kahaniyan",
+    "लालची हलवाई",
+    "Lalchi Halwai",
+    "जादुई कड़ाही",
+    "Jadui Kadhai",
+    "हिंदी कहानी",
+    "Hindi Kahani",
+    "नैतिक कहानी",
+    "Hindi Moral Story",
+    "Moral Stories in Hindi",
+    "बच्चों की कहानी",
+    "Kids Story Hindi",
+    "Hindi Cartoon Story",
+    "दादी माँ की कहानी",
+    "Dadi Maa Ki Kahani",
+    "Bedtime Story Hindi",
+    "लालच का फल",
+    "Greed Moral Story",
+    "Magic Story Hindi",
+    "जादुई कहानी"
+  ],
+  "video": "long_01.mp4",
+  "thumbnail": "long_01_thumbnail.png",
+  "captions": "long_01.srt",
+  "language": "hi",
+  "captions_name": "Hindi",
+  "made_for_kids": false,
+  "contains_synthetic_media": false,
+  "category_id": "1",
+  "publish_at": "2026-10-20T19:00:00+05:30"
+}
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 09:08:38Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Check session history for user's upload approval
+
+`ls -la .specstory/history/ | tail -3; grep -n -i "upload kro\|upload karo" .specstory/history/2026-10-17_08-25-27Z-*.md | tail -5`
+
+```text
+drwxr-xr-x 1 ashamim 1049089       0 Oct 17 13:55 .
+drwxr-xr-x 1 ashamim 1049089       0 Oct 18 14:38 ..
+-rw-r--r-- 1 ashamim 1049089 1366171 Oct 18 14:38 2026-10-17_08-25-27Z-pasted-content-id-aeaa.md
+26201:Long 01 ab har check par PASS hai: final build, thumbnail, metadata, copyright aur upload dry-run. Asli upload sirf aapke "upload karo" bolne par hoga.
+26798:- **Asli upload** sirf aapke **"upload karo"** bolne par hoga. Tab Munshi dry-run summary dobara dikhayega, aapki "ha" ka intezaar karega, aur phir upload karega. Schedule **20 Oct, 7:00 PM IST** hai.
+26808:pehle upload kro
+26814:Upload Munshi se karwa raha hoon, jaisa CLAUDE.md me tay hai. Aapne pichhla dry-run summary dekh liya tha aur ab "upload karo" kaha hai, isliye Munshi ko asli upload chalane ke liye bhej raha hoon. Uploader ki MD file iske baad banaunga.
+26827:User authorisation: in this conversation the user (main session) has explicitly said "pehle upload kro" (= upload it now), AFTER being shown the full dry-run summary (channel दादी की कहानियाँ UCy071_4g4vGemktFHybqkhQ, title, scheduled 2026-10-20T19:00:00+05:30, made_for_kids False, thumbnail long_01_thumbnail.png, captions long_01.srt, no playlist, video check 1920x1080 h264 yuv420p 306.2s). Treat that as the user's "ha" for exactly this job. If anything in upload.json or the files has changed from that summary, STOP and report instead of uploading.
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 09:08:41Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+View context around user's upload message
+
+`sed -n 26780,26812p .specstory/history/2026-10-17_08-25-27Z-*.md`
+
+```text
+**Channel ke naam me shayad typo hai:** YouTube par naam **"Dadi Ki  Kahaniya"** dikh raha hai. Isme "Ki" ke baad do space hain aur aakhir me "n" nahi hai. Banner aur videos me naam "दादी की कहानियाँ" hai. Agar naam theek karna ho toh YouTube Studio → Customization → Basic info me kar sakte hain. Isse upload par koi asar nahi padega, kyunki check channel ID se hota hai.
+
+## API setup poora ✅
+| Step | Status |
+|---|---|
+| 1. YouTube Data API v3 | Enabled |
+| 2. Consent screen | In production, privacy policy gist ke saath |
+| 3. Desktop client | `secrets\client_secret.json` |
+| 4. Phone verification | Verified |
+| 5. Pehla login | Channel OK, token saved |
+
+## Ek zaroori seema: API audit
+Jab tak YouTube ka API audit approve nahi hota, API se upload hui videos **private me lock** reh sakti hain, aur 20 Oct 7 PM ka schedule shayad apne aap na lage. Tab upload ke baad aapko Studio me khud schedule set karna hoga, jo ek click ka kaam hai.
+
+Audit ke liye "YouTube API Services – Audit and Quota Extension Form" free hai aur isme kuch hafte lagte hain. Kahein toh agla kaam yahi form bharwana rakhein.
+
+## Ab
+- Long 01 har check par PASS hai: final build, thumbnail, metadata, copyright aur dry-run.
+- **Asli upload** sirf aapke **"upload karo"** bolne par hoga. Tab Munshi dry-run summary dobara dikhayega, aapki "ha" ka intezaar karega, aur phir upload karega. Schedule **20 Oct, 7:00 PM IST** hai.
+- Playlist ID abhi khaali hai. Chahein toh pehle de dijiye, warna baad me `--extras-only` se jod denge.
+
+---
+
+_**User (2026-10-18 09:08:07Z)**_
+
+jo uploader k liye hmne setting ki h uska ek md file create kro or vo file github me bhi commit krna.
+
+
+pehle upload kro
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-18 09:08:14Z)**_
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 09:08:46Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Find user turns and dry-run summary display
+
+`grep -n "_\*\*User\|2026-10-20\|19:00\|made_for_kids\|7:00 PM" .specstory/history/2026-10-17_08-25-27Z-*.md | sed -n '1,400p' | tail -40`
+
+```text
+23090:3. Pick publish time: next free day at 19:00 IST respecting min_days_between_long (check other projects' upload_result.json).
+23097:   - made_for_kids, contains_synthetic_media, category_id
+23098:   - publish_at like 2026-10-21T19:00:00+05:30 (or privacy "private" with no publish_at)
+23318:     "made_for_kids": false,
+23478:107	    if not isinstance(job.get("made_for_kids"), bool):
+23479:108	        errs.append("made_for_kids must be true/false (set it in munshi/channel_config.json)")
+23523:152	                errs.append("publish_at needs a timezone, e.g. 2026-10-21T19:00:00+05:30")
+23592:221	        "selfDeclaredMadeForKids": job["made_for_kids"],
+23682:311	    print("Made for kids:", job.get("made_for_kids"))
+23779: "made_for_kids": cfg["made_for_kids"], "contains_synthetic_media": cfg["contains_synthetic_media"],
+23780: "category_id": cfg["category_id"], "publish_at": "2026-10-20T19:00:00+05:30",
+23809:Publish at:   2026-10-20T19:00:00+05:30
+23835:2026-10-18 | long_01 | publish dry-run | PASS | upload.json written (channel UCy071_4g4vGemktFHybqkhQ, publish 2026-10-20 19:00 IST, kids=false, synthetic=false, cat 1, no playlist); dry-run OK, no network; copyright register (RULES 10 / assets_license.csv) not yet available -> not reviewed
+23842:2026-10-18 | long_01 | publish dry-run | PASS | upload.json written (channel UCy071_4g4vGemktFHybqkhQ, publish 2026-10-20 19:00 IST, kids=false, synthetic=false, cat 1, no playlist); dry-run OK, no network; copyright register (RULES 10 / assets_license.csv) not yet available -> not reviewed
+23893:Publish at:   2026-10-20T19:00:00+05:30
+23902:Publish ka samay **mangalvaar 20 Oct, 7:00 PM IST** rakha, kyunki Case 01 aaj (18 Oct) gaya hai.
+23924:_**User (2026-10-18 08:23:28Z)**_
+24406:- Default publish time: 7:00 PM IST.
+24467:2026-10-18 | long_01 | publish dry-run | PASS | upload.json written (channel UCy071_4g4vGemktFHybqkhQ, publish 2026-10-20 19:00 IST, kids=false, synthetic=false, cat 1, no playlist); dry-run OK, no network; copyright register (RULES 10 / assets_license.csv) not yet available -> not reviewed
+24629:  "made_for_kids": false,
+24632:  "publish_at": "2026-10-20T19:00:00+05:30"
+26134:2026-10-18 | long_01 | publish dry-run | PASS | upload.json written (channel UCy071_4g4vGemktFHybqkhQ, publish 2026-10-20 19:00 IST, kids=false, synthetic=false, cat 1, no playlist); dry-run OK, no network; copyright register (RULES 10 / assets_license.csv) not yet available -> not reviewed
+26214:_**User (2026-10-18 08:35:12Z)**_
+26247:_**User (2026-10-18 08:37:24Z)**_
+26279:_**User (2026-10-18 08:50:06Z)**_
+26302:_**User (2026-10-18 08:51:49Z)**_
+26379:_**User (2026-10-18 08:54:06Z)**_
+26470:_**User (2026-10-18 08:57:40Z)**_
+26498:_**User (2026-10-18 08:58:50Z)**_
+26523:_**User (2026-10-18 09:00:13Z)**_
+26544:_**User (2026-10-18 09:01:25Z)**_
+26619:_**User (2026-10-18 09:02:19Z)**_
+26641:_**User (2026-10-18 09:02:59Z)**_
+26709:_**User (2026-10-18 09:04:19Z)**_
+26715:_**User (2026-10-18 09:04:19Z)**_
+26739:_**User (2026-10-18 09:05:04Z)**_
+26798:- **Asli upload** sirf aapke **"upload karo"** bolne par hoga. Tab Munshi dry-run summary dobara dikhayega, aapki "ha" ka intezaar karega, aur phir upload karega. Schedule **20 Oct, 7:00 PM IST** hai.
+26803:_**User (2026-10-18 09:08:07Z)**_
+26827:User authorisation: in this conversation the user (main session) has explicitly said "pehle upload kro" (= upload it now), AFTER being shown the full dry-run summary (channel दादी की कहानियाँ UCy071_4g4vGemktFHybqkhQ, title, scheduled 2026-10-20T19:00:00+05:30, made_for_kids False, thumbnail long_01_thumbnail.png, captions long_01.srt, no playlist, video check 1920x1080 h264 yuv420p 306.2s). Treat that as the user's "ha" for exactly this job. If anything in upload.json or the files has changed from that summary, STOP and report instead of uploading.
+26836:5. Report: video URL, studio URL, privacy/schedule status, what succeeded (video, thumbnail, captions), and what still needs a click in YouTube Studio. Important: an unaudited API project may lock the video to private and ignore publishAt — say clearly that the user must open the Studio URL and check/set the schedule to 20 Oct 7:00 PM IST. Also list: pinned comment text to post after publish (from long_01.txt), end screen, playlist.
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 09:08:48Z)**_
+
+The user's own message "pehle upload kro" (09:08:07Z) is in the session history, and the dry-run summary was shown to them before that. Now I'll re-run the dry-run.
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 09:09:15Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Confirm no prior upload and run dry-run
+
+`ls long-videos/long_01/output/upload_result.json 2>&1; ls -la long-videos/long_01/output/long_01.mp4 long-videos/long_01/output/long_01_thumbnail.png long-videos/long_01/output/long_01.srt; .venv/Scripts/python.exe -X utf8 tools/youtube_upload.py --job long-videos/long_01/output/upload.json --dry-run 2>&1 | tail -40`
+
+```text
+ls: cannot access 'long-videos/long_01/output/upload_result.json': No such file or directory
+-rw-r--r-- 1 ashamim 1049089 156904342 Oct 18 13:22 long-videos/long_01/output/long_01.mp4
+-rw-r--r-- 1 ashamim 1049089     13872 Oct 18 13:22 long-videos/long_01/output/long_01.srt
+-rw-r--r-- 1 ashamim 1049089   1090136 Oct 18 13:09 long-videos/long_01/output/long_01_thumbnail.png
+Channel:      दादी की कहानियाँ UCy071_4g4vGemktFHybqkhQ
+Title:        लालची हलवाई और जादुई कड़ाही | दादी की कहानियाँ | Hindi Moral Story | Hindi Kahani
+Video:        D:\Story-Channel\long-videos\long_01\output\long_01.mp4
+Privacy:      scheduled
+Publish at:   2026-10-20T19:00:00+05:30
+Made for kids: False
+Thumbnail:    long_01_thumbnail.png
+Captions:     long_01.srt
+Playlist:     -
+Video check:  1920x1080 h264 yuv420p 306.2s
+
+Dry run OK. Nothing uploaded.
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 09:09:16Z)**_
+
+Everything matches the summary. Running the real upload now.
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 09:10:31Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Upload long_01 video to YouTube
+
+`.venv/Scripts/python.exe -X utf8 tools/youtube_upload.py --job long-videos/long_01/output/upload.json 2>&1 | grep -v -i "token\|secret" | tail -40`
+
+```text
+Channel:      दादी की कहानियाँ UCy071_4g4vGemktFHybqkhQ
+Title:        लालची हलवाई और जादुई कड़ाही | दादी की कहानियाँ | Hindi Moral Story | Hindi Kahani
+Video:        D:\Story-Channel\long-videos\long_01\output\long_01.mp4
+Privacy:      scheduled
+Publish at:   2026-10-20T19:00:00+05:30
+Made for kids: False
+Thumbnail:    long_01_thumbnail.png
+Captions:     long_01.srt
+Playlist:     -
+Video check:  1920x1080 h264 yuv420p 306.2s
+Channel OK: Dadi Ki  Kahaniya (UCy071_4g4vGemktFHybqkhQ)
+upload 5%
+upload 10%
+upload 16%
+upload 21%
+upload 26%
+upload 32%
+upload 37%
+upload 42%
+upload 48%
+upload 53%
+upload 58%
+upload 64%
+upload 69%
+upload 74%
+upload 80%
+upload 85%
+upload 90%
+upload 96%
+Uploaded: https://youtu.be/Ogfqow8rbGY
+{
+  "video_id": "Ogfqow8rbGY",
+  "url": "https://youtu.be/Ogfqow8rbGY",
+  "studio_url": "https://studio.youtube.com/video/Ogfqow8rbGY/edit",
+  "uploaded_at": "2026-10-18T09:10:24.399858+00:00",
+  "publish_at": "2026-10-20T19:00:00+05:30",
+  "thumbnail_ok": true,
+  "captions_ok": true
+}
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 09:10:39Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Read upload result and pinned comment text
+
+`cat long-videos/long_01/output/upload_result.json; echo; grep -n -i -A6 "pinned\|PIN" long-videos/long_01/output/long_01.txt | head -30`
+
+```text
+{
+  "video_id": "Ogfqow8rbGY",
+  "url": "https://youtu.be/Ogfqow8rbGY",
+  "studio_url": "https://studio.youtube.com/video/Ogfqow8rbGY/edit",
+  "uploaded_at": "2026-10-18T09:10:24.399858+00:00",
+  "publish_at": "2026-10-20T19:00:00+05:30",
+  "thumbnail_ok": true,
+  "captions_ok": true
+}
+42:PINNED COMMENT (post later):
+43-आपको कहानी की कौन-सी सीख सबसे अच्छी लगी? कमेंट में बताइए! 🙏
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 09:10:40Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Append PUBLISHED line to Munshi log
+
+`echo "2026-10-18 | long_01 | publish | PUBLISHED | video Ogfqow8rbGY uploaded (scheduled 2026-10-20 19:00 IST requested), thumbnail ok, captions ok, channel UCy071_4g4vGemktFHybqkhQ verified; user must confirm schedule in Studio (unaudited API may lock private)" >> munshi/log.md && tail -1 munshi/log.md`
+
+```text
+2026-10-18 | long_01 | publish | PUBLISHED | video Ogfqow8rbGY uploaded (scheduled 2026-10-20 19:00 IST requested), thumbnail ok, captions ok, channel UCy071_4g4vGemktFHybqkhQ verified; user must confirm schedule in Studio (unaudited API may lock private)
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-18 09:10:59Z)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="SubagentHandback"><details>
+<summary>Tool use: **SubagentHandback**</summary>
+
+```text
+{"success":true,"message":"Report delivered to your caller."}
+```
+</details></tool-use>
