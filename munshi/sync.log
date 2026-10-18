@@ -12,3 +12,5 @@
 2026-10-18 13:58:51  pushed: rules: strict copyright + assets register + long_01 copyright review  (repo pack size 179 MB)
 2026-10-18 14:41:29  SKIPPED big file (>50MB): long-videos/long_01/output/review/music_resid.wav
 2026-10-18 14:41:35  pushed: long_01: uploaded + docs: YouTube uploader setup  (repo pack size 179 MB)
+2026-10-18 14:55:27  SKIPPED big file (>50MB): long-videos/long_01/output/review/music_resid.wav
+2026-10-18 14:55:33  pushed: rules: review severity + 2-round limit  (repo pack size 179 MB)

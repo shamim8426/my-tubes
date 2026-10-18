@@ -11,6 +11,7 @@ burned in) is reused while its inputs are unchanged. The final step only concate
 mixes the audio and muxes.
 """
 import argparse
+import csv
 import hashlib
 import json
 import os
@@ -581,17 +582,44 @@ def write_srt(timed, path: Path):
                               enumerate(cues, 1)), encoding="utf-8")
 
 
+REGISTER = ROOT / "munshi" / "assets_license.csv"
+
+
+def register_row(f: Path):
+    """The asset's row in munshi/assets_license.csv (RULES section 10). No row -> stop the build."""
+    rows = {r["path"]: r for r in csv.DictReader(REGISTER.open(encoding="utf-8", newline=""))}
+    rel = Path(f).resolve().relative_to(ROOT).as_posix()
+    if rel not in rows:
+        sys.exit(f"STOP: {rel} is not in {REGISTER.name} (RULES section 10). Verify its licence and add a row first.")
+    return rows[rel]
+
+
+def check_register(meta):
+    """Every music/SFX file this project can use must be registered before anything is built."""
+    files = [MUSIC_DIR / f for f in meta.get("music_moods", {}).values()]
+    files.append(MUSIC_DIR / meta["music"] if meta.get("music") else MUSIC_DIR / "mystery_bed.wav")
+    files += [SFX_DIR / f for f in meta.get("sfx", {}).values()]
+    for f in files:
+        register_row(f)
+
+
 def music_credits(meta, events, total):
+    """Description credits, taken word for word from the register's attribution_text."""
     used = []
     for _, _, f in music_segments(events, meta, total):
-        if f.name != "mystery_bed.wav" and f not in used:
+        if f not in used:
             used.append(f)
-    names = [re.sub(r"_+", " ", f.stem).replace("Two Higher", "Two - Higher") for f in used]
-    if not names:
+    credits = []
+    for f in used:
+        row = register_row(f)
+        text = row["attribution_text"].strip()
+        if not text and row["license"].upper().startswith("CC BY"):
+            sys.exit(f"STOP: {f.name} is {row['license']} but has no attribution_text in {REGISTER.name}.")
+        if text:
+            credits.append(f"Music: {text}")
+    if not credits:
         return meta.get("credits", "")
-    return "\n\n".join(f'Music: "{n}" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: '
-                       f"By Attribution 4.0 License\nhttp://creativecommons.org/licenses/by/4.0/" for n in names) \
-        + ("\n\nSound effects: freesound.org (CC0)" if meta.get("sfx") else "")
+    return "\n\n".join(credits) + ("\n\nSound effects: freesound.org (CC0)" if meta.get("sfx") else "")
 
 
 def load_project(name):
@@ -642,6 +670,7 @@ def main():
         sys.exit(f"Scene {e} has no image in scene_prompts.json 'covers'")
     if missing:
         sys.exit(f"Missing scene images: {missing}")
+    check_register(meta)
 
     out_dir = P["out_dir"]
     work = out_dir / f"{case}_work"

@@ -27564,3 +27564,229 @@ _**Agent (claude-opus-5-5 2026-10-18 09:25:20Z)**_
 The file D:\Story-Channel\.claude\agents\munshi.md has been updated successfully. (file state is current in your context — no need to Read it back)
 ```
 </details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:25:34Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Sync rules change to GitHub
+
+`powershell -NoProfile -ExecutionPolicy Bypass -File tools/sync.ps1 -Message "rules: review severity + 2-round limit" >/dev/null 2>&1; tail -1 munshi/sync.log`
+
+```text
+2026-10-18 14:55:33  pushed: rules: review severity + 2-round limit  (repo pack size 179 MB)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:25:43Z)**_
+
+Review ke naye niyam jud gaye aur GitHub par sync ho gaye:
+- RULES ka **section 11 (Review limits and severity)** naya joda, kyunki pehle ye section nahi tha. Text bilkul aapke diye mutabik hai.
+- `munshi.md` ke Verdicts section me BLOCKER/MINOR wali line jod di.
+- `munshi/carry_over.md` sirf heading ke saath bana diya.
+- Sync: `pushed: rules: review severity + 2-round limit`
+
+**Do baatein dhyan me rakhne layak:**
+1. **RULES ki ek purani line se halka takraav:** sabse upar likha hai "A measured value outside a RULES limit is always FIX, never PASS, even if small." Ye R1 ke liye ab bhi sahi hai, par R2 ke baad MINOR wali cheez PASS-WITH-NOTES ho jayegi. Munshi ko saaf rahe, iske liye us line ke aage "(in R1; after R2 see section 11)" jod sakta hoon. Kahein toh kar doon.
+2. **Family-wording:** section 11 me "for kids" wording ab BLOCKER hai. Pehle aapne RULES section 7 ke family-wording niyam ki baat ki thi, wo is ek line se kuch had tak cover ho gaya. Agar poora niyam chahiye, jaise description me "family" wording aur "kids-only" shabd se bachna, toh uska text bhej dijiye. Main use section 7 me jod dunga.
+
+---
+
+_**User (2026-10-18 09:26:55Z)**_
+
+
+
+<pasted_content id="aeaa">
+Teen kaam karo:
+
+1. Haan, takraav theek karo: "A measured value outside a RULES limit is always FIX, never PASS, even if small." wali line ke end me jodo: " (in R1; after R2 see section 11)".
+
+2. munshi/RULES.md section 7 (Metadata) ke end me ye line jodo (bilkul isi text ke saath):
+- Dadi Ki Kahaniyan is set to made_for_kids = false (family audience, decided by the user). So title, thumbnail and description must speak to the whole family, not only to children: no "for kids" / "बच्चों के लिए" / nursery-style wording. Flag any such wording as FIX.
+Phir Long 01 ke title, description aur thumbnail text ko is niyam par check karke result batao (video upload ho chuki hai, kuch galat mile to sirf batao).
+
+3. music_credits() ko badlo taaki har track ka credit munshi/assets_license.csv ke attribution_text se aaye, hardcoded "Kevin MacLeod (incompetech.com)" se nahi. Kisi track ki row register me na ho to build wahin ruk jaye. Long 01 ka description iske baad bhi bilkul waisa hi banna chahiye, compare karke dikhao. Video dobara render mat karna.
+
+Phir sync: tools\sync.ps1 -Message "rules: R1/R2 clarity + family wording + credits from register"
+</pasted_content id="aeaa">
+
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-18 09:26:59Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\munshi\RULES.md has been updated successfully. (note: the file had been modified on disk since you last read it — the edit applied cleanly, but the file contains other changes not in your context. Read it before edits that depend on surrounding content.)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:26:59Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\munshi\RULES.md`
+
+```text
+45	## 7. Metadata
+46	- Title ≤ 100 characters, no `<` or `>`. Description ≤ 5000 characters.
+47	- Tags total ≤ 500 characters. 3–5 hashtags in the description (the first 3 show above the title; more than 15 and YouTube ignores all of them).
+48	- Every CC BY music track used (e.g. Incompetech / Kevin MacLeod) is credited in the description exactly as its licence asks.
+49	- Mystery (Dadi Jasoos) videos: the answer never goes in the title, description or thumbnail. It goes in the pinned comment 24 h after publishing.
+50	- Made-for-kids and AI-disclosure values come from `munshi/channel_config.json`. Never guess them.
+51	
+52	## 8. Publishing
+53	- Default publish time: 7:00 PM IST.
+54	- At least 2 days between two long videos on the same channel. Shorts can go on other days.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:27:07Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\munshi\RULES.md has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:27:09Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Scan Long 01 metadata for kids-only wording
+
+```bash
+.venv/Scripts/python.exe -X utf8 -c "
+import json,re
+u=json.load(open('long-videos/long_01/output/upload.json',encoding='utf-8'))
+m=json.load(open('long-videos/long_01/meta.json',encoding='utf-8'))
+txt='TITLE: '+u['title']+'\nDESC: '+u['description']+'\nTAGS: '+', '.join(u['tags'])+'\nTHUMB: जो डालो, दुगना!'
+pat=r'(?i)for kids|kids|children|child|nursery|toddler|बच्च|बाल|शिशु|नन्ह|cartoon|kahaniyan for'
+for line in txt.split('\n'):
+  for mm in re.finditer(pat,line): print(repr(line[max(0,mm.start()-40):mm.end()+40]))
+"
+```
+
+```text
+'di Moral Story, Moral Stories in Hindi, बच्चों की कहानी, Kids Story Hindi, Hindi Car'
+'oral Stories in Hindi, बच्चों की कहानी, Kids Story Hindi, Hindi Cartoon Story, दादी '
+'च्चों की कहानी, Kids Story Hindi, Hindi Cartoon Story, दादी माँ की कहानी, Dadi Maa Ki K'
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:27:29Z)**_
+
+<think><details><summary>Thought Process</summary>
+Title, description ya thumbnail me kids-only wording nahi mili, sirf tags me do tag mile hain. Ab `music_credits()` ko register se jod raha hoon aur description ko wahi purana rakhne ke liye `attribution_text` Incompetech ke 3-line format me set kar raha hoon.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:27:42Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Store credits in register as exact 3-line blocks
+
+```bash
+.venv/Scripts/python.exe -X utf8 - <<'EOF'
+import csv
+p = "munshi/assets_license.csv"
+rows = list(csv.DictReader(open(p, encoding="utf-8", newline="")))
+n = 0
+for r in rows:
+    a = r["attribution_text"]
+    if a.startswith('"') and " Licensed under " in a:
+        head, rest = a.split(" Licensed under ", 1)
+        lic, url = rest.rsplit(" ", 1)
+        r["attribution_text"] = f"{head}\nLicensed under {lic}\n{url}"
+        n += 1
+with open(p, "w", encoding="utf-8", newline="") as fh:
+    w = csv.DictWriter(fh, fieldnames=rows[0].keys()); w.writeheader(); w.writerows(rows)
+print(n, "attribution_text rows made multi-line;", len(rows), "rows total")
+EOF
+```
+
+```text
+14 attribution_text rows made multi-line; 32 rows total
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:27:43Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\scripts\make_short.py has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:27:44Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\scripts\make_short.py has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:27:48Z)**_
+
+<tool-use data-tool-type="search" data-tool-name="Grep"><details>
+<summary>Tool use: **Grep**</summary>
+ path `D:\Story-Channel\scripts\make_short.py` pattern `^import (csv|argparse)`
+
+```text
+13:import argparse
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:27:57Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\scripts\make_short.py has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:28:52Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Compare new credits with uploaded description, test stop
+
+```bash
+S="C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad" && .venv/Scripts/python.exe -X utf8 -c "
+import sys,json; sys.path.insert(0,'scripts'); sys.argv=['x']
+import make_short as m
+from pathlib import Path
+d=Path('long-videos/long_01')
+lines=json.load(open(d/'lines.json',encoding='utf-8')); meta=json.load(open(d/'meta.json',encoding='utf-8'))
+m.check_register(meta); print('register check: OK')
+v,total,timed,ev=m.build_voice(lines,d/'audio',Path('$S/vt'),False)
+new=meta['description']+'\n\n'+m.music_credits(meta,ev,total)+'\n\n'+' '.join(meta['hashtags'])
+old=json.load(open(d/'output/upload.json',encoding='utf-8'))['description']
+print('IDENTICAL to uploaded description:', new==old, '| chars', len(new), len(old))
+txt=open(d/'output/long_01.txt',encoding='utf-8').read()
+print('credits block identical to long_01.txt:', m.music_credits(meta,ev,total) in txt)
+# missing-row test
+meta2=dict(meta); meta2['sfx']=dict(meta['sfx'], test='not_registered.mp3')
+try: m.check_register(meta2)
+except SystemExit as e: print('missing-row test ->', e)
+" 2>&1 | grep -v "^  line"
+```
+
+```text
+register check: OK
+IDENTICAL to uploaded description: True | chars 1488 1488
+credits block identical to long_01.txt: True
+missing-row test -> STOP: assets/sfx/not_registered.mp3 is not in assets_license.csv (RULES section 10). Verify its licence and add a row first.
+```
+</details></tool-use>
