@@ -300,9 +300,69 @@ Dialogue: 0,0:00:00.00,0:00:01.00,Q,,0,0,0,,{{\\an5\\pos(290,300)\\q2}}जो �
     print("saved", out, Image.open(out).size)
 
 
+
+SHORT01 = LONG01 / "shorts" / "short_01_jadui-kadhai"
+SHORT01_COVER_TEXT = "सोना भी दुगना?"  # not the title word for word (RULES 6), no spoiler (cliffhanger question)
+
+
+def short01_cover():
+    """Free: 1080x1920 Short cover from the Long 01 thumbnail art (no new image). Blurred art fills the frame, the
+    sharp Ghasita + kadhai + Chhotu band sits in the middle; logo and the question stay between 12% and 80% height."""
+    from PIL import ImageFilter, ImageEnhance
+    from gen_brand import brand_corner
+    raw = Image.open(L1W / "long01_thumb_raw.png").convert("RGB")
+    W, H = VW, VH
+    bgk = max(W / raw.width, H / raw.height)
+    bg = raw.resize((int(raw.width * bgk), int(raw.height * bgk)), Image.LANCZOS)
+    bx = (bg.width - W) // 2
+    bg = bg.crop((bx, 0, bx + W, H)).filter(ImageFilter.GaussianBlur(28))
+    bg = ImageEnhance.Brightness(bg).enhance(0.45)
+    band = raw.crop((int(raw.width * 0.40), 0, int(raw.width * 0.97), raw.height))
+    band = band.resize((W, int(band.height * W / band.width)), Image.LANCZOS)
+    top = int(H * 0.33)
+    # soft vertical fade at the band edges
+    mask = Image.new("L", band.size, 255)
+    fade = 60
+    for i in range(fade):
+        a = int(255 * i / fade)
+        for y in (i, band.height - 1 - i):
+            mask.paste(a, (0, y, band.width, y + 1))
+    bg.paste(band, (0, top), mask)
+    C1 = SHORT01 / "thumbnail_work"
+    C1.mkdir(parents=True, exist_ok=True)
+    bg.save(C1 / "cover_art.png")
+    fonts = C1 / "fonts"
+    fonts.mkdir(exist_ok=True)
+    shutil.copy(FONTS_DIR / "Mukta-ExtraBold.ttf", fonts / "Mukta-ExtraBold.ttf")
+    ass = f"""[Script Info]
+ScriptType: v4.00+
+PlayResX: {W}
+PlayResY: {H}
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Q,Mukta ExtraBold,170,&H0030FFFF,&H000000FF,&H00000000,&H96000000,-1,0,0,0,100,100,0,0,1,12,7,5,40,40,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:01.00,Q,,0,0,0,,{{\\an5\\pos({W // 2},{int(H * 0.265)})}}{SHORT01_COVER_TEXT}
+"""
+    (C1 / "cover.ass").write_text(ass, encoding="utf-8")
+    subprocess.run([str(FFMPEG), "-v", "error", "-y", "-i", "cover_art.png", "-vf",
+                    "subtitles=filename=cover.ass:fontsdir=fonts", "-frames:v", "1", "cover_titled.png"],
+                   cwd=C1, check=True)
+    out = SHORT01 / "output" / "short_01_cover.png"
+    shutil.copy(C1 / "cover_titled.png", out)
+    brand_corner(out, "tc12", width_frac=0.36)  # logo top-centre, below the top 12% (Shorts grid crops the top)
+    # move the logo below the top 12% (Shorts grid crops the top): re-place it
+    im = Image.open(out)
+    print("saved", out, im.size)
+
 if __name__ == "__main__":
     for d in (WORK, C1W, L1W):
         d.mkdir(parents=True, exist_ok=True)
     {"banner": banner, "dp": dp, "text": text, "thumb": thumb, "thumb_text": thumb_text,
      "thumb_v": thumb_v, "thumb_v_text": thumb_v_text,
-     "long01_thumb": long01_thumb, "long01_thumb_text": long01_thumb_text}[sys.argv[1]]()
+     "long01_thumb": long01_thumb, "long01_thumb_text": long01_thumb_text,
+     "short01_cover": short01_cover}[sys.argv[1]]()

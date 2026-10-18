@@ -49214,3 +49214,315 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 16:45:39Z)**_
 {"success":true,"message":"Report delivered to your caller."}
 ```
 </details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 16:45:56Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Sync banner v5 work
+
+`powershell -NoProfile -ExecutionPolicy Bypass -File tools/sync.ps1 -Message "brand: banner v5 (Mitthu on Golu's shoulder), framed for desktop+mobile; awaiting user OK" >/dev/null 2>&1; tail -1 shared/sync.log`
+
+```text
+2026-10-18 22:15:55  pushed: brand: banner v5 (Mitthu on Golu's shoulder), framed for desktop+mobile; awaiting user OK  (repo pack size 337 MB)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 16:46:10Z)**_
+
+Banner v5 taiyaar hai. Desktop, mobile aur 360 px phone, teeno me Dadi, Golu aur Mitthu ke chehre poore dikhte hain. Kharcha ₹4.86, aaj ka total ₹42.27, ₹500 me se ₹268.30 bache. Aapke niyam ke mutabik iske baad koi naya Gemini call nahi hua.
+
+**File:** `channels/dadi-ki-kahaniyan/brand/kissago_banner_v5.png`
+**Teeno device preview aur 360 px mobile:** `channels/dadi-ki-kahaniyan/brand/_work/banner_v5_devices.jpg` (upar dikhaya hai)
+
+## Kya mila
+- ✅ **Mitthu group ke beech hai,** Golu ke kandhe par, laal chonch aur laal patti ke saath.
+- ✅ **Desktop:** logo aur tagline saaf hain. Dadi, Golu aur Mitthu teeno ke chehre poore hain, aur kisi par "Edit" button nahi aata.
+- ✅ **Mobile aur 360 px:** teeno chehre poore. Sirf Mitthu ki poonchh ka sira kinare par katta hai.
+- ✅ Golu gol-matol hai, chhat khaprail ki, aur Dadi haath utha kar kissa suna rahi hain.
+- ✅ Logo aur Dadi ke baalon ke beech ~60–80 px ki jagah hai.
+- ✅ Tagline ki matrayein sahi hain, aur cream rang ka indigo par contrast ~12:1 hai.
+
+Isme do free badlav kiye: background ko 1.1x bada karke upar aur baayein khiskaya, aur logo ko thoda chhota kiya (25–47% chauDai). Isse Dadi ka joodha logo se nahi takrata.
+
+## Munshi R1: ASK (koi BLOCKER nahi)
+- **Mitthu ka look:** wo 3/4 side profile me hai aur sir chhota hai, icon jaisa bada gol sir saamne se nahi. Munshi ke mutabik phir bhi wo cute hai aur phone size par pehchana jaata hai.
+- **Layout spec se thoda hata hai:** group 48–82% chauDai me hai, aur Golu ka chehra 48–62% oonchai par. Par asli device crops par isse koi nuksaan nahi hai.
+- **Aapka "Mitthu chhupao" wala niyam is image me nahi chal sakta.** Mitthu ka sir Golu ke kaan se chipka hai, toh use hatane par Golu ka chehra bhi katega. Munshi ne bhi yahi paaya.
+
+**Munshi ki aur meri salah:** v5 ko aise hi le lein. Mitthu ka side-profile note me rahega.
+
+Aapka faisla chahiye:
+- **(a) v5 final:** bible aur BRAND.md me v5 likh dunga, phir aap Studio me `kissago_banner_v5.png` laga dijiye. ₹0.
+- **(b) Ek aur regen (~₹4.86):** aapne v5 ko aakhri koshish kaha tha, isliye ye sirf aapke kehne par.
+
+**Sync:** `pushed: brand: banner v5 (...); awaiting user OK`
+
+---
+
+_**User (2026-10-18 16:49:57Z)**_
+
+[Image: source: C:\Users\ashamim\AppData\Local\Temp\claude\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7\images\15.png]
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-18 16:50:15Z)**_
+
+Shorts tab dikh raha hai: Short 01 par **16 views** aur Case 01 par **4 views**, shuruaat ke liye theek hai 👍 Isme do cheezein sudhar sakti hain:
+
+**1. Short 01 ka cover kamzor hai.** YouTube ne beech ka koi frame cover bana diya: scene 20, aadha caption "पर ये बात". Isme na koi chehra hai, na hook. Shorts ka cover API se nahi badalta, par aap **YouTube app se** badal sakte hain:
+- YouTube app → Your channel → Shorts → is Short par ⋮ → **Edit** → **Thumbnail / Cover** → slider se frame chuniye.
+- Behtar frame:
+  - **~0.5 sec:** chamakti kadhai aur caption "ये जादुई कड़ाही है,". Ye hook hai aur Long ke thumbnail se bhi match karta hai.
+  - **~25 sec:** laalchi Ghasita ka close-up, "मेरा सोना!"
+
+**2. Case 01 ke cover me "बताओ, दोषी कौन?" upar se kat raha hai.** Shorts grid card upar-neeche se thoda kaatta hai. Sabak: aage Shorts ke cover me zaroori text upar ke ~12% se neeche rakhna hai. Ise RULES section 13 aur Shorts template me jod deta hoon (₹0), taki agle Shorts me ye galti na ho.
+
+**Abhi baaki faisle:**
+- **Banner:** v5 final (a), ya ek aur regen (b)? Aapka jawab abhi tak nahi aaya.
+- **Short ki checklist:** Related video aur comment pin. Ho jaye toh "ho gaya".
+- **Playlists ke IDs.**
+
+Point 2 wala niyam jod doon? "ha" likhiye.
+
+---
+
+_**User (2026-10-18 17:00:39Z)**_
+
+halwai wali short video k liye thumbnail banao, uske long video me already thumbnail h usi se banao
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-18 17:01:03Z)**_
+
+Short ke liye vertical cover (1080×1920) Long 01 ke thumbnail art se hi bana raha hoon, ₹0, koi Gemini call nahi. Do baatein pehle:
+- **Text:** Long thumbnail ka text "जो डालो, दुगना!" hai, aur Short ka title bhi isi se shuru hota hai. RULES section 6 kehta hai ki thumbnail ka text title ko word-for-word na dohraye. Isliye cover par cliffhanger se juda sawaal rakh raha hoon: **"सोना भी दुगना?"** Ye twist nahi kholta. Ise badalna ₹0 hai.
+- **Layout:** zaroori text upar ke 12% se neeche aur neeche ke 20% se upar rahega, taki Shorts grid aur player dono me na kate.
+
+_**Agent (claude-opus-5-5 2026-10-18 17:01:08Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Check Long 01 thumbnail art sizes
+
+```bash
+ls channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long/thumbnail_work/ && .venv/Scripts/python.exe -c "
+from PIL import Image
+for f in ('long01_thumb_raw.png','long01_thumb_art.png'):
+  print(f, Image.open('channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long/thumbnail_work/'+f).size)"
+```
+
+```text
+fonts
+long01_thumb.ass
+long01_thumb_art.png
+long01_thumb_in.png
+long01_thumb_raw.png
+long01_thumb_titled.png
+long01_thumb_raw.png (1376, 768)
+long01_thumb_art.png (1280, 720)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 17:01:22Z)**_
+
+<think><details><summary>Thought Process</summary>
+Raw art 1376×768 hai, par Ghasita, kadhai aur Chhotu milkar ~780px chaude hone ki wajah se 9:16 crop (432px) me seedha nahi fit honge. Isliye main cover banaunga jisme background me dhundhla art, beech me teeno subjects poore, aur upar logo-sawaal honge.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-18 17:02:02Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Add short01_cover generator and render (free)
+
+```bash
+.venv/Scripts/python.exe - <<'PYEOF'
+from pathlib import Path
+p = Path("scripts/gen_channel_assets.py"); s = p.read_text(encoding="utf-8")
+marker = '\nif __name__ == "__main__":'
+add = r'''
+
+SHORT01 = LONG01 / "shorts" / "short_01_jadui-kadhai"
+SHORT01_COVER_TEXT = "सोना भी दुगना?"  # not the title word for word (RULES 6), no spoiler (cliffhanger question)
+
+
+def short01_cover():
+    """Free: 1080x1920 Short cover from the Long 01 thumbnail art (no new image). Blurred art fills the frame, the
+    sharp Ghasita + kadhai + Chhotu band sits in the middle; logo and the question stay between 12% and 80% height."""
+    from PIL import ImageFilter, ImageEnhance
+    from gen_brand import brand_corner
+    raw = Image.open(L1W / "long01_thumb_raw.png").convert("RGB")
+    W, H = VW, VH
+    bgk = max(W / raw.width, H / raw.height)
+    bg = raw.resize((int(raw.width * bgk), int(raw.height * bgk)), Image.LANCZOS)
+    bx = (bg.width - W) // 2
+    bg = bg.crop((bx, 0, bx + W, H)).filter(ImageFilter.GaussianBlur(28))
+    bg = ImageEnhance.Brightness(bg).enhance(0.45)
+    band = raw.crop((int(raw.width * 0.40), 0, int(raw.width * 0.97), raw.height))
+    band = band.resize((W, int(band.height * W / band.width)), Image.LANCZOS)
+    top = int(H * 0.33)
+    # soft vertical fade at the band edges
+    mask = Image.new("L", band.size, 255)
+    fade = 60
+    for i in range(fade):
+        a = int(255 * i / fade)
+        for y in (i, band.height - 1 - i):
+            mask.paste(a, (0, y, band.width, y + 1))
+    bg.paste(band, (0, top), mask)
+    C1 = SHORT01 / "thumbnail_work"
+    C1.mkdir(parents=True, exist_ok=True)
+    bg.save(C1 / "cover_art.png")
+    fonts = C1 / "fonts"
+    fonts.mkdir(exist_ok=True)
+    shutil.copy(FONTS_DIR / "Mukta-ExtraBold.ttf", fonts / "Mukta-ExtraBold.ttf")
+    ass = f"""[Script Info]
+ScriptType: v4.00+
+PlayResX: {W}
+PlayResY: {H}
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Q,Mukta ExtraBold,170,&H0030FFFF,&H000000FF,&H00000000,&H96000000,-1,0,0,0,100,100,0,0,1,12,7,5,40,40,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:01.00,Q,,0,0,0,,{{\\an5\\pos({W // 2},{int(H * 0.265)})}}{SHORT01_COVER_TEXT}
+"""
+    (C1 / "cover.ass").write_text(ass, encoding="utf-8")
+    subprocess.run([str(FFMPEG), "-v", "error", "-y", "-i", "cover_art.png", "-vf",
+                    "subtitles=filename=cover.ass:fontsdir=fonts", "-frames:v", "1", "cover_titled.png"],
+                   cwd=C1, check=True)
+    out = SHORT01 / "output" / "short_01_cover.png"
+    shutil.copy(C1 / "cover_titled.png", out)
+    brand_corner(out, "tc", width_frac=0.36)  # logo top-centre; brand_corner keeps a 2% edge
+    # move the logo below the top 12% (Shorts grid crops the top): re-place it
+    im = Image.open(out)
+    print("saved", out, im.size)
+'''
+s = s.replace(marker, add + marker, 1)
+s = s.replace('     "long01_thumb": long01_thumb, "long01_thumb_text": long01_thumb_text}[sys.argv[1]]()',
+              '     "long01_thumb": long01_thumb, "long01_thumb_text": long01_thumb_text,\n     "short01_cover": short01_cover}[sys.argv[1]]()')
+p.write_text(s, encoding="utf-8")
+b = Path("scripts/gen_brand.py"); t = b.read_text(encoding="utf-8")
+old = '''    edge = int(im.width * 0.02)
+    xy = (edge, im.height - patch.height - edge) if where == "bl" else ((im.width - patch.width) // 2, edge)'''
+new = '''    edge = int(im.width * 0.02)
+    xy = {"bl": (edge, im.height - patch.height - edge),
+          "tc": ((im.width - patch.width) // 2, edge),
+          "tc12": ((im.width - patch.width) // 2, int(im.height * 0.125))}[where]  # tc12: below the top 12% (Shorts grid)'''
+assert old in t; t = t.replace(old, new); b.write_text(t, encoding="utf-8"); print("ok")
+PYEOF
+sed -i 's/    brand_corner(out, "tc", width_frac=0.36)  # logo top-centre; brand_corner keeps a 2% edge/    brand_corner(out, "tc12", width_frac=0.36)  # logo top-centre, below the top 12% (Shorts grid crops the top)/' scripts/gen_channel_assets.py && grep -n '"short01_cover"\|tc12\|Mukta ExtraBold' scripts/gen_channel_assets.py | head && .venv/Scripts/python.exe -m py_compile scripts/gen_channel_assets.py scripts/gen_brand.py && AUTO_PREVIEW=0 .venv/Scripts/python.exe -X utf8 scripts/gen_channel_assets.py short01_cover
+```
+
+```text
+ok
+345:Style: Q,Mukta ExtraBold,170,&H0030FFFF,&H000000FF,&H00000000,&H96000000,-1,0,0,0,100,100,0,0,1,12,7,5,40,40,0,1
+357:    brand_corner(out, "tc12", width_frac=0.36)  # logo top-centre, below the top 12% (Shorts grid crops the top)
+368:     "short01_cover": short01_cover}[sys.argv[1]]()
+scripts/gen_channel_assets.py:350: SyntaxWarning: "\p" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\p"? A raw string is also an option.
+  """
+D:\Story-Channel\scripts\gen_channel_assets.py:350: SyntaxWarning: "\p" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\p"? A raw string is also an option.
+  """
+saved D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\output\short_01_cover.png (1080, 1920)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 17:02:06Z)**_
+
+Cover ban gaya. Ek Python warning (`\p` escape) aayi, use theek kar raha hoon, aur cover dekh raha hoon:
+
+_**Agent (claude-opus-5-5 2026-10-18 17:02:14Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Fix escape, verify font name, rerender, preview
+
+```bash
+sed -i 's/{{\\an5\\pos({W \/\/ 2},{int(H \* 0.265)})}}{SHORT01_COVER_TEXT}/{{\\\\an5\\\\pos({W \/\/ 2},{int(H * 0.265)})}}{SHORT01_COVER_TEXT}/' scripts/gen_channel_assets.py && grep -n "SHORT01_COVER_TEXT}" scripts/gen_channel_assets.py && .venv/Scripts/python.exe -W error -c "
+import ast
+with open('scripts/gen_channel_assets.py',encoding='utf-8') as f: ast.parse(f.read())
+print('no warnings')" && .venv/Scripts/python.exe -c "
+from PIL import ImageFont; print(ImageFont.truetype('shared/fonts/Mukta-ExtraBold.ttf',20).getname())" && AUTO_PREVIEW=0 .venv/Scripts/python.exe -X utf8 scripts/gen_channel_assets.py short01_cover && .venv/Scripts/python.exe -c "
+from PIL import Image
+S='channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/output/short_01_cover.png'
+im=Image.open(S).convert('RGB')
+c=Image.new('RGB',(540+260+20,960),(20,20,20)); c.paste(im.resize((540,960)),(0,0))
+g=im.crop((0,int(1920*0.10),1080,int(1920*0.90))).resize((260,int(260*0.8*1920/1080))); c.paste(g,(560,100))
+c.save('channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/review/cover_check.jpg',quality=90)"
+```
+
+```text
+Exit code 1
+349:Dialogue: 0,0:00:00.00,0:00:01.00,Q,,0,0,0,,{{\an5\pos({W // 2},{int(H * 0.265)})}}{SHORT01_COVER_TEXT}
+Traceback (most recent call last):
+  File "<string>", line 3, in <module>
+    with open('scripts/gen_channel_assets.py',encoding='utf-8') as f: ast.parse(f.read())
+                                                                      ~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\ashamim\AppData\Local\Programs\Python\Python314\Lib\ast.py", line 46, in parse
+    return compile(source, filename, mode, flags,
+                   _feature_version=feature_version, optimize=optimize)
+  File "<unknown>", line 350
+    """
+       ^
+SyntaxError: "\p" is an invalid escape sequence. Did you mean "\\p"? A raw string is also an option.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 17:02:14Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\review\cover_check.jpg`
+
+```text
+File does not exist. Note: your current working directory is D:\Story-Channel.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 17:02:23Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\scripts\gen_channel_assets.py has been updated successfully. (note: the file had been modified on disk since you last read it — the edit applied cleanly, but the file contains other changes not in your context. Read it before edits that depend on surrounding content.)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 17:02:31Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Verify, rerender cover, preview
+
+```bash
+.venv/Scripts/python.exe -W error -c "
+import ast
+with open('scripts/gen_channel_assets.py',encoding='utf-8') as f: ast.parse(f.read())
+print('no warnings')" && .venv/Scripts/python.exe -c "
+from PIL import ImageFont; print(ImageFont.truetype('shared/fonts/Mukta-ExtraBold.ttf',20).getname())" && AUTO_PREVIEW=0 .venv/Scripts/python.exe -X utf8 scripts/gen_channel_assets.py short01_cover && .venv/Scripts/python.exe -c "
+from PIL import Image
+S='channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/output/short_01_cover.png'
+im=Image.open(S).convert('RGB')
+c=Image.new('RGB',(540+260+20,960),(20,20,20)); c.paste(im.resize((540,960)),(0,0))
+g=im.crop((0,int(1920*0.10),1080,int(1920*0.90))).resize((260,int(260*0.8*1920/1080))); c.paste(g,(560,100))
+c.save('channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/review/cover_check.jpg',quality=90)"
+```
+
+```text
+no warnings
+('Mukta', 'ExtraBold')
+saved D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\output\short_01_cover.png (1080, 1920)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 17:02:32Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\review\cover_check.jpg`
+</details></tool-use>
