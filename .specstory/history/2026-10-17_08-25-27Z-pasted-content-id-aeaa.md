@@ -28098,3 +28098,18 @@ PROBLEMS:
 Long 01 publish_at still: "publish_at": "2026-10-20T19:00:00+05:30"
 ```
 </details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 09:37:35Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Check stale references, then sync
+
+`grep -rn "min_days_between_long\|publish_time_ist" --include=*.md --include=*.py --include=*.json . 2>/dev/null | grep -v "^./.specstory\|^./_to_delete\|^./claude-home"; powershell -NoProfile -ExecutionPolicy Bypass -File tools/sync.ps1 -Message "rules: same-day publish window 7PM-12AM" >/dev/null 2>&1; tail -1 munshi/sync.log`
+
+```text
+./docs/YOUTUBE_UPLOADER_SETUP.md:53:| publish_time_ist | `19:00` |
+./docs/YOUTUBE_UPLOADER_SETUP.md:54:| min_days_between_long | `2` |
+2026-10-18 15:07:33  pushed: rules: same-day publish window 7PM-12AM  (repo pack size 179 MB)
+```
+</details></tool-use>

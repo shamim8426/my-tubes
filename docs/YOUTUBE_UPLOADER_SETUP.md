@@ -50,8 +50,9 @@ the script never deletes anything).
 | contains_synthetic_media | `false` |
 | category_id | `1` |
 | default_language | `hi` |
-| publish_time_ist | `19:00` |
-| min_days_between_long | `2` |
+| publish_window_ist | `19:00`–`23:59` (same day as upload; RULES section 8) |
+| max_long_per_day | `1` |
+| min_gap_hours_short_long | `2` |
 | playlists | not filled yet |
 
 ## 4. Safety checks in the script
@@ -64,7 +65,8 @@ the script never deletes anything).
 - **Metadata limits:** title ≤100, description ≤5000, tags ≤500 chars, ≤15 hashtags, no `<` `>`.
 - **No duplicates:** if `upload_result.json` already has a video id, it refuses (use `--extras-only` to retry
   thumbnail/captions/playlist).
-- `publish_at` must have a timezone and be ≥15 min in the future; scheduled videos go up as private + publishAt.
+- `publish_at` must have a timezone, be ≥15 min in the future and fall inside 19:00–23:59 IST; scheduled videos go up
+  as private + publishAt.
 
 ## 5. How an upload happens
 
