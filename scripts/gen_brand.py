@@ -221,7 +221,7 @@ def banner_bg():
     reframe()
 
 
-def reframe(zoom=1.28, ax=1.0, ay=1.0):
+def reframe(zoom=1.28, ax=0.78, ay=1.0):
     """Free: re-crop the generated background. zoom > 1 and ay=1 (keep the bottom) lift the characters into the
     desktop band (y 508-931); ax=1 keeps the right edge, where Dadi, Golu and Mitthu sit."""
     im = Image.open(WORK / "banner_v2_raw.png").convert("RGB")

@@ -25,6 +25,11 @@ import youtube_upload as yu  # noqa: E402
 
 # order matters: the full old tagline first, then names and hashtags
 REPLACE = [
+    # (b) Case 01: series name in the title, brand at the end
+    ("| दादी की कहानियाँ केस #1 #shorts", "| दादी जासूस केस #1 | किस्सागो #shorts"),
+    # (c) Case 01: 8 hashtags -> 5 (RULES 7)
+    ("#दादीकीकहानियाँ #DadiKiKahaniyan #HindiMystery #पहेली #MysteryShorts #HindiCartoon #DetectiveStory #Shorts",
+     "#Shorts #किस्सागो #दादीजासूस #HindiMystery #पहेली"),
     ("दादी की कहानियाँ — दादी हर हफ़्ते सुनाती हैं एक नई कहानी, जो हँसाए भी और सिखाए भी।",
      "किस्सागो — हर शाम एक नया किस्सा, जो हँसाए भी और सिखाए भी।"),
     ("#दादीकीकहानियाँ", "#किस्सागो"),
@@ -32,6 +37,10 @@ REPLACE = [
     ("दादी की कहानियाँ", "किस्सागो"),
     ("Dadi Ki Kahaniyan", "Kissago"),
 ]
+
+
+# (a) tags: kids-only wording -> family wording (RULES 7 family rule, channel made_for_kids = false)
+TAG_REPLACE = {"Kids Story Hindi": "Family Story Hindi", "बच्चों की कहानी": "परिवार की कहानी"}
 
 
 def rebrand(text: str) -> str:
@@ -74,7 +83,7 @@ def main():
     for v in items:
         sn = v["snippet"]
         new_title, new_desc = rebrand(sn["title"]), rebrand(sn.get("description", ""))
-        new_tags = list(dict.fromkeys(rebrand(t) for t in sn.get("tags", [])))
+        new_tags = list(dict.fromkeys(TAG_REPLACE.get(t, rebrand(t)) for t in sn.get("tags", [])))
         if (new_title, new_desc, new_tags) == (sn["title"], sn.get("description", ""), sn.get("tags", [])) \
                 and v["id"] not in thumbs:
             continue

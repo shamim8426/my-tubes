@@ -344,6 +344,8 @@ def main():
     ap.add_argument("--dry-run", action="store_true", help="validate only, no network")
     ap.add_argument("--extras-only", action="store_true",
                     help="retry thumbnail/captions/playlist for an already uploaded video")
+    ap.add_argument("--force-thumbnail", action="store_true",
+                    help="with --extras-only: set the thumbnail again even if it was set before (e.g. after a rebrand)")
     args = ap.parse_args()
 
     job_path = Path(args.job).resolve()
@@ -396,6 +398,8 @@ def main():
         result_path.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
         print("Uploaded:", result["url"])
 
+    if args.force_thumbnail:
+        result.pop("thumbnail_ok", None)
     do_extras(yt, job, job_path, result["video_id"], result)
     if parent_line and not result.get("comment_task") and not result.get("comment_id"):
         short_followups(job, job_path, result)

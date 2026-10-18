@@ -45802,3 +45802,379 @@ _**Agent (claude-opus-5-5 2026-10-18 15:46:35Z)**_
 <summary>Tool use: **Read**</summary>
  `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\banner_v2_devices.jpg`
 </details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:46:59Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Tidy temp crops and sync
+
+`W=channels/dadi-ki-kahaniyan/brand/_work && mkdir -p _to_delete/brand_tmp && mv $W/band_1.28.jpg $W/band_1.34.jpg $W/band_compare.jpg _to_delete/brand_tmp/ 2>/dev/null; powershell -NoProfile -ExecutionPolicy Bypass -File tools/sync.ps1 -Message "brand: Kissago kit (icon, wordmark, lockups, DP, watermark, banner v2, thumbnail corner logo, BRAND.md); munshi R2 PASS-WITH-NOTES" >/dev/null 2>&1; tail -1 shared/sync.log`
+
+```text
+2026-10-18 21:16:57  pushed: brand: Kissago kit (icon, wordmark, lockups, DP, watermark, banner v2, thumbnail corner logo, BRAND.md); munshi R2 PASS-WITH-NOTES  (repo pack size 337 MB)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 15:47:18Z)**_
+
+Kissago ka brand kit taiyaar hai aur Munshi ke dusre review me **PASS-WITH-NOTES** aaya. Aaj ka paid kharcha **₹17.82** raha (4 icons ₹12.96 aur banner background ₹4.86, dono aapki "ha" se), aur ₹500 me se **₹282.88** bache hain.
+
+## Kya bana (`channels/dadi-ki-kahaniyan/brand/`)
+| File | Kya hai |
+|---|---|
+| `icon.png` | Option 2 wala Mitthu, 2048×2048, transparent. Indigo par koi safed kinara nahi, aur kitaab ke panne pure hain. |
+| `wordmark.png` | "किस्सागो" Rozha One me marigold rang, neeche "KISSAGO" Mukta me cream rang. Libass se bana, AI se nahi. |
+| `logo_horizontal.png`, `logo_stacked.png` | Icon aur naam ke saath, transparent background. |
+| `kissago_dp.png` | 800×800, indigo par icon beech ke 70% hisse me. Gol crop me poora bachta hai. |
+| `watermark.png` | 150×150 transparent icon. |
+| `kissago_banner_v2.png` | 2560×1440. Raat ka mohalla, daayein taraf Dadi, Golu aur Mitthu. Logo aur "हर शाम एक नया किस्सा" safe area ke andar indigo panel par. |
+| `BRAND.md` | Naam, handle, tagline, rang, fonts aur logo ke niyam. |
+
+**Thumbnail template:** kone ka purana text hat gaya. Ab 16:9 thumbnails me neeche-baayein aur vertical me upar beech chhota `logo_horizontal` halke indigo patch par lagta hai. Long 01 aur dono Case 01 thumbnails dobara ban gaye.
+
+## Raste me 2 badlav (₹0)
+- **Logo panel:** Gemini ne banner ke beech gehra aasmaan nahi, cream rang ki roshan deewar bana di thi, jis par cream "KISSAGO" aur tagline gayab ho rahe the. Isliye logo aur tagline ke peeche indigo panel lagaya, jaisa BRAND.md me busy background ke liye likha hai.
+- **Reframe:** desktop patti me Golu ka sar aur Mitthu kat rahe the. Background ko 1.28x bada karke crop kiya.
+
+## Munshi ka review
+**R1: FIX**, teen MINOR, teeno free me theek kiye:
+- Banner me Mitthu aankh ke beech se kat raha tha, reframe se theek kiya.
+- Register ki 3 thumbnail rows purani thi, update kar di.
+- Bible me channel art ke purane path the, naye kar diye.
+
+R1 me ye sab sahi paaya gaya:
+- Matrayein aur "स्स" ka jod sahi.
+- Rang pixel tak sahi.
+- 48 px par bhi Mitthu pehchana jaata hai.
+- Copyright: saari files register me, Rozha One ki OFL row bhi.
+
+**R2: PASS-WITH-NOTES.** Do chhoti baatein `carry_over.md` me gayi, jo agli baar banner banate waqt dhyan rakhni hain:
+- Logo panel ka ek kona Mitthu ke sir ke peeche ke hisse par thoda chadhta hai.
+- Mobile crop me Dadi ka chehra kinare par kat jaata hai. Desktop aur TV par dono theek dikhte hain.
+
+**Dekhne ke liye:**
+- Banner ke teeno crop (TV, desktop, mobile): `channels/dadi-ki-kahaniyan/brand/_work/banner_v2_devices.jpg`
+- DP (360, 98 aur 48 px), video par watermark, aur naya Long 01 thumbnail (phone size par bhi): `channels/dadi-ki-kahaniyan/brand/_work/brand_showcase.jpg`
+
+**Sync:** `pushed: brand: Kissago kit (...); munshi R2 PASS-WITH-NOTES`
+
+## Aapko Studio me karna hai (Customization → Branding)
+- Profile picture: `kissago_dp.png`
+- Banner: `kissago_banner_v2.png`
+- Video watermark: `watermark.png`
+- Channel ka naam "किस्सागो | Kissago" aur description (draft `brand/channel_description.md` me hai)
+
+## Abhi baaki hai
+1. **Upload hui videos me naya naam:** ab naye logo wala thumbnail bhi taiyaar hai. Iske liye "ha" ya "ha + a b c" chahiye.
+   - (a) Long 01 ke "kids" tags ki jagah family tags
+   - (b) Case 01 ka title "…| दादी जासूस केस #1 | किस्सागो"
+   - (c) Case 01 ke hashtags 8 se ghata kar 5
+2. **Short ki Studio checklist:** Related video set karna aur pehla comment pin karna. Ho jaye toh "ho gaya" likhiye.
+
+---
+
+_**User (2026-10-18 16:09:02Z)**_
+
+
+
+<pasted_content id="aeaa">
+1. ha + a b c. Saath me teeno uploaded videos (Case 01, Long 01, short_01) ke title/description me purana "दादी की कहानियाँ" ho to "किस्सागो" karo. Pehle dry-run me har video ka purana -> naya dikhao, phir update. Long 01 ka naya thumbnail --extras-only se lagao (Shorts ka thumbnail API se nahi badalta, use chhodo).
+
+2. Banner mobile crop: Dadi ka chehra kinare par kata nahi dikhna chahiye — ya to mobile safe area me poora aaye, ya bilkul bahar rahe. Background ka crop/position badal kar theek karo (₹0, naya Gemini call nahi). Logo panel Mitthu ke sir par na chadhe. Teeno device preview dobara dikhao aur carry_over.md me dono notes "fixed" karo.
+
+3. Phir sync.
+</pasted_content id="aeaa">
+
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-18 16:09:28Z)**_
+
+Do kaam, kram se. Pehle videos ka update. `rebrand_update.py` me aapke manzoor kiye (a), (b), (c) jod raha hoon. Ek baat pehle bata doon: `--extras-only` Long 01 ka thumbnail dobara nahi lagata, kyunki uske record me thumbnail pehle se "laga hua" (`thumbnail_ok: true`) darj hai. Isliye upload script me ek `--force-thumbnail` flag jod raha hoon, taki naya thumbnail usi raaste se lage.
+
+_**Agent (claude-opus-5-5 2026-10-18 16:09:45Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Add a/b/c to rebrand script; force-thumbnail flag; dry-run
+
+```bash
+.venv/Scripts/python.exe - <<'PYEOF'
+from pathlib import Path
+p = Path("tools/rebrand_update.py"); s = p.read_text(encoding="utf-8")
+old = '''REPLACE = [
+    ("दादी की कहानियाँ — दादी हर हफ़्ते सुनाती हैं एक नई कहानी, जो हँसाए भी और सिखाए भी।",'''
+new = '''REPLACE = [
+    # (b) Case 01: series name in the title, brand at the end
+    ("| दादी की कहानियाँ केस #1 #shorts", "| दादी जासूस केस #1 | किस्सागो #shorts"),
+    # (c) Case 01: 8 hashtags -> 5 (RULES 7)
+    ("#दादीकीकहानियाँ #DadiKiKahaniyan #HindiMystery #पहेली #MysteryShorts #HindiCartoon #DetectiveStory #Shorts",
+     "#Shorts #किस्सागो #दादीजासूस #HindiMystery #पहेली"),
+    ("दादी की कहानियाँ — दादी हर हफ़्ते सुनाती हैं एक नई कहानी, जो हँसाए भी और सिखाए भी।",'''
+assert old in s; s = s.replace(old, new)
+old2 = '''def rebrand(text: str) -> str:'''
+new2 = '''# (a) tags: kids-only wording -> family wording (RULES 7 family rule, channel made_for_kids = false)
+TAG_REPLACE = {"Kids Story Hindi": "Family Story Hindi", "बच्चों की कहानी": "परिवार की कहानी"}
+
+
+def rebrand(text: str) -> str:'''
+assert old2 in s; s = s.replace(old2, new2)
+old3 = '''        new_tags = list(dict.fromkeys(rebrand(t) for t in sn.get("tags", [])))'''
+new3 = '''        new_tags = list(dict.fromkeys(TAG_REPLACE.get(t, rebrand(t)) for t in sn.get("tags", [])))'''
+assert old3 in s; s = s.replace(old3, new3)
+p.write_text(s, encoding="utf-8")
+u = Path("tools/youtube_upload.py"); t = u.read_text(encoding="utf-8")
+a = '''    ap.add_argument("--extras-only", action="store_true",
+                    help="retry thumbnail/captions/playlist for an already uploaded video")'''
+b = a + '''
+    ap.add_argument("--force-thumbnail", action="store_true",
+                    help="with --extras-only: set the thumbnail again even if it was set before (e.g. after a rebrand)")'''
+assert a in t; t = t.replace(a, b)
+c = '''    do_extras(yt, job, job_path, result["video_id"], result)'''
+d = '''    if args.force_thumbnail:
+        result.pop("thumbnail_ok", None)
+    do_extras(yt, job, job_path, result["video_id"], result)'''
+assert c in t; t = t.replace(c, d, 1)
+u.write_text(t, encoding="utf-8"); print("ok")
+PYEOF
+.venv/Scripts/python.exe -m py_compile tools/rebrand_update.py tools/youtube_upload.py && echo compiled && .venv/Scripts/python.exe -X utf8 tools/rebrand_update.py --channel dadi-ki-kahaniyan
+```
+
+```text
+ok
+compiled
+Channel OK: किस्सागो | Kissago (UCy071_4g4vGemktFHybqkhQ)
+=== kWn4jKte090  (public, publishAt -)
+TITLE old: जो डालो, दुगना! जादुई कड़ाही का राज़ | दादी की कहानियाँ #shorts
+TITLE new: जो डालो, दुगना! जादुई कड़ाही का राज़ | किस्सागो #shorts
+DESC  old: #shorts #दादीकीकहानियाँ #HindiKahani #MoralStory
+DESC  new: #shorts #किस्सागो #HindiKahani #MoralStory
+TAGS  old: Dadi Ki Kahaniyan, Family Story Hindi, Hindi Kahani, Hindi Moral Story, Hindi Shorts, Jadui Kadhai, Lalchi Halwai, जादुई कड़ाही, दादी की कहानियाँ, परिवार की कहानी, लालची हलवाई, हिंदी कहानी
+TAGS  new: Kissago, Family Story Hindi, Hindi Kahani, Hindi Moral Story, Hindi Shorts, Jadui Kadhai, Lalchi Halwai, जादुई कड़ाही, किस्सागो, परिवार की कहानी, लालची हलवाई, हिंदी कहानी
+=== Ogfqow8rbGY  (public, publishAt -)
+TITLE old: लालची हलवाई और जादुई कड़ाही | दादी की कहानियाँ | Hindi Moral Story | Hindi Kahani
+TITLE new: लालची हलवाई और जादुई कड़ाही | किस्सागो | Hindi Moral Story | Hindi Kahani
+DESC  old: दादी की कहानियाँ — दादी हर हफ़्ते सुनाती हैं एक नई कहानी, जो हँसाए भी और सिखाए भी।
+DESC  new: किस्सागो — हर शाम एक नया किस्सा, जो हँसाए भी और सिखाए भी।
+DESC  old: #दादीकीकहानियाँ #HindiKahani #MoralStory #DadiKiKahaniyan #HindiStory
+DESC  new: #किस्सागो #HindiKahani #MoralStory #Kissago #HindiStory
+TAGS  old: Bedtime Story Hindi, Dadi Ki Kahaniyan, Dadi Maa Ki Kahani, Greed Moral Story, Hindi Cartoon Story, Hindi Kahani, Hindi Moral Story, Jadui Kadhai, Kids Story Hindi, Lalchi Halwai, Magic Story Hindi, Moral Stories in Hindi, जादुई कड़ाही, जादुई कहानी, दादी की कहानियाँ, दादी माँ की कहानी, नैतिक कहानी, बच्चों की कहानी, लालच का फल, लालची हलवाई, हिंदी कहानी
+TAGS  new: Bedtime Story Hindi, Kissago, Dadi Maa Ki Kahani, Greed Moral Story, Hindi Cartoon Story, Hindi Kahani, Hindi Moral Story, Jadui Kadhai, Family Story Hindi, Lalchi Halwai, Magic Story Hindi, Moral Stories in Hindi, जादुई कड़ाही, जादुई कहानी, किस्सागो, दादी माँ की कहानी, नैतिक कहानी, परिवार की कहानी, लालच का फल, लालची हलवाई, हिंदी कहानी
+=== 8P2Sa_tRpd4  (public, publishAt -)
+TITLE old: शर्मा जी की साइकिल किसने चुराई? | दादी की कहानियाँ केस #1 #shorts
+TITLE new: शर्मा जी की साइकिल किसने चुराई? | दादी जासूस केस #1 | किस्सागो #shorts
+DESC  old: दादी की कहानियाँ — हर हफ़्ते दादी का एक नया केस, दिमाग़ लगाओ और दादी से पहले चोर पकड़ो!
+DESC  new: किस्सागो — हर हफ़्ते दादी का एक नया केस, दिमाग़ लगाओ और दादी से पहले चोर पकड़ो!
+DESC  old: #दादीकीकहानियाँ #DadiKiKahaniyan #HindiMystery #पहेली #MysteryShorts #HindiCartoon #DetectiveStory #Shorts
+DESC  new: #Shorts #किस्सागो #दादीजासूस #HindiMystery #पहेली
+
+3 video(s) would change; DRY RUN, nothing changed.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 16:09:53Z)**_
+
+<think><details><summary>Thought Process</summary>
+Dry-run poori tarah match ho gaya aapke approve kiye gaye changes se — naam update, Long 01 ke tags, Case 01 ka title, aur 5 hashtags. Ab main asli update "ha + a b c" ke mutabik chala raha hoon.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-18 16:10:15Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Apply approved title/description/tag updates
+
+`.venv/Scripts/python.exe -X utf8 tools/rebrand_update.py --channel dadi-ki-kahaniyan --apply 2>&1 | grep -E "^===|updated|STOP|rror|would"`
+
+```text
+=== kWn4jKte090  (public, publishAt -)
+  -> updated
+=== Ogfqow8rbGY  (public, publishAt -)
+  -> updated
+=== 8P2Sa_tRpd4  (public, publishAt -)
+  -> updated
+3 video(s) updated;
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 16:10:53Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Set new Long 01 thumbnail; verify nothing left to change
+
+`.venv/Scripts/python.exe -X utf8 tools/youtube_upload.py --job channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long/output/upload.json --extras-only --force-thumbnail 2>&1 | grep -E "Channel OK|thumbnail|PROBLEM|^ - |rror" | head; echo "--- verify via API:"; .venv/Scripts/python.exe -X utf8 tools/rebrand_update.py --channel dadi-ki-kahaniyan | tail -1`
+
+```text
+Thumbnail:    long_01_thumbnail.png
+Channel OK: किस्सागो | Kissago (UCy071_4g4vGemktFHybqkhQ)
+  "thumbnail_ok": true
+--- verify via API:
+0 video(s) would change; DRY RUN, nothing changed.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 16:11:02Z)**_
+
+<think><details><summary>Thought Process</summary>
+Tino videos update ho gaye aur Long 01 ka naya thumbnail set ho gaya; API check me "0 video(s) would change" mila, matlab YouTube par purana naam kahin nahi bacha. Ab main local `meta.json` aur `.txt` records bhi naye naam se sync kar raha hoon.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-18 16:11:10Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Update local meta and txt records
+
+```bash
+.venv/Scripts/python.exe -X utf8 - <<'PYEOF'
+import json, sys
+from pathlib import Path
+sys.path.insert(0, "tools")
+import rebrand_update as r
+C = Path("channels/dadi-ki-kahaniyan/stories")
+files = [C / "001_lalchi-halwai/long/meta.json", C / "001_lalchi-halwai/long/output/long_01.txt",
+         C / "001_lalchi-halwai/shorts/short_01_jadui-kadhai/meta.json", C / "001_lalchi-halwai/shorts/short_01_jadui-kadhai/output/short_01_jadui-kadhai.txt",
+         C / "002_sharma-ji-ki-cycle/shorts/short_01_case-01/meta.json", C / "002_sharma-ji-ki-cycle/shorts/short_01_case-01/output/case01_cycle_chori.txt"]
+for f in files:
+    s = f.read_text(encoding="utf-8")
+    if f.suffix == ".json":
+        m = json.loads(s)
+        for k in ("title", "description", "pinned_comment"):
+            if k in m: m[k] = r.rebrand(m[k])
+        if "hashtags" in m:
+            hs = r.rebrand(" ".join(m["hashtags"])).split()
+            m["hashtags"] = hs
+        if "tags" in m:
+            m["tags"] = list(dict.fromkeys(r.TAG_REPLACE.get(t, r.rebrand(t)) for t in m["tags"]))
+        new = json.dumps(m, ensure_ascii=False, indent=2) + "\n"
+    else:
+        new = r.rebrand(s)
+        for a, b in r.TAG_REPLACE.items(): new = new.replace(a, b)
+    left = new.count("दादी की कहानियाँ") + new.count("Dadi Ki Kahaniyan")
+    f.write_text(new, encoding="utf-8")
+    print(f"{f.name:32s} old name left: {left}")
+PYEOF
+grep -n '"hashtags"' -A1 channels/dadi-ki-kahaniyan/stories/002_sharma-ji-ki-cycle/shorts/short_01_case-01/meta.json | head -3
+```
+
+```text
+meta.json                        old name left: 0
+long_01.txt                      old name left: 0
+meta.json                        old name left: 0
+short_01_jadui-kadhai.txt        old name left: 0
+meta.json                        old name left: 0
+case01_cycle_chori.txt           old name left: 0
+4:  "hashtags": [
+5-    "#Shorts",
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 16:11:16Z)**_
+
+<think><details><summary>Thought Process</summary>
+Ab banner ka background daayein khiska raha hoon (`ax` kam karke) taaki Dadi mobile safe area se bahar aa jayein aur Mitthu logo panel se door ho jaye — isके liye do positions test karunga.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-18 16:11:46Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Try two horizontal shifts for banner background
+
+```bash
+for ax in 0.78 0.65; do .venv/Scripts/python.exe -X utf8 -c "
+import sys; sys.path.insert(0,'scripts'); sys.argv=['x']
+import gen_brand as g
+g.reframe(zoom=1.28, ax=$ax)
+from PIL import Image
+import shutil; shutil.copy(g.WORK/'banner_v2_devices.jpg', g.WORK/'dev_$ax.jpg')
+" >/dev/null 2>&1; done; .venv/Scripts/python.exe -c "
+from PIL import Image
+W='channels/dadi-ki-kahaniyan/brand/_work/'
+a=Image.open(W+'dev_0.78.jpg'); b=Image.open(W+'dev_0.65.jpg')
+s=Image.new('RGB',(2560,a.height),(255,255,255)); s.paste(a,(0,0)); s.paste(b,(1280,0)); s.resize((1600,int(a.height*1600/2560))).save(W+'dev_compare.jpg',quality=88)"
+```
+
+```text
+Exit code 1
+Traceback (most recent call last):
+  File "<string>", line 4, in <module>
+    a=Image.open(W+'dev_0.78.jpg'); b=Image.open(W+'dev_0.65.jpg')
+                                      ~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "D:\Story-Channel\.venv\Lib\site-packages\PIL\Image.py", line 3654, in open
+    fp = builtins.open(filename, "rb")
+FileNotFoundError: [Errno 2] No such file or directory: 'channels/dadi-ki-kahaniyan/brand/_work/dev_0.65.jpg'
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 16:11:46Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\dev_compare.jpg`
+
+```text
+File does not exist. Note: your current working directory is D:\Story-Channel.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 16:12:03Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Retry second shift and build comparison
+
+```bash
+.venv/Scripts/python.exe -X utf8 -c "
+import sys; sys.path.insert(0,'scripts'); sys.argv=['x']
+import gen_brand as g
+g.reframe(zoom=1.28, ax=0.65)
+import shutil; shutil.copy(g.WORK/'banner_v2_devices.jpg', g.WORK/'dev_0.65.jpg')
+" 2>&1 | tail -3; .venv/Scripts/python.exe -c "
+from PIL import Image
+W='channels/dadi-ki-kahaniyan/brand/_work/'
+a=Image.open(W+'dev_0.78.jpg'); b=Image.open(W+'dev_0.65.jpg')
+s=Image.new('RGB',(2560,a.height),(255,255,255)); s.paste(a,(0,0)); s.paste(b,(1280,0)); s.resize((1600,int(a.height*1600/2560))).save(W+'dev_compare.jpg',quality=88)"
+```
+
+```text
+saved D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\kissago_banner_v2.png (2560, 1440) | logo+tagline box: (587, 544, 1360, 894) inside safe (507, 508, 2053, 931)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 16:12:03Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\dev_compare.jpg`
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 16:12:14Z)**_
+
+<think><details><summary>Thought Process</summary>
+0.78 ratio sahi baitha hai — mobile aur desktop crop dono me chehre poore dikh rahe hain, jabki 0.65 me Golu aadha kat jata hai isliye reject kiya. Isi 0.78 ko default banakar banner final kar raha hoon aur `carry_over.md` update kar raha hoon.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-18 16:12:27Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Set ax 0.78 default, rerender banner, show carry-over
+
+`sed -i 's/^def reframe(zoom=1.28, ax=1.0, ay=1.0):/def reframe(zoom=1.28, ax=0.78, ay=1.0):/' scripts/gen_brand.py && grep -n "def reframe" scripts/gen_brand.py && .venv/Scripts/python.exe -X utf8 scripts/gen_brand.py reframe 2>&1 | tail -1 && W=channels/dadi-ki-kahaniyan/brand/_work && mv $W/dev_0.78.jpg $W/dev_0.65.jpg $W/dev_compare.jpg _to_delete/brand_tmp/ && tail -4 channels/dadi-ki-kahaniyan/carry_over.md`
+
+```text
+224:def reframe(zoom=1.28, ax=0.78, ay=1.0):
+saved D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\kissago_banner_v2.png (2560, 1440) | logo+tagline box: (587, 544, 1360, 894) inside safe (507, 508, 2053, 931)
+| 2026-10-18 | long_01 (uploaded, not changed) | last spoken line is the moral, not a question to viewers | builder warns if the last spoken line is not a question; script template + step-review Script stage | fixed in pipeline |
+| 2026-10-18 | short_01_jadui-kadhai (uploaded, not changed) | burned captions had 60 px side margins (right 15% not kept free) | caption margins 170 px left/right, bottom 480 px (25%) for all Shorts | fixed in pipeline |
+| 2026-10-18 | brand banner_v2 (R2 PASS-WITH-NOTES) | logo panel bottom-right corner overlaps back of Mitthu's head (~x1300-1400, y850-930) | next banner revision: nudge panel left/up ~40 px or Mitthu right (free) | open |
+| 2026-10-18 | brand banner_v2 (R2 PASS-WITH-NOTES) | mobile safe crop (x507-2053) shows Golu only, Dadi's face cut at right edge | if banner is redone, shift characters left so both faces sit inside x507-2053 | open |
+```
+</details></tool-use>
