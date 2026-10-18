@@ -46,7 +46,7 @@ PROFILES = {
     ("long", "final"): {"w": 1920, "h": 1080, "fps": 30, "enc": ["-preset", "slow", "-crf", "18"]},
 }
 MUSIC_XFADE = 1.5  # seconds of crossfade when the mood (music track) changes
-RENDER_VERSION = 1  # bump when scene rendering code changes, to invalidate the clip cache
+RENDER_VERSION = 2  # bump when scene rendering code changes, to invalidate the clip cache (2: tv-range bt709)
 PLAY_W, PLAY_H = 1080, 1920  # caption coordinate space (libass scales it to the output size)
 SR = 24000  # Gemini TTS output rate
 GAP, END_HOLD = 0.30, 1.5  # silence between lines; hold on the final question
@@ -55,10 +55,12 @@ SHOT_LEN = 2.6  # target seconds per shot -> visual changes every 2-3s
 MIN_SHOT = 1.2  # never cut faster than this
 CUT_LEAD = 0.1  # a speaker's shot starts this long before their voice, never earlier
 TARGET_LUFS = -14
-# Gain is set by integrated LUFS; 9 LU here measures ~13 dB under the voice with analyze_video.py
-# (speech frames vs music-only frames), the metric used for the reference comparison.
-MUSIC_BELOW_VOICE_DB = 9
+# Music gain: voice LUFS minus this, per video kind. Checked in loudness_report the RULES way: integrated LUFS
+# of the voice stem vs the music stem over the speech sections (long: 13 = old 9 lowered by 4 dB).
+MUSIC_BELOW_VOICE_DB = {"short": 9, "long": 13}
 SFX_BELOW_VOICE_DB = 5
+MIN_CAPTION = 0.45  # a caption shorter than this only flashes; it is merged into its neighbour in the same line
+PAUSE_LEAD = 2.0  # music must be audible in a music-only pause and this long before it
 
 # Ken Burns moves for wide shots (cycled): zoom-in, pan, zoom-out, zoom-to-top
 MOVES = {
@@ -205,6 +207,7 @@ def build_voice(lines, audio_dir: Path, work: Path, run_whisper: bool):
                 events["sfx"].append((start + 0.05, line["sfx"]))
             timed.append({**line, "speaker": "_pause", "text": "", "start": start, "end": t,
                           "audio_hash": f"pause{line['pause']}", "words": []})
+            events.setdefault("pauses", []).append((start - PAUSE_LEAD, t))
             print(f"  line {i + 1:2d} [{'pause':8s}] {start:6.2f}-{t:6.2f}s  music only")
             continue
         data = trim(tts_line(line["text"], line["speaker"], cache,
@@ -265,6 +268,15 @@ def caption_chunks(line):
             cur = []
     if cur:
         chunks.append(cur)
+    dur = lambda k: (chunks[k + 1][0][1] if k + 1 < len(chunks) else line["end"]) - chunks[k][0][1]
+    k = 0
+    while len(chunks) > 1 and k < len(chunks):
+        if dur(k) < MIN_CAPTION:  # merge into the previous chunk (or the next one, for the first)
+            j = k - 1 if k else 0
+            chunks[j:j + 2] = [chunks[j] + chunks[j + 1]]
+            k = 0
+        else:
+            k += 1
     out = []
     for k, ch in enumerate(chunks):
         end = chunks[k + 1][0][1] if k + 1 < len(chunks) else line["end"]
@@ -293,25 +305,34 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 # ---------- 3. video: one cached clip per scene ----------
 def shot_times(timed, total):
     """Per scene: cut points (seconds). A scene starts CUT_LEAD before its first line's voice; inside a scene
-    every new speaker's line also starts a shot CUT_LEAD early; long stretches are split every ~SHOT_LEN."""
+    every new speaker's line also starts a shot CUT_LEAD early; long stretches are split every ~SHOT_LEN.
+    A line with "shot" in lines.json ("wide" or [x, y, zoom]) gets that one shot for its whole stretch.
+    Returns (scene, cut points, per-shot override or None)."""
     scenes = []
     for i, line in enumerate(timed):
         t = 0.0 if i == 0 else line["start"] - CUT_LEAD
         if not scenes or scenes[-1][0] != line["scene"]:
-            scenes.append([line["scene"], [t]])
+            scenes.append([line["scene"], [t], [i]])
         elif line["speaker"] != timed[i - 1]["speaker"]:
             scenes[-1][1].append(t)
+            scenes[-1][2].append(i)
     out = []
-    for k, (sc, cuts) in enumerate(scenes):
+    for k, (sc, cuts, owners) in enumerate(scenes):
         end = scenes[k + 1][1][0] if k + 1 < len(scenes) else total
         pts = cuts + [end]
-        fine = [pts[0]]
-        for a, b in zip(pts, pts[1:]):
+        fine, tags = [pts[0]], []
+        for a, b, own in zip(pts, pts[1:], owners):
+            if timed[own].get("shot"):
+                fine.append(b)
+                tags.append(timed[own]["shot"])
+                continue
             n = max(1, min(round((b - a) / SHOT_LEN), int((b - a) / MIN_SHOT)))
             fine += [a + (b - a) * j / n for j in range(1, n + 1)]
-        if len(fine) == 2 and fine[1] - fine[0] >= 2 * MIN_SHOT:  # at least wide + close when there is room
+            tags += [None] * n
+        if len(fine) == 2 and tags[0] is None and fine[1] - fine[0] >= 2 * MIN_SHOT:  # at least wide + close
             fine.insert(1, (fine[0] + fine[1]) / 2)
-        out.append((sc, fine))
+            tags.append(None)
+        out.append((sc, fine, tags))
     return out
 
 
@@ -320,7 +341,7 @@ def plan_scenes(P, timed, total, prof, font_family, final_title):
     focus = P["focus"]
     fps, plans = prof["fps"], []
     shots_all = shot_times(timed, total)
-    for idx, (sc, cuts) in enumerate(shots_all):
+    for idx, (sc, cuts, tags) in enumerate(shots_all):
         fcuts = [round(c * fps) for c in cuts]  # one global frame grid -> no drift between clips
         t0 = fcuts[0] / fps
         spec = focus.get(str(sc), [])
@@ -330,7 +351,7 @@ def plan_scenes(P, timed, total, prof, font_family, final_title):
         shots, desc = [], []
         for k in range(len(cuts) - 1):
             n = fcuts[k + 1] - fcuts[k]
-            shot = cycle[k % len(cycle)]
+            shot = tags[k] or cycle[k % len(cycle)]
             if shot == "wide":
                 move = MOVE_CYCLE[(idx + k) % len(MOVE_CYCLE)]
                 z, x, y = (e.format(n=n) for e in MOVES[move])
@@ -371,10 +392,11 @@ def render_scene(p, prof, clip: Path, work: Path):
     for k, (d, z, x, y) in enumerate(p["shots"]):
         fc.append(f"[i{k}]zoompan=z='{z}':x='{x}':y='{y}':d={d}:s={w}x{h}:fps={fps}[z{k}]")
     fc.append("".join(f"[z{k}]" for k in range(n)) + (f"concat=n={n}:v=1:a=0" if n > 1 else "null")
-              + f"{subs},format=yuv420p,setsar=1[out]")
+              + f"{subs},scale=out_color_matrix=bt709:out_range=tv,format=yuv420p,setsar=1[out]")
     tmp = clip.with_suffix(".part.mp4")
     run([FFMPEG, "-y", "-i", p["img"], "-filter_complex", ";".join(fc), "-map", "[out]", "-frames:v", p["frames"],
-         "-c:v", "libx264", *prof["enc"], "-pix_fmt", "yuv420p", "-r", fps,
+         "-c:v", "libx264", *prof["enc"], "-pix_fmt", "yuv420p", "-color_range", "tv", "-colorspace", "bt709",
+         "-color_primaries", "bt709", "-color_trc", "bt709", "-r", fps,
          "-video_track_timescale", fps * 1000, tmp], cwd=work)
     tmp.replace(clip)
 
@@ -423,9 +445,41 @@ def music_segments(events, meta, total):
             for k, (t, mood) in enumerate(runs)]
 
 
-def build_audio(voice, total, events, meta, work: Path, two_pass: bool):
+_levels = {}
+
+
+def track_levels(f: Path):
+    """Music track loudness every 0.1 s (dB, 0.5 s RMS window), for picking where to start a track."""
+    if f not in _levels:
+        r = subprocess.run([str(FFMPEG), "-v", "error", "-i", str(f), "-ac", "1", "-ar", "8000", "-f", "s16le", "-"],
+                           capture_output=True)
+        x = np.frombuffer(r.stdout, np.int16).astype(np.float32) / 32768
+        e = np.convolve(x ** 2, np.ones(4000) / 4000, mode="same")[::800]
+        _levels[f] = 10 * np.log10(e + 1e-12)
+    return _levels[f]
+
+
+def music_offset(f: Path, a, b, windows):
+    """Seconds into the track to start a segment [a, b] so no music-only pause (plus PAUSE_LEAD before it) lands
+    in a near-silent gap of the track (e.g. between piano phrases). 0 when the segment has no pause."""
+    wins = [(max(s, a), min(e, b)) for s, e in windows if e > a and s < b]
+    if not wins:
+        return 0.0
+    lev = track_levels(f)
+    n = len(lev)
+    idx = [i for s, e in wins if len(i := np.arange(int((s - a) * 10), int((e - a) * 10)))]
+    if not idx:
+        return 0.0
+    score = lambda off: min(lev[(i + int(off * 10)) % n].min() for i in idx)
+    ok = np.median(lev) - 10  # within 10 dB of the track's usual level counts as audible
+    if score(0) >= ok:
+        return 0.0
+    return float(max(np.arange(0, 20.01, 0.25), key=lambda off: (min(score(off), ok), -off)))
+
+
+def build_audio(voice, total, events, meta, work: Path, two_pass: bool, below_db: float):
     """Voice + music (one track, or a track per mood with crossfades) at a fixed level under the voice + stings;
-    music muted in any music_silent window."""
+    music muted in any music_silent window. Also writes music.wav (music stem) for the level check."""
     v_lufs = integrated_lufs(voice)
     segs = music_segments(events, meta, total)
     lufs_of = {}
@@ -434,18 +488,22 @@ def build_audio(voice, total, events, meta, work: Path, two_pass: bool):
     for k, (a, b, f) in enumerate(segs):
         if f not in lufs_of:
             lufs_of[f] = integrated_lufs(f, 60)
-        gain = v_lufs - MUSIC_BELOW_VOICE_DB - lufs_of[f]
+        gain = v_lufs - below_db - lufs_of[f]
         last = k == len(segs) - 1
         length = (b - a) + (0 if last else MUSIC_XFADE)  # overlap into the next mood = crossfade
         fade_out = f"afade=t=out:st={length - (1.5 if last else MUSIC_XFADE):.2f}:d={1.5 if last else MUSIC_XFADE}"
         fade_in = f"afade=t=in:d={MUSIC_XFADE}," if k else ""
         ms = int(a * 1000)
-        inputs += ["-stream_loop", "-1", "-i", f]
+        off = music_offset(f, a, b, events.get("pauses", []))
+        if off:
+            print(f"  music: {Path(f).stem} starts {off:.2f}s in (pause falls on an audible part)")
+        inputs += ["-stream_loop", "-1", *(["-ss", f"{off:.2f}"] if off else []), "-i", f]
         fc.append(f"[{k + 1}:a]aresample=48000,aformat=channel_layouts=stereo,atrim=0:{length:.3f},"
                   f"volume={gain:.2f}dB,{fade_in}{fade_out},adelay={ms}|{ms}[mu{k}]")
     mute = "+".join(f"between(t,{a:.2f},{b:.2f})" for a, b in events["music_silent"]) or "0"
     fc.append("".join(f"[mu{k}]" for k in range(len(segs)))
-              + f"amix=inputs={len(segs)}:duration=longest:normalize=0,volume='if({mute},0,1)':eval=frame[m]")
+              + f"amix=inputs={len(segs)}:duration=longest:normalize=0,volume='if({mute},0,1)':eval=frame,"
+                f"asplit=2[m][mstem]")
     if len(segs) > 1:
         print("  music: " + " -> ".join(f"{Path(f).stem}@{a:.0f}s" for a, _, f in segs))
     mix_in, n_in = "[v][m]", len(segs) + 1
@@ -459,7 +517,8 @@ def build_audio(voice, total, events, meta, work: Path, two_pass: bool):
         mix_in += f"[s{k}]"
     fc.append(f"{mix_in}amix=inputs={2 + len(events['sfx'])}:duration=first:normalize=0[out]")
     mix = work / "mix.wav"
-    run([FFMPEG, "-y", *inputs, "-filter_complex", ";".join(fc), "-map", "[out]", "-t", f"{total:.3f}", mix])
+    run([FFMPEG, "-y", *inputs, "-filter_complex", ";".join(fc), "-map", "[out]", "-t", f"{total:.3f}", mix,
+         "-map", "[mstem]", "-t", f"{total:.3f}", work / "music.wav"])
     ln = f"loudnorm=I={TARGET_LUFS}:TP=-1.5:LRA=11"
     if two_pass:
         r = run([FFMPEG, "-hide_banner", "-i", mix, "-af", ln + ":print_format=json", "-f", "null", "-"])
@@ -472,28 +531,20 @@ def build_audio(voice, total, events, meta, work: Path, two_pass: bool):
 
 
 # ---------- 5. final-only checks ----------
-def loudness_report(out: Path, norm: Path, timed, events):
+def loudness_report(out: Path, work: Path, timed):
+    """Final loudness + true peak, and music level the RULES way: integrated LUFS of the voice stem vs the music
+    stem, both cut to the same speech sections (both stems are pre-loudnorm; loudnorm gain hits both equally)."""
     r = run([FFMPEG, "-hide_banner", "-i", out, "-af", "ebur128=peak=true", "-f", "null", "-"])
     lufs = float(re.findall(r"I:\s+(-?[\d.]+) LUFS", r.stderr)[-1])
     tp = float(re.findall(r"Peak:\s+(-?[\d.]+) dBFS", r.stderr)[-1])
-    with wave.open(str(norm)) as w:
-        sr, ch = w.getframerate(), w.getnchannels()
-        x = np.frombuffer(w.readframes(w.getnframes()), np.int16).astype(np.float32).reshape(-1, ch).mean(1) / 32768
-    hop = int(0.05 * sr)
-    lev = 20 * np.log10(np.sqrt((x[: len(x) // hop * hop].reshape(-1, hop) ** 2).mean(1)) + 1e-9)
-    t = np.arange(len(lev)) * 0.05
-    speech = np.zeros(len(lev), bool)
-    near = np.zeros(len(lev), bool)
-    for l in timed:
-        if l["speaker"] == "_pause":
-            continue
-        speech |= (t >= l["start"]) & (t < l["end"])
-        near |= (t >= l["start"] - 0.3) & (t < l["end"] + 0.3)
-    for at, _ in events["sfx"]:  # stings are not the music bed
-        near |= (t >= at) & (t < at + 3.0)
-    music = lev[~near]
-    music = music[music > -55]
-    below = float(np.median(lev[speech]) - np.median(music)) if len(music) else float("nan")
+    sel = "+".join(f"between(t,{l['start']:.2f},{l['end']:.2f})" for l in timed if l["speaker"] != "_pause")
+
+    def speech_lufs(f):
+        r = run([FFMPEG, "-hide_banner", "-i", f, "-af", f"aresample=48000,aformat=channel_layouts=stereo,"
+                 f"aselect='{sel}',asetpts=N/SR/TB,ebur128", "-f", "null", "-"])
+        return float(re.findall(r"I:\s+(-?[\d.]+) LUFS", r.stderr)[-1])
+
+    below = speech_lufs(work / "voice.wav") - speech_lufs(work / "music.wav")
     return lufs, tp, below
 
 
@@ -613,7 +664,8 @@ def main():
     cached, new = build_video(plans, prof, cache_dir, work)
 
     print("3/4 audio")
-    norm = build_audio(voice, total, events, meta, work, two_pass=(mode == "final"))
+    norm = build_audio(voice, total, events, meta, work, two_pass=(mode == "final"),
+                       below_db=MUSIC_BELOW_VOICE_DB[P["kind"]])
 
     print("4/4 mux (video stream copied, no re-encode)")
     out = out_dir / (f"{case}.mp4" if mode == "final" else f"{case}_preview.mp4")
@@ -626,15 +678,17 @@ def main():
         report += f"\n  captions:    {srt}"
 
     if mode == "final":
-        lufs, tp, below = loudness_report(out, norm, timed, events)
+        lufs, tp, below = loudness_report(out, work, timed)
         check = out_dir / f"{case}_framecheck.png"
         frame_check(out, timed, check, work)
         txt = out_dir / f"{case}.txt"
+        tags = f"TAGS:\n{', '.join(meta['tags'])}\n\n" if meta.get("tags") else ""
         txt.write_text(
             f"TITLE:\n{meta['title']}\n\nDESCRIPTION:\n{meta['description']}\n\n"
-            f"{music_credits(meta, events, total)}\n\n{' '.join(meta['hashtags'])}\n\n"
+            f"{music_credits(meta, events, total)}\n\n{' '.join(meta['hashtags'])}\n\n{tags}"
             f"PINNED COMMENT (post later):\n{meta['pinned_comment']}\n", encoding="utf-8")
-        report += (f"\n  loudness {lufs:.1f} LUFS, true peak {tp:.1f} dBFS, music ~{below:.1f} dB under voice"
+        report += (f"\n  loudness {lufs:.1f} LUFS, true peak {tp:.1f} dBFS, music {below:.1f} LU under voice "
+                   f"(stem LUFS over speech)"
                    f"\n  frame check: {check}\n  metadata:    {txt}")
 
     spent = sum(float(r["cost_inr"]) for r in cost_log._rows()) - spend_before

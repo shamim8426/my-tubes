@@ -1,6 +1,7 @@
 # Munshi RULES — Story-Channel
 
 These are the hard rules. If a builder summary, a script or a file disagrees with them, the rule wins and the step is not PASS. Edit this file to add new rules; Munshi reads it fresh every time.
+- A measured value outside a RULES limit is always FIX, never PASS, even if small.
 
 ## 1. Budget
 - Prepaid Google Cloud budget: ₹500, auto-reload off. Current balance is whatever `cost_log.csv` says.
@@ -12,12 +13,14 @@ These are the hard rules. If a builder summary, a script or a file disagrees wit
 - Characters must match their approved sheets: face, clothes, colours, age look. Compare each scene image against the sheet with Read.
 - Dadi (Kamla Devi) narrates. Every other character speaks their own lines in their own voice.
 - Mitthu (parrot) has no hands: no hand gestures, holding things or pointing with hands.
+- Dadi's home (in Gulmohar Mohalla): a kacha mud house with a tiled roof, BROWN wooden door, swept aangan, green fields behind, exactly like the channel banner (`channel_assets/_work/banner_art.png`). There is no green door.
 - Setting: Dadi's home, the Golu–Mitthu opening/closing frame and all Dadi Jasoos cases are in Gulmohar Mohalla. The story Dadi narrates inside a moral-story video can be set in any village or town the approved script names (e.g. Rampur in LONG_01); check location consistency against that script. Village kitchens still use a mitti ka chulha, never a gas stove.
 - The action in each image must match what the line says at that moment (who is holding what, who is talking).
 
 ## 3. Audio
 - Final loudness: -14 LUFS integrated (±1), true peak ≤ -1.0 dBFS.
 - Music sits under the voice: 12–14 dB below for Shorts, up to ~18–20 dB for narration-heavy long videos. If it is quieter than 20 dB under, flag it.
+- Music level is measured one way only: integrated LUFS of the voice-only stem vs the music-only stem over the same speech sections. Builder and Munshi both use this method.
 - Mood changes get a crossfade (≥1 s). No sudden music cuts under dialogue.
 - No leaked background audio, clicks, or a line cut off mid-word.
 

@@ -12,7 +12,7 @@ Uses `tools/youtube_upload.py` (YouTube Data API v3). Never upload without the u
 2. OAuth consent screen: User type External. Add the channel's Google account as a test user. Then **Publish app** (move it to In production). If it stays in Testing, the refresh token expires every 7 days and uploads stop working.
 3. Credentials: Create OAuth client ID, type **Desktop app**. Download JSON and save it as `secrets/client_secret.json`. Make sure `secrets/` is in `.gitignore`.
 4. `pip install google-api-python-client google-auth-oauthlib`
-5. First real run opens a browser: pick the channel's account, accept the "unverified app" warning (it is the user's own app). Token is saved to `secrets/youtube_token.json`; later runs are silent.
+5. First real run opens a browser: pick the right Google account AND the right channel, accept the "unverified app" warning (it is the user's own app). Token is saved to `secrets/youtube_token_<channel_key>.json`; later runs are silent.
 6. Phone-verify the channel in YouTube Studio, otherwise custom thumbnails fail.
 
 ## Important limit: unaudited API projects
@@ -27,6 +27,8 @@ Quota: default 10,000 units/day; one upload costs about 1,600, thumbnail 50, cap
 2. Read `munshi/channel_config.json` for made_for_kids, contains_synthetic_media, category_id, language, publish time, playlist id. If made_for_kids is null, ASK the user and save the answer there.
 3. Pick publish time: next free day at 19:00 IST respecting min_days_between_long (check other projects' upload_result.json).
 4. Write `output/upload.json`:
+   - channel_key, channel_name, channel_id (from `munshi/channel_config.json`)
+   - format: "long" or "short"
    - title, description, tags (from the approved metadata file)
    - video: final mp4 (never *_preview*)
    - thumbnail, captions (.srt), language "hi", captions_name "Hindi"
@@ -34,6 +36,7 @@ Quota: default 10,000 units/day; one upload costs about 1,600, thumbnail 50, cap
    - publish_at like 2026-10-21T19:00:00+05:30 (or privacy "private" with no publish_at)
    - playlist_id if configured
 5. `python tools/youtube_upload.py --job <upload.json> --dry-run`. Fix any PROBLEMS.
+   If the script says WRONG CHANNEL, stop and tell the user; never edit channel_id to make it pass.
 6. Show the user: title, publish time IST, made-for-kids, playlist, thumbnail file. Wait for ha/ok.
 7. Run without --dry-run. If thumbnail/captions/playlist failed, fix the cause and run with `--extras-only`.
 8. Report: video URL, studio URL, what succeeded, and what still needs a click in Studio (schedule if locked private, pinned comment, end screen). Pinning a comment is not possible through the API.

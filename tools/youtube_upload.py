@@ -6,6 +6,10 @@ Usage:
     python tools/youtube_upload.py --job long-videos/long_01/output/upload.json
     python tools/youtube_upload.py --job ... --extras-only   # retry thumbnail/captions/playlist
 
+Safety: refuses to upload unless the logged-in channel ID matches job["channel_id"],
+and unless ffprobe confirms the file is a real final build (size, codec, pix_fmt).
+One token per channel: secrets/youtube_token_<channel_key>.json.
+
 One-time setup: see the youtube-publish skill. Needs
     pip install google-api-python-client google-auth-oauthlib
 and secrets/client_secret.json (OAuth "Desktop app" client).
@@ -27,7 +31,10 @@ except Exception:
 ROOT = Path(__file__).resolve().parent.parent
 SECRETS = ROOT / "secrets"
 CLIENT_SECRET = SECRETS / "client_secret.json"
-TOKEN = SECRETS / "youtube_token.json"
+FORMATS = {  # what a final upload must look like
+    "long": {"width": 1920, "height": 1080, "max_seconds": None},
+    "short": {"width": 1080, "height": 1920, "max_seconds": 60},
+}
 SCOPES = [
     "https://www.googleapis.com/auth/youtube.upload",
     "https://www.googleapis.com/auth/youtube.force-ssl",  # captions + playlists
@@ -43,8 +50,39 @@ def resolve(job_path: Path, p):
     return p if p.is_absolute() else (job_path.parent / p).resolve()
 
 
+def token_path(job):
+    return SECRETS / f"youtube_token_{job['channel_key']}.json"
+
+
+def probe(video: Path):
+    """Return (width, height, codec, pix_fmt, seconds) using ffprobe."""
+    import shutil
+    import subprocess
+
+    if not shutil.which("ffprobe"):
+        raise RuntimeError("ffprobe not found (install FFmpeg)")
+    out = subprocess.run(
+        ["ffprobe", "-v", "error", "-select_streams", "v:0",
+         "-show_entries", "stream=width,height,codec_name,pix_fmt",
+         "-show_entries", "format=duration", "-of", "json", str(video)],
+        capture_output=True, text=True, check=True).stdout
+    d = json.loads(out)
+    st = (d.get("streams") or [{}])[0]
+    return (st.get("width"), st.get("height"), st.get("codec_name"),
+            st.get("pix_fmt"), float(d.get("format", {}).get("duration", 0)))
+
+
 def validate(job: dict, job_path: Path) -> list:
     errs = []
+    key = job.get("channel_key", "")
+    if not key or not all(c.isalnum() or c in "-_" for c in key):
+        errs.append("channel_key missing/invalid (e.g. dadi-ki-kahaniyan)")
+    cid = job.get("channel_id", "")
+    if not (isinstance(cid, str) and cid.startswith("UC") and len(cid) == 24):
+        errs.append("channel_id missing/invalid (24 chars, starts with UC; set it in munshi/channel_config.json)")
+    fmt = job.get("format")
+    if fmt not in FORMATS:
+        errs.append("format must be 'long' or 'short'")
     title = job.get("title", "")
     desc = job.get("description", "")
     tags = job.get("tags", [])
@@ -68,8 +106,26 @@ def validate(job: dict, job_path: Path) -> list:
     video = resolve(job_path, job.get("video"))
     if not video or not video.exists():
         errs.append(f"video not found: {video}")
-    elif "preview" in video.name.lower():
-        errs.append("video looks like a preview build; upload final only")
+    else:
+        if "preview" in video.name.lower():
+            errs.append("video looks like a preview build; upload final only")
+        if fmt in FORMATS:
+            try:
+                w, h, codec, pix, secs = probe(video)
+                want = FORMATS[fmt]
+                if (w, h) != (want["width"], want["height"]):
+                    errs.append(f"video is {w}x{h}, a final {fmt} must be {want['width']}x{want['height']}")
+                if codec != "h264":
+                    errs.append(f"video codec is {codec}, expected h264")
+                if pix != "yuv420p":
+                    errs.append(f"pixel format is {pix}, expected yuv420p")
+                if secs < 5:
+                    errs.append(f"video is only {secs:.1f}s long")
+                if want["max_seconds"] and secs > want["max_seconds"]:
+                    errs.append(f"short is {secs:.1f}s, max {want['max_seconds']}s")
+                job["_probe"] = f"{w}x{h} {codec} {pix} {secs:.1f}s"
+            except Exception as e:
+                errs.append(f"ffprobe failed: {e}")
 
     thumb = resolve(job_path, job.get("thumbnail"))
     if thumb:
@@ -99,26 +155,41 @@ def validate(job: dict, job_path: Path) -> list:
     return errs
 
 
-def get_service():
+def get_service(job):
     from google.auth.transport.requests import Request
     from google.oauth2.credentials import Credentials
     from google_auth_oauthlib.flow import InstalledAppFlow
     from googleapiclient.discovery import build
 
+    tok = token_path(job)
     creds = None
-    if TOKEN.exists():
-        creds = Credentials.from_authorized_user_file(str(TOKEN), SCOPES)
+    if tok.exists():
+        creds = Credentials.from_authorized_user_file(str(tok), SCOPES)
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
             creds.refresh(Request())
         else:
             if not CLIENT_SECRET.exists():
                 sys.exit(f"Missing {CLIENT_SECRET}. Do the one-time setup first.")
+            print(f"Browser login: pick the Google account AND the channel '{job.get('channel_name', job['channel_key'])}'.")
             flow = InstalledAppFlow.from_client_secrets_file(str(CLIENT_SECRET), SCOPES)
             creds = flow.run_local_server(port=0)
         SECRETS.mkdir(exist_ok=True)
-        TOKEN.write_text(creds.to_json(), encoding="utf-8")
+        tok.write_text(creds.to_json(), encoding="utf-8")
     return build("youtube", "v3", credentials=creds)
+
+
+def check_channel(yt, job):
+    """Stop unless the logged-in channel is exactly the configured one."""
+    items = yt.channels().list(part="id,snippet", mine=True).execute().get("items", [])
+    if not items:
+        sys.exit("Logged-in Google account has no YouTube channel. Nothing uploaded.")
+    got = items[0]["id"]
+    title = items[0]["snippet"]["title"]
+    if got != job["channel_id"]:
+        sys.exit(f"WRONG CHANNEL: logged in as '{title}' ({got}), expected {job['channel_id']}. "
+                 f"Nothing uploaded. Delete {token_path(job).name} in secrets/ and log in again with the right channel.")
+    print(f"Channel OK: {title} ({got})")
 
 
 def with_retry(fn, label):
@@ -228,6 +299,7 @@ def main():
     result = json.loads(result_path.read_text(encoding="utf-8")) if result_path.exists() else {}
 
     errs = validate(job, job_path)
+    print("Channel:     ", job.get("channel_name") or job.get("channel_key"), job.get("channel_id"))
     print("Title:       ", job.get("title"))
     print("Video:       ", resolve(job_path, job.get("video")))
     print("Privacy:     ", "scheduled" if job.get("publish_at") else job.get("privacy", "private"))
@@ -236,6 +308,7 @@ def main():
     print("Thumbnail:   ", job.get("thumbnail") or "-")
     print("Captions:    ", job.get("captions") or "-")
     print("Playlist:    ", job.get("playlist_id") or "-")
+    print("Video check: ", job.get("_probe", "-"))
     if errs:
         print("\nPROBLEMS:")
         for e in errs:
@@ -250,7 +323,8 @@ def main():
     if args.extras_only and not result.get("video_id"):
         sys.exit("No video_id in upload_result.json; nothing to retry.")
 
-    yt = get_service()
+    yt = get_service(job)
+    check_channel(yt, job)
     if not result.get("video_id"):
         vid = upload_video(yt, job, job_path)
         result.update({

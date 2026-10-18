@@ -65,7 +65,8 @@
 
 ## 5. Setting — "Gulmohar Mohalla"
 
-- Chhoti galiyan, dadi ka **hara darwaza** wala ghar, chhat, chai stall, park, mandir.
+- Chhoti galiyan, gulmohar ka ped, chhat, chai stall, park, mandir.
+- **Dadi ka ghar** (mohalle ke kinare): kacha mitti ka ghar, khaprail ki chhat, **bhoora lakdi ka darwaza**, saaf-supa aangan, peeche hare khet. Look reference: `channel_assets/_work/banner_art.png` (channel banner wala aangan). Golu–Mitthu ka opening/closing frame isi aangan me hota hai.
 - Kabhi-kabhi special cases: shaadi, mela, train.
 
 ---
