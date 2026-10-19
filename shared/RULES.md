@@ -10,7 +10,7 @@ These are the hard rules. If a builder summary, a script or a file disagrees wit
 ## 1. Budget
 - Prepaid Google Cloud budget: ₹500, auto-reload off. Current balance is whatever `cost_log.csv` says.
 - Every paid call (Gemini image ≈ ₹3.24 each at 1K, Gemini TTS per line) must be in `cost_log.csv` with date, project, item, ₹.
-- No paid call without the user's OK first. A fix that costs money is always ASK, never FIX.
+- No paid call without the user's OK first. A fix that costs money is always ASK, never FIX — except in auto mode after script approval (section 14; from story 004 section 15), within its budget and regeneration limits.
 - Flag it if a step cost more than 30% above its estimate (e.g. LONG_01 TTS: estimate ₹4.85, actual ₹6.63).
 
 ## 2. Story and characters (from `channel_bible.md`)
@@ -33,6 +33,7 @@ These are the hard rules. If a builder summary, a script or a file disagrees wit
 - Long video: 1920×1080, 30 fps, H.264, 16:9. Short: 1080×1920, ≤60 s, 9:16.
 - Target length: the duration the user approved at preview. Before preview, the script estimate is only a guide. Final must be within ±10% of the approved preview length; outside that is ASK.
 - Preview builds (960×540) are only for review. They are never uploaded.
+- From story 004 (section 15): no preview build; long video max 4:00 (target 3:40–4:00), Short max 40 s (target 35–40 s); the script is written to that length from measured TTS speed. These limits replace the preview-length rule above.
 
 ## 6. Thumbnail
 - 1280×720, JPG or PNG, ≤ 2 MB.
@@ -85,7 +86,7 @@ BLOCKER (never waived, in any round):
 - Wrong resolution/codec, or a preview file used as final.
 - Thumbnail: broken Hindi matras, spoiler, unreadable text, important thing in the bottom-right corner.
 - Metadata: title over 100 chars, more than 15 hashtags, missing CC BY credit, "for kids" wording (title, thumbnail, description or tags), mystery answer revealed.
-- Length outside ±10% of the approved preview length.
+- Length outside ±10% of the approved preview length (stories up to 003). From story 004: long video over 4:00 or Short over 40 s (section 15).
 - Story problem: moral missing or a scene that contradicts the script.
 
 MINOR (everything else that breaks a RULES limit only slightly), e.g.: caption off by 0.3–1 s, caption shorter than 0.4 s, music level within 3 dB of target, thumbnail text slightly under the size rule, small silent gaps, missing colour tags, tiny cosmetic issues.
@@ -95,6 +96,7 @@ Rounds:
 - Round 1 (R1): full review for that stage; BLOCKER and MINOR both come back as FIX (free) or ASK (paid).
 - Round 2 (R2): re-check only what changed and what failed in R1.
 - After R2: if any BLOCKER remains → ASK the user, stop. If only MINOR remain → verdict "PASS-WITH-NOTES": the stage is passed and the pipeline moves on to the next step (including upload when the user has approved it). No third round.
+- From story 004 (section 15): stage reviews (script timing, images, audio) are R1 + R2; after R2 MINOR issues are only logged to carry_over.md (nothing regenerated) and the flow moves on. The final video gets ONE check (R1 only): no BLOCKER -> upload. A BLOCKER may get max 1 paid regeneration per image.
 - Every MINOR waived after R2 is written to channels/<key>/carry_over.md (project, issue, suggested fix). Before the next video's build, the builder reads carry_over.md and fixes those causes in the pipeline, then marks them done.
 
 These limits never weaken: copyright (section 10), channel ID check, secrets, and the full pre-upload check.
@@ -116,7 +118,7 @@ Long videos:
 - End: the last 20 s carry no essential visuals or captions in the end-screen area, so end-screen elements can sit there. The last spoken line asks viewers one specific question about the story (for comments), not a generic "like and subscribe".
 Shorts:
 - First frame is a strong visual (no title card, no black frame). First word within 0.5 s.
-- Length 30-58 s.
+- Length 30-58 s (stories up to 003). From story 004: max 40 s, target 35-40 s (section 15).
 - Captions and key visuals stay out of the bottom 20% and right 15% (YouTube buttons).
 - Ending is either a cliffhanger towards the long video or a clean loop back to the first frame.
 Thumbnail:
@@ -129,6 +131,7 @@ Session:
 Severity: a misleading title/thumbnail is a BLOCKER; the rest are FIX in R1 and MINOR after R2 (section 11).
 
 ## 14. Auto mode (after script approval)
+From story 004, section 15 (production profile) overrides this section where they differ: no preview, budget ₹100–110 actual per story instead of the ₹130 cap, max 1 regeneration per image (BLOCKER only) instead of 2, final check R1 only. Everything else here (veto window, slots, covers, stop conditions, Studio checklist, logging) still applies.
 - Human checkpoint: ONLY script approval. After that everything runs automatically without asking for each step: assets (character sheets, voice samples), scene images, TTS, preview, Munshi R1 (FIX items fixed automatically, free or paid within the cap) + R2, final build, Munshi final review, long thumbnail, upload, Auto Short flow (section 8: build, review, upload), first comments, sync.
 - Veto window instead of approval: every video is uploaded as scheduled (private until its slot: long 19:00 IST, Short 21:00 IST), never published immediately. Right after each upload, show the user one status line with the video link and slot. If the user says "rok do" before the slot, run `tools/veto.py <video_id>` (sets the video private and removes publishAt via the API), log it in the channel log.md, and pause the pipeline for that story.
 - Slot: if the pipeline finishes too late for today's slot (long upload after 18:45 IST), use the next day's slot (Short follows section 8).
@@ -143,3 +146,15 @@ Severity: a misleading title/thumbnail is a BLOCKER; the rest are FIX in R1 and 
 - Manual Studio checklist after uploads (the API cannot do these): Related video for the Short = its long video, pin the first comment, and — until the API audit passes — confirm/set the schedule in Studio. Munshi shows it after the uploads and asks about it at the start of the next session until the user confirms.
 - Every auto step is logged in the channel log.md with cost so far, and shown to the user as one short status line.
 - pipeline_queue.json tracks each story's stages (script_approved -> assets -> images -> tts -> preview -> final -> uploaded -> short_uploaded -> done, or stopped/vetoed with the reason).
+
+## 15. Production profile (user's standing instructions, from story 004 onwards)
+- Only human checkpoint: script approval. Everything after that runs automatically with Munshi reviews: assets, images, TTS, final build, thumbnail, upload, Short, comments, sync.
+- Length: long video max 4:00 (target 3:40–4:00). Short max 40 s (target 35–40 s). The script is written to this length using measured TTS speed.
+- Cost: ₹100–110 per story in ACTUAL cost (usageMetadata, incl. reference images), covering long + its Short + thumbnail. Before generating anything, estimate the actual cost; if above ₹110, simplify the plan first (fewer new images, more crop/zoom reuse) — never start over budget.
+  - Max 16 new scene images per long video; the rest are crops/zooms of those.
+  - 1K images only. Reference images: only the characters present in that scene.
+  - Reuse existing character sheets; new sheets only for genuinely new characters.
+  - Max 1 paid regeneration per image, and only for a BLOCKER.
+- No preview video. Munshi reviews the stages (script timing, images, audio) — R1 and R2 — and right after R2 the FINAL video is built directly.
+- After R2: MINOR issues are ignored (logged to carry_over.md), nothing is regenerated, move to the next step. Only a BLOCKER, a copyright doubt or a channel ID mismatch stops the flow and asks the user.
+- Final video: Munshi does one final check (R1 only). If no BLOCKER -> upload in the slot (veto window stays: scheduled, "rok do" possible before the slot).

@@ -74040,3 +74040,287 @@ channels/_template/stories/000_story-slug/long/meta.json
 channels/_template/stories/000_story-slug/shorts/short_01_slug/meta.json
 ```
 </details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 14:17:28Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Add cover block to Short template meta
+
+```bash
+f=channels/_template/stories/000_story-slug/shorts/short_01_slug/meta.json && cat $f && .venv/Scripts/python.exe -X utf8 - <<'EOF'
+import json
+from pathlib import Path
+p = Path("channels/_template/stories/000_story-slug/shorts/short_01_slug/meta.json")
+m = json.loads(p.read_text(encoding="utf-8"))
+m.setdefault("caption_from", 1.0)
+m["cover"] = {"_help": "Poster cover (channel RULES 'Short cover'): python scripts/gen_short_cover.py <this folder> (~₹3.24). label: 'किस्सागो जासूस' for Dadi Jasoos, else 'किस्सागो'. title: 2-3 words ending ? or !, not the video title word for word, no spoiler. prompt: hero character (33-63% height) + key object and other characters (61-82%). refs: character names.",
+              "label": "किस्सागो", "title": "", "prompt": "", "refs": []}
+p.write_text(json.dumps(m, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+print("ok")
+EOF
+```
+
+```text
+{
+  "title": "",
+  "description": "",
+  "hashtags": [],
+  "tags": [],
+  "pinned_comment": ""
+}
+ok
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 14:17:46Z)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="PowerShell"><details>
+<summary>Tool use: **PowerShell**</summary>
+Sync Short cover style changes
+
+```text
+2026-10-19 19:47:46  pushed: Kissago: poster-style Short cover rule + scripts/gen_short_cover.py (from next Short)  (repo pack size 337 MB)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 14:17:59Z)**_
+
+Agle Short se Kissago ke Shorts ka cover isi poster style me banega. Niyam, script aur template teeno taiyaar hain. Abhi koi paid image nahi banayi, kharcha ₹0.
+
+**Kya kiya:**
+- **Reference image sambhal li:** `channels/dadi-ki-kahaniyan/brand/reference/short_cover_style_ref.png`
+- **Channel RULES me naya niyam "Short cover":**
+  - Background upar gehra neela hai jo neeche narangi chamak me badalta hai, poster jaisa dramatic look.
+  - Ek bada hero kirdaar (jaise soch me dooba Pandey), uske neeche suraag wali cheez (jaise khaali tijori) aur 1–3 ghabraye kirdaar.
+  - Mitthu chhota sa upar kone me reh sakta hai.
+  - Upar sunehra label "किस्सागो जासूस" (Dadi Jasoos ke liye, baaki kahaniyon par "किस्सागो"), aur neeche bada peela title 2–3 shabdon ka.
+- **Naya script `scripts/gen_short_cover.py`:** ye har Short ke `meta.json` me likhe `cover` hisse se poster banata hai. Har cover ka kharcha ~₹3.24 hoga, jo auto mode me story ke ₹130 cap ke andar ginega.
+
+**Aapke reference se do farak rakhe hain**, taaki YouTube par kuch na kate:
+1. **Text thoda neeche (15%–33% height):** aapke reference me text bilkul upar tha, jise Shorts grid kaat deta hai. Test me text yahan saaf aur bada aaya, matrayein bhi sahi thi.
+2. **Hindi text hum khud likhenge, AI nahi.** AI matrayein bigaad deta hai. Har cover par Munshi zoom karke matrayein check karega.
+
+**Do baatein dhyan rakhiye:**
+- YouTube ka API Short ka cover nahi lagata, isliye ye file aapko app ya Studio se khud lagani hogi. Short ka pehla frame waisa hi rahega, bina title card ke.
+- Cover me sirf wahi dikhega jo Short me hai, aur koi spoiler nahi hoga.
+
+Sab GitHub par sync ho gaya hai.
+
+---
+
+_**User (2026-10-19 14:25:21Z)**_
+
+
+
+<pasted_content id="aeaa">
+Naya "production profile" — shared/RULES.md me section 15 ke roop me jodo (bilkul isi text ke saath) aur purane takraate niyam (section 5 lambai, section 13 Shorts lambai, section 11/14) isse mila do. CLAUDE.md aur munshi.md me bhi zikr karo. Ye profile AGLI kahani (Long 03) se lagu hoga — Long 02 aur uska Short jaise hain waise hi rahenge, unme koi badlav nahi.
+
+## 15. Production profile (user's standing instructions, from story 004 onwards)
+- Only human checkpoint: script approval. Everything after that runs automatically with Munshi reviews: assets, images, TTS, final build, thumbnail, upload, Short, comments, sync.
+- Length: long video max 4:00 (target 3:40–4:00). Short max 40 s (target 35–40 s). The script is written to this length using measured TTS speed.
+- Cost: ₹100–110 per story in ACTUAL cost (usageMetadata, incl. reference images), covering long + its Short + thumbnail. Before generating anything, estimate the actual cost; if above ₹110, simplify the plan first (fewer new images, more crop/zoom reuse) — never start over budget.
+  - Max 16 new scene images per long video; the rest are crops/zooms of those.
+  - 1K images only. Reference images: only the characters present in that scene.
+  - Reuse existing character sheets; new sheets only for genuinely new characters.
+  - Max 1 paid regeneration per image, and only for a BLOCKER.
+- No preview video. Munshi reviews the stages (script timing, images, audio) — R1 and R2 — and right after R2 the FINAL video is built directly.
+- After R2: MINOR issues are ignored (logged to carry_over.md), nothing is regenerated, move to the next step. Only a BLOCKER, a copyright doubt or a channel ID mismatch stops the flow and asks the user.
+- Final video: Munshi does one final check (R1 only). If no BLOCKER -> upload in the slot (veto window stays: scheduled, "rok do" possible before the slot).
+
+Phir sync.
+</pasted_content id="aeaa">
+
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-19 14:25:26Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\shared\RULES.md`
+
+```text
+1	# Munshi RULES — Story-Channel
+2	
+3	Shared rules for every channel. Munshi reads this file first, then `channels/<key>/RULES.md`.
+4	- Channel RULES can be stricter than shared RULES, never looser. Copyright, channel ID, secrets and upload safety can never be relaxed by a channel.
+5	
+6	
+7	These are the hard rules. If a builder summary, a script or a file disagrees with them, the rule wins and the step is not PASS. Edit this file to add new rules; Munshi reads it fresh every time.
+8	- A measured value outside a RULES limit is always FIX, never PASS, even if small. (in R1; after R2 see section 11)
+9	
+10	## 1. Budget
+11	- Prepaid Google Cloud budget: ₹500, auto-reload off. Current balance is whatever `cost_log.csv` says.
+12	- Every paid call (Gemini image ≈ ₹3.24 each at 1K, Gemini TTS per line) must be in `cost_log.csv` with date, project, item, ₹.
+13	- No paid call without the user's OK first. A fix that costs money is always ASK, never FIX.
+14	- Flag it if a step cost more than 30% above its estimate (e.g. LONG_01 TTS: estimate ₹4.85, actual ₹6.63).
+15	
+16	## 2. Story and characters (from `channel_bible.md`)
+17	- Characters must match their approved sheets: face, clothes, colours, age look. Compare each scene image against the sheet with Read.
+18	- The action in each image must match what the line says at that moment (who is holding what, who is talking).
+19	
+20	## 3. Audio
+21	- Final loudness: -14 LUFS integrated (±1), true peak ≤ -1.0 dBFS.
+22	- Music sits under the voice: 12–14 dB below for Shorts, up to ~18–20 dB for narration-heavy long videos. If it is quieter than 20 dB under, flag it.
+23	- Music level is measured one way only: integrated LUFS of the voice-only stem vs the music-only stem over the same speech sections. Builder and Munshi both use this method.
+24	- Mood changes get a crossfade (≥1 s). No sudden music cuts under dialogue.
+25	- No leaked background audio, clicks, or a line cut off mid-word.
+26	
+27	## 4. Captions
+28	- One `.srt` per video, Hindi, UTF-8.
+29	- Each caption must appear while that line is being spoken (±0.3 s), over the right character's shot.
+30	- Lines whose timing was estimated rather than taken from Whisper must be listed in the report.
+31	
+32	## 5. Video
+33	- Long video: 1920×1080, 30 fps, H.264, 16:9. Short: 1080×1920, ≤60 s, 9:16.
+34	- Target length: the duration the user approved at preview. Before preview, the script estimate is only a guide. Final must be within ±10% of the approved preview length; outside that is ASK.
+35	- Preview builds (960×540) are only for review. They are never uploaded.
+36	
+37	## 6. Thumbnail
+38	- 1280×720, JPG or PNG, ≤ 2 MB.
+39	- Hindi text is rendered by libass/FFmpeg (HarfBuzz shaping), never drawn by the AI. Zoom in and check matras and joined letters (ड़, दु, क्ष, etc.).
+40	- Text readable on a phone: letter height ≥ ~12% of frame height, high contrast, max ~4 words.
+41	- Thumbnail text must not repeat the title word for word.
+42	- No spoilers: no ending, no twist, no mystery answer.
+43	- Bottom-right corner (~15% × 12%) has nothing important, because YouTube puts the duration there.
+44	
+45	## 7. Metadata
+46	- Title ≤ 100 characters, no `<` or `>`. Description ≤ 5000 characters.
+47	- Tags total ≤ 500 characters. 3–5 hashtags in the description (the first 3 show above the title; more than 15 and YouTube ignores all of them).
+48	- Every CC BY music track used (e.g. Incompetech / Kevin MacLeod) is credited in the description exactly as its licence asks.
+49	- Made-for-kids and AI-disclosure values come from `channels/<key>/channel.json`. Never guess them.
+50
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 14:25:28Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Show current section 14
+
+`sed -n 131,160p shared/RULES.md`
+
+```text
+## 14. Auto mode (after script approval)
+- Human checkpoint: ONLY script approval. After that everything runs automatically without asking for each step: assets (character sheets, voice samples), scene images, TTS, preview, Munshi R1 (FIX items fixed automatically, free or paid within the cap) + R2, final build, Munshi final review, long thumbnail, upload, Auto Short flow (section 8: build, review, upload), first comments, sync.
+- Veto window instead of approval: every video is uploaded as scheduled (private until its slot: long 19:00 IST, Short 21:00 IST), never published immediately. Right after each upload, show the user one status line with the video link and slot. If the user says "rok do" before the slot, run `tools/veto.py <video_id>` (sets the video private and removes publishAt via the API), log it in the channel log.md, and pause the pipeline for that story.
+- Slot: if the pipeline finishes too late for today's slot (long upload after 18:45 IST), use the next day's slot (Short follows section 8).
+- Thumbnails: the long thumbnail is set via the API automatically. Short covers cannot be set by the API: the Short's first frame is its cover (hook visual, no caption in the first 1 s, any text inside 15%-85% of the height); also save a vertical cover file (1080x1920) in the Short's output/ for manual use.
+- Stop conditions (stop and ASK the user):
+  - Per-video budget cap ₹130 total (all paid steps + regenerations). Before every paid call, check the running total for this story in cost_log.csv.
+  - Account floor: the remaining prepaid balance would drop below ₹50 (or the API reports credits depleted).
+  - More than 2 regenerations needed for any scene image.
+  - Any BLOCKER left after R2 (only MINOR left -> PASS-WITH-NOTES, continue).
+  - Any copyright doubt.
+  - Channel ID mismatch.
+- Manual Studio checklist after uploads (the API cannot do these): Related video for the Short = its long video, pin the first comment, and — until the API audit passes — confirm/set the schedule in Studio. Munshi shows it after the uploads and asks about it at the start of the next session until the user confirms.
+- Every auto step is logged in the channel log.md with cost so far, and shown to the user as one short status line.
+- pipeline_queue.json tracks each story's stages (script_approved -> assets -> images -> tts -> preview -> final -> uploaded -> short_uploaded -> done, or stopped/vetoed with the reason).
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 14:25:39Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Check how image/TTS cost is computed
+
+`grep -n -i "usage\|cost_inr\|PRICE\|rate" scripts/gemini_image.py scripts/cost_log.py scripts/gemini_tts.py | head -30`
+
+```text
+scripts/gemini_image.py:43:def generate(prompt: str, out: Path, refs: list[Path] = (), aspect_ratio="1:1", size="1K") -> Path:
+scripts/cost_log.py:13:USD_TO_INR = 96.5  # mid-market rate checked 2026-10-17; update if it drifts
+scripts/cost_log.py:16:RATES_USD = {
+scripts/cost_log.py:22:FIELDS = ["timestamp", "file", "model", "size", "cost_usd", "cost_inr", "today_total_inr", "remaining_inr", "channel"]
+scripts/cost_log.py:33:    """Image: priced from the per-image rate table."""
+scripts/cost_log.py:34:    return record_usd(file, model, size, RATES_USD[(model, size)], when)
+scripts/cost_log.py:38:    """Anything with a computed USD cost (e.g. TTS priced by tokens)."""
+scripts/cost_log.py:43:    today_total = inr + sum(float(r["cost_inr"]) for r in rows if r["timestamp"].startswith(today))
+scripts/cost_log.py:44:    spent = inr + sum(float(r["cost_inr"]) for r in rows)
+scripts/cost_log.py:51:        "cost_inr": f"{inr:.2f}",
+scripts/cost_log.py:68:    return (f"Is {what} ka cost: ₹{row['cost_inr']}  |  Aaj ka total: ₹{row['today_total_inr']}  |  "
+scripts/gemini_tts.py:18:PRICE_IN, PRICE_OUT = 0.50, 9.00
+scripts/gemini_tts.py:37:def _usage_tokens(js):
+scripts/gemini_tts.py:38:    """(input_tokens, output_tokens) if the response reports usage, else (None, None)."""
+scripts/gemini_tts.py:56:        "response_format": {"type": "audio", "mime_type": "audio/l16", "sample_rate": SR},
+scripts/gemini_tts.py:69:        w.setnchannels(1), w.setsampwidth(2), w.setframerate(SR), w.writeframes(pcm)
+scripts/gemini_tts.py:72:    tin, tout = _usage_tokens(js)
+scripts/gemini_tts.py:76:    usd = tin / 1e6 * PRICE_IN + tout / 1e6 * PRICE_OUT
+scripts/gemini_tts.py:78:    return {"seconds": secs, "usd": usd, "row": row, "usage_reported": not estimated}
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 14:25:44Z)**_
+
+Section 15 jod raha hoon, bilkul aapke text ke saath. Saath me sections 1, 5, 11, 13 aur 14 me "story 004 se section 15 laagu" wali lines jod raha hoon. Long 02 aur Short A ke niyam waise hi rahenge.
+
+_**Agent (claude-opus-5-5 2026-10-19 14:26:08Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Add section 15 and reconcile RULES, CLAUDE.md, munshi.md
+
+```bash
+.venv/Scripts/python.exe - <<'EOF'
+from pathlib import Path
+p = Path("shared/RULES.md"); t = p.read_text(encoding="utf-8")
+def rep(a, b):
+    global t
+    assert t.count(a) == 1, a[:60]; t = t.replace(a, b)
+rep("- No paid call without the user's OK first. A fix that costs money is always ASK, never FIX.",
+    "- No paid call without the user's OK first. A fix that costs money is always ASK, never FIX — except in auto mode after script approval (section 14; from story 004 section 15), within its budget and regeneration limits.")
+rep("- Target length: the duration the user approved at preview. Before preview, the script estimate is only a guide. Final must be within ±10% of the approved preview length; outside that is ASK.\n- Preview builds (960×540) are only for review. They are never uploaded.",
+    "- Target length: the duration the user approved at preview. Before preview, the script estimate is only a guide. Final must be within ±10% of the approved preview length; outside that is ASK.\n- Preview builds (960×540) are only for review. They are never uploaded.\n- From story 004 (section 15): no preview build; long video max 4:00 (target 3:40–4:00), Short max 40 s (target 35–40 s); the script is written to that length from measured TTS speed. These limits replace the preview-length rule above.")
+rep("- Length outside ±10% of the approved preview length.",
+    "- Length outside ±10% of the approved preview length (stories up to 003). From story 004: long video over 4:00 or Short over 40 s (section 15).")
+rep("No third round.",
+    "No third round.\n- From story 004 (section 15): stage reviews (script timing, images, audio) are R1 + R2; after R2 MINOR issues are only logged to carry_over.md (nothing regenerated) and the flow moves on. The final video gets ONE check (R1 only): no BLOCKER -> upload. A BLOCKER may get max 1 paid regeneration per image.")
+rep("- Length 30-58 s.", "- Length 30-58 s (stories up to 003). From story 004: max 40 s, target 35-40 s (section 15).")
+rep("## 14. Auto mode (after script approval)\n",
+    "## 14. Auto mode (after script approval)\nFrom story 004, section 15 (production profile) overrides this section where they differ: no preview, budget ₹100–110 actual per story instead of the ₹130 cap, max 1 regeneration per image (BLOCKER only) instead of 2, final check R1 only. Everything else here (veto window, slots, covers, stop conditions, Studio checklist, logging) still applies.\n")
+t = t.rstrip("\n") + """
+
+## 15. Production profile (user's standing instructions, from story 004 onwards)
+- Only human checkpoint: script approval. Everything after that runs automatically with Munshi reviews: assets, images, TTS, final build, thumbnail, upload, Short, comments, sync.
+- Length: long video max 4:00 (target 3:40–4:00). Short max 40 s (target 35–40 s). The script is written to this length using measured TTS speed.
+- Cost: ₹100–110 per story in ACTUAL cost (usageMetadata, incl. reference images), covering long + its Short + thumbnail. Before generating anything, estimate the actual cost; if above ₹110, simplify the plan first (fewer new images, more crop/zoom reuse) — never start over budget.
+  - Max 16 new scene images per long video; the rest are crops/zooms of those.
+  - 1K images only. Reference images: only the characters present in that scene.
+  - Reuse existing character sheets; new sheets only for genuinely new characters.
+  - Max 1 paid regeneration per image, and only for a BLOCKER.
+- No preview video. Munshi reviews the stages (script timing, images, audio) — R1 and R2 — and right after R2 the FINAL video is built directly.
+- After R2: MINOR issues are ignored (logged to carry_over.md), nothing is regenerated, move to the next step. Only a BLOCKER, a copyright doubt or a channel ID mismatch stops the flow and asks the user.
+- Final video: Munshi does one final check (R1 only). If no BLOCKER -> upload in the slot (veto window stays: scheduled, "rok do" possible before the slot).
+"""
+p.write_text(t, encoding="utf-8")
+
+c = Path("CLAUDE.md"); t = c.read_text(encoding="utf-8")
+a = "## GitHub sync"
+assert t.count(a) == 1
+t = t.replace(a, """## Production profile (shared/RULES.md section 15, story 004 / Long 03 se)
+- Long 02 (story 003) aur uska Short jaise hain waise rahenge. Story 004 se: sirf script approval; koi preview nahi — Munshi stage R1+R2 (script timing, images, audio) ke baad seedha FINAL; final par Munshi ka ek hi check (R1) -> scheduled upload (veto window).
+- Lambai: long max 4:00 (target 3:40–4:00), Short max 40 s (target 35–40 s); script measured TTS speed se likho.
+- Kharcha: ₹100–110 ASLI (usageMetadata, reference images samet) per story (long + Short + thumbnail). Kuch banane se pehle asli kharche ka andaza; ₹110 se upar ho to plan saral karo, kabhi budget se upar shuru mat karo. Max 16 nayi scene images (baaki crop/zoom), sirf 1K, refs sirf us scene ke kirdaar, purani sheets dobara, regen max 1 aur sirf BLOCKER par.
+- R2 ke baad MINOR sirf carry_over.md me, kuch regenerate nahi. Ruko sirf BLOCKER / copyright shak / channel ID mismatch par.
+
+""" + a)
+c.write_text(t, encoding="utf-8")
+
+m = Path(".claude/agents/munshi.md"); t = m.read_text(encoding="utf-8")
+a = "- Auto mode (RULES section 14):"
+assert t.count(a) == 1
+t = t.replace(a, """- Production profile (RULES section 15, from story 004): no preview build; review stages (script timing incl. length vs long max 4:00 / Short max 40 s, images, audio) in R1 + R2; after R2 MINOR only go to carry_over.md (no regeneration, flow continues); the final video gets ONE check (R1 only) and, with no BLOCKER, goes to the scheduled upload. Check the story's ACTUAL cost (usageMetadata) against ₹100–110, max 16 new scene images, 1K only, max 1 regeneration per image (BLOCKER only). Stories up to 003 keep the older rules.
+""" + a)
+m.write_text(t, encoding="utf-8")
+print("ok")
+EOF
+grep -n "^## 15" shared/RULES.md
+```
+
+```text
+ok
+150:## 15. Production profile (user's standing instructions, from story 004 onwards)
+```
+</details></tool-use>
