@@ -57,7 +57,7 @@ _**Agent (claude-opus-5-5 2026-10-17 08:25:34Z)**_
 
 <tool-use data-tool-type="search" data-tool-name="Glob"><details>
 <summary>Tool use: **Glob**</summary>
- path `./` pattern `*`
+ path `d:\Story-Channel` pattern `*`
 
 ```text
 .specstory\.gitignore
@@ -710,7 +710,7 @@ _**Agent (claude-opus-5-5 2026-10-17 08:45:36Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\characters\_test.png`
+ `./characters/_test.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 08:45:43Z)**_
@@ -846,28 +846,28 @@ _**Agent (claude-opus-5-5 2026-10-17 08:51:38Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\characters\dadi_sheet.png`
+ `./characters/dadi_sheet.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 08:51:39Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\characters\golu_sheet.png`
+ `./characters/golu_sheet.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 08:51:39Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\characters\mitthu_sheet.png`
+ `./characters/mitthu_sheet.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 08:51:39Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\characters\pandey_sheet.png`
+ `./characters/pandey_sheet.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 08:51:40Z)**_
@@ -1267,7 +1267,7 @@ _**Agent (claude-opus-5-5 2026-10-17 09:41:01Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\characters\dadi_sheet.png`
+ `./characters/dadi_sheet.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 09:41:11Z)**_
@@ -1498,21 +1498,21 @@ _**Agent (claude-opus-5-5 2026-10-17 09:45:51Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\characters\golu_sheet.png`
+ `./characters/golu_sheet.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 09:45:52Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\characters\mitthu_sheet.png`
+ `./characters/mitthu_sheet.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 09:45:52Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\characters\pandey_sheet.png`
+ `./characters/pandey_sheet.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 09:46:05Z)**_
@@ -2263,35 +2263,35 @@ _**Agent (claude-opus-5-5 2026-10-17 09:56:57Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\images\case01_cycle_chori\scene_01.png`
+ `./images/case01_cycle_chori/scene_01.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 09:56:57Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\images\case01_cycle_chori\scene_02.png`
+ `./images/case01_cycle_chori/scene_02.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 09:56:58Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\images\case01_cycle_chori\scene_03.png`
+ `./images/case01_cycle_chori/scene_03.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 09:56:58Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\images\case01_cycle_chori\scene_04.png`
+ `./images/case01_cycle_chori/scene_04.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 09:56:58Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\images\case01_cycle_chori\scene_05.png`
+ `./images/case01_cycle_chori/scene_05.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 09:57:06Z)**_
@@ -2344,35 +2344,35 @@ _**Agent (claude-opus-5-5 2026-10-17 10:01:39Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\images\case01_cycle_chori\scene_06.png`
+ `./images/case01_cycle_chori/scene_06.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 10:01:40Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\images\case01_cycle_chori\scene_07.png`
+ `./images/case01_cycle_chori/scene_07.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 10:01:41Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\images\case01_cycle_chori\scene_08.png`
+ `./images/case01_cycle_chori/scene_08.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 10:01:41Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\images\case01_cycle_chori\scene_09.png`
+ `./images/case01_cycle_chori/scene_09.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 10:01:41Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\images\case01_cycle_chori\scene_10.png`
+ `./images/case01_cycle_chori/scene_10.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 10:02:08Z)**_
@@ -2496,21 +2496,21 @@ _**Agent (claude-opus-5-5 2026-10-17 10:14:02Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\images\case01_cycle_chori\scene_02.png`
+ `./images/case01_cycle_chori/scene_02.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 10:14:02Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\images\case01_cycle_chori\scene_05.png`
+ `./images/case01_cycle_chori/scene_05.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 10:14:02Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\images\case01_cycle_chori\scene_08.png`
+ `./images/case01_cycle_chori/scene_08.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 10:14:28Z)**_
@@ -3584,7 +3584,7 @@ _**Agent (claude-opus-5-5 2026-10-17 10:54:37Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\images\case01_cycle_chori\scene_08.png`
+ `./images/case01_cycle_chori/scene_08.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 10:55:06Z)**_
@@ -5788,7 +5788,7 @@ _**Agent (claude-opus-5-5 2026-10-17 12:22:28Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\scripts\make_short.py`
+ `./scripts/make_short.py`
 
 ```text
 1	"""One command -> full Short (voice, captions, Ken Burns, music, -14 LUFS, metadata).
@@ -5971,7 +5971,7 @@ _**Agent (claude-opus-5-5 2026-10-17 12:23:03Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\scripts\make_short.py`
+ `./scripts/make_short.py`
 
 ```text
 240	         "-map", "[out]", "-t", f"{total:.3f}", mix])
@@ -6047,7 +6047,7 @@ _**Agent (claude-opus-5-5 2026-10-17 12:23:06Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\scripts\make_short.py`
+ `./scripts/make_short.py`
 
 ```text
 218	
@@ -6436,7 +6436,7 @@ _**Agent (claude-opus-5-5 2026-10-17 12:54:01Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\scripts\make_short.py`
+ `./scripts/make_short.py`
 
 ```text
 68	        print(f"    new TTS {speaker}: ₹{res['row']['cost_inr']} (aaj ₹{res['row']['today_total_inr']}, "
@@ -7054,7 +7054,7 @@ _**Agent (claude-opus-5-5 2026-10-17 13:57:03Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\scripts\make_short.py`
+ `./scripts/make_short.py`
 
 ```text
 1	"""One command -> full Short (voice, captions, Ken Burns, music, -14 LUFS, metadata).
@@ -8007,7 +8007,7 @@ _**Agent (claude-opus-5-5 2026-10-17 13:58:59Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\CLAUDE.md`
+ `./CLAUDE.md`
 
 ```text
 1	# दादी जासूस — Story Channel
@@ -8591,7 +8591,7 @@ _**Agent (claude-opus-5-5 2026-10-17 15:37:38Z)**_
 
 <tool-use data-tool-type="search" data-tool-name="Grep"><details>
 <summary>Tool use: **Grep**</summary>
- path `D:\Story-Channel` pattern `दादी जासूस|दादीजासूस|DadiJasoos|Dadi Jasoos|dadi jasoos`
+ path `./` pattern `दादी जासूस|दादीजासूस|DadiJasoos|Dadi Jasoos|dadi jasoos`
 
 ```text
 channel_bible.md:1:# CHANNEL BIBLE — "दादी जासूस"
@@ -8883,7 +8883,7 @@ _**Agent (claude-opus-5-5 2026-10-17 16:09:09Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\output\case01_cycle_chori_framecheck.png`
+ `./output/case01_cycle_chori_framecheck.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 16:09:30Z)**_
@@ -9054,7 +9054,7 @@ _**Agent (claude-opus-5-5 2026-10-17 16:17:53Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channel_assets\case01_thumbnail.png`
+ `./channel_assets/case01_thumbnail.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 16:18:14Z)**_
@@ -9273,7 +9273,7 @@ _**Agent (claude-opus-5-5 2026-10-17 16:30:55Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\output\case01_cycle_chori.txt`
+ `./output/case01_cycle_chori.txt`
 
 ```text
 1	TITLE:
@@ -10570,28 +10570,28 @@ _**Agent (claude-opus-5-5 2026-10-17 17:30:25Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\long-videos\long_01\characters\ghasita_sheet.png`
+ `./long-videos/long_01/characters/ghasita_sheet.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 17:30:26Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\long-videos\long_01\characters\chhotu_sheet.png`
+ `./long-videos/long_01/characters/chhotu_sheet.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 17:30:26Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\long-videos\long_01\characters\sadhu_sheet.png`
+ `./long-videos/long_01/characters/sadhu_sheet.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 17:30:26Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\long-videos\long_01\characters\cadhai_prop.png`
+ `./long-videos/long_01/characters/cadhai_prop.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 17:30:34Z)**_
@@ -11464,7 +11464,7 @@ _**Agent (claude-opus-5-5 2026-10-17 18:24:55Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\scripts\make_short.py`
+ `./scripts/make_short.py`
 
 ```text
 80	
@@ -11638,7 +11638,7 @@ _**Agent (claude-opus-5-5 2026-10-17 18:25:20Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\scripts\make_short.py`
+ `./scripts/make_short.py`
 
 ```text
 225	    pcm += silence(END_HOLD)
@@ -12457,14 +12457,14 @@ _**Agent (claude-opus-5-5 2026-10-17 19:21:17Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\long-videos\long_01\output\long_01_framecheck.png`
+ `./long-videos/long_01/output/long_01_framecheck.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-17 19:21:17Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\long-videos\long_01\output\long_01.txt`
+ `./long-videos/long_01/output/long_01.txt`
 
 ```text
 1	TITLE:
@@ -12818,7 +12818,7 @@ _**Agent (claude-opus-5-5 2026-10-18 04:47:31Z)**_
 
 <tool-use data-tool-type="search" data-tool-name="Grep"><details>
 <summary>Tool use: **Grep**</summary>
- path `D:\Story-Channel\scripts\gen_channel_assets.py` pattern `def |thumb|PROMPT|prompt`
+ path `./scripts/gen_channel_assets.py` pattern `def |thumb|PROMPT|prompt`
 
 ```text
 34:BANNER_PROMPT = f"""Wide 16:9 YouTube channel banner illustration, NO text or letters anywhere.
@@ -12897,7 +12897,7 @@ _**Agent (claude-opus-5-5 2026-10-18 04:49:10Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\scripts\gen_channel_assets.py`
+ `./scripts/gen_channel_assets.py`
 
 ```text
 1	"""YouTube channel art: banner (2560x1440) + profile picture (800x800).
@@ -13183,7 +13183,7 @@ _**Agent (claude-opus-5-5 2026-10-18 04:50:43Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\long-videos\long_01\output\long_01_thumbnail.png`
+ `./long-videos/long_01/output/long_01_thumbnail.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-18 04:50:46Z)**_
@@ -13219,7 +13219,7 @@ _**Agent (claude-opus-5-5 2026-10-18 04:50:56Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\long-videos\long_01\characters\cadhai_prop.png`
+ `./long-videos/long_01/characters/cadhai_prop.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-18 04:51:07Z)**_
@@ -14284,7 +14284,7 @@ _**Agent (claude-opus-5-5 2026-10-18 06:37:36Z)**_
 
 <tool-use data-tool-type="search" data-tool-name="Grep"><details>
 <summary>Tool use: **Grep**</summary>
- path `D:\Story-Channel\scripts` pattern `\.ttf|fontsdir|Mukta|arial`
+ path `./scripts` pattern `\.ttf|fontsdir|Mukta|arial`
 
 ```text
 scripts\gen_channel_assets.py:8:Mukta Bold through libass (correct Devanagari shaping), never by the image model.
@@ -14313,7 +14313,7 @@ _**Agent (claude-opus-5-5 2026-10-18 06:37:36Z)**_
 
 <tool-use data-tool-type="search" data-tool-name="Grep"><details>
 <summary>Tool use: **Grep**</summary>
- path `D:\Story-Channel` pattern `^\s*(import|from)\s+\w+`
+ path `./` pattern `^\s*(import|from)\s+\w+`
 
 ```text
 scripts\analyze_video.py:import json
@@ -14422,7 +14422,7 @@ _**Agent (claude-opus-5-5 2026-10-18 06:37:43Z)**_
 
 <tool-use data-tool-type="search" data-tool-name="Grep"><details>
 <summary>Tool use: **Grep**</summary>
- path `D:\Story-Channel\scripts` pattern `ffmpeg\.exe|ffprobe|whisper-models|deno|yt-dlp`
+ path `./scripts` pattern `ffmpeg\.exe|ffprobe|whisper-models|deno|yt-dlp`
 
 ```text
 scripts\analyze_video.py:16:FFMPEG = ROOT / "tools" / "ffmpeg" / "ffmpeg.exe"
@@ -14490,7 +14490,7 @@ _**Agent (claude-opus-5-5 2026-10-18 06:37:59Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\scripts\make_short.py`
+ `./scripts/make_short.py`
 
 ```text
 25	
@@ -14540,7 +14540,7 @@ _**Agent (claude-opus-5-5 2026-10-18 06:38:00Z)**_
 
 <tool-use data-tool-type="search" data-tool-name="Grep"><details>
 <summary>Tool use: **Grep**</summary>
- path `D:\Story-Channel\scripts` pattern `FFMPEG|ffprobe`
+ path `./scripts` pattern `FFMPEG|ffprobe`
 
 ```text
 scripts\analyze_video.py:2
@@ -14555,7 +14555,7 @@ _**Agent (claude-opus-5-5 2026-10-18 06:38:04Z)**_
 
 <tool-use data-tool-type="search" data-tool-name="Grep"><details>
 <summary>Tool use: **Grep**</summary>
- path `D:\Story-Channel\scripts` pattern `ffprobe|with_name|FFMPEG\.parent`
+ path `./scripts` pattern `ffprobe|with_name|FFMPEG\.parent`
 
 ```text
 No matches found
@@ -14586,7 +14586,7 @@ _**Agent (claude-opus-5-5 2026-10-18 06:38:11Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\scripts\analyze_video.py`
+ `./scripts/analyze_video.py`
 
 ```text
 1	"""Analyse a video's pacing/audio for learning (no content reuse).
@@ -15212,7 +15212,7 @@ _**Agent (claude-opus-5-5 2026-10-18 06:40:16Z)**_
 
 <tool-use data-tool-type="search" data-tool-name="Grep"><details>
 <summary>Tool use: **Grep**</summary>
- path `D:\Story-Channel` pattern `AIza[0-9A-Za-z_-]{20,}|ghp_[0-9A-Za-z]{20,}|GOCSPX-`
+ path `./` pattern `AIza[0-9A-Za-z_-]{20,}|ghp_[0-9A-Za-z]{20,}|GOCSPX-`
 
 ```text
 No files found
@@ -18211,14 +18211,14 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 07:25:43Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\long-videos\long_01\output\long_01_framecheck.png`
+ `./long-videos/long_01/output/long_01_framecheck.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 07:25:42Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\long-videos\long_01\output\long_01_thumbnail.png`
+ `./long-videos/long_01/output/long_01_thumbnail.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 07:26:12Z)**_
@@ -18262,21 +18262,21 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 07:26:17Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\long-videos\long_01\output\review\thumb_text_zoom.png`
+ `./long-videos/long_01/output/review/thumb_text_zoom.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 07:26:18Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\long-videos\long_01\characters\ghasita_sheet.png`
+ `./long-videos/long_01/characters/ghasita_sheet.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 07:26:18Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\long-videos\long_01\characters\chhotu_sheet.png`
+ `./long-videos/long_01/characters/chhotu_sheet.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 07:26:44Z)**_
@@ -18309,7 +18309,7 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 07:26:47Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\long-videos\long_01\output\review\speaker_check.png`
+ `./long-videos/long_01/output/review/speaker_check.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 07:27:30Z)**_
@@ -18362,7 +18362,7 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 07:27:51Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\long-videos\long_01\output\review\frame_scenes.png`
+ `./long-videos/long_01/output/review/frame_scenes.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 07:27:53Z)**_
@@ -18442,7 +18442,7 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 07:27:58Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channel_assets\_work\banner_art.png`
+ `./channel_assets/_work/banner_art.png`
 </details></tool-use>
 
 _**Agent - sidechain (2026-10-18 07:27:58Z)**_
@@ -18611,7 +18611,7 @@ _**Agent (claude-opus-5-5 2026-10-18 07:33:52Z)**_
 
 <tool-use data-tool-type="search" data-tool-name="Grep"><details>
 <summary>Tool use: **Grep**</summary>
- path `D:\Story-Channel\channel_bible.md` pattern `दरवाज|darwaz|door|Gulmohar|ghar|house|aangan|आँगन`
+ path `./channel_bible.md` pattern `दरवाज|darwaz|door|Gulmohar|ghar|house|aangan|आँगन`
 
 ```text
 45:| **Sharma ji** (padosi) | ~55 saal, ganja sar with grey side hair, rectangular chashma, cream kurta-pyjama, brown sleeveless jacket. Hamesha kuch khota rehta hai. Ghar ka gate lohe ka (Case 01 se laal paint). |
@@ -18676,7 +18676,7 @@ _**Agent (claude-opus-5-5 2026-10-18 07:34:01Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\long-videos\long_01\output\review\case01_sheet.png`
+ `./long-videos/long_01/output/review/case01_sheet.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-18 07:34:11Z)**_
@@ -18690,7 +18690,7 @@ _**Agent (claude-opus-5-5 2026-10-18 07:34:12Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channel_bible.md`
+ `./channel_bible.md`
 
 ```text
 60	- Har case ke suspects naye ho sakte hain.
@@ -18750,7 +18750,7 @@ _**Agent (claude-opus-5-5 2026-10-18 07:34:22Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\munshi\RULES.md`
+ `./munshi/RULES.md`
 
 ```text
 1	# Munshi RULES — Story-Channel
@@ -18780,7 +18780,7 @@ _**Agent (claude-opus-5-5 2026-10-18 07:34:30Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\scripts\make_short.py`
+ `./scripts/make_short.py`
 
 ```text
 60	MUSIC_BELOW_VOICE_DB = 9
@@ -19443,7 +19443,7 @@ _**Agent (claude-opus-5-5 2026-10-18 07:35:11Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\long-videos\long_01\images\scene_01.png`
+ `./long-videos/long_01/images/scene_01.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-18 07:35:26Z)**_
@@ -19863,7 +19863,7 @@ _**Agent (claude-opus-5-5 2026-10-18 07:39:28Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\long-videos\long_01\output\long_01_thumbnail.png`
+ `./long-videos/long_01/output/long_01_thumbnail.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-18 07:39:31Z)**_
@@ -20581,7 +20581,7 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 07:53:47Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\munshi\RULES.md`
+ `./munshi/RULES.md`
 
 ```text
 1	# Munshi RULES — Story-Channel
@@ -20652,7 +20652,7 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 07:53:48Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\munshi\log.md`
+ `./munshi/log.md`
 
 ```text
 1	# Munshi log
@@ -21160,7 +21160,7 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 07:54:04Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\scripts\make_short.py`
+ `./scripts/make_short.py`
 
 ```text
 194	def build_voice(lines, audio_dir: Path, work: Path, run_whisper: bool):
@@ -22299,7 +22299,7 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 07:57:50Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\long-videos\long_01\output\review\rr2\sheet_l2_l15.png`
+ `./long-videos/long_01/output/review/rr2/sheet_l2_l15.png`
 </details></tool-use>
 
 _**Agent - sidechain (2026-10-18 07:57:50Z)**_
@@ -22314,7 +22314,7 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 07:57:56Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\long-videos\long_01\output\long_01_framecheck.png`
+ `./long-videos/long_01/output/long_01_framecheck.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 07:57:59Z)**_
@@ -22345,7 +22345,7 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 07:58:15Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\long-videos\long_01\output\long_01_thumbnail.png`
+ `./long-videos/long_01/output/long_01_thumbnail.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 07:58:28Z)**_
@@ -22378,7 +22378,7 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 07:58:28Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\long-videos\long_01\output\review\rr2\thumb_zoom.png`
+ `./long-videos/long_01/output/review/rr2/thumb_zoom.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 07:58:32Z)**_
@@ -23366,7 +23366,7 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 08:09:35Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\tools\youtube_upload.py`
+ `./tools/youtube_upload.py`
 
 ```text
 1	#!/usr/bin/env python3
@@ -24200,7 +24200,7 @@ _**Agent (claude-opus-5-5 2026-10-18 08:24:38Z)**_
 
 <tool-use data-tool-type="search" data-tool-name="Grep"><details>
 <summary>Tool use: **Grep**</summary>
- path `D:\Story-Channel` pattern `pixar|ghibli|disney|dreamworks|studio|bheem|motu|patlu|marvel|in the style of|artist`
+ path `./` pattern `pixar|ghibli|disney|dreamworks|studio|bheem|motu|patlu|marvel|in the style of|artist`
 
 ```text
 No matches found
@@ -26084,42 +26084,42 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 08:27:45Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\long-videos\long_01\output\long_01_thumbnail.png`
+ `./long-videos/long_01/output/long_01_thumbnail.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 08:27:46Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\long-videos\long_01\images\scene_03.png`
+ `./long-videos/long_01/images/scene_03.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 08:27:46Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\long-videos\long_01\images\scene_01.png`
+ `./long-videos/long_01/images/scene_01.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 08:27:50Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\long-videos\long_01\images\scene_31.png`
+ `./long-videos/long_01/images/scene_31.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 08:27:50Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\long-videos\long_01\images\scene_19.png`
+ `./long-videos/long_01/images/scene_19.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 08:27:50Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\long-videos\long_01\images\scene_22.png`
+ `./long-videos/long_01/images/scene_22.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 08:28:03Z)**_
@@ -27627,7 +27627,7 @@ _**Agent (claude-opus-5-5 2026-10-18 09:26:59Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\munshi\RULES.md`
+ `./munshi/RULES.md`
 
 ```text
 45	## 7. Metadata
@@ -27739,7 +27739,7 @@ _**Agent (claude-opus-5-5 2026-10-18 09:27:48Z)**_
 
 <tool-use data-tool-type="search" data-tool-name="Grep"><details>
 <summary>Tool use: **Grep**</summary>
- path `D:\Story-Channel\scripts\make_short.py` pattern `^import (csv|argparse)`
+ path `./scripts/make_short.py` pattern `^import (csv|argparse)`
 
 ```text
 13:import argparse
@@ -27966,7 +27966,7 @@ _**Agent (claude-opus-5-5 2026-10-18 09:36:04Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\munshi\RULES.md`
+ `./munshi/RULES.md`
 
 ```text
 52	
@@ -27984,7 +27984,7 @@ _**Agent (claude-opus-5-5 2026-10-18 09:36:04Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\munshi\channel_config.json`
+ `./munshi/channel_config.json`
 
 ```text
 1	{
@@ -28012,7 +28012,7 @@ _**Agent (claude-opus-5-5 2026-10-18 09:36:09Z)**_
 
 <tool-use data-tool-type="search" data-tool-name="Grep"><details>
 <summary>Tool use: **Grep**</summary>
- path `D:\Story-Channel\.claude\skills\youtube-publish\SKILL.md` pattern `^3\. Pick publish time.*`
+ path `./.claude/skills/youtube-publish/SKILL.md` pattern `^3\. Pick publish time.*`
 
 ```text
 28:3. Pick publish time: next free day at 19:00 IST respecting min_days_between_long (check other projects' upload_result.json).
@@ -28891,7 +28891,7 @@ _**Agent (claude-opus-5-5 2026-10-18 09:50:49Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\munshi\RULES.md`
+ `./munshi/RULES.md`
 
 ```text
 1	# Munshi RULES — Story-Channel
@@ -29211,7 +29211,7 @@ _**Agent (claude-opus-5-5 2026-10-18 09:51:47Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\scripts\make_short.py`
+ `./scripts/make_short.py`
 
 ```text
 27	import numpy as np
@@ -29257,7 +29257,7 @@ _**Agent (claude-opus-5-5 2026-10-18 09:51:57Z)**_
 
 <tool-use data-tool-type="search" data-tool-name="Grep"><details>
 <summary>Tool use: **Grep**</summary>
- path `D:\Story-Channel\scripts\make_short.py` pattern `def load_project`
+ path `./scripts/make_short.py` pattern `def load_project`
 
 ```text
 620:def load_project(name):
@@ -29296,7 +29296,7 @@ _**Agent (claude-opus-5-5 2026-10-18 09:52:08Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\scripts\make_short.py`
+ `./scripts/make_short.py`
 
 ```text
 642	def main():
@@ -29806,7 +29806,7 @@ _**Agent (claude-opus-5-5 2026-10-18 09:53:43Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\scripts\gen_channel_assets.py`
+ `./scripts/gen_channel_assets.py`
 
 ```text
 296	    shutil.copy(L1W / "long01_thumb_titled.png", out)
@@ -30017,7 +30017,7 @@ _**Agent (claude-opus-5-5 2026-10-18 09:55:08Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\CLAUDE.md`
+ `./CLAUDE.md`
 
 ```text
 1	# दादी की कहानियाँ (Dadi Ki Kahaniyan) — Story Channel
@@ -30206,7 +30206,7 @@ _**Agent (claude-opus-5-5 2026-10-18 09:55:49Z)**_
 
 <tool-use data-tool-type="search" data-tool-name="Grep"><details>
 <summary>Tool use: **Grep**</summary>
- path `D:\Story-Channel\docs\YOUTUBE_UPLOADER_SETUP.md` pattern `ew_channel`
+ path `./docs/YOUTUBE_UPLOADER_SETUP.md` pattern `ew_channel`
 
 ```text
 102-Run `tools
@@ -31283,7 +31283,7 @@ _**Agent (claude-opus-5-5 2026-10-18 10:08:03Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\review\crop_plan.png`
+ `./channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/review/crop_plan.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-18 10:08:44Z)**_
@@ -31779,7 +31779,7 @@ _**Agent (claude-opus-5-5 2026-10-18 10:21:05Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\review\preview_sheet.png`
+ `./channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/review/preview_sheet.png`
 
 ```text
 File does not exist. Note: your current working directory is D:\Story-Channel.
@@ -31818,7 +31818,7 @@ _**Agent (claude-opus-5-5 2026-10-18 10:21:39Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\review\preview_sheet.png`
+ `./channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/review/preview_sheet.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-18 10:21:54Z)**_
@@ -31861,7 +31861,7 @@ _**Agent (claude-opus-5-5 2026-10-18 10:22:28Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\review\fix_sheet.png`
+ `./channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/review/fix_sheet.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-18 10:22:34Z)**_
@@ -32853,7 +32853,7 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 10:24:37Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\review\r1\sheet.png`
+ `./channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/review/r1/sheet.png`
 </details></tool-use>
 
 _**Agent - sidechain (2026-10-18 10:24:37Z)**_
@@ -32877,7 +32877,7 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 10:24:56Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\review\r1\key4.png`
+ `./channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/review/r1/key4.png`
 </details></tool-use>
 
 _**Agent - sidechain (2026-10-18 10:24:56Z)**_
@@ -32932,14 +32932,14 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 10:25:08Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\images\scene_22.png`
+ `./channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/images/scene_22.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 10:25:08Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\images\scene_16.png`
+ `./channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/images/scene_16.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 10:25:19Z)**_
@@ -32959,7 +32959,7 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 10:25:22Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\review\r1\s22_bottom.png`
+ `./channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/review/r1/s22_bottom.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 10:25:42Z)**_
@@ -33256,14 +33256,14 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 10:27:18Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\review\r1\sim16_hook_top1to1.png`
+ `./channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/review/r1/sim16_hook_top1to1.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 10:27:18Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\review\r1\sim22_l8_top1to1.png`
+ `./channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/review/r1/sim22_l8_top1to1.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 10:27:34Z)**_
@@ -33283,7 +33283,7 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 10:27:36Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\review\r1\sims.png`
+ `./channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/review/r1/sims.png`
 </details></tool-use>
 
 _**Agent - sidechain (2026-10-18 10:27:36Z)**_
@@ -33307,7 +33307,7 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 10:27:47Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\review\r1\sim22_l7_bottom1to1.png`
+ `./channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/review/r1/sim22_l7_bottom1to1.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 10:28:05Z)**_
@@ -33373,7 +33373,7 @@ _**Agent (claude-opus-5-5 2026-10-18 10:29:18Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\review\r2_sheet.png`
+ `./channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/review/r2_sheet.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-18 10:29:22Z)**_
@@ -33856,7 +33856,7 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 10:30:40Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\review\r2\sc22_final_sim_sheet.png`
+ `./channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/review/r2/sc22_final_sim_sheet.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 10:30:48Z)**_
@@ -33876,14 +33876,14 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 10:30:48Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\images\scene_22.png`
+ `./channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/images/scene_22.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 10:30:51Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\review\r2\l7_bottom.png`
+ `./channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/review/r2/l7_bottom.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 10:31:12Z)**_
@@ -33906,14 +33906,14 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 10:31:12Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\review\r2\hook_sheet.png`
+ `./channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/review/r2/hook_sheet.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 10:31:12Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\review\r2\sc22_preview_sheet.png`
+ `./channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/review/r2/sc22_preview_sheet.png`
 
 ```text
 File does not exist. Note: your current working directory is D:\Story-Channel.
@@ -33937,7 +33937,7 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 10:31:24Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\review\r2\sc22_preview_sheet.png`
+ `./channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/review/r2/sc22_preview_sheet.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 10:31:32Z)**_
@@ -34115,7 +34115,7 @@ _**Agent (claude-opus-5-5 2026-10-18 11:43:42Z)**_
 
 <tool-use data-tool-type="search" data-tool-name="Grep"><details>
 <summary>Tool use: **Grep**</summary>
- path `D:\Story-Channel\scripts\make_short.py` pattern `GAP`
+ path `./scripts/make_short.py` pattern `GAP`
 
 ```text
 52:GAP, END_HOLD = 0.30, 1.5  # silence between lines; hold on the final question
@@ -34130,7 +34130,7 @@ _**Agent (claude-opus-5-5 2026-10-18 11:43:44Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\scripts\make_short.py`
+ `./scripts/make_short.py`
 
 ```text
 194	def build_voice(lines, audio_dir: Path, work: Path, run_whisper: bool, end_hold: float = END_HOLD):
@@ -35143,14 +35143,14 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 11:48:56Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\review\r3\hook_sheet.png`
+ `./channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/review/r3/hook_sheet.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 11:48:56Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\review\r3\sc22_sheet.png`
+ `./channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/review/r3/sc22_sheet.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 11:49:23Z)**_
@@ -35511,7 +35511,7 @@ _**Agent (claude-opus-5-5 2026-10-18 11:57:51Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\scripts\make_short.py`
+ `./scripts/make_short.py`
 
 ```text
 252	            events.setdefault("pauses", []).append((start - PAUSE_LEAD, t))
@@ -35673,7 +35673,7 @@ _**Agent (claude-opus-5-5 2026-10-18 11:58:19Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\scripts\make_short.py`
+ `./scripts/make_short.py`
 
 ```text
 831	                   f"\n  frame check: {check}\n  metadata:    {txt}")
@@ -36820,7 +36820,7 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 12:02:26Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\review\r4\contact_r4.png`
+ `./channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/review/r4/contact_r4.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 12:02:35Z)**_
@@ -36926,7 +36926,7 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 12:06:42Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\shared\RULES.md`
+ `./shared/RULES.md`
 
 ```text
 1	# Munshi RULES — Story-Channel
@@ -37036,7 +37036,7 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 12:06:42Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\RULES.md`
+ `./channels/dadi-ki-kahaniyan/RULES.md`
 
 ```text
 1	# Channel RULES — दादी की कहानियाँ (dadi-ki-kahaniyan)
@@ -37062,7 +37062,7 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 12:06:43Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\log.md`
+ `./channels/dadi-ki-kahaniyan/log.md`
 
 ```text
 1	# Munshi log
@@ -37886,7 +37886,7 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 12:10:33Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\review\final\sheet.png`
+ `./channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/review/final/sheet.png`
 </details></tool-use>
 
 _**Agent - sidechain (2026-10-18 12:10:33Z)**_
@@ -37922,7 +37922,7 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 12:10:59Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\review\final\sc22_bottom.png`
+ `./channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/review/final/sc22_bottom.png`
 </details></tool-use>
 
 _**Agent - sidechain (2026-10-18 12:10:59Z)**_
@@ -37967,7 +37967,7 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 12:11:10Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\review\final\text_zoom.png`
+ `./channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/review/final/text_zoom.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 12:11:16Z)**_
@@ -39625,7 +39625,7 @@ _**Agent (claude-opus-5-5 2026-10-18 12:32:12Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\tools\youtube_upload.py`
+ `./tools/youtube_upload.py`
 
 ```text
 80	    errs = []
@@ -39761,7 +39761,7 @@ _**Agent (claude-opus-5-5 2026-10-18 12:32:33Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\tools\youtube_upload.py`
+ `./tools/youtube_upload.py`
 
 ```text
 185	    line = comment_text(pid)
@@ -40930,7 +40930,7 @@ _**Agent (claude-opus-5-5 2026-10-18 12:47:57Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\tools\youtube_upload.py`
+ `./tools/youtube_upload.py`
 
 ```text
 86	        errs.append("channel_id missing/invalid (24 chars, starts with UC; set it in channels/<key>/channel.json)")
@@ -40954,7 +40954,7 @@ _**Agent (claude-opus-5-5 2026-10-18 12:47:57Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\tools\youtube_upload.py`
+ `./tools/youtube_upload.py`
 
 ```text
 158	
@@ -41089,7 +41089,7 @@ _**Agent (claude-opus-5-5 2026-10-18 12:49:05Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\.claude\settings.json`
+ `./.claude/settings.json`
 
 ```text
 1	{
@@ -42555,7 +42555,7 @@ _**Agent (claude-opus-5-5 2026-10-18 15:14:51Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\scripts\gen_channel_assets.py`
+ `./scripts/gen_channel_assets.py`
 
 ```text
 18	from gemini_image import generate  # noqa: E402
@@ -42815,7 +42815,7 @@ _**Agent (claude-opus-5-5 2026-10-18 15:16:06Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\kissago_banner.png`
+ `./channels/dadi-ki-kahaniyan/brand/kissago_banner.png`
 </details></tool-use>
 
 ---
@@ -43559,7 +43559,7 @@ _**Agent (claude-opus-5-5 2026-10-18 15:33:19Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\scripts\gemini_image.py`
+ `./scripts/gemini_image.py`
 
 ```text
 16	ENDPOINT = "https://generativelanguage.googleapis.com/v1beta/interactions"
@@ -43643,7 +43643,7 @@ _**Agent (claude-opus-5-5 2026-10-18 15:35:23Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\icon_contact_sheet.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/icon_contact_sheet.jpg`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-18 15:35:40Z)**_
@@ -44182,7 +44182,7 @@ _**Agent (claude-opus-5-5 2026-10-18 15:40:19Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\banner_v2_devices.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/banner_v2_devices.jpg`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-18 15:40:46Z)**_
@@ -44247,7 +44247,7 @@ _**Agent (claude-opus-5-5 2026-10-18 15:40:59Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\banner_v2_devices.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/banner_v2_devices.jpg`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-18 15:41:07Z)**_
@@ -45121,14 +45121,14 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 15:42:04Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\review\r1_icon_bgs.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/review/r1_icon_bgs.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 15:42:04Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\review\r1_logo_horizontal_bgs.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/review/r1_logo_horizontal_bgs.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (2026-10-18 15:42:04Z)**_
@@ -45139,7 +45139,7 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 15:42:05Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\review\r1_logo_stacked_bgs.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/review/r1_logo_stacked_bgs.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (2026-10-18 15:42:05Z)**_
@@ -45179,14 +45179,14 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 15:42:15Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\review\r1_icon_edges.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/review/r1_icon_edges.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 15:42:15Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\review\r1_wordmark_x2.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/review/r1_wordmark_x2.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (2026-10-18 15:42:15Z)**_
@@ -45225,28 +45225,28 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 15:42:42Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\review\r1_shaping_parts.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/review/r1_shaping_parts.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 15:42:45Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\review\r1_small_x4.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/review/r1_small_x4.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 15:42:45Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\review\r1_dp_circle.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/review/r1_dp_circle.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 15:42:46Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\kissago_banner_v2.png`
+ `./channels/dadi-ki-kahaniyan/brand/kissago_banner_v2.png`
 </details></tool-use>
 
 _**Agent - sidechain (2026-10-18 15:42:46Z)**_
@@ -45257,7 +45257,7 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 15:42:57Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\banner_v2_devices.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/banner_v2_devices.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 15:43:14Z)**_
@@ -45309,14 +45309,14 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 15:43:18Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\review\r1_banner_mitthu_band.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/review/r1_banner_mitthu_band.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 15:43:19Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\review\r1_banner_text_zoom.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/review/r1_banner_text_zoom.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 15:43:32Z)**_
@@ -45352,21 +45352,21 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 15:43:32Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\review\r1_thumbs.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/review/r1_thumbs.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 15:43:40Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\review\r1_corner_case01_thumbnail.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/review/r1_corner_case01_thumbnail.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 15:43:40Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\review\r1_thumb_v.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/review/r1_thumb_v.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 15:43:47Z)**_
@@ -45440,7 +45440,7 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 15:43:56Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\characters\mitthu_sheet.png`
+ `./channels/dadi-ki-kahaniyan/characters/mitthu_sheet.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 15:44:14Z)**_
@@ -45518,7 +45518,7 @@ _**Agent (claude-opus-5-5 2026-10-18 15:45:06Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\band_compare.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/band_compare.jpg`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-18 15:45:14Z)**_
@@ -45669,21 +45669,21 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 15:45:47Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\review\r2_full.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/review/r2_full.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 15:45:47Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\review\r2_desktop_band.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/review/r2_desktop_band.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 15:45:47Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\review\r2_mobile_safe.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/review/r2_mobile_safe.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (2026-10-18 15:45:47Z)**_
@@ -45793,14 +45793,14 @@ _**Agent (claude-opus-5-5 2026-10-18 15:46:35Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\brand_showcase.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/brand_showcase.jpg`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-18 15:46:35Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\banner_v2_devices.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/banner_v2_devices.jpg`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-18 15:46:59Z)**_
@@ -46116,7 +46116,7 @@ _**Agent (claude-opus-5-5 2026-10-18 16:11:46Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\dev_compare.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/dev_compare.jpg`
 
 ```text
 File does not exist. Note: your current working directory is D:\Story-Channel.
@@ -46151,7 +46151,7 @@ _**Agent (claude-opus-5-5 2026-10-18 16:12:03Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\dev_compare.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/dev_compare.jpg`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-18 16:12:14Z)**_
@@ -46198,7 +46198,7 @@ _**Agent (claude-opus-5-5 2026-10-18 16:12:48Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\banner_v2_devices.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/banner_v2_devices.jpg`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-18 16:13:05Z)**_
@@ -46361,7 +46361,7 @@ _**Agent (claude-opus-5-5 2026-10-18 16:21:31Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\dp_v2_compare.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/dp_v2_compare.jpg`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-18 16:21:38Z)**_
@@ -46411,7 +46411,7 @@ _**Agent (claude-opus-5-5 2026-10-18 16:21:49Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\dp_v2_compare.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/dp_v2_compare.jpg`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-18 16:21:52Z)**_
@@ -46446,7 +46446,7 @@ _**Agent (claude-opus-5-5 2026-10-18 16:22:00Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\dp_v3_compare.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/dp_v3_compare.jpg`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-18 16:22:11Z)**_
@@ -46539,7 +46539,7 @@ _**Agent (claude-opus-5-5 2026-10-18 16:23:08Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\banner_v3_devices.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/banner_v3_devices.jpg`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-18 16:23:26Z)**_
@@ -46571,7 +46571,7 @@ _**Agent (claude-opus-5-5 2026-10-18 16:23:32Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\banner_v3_devices.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/banner_v3_devices.jpg`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-18 16:23:47Z)**_
@@ -47079,14 +47079,14 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 16:24:26Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\review\dp_v3_r1_sheet.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/review/dp_v3_r1_sheet.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 16:24:29Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\banner_v3_devices.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/banner_v3_devices.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 16:24:33Z)**_
@@ -47115,14 +47115,14 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 16:24:39Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\review\b3_right.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/review/b3_right.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 16:24:39Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\review\b3_safe.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/review/b3_safe.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 16:24:50Z)**_
@@ -47190,21 +47190,21 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 16:24:57Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\review\b3_bottom.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/review/b3_bottom.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 16:24:57Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\review\b3_left.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/review/b3_left.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 16:24:59Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\review\b3_band_right.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/review/b3_band_right.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 16:25:08Z)**_
@@ -47230,14 +47230,14 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 16:25:08Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\characters\dadi_sheet.png`
+ `./channels/dadi-ki-kahaniyan/characters/dadi_sheet.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 16:25:08Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\characters\golu_sheet.png`
+ `./channels/dadi-ki-kahaniyan/characters/golu_sheet.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 16:25:11Z)**_
@@ -47259,7 +47259,7 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 16:25:11Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\review\b3_band_edge.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/review/b3_band_edge.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 16:25:16Z)**_
@@ -47331,7 +47331,7 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 16:25:40Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\review\b3_tag_zoom.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/review/b3_tag_zoom.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 16:25:51Z)**_
@@ -47625,7 +47625,7 @@ _**Agent (claude-opus-5-5 2026-10-18 16:35:11Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\banner_v4_devices.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/banner_v4_devices.jpg`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-18 16:35:32Z)**_
@@ -47657,7 +47657,7 @@ _**Agent (claude-opus-5-5 2026-10-18 16:35:39Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\banner_v4_devices.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/banner_v4_devices.jpg`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-18 16:35:47Z)**_
@@ -48220,21 +48220,21 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 16:36:26Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\review\v4_grid.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/review/v4_grid.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 16:36:27Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\review\v4_group.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/review/v4_group.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 16:36:46Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\banner_v4_devices.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/banner_v4_devices.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 16:36:57Z)**_
@@ -48287,42 +48287,42 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 16:37:00Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\review\v4_bandedge.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/review/v4_bandedge.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 16:37:00Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\review\v4_tagline.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/review/v4_tagline.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 16:37:01Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\review\v4_logo.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/review/v4_logo.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 16:37:27Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\review\v4_right.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/review/v4_right.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 16:37:28Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\icon_v2.png`
+ `./channels/dadi-ki-kahaniyan/brand/_work/icon_v2.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 16:37:28Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\characters\golu_sheet.png`
+ `./channels/dadi-ki-kahaniyan/characters/golu_sheet.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 16:37:35Z)**_
@@ -48366,7 +48366,7 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 16:37:55Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\review\v4_mitthu_band.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/review/v4_mitthu_band.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 16:38:05Z)**_
@@ -48511,7 +48511,7 @@ _**Agent (claude-opus-5-5 2026-10-18 16:42:38Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\banner_v5_devices.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/banner_v5_devices.jpg`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-18 16:42:59Z)**_
@@ -48557,14 +48557,14 @@ _**Agent (claude-opus-5-5 2026-10-18 16:43:12Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\v5_mitthu_zoom.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/v5_mitthu_zoom.jpg`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-18 16:43:12Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\v5_crop_options.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/v5_crop_options.jpg`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-18 16:43:31Z)**_
@@ -48598,7 +48598,7 @@ _**Agent (claude-opus-5-5 2026-10-18 16:43:38Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\banner_v5_devices.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/banner_v5_devices.jpg`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-18 16:43:46Z)**_
@@ -49103,14 +49103,14 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 16:44:19Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\kissago_banner_v5.png`
+ `./channels/dadi-ki-kahaniyan/brand/kissago_banner_v5.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 16:44:19Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\banner_v5_devices.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/banner_v5_devices.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (2026-10-18 16:44:19Z)**_
@@ -49175,21 +49175,21 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-18 16:44:50Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\review\v5_logo_gap.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/review/v5_logo_gap.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 16:44:50Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\review\v5_mitthu.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/review/v5_mitthu.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 16:45:00Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\review\v5_tagline.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/review/v5_tagline.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-18 16:45:16Z)**_
@@ -49476,7 +49476,7 @@ _**Agent (claude-opus-5-5 2026-10-18 17:02:14Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\review\cover_check.jpg`
+ `./channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/review/cover_check.jpg`
 
 ```text
 File does not exist. Note: your current working directory is D:\Story-Channel.
@@ -49524,7 +49524,7 @@ _**Agent (claude-opus-5-5 2026-10-18 17:02:32Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\001_lalchi-halwai\shorts\short_01_jadui-kadhai\review\cover_check.jpg`
+ `./channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/review/cover_check.jpg`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-18 17:02:42Z)**_
@@ -49722,7 +49722,7 @@ _**Agent (claude-opus-5-5 2026-10-18 17:08:34Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\dp_concepts\dp_concepts_sheet.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/dp_concepts/dp_concepts_sheet.jpg`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-18 17:08:49Z)**_
@@ -49783,7 +49783,7 @@ _**Agent (claude-opus-5-5 2026-10-18 17:21:16Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\dp_ki_zoom.jpg`
+ `./channels/dadi-ki-kahaniyan/brand/_work/dp_ki_zoom.jpg`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-18 17:21:20Z)**_
@@ -54645,7 +54645,7 @@ _**Agent (claude-opus-5-5 2026-10-19 11:04:48Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\scripts\gen_long_characters.py`
+ `./scripts/gen_long_characters.py`
 
 ```text
 58	if __name__ == "__main__":
@@ -54775,14 +54775,14 @@ _**Agent (claude-opus-5-5 2026-10-19 11:07:04Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\scripts\gen_long_characters.py`
+ `./scripts/gen_long_characters.py`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-19 11:07:06Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\scripts\gen_long_characters.py`
+ `./scripts/gen_long_characters.py`
 
 ```text
 88	}
@@ -54857,7 +54857,7 @@ _**Agent (claude-opus-5-5 2026-10-19 11:08:15Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\review\sheets_check.jpg`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/review/sheets_check.jpg`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-19 11:08:25Z)**_
@@ -55243,49 +55243,49 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:08:40Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\characters\sharma_sheet.png`
+ `./channels/dadi-ki-kahaniyan/characters/sharma_sheet.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:08:41Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\002_sharma-ji-ki-cycle\images\scene_01.png`
+ `./channels/dadi-ki-kahaniyan/stories/002_sharma-ji-ki-cycle/images/scene_01.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:08:41Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\002_sharma-ji-ki-cycle\images\scene_02.png`
+ `./channels/dadi-ki-kahaniyan/stories/002_sharma-ji-ki-cycle/images/scene_02.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:08:45Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\characters\raghu_sheet.png`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/characters/raghu_sheet.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:08:45Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\characters\gupta_sheet.png`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/characters/gupta_sheet.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:08:45Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\characters\sona_sheet.png`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/characters/sona_sheet.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:08:53Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\characters\pandey_sheet.png`
+ `./channels/dadi-ki-kahaniyan/characters/pandey_sheet.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:08:58Z)**_
@@ -55377,7 +55377,7 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:09:11Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\review\r1_sheets_sona_lap.jpg`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/review/r1_sheets_sona_lap.jpg`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-19 11:09:20Z)**_
@@ -55895,7 +55895,7 @@ _**Agent (claude-opus-5-5 2026-10-19 11:22:33Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\review\images_sheet.jpg`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/review/images_sheet.jpg`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-19 11:22:49Z)**_
@@ -56490,14 +56490,14 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:23:15Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\review\images_sheet.jpg`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/review/images_sheet.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:23:15Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\review\sheets_check.jpg`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/review/sheets_check.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:23:24Z)**_
@@ -56599,35 +56599,35 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:23:32Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\characters\dadi_sheet.png`
+ `./channels/dadi-ki-kahaniyan/characters/dadi_sheet.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:23:33Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\characters\golu_sheet.png`
+ `./channels/dadi-ki-kahaniyan/characters/golu_sheet.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:23:33Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\characters\pandey_sheet.png`
+ `./channels/dadi-ki-kahaniyan/characters/pandey_sheet.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:23:34Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\002_sharma-ji-ki-cycle\images\scene_04.png`
+ `./channels/dadi-ki-kahaniyan/stories/002_sharma-ji-ki-cycle/images/scene_04.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:23:35Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\banner_art.png`
+ `./channels/dadi-ki-kahaniyan/brand/_work/banner_art.png`
 </details></tool-use>
 
 _**Agent - sidechain (2026-10-19 11:23:35Z)**_
@@ -56642,147 +56642,147 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:23:38Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_01.png`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_01.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:23:39Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_02.png`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_02.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:23:40Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_03.png`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_03.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:23:40Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_04.png`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_04.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:23:44Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_05.png`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_05.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:23:45Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_06.png`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_06.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:23:45Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_09.png`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_09.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:23:46Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_11.png`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_11.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:23:56Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_12.png`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_12.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:23:56Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_13.png`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_13.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:23:57Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_14.png`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_14.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:23:58Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_15.png`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_15.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:24:05Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_17.png`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_17.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:24:06Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_18.png`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_18.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:24:06Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_22.png`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_22.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:24:07Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_23.png`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_23.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:24:20Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_24.png`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_24.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:24:20Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_25.png`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_25.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:24:21Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_26.png`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_26.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:24:22Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_27.png`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_27.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:24:22Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_29.png`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_29.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:24:38Z)**_
@@ -56819,7 +56819,7 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:24:40Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\review\r1_images_zoom.jpg`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/review/r1_images_zoom.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:25:04Z)**_
@@ -56874,7 +56874,7 @@ _**Agent (claude-opus-5-5 2026-10-19 11:25:54Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\refs\aangan_house.png`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/refs/aangan_house.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-19 11:25:58Z)**_
@@ -57395,7 +57395,7 @@ _**Agent (claude-opus-5-5 2026-10-19 11:30:28Z)**_
 
 <tool-use data-tool-type="search" data-tool-name="Grep"><details>
 <summary>Tool use: **Grep**</summary>
- path `D:\Story-Channel\shared\RULES.md` pattern `^## `
+ path `./shared/RULES.md` pattern `^## `
 
 ```text
 10:## 1. Budget
@@ -57419,7 +57419,7 @@ _**Agent (claude-opus-5-5 2026-10-19 11:30:28Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\tools\youtube_upload.py`
+ `./tools/youtube_upload.py`
 
 ```text
 1	#!/usr/bin/env python3
@@ -57843,7 +57843,7 @@ _**Agent (claude-opus-5-5 2026-10-19 11:30:30Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\shared\RULES.md`
+ `./shared/RULES.md`
 
 ```text
 51	## 8. Publishing
@@ -58026,7 +58026,7 @@ _**Agent (claude-opus-5-5 2026-10-19 11:31:00Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\.claude\agents\munshi.md`
+ `./.claude/agents/munshi.md`
 
 ```text
 48	Append one line per verdict to `channels/<key>/log.md`: date, project, step, verdict, one-line reason.
@@ -58051,7 +58051,7 @@ _**Agent (claude-opus-5-5 2026-10-19 11:31:00Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\.claude\skills\youtube-publish\SKILL.md`
+ `./.claude/skills/youtube-publish/SKILL.md`
 
 ```text
 1	---
@@ -58918,7 +58918,7 @@ _**Agent (claude-opus-5-5 2026-10-19 11:34:23Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_13.png`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_13.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-19 11:34:29Z)**_
@@ -59428,7 +59428,7 @@ _**Agent (claude-opus-5-5 2026-10-19 11:36:04Z)**_
 
 <tool-use data-tool-type="search" data-tool-name="Grep"><details>
 <summary>Tool use: **Grep**</summary>
- path `D:\Story-Channel\scripts\make_short.py` pattern `\"shots?\"\]|get\(\"shots?\"`
+ path `./scripts/make_short.py` pattern `\"shots?\"\]|get\(\"shots?\"`
 
 ```text
 376-        end = scenes[k + 1][1][0] if k + 1 < len(scenes) else total
@@ -59651,7 +59651,7 @@ _**Agent (claude-opus-5-5 2026-10-19 11:36:47Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\scripts\gen_channel_assets.py`
+ `./scripts/gen_channel_assets.py`
 
 ```text
 1	"""YouTube channel art: banner (2560x1440) + profile picture (800x800).
@@ -60117,7 +60117,7 @@ _**Agent (claude-opus-5-5 2026-10-19 11:38:13Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\output\long_02_thumbnail.png`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/output/long_02_thumbnail.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-19 11:38:27Z)**_
@@ -61075,7 +61075,7 @@ _**Agent (claude-opus-5-5 2026-10-19 11:39:10Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\scripts\make_short.py`
+ `./scripts/make_short.py`
 
 ```text
 403	
@@ -61206,14 +61206,14 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:39:25Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_13.png`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_13.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:39:25Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_09.png`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_09.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-19 11:39:26Z)**_
@@ -61239,7 +61239,7 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:39:30Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\_v1\scene_09.png`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/_v1/scene_09.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:39:34Z)**_
@@ -61263,14 +61263,14 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:39:38Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_18.png`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_18.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:39:38Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_26.png`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_26.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-19 11:39:41Z)**_
@@ -61299,7 +61299,7 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:39:54Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\review\r2_img26_rightcrowd.jpg`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/review/r2_img26_rightcrowd.jpg`
 
 ```text
 File does not exist. Note: your current working directory is D:\Story-Channel.
@@ -61423,7 +61423,7 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:40:15Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\review\r2_img26_rightcrowd.jpg`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/review/r2_img26_rightcrowd.jpg`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-19 11:40:19Z)**_
@@ -61475,28 +61475,28 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:40:31Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\review\r2_img26_kids.jpg`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/review/r2_img26_kids.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:40:31Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\review\r2_img26_sharma_sona.jpg`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/review/r2_img26_sharma_sona.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:40:34Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\review\r2_img18_stick.jpg`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/review/r2_img18_stick.jpg`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-19 11:40:35Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\shorts\short_01_sona-chori\output\short_01_cover.png`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/shorts/short_01_sona-chori/output/short_01_cover.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-19 11:40:40Z)**_
@@ -61546,7 +61546,7 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:40:47Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\review\r2_sheets_ref.jpg`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/review/r2_sheets_ref.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (2026-10-19 11:40:47Z)**_
@@ -61806,7 +61806,7 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:41:02Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\output\long_02_thumbnail.png`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/output/long_02_thumbnail.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-19 11:41:04Z)**_
@@ -61882,35 +61882,35 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:41:28Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\review\r1_thumb_text_zoom.jpg`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/review/r1_thumb_text_zoom.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:41:35Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\review\r1_thumb_160x90_x4.jpg`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/review/r1_thumb_160x90_x4.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:41:36Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\review\r1_thumb_peekers.jpg`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/review/r1_thumb_peekers.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:41:41Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\review\r1_thumb_brcorner.jpg`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/review/r1_thumb_brcorner.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:41:45Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\thumbnail_work\long02_thumb_raw.png`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/thumbnail_work/long02_thumb_raw.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:41:50Z)**_
@@ -64473,28 +64473,28 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:47:08Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\review\r1_preview_lines_1.jpg`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/review/r1_preview_lines_1.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:47:12Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\review\r1_preview_lines_2.jpg`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/review/r1_preview_lines_2.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:47:18Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\review\r1_preview_lines_3.jpg`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/review/r1_preview_lines_3.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:47:19Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\review\r1_preview_lines_4.jpg`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/review/r1_preview_lines_4.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:49:47Z)**_
@@ -65076,7 +65076,7 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:52:17Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\shorts\short_01_sona-chori\review\r1_preview_frames_1.jpg`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/shorts/short_01_sona-chori/review/r1_preview_frames_1.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (2026-10-19 11:52:17Z)**_
@@ -65087,7 +65087,7 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:52:28Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\shorts\short_01_sona-chori\review\r1_preview_frames_2.jpg`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/shorts/short_01_sona-chori/review/r1_preview_frames_2.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (2026-10-19 11:52:28Z)**_
@@ -65098,7 +65098,7 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:52:32Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\shorts\short_01_sona-chori\review\r1_preview_frames_3.jpg`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/shorts/short_01_sona-chori/review/r1_preview_frames_3.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (2026-10-19 11:52:32Z)**_
@@ -65144,56 +65144,56 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:52:57Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\review\r1_preview_3pt_1.jpg`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/review/r1_preview_3pt_1.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:53:01Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\review\r1_preview_3pt_2.jpg`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/review/r1_preview_3pt_2.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:53:05Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\review\r1_preview_3pt_3.jpg`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/review/r1_preview_3pt_3.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:53:06Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\review\r1_preview_3pt_4.jpg`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/review/r1_preview_3pt_4.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:53:06Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\review\r1_preview_3pt_5.jpg`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/review/r1_preview_3pt_5.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:53:11Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\review\r1_preview_3pt_6.jpg`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/review/r1_preview_3pt_6.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:53:12Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\review\r1_preview_3pt_7.jpg`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/review/r1_preview_3pt_7.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:53:12Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\review\r1_preview_3pt_8.jpg`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/review/r1_preview_3pt_8.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:53:32Z)**_
@@ -65335,7 +65335,7 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:54:02Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\shorts\short_01_sona-chori\review\r1_cover_half.jpg`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/shorts/short_01_sona-chori/review/r1_cover_half.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:54:12Z)**_
@@ -65448,7 +65448,7 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:54:36Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\shorts\short_01_sona-chori\review\r1_mitthu_partial.jpg`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/shorts/short_01_sona-chori/review/r1_mitthu_partial.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 11:55:04Z)**_
@@ -66184,7 +66184,7 @@ _**Agent (claude-opus-5-5 2026-10-19 11:59:13Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\shorts\short_01_sona-chori\output\short_01_cover.png`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/shorts/short_01_sona-chori/output/short_01_cover.png`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-19 11:59:17Z)**_
@@ -67014,21 +67014,21 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-19 12:03:16Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:/Story-Channel/channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/review/r2_preview_a.jpg`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/review/r2_preview_a.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 12:03:21Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:/Story-Channel/channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/review/r2_preview_b.jpg`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/review/r2_preview_b.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 12:03:21Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:/Story-Channel/channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/review/r2_preview_end.jpg`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/review/r2_preview_end.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 12:03:44Z)**_
@@ -67605,7 +67605,7 @@ _**Agent - sidechain (claude-haiku-5-5 2026-10-19 13:28:05Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `./shared/RULES.md`
+ `d:\Story-Channel\shared\RULES.md`
 
 ```text
 1	# Munshi RULES — Story-Channel
@@ -67761,7 +67761,7 @@ _**Agent - sidechain (claude-haiku-5-5 2026-10-19 13:28:05Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `./channels/dadi-ki-kahaniyan/RULES.md`
+ `d:\Story-Channel\channels\dadi-ki-kahaniyan\RULES.md`
 
 ```text
 1	# Channel RULES — किस्सागो | Kissago (key: dadi-ki-kahaniyan; formerly दादी की कहानियाँ)
@@ -67789,7 +67789,7 @@ _**Agent - sidechain (claude-haiku-5-5 2026-10-19 13:28:06Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `./channels/dadi-ki-kahaniyan/channel_bible.md`
+ `d:\Story-Channel\channels\dadi-ki-kahaniyan\channel_bible.md`
 
 ```text
 1	# CHANNEL BIBLE — "किस्सागो | Kissago"
@@ -67903,7 +67903,7 @@ _**Agent - sidechain (claude-haiku-5-5 2026-10-19 13:28:06Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `./channels/dadi-ki-kahaniyan/log.md`
+ `d:\Story-Channel\channels\dadi-ki-kahaniyan\log.md`
 
 ```text
 1	# Munshi log
@@ -67962,7 +67962,7 @@ _**Agent - sidechain (claude-haiku-5-5 2026-10-19 13:28:06Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/review/r1_preview_r2_thumbnail.md`
+ `d:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\review\r1_preview_r2_thumbnail.md`
 
 ```text
 1	# Munshi — 003 long_02 — 2026-10-19 (preview R1 + thumbnail R2)
@@ -68004,7 +68004,7 @@ _**Agent - sidechain (claude-haiku-5-5 2026-10-19 13:28:06Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/shorts/short_01_sona-chori/review/r1_preview.md`
+ `d:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\shorts\short_01_sona-chori\review\r1_preview.md`
 
 ```text
 1	# Munshi — 003 short_01_sona-chori — 2026-10-19 — PREVIEW R1 — FIX (0 BLOCKER, 4 MINOR; all free)
@@ -69359,14 +69359,14 @@ _**Agent - sidechain (claude-haiku-5-5 2026-10-19 13:37:18Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/review/r2_sheet_L34raghu.jpg`
+ `d:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\review\r2_sheet_L34raghu.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-haiku-5-5 2026-10-19 13:37:18Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/review/r2_sheet_L04sharma.jpg`
+ `d:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\review\r2_sheet_L04sharma.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-haiku-5-5 2026-10-19 13:37:31Z)**_
@@ -69377,28 +69377,28 @@ _**Agent - sidechain (claude-haiku-5-5 2026-10-19 13:37:31Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/review/r2_sheet_L35dadi.jpg`
+ `d:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\review\r2_sheet_L35dadi.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-haiku-5-5 2026-10-19 13:37:31Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/review/r2_sheet_L45dadi.jpg`
+ `d:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\review\r2_sheet_L45dadi.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-haiku-5-5 2026-10-19 13:37:32Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/review/r2_sheet_L54dadi.jpg`
+ `d:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\review\r2_sheet_L54dadi.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-haiku-5-5 2026-10-19 13:37:32Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/review/r2_sheet_Lend.jpg`
+ `d:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\review\r2_sheet_Lend.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-haiku-5-5 2026-10-19 13:37:57Z)**_
@@ -69456,7 +69456,7 @@ _**Agent - sidechain (claude-haiku-5-5 2026-10-19 13:38:19Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/review/r2_sheet_L35_check.jpg`
+ `d:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\review\r2_sheet_L35_check.jpg`
 </details></tool-use>
 
 _**Agent (claude-opus-5-5 2026-10-19 13:38:22Z)**_
@@ -69690,14 +69690,14 @@ _**Agent - sidechain (claude-haiku-5-5 2026-10-19 13:39:59Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/shorts/short_01_sona-chori/review/r2_sheet_A.jpg`
+ `d:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\shorts\short_01_sona-chori\review\r2_sheet_A.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-haiku-5-5 2026-10-19 13:40:00Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/shorts/short_01_sona-chori/review/r2_sheet_B.jpg`
+ `d:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\shorts\short_01_sona-chori\review\r2_sheet_B.jpg`
 </details></tool-use>
 
 ---
@@ -69724,14 +69724,14 @@ _**Agent - sidechain (claude-haiku-5-5 2026-10-19 13:40:23Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/shorts/short_01_sona-chori/output/short_01_cover.png`
+ `d:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\shorts\short_01_sona-chori\output\short_01_cover.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-haiku-5-5 2026-10-19 13:40:23Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/output/long_02_thumbnail.png`
+ `d:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\output\long_02_thumbnail.png`
 </details></tool-use>
 
 ---
@@ -70152,7 +70152,7 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-19 13:44:27Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:/Story-Channel/channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/shorts/short_01_sona-chori/review/r2_preview_frames.jpg`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/shorts/short_01_sona-chori/review/r2_preview_frames.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 13:44:48Z)**_
@@ -70241,7 +70241,7 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-19 13:45:14Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:/Story-Channel/channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/shorts/short_01_sona-chori/review/r2_cover_guides.jpg`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/shorts/short_01_sona-chori/review/r2_cover_guides.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 13:45:23Z)**_
@@ -70274,7 +70274,7 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-19 13:45:26Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:/Story-Channel/channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/shorts/short_01_sona-chori/review/r2_cover_top.jpg`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/shorts/short_01_sona-chori/review/r2_cover_top.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 13:46:25Z)**_
@@ -72248,14 +72248,14 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-19 13:50:57Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\output\long_02_framecheck.png`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/output/long_02_framecheck.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 13:50:58Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\shorts\short_01_sona-chori\output\short_01_sona-chori_framecheck.png`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/shorts/short_01_sona-chori/output/short_01_sona-chori_framecheck.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 13:51:15Z)**_
@@ -72294,7 +72294,7 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-19 13:51:25Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\shorts\short_01_sona-chori\review\final_r1_first1s.jpg`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/shorts/short_01_sona-chori/review/final_r1_first1s.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (2026-10-19 13:51:25Z)**_
@@ -72305,7 +72305,7 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-19 13:51:25Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\shorts\short_01_sona-chori\review\final_r1_every1s.jpg`
+ `./channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/shorts/short_01_sona-chori/review/final_r1_every1s.jpg`
 </details></tool-use>
 
 _**Agent - sidechain (2026-10-19 13:51:25Z)**_
@@ -74138,7 +74138,7 @@ _**Agent (claude-opus-5-5 2026-10-19 14:25:26Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\shared\RULES.md`
+ `./shared/RULES.md`
 
 ```text
 1	# Munshi RULES — Story-Channel
@@ -74673,7 +74673,7 @@ _**Agent (claude-opus-5-5 2026-10-19 14:29:59Z)**_
 
 <tool-use data-tool-type="search" data-tool-name="Grep"><details>
 <summary>Tool use: **Grep**</summary>
- path `D:\Story-Channel` pattern `usageMetadata|promptTokenCount|candidatesTokenCount|input_tokens`
+ path `./` pattern `usageMetadata|promptTokenCount|candidatesTokenCount|input_tokens`
 
 ```text
 Found 5 files
@@ -79286,7 +79286,7 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-19 15:09:35Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\scripts\make_short.py`
+ `./scripts/make_short.py`
 
 ```text
 150	        res = gemini_tts.speak(text, voice, style, raw)
@@ -79839,7 +79839,7 @@ _**Agent - sidechain (claude-opus-5-5 2026-10-19 15:11:01Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\scripts\make_short.py`
+ `./scripts/make_short.py`
 
 ```text
 404	def plan_scenes(P, timed, total, prof, font_family, final_title, title_secs=None, caption_from=0.0):
@@ -81193,7 +81193,7 @@ _**Agent (claude-opus-5-5 2026-10-19 15:17:50Z)**_
 
 <tool-use data-tool-type="read" data-tool-name="Read"><details>
 <summary>Tool use: **Read**</summary>
- `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\004_chhat-par-bhoot\characters\mishra_sheet.png`
+ `./channels/dadi-ki-kahaniyan/stories/004_chhat-par-bhoot/characters/mishra_sheet.png`
 </details></tool-use>
 
 _**Agent - sidechain (claude-opus-5-5 2026-10-19 15:17:56Z)**_
@@ -81433,3 +81433,240 @@ powershell -NoProfile -ExecutionPolicy Bypass -File tools\\sync.ps1 -Message "st
 (Bash completed with no output)
 ```
 </details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 15:22:24Z)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="PowerShell"><details>
+<summary>Tool use: **PowerShell**</summary>
+Sync the stop state
+
+```text
+2026-10-19 20:52:24  pushed: story 004: sheet + images 2,4,5,6 + 15 TTS; AUTO STOP - AI Studio monthly spend cap  (repo pack size 337 MB)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 15:22:36Z)**_
+
+⛔ **Story 004 abhi ruki hui hai. Google ne AI Studio project ki "monthly spending cap" (mahine ki kharcha seema) par aage ka kaam rok diya hai.** Error 429 aaya: *"Your project has exceeded its monthly spending cap."* Ye balance khatam hone wala maamla nahi hai; balance abhi ~₹400 hai. Ye wo seema hai jo AI Studio me project par lagi hui hai. Is rukne me koi kharcha nahi hua.
+
+**Aapko ye karna hai:**
+1. https://ai.studio/spend kholiye.
+2. Project ki monthly spend cap badhaiye. Is story ka bacha kaam ~₹75 ka hai, isliye kam se kam itni jagah chahiye.
+3. Mujhe "chalo" likh dijiye. Main wahin se aage badhunga.
+
+**Ab tak kya hua** (story ka asli kharcha **₹24.93 + GST ₹4.49 = ₹29.42**, cap ₹110):
+- **Script:** Munshi R1 me FIX aaya (5 MINOR). Sab free me theek kiye, aur R2 me PASS-WITH-NOTES mila.
+- **Mishra dada ki sheet:** ban gayi, look bilkul spec jaisa (₹5.83 GST ke saath).
+- **Plan chhota kiya:** asli kharcha andaze se ~1.6 guna nikla, kyunki model ki "thinking" ke token zyada the. Isliye 2 scene images (3 aur 9) hata di. Unki jagah doosri images ke crop/zoom honge, aur ye log me likha hai.
+- **Images:** 4 bani (2, 4, 5, 6). 9 bachi hain: 7, 8, 10–16.
+- **TTS:** Mishra dada ka voice sample (Enceladus, ₹0.21) aur 40 me se 15 lines bani.
+
+**Aage ka kaam:** 9 images, 25 TTS lines, thumbnail aur Short ka poster. Uske baad Munshi ke review, final build, aur scheduled uploads (Long 03 19:00, Short 21:00).
+
+Sab `pipeline_queue.json` aur `log.md` me darj hai, aur GitHub sync ho gaya.
+
+⏰ **Yaad dilana:** Long 02 ke Short A (BzpR3Xawpsk) ki Studio checklist abhi baaki hai:
+- Related video = Long 02
+- Kal 21:05 ke baad pehla comment pin karna
+
+---
+
+_**User (2026-10-19 15:26:17Z)**_
+
+chalo
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-19 15:26:20Z)**_
+
+Aage badh raha hoon. Pehle bachi hui 25 TTS lines chala raha hoon, jisse ye bhi pata chal jayega ki spend cap hat gayi ya nahi.
+
+_**Agent (claude-opus-5-5 2026-10-19 15:26:46Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Resume story 004 TTS
+
+`.venv/Scripts/python.exe -X utf8 "C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad/long03_tts.py" 2>&1 | grep -v "^    new TTS" | tail -3`
+
+```text
+  }
+}
+]
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 15:27:14Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Show TTS error summary
+
+`.venv/Scripts/python.exe -X utf8 "C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad/long03_tts.py" 2>&1 | grep -v "^    new TTS" | grep -i "error\|new TTS lines\|Runtime\|429\|message" | head -5`
+
+```text
+    raise RuntimeError(f"Gemini TTS {r.status_code}: {r.text[:500]}")
+RuntimeError: Gemini TTS 403: [{
+  "error": {
+    "message": "Spend cap breached for project: projects/358103683098 for service: generativelanguage.googleapis.com. Correlation id: -3215414688280594224",
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 15:27:21Z)**_
+
+Spend cap abhi bhi lagi hui hai. Is baar Google ne 403 bheja: *"Spend cap breached for project: projects/358103683098"*. Koi call nahi chali, isliye koi kharcha nahi hua.
+
+Do me se ek baat ho sakti hai:
+1. **Cap abhi badhi nahi:** https://ai.studio/spend par check kijiye ki is project (358103683098) ki monthly cap sach me badh gayi hai aur save hui hai. Cap kam se kam itni ho ki is mahine ka ab tak ka kharcha aur ~₹80 (bacha kaam) dono uske andar aa jaayein.
+2. **Badli hai par abhi laagu nahi hui:** Google ko naya cap laagu karne me kuch minute lag sakte hain.
+
+Cap set karke 5–10 minute baad "chalo" likhiye. Main wahin se shuru karunga:
+- 25 TTS lines
+- 9 images (7, 8, 10–16)
+- thumbnail aur Short poster
+- Munshi review, final build aur uploads
+
+Story ka kharcha abhi ₹29.42 (GST ke saath) hai.
+
+---
+
+_**User (2026-10-19 15:28:16Z)**_
+
+ab try kro
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-19 15:28:30Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Retry story 004 TTS
+
+`.venv/Scripts/python.exe -X utf8 "C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad/long03_tts.py" 2>&1 | grep -v "^    new TTS" | grep -i "new TTS lines\|Spend cap\|429\|403\|exceeded" | head -3`
+
+```text
+RuntimeError: Gemini TTS 403: [{
+    "code": 403,
+    "message": "Spend cap breached for project: projects/358103683098 for service: generativelanguage.googleapis.com. Correlation id: 5394064542275037230",
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 15:28:38Z)**_
+
+Abhi bhi wahi rok hai. Google ne phir 403 bheja: *"Spend cap breached for project: projects/358103683098"*. Koi kharcha nahi hua.
+
+Kripya ye teen cheezein check kijiye:
+1. **Sahi project:** https://ai.studio/spend par upar wahi project chuna ho jiska number **358103683098** hai. Usi project ki API key `.env` me hai, aur cap usi par badhni chahiye.
+2. **Cap ki rakam:** nayi monthly cap is mahine ke ab tak ke **poore kharche se zyada** honi chahiye, sirf bache kaam ke ~₹80 se nahi. Is mahine ab tak lagbhag ₹330+ GST lag chuke hain, isliye cap kam se kam ~₹500 rakhiye.
+3. **Save aur thoda intezaar:** save karne ke baad Google ko ise laagu karne me kuch minute lag sakte hain.
+
+Ho jaaye toh "ab try kro" likhiye, main turant dobara chalaunga.
+
+---
+
+_**User (2026-10-19 15:29:09Z)**_
+
+[Image: source: C:\Users\ashamim\AppData\Local\Temp\claude\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7\images\18.png]
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-19 15:29:12Z)**_
+
+Screenshot me cap ₹3,000 dikh rahi hai, aur is mahine ka kharcha ₹525.45 hai, yaani cap badh gayi hai. Dobara try kar raha hoon.
+
+_**Agent (claude-opus-5-5 2026-10-19 15:29:28Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Retry story 004 TTS after cap raise
+
+`.venv/Scripts/python.exe -X utf8 "C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad/long03_tts.py" 2>&1 | grep -v "^    new TTS" | grep -i "new TTS lines\|Spend cap\|429\|403\|exceeded" | head -3`
+
+```text
+RuntimeError: Gemini TTS 403: [{
+    "code": 403,
+    "message": "Spend cap breached for project: projects/358103683098 for service: generativelanguage.googleapis.com. Correlation id: 5394064542275037230",
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 15:29:36Z)**_
+
+Abhi bhi 403 aa raha hai. Isme ek baat dhyan dene wali hai: Google ka **correlation id pichhli baar wala hi hai** (5394064542275037230). Matlab Google abhi purana rok wala jawab hi lauta raha hai, aur nayi cap laagu nahi hui. Koi kharcha nahi hua.
+
+Do kaaran ho sakte hain:
+1. **Laagu hone me der:** aapki screen par bhi likha hai ki badlav ~10 minute me laagu hota hai. Cap abhi badhi hai, toh 10–15 minute dijiye.
+2. **Project alag ho:** screen par "Default Gemini Project" chuna hai, jabki rok project **358103683098** par hai. AI Studio me **API Keys** page kholiye aur dekhiye ki hamari key kis project ki hai. Agar wo kisi aur project ki hai, toh cap usi project par badhani hogi.
+
+10–15 minute baad "ab try kro" likhiye. Agar tab bhi rok rahi, toh API Keys page ka screenshot bhej dijiye.
+
+---
+
+_**User (2026-10-19 15:29:36Z)**_
+
+Overages may occur during ~10 minute latency. Resets on the first day of each month (PST). Learn more
+
+ye note bhi dekho
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-19 15:29:45Z)**_
+
+Haan, maine wo note dekha. Iska matlab ye hai:
+
+1. **"~10 minute latency":** Google ka kharcha-meter ~10 minute der se chalta hai. Isliye cap badhane ke baad block hatne me bhi ~10 minute lag sakte hain. Isi wajah se abhi purana rok wala jawab aa raha hai.
+2. **"Overages may occur":** isi der ki wajah se kabhi-kabhi kharcha cap se thoda upar bhi ja sakta hai. Hamare liye isme koi khatra nahi, kyunki hamara apna budget check (story ₹110, balance ₹50) har call se pehle hamare hisaab se chalta hai, Google ke der wale meter se nahi.
+3. **"Resets on the first day of each month (PST)":** har mahine ki 1 tareekh (America ka PST samay, yaani India me ~12:30–1:30 PM) ko meter phir ₹0 se shuru hota hai. ₹3,000 ki cap aage ke mahino me bhi kaafi rahegi.
+
+Ek baar abhi try karta hoon. Rok rahi toh 10 minute baad phir.
+
+_**Agent (claude-opus-5-5 2026-10-19 15:30:00Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Retry TTS once more
+
+`date +%H:%M; .venv/Scripts/python.exe -X utf8 "C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad/long03_tts.py" 2>&1 | grep -v "^    new TTS" | grep -i "new TTS lines\|Spend cap\|429\|403\|exceeded\|Correlation" | head -3`
+
+```text
+20:59
+RuntimeError: Gemini TTS 403: [{
+    "code": 403,
+    "message": "Spend cap breached for project: projects/358103683098 for service: generativelanguage.googleapis.com. Correlation id: 8953967870517289206",
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 15:30:08Z)**_
+
+<think><details><summary>Thought Process</summary>
+Google ne dobara check kiya hai lekin abhi bhi rok laga hai, shayad 10 minute ka wait poora nahi hua. Main har 2 minute me TTS retry karne wala loop chala raha hoon, max 20 minute tak — rok hategi toh TTS poori hoke main images par aage badhunga.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-19 15:30:09Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Retry TTS every 2 min until the cap lifts
+
+`for i in $(seq 1 10); do out=$(.venv/Scripts/python.exe -X utf8 "C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad/long03_tts.py" 2>&1); if echo "$out" | grep -q "new TTS lines"; then echo "$out" | grep "new TTS lines"; echo "OK at $(date +%H:%M)"; exit 0; fi; echo "try $i $(date +%H:%M): $(echo "$out" | grep -o 'Spend cap breached\|exceeded its monthly\|Gemini TTS [0-9]*' | head -1)"; sleep 120; done; echo "STILL BLOCKED"`
+
+```text
+Command running in background with ID: bf4grdtbc. Output is being written to: C:\Users\ashamim\AppData\Local\Temp\claude\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7\tasks\bf4grdtbc.output. You will be notified when it completes — do not poll that file or sleep while waiting. Read the file only if the user asks for progress, or if you need a line it prints before you can go on, such as a server's ready line or port.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 15:30:12Z)**_
+
+Loop chal raha hai. Rok hatte hi TTS poori karke main apne aap 9 images, thumbnail aur aage ka kaam shuru kar dunga. Agar 20 minute me bhi rok nahi hati, toh aapko API Keys page check karne ko kahunga.
+
+---
+
+_**User (2026-10-19 15:39:13Z)**_
+
+is daily linit reached ?
+
+---
+
+_**Agent (<synthetic> 2026-10-19 15:39:16Z)**_
+
+You've hit your session limit · resets 12am (Asia/Kolkata)

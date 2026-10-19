@@ -61,3 +61,4 @@
 2026-10-19 20:15:53  pushed: pricing: balance checkpoint ₹580.25 (AI Studio, 2026-10-19)  (repo pack size 337 MB)
 2026-10-19 20:22:47  pushed: pricing: checkpoint = Credit balance ₹429.58 (20:19); GST deducted from credit proven, budget_includes_gst true; reconcile vs Credit balance only  (repo pack size 337 MB)
 2026-10-19 20:39:57  pushed: story 004: script approved (checkpoint 1); folder, lines, prompts, plan, Short A, SFX; budget guard in gen_scenes  (repo pack size 337 MB)
+2026-10-19 20:52:24  pushed: story 004: sheet + images 2,4,5,6 + 15 TTS; AUTO STOP - AI Studio monthly spend cap  (repo pack size 337 MB)
