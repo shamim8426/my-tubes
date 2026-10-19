@@ -76065,3 +76065,68 @@ t=open('CLAUDE.md',encoding='utf-8',newline='').read(); i=t.index('Asli kharcha'
 61
 ```
 </details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 14:44:50Z)**_
+
+Line sahi jud gayi hai. Grep line endings ki wajah se use pakad nahi pa raha tha. Ab sync kar raha hoon.
+
+_**Agent (claude-opus-5-5 2026-10-19 14:44:59Z)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="PowerShell"><details>
+<summary>Tool use: **PowerShell**</summary>
+Sync reconcile tool
+
+```text
+2026-10-19 20:14:59  pushed: reconcile_balance.py (Google balance checkpoint, GST double-count check) + Long 03 reconcile task  (repo pack size 337 MB)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 14:45:08Z)**_
+
+Checkpoint abhi nahi lagaya, kyunki aapke message me balance ki jagah sirf "₹___" aaya, koi number nahi. AI Studio → Billing me jo asli bacha balance dikhe, wo number bhej dijiye. Main use `pricing.json` me daal dunga.
+
+Tab tak milaan ka tool `scripts/reconcile_balance.py` bana diya hai:
+- **Abhi, number milte hi:** tool AI Studio ka balance checkpoint me daal dega, us waqt ke samay ke saath. Uske baad ka saara kharcha isi balance se ghatega.
+- **Long 03 ke baad:** aap naya balance batayenge. Tool dekhega ki Google ke balance me kitni kami aayi, aur use hamare likhe kharche se do tarah milayega: GST ke bina aur GST ke saath.
+  - Jo zyada paas hoga, uske hisaab se `budget_includes_gst` apne aap set hoga, taaki GST do baar na gine.
+  - Agar fark 10% se zyada nikla, toh tool chetavani dega ki rate table check karo.
+
+**Offline test pass hua:** "Google ne GST nahi kaata" aur "Google ne GST kaata" dono haalat me tool ne sahi setting chuni. Asli `pricing.json` aur `cost_log.csv` nahi badle, unke hash pehle aur baad me ek jaise hain.
+
+Long 03 ke baad wala milaan yaad rahe, isliye `carry_over.md` me iski row (status "open") aur `CLAUDE.md` me command jod di hai. GitHub sync ho gaya, ₹0 kharcha.
+
+---
+
+_**User (2026-10-19 14:45:35Z)**_
+
+balance ₹580.25
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-19 14:45:42Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Set balance checkpoint to ₹580.25
+
+```bash
+.venv/Scripts/python.exe -X utf8 scripts/reconcile_balance.py 580.25 && .venv/Scripts/python.exe -X utf8 - <<'EOF'
+from pathlib import Path
+p = Path("channels/dadi-ki-kahaniyan/carry_over.md"); t = p.read_text(encoding="utf-8")
+a = "| open: waiting for the user's AI Studio balance |"
+assert t.count(a) == 1
+p.write_text(t.replace(a, "| open: checkpoint set 2026-10-19 (AI Studio balance ₹580.25); after Long 03 run --check / --apply |"), encoding="utf-8")
+EOF
+grep -A4 balance_checkpoint shared/pricing.json
+```
+
+```text
+pricing.json: balance_checkpoint = ₹580.25 at 2026-10-19 20:15:41; budget_includes_gst = True
+Ledger remaining now: ₹580.25
+    "balance_checkpoint": {
+      "_help": "Set from AI Studio billing (actual remaining balance, ₹) to correct the ledger; spend logged after 'timestamp' is subtracted from it. Leave null to use prepaid_inr minus all logged spend.",
+      "timestamp": "2026-10-19 20:15:41",
+      "inr": 580.25
+    }
+```
+</details></tool-use>
