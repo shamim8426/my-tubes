@@ -58,3 +58,4 @@
 2026-10-19 20:03:26  pushed: actual cost: pricing.json + usage-based image/TTS cost, cost_log estimated/actual/GST, budget on actual, offline tests  (repo pack size 337 MB)
 2026-10-19 20:10:58  pushed: RULES 1/15: auto mode stops only for balance<50, copyright doubt, channel ID mismatch; self-handling for budget/regen/BLOCKER  (repo pack size 337 MB)
 2026-10-19 20:14:59  pushed: reconcile_balance.py (Google balance checkpoint, GST double-count check) + Long 03 reconcile task  (repo pack size 337 MB)
+2026-10-19 20:15:53  pushed: pricing: balance checkpoint ₹580.25 (AI Studio, 2026-10-19)  (repo pack size 337 MB)

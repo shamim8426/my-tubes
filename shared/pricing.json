@@ -38,11 +38,12 @@
       "003_mitthu-ne-sab-bata-diya": 130
     },
     "floor_inr": 50,
-    "prepaid_inr": 500,
+    "prepaid_inr": 1000,
     "balance_checkpoint": {
-      "_help": "Set from AI Studio billing (actual remaining balance, ₹) to correct the ledger; spend logged after 'timestamp' is subtracted from it. Leave null to use prepaid_inr minus all logged spend.",
-      "timestamp": "2026-10-19 20:15:41",
-      "inr": 580.25
+      "_help": "Set ONLY from AI Studio billing 'Credit balance' (₹), never from the cost chart (that chart is in PDT and updates late). Spend logged after 'timestamp' is subtracted from it.",
+      "timestamp": "2026-10-19 20:19:00",
+      "inr": 429.58
     }
-  }
+  },
+  "_gst_note": "Proven 2026-10-19: Google takes cost + 18% GST from the prepaid credit (₹1000 − ₹329.35×1.18 = ₹611.37 = evening balance). So budget_includes_gst stays true."
 }

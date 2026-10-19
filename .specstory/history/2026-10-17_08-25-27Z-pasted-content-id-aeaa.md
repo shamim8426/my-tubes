@@ -76130,3 +76130,87 @@ Ledger remaining now: ₹580.25
     }
 ```
 </details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 14:45:53Z)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="PowerShell"><details>
+<summary>Tool use: **PowerShell**</summary>
+Sync balance checkpoint
+
+```text
+2026-10-19 20:15:53  pushed: pricing: balance checkpoint ₹580.25 (AI Studio, 2026-10-19)  (repo pack size 337 MB)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 14:45:59Z)**_
+
+Checkpoint lag gaya: `pricing.json` me ab **₹580.25** darj hai (2026-10-19 20:15). Hamara hisaab ab isi se chalega, isliye bacha balance bhi **₹580.25** dikh raha hai. Ab se har paid call is balance se ghategi, aur ₹50 wali seema bhi isi par check hogi.
+
+Abhi GST ki setting "kharche me GST jodo" par hai. Yahi safe tareeka hai: balance thoda kam dikhega, zyada nahi.
+
+Long 03 ke baad aap AI Studio ka naya balance bata dijiye. Main `--check` aur `--apply` chala kar dekhunga ki Google GST credits se kaatta hai ya nahi. Usi hisaab se setting theek karunga taaki GST do baar na gine, aur fark aapko bataunga. Ye kaam `carry_over.md` me darj hai.
+
+GitHub sync ho gaya.
+
+---
+
+_**User (2026-10-19 14:52:09Z)**_
+
+
+
+<pasted_content id="aeaa">
+Checkpoint galat tha (₹580.25 sirf misaal tha). Asli Credit balance ₹429.58 hai (abhi 20:19 par dekha) — checkpoint isse badlo.
+Saboot ke saath tay hua: Google kharcha + 18% GST credit se kaatta hai (₹1000 − ₹329.35×1.18 = ₹611.37, jo shaam ko balance tha). Isliye budget_includes_gst = true hi rakho.
+Google ka cost chart PDT me aur der se update hota hai — hisaab hamesha "Credit balance" se milana, chart se nahi.
+Phir sync.
+</pasted_content id="aeaa">
+
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-19 14:52:27Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Set checkpoint ₹429.58, keep GST true, document
+
+```bash
+.venv/Scripts/python.exe -X utf8 - <<'EOF'
+import json
+from pathlib import Path
+p = Path("shared/pricing.json"); c = json.loads(p.read_text(encoding="utf-8"))
+c["budget_includes_gst"] = True
+c["_gst_note"] = ("Proven 2026-10-19: Google takes cost + 18% GST from the prepaid credit (₹1000 − ₹329.35×1.18 = ₹611.37 = "
+                  "evening balance). So budget_includes_gst stays true.")
+b = c["budget"]
+b["prepaid_inr"] = 1000
+b["balance_checkpoint"].update({
+    "_help": "Set ONLY from AI Studio billing 'Credit balance' (₹), never from the cost chart (that chart is in PDT and updates late). Spend logged after 'timestamp' is subtracted from it.",
+    "timestamp": "2026-10-19 20:19:00", "inr": 429.58})
+p.write_text(json.dumps(c, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+r = Path("scripts/reconcile_balance.py"); t = r.read_text(encoding="utf-8")
+a = '"""Match our cost ledger with the real Google (AI Studio) credit balance (shared/pricing.json "budget").\n'
+assert t.count(a) == 1
+r.write_text(t.replace(a, a + "Always use the AI Studio billing \"Credit balance\", never the cost chart (PDT time zone, updates late).\n"), encoding="utf-8")
+
+k = Path("channels/dadi-ki-kahaniyan/carry_over.md"); t = k.read_text(encoding="utf-8")
+a = "| open: checkpoint set 2026-10-19 (AI Studio balance ₹580.25); after Long 03 run --check / --apply |"
+assert t.count(a) == 1
+k.write_text(t.replace(a, "| open: checkpoint 2026-10-19 20:19 = Credit balance ₹429.58 (₹580.25 was only an example, replaced). GST question settled: Google deducts cost + 18% GST from credit (₹1000 − ₹329.35×1.18 = ₹611.37), budget_includes_gst = true. After Long 03: --check against the Credit balance (not the PDT cost chart) |"), encoding="utf-8")
+
+m = Path("CLAUDE.md"); t = m.read_text(encoding="utf-8")
+a = "(GST do baar na gine: closer match se `budget_includes_gst` tay)."
+assert t.count(a) == 1
+m.write_text(t.replace(a, "(GST do baar na gine). Tay ho chuka: Google kharcha + 18% GST credit se kaatta hai, `budget_includes_gst` = true. Milaan hamesha AI Studio ke \"Credit balance\" se, cost chart se kabhi nahi (wo PDT me aur der se update hota hai)."), encoding="utf-8")
+EOF
+.venv/Scripts/python.exe -X utf8 -c "
+import sys; sys.path.insert(0,'scripts'); import cost_log, story_budget
+print('ledger remaining', round(cost_log.remaining(),2)); story_budget.check('004_test', 4.0); print('budget check ok')"
+```
+
+```text
+ledger remaining 429.58
+budget check ok
+```
+</details></tool-use>

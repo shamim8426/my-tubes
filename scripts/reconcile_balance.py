@@ -1,8 +1,9 @@
 """Match our cost ledger with the real Google (AI Studio) credit balance (shared/pricing.json "budget").
+Always use the AI Studio billing "Credit balance", never the cost chart (PDT time zone, updates late).
 
     python scripts/reconcile_balance.py <balance_inr>            # first time: set the checkpoint to this balance
     python scripts/reconcile_balance.py <balance_inr> --check    # later (e.g. after Long 03): compare, change nothing
-    python scripts/reconcile_balance.py <balance_inr> --apply    # compare, fix the GST setting, move the checkpoint
+    python scripts/reconcile_balance.py <balance_inr> --apply    # compare, move the checkpoint (GST setting is never changed)
 
 How it avoids counting GST twice: Google's drop in balance since the checkpoint is compared with what we logged
 since then, once WITHOUT GST and once WITH GST. Whichever is closer tells whether Google takes GST out of the
@@ -43,9 +44,11 @@ def main():
         print(f"Closer match: {'WITH' if gst_in else 'WITHOUT'} GST -> budget_includes_gst should be {str(gst_in).lower()}"
               f" (now {str(cfg['budget_includes_gst']).lower()}); remaining gap {gap:+.1f}%"
               + ("  <- over 10%: check the price table in pricing.json" if abs(gap) > 10 else ""))
+        if gst_in != cfg["budget_includes_gst"]:
+            print("WARNING: the closer match disagrees with budget_includes_gst, which was proven on 2026-10-19 "
+                  "(Google deducts cost + 18% GST). Not changed: tell the user and check the price table instead.")
         if mode == "--check":
             return
-        cfg["budget_includes_gst"] = gst_in
     cfg["budget"]["balance_checkpoint"].update({"timestamp": now, "inr": bal})
     pricing.CONFIG.write_text(json.dumps(cfg, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"pricing.json: balance_checkpoint = ₹{bal:.2f} at {now}; budget_includes_gst = {cfg['budget_includes_gst']}")
