@@ -75796,3 +75796,272 @@ ok
 ALL 10 CHECKS PASSED (no network, real cost_log.csv untouched)
 ```
 </details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 14:40:58Z)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="PowerShell"><details>
+<summary>Tool use: **PowerShell**</summary>
+Sync the stop-rules update
+
+```text
+2026-10-19 20:10:58  pushed: RULES 1/15: auto mode stops only for balance<50, copyright doubt, channel ID mismatch; self-handling for budget/regen/BLOCKER  (repo pack size 337 MB)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 14:41:09Z)**_
+
+`shared/RULES.md` ke section 1 aur 15 me ab saaf likha hai ki auto mode me kisi bhi paid call se pehle aapka OK nahi chahiye. Main sirf in 3 haalat me rukunga:
+1. Google balance ₹50 se kam ho, ya credits khatam ho jaayein. Tab aapko recharge ke liye bataunga.
+2. Copyright par shak ho.
+3. Channel ID match na kare.
+
+**Baaki sab bina poochhe khud sambhalunga, aur har baar `log.md` me likhunga:**
+- **Kharcha ₹110 paar hone wala ho:** plan chhota karunga, yaani kam nayi images aur zyada crop/zoom, aur aage badhunga.
+- **1 regeneration ke baad bhi image me BLOCKER ho:** wo scene kisi theek image ke crop/zoom se banaunga, ya us line ko doosri image par rakh dunga.
+- **R2 ke baad BLOCKER ho:** free me theek ho sake toh khud theek karunga, warna upar wala crop/zoom tareeka.
+
+**Inse takraane wali jagahein bhi badli:**
+- **Section 11:** "R2 ke baad BLOCKER → user se poocho" ab sirf auto mode ke bahar laagu hai.
+- **Section 14:** purani rukne wali list (₹130 cap, 3rd regeneration, BLOCKER) hata kar section 1 ki 3 haalat ka hawala diya.
+- **`CLAUDE.md` aur `munshi.md`:** dono me yahi 3 haalat likhi, aur baaki ko khud sambhalne ke tareeke bhi.
+- **`story_budget.py`:**
+  - Cap paar hone par ab "user se poocho" nahi likhta. Script ruk jaati hai aur ye sandesh deti hai ki plan chhota karke aage badho.
+  - Balance ₹50 se neeche jaane par "recharge karein" kehta hai.
+
+Offline test dobara chalaye, 10/10 pass. GitHub sync ho gaya.
+
+Ek baat yaad rahe: balance wali haalat (1) tabhi theek se pakdi jayegi jab hisaab sahi ho. AI Studio Billing me jo asli bacha balance dikhe, wo bata dijiye, main use `pricing.json` me daal dunga.
+
+---
+
+_**User (2026-10-19 14:43:47Z)**_
+
+AI Studio me abhi asli credit balance ₹___ hai. Ise pricing.json ke balance_checkpoint me daalo. Long 03 ke baad apna hisaab Google ke balance se milana aur GST do baar na gine, ye pakka karna. Phir sync.
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-19 14:43:56Z)**_
+
+Aapke message me balance ki jagah sirf "₹___" aaya hai, koi number nahi. Isliye checkpoint abhi nahi daal saka. Tab tak "GST do baar na gine" wala milaan ka tool bana deta hoon, taaki number milte hi seedha kaam ho jaaye.
+
+_**Agent (claude-opus-5-5 2026-10-19 14:44:08Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Write"><details>
+<summary>Tool use: **Write**</summary>
+
+```python
+"""Match our cost ledger with the real Google (AI Studio) credit balance (shared/pricing.json "budget").
+
+    python scripts/reconcile_balance.py <balance_inr>            # first time: set the checkpoint to this balance
+    python scripts/reconcile_balance.py <balance_inr> --check    # later (e.g. after Long 03): compare, change nothing
+    python scripts/reconcile_balance.py <balance_inr> --apply    # compare, fix the GST setting, move the checkpoint
+
+How it avoids counting GST twice: Google's drop in balance since the checkpoint is compared with what we logged
+since then, once WITHOUT GST and once WITH GST. Whichever is closer tells whether Google takes GST out of the
+credits (budget_includes_gst true) or not (false — GST was paid on the top-up, so adding it again would double it).
+"""
+import json
+import sys
+from datetime import datetime
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import cost_log  # noqa: E402
+import pricing  # noqa: E402
+
+
+def logged_since(ts: str):
+    rows = [r for r in cost_log._rows() if r["timestamp"] > ts]
+    base = sum(cost_log.base_inr(r) for r in rows)
+    return len(rows), base, base * (1 + pricing.gst_rate()), sum(1 for r in rows if not r.get("actual_inr"))
+
+
+def main():
+    bal = float(sys.argv[1])
+    mode = "--apply" if "--apply" in sys.argv else "--check" if "--check" in sys.argv else "set"
+    cfg = pricing.config()
+    cp = cfg["budget"]["balance_checkpoint"]
+    now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    if mode != "set":
+        if not cp.get("timestamp"):
+            sys.exit("No checkpoint yet: run once without --check/--apply to set it.")
+        drop = cp["inr"] - bal
+        n, base, with_gst, est = logged_since(cp["timestamp"])
+        print(f"Google balance: ₹{cp['inr']:.2f} ({cp['timestamp']}) -> ₹{bal:.2f} now: drop ₹{drop:.2f}")
+        print(f"Our log since then: {n} calls ({est} estimate-only): ₹{base:.2f} without GST, ₹{with_gst:.2f} with GST")
+        gst_in = abs(drop - with_gst) < abs(drop - base)
+        best = with_gst if gst_in else base
+        gap = (drop - best) / best * 100 if best else 0.0
+        print(f"Closer match: {'WITH' if gst_in else 'WITHOUT'} GST -> budget_includes_gst should be {str(gst_in).lower()}"
+              f" (now {str(cfg['budget_includes_gst']).lower()}); remaining gap {gap:+.1f}%"
+              + ("  <- over 10%: check the price table in pricing.json" if abs(gap) > 10 else ""))
+        if mode == "--check":
+            return
+        cfg["budget_includes_gst"] = gst_in
+    cfg["budget"]["balance_checkpoint"].update({"timestamp": now, "inr": bal})
+    pricing.CONFIG.write_text(json.dumps(cfg, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(f"pricing.json: balance_checkpoint = ₹{bal:.2f} at {now}; budget_includes_gst = {cfg['budget_includes_gst']}")
+    print(f"Ledger remaining now: ₹{cost_log.remaining():.2f}")
+
+
+if __name__ == "__main__":
+    main()
+
+```
+
+```text
+File created successfully at: D:\Story-Channel\scripts\reconcile_balance.py (file state is current in your context — no need to Read it back)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 14:44:12Z)**_
+
+Is tool ko bhi offline test kar raha hoon. Isme `pricing.json` aur `cost_log` ki nakli copies use hongi, asli files ko haath nahi lagega.
+
+_**Agent (claude-opus-5-5 2026-10-19 14:44:19Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Offline test of reconcile script
+
+```bash
+md5sum shared/pricing.json cost_log.csv && .venv/Scripts/python.exe -X utf8 - <<'EOF'
+import sys, json, shutil, tempfile
+from pathlib import Path
+sys.path.insert(0, "scripts")
+import pricing, cost_log, reconcile_balance as rb
+tmp = Path(tempfile.mkdtemp())
+shutil.copy(pricing.CONFIG, tmp / "pricing.json"); shutil.copy(cost_log.LOG, tmp / "cost_log.csv")
+pricing.CONFIG = tmp / "pricing.json"; cost_log.LOG = tmp / "cost_log.csv"
+cfg = pricing.config(); cfg["budget"]["balance_checkpoint"].update({"timestamp": "2026-10-19 16:00:00", "inr": 300.0})
+pricing.CONFIG.write_text(json.dumps(cfg))
+n, base, wg, est = rb.logged_since("2026-10-19 16:00:00")
+for label, drop, want in (("Google took NO GST", base, False), ("Google took GST", wg, True)):
+    sys.argv = ["x", f"{300 - drop:.2f}", "--apply"]
+    c = pricing.config(); c["budget_includes_gst"] = not want; c["budget"]["balance_checkpoint"].update({"timestamp": "2026-10-19 16:00:00", "inr": 300.0}); pricing.CONFIG.write_text(json.dumps(c))
+    print("---", label); rb.main()
+    assert pricing.config()["budget_includes_gst"] is want, label
+print("RECONCILE TESTS PASSED")
+EOF
+md5sum shared/pricing.json cost_log.csv
+```
+
+```text
+b5bfa96c1f2280a2275528dfdca836a7 *shared/pricing.json
+eccb01fa20d97364af015194b540ac2b *cost_log.csv
+--- Google took NO GST
+Google balance: ₹300.00 (2026-10-19 16:00:00) -> ₹196.84 now: drop ₹103.16
+Our log since then: 88 calls (30 estimate-only): ₹103.16 without GST, ₹121.73 with GST
+Closer match: WITHOUT GST -> budget_includes_gst should be false (now true); remaining gap -0.0%
+pricing.json: balance_checkpoint = ₹196.84 at 2026-10-19 20:14:18; budget_includes_gst = False
+Ledger remaining now: ₹196.84
+--- Google took GST
+Google balance: ₹300.00 (2026-10-19 16:00:00) -> ₹178.27 now: drop ₹121.73
+Our log since then: 88 calls (30 estimate-only): ₹103.16 without GST, ₹121.73 with GST
+Closer match: WITH GST -> budget_includes_gst should be true (now false); remaining gap +0.0%
+pricing.json: balance_checkpoint = ₹178.27 at 2026-10-19 20:14:18; budget_includes_gst = True
+Ledger remaining now: ₹178.27
+RECONCILE TESTS PASSED
+b5bfa96c1f2280a2275528dfdca836a7 *shared/pricing.json
+eccb01fa20d97364af015194b540ac2b *cost_log.csv
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 14:44:22Z)**_
+
+Dono haalat me tool ne sahi pehchana ki GST kaun kaat raha hai, aur asli files nahi badli. Ab Long 03 ke baad ka milaan yaad rakhne ke liye `carry_over.md` me ek row jod raha hoon.
+
+_**Agent (claude-opus-5-5 2026-10-19 14:44:23Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Check carry_over table format
+
+`tail -6 channels/dadi-ki-kahaniyan/carry_over.md`
+
+```text
+| 2026-10-18 | brand banner_v2 (R2 PASS-WITH-NOTES) | logo panel bottom-right corner overlaps back of Mitthu's head (~x1300-1400, y850-930) | background re-cropped (gen_brand.reframe zoom 1.28, ax 0.78): Mitthu now clear of the panel | fixed 2026-10-18 |
+| 2026-10-18 | brand banner_v2 (R2 PASS-WITH-NOTES) | mobile safe crop (x507-2053) shows Golu only, Dadi's face cut at right edge | background shifted right (ax 0.78): Dadi now fully outside the mobile crop, Golu fully inside; no cut face | fixed 2026-10-18 |
+| 2026-10-19 | 003 long_02 script (R2 PASS-WITH-NOTES) | line 35 Dadi "रुकिए, पांडे जी।" is word-for-word Case 01's line, and scene 18 (Dadi hand raised "wait") repeats Case 01 scene 8 (RULES 12 gap) | free: reword line 35 (e.g. "ज़रा ठहरिए, पांडे जी।") and give scene 18 a different pose before the scene images | fixed 2026-10-19: line 35 now "ज़रा ठहरिए, पांडे जी।"; scene 18 pose changed to Dadi lowering Pandey's diary with her stick |
+| 2026-10-19 | 003 long_02 script (R2 PASS-WITH-NOTES) | intro lines 1-2 est. 9.4-9.9 s (thin margin to 10 s); Short A est. ~40-41 s (bottom of 40-45 s) | re-measure from real TTS before the preview build; if intro > 10 s or Short A < 40 s, adjust gaps/speed (free) | verified 2026-10-19 (preview R2): intro lines 1-2 end 8.43 s; Short A 49.78 s (inside Shorts 30-58 s) |
+| 2026-10-19 | 003 long_02 script (R2 PASS-WITH-NOTES) | PLAN.md still lists Sharma ji's sheet as "recommended" and total ~₹88 | update PLAN.md §2/§4 to the user's decision (sheet yes, ~₹91) | fixed 2026-10-19: PLAN.md: Sharma ji sheet decided, total ~₹91 |
+| 2026-10-19 | 003 long_02 final (R1 FIX, fixed by hand for this video) | make_short.py word_times(): Whisper coverage < 75% -> PROPORTIONAL timing over the whole clip; captions run early across pauses (7/57 lines; line 22 up to 0.97 s, line 57 0.52 s early; long_02.srt hand re-timed) and the build summary still says "Whisper timing" | free pipeline fix: in the fallback spread the words over VAD speech segments (energy > max-30 dB, merge gaps < 0.15 s) instead of [0, dur]; list PROPORTIONAL lines in the build summary | open |
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 14:44:31Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Log Long 03 reconcile task and document it
+
+```bash
+cat >> channels/dadi-ki-kahaniyan/carry_over.md <<'EOF'
+| 2026-10-19 | cost ledger (actual-cost switch) | ledger under-counted (old image rows = flat ₹3.24, no reference/thinking tokens); unknown whether Google takes GST out of the credits (risk: GST counted twice) | set the checkpoint now: `scripts/reconcile_balance.py <AI Studio balance ₹>`; after Long 03: `scripts/reconcile_balance.py <new balance ₹> --check`, then `--apply` (sets budget_includes_gst from the closer match, moves the checkpoint); report the gap to the user | open: waiting for the user's AI Studio balance |
+EOF
+.venv/Scripts/python.exe - <<'EOF'
+from pathlib import Path
+p = Path("CLAUDE.md"); t = p.read_text(encoding="utf-8")
+a = "Test: `scripts\\test_pricing.py` (offline).\n"
+assert t.count(a) == 1
+t = t.replace(a, a + "- Google balance se milaan: `scripts\\reconcile_balance.py <AI Studio balance ₹>` (pehli baar checkpoint), Long 03 ke baad `--check` phir `--apply` (GST do baar na gine: closer match se `budget_includes_gst` tay).\n")
+p.write_text(t, encoding="utf-8")
+EOF
+grep -c reconcile_balance CLAUDE.md
+```
+
+```text
+0
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 14:44:34Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Check whether the CLAUDE.md line was added
+
+`grep -n "test_pricing\|reconcile" CLAUDE.md | cut -c1-120`
+
+```text
+(Bash completed with no output)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 14:44:39Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Inspect CLAUDE.md current state
+
+`grep -n "pricing\|Production profile\|Ruko" CLAUDE.md | cut -c1-120; git log --oneline -3 -- CLAUDE.md; git diff --stat CLAUDE.md`
+
+```text
+42:- Ruko aur poochho SIRF 3 haalat me: Google balance ₹50 se kam (user ko recharge ke liye batao), copyright shak, ch
+46:## Production profile (shared/RULES.md section 15, story 004 / Long 03 se)
+50:- R2 ke baad MINOR sirf carry_over.md me, kuch regenerate nahi. Koi paid call poochhni nahi. Ruko sirf: balance ₹50
+52:- Asli kharcha: rate sirf `shared/pricing.json` me (Google daam badle to wahin badlo; GST alag). `cost_log.csv` me ha
+11a6eac RULES 1/15: auto mode stops only for balance<50, copyright doubt, channel ID mismatch; self-handling for budget/regen/BLOCKER
+7ae8e22 actual cost: pricing.json + usage-based image/TTS cost, cost_log estimated/actual/GST, budget on actual, offline tests
+4216dc9 RULES 15 production profile (from story 004) + reconciled sections 1/5/11/13/14, CLAUDE.md, munshi.md
+ CLAUDE.md | 119 +++++++++++++++++++++++++++++++-------------------------------
+ 1 file changed, 60 insertions(+), 59 deletions(-)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 14:44:46Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Show raw text around the pricing line
+
+```bash
+.venv/Scripts/python.exe -X utf8 -c "
+t=open('CLAUDE.md',encoding='utf-8',newline='').read(); i=t.index('Asli kharcha'); print(repr(t[i+380:i+700])); print(t.count(chr(13)))"
+```
+
+```text
+'og` (asli kul kharcha ek line me log.md me). Test: `scripts\test_pricing.py` (offline).\r\n- Google balance se milaan: `scripts\reconcile_balance.py <AI Studio balance ₹>` (pehli baar checkpoint), Long 03 ke baad `--check` phir `--apply` (GST do baar na gine: closer match se `budget_includes_gst` tay).\r\n\r\n## GitHub sync\r\n-'
+61
+```
+</details></tool-use>
