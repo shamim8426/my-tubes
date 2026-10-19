@@ -74324,3 +74324,1164 @@ ok
 150:## 15. Production profile (user's standing instructions, from story 004 onwards)
 ```
 </details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 14:26:27Z)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="PowerShell"><details>
+<summary>Tool use: **PowerShell**</summary>
+Sync rules update
+
+```text
+2026-10-19 19:56:27  pushed: RULES 15 production profile (from story 004) + reconciled sections 1/5/11/13/14, CLAUDE.md, munshi.md  (repo pack size 337 MB)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 14:26:39Z)**_
+
+Production profile ab `shared/RULES.md` me **section 15** ke roop me jud gaya hai, bilkul aapke text ke saath. GitHub sync bhi ho gaya. Ye **story 004 (Long 03) se** laagu hoga; Long 02 aur Short A me koi badlav nahi hua.
+
+**Purane niyam jo isse milaye:**
+- **Section 1 (budget):** "har paid call se pehle user ka OK" ke saath ab ye bhi likha hai ki auto mode me budget aur regeneration ki seema ke andar OK ki zaroorat nahi.
+- **Section 5 (lambai):** story 004 se preview nahi banega. Long video max 4:00 (target 3:40–4:00) aur Short max 40 sec. "Preview ki lambai ±10%" wala niyam sirf story 003 tak laagu rahega.
+- **Section 11 (review):** story 004 se:
+  - Long 4:00 se ya Short 40 sec se lamba hua toh BLOCKER.
+  - R2 ke baad MINOR sirf `carry_over.md` me likhe jayenge.
+  - Final video ka sirf ek check (R1) hoga.
+  - Regeneration max 1, aur wo bhi sirf BLOCKER par.
+- **Section 13 (Shorts):** 30–58 sec ab sirf story 003 tak hai. Story 004 se max 40 sec.
+- **Section 14 (auto mode):** upar ek note joda hai ki story 004 se section 15 iski jagah lega: preview nahi, budget ₹100–110 asli, aur regeneration max 1. Veto window, slots, cover, stop conditions aur Studio checklist waise hi rahenge.
+- **`CLAUDE.md` aur `munshi.md`:** dono me section 15 ka zikr jod diya.
+
+⚠️ **Long 03 shuru karne se pehle ek kaam zaroori hai:** section 15 kehta hai ki budget **asli kharche (usageMetadata)** se gina jaye. Abhi image ka kharcha ek fixed rate (₹3.24) se likha jaata hai, aur reference images ka kharcha usme nahi judta. Isi wajah se credits khatam hone par hamara hisaab ₹181 dikha raha tha. TTS ka kharcha pehle se asli tokens se hi ginta hai.
+
+Long 03 se pehle `gemini_image.py` me asli token se kharcha likhne ka badlav kar doon? Ye code ka kaam hai, isme koi kharcha nahi.
+
+---
+
+_**User (2026-10-19 14:28:41Z)**_
+
+
+
+<pasted_content id="aeaa">
+Haan, karo:
+1. gemini_image.py (aur jo bhi paid call karta hai) me kharcha API response ke usageMetadata se gino: input tokens (text + saari reference images) aur output tokens, asli rate se. cost_log.csv me "estimated" ke saath "actual" column bhi likho.
+2. Rate (₹ per token, input/output, image/text/TTS) ek hi config file me rakho, taaki Google ke daam badlein to ek jagah badle. GST ko alag line me dikhao.
+3. Budget check (₹110 per story, ₹50 floor) ab "actual" se chale. Har story ke ant me asli kul kharcha ek line me.
+4. Test bina naye paise ke: purane kisi call ka saved response ho to usse hisaab nikal kar dikhao; na ho to code ka dry-run unit test. Asli API call mat karna.
+Phir sync.
+</pasted_content id="aeaa">
+
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-19 14:28:47Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Read cost logging, image and TTS code
+
+`cat scripts/cost_log.py scripts/gemini_image.py; sed -n 1,90p scripts/gemini_tts.py; head -3 cost_log.csv; grep -rn "cost_log\|record_usd\|record(" scripts/*.py tools/*.py | grep -v "^scripts/cost_log.py" | head -20`
+
+```text
+"""Track Gemini image spend against the prepaid budget in cost_log.csv."""
+import csv
+import os
+from datetime import datetime
+from pathlib import Path
+
+from paths import DEFAULT_CHANNEL, channel_of
+
+ROOT = Path(__file__).resolve().parent.parent
+LOG = ROOT / "cost_log.csv"
+
+BUDGET_INR = 500.0
+USD_TO_INR = 96.5  # mid-market rate checked 2026-10-17; update if it drifts
+
+# USD per output image (ai.google.dev/gemini-api/docs/pricing, checked 2026-10-17)
+RATES_USD = {
+    ("gemini-nano-banana-2.1", "1K"): 0.0336,
+    ("gemini-nano-banana-2.1", "2K"): 0.0504,
+    ("gemini-nano-banana-2.1", "4K"): 0.113,
+}
+
+FIELDS = ["timestamp", "file", "model", "size", "cost_usd", "cost_inr", "today_total_inr", "remaining_inr", "channel"]
+
+
+def _rows():
+    if not LOG.exists():
+        return []
+    with LOG.open(encoding="utf-8", newline="") as f:
+        return list(csv.DictReader(f))
+
+
+def record(file: Path, model: str, size: str, when: datetime | None = None) -> dict:
+    """Image: priced from the per-image rate table."""
+    return record_usd(file, model, size, RATES_USD[(model, size)], when)
+
+
+def record_usd(file: Path, model: str, size: str, usd: float, when: datetime | None = None) -> dict:
+    """Anything with a computed USD cost (e.g. TTS priced by tokens)."""
+    when = when or datetime.now()
+    inr = usd * USD_TO_INR
+    rows = _rows()
+    today = when.strftime("%Y-%m-%d")
+    today_total = inr + sum(float(r["cost_inr"]) for r in rows if r["timestamp"].startswith(today))
+    spent = inr + sum(float(r["cost_inr"]) for r in rows)
+    row = {
+        "timestamp": when.strftime("%Y-%m-%d %H:%M:%S"),
+        "file": Path(file).resolve().relative_to(ROOT).as_posix(),
+        "model": model,
+        "size": size,
+        "cost_usd": f"{usd:.5f}",
+        "cost_inr": f"{inr:.2f}",
+        "today_total_inr": f"{today_total:.2f}",
+        "remaining_inr": f"{BUDGET_INR - spent:.2f}",
+        # the file's own channel folder, else the channel of the running build (make_short sets STORY_CHANNEL)
+        "channel": (channel_of(file) if "channels" in Path(file).resolve().parts
+                    else os.environ.get("STORY_CHANNEL", DEFAULT_CHANNEL)),
+    }
+    new = not LOG.exists()
+    with LOG.open("a", encoding="utf-8", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=FIELDS)
+        if new:
+            w.writeheader()
+        w.writerow(row)
+    return row
+
+
+def summary(row: dict, what="image") -> str:
+    return (f"Is {what} ka cost: ₹{row['cost_inr']}  |  Aaj ka total: ₹{row['today_total_inr']}  |  "
+            f"₹{BUDGET_INR:.0f} me se bacha: ₹{row['remaining_inr']}")
+"""Gemini (Nano Banana) image helper. Key is read from .env and never printed."""
+import base64
+import mimetypes
+import os
+from pathlib import Path
+
+import requests
+from dotenv import load_dotenv
+
+import cost_log
+import preview
+
+ROOT = Path(__file__).resolve().parent.parent
+load_dotenv(ROOT / ".env")
+
+ENDPOINT = "https://generativelanguage.googleapis.com/v1beta/interactions"
+MODEL = "gemini-nano-banana-2.1"
+STYLE = ("Art style: flat 2D cartoon, thick bold black outlines, warm colours, flat cel shading, "
+         "no gradients, no realism, clean vector look, kid-friendly.")
+
+
+def _find_image(obj):
+    """Return base64 image data from anywhere in the response JSON."""
+    if isinstance(obj, dict):
+        if obj.get("type") == "image" and obj.get("data"):
+            return obj["data"]
+        if "output_image" in obj and isinstance(obj["output_image"], dict) and obj["output_image"].get("data"):
+            return obj["output_image"]["data"]
+        if "inlineData" in obj and obj["inlineData"].get("data"):
+            return obj["inlineData"]["data"]
+        for v in obj.values():
+            found = _find_image(v)
+            if found:
+                return found
+    elif isinstance(obj, list):
+        for v in obj:
+            found = _find_image(v)
+            if found:
+                return found
+    return None
+
+
+def generate(prompt: str, out: Path, refs: list[Path] = (), aspect_ratio="1:1", size="1K") -> Path:
+    key = os.environ.get("GEMINI_API_KEY")
+    if not key:
+        raise RuntimeError("GEMINI_API_KEY missing in .env")
+
+    inputs = [{"type": "text", "text": f"{prompt}\n\n{STYLE}"}]
+    for ref in refs:
+        mime = mimetypes.guess_type(ref)[0] or "image/png"
+        inputs.append({"type": "image", "mime_type": mime,
+                       "data": base64.b64encode(Path(ref).read_bytes()).decode()})
+
+    body = {"model": MODEL, "input": inputs,
+            "response_format": {"type": "image", "aspect_ratio": aspect_ratio, "image_size": size}}
+    r = requests.post(ENDPOINT, json=body, headers={"x-goog-api-key": key}, timeout=90)  # >90s -> skip
+    if not r.ok:
+        raise RuntimeError(f"Gemini {r.status_code}: {r.text[:500]}")
+
+    data = _find_image(r.json())
+    if not data:
+        raise RuntimeError(f"No image in response: {r.text[:500]}")
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_bytes(base64.b64decode(data))
+    print(cost_log.summary(cost_log.record(out, MODEL, size)))
+    preview.build()
+    preview.open_in_vscode(out)
+    return out
+"""Gemini TTS helper. Key from .env (never printed). Every call is logged to cost_log.csv."""
+import base64
+import os
+import wave
+from pathlib import Path
+
+import requests
+from dotenv import load_dotenv
+
+import cost_log
+
+ROOT = Path(__file__).resolve().parent.parent
+load_dotenv(ROOT / ".env")
+
+ENDPOINT = "https://generativelanguage.googleapis.com/v1beta/interactions"
+MODEL = "gemini-3.8-flash-tts"
+# USD per 1M tokens (ai.google.dev/gemini-api/docs/pricing, checked 2026-10-17; doubles from 2027-01-01)
+PRICE_IN, PRICE_OUT = 0.50, 9.00
+AUDIO_TOKENS_PER_SEC = 25
+SR = 24000
+
+
+def _find(obj, pred):
+    if isinstance(obj, dict):
+        if pred(obj):
+            return obj
+        for v in obj.values():
+            if (hit := _find(v, pred)) is not None:
+                return hit
+    elif isinstance(obj, list):
+        for v in obj:
+            if (hit := _find(v, pred)) is not None:
+                return hit
+    return None
+
+
+def _usage_tokens(js):
+    """(input_tokens, output_tokens) if the response reports usage, else (None, None)."""
+    u = _find(js, lambda d: any("token" in k.lower() for k in d) and not d.get("data"))
+    if not u:
+        return None, None
+    get = lambda *names: next((u[k] for k in u for n in names if k.lower() == n), None)
+    return get("input_tokens", "total_input_tokens", "prompttokencount"), \
+        get("output_tokens", "total_output_tokens", "candidatestokencount")
+
+
+def speak(text: str, voice: str, style: str, out: Path) -> dict:
+    key = os.environ.get("GEMINI_API_KEY")
+    if not key:
+        raise RuntimeError("GEMINI_API_KEY missing in .env")
+    body = {
+        "model": MODEL,
+        "input": [{"type": "user_input", "content": [{
+            "type": "text", "text": text,
+            "annotations": [{"type": "speech_metadata", "style": style}]}]}],
+        "response_format": {"type": "audio", "mime_type": "audio/l16", "sample_rate": SR},
+        "generation_config": {"speech_config": [{"voice": voice}]},
+    }
+    r = requests.post(ENDPOINT, json=body, headers={"x-goog-api-key": key}, timeout=90)
+    if not r.ok:
+        raise RuntimeError(f"Gemini TTS {r.status_code}: {r.text[:500]}")
+    js = r.json()
+    blob = _find(js, lambda d: d.get("data") and "audio" in str(d.get("type", "")) + str(d.get("mime_type", "")))
+    if not blob:
+        raise RuntimeError(f"No audio in response: {str(js)[:500]}")
+    pcm = base64.b64decode(blob["data"])
+    out.parent.mkdir(parents=True, exist_ok=True)
+    with wave.open(str(out), "wb") as w:
+        w.setnchannels(1), w.setsampwidth(2), w.setframerate(SR), w.writeframes(pcm)
+    secs = len(pcm) / 2 / SR
+
+    tin, tout = _usage_tokens(js)
+    estimated = tout is None
+    tout = tout if tout is not None else secs * AUDIO_TOKENS_PER_SEC
+    tin = tin if tin is not None else (len(text) + len(style)) / 2
+    usd = tin / 1e6 * PRICE_IN + tout / 1e6 * PRICE_OUT
+    row = cost_log.record_usd(out, MODEL, f"tts {secs:.1f}s{' est' if estimated else ''}", usd)
+    return {"seconds": secs, "usd": usd, "row": row, "usage_reported": not estimated}
+timestamp,file,model,size,cost_usd,cost_inr,today_total_inr,remaining_inr,channel
+2026-10-17 15:10:59,channels/dadi-ki-kahaniyan/characters/dadi_sheet.png,gemini-nano-banana-2.1,1K,0.0336,3.24,3.24,496.76,dadi-ki-kahaniyan
+2026-10-17 15:15:02,channels/dadi-ki-kahaniyan/characters/golu_sheet.png,gemini-nano-banana-2.1,1K,0.0336,3.24,6.48,493.52,dadi-ki-kahaniyan
+scripts/gemini_image.py:10:import cost_log
+scripts/gemini_image.py:65:    print(cost_log.summary(cost_log.record(out, MODEL, size)))
+scripts/gemini_tts.py:1:"""Gemini TTS helper. Key from .env (never printed). Every call is logged to cost_log.csv."""
+scripts/gemini_tts.py:10:import cost_log
+scripts/gemini_tts.py:77:    row = cost_log.record_usd(out, MODEL, f"tts {secs:.1f}s{' est' if estimated else ''}", usd)
+scripts/make_short.py:32:import cost_log  # noqa: E402
+scripts/make_short.py:137:          + f"  -> ~₹{usd * cost_log.USD_TO_INR:.2f}")
+scripts/make_short.py:787:    os.environ["STORY_CHANNEL"] = P["channel"]  # cost_log rows get this channel
+scripts/make_short.py:817:    spend_before = sum(float(r["cost_inr"]) for r in cost_log._rows())
+scripts/make_short.py:871:    spent = sum(float(r["cost_inr"]) for r in cost_log._rows()) - spend_before
+scripts/preview.py:19:    log = ROOT / "cost_log.csv"
+scripts/story_budget.py:6:Story cost = cost_log rows whose file is inside the story folder, plus channel-level files made for it
+scripts/story_budget.py:14:LOG = ROOT / "cost_log.csv"
+scripts/voice_samples.py:11:import cost_log  # noqa: E402
+scripts/voice_samples.py:55:              + cost_log.summary(res["row"], "sample"), flush=True)
+scripts/voice_samples.py:56:    print(f"TOTAL ${total:.4f} = ₹{total * cost_log.USD_TO_INR:.2f}")
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 14:28:55Z)**_
+
+Pehle Google ki pricing page se asli rate dekh leta hoon, taaki config file me sahi daam jaayein.
+
+_**Agent (claude-opus-5-5 2026-10-19 14:28:55Z)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="ToolSearch"><details>
+<summary>Tool use: **ToolSearch**</summary>
+
+**Input:**
+
+- max_results: `1`
+- query: `select:WebFetch`
+
+**Result:**
+
+```
+
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 14:29:07Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="WebFetch"><details>
+<summary>Tool use: **WebFetch**</summary>
+ `https://ai.google.dev/gemini-api/docs/pricing`
+
+```text
+**1) Nano Banana image model: `gemini-nano-banana-2.1`** (Standard, paid tier, USD per 1M tokens)
+
+- **Input (text/image/video):** $1.50
+- **Output text (text and thinking):** $7.50
+- **Output image:** $30.00 per 1M image output tokens, which the page equates to $0.0336 per 1K image, $0.0504 per 2K image, and $0.113 per 4K image.
+- **Output tokens per image:** 1K (1024x1024px) uses 1,120 tokens; 2K (2048x2048px) uses 1,680 tokens; 4K (4096x4096px) uses 3,780 tokens.
+
+**2) TTS model: `gemini-3.8-flash-tts`** (Standard, paid tier, USD per 1M tokens)
+
+- **Input (text):** $0.50 through December 31, 2026 (rises to $1.00 starting January 1, 2027)
+- **Output (audio):** $9.00 through December 31, 2026 (rises to $18.00 starting January 1, 2027)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 14:29:47Z)**_
+
+<think><details><summary>Thought Process</summary>
+Mujhe rates mil gaye — input $1.50/1M, output image $30/1M ($0.0336 per 1K image), aur thinking $7.50/1M — jabki hamara purana hisaab sirf $0.0336 count karta tha, isliye reference images aur thinking ka kharcha miss ho raha tha. Ab check karta hoon ki koi purana API response saved hai ya nahi.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-19 14:29:59Z)**_
+
+<tool-use data-tool-type="search" data-tool-name="Grep"><details>
+<summary>Tool use: **Grep**</summary>
+ path `D:\Story-Channel` pattern `usageMetadata|promptTokenCount|candidatesTokenCount|input_tokens`
+
+```text
+Found 5 files
+.specstory\history\2026-10-17_08-25-27Z-pasted-content-id-aeaa.md
+.claude\agents\munshi.md
+CLAUDE.md
+shared\RULES.md
+scripts\gemini_tts.py
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 14:30:03Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Look for a saved API usage block in history
+
+`grep -n -o ".\{200\}\(usage\|input_tokens\|promptTokenCount\).\{300\}" .specstory/history/2026-10-17_08-25-27Z-pasted-content-id-aeaa.md | grep -i "token" | head -8`
+
+```text
+(Bash completed with no output)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 14:30:07Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Search history for usage token fields
+
+`grep -n -i "input_tokens\|promptTokenCount\|total_tokens\|\"usage\"" .specstory/history/2026-10-17_08-25-27Z-pasted-content-id-aeaa.md | cut -c1-300 | head -10`
+
+```text
+5093:    """(input_tokens, output_tokens) if the response reports usage, else (None, None)."""
+5098:    return get("input_tokens", "total_input_tokens", "prompttokencount"), \
+74246:scripts/gemini_tts.py:38:    """(input_tokens, output_tokens) if the response reports usage, else (None, None)."""
+74560:    """(input_tokens, output_tokens) if the response reports usage, else (None, None)."""
+74565:    return get("input_tokens", "total_input_tokens", "prompttokencount"), \
+74676: path `D:\Story-Channel` pattern `usageMetadata|promptTokenCount|candidatesTokenCount|input_tokens`
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 14:30:13Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Check TTS rows and ledger totals
+
+`grep -c "tts" cost_log.csv; grep -c "tts.* est" cost_log.csv; wc -l cost_log.csv; awk -F, 'NR>1{s+=$6} END{print s}' cost_log.csv; tail -1 cost_log.csv`
+
+```text
+139
+0
+236 cost_log.csv
+334.86
+2026-10-19 17:07:44,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/thumbnail_work/long02_thumb_raw.png,gemini-nano-banana-2.1,1K,0.03360,3.24,103.16,165.14,dadi-ki-kahaniyan
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 14:30:21Z)**_
+
+<think><details><summary>Thought Process</summary>
+Mujhe repo me purana API response nahi mila — TTS ke 139 rows me token count pehle se maujood tha, par image ka rate hamesha fixed hi likha jaata tha, isliye test asli call ke bajaye nakli responses par chalega. Ab main rate config file aur calculation module likhne ja raha hoon.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-19 14:30:26Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Write"><details>
+<summary>Tool use: **Write**</summary>
+
+```json
+{
+  "_help": "Single place for all Gemini prices and budget limits (shared/RULES.md section 15). Change prices here when Google changes them. USD per 1M tokens. Read by scripts/pricing.py.",
+  "source": "https://ai.google.dev/gemini-api/docs/pricing",
+  "checked": "2026-10-19",
+  "usd_to_inr": 96.5,
+  "gst_pct": 18,
+  "budget_includes_gst": true,
+  "models": {
+    "gemini-nano-banana-2.1": {
+      "kind": "image",
+      "input_per_1m": 1.50,
+      "output_text_per_1m": 7.50,
+      "output_image_per_1m": 30.00,
+      "image_tokens": {"1K": 1120, "2K": 1680, "4K": 3780},
+      "_estimate": "used only before the call / when the response has no usage: input = prompt chars / 4 + ref_image_tokens per reference image",
+      "ref_image_tokens_est": 1120
+    },
+    "gemini-3.8-flash-tts": {
+      "kind": "tts",
+      "input_per_1m": 0.50,
+      "output_audio_per_1m": 9.00,
+      "audio_tokens_per_sec": 25,
+      "from_2027-01-01": {"input_per_1m": 1.00, "output_audio_per_1m": 18.00}
+    }
+  },
+  "budget": {
+    "story_cap_inr": {"default": 110, "001_lalchi-halwai": null, "002_sharma-ji-ki-cycle": null, "003_mitthu-ne-sab-bata-diya": 130},
+    "floor_inr": 50,
+    "prepaid_inr": 500,
+    "balance_checkpoint": {
+      "_help": "Set from AI Studio billing (actual remaining balance, ₹) to correct the ledger; spend logged after 'timestamp' is subtracted from it. Leave null to use prepaid_inr minus all logged spend.",
+      "timestamp": null,
+      "inr": null
+    }
+  }
+}
+
+```
+
+```text
+File created successfully at: D:\Story-Channel\shared\pricing.json (file state is current in your context — no need to Read it back)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 14:30:45Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Write"><details>
+<summary>Tool use: **Write**</summary>
+
+```python
+"""Gemini cost from the API's own usage numbers (shared/RULES.md section 15). Prices: shared/pricing.json.
+
+    from pricing import image_cost, tts_cost
+    c = image_cost(model, "1K", response_json, prompt_chars=900, n_refs=3)
+    c -> {"estimated_usd", "actual_usd" (None if the response has no usage), "input_tokens", "output_tokens",
+          "thought_tokens", "image_tokens"}
+"""
+import json
+from datetime import date
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+CONFIG = ROOT / "shared" / "pricing.json"
+
+
+def config() -> dict:
+    return json.loads(CONFIG.read_text(encoding="utf-8"))
+
+
+def rates(model: str, on: date | None = None) -> dict:
+    """The model's rates, with any "from_YYYY-MM-DD" price change that is already in force."""
+    m = dict(config()["models"][model])
+    today = (on or date.today()).isoformat()
+    for k in sorted(k for k in m if k.startswith("from_")):
+        if today >= k[5:]:
+            m.update(m[k])
+    return m
+
+
+def usd_to_inr() -> float:
+    return config()["usd_to_inr"]
+
+
+def gst_rate() -> float:
+    return config()["gst_pct"] / 100
+
+
+# ---------- reading usage from a response ----------
+IN_KEYS = ("inputtokens", "totalinputtokens", "prompttokencount", "prompttokens")
+OUT_KEYS = ("outputtokens", "totaloutputtokens", "candidatestokencount", "completiontokens")
+THOUGHT_KEYS = ("thoughtstokencount", "thoughttokens", "totalthoughttokens", "reasoningtokens", "totalreasoningtokens")
+DETAIL_KEYS = ("candidatestokensdetails", "outputtokensdetails", "outputtokensbymodality", "totaloutputtokensbymodality")
+
+
+def _norm(k: str) -> str:
+    return k.replace("_", "").lower()
+
+
+def _usage_dict(obj):
+    """The first dict that holds token counts (never inside media data)."""
+    if isinstance(obj, dict):
+        keys = {_norm(k) for k in obj}
+        if not obj.get("data") and keys & set(IN_KEYS + OUT_KEYS):
+            return obj
+        for v in obj.values():
+            if (hit := _usage_dict(v)) is not None:
+                return hit
+    elif isinstance(obj, list):
+        for v in obj:
+            if (hit := _usage_dict(v)) is not None:
+                return hit
+    return None
+
+
+def read_usage(response: dict) -> dict | None:
+    """{"input", "output", "thoughts", "output_image" (None if not split by modality)} or None."""
+    u = _usage_dict(response)
+    if u is None:
+        return None
+    n = {_norm(k): v for k, v in u.items()}
+    pick = lambda keys: next((int(n[k]) for k in keys if isinstance(n.get(k), (int, float))), 0)
+    img = None
+    for k in DETAIL_KEYS:
+        if isinstance(n.get(k), list):
+            for d in n[k]:
+                dn = {_norm(a): b for a, b in d.items()}
+                if str(dn.get("modality", "")).upper() == "IMAGE":
+                    img = int(dn.get("tokencount", dn.get("tokens", 0)))
+    return {"input": pick(IN_KEYS), "output": pick(OUT_KEYS), "thoughts": pick(THOUGHT_KEYS), "output_image": img}
+
+
+# ---------- costs ----------
+def image_estimate_usd(model: str, size: str, prompt_chars: int, n_refs: int) -> float:
+    r = rates(model)
+    tin = prompt_chars / 4 + n_refs * r["ref_image_tokens_est"]
+    return tin / 1e6 * r["input_per_1m"] + r["image_tokens"][size] / 1e6 * r["output_image_per_1m"]
+
+
+def image_cost(model: str, size: str, response: dict, prompt_chars: int, n_refs: int) -> dict:
+    """Estimated and actual USD for one image call. Output tokens that are not the image (text, thinking) are
+    billed at the output-text rate; if the response does not split output by modality, the image part is the
+    per-size token count from the price table."""
+    r = rates(model)
+    est = image_estimate_usd(model, size, prompt_chars, n_refs)
+    u = read_usage(response)
+    if u is None:
+        return {"estimated_usd": est, "actual_usd": None, "input_tokens": None, "output_tokens": None,
+                "thought_tokens": None, "image_tokens": None}
+    img = u["output_image"] if u["output_image"] is not None else min(u["output"], r["image_tokens"][size])
+    text_out = max(u["output"] - img, 0) + u["thoughts"]
+    act = (u["input"] / 1e6 * r["input_per_1m"] + img / 1e6 * r["output_image_per_1m"]
+           + text_out / 1e6 * r["output_text_per_1m"])
+    return {"estimated_usd": est, "actual_usd": act, "input_tokens": u["input"],
+            "output_tokens": u["output"] + u["thoughts"], "thought_tokens": u["thoughts"], "image_tokens": img}
+
+
+def tts_estimate_usd(model: str, text_chars: int, seconds: float) -> float:
+    r = rates(model)
+    return text_chars / 2 / 1e6 * r["input_per_1m"] + seconds * r["audio_tokens_per_sec"] / 1e6 * r["output_audio_per_1m"]
+
+
+def tts_cost(model: str, response: dict, text_chars: int, seconds: float) -> dict:
+    r = rates(model)
+    est = tts_estimate_usd(model, text_chars, seconds)
+    u = read_usage(response)
+    if u is None:
+        return {"estimated_usd": est, "actual_usd": None, "input_tokens": None, "output_tokens": None}
+    out = u["output"] + u["thoughts"]
+    act = u["input"] / 1e6 * r["input_per_1m"] + out / 1e6 * r["output_audio_per_1m"]
+    return {"estimated_usd": est, "actual_usd": act, "input_tokens": u["input"], "output_tokens": out}
+
+```
+
+```text
+File created successfully at: D:\Story-Channel\scripts\pricing.py (file state is current in your context — no need to Read it back)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 14:30:50Z)**_
+
+Ab `cost_log.py` badal raha hoon. Isme naye columns honge: estimated, actual aur GST. Purane rows apne aap naye format me aa jayenge, aur unka "actual" khaali rahega.
+
+_**Agent (claude-opus-5-5 2026-10-19 14:31:09Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Write"><details>
+<summary>Tool use: **Write**</summary>
+
+```python
+"""Track Gemini spend (images + TTS) against the prepaid balance in cost_log.csv (shared/RULES.md section 15).
+
+Each row has the estimate made before the call and the ACTUAL cost from the response's usage numbers (blank when
+the API did not report usage; then the estimate counts). GST is shown separately. Prices and limits live in
+shared/pricing.json (scripts/pricing.py).
+"""
+import csv
+import json
+import os
+from datetime import datetime
+from pathlib import Path
+
+import pricing
+from paths import DEFAULT_CHANNEL, channel_of
+
+ROOT = Path(__file__).resolve().parent.parent
+LOG = ROOT / "cost_log.csv"
+USAGE_LOG = ROOT / "usage_log.jsonl"  # raw usage numbers per call (no media data), for audits and tests
+
+USD_TO_INR = pricing.usd_to_inr()
+BUDGET_INR = pricing.config()["budget"]["prepaid_inr"]
+
+FIELDS = ["timestamp", "file", "model", "size", "cost_usd", "cost_inr", "today_total_inr", "remaining_inr", "channel",
+          "estimated_inr", "actual_inr", "gst_inr", "input_tokens", "output_tokens"]
+
+
+def _rows():
+    if not LOG.exists():
+        return []
+    with LOG.open(encoding="utf-8", newline="") as f:
+        return list(csv.DictReader(f))
+
+
+def _migrate():
+    """Old logs (before the actual/GST columns): rewrite once with the new header; old rows keep cost_inr as the
+    estimate and a blank actual."""
+    if not LOG.exists():
+        return
+    with LOG.open(encoding="utf-8", newline="") as f:
+        header = next(csv.reader(f), [])
+    if header == FIELDS:
+        return
+    rows = _rows()
+    for r in rows:
+        r.setdefault("estimated_inr", r.get("cost_inr", ""))
+    with LOG.open("w", encoding="utf-8", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=FIELDS, extrasaction="ignore")
+        w.writeheader()
+        w.writerows(rows)
+
+
+def base_inr(r: dict) -> float:
+    """Pre-GST cost of a row: actual if the API reported usage, else the estimate."""
+    v = r.get("actual_inr") or r.get("cost_inr") or r.get("estimated_inr") or 0
+    return float(v)
+
+
+def charge_inr(r: dict) -> float:
+    """What a row takes from the budget: base cost, plus GST when pricing.json budget_includes_gst."""
+    b = base_inr(r)
+    return b * (1 + pricing.gst_rate()) if pricing.config()["budget_includes_gst"] else b
+
+
+def remaining(rows=None) -> float:
+    rows = _rows() if rows is None else rows
+    cp = pricing.config()["budget"]["balance_checkpoint"]
+    if cp.get("timestamp") and cp.get("inr") is not None:
+        return cp["inr"] - sum(charge_inr(r) for r in rows if r["timestamp"] > cp["timestamp"])
+    return BUDGET_INR - sum(charge_inr(r) for r in rows)
+
+
+def record_call(file: Path, model: str, size: str, cost: dict, when: datetime | None = None,
+                usage: dict | None = None) -> dict:
+    """Log one paid call. cost = pricing.image_cost()/tts_cost() result (estimated_usd, actual_usd, tokens)."""
+    _migrate()
+    when = when or datetime.now()
+    usd = cost["actual_usd"] if cost.get("actual_usd") is not None else cost["estimated_usd"]
+    inr = usd * USD_TO_INR
+    gst = inr * pricing.gst_rate()
+    row = {
+        "timestamp": when.strftime("%Y-%m-%d %H:%M:%S"),
+        "file": Path(file).resolve().relative_to(ROOT).as_posix(),
+        "model": model,
+        "size": size,
+        "cost_usd": f"{usd:.5f}",
+        "cost_inr": f"{inr:.2f}",
+        # the file's own channel folder, else the channel of the running build (make_short sets STORY_CHANNEL)
+        "channel": (channel_of(file) if "channels" in Path(file).resolve().parts
+                    else os.environ.get("STORY_CHANNEL", DEFAULT_CHANNEL)),
+        "estimated_inr": f"{cost['estimated_usd'] * USD_TO_INR:.2f}",
+        "actual_inr": "" if cost.get("actual_usd") is None else f"{cost['actual_usd'] * USD_TO_INR:.4f}",
+        "gst_inr": f"{gst:.2f}",
+        "input_tokens": "" if cost.get("input_tokens") is None else cost["input_tokens"],
+        "output_tokens": "" if cost.get("output_tokens") is None else cost["output_tokens"],
+    }
+    rows = _rows()
+    today = row["timestamp"][:10]
+    row["today_total_inr"] = f"{sum(charge_inr(r) for r in rows if r['timestamp'].startswith(today)) + charge_inr(row):.2f}"
+    row["remaining_inr"] = f"{remaining(rows + [row]):.2f}"
+    new = not LOG.exists()
+    with LOG.open("a", encoding="utf-8", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=FIELDS)
+        if new:
+            w.writeheader()
+        w.writerow(row)
+    if usage is not None:
+        with USAGE_LOG.open("a", encoding="utf-8") as f:
+            f.write(json.dumps({"timestamp": row["timestamp"], "file": row["file"], "model": model, "size": size,
+                                "usage": usage}, ensure_ascii=False) + "\n")
+    return row
+
+
+def record(file: Path, model: str, size: str, when: datetime | None = None) -> dict:
+    """Old API: image priced from the table only (no usage). Prefer record_call()."""
+    r = pricing.rates(model)
+    usd = r["image_tokens"][size] / 1e6 * r["output_image_per_1m"]
+    return record_call(file, model, size, {"estimated_usd": usd, "actual_usd": None}, when)
+
+
+def record_usd(file: Path, model: str, size: str, usd: float, when: datetime | None = None) -> dict:
+    """Old API: a computed USD cost without usage numbers. Prefer record_call()."""
+    return record_call(file, model, size, {"estimated_usd": usd, "actual_usd": None}, when)
+
+
+def summary(row: dict, what="image") -> str:
+    kind = "asli" if row.get("actual_inr") else "andaza"
+    return (f"Is {what} ka cost: ₹{float(row['cost_inr']):.2f} ({kind}; andaza tha ₹{row['estimated_inr']}) + GST ₹{row['gst_inr']}"
+            f"  |  Aaj ka total (GST samet): ₹{row['today_total_inr']}  |  Bacha: ₹{row['remaining_inr']}")
+
+```
+
+```text
+The file D:\Story-Channel\scripts\cost_log.py has been updated successfully. (file state is current in your context — no need to Read it back)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 14:31:12Z)**_
+
+Ab image aur TTS ki calls ko naye hisaab se jod raha hoon.
+
+_**Agent (claude-opus-5-5 2026-10-19 14:31:24Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Wire image and TTS calls to actual pricing
+
+```bash
+.venv/Scripts/python.exe - <<'EOF'
+from pathlib import Path
+def rep(path, pairs):
+    p = Path(path); t = p.read_text(encoding="utf-8")
+    for a, b in pairs:
+        assert t.count(a) == 1, (path, a[:50]); t = t.replace(a, b)
+    p.write_text(t, encoding="utf-8")
+rep("scripts/gemini_image.py", [
+("import cost_log\nimport preview\n", "import cost_log\nimport preview\nimport pricing\n"),
+("""    data = _find_image(r.json())
+    if not data:
+        raise RuntimeError(f"No image in response: {r.text[:500]}")
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_bytes(base64.b64decode(data))
+    print(cost_log.summary(cost_log.record(out, MODEL, size)))""",
+"""    js = r.json()
+    data = _find_image(js)
+    if not data:
+        raise RuntimeError(f"No image in response: {r.text[:500]}")
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_bytes(base64.b64decode(data))
+    # actual cost from the response's usage numbers (text + every reference image in, image + thinking out)
+    cost = pricing.image_cost(MODEL, size, js, prompt_chars=len(inputs[0]["text"]), n_refs=len(refs))
+    print(cost_log.summary(cost_log.record_call(out, MODEL, size, cost, usage=pricing.read_usage(js))))"""),
+])
+rep("scripts/gemini_tts.py", [
+("import cost_log\n", "import cost_log\nimport pricing\n"),
+("""# USD per 1M tokens (ai.google.dev/gemini-api/docs/pricing, checked 2026-10-17; doubles from 2027-01-01)
+PRICE_IN, PRICE_OUT = 0.50, 9.00
+AUDIO_TOKENS_PER_SEC = 25
+""", """# prices: shared/pricing.json (scripts/pricing.py); kept as names for older callers
+PRICE_IN = pricing.rates(MODEL)["input_per_1m"]
+PRICE_OUT = pricing.rates(MODEL)["output_audio_per_1m"]
+AUDIO_TOKENS_PER_SEC = pricing.rates(MODEL)["audio_tokens_per_sec"]
+"""),
+("""    tin, tout = _usage_tokens(js)
+    estimated = tout is None
+    tout = tout if tout is not None else secs * AUDIO_TOKENS_PER_SEC
+    tin = tin if tin is not None else (len(text) + len(style)) / 2
+    usd = tin / 1e6 * PRICE_IN + tout / 1e6 * PRICE_OUT
+    row = cost_log.record_usd(out, MODEL, f"tts {secs:.1f}s{' est' if estimated else ''}", usd)
+    return {"seconds": secs, "usd": usd, "row": row, "usage_reported": not estimated}""",
+"""    cost = pricing.tts_cost(MODEL, js, text_chars=len(text) + len(style), seconds=secs)
+    estimated = cost["actual_usd"] is None
+    usd = cost["estimated_usd"] if estimated else cost["actual_usd"]
+    row = cost_log.record_call(out, MODEL, f"tts {secs:.1f}s{' est' if estimated else ''}", cost,
+                               usage=pricing.read_usage(js))
+    return {"seconds": secs, "usd": usd, "row": row, "usage_reported": not estimated}"""),
+])
+print("ok")
+EOF
+grep -n "PRICE_IN\|PRICE_OUT\|AUDIO_TOKENS\|_usage_tokens" scripts/*.py | grep -v "^scripts/gemini_tts.py:1[0-9]:\|^scripts/gemini_tts.py:2[0-9]:"
+```
+
+```text
+ok
+scripts/gemini_tts.py:39:def _usage_tokens(js):
+scripts/make_short.py:135:    usd = secs * gemini_tts.AUDIO_TOKENS_PER_SEC * gemini_tts.PRICE_OUT / 1e6
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 14:31:28Z)**_
+
+Ab budget check (`story_budget.py`) ko asli kharche par chala raha hoon. Har story ke ant me kul kharche ki ek line bhi isi se aayegi.
+
+_**Agent (claude-opus-5-5 2026-10-19 14:31:41Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Write"><details>
+<summary>Tool use: **Write**</summary>
+
+```python
+"""Budget guard for auto mode (shared/RULES.md sections 14/15), on ACTUAL cost.
+
+    from story_budget import check
+    check("004_some-story", next_cost_inr=3.24)   # exits (STOP) if the story cap or the account floor would be crossed
+
+    python scripts/story_budget.py <story>          # one line: the story's actual total (+ GST)
+    python scripts/story_budget.py <story> --log    # same line appended to the channel log.md (end of a story)
+
+Story cost = cost_log rows whose file is inside the story folder, plus channel-level files made for it
+(EXTRA_FILES, e.g. a new recurring character sheet or voice samples). A row counts its actual cost (API usage
+numbers) or, when the API reported none, its estimate; GST is added when pricing.json budget_includes_gst.
+Cap per story and floor: shared/pricing.json "budget".
+"""
+import sys
+from datetime import date
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import cost_log  # noqa: E402
+import pricing  # noqa: E402
+
+ROOT = Path(__file__).resolve().parent.parent
+EXTRA_FILES = {
+    "003_mitthu-ne-sab-bata-diya": ["channels/dadi-ki-kahaniyan/characters/sharma_sheet.png",
+                                    "channels/dadi-ki-kahaniyan/characters/voices/raghu_",
+                                    "channels/dadi-ki-kahaniyan/characters/voices/gupta_"],
+}
+
+
+def _story_rows(story: str):
+    extra = EXTRA_FILES.get(story, [])
+    return [r for r in cost_log._rows()
+            if f"/stories/{story}/" in r["file"] or any(r["file"].startswith(e) for e in extra)]
+
+
+def story_cost(story: str) -> float:
+    """What the story has taken from the budget (actual, else estimate; + GST if configured)."""
+    return sum(cost_log.charge_inr(r) for r in _story_rows(story))
+
+
+def cap(story: str):
+    caps = pricing.config()["budget"]["story_cap_inr"]
+    return caps.get(story, caps["default"])
+
+
+def remaining() -> float:
+    return cost_log.remaining()
+
+
+def check(story: str, next_cost_inr: float):
+    """next_cost_inr: the pre-GST estimate of the next call; GST is added here when the budget includes it."""
+    cfg = pricing.config()
+    nxt = next_cost_inr * (1 + pricing.gst_rate()) if cfg["budget_includes_gst"] else next_cost_inr
+    spent, left, limit = story_cost(story), remaining(), cap(story)
+    if limit is not None and spent + nxt > limit:
+        sys.exit(f"STOP (RULES 14/15): story {story} has spent ₹{spent:.2f} (actual); +₹{nxt:.2f} would cross the "
+                 f"₹{limit:.0f} cap. ASK the user.")
+    floor = cfg["budget"]["floor_inr"]
+    if left - nxt < floor:
+        sys.exit(f"STOP (RULES 14/15): balance ₹{left:.2f} would drop below ₹{floor:.0f}. ASK the user.")
+    return spent, left
+
+
+def summary_line(story: str) -> str:
+    rows = _story_rows(story)
+    base = sum(cost_log.base_inr(r) for r in rows)
+    gst = base * pricing.gst_rate()
+    est = sum(float(r.get("estimated_inr") or r.get("cost_inr") or 0) for r in rows)
+    no_usage = sum(1 for r in rows if not r.get("actual_inr"))
+    limit = cap(story)
+    return (f"{date.today().isoformat()} | {story} | ASLI KUL KHARCHA | ₹{base:.2f} + GST ₹{gst:.2f} = ₹{base + gst:.2f}"
+            f" (andaza tha ₹{est:.2f}; {len(rows)} paid calls, {no_usage} bina usage = andaza)"
+            + (f" | cap ₹{limit:.0f}" if limit is not None else ""))
+
+
+if __name__ == "__main__":
+    s = sys.argv[1]
+    line = summary_line(s)
+    print(line)
+    print(f"account remaining (ledger, GST samet): ₹{remaining():.2f}")
+    if "--log" in sys.argv:
+        key = next((r["channel"] for r in _story_rows(s)), None) or "dadi-ki-kahaniyan"
+        with (ROOT / "channels" / key / "log.md").open("a", encoding="utf-8") as f:
+            f.write(line + "\n")
+
+```
+
+```text
+The file D:\Story-Channel\scripts\story_budget.py has been updated successfully. (file state is current in your context — no need to Read it back)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 14:31:48Z)**_
+
+Ab test likh raha hoon jo poori tarah offline chalega. Ye nakli API responses aur `cost_log.csv` ki ek copy par chalega, aur `requests.post` ko band kar dega taaki galti se bhi asli call na ho.
+
+_**Agent (claude-opus-5-5 2026-10-19 14:32:09Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Write"><details>
+<summary>Tool use: **Write**</summary>
+
+```python
+"""Offline tests for actual-cost logging (no API calls, no money). Run: python -X utf8 scripts/test_pricing.py
+
+Uses fake API responses in the shapes Gemini reports usage (interactions API and generateContent usageMetadata),
+a temporary copy of cost_log.csv, and blocks requests.post so nothing can reach the network.
+"""
+import shutil
+import sys
+import tempfile
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import requests  # noqa: E402
+
+requests.post = lambda *a, **k: (_ for _ in ()).throw(RuntimeError("network blocked in tests"))
+
+import cost_log  # noqa: E402
+import pricing  # noqa: E402
+import story_budget  # noqa: E402
+
+IMG = "gemini-nano-banana-2.1"
+TTS = "gemini-3.8-flash-tts"
+R = pricing.rates(IMG)
+INR = pricing.usd_to_inr()
+ok = 0
+
+
+def eq(a, b, what, tol=1e-9):
+    global ok
+    assert abs(a - b) <= tol, f"{what}: {a} != {b}"
+    ok += 1
+    print(f"  ok  {what}: {a:.6f}")
+
+
+print("1. image, interactions-style usage split by modality (text + 3 refs in, image + thinking out)")
+resp = {"outputs": [{"type": "image", "data": "AAAA"}],
+        "usage": {"total_input_tokens": 4300, "total_output_tokens": 1120, "total_thought_tokens": 600,
+                  "output_tokens_by_modality": [{"modality": "image", "tokens": 1120}]}}
+c = pricing.image_cost(IMG, "1K", resp, prompt_chars=1200, n_refs=3)
+want = 4300 / 1e6 * 1.50 + 1120 / 1e6 * 30.00 + 600 / 1e6 * 7.50
+eq(c["actual_usd"], want, "actual USD")
+eq(c["estimated_usd"], (1200 / 4 + 3 * 1120) / 1e6 * 1.50 + 1120 / 1e6 * 30.00, "estimate USD")
+print(f"      -> actual ₹{c['actual_usd'] * INR:.2f} vs old flat ₹{0.0336 * INR:.2f}")
+
+print("2. image, generateContent usageMetadata (no thinking split, modality details)")
+resp = {"candidates": [{"content": {"parts": [{"inlineData": {"data": "AAAA"}}]}}],
+        "usageMetadata": {"promptTokenCount": 2600, "candidatesTokenCount": 1290, "thoughtsTokenCount": 0,
+                          "candidatesTokensDetails": [{"modality": "IMAGE", "tokenCount": 1120},
+                                                      {"modality": "TEXT", "tokenCount": 170}]}}
+c = pricing.image_cost(IMG, "1K", resp, prompt_chars=800, n_refs=2)
+eq(c["actual_usd"], 2600 / 1e6 * 1.5 + 1120 / 1e6 * 30 + 170 / 1e6 * 7.5, "actual USD")
+
+print("3. image, usage without modality split -> image part from the size table, rest at text rate")
+resp = {"usage": {"input_tokens": 1500, "output_tokens": 1500}}
+c = pricing.image_cost(IMG, "2K", resp, prompt_chars=400, n_refs=1)
+eq(c["actual_usd"], 1500 / 1e6 * 1.5 + 1500 / 1e6 * 30, "2K: all 1500 output tokens <= 1680 count as image")
+
+print("4. image, no usage in the response -> actual is None, estimate is used")
+c = pricing.image_cost(IMG, "1K", {"outputs": [{"type": "image", "data": "AAAA"}]}, prompt_chars=400, n_refs=0)
+assert c["actual_usd"] is None
+eq(c["estimated_usd"], 100 / 1e6 * 1.5 + 1120 / 1e6 * 30, "estimate USD")
+
+print("5. TTS usage (today's rate and the 2027 price change)")
+resp = {"outputs": [{"type": "audio", "data": "AAAA"}], "usage": {"total_input_tokens": 40, "total_output_tokens": 90}}
+c = pricing.tts_cost(TTS, resp, text_chars=80, seconds=3.6)
+eq(c["actual_usd"], 40 / 1e6 * 0.5 + 90 / 1e6 * 9.0, "TTS actual USD")
+from datetime import date  # noqa: E402
+eq(pricing.rates(TTS, date(2027, 1, 2))["output_audio_per_1m"], 18.0, "2027-01-01 audio rate")
+
+print("6. cost_log on a temp copy: migration, actual/estimate/GST columns, story total, budget STOP")
+tmp = Path(tempfile.mkdtemp())
+real = cost_log.LOG
+cost_log.LOG = tmp / "cost_log.csv"
+cost_log.USAGE_LOG = tmp / "usage_log.jsonl"
+shutil.copy(real, cost_log.LOG)
+n_old = len(cost_log._rows())
+story = "003_mitthu-ne-sab-bata-diya"
+old_line = story_budget.summary_line(story)
+f = cost_log.ROOT / "channels/dadi-ki-kahaniyan/stories" / story / "images/scene_99_test.png"
+resp = {"usage": {"total_input_tokens": 4300, "total_output_tokens": 1120, "total_thought_tokens": 600,
+                  "output_tokens_by_modality": [{"modality": "image", "tokens": 1120}]}}
+cost = pricing.image_cost(IMG, "1K", resp, prompt_chars=1200, n_refs=3)
+row = cost_log.record_call(f, IMG, "1K", cost, usage=pricing.read_usage(resp))
+rows = cost_log._rows()
+assert list(rows[0].keys()) == cost_log.FIELDS and len(rows) == n_old + 1
+assert rows[0]["actual_inr"] == "" and rows[0]["estimated_inr"] == rows[0]["cost_inr"], "old rows: estimate only"
+eq(float(row["actual_inr"]), cost["actual_usd"] * INR, "row actual ₹", 1e-4)
+eq(float(row["gst_inr"]), float(row["cost_inr"]) * 0.18, "row GST ₹", 0.006)
+print("     ", cost_log.summary(row))
+print("      before:", old_line)
+print("      after: ", story_budget.summary_line(story))
+assert cost_log.USAGE_LOG.read_text(encoding="utf-8").count("total_thought") == 0  # normalised usage stored
+try:
+    story_budget.check(story, 100.0)
+    raise AssertionError("cap STOP expected")
+except SystemExit as e:
+    print("      STOP works:", str(e)[:110])
+    ok += 1
+cost_log.LOG = real
+shutil.rmtree(tmp)
+print(f"\nALL {ok} CHECKS PASSED (no network, real cost_log.csv untouched)")
+
+```
+
+```text
+File created successfully at: D:\Story-Channel\scripts\test_pricing.py (file state is current in your context — no need to Read it back)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 14:32:16Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Run offline pricing tests
+
+`md5sum cost_log.csv && .venv/Scripts/python.exe -X utf8 scripts/test_pricing.py; md5sum cost_log.csv`
+
+```text
+cf8a6c58485ef8ed83a89963f333fb73 *cost_log.csv
+1. image, interactions-style usage split by modality (text + 3 refs in, image + thinking out)
+  ok  actual USD: 0.044550
+  ok  estimate USD: 0.039090
+      -> actual ₹4.30 vs old flat ₹3.24
+2. image, generateContent usageMetadata (no thinking split, modality details)
+  ok  actual USD: 0.038775
+3. image, usage without modality split -> image part from the size table, rest at text rate
+  ok  2K: all 1500 output tokens <= 1680 count as image: 0.047250
+4. image, no usage in the response -> actual is None, estimate is used
+  ok  estimate USD: 0.033750
+5. TTS usage (today's rate and the 2027 price change)
+  ok  TTS actual USD: 0.000830
+  ok  2027-01-01 audio rate: 18.000000
+6. cost_log on a temp copy: migration, actual/estimate/GST columns, story total, budget STOP
+  ok  row actual ₹: 4.299100
+  ok  row GST ₹: 0.770000
+      Is image ka cost: ₹4.30 (asli; andaza tha ₹3.77) + GST ₹0.77  |  Aaj ka total (GST samet): ₹126.80  |  Bacha: ₹99.79
+      before: 2026-10-19 | 003_mitthu-ne-sab-bata-diya | ASLI KUL KHARCHA | ₹103.16 + GST ₹18.57 = ₹121.73 (andaza tha ₹103.16; 88 paid calls, 88 bina usage = andaza) | cap ₹130
+      after:  2026-10-19 | 003_mitthu-ne-sab-bata-diya | ASLI KUL KHARCHA | ₹107.46 + GST ₹19.34 = ₹126.80 (andaza tha ₹106.93; 89 paid calls, 88 bina usage = andaza) | cap ₹130
+      STOP works: STOP (RULES 14/15): story 003_mitthu-ne-sab-bata-diya has spent ₹126.80 (actual); +₹118.00 would cross the ₹13
+
+ALL 10 CHECKS PASSED (no network, real cost_log.csv untouched)
+cf8a6c58485ef8ed83a89963f333fb73 *cost_log.csv
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 14:32:24Z)**_
+
+<think><details><summary>Thought Process</summary>
+Sabhi 10 test pass ho gaye aur asli `cost_log.csv` safe hai, lekin purani TTS rows ke asli token kharche ko "andaza" maana ja raha tha — isse theek karke phir asli file ko naye columns me migrate karunga.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-19 14:32:37Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Fix TTS migration, retest, migrate real log
+
+```bash
+.venv/Scripts/python.exe - <<'EOF'
+from pathlib import Path
+p = Path("scripts/cost_log.py"); t = p.read_text(encoding="utf-8")
+a = """    for r in rows:
+        r.setdefault("estimated_inr", r.get("cost_inr", ""))"""
+b = """    for r in rows:
+        r.setdefault("estimated_inr", r.get("cost_inr", ""))
+        # old TTS rows were already priced from the API's token counts (size without "est") -> actual
+        if pricing.config()["models"].get(r.get("model"), {}).get("kind") == "tts" and "est" not in r.get("size", ""):
+            r["actual_inr"] = r.get("cost_inr", "")"""
+assert t.count(a) == 1; p.write_text(t.replace(a, b), encoding="utf-8")
+EOF
+cp cost_log.csv "C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad/cost_log_before_migration.csv" && .venv/Scripts/python.exe -X utf8 scripts/test_pricing.py | tail -4 && .venv/Scripts/python.exe -X utf8 -c "
+import sys; sys.path.insert(0,'scripts'); import cost_log; cost_log._migrate()" && head -2 cost_log.csv && .venv/Scripts/python.exe -X utf8 scripts/story_budget.py 003_mitthu-ne-sab-bata-diya
+```
+
+```text
+      after:  2026-10-19 | 003_mitthu-ne-sab-bata-diya | ASLI KUL KHARCHA | ₹107.46 + GST ₹19.34 = ₹126.80 (andaza tha ₹106.93; 89 paid calls, 30 bina usage = andaza) | cap ₹130
+      STOP works: STOP (RULES 14/15): story 003_mitthu-ne-sab-bata-diya has spent ₹126.80 (actual); +₹118.00 would cross the ₹13
+
+ALL 10 CHECKS PASSED (no network, real cost_log.csv untouched)
+timestamp,file,model,size,cost_usd,cost_inr,today_total_inr,remaining_inr,channel,estimated_inr,actual_inr,gst_inr,input_tokens,output_tokens
+2026-10-17 15:10:59,channels/dadi-ki-kahaniyan/characters/dadi_sheet.png,gemini-nano-banana-2.1,1K,0.0336,3.24,3.24,496.76,dadi-ki-kahaniyan,3.24,,,,
+2026-10-19 | 003_mitthu-ne-sab-bata-diya | ASLI KUL KHARCHA | ₹103.16 + GST ₹18.57 = ₹121.73 (andaza tha ₹103.16; 88 paid calls, 30 bina usage = andaza) | cap ₹130
+account remaining (ledger, GST samet): ₹104.87
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 14:32:44Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Verify migration kept every old value
+
+```bash
+wc -l cost_log.csv "C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad/cost_log_before_migration.csv"; .venv/Scripts/python.exe -X utf8 -c "
+import csv
+a=list(csv.DictReader(open('cost_log.csv',encoding='utf-8')));b=list(csv.DictReader(open(r'C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad/cost_log_before_migration.csv',encoding='utf-8')))
+assert all(x[k]==y[k] for x,y in zip(a,b) for k in y), 'old values changed'
+print('rows', len(a), len(b), 'old columns identical')"
+```
+
+```text
+  236 cost_log.csv
+  236 C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad/cost_log_before_migration.csv
+  472 total
+rows 235 235 old columns identical
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 14:32:47Z)**_
+
+Migration ke baad bhi saare 235 rows ke purane values bilkul waise hi hain. Ab baaki scripts ka compile check aur builder ka `--plan` chala raha hoon, taaki kuch toota na ho.
+
+_**Agent (claude-opus-5-5 2026-10-19 14:32:56Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Compile and import checks, builder plan
+
+```bash
+.venv/Scripts/python.exe -m py_compile scripts/gemini_image.py scripts/gemini_tts.py scripts/cost_log.py scripts/pricing.py scripts/story_budget.py scripts/gen_short_cover.py scripts/voice_samples.py scripts/make_short.py && echo compiled && .venv/Scripts/python.exe -X utf8 -c "
+import sys; sys.path.insert(0,'scripts'); import gemini_image, gemini_tts, voice_samples; print('imports ok', gemini_tts.PRICE_IN, gemini_tts.PRICE_OUT)" && .venv/Scripts/python.exe -X utf8 scripts/make_short.py channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/shorts/short_01_sona-chori --plan | tail -3
+```
+
+```text
+compiled
+imports ok 0.5 9.0
+  sfx:      0 files, all present: True  
+  font:     shared/fonts/Mukta-ExtraBold.ttf present: True
+  register: shared/assets_license.csv has a row for every music/SFX file (checked)
+```
+</details></tool-use>

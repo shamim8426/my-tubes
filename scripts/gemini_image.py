@@ -9,6 +9,7 @@ from dotenv import load_dotenv
 
 import cost_log
 import preview
+import pricing
 
 ROOT = Path(__file__).resolve().parent.parent
 load_dotenv(ROOT / ".env")
@@ -57,12 +58,15 @@ def generate(prompt: str, out: Path, refs: list[Path] = (), aspect_ratio="1:1", 
     if not r.ok:
         raise RuntimeError(f"Gemini {r.status_code}: {r.text[:500]}")
 
-    data = _find_image(r.json())
+    js = r.json()
+    data = _find_image(js)
     if not data:
         raise RuntimeError(f"No image in response: {r.text[:500]}")
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_bytes(base64.b64decode(data))
-    print(cost_log.summary(cost_log.record(out, MODEL, size)))
+    # actual cost from the response's usage numbers (text + every reference image in, image + thinking out)
+    cost = pricing.image_cost(MODEL, size, js, prompt_chars=len(inputs[0]["text"]), n_refs=len(refs))
+    print(cost_log.summary(cost_log.record_call(out, MODEL, size, cost, usage=pricing.read_usage(js))))
     preview.build()
     preview.open_in_vscode(out)
     return out

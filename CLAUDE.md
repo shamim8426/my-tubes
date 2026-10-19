@@ -48,6 +48,7 @@ Command: `.\.venv\Scripts\python -X utf8 scripts\make_short.py <video folder> [-
 - Lambai: long max 4:00 (target 3:40–4:00), Short max 40 s (target 35–40 s); script measured TTS speed se likho.
 - Kharcha: ₹100–110 ASLI (usageMetadata, reference images samet) per story (long + Short + thumbnail). Kuch banane se pehle asli kharche ka andaza; ₹110 se upar ho to plan saral karo, kabhi budget se upar shuru mat karo. Max 16 nayi scene images (baaki crop/zoom), sirf 1K, refs sirf us scene ke kirdaar, purani sheets dobara, regen max 1 aur sirf BLOCKER par.
 - R2 ke baad MINOR sirf carry_over.md me, kuch regenerate nahi. Ruko sirf BLOCKER / copyright shak / channel ID mismatch par.
+- Asli kharcha: rate sirf `shared/pricing.json` me (Google daam badle to wahin badlo; GST alag). `cost_log.csv` me har call ka `estimated_inr`, `actual_inr` (API usage se), `gst_inr`; raw usage `usage_log.jsonl` me. Budget check (`scripts/story_budget.py`: story cap + ₹50 floor) actual + GST par. Story ke ant me: `.\.venv\Scripts\python -X utf8 scripts\story_budget.py <story> --log` (asli kul kharcha ek line me log.md me). Test: `scripts	est_pricing.py` (offline).
 
 ## GitHub sync
 - Har milestone ke baad sync chalao: `powershell -NoProfile -ExecutionPolicy Bypass -File tools\sync.ps1 -Message "<project>: <milestone>"`.

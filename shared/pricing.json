@@ -1,0 +1,36 @@
+{
+  "_help": "Single place for all Gemini prices and budget limits (shared/RULES.md section 15). Change prices here when Google changes them. USD per 1M tokens. Read by scripts/pricing.py.",
+  "source": "https://ai.google.dev/gemini-api/docs/pricing",
+  "checked": "2026-10-19",
+  "usd_to_inr": 96.5,
+  "gst_pct": 18,
+  "budget_includes_gst": true,
+  "models": {
+    "gemini-nano-banana-2.1": {
+      "kind": "image",
+      "input_per_1m": 1.50,
+      "output_text_per_1m": 7.50,
+      "output_image_per_1m": 30.00,
+      "image_tokens": {"1K": 1120, "2K": 1680, "4K": 3780},
+      "_estimate": "used only before the call / when the response has no usage: input = prompt chars / 4 + ref_image_tokens per reference image",
+      "ref_image_tokens_est": 1120
+    },
+    "gemini-3.8-flash-tts": {
+      "kind": "tts",
+      "input_per_1m": 0.50,
+      "output_audio_per_1m": 9.00,
+      "audio_tokens_per_sec": 25,
+      "from_2027-01-01": {"input_per_1m": 1.00, "output_audio_per_1m": 18.00}
+    }
+  },
+  "budget": {
+    "story_cap_inr": {"default": 110, "001_lalchi-halwai": null, "002_sharma-ji-ki-cycle": null, "003_mitthu-ne-sab-bata-diya": 130},
+    "floor_inr": 50,
+    "prepaid_inr": 500,
+    "balance_checkpoint": {
+      "_help": "Set from AI Studio billing (actual remaining balance, ₹) to correct the ledger; spend logged after 'timestamp' is subtracted from it. Leave null to use prepaid_inr minus all logged spend.",
+      "timestamp": null,
+      "inr": null
+    }
+  }
+}

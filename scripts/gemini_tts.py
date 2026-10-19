@@ -8,15 +8,17 @@ import requests
 from dotenv import load_dotenv
 
 import cost_log
+import pricing
 
 ROOT = Path(__file__).resolve().parent.parent
 load_dotenv(ROOT / ".env")
 
 ENDPOINT = "https://generativelanguage.googleapis.com/v1beta/interactions"
 MODEL = "gemini-3.8-flash-tts"
-# USD per 1M tokens (ai.google.dev/gemini-api/docs/pricing, checked 2026-10-17; doubles from 2027-01-01)
-PRICE_IN, PRICE_OUT = 0.50, 9.00
-AUDIO_TOKENS_PER_SEC = 25
+# prices: shared/pricing.json (scripts/pricing.py); kept as names for older callers
+PRICE_IN = pricing.rates(MODEL)["input_per_1m"]
+PRICE_OUT = pricing.rates(MODEL)["output_audio_per_1m"]
+AUDIO_TOKENS_PER_SEC = pricing.rates(MODEL)["audio_tokens_per_sec"]
 SR = 24000
 
 
@@ -69,10 +71,9 @@ def speak(text: str, voice: str, style: str, out: Path) -> dict:
         w.setnchannels(1), w.setsampwidth(2), w.setframerate(SR), w.writeframes(pcm)
     secs = len(pcm) / 2 / SR
 
-    tin, tout = _usage_tokens(js)
-    estimated = tout is None
-    tout = tout if tout is not None else secs * AUDIO_TOKENS_PER_SEC
-    tin = tin if tin is not None else (len(text) + len(style)) / 2
-    usd = tin / 1e6 * PRICE_IN + tout / 1e6 * PRICE_OUT
-    row = cost_log.record_usd(out, MODEL, f"tts {secs:.1f}s{' est' if estimated else ''}", usd)
+    cost = pricing.tts_cost(MODEL, js, text_chars=len(text) + len(style), seconds=secs)
+    estimated = cost["actual_usd"] is None
+    usd = cost["estimated_usd"] if estimated else cost["actual_usd"]
+    row = cost_log.record_call(out, MODEL, f"tts {secs:.1f}s{' est' if estimated else ''}", cost,
+                               usage=pricing.read_usage(js))
     return {"seconds": secs, "usd": usd, "row": row, "usage_reported": not estimated}
