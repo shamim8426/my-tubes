@@ -50,5 +50,6 @@
     "raju": 0.95
   },
   "gap": 0.4,
-  "_pace_note": "Gemini TTS for story 003 came out faster than Long 01 (narrator 2.46 w/s); tempo brings narration to Long 01's storytelling pace (~1.9-2.0 w/s) so the video lands in the approved 4:45-5:15."
+  "_pace_note": "Gemini TTS for story 003 came out faster than Long 01 (narrator 2.46 w/s); tempo brings narration to Long 01's storytelling pace (~1.9-2.0 w/s) so the video lands in the approved 4:45-5:15.",
+  "end_hold": 7.0
 }

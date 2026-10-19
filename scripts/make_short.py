@@ -550,6 +550,13 @@ def music_offset(f: Path, a, b, windows):
     return float(max(np.arange(0, 20.01, 0.25), key=lambda off: (min(score(off), ok), -off)))
 
 
+def leading_silence(f) -> float:
+    """Seconds of digital silence at the start of a music file (skipped, so music never drops out under speech)."""
+    r = run([FFMPEG, "-hide_banner", "-t", "10", "-i", f, "-af", "silencedetect=n=-50dB:d=0.3", "-f", "null", "-"])
+    m = re.search(r"silence_start: (-?[\d.]+)\s.*?silence_end: ([\d.]+)", r.stderr, re.S)
+    return float(m.group(2)) if m and float(m.group(1)) <= 0.05 else 0.0
+
+
 def build_audio(voice, total, events, meta, work: Path, two_pass: bool, below_db: float):
     """Voice + music (one track, or a track per mood with crossfades) at a fixed level under the voice + stings;
     music muted in any music_silent window. Also writes music.wav (music stem) for the level check."""
@@ -568,7 +575,11 @@ def build_audio(voice, total, events, meta, work: Path, two_pass: bool, below_db
         fade_in = f"afade=t=in:d={MUSIC_XFADE}," if k else ""
         ms = int(a * 1000)
         off = music_offset(f, a, b, events.get("pauses", []))
-        if off:
+        lead = leading_silence(f)
+        if lead:
+            print(f"  music: {Path(f).stem} skips {lead:.2f}s of silence at its start")
+            off += lead
+        if off and off != lead:
             print(f"  music: {Path(f).stem} starts {off:.2f}s in (pause falls on an audible part)")
         inputs += ["-stream_loop", "-1", *(["-ss", f"{off:.2f}"] if off else []), "-i", f]
         fc.append(f"[{k + 1}:a]aresample=48000,aformat=channel_layouts=stereo,atrim=0:{length:.3f},"
@@ -828,7 +839,7 @@ def main():
 
     print("3/4 audio")
     norm = build_audio(voice, total, events, meta, work, two_pass=(mode == "final"),
-                       below_db=MUSIC_BELOW_VOICE_DB[P["kind"]])
+                       below_db=meta.get("music_below_db", MUSIC_BELOW_VOICE_DB[P["kind"]]))
 
     print("4/4 mux (video stream copied, no re-encode)")
     out = out_dir / (f"{case}.mp4" if mode == "final" else f"{case}_preview.mp4")

@@ -3,11 +3,14 @@
   "stories": {
     "003_mitthu-ne-sab-bata-diya": {
       "video": "long",
-      "stage": "images",
+      "stage": "short_uploaded",
       "budget_cap_inr": 130,
       "updated": "2026-10-19",
       "mode": "auto v2 (no preview checkpoint; veto window)",
-      "note": "credits back; regens 13 done, 09/18/26 running"
+      "note": "Munshi final R1/R2 PASS (long srt re-timed), Short A final R1 PASS; long gLUM0zcECSk scheduled 2026-10-20 19:00 IST, Short A BzpR3Xawpsk scheduled 2026-10-20 21:00 IST (1st comment task 21:05). Manual Studio: confirm both schedules, Related video Short A = long, pin comment. Story cost Rs103.16.",
+      "slot": "long 2026-10-20 19:00, Short A 2026-10-20 21:00",
+      "long_video_id": "gLUM0zcECSk",
+      "short_a_video_id": "BzpR3Xawpsk"
     }
   }
 }

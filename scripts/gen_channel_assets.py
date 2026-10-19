@@ -435,7 +435,7 @@ def long02_short01_cover():
     for i in range(60):
         for y in (i, band.height - 1 - i):
             mask.paste(int(255 * i / 60), (0, y, band.width, y + 1))
-    bg.paste(band, (0, int(H * 0.36)), mask)
+    bg.paste(band, (0, int(H * 0.40)), mask)
     w = L02_SHORT01 / "thumbnail_work"
     (w / "fonts").mkdir(parents=True, exist_ok=True)
     bg.save(w / "cover_art.png")
@@ -452,7 +452,7 @@ Style: Q,Mukta ExtraBold,170,&H0030FFFF,&H000000FF,&H00000000,&H96000000,-1,0,0,
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
-Dialogue: 0,0:00:00.00,0:00:01.00,Q,,0,0,0,,{{\\an5\\pos({W // 2},{int(H * 0.27)})}}सच में चोरी?
+Dialogue: 0,0:00:00.00,0:00:01.00,Q,,0,0,0,,{{\\an5\\pos({W // 2},{int(H * 0.33)})}}सच में चोरी?
 """
     (w / "cover.ass").write_text(ass, encoding="utf-8")
     subprocess.run([str(FFMPEG), "-v", "error", "-y", "-i", "cover_art.png", "-vf",
@@ -461,7 +461,7 @@ Dialogue: 0,0:00:00.00,0:00:01.00,Q,,0,0,0,,{{\\an5\\pos({W // 2},{int(H * 0.27)
     out = L02_SHORT01 / "output" / "short_01_cover.png"
     out.parent.mkdir(parents=True, exist_ok=True)
     shutil.copy(w / "cover_titled.png", out)
-    brand_corner(out, "tc12", width_frac=0.36)
+    brand_corner(out, "tc15", width_frac=0.36)
     print("saved", out, Image.open(out).size)
 
 

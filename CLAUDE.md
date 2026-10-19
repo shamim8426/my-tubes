@@ -20,7 +20,7 @@ Har script, case file aur image prompt se pehle [channels/dadi-ki-kahaniyan/chan
 ## Video build workflow
 Command: `.\.venv\Scripts\python -X utf8 scripts\make_short.py <video folder> [--preview | --final] [--spend] [--plan] [--seconds N]`
 (video folder = `channels/<key>/stories/<story>/long` ya `.../shorts/short_<NN>_<slug>`; `--plan` sirf paths/inputs check karta hai, `--seconds N` pehle N second ka test preview)
-- Koi bhi badlav ho to pehle sirf `--preview` banao. `--final` tabhi banao jab user bole "final banao".
+- Koi bhi badlav ho to pehle sirf `--preview` banao. `--final` tabhi banao jab user bole "final banao" — auto mode (RULES 14) me Munshi ke preview PASS ke baad apne aap.
 - Sirf badla hua scene ya line dobara banao, baaki cache se lo (`cache/<channel>/<story>/<video>/` scene clips, story ka `audio/tts_cache/` TTS). Kabhi poori video shuru se mat banao (cache mat mitao) jab tak user na kahe.
 - User ke kai badlav ek saath aayein to sab ek hi build me lagao, har badlav par alag build mat chalao.
 - Image/TTS par paisa lagne se pehle cost batao aur user se poocho. Paisa sirf cache miss par lage; make_short bina `--spend` ke paid TTS se pehle ruk kar estimate dikhata hai.
@@ -29,7 +29,7 @@ Command: `.\.venv\Scripts\python -X utf8 scripts\make_short.py <video folder> [-
 
 ## Munshi (review + publish)
 - Har production step ke baad `munshi` subagent ko bulao aur uska verdict mujhe dikhao. FIX ho to free fix karo aur dobara review karwao; ASK ho to mujhse poochho.
-- Upload sirf `munshi` karega, `youtube-publish` skill ke hisaab se, meri "ha" ke baad.
+- Upload sirf `munshi` karega, `youtube-publish` skill ke hisaab se, meri "ha" ke baad — auto mode (RULES 14) me script approval hi "ha" hai, upload hamesha scheduled (veto window).
 - Naye niyam: sab channels ke liye `shared/RULES.md`, sirf ek channel ke liye `channels/<key>/RULES.md` (channel ke niyam sakht ho sakte hain, dheele kabhi nahi).
 - **Short -> Long checklist:** session shuru hote hi `channels/<key>/log.md` me `related_video: pending` ya `pin_comment: pending` dikhe to user ko yaad dilao (Studio: Related video = long video, first comment pin). User "ho gaya" bole to us line me `related_video: done, pin_comment: done` (aur date) likho.
 - Munshi ka log aur carry-over: `channels/<key>/log.md`, `channels/<key>/carry_over.md`.

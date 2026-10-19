@@ -193,7 +193,8 @@ def brand_corner(path, where="bl", width_frac=0.19):
     edge = int(im.width * 0.02)
     xy = {"bl": (edge, im.height - patch.height - edge),
           "tc": ((im.width - patch.width) // 2, edge),
-          "tc12": ((im.width - patch.width) // 2, int(im.height * 0.125))}[where]  # tc12: below the top 12% (Shorts grid)
+          "tc12": ((im.width - patch.width) // 2, int(im.height * 0.125)),
+          "tc15": ((im.width - patch.width) // 2, int(im.height * 0.155))}[where]  # tc15: Short cover (RULES 14: 15-85%)  # tc12: below the top 12% (Shorts grid)
     im.alpha_composite(patch, xy)
     im.convert("RGB").save(path)
 

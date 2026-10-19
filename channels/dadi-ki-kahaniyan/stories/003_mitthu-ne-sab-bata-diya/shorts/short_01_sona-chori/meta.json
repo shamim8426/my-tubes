@@ -32,5 +32,6 @@
   "pinned_comment": "पूरी कहानी — मिट्ठू, सोना और पूरा मोहल्ला — चैनल पर देखिए! 🙏",
   "speed": 1.08,
   "gap": 0.15,
-  "gap_speaker_change": 0.3
+  "gap_speaker_change": 0.3,
+  "music_below_db": 13.3
 }
