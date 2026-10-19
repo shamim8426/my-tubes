@@ -10,7 +10,12 @@ These are the hard rules. If a builder summary, a script or a file disagrees wit
 ## 1. Budget
 - Prepaid Google Cloud budget: ₹500, auto-reload off. Current balance is whatever `cost_log.csv` says.
 - Every paid call (Gemini image ≈ ₹3.24 each at 1K, Gemini TTS per line) must be in `cost_log.csv` with date, project, item, ₹.
-- No paid call without the user's OK first. A fix that costs money is always ASK, never FIX — except in auto mode after script approval (section 14; from story 004 section 15), within its budget and regeneration limits.
+- Outside auto mode: no paid call without the user's OK first; a fix that costs money is ASK, never FIX.
+- In auto mode (after script approval, sections 14/15): NO paid call needs the user's OK. Stop and ask only in these 3 cases:
+  1. Google balance below ₹50 (or the API says credits are depleted) — tell the user to recharge.
+  2. A copyright doubt.
+  3. A channel ID mismatch.
+  Everything else (budget, failed regenerations, BLOCKERs after R2) is handled without asking, as in section 15, and logged.
 - Flag it if a step cost more than 30% above its estimate (e.g. LONG_01 TTS: estimate ₹4.85, actual ₹6.63).
 
 ## 2. Story and characters (from `channel_bible.md`)
@@ -95,7 +100,7 @@ Taste points (pacing feel, colour choice, music phrase) are "Note" only and neve
 Rounds:
 - Round 1 (R1): full review for that stage; BLOCKER and MINOR both come back as FIX (free) or ASK (paid).
 - Round 2 (R2): re-check only what changed and what failed in R1.
-- After R2: if any BLOCKER remains → ASK the user, stop. If only MINOR remain → verdict "PASS-WITH-NOTES": the stage is passed and the pipeline moves on to the next step (including upload when the user has approved it). No third round.
+- After R2: if any BLOCKER remains → ASK the user, stop (outside auto mode; in auto mode see section 15: fix it yourself, never ask). If only MINOR remain → verdict "PASS-WITH-NOTES": the stage is passed and the pipeline moves on to the next step (including upload when the user has approved it). No third round.
 - From story 004 (section 15): stage reviews (script timing, images, audio) are R1 + R2; after R2 MINOR issues are only logged to carry_over.md (nothing regenerated) and the flow moves on. The final video gets ONE check (R1 only): no BLOCKER -> upload. A BLOCKER may get max 1 paid regeneration per image.
 - Every MINOR waived after R2 is written to channels/<key>/carry_over.md (project, issue, suggested fix). Before the next video's build, the builder reads carry_over.md and fixes those causes in the pipeline, then marks them done.
 
@@ -136,13 +141,7 @@ From story 004, section 15 (production profile) overrides this section where the
 - Veto window instead of approval: every video is uploaded as scheduled (private until its slot: long 19:00 IST, Short 21:00 IST), never published immediately. Right after each upload, show the user one status line with the video link and slot. If the user says "rok do" before the slot, run `tools/veto.py <video_id>` (sets the video private and removes publishAt via the API), log it in the channel log.md, and pause the pipeline for that story.
 - Slot: if the pipeline finishes too late for today's slot (long upload after 18:45 IST), use the next day's slot (Short follows section 8).
 - Thumbnails: the long thumbnail is set via the API automatically. Short covers cannot be set by the API: the Short's first frame is its cover (hook visual, no caption in the first 1 s, any text inside 15%-85% of the height); also save a vertical cover file (1080x1920) in the Short's output/ for manual use.
-- Stop conditions (stop and ASK the user):
-  - Per-video budget cap ₹130 total (all paid steps + regenerations). Before every paid call, check the running total for this story in cost_log.csv.
-  - Account floor: the remaining prepaid balance would drop below ₹50 (or the API reports credits depleted).
-  - More than 2 regenerations needed for any scene image.
-  - Any BLOCKER left after R2 (only MINOR left -> PASS-WITH-NOTES, continue).
-  - Any copyright doubt.
-  - Channel ID mismatch.
+- Stop conditions: ONLY the 3 in section 1 (balance below ₹50 -> ask the user to recharge, copyright doubt, channel ID mismatch). Budget cap, regeneration limits and BLOCKERs after R2 never stop the flow; they are handled as in section 15 (story 003 used a ₹130 cap and max 2 regenerations).
 - Manual Studio checklist after uploads (the API cannot do these): Related video for the Short = its long video, pin the first comment, and — until the API audit passes — confirm/set the schedule in Studio. Munshi shows it after the uploads and asks about it at the start of the next session until the user confirms.
 - Every auto step is logged in the channel log.md with cost so far, and shown to the user as one short status line.
 - pipeline_queue.json tracks each story's stages (script_approved -> assets -> images -> tts -> preview -> final -> uploaded -> short_uploaded -> done, or stopped/vetoed with the reason).
@@ -156,5 +155,9 @@ From story 004, section 15 (production profile) overrides this section where the
   - Reuse existing character sheets; new sheets only for genuinely new characters.
   - Max 1 paid regeneration per image, and only for a BLOCKER.
 - No preview video. Munshi reviews the stages (script timing, images, audio) — R1 and R2 — and right after R2 the FINAL video is built directly.
-- After R2: MINOR issues are ignored (logged to carry_over.md), nothing is regenerated, move to the next step. Only a BLOCKER, a copyright doubt or a channel ID mismatch stops the flow and asks the user.
+- After R2: MINOR issues are ignored (logged to carry_over.md), nothing is regenerated, move to the next step.
+- No paid call needs the user's OK. Stop and ask ONLY when: (1) the Google balance is below ₹50 (ask the user to recharge), (2) there is a copyright doubt, (3) the channel ID does not match. Everything else is handled without asking and written to the channel log.md:
+  - Cost about to cross ₹110: do not ask — shrink the plan yourself (fewer new images, more crop/zoom reuse) and continue.
+  - A BLOCKER still in an image after its 1 regeneration: do not ask — build that scene from a crop/zoom of a good image (or move the scene's line onto another image) and continue.
+  - Any BLOCKER after R2 that can be fixed for free: fix it yourself. One that cannot be fixed for free: handle it the same way (crop/zoom reuse, move the line to another image), never by asking.
 - Final video: Munshi does one final check (R1 only). If no BLOCKER -> upload in the slot (veto window stays: scheduled, "rok do" possible before the slot).

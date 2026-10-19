@@ -75485,3 +75485,314 @@ imports ok 0.5 9.0
   register: shared/assets_license.csv has a row for every music/SFX file (checked)
 ```
 </details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 14:33:00Z)**_
+
+Sab theek chal raha hai. Aakhri kaam: `CLAUDE.md` me naya hisaab likh raha hoon, phir sync.
+
+_**Agent (claude-opus-5-5 2026-10-19 14:33:11Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Document actual-cost workflow in CLAUDE.md
+
+```bash
+.venv/Scripts/python.exe - <<'EOF'
+from pathlib import Path
+p = Path("CLAUDE.md"); t = p.read_text(encoding="utf-8")
+a = "- R2 ke baad MINOR sirf carry_over.md me, kuch regenerate nahi. Ruko sirf BLOCKER / copyright shak / channel ID mismatch par.\n"
+assert t.count(a) == 1
+t = t.replace(a, a + """- Asli kharcha: rate sirf `shared/pricing.json` me (Google daam badle to wahin badlo; GST alag). `cost_log.csv` me har call ka `estimated_inr`, `actual_inr` (API usage se), `gst_inr`; raw usage `usage_log.jsonl` me. Budget check (`scripts/story_budget.py`: story cap + ₹50 floor) actual + GST par. Story ke ant me: `.\\.venv\\Scripts\\python -X utf8 scripts\\story_budget.py <story> --log` (asli kul kharcha ek line me log.md me). Test: `scripts\\test_pricing.py` (offline).
+""")
+p.write_text(t, encoding="utf-8")
+EOF
+grep -n "pricing.json" CLAUDE.md | cut -c1-80
+```
+
+```text
+<stdin>:5: SyntaxWarning: "\." is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\."? A raw string is also an option.
+51:- Asli kharcha: rate sirf `shared/pricing.json` me (Google daam badle to wahi
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 14:33:27Z)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="PowerShell"><details>
+<summary>Tool use: **PowerShell**</summary>
+Sync actual-cost changes
+
+```text
+2026-10-19 20:03:26  pushed: actual cost: pricing.json + usage-based image/TTS cost, cost_log estimated/actual/GST, budget on actual, offline tests  (repo pack size 337 MB)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 14:33:33Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Verify the CLAUDE.md line text
+
+`grep -n "story_budget.py <story> --log" CLAUDE.md | cut -c1-400`
+
+```text
+51:- Asli kharcha: rate sirf `shared/pricing.json` me (Google daam badle to wahin badlo; GST alag). `cost_log.csv` me har call ka `estimated_inr`, `actual_inr` (API usage se), `gst_inr`; raw usage `usage_log.jsonl` me. Budget check (`scripts/story_budget.py`: story cap + ₹50 floor) actual + GST par. Story ke ant me: `.\.venv\Scripts\python -X utf8 scripts\story_budget.py <story> --log` (asli kul
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 14:33:48Z)**_
+
+Kharcha ab API ke apne token count se, asli rate par gina jayega. Saare rate ek hi config file me hain, GST alag line me dikhta hai, aur budget check bhi isi asli kharche par chalta hai. GitHub sync ho gaya. Test me koi asli API call nahi hui, ₹0.
+
+**1. Asli kharcha (usageMetadata se)**
+- **Images (`gemini_image.py`):** text aur saari reference images ke input token, aur output me image ke saath model ki "thinking" ke token bhi gine jaate hain.
+- **TTS (`gemini_tts.py`):** isme pehle bhi asli tokens gine jaate the; ab ye bhi naye system se juda hai.
+- **`cost_log.csv` ke naye columns:** `estimated_inr`, `actual_inr`, `gst_inr`, `input_tokens`, `output_tokens`.
+- **Purane rows:** 235 rows naye format me aa gaye, aur unke purane values bilkul nahi badle.
+  - Purani 58 TTS rows ab "actual" maani gayi hain, kyunki unka kharcha pehle se tokens se tha.
+  - Image rows sirf "andaza" hain, kyunki unka asli usage kabhi save hi nahi hua.
+- Har call ka raw usage ab `usage_log.jsonl` me bhi save hoga.
+
+**2. Ek hi config file: `shared/pricing.json`**
+- Image model: input $1.50, thinking $7.50, image $30 (har ek per 1M token).
+- TTS: $0.50 / $9. Google ke page ke mutabik 1 Jan 2027 se ye dugna hoga; ye badlav apne aap lag jayega.
+- Dollar-rupee ka rate, GST 18%, har story ka cap aur ₹50 floor bhi isi file me hain.
+
+**3. Budget check**
+- `story_budget.py` ab asli + GST par chalta hai. Story ka cap 110 hai (story 003 ke liye 130), aur floor ₹50.
+- Story ke ant me ek line milti hai, jaise:
+  `003 | ASLI KUL KHARCHA | ₹103.16 + GST ₹18.57 = ₹121.73 (88 paid calls, 30 bina usage = andaza)`
+
+**4. Test (bina paise ke)**
+- Koi purana API response save nahi tha, isliye offline test banaya: `scripts/test_pricing.py`. Isme network band rehta hai.
+- 10/10 check pass hue: dono tarah ke usage format, bina usage wala response, TTS, 2027 ka rate, `cost_log.csv` ki copy par migration aur GST, aur budget STOP.
+- Ek misaal: 3 reference images aur thinking ke saath ek image ka asli kharcha ~₹4.30 + GST aata hai, jabki purana hisaab ₹3.24 likhta tha.
+
+⚠️ **Ek kaam aapse chahiye:** GST jodne ke baad hamare hisaab me balance ab **₹104.87** bacha dikh raha hai. Ye abhi bhi galat ho sakta hai, kyunki purani images me reference aur thinking ka kharcha chhoot gaya tha, aur aapka top-up bhi isme nahi juda.
+
+AI Studio → Billing me jo asli bacha balance dikhe, wo bata dijiye. Main use `pricing.json` ke `balance_checkpoint` me daal dunga, aur aage ka hisaab sahi chalega.
+
+---
+
+_**User (2026-10-19 14:39:29Z)**_
+
+
+
+<pasted_content id="aeaa">
+shared/RULES.md section 1 aur 15 me saaf likho: auto mode me kisi bhi paid call se pehle user ka OK nahi chahiye — sirf ye 3 haalat me ruko: (1) Google balance ₹50 se kam (user ko recharge ke liye batao), (2) copyright par shak, (3) channel ID mismatch.
+Baaki sab khud sambhalo:
+- Kharcha ₹110 paar hone wala ho: poochho mat — plan khud chhota karo (kam nayi images, zyada crop/zoom reuse) aur aage badho; log me likho.
+- 1 regeneration ke baad bhi image me BLOCKER: poochho mat — us scene ko kisi theek image ke crop/zoom se banao (ya scene ki line doosri image par rakho) aur aage badho; log me likho.
+- R2 ke baad koi bhi BLOCKER jo free me theek ho sakta ho: khud theek karo; jo free me na ho sake usse upar wale tareeke se sambhalo.
+Phir sync.
+</pasted_content id="aeaa">
+
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-19 14:39:42Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Find stop/ask wording in RULES
+
+`grep -n "ASK\|stop\|STOP\|Stop" shared/RULES.md | sed -n 1,60p | cut -c1-200`
+
+```text
+13:- No paid call without the user's OK first. A fix that costs money is always ASK, never FIX — except in auto mode after script approval (section 14; from story 004 section 15), within its budget 
+34:- Target length: the duration the user approved at preview. Before preview, the script estimate is only a guide. Final must be within ±10% of the approved preview length; outside that is ASK.
+76:- After upload: if YouTube Studio shows any copyright claim or strike, stop all new uploads and tell the user. CC music sometimes gets false Content ID claims; dispute only with the licence proof f
+96:- Round 1 (R1): full review for that stage; BLOCKER and MINOR both come back as FIX (free) or ASK (paid).
+98:- After R2: if any BLOCKER remains → ASK the user, stop. If only MINOR remain → verdict "PASS-WITH-NOTES": the stage is passed and the pipeline moves on to the next step (including upload when 
+107:- At script stage Munshi compares the new script with every previous story.md in the channel and lists the closest match and what is different. If fewer than 3 differ -> BLOCKER (ASK the user).
+134:From story 004, section 15 (production profile) overrides this section where they differ: no preview, budget ₹100–110 actual per story instead of the ₹130 cap, max 1 regeneration per image (
+139:- Stop conditions (stop and ASK the user):
+148:- pipeline_queue.json tracks each story's stages (script_approved -> assets -> images -> tts -> preview -> final -> uploaded -> short_uploaded -> done, or stopped/vetoed with the reason).
+159:- After R2: MINOR issues are ignored (logged to carry_over.md), nothing is regenerated, move to the next step. Only a BLOCKER, a copyright doubt or a channel ID mismatch stops the flow and asks th
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 14:39:51Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Show exact lines to rewrite
+
+`sed -n 139,146p shared/RULES.md && sed -n 13p shared/RULES.md && sed -n 98p shared/RULES.md && sed -n 159,161p shared/RULES.md`
+
+```text
+- Stop conditions (stop and ASK the user):
+  - Per-video budget cap ₹130 total (all paid steps + regenerations). Before every paid call, check the running total for this story in cost_log.csv.
+  - Account floor: the remaining prepaid balance would drop below ₹50 (or the API reports credits depleted).
+  - More than 2 regenerations needed for any scene image.
+  - Any BLOCKER left after R2 (only MINOR left -> PASS-WITH-NOTES, continue).
+  - Any copyright doubt.
+  - Channel ID mismatch.
+- Manual Studio checklist after uploads (the API cannot do these): Related video for the Short = its long video, pin the first comment, and — until the API audit passes — confirm/set the schedule in Studio. Munshi shows it after the uploads and asks about it at the start of the next session until the user confirms.
+- No paid call without the user's OK first. A fix that costs money is always ASK, never FIX — except in auto mode after script approval (section 14; from story 004 section 15), within its budget and regeneration limits.
+- After R2: if any BLOCKER remains → ASK the user, stop. If only MINOR remain → verdict "PASS-WITH-NOTES": the stage is passed and the pipeline moves on to the next step (including upload when the user has approved it). No third round.
+- After R2: MINOR issues are ignored (logged to carry_over.md), nothing is regenerated, move to the next step. Only a BLOCKER, a copyright doubt or a channel ID mismatch stops the flow and asks the user.
+- Final video: Munshi does one final check (R1 only). If no BLOCKER -> upload in the slot (veto window stays: scheduled, "rok do" possible before the slot).
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 14:40:07Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Rewrite stop rules in RULES sections 1, 11, 14, 15
+
+```bash
+.venv/Scripts/python.exe - <<'EOF'
+from pathlib import Path
+p = Path("shared/RULES.md"); t = p.read_text(encoding="utf-8")
+def rep(a, b):
+    global t
+    assert t.count(a) == 1, a[:60]; t = t.replace(a, b)
+rep("- No paid call without the user's OK first. A fix that costs money is always ASK, never FIX — except in auto mode after script approval (section 14; from story 004 section 15), within its budget and regeneration limits.",
+"""- Outside auto mode: no paid call without the user's OK first; a fix that costs money is ASK, never FIX.
+- In auto mode (after script approval, sections 14/15): NO paid call needs the user's OK. Stop and ask only in these 3 cases:
+  1. Google balance below ₹50 (or the API says credits are depleted) — tell the user to recharge.
+  2. A copyright doubt.
+  3. A channel ID mismatch.
+  Everything else (budget, failed regenerations, BLOCKERs after R2) is handled without asking, as in section 15, and logged.""")
+rep("- After R2: if any BLOCKER remains → ASK the user, stop.",
+    "- After R2: if any BLOCKER remains → ASK the user, stop (outside auto mode; in auto mode see section 15: fix it yourself, never ask).")
+rep("""- Stop conditions (stop and ASK the user):
+  - Per-video budget cap ₹130 total (all paid steps + regenerations). Before every paid call, check the running total for this story in cost_log.csv.
+  - Account floor: the remaining prepaid balance would drop below ₹50 (or the API reports credits depleted).
+  - More than 2 regenerations needed for any scene image.
+  - Any BLOCKER left after R2 (only MINOR left -> PASS-WITH-NOTES, continue).
+  - Any copyright doubt.
+  - Channel ID mismatch.""",
+"""- Stop conditions: ONLY the 3 in section 1 (balance below ₹50 -> ask the user to recharge, copyright doubt, channel ID mismatch). Budget cap, regeneration limits and BLOCKERs after R2 never stop the flow; they are handled as in section 15 (story 003 used a ₹130 cap and max 2 regenerations).""")
+rep("- After R2: MINOR issues are ignored (logged to carry_over.md), nothing is regenerated, move to the next step. Only a BLOCKER, a copyright doubt or a channel ID mismatch stops the flow and asks the user.",
+"""- After R2: MINOR issues are ignored (logged to carry_over.md), nothing is regenerated, move to the next step.
+- No paid call needs the user's OK. Stop and ask ONLY when: (1) the Google balance is below ₹50 (ask the user to recharge), (2) there is a copyright doubt, (3) the channel ID does not match. Everything else is handled without asking and written to the channel log.md:
+  - Cost about to cross ₹110: do not ask — shrink the plan yourself (fewer new images, more crop/zoom reuse) and continue.
+  - A BLOCKER still in an image after its 1 regeneration: do not ask — build that scene from a crop/zoom of a good image (or move the scene's line onto another image) and continue.
+  - Any BLOCKER after R2 that can be fixed for free: fix it yourself. One that cannot be fixed for free: handle it the same way (crop/zoom reuse, move the line to another image), never by asking.""")
+p.write_text(t, encoding="utf-8")
+print("rules ok")
+EOF
+grep -n "STOP\|stop" .claude/agents/munshi.md CLAUDE.md | cut -c1-260
+```
+
+```text
+rules ok
+.claude/agents/munshi.md:38:- Auto mode (RULES section 14): after the user approves a script, stages run without asking the user. In your report say clearly whether a STOP condition is hit (BLOCKER, copyright doubt, channel ID mismatch, a 3rd regeneration of o
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 14:40:14Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Find stop/ask wording in CLAUDE.md
+
+`grep -n -i "ruko\|poochho\|pooch kar" CLAUDE.md | cut -c1-250`
+
+```text
+17:- Paisa lagne wala koi bhi naya kaam user se pooch kar hi karo. User se Hinglish me baat karo.
+31:- Har production step ke baad `munshi` subagent ko bulao aur uska verdict mujhe dikhao. FIX ho to free fix karo aur dobara review karwao; ASK ho to mujhse poochho.
+42:- Ruko aur poochho: story kharcha ₹130 se upar, balance ₹50 se neeche (ya credits khatam), kisi scene ki 3rd regeneration, R2 ke baad BLOCKER, copyright shak, channel ID mismatch.
+50:- R2 ke baad MINOR sirf carry_over.md me, kuch regenerate nahi. Ruko sirf BLOCKER / copyright shak / channel ID mismatch par.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 14:40:27Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Update CLAUDE.md and munshi.md stop wording
+
+```bash
+.venv/Scripts/python.exe - <<'EOF'
+from pathlib import Path
+def rep(path, pairs):
+    p = Path(path); t = p.read_text(encoding="utf-8")
+    for a, b in pairs:
+        assert t.count(a) == 1, (path, a[:50]); t = t.replace(a, b)
+    p.write_text(t, encoding="utf-8")
+rep("CLAUDE.md", [
+("- Paisa lagne wala koi bhi naya kaam user se pooch kar hi karo. User se Hinglish me baat karo.",
+ "- Paisa lagne wala koi bhi naya kaam user se pooch kar hi karo — sivaay auto mode ke (script approval ke baad koi paid call poochhni nahi; RULES 1/15). User se Hinglish me baat karo."),
+("- Ruko aur poochho: story kharcha ₹130 se upar, balance ₹50 se neeche (ya credits khatam), kisi scene ki 3rd regeneration, R2 ke baad BLOCKER, copyright shak, channel ID mismatch.",
+ "- Ruko aur poochho SIRF 3 haalat me: Google balance ₹50 se kam (user ko recharge ke liye batao), copyright shak, channel ID mismatch. Baaki sab khud sambhalo (RULES 15) aur log.md me likho."),
+("- R2 ke baad MINOR sirf carry_over.md me, kuch regenerate nahi. Ruko sirf BLOCKER / copyright shak / channel ID mismatch par.",
+ """- R2 ke baad MINOR sirf carry_over.md me, kuch regenerate nahi. Koi paid call poochhni nahi. Ruko sirf: balance ₹50 se kam (recharge batao) / copyright shak / channel ID mismatch.
+- Bina poochhe khud sambhalo (aur log.md me likho): kharcha ₹110 paar hone wala -> plan chhota karo (kam nayi images, zyada crop/zoom); 1 regen ke baad bhi image me BLOCKER -> scene kisi theek image ke crop/zoom se banao ya line doosri image par rakho; R2 ke baad BLOCKER -> free fix khud karo, warna isi crop/zoom tareeke se."""),
+])
+rep(".claude/agents/munshi.md", [
+("In your report say clearly whether a STOP condition is hit (BLOCKER, copyright doubt, channel ID mismatch, a 3rd regeneration of o",
+ "In your report say clearly whether a STOP condition is hit — in auto mode there are ONLY 3 (RULES 1/15): Google balance below ₹50 (user must recharge), copyright doubt, channel ID mismatch. A BLOCKER, a failed regeneration or a budget overrun is NOT a stop: report it with the free way out (fix, crop/zoom of a good image, move the line to another image, smaller plan) so the builder continues. (Older wording kept for history: BLOCKER, copyright doubt, channel ID mismatch, a 3rd regeneration of o"),
+])
+p = Path(".claude/agents/munshi.md"); t = p.read_text(encoding="utf-8")
+i = t.index("(Older wording kept for history:"); j = t.index("\n", i)
+print(repr(t[i:j][-120:]))
+EOF
+```
+
+```text
+Exit code 1
+Traceback (most recent call last):
+  File "<stdin>", line 22, in <module>
+  File "C:\Users\ashamim\AppData\Local\Programs\Python\Python314\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u20b9' in position 42: character maps to <undefined>
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 14:40:30Z)**_
+
+RULES me naye "sirf 3 haalat me ruko" wale niyam likh diye hain. Ab Munshi ki file ki wo line saaf kar raha hoon.
+
+_**Agent (claude-opus-5-5 2026-10-19 14:40:34Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Show the Munshi auto-mode line
+
+```bash
+grep -n "Older wording" .claude/agents/munshi.md | cut -c1-20; .venv/Scripts/python.exe -X utf8 -c "
+t=open('.claude/agents/munshi.md',encoding='utf-8').read(); i=t.index('- Auto mode (RULES section 14)'); print(t[i:t.index(chr(10),i)])"
+```
+
+```text
+38:- Auto mode (RULE
+- Auto mode (RULES section 14): after the user approves a script, stages run without asking the user. In your report say clearly whether a STOP condition is hit — in auto mode there are ONLY 3 (RULES 1/15): Google balance below ₹50 (user must recharge), copyright doubt, channel ID mismatch. A BLOCKER, a failed regeneration or a budget overrun is NOT a stop: report it with the free way out (fix, crop/zoom of a good image, move the line to another image, smaller plan) so the builder continues. (Older wording kept for history: BLOCKER, copyright doubt, channel ID mismatch, a 3rd regeneration of one image, story cost would cross ₹130, balance would drop below ₹50); otherwise the builder fixes and continues.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 14:40:45Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Clean Munshi line, update budget messages, retest
+
+```bash
+.venv/Scripts/python.exe -X utf8 - <<'EOF'
+from pathlib import Path
+p = Path(".claude/agents/munshi.md"); t = p.read_text(encoding="utf-8")
+a = " (Older wording kept for history: BLOCKER, copyright doubt, channel ID mismatch, a 3rd regeneration of one image, story cost would cross ₹130, balance would drop below ₹50); otherwise the builder fixes and continues."
+assert t.count(a) == 1; p.write_text(t.replace(a, ""), encoding="utf-8")
+p = Path("scripts/story_budget.py"); t = p.read_text(encoding="utf-8")
+for a, b in [
+ ('f"₹{limit:.0f} cap. ASK the user.")',
+  'f"₹{limit:.0f} cap. Not a user stop (RULES 15): shrink the plan (fewer new images, more crop/zoom reuse), log it, continue.")'),
+ ('sys.exit(f"STOP (RULES 14/15): story {story}', 'sys.exit(f"OVER CAP (RULES 15): story {story}'),
+ ('below ₹{floor:.0f}. ASK the user.")', 'below ₹{floor:.0f}. ASK the user to recharge Google credits.")'),
+]:
+    assert t.count(a) == 1, a; t = t.replace(a, b)
+p.write_text(t, encoding="utf-8")
+print("ok")
+EOF
+.venv/Scripts/python.exe -X utf8 scripts/test_pricing.py | tail -2
+```
+
+```text
+ok
+
+ALL 10 CHECKS PASSED (no network, real cost_log.csv untouched)
+```
+</details></tool-use>

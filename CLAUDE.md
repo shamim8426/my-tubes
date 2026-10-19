@@ -14,7 +14,7 @@ Har script, case file aur image prompt se pehle [channels/dadi-ki-kahaniyan/chan
 - Script: 110–140 words, 2-sec hook, Golu ka ek galat guess, Dadi ka ek clue observation, end me "बताओ, दोषी कौन?". Answer alag file me.
 - Naye suspects ka look case file me likho; dobara aayein to wahi look use karo.
 - Har paid image ke baad user ko batao: is image ka cost (₹), aaj ka total, aur ₹500 budget me se kitna bacha. `scripts/gemini_image.py` ye apne aap `cost_log.csv` me likhta aur print karta hai.
-- Paisa lagne wala koi bhi naya kaam user se pooch kar hi karo. User se Hinglish me baat karo.
+- Paisa lagne wala koi bhi naya kaam user se pooch kar hi karo — sivaay auto mode ke (script approval ke baad koi paid call poochhni nahi; RULES 1/15). User se Hinglish me baat karo.
 - Paid image/TTS se PEHLE har chinta batao aur jawab ka intezaar karo: answer spoil hona, Shorts (9:16) vs 16:9, YouTube safe area, AI se Hindi text. Kai sudhaar hon to sab ek hi generation me jodo.
 
 ## Video build workflow
@@ -39,7 +39,7 @@ Command: `.\.venv\Scripts\python -X utf8 scripts\make_short.py <video folder> [-
 - Har video scheduled upload hota hai (slot tak private: long 19:00, Short 21:00), kabhi turant public nahi. Long upload 18:45 IST ke baad ho to agle din ka slot.
 - Har upload ke turant baad user ko ek status line: video link + slot. User slot se pehle "rok do" bole to `.\.venv\Scripts\python -X utf8 tools\veto.py <video_id> --apply` chalao (private + publishAt hatao), log.md me likho, us story ki pipeline pause (pipeline_queue.json: vetoed).
 - Long thumbnail API se apne aap. Short cover API se nahi lagta: Short ka pehla frame hi cover (hook visual, pehle 1 s caption nahi, text 15%-85% height me) + ek vertical cover file output/ me manual use ke liye.
-- Ruko aur poochho: story kharcha ₹130 se upar, balance ₹50 se neeche (ya credits khatam), kisi scene ki 3rd regeneration, R2 ke baad BLOCKER, copyright shak, channel ID mismatch.
+- Ruko aur poochho SIRF 3 haalat me: Google balance ₹50 se kam (user ko recharge ke liye batao), copyright shak, channel ID mismatch. Baaki sab khud sambhalo (RULES 15) aur log.md me likho.
 - Uploads ke baad manual Studio checklist: Short ka Related video, first comment pin, aur jab tak API audit pass na ho, schedule confirm/set karna.
 - Har auto kadam channel log.md me (kharcha ab tak ke saath) aur user ko ek chhoti status line. Stages `channels/<key>/pipeline_queue.json` me.
 
@@ -47,7 +47,8 @@ Command: `.\.venv\Scripts\python -X utf8 scripts\make_short.py <video folder> [-
 - Long 02 (story 003) aur uska Short jaise hain waise rahenge. Story 004 se: sirf script approval; koi preview nahi — Munshi stage R1+R2 (script timing, images, audio) ke baad seedha FINAL; final par Munshi ka ek hi check (R1) -> scheduled upload (veto window).
 - Lambai: long max 4:00 (target 3:40–4:00), Short max 40 s (target 35–40 s); script measured TTS speed se likho.
 - Kharcha: ₹100–110 ASLI (usageMetadata, reference images samet) per story (long + Short + thumbnail). Kuch banane se pehle asli kharche ka andaza; ₹110 se upar ho to plan saral karo, kabhi budget se upar shuru mat karo. Max 16 nayi scene images (baaki crop/zoom), sirf 1K, refs sirf us scene ke kirdaar, purani sheets dobara, regen max 1 aur sirf BLOCKER par.
-- R2 ke baad MINOR sirf carry_over.md me, kuch regenerate nahi. Ruko sirf BLOCKER / copyright shak / channel ID mismatch par.
+- R2 ke baad MINOR sirf carry_over.md me, kuch regenerate nahi. Koi paid call poochhni nahi. Ruko sirf: balance ₹50 se kam (recharge batao) / copyright shak / channel ID mismatch.
+- Bina poochhe khud sambhalo (aur log.md me likho): kharcha ₹110 paar hone wala -> plan chhota karo (kam nayi images, zyada crop/zoom); 1 regen ke baad bhi image me BLOCKER -> scene kisi theek image ke crop/zoom se banao ya line doosri image par rakho; R2 ke baad BLOCKER -> free fix khud karo, warna isi crop/zoom tareeke se.
 - Asli kharcha: rate sirf `shared/pricing.json` me (Google daam badle to wahin badlo; GST alag). `cost_log.csv` me har call ka `estimated_inr`, `actual_inr` (API usage se), `gst_inr`; raw usage `usage_log.jsonl` me. Budget check (`scripts/story_budget.py`: story cap + ₹50 floor) actual + GST par. Story ke ant me: `.\.venv\Scripts\python -X utf8 scripts\story_budget.py <story> --log` (asli kul kharcha ek line me log.md me). Test: `scripts	est_pricing.py` (offline).
 
 ## GitHub sync

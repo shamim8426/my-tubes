@@ -55,3 +55,4 @@
 2026-10-19 19:34:20  pushed: story 003: Long 02 + Short A uploaded (scheduled 2026-10-20 19:00 / 21:00)  (repo pack size 337 MB)
 2026-10-19 19:47:46  pushed: Kissago: poster-style Short cover rule + scripts/gen_short_cover.py (from next Short)  (repo pack size 337 MB)
 2026-10-19 19:56:27  pushed: RULES 15 production profile (from story 004) + reconciled sections 1/5/11/13/14, CLAUDE.md, munshi.md  (repo pack size 337 MB)
+2026-10-19 20:03:26  pushed: actual cost: pricing.json + usage-based image/TTS cost, cost_log estimated/actual/GST, budget on actual, offline tests  (repo pack size 337 MB)

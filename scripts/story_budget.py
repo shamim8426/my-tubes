@@ -53,11 +53,11 @@ def check(story: str, next_cost_inr: float):
     nxt = next_cost_inr * (1 + pricing.gst_rate()) if cfg["budget_includes_gst"] else next_cost_inr
     spent, left, limit = story_cost(story), remaining(), cap(story)
     if limit is not None and spent + nxt > limit:
-        sys.exit(f"STOP (RULES 14/15): story {story} has spent ₹{spent:.2f} (actual); +₹{nxt:.2f} would cross the "
-                 f"₹{limit:.0f} cap. ASK the user.")
+        sys.exit(f"OVER CAP (RULES 15): story {story} has spent ₹{spent:.2f} (actual); +₹{nxt:.2f} would cross the "
+                 f"₹{limit:.0f} cap. Not a user stop (RULES 15): shrink the plan (fewer new images, more crop/zoom reuse), log it, continue.")
     floor = cfg["budget"]["floor_inr"]
     if left - nxt < floor:
-        sys.exit(f"STOP (RULES 14/15): balance ₹{left:.2f} would drop below ₹{floor:.0f}. ASK the user.")
+        sys.exit(f"STOP (RULES 14/15): balance ₹{left:.2f} would drop below ₹{floor:.0f}. ASK the user to recharge Google credits.")
     return spent, left
 
 
