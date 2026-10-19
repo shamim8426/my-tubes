@@ -359,10 +359,117 @@ Dialogue: 0,0:00:00.00,0:00:01.00,Q,,0,0,0,,{{\\an5\\pos({W // 2},{int(H * 0.265
     im = Image.open(out)
     print("saved", out, im.size)
 
+LONG02 = channel_dir() / "stories" / "003_mitthu-ne-sab-bata-diya"
+L2W = LONG02 / "long" / "thumbnail_work"
+
+L02_THUMB_PROMPT = """16:9 YouTube thumbnail illustration for a Hindi family comedy cartoon, NO text or letters anywhere.
+Setting: a colourful Indian mohalla lane in bright morning light, Sharma ji's red iron gate, an orange gulmohar tree.
+RIGHT HALF of the image: Mitthu the green parrot (exactly as in his reference sheet) BIG in the foreground, mid-air with
+his wings spread wide and his red beak wide open, shouting excitedly - very funny and dramatic. Just behind him and lower,
+Sharma ji (exactly as in his reference sheet: bald with grey side hair, rectangular glasses, cream kurta, brown sleeveless
+jacket) clutching his head with both hands, eyes wide, mouth open in comic panic. Behind them, smaller, two or three
+surprised neighbours peeking (no other recurring characters).
+No cat anywhere in the picture.
+COMPOSITION IS CRITICAL: keep the LEFT 42% of the image as a plain, darker, softly blurred warm orange/brown background
+with NO characters or objects (a big title goes there). Keep the BOTTOM-RIGHT corner (last 20% of width, bottom 18% of
+height) plain and unimportant (YouTube puts the video length there). Faces big, bold, high contrast, readable when small.
+Match the flat 2D cartoon style of the references: thick bold outlines, warm colours, flat cel shading."""
+
+
+def long02_thumb():
+    raw = L2W / "long02_thumb_raw.png"
+    generate(L02_THUMB_PROMPT, raw, refs=[CHAR / "mitthu_sheet.png", CHAR / "sharma_sheet.png"],
+             aspect_ratio="16:9", size="1K")
+    cover(raw, TW, TH, L2W / "long02_thumb_art.png")
+    long02_thumb_text()
+
+
+def long02_thumb_text():
+    """Hook "सोना चोरी!" in two big lines in the empty left part; logo bottom-left (bottom-right = timestamp)."""
+    fonts = L2W / "fonts"
+    fonts.mkdir(parents=True, exist_ok=True)
+    shutil.copy(FONTS_DIR / "Mukta-Bold.ttf", fonts / "Mukta-Bold.ttf")
+    ass = f"""[Script Info]
+ScriptType: v4.00+
+PlayResX: {TW}
+PlayResY: {TH}
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Q,Mukta,175,&H0000E5FF,&H000000FF,&H00000000,&H96000000,-1,0,0,0,100,100,0,0,1,12,7,5,0,0,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:01.00,Q,,0,0,0,,{{\\an5\\pos(275,300)\\q2}}सोना\\N{{\\c&H003050FF&}}चोरी!
+"""
+    (L2W / "long02_thumb.ass").write_text(ass, encoding="utf-8")
+    shutil.copy(L2W / "long02_thumb_art.png", L2W / "long02_thumb_in.png")
+    subprocess.run([str(FFMPEG), "-v", "error", "-y", "-i", "long02_thumb_in.png", "-vf",
+                    "subtitles=filename=long02_thumb.ass:fontsdir=fonts", "-frames:v", "1", "long02_thumb_titled.png"],
+                   cwd=L2W, check=True)
+    out = LONG02 / "long" / "output" / "long_02_thumbnail.png"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copy(L2W / "long02_thumb_titled.png", out)
+    brand_corner(out, "bl")
+    print("saved", out, Image.open(out).size)
+
+
+L02_SHORT01 = LONG02 / "shorts" / "short_01_sona-chori"
+
+
+def long02_short01_cover():
+    """Free: 1080x1920 cover file for Short A (manual use; the API cannot set Short covers) from the Long 02 thumbnail
+    art. Blurred art fills the frame, the sharp Sharma ji + Mitthu band sits in the middle; text and logo stay inside
+    15%-85% of the height (RULES 14)."""
+    from PIL import ImageEnhance, ImageFilter
+    raw = Image.open(L2W / "long02_thumb_raw.png").convert("RGB")
+    W, H = VW, VH
+    k = max(W / raw.width, H / raw.height)
+    bg = raw.resize((int(raw.width * k), int(raw.height * k)), Image.LANCZOS)
+    bx = (bg.width - W) // 2
+    bg = ImageEnhance.Brightness(bg.crop((bx, 0, bx + W, H)).filter(ImageFilter.GaussianBlur(28))).enhance(0.45)
+    band = raw.crop((int(raw.width * 0.42), 0, int(raw.width * 0.99), raw.height))
+    band = band.resize((W, int(band.height * W / band.width)), Image.LANCZOS)
+    mask = Image.new("L", band.size, 255)
+    for i in range(60):
+        for y in (i, band.height - 1 - i):
+            mask.paste(int(255 * i / 60), (0, y, band.width, y + 1))
+    bg.paste(band, (0, int(H * 0.36)), mask)
+    w = L02_SHORT01 / "thumbnail_work"
+    (w / "fonts").mkdir(parents=True, exist_ok=True)
+    bg.save(w / "cover_art.png")
+    shutil.copy(FONTS_DIR / "Mukta-ExtraBold.ttf", w / "fonts" / "Mukta-ExtraBold.ttf")
+    ass = f"""[Script Info]
+ScriptType: v4.00+
+PlayResX: {W}
+PlayResY: {H}
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Q,Mukta ExtraBold,170,&H0030FFFF,&H000000FF,&H00000000,&H96000000,-1,0,0,0,100,100,0,0,1,12,7,5,40,40,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:01.00,Q,,0,0,0,,{{\\an5\\pos({W // 2},{int(H * 0.27)})}}सच में चोरी?
+"""
+    (w / "cover.ass").write_text(ass, encoding="utf-8")
+    subprocess.run([str(FFMPEG), "-v", "error", "-y", "-i", "cover_art.png", "-vf",
+                    "subtitles=filename=cover.ass:fontsdir=fonts", "-frames:v", "1", "cover_titled.png"],
+                   cwd=w, check=True)
+    out = L02_SHORT01 / "output" / "short_01_cover.png"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copy(w / "cover_titled.png", out)
+    brand_corner(out, "tc12", width_frac=0.36)
+    print("saved", out, Image.open(out).size)
+
+
 if __name__ == "__main__":
-    for d in (WORK, C1W, L1W):
+    for d in (WORK, C1W, L1W, L2W):
         d.mkdir(parents=True, exist_ok=True)
     {"banner": banner, "dp": dp, "text": text, "thumb": thumb, "thumb_text": thumb_text,
      "thumb_v": thumb_v, "thumb_v_text": thumb_v_text,
      "long01_thumb": long01_thumb, "long01_thumb_text": long01_thumb_text,
-     "short01_cover": short01_cover}[sys.argv[1]]()
+     "short01_cover": short01_cover, "long02_thumb": long02_thumb,
+     "long02_thumb_text": long02_thumb_text, "long02_short01_cover": long02_short01_cover}[sys.argv[1]]()

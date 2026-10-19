@@ -35,10 +35,12 @@ Command: `.\.venv\Scripts\python -X utf8 scripts\make_short.py <video folder> [-
 - Munshi ka log aur carry-over: `channels/<key>/log.md`, `channels/<key>/carry_over.md`.
 
 ## Auto mode (shared/RULES.md section 14)
-- Script approve hone ke baad sheets -> scene images -> voice samples -> TTS -> thumbnail -> PREVIEW tak sab apne aap chalao (paid bhi), har kadam par user se mat poochho.
-- Har paid call se pehle: story ka kul kharcha (cost_log.csv) ₹130 se upar na jaaye, aur bacha balance ₹50 se neeche na aaye — warna ruko aur poochho. Scene image max 2 baar regenerate.
-- Munshi har stage review kare; R1 FIX apne aap theek karo; R2 ke baad sirf MINOR -> aage badho; BLOCKER / copyright shak / channel ID mismatch -> ruko aur poochho.
-- User se sirf script approval aur preview approval par milna. Preview approval = us long video ka upload "ha" (phir final -> Munshi -> upload -> Short flow).
+- Sirf ek human checkpoint: script approval. Uske baad sheets -> images -> voice samples -> TTS -> preview -> Munshi R1 (auto fix) + R2 -> final -> Munshi final -> long thumbnail -> upload -> Auto Short (build, review, upload) -> first comments -> sync, sab apne aap. Preview par user se nahi milna.
+- Har video scheduled upload hota hai (slot tak private: long 19:00, Short 21:00), kabhi turant public nahi. Long upload 18:45 IST ke baad ho to agle din ka slot.
+- Har upload ke turant baad user ko ek status line: video link + slot. User slot se pehle "rok do" bole to `.\.venv\Scripts\python -X utf8 tools\veto.py <video_id> --apply` chalao (private + publishAt hatao), log.md me likho, us story ki pipeline pause (pipeline_queue.json: vetoed).
+- Long thumbnail API se apne aap. Short cover API se nahi lagta: Short ka pehla frame hi cover (hook visual, pehle 1 s caption nahi, text 15%-85% height me) + ek vertical cover file output/ me manual use ke liye.
+- Ruko aur poochho: story kharcha ₹130 se upar, balance ₹50 se neeche (ya credits khatam), kisi scene ki 3rd regeneration, R2 ke baad BLOCKER, copyright shak, channel ID mismatch.
+- Uploads ke baad manual Studio checklist: Short ka Related video, first comment pin, aur jab tak API audit pass na ho, schedule confirm/set karna.
 - Har auto kadam channel log.md me (kharcha ab tak ke saath) aur user ko ek chhoti status line. Stages `channels/<key>/pipeline_queue.json` me.
 
 ## GitHub sync

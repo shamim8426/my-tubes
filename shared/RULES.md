@@ -55,7 +55,7 @@ These are the hard rules. If a builder summary, a script or a file disagrees wit
   - A Short not made from a long (e.g. Dadi Jasoos case) also publishes at 21:00.
 - Per day per channel: at most one long (19:00) and one Short (21:00).
 - Planned frequency: long videos 2-3 per week, Shorts daily (from stories already made, ₹0).
-- Nothing goes Public or gets scheduled without the user's OK in that conversation.
+- Nothing goes Public or gets scheduled without the user's OK, except in auto mode (section 14): there the script approval covers the scheduled upload, with the "rok do" veto window before the slot.
 - One upload per video. If `output/upload_result.json` exists, do not upload again.
 - Short -> Long link (MANDATORY): every Short made from a long video must (a) have the long video's URL in its description with a short CTA line, (b) get an automatic first comment "पूरी कहानी यहाँ देखें 👉 <long URL>" posted right after it becomes public, and (c) the user sets in Studio: Related video = the long video, and pins that comment. The YouTube API cannot set Related video or pin comments, so (c) stays manual; Munshi shows this checklist after every Short upload and asks about it at the start of the next session until the user confirms.
 
@@ -129,12 +129,17 @@ Session:
 Severity: a misleading title/thumbnail is a BLOCKER; the rest are FIX in R1 and MINOR after R2 (section 11).
 
 ## 14. Auto mode (after script approval)
-- Once the user approves a script, the whole pipeline up to the PREVIEW runs automatically, including paid steps (character sheets, scene images, voice samples, TTS, thumbnail), without asking for each step.
-- Per-video budget cap: ₹130 total (all paid steps + regenerations). Before every paid call, check the running total for this story in cost_log.csv; if the call would cross ₹130, stop and ASK.
-- Account floor: if the remaining prepaid balance would drop below ₹50, stop and ASK before any paid call.
-- Munshi reviews every stage. R1 FIX/MINOR items are fixed automatically (free or paid within the cap). Max 2 regenerations per scene image; after that ASK.
-- After R2: only MINOR left -> continue (PASS-WITH-NOTES). Any BLOCKER, any copyright doubt, or a channel ID mismatch -> stop and ASK.
-- Human checkpoint 1: script approval. Human checkpoint 2: preview approval. The preview approval also counts as the upload "ha" for that long video.
-- After preview approval: final build -> Munshi final review -> upload long in its slot -> Auto Short flow (section 8) -> comments/checklist. No further questions unless a stop condition above is hit.
+- Human checkpoint: ONLY script approval. After that everything runs automatically without asking for each step: assets (character sheets, voice samples), scene images, TTS, preview, Munshi R1 (FIX items fixed automatically, free or paid within the cap) + R2, final build, Munshi final review, long thumbnail, upload, Auto Short flow (section 8: build, review, upload), first comments, sync.
+- Veto window instead of approval: every video is uploaded as scheduled (private until its slot: long 19:00 IST, Short 21:00 IST), never published immediately. Right after each upload, show the user one status line with the video link and slot. If the user says "rok do" before the slot, run `tools/veto.py <video_id>` (sets the video private and removes publishAt via the API), log it in the channel log.md, and pause the pipeline for that story.
+- Slot: if the pipeline finishes too late for today's slot (long upload after 18:45 IST), use the next day's slot (Short follows section 8).
+- Thumbnails: the long thumbnail is set via the API automatically. Short covers cannot be set by the API: the Short's first frame is its cover (hook visual, no caption in the first 1 s, any text inside 15%-85% of the height); also save a vertical cover file (1080x1920) in the Short's output/ for manual use.
+- Stop conditions (stop and ASK the user):
+  - Per-video budget cap ₹130 total (all paid steps + regenerations). Before every paid call, check the running total for this story in cost_log.csv.
+  - Account floor: the remaining prepaid balance would drop below ₹50 (or the API reports credits depleted).
+  - More than 2 regenerations needed for any scene image.
+  - Any BLOCKER left after R2 (only MINOR left -> PASS-WITH-NOTES, continue).
+  - Any copyright doubt.
+  - Channel ID mismatch.
+- Manual Studio checklist after uploads (the API cannot do these): Related video for the Short = its long video, pin the first comment, and — until the API audit passes — confirm/set the schedule in Studio. Munshi shows it after the uploads and asks about it at the start of the next session until the user confirms.
 - Every auto step is logged in the channel log.md with cost so far, and shown to the user as one short status line.
-- pipeline_queue.json tracks the long video stages too (script_approved -> assets -> images -> tts -> preview_ready -> approved -> final -> uploaded), and the Stop-hook guard keeps the flow moving until preview_ready or a stop condition.
+- pipeline_queue.json tracks each story's stages (script_approved -> assets -> images -> tts -> preview -> final -> uploaded -> short_uploaded -> done, or stopped/vetoed with the reason).

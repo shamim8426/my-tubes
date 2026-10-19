@@ -1,12 +1,13 @@
 {
-  "_help": "Stage tracker (shared/RULES.md section 14). Stages: script_approved -> assets -> images -> tts -> preview_ready -> approved -> final -> uploaded",
+  "_help": "Stage tracker (shared/RULES.md section 14, only checkpoint = script approval). Stages: script_approved -> assets -> images -> tts -> preview -> final -> uploaded -> short_uploaded -> done; or stopped/vetoed (reason in 'stopped').",
   "stories": {
     "003_mitthu-ne-sab-bata-diya": {
       "video": "long",
       "stage": "images",
       "budget_cap_inr": 130,
       "updated": "2026-10-19",
-      "stopped": "Gemini 402: prepaid credits depleted (account floor, RULES 14). 4 image regens pending: 09, 13, 18, 26 (prompts fixed). Thumbnail pending."
+      "mode": "auto v2 (no preview checkpoint; veto window)",
+      "note": "credits back; regens 13 done, 09/18/26 running"
     }
   }
 }

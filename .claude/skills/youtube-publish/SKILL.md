@@ -5,7 +5,7 @@ description: Upload and schedule an approved Story-Channel video to YouTube with
 
 # Publish a video to YouTube
 
-Uses `tools/youtube_upload.py` (YouTube Data API v3). Never upload without the user's explicit OK in this conversation.
+Uses `tools/youtube_upload.py` (YouTube Data API v3). Never upload without the user's explicit OK in this conversation, except in auto mode (shared/RULES.md section 14): there the script approval is the OK, uploads are always scheduled (private until the slot), and the user can veto before the slot with `tools/veto.py <video_id>`.
 
 ## One-time setup (guide the user, they do the clicks in Google Cloud Console)
 1. Use the same Google Cloud project as Gemini, or a new one. Enable **YouTube Data API v3**.
@@ -42,8 +42,9 @@ Quota: default 10,000 units/day; one upload costs about 1,600, thumbnail 50, cap
    - playlist_id if configured
 5. `python tools/youtube_upload.py --job <upload.json> --dry-run`. Fix any PROBLEMS.
    If the script says WRONG CHANNEL, stop and tell the user; never edit channel_id to make it pass.
-6. Show the user: title, publish time IST, made-for-kids, playlist, thumbnail file. Wait for ha/ok.
+6. Show the user: title, publish time IST, made-for-kids, playlist, thumbnail file. Wait for ha/ok (auto mode: do not wait; after upload show one status line with link + slot).
 7. Run without --dry-run. If thumbnail/captions/playlist failed, fix the cause and run with `--extras-only`.
 8. Report: video URL, studio URL, what succeeded, and what still needs a click in Studio (schedule if locked private, pinned comment, end screen). Pinning a comment is not possible through the API.
+8a. Veto ("rok do" before the slot): `python tools/veto.py <video_id>` (dry run first by default; add `--apply`) sets the video private and removes publishAt, logs it, and marks the story vetoed in pipeline_queue.json.
 8b. Short with a parent: show the user the manual checklist (Studio: Related video = long video; pin the first comment once it is posted) — RULES section 8.
 9. Append a PUBLISHED line to `channels/<key>/log.md` and update the story's `story.md` status.

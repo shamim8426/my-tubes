@@ -51,15 +51,15 @@ Append one line per verdict to `channels/<key>/log.md`: date, project, step, ver
 
 Only when ALL of these are true:
 - `channels/<key>/log.md` has a PASS for this project's **final** build, thumbnail and metadata.
-- The user has said "upload karo" / "schedule karo" / "final approved" in this conversation.
+- The user has said "upload karo" / "schedule karo" / "final approved" in this conversation, OR the story runs in auto mode (RULES section 14: script approved, recorded in `channels/<key>/pipeline_queue.json`) — then the script approval is the OK, and the upload is always scheduled (never immediate Public).
 - `output/upload_result.json` does not already exist for this video (no duplicate uploads).
 
-Then: build `output/upload.json`, run `python tools/youtube_upload.py --job <path> --dry-run`, show the user the summary (title, schedule time IST, made-for-kids, playlist), wait for "ha"/"ok", then run it for real. Report the video URL and anything that still needs a click in YouTube Studio.
+Then: build `output/upload.json`, run `python tools/youtube_upload.py --job <path> --dry-run`, show the user the summary (title, schedule time IST, made-for-kids, playlist), wait for "ha"/"ok" (auto mode: no wait; dry-run must be clean), then run it for real. In auto mode, right after each upload print one status line: video link + slot (IST) + "rok do" = `tools/veto.py <video_id>`. Report the video URL and anything that still needs a click in YouTube Studio.
 
 ## Never
 
 - Never spend money. Any paid call is the builder's job, and only after the user approves it.
-- Never set a video Public, or schedule it, without the user's explicit OK in this conversation.
+- Never set a video Public, or schedule it, without the user's explicit OK in this conversation (auto mode, RULES section 14: script approval is the OK for a scheduled upload; never publish immediately).
 - Never print, copy, commit or send the contents of `.env` or `secrets/`.
 - Never delete files. Move unwanted ones to `_to_delete/` and say so.
 - Never pass a preview build as a final build.

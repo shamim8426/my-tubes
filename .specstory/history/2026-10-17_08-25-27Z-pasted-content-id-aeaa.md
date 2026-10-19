@@ -56962,3 +56962,5302 @@ print(r.status_code); t=r.text; print(t[:700].replace(k,'<KEY>'))"
 ]
 ```
 </details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:26:52Z)**_
+
+<think><details><summary>Thought Process</summary>
+Auto mode ruk gaya kyunki Gemini ke prepaid credits khatam ho gaye hain, isliye naye images nahi bane. Hamare estimated balance aur asli balance me farq hai — shayad reference images ka input cost na ginna, GST, ya alag rates iski wajah ho sakti hai; main sthiti record karke sync kar raha hoon.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:27:20Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Record stop in queue and log; sync
+
+```bash
+.venv/Scripts/python.exe -X utf8 -c "
+import json; from pathlib import Path
+p=Path('channels/dadi-ki-kahaniyan/pipeline_queue.json'); q=json.loads(p.read_text(encoding='utf-8'))
+q['stories']['003_mitthu-ne-sab-bata-diya'].update({'stage':'images','stopped':'Gemini 402: prepaid credits depleted (account floor, RULES 14). 4 image regens pending: 09, 13, 18, 26 (prompts fixed). Thumbnail pending.','updated':'2026-10-19'})
+p.write_text(json.dumps(q,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')" && echo "$(date '+%F %H:%M') | 003 long_02 | AUTO STOP | Gemini 402 prepaid credits depleted while regenerating images 09/13/18/26 (Munshi R1 FIX: 3 duplicate-character BLOCKERs + 1 MINOR); nothing charged; cost_log shows ₹181.34 left -> ledger under-counts real billing (input tokens / GST?). Story cost so far ₹86.96 (ledger). ASK user." >> channels/dadi-ki-kahaniyan/log.md && powershell -NoProfile -ExecutionPolicy Bypass -File tools/sync.ps1 -Message "story 003: sheets, images v1, TTS done; AUTO STOP - Gemini credits depleted" >/dev/null 2>&1; tail -1 shared/sync.log
+```
+
+```text
+2026-10-19 16:57:19  pushed: story 003: sheets, images v1, TTS done; AUTO STOP - Gemini credits depleted  (repo pack size 337 MB)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:27:36Z)**_
+
+Long 02 preview tak nahi pahunch saka: Gemini ke prepaid credits khatam ho gaye, isliye auto mode ruk gaya. Is rukne me koi kharcha nahi hua. Hamare `cost_log.csv` me abhi ₹181.34 bache dikh rahe the, toh hamara hisaab asli kharche se kam gin raha hai.
+
+## Kya ho chuka hai (story ka kharcha ₹86.96, hamare hisaab se)
+- **4 character sheets:** Sharma ji, Raghu, Gupta aunty aur Sona. Munshi ne ise theek paaya, aur register ki rows bhi jud gayi.
+- **2 voice samples:** Raghu ki awaaz Puck, Gupta aunty ki Despina.
+- **TTS:** 56 lines bani.
+  - Asli TTS andaze se tez nikli, jisse video sirf ~4:19 ka banta.
+  - Narrator 0.80x, Dadi 0.90x aur baaki kirdaar 0.95x par bolenge, aur lines ke beech 0.4 sec ka gap hoga. Ye Long 01 ki kahani sunane wali raftaar hai.
+  - Isse andaza **~4:51** hai, jo aapki 4:45–5:15 range me hai. Iske liye builder me har kirdaar ki alag speed ka option joda (₹0).
+- **21 scene images:** sab bani, koi skip nahi.
+
+## Kahan ruka
+**Munshi R1 (images): FIX.**
+- 3 BLOCKER: img 13 me **do Dadi**, aur img 09 aur img 26 me **Sharma ji do baar**.
+- 1 MINOR: img 18 me Dadi ke paas do chhadiyan hain.
+
+Charon ke prompt sudhaar diye hain:
+- img 13 ke liye banner se sirf ghar wala hissa kaat kar naya reference banaya, jisme koi kirdaar nahi.
+- Purani images `images/_v1/` me sambhal di.
+
+Inhe dobara banane gaya toh Google ne **402** lautaya: *"Your prepayment credits are depleted."* Section 14 ke mutabik main ruk gaya.
+
+**Baaki kaam aur kharcha:** 4 regen (₹12.96) aur thumbnail (₹3.24). Preview build free hai.
+
+## Aapko kya karna hai
+1. **AI Studio me credit dalein:** https://ai.studio/projects → Billing → prepay.
+2. **Asli kharcha bata dijiye:** AI Studio Billing me ab tak kitna use hua dikh raha hai, wo number bhej dijiye. Main `cost_log.csv` ko usse milakar theek karunga.
+3. **Ek faisla:**
+   - **(a)** Credit daalne ke baad main auto mode wahin se chalu karunga: 4 regen, Munshi R2, thumbnail, preview. Phir preview par aapse milunga.
+   - **(b)** Abhi turant ek **free preview** bana doon, mojooda images ke saath, taki aap kahani aur raftaar dekh sakein. Isme upar wali 3–4 images ki galtiyan dikhengi, jo regen ke baad theek hongi.
+
+Sab GitHub par sync ho gaya hai, aur `pipeline_queue.json` me stage "images (stopped)" darj hai.
+
+⏰ **Yaad dilana:** Short 01 ki checklist abhi bhi baaki hai.
+- Related video = Long 01
+- Pehla comment pin karna
+
+---
+
+_**User (2026-10-19 11:28:52Z)**_
+
+
+
+<pasted_content id="aeaa">
+RULES section 14 (Auto mode) badlo — preview approval hata do, sirf script approval checkpoint rahe:
+
+- Human checkpoint: ONLY script approval. After that everything runs automatically: assets, images, TTS, preview, Munshi R1 (auto fixes) + R2, final build, Munshi final review, long thumbnail, upload, Auto Short (build, review, upload), first comments, sync.
+- Veto window instead of approval: every video is uploaded as scheduled (private until its slot: long 19:00, Short 21:00), never published immediately. Right after each upload, show one status line with the video link and slot. If the user says "rok do" (stop) before the slot, set that video to private and remove publishAt via the API, log it, and pause the pipeline for that story.
+- If the pipeline finishes too late for today's slot (long upload after 18:45), use the next day's slot.
+- Long thumbnail is set via API automatically. Short covers cannot be set by API: the Short's first frame (hook visual, no caption in the first 1 s, text inside 15%-85% height) is its cover; also save a vertical cover file for manual use.
+- Stop conditions stay: per-video cap ₹130, account floor ₹50, max 2 regenerations per scene, any BLOCKER after R2, copyright doubt, channel ID mismatch.
+- Manual Studio checklist after uploads (API can't do these): Related video for the Short, pin the first comment, and — until the API audit passes — confirm/set the schedule.
+
+tools/ me ek "rok do" command banao (tools/veto.py <video_id>) jo video ko private kare aur publishAt hataye — dry-run test karo, asli video par mat chalao.
+Long 02 isi naye mode me chale. Phir sync.
+</pasted_content id="aeaa">
+
+
+---
+
+_**User (2026-10-19 11:30:16Z)**_
+
+This session is being continued from a previous conversation that ran out of context. The summary below covers the earlier portion of the conversation.
+
+Summary:
+1. Primary Request and Intent:
+
+The user is building a Hindi cartoon YouTube channel.
+- Originally "दादी जासूस", then "दादी की कहानियाँ", and now rebranded to **"किस्सागो | Kissago"**.
+- Handle: @Kissagokahaniya. Channel ID: UCy071_4g4vGemktFHybqkhQ. Channel key/folder stays `dadi-ki-kahaniyan`.
+- Project root: D:\Story-Channel.
+- The user communicates in Hinglish and wants approval/visibility at each step.
+
+Security / standing constraints (verbatim intent):
+- "API key .env me GEMINI_API_KEY naam se hai. Key kabhi print ya commit mat karna."
+- FREESOUND_API_KEY is also in .env.
+- Never print/commit .env, secrets/, or tokens.
+- "Koi file delete nahi" — move unwanted files to `_to_delete/`.
+- Paid calls require the user's OK, except under auto mode (RULES 14) within the stop conditions.
+- Do not use the ami.com GitHub account. Use personal account shamim8426.
+- Raise all concerns before paid generation.
+
+Current major request:
+- Long 02 / story 003 "मिट्ठू ने सब बता दिया!" (comedy) in AUTO MODE (RULES 14).
+- The script is approved. The pipeline should run automatically through sheets, images, voice samples, TTS, thumbnail and preview.
+- Meet the user only at preview or when a stop condition is hit.
+
+2. Key Technical Concepts:
+
+Tools and APIs:
+- Python 3.14 venv `.venv`.
+- FFmpeg/ffprobe in `tools/ffmpeg/` (flat layout, no bin/). Its folder was added to the USER PATH.
+- libass/HarfBuzz text rendering: Mukta and Rozha One fonts, letter spacing 0 for Devanagari.
+- Gemini image `gemini-nano-banana-2.1`: 1K ≈ ₹3.24, 2K ≈ ₹4.86.
+- Gemini TTS `gemini-3.8-flash-tts`.
+- faster-whisper for word timing.
+
+Builder:
+- Builder `scripts/make_short.py` features:
+  - `--preview` / `--final` / `--plan` / `--seconds N`
+  - per-shot crop `[x, y, zoom, crop_x, crop_y]`
+  - per-line `shot` / `shots`
+  - `final_title_secs`, `end_hold`, `gap`, `gap_speaker_change`
+  - `speed` (float or per-speaker dict, applied with atempo)
+  - `MUSIC_BELOW_VOICE_DB = {"short": 12.5, "long": 13}`
+  - stem-method loudness, bt709 setparams, `RENDER_VERSION = 3`
+  - guard_write + snapshot that protect paid folders
+  - an .srt for every video
+  - section-13 warnings (intro "part": "intro" ≤ 10 s, last line must be a question, Shorts 30–58 s)
+  - CAP_SIDE 170 / CAP_BOTTOM 480
+  - credits from the register (`shared/assets_license.csv`), with a build stop if a row is missing
+- Long 01 measured speech: ~1.91 words/s overall, 0.49 s per-line overhead.
+
+Munshi subagent (review + publish):
+- Verdicts PASS / FIX / ASK, with BLOCKER / MINOR, R1 / R2, and PASS-WITH-NOTES.
+- Uses the `step-review` and `youtube-publish` skills.
+
+Multi-channel layout:
+- `channels/<key>/{channel.json, RULES.md, channel_bible.md, log.md, carry_over.md, brand/, characters/, stories/<NNN>_<slug>/{story.md, script/, scene_prompts.json, characters/, images/, audio/tts_cache/, long/, shorts/short_NN_slug/}}`
+- `shared/{music, sfx, fonts, assets_license.csv, RULES.md, sync.log}`
+
+GitHub sync:
+- `tools/sync.ps1`: private repo `shamim8426/story-channel`, SessionEnd hook, nightly 23:30 task `StoryChannel-Sync`.
+- Tag `pre-migration` = 27ee929.
+- Review folders are git-ignored except `review/*.md`.
+
+YouTube upload tooling:
+- `tools/youtube_upload.py`:
+  - checks the channel ID and ffprobe output
+  - reads `channels/<key>/channel.json`
+  - enforces fixed slots: long 19:00, Short 21:00 IST
+  - `--force-thumbnail`
+  - for Shorts: parent link in the description and a comment task
+- `tools/post_comment.py`: scheduled task `StoryChannel-Comment-<id>`.
+- `tools/rebrand_update.py`: videos.update.
+
+RULES sections 10–14 (shared):
+- 10: Copyright (strict)
+- 11: Review severity / 2 rounds
+- 12: Originality
+- 13: Audience & algorithm
+- 14: Auto mode
+  - cap ₹130 per story
+  - floor ₹50
+  - max 2 regenerations per image
+  - stop on BLOCKER, copyright doubt, or channel ID mismatch
+
+3. Files and Code Sections:
+
+- **shared/RULES.md**
+  - Sections 1–14.
+  - Section 8: fixed publish times, plus the Short→Long link (MANDATORY) rule.
+  - Section 9: paid source files are read-only.
+  - Section 12: title-suffix line.
+  - Section 13: audience.
+  - Section 14 (verbatim, user text):
+    - "Once the user approves a script, the whole pipeline up to the PREVIEW runs automatically, including paid steps…"
+    - "Per-video budget cap: ₹130 total…"
+    - "Account floor: if the remaining prepaid balance would drop below ₹50, stop and ASK…"
+    - "Max 2 regenerations per scene image; after that ASK."
+    - "After R2: only MINOR left -> continue… Any BLOCKER, any copyright doubt, or a channel ID mismatch -> stop and ASK."
+    - "Human checkpoint 1: script approval. Human checkpoint 2: preview approval. The preview approval also counts as the upload "ha" for that long video."
+    - "After preview approval: final build -> Munshi final review -> upload long in its slot -> Auto Short flow (section 8) -> comments/checklist."
+    - "Every auto step is logged in the channel log.md with cost so far…"
+    - "pipeline_queue.json tracks… and the Stop-hook guard keeps the flow moving until preview_ready or a stop condition."
+  - The Stop hook is NOT implemented. I told the user I won't add it without asking.
+
+- **channels/dadi-ki-kahaniyan/RULES.md**
+  - Narration line now reads: "Dadi (Kamla Devi) narrates the moral stories. In Gulmohar Mohalla stories where Dadi is herself a character, the narrator voice narrates…"
+  - Family wording also covers tags; title_suffix and brand_label rules.
+
+- **channels/dadi-ki-kahaniyan/channel_bible.md**
+  - Name: Kissago.
+  - Heading "### 3. मिट्ठू" plus spelling note: "Naam ki spelling har jagah "मिट्ठू"".
+  - Dadi's house is a kacha house with a brown door.
+  - Channel art line points to kissago_banner_v3.png and kissago_dp_ki.png.
+
+- **channels/dadi-ki-kahaniyan/channel.json**
+  - channel_key, display_name "किस्सागो | Kissago", title_suffix "| किस्सागो", brand_label "किस्सागो", former_names
+  - channel_id UCy071_4g4vGemktFHybqkhQ
+  - made_for_kids false, contains_synthetic_media false
+  - publish_times_ist {"long": "19:00", "short": "21:00"}
+  - playlists empty
+
+- **channels/dadi-ki-kahaniyan/pipeline_queue.json** (new)
+  - Story 003 stage "images", plus a stopped note: "Gemini 402: prepaid credits depleted… 4 image regens pending: 09, 13, 18, 26 (prompts fixed). Thumbnail pending."
+
+- **CLAUDE.md**
+  - Kissago heading and project layout.
+  - Video build workflow; Munshi section incl. the Short→Long checklist reminder rule.
+  - New "Auto mode (shared/RULES.md section 14)" section.
+  - GitHub sync section.
+
+- **.claude/agents/munshi.md**
+  - Reads shared then channel RULES.
+  - JPG review frames.
+  - BLOCKER/MINOR line.
+  - Auto-mode STOP reporting line.
+
+- **brand files (channels/dadi-ki-kahaniyan/brand/)**
+  - icon.png (Mitthu option 2), wordmark.png, logo_horizontal.png, logo_stacked.png, watermark.png
+  - kissago_dp_ki.png: chosen DP, monogram "कि"
+  - kissago_dp_v3.png
+  - Banners: kissago_banner_v3.png (live), kissago_banner_v4.png, kissago_banner_v5.png (final framing zoom 1.1, ax 0.85, logo_frac 0.22; awaiting user OK)
+  - BRAND.md
+  - scripts/gen_brand.py has the functions: icons, cutout, icon, text_layer, wordmark, lockups, dp, watermark, brand_corner (bl / tc / tc12), banner_bg/reframe, banner3_bg/banner3, banner4_bg/banner4(ver, logo_frac), banner5_bg/banner5, dp_ring, dp_concepts.
+
+- **scripts/gen_channel_assets.py**
+  - Thumbnails now use brand_corner (logo patch).
+  - short01_cover() produces `.../shorts/short_01_jadui-kadhai/output/short_01_cover.png` with the text "सोना भी दुगना?".
+
+- **scripts/story_budget.py** (new)
+  - check(story, next_cost_inr): CAP 130, FLOOR 50.
+  - EXTRA_FILES for story 003: sharma_sheet.png, voices raghu_/gupta_.
+
+- **scripts/gen_long_characters.py**
+  - STORY_DIRS long_02 → 003.
+  - SPECS long_02: sharma (refs to Case 01 images, output to channel characters), raghu, gupta, sona.
+  - Unpack `fname, prompt, *more`.
+
+- **scripts/voices.py**
+  - Added `"raghu": ("Puck", …)` and `"gupta": ("Despina", …)`.
+
+- **scripts/voice_samples.py**
+  - Sample lines for raghu and gupta added.
+
+- **scripts/make_short.py** (latest change)
+  ```python
+  sp_speed = speed.get(line["speaker"], 1.0) if isinstance(speed, dict) else speed  # per-speaker tempo allowed
+  tempo = f"atempo={sp_speed}" if sp_speed != 1.0 else None
+  ```
+
+- **Story 003: channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/**
+  - story.md.
+  - script/script.md: v3, 57 lines, ~4:55 estimated.
+  - script/PLAN.md:
+    - 30 scenes; 21 new images plus 9 reused.
+    - Cost ~₹91.
+    - Title 3 "आधी बात, पूरा हंगामा! मिट्ठू ने सब बता दिया | किस्सागो" + thumbnail A ("सोना चोरी!", Mitthu mid-air, Sharma ji clutching head).
+    - Short A cliffhanger lines 13,15,23,26,27,28,29,30,33,34 (~41 s). Short B Mitthu lines 8,9,10,11,13,23,38,41,48,56 (~43 s; publish after the long).
+  - long/lines.json: 57 lines, intro part, moods/sfx.
+  - long/project.json: kind long, name long_02, burn false.
+  - long/meta.json:
+    - title 3, description, 5 hashtags, 18 tags
+    - music: Monkeys_Spinning_Monkeys, Life_of_Riley, Investigations, Dreams_Become_Real, Peaceful_Desolation
+    - sfx: comedy_sting_731262, tension_sting_578351
+    - pinned comment
+    - `"speed": {"narrator": 0.80, "dadi": 0.90, "sharma": 0.95, "golu": 0.95, "raghu": 0.95, "gupta": 0.95, "raju": 0.95}`, `"gap": 0.4` → ~4:51 (real TTS was 4:19 at native pace)
+  - scene_prompts.json: 21 images, ids 1,2,3,4,5,6,9,11,12,13,14,15,17,18,22,23,24,25,26,27,29.
+    - ref_files: raghu, gupta, sona, raju (Case 01 scene_04), gate (Case 01 scene_01), aangan, and aangan_house (refs/aangan_house.png = character-free crop of banner_art 0,200,1090,1300).
+    - Prompts for 9, 13, 18, 26 have already been fixed for the regen.
+  - characters/: raghu_sheet.png, gupta_sheet.png, sona_sheet.png (plus channel characters/sharma_sheet.png).
+  - images/: 21 images; old 09, 13, 18, 26 backed up in images/_v1/.
+  - audio/tts_cache: 56 new TTS lines.
+
+4. Errors and fixes:
+
+- **Code and shell errors**
+  - Heredoc `\n` / `\p` escaping errors in generated Python: fixed with the Edit tool.
+  - `deploy.ps1` "\f" form feed: fixed.
+  - Permission classifier blocked Munshi's real upload: the user approved an allow rule in `.claude/settings.json` for `.venv/Scripts/python.exe -X utf8 tools/youtube_upload.py:*` and `post_comment.py`.
+  - PermissionError writing kissago_dp_v2.png (file locked): wrote v3 instead and moved v2 to _to_delete.
+  - gen_long_characters unpack error (sharma tuple of 4): fixed the loop.
+
+- **Banner issues**
+  - Gemini made a light center wall → added an indigo panel.
+  - Characters cut in crops → reframes, then v4 and v5.
+  - I wrongly claimed Mitthu was hidden by the owner Edit button; Munshi corrected it, and I admitted the mistake.
+
+- **Story 003 script and assets**
+  - Script length: measured with real overhead (0.49 s per line). Munshi R1 FIX M1–M5 were fixed.
+  - The user removed the "चलो थाने!" beat and replaced it with the FIR comedy.
+  - Munshi sheets R1: register rows missing → added.
+  - Real TTS faster than estimate (4:19) → per-speaker tempo + gap 0.4 → ~4:51.
+  - Munshi images R1 FIX:
+    - BLOCKERs: img 13 two Dadis; img 09 a Sharma-like customer; img 26 a Sharma-like man in the crowd.
+    - MINOR: img 18 Dadi has two sticks.
+    - Prompts fixed; regen attempted.
+
+- **LATEST: Gemini 402 "Your prepayment credits are depleted"**
+  - All 4 regens skipped, nothing charged.
+  - cost_log ledger says ₹181.34 left, so it under-counts real billing. Possible causes: input/reference-image tokens not counted, GST, 2K rates.
+  - This is an auto-mode STOP condition.
+
+5. Problem Solving:
+
+- Long 01 is published.
+- Long 01 schedule was moved by the user to 2026-10-18 19:00 (API confirmed).
+- Short 01: video kWn4jKte090, scheduled 21:00, desc link and comment task set.
+- Case 01: video 8P2Sa_tRpd4.
+- Rebrand videos.update applied, including (a) family tags, (b) Case 01 title "…| दादी जासूस केस #1 | किस्सागो #shorts", and (c) 5 hashtags. Long 01 got a new thumbnail via --force-thumbnail.
+- Repo size ~337 MB after git gc --prune.
+- Story 003 ledger cost: ₹86.96 (sheets ₹12.96 + images ₹68.04 + samples ₹0.22 + TTS ~₹5.7).
+
+6. All user messages (condensed, chronological, in this compacted segment):
+
+- "ha thumbnail nikalo"
+- "(c) के साथ बनाओ, और बनने के बाद Hindi text की मात्राएँ zoom करके verify करो।"
+- Munshi setup prompt (6 files; made_for_kids → answered "No, not made for kids").
+- GitHub sync setup prompt.
+  - Mid-way: "Current github account ashamim@ami.com h , use use mt krna".
+  - Personal account login; identity "Shamim Ali / shamimx.ali@gmail.com".
+- Asked how to authorize (screenshot); later "ho gaya" items.
+- RULES Gulmohar setting + .gitattributes + Munshi review of Long 01.
+- Aangan option (a); Case 01 door check; all free fixes; RULES music-measure lines; rebuild + Munshi + sync.
+- upload_safety_prompt (channel-id + ffprobe checks).
+- Made-for-kids final "No", family wording; copyright STRICT section 10 + register.
+- API setup steps: "ho gaya" / screenshots; "login test chalao"; create uploader md file + "pehle upload kro".
+- Asked to summarize achievements.
+- RULES 11 review limits; R1/R2 clarity + family wording + credits from register; tags family wording.
+- Publish window rule.
+- Multi-channel migration (+ safety prompt 0a–0d).
+- Publish-window check + API audit draft + Long 01 Short plan.
+- Short changes (hook, CTA 2 s, crop option, scene 22, publish_at, Munshi R1, Related video reminder).
+- "short video is speed bhaut slow h or length bhi choti h, video length 45-50 sec ka hina chahiye".
+- Paid-source protection + pacing 0.15/0.3 + final.
+- Short→Long mandatory flow + upload.
+- "niyam k hisab se same day schedule hona chahiie , aaj 18 oct h, schedule aaj kro" → "dono 19:00 aaj publish hone chahiye , long ka mene already schedule aaj 19:00pm kr diya h".
+- Fixed publish times rule (long 19:00, Short 21:00) + allow rule → "approve, upload karo".
+- RULES 12 originality; title suffix line; RULES 13.
+- "ha, git gc chala do"; review images out of git + section 13 defaults.
+- Rebrand to किस्सागो | Kissago; "ha + a b c" + banner mobile fix.
+- Brand kit prompt; "ha" step 2 with changes; "Option 2 …" + banner "ha".
+- Banner/DP dislike → chose "Naya raat wala background" + "Mitthu + marigold ring".
+- "pr characters to sahi se dikh hi nhi rhe banner me" → banner v4 "ha" with specs → v5 "(c)" last paid attempt with fallback instructions.
+- Shorts tab screenshot; "halwai wali short video k liye thumbnail banao…"; Studio thumbnail screenshot.
+- "kissago channe dp k liye ek logo chahiye kuch logo design dikhao" → "C".
+- Long 02 script prompt (story 003, rules, length from real speech, etc.) → answers:
+  - M4 (a)
+  - spelling मिट्ठू
+  - remove चलो थाने → FIR comedy
+  - Sharma sheet yes
+  - title 3 + thumb A
+- "ha — chaaron character sheets (₹12.96)… Sharma ji me bible aur Case 01 images me farak ho to Case 01 images ko sahi maano." + add RULES 14 Auto mode (verbatim text) + mention in CLAUDE.md and munshi.md + "Long 02 ki script approved hai — ab isi auto mode me sheets se preview tak chalo. Mujhse sirf preview par milna (ya koi stop condition aaye tab)."
+
+7. Pending Tasks:
+
+- **Story 003 auto mode (blocked by credits):**
+  - Regen images 09, 13, 18, 26 (prompts fixed).
+  - Munshi images R2.
+  - Thumbnail A (₹3.24).
+  - shots.json and preview build (free).
+  - Munshi preview review.
+  - Present the preview to the user (checkpoint 2).
+- Report the STOP to the user. Ask:
+  - top up Gemini prepaid credits, or
+  - build a free preview now with the v1 images (known duplicate-character issues).
+- Recommend reconciling the cost ledger (input tokens / GST).
+- Short 01 checklist pending: related_video and pin_comment (remind each session).
+- Playlist IDs (not given).
+- Banner v5 final decision (a/b) never answered. The live banner is v3.
+- Offered: Shorts cover rule (text below the top 12%) — user hasn't said "ha".
+- Stop-hook guard from RULES 14 not implemented; ask before adding a hook.
+- Carry-over open item: intro / Short A margin to be checked after the real TTS build.
+
+8. Current Work:
+
+Running AUTO MODE for story 003 (Long 02):
+- Sheets done.
+- 21 images done (v1).
+- Voice samples done.
+- TTS done.
+- Pacing set (meta speed / gap).
+
+Munshi image R1 returned FIX: regenerate 09, 13, 18, 26.
+- Prompts were updated in scene_prompts.json; img 13 now uses the `aangan_house` ref.
+- Old images backed up to images/_v1.
+- Regeneration failed with Gemini 402 "Your prepayment credits are depleted", even though the ledger shows ₹181.34 left.
+
+What I recorded:
+- STOP in pipeline_queue.json and log.md.
+- Synced: "story 003: sheets, images v1, TTS done; AUTO STOP - Gemini credits depleted".
+- I had started explaining the STOP to the user in text but had not yet finished the message or asked how to proceed.
+
+9. Optional Next Step:
+
+Send the user a concise status message (no further paid calls) about the auto-mode STOP:
+- Gemini prepaid credits are depleted (402), so the 4 image regens (09, 13, 18, 26) and the thumbnail could not run, and nothing was charged.
+- The ledger shows ₹181.34, so it under-counts real billing. Suggest checking AI Studio billing and adding input-token cost to cost_log later.
+- Done so far: 4 sheets, 21 images v1, voice samples, 56 TTS lines, pacing ~4:51. Ledger story cost ₹86.96.
+
+Then ask for their decision:
+- (a) top up credits, after which I resume the regens → Munshi R2 → thumbnail → preview, or
+- (b) build a free preview now with the v1 images (known issues: two Dadis in img 13, Sharma look-alikes in 09/26, two sticks in 18) and regenerate later.
+
+Also remind them that the Short 01 checklist is still pending.
+
+This follows the user's instruction: "Mujhse sirf preview par milna (ya koi stop condition aaye tab)."
+
+If you need specific details from before compaction (like exact code snippets, error messages, or content you generated), read the full transcript at: C:\Users\ashamim\.claude\projects\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7.jsonl
+Continue the conversation from where it left off without asking the user any further questions. Resume directly — do not acknowledge the summary, do not recap what was happening, do not preface with "I'll continue" or similar. Pick up the last task as if the break never happened.
+
+The messages after this summary are the most recent messages from before compaction, kept verbatim. The summary was written without seeing them, so something it says has not happened yet may already have happened in them.
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-19 11:30:24Z)**_
+
+Pehle RULES section 14 aur upload tool padh leta hoon.
+
+_**Agent (claude-opus-5-5 2026-10-19 11:30:28Z)**_
+
+<tool-use data-tool-type="search" data-tool-name="Grep"><details>
+<summary>Tool use: **Grep**</summary>
+ path `D:\Story-Channel\shared\RULES.md` pattern `^## `
+
+```text
+10:## 1. Budget
+16:## 2. Story and characters (from `channel_bible.md`)
+20:## 3. Audio
+27:## 4. Captions
+32:## 5. Video
+37:## 6. Thumbnail
+45:## 7. Metadata
+51:## 8. Publishing
+62:## 9. Safety
+67:## 10. Copyright (STRICT — any violation is FIX and blocks upload)
+77:## 11. Review limits and severity
+103:## 12. Originality (YouTube "inauthentic content" policy)
+111:## 13. Audience & algorithm (CTR, retention, session)
+131:## 14. Auto mode (after script approval)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:30:28Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\tools\youtube_upload.py`
+
+```text
+1	#!/usr/bin/env python3
+2	"""YouTube uploader for Story-Channel, used by the Munshi agent.
+3	
+4	Usage:
+5	    python tools/youtube_upload.py --job channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long/output/upload.json --dry-run
+6	    python tools/youtube_upload.py --job channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long/output/upload.json
+7	    python tools/youtube_upload.py --job ... --extras-only   # retry thumbnail/captions/playlist
+8	
+9	Safety: refuses to upload unless the logged-in channel ID matches job["channel_id"],
+10	and unless ffprobe confirms the file is a real final build (size, codec, pix_fmt).
+11	One token per channel: secrets/youtube_token_<channel_key>.json.
+12	
+13	One-time setup: see the youtube-publish skill. Needs
+14	    pip install google-api-python-client google-auth-oauthlib
+15	and secrets/client_secret.json (OAuth "Desktop app" client).
+16	"""
+17	import argparse
+18	import datetime as dt
+19	import json
+20	import random
+21	import sys
+22	import time
+23	from pathlib import Path
+24	
+25	try:
+26	    sys.stdout.reconfigure(encoding="utf-8")
+27	    sys.stderr.reconfigure(encoding="utf-8")
+28	except Exception:
+29	    pass
+30	
+31	ROOT = Path(__file__).resolve().parent.parent
+32	SECRETS = ROOT / "secrets"
+33	CLIENT_SECRET = SECRETS / "client_secret.json"
+34	FORMATS = {  # what a final upload must look like
+35	    "long": {"width": 1920, "height": 1080, "max_seconds": None},
+36	    "short": {"width": 1080, "height": 1920, "max_seconds": 60},
+37	}
+38	SCOPES = [
+39	    "https://www.googleapis.com/auth/youtube.upload",
+40	    "https://www.googleapis.com/auth/youtube.force-ssl",  # captions + playlists
+41	]
+42	RETRY_STATUS = {500, 502, 503, 504}
+43	MAX_RETRIES = 8
+44	
+45	
+46	def resolve(job_path: Path, p):
+47	    if not p:
+48	        return None
+49	    p = Path(p)
+50	    return p if p.is_absolute() else (job_path.parent / p).resolve()
+51	
+52	
+53	def token_path(job):
+54	    return SECRETS / f"youtube_token_{job['channel_key']}.json"
+55	
+56	
+57	def probe(video: Path):
+58	    """Return (width, height, codec, pix_fmt, seconds) using ffprobe."""
+59	    import shutil
+60	    import subprocess
+61	
+62	    ffprobe = shutil.which("ffprobe")
+63	    if not ffprobe:  # fallback: project's own FFmpeg build (bin/ layout, or flat tools/ffmpeg on this PC)
+64	        ffprobe = next((str(p) for p in (ROOT / "tools" / "ffmpeg" / "bin" / "ffprobe.exe",
+65	                                          ROOT / "tools" / "ffmpeg" / "ffprobe.exe") if p.exists()), None)
+66	    if not ffprobe:
+67	        raise RuntimeError("ffprobe not found (install FFmpeg)")
+68	    out = subprocess.run(
+69	        [ffprobe, "-v", "error", "-select_streams", "v:0",
+70	         "-show_entries", "stream=width,height,codec_name,pix_fmt",
+71	         "-show_entries", "format=duration", "-of", "json", str(video)],
+72	        capture_output=True, text=True, check=True).stdout
+73	    d = json.loads(out)
+74	    st = (d.get("streams") or [{}])[0]
+75	    return (st.get("width"), st.get("height"), st.get("codec_name"),
+76	            st.get("pix_fmt"), float(d.get("format", {}).get("duration", 0)))
+77	
+78	
+79	def validate(job: dict, job_path: Path) -> list:
+80	    errs = []
+81	    key = job.get("channel_key", "")
+82	    if not key or not all(c.isalnum() or c in "-_" for c in key):
+83	        errs.append("channel_key missing/invalid (e.g. dadi-ki-kahaniyan)")
+84	    cid = job.get("channel_id", "")
+85	    if not (isinstance(cid, str) and cid.startswith("UC") and len(cid) == 24):
+86	        errs.append("channel_id missing/invalid (24 chars, starts with UC; set it in channels/<key>/channel.json)")
+87	    cfg = {}
+88	    if key and not errs:  # the job must match the channel's own config (channels/<key>/channel.json)
+89	        cfg_file = ROOT / "channels" / key / "channel.json"
+90	        if not cfg_file.exists():
+91	            errs.append(f"no channel config: {cfg_file.relative_to(ROOT).as_posix()}")
+92	        else:
+93	            cfg = json.loads(cfg_file.read_text(encoding="utf-8"))
+94	            if cfg.get("channel_id") != cid:
+95	                errs.append(f"channel_id {cid} does not match {cfg_file.relative_to(ROOT).as_posix()} ({cfg.get('channel_id')})")
+96	            if job.get("made_for_kids") != cfg.get("made_for_kids"):
+97	                errs.append("made_for_kids differs from the channel config")
+98	    fmt = job.get("format")
+99	    if fmt not in FORMATS:
+100	        errs.append("format must be 'long' or 'short'")
+101	    if fmt == "short" and "parent_video_id" not in job:
+102	        errs.append("short needs parent_video_id (the long video's id; null only for a stand-alone Short)")
+103	    title = job.get("title", "")
+104	    desc = job.get("description", "")
+105	    tags = job.get("tags", [])
+106	    if not title:
+107	        errs.append("title missing")
+108	    if len(title) > 100:
+109	        errs.append(f"title too long ({len(title)} > 100)")
+110	    if len(desc) > 5000:
+111	        errs.append(f"description too long ({len(desc)} > 5000)")
+112	    for name, val in (("title", title), ("description", desc)):
+113	        if "<" in val or ">" in val:
+114	            errs.append(f"{name} contains < or >")
+115	    if sum(len(t) for t in tags) + max(len(tags) - 1, 0) > 500:
+116	        errs.append("tags exceed 500 characters")
+117	    hashtags = [w for w in desc.split() if w.startswith("#")]
+118	    if len(hashtags) > 15:
+119	        errs.append(f"{len(hashtags)} hashtags in description (>15: YouTube ignores all)")
+120	    if not isinstance(job.get("made_for_kids"), bool):
+121	        errs.append("made_for_kids must be true/false (set it in channels/<key>/channel.json)")
+122	
+123	    video = resolve(job_path, job.get("video"))
+124	    if not video or not video.exists():
+125	        errs.append(f"video not found: {video}")
+126	    else:
+127	        if "preview" in video.name.lower():
+128	            errs.append("video looks like a preview build; upload final only")
+129	        if fmt in FORMATS:
+130	            try:
+131	                w, h, codec, pix, secs = probe(video)
+132	                want = FORMATS[fmt]
+133	                if (w, h) != (want["width"], want["height"]):
+134	                    errs.append(f"video is {w}x{h}, a final {fmt} must be {want['width']}x{want['height']}")
+135	                if codec != "h264":
+136	                    errs.append(f"video codec is {codec}, expected h264")
+137	                if pix != "yuv420p":
+138	                    errs.append(f"pixel format is {pix}, expected yuv420p")
+139	                if secs < 5:
+140	                    errs.append(f"video is only {secs:.1f}s long")
+141	                if want["max_seconds"] and secs > want["max_seconds"]:
+142	                    errs.append(f"short is {secs:.1f}s, max {want['max_seconds']}s")
+143	                job["_probe"] = f"{w}x{h} {codec} {pix} {secs:.1f}s"
+144	            except Exception as e:
+145	                errs.append(f"ffprobe failed: {e}")
+146	
+147	    thumb = resolve(job_path, job.get("thumbnail"))
+148	    if thumb:
+149	        if not thumb.exists():
+150	            errs.append(f"thumbnail not found: {thumb}")
+151	        elif thumb.stat().st_size > 2 * 1024 * 1024:
+152	            errs.append("thumbnail larger than 2 MB")
+153	        elif thumb.suffix.lower() not in (".jpg", ".jpeg", ".png"):
+154	            errs.append("thumbnail must be .jpg or .png")
+155	
+156	    srt = resolve(job_path, job.get("captions"))
+157	    if srt and not srt.exists():
+158	        errs.append(f"captions not found: {srt}")
+159	
+160	    pub = job.get("publish_at")
+161	    if pub:
+162	        try:
+163	            t = dt.datetime.fromisoformat(pub)
+164	            if t.tzinfo is None:
+165	                errs.append("publish_at needs a timezone, e.g. 2026-10-21T19:00:00+05:30")
+166	            elif t <= dt.datetime.now(dt.timezone.utc) + dt.timedelta(minutes=15):
+167	                errs.append("publish_at must be at least 15 minutes in the future")
+168	            if t.tzinfo is not None:  # fixed slot per format (RULES section 8; channel.json publish_times_ist)
+169	                ist = t.astimezone(dt.timezone(dt.timedelta(hours=5, minutes=30)))
+170	                want = cfg.get("publish_times_ist", {"long": "19:00", "short": "21:00"}).get(fmt)
+171	                if want and f"{ist:%H:%M}" != want:
+172	                    errs.append(f"publish_at is {ist:%H:%M} IST; a {fmt} video publishes at {want} IST")
+173	        except ValueError:
+174	            errs.append("publish_at is not ISO 8601")
+175	    if job.get("privacy", "private") not in ("private", "unlisted", "public"):
+176	        errs.append("privacy must be private, unlisted or public")
+177	    return errs
+178	
+179	
+180	def add_parent_link(job):
+181	    """Short made from a long video: put the long video's link with a CTA line at the top of the description
+182	    (RULES section 8, Short -> Long link). Returns the line (or None)."""
+183	    pid = job.get("parent_video_id")
+184	    if job.get("format") != "short" or not pid:
+185	        return None
+186	    from post_comment import comment_text
+187	    line = comment_text(pid)
+188	    if line not in job.get("description", ""):
+189	        job["description"] = line + "\n\n" + job.get("description", "")
+190	    return line
+191	
+192	
+193	def short_followups(job, job_path, result):
+194	    """After a Short upload: schedule the first comment (publish_at + 5 min) and add the manual checklist to the
+195	    channel log (Related video + pin comment stay manual; the API cannot do them)."""
+196	    from post_comment import schedule_task
+197	    when = (dt.datetime.fromisoformat(job["publish_at"]) if job.get("publish_at")
+198	            else dt.datetime.now(dt.timezone.utc)) + dt.timedelta(minutes=5)
+199	    try:
+200	        result["comment_task"] = schedule_task(job_path, result["video_id"], when)
+201	        result["comment_task_at"] = when.isoformat()
+202	    except Exception as e:
+203	        result["comment_task_error"] = str(e)[:300]
+204	    log_file = ROOT / "channels" / job["channel_key"] / "log.md"
+205	    with log_file.open("a", encoding="utf-8") as f:
+206	        f.write(f"{dt.date.today().isoformat()} | {Path(job['video']).stem} | short->long checklist | "
+207	                f"video {result['video_id']} -> long {job['parent_video_id']} | "
+208	                "related_video: pending, pin_comment: pending\n")
+209	
+210	
+211	def get_service(job):
+212	    from google.auth.transport.requests import Request
+213	    from google.oauth2.credentials import Credentials
+214	    from google_auth_oauthlib.flow import InstalledAppFlow
+215	    from googleapiclient.discovery import build
+216	
+217	    tok = token_path(job)
+218	    creds = None
+219	    if tok.exists():
+220	        creds = Credentials.from_authorized_user_file(str(tok), SCOPES)
+221	    if not creds or not creds.valid:
+222	        if creds and creds.expired and creds.refresh_token:
+223	            creds.refresh(Request())
+224	        else:
+225	            if not CLIENT_SECRET.exists():
+226	                sys.exit(f"Missing {CLIENT_SECRET}. Do the one-time setup first.")
+227	            print(f"Browser login: pick the Google account AND the channel '{job.get('channel_name', job['channel_key'])}'.")
+228	            flow = InstalledAppFlow.from_client_secrets_file(str(CLIENT_SECRET), SCOPES)
+229	            creds = flow.run_local_server(port=0)
+230	        SECRETS.mkdir(exist_ok=True)
+231	        tok.write_text(creds.to_json(), encoding="utf-8")
+232	    return build("youtube", "v3", credentials=creds)
+233	
+234	
+235	def check_channel(yt, job):
+236	    """Stop unless the logged-in channel is exactly the configured one."""
+237	    items = yt.channels().list(part="id,snippet", mine=True).execute().get("items", [])
+238	    if not items:
+239	        sys.exit("Logged-in Google account has no YouTube channel. Nothing uploaded.")
+240	    got = items[0]["id"]
+241	    title = items[0]["snippet"]["title"]
+242	    if got != job["channel_id"]:
+243	        sys.exit(f"WRONG CHANNEL: logged in as '{title}' ({got}), expected {job['channel_id']}. "
+244	                 f"Nothing uploaded. Delete {token_path(job).name} in secrets/ and log in again with the right channel.")
+245	    print(f"Channel OK: {title} ({got})")
+246	
+247	
+248	def with_retry(fn, label):
+249	    from googleapiclient.errors import HttpError
+250	
+251	    for attempt in range(MAX_RETRIES + 1):
+252	        try:
+253	            return fn()
+254	        except HttpError as e:
+255	            if e.resp.status not in RETRY_STATUS or attempt == MAX_RETRIES:
+256	                raise
+257	        except (ConnectionError, OSError, TimeoutError):
+258	            if attempt == MAX_RETRIES:
+259	                raise
+260	        wait = min(2 ** attempt + random.random(), 60)
+261	        print(f"{label}: retry {attempt + 1} in {wait:.0f}s")
+262	        time.sleep(wait)
+263	
+264	
+265	def upload_video(yt, job, job_path):
+266	    from googleapiclient.http import MediaFileUpload
+267	
+268	    status = {
+269	        "privacyStatus": job.get("privacy", "private"),
+270	        "selfDeclaredMadeForKids": job["made_for_kids"],
+271	    }
+272	    if "contains_synthetic_media" in job:
+273	        status["containsSyntheticMedia"] = bool(job["contains_synthetic_media"])
+274	    if job.get("publish_at"):
+275	        status["privacyStatus"] = "private"  # required by YouTube for scheduling
+276	        status["publishAt"] = job["publish_at"]
+277	
+278	    body = {
+279	        "snippet": {
+280	            "title": job["title"],
+281	            "description": job.get("description", ""),
+282	            "tags": job.get("tags", []),
+283	            "categoryId": str(job.get("category_id", "1")),
+284	            "defaultLanguage": job.get("language", "hi"),
+285	            "defaultAudioLanguage": job.get("language", "hi"),
+286	        },
+287	        "status": status,
+288	    }
+289	    media = MediaFileUpload(str(resolve(job_path, job["video"])), mimetype="video/mp4",
+290	                            chunksize=8 * 1024 * 1024, resumable=True)
+291	    req = yt.videos().insert(part="snippet,status", body=body, media_body=media)
+292	    response = None
+293	    while response is None:
+294	        st, response = with_retry(req.next_chunk, "upload")
+295	        if st:
+296	            print(f"upload {int(st.progress() * 100)}%")
+297	    return response["id"]
+298	
+299	
+300	def do_extras(yt, job, job_path, video_id, result):
+301	    from googleapiclient.http import MediaFileUpload
+302	
+303	    thumb = resolve(job_path, job.get("thumbnail"))
+304	    if thumb and not result.get("thumbnail_ok"):
+305	        try:
+306	            mt = "image/png" if thumb.suffix.lower() == ".png" else "image/jpeg"
+307	            with_retry(lambda: yt.thumbnails().set(
+308	                videoId=video_id, media_body=MediaFileUpload(str(thumb), mimetype=mt)).execute(),
+309	                "thumbnail")
+310	            result["thumbnail_ok"] = True
+311	        except Exception as e:  # usually: channel not phone-verified
+312	            result["thumbnail_error"] = str(e)[:300]
+313	
+314	    srt = resolve(job_path, job.get("captions"))
+315	    if srt and not result.get("captions_ok"):
+316	        try:
+317	            lang = job.get("language", "hi")
+318	            with_retry(lambda: yt.captions().insert(
+319	                part="snippet",
+320	                body={"snippet": {"videoId": video_id, "language": lang,
+321	                                  "name": job.get("captions_name", "Hindi"), "isDraft": False}},
+322	                media_body=MediaFileUpload(str(srt), mimetype="application/octet-stream"),
+323	            ).execute(), "captions")
+324	            result["captions_ok"] = True
+325	        except Exception as e:
+326	            result["captions_error"] = str(e)[:300]
+327	
+328	    pl = job.get("playlist_id")
+329	    if pl and not result.get("playlist_ok"):
+330	        try:
+331	            with_retry(lambda: yt.playlistItems().insert(
+332	                part="snippet",
+333	                body={"snippet": {"playlistId": pl,
+334	                                  "resourceId": {"kind": "youtube#video", "videoId": video_id}}},
+335	            ).execute(), "playlist")
+336	            result["playlist_ok"] = True
+337	        except Exception as e:
+338	            result["playlist_error"] = str(e)[:300]
+339	
+340	
+341	def main():
+342	    ap = argparse.ArgumentParser()
+343	    ap.add_argument("--job", required=True, help="path to upload.json")
+344	    ap.add_argument("--dry-run", action="store_true", help="validate only, no network")
+345	    ap.add_argument("--extras-only", action="store_true",
+346	                    help="retry thumbnail/captions/playlist for an already uploaded video")
+347	    ap.add_argument("--force-thumbnail", action="store_true",
+348	                    help="with --extras-only: set the thumbnail again even if it was set before (e.g. after a rebrand)")
+349	    args = ap.parse_args()
+350	
+351	    job_path = Path(args.job).resolve()
+352	    job = json.loads(job_path.read_text(encoding="utf-8"))
+353	    result_path = job_path.parent / "upload_result.json"
+354	    result = json.loads(result_path.read_text(encoding="utf-8")) if result_path.exists() else {}
+355	
+356	    parent_line = add_parent_link(job)
+357	    errs = validate(job, job_path)
+358	    print("Channel:     ", job.get("channel_name") or job.get("channel_key"), job.get("channel_id"))
+359	    print("Title:       ", job.get("title"))
+360	    print("Video:       ", resolve(job_path, job.get("video")))
+361	    print("Privacy:     ", "scheduled" if job.get("publish_at") else job.get("privacy", "private"))
+362	    print("Publish at:  ", job.get("publish_at") or "-")
+363	    print("Made for kids:", job.get("made_for_kids"))
+364	    print("Thumbnail:   ", job.get("thumbnail") or "-")
+365	    print("Captions:    ", job.get("captions") or "-")
+366	    print("Playlist:    ", job.get("playlist_id") or "-")
+367	    print("Video check: ", job.get("_probe", "-"))
+368	    if job.get("format") == "short":
+369	        print("Parent long: ", job.get("parent_video_id") or "- (stand-alone Short)")
+370	        if parent_line:
+371	            print("Desc line 1: ", parent_line)
+372	            print("1st comment: ", parent_line, "(scheduled task, publish_at + 5 min)")
+373	    if errs:
+374	        print("\nPROBLEMS:")
+375	        for e in errs:
+376	            print(" -", e)
+377	        sys.exit(1)
+378	    if args.dry_run:
+379	        print("\nDry run OK. Nothing uploaded.")
+380	        return
+381	
+382	    if result.get("video_id") and not args.extras_only:
+383	        sys.exit(f"Already uploaded as {result['video_id']}. Use --extras-only to retry extras.")
+384	    if args.extras_only and not result.get("video_id"):
+385	        sys.exit("No video_id in upload_result.json; nothing to retry.")
+386	
+387	    yt = get_service(job)
+388	    check_channel(yt, job)
+389	    if not result.get("video_id"):
+390	        vid = upload_video(yt, job, job_path)
+391	        result.update({
+392	            "video_id": vid,
+393	            "url": f"https://youtu.be/{vid}",
+394	            "studio_url": f"https://studio.youtube.com/video/{vid}/edit",
+395	            "uploaded_at": dt.datetime.now(dt.timezone.utc).isoformat(),
+396	            "publish_at": job.get("publish_at"),
+397	        })
+398	        result_path.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
+399	        print("Uploaded:", result["url"])
+400	
+401	    if args.force_thumbnail:
+402	        result.pop("thumbnail_ok", None)
+403	    do_extras(yt, job, job_path, result["video_id"], result)
+404	    if parent_line and not result.get("comment_task") and not result.get("comment_id"):
+405	        short_followups(job, job_path, result)
+406	        print("Studio (manual): set Related video =", f"https://youtu.be/{job['parent_video_id']}",
+407	              "and pin the first comment after it is posted.")
+408	    result_path.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
+409	    print(json.dumps(result, ensure_ascii=False, indent=2))
+410	
+411	
+412	if __name__ == "__main__":
+413	    main()
+414
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:30:30Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\shared\RULES.md`
+
+```text
+51	## 8. Publishing
+52	- Fixed publish times: long video at 19:00 IST, its Short at 21:00 IST the same day.
+53	  - Long upload finished before 18:45 IST -> long publishes 19:00 the same day; otherwise 19:00 the next day.
+54	  - Short upload finished before 20:45 IST -> Short publishes 21:00 the same day as its long; otherwise both move to the next day.
+55	  - A Short not made from a long (e.g. Dadi Jasoos case) also publishes at 21:00.
+56	- Per day per channel: at most one long (19:00) and one Short (21:00).
+57	- Planned frequency: long videos 2-3 per week, Shorts daily (from stories already made, ₹0).
+58	- Nothing goes Public or gets scheduled without the user's OK in that conversation.
+59	- One upload per video. If `output/upload_result.json` exists, do not upload again.
+60	- Short -> Long link (MANDATORY): every Short made from a long video must (a) have the long video's URL in its description with a short CTA line, (b) get an automatic first comment "पूरी कहानी यहाँ देखें 👉 <long URL>" posted right after it becomes public, and (c) the user sets in Studio: Related video = the long video, and pins that comment. The YouTube API cannot set Related video or pin comments, so (c) stays manual; Munshi shows this checklist after every Short upload and asks about it at the start of the next session until the user confirms.
+61	
+62	## 9. Safety
+63	- Never show or commit `.env`, `secrets/`, API keys or OAuth tokens.
+64	- Never delete files; move them to `_to_delete/`.
+65	- Paid source files (story images/, audio/, characters/) are read-only for every build. Builds write only to their own _work/ and output/ folders. After every build Munshi checks that no paid source file changed (git status / hash). Any change is a BLOCKER.
+66	
+67	## 10. Copyright (STRICT — any violation is FIX and blocks upload)
+68	- Every external file used in any video (music, sound effect, font, image, footage, voice) must have a row in `shared/assets_license.csv`: path, source_url, author, license, attribution_text, date_added. No row = not allowed.
+69	- Allowed licences only: CC0; CC BY 4.0 (with exact credit in the description); SIL OFL (fonts); YouTube Audio Library tracks (follow their attribution note); our own Gemini-generated images/voices; our own recordings.
+70	- Never allowed: CC BY-NC (non-commercial, conflicts with monetization), CC BY-ND (we edit/mix), CC BY-SA, "free for personal use", Freesound "Sampling+", unknown source, anything ripped from YouTube/Spotify/Instagram/films/TV, Bollywood or any commercial song (even hummed or sung by TTS), Google/Pinterest images.
+71	- Freesound: licence is per sound. Check each file's own licence page; only CC0 or CC BY 4.0.
+72	- Content: no real brand logos, no film/TV/cartoon characters (Chhota Bheem, Motu Patlu, Disney, etc.), no celebrity likeness, no copied song lyrics, no copied text from modern books. Old folk tales (Panchatantra, Jataka, Akbar-Birbal) are public domain, but we always write our own version, never copy a modern retelling.
+73	- Image prompts never name a studio, franchise or living artist ("Pixar style", "Ghibli style", etc.).
+74	- Before upload, Munshi checks: every audio/image/font file in the final build is in the register, every CC BY item is credited in the description exactly as its licence asks, and no source audio from outside our pipeline is in the mix.
+75	- After upload: if YouTube Studio shows any copyright claim or strike, stop all new uploads and tell the user. CC music sometimes gets false Content ID claims; dispute only with the licence proof from the register, after the user agrees.
+76	
+77	## 11. Review limits and severity
+78	Every problem Munshi reports is marked BLOCKER or MINOR.
+79	
+80	BLOCKER (never waived, in any round):
+81	- Copyright (section 10), wrong channel, any secret exposed.
+82	- Wrong character on screen for a line, wrong voice for a character, a line missing or cut off.
+83	- Caption more than 1 s away from its line, or caption text not matching what is spoken.
+84	- Loudness outside -14 LUFS ±1, true peak above -1.0 dBFS, audible clipping or leaked outside audio.
+85	- Wrong resolution/codec, or a preview file used as final.
+86	- Thumbnail: broken Hindi matras, spoiler, unreadable text, important thing in the bottom-right corner.
+87	- Metadata: title over 100 chars, more than 15 hashtags, missing CC BY credit, "for kids" wording (title, thumbnail, description or tags), mystery answer revealed.
+88	- Length outside ±10% of the approved preview length.
+89	- Story problem: moral missing or a scene that contradicts the script.
+90	
+91	MINOR (everything else that breaks a RULES limit only slightly), e.g.: caption off by 0.3–1 s, caption shorter than 0.4 s, music level within 3 dB of target, thumbnail text slightly under the size rule, small silent gaps, missing colour tags, tiny cosmetic issues.
+92	Taste points (pacing feel, colour choice, music phrase) are "Note" only and never count as problems.
+93	
+94	Rounds:
+95	- Round 1 (R1): full review for that stage; BLOCKER and MINOR both come back as FIX (free) or ASK (paid).
+96	- Round 2 (R2): re-check only what changed and what failed in R1.
+97	- After R2: if any BLOCKER remains → ASK the user, stop. If only MINOR remain → verdict "PASS-WITH-NOTES": the stage is passed and the pipeline moves on to the next step (including upload when the user has approved it). No third round.
+98	- Every MINOR waived after R2 is written to channels/<key>/carry_over.md (project, issue, suggested fix). Before the next video's build, the builder reads carry_over.md and fixes those causes in the pipeline, then marks them done.
+99	
+100	These limits never weaken: copyright (section 10), channel ID check, secrets, and the full pre-upload check.
+101	At the end of each review, add one line to channels/<key>/log.md with the round (R1/R2), verdict and approximate time taken.
+102	
+103	## 12. Originality (YouTube "inauthentic content" policy)
+104	- Every new story must differ clearly from all previous stories of the channel in at least 3 of: moral, main conflict/plot shape, setting, lead characters, genre/tone (comedy, mystery, emotional, adventure), ending type.
+105	- At script stage Munshi compares the new script with every previous story.md in the channel and lists the closest match and what is different. If fewer than 3 differ -> BLOCKER (ASK the user).
+106	- Titles and thumbnails must not follow one fixed template word-for-word across videos.
+107	- The channel name suffix (`title_suffix` in channels/<key>/channel.json, e.g. "| किस्सागो") may stay the same in every title — it is branding. The rest of the title (story name, hook, extra keywords) must vary; do not repeat the same keyword block (like "| Hindi Moral Story | Hindi Kahani") in every video. Rotate keywords or put them in tags/description instead.
+108	- No two videos may reuse the same narration audio. Shorts cut from their own long video are allowed.
+109	- Every 5th long video Munshi writes a short "channel variety" note in log.md: genres used, morals used, what to try next.
+110	
+111	## 13. Audience & algorithm (CTR, retention, session)
+112	Long videos:
+113	- Hook: the first spoken line must start within 1.0 s. The first 30 s must set up the story's main question or conflict. Any frame/intro before the story itself (Dadi-Golu opening) is max 10 s.
+114	- Promise kept: whatever the title and thumbnail promise (e.g. the magic cauldron) must appear on screen within the first 60 s. A title/thumbnail that promises something the video does not show is a BLOCKER (misleading).
+115	- Visual change: no single shot stays without a cut or new camera move for more than 8 s.
+116	- End: the last 20 s carry no essential visuals or captions in the end-screen area, so end-screen elements can sit there. The last spoken line asks viewers one specific question about the story (for comments), not a generic "like and subscribe".
+117	Shorts:
+118	- First frame is a strong visual (no title card, no black frame). First word within 0.5 s.
+119	- Length 30-58 s.
+120	- Captions and key visuals stay out of the bottom 20% and right 15% (YouTube buttons).
+121	- Ending is either a cliffhanger towards the long video or a clean loop back to the first frame.
+122	Thumbnail:
+123	- Readable at phone size: Munshi downscales it to 160x90 px and checks the main face/emotion and the text are still recognisable.
+124	- One clear focal point (a face with strong emotion or the key object), max 4 words, high contrast.
+125	Title:
+126	- The hook words come in the first 40 characters (mobile cuts long titles). Curiosity is fine, misleading is not.
+127	Session:
+128	- Every long video goes into its channel playlist, gets an end screen (next video + subscribe), and every Short from it has Related video = that long (manual Studio checklist).
+129	Severity: a misleading title/thumbnail is a BLOCKER; the rest are FIX in R1 and MINOR after R2 (section 11).
+130	
+131	## 14. Auto mode (after script approval)
+132	- Once the user approves a script, the whole pipeline up to the PREVIEW runs automatically, including paid steps (character sheets, scene images, voice samples, TTS, thumbnail), without asking for each step.
+133	- Per-video budget cap: ₹130 total (all paid steps + regenerations). Before every paid call, check the running total for this story in cost_log.csv; if the call would cross ₹130, stop and ASK.
+134	- Account floor: if the remaining prepaid balance would drop below ₹50, stop and ASK before any paid call.
+135	- Munshi reviews every stage. R1 FIX/MINOR items are fixed automatically (free or paid within the cap). Max 2 regenerations per scene image; after that ASK.
+136	- After R2: only MINOR left -> continue (PASS-WITH-NOTES). Any BLOCKER, any copyright doubt, or a channel ID mismatch -> stop and ASK.
+137	- Human checkpoint 1: script approval. Human checkpoint 2: preview approval. The preview approval also counts as the upload "ha" for that long video.
+138	- After preview approval: final build -> Munshi final review -> upload long in its slot -> Auto Short flow (section 8) -> comments/checklist. No further questions unless a stop condition above is hit.
+139	- Every auto step is logged in the channel log.md with cost so far, and shown to the user as one short status line.
+140	- pipeline_queue.json tracks the long video stages too (script_approved -> assets -> images -> tts -> preview_ready -> approved -> final -> uploaded), and the Stop-hook guard keeps the flow moving until preview_ready or a stop condition.
+141
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:30:34Z)**_
+
+Ab section 14 badal raha hoon. Section 8 ki "Nothing goes Public or gets scheduled without the user's OK" wali line bhi naye mode se takrati hai, use bhi saath me theek kar raha hoon.
+
+_**Agent (claude-opus-5-5 2026-10-19 11:30:54Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Rewrite RULES section 14 and section 8 OK line
+
+```bash
+python - <<'EOF'
+from pathlib import Path
+p = Path("shared/RULES.md")
+t = p.read_text(encoding="utf-8")
+i = t.index("## 14. Auto mode")
+new = """## 14. Auto mode (after script approval)
+- Human checkpoint: ONLY script approval. After that everything runs automatically without asking for each step: assets (character sheets, voice samples), scene images, TTS, preview, Munshi R1 (FIX items fixed automatically, free or paid within the cap) + R2, final build, Munshi final review, long thumbnail, upload, Auto Short flow (section 8: build, review, upload), first comments, sync.
+- Veto window instead of approval: every video is uploaded as scheduled (private until its slot: long 19:00 IST, Short 21:00 IST), never published immediately. Right after each upload, show the user one status line with the video link and slot. If the user says "rok do" before the slot, run `tools/veto.py <video_id>` (sets the video private and removes publishAt via the API), log it in the channel log.md, and pause the pipeline for that story.
+- Slot: if the pipeline finishes too late for today's slot (long upload after 18:45 IST), use the next day's slot (Short follows section 8).
+- Thumbnails: the long thumbnail is set via the API automatically. Short covers cannot be set by the API: the Short's first frame is its cover (hook visual, no caption in the first 1 s, any text inside 15%-85% of the height); also save a vertical cover file (1080x1920) in the Short's output/ for manual use.
+- Stop conditions (stop and ASK the user):
+  - Per-video budget cap ₹130 total (all paid steps + regenerations). Before every paid call, check the running total for this story in cost_log.csv.
+  - Account floor: the remaining prepaid balance would drop below ₹50 (or the API reports credits depleted).
+  - More than 2 regenerations needed for any scene image.
+  - Any BLOCKER left after R2 (only MINOR left -> PASS-WITH-NOTES, continue).
+  - Any copyright doubt.
+  - Channel ID mismatch.
+- Manual Studio checklist after uploads (the API cannot do these): Related video for the Short = its long video, pin the first comment, and — until the API audit passes — confirm/set the schedule in Studio. Munshi shows it after the uploads and asks about it at the start of the next session until the user confirms.
+- Every auto step is logged in the channel log.md with cost so far, and shown to the user as one short status line.
+- pipeline_queue.json tracks each story's stages (script_approved -> assets -> images -> tts -> preview -> final -> uploaded -> short_uploaded -> done, or stopped/vetoed with the reason).
+"""
+t = t[:i] + new
+t = t.replace("- Nothing goes Public or gets scheduled without the user's OK in that conversation.",
+ "- Nothing goes Public or gets scheduled without the user's OK, except in auto mode (section 14): there the script approval covers the scheduled upload, with the \"rok do\" veto window before the slot.")
+p.write_text(t, encoding="utf-8")
+EOF
+grep -n "auto mode (section 14)" shared/RULES.md | head; grep -n -i "preview approval\|preview_ready\|Human checkpoint" CLAUDE.md .claude/agents/munshi.md channels/dadi-ki-kahaniyan/RULES.md .claude/skills/*/SKILL.md 2>/dev/null
+```
+
+```text
+58:- Nothing goes Public or gets scheduled without the user's OK, except in auto mode (section 14): there the script approval covers the scheduled upload, with the "rok do" veto window before the slot.
+CLAUDE.md:41:- User se sirf script approval aur preview approval par milna. Preview approval = us long video ka upload "ha" (phir final -> Munshi -> upload -> Short flow).
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:30:58Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Check CLAUDE.md, munshi and publish skill wording
+
+`sed -n 36,48p CLAUDE.md; grep -n -i "auto\|upload\|ha\"" .claude/agents/munshi.md | head -30; ls .claude/skills; grep -n -i "ha\b\|approval\|OK" .claude/skills/youtube-publish/SKILL.md | head -30`
+
+```text
+## Auto mode (shared/RULES.md section 14)
+- Script approve hone ke baad sheets -> scene images -> voice samples -> TTS -> thumbnail -> PREVIEW tak sab apne aap chalao (paid bhi), har kadam par user se mat poochho.
+- Har paid call se pehle: story ka kul kharcha (cost_log.csv) ₹130 se upar na jaaye, aur bacha balance ₹50 se neeche na aaye — warna ruko aur poochho. Scene image max 2 baar regenerate.
+- Munshi har stage review kare; R1 FIX apne aap theek karo; R2 ke baad sirf MINOR -> aage badho; BLOCKER / copyright shak / channel ID mismatch -> ruko aur poochho.
+- User se sirf script approval aur preview approval par milna. Preview approval = us long video ka upload "ha" (phir final -> Munshi -> upload -> Short flow).
+- Har auto kadam channel log.md me (kharcha ab tak ke saath) aur user ko ek chhoti status line. Stages `channels/<key>/pipeline_queue.json` me.
+
+## GitHub sync
+- Har milestone ke baad sync chalao: `powershell -NoProfile -ExecutionPolicy Bypass -File tools\sync.ps1 -Message "<project>: <milestone>"`.
+  Milestones: script approved, scene images done, TTS done, final build done, thumbnail done, uploaded (Munshi PUBLISHED ke baad).
+- Session band hone par hook aur raat 11:30 ka task apne aap sync karte hain.
+- Sync log: `shared/sync.log`. Koi ERROR dikhe to mujhe batao.
+3:description: Quality-checker and publisher for the Story-Channel project (Kissago / किस्सागो, key dadi-ki-kahaniyan, and future channels). Use proactively after EVERY production step (script, scene breakdown, character sheets, scene images, voice samples, TTS, preview build, final build, thumbnail, metadata) to review the output and return a PASS / FIX / ASK verdict. Also use when the user says "upload karo", "schedule karo" or "final approved" to publish an approved video to YouTube.
+37:- Auto mode (RULES section 14): after the user approves a script, stages run without asking the user. In your report say clearly whether a STOP condition is hit (BLOCKER, copyright doubt, channel ID mismatch, a 3rd regeneration of one image, story cost would cross ₹130, balance would drop below ₹50); otherwise the builder fixes and continues.
+54:- The user has said "upload karo" / "schedule karo" / "final approved" in this conversation.
+55:- `output/upload_result.json` does not already exist for this video (no duplicate uploads).
+57:Then: build `output/upload.json`, run `python tools/youtube_upload.py --job <path> --dry-run`, show the user the summary (title, schedule time IST, made-for-kids, playlist), wait for "ha"/"ok", then run it for real. Report the video URL and anything that still needs a click in YouTube Studio.
+step-review
+youtube-publish
+8:Uses `tools/youtube_upload.py` (YouTube Data API v3). Never upload without the user's explicit OK in this conversation.
+12:2. OAuth consent screen: User type External. Add the channel's Google account as a test user. Then **Publish app** (move it to In production). If it stays in Testing, the refresh token expires every 7 days and uploads stop working.
+15:5. First real run opens a browser: pick the right Google account AND the right channel, accept the "unverified app" warning (it is the user's own app). Token is saved to `secrets/youtube_token_<channel_key>.json`; later runs are silent.
+22:- Suggest applying for the audit (YouTube API Services audit and quota extension form, free, takes a few weeks). After approval, scheduling becomes fully automatic.
+45:6. Show the user: title, publish time IST, made-for-kids, playlist, thumbnail file. Wait for ha/ok.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:31:00Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\.claude\agents\munshi.md`
+
+```text
+48	Append one line per verdict to `channels/<key>/log.md`: date, project, step, verdict, one-line reason.
+49	
+50	## How to publish (use the `youtube-publish` skill)
+51	
+52	Only when ALL of these are true:
+53	- `channels/<key>/log.md` has a PASS for this project's **final** build, thumbnail and metadata.
+54	- The user has said "upload karo" / "schedule karo" / "final approved" in this conversation.
+55	- `output/upload_result.json` does not already exist for this video (no duplicate uploads).
+56	
+57	Then: build `output/upload.json`, run `python tools/youtube_upload.py --job <path> --dry-run`, show the user the summary (title, schedule time IST, made-for-kids, playlist), wait for "ha"/"ok", then run it for real. Report the video URL and anything that still needs a click in YouTube Studio.
+58	
+59	## Never
+60	
+61	- Never spend money. Any paid call is the builder's job, and only after the user approves it.
+62	- Never set a video Public, or schedule it, without the user's explicit OK in this conversation.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:31:00Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\.claude\skills\youtube-publish\SKILL.md`
+
+```text
+1	---
+2	name: youtube-publish
+3	description: Upload and schedule an approved Story-Channel video to YouTube with tools/youtube_upload.py, including one-time OAuth setup. Used by the munshi agent after the user approves the final build.
+4	---
+5	
+6	# Publish a video to YouTube
+7	
+8	Uses `tools/youtube_upload.py` (YouTube Data API v3). Never upload without the user's explicit OK in this conversation.
+9	
+10	## One-time setup (guide the user, they do the clicks in Google Cloud Console)
+11	1. Use the same Google Cloud project as Gemini, or a new one. Enable **YouTube Data API v3**.
+12	2. OAuth consent screen: User type External. Add the channel's Google account as a test user. Then **Publish app** (move it to In production). If it stays in Testing, the refresh token expires every 7 days and uploads stop working.
+13	3. Credentials: Create OAuth client ID, type **Desktop app**. Download JSON and save it as `secrets/client_secret.json`. Make sure `secrets/` is in `.gitignore`.
+14	4. `pip install google-api-python-client google-auth-oauthlib`
+15	5. First real run opens a browser: pick the right Google account AND the right channel, accept the "unverified app" warning (it is the user's own app). Token is saved to `secrets/youtube_token_<channel_key>.json`; later runs are silent.
+16	6. Phone-verify the channel in YouTube Studio, otherwise custom thumbnails fail.
+17	
+18	## Important limit: unaudited API projects
+19	Videos uploaded through the API from a project that has not passed YouTube's API audit are locked to **private**, and scheduling may not take effect. Until the audit is approved:
+20	- Upload as private (the script does this when `publish_at` is set).
+21	- Tell the user the one Studio step left: open the studio_url and set Schedule / Public.
+22	- Suggest applying for the audit (YouTube API Services audit and quota extension form, free, takes a few weeks). After approval, scheduling becomes fully automatic.
+23	Quota: default 10,000 units/day; one upload costs about 1,600, thumbnail 50, captions 400. Check the current numbers in the docs if uploads fail with quotaExceeded.
+24	
+25	## Per-video steps
+26	1. Confirm in `channels/<key>/log.md`: PASS for final build, thumbnail and metadata of this project. Confirm `output/upload_result.json` does not exist.
+27	2. Read `channels/<key>/channel.json` for made_for_kids, contains_synthetic_media, category_id, language, publish time, playlist id. If made_for_kids is null, ASK the user and save the answer there.
+28	3. Pick publish time per RULES section 8 and `publish_times_ist` in channel.json: long video 19:00 IST, Short 21:00 IST.
+29	   - Long: upload finished before 18:45 IST -> 19:00 the same day, else 19:00 the next day.
+30	   - Short of a long: same day as its long at 21:00 if its upload finishes before 20:45 IST, else both move to the next day.
+31	   - Stand-alone Short (e.g. Dadi Jasoos case): 21:00.
+32	   - Check other projects' `output/upload_result.json` (`publish_at`) + `upload.json` (`format`): at most one long (19:00) and one Short (21:00) per day per channel.
+33	4. Write `output/upload.json`:
+34	   - channel_key, channel_name, channel_id (from `channels/<key>/channel.json`)
+35	   - format: "long" or "short"
+36	   - Short: parent_video_id = the long video's id if the Short is cut from a long video (null for a stand-alone Short). The script then puts "पूरी कहानी यहाँ देखें 👉 <long URL>" at the top of the description and, after upload, schedules the first comment (task StoryChannel-Comment-<video_id>, publish_at + 5 min, tools/post_comment.py) and writes "related_video: pending, pin_comment: pending" to channels/<key>/log.md.
+37	   - title, description, tags (from the approved metadata file)
+38	   - video: final mp4 (never *_preview*)
+39	   - thumbnail, captions (.srt), language "hi", captions_name "Hindi"
+40	   - made_for_kids, contains_synthetic_media, category_id
+41	   - publish_at like 2026-10-21T19:00:00+05:30 (or privacy "private" with no publish_at)
+42	   - playlist_id if configured
+43	5. `python tools/youtube_upload.py --job <upload.json> --dry-run`. Fix any PROBLEMS.
+44	   If the script says WRONG CHANNEL, stop and tell the user; never edit channel_id to make it pass.
+45	6. Show the user: title, publish time IST, made-for-kids, playlist, thumbnail file. Wait for ha/ok.
+46	7. Run without --dry-run. If thumbnail/captions/playlist failed, fix the cause and run with `--extras-only`.
+47	8. Report: video URL, studio URL, what succeeded, and what still needs a click in Studio (schedule if locked private, pinned comment, end screen). Pinning a comment is not possible through the API.
+48	8b. Short with a parent: show the user the manual checklist (Studio: Related video = long video; pin the first comment once it is posted) — RULES section 8.
+49	9. Append a PUBLISHED line to `channels/<key>/log.md` and update the story's `story.md` status.
+50
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:31:03Z)**_
+
+CLAUDE.md, Munshi aur publish skill me bhi naya mode likh raha hoon, taaki koi purana "ha ka intezaar" wala niyam auto upload ko na roke.
+
+_**Agent (claude-opus-5-5 2026-10-19 11:31:33Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Update CLAUDE.md, Munshi agent and publish skill for new auto mode
+
+```bash
+python - <<'EOF'
+from pathlib import Path
+def rep(path, old, new):
+    p = Path(path); t = p.read_text(encoding="utf-8")
+    assert t.count(old) == 1, (path, old[:40]); p.write_text(t.replace(old, new), encoding="utf-8")
+
+c = "CLAUDE.md"
+p = Path(c); t = p.read_text(encoding="utf-8")
+s = t.index("## Auto mode (shared/RULES.md section 14)"); e = t.index("## GitHub sync")
+t = t[:s] + """## Auto mode (shared/RULES.md section 14)
+- Sirf ek human checkpoint: script approval. Uske baad sheets -> images -> voice samples -> TTS -> preview -> Munshi R1 (auto fix) + R2 -> final -> Munshi final -> long thumbnail -> upload -> Auto Short (build, review, upload) -> first comments -> sync, sab apne aap. Preview par user se nahi milna.
+- Har video scheduled upload hota hai (slot tak private: long 19:00, Short 21:00), kabhi turant public nahi. Long upload 18:45 IST ke baad ho to agle din ka slot.
+- Har upload ke turant baad user ko ek status line: video link + slot. User slot se pehle "rok do" bole to `.\\.venv\\Scripts\\python -X utf8 tools\\veto.py <video_id>` chalao (private + publishAt hatao), log.md me likho, us story ki pipeline pause (pipeline_queue.json: vetoed).
+- Long thumbnail API se apne aap. Short cover API se nahi lagta: Short ka pehla frame hi cover (hook visual, pehle 1 s caption nahi, text 15%-85% height me) + ek vertical cover file output/ me manual use ke liye.
+- Ruko aur poochho: story kharcha ₹130 se upar, balance ₹50 se neeche (ya credits khatam), kisi scene ki 3rd regeneration, R2 ke baad BLOCKER, copyright shak, channel ID mismatch.
+- Uploads ke baad manual Studio checklist: Short ka Related video, first comment pin, aur jab tak API audit pass na ho, schedule confirm/set karna.
+- Har auto kadam channel log.md me (kharcha ab tak ke saath) aur user ko ek chhoti status line. Stages `channels/<key>/pipeline_queue.json` me.
+
+""" + t[e:]
+p.write_text(t, encoding="utf-8")
+
+rep(".claude/agents/munshi.md",
+"- The user has said \"upload karo\" / \"schedule karo\" / \"final approved\" in this conversation.",
+"- The user has said \"upload karo\" / \"schedule karo\" / \"final approved\" in this conversation, OR the story runs in auto mode (RULES section 14: script approved, recorded in `channels/<key>/pipeline_queue.json`) — then the script approval is the OK, and the upload is always scheduled (never immediate Public).")
+rep(".claude/agents/munshi.md",
+"wait for \"ha\"/\"ok\", then run it for real.",
+"wait for \"ha\"/\"ok\" (auto mode: no wait; dry-run must be clean), then run it for real. In auto mode, right after each upload print one status line: video link + slot (IST) + \"rok do\" = `tools/veto.py <video_id>`.")
+rep(".claude/agents/munshi.md",
+"- Never set a video Public, or schedule it, without the user's explicit OK in this conversation.",
+"- Never set a video Public, or schedule it, without the user's explicit OK in this conversation (auto mode, RULES section 14: script approval is the OK for a scheduled upload; never publish immediately).")
+S = ".claude/skills/youtube-publish/SKILL.md"
+rep(S, "Never upload without the user's explicit OK in this conversation.",
+"Never upload without the user's explicit OK in this conversation, except in auto mode (shared/RULES.md section 14): there the script approval is the OK, uploads are always scheduled (private until the slot), and the user can veto before the slot with `tools/veto.py <video_id>`.")
+rep(S, "6. Show the user: title, publish time IST, made-for-kids, playlist, thumbnail file. Wait for ha/ok.",
+"6. Show the user: title, publish time IST, made-for-kids, playlist, thumbnail file. Wait for ha/ok (auto mode: do not wait; after upload show one status line with link + slot).")
+rep(S, "8b. Short with a parent:",
+"8a. Veto (\"rok do\" before the slot): `python tools/veto.py <video_id>` (dry run first by default; add `--apply`) sets the video private and removes publishAt, logs it, and marks the story vetoed in pipeline_queue.json.\n8b. Short with a parent:")
+EOF
+git diff --stat
+```
+
+```text
+<stdin>:12: SyntaxWarning: "\." is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\."? A raw string is also an option.
+ .claude/agents/munshi.md                           |    6 +-
+ .claude/skills/youtube-publish/SKILL.md            |    5 +-
+ .../2026-10-17_08-25-27Z-pasted-content-id-aeaa.md | 1144 ++++++++++++++++++++
+ CLAUDE.md                                          |   10 +-
+ shared/RULES.md                                    |   23 +-
+ shared/sync.log                                    |    1 +
+ 6 files changed, 1171 insertions(+), 18 deletions(-)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:31:36Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Check the veto command path in CLAUDE.md
+
+`grep -n "veto.py" CLAUDE.md`
+
+```text
+(Bash completed with no output)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:31:39Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Find the veto line in CLAUDE.md
+
+`grep -n "rok do" CLAUDE.md`
+
+```text
+40:- Har upload ke turant baad user ko ek status line: video link + slot. User slot se pehle "rok do" bole to `.\.venv\Scripts\python -X utf8 toolseto.py <video_id>` chalao (private + publishAt hatao), log.md me likho, us story ki pipeline pause (pipeline_queue.json: vetoed).
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:31:41Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+<tool_use_error>String to replace not found in file.
+String: python -X utf8 toolseto.py <video_id> --apply</tool_use_error>
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:31:48Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Fix escaped path in CLAUDE.md
+
+```bash
+python - <<'EOF'
+from pathlib import Path
+p=Path("CLAUDE.md"); t=p.read_text(encoding="utf-8")
+t=t.replace("tools\x0beto.py <video_id>`", "tools\\veto.py <video_id> --apply`")
+p.write_text(t,encoding="utf-8")
+EOF
+grep -n "veto.py" CLAUDE.md
+```
+
+```text
+(Bash completed with no output)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:31:51Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Inspect raw bytes of the veto line
+
+`grep -n "rok do" CLAUDE.md | od -c | sed -n 1,40p | grep -n "t   o   o" `
+
+```text
+(Bash completed with no output)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:31:53Z)**_
+
+CLAUDE.md ki ek line me path galat chhap gaya; use theek kar raha hoon, phir `veto.py` banaunga.
+
+_**Agent (claude-opus-5-5 2026-10-19 11:31:57Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Show raw text of the veto line
+
+```bash
+python -c "
+t=open('CLAUDE.md',encoding='utf-8').read(); i=t.index('rok do'); print(repr(t[i:i+120]))"
+```
+
+```text
+'rok do" bole to `.\\.venv\\Scripts\\python -X utf8 tools\x0beto.py <video_id> --apply` chalao (private + publishAt hatao), log'
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:32:01Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Replace control char with backslash-v
+
+```bash
+python -c "
+p='CLAUDE.md';t=open(p,encoding='utf-8').read().replace('tools\x0beto.py','tools\\\\veto.py');open(p,'w',encoding='utf-8').write(t)" && grep -n "veto.py" CLAUDE.md
+```
+
+```text
+(Bash completed with no output)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:32:08Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Verify the veto line text
+
+```bash
+python -c "
+t=open('CLAUDE.md',encoding='utf-8').read(); i=t.index('rok do'); print(repr(t[i:i+90]))"; grep -c "" CLAUDE.md; grep -an "veto" CLAUDE.md
+```
+
+```text
+'rok do" bole to `.\\.venv\\Scripts\\python -X utf8 tools\x0beto.py <video_id> --apply` chalao (p'
+51
+40:- Har upload ke turant baad user ko ek status line: video link + slot. User slot se pehle "rok do" bole to `.\.venv\Scripts\python -X utf8 toolseto.py <video_id> --apply` chalao (private + publishAt hatao), log.md me likho, us story ki pipeline pause (pipeline_queue.json: vetoed).
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:32:15Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Fix veto path with explicit backslash
+
+```bash
+python - <<'EOF'
+p='CLAUDE.md'; t=open(p,encoding='utf-8').read()
+t=t.replace('tools\x0beto.py', 'tools' + chr(92) + 'veto.py')
+open(p,'w',encoding='utf-8').write(t)
+i=t.index('rok do'); print(repr(t[i:i+90]))
+EOF
+```
+
+```text
+'rok do" bole to `.\\.venv\\Scripts\\python -X utf8 tools\\veto.py <video_id> --apply` chalao ('
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:32:24Z)**_
+
+Ab `tools/veto.py` bana raha hoon. Pehle `post_comment.py` aur `pipeline_queue.json` ka dhaancha dekh leta hoon, taaki veto ke waqt Short ka scheduled comment task bhi ruk jaaye.
+
+_**Agent (claude-opus-5-5 2026-10-19 11:32:28Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Read comment tool, queue file, list upload results
+
+`cat tools/post_comment.py | head -80; cat channels/dadi-ki-kahaniyan/pipeline_queue.json; find channels -name upload_result.json`
+
+```text
+#!/usr/bin/env python3
+"""Post the Short -> Long first comment once the Short is public (RULES section 8, Short -> Long link).
+
+Usage:
+    python tools/post_comment.py --job <short video folder>/output/upload.json --dry-run
+    python tools/post_comment.py --job <short video folder>/output/upload.json      (run by the scheduled task)
+
+Runs from the Windows scheduled task StoryChannel-Comment-<video_id> that youtube_upload.py creates for
+publish_at + 5 min. Checks the logged-in channel, waits while the video is not public yet (15 min, max 6 tries),
+posts "पूरी कहानी यहाँ देखें 👉 <long URL>", writes comment_id to upload_result.json, logs to shared/sync.log and
+removes its own scheduled task. Never prints tokens.
+"""
+import argparse
+import datetime as dt
+import json
+import subprocess
+import sys
+import time
+from pathlib import Path
+
+try:
+    sys.stdout.reconfigure(encoding="utf-8")
+    sys.stderr.reconfigure(encoding="utf-8")
+except Exception:
+    pass
+
+ROOT = Path(__file__).resolve().parent.parent
+SYNC_LOG = ROOT / "shared" / "sync.log"
+CTA = "पूरी कहानी यहाँ देखें 👉 https://youtu.be/{id}"
+TASK_PREFIX = "StoryChannel-Comment-"
+
+
+def comment_text(parent_id: str) -> str:
+    return CTA.format(id=parent_id)
+
+
+def log(msg: str):
+    line = f"{dt.datetime.now():%Y-%m-%d %H:%M:%S}  {msg}"
+    SYNC_LOG.parent.mkdir(parents=True, exist_ok=True)
+    with SYNC_LOG.open("a", encoding="utf-8") as f:
+        f.write(line + "\n")
+    print(line)
+
+
+def task_name(video_id: str) -> str:
+    return TASK_PREFIX + video_id
+
+
+def _ps(cmd: str) -> subprocess.CompletedProcess:
+    return subprocess.run(["powershell", "-NoProfile", "-NonInteractive", "-Command", cmd],
+                          capture_output=True, text=True)
+
+
+def schedule_task(job_path: Path, video_id: str, when: dt.datetime) -> str:
+    """Windows scheduled task that runs this script once at `when` (timezone-aware)."""
+    name = task_name(video_id)
+    at = when.astimezone().replace(tzinfo=None)  # local wall-clock time for the task scheduler
+    args = f'-X utf8 "{Path(__file__).resolve()}" --job "{Path(job_path).resolve()}"'
+    cmd = (f"$a = New-ScheduledTaskAction -Execute '{sys.executable}' -Argument '{args}' -WorkingDirectory '{ROOT}'; "
+           f"$t = New-ScheduledTaskTrigger -Once -At ([datetime]'{at:%Y-%m-%dT%H:%M:%S}'); "
+           f"$s = New-ScheduledTaskSettingsSet -StartWhenAvailable; "
+           f"Register-ScheduledTask -TaskName '{name}' -Action $a -Trigger $t -Settings $s -Force | Out-Null")
+    r = _ps(cmd)
+    if r.returncode:
+        raise RuntimeError(f"could not create task {name}: {r.stderr.strip()[:300]}")
+    return name
+
+
+def task_exists(name: str) -> bool:
+    return _ps(f"if (Get-ScheduledTask -TaskName '{name}' -ErrorAction SilentlyContinue) {{ exit 0 }} else {{ exit 1 }}"
+               ).returncode == 0
+
+
+def remove_task(name: str):
+    _ps(f"Unregister-ScheduledTask -TaskName '{name}' -Confirm:$false -ErrorAction SilentlyContinue")
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--job", required=True, help="the Short's upload.json")
+{
+  "_help": "Stage tracker (shared/RULES.md section 14). Stages: script_approved -> assets -> images -> tts -> preview_ready -> approved -> final -> uploaded",
+  "stories": {
+    "003_mitthu-ne-sab-bata-diya": {
+      "video": "long",
+      "stage": "images",
+      "budget_cap_inr": 130,
+      "updated": "2026-10-19",
+      "stopped": "Gemini 402: prepaid credits depleted (account floor, RULES 14). 4 image regens pending: 09, 13, 18, 26 (prompts fixed). Thumbnail pending."
+    }
+  }
+}
+channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long/output/upload_result.json
+channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/output/upload_result.json
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:32:52Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Write"><details>
+<summary>Tool use: **Write**</summary>
+
+```python
+#!/usr/bin/env python3
+""""rok do" — stop a scheduled video before its slot (shared/RULES.md section 14, veto window).
+
+Usage:
+    python tools/veto.py <video_id>            # dry run (default): no network, shows what would change
+    python tools/veto.py <video_id> --apply    # really do it
+
+--apply: checks the logged-in channel, sets the video private and removes publishAt (other status fields are
+kept), disables the Short's first-comment task (StoryChannel-Comment-<id>), writes vetoed_at to the video's
+upload_result.json, logs a line in channels/<key>/log.md and marks the story "vetoed" in pipeline_queue.json
+(the pipeline for that story pauses). A video that is already public is refused unless --force.
+Never prints tokens.
+"""
+import argparse
+import datetime as dt
+import json
+import re
+import sys
+from pathlib import Path
+
+try:
+    sys.stdout.reconfigure(encoding="utf-8")
+    sys.stderr.reconfigure(encoding="utf-8")
+except Exception:
+    pass
+
+ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+STATUS_KEEP = ("license", "embeddable", "publicStatsViewable", "selfDeclaredMadeForKids", "containsSyntheticMedia")
+
+
+def find_upload(video_id: str):
+    """(upload_result.json path, result, upload.json job) for this video id, searched in every channel."""
+    for res in ROOT.glob("channels/*/stories/**/output/upload_result.json"):
+        result = json.loads(res.read_text(encoding="utf-8"))
+        if result.get("video_id") == video_id:
+            job_file = res.parent / "upload.json"
+            job = json.loads(job_file.read_text(encoding="utf-8")) if job_file.exists() else {}
+            return res, result, job
+    return None, None, None
+
+
+def vetoed_status(current: dict) -> dict:
+    """Status body for videos.update: private, no publishAt, writable fields kept (part=status replaces all)."""
+    body = {k: current[k] for k in STATUS_KEEP if k in current}
+    body["privacyStatus"] = "private"
+    return body
+
+
+def story_of(res: Path):
+    """(channel key, story folder name) from .../channels/<key>/stories/<story>/.../output/upload_result.json."""
+    parts = res.relative_to(ROOT).parts
+    return parts[1], parts[3]
+
+
+def mark_paused(key: str, story: str, video_id: str, when: str):
+    q = ROOT / "channels" / key / "pipeline_queue.json"
+    data = json.loads(q.read_text(encoding="utf-8")) if q.exists() else {"stories": {}}
+    entry = data.setdefault("stories", {}).setdefault(story, {})
+    entry.update({"stage": "vetoed", "updated": when[:10],
+                  "stopped": f"rok do: {video_id} set private, publishAt removed ({when}). Pipeline paused; ASK the user."})
+    q.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("video_id")
+    ap.add_argument("--apply", action="store_true", help="really change the video (default is a dry run)")
+    ap.add_argument("--force", action="store_true", help="also make an already public video private")
+    args = ap.parse_args()
+    vid = args.video_id.strip()
+    if not re.fullmatch(r"[A-Za-z0-9_-]{11}", vid):
+        sys.exit(f"Not a YouTube video id: {vid!r} (11 characters)")
+
+    res, result, job = find_upload(vid)
+    if not res:
+        sys.exit(f"No upload_result.json with video_id {vid} in channels/*/stories. Nothing done.")
+    key, story = story_of(res)
+    if not job.get("channel_id"):
+        sys.exit(f"{res.parent / 'upload.json'} missing or has no channel_id. Nothing done.")
+    task = f"StoryChannel-Comment-{vid}"
+    print("Video:      ", f"https://youtu.be/{vid}", f"({job.get('format', '?')})")
+    print("Title:      ", job.get("title", "-"))
+    print("Channel:    ", key, job["channel_id"])
+    print("Story:      ", story)
+    print("Slot now:   ", result.get("publish_at") or job.get("publish_at") or "-")
+    print("Will do:     privacyStatus=private, remove publishAt, disable task", task,
+          f"| log.md + pipeline_queue.json: {story} -> vetoed")
+
+    if not args.apply:
+        print("\nDry run OK. Nothing changed (add --apply to really stop this video).")
+        return
+
+    from youtube_upload import check_channel, get_service, with_retry
+    yt = get_service(job)
+    check_channel(yt, job)  # exits on a channel ID mismatch
+    items = yt.videos().list(part="status", id=vid).execute().get("items", [])
+    if not items:
+        sys.exit(f"Video {vid} not found on the channel. Nothing done.")
+    cur = items[0]["status"]
+    if cur.get("privacyStatus") == "public" and not args.force:
+        sys.exit(f"{vid} is already PUBLIC (slot passed). Not changed; run with --force to make it private anyway.")
+    body = {"id": vid, "status": vetoed_status(cur)}
+    with_retry(lambda: yt.videos().update(part="status", body=body).execute(), "veto")
+    after = yt.videos().list(part="status", id=vid).execute()["items"][0]["status"]
+    if after.get("privacyStatus") != "private" or after.get("publishAt"):
+        sys.exit(f"Veto did not stick: privacy={after.get('privacyStatus')} publishAt={after.get('publishAt')}. Check Studio.")
+
+    from post_comment import _ps, task_exists
+    task_note = "no comment task"
+    if task_exists(task):
+        _ps(f"Disable-ScheduledTask -TaskName '{task}' | Out-Null")
+        task_note = f"task {task} disabled"
+
+    now = dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
+    result.update({"vetoed_at": now, "publish_at_before_veto": cur.get("publishAt") or result.get("publish_at"),
+                   "publish_at": None})
+    res.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
+    with (ROOT / "channels" / key / "log.md").open("a", encoding="utf-8") as f:
+        f.write(f"{now[:10]} | {story} | VETO (rok do) | {vid} private, publishAt removed "
+                f"(was {cur.get('publishAt') or '-'}); {task_note}; pipeline paused\n")
+    mark_paused(key, story, vid, now)
+    print(f"\nStopped: https://youtu.be/{vid} is private, no schedule. {task_note}. Pipeline for {story} paused.")
+
+
+if __name__ == "__main__":
+    main()
+
+```
+
+```text
+File created successfully at: D:\Story-Channel\tools\veto.py (file state is current in your context — no need to Read it back)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:32:57Z)**_
+
+Ab test: scratchpad me ek nakli channel/video bana kar chalaunga, asli video ko chhua nahi jayega. Dry run ke saath `--apply` wala raasta bhi ek nakli YouTube service par check karunga.
+
+_**Agent (claude-opus-5-5 2026-10-19 11:33:13Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Run offline veto tests with fake service and fixture
+
+```bash
+SP="C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad" && cat > "$SP/veto_test.py" <<'EOF'
+"""Offline test of tools/veto.py: fake channel tree + fake YouTube service. No network, no real video."""
+import json, sys, types, shutil
+from pathlib import Path
+sys.path.insert(0, r"D:\Story-Channel\tools")
+import veto
+
+FAKE = Path(__file__).parent / "veto_fixture"
+shutil.rmtree(FAKE, ignore_errors=True)
+out = FAKE / "channels/testchan/stories/999_test/shorts/short_01_x/output"
+out.mkdir(parents=True)
+VID = "AbCdEfGhIjK"
+(out / "upload_result.json").write_text(json.dumps({"video_id": VID, "publish_at": "2026-10-20T21:00:00+05:30"}))
+(out / "upload.json").write_text(json.dumps({"channel_key": "testchan", "channel_id": "UC" + "x" * 22,
+                                             "format": "short", "title": "test"}))
+(FAKE / "channels/testchan/log.md").write_text("")
+veto.ROOT = FAKE
+
+def run(*a):
+    sys.argv = ["veto.py", *a]
+    try:
+        veto.main(); return 0
+    except SystemExit as e:
+        print("EXIT:", e); return 1
+
+print("--- 1. dry run (fake id) ---"); assert run(VID) == 0
+print("--- 2. bad id ---"); assert run("bad") == 1
+print("--- 3. unknown id ---"); assert run("ZZZZZZZZZZZ") == 1
+
+# fake YouTube service for --apply
+state = {"privacyStatus": "private", "publishAt": "2026-10-20T15:30:00Z", "uploadStatus": "processed",
+         "license": "youtube", "embeddable": True, "publicStatsViewable": True, "selfDeclaredMadeForKids": False}
+class Req:
+    def __init__(s, f): s.f = f
+    def execute(s): return s.f()
+class Videos:
+    def list(s, part, id): return Req(lambda: {"items": [{"status": dict(state)}]})
+    def update(s, part, body):
+        def f():
+            assert "publishAt" not in body["status"] and "uploadStatus" not in body["status"], body
+            state.clear(); state.update(body["status"]); return {}
+        return Req(f)
+class YT:
+    def videos(s): return Videos()
+fake_up = types.ModuleType("youtube_upload")
+fake_up.get_service = lambda job: YT()
+fake_up.check_channel = lambda yt, job: print("Channel OK (fake)")
+fake_up.with_retry = lambda fn, label: fn()
+sys.modules["youtube_upload"] = fake_up
+fake_pc = types.ModuleType("post_comment")
+fake_pc.task_exists = lambda n: True
+fake_pc._ps = lambda c: print("PS (fake):", c)
+sys.modules["post_comment"] = fake_pc
+
+print("--- 4. apply on fake service ---"); assert run(VID, "--apply") == 0
+assert state["privacyStatus"] == "private" and "publishAt" not in state and state["selfDeclaredMadeForKids"] is False
+r = json.loads((out / "upload_result.json").read_text())
+assert r["publish_at"] is None and r["vetoed_at"]
+q = json.loads((FAKE / "channels/testchan/pipeline_queue.json").read_text(encoding="utf-8"))
+assert q["stories"]["999_test"]["stage"] == "vetoed"
+print("log.md:", (FAKE / "channels/testchan/log.md").read_text(encoding="utf-8").strip())
+print("--- 5. already public is refused ---"); state["privacyStatus"] = "public"; assert run(VID, "--apply") == 1
+print("ALL TESTS PASSED")
+EOF
+.venv/Scripts/python.exe -X utf8 "$SP/veto_test.py"; echo "--- real repo dry run, fake id:"; .venv/Scripts/python.exe -X utf8 tools/veto.py AbCdEfGhIjK
+```
+
+```text
+Exit code 1
+--- 1. dry run (fake id) ---
+Video:       https://youtu.be/AbCdEfGhIjK (short)
+Title:       test
+Channel:     testchan UCxxxxxxxxxxxxxxxxxxxxxx
+Story:       999_test
+Slot now:    2026-10-20T21:00:00+05:30
+Will do:     privacyStatus=private, remove publishAt, disable task StoryChannel-Comment-AbCdEfGhIjK | log.md + pipeline_queue.json: 999_test -> vetoed
+
+Dry run OK. Nothing changed (add --apply to really stop this video).
+--- 2. bad id ---
+EXIT: Not a YouTube video id: 'bad' (11 characters)
+--- 3. unknown id ---
+EXIT: No upload_result.json with video_id ZZZZZZZZZZZ in channels/*/stories. Nothing done.
+--- 4. apply on fake service ---
+Video:       https://youtu.be/AbCdEfGhIjK (short)
+Title:       test
+Channel:     testchan UCxxxxxxxxxxxxxxxxxxxxxx
+Story:       999_test
+Slot now:    2026-10-20T21:00:00+05:30
+Will do:     privacyStatus=private, remove publishAt, disable task StoryChannel-Comment-AbCdEfGhIjK | log.md + pipeline_queue.json: 999_test -> vetoed
+Channel OK (fake)
+PS (fake): Disable-ScheduledTask -TaskName 'StoryChannel-Comment-AbCdEfGhIjK' | Out-Null
+
+Stopped: https://youtu.be/AbCdEfGhIjK is private, no schedule. task StoryChannel-Comment-AbCdEfGhIjK disabled. Pipeline for 999_test paused.
+log.md: 2026-10-19 | 999_test | VETO (rok do) | AbCdEfGhIjK private, publishAt removed (was 2026-10-20T15:30:00Z); task StoryChannel-Comment-AbCdEfGhIjK disabled; pipeline paused
+--- 5. already public is refused ---
+Video:       https://youtu.be/AbCdEfGhIjK (short)
+Title:       test
+Channel:     testchan UCxxxxxxxxxxxxxxxxxxxxxx
+Story:       999_test
+Slot now:    -
+Will do:     privacyStatus=private, remove publishAt, disable task StoryChannel-Comment-AbCdEfGhIjK | log.md + pipeline_queue.json: 999_test -> vetoed
+Channel OK (fake)
+EXIT: AbCdEfGhIjK is already PUBLIC (slot passed). Not changed; run with --force to make it private anyway.
+ALL TESTS PASSED
+--- real repo dry run, fake id:
+No upload_result.json with video_id AbCdEfGhIjK in channels/*/stories. Nothing done.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:33:20Z)**_
+
+<think><details><summary>Thought Process</summary>
+Saare 5 test pass ho gaye — aakhri "exit 1" asli repo me nakli ID ke dry run par expected tha, kuch nahi chhuta. Ab Long 02 ko naye mode me daal kar check karta hoon ki Gemini credits wapas aate hain ya 402 aata hai (jisme koi kharcha nahi hoga).
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:33:22Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+List scripts, scratch regen helpers, recent costs
+
+`ls scripts/ | head -50; ls "C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad/" | grep -i "long02\|regen"; tail -5 cost_log.csv`
+
+```text
+__pycache__
+analyze_video.py
+cost_log.py
+fetch_sfx.py
+gemini_image.py
+gemini_tts.py
+gen_brand.py
+gen_channel_assets.py
+gen_characters.py
+gen_long_characters.py
+gen_music.py
+gen_scenes.py
+make_short.py
+paths.py
+pollinations.py
+preview.py
+story_budget.py
+voice_samples.py
+voices.py
+long02_images.log
+long02_lines.py
+long02_lines_v2_backup.py
+long02_plan.py
+long02_tts.py
+long02_tts_work
+long02_write.py
+2026-10-19 16:49:59,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_24.png,gemini-nano-banana-2.1,1K,0.03360,3.24,74.00,194.30,dadi-ki-kahaniyan
+2026-10-19 16:50:27,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_25.png,gemini-nano-banana-2.1,1K,0.03360,3.24,77.24,191.06,dadi-ki-kahaniyan
+2026-10-19 16:50:59,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_26.png,gemini-nano-banana-2.1,1K,0.03360,3.24,80.48,187.82,dadi-ki-kahaniyan
+2026-10-19 16:51:33,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_27.png,gemini-nano-banana-2.1,1K,0.03360,3.24,83.72,184.58,dadi-ki-kahaniyan
+2026-10-19 16:52:10,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_29.png,gemini-nano-banana-2.1,1K,0.03360,3.24,86.96,181.34,dadi-ki-kahaniyan
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:33:27Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Check last regen log and scene generator usage
+
+`tail -20 "C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad/long02_images.log"; sed -n 1,30p scripts/gen_scenes.py; ls channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/`
+
+```text
+saved D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_15.png  (54s)
+Is image ka cost: ₹3.24  |  Aaj ka total: ₹59.57  |  ₹500 me se bacha: ₹208.73
+saved D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_17.png  (56s)
+Is image ka cost: ₹3.24  |  Aaj ka total: ₹63.63  |  ₹500 me se bacha: ₹204.67
+saved D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_18.png  (61s)
+Is image ka cost: ₹3.24  |  Aaj ka total: ₹67.33  |  ₹500 me se bacha: ₹200.97
+saved D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_22.png  (30s)
+Is image ka cost: ₹3.24  |  Aaj ka total: ₹70.76  |  ₹500 me se bacha: ₹197.54
+saved D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_23.png  (30s)
+Is image ka cost: ₹3.24  |  Aaj ka total: ₹74.00  |  ₹500 me se bacha: ₹194.30
+saved D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_24.png  (31s)
+Is image ka cost: ₹3.24  |  Aaj ka total: ₹77.24  |  ₹500 me se bacha: ₹191.06
+saved D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_25.png  (26s)
+Is image ka cost: ₹3.24  |  Aaj ka total: ₹80.48  |  ₹500 me se bacha: ₹187.82
+saved D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_26.png  (31s)
+Is image ka cost: ₹3.24  |  Aaj ka total: ₹83.72  |  ₹500 me se bacha: ₹184.58
+saved D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_27.png  (33s)
+Is image ka cost: ₹3.24  |  Aaj ka total: ₹86.96  |  ₹500 me se bacha: ₹181.34
+saved D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_29.png  (35s)
+DONE
+"""Generate scene images from a scene_prompts.json.
+
+Usage:  python scripts/gen_scenes.py channels/<key>/stories/<story>/scene_prompts.json [ids...]
+        (images go to the story's images/, shared by its long video and shorts)
+Spec keys: looks, base, scenes[{id, refs, prompt}], optional out_dir, aspect (default 9:16), ref_files {name: path}.
+Refs: "scene:N" -> an earlier image in out_dir; a name in ref_files -> that file; else channels/<key>/characters/<name>_sheet.png.
+"""
+import json
+import sys
+import time
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).parent))
+from gemini_image import generate  # noqa: E402
+from paths import ROOT, channel_dir, channel_of  # noqa: E402
+
+
+def load(arg):
+    path = ROOT / arg
+    if path.is_dir():
+        path = path / "scene_prompts.json"
+    spec = json.loads(path.read_text(encoding="utf-8"))
+    out_dir = ROOT / spec["out_dir"] if "out_dir" in spec else path.parent / "images"
+    spec["_chars"] = channel_dir(channel_of(path)) / "characters"
+    return spec, out_dir
+
+
+def ref_path(ref: str, spec, out_dir: Path) -> Path:
+    if ref.startswith("scene:"):
+        return out_dir / f"scene_{int(ref[6:]):02d}.png"
+_v1
+scene_01.png
+scene_02.png
+scene_03.png
+scene_04.png
+scene_05.png
+scene_06.png
+scene_09.png
+scene_11.png
+scene_12.png
+scene_13.png
+scene_14.png
+scene_15.png
+scene_17.png
+scene_18.png
+scene_22.png
+scene_23.png
+scene_24.png
+scene_25.png
+scene_26.png
+scene_27.png
+scene_29.png
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:33:31Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Read rest of scene generator
+
+`sed -n 30,90p scripts/gen_scenes.py`
+
+```text
+        return out_dir / f"scene_{int(ref[6:]):02d}.png"
+    if ref in spec.get("ref_files", {}):
+        return ROOT / spec["ref_files"][ref]
+    return spec["_chars"] / f"{ref}_sheet.png"
+
+
+def main(arg: str, only: list[int]):
+    spec, out_dir = load(arg)
+    aspect = spec.get("aspect", "9:16")
+    for scene in spec["scenes"]:
+        if only and scene["id"] not in only:
+            continue
+        refs = [ref_path(r, spec, out_dir) for r in scene["refs"]]
+        missing = [r for r in refs if not r.exists()]
+        if missing:
+            print(f"SKIPPED scene {scene['id']}: missing refs {missing}", flush=True)
+            continue
+        prompt = scene["prompt"].format(**spec["looks"])
+        if refs:
+            prompt += ("\n\nThe attached images are approved references. Keep every character's face, body, "
+                       "outfit and colours EXACTLY as in the references, keep places consistent with any location "
+                       "reference, and match their art style. Draw only the characters this prompt asks for.")
+        else:
+            refs = [spec["_chars"] / "dadi_sheet.png"]
+            prompt += ("\n\nThe attached image is a STYLE reference only: match its art style, outline thickness "
+                       "and colour palette exactly. Do NOT draw the grandmother from it in this scene.")
+        out = out_dir / f"scene_{scene['id']:02d}.png"
+        t0 = time.time()
+        try:
+            generate(f"{spec['base']}\n\n{prompt}", out, refs=refs, aspect_ratio=aspect, size="1K")
+            print(f"saved {out}  ({time.time() - t0:.0f}s)", flush=True)
+        except Exception as e:  # timeout (>90s) or API error -> skip, continue with next scene
+            print(f"SKIPPED scene {scene['id']} after {time.time() - t0:.0f}s: {e}", flush=True)
+
+
+if __name__ == "__main__":
+    main(sys.argv[1], [int(x) for x in sys.argv[2:]])
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:33:33Z)**_
+
+Budget check ke baad ek image (scene 13) se credit ki jaanch kar raha hoon.
+
+_**Agent (claude-opus-5-5 2026-10-19 11:34:17Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Budget check then try regenerating scene 13
+
+```bash
+.venv/Scripts/python.exe -X utf8 -c "
+import sys; sys.path.insert(0,'scripts')
+from story_budget import check; print(check('003_mitthu-ne-sab-bata-diya', 3.24))" && .venv/Scripts/python.exe -X utf8 scripts/gen_scenes.py channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/scene_prompts.json 13 2>&1 | tail -5
+```
+
+```text
+(86.96000000000001, 181.34)
+Is image ka cost: ₹3.24  |  Aaj ka total: ₹90.20  |  ₹500 me se bacha: ₹178.10
+saved D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_13.png  (38s)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:34:20Z)**_
+
+Credits wapas aa gaye hain, scene 13 ban gayi (₹3.24). Baaki teen bhi bana raha hoon, aur saath me scene 13 dekh raha hoon.
+
+_**Agent (claude-opus-5-5 2026-10-19 11:34:23Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Regenerate scenes 9, 18, 26 after budget check
+
+```bash
+.venv/Scripts/python.exe -X utf8 -c "
+import sys; sys.path.insert(0,'scripts')
+from story_budget import check; print(check('003_mitthu-ne-sab-bata-diya', 9.72))" && .venv/Scripts/python.exe -X utf8 scripts/gen_scenes.py channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/scene_prompts.json 9 18 26 2>&1 | tail -8
+```
+
+```text
+Command running in background with ID: bl5f864ml. Output is being written to: C:\Users\ashamim\AppData\Local\Temp\claude\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7\tasks\bl5f864ml.output. You will be notified when it completes — do not poll that file or sleep while waiting. Read the file only if the user asks for progress, or if you need a line it prints before you can go on, such as a server's ready line or port.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:34:23Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_13.png`
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:34:29Z)**_
+
+Scene 13 me ab ek hi Dadi hai, aur ghar Dadi wala kacha ghar hai. Baaki teen images ban rahi hain. Tab tak queue aur log ko naye mode ke hisaab se badal raha hoon.
+
+_**Agent (claude-opus-5-5 2026-10-19 11:34:47Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Update pipeline queue and log for resumed auto mode
+
+```bash
+.venv/Scripts/python.exe -X utf8 - <<'EOF'
+import json, datetime as dt
+from pathlib import Path
+q = Path("channels/dadi-ki-kahaniyan/pipeline_queue.json")
+d = json.loads(q.read_text(encoding="utf-8"))
+d["_help"] = ("Stage tracker (shared/RULES.md section 14, only checkpoint = script approval). Stages: script_approved -> "
+              "assets -> images -> tts -> preview -> final -> uploaded -> short_uploaded -> done; or stopped/vetoed (reason in 'stopped').")
+s = d["stories"]["003_mitthu-ne-sab-bata-diya"]
+s.pop("stopped", None)
+s.update({"stage": "images", "mode": "auto v2 (no preview checkpoint; veto window)", "updated": "2026-10-19",
+          "note": "credits back; regens 13 done, 09/18/26 running"})
+q.write_text(json.dumps(d, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+with open("channels/dadi-ki-kahaniyan/log.md", "a", encoding="utf-8") as f:
+    f.write("2026-10-19 | 003_mitthu-ne-sab-bata-diya | AUTO resume (RULES 14 v2: only script checkpoint, veto window) | credits back; regen scene 13 ₹3.24 | story cost ₹90.20\n")
+print(dt.datetime.now().strftime("%H:%M"))
+EOF
+```
+
+```text
+17:04
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:34:53Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Inspect long folder and Long 01 shots format
+
+`S=channels/dadi-ki-kahaniyan/stories; ls $S/003_mitthu-ne-sab-bata-diya/long $S/001_lalchi-halwai/long; head -c 1500 $S/001_lalchi-halwai/long/shots.json; echo; cat $S/003_mitthu-ne-sab-bata-diya/long/project.json`
+
+```text
+channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long:
+lines.json
+meta.json
+output
+project.json
+review
+shots.json
+thumbnail_work
+
+channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long:
+lines.json
+meta.json
+project.json
+review
+{
+  "_help": "Per scene close-ups [x, y, zoom] (x,y = 0-1 of the image). A dict {\"wide\": false, \"closes\": [...]} skips the wide shot (used when two scenes share one image).",
+  "1":  [[0.30, 0.55, 1.6]],
+  "2":  [[0.55, 0.55, 1.6]],
+  "3":  [[0.52, 0.40, 1.5]],
+  "4":  {"wide": false, "closes": [[0.80, 0.72, 1.9], [0.55, 0.30, 1.8]]},
+  "5":  [[0.25, 0.40, 1.6]],
+  "6":  {"wide": false, "closes": [[0.50, 0.33, 2.2], [0.82, 0.90, 1.9]]},
+  "7":  [[0.35, 0.55, 1.6]],
+  "8":  [[0.62, 0.40, 1.6]],
+  "9":  [[0.22, 0.55, 1.6]],
+  "10": [[0.25, 0.45, 1.7]],
+  "11": {"wide": false, "closes": [[0.25, 0.40, 1.8], [0.62, 0.38, 1.8]]},
+  "12": [[0.30, 0.55, 1.6]],
+  "13": [[0.45, 0.55, 1.5]],
+  "14": [[0.30, 0.50, 1.8]],
+  "15": [[0.42, 0.60, 1.6]],
+  "16": [[0.30, 0.65, 1.5]],
+  "17": [[0.52, 0.45, 1.6]],
+  "18": [[0.40, 0.45, 1.6]],
+  "19": [[0.25, 0.55, 1.5]],
+  "20": [[0.55, 0.40, 1.7]],
+  "21": [[0.78, 0.45, 1.6]],
+  "22": [[0.50, 0.30, 1.7]],
+  "23": {"wide": false, "closes": [[0.38, 0.75, 2.2]]},
+  "24": [[0.48, 0.55, 1.6]],
+  "25": [[0.55, 0.45, 1.5]],
+  "26": [[0.48, 0.40, 1.6]],
+  "27": [[0.30, 0.35, 1.7]],
+  "28": {"wide": false, "closes": [[0.48, 0.38, 1.9]]},
+  "29": [[0.55, 0.50, 1.5]],
+  "30": [[0.15, 0.45, 1.7]],
+  "31": {"wide": false, "closes": [[0.18, 0.55, 1.8]]},
+  "32": [[0.58, 0.40, 1.6]],
+  "33": {"wide": false, "closes": [[0.62, 0.45, 1.4]]},
+  "34": [[0.55, 0.40, 1.6]],
+  "35": [[0.50, 0.40, 1.5]],
+  "36": [[0.70, 0.50, 1.6]],
+  "37": {"wide": false, "closes
+{
+  "kind": "long",
+  "name": "long_02",
+  "burn_captions": false,
+  "_note": "Story 003 long video: comedy in Gulmohar Mohalla, narrator voice narrates (channel RULES), Dadi is a character."
+}
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:34:58Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Inspect story 003 lines and scene image mapping
+
+`S=channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya; head -c 2500 $S/long/lines.json; echo; grep -n "scene" scripts/make_short.py | grep -i "image\|img\|png\|map\|reuse" | head -20`
+
+```text
+[
+  {"scene": 1, "speaker": "mitthu", "part": "intro", "mood": "comedy", "text": "सोना चोरी! सोना चोरी!"},
+  {"scene": 1, "speaker": "narrator", "part": "intro", "text": "उस सुबह मोहल्ले में हंगामा मच गया। चलिए, पीछे चलते हैं।"},
+  {"scene": 2, "speaker": "narrator", "mood": "khushi", "text": "हर सुबह की तरह शर्मा जी ने अपनी सुनहरी बिल्ली सोना के लिए सीढ़ियों पर दूध रखा।"},
+  {"scene": 3, "speaker": "sharma", "text": "सोना... आ जा मेरी बिटिया, गरम-गरम दूध!"},
+  {"scene": 4, "speaker": "raghu", "text": "नमस्ते शर्मा जी! मैं नया दूधवाला, रघु। पप्पू भैया गाँव गए हैं।"},
+  {"scene": 5, "speaker": "narrator", "text": "मिट्ठू गेट पर बैठा सब सुन रहा था... आधा-अधूरा।"},
+  {"scene": 6, "speaker": "narrator", "mood": "tension", "text": "शर्मा जी अंदर से लौटे, तो कटोरी आधी खाली थी... और सोना ग़ायब।"},
+  {"scene": 6, "speaker": "sharma", "text": "सोना? सोना! अरे, मेरी सोना कहाँ गई!"},
+  {"scene": 7, "speaker": "mitthu", "text": "सोना कहाँ गई! सोना कहाँ गई!"},
+  {"scene": 7, "speaker": "sharma", "text": "हाय, मेरी सोना चली गई... कोई ले तो नहीं गया?"},
+  {"scene": 7, "speaker": "mitthu", "text": "सोना चोरी! सोना चोरी!"},
+  {"scene": 8, "speaker": "narrator", "sfx_after": "comedy", "text": "और बस, मिट्ठू ने पंख फड़फड़ाए और पूरे मोहल्ले के ऊपर उड़ चला।"},
+  {"scene": 9, "speaker": "mitthu", "mood": "comedy", "text": "सोना चोरी! शर्मा जी का सोना चोरी!"},
+  {"scene": 10, "speaker": "raju", "text": "क्या? शर्मा जी का सोना चोरी हो गया? अरे भाई, सुना तुमने?"},
+  {"scene": 11, "speaker": "gupta", "text": "हाय र�
+8:        + lines.json, meta.json, shots.json; story-level images/scene_XX.png, audio/, scene_prompts.json
+414:        # 1 shot: close-up matters more; "wide": false (scene sharing an image with another) -> close-ups only
+482:        list(pool.map(lambda p: render_scene(p, prof, cache_dir / f"scene_{p['scene']:02d}_{p['key']}.mp4", work),
+694:    lines.json, meta.json, shots.json and output/ are in that folder; images/, audio/ and scene_prompts.json are
+708:            "image_for": lambda sc: img_dir / f"scene_{covers[sc]:02d}.png",
+736:    imgs = sorted({P["image_for"](s) for s in scenes})
+737:    print(f"  images:   {len(imgs)} for {len(scenes)} scenes, all present: {all(p.exists() for p in imgs)}  "
+783:        missing = [s for s in sorted({l["scene"] for l in lines}) if not P["image_for"](s).exists()]
+785:        sys.exit(f"Scene {e} has no image in scene_prompts.json 'covers'")
+787:        sys.exit(f"Missing scene images: {missing}")
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:35:02Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Read builder project setup and covers mapping
+
+`sed -n 690,800p scripts/make_short.py; grep -n '"covers"' -A12 channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/scene_prompts.json | head -20`
+
+```text
+def load_project(name):
+    """A video folder with project.json: channels/<key>/stories/<story>/long or .../shorts/short_<NN>_<slug>.
+    lines.json, meta.json, shots.json and output/ are in that folder; images/, audio/ and scene_prompts.json are
+    at the story level (shared by the long video and its shorts)."""
+    pdir = (ROOT / name).resolve()
+    if not (pdir / "project.json").exists():
+        sys.exit(f"{pdir} has no project.json (expected .../stories/<story>/long or .../shorts/short_XX_<slug>)")
+    proj = json.loads((pdir / "project.json").read_text(encoding="utf-8"))
+    kind = proj["kind"]
+    story = story_of(pdir)
+    channel = channel_of(pdir)
+    covers = {c: s["id"] for s in json.loads((story / "scene_prompts.json").read_text(encoding="utf-8"))["scenes"]
+              for c in s.get("covers", [s["id"]])}
+    img_dir = story / "images"
+    return {"kind": kind, "name": proj.get("name", pdir.name), "dir": pdir, "story": story, "channel": channel,
+            "burn": proj.get("burn_captions", kind == "short"),
+            "image_for": lambda sc: img_dir / f"scene_{covers[sc]:02d}.png",
+            "audio_dir": story / "audio", "cache_dir": ROOT / "cache" / channel / story.name / pdir.name,
+            "out_dir": pdir / "output"}
+
+
+def section13_warnings(P, timed):
+    """RULES section 13 checks the builder can do from the line timings (Munshi still reviews the rest)."""
+    spoken = [l for l in timed if l["speaker"] != "_pause"]
+    out = []
+    if spoken and spoken[0]["start"] > (1.0 if P["kind"] == "long" else 0.5):
+        out.append(f"first word at {spoken[0]['start']:.2f} s (long <= 1.0 s, Short <= 0.5 s)")
+    if P["kind"] == "long" and spoken:
+        intro = [l for l in timed if l.get("part") == "intro"]
+        if not intro:
+            out.append('no line marked "part": "intro" in lines.json; cannot check the <= 10 s opening')
+        elif intro[-1]["end"] > INTRO_MAX_S:
+            out.append(f"Dadi-Golu opening ends at {intro[-1]['end']:.1f} s (max {INTRO_MAX_S:g} s)")
+        if not spoken[-1]["text"].rstrip(" !।.।").endswith("?"):
+            out.append("last spoken line is not a question to the viewers about the story")
+    return out
+
+
+def plan_report(P, lines, meta):
+    """--plan: show where every input comes from and that it exists. Nothing is rendered or paid for."""
+    rel = lambda p: Path(p).resolve().relative_to(ROOT).as_posix()
+    print(f"[PLAN] {P['kind']} '{P['name']}'  channel={P['channel']}  story={P['story'].name}")
+    print(f"  project:  {rel(P['dir'])}\n  output:   {rel(P['out_dir'])}\n  cache:    {rel(P['cache_dir'])}")
+    scenes = sorted({l["scene"] for l in lines})
+    imgs = sorted({P["image_for"](s) for s in scenes})
+    print(f"  images:   {len(imgs)} for {len(scenes)} scenes, all present: {all(p.exists() for p in imgs)}  "
+          f"({rel(imgs[0].parent)})")
+    cache = P["audio_dir"] / "tts_cache"
+    spoken = [l for l in lines if "text" in l]
+    miss = [l["speaker"] for l in spoken if not (cache / tts_key(l["text"], l["speaker"])).exists()]
+    print(f"  TTS:      {len(spoken) - len(miss)}/{len(spoken)} lines cached in {rel(cache)}"
+          + (f"  MISSING (paid): {miss}" if miss else ""))
+    music = [MUSIC_DIR / f for f in meta.get("music_moods", {}).values()] or \
+            [MUSIC_DIR / meta["music"] if meta.get("music") else MUSIC_DIR / "mystery_bed.wav"]
+    sfx = [SFX_DIR / f for f in meta.get("sfx", {}).values()]
+    for label, files in (("music", music), ("sfx", sfx)):
+        print(f"  {label + ':':9s} {len(files)} files, all present: {all(f.exists() for f in files)}  "
+              + ", ".join(rel(f) for f in files))
+    print(f"  font:     {rel(FONT)} present: {FONT.exists()}")
+    print(f"  register: {rel(REGISTER)} has a row for every music/SFX file (checked)")
+
+
+# ---------- main ----------
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("case_pos", nargs="?", metavar="case")
+    ap.add_argument("--case", dest="case_opt", help="same as the positional case name")
+    g = ap.add_mutually_exclusive_group()
+    g.add_argument("--preview", action="store_true", help="fast 540x960 check build (default)")
+    g.add_argument("--final", action="store_true", help="1080x1920 upload build + checks")
+    ap.add_argument("--spend", action="store_true", help="allow paid TTS for uncached lines")
+    ap.add_argument("--plan", action="store_true", help="validate only: resolve and check every input path, no render")
+    ap.add_argument("--seconds", type=float, help="preview only the first N seconds (quick test render)")
+    a = ap.parse_args()
+    mode = "final" if a.final else "preview"
+    if a.seconds and mode == "final":
+        ap.error("--seconds is only for preview test renders")
+    t_start = time.perf_counter()
+
+    name = a.case_opt or a.case_pos
+    if not name:
+        ap.error("project folder required, e.g. channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long")
+    P = load_project(name)
+    os.environ["STORY_CHANNEL"] = P["channel"]  # cost_log rows get this channel
+    prof = PROFILES[(P["kind"], mode)]
+    case = P["name"]
+    lines = json.loads((P["dir"] / "lines.json").read_text(encoding="utf-8"))
+    meta = json.loads((P["dir"] / "meta.json").read_text(encoding="utf-8"))
+    focus_file = P["dir"] / "shots.json"
+    P["focus"] = json.loads(focus_file.read_text(encoding="utf-8")) if focus_file.exists() else {}
+    try:
+        missing = [s for s in sorted({l["scene"] for l in lines}) if not P["image_for"](s).exists()]
+    except KeyError as e:
+        sys.exit(f"Scene {e} has no image in scene_prompts.json 'covers'")
+    if missing:
+        sys.exit(f"Missing scene images: {missing}")
+    check_register(meta)
+    if a.plan:
+        plan_report(P, lines, meta)
+        return
+    chan = ROOT / "channels" / P["channel"]
+    PROTECTED[:] = [d.resolve() for d in (P["story"] / "images", P["story"] / "audio", P["story"] / "characters",
+                                          chan / "characters")]
+    paid_before = snapshot(PROTECTED)
+
+    out_dir = P["out_dir"]
+    work = out_dir / f"{case}_work"
+    audio_dir = P["audio_dir"]
+    cache_dir = P["cache_dir"]
+29:      "covers": [
+30-        1,
+31-        8
+32-      ],
+33-      "refs": [
+34-        "mitthu",
+35-        "gate"
+36-      ],
+37-      "prompt": "{mitthu} flies above the rooftops of Gulmohar Mohalla with his wings spread wide and his beak wide open, shouting excitedly. Below him the lane, Sharma ji's red iron gate and an orange gulmohar tree (as in the location reference). Mitthu is big and in the upper-left third of the frame; dynamic, funny."
+38-    },
+39-    {
+40-      "id": 2,
+41:      "covers": [
+42-        2
+43-      ],
+44-      "refs": [
+45-        "sharma",
+46-        "gate"
+47-      ],
+48-      "prompt": "Morning outside {sharma}'s house near his red iron gate. He bends down and places a small steel katori of milk on the bottom step of the narrow outdoor stairs that lead up to the flat roof; a few steps above, a steel thali with flour is drying in the sun on one step. He looks affectionate. No cat in this picture."
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:35:05Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Read shot planning defaults
+
+`sed -n 395,445p scripts/make_short.py`
+
+```text
+            fine += [a + (b - a) * j / n for j in range(1, n + 1)]
+            tags += [None] * n
+        if len(fine) == 2 and tags[0] is None and fine[1] - fine[0] >= 2 * MIN_SHOT:  # at least wide + close
+            fine.insert(1, (fine[0] + fine[1]) / 2)
+            tags.append(None)
+        out.append((sc, fine, tags))
+    return out
+
+
+def plan_scenes(P, timed, total, prof, font_family, final_title, title_secs=None):
+    """Everything needed to render each scene clip, plus its cache hash."""
+    focus = P["focus"]
+    fps, plans = prof["fps"], []
+    shots_all = shot_times(timed, total)
+    for idx, (sc, cuts, tags) in enumerate(shots_all):
+        fcuts = [round(c * fps) for c in cuts]  # one global frame grid -> no drift between clips
+        t0 = fcuts[0] / fps
+        spec = focus.get(str(sc), [])
+        closes, wide = (spec["closes"], spec.get("wide", True)) if isinstance(spec, dict) else (spec, True)
+        # 1 shot: close-up matters more; "wide": false (scene sharing an image with another) -> close-ups only
+        cycle = closes if (closes and (len(cuts) == 2 or not wide)) else ["wide"] + closes
+        shots, desc = [], []
+        for k in range(len(cuts) - 1):
+            n = fcuts[k + 1] - fcuts[k]
+            shot = tags[k] or cycle[k % len(cycle)]
+            if shot == "wide":
+                move = MOVE_CYCLE[(idx + k) % len(MOVE_CYCLE)]
+                z, x, y = (e.format(n=n) for e in MOVES[move])
+                desc.append(move)
+            else:
+                # x, y: inside the frame-shaped window; optional crop_x/crop_y: where that window sits on a wider or
+                # taller image (subject centre, 0-1; default centre) - e.g. a 9:16 Short from 16:9 story images
+                fx, fy, zc, *crop = shot
+                z = f"{zc}+{zc * 0.06:.3f}*on/{n}"  # slow push-in on the close-up
+                x = f"max(0,min(iw-iw/zoom,{fx}*iw-iw/zoom/2))"
+                y = f"max(0,min(ih-ih/zoom,{fy}*ih-ih/zoom/2))"
+                desc.append(f"close{zc}" + (f"@x{crop[0]}" if crop else ""))
+            shots.append((n, z, x, y) + (tuple(crop) if shot != "wide" and crop else ()))
+        lines = [l for l in timed if l["scene"] == sc]
+        ass = None
+        if P["burn"]:
+            ev = [f"Dialogue: 0,{ass_time(s - t0)},{ass_time(e - t0)},Cap,,0,0,0,,{txt}"
+                  for l in lines if l["words"] for s, e, txt in caption_chunks(l)]
+            if idx == len(shots_all) - 1 and final_title:
+                t_end = fcuts[-1] / fps - t0
+                t_beg = max(0.0, t_end - title_secs) if title_secs else 0.0  # e.g. a 2 s end card only
+                ev.append(f"Dialogue: 1,{ass_time(t_beg)},{ass_time(t_end)},Title,,0,0,0,,"
+                          f"{{\\fad(300,0)}}{final_title}")
+            ass = ass_doc(font_family, ev)
+        img = P["image_for"](sc)
+        key = sha(RENDER_VERSION, json.dumps(prof, sort_keys=True), sha(img.read_bytes()),
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:35:10Z)**_
+
+Scene images ke beech close-up shots chahiye (`shots.json`). Iske liye har scene me kaun bolta hai, wo nikaal raha hoon.
+
+_**Agent (claude-opus-5-5 2026-10-19 11:35:15Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+List scenes with image, speakers, and prompt summary
+
+```bash
+.venv/Scripts/python.exe -X utf8 - <<'EOF'
+import json
+S="channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/"
+sp=json.load(open(S+"scene_prompts.json",encoding="utf-8"))
+cov={c:s["id"] for s in sp["scenes"] for c in s.get("covers",[s["id"]])}
+L=json.load(open(S+"long/lines.json",encoding="utf-8"))
+from collections import OrderedDict
+d=OrderedDict()
+for l in L:
+    d.setdefault(l["scene"],[]).append(l["speaker"]+(":"+l["text"][:25] if "text" in l else ""))
+for sc,v in d.items(): print(sc, "img", cov.get(sc), "|", " / ".join(v))
+for s in sp["scenes"]: print(s["id"], s["prompt"][:160].replace("\n"," "))
+EOF
+```
+
+```text
+1 img 1 | mitthu:सोना चोरी! सोना चोरी! / narrator:उस सुबह मोहल्ले में हंगाम
+2 img 2 | narrator:हर सुबह की तरह शर्मा जी न
+3 img 3 | sharma:सोना... आ जा मेरी बिटिया,
+4 img 4 | raghu:नमस्ते शर्मा जी! मैं नया 
+5 img 5 | narrator:मिट्ठू गेट पर बैठा सब सुन
+6 img 6 | narrator:शर्मा जी अंदर से लौटे, तो / sharma:सोना? सोना! अरे, मेरी सोन
+7 img 6 | mitthu:सोना कहाँ गई! सोना कहाँ ग / sharma:हाय, मेरी सोना चली गई...  / mitthu:सोना चोरी! सोना चोरी!
+8 img 1 | narrator:और बस, मिट्ठू ने पंख फड़फ
+9 img 9 | mitthu:सोना चोरी! शर्मा जी का सो
+10 img 9 | raju:क्या? शर्मा जी का सोना चो
+11 img 11 | gupta:हाय राम! सोना? ज़रूर शर्म / narrator:गुप्ता आंटी ने बात को सीध
+12 img 12 | gupta:और सुनो, आज सुबह मैंने एक / raju:नया आदमी? वो नया दूधवाला 
+13 img 13 | golu:दादी! दादी! शर्मा जी का स / dadi:अच्छा? तूने अपनी आँखों से / golu:नहीं... पर सब कह रहे हैं! / dadi:हम्म। सबके कहने से बात सच
+14 img 14 | mitthu:हार चोरी! हार चोरी! / narrator:दस मिनट में पूरा मोहल्ला 
+15 img 15 | narrator:तभी सीटी बजाते हुए इंस्पे / pandey:शांति! चोरी की रिपोर्ट लि
+16 img 15 | gupta:सोना, इंस्पेक्टर साहब! सो / pandey:सोना... हार... लिखो, लिखो / raju:और तिजोरी भी ख़ाली है, सा / pandey:तिजोरी भी! लिखो, लिखो! / sharma:हार? तिजोरी? अरे, मेरी बा
+17 img 17 | narrator:पर किसी ने नहीं सुनी। तभी / gupta:यही है वो नया आदमी! सुबह  / raghu:मुझे क्यों घूर रहे हैं सब
+18 img 18 | dadi:ज़रा ठहरिए, पांडे जी। लिस / pandey:अरे दादी, सोना, हार, तिजो
+19 img 18 | dadi:शर्मा जी, आप बताइए। आपका  / sharma:मेरी सोना! मेरी बिल्ली! स
+20 img 14 | narrator:पूरा मोहल्ला एक पल के लिए / golu:बिल्ली? तो... सोना मतलब ब / mitthu:सोना बिल्ली! सोना बिल्ली!
+21 img 18 | dadi:अब असली बात समझ आई। चलो, 
+22 img 22 | dadi:देखो गोलू — कटोरी का दूध 
+23 img 23 | golu:और दादी, यहाँ! सीढ़ी पर स / dadi:दूध पिया, पंजे आटे में पड
+24 img 24 | narrator:दादी, गोलू और शर्मा जी धी
+25 img 25 | narrator:और वहाँ, पानी की गरम टंकी / mitthu:सोना मिल गया! सोना मिल गय
+26 img 26 | sharma:मेरी सोना! तू यहाँ आराम क / narrator:नीचे खड़े सब लोग ठहाका मा
+27 img 27 | pandey:हें-हें... ये रिपोर्ट तो  / gupta:रघु बेटा, मैंने बिना सोचे
+28 img 27 | raghu:कोई बात नहीं। बस अगली बार
+29 img 29 | dadi:देखा गोलू? आधी सुनी बात आ / golu:समझ गया दादी। पहले पूछो, 
+30 img 29 | mitthu:पहले पूछो! पहले पूछो! / dadi:कमेंट में बताइए — क्या आप
+1 {mitthu} flies above the rooftops of Gulmohar Mohalla with his wings spread wide and his beak wide open, shouting excitedly. Below him the lane, Sharma ji's red
+2 Morning outside {sharma}'s house near his red iron gate. He bends down and places a small steel katori of milk on the bottom step of the narrow outdoor stairs t
+3 Close-up of {sona} happily lapping milk from the small steel katori on the bottom step of the stairs; in the background, slightly out of focus, {sharma} smiles 
+4 {raghu} has just arrived at Sharma ji's red iron gate on his green bicycle with two steel milk cans and waves hello with a friendly smile; {sharma} greets him a
+5 {mitthu} perches on top of Sharma ji's red iron gate with his wings folded, head tilted to one side, listening very carefully with one eye wide open — curious a
+6 {sharma} stands at the bottom of the roof stairs looking at the half-empty steel katori of milk, both hands on his head, very worried, calling out; a few small 
+9 Raju's chai stall at the corner of the lane (as in the Raju reference image: brown shirt, apron, black sooty kettle). {mitthu} flies low over the stall, wings f
+11 {gupta} on the small balcony of her pink house overlooking the lane, both hands on her cheeks, eyes and mouth wide open in dramatic shock ('Hai Ram!'); a few dr
+12 At Raju's chai stall: {gupta} leans in close and whispers gossip with a hand beside her mouth, eyes wide; {raju} leans in to listen, kettle forgotten in his han
+13 Dadi's swept courtyard (as in the location reference: small mud house with a khaprail clay-tile roof, BROWN wooden door, green fields behind). Only TWO people i
+14 A small curious crowd of neighbours gathered in the lane in front of Sharma ji's red iron gate: {sharma} in the middle looking confused, {gupta} talking animate
+15 {pandey} stands importantly in front of Sharma ji's red gate with a whistle in his mouth and a big open diary in his hand, pen ready, very serious, writing a re
+17 {raghu} walks back down the lane carrying one steel milk can, puzzled, palms slightly open; the crowd of neighbours by the gate turns to stare at him and whispe
+18 {dadi} has walked calmly through the crowd and gently lowers {pandey}'s open diary with the tip of her wooden walking stick, smiling patiently, as if saying 'fi
+22 Close-up clue shot at the bottom of the outdoor roof stairs: the small steel katori with milk half drunk, and a trail of small white milk drops going up the sto
+23 On the roof stairs: {golu} crouches and points excitedly at small cat paw prints pressed into the flour drying in a steel thali on one step, and a few floury pa
+24 {dadi}, {golu} and {sharma} tiptoe up the narrow outdoor stairs to the flat roof one behind the other, fingers on lips, curious and a little funny; the edge of 
+25 On the sunny flat roof next to a warm black water tank: {sona} sleeps peacefully curled up in a patch of sunshine, content and cosy; {mitthu} flies in happily f
+26 On the roof edge, {sharma} gently hugs {sona} to his chest, laughing with relief, the cat purring happily; below in the lane the neighbours look up and laugh to
+27 In the lane by the red gate: {pandey}, sheepish, tears a page out of his diary; {gupta} folds her hands to {raghu} in an embarrassed apology; {raghu} smiles kin
+29 On the flat roof in warm late-morning light: {dadi} gently explains something to {golu}, who nods with a big understanding smile; {mitthu} flaps his wings happi
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:35:19Z)**_
+
+Teen images ka intezaar hai. Tab tak contact sheet ka script likh raha hoon: saari images ek saath, grid ke saath, taaki close-up ki jagah sahi chuni ja sake.
+
+_**Agent (claude-opus-5-5 2026-10-19 11:35:26Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Write contact sheet helper script
+
+```bash
+SP="C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad" && cat > "$SP/contact.py" <<'EOF'
+"""Contact sheet of story images with a 0.1 grid (for picking close-up x,y). Args: out.jpg id id ..."""
+import sys
+from pathlib import Path
+from PIL import Image, ImageDraw, ImageFont
+D = Path(r"D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images")
+out, ids = sys.argv[1], [int(x) for x in sys.argv[2:]]
+W, H, cols = 640, 360, 2
+sheet = Image.new("RGB", (W * cols, H * ((len(ids) + cols - 1) // cols)), "white")
+f = ImageFont.truetype("arial.ttf", 22)
+for k, i in enumerate(ids):
+    im = Image.open(D / f"scene_{i:02d}.png").convert("RGB").resize((W, H))
+    d = ImageDraw.Draw(im)
+    for g in range(1, 10):
+        d.line([(W * g / 10, 0), (W * g / 10, H)], fill=(255, 0, 255), width=1)
+        d.line([(0, H * g / 10), (W, H * g / 10)], fill=(255, 0, 255), width=1)
+        d.text((W * g / 10 + 2, 2), f"{g}", fill=(255, 0, 255), font=f)
+        d.text((2, H * g / 10 + 1), f"{g}", fill=(255, 0, 255), font=f)
+    d.rectangle([0, H - 34, 90, H], fill="black"); d.text((6, H - 30), f"#{i}", fill="yellow", font=f)
+    sheet.paste(im, ((k % cols) * W, (k // cols) * H))
+sheet.save(out, quality=85)
+EOF
+echo ok
+```
+
+```text
+ok
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:35:34Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Build contact sheets for unchanged images
+
+`SP="C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad" && .venv/Scripts/python.exe "$SP/contact.py" "$SP/cs1.jpg" 1 2 3 4 5 6 && .venv/Scripts/python.exe "$SP/contact.py" "$SP/cs2.jpg" 11 12 13 14 15 17 && .venv/Scripts/python.exe "$SP/contact.py" "$SP/cs3.jpg" 22 23 24 25 27 29 && echo done`
+
+```text
+done
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:35:36Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `C:\Users\ashamim\AppData\Local\Temp\claude\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7\scratchpad\cs1.jpg`
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:35:43Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `C:\Users\ashamim\AppData\Local\Temp\claude\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7\scratchpad\cs2.jpg`
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:36:02Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `C:\Users\ashamim\AppData\Local\Temp\claude\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7\scratchpad\cs3.jpg`
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:36:04Z)**_
+
+<tool-use data-tool-type="search" data-tool-name="Grep"><details>
+<summary>Tool use: **Grep**</summary>
+ path `D:\Story-Channel\scripts\make_short.py` pattern `\"shots?\"\]|get\(\"shots?\"`
+
+```text
+376-        end = scenes[k + 1][1][0] if k + 1 < len(scenes) else total
+377-        pts = cuts + [end]
+378-        fine, tags = [pts[0]], []
+379-        for a, b, own in zip(pts, pts[1:], owners):
+380:            if timed[own].get("shots"):
+381-                t = a
+382:                for spec, secs in timed[own]["shots"]:
+383-                    end = b if secs is None else min(b, t + secs)
+384-                    if end > t:
+385-                        fine.append(end)
+386-                        tags.append(spec)
+387-                        t = end
+388-                fine[-1] = b
+389-                continue
+390:            if timed[own].get("shot"):
+391-                fine.append(b)
+392:                tags.append(timed[own]["shot"])
+393-                continue
+394-            n = max(1, min(round((b - a) / SHOT_LEN), int((b - a) / MIN_SHOT)))
+395-            fine += [a + (b - a) * j / n for j in range(1, n + 1)]
+396-            tags += [None] * n
+--
+454-    ass_name = f"scene_{p['scene']:02d}_{p['key']}.ass"
+455-    if p["ass"]:
+456-        (work / ass_name).write_text(p["ass"], encoding="utf-8")
+457-    subs = f",subtitles=filename={ass_name}:fontsdir=fonts" if p["ass"] else ""
+458:    n = len(p["shots"])
+459-    pre = f"[0:v]scale={w * 2}:{h * 2}:force_original_aspect_ratio=increase"
+460-    fc = [pre + (f",split={n}" + "".join(f"[i{k}]" for k in range(n)) if n > 1 else "[i0]")]
+461:    for k, (d, z, x, y, *crop) in enumerate(p["shots"]):
+462-        cx, cy = (list(crop) + [0.5, 0.5])[:2]  # frame-shaped window on the image, centred on (cx, cy)
+463-        win = (f"crop={w * 2}:{h * 2}:x='max(0,min(iw-ow,{cx}*iw-ow/2))':y='max(0,min(ih-oh,{cy}*ih-oh/2))'")
+464-        fc.append(f"[i{k}]{win},zoompan=z='{z}':x='{x}':y='{y}':d={d}:s={w}x{h}:fps={fps}[z{k}]")
+465-    fc.append("".join(f"[z{k}]" for k in range(n)) + (f"concat=n={n}:v=1:a=0" if n > 1 else "null")
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:36:19Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Check regen progress output
+
+`cat "C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/tasks/bl5f864ml.output"`
+
+```text
+(90.2, 178.1)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:36:21Z)**_
+
+Images 09/18/26 abhi ban rahi hain. Tab tak baaki 15 images ke close-up (`shots.json`) tay kar diye hain, unhe likh raha hoon.
+
+_**Agent (claude-opus-5-5 2026-10-19 11:36:39Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Write shot planning script for Long 02
+
+```bash
+SP="C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad" && cat > "$SP/long02_shots.py" <<'EOF'
+"""Write long/shots.json (scene close-ups) and per-line "shot" (speaker close-up) for story 003."""
+import json
+from pathlib import Path
+S = Path(r"D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya")
+W = None  # leave line on the scene cycle
+shots = {
+    "_help": "Per scene close-ups [x, y, zoom] (x,y = 0-1 of the image). {\"wide\": false, \"closes\": [...]} = close-ups only (scene sharing an image). Lines with \"shot\" in lines.json use that close-up for the speaker.",
+    "1": [[0.27, 0.25, 1.8]],
+    "2": [[0.40, 0.55, 1.6]],
+    "3": [[0.40, 0.72, 1.7], [0.55, 0.35, 1.7]],
+    "4": [[0.30, 0.50, 1.6], [0.76, 0.50, 1.7]],
+    "5": [[0.33, 0.55, 1.8]],
+    "6": [[0.48, 0.55, 1.6], [0.50, 0.85, 1.9]],
+    "7": {"wide": False, "closes": [[0.15, 0.40, 2.0], [0.48, 0.50, 1.7]]},
+    "8": {"wide": False, "closes": [[0.35, 0.40, 1.4]]},
+    "11": [[0.68, 0.22, 1.8]],
+    "12": [[0.39, 0.60, 1.7], [0.68, 0.50, 1.7]],
+    "13": [[0.25, 0.45, 1.7], [0.78, 0.45, 1.7]],
+    "14": [[0.61, 0.20, 1.9], [0.50, 0.55, 1.4]],
+    "15": [[0.48, 0.45, 1.7]],
+    "16": {"wide": False, "closes": [[0.55, 0.50, 1.3]]},
+    "17": [[0.30, 0.55, 1.7], [0.72, 0.50, 1.7]],
+    "20": {"wide": False, "closes": [[0.50, 0.55, 1.4]]},
+    "22": [[0.42, 0.75, 1.8], [0.65, 0.40, 1.6]],
+    "23": [[0.49, 0.80, 2.0]],
+    "24": [[0.48, 0.50, 1.4], [0.66, 0.35, 1.8]],
+    "25": [[0.48, 0.78, 1.9], [0.70, 0.45, 1.8]],
+    "27": [[0.48, 0.55, 1.4]],
+    "28": {"wide": False, "closes": [[0.75, 0.45, 1.7]]},
+    "29": [[0.30, 0.55, 1.4]],
+    "30": {"wide": False, "closes": [[0.57, 0.60, 1.8]]},
+}
+# per-line speaker close-ups (scene -> one entry per line in order; None = scene cycle)
+line_shots = {
+    7: [[0.15, 0.40, 2.0], [0.48, 0.50, 1.7], [0.15, 0.40, 2.0]],
+    13: [[0.25, 0.45, 1.7], [0.78, 0.45, 1.7], [0.25, 0.45, 1.7], [0.78, 0.45, 1.7]],
+    16: [[0.72, 0.50, 1.7], [0.48, 0.45, 1.7], [0.88, 0.45, 1.8], [0.48, 0.45, 1.7], [0.22, 0.50, 1.7]],
+    20: [None, [0.49, 0.62, 1.8], [0.61, 0.20, 1.9]],
+    23: [[0.40, 0.62, 1.7], [0.62, 0.38, 1.8]],
+    27: [[0.25, 0.55, 1.7], [0.48, 0.55, 1.7]],
+    29: [[0.18, 0.55, 1.7], [0.40, 0.60, 1.7]],
+    30: [[0.57, 0.60, 1.8], [0.18, 0.55, 1.7]],
+}
+extra = json.loads((Path(__file__).parent / "long02_shots_extra.json").read_text()) if (Path(__file__).parent / "long02_shots_extra.json").exists() else {}
+shots.update(extra.get("shots", {}))
+line_shots.update({int(k): v for k, v in extra.get("line_shots", {}).items()})
+(S / "long/shots.json").write_text(json.dumps(shots, indent=1) + "\n", encoding="utf-8")
+lf = S / "long/lines.json"
+lines = json.loads(lf.read_text(encoding="utf-8"))
+seen = {}
+for l in lines:
+    k = seen.get(l["scene"], 0); seen[l["scene"]] = k + 1
+    spec = line_shots.get(l["scene"])
+    l.pop("shot", None)
+    if spec and k < len(spec) and spec[k]:
+        l["shot"] = spec[k]
+for sc, spec in line_shots.items():
+    assert len(spec) == seen[sc], (sc, len(spec), seen[sc])
+lf.write_text("[\n" + ",\n".join("  " + json.dumps(l, ensure_ascii=False) for l in lines) + "\n]\n", encoding="utf-8")
+print("shots.json scenes:", len(shots) - 1, "| lines with shot:", sum("shot" in l for l in lines))
+EOF
+echo ok
+```
+
+```text
+ok
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:36:45Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Find thumbnail functions in asset generator
+
+`grep -n "^def \|^    def \|thumb" scripts/gen_channel_assets.py | head -60; ls channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long/thumbnail_work channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long/output | head -30`
+
+```text
+27:CASE01 = STORY_002 / "shorts" / "short_01_case-01"  # Case 01 thumbnails (work files in thumbnail_work/)
+28:C1W = CASE01 / "thumbnail_work"
+32:BRAND = channel_config()["brand_label"]  # "किस्सागो": banner title + thumbnail corner label
+62:def cover(src: Path, w: int, h: int, dst: Path):
+74:def draw_title(art: Path, out: Path):
+104:def banner():
+112:def text():
+118:def dp():
+126:THUMB_PROMPT = f"""16:9 YouTube thumbnail illustration for a kids' mystery cartoon, NO text or letters anywhere.
+144:def draw_thumb_text(art: Path, out: Path):
+163:    (C1W / "thumb.ass").write_text(ass, encoding="utf-8")
+164:    shutil.copy(art, C1W / "thumb_art.png")
+165:    subprocess.run([str(FFMPEG), "-v", "error", "-y", "-i", "thumb_art.png", "-vf",
+166:                    "subtitles=filename=thumb.ass:fontsdir=fonts", "-frames:v", "1", "thumb_titled.png"],
+168:    shutil.copy(C1W / "thumb_titled.png", out)
+172:def thumb():
+173:    raw = C1W / "thumb_raw.png"
+176:    cover(raw, TW, TH, C1W / "thumb_art_sized.png")
+177:    thumb_text()
+180:def thumb_text():
+181:    out = CASE01 / "output" / "case01_thumbnail.png"
+182:    draw_thumb_text(C1W / "thumb_art_sized.png", out)
+206:def thumb_v():
+207:    raw = C1W / "thumb_v_raw.png"
+210:    cover(raw, VW, VH, C1W / "thumb_v_art.png")
+211:    thumb_v_text()
+214:def thumb_v_text():
+234:    (C1W / "thumb_v.ass").write_text(ass, encoding="utf-8")
+235:    shutil.copy(C1W / "thumb_v_art.png", C1W / "thumb_v_in.png")
+236:    subprocess.run([str(FFMPEG), "-v", "error", "-y", "-i", "thumb_v_in.png", "-vf",
+237:                    "subtitles=filename=thumb_v.ass:fontsdir=fonts", "-frames:v", "1", "thumb_v_titled.png"],
+239:    out = CASE01 / "output" / "case01_thumbnail_vertical.png"
+240:    shutil.copy(C1W / "thumb_v_titled.png", out)
+246:L1W = LONG01 / "long" / "thumbnail_work"
+248:L01_THUMB_PROMPT = """16:9 YouTube thumbnail illustration for a kids' Hindi moral-story cartoon, NO text or letters
+263:def long01_thumb():
+264:    raw = L1W / "long01_thumb_raw.png"
+268:    cover(raw, TW, TH, L1W / "long01_thumb_art.png")
+269:    long01_thumb_text()
+272:def long01_thumb_text():
+292:    (L1W / "long01_thumb.ass").write_text(ass, encoding="utf-8")
+293:    shutil.copy(L1W / "long01_thumb_art.png", L1W / "long01_thumb_in.png")
+294:    subprocess.run([str(FFMPEG), "-v", "error", "-y", "-i", "long01_thumb_in.png", "-vf",
+295:                    "subtitles=filename=long01_thumb.ass:fontsdir=fonts", "-frames:v", "1", "long01_thumb_titled.png"],
+297:    out = LONG01 / "long" / "output" / "long_01_thumbnail.png"
+298:    shutil.copy(L1W / "long01_thumb_titled.png", out)
+308:def short01_cover():
+309:    """Free: 1080x1920 Short cover from the Long 01 thumbnail art (no new image). Blurred art fills the frame, the
+313:    raw = Image.open(L1W / "long01_thumb_raw.png").convert("RGB")
+331:    C1 = SHORT01 / "thumbnail_work"
+365:    {"banner": banner, "dp": dp, "text": text, "thumb": thumb, "thumb_text": thumb_text,
+366:     "thumb_v": thumb_v, "thumb_v_text": thumb_v_text,
+367:     "long01_thumb": long01_thumb, "long01_thumb_text": long01_thumb_text,
+channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long/output:
+long_01.mp4
+long_01.srt
+long_01.txt
+long_01_framecheck.png
+long_01_preview.mp4
+long_01_preview.srt
+long_01_test15s_preview.mp4
+long_01_thumbnail.png
+long_01_work
+upload.json
+upload_result.json
+
+channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long/thumbnail_work:
+fonts
+long01_thumb.ass
+long01_thumb_art.png
+long01_thumb_in.png
+long01_thumb_raw.png
+long01_thumb_titled.png
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:36:47Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\scripts\gen_channel_assets.py`
+
+```text
+1	"""YouTube channel art: banner (2560x1440) + profile picture (800x800).
+2	
+3	Usage: python scripts/gen_channel_assets.py banner|dp|text
+4	  banner -> generate the art (no text), then add the title
+5	  dp     -> generate the profile picture
+6	  text   -> only re-draw the banner title on the existing art (free)
+7	Images come from Gemini with the approved character sheets as references; the Hindi title is drawn with
+8	Mukta Bold through libass (correct Devanagari shaping), never by the image model.
+9	"""
+10	import shutil
+11	import subprocess
+12	import sys
+13	from pathlib import Path
+14	
+15	from PIL import Image
+16	
+17	sys.path.insert(0, str(Path(__file__).parent))
+18	from gemini_image import generate  # noqa: E402
+19	from gen_brand import brand_corner  # noqa: E402
+20	
+21	from paths import FONTS_DIR, ROOT, channel_config, channel_dir  # noqa: E402
+22	
+23	OUT = channel_dir() / "brand"  # banner + DP
+24	WORK = OUT / "_work"
+25	CHAR = channel_dir() / "characters"
+26	STORY_002 = channel_dir() / "stories" / "002_sharma-ji-ki-cycle"
+27	CASE01 = STORY_002 / "shorts" / "short_01_case-01"  # Case 01 thumbnails (work files in thumbnail_work/)
+28	C1W = CASE01 / "thumbnail_work"
+29	FFMPEG = ROOT / "tools" / "ffmpeg" / "ffmpeg.exe"
+30	if not FFMPEG.exists():  # new system: ffmpeg from winget on PATH (tools/ffmpeg is not in git)
+31	    FFMPEG = Path(shutil.which("ffmpeg") or FFMPEG)
+32	BRAND = channel_config()["brand_label"]  # "किस्सागो": banner title + thumbnail corner label
+33	TAGLINE = "Kissago · हर शाम एक नया किस्सा"  # small line under the banner title
+34	
+35	BW, BH = 2560, 1440
+36	SAFE_W, SAFE_H = 1546, 423  # YouTube: area visible on every device
+37	SAFE_TOP = (BH - SAFE_H) // 2  # 508
+38	
+39	LOOKS = ("Keep Dadi, Golu and Mitthu EXACTLY as in the attached reference sheets (faces, outfits, colours) "
+40	         "and match their flat 2D cartoon style: thick bold outlines, warm colours, flat cel shading.")
+41	
+42	BANNER_PROMPT = f"""Wide 16:9 YouTube channel banner illustration, NO text or letters anywhere.
+43	Scene: warm, cozy Indian village at golden sunset - green fields in the distance, a mud house with a tiled roof,
+44	the swept courtyard (aangan) in front, warm golden light, a few birds in the sky. Family-friendly, welcoming, not scary.
+45	Exactly in the horizontal CENTER of the image: Dadi sits on a low wooden charpai, thoughtful, with a peaceful smile,
+46	as if telling a story. Golu sits on the ground right beside her, looking up at her, listening happily.
+47	Mitthu the green parrot sits on a low tree branch just to the side of them.
+48	COMPOSITION IS CRITICAL: the characters must be fairly small and fit inside the middle horizontal band of the image
+49	(between 36% and 58% of the image height, and within the central 55% of the width). Directly below them, from 58% to
+50	66% of the height across the centre, keep a plain, smooth, slightly darker courtyard floor with no objects, for a title.
+51	Fill the left and right sides with scenery only (fields, house, trees), no important details near the top and bottom edges.
+52	{LOOKS}"""
+53	
+54	DP_PROMPT = f"""Square profile picture, NO text. Close-up portrait of Dadi (head and shoulders), centred, with a gentle
+55	warm smile, looking slightly towards the viewer. Golden round glasses, white hair bun clearly visible, light green saree
+56	with yellow border visible on the shoulders, small red bindi. Soft warm lighting. Plain softly blurred cream / light warm
+57	background. Her face fills about 60% of the frame and sits in the centre, with margin all around so it survives a circle
+58	crop. Simple, bold, very clear at small sizes.
+59	{LOOKS}"""
+60	
+61	
+62	def cover(src: Path, w: int, h: int, dst: Path):
+63	    """Resize to cover w x h and centre-crop."""
+64	    im = Image.open(src).convert("RGB")
+65	    s = max(w / im.width, h / im.height)
+66	    im = im.resize((round(im.width * s), round(im.height * s)), Image.LANCZOS)
+67	    x, y = (im.width - w) // 2, (im.height - h) // 2
+68	    im.crop((x, y, x + w, y + h)).save(dst)
+69	
+70	
+71	TITLE_POS = (805, 720)  # centre of the empty house wall, left part of the safe area (x 507-1100)
+72	
+73	
+74	def draw_title(art: Path, out: Path):
+75	    """Title in two lines inside the YouTube safe area (left of the characters), warm gold with dark outline.
+76	    Letter spacing must stay 0: any spacing makes libass drop Devanagari shaping (broken matras)."""
+77	    fonts = WORK / "fonts"
+78	    fonts.mkdir(parents=True, exist_ok=True)
+79	    shutil.copy(FONTS_DIR / "Mukta-Bold.ttf", fonts / "Mukta-Bold.ttf")
+80	    ass = f"""[Script Info]
+81	ScriptType: v4.00+
+82	PlayResX: {BW}
+83	PlayResY: {BH}
+84	ScaledBorderAndShadow: yes
+85	
+86	[V4+ Styles]
+87	Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+88	Style: T,Mukta,190,&H0030C8FF,&H000000FF,&H00102040,&H96000000,-1,0,0,0,100,100,0,0,1,11,7,5,0,0,0,1
+89	Style: S,Mukta,52,&H00FFFFFF,&H000000FF,&H00102040,&H96000000,-1,0,0,0,100,100,0,0,1,5,3,5,0,0,0,1
+90	
+91	[Events]
+92	Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+93	Dialogue: 0,0:00:00.00,0:00:01.00,T,,0,0,0,,{{\\an5\\pos({TITLE_POS[0]},{TITLE_POS[1] - 40})\\q2}}{BRAND}
+94	Dialogue: 0,0:00:00.00,0:00:01.00,S,,0,0,0,,{{\\an5\\pos({TITLE_POS[0] - 55},{TITLE_POS[1] + 100})\\q2}}{TAGLINE}
+95	"""
+96	    (WORK / "title.ass").write_text(ass, encoding="utf-8")
+97	    shutil.copy(art, WORK / "art.png")
+98	    subprocess.run([str(FFMPEG), "-v", "error", "-y", "-i", "art.png", "-vf",
+99	                    "subtitles=filename=title.ass:fontsdir=fonts", "-frames:v", "1", "titled.png"],
+100	                   cwd=WORK, check=True)
+101	    shutil.copy(WORK / "titled.png", out)
+102	
+103	
+104	def banner():
+105	    raw = WORK / "banner_raw.png"
+106	    generate(BANNER_PROMPT, raw, refs=[CHAR / "dadi_sheet.png", CHAR / "golu_sheet.png", CHAR / "mitthu_sheet.png"],
+107	             aspect_ratio="16:9", size="2K")
+108	    cover(raw, BW, BH, WORK / "banner_art.png")
+109	    text()
+110	
+111	
+112	def text():
+113	    out = OUT / "kissago_banner.png"  # the old dadi_ki_kahaniyan_banner.png is kept as it was
+114	    draw_title(WORK / "banner_art.png", out)
+115	    print("saved", out, Image.open(out).size)
+116	
+117	
+118	def dp():
+119	    raw = WORK / "dp_raw.png"
+120	    generate(DP_PROMPT, raw, refs=[CHAR / "dadi_sheet.png"], aspect_ratio="1:1", size="1K")
+121	    out = OUT / "dadi_ki_kahaniyan_dp.png"
+122	    cover(raw, 800, 800, out)
+123	    print("saved", out, Image.open(out).size)
+124	
+125	
+126	THUMB_PROMPT = f"""16:9 YouTube thumbnail illustration for a kids' mystery cartoon, NO text or letters anywhere.
+127	Background: dramatic dark blue-to-purple gradient night sky with a soft spotlight glow behind the centre; mystery
+128	detective vibe, still family-friendly and not scary.
+129	CENTRE: big close-up of Dadi (head, shoulders and one hand) holding a large magnifying glass up near her face like a
+130	detective, one eye enlarged through the lens, clever knowing smile.
+131	Around her, smaller head-and-hands portraits of the three suspects (each about 1/4 of Dadi's size), with their HANDS
+132	held up and clearly visible:
+133	- left of Dadi: Pappu the milkman (white kurta, red gamchha) - CLEAN hands, confused face
+134	- right of Dadi, upper: Raju the tea seller (brown shirt, apron, small moustache) - fingers BLACK with soot, guilty look
+135	- right of Dadi, lower: Bunty (17, spiky hair, sky-blue shirt) - fingertips with bright RED paint, caught-red-handed look
+136	COMPOSITION: keep the TOP 24% of the image as empty dark sky (for a title) and the bottom-left corner empty and dark
+137	(for a small logo). Everything important between 26% and 92% of the height. Bold, high contrast, readable when small.
+138	Keep every character EXACTLY as in the attached references (faces, outfits, colours) and match the flat 2D cartoon
+139	style: thick bold outlines, warm colours on the characters, flat cel shading."""
+140	
+141	TW, TH = 1280, 720
+142	
+143	
+144	def draw_thumb_text(art: Path, out: Path):
+145	    fonts = C1W / "fonts"
+146	    fonts.mkdir(parents=True, exist_ok=True)
+147	    shutil.copy(FONTS_DIR / "Mukta-Bold.ttf", fonts / "Mukta-Bold.ttf")
+148	    ass = f"""[Script Info]
+149	ScriptType: v4.00+
+150	PlayResX: {TW}
+151	PlayResY: {TH}
+152	ScaledBorderAndShadow: yes
+153	
+154	[V4+ Styles]
+155	Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+156	Style: Q,Mukta,120,&H0000E5FF,&H000000FF,&H00000000,&H96000000,-1,0,0,0,100,100,0,0,1,9,5,8,20,20,8,1
+157	Style: L,Mukta,40,&H00FFFFFF,&H000000FF,&H00000000,&H96000000,-1,0,0,0,100,100,0,0,1,4,2,1,26,20,18,1
+158	
+159	[Events]
+160	Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+161	Dialogue: 0,0:00:00.00,0:00:01.00,Q,,0,0,0,,बताओ, दोषी कौन?
+162	"""
+163	    (C1W / "thumb.ass").write_text(ass, encoding="utf-8")
+164	    shutil.copy(art, C1W / "thumb_art.png")
+165	    subprocess.run([str(FFMPEG), "-v", "error", "-y", "-i", "thumb_art.png", "-vf",
+166	                    "subtitles=filename=thumb.ass:fontsdir=fonts", "-frames:v", "1", "thumb_titled.png"],
+167	                   cwd=C1W, check=True)
+168	    shutil.copy(C1W / "thumb_titled.png", out)
+169	    brand_corner(out, "bl")  # BRAND.md: small logo_horizontal bottom-left
+170	
+171	
+172	def thumb():
+173	    raw = C1W / "thumb_raw.png"
+174	    refs = [CHAR / "dadi_sheet.png"] + [STORY_002 / "images" / f"scene_0{n}.png" for n in (3, 4, 5)]
+175	    generate(THUMB_PROMPT, raw, refs=refs, aspect_ratio="16:9", size="1K")
+176	    cover(raw, TW, TH, C1W / "thumb_art_sized.png")
+177	    thumb_text()
+178	
+179	
+180	def thumb_text():
+181	    out = CASE01 / "output" / "case01_thumbnail.png"
+182	    draw_thumb_text(C1W / "thumb_art_sized.png", out)
+183	    print("saved", out, Image.open(out).size)
+184	
+185	
+186	THUMB_V_PROMPT = f"""Vertical 9:16 cover image for a kids' mystery cartoon Short, NO text or letters anywhere.
+187	Background: dramatic dark blue-to-purple gradient night sky with a soft spotlight glow behind Dadi; mystery detective
+188	vibe, still family-friendly and not scary.
+189	Upper-middle (from 17% to 57% of the height): big close-up of Dadi (head, shoulders and one hand) holding a large
+190	magnifying glass near her face like a detective, one eye enlarged through the lens, clever knowing smile.
+191	Below her (from 57% to 79% of the height), a row of the three suspects side by side, head and hands only, each holding
+192	BOTH hands up toward the viewer so the hands are clearly visible:
+193	- left: Pappu the milkman (white kurta, red gamchha) - CLEAN hands, confused face
+194	- middle: Raju the tea seller (brown shirt, apron, small moustache) - fingers BLACK with soot, nervous face
+195	- right: Bunty (17, spiky hair, sky-blue shirt) - small bright RED paint marks on his fingertips, calm innocent
+196	  everyday face (NOT scared, NOT guilty - he must look just as innocent as the others)
+197	All three suspects must look equally suspicious/innocent so the picture does not give away the answer.
+198	COMPOSITION: TOP 16% = empty dark sky (title goes there). BOTTOM 20% = plain dark ground/gradient, nothing important
+199	(the app overlays text there). Bold, high contrast, readable when small.
+200	Keep every character EXACTLY as in the attached references (faces, outfits, colours) and match the flat 2D cartoon
+201	style: thick bold outlines, warm colours on the characters, flat cel shading."""
+202	
+203	VW, VH = 1080, 1920
+204	
+205	
+206	def thumb_v():
+207	    raw = C1W / "thumb_v_raw.png"
+208	    refs = [CHAR / "dadi_sheet.png"] + [STORY_002 / "images" / f"scene_0{n}.png" for n in (3, 4, 5)]
+209	    generate(THUMB_V_PROMPT, raw, refs=refs, aspect_ratio="9:16", size="1K")
+210	    cover(raw, VW, VH, C1W / "thumb_v_art.png")
+211	    thumb_v_text()
+212	
+213	
+214	def thumb_v_text():
+215	    """Title + small logo in the top 16%; bottom 20% left clear for the Shorts overlay."""
+216	    fonts = C1W / "fonts"
+217	    fonts.mkdir(parents=True, exist_ok=True)
+218	    shutil.copy(FONTS_DIR / "Mukta-Bold.ttf", fonts / "Mukta-Bold.ttf")
+219	    ass = f"""[Script Info]
+220	ScriptType: v4.00+
+221	PlayResX: {VW}
+222	PlayResY: {VH}
+223	ScaledBorderAndShadow: yes
+224	
+225	[V4+ Styles]
+226	Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+227	Style: Q,Mukta,150,&H0000E5FF,&H000000FF,&H00000000,&H96000000,-1,0,0,0,100,100,0,0,1,11,6,8,30,30,210,1
+228	Style: L,Mukta,52,&H0030C8FF,&H000000FF,&H00000000,&H96000000,-1,0,0,0,100,100,0,0,1,5,3,8,30,30,20,1
+229	
+230	[Events]
+231	Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+232	Dialogue: 0,0:00:00.00,0:00:01.00,Q,,0,0,0,,बताओ, दोषी कौन?
+233	"""
+234	    (C1W / "thumb_v.ass").write_text(ass, encoding="utf-8")
+235	    shutil.copy(C1W / "thumb_v_art.png", C1W / "thumb_v_in.png")
+236	    subprocess.run([str(FFMPEG), "-v", "error", "-y", "-i", "thumb_v_in.png", "-vf",
+237	                    "subtitles=filename=thumb_v.ass:fontsdir=fonts", "-frames:v", "1", "thumb_v_titled.png"],
+238	                   cwd=C1W, check=True)
+239	    out = CASE01 / "output" / "case01_thumbnail_vertical.png"
+240	    shutil.copy(C1W / "thumb_v_titled.png", out)
+241	    brand_corner(out, "tc", width_frac=0.32)  # vertical: top centre, above the question
+242	    print("saved", out, Image.open(out).size)
+243	
+244	
+245	LONG01 = channel_dir() / "stories" / "001_lalchi-halwai"
+246	L1W = LONG01 / "long" / "thumbnail_work"
+247	
+248	L01_THUMB_PROMPT = """16:9 YouTube thumbnail illustration for a kids' Hindi moral-story cartoon, NO text or letters
+249	anywhere. Setting: a small Indian village sweet shop at evening, warm and family-friendly, not scary.
+250	RIGHT HALF of the image: the big magic iron kadhai (exactly as in the prop reference) sits on a clay chulha, glowing
+251	with bright golden magical light and sparkles, and it is OVERFLOWING - orange jalebis and yellow laddoos bubbling up
+252	and spilling over its rim. Right behind it, a big close-up of Ghasita the sweet-shop owner (exactly as in his reference
+253	sheet: face, moustache, outfit) leaning over the kadhai with both hands raised, eyes wide and shining with GREED,
+254	huge greedy grin, the golden glow lighting his face. Behind him, smaller, Chhotu (exactly as in his reference sheet)
+255	peeks in, amazed, mouth open.
+256	Mood: magic + greed at the START of the story - the kadhai is still magical and working (no mud, nothing broken).
+257	COMPOSITION IS CRITICAL: keep the LEFT 42% of the image as a plain, darker, softly blurred warm brown/purple background
+258	with NO characters or objects (a big title goes there). Keep the BOTTOM-RIGHT corner (last 20% of width, bottom 18% of
+259	height) plain and unimportant (YouTube puts the video length there). Faces big, bold, high contrast, readable when small.
+260	Match the flat 2D cartoon style of the references: thick bold outlines, warm colours, flat cel shading."""
+261	
+262	
+263	def long01_thumb():
+264	    raw = L1W / "long01_thumb_raw.png"
+265	    c = LONG01 / "characters"
+266	    generate(L01_THUMB_PROMPT, raw, refs=[c / "ghasita_sheet.png", c / "chhotu_sheet.png", c / "cadhai_prop.png"],
+267	             aspect_ratio="16:9", size="1K")
+268	    cover(raw, TW, TH, L1W / "long01_thumb_art.png")
+269	    long01_thumb_text()
+270	
+271	
+272	def long01_thumb_text():
+273	    """Hook in two big lines in the empty left part; channel name small at bottom-left (bottom-right = timestamp)."""
+274	    fonts = L1W / "fonts"
+275	    fonts.mkdir(parents=True, exist_ok=True)
+276	    shutil.copy(FONTS_DIR / "Mukta-Bold.ttf", fonts / "Mukta-Bold.ttf")
+277	    ass = f"""[Script Info]
+278	ScriptType: v4.00+
+279	PlayResX: {TW}
+280	PlayResY: {TH}
+281	ScaledBorderAndShadow: yes
+282	
+283	[V4+ Styles]
+284	Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+285	Style: Q,Mukta,163,&H0000E5FF,&H000000FF,&H00000000,&H96000000,-1,0,0,0,100,100,0,0,1,12,7,5,0,0,0,1
+286	Style: L,Mukta,40,&H0030C8FF,&H000000FF,&H00000000,&H96000000,-1,0,0,0,100,100,0,0,1,4,2,1,26,20,18,1
+287	
+288	[Events]
+289	Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+290	Dialogue: 0,0:00:00.00,0:00:01.00,Q,,0,0,0,,{{\\an5\\pos(290,300)\\q2}}जो डालो,\\N{{\\c&H0030FFFF&}}दुगना!
+291	"""
+292	    (L1W / "long01_thumb.ass").write_text(ass, encoding="utf-8")
+293	    shutil.copy(L1W / "long01_thumb_art.png", L1W / "long01_thumb_in.png")
+294	    subprocess.run([str(FFMPEG), "-v", "error", "-y", "-i", "long01_thumb_in.png", "-vf",
+295	                    "subtitles=filename=long01_thumb.ass:fontsdir=fonts", "-frames:v", "1", "long01_thumb_titled.png"],
+296	                   cwd=L1W, check=True)
+297	    out = LONG01 / "long" / "output" / "long_01_thumbnail.png"
+298	    shutil.copy(L1W / "long01_thumb_titled.png", out)
+299	    brand_corner(out, "bl")
+300	    print("saved", out, Image.open(out).size)
+301	
+302	
+303	
+304	SHORT01 = LONG01 / "shorts" / "short_01_jadui-kadhai"
+305	SHORT01_COVER_TEXT = "सोना भी दुगना?"  # not the title word for word (RULES 6), no spoiler (cliffhanger question)
+306	
+307	
+308	def short01_cover():
+309	    """Free: 1080x1920 Short cover from the Long 01 thumbnail art (no new image). Blurred art fills the frame, the
+310	    sharp Ghasita + kadhai + Chhotu band sits in the middle; logo and the question stay between 12% and 80% height."""
+311	    from PIL import ImageFilter, ImageEnhance
+312	    from gen_brand import brand_corner
+313	    raw = Image.open(L1W / "long01_thumb_raw.png").convert("RGB")
+314	    W, H = VW, VH
+315	    bgk = max(W / raw.width, H / raw.height)
+316	    bg = raw.resize((int(raw.width * bgk), int(raw.height * bgk)), Image.LANCZOS)
+317	    bx = (bg.width - W) // 2
+318	    bg = bg.crop((bx, 0, bx + W, H)).filter(ImageFilter.GaussianBlur(28))
+319	    bg = ImageEnhance.Brightness(bg).enhance(0.45)
+320	    band = raw.crop((int(raw.width * 0.40), 0, int(raw.width * 0.97), raw.height))
+321	    band = band.resize((W, int(band.height * W / band.width)), Image.LANCZOS)
+322	    top = int(H * 0.33)
+323	    # soft vertical fade at the band edges
+324	    mask = Image.new("L", band.size, 255)
+325	    fade = 60
+326	    for i in range(fade):
+327	        a = int(255 * i / fade)
+328	        for y in (i, band.height - 1 - i):
+329	            mask.paste(a, (0, y, band.width, y + 1))
+330	    bg.paste(band, (0, top), mask)
+331	    C1 = SHORT01 / "thumbnail_work"
+332	    C1.mkdir(parents=True, exist_ok=True)
+333	    bg.save(C1 / "cover_art.png")
+334	    fonts = C1 / "fonts"
+335	    fonts.mkdir(exist_ok=True)
+336	    shutil.copy(FONTS_DIR / "Mukta-ExtraBold.ttf", fonts / "Mukta-ExtraBold.ttf")
+337	    ass = f"""[Script Info]
+338	ScriptType: v4.00+
+339	PlayResX: {W}
+340	PlayResY: {H}
+341	ScaledBorderAndShadow: yes
+342	
+343	[V4+ Styles]
+344	Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+345	Style: Q,Mukta ExtraBold,170,&H0030FFFF,&H000000FF,&H00000000,&H96000000,-1,0,0,0,100,100,0,0,1,12,7,5,40,40,0,1
+346	
+347	[Events]
+348	Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+349	Dialogue: 0,0:00:00.00,0:00:01.00,Q,,0,0,0,,{{\\an5\\pos({W // 2},{int(H * 0.265)})}}{SHORT01_COVER_TEXT}
+350	"""
+351	    (C1 / "cover.ass").write_text(ass, encoding="utf-8")
+352	    subprocess.run([str(FFMPEG), "-v", "error", "-y", "-i", "cover_art.png", "-vf",
+353	                    "subtitles=filename=cover.ass:fontsdir=fonts", "-frames:v", "1", "cover_titled.png"],
+354	                   cwd=C1, check=True)
+355	    out = SHORT01 / "output" / "short_01_cover.png"
+356	    shutil.copy(C1 / "cover_titled.png", out)
+357	    brand_corner(out, "tc12", width_frac=0.36)  # logo top-centre, below the top 12% (Shorts grid crops the top)
+358	    # move the logo below the top 12% (Shorts grid crops the top): re-place it
+359	    im = Image.open(out)
+360	    print("saved", out, im.size)
+361	
+362	if __name__ == "__main__":
+363	    for d in (WORK, C1W, L1W):
+364	        d.mkdir(parents=True, exist_ok=True)
+365	    {"banner": banner, "dp": dp, "text": text, "thumb": thumb, "thumb_text": thumb_text,
+366	     "thumb_v": thumb_v, "thumb_v_text": thumb_v_text,
+367	     "long01_thumb": long01_thumb, "long01_thumb_text": long01_thumb_text,
+368	     "short01_cover": short01_cover}[sys.argv[1]]()
+369
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:36:52Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Read thumbnail plan for story 003
+
+`grep -n -i -A6 "thumbnail" channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/script/PLAN.md | head -40`
+
+```text
+66:| Thumbnail (1K) | 1 | ₹3.24 |
+67-| Two Shorts (reuse images + TTS) | 2 | ₹0 |
+68-| **Total** | | **~₹91** |
+69-
+70-Budget left before this: ₹268.30.
+71-
+72-## 5. Title options (hook in the first 40 characters, `| किस्सागो` suffix, no repeated keyword block)
+--
+74:Recommended: **title 3 + thumbnail A** (the thumbnail text must not repeat the title word for word, RULES 6).
+75-
+76-1. `सोना चोरी! तोते की एक बात ने पूरा मोहल्ला हिला दिया | किस्सागो`
+77-2. `मिट्ठू ने मचाया हंगामा: "सोना चोरी!" | किस्सागो`
+78-3. `आधी बात, पूरा हंगामा! मिट्ठू ने सब बता दिया | किस्सागो`
+79-
+80:## 6. Thumbnail concepts (no spoiler — the cat is never shown)
+81-
+82-- **A:** Mitthu big in front, mid-air, beak wide open; behind him Sharma ji clutching his head and a crowd. Text **"सोना चोरी!"** (title promise, on screen at 0 s).
+83-- **B:** Raghu the milkman with his cans, surrounded by pointing neighbours and Inspector Pandey; Mitthu on a wall shouting. Text **"चोर कौन?"** (Munshi: reads more like a Dadi Jasoos mystery; A fits the comedy better).
+84-
+85-## 7. Shorts (40-45 s, ₹0: reuse images + TTS, speed 1.08, gaps 0.15/0.3)
+86-
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:36:54Z)**_
+
+Ab Long 02 ka thumbnail (A: "सोना चोरी!") banane ka function `gen_channel_assets.py` me jod raha hoon.
+
+_**Agent (claude-opus-5-5 2026-10-19 11:37:09Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\scripts\gen_channel_assets.py has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:37:10Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\scripts\gen_channel_assets.py has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:37:14Z)**_
+
+Teeno images ban gayi (₹3.24 × 3; story ka kharcha ab ₹99.92). Inhe check kar raha hoon, saath me thumbnail bhi chala raha hoon (₹3.24 → kul ₹103.16, cap ₹130 ke andar).
+
+_**Agent (claude-opus-5-5 2026-10-19 11:38:08Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Contact sheet of new images, then make thumbnail
+
+```bash
+SP="C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad" && .venv/Scripts/python.exe "$SP/contact.py" "$SP/cs4.jpg" 9 18 26 && .venv/Scripts/python.exe -X utf8 -c "
+import sys; sys.path.insert(0,'scripts')
+from story_budget import check; print(check('003_mitthu-ne-sab-bata-diya', 3.24))" && .venv/Scripts/python.exe -X utf8 scripts/gen_channel_assets.py long02_thumb 2>&1 | tail -3
+```
+
+```text
+(99.92, 168.38)
+Is image ka cost: ₹3.24  |  Aaj ka total: ₹103.16  |  ₹500 me se bacha: ₹165.14
+saved D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\output\long_02_thumbnail.png (1280, 720)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:38:12Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `C:\Users\ashamim\AppData\Local\Temp\claude\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7\scratchpad\cs4.jpg`
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:38:13Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\output\long_02_thumbnail.png`
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:38:27Z)**_
+
+<think><details><summary>Thought Process</summary>
+Teen nayi images check kar li hain aur sab theek lag rahi hain, thumbnail aur matrayein bhi sahi hain. Ab `shots.json` complete karke preview banata hoon, aur Munshi se images R2 aur thumbnail review karwa raha hoon.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:38:34Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Write shots and check build plan
+
+```bash
+SP="C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad" && cat > "$SP/long02_shots_extra.json" <<'EOF'
+{"shots": {"9": [[0.48, 0.25, 1.9], [0.55, 0.60, 1.4]],
+           "10": {"wide": false, "closes": [[0.52, 0.55, 1.7]]},
+           "18": [[0.55, 0.50, 1.5]],
+           "19": {"wide": false, "closes": [[0.50, 0.50, 1.7]]},
+           "21": {"wide": false, "closes": [[0.45, 0.50, 1.4]]},
+           "26": [[0.40, 0.28, 1.9], [0.55, 0.75, 1.4]]},
+ "line_shots": {"18": [[0.55, 0.50, 1.6], [0.73, 0.45, 1.7]],
+                "19": [[0.50, 0.50, 1.7], [0.20, 0.50, 1.7]]}}
+EOF
+.venv/Scripts/python.exe -X utf8 "$SP/long02_shots.py" && .venv/Scripts/python.exe -X utf8 scripts/make_short.py channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long --plan
+```
+
+```text
+shots.json scenes: 30 | lines with shot: 26
+[PLAN] long 'long_02'  channel=dadi-ki-kahaniyan  story=003_mitthu-ne-sab-bata-diya
+  project:  channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long
+  output:   channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/output
+  cache:    cache/dadi-ki-kahaniyan/003_mitthu-ne-sab-bata-diya/long
+  images:   21 for 30 scenes, all present: True  (channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images)
+  TTS:      57/57 lines cached in channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache
+  music:    5 files, all present: True  shared/music/comedy/Monkeys_Spinning_Monkeys.mp3, shared/music/khushi/Life_of_Riley.mp3, shared/music/tension/Investigations.mp3, shared/music/jaadu/Dreams_Become_Real.mp3, shared/music/seekh/Peaceful_Desolation.mp3
+  sfx:      2 files, all present: True  shared/sfx/comedy_sting_731262.mp3, shared/sfx/tension_sting_578351.mp3
+  font:     shared/fonts/Mukta-ExtraBold.ttf present: True
+  register: shared/assets_license.csv has a row for every music/SFX file (checked)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:38:44Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Build Long 02 preview
+
+`.venv/Scripts/python.exe -X utf8 scripts/make_short.py channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long --preview 2>&1 | tail -40`
+
+```text
+Command running in background with ID: b9baq5baz. Output is being written to: C:\Users\ashamim\AppData\Local\Temp\claude\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7\tasks\b9baq5baz.output. You will be notified when it completes — do not poll that file or sleep while waiting. Read the file only if the user asks for progress, or if you need a line it prints before you can go on, such as a server's ready line or port.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:38:44Z)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="Agent"><details>
+<summary>Tool use: **Agent**</summary>
+Munshi R2 images + thumbnail
+
+```text
+Async agent launched successfully. (This tool result is internal metadata — never quote or paste any part of it, including the agentId below, into a user-facing reply.)
+agentId: a13409c363e3e823c (internal ID - do not mention to user. Use SendMessage with to: 'a13409c363e3e823c', summary: '<5-10 word recap>' to continue this agent.)
+The agent is working in the background. You will be notified automatically when it completes. You know nothing about its results until that notification arrives — do not report, assume, or predict them; continue other work or respond to the user in the meantime.
+Do not duplicate this agent's work — avoid working with the same files or topics it is using.
+output_file: C:\Users\ashamim\AppData\Local\Temp\claude\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7\tasks\a13409c363e3e823c.output
+Do NOT Read or tail this file via the shell tool — it is the full subagent JSONL transcript and reading it will overflow your context. If the user asks for progress, say the agent is still running; you'll get a completion notification.
+```
+</details></tool-use>
+
+_**Agent - sidechain (2026-10-19 11:38:44Z)**_
+
+Auto mode (shared/RULES.md section 14 — NEW version: the only human checkpoint is script approval; no preview approval; uploads are scheduled with a "rok do" veto window). Story 003 "मिट्ठू ने सब बता दिया!" (channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya), long video.
+
+Please do TWO reviews and give a verdict for each:
+
+1. Scene images — Round 2 (R2). Your R1 was FIX: BLOCKERs img 13 (two Dadis), img 09 (Sharma-like customer at Raju's stall), img 26 (Sharma-like man in the crowd); MINOR img 18 (Dadi with two sticks). Prompts were fixed and the four images regenerated: images/scene_09.png, scene_13.png, scene_18.png, scene_26.png (old versions in images/_v1/). R2 = re-check only these four against scene_prompts.json, channel_bible.md and the character sheets (channel characters/ + story characters/). Say whether any BLOCKER remains.
+
+2. Long thumbnail — R1: long/output/long_02_thumbnail.png (1280x720, text "सोना चोरी!" drawn with Mukta via libass; art prompt L02_THUMB_PROMPT in scripts/gen_channel_assets.py; plan in script/PLAN.md section 6 concept A; title in long/meta.json). Check RULES section 6 and 13 thumbnail rules: Hindi matras (zoom in), no spoiler (the cat must not appear), bottom-right corner, 160x90 downscale readability, text not repeating the title word for word, focal point, character looks vs sheets.
+
+Cost so far for the story (cost_log ledger): ₹103.16 of the ₹130 cap. Write your review notes under long/review/ and your log.md lines as usual. In your report, state clearly if any auto-mode STOP condition is hit. Do not spend money and do not upload anything.
+
+_**Agent - sidechain (2026-10-19 11:38:44Z)**_
+
+<system-reminder>
+Your final report is delivered through SubagentHandback: when your work is complete, call SubagentHandback({message: <your full report>}). The call ends your run, so make it your last step. Only a SubagentHandback call reaches your caller as your result; plain text you write at the end is not delivered.
+</system-reminder>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:38:49Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+
+`cd /d/Story-Channel; wc -l shared/RULES.md channels/dadi-ki-kahaniyan/RULES.md channels/dadi-ki-kahaniyan/channel_bible.md channels/dadi-ki-kahaniyan/log.md; ls channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/ channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/* channels/dadi-ki-kahaniyan/characters; ls .claude/skills/`
+
+```text
+  145 shared/RULES.md
+   17 channels/dadi-ki-kahaniyan/RULES.md
+  103 channels/dadi-ki-kahaniyan/channel_bible.md
+   43 channels/dadi-ki-kahaniyan/log.md
+  308 total
+channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/scene_prompts.json
+channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/story.md
+
+channels/dadi-ki-kahaniyan/characters:
+_rejected_pollinations
+dadi_sheet.png
+golu_sheet.png
+mitthu_sheet.png
+pandey_sheet.png
+sharma_sheet.png
+voices
+
+channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/:
+audio
+characters
+images
+long
+refs
+scene_prompts.json
+script
+story.md
+
+channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio:
+tts_cache
+
+channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/characters:
+gupta_sheet.png
+raghu_sheet.png
+sona_sheet.png
+
+channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images:
+_v1
+scene_01.png
+scene_02.png
+scene_03.png
+scene_04.png
+scene_05.png
+scene_06.png
+scene_09.png
+scene_11.png
+scene_12.png
+scene_13.png
+scene_14.png
+scene_15.png
+scene_17.png
+scene_18.png
+scene_22.png
+scene_23.png
+scene_24.png
+scene_25.png
+scene_26.png
+scene_27.png
+scene_29.png
+
+channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long:
+lines.json
+meta.json
+output
+project.json
+review
+shots.json
+thumbnail_work
+
+channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/refs:
+aangan_house.png
+
+channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/script:
+PLAN.md
+script.md
+step-review
+youtube-publish
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:38:48Z)**_
+
+Preview aur Munshi review dono chal rahe hain. Tab tak Short A (cliffhanger) ka folder taiyaar karta hoon. Long 01 ke Short ko namoona bana raha hoon.
+
+_**Agent (claude-opus-5-5 2026-10-19 11:38:52Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Inspect Long 01 Short template and Short plan
+
+`D=channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai; ls $D $D/output; cat $D/project.json $D/meta.json; head -c 1800 $D/lines.json; echo; cat $D/shots.json | head -30; sed -n '/## 7. Shorts/,/## 8/p' channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/script/PLAN.md`
+
+```text
+channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai:
+PLAN.md
+lines.json
+meta.json
+output
+project.json
+review
+shots.json
+thumbnail_work
+
+channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/output:
+short_01_cover.png
+short_01_jadui-kadhai.mp4
+short_01_jadui-kadhai.srt
+short_01_jadui-kadhai.txt
+short_01_jadui-kadhai_framecheck.png
+short_01_jadui-kadhai_preview.mp4
+short_01_jadui-kadhai_work
+upload.json
+upload_result.json
+{
+  "kind": "short",
+  "name": "short_01_jadui-kadhai",
+  "burn_captions": true,
+  "_note": "Short from story 001 (Long 01). 16:9 story images shown through per-shot 9:16 crop windows (crop_x)."
+}
+{
+  "title": "जो डालो, दुगना! जादुई कड़ाही का राज़ | किस्सागो #shorts",
+  "description": "रामपुर के लालची हलवाई घसीटा ने चुरा ली जादुई कड़ाही… पर आगे क्या हुआ? पूरी कहानी चैनल पर देखिए।",
+  "hashtags": [
+    "#shorts",
+    "#किस्सागो",
+    "#HindiKahani",
+    "#MoralStory"
+  ],
+  "tags": [
+    "किस्सागो",
+    "Kissago",
+    "जादुई कड़ाही",
+    "Jadui Kadhai",
+    "लालची हलवाई",
+    "Lalchi Halwai",
+    "हिंदी कहानी",
+    "Hindi Kahani",
+    "Hindi Moral Story",
+    "परिवार की कहानी",
+    "Family Story Hindi",
+    "Hindi Shorts"
+  ],
+  "music_moods": {
+    "jaadu": "jaadu/Enchanted_Valley.mp3",
+    "tension": "tension/Hidden_Agenda.mp3"
+  },
+  "sfx": {
+    "magic": "magic_376747.mp3"
+  },
+  "final_title": "पूरी कहानी चैनल पर",
+  "final_title_secs": 2.0,
+  "end_hold": 2.0,
+  "pinned_comment": "पूरी कहानी — लालची हलवाई और जादुई कड़ाही — चैनल पर देखिए! 🙏",
+  "publish_at": "2026-10-18T21:00:00+05:30",
+  "related_video": "https://youtu.be/Ogfqow8rbGY",
+  "speed": 1.08,
+  "gap": 0.15,
+  "gap_speaker_change": 0.3
+}
+[
+  {"scene": 16, "speaker": "sadhu", "text": "ये जादुई कड़ाही है, बेटा। इसमें जो डालोगे, दुगना हो जाएगा।", "mood": "jaadu", "shots": [[[0.5, 0.72, 1.95, 0.48], 1.5], [[0.5, 0.42, 1.25, 0.72], null]]},
+  {"scene": 17, "speaker": "dadi_story", "text": "उस शाम छोटू ने कड़ाही में एक मुट्ठी आटा डाला... और आटा दो मुट्ठी हो गया!", "sfx_after": "magic", "shot": [0.5, 0.55, 1.15, 0.6]},
+  {"scene": 17, "speaker": "chhotu", "text": "अरे वाह! ये तो सच में जादू है!", "shot": [0.5, 0.42, 1.3, 0.36]},
+  {"scene": 20, "speaker": "dadi_story", "text": "पर ये बात घसीटा की नज़रों से छुपी नहीं रही।", "mood": "tension", "shot": [0.5, 0.5, 1.2, 0.25]},
+  {"scene": 20, "speaker": "ghasita", "text": "आटा? हुँह! उस कड़ाही में तो सोना होना चाहिए... मेरा सोना!", "shot": [0.5, 0.42, 1.2, 0.73]},
+  {"scene": 21, "speaker": "dadi_story", "text": "उसी रात, जब छोटू सो रहा था, घसीटा दबे पाँव आया और कड़ाही चुरा ले गया।", "shots": [[[0.5, 0.72, 1.3, 0.22], 3.0], [[0.5, 0.45, 1.15, 0.72], null]]},
+  {"scene": 22, "speaker": "dadi_story", "text": "दुकान में दीया जलाकर उसने कड़ाही में एक सोने का सिक्का डाला...", "shot": [0.5, 0.42, 1.85, 0.53]},
+  {"scene": 22, "speaker": "ghasita", "text": "चल, दुगना कर!", "
+{
+  "_help": "Every line in lines.json has its own shot/shots override; nothing needed here."
+}
+## 7. Shorts (40-45 s, ₹0: reuse images + TTS, speed 1.08, gaps 0.15/0.3)
+
+- **Short A — cliffhanger (~41-42 s, twist kept):** lines 13, 15, 23, 26, 27, 28, 29, 30, 33, 34: Mitthu 'सोना चोरी! शर्मा जी का सोना चोरी!' → Mrs. Gupta 'सोने का हार' → 'हार चोरी!' → Pandey's report 'सोना... हार... तिजोरी — लिखो, लिखो!' → the crowd turns on Raghu → Raghu: 'मुझे क्यों घूर रहे हैं सब?'; end card 'पूरी कहानी चैनल पर'. It never says that Sona is a cat.
+- **Short B — Mitthu comedy (~43-44 s):** lines 8, 9, 10, 11, 13, 23, 38, 41, 48, 56: Mitthu turns 'सोना कहाँ गई' into 'सोना चोरी!', 'हार चोरी!', then 'सोना बिल्ली!', 'सोना मिल गया!', 'पहले पूछो!'. It reveals the cat, so publish it **after** the long video (a few days later).
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:38:53Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+
+`cd /d/Story-Channel; cat shared/RULES.md channels/dadi-ki-kahaniyan/RULES.md channels/dadi-ki-kahaniyan/channel_bible.md channels/dadi-ki-kahaniyan/log.md; cat .claude/skills/step-review/SKILL.md`
+
+```text
+<persisted-output>
+Output too large (42.2KB). Full output saved to: C:\Users\ashamim\.claude\projects\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7\tool-results\b6vzsp09h.txt
+
+Preview (first 2KB):
+# Munshi RULES — Story-Channel
+
+Shared rules for every channel. Munshi reads this file first, then `channels/<key>/RULES.md`.
+- Channel RULES can be stricter than shared RULES, never looser. Copyright, channel ID, secrets and upload safety can never be relaxed by a channel.
+
+
+These are the hard rules. If a builder summary, a script or a file disagrees with them, the rule wins and the step is not PASS. Edit this file to add new rules; Munshi reads it fresh every time.
+- A measured value outside a RULES limit is always FIX, never PASS, even if small. (in R1; after R2 see section 11)
+
+## 1. Budget
+- Prepaid Google Cloud budget: ₹500, auto-reload off. Current balance is whatever `cost_log.csv` says.
+- Every paid call (Gemini image ≈ ₹3.24 each at 1K, Gemini TTS per line) must be in `cost_log.csv` with date, project, item, ₹.
+- No paid call without the user's OK first. A fix that costs money is always ASK, never FIX.
+- Flag it if a step cost more than 30% above its estimate (e.g. LONG_01 TTS: estimate ₹4.85, actual ₹6.63).
+
+## 2. Story and characters (from `channel_bible.md`)
+- Characters must match their approved sheets: face, clothes, colours, age look. Compare each scene image against the sheet with Read.
+- The action in each image must match what the line says at that moment (who is holding what, who is talking).
+
+## 3. Audio
+- Final loudness: -14 LUFS integrated (±1), true peak ≤ -1.0 dBFS.
+- Music sits under the voice: 12–14 dB below for Shorts, up to ~18–20 dB for narration-heavy long videos. If it is quieter than 20 dB under, flag it.
+- Music level is measured one way only: integrated LUFS of the voice-only stem vs the music-only stem over the same speech sections. Builder and Munshi both use this method.
+- Mood changes get a crossfade (≥1 s). No sudden music cuts under dialogue.
+- No leaked background audio, clicks, or a line cut off mid-word.
+
+## 4. Captions
+- One `.srt` per video, Hindi, UTF-8.
+...
+</persisted-output>
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:38:55Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+
+```bash
+cd /d/Story-Channel/channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya; cat story.md; python -c "
+import json;d=json.load(open('scene_prompts.json',encoding='utf-8'))
+print(type(d), list(d.keys()) if isinstance(d,dict) else len(d))
+" ; ls long/review long/output long/thumbnail_work images/_v1
+```
+
+```text
+# 003 — मिट्ठू ने सब बता दिया! (Long 02, comedy)
+
+- **Type:** comedy in Gulmohar Mohalla. Dadi is in the story (not telling it) and finds the truth by asking questions.
+- **Moral:** सुनी-सुनाई बात बिना जाँचे आगे मत बढ़ाओ। (पहले पूछो, फिर बोलो)
+- **Script:** `script/script.md` (v3, 57 lines, ~4:55) · plan, cost, titles, thumbnails, Shorts: `script/PLAN.md`
+- **Characters:** Dadi, Golu, Mitthu, Inspector Pandey, Sharma ji, Raju (existing); NEW: Raghu (milkman), Mrs. Gupta (first time drawn), Sona (cat)
+
+## Status
+| Item | Status |
+|---|---|
+| Script | v3 approved by the user (title 3 + thumbnail A; narrator voice; FIR comedy instead of an arrest) — Munshi R2 on the changed part |
+| Character sheets | not made |
+| Scene images | not made |
+| TTS | not made |
+| Long video | — |
+| Shorts | planned (A cliffhanger, B Mitthu comedy) |
+| Upload | — |
+<class 'dict'> ['_help', 'out_dir', 'aspect', 'ref_files', 'looks', 'base', 'scenes']
+images/_v1:
+scene_09.png
+scene_13.png
+scene_18.png
+scene_26.png
+
+long/output:
+long_02_thumbnail.png
+long_02_work
+
+long/review:
+images_sheet.jpg
+r1_images_zoom.jpg
+r1_sheets_sona_lap.jpg
+sheets_check.jpg
+
+long/thumbnail_work:
+fonts
+long02_thumb.ass
+long02_thumb_art.png
+long02_thumb_in.png
+long02_thumb_raw.png
+long02_thumb_titled.png
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:38:59Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+
+`cd /d/Story-Channel; f="C:/Users/ashamim/.claude/projects/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/tool-results/b6vzsp09h.txt"; sed -n '/## 2\./,/## 3\./p;/## 6\./,/## 7\./p;/## 11\./,$p' "$f" | head -250`
+
+```text
+## 2. Story and characters (from `channel_bible.md`)
+- Characters must match their approved sheets: face, clothes, colours, age look. Compare each scene image against the sheet with Read.
+- The action in each image must match what the line says at that moment (who is holding what, who is talking).
+
+## 3. Audio
+## 6. Thumbnail
+- 1280×720, JPG or PNG, ≤ 2 MB.
+- Hindi text is rendered by libass/FFmpeg (HarfBuzz shaping), never drawn by the AI. Zoom in and check matras and joined letters (ड़, दु, क्ष, etc.).
+- Text readable on a phone: letter height ≥ ~12% of frame height, high contrast, max ~4 words.
+- Thumbnail text must not repeat the title word for word.
+- No spoilers: no ending, no twist, no mystery answer.
+- Bottom-right corner (~15% × 12%) has nothing important, because YouTube puts the duration there.
+
+## 7. Metadata
+## 11. Review limits and severity
+Every problem Munshi reports is marked BLOCKER or MINOR.
+
+BLOCKER (never waived, in any round):
+- Copyright (section 10), wrong channel, any secret exposed.
+- Wrong character on screen for a line, wrong voice for a character, a line missing or cut off.
+- Caption more than 1 s away from its line, or caption text not matching what is spoken.
+- Loudness outside -14 LUFS ±1, true peak above -1.0 dBFS, audible clipping or leaked outside audio.
+- Wrong resolution/codec, or a preview file used as final.
+- Thumbnail: broken Hindi matras, spoiler, unreadable text, important thing in the bottom-right corner.
+- Metadata: title over 100 chars, more than 15 hashtags, missing CC BY credit, "for kids" wording (title, thumbnail, description or tags), mystery answer revealed.
+- Length outside ±10% of the approved preview length.
+- Story problem: moral missing or a scene that contradicts the script.
+
+MINOR (everything else that breaks a RULES limit only slightly), e.g.: caption off by 0.3–1 s, caption shorter than 0.4 s, music level within 3 dB of target, thumbnail text slightly under the size rule, small silent gaps, missing colour tags, tiny cosmetic issues.
+Taste points (pacing feel, colour choice, music phrase) are "Note" only and never count as problems.
+
+Rounds:
+- Round 1 (R1): full review for that stage; BLOCKER and MINOR both come back as FIX (free) or ASK (paid).
+- Round 2 (R2): re-check only what changed and what failed in R1.
+- After R2: if any BLOCKER remains → ASK the user, stop. If only MINOR remain → verdict "PASS-WITH-NOTES": the stage is passed and the pipeline moves on to the next step (including upload when the user has approved it). No third round.
+- Every MINOR waived after R2 is written to channels/<key>/carry_over.md (project, issue, suggested fix). Before the next video's build, the builder reads carry_over.md and fixes those causes in the pipeline, then marks them done.
+
+These limits never weaken: copyright (section 10), channel ID check, secrets, and the full pre-upload check.
+At the end of each review, add one line to channels/<key>/log.md with the round (R1/R2), verdict and approximate time taken.
+
+## 12. Originality (YouTube "inauthentic content" policy)
+- Every new story must differ clearly from all previous stories of the channel in at least 3 of: moral, main conflict/plot shape, setting, lead characters, genre/tone (comedy, mystery, emotional, adventure), ending type.
+- At script stage Munshi compares the new script with every previous story.md in the channel and lists the closest match and what is different. If fewer than 3 differ -> BLOCKER (ASK the user).
+- Titles and thumbnails must not follow one fixed template word-for-word across videos.
+- The channel name suffix (`title_suffix` in channels/<key>/channel.json, e.g. "| किस्सागो") may stay the same in every title — it is branding. The rest of the title (story name, hook, extra keywords) must vary; do not repeat the same keyword block (like "| Hindi Moral Story | Hindi Kahani") in every video. Rotate keywords or put them in tags/description instead.
+- No two videos may reuse the same narration audio. Shorts cut from their own long video are allowed.
+- Every 5th long video Munshi writes a short "channel variety" note in log.md: genres used, morals used, what to try next.
+
+## 13. Audience & algorithm (CTR, retention, session)
+Long videos:
+- Hook: the first spoken line must start within 1.0 s. The first 30 s must set up the story's main question or conflict. Any frame/intro before the story itself (Dadi-Golu opening) is max 10 s.
+- Promise kept: whatever the title and thumbnail promise (e.g. the magic cauldron) must appear on screen within the first 60 s. A title/thumbnail that promises something the video does not show is a BLOCKER (misleading).
+- Visual change: no single shot stays without a cut or new camera move for more than 8 s.
+- End: the last 20 s carry no essential visuals or captions in the end-screen area, so end-screen elements can sit there. The last spoken line asks viewers one specific question about the story (for comments), not a generic "like and subscribe".
+Shorts:
+- First frame is a strong visual (no title card, no black frame). First word within 0.5 s.
+- Length 30-58 s.
+- Captions and key visuals stay out of the bottom 20% and right 15% (YouTube buttons).
+- Ending is either a cliffhanger towards the long video or a clean loop back to the first frame.
+Thumbnail:
+- Readable at phone size: Munshi downscales it to 160x90 px and checks the main face/emotion and the text are still recognisable.
+- One clear focal point (a face with strong emotion or the key object), max 4 words, high contrast.
+Title:
+- The hook words come in the first 40 characters (mobile cuts long titles). Curiosity is fine, misleading is not.
+Session:
+- Every long video goes into its channel playlist, gets an end screen (next video + subscribe), and every Short from it has Related video = that long (manual Studio checklist).
+Severity: a misleading title/thumbnail is a BLOCKER; the rest are FIX in R1 and MINOR after R2 (section 11).
+
+## 14. Auto mode (after script approval)
+- Human checkpoint: ONLY script approval. After that everything runs automatically without asking for each step: assets (character sheets, voice samples), scene images, TTS, preview, Munshi R1 (FIX items fixed automatically, free or paid within the cap) + R2, final build, Munshi final review, long thumbnail, upload, Auto Short flow (section 8: build, review, upload), first comments, sync.
+- Veto window instead of approval: every video is uploaded as scheduled (private until its slot: long 19:00 IST, Short 21:00 IST), never published immediately. Right after each upload, show the user one status line with the video link and slot. If the user says "rok do" before the slot, run `tools/veto.py <video_id>` (sets the video private and removes publishAt via the API), log it in the channel log.md, and pause the pipeline for that story.
+- Slot: if the pipeline finishes too late for today's slot (long upload after 18:45 IST), use the next day's slot (Short follows section 8).
+- Thumbnails: the long thumbnail is set via the API automatically. Short covers cannot be set by the API: the Short's first frame is its cover (hook visual, no caption in the first 1 s, any text inside 15%-85% of the height); also save a vertical cover file (1080x1920) in the Short's output/ for manual use.
+- Stop conditions (stop and ASK the user):
+  - Per-video budget cap ₹130 total (all paid steps + regenerations). Before every paid call, check the running total for this story in cost_log.csv.
+  - Account floor: the remaining prepaid balance would drop below ₹50 (or the API reports credits depleted).
+  - More than 2 regenerations needed for any scene image.
+  - Any BLOCKER left after R2 (only MINOR left -> PASS-WITH-NOTES, continue).
+  - Any copyright doubt.
+  - Channel ID mismatch.
+- Manual Studio checklist after uploads (the API cannot do these): Related video for the Short = its long video, pin the first comment, and — until the API audit passes — confirm/set the schedule in Studio. Munshi shows it after the uploads and asks about it at the start of the next session until the user confirms.
+- Every auto step is logged in the channel log.md with cost so far, and shown to the user as one short status line.
+- pipeline_queue.json tracks each story's stages (script_approved -> assets -> images -> tts -> preview -> final -> uploaded -> short_uploaded -> done, or stopped/vetoed with the reason).
+# Channel RULES — किस्सागो | Kissago (key: dadi-ki-kahaniyan; formerly दादी की कहानियाँ)
+
+Only the rules special to this channel. Read `shared/RULES.md` first; everything there applies here too.
+- Channel RULES can be stricter than shared RULES, never looser. Copyright, channel ID, secrets and upload safety can never be relaxed by a channel.
+
+## Story and characters (from `channel_bible.md`)
+- Dadi (Kamla Devi) narrates the moral stories. In Gulmohar Mohalla stories where Dadi is herself a character, the narrator voice narrates. Every other character speaks their own lines in their own voice.
+- Mitthu (parrot) has no hands: no hand gestures, holding things or pointing with hands.
+- Dadi's home (in Gulmohar Mohalla): a kacha mud house with a tiled roof, BROWN wooden door, swept aangan, green fields behind, exactly like the channel banner (`channels/dadi-ki-kahaniyan/brand/_work/banner_art.png`). There is no green door.
+- Setting: Dadi's home, the Golu–Mitthu opening/closing frame and all Dadi Jasoos cases are in Gulmohar Mohalla. The story Dadi narrates inside a moral-story video can be set in any village or town the approved script names (e.g. Rampur in LONG_01); check location consistency against that script. Village kitchens still use a mitti ka chulha, never a gas stove.
+
+## Metadata
+- Mystery (Dadi Jasoos) videos: the answer never goes in the title, description or thumbnail. It goes in the pinned comment 24 h after publishing.
+- किस्सागो (Kissago) is set to made_for_kids = false (family audience, decided by the user). So title, thumbnail, description and tags must speak to the whole family, not only to children: no "for kids" / "बच्चों के लिए" / nursery-style wording. Flag any such wording as FIX.
+- Titles end with the channel brand: `title_suffix` from channel.json ("| किस्सागो"). The old suffix "| दादी की कहानियाँ" is not used any more.
+- Thumbnail corner label = `brand_label` from channel.json ("किस्सागो").
+- Dadi, Golu and Mitthu stay the channel's hosts/characters; the mystery series keeps its name "दादी जासूस" (Dadi Jasoos).
+# CHANNEL BIBLE — "किस्सागो | Kissago"
+
+> Channel ka naam: **किस्सागो | Kissago** (18 Oct 2026 se; pehle "दादी की कहानियाँ", usse pehle "दादी जासूस"). Folder/key `dadi-ki-kahaniyan` wahi hai.
+> Dadi, Golu aur Mitthu channel ke host/characters hain. Mystery series ka naam **"दादी जासूस"** hi rahega — Dadi har case ki jaasoos hain.
+> Title ke ant me `| किस्सागो` (channel.json `title_suffix`); thumbnail ke kone me "किस्सागो".
+> Channel art (live since 18 Oct 2026): `brand/kissago_banner_v3.png` (2560x1440, night sky), `brand/kissago_dp_ki.png` (800x800, monogram "कि"), `brand/watermark.png` (150x150); logo files and rules in `brand/BRAND.md`. Older versions kept: `kissago_banner_v2.png`, `kissago_banner.png`, `kissago_dp.png`, `dadi_ki_kahaniyan_banner.png`.
+
+> Har script aur har image isi bible ko follow karegi. Koi bhi naya case likhne ya image banane se pehle ise padho.
+
+---
+
+## 1. Channel
+
+- **Format:** Hindi mystery Shorts, 45–60 sec, 9:16, flat 2D cartoon style.
+- **Har episode ka dhaancha:** ek chhota case → 3 suspects → chhupe clues → end me **"बताओ, दोषी कौन?"** → answer agle Short ya pinned comment me.
+- **Maqsad:** dimaag chalana + halki comedy + ek chhoti seekh.
+- **Tone:** Family-friendly. Koi khoon-kharaba ya darawni cheez nahi.
+
+---
+
+## 2. Permanent Characters (look KABHI nahi badlega)
+## 2. Permanent Characters (look KABHI nahi badlega)
+
+
+### 1. दादी (Kamla Devi)
+### 1. दादी (Kamla Devi)
+- **Look:** ~70 saal, gol chehra, safed baalon ka joora, gol sunehra chashma, halki hari saree with pali border, lakdi ki chhadi, maathe par chhoti bindi.
+- **Look:** ~70 saal, gol chehra, safed baalon ka joora, gol sunehra chashma, halki hari saree with pali border, lakdi ki chhadi, maathe par chhoti bindi.
+- **Swabhav:** shaant, tez nazar, meethi par chubhti baatein.
+- **Swabhav:** shaant, tez nazar, meethi par chubhti baatein.
+- **Catchphrase:** "बेटा, चोर कितना भी चालाक हो... दादी से नहीं बच सकता!"
+- **Catchphrase:** "बेटा, चोर कितना भी चालाक हो... दादी से नहीं बच सकता!"
+
+
+### 2. गोलू
+### 2. गोलू
+- **Look:** ~10 saal ka pota, gol-matol, bikhre kaale baal, peeli T-shirt, neeli half-pant, laal joote.
+- **Look:** ~10 saal ka pota, gol-matol, bikhre kaale baal, peeli T-shirt, neeli half-pant, laal joote.
+- **Swabhav:** jaldbaaz, hamesha galat andaza lagata hai, comedy deta hai.
+- **Swabhav:** jaldbaaz, hamesha galat andaza lagata hai, comedy deta hai.
+- **Catchphrase:** "दादी, मुझे पता है चोर कौन है!" *(aur hamesha galat)*
+- **Catchphrase:** "दादी, मुझे पता है चोर कौन है!" *(aur hamesha galat)*
+
+
+### 3. मिट्ठू
+### 3. मिट्ठू
+> Naam ki spelling har jagah **"मिट्ठू"** (script, captions, title) — user ka faisla 2026-10-19.
+- **Look:** dadi ka hara tota (parrot), laal choonch.
+- **Role:** kabhi-kabhi ek shabd dohrata hai jo clue ban jaata hai.
+
+### 4. Inspector Pandey
+- **Look:** ~45 saal, mote, khaki uniform, ghani moonchh.
+- **Role:** har baar dadi se pehle galat aadmi pakadne ki koshish karta hai, phir dadi se haar maanta hai.
+
+---
+
+## 3. Recurring Side Characters (kabhi-kabhi aayenge, look fixed)
+
+| Character | Look / Pehchaan |
+|---|---|
+| **Sharma ji** (padosi) | ~55 saal, ganja sar with grey side hair, rectangular chashma, cream kurta-pyjama, brown sleeveless jacket. Hamesha kuch khota rehta hai. Ghar ka gate lohe ka (Case 01 se laal paint). |
+| **Pappu doodhwala** | ~30 saal, patla, safed kurta, gale me laal gamchha, purani kaali cycle with 2 steel doodh ke dibbe. |
+| **Mrs. Gupta** (gossip queen) | gulabi saree |
+| **Chaiwala Raju** | ~35 saal, chhoti moonchh, bhoori half-sleeve shirt, kamar par apron, kaali-dhuandaar ketli, mohalle ka chai stall. |
+
+### Case se aaye characters (dobara aayein to yahi look)
+
+| Character | Pehli baar | Look |
+|---|---|---|
+| **Bunty** | Case 01 | ~17 saal, lamba-patla, khade baal, aasmaani shirt, neeli jeans, safed sneakers, college bag. |
+
+---
+
+## 4. New Characters
+
+- Har case ke suspects naye ho sakte hain.
+- Unka look **case file me likho**.
+- Agar dobara aayein to **wahi look** use karo.
+
+---
+
+## 5. Setting — "Gulmohar Mohalla"
+
+- Chhoti galiyan, gulmohar ka ped, chhat, chai stall, park, mandir.
+- **Dadi ka ghar** (mohalle ke kinare): kacha mitti ka ghar, khaprail ki chhat, **bhoora lakdi ka darwaza**, saaf-supa aangan, peeche hare khet. Look reference: `brand/_work/banner_art.png` (channel banner wala aangan). Golu–Mitthu ka opening/closing frame isi aangan me hota hai.
+- Kabhi-kabhi special cases: shaadi, mela, train.
+
+---
+
+## 6. Case Topics
+## 6. Case Topics
+
+
+- **Choriyan:** cycle, haar, mithai, ped ke aam
+- **Choriyan:** cycle, haar, mithai, ped ke aam
+- **Jhooth pakadna:** alibi galat
+- **Jhooth pakadna:** alibi galat
+- **Ajeeb ghatnayein:** raat ko chhat par kaun?
+- **Ajeeb ghatnayein:** raat ko chhat par kaun?
+- **Gayab cheezein / janwar**
+- **Gayab cheezein / janwar**
+
+
+> **Niyam:** Clue hamesha kahani me dikhna chahiye — viewer ke saath imaandari.
+> **Niyam:** Clue hamesha kahani me dikhna chahiye — viewer ke saath imaandari.
+
+
+---
+---
+
+
+## 7. Script Rules
+## 7. Script Rules
+
+- 110–140 words, simple boli jaane wali Hindi.
+- 2-sec hook.
+- Golu ka **ek galat guess**.
+- Dadi ka **ek clue observation**.
+- End me sawal: **"बताओ, दोषी कौन?"**
+- **Answer alag file me.**
+
+---
+
+## 8. Image Rules
+
+- Pehle har permanent character ka ek **reference sheet** banao (front, side, 3 expressions).
+- Har scene image me in references aur in **exact descriptions** ka use karo.
+- **Style:** flat 2D cartoon, moti outlines, garam rang.
+# Munshi log
+2026-10-18 | long_01 | 7 final build | FIX | spec/loudness/captions ok; Mitthu line 2 on Golu shot, Ghasita shot mid-Sadhu line 15, music only ~9-10 LU under voice (builder's 18.4 dB is a metric artefact); ASK pending: aangan frame not Gulmohar Mohalla/hara darwaza
+2026-10-18 | long_01 | 8 thumbnail | PASS | 1280x720 PNG 1.1 MB, Hindi text shaped correctly, no spoiler, BR corner clear; text height ~11% (optional +10% bump)
+2026-10-18 | long_01 | 9 metadata | FIX | 7 hashtags (rule 3-5); no tags list yet for upload; title 81 chars, desc 1514, all 6 CC BY tracks credited ok
+2026-10-18 | long_01 | 7 final build (re-review) | ASK | all 6 builder fixes verified (line 2 Mitthu+box, line 15 Sadhu only, music 13.0 LU under voice by stem method = inside long range 12-20, offsets 3.75s/14.5s, yuv420p tv bt709 matrix, no caption <0.45s); length 5:06 (306.2s) is outside script target ~3:50 +/-10% and 3-5 min range -> user decision
+2026-10-18 | long_01 | 8 thumbnail (re-review) | PASS | 1280x720 PNG 1.09 MB, text 14.3%/13.5% of height, Hindi shaping ok, no spoiler, BR corner clear
+2026-10-18 | long_01 | 9 metadata (re-review) | PASS | title 81, desc 1488, 5 hashtags, 21 tags 375/500 chars (YouTube count), 6 CC BY credits ok, TAGS in long_01.txt = meta.json
+2026-10-18 | long_01 | 7 final build (length, RULES 5 updated) | PASS | user approved 5:06 preview; final 306.17s = preview 306.17s (0%, within +/-10%); long_01.mp4 unchanged since re-review (13:22), 1920x1080 h264 yuv420p 30fps; all re-review checks stand
+2026-10-18 | long_01 | publish dry-run | PASS | upload.json written (channel UCy071_4g4vGemktFHybqkhQ, publish 2026-10-20 19:00 IST, kids=false, synthetic=false, cat 1, no playlist); dry-run OK, no network; copyright register (RULES 10 / assets_license.csv) not yet available -> not reviewed
+2026-10-18 | long_01 | copyright (RULES 10) | PASS | all used assets registered w/ allowed licence (6 Incompetech CC BY 4.0, 3 Freesound CC0, Mukta OFL, 31 scene imgs + 51 TTS + thumb = own Gemini, all in cost_log); 6/6 credits exact in upload.json; mix-voice-music residual = 5 SFX bursts only (floor -98 dB); prompts/text/images clean
+2026-10-18 | long_01 | publish | PUBLISHED | video Ogfqow8rbGY uploaded (scheduled 2026-10-20 19:00 IST requested), thumbnail ok, captions ok, channel UCy071_4g4vGemktFHybqkhQ verified; user must confirm schedule in Studio (unaudited API may lock private)
+2026-10-18 | short_01_jadui-kadhai | preview build R1 (~25 min) | FIX | 51.87s, hook ok, end card 2.0s, music 13.0 LU under voice (stem method), captions match + above bottom 25%, publish 20 Oct 21:00 ok; BLOCKER: scene 22 line 7 shot shows kadhai inside + top of mitti lump (spoiler) -> fy/zoom fix; MINOR: Chhotu's open-mouth face in 0-1.5s hook shot; sharpness acceptable, no ASK
+2026-10-18 | short_01_jadui-kadhai | preview build R2 (~8 min) | PASS | B1 fixed: scene 22 line 7/8 crop shows only coin+rim edge, no kadhai inside/mitti lump (checked preview + simulated 1080x1920 final, start/mid/end of push-in); M1 fixed: hook 0-1.5s kadhai only, Sadhu cut at 1.5s; scenes 17/20/21 from cache, 51.87s unchanged, end card 2.0s, -13.8 LUFS / -1.1 dBTP
+2026-10-18 | short_01_jadui-kadhai | preview build R1 speed 1.08/gap 0.15 (~10 min) | PASS | 47.41s (45-50 ok); atempo ratio 1.075-1.080 on all 8 lines, pitch/voicing/HF same as 1.0x (no warble proxy), no clipped onsets/tails, line gaps ~0.20-0.28s; hook kadhai-only to 1.42s then Sadhu; sc22 coin+rim only; end card 2.0s; music 13.3 LU under voice (stem); -13.8 LUFS / -1.3 dBTP; captions aligned to new line starts; Rs 0 (no new cost_log rows)
+2026-10-18 | short_01_jadui-kadhai | preview build R2 gap 0.15/0.30 (~10 min) | PASS | 48.29s (45-50 ok); voice.wav silence at speaker changes 0.36-0.43s vs same-speaker 6->7 0.28s (TTS edge silence included), line starts match builder log; hook kadhai-only to 1.5s then Sadhu; sc22 coin+rim only; end card 2.05s; music 13.4 LU under voice (stem); -13.8 LUFS / -1.4 dBTP; paid folders (213 files) blob-identical to 464dad0, 7 stray Short wavs in _to_delete match HEAD blobs, line_04 = 464dad0; make_short guard_write+snapshot ok, only writes in paid folder = new TTS into audio/tts_cache with --spend; Rs 0
+2026-10-18 | short_01_jadui-kadhai | 7 final build R1 (~20 min) | FIX | 1080x1920 h264 High yuv420p tv/bt709 30fps + AAC 48k st; 48.30s vs approved preview 48.29s (0%); -13.9 LUFS / -1.3 dBTP; music 13.4 LU under voice (stem, speech sections); residual = magic SFX only; xfade 1.5s; all 8 lines Whisper-timed, line starts exact, chunks within 0.3s (line 5 checked); captions above bottom 25%, Hindi shaping ok; hook kadhai-only to 1.5s then Sadhu; sc22 coin+rim only (start/mid/end); end card 2.0s; right character per line; paid folders: no tracked file modified, 7 D = stray wavs in _to_delete (blob-identical), line_04 = HEAD; MINOR: no .srt in output/ (RULES 4) -> free fix or user waiver
+2026-10-18 | short_01_jadui-kadhai | 9 metadata R1 | PASS | title 63 chars, desc 504, 4 hashtags, 12 tags 201/500, txt TAGS = meta.json, no kids wording, no twist; 2/2 CC BY credits exact from register; publish_at 20 Oct 21:00 IST = 2h after Long 01 19:00 ok, but advance date vs RULES 8 same-day rule -> user decides; Related video = Studio click
+2026-10-18 | short_01_jadui-kadhai | 8 thumbnail R1 | N/A | Shorts: no custom thumbnail planned, RULES 6 has no Shorts requirement; upload.json must carry no thumbnail
+2026-10-18 | short_01_jadui-kadhai | copyright (RULES 10) R1 | PASS | Enchanted Valley + Hidden Agenda CC BY 4.0 (credited exactly), magic_376747 CC0, Mukta-ExtraBold OFL, scene_16/17/20/21/22 + TTS = own Gemini (registered); mix-voice-music residual = SFX only; no brand/franchise in frames or prompts
+2026-10-18 | short_01_jadui-kadhai | 7 final build R2 (~10 min) | PASS | M1 fixed: output/short_01_jadui-kadhai.srt UTF-8 Hindi, 31 cues, text = 8 lines.json lines; cue times = final ASS (scene_16_fe7a/17_34e3/20_8af3/21_38f2/22_db2b per scenes.txt) + scene offsets 0/7.80/19.234/29.168/37.668 within 0.01s; cues inside own line + 0-46.31s < 48.3s; final mp4 unchanged (13856285 B, mtime 17:36:09 before R1, 48.30s); characters/ = 25 files -> 188+25=213 ok
+2026-10-18 | short_01_jadui-kadhai | publish dry-run | PASS | upload.json written (short, parent Ogfqow8rbGY, channel UCy071_4g4vGemktFHybqkhQ, publish 2026-10-20 21:00 IST, kids=false, synthetic=false, cat 1, captions .srt, no thumbnail, no playlist); dry-run OK 1080x1920 h264 48.3s, desc line 1 + 1st comment = parent link; real upload waiting for user's ha after seeing dry-run
+2026-10-18 | short_01_jadui-kadhai | publish slot | USER EXCEPTION | user asked: Short + Long 01 both 2026-10-18 19:00 IST (RULES 8 wants 2 h gap); Long 01 moved by user in Studio to 18 Oct 19:00 (API confirmed)
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:39:04Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+
+`cd /d/Story-Channel/channels/dadi-ki-kahaniyan; tail -20 log.md; cat carry_over.md 2>/dev/null | tail -20; cat ../../.claude/skills/step-review/SKILL.md | sed -n '1,200p' | grep -n -i -A25 "thumbnail\|image" | head -120`
+
+```text
+2026-10-18 | channel | publish slot | USER APPROVED ONE-TIME | 2026-10-18: Case 01 (Short, scheduled 19:00 earlier) and Long 01 both publish at 19:00 IST; short_01_jadui-kadhai at 21:00 (supersedes the earlier 'both 19:00' exception line)
+2026-10-18 | short_01_jadui-kadhai | short->long checklist | video kWn4jKte090 -> long Ogfqow8rbGY | related_video: pending, pin_comment: pending
+2026-10-18 | short_01_jadui-kadhai | publish | PUBLISHED | video kWn4jKte090 uploaded (scheduled 2026-10-18 21:00 IST requested), parent Ogfqow8rbGY, desc line 1 + 1st comment task StoryChannel-Comment-kWn4jKte090 at 21:05 IST (Ready), captions ok, no thumb/playlist, channel UCy071_4g4vGemktFHybqkhQ verified; manual: Related video + pin comment + confirm Scheduled in Studio
+2026-10-18 | channel brand (Kissago rebrand) | brand R1 (~20 min) | FIX | no BLOCKER; Hindi shaping ok (Rozha One/Mukta via libass, स्स conjunct + ि/ो ok), colours ok (marigold F4A300, cream FFF4DC, DP indigo 1F1B4D exact), alpha clean, DP 98/48 + icon 48 recognisable, banner logo+tagline inside safe area, no AI text, prompts clean, thumbs logo bottom-left/top-centre ok; MINOR: desktop/mobile band edge y=931 cuts Mitthu through the eye (reframe, free); register rows 60/63/64 thumbs still say 'text in Mukta' only (add logo/Rozha One, row 60 author); channel_bible line 6 stale banner/DP paths
+2026-10-18 | channel brand (Kissago rebrand) | brand R2 | PASS-WITH-NOTES | banner_v2 zoom 1.28: Mitthu head fully inside desktop band (eye clear), Golu+Dadi faces in band, logo panel+tagline inside mobile safe x507-2053 and readable; register rows 60/63/64 now list logo (Gemini icon + Rozha One/Mukta) + author Kissago; bible line 6 points to banner_v2/dp/watermark/BRAND.md. Notes -> carry_over (panel corner touches Mitthu head; mobile crop shows only Golu, Dadi face cut at right edge)
+2026-10-18 | channel brand (DP v3 + banner v3) | brand R1 (~15 min) | ASK | DP v3 PASS (ring F4A300 inside circle, icon within r~307 of 378 ring, 98/48 ok, indigo 1F1B4D exact); banner v3: logo+tagline bbox x779-1510 y588-910 inside safe, contrast cream 11:1, tagline matras ok, no AI text, faces in desktop band (Golu chin on edge, Mitthu cut at neck = Note); MINOR needing paid regen (~Rs4.86): Golu drawn slim (bible: gol-matol) and thatched roof (bible/RULES: khaprail tiled) -> user decides; Notes: mobile crop shows only Dadi's hand + Mitthu head top, kissago_dp_v2.png has no register row, bible line 6/BRAND.md still point to v2/dp
+2026-10-18 | brand | banner v3 + DP v3 | USER ACCEPTED (live on YouTube) | Munshi R1 ASK closed as option (a): Golu slimmer + thatched roof kept as Notes
+2026-10-18 | channel brand (banner v4) | brand R1 (~12 min) | ASK | no BLOCKER; PASS items: logo+tagline x692-1245 (27-49%) inside safe, tagline cream on indigo ~10:1, matras ok, khaprail tiled roof + brown door ok, Golu chubby per sheet, Dadi raised open palm, no AI text, edges 0-20% atmosphere, register row 75 present, 4.36 MB; MINOR: Mitthu at x2150-2270 (84-89%) outside safe area (absent on mobile) and desktop band edge y931 cuts through his beak, eye visible and NOT under the Edit button (button starts x2266); Golu face y750-915 (52-64%) and Mitthu 60-67% vs spec 40-58%; Mitthu side-profile realistic, not the option-2 big-round-head icon; Golu ear/hair cut at mobile right edge (x2053-2087). Free reframe can't fix all (crop already bottom-aligned; zoom ~1.18 puts Mitthu head inside band but cuts Golu cheek on mobile) -> real fix = regen ~Rs4.86, user decides
+2026-10-18 | channel brand (banner v5) | brand R1 (~10 min) | ASK | no BLOCKER; PASS items: Dadi face x1229-1530 y575-820, Golu face x1779-1997 y690-895, Mitthu head x1930-2015 y765-845 all fully inside desktop band AND mobile safe 507-2053 (only Mitthu tail tip past x2053), nothing under owner Edit button, logo+tagline x640-1203 (25-47%) inside safe with ~60-80 px clear space to Dadi's bun (rule ~33 px), tagline matras/स्स ok, cream on indigo ~12:1, no AI text, Golu chubby, khaprail tiles + brown door, register row 76, 4.38 MB; MINOR (paid-only fix, user's last paid attempt -> user decides, Munshi suggests accept): Mitthu in 3/4 side profile with small head (red beak + thin red ring ok) not the icon's big round front-facing head; group spans 48-82% width (spec 55-76%), Golu face 48-62% height (spec 38-55%). Builder's claim confirmed: Mitthu's head overlaps Golu's hair/ear, no crop hides Mitthu without cutting Golu
+2026-10-18 | brand | DP | USER CHOSE concept C: monogram "कि" (kissago_dp_ki.png), ₹0
+2026-10-19 | 003_mitthu-ne-sab-bata-diya long_02 | 1 script R1 (~25 min) | FIX | no BLOCKER; 58 lines, speakers ok, Mitthu no hands, cat never in distress, moral + viewer question ok, originality vs Case 01 3/6 differ (plot, genre, ending; setting+leads same, moral close) vs Long 01 6/6; MINOR: intro est 9.7-10.0 s (no margin), Sona missing only at ~45 s (first-30-s conflict), length est 301 s under-counts overhead (Long 01 real 0.49 s/line -> ~311-318 s), rates come from Case 01 cache not Long 01, channel RULES "Dadi narrates" vs narrator voice needs user OK + RULES wording, thumb A text = title 1/2 words -> pair with title 3; cost table ok (~Rs88, budget 268.30)
+2026-10-19 | 003_mitthu-ne-sab-bata-diya long_02 | 1 script R2 (~10 min) | ASK | only M4 open (channel RULES "Dadi narrates" vs narrator voice: user decision + RULES wording); M1-M3, M5 verified fixed: 56 lines script.md = lines.json (text, speaker, scene 1-30), intro lines 1-2 end 9.4-9.75 s, Sona missing 31-32 s (conflict at 0 s via hook), total 294-304 s in 4:45-5:15, title 3 + thumb A no repeat; Short A 9 lines no cat word, ~42.6-44.4 s, Short B ~42.9-44.2 s (both near 45 s top -> re-measure after TTS)
+2026-10-19 | 003_mitthu-ne-sab-bata-diya long_02 | 1 script R2b (changed parts, ~12 min) | PASS-WITH-NOTES | FIR beat ok: no arrest/police action vs Raghu (only crowd whispers + Gupta line 33), तिजोरी first at line 29 in report, payoff line 51 report torn + Gupta apology 52; 57 lines script.md = lines.json (speaker/text/scene); est. 296 s; Short A 10 lines no बिल्ली, twist kept, ends on Raghu; all speakers own voices, Mitthu no hands; RULES narrator line + मिट्ठू spelling (0 old spellings in bible/story) verified; originality vs Case 01 still 3/6 (plot, genre, ending); Notes -> carry_over: line 35 'रुकिए, पांडे जी' verbatim Case 01, intro/Short A margins re-measure after TTS, PLAN Sharma sheet cost
+2026-10-19 16:34 | 003 long_02 | AUTO | script approved by user (v3); auto mode to preview started; story cost so far ₹0.00
+2026-10-19 | 003_mitthu-ne-sab-bata-diya long_02 | 3 character sheets R1 (~10 min) | FIX | no BLOCKER; sharma (matches Case 01 scene_01/02: bald, grey sides, rect. glasses, cream kurta-pyjama, brown jacket), raghu (blue check shirt, khaki, green cycle, 2 steel cans; clearly not Pappu), gupta (pink saree gold border, bun, maroon bindi, gold bangles), sona (golden tabby, white paws, green collar+bell, calm/happy in all 6 poses) all consistent across poses, style = channel sheets, 1264x848, labels English only, no franchise look; cost Rs12.96 = estimate (story total 12.96/130, balance 255.34); MINOR free fix: 4 sheets have no rows in shared/assets_license.csv (builder adds as own Gemini assets); no STOP condition
+2026-10-19 16:39 | 003 long_02 | AUTO | character sheets (sharma, raghu, gupta, sona) done ₹12.96; scene images started; story cost so far ₹12.96
+2026-10-19 16:50 | 003 long_02 | AUTO | voice samples ₹0.22 + TTS 56 lines done; real TTS faster than estimate (4:19) -> per-speaker tempo (narrator 0.80, dadi 0.90, others 0.95) + gap 0.4 -> ~4:51 (free); story cost so far see cost_log
+2026-10-19 | 003_mitthu-ne-sab-bata-diya long_02 | 4 scene images R1 (~15 min) | FIX | 21/21 opened full size vs sheets; BLOCKER: img13 two Dadis, img26 duplicate Sharma-lookalike in crowd below, img09 Sharma-lookalike customer at chai stall (Sharma is at home); MINOR: img18 Dadi holds two sticks (stick-on-diary action itself correct); notes: img17/27 Raghu 3 cans (sheet 2), img03 katori on ground not step, img22 katori looks >half full; clues 22/23 readable, no text (diary = scribbles), Mitthu no hands, no police action vs Raghu, red gate lane + aangan consistent; fix = 4 regens x Rs3.24 = Rs12.96 (1st regen each) -> story ~Rs99.92/130, balance ~Rs168.38; no STOP
+2026-10-19 16:56 | 003 long_02 | AUTO STOP | Gemini 402 prepaid credits depleted while regenerating images 09/13/18/26 (Munshi R1 FIX: 3 duplicate-character BLOCKERs + 1 MINOR); nothing charged; cost_log shows ₹181.34 left -> ledger under-counts real billing (input tokens / GST?). Story cost so far ₹86.96 (ledger). ASK user.
+2026-10-19 | 003_mitthu-ne-sab-bata-diya | AUTO resume (RULES 14 v2: only script checkpoint, veto window) | credits back; regen scene 13 ₹3.24 | story cost ₹90.20
+# Carry-over (MINOR issues to fix in pipeline)
+
+| Date | Project | Issue (RULES 13) | Fix | Status |
+|---|---|---|---|---|
+| 2026-10-18 | long_01 (uploaded, not changed) | Dadi–Golu opening ~12.8 s (max 10 s) | builder warns when lines marked `"part": "intro"` end after 10 s; script template section 0 | fixed in pipeline |
+| 2026-10-18 | long_01 (uploaded, not changed) | last spoken line is the moral, not a question to viewers | builder warns if the last spoken line is not a question; script template + step-review Script stage | fixed in pipeline |
+| 2026-10-18 | short_01_jadui-kadhai (uploaded, not changed) | burned captions had 60 px side margins (right 15% not kept free) | caption margins 170 px left/right, bottom 480 px (25%) for all Shorts | fixed in pipeline |
+| 2026-10-18 | brand banner_v2 (R2 PASS-WITH-NOTES) | logo panel bottom-right corner overlaps back of Mitthu's head (~x1300-1400, y850-930) | background re-cropped (gen_brand.reframe zoom 1.28, ax 0.78): Mitthu now clear of the panel | fixed 2026-10-18 |
+| 2026-10-18 | brand banner_v2 (R2 PASS-WITH-NOTES) | mobile safe crop (x507-2053) shows Golu only, Dadi's face cut at right edge | background shifted right (ax 0.78): Dadi now fully outside the mobile crop, Golu fully inside; no cut face | fixed 2026-10-18 |
+| 2026-10-19 | 003 long_02 script (R2 PASS-WITH-NOTES) | line 35 Dadi "रुकिए, पांडे जी।" is word-for-word Case 01's line, and scene 18 (Dadi hand raised "wait") repeats Case 01 scene 8 (RULES 12 gap) | free: reword line 35 (e.g. "ज़रा ठहरिए, पांडे जी।") and give scene 18 a different pose before the scene images | fixed 2026-10-19: line 35 now "ज़रा ठहरिए, पांडे जी।"; scene 18 pose changed to Dadi lowering Pandey's diary with her stick |
+| 2026-10-19 | 003 long_02 script (R2 PASS-WITH-NOTES) | intro lines 1-2 est. 9.4-9.9 s (thin margin to 10 s); Short A est. ~40-41 s (bottom of 40-45 s) | re-measure from real TTS before the preview build; if intro > 10 s or Short A < 40 s, adjust gaps/speed (free) | open |
+| 2026-10-19 | 003 long_02 script (R2 PASS-WITH-NOTES) | PLAN.md still lists Sharma ji's sheet as "recommended" and total ~₹88 | update PLAN.md §2/§4 to the user's decision (sheet yes, ~₹91) | fixed 2026-10-19: PLAN.md: Sharma ji sheet decided, total ~₹91 |
+3:description: Stage-by-stage review checklist for Story-Channel videos (script to thumbnail); returns PASS / FIX / ASK. Used by the munshi agent after every production step.
+4----
+5-
+6-# Step review for Story-Channel
+7-
+8-Use this after every production step of a video in the Story-Channel project. Always read `shared/RULES.md`, then `channels/<key>/RULES.md`, and `channels/<key>/channel_bible.md` first. Verify by opening files yourself; never accept a summary as proof.
+9-
+10-## General method
+11-1. Identify the video folder (e.g. `channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long`) and the stage just finished.
+12-2. List the files the stage produced and confirm each exists, with size and date.
+13-3. Run the stage checklist below. For every item record what you actually opened or measured.
+14-4. Decide the verdict: PASS (all verified), FIX (free fix needed), ASK (paid fix, story change, or taste call).
+15-5. Report in the munshi format and append one line to `channels/<key>/log.md`.
+16-6. Frames/contact sheets you extract go to the video's `review/` as JPG (quality ~85), never PNG. Only `review/*.md` reports are kept in git.
+17-
+18-## Stage checklists
+19-
+20-### 0. New asset added
+21:- Any new music/SFX/font/image from outside: licence verified and row added to assets_license.csv before it is used.
+22-
+23-### 1. Script
+24-- Duration estimate vs target (narration ~2.5 words/sec in Hindi; Gemini Dadi voice runs slower, so add ~25%).
+25-- Every line has a speaker that exists in `channel_bible.md` or in the project's character list.
+26-- Opening hook in the first 10 s; moral stated clearly at the end.
+27-- Long video: the Dadi–Golu opening is max 10 s (lines marked `"part": "intro"`), and the last spoken line is one specific question to viewers about the story (template: `channels/_template/stories/000_story-slug/script/script.md`).
+28-- Mystery videos: the clue is fair and visible, and the answer is not in the title.
+29-- Mitthu never does anything that needs hands.
+30-- Originality: run RULES section 12 checks.
+31-- Algorithm: run RULES section 13 checks.
+32-
+33-### 2. Scene breakdown (`*_SCENES.md`, `shots.json`)
+34-- Every script line maps to a scene; no scene without a line or a music-only note.
+35:- Shared-image scene pairs have a different crop/zoom that actually shows the subject of the line.
+36:- Image count and cost estimate (₹3.24 each) match the plan.
+37-
+38-### 3. Character sheets
+39-- Look at each sheet with Read. Face, clothes, colours, age look match `channel_bible.md` or the approved spec.
+40-- Props are period/setting correct (mitti ka chulha, not gas stove).
+41-
+42:### 4. Scene images
+43:- Make or open a contact sheet. Each image: correct characters, matching their sheets; location consistent; the action of the line is visible (who holds what, who is speaking).
+44:- No garbled AI text in the image, no extra fingers or broken faces in the main subject.
+45-- 16:9 for long, 9:16 for shorts.
+46-
+47-### 5. Voice samples / TTS
+48-- `ffprobe` every wav: duration > 0, no silence-only files.
+49-- Count TTS files = count of spoken lines in `lines.json`.
+50-- Run Whisper on each line and compare the transcript with its text; list mismatches.
+51-- Cost vs estimate; flag if >30% over.
+52-
+53-### 6. Preview build
+54-- `ffprobe`: resolution 960x540, duration vs target.
+55-- Extract one frame per line (mid-line timestamp) and check the right character/scene is on screen.
+56-- Music cue list matches the mood plan; crossfades present.
+57-- Captions: count, and timing of a sample of lines vs Whisper.
+58-- Algorithm: run RULES section 13 checks.
+59-
+60-### 7. Final build
+61-- `ffprobe`: 1920x1080 (or 1080x1920 for shorts), 30 fps, H.264 + AAC.
+62-- Loudness via `ffmpeg -af ebur128` or loudnorm print: -14 LUFS ±1, true peak <= -1.0 dBFS.
+63-- Music level under voice within the RULES range.
+64-- Same frame-per-line check as preview, at full resolution.
+65-- `.srt` present, UTF-8; lines estimated rather than Whisper-timed are listed.
+66-- Duration within the range the user approved at preview.
+67-- Copyright: run the RULES section 10 checks against shared/assets_license.csv. Any miss is FIX.
+68-- Algorithm: run RULES section 13 checks.
+69-
+70:### 8. Thumbnail
+71-- 1280x720, <= 2 MB, jpg/png.
+72-- Zoom on the Hindi text: matras and joined letters correct.
+73-- Text large enough for phone (letter height >= ~12% of frame), <= ~4 words, does not repeat the title.
+74-- No spoiler. Bottom-right corner clear. Characters match their sheets.
+75-- Algorithm: run RULES section 13 checks.
+76-
+77-### 9. Metadata (`meta.json` / `long_XX.txt`)
+78-- Title <= 100 chars, description <= 5000, tags <= 500 chars, 3-5 hashtags.
+79-- Every CC BY music track used is credited.
+80-- Mystery: no answer anywhere; pinned-comment text prepared for after 24 h.
+81-- made_for_kids and AI disclosure taken from `channels/<key>/channel.json`.
+82-- Copyright: run the RULES section 10 checks against shared/assets_license.csv. Any miss is FIX.
+83-- Algorithm: run RULES section 13 checks.
+84-
+85-## Report format
+86-Write in Hinglish, friendly but professional, address the user as "bhai". Keep it short.
+87-
+88-STEP / PROJECT / VERDICT line, then: Kya check kiya, Problems (what, where, suggested fix, cost), Agla kadam.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:39:06Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Show Short A lines and caption code locations
+
+```bash
+.venv/Scripts/python.exe -X utf8 -c "
+import json
+L=json.load(open('channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/lines.json',encoding='utf-8'))
+for i in [13,15,23,26,27,28,29,30,33,34]:
+    l=L[i-1]; print(i, l['scene'], l['speaker'], l.get('mood',''), l['text'])
+"; grep -n "burn\|caption_chunks(l)\|def caption_chunks" scripts/make_short.py | head
+```
+
+```text
+13 9 mitthu comedy सोना चोरी! शर्मा जी का सोना चोरी!
+15 11 gupta  हाय राम! सोना? ज़रूर शर्मा जी की पत्नी का सोने का हार गया होगा!
+23 14 mitthu  हार चोरी! हार चोरी!
+26 15 pandey  शांति! चोरी की रिपोर्ट लिखनी है। बोलो, क्या-क्या गया?
+27 16 gupta  सोना, इंस्पेक्टर साहब! सोने का हार!
+28 16 pandey  सोना... हार... लिखो, लिखो!
+29 16 raju  और तिजोरी भी ख़ाली है, साहब!
+30 16 pandey  तिजोरी भी! लिखो, लिखो!
+33 17 gupta  यही है वो नया आदमी! सुबह यहीं घूम रहा था!
+34 17 raghu  मुझे क्यों घूर रहे हैं सब? मैं तो बस दूध देकर गया था!
+11:burned in) is reused while its inputs are unchanged. The final step only concatenates clips (no re-encode),
+301:def caption_chunks(line):
+435:        if P["burn"]:
+437:                  for l in lines if l["words"] for s, e, txt in caption_chunks(l)]
+649:    """Captions file for upload (long videos don't burn captions into the picture)."""
+650:    cues = [c for l in timed if l["words"] for c in caption_chunks(l)]
+707:            "burn": proj.get("burn_captions", kind == "short"),
+837:    if not a.seconds:  # every video gets an .srt (RULES section 4), also Shorts with burned captions
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:39:05Z)**_
+
+Now the four scene prompts and the images.
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:39:13Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+
+```bash
+cd /d/Story-Channel/channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya; python -X utf8 -c "
+import json;d=json.load(open('scene_prompts.json',encoding='utf-8'))
+print('looks', json.dumps(d['looks'],ensure_ascii=False,indent=0)[:3000])
+sc=d['scenes']
+for s in (sc if isinstance(sc,list) else sc.values()):
+  if str(s.get('id',s.get('scene',''))).lstrip('scene_').lstrip('0') in ('9','13','18','26') or any(k in json.dumps(s) for k in ['scene_09','scene_13','scene_18','scene_26']): print(json.dumps(s,ensure_ascii=False,indent=1))
+"; python -X utf8 -c "
+import json;l=json.load(open('long/lines.json',encoding='utf-8'))
+L=l if isinstance(l,list) else l.get('lines')
+for x in L:
+  if x.get('scene') in (9,13,18,26): print(x)
+"; git log --oneline -3 -- images/scene_13.png; ls -la images/scene_09.png images/scene_13.png images/scene_18.png images/scene_26.png images/_v1; grep -n "scene_0\?9\|scene_13\|scene_18\|scene_26\|003" /d/Story-Channel/cost_log.csv | tail -30
+```
+
+```text
+looks {
+"dadi": "Dadi: Indian grandmother ~70, round face, white hair bun, round golden spectacles, light green saree with yellow border, gold bangles, wooden walking stick, small red bindi",
+"golu": "Golu: CHUBBY Indian boy ~10 with a round face, messy black hair, yellow T-shirt, blue half-pants, white socks, red shoes",
+"mitthu": "Mitthu: green parrot with a red beak and a thin red neck ring (a bird: wings, no hands)",
+"pandey": "Inspector Pandey: plump ~45-year-old police inspector, khaki uniform, thick black moustache, cap",
+"sharma": "Sharma ji: mid-50s neighbour, bald with grey side hair, rectangular spectacles, cream kurta-pyjama, brown sleeveless jacket",
+"raghu": "Raghu the new milkman: slim ~25-year-old, short neat black hair, blue-and-white check shirt, khaki trousers, a GREEN bicycle with two steel milk cans",
+"gupta": "Mrs. Gupta: plump ~50-year-old neighbour, big hair bun, maroon bindi, gold bangles, PINK saree with a thin gold border",
+"sona": "Sona: a golden-orange tabby cat with white paws, green eyes and a small green collar with a tiny golden bell — always calm and happy",
+"raju": "Raju the chaiwala: ~35, small moustache, brown half-sleeve shirt, apron, black sooty kettle at his tea stall"
+}
+{
+ "id": 9,
+ "covers": [
+  9,
+  10
+ ],
+ "refs": [
+  "mitthu",
+  "raju"
+ ],
+ "prompt": "Raju's chai stall at the corner of the lane (as in the Raju reference image: brown shirt, apron, black sooty kettle). {mitthu} flies low over the stall, wings flapping, beak open, shouting; {raju} looks up shocked with the kettle in his hand, and two customers with glasses of chai stare up open-mouthed. Exactly TWO customers at the stall: a young man in a green shirt and a young woman in a salwar-kameez. NO old man, NO bald man, nobody who looks like Sharma ji (he is at home)."
+}
+{
+ "id": 13,
+ "covers": [
+  13
+ ],
+ "refs": [
+  "dadi",
+  "golu",
+  "aangan_house"
+ ],
+ "prompt": "Dadi's swept courtyard (as in the location reference: small mud house with a khaprail clay-tile roof, BROWN wooden door, green fields behind). Only TWO people in the whole picture: {golu} runs in, out of breath and excited, arms waving; and exactly ONE grandmother, {dadi}, sitting calmly on ONE wooden charpai, raising one eyebrow, unconvinced. Draw Dadi only once; there is only one charpai."
+}
+{
+ "id": 18,
+ "covers": [
+  18,
+  19,
+  21
+ ],
+ "refs": [
+  "dadi",
+  "pandey",
+  "sharma",
+  "golu",
+  "scene:15"
+ ],
+ "prompt": "{dadi} has walked calmly through the crowd and gently lowers {pandey}'s open diary with the tip of her wooden walking stick, smiling patiently, as if saying 'first ask the right question'; Pandey looks surprised over his moustache; {sharma} and {golu} watch. Dadi's hand is NOT raised — the stick does the talking. Same place as the earlier scene reference. Dadi has only ONE walking stick and uses that same stick to lower the diary; her other hand is empty and relaxed. No second stick anywhere."
+}
+{
+ "id": 26,
+ "covers": [
+  26
+ ],
+ "refs": [
+  "sharma",
+  "sona",
+  "gate"
+ ],
+ "prompt": "On the roof edge, {sharma} gently hugs {sona} to his chest, laughing with relief, the cat purring happily; below in the lane the neighbours look up and laugh together. Warm and funny. The neighbours below are young and middle-aged men, women and children only: NO bald old man with spectacles, NO white-haired old woman. Sharma ji appears only once (on the roof with Sona)."
+}
+{'scene': 9, 'speaker': 'mitthu', 'mood': 'comedy', 'text': 'सोना चोरी! शर्मा जी का सोना चोरी!'}
+{'scene': 13, 'speaker': 'golu', 'text': 'दादी! दादी! शर्मा जी का सोने का हार चोरी हो गया! और चोर है नया दूधवाला!', 'shot': [0.25, 0.45, 1.7]}
+{'scene': 13, 'speaker': 'dadi', 'text': 'अच्छा? तूने अपनी आँखों से देखा, गोलू?', 'shot': [0.78, 0.45, 1.7]}
+{'scene': 13, 'speaker': 'golu', 'text': 'नहीं... पर सब कह रहे हैं! मिट्ठू ने भी कहा!', 'shot': [0.25, 0.45, 1.7]}
+{'scene': 13, 'speaker': 'dadi', 'text': 'हम्म। सबके कहने से बात सच नहीं हो जाती। चलो, ज़रा देखते हैं।', 'shot': [0.78, 0.45, 1.7]}
+{'scene': 18, 'speaker': 'dadi', 'mood': 'jaadu', 'text': 'ज़रा ठहरिए, पांडे जी। लिस्ट बाद में — पहले ये तो पूछ लीजिए, चोरी हुआ क्या है?', 'shot': [0.55, 0.5, 1.6]}
+{'scene': 18, 'speaker': 'pandey', 'text': 'अरे दादी, सोना, हार, तिजोरी — सब लिखा तो है!', 'shot': [0.73, 0.45, 1.7]}
+{'scene': 26, 'speaker': 'sharma', 'text': 'मेरी सोना! तू यहाँ आराम कर रही थी, और नीचे पूरा मोहल्ला हिल गया!'}
+{'scene': 26, 'speaker': 'narrator', 'sfx_after': 'comedy', 'text': 'नीचे खड़े सब लोग ठहाका मारकर हँस पड़े।'}
+e3e3d54 story 003: sheets, images v1, TTS done; AUTO STOP - Gemini credits depleted
+-rw-r--r-- 1 ashamim 1049089  815414 Oct 19 17:05 images/scene_09.png
+-rw-r--r-- 1 ashamim 1049089  818355 Oct 19 17:04 images/scene_13.png
+-rw-r--r-- 1 ashamim 1049089 1153597 Oct 19 17:06 images/scene_18.png
+-rw-r--r-- 1 ashamim 1049089 1070220 Oct 19 17:06 images/scene_26.png
+
+images/_v1:
+total 3832
+drwxr-xr-x 1 ashamim 1049089       0 Oct 19 16:55 .
+drwxr-xr-x 1 ashamim 1049089       0 Oct 19 16:55 ..
+-rw-r--r-- 1 ashamim 1049089  878667 Oct 19 16:55 scene_09.png
+-rw-r--r-- 1 ashamim 1049089  825610 Oct 19 16:55 scene_13.png
+-rw-r--r-- 1 ashamim 1049089 1183728 Oct 19 16:55 scene_18.png
+-rw-r--r-- 1 ashamim 1049089 1024120 Oct 19 16:55 scene_26.png
+207:2026-10-19 16:46:51,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/dadi_1056ffb8dc274fa5.wav,gemini-3.8-flash-tts,tts 5.1s,0.00115,0.11,56.05,212.25,dadi-ki-kahaniyan
+208:2026-10-19 16:47:01,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/dadi_c3423b3dfdb4db4e.wav,gemini-3.8-flash-tts,tts 7.8s,0.00177,0.17,56.22,212.08,dadi-ki-kahaniyan
+209:2026-10-19 16:47:10,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/golu_6c59ee6320e2efb8.wav,gemini-3.8-flash-tts,tts 4.9s,0.00111,0.11,56.33,211.97,dadi-ki-kahaniyan
+210:2026-10-19 16:47:20,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_17.png,gemini-nano-banana-2.1,1K,0.03360,3.24,59.57,208.73,dadi-ki-kahaniyan
+211:2026-10-19 16:47:21,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/dadi_3a6178c4323b4d6e.wav,gemini-3.8-flash-tts,tts 10.8s,0.00244,0.24,59.81,208.49,dadi-ki-kahaniyan
+212:2026-10-19 16:47:31,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/narrator_fd00fa48daee3136.wav,gemini-3.8-flash-tts,tts 5.0s,0.00114,0.11,59.92,208.38,dadi-ki-kahaniyan
+213:2026-10-19 16:47:41,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/narrator_be504eb5ccc3ba08.wav,gemini-3.8-flash-tts,tts 6.6s,0.00150,0.15,60.07,208.23,dadi-ki-kahaniyan
+214:2026-10-19 16:47:49,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/mitthu_263b007d00331911.wav,gemini-3.8-flash-tts,tts 3.0s,0.00068,0.07,60.14,208.16,dadi-ki-kahaniyan
+215:2026-10-19 16:47:59,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/sharma_5a8f53a9f3f09495.wav,gemini-3.8-flash-tts,tts 5.0s,0.00113,0.11,60.25,208.05,dadi-ki-kahaniyan
+216:2026-10-19 16:48:09,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/narrator_d2e7dd2e305e0f21.wav,gemini-3.8-flash-tts,tts 3.6s,0.00081,0.08,60.33,207.97,dadi-ki-kahaniyan
+217:2026-10-19 16:48:17,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/pandey_e383ae452a4d288e.wav,gemini-3.8-flash-tts,tts 2.7s,0.00061,0.06,60.39,207.91,dadi-ki-kahaniyan
+218:2026-10-19 16:48:23,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_18.png,gemini-nano-banana-2.1,1K,0.03360,3.24,63.63,204.67,dadi-ki-kahaniyan
+219:2026-10-19 16:48:26,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/gupta_6cb1759b938a1480.wav,gemini-3.8-flash-tts,tts 4.5s,0.00103,0.10,63.73,204.57,dadi-ki-kahaniyan
+220:2026-10-19 16:48:34,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/raghu_dd35bf41cdbafe49.wav,gemini-3.8-flash-tts,tts 3.6s,0.00082,0.08,63.81,204.49,dadi-ki-kahaniyan
+221:2026-10-19 16:48:44,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/dadi_28c6df868e03426e.wav,gemini-3.8-flash-tts,tts 9.8s,0.00223,0.22,64.03,204.27,dadi-ki-kahaniyan
+222:2026-10-19 16:48:53,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/golu_172b0fc9b4d6e567.wav,gemini-3.8-flash-tts,tts 2.9s,0.00065,0.06,64.09,204.21,dadi-ki-kahaniyan
+223:2026-10-19 16:48:54,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_22.png,gemini-nano-banana-2.1,1K,0.03360,3.24,67.33,200.97,dadi-ki-kahaniyan
+224:2026-10-19 16:49:03,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/mitthu_1feb970886a15030.wav,gemini-3.8-flash-tts,tts 2.8s,0.00064,0.06,67.39,200.91,dadi-ki-kahaniyan
+225:2026-10-19 16:49:13,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/dadi_3f6848d581c10e11.wav,gemini-3.8-flash-tts,tts 6.0s,0.00137,0.13,67.52,200.78,dadi-ki-kahaniyan
+226:2026-10-19 16:49:26,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_23.png,gemini-nano-banana-2.1,1K,0.03360,3.24,70.76,197.54,dadi-ki-kahaniyan
+227:2026-10-19 16:49:59,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_24.png,gemini-nano-banana-2.1,1K,0.03360,3.24,74.00,194.30,dadi-ki-kahaniyan
+228:2026-10-19 16:50:27,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_25.png,gemini-nano-banana-2.1,1K,0.03360,3.24,77.24,191.06,dadi-ki-kahaniyan
+229:2026-10-19 16:50:59,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_26.png,gemini-nano-banana-2.1,1K,0.03360,3.24,80.48,187.82,dadi-ki-kahaniyan
+230:2026-10-19 16:51:33,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_27.png,gemini-nano-banana-2.1,1K,0.03360,3.24,83.72,184.58,dadi-ki-kahaniyan
+231:2026-10-19 16:52:10,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_29.png,gemini-nano-banana-2.1,1K,0.03360,3.24,86.96,181.34,dadi-ki-kahaniyan
+232:2026-10-19 17:04:11,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_13.png,gemini-nano-banana-2.1,1K,0.03360,3.24,90.20,178.10,dadi-ki-kahaniyan
+233:2026-10-19 17:05:06,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_09.png,gemini-nano-banana-2.1,1K,0.03360,3.24,93.44,174.86,dadi-ki-kahaniyan
+234:2026-10-19 17:06:10,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_18.png,gemini-nano-banana-2.1,1K,0.03360,3.24,96.68,171.62,dadi-ki-kahaniyan
+235:2026-10-19 17:06:50,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_26.png,gemini-nano-banana-2.1,1K,0.03360,3.24,99.92,168.38,dadi-ki-kahaniyan
+236:2026-10-19 17:07:44,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/thumbnail_work/long02_thumb_raw.png,gemini-nano-banana-2.1,1K,0.03360,3.24,103.16,165.14,dadi-ki-kahaniyan
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:39:09Z)**_
+
+Naye niyam ke hisaab se Short ke pehle 1 sec me caption nahi hona chahiye, kyunki pehla frame hi cover banta hai. Builder me iske liye `caption_from` option jod raha hoon.
+
+_**Agent (claude-opus-5-5 2026-10-19 11:39:10Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\scripts\make_short.py`
+
+```text
+403	
+404	def plan_scenes(P, timed, total, prof, font_family, final_title, title_secs=None):
+405	    """Everything needed to render each scene clip, plus its cache hash."""
+406	    focus = P["focus"]
+407	    fps, plans = prof["fps"], []
+408	    shots_all = shot_times(timed, total)
+409	    for idx, (sc, cuts, tags) in enumerate(shots_all):
+410	        fcuts = [round(c * fps) for c in cuts]  # one global frame grid -> no drift between clips
+411	        t0 = fcuts[0] / fps
+412	        spec = focus.get(str(sc), [])
+413	        closes, wide = (spec["closes"], spec.get("wide", True)) if isinstance(spec, dict) else (spec, True)
+414	        # 1 shot: close-up matters more; "wide": false (scene sharing an image with another) -> close-ups only
+415	        cycle = closes if (closes and (len(cuts) == 2 or not wide)) else ["wide"] + closes
+416	        shots, desc = [], []
+417	        for k in range(len(cuts) - 1):
+418	            n = fcuts[k + 1] - fcuts[k]
+419	            shot = tags[k] or cycle[k % len(cycle)]
+420	            if shot == "wide":
+421	                move = MOVE_CYCLE[(idx + k) % len(MOVE_CYCLE)]
+422	                z, x, y = (e.format(n=n) for e in MOVES[move])
+423	                desc.append(move)
+424	            else:
+425	                # x, y: inside the frame-shaped window; optional crop_x/crop_y: where that window sits on a wider or
+426	                # taller image (subject centre, 0-1; default centre) - e.g. a 9:16 Short from 16:9 story images
+427	                fx, fy, zc, *crop = shot
+428	                z = f"{zc}+{zc * 0.06:.3f}*on/{n}"  # slow push-in on the close-up
+429	                x = f"max(0,min(iw-iw/zoom,{fx}*iw-iw/zoom/2))"
+430	                y = f"max(0,min(ih-ih/zoom,{fy}*ih-ih/zoom/2))"
+431	                desc.append(f"close{zc}" + (f"@x{crop[0]}" if crop else ""))
+432	            shots.append((n, z, x, y) + (tuple(crop) if shot != "wide" and crop else ()))
+433	        lines = [l for l in timed if l["scene"] == sc]
+434	        ass = None
+435	        if P["burn"]:
+436	            ev = [f"Dialogue: 0,{ass_time(s - t0)},{ass_time(e - t0)},Cap,,0,0,0,,{txt}"
+437	                  for l in lines if l["words"] for s, e, txt in caption_chunks(l)]
+438	            if idx == len(shots_all) - 1 and final_title:
+439	                t_end = fcuts[-1] / fps - t0
+440	                t_beg = max(0.0, t_end - title_secs) if title_secs else 0.0  # e.g. a 2 s end card only
+441	                ev.append(f"Dialogue: 1,{ass_time(t_beg)},{ass_time(t_end)},Title,,0,0,0,,"
+442	                          f"{{\\fad(300,0)}}{final_title}")
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:39:14Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Find plan_scenes call sites
+
+`grep -n "plan_scenes(\|final_title_secs\|title_secs" scripts/make_short.py`
+
+```text
+404:def plan_scenes(P, timed, total, prof, font_family, final_title, title_secs=None):
+440:                t_beg = max(0.0, t_end - title_secs) if title_secs else 0.0  # e.g. a 2 s end card only
+824:    plans = plan_scenes(P, timed, total, prof, font_family, meta.get("final_title", "बताओ, दोषी कौन?"),
+825:                        meta.get("final_title_secs"))
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:39:17Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+
+`cd /d/Story-Channel; head -1 cost_log.csv; grep 003_mitthu cost_log.csv | awk -F, '{s+=$6} END{print NR, s}'; tail -1 cost_log.csv`
+
+```text
+timestamp,file,model,size,cost_usd,cost_inr,today_total_inr,remaining_inr,channel
+85 99.7
+2026-10-19 17:07:44,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/thumbnail_work/long02_thumb_raw.png,gemini-nano-banana-2.1,1K,0.03360,3.24,103.16,165.14,dadi-ki-kahaniyan
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:39:23Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Add caption_from option to the builder
+
+```bash
+.venv/Scripts/python.exe - <<'EOF'
+from pathlib import Path
+p = Path("scripts/make_short.py"); t = p.read_text(encoding="utf-8")
+reps = [
+("def plan_scenes(P, timed, total, prof, font_family, final_title, title_secs=None):",
+ "def plan_scenes(P, timed, total, prof, font_family, final_title, title_secs=None, caption_from=0.0):"),
+("""            ev = [f"Dialogue: 0,{ass_time(s - t0)},{ass_time(e - t0)},Cap,,0,0,0,,{txt}"
+                  for l in lines if l["words"] for s, e, txt in caption_chunks(l)]""",
+"""            # caption_from: no caption before that second (a Short's first frame is its cover, RULES 14)
+            ev = [f"Dialogue: 0,{ass_time(max(s, caption_from) - t0)},{ass_time(e - t0)},Cap,,0,0,0,,{txt}"
+                  for l in lines if l["words"] for s, e, txt in caption_chunks(l) if e > caption_from + 0.3]"""),
+("""                        meta.get("final_title_secs"))""",
+ """                        meta.get("final_title_secs"), meta.get("caption_from", 0.0))"""),
+]
+for a, b in reps:
+    assert t.count(a) == 1, a[:50]; t = t.replace(a, b)
+p.write_text(t, encoding="utf-8")
+EOF
+grep -n "caption_from" scripts/make_short.py
+```
+
+```text
+404:def plan_scenes(P, timed, total, prof, font_family, final_title, title_secs=None, caption_from=0.0):
+436:            # caption_from: no caption before that second (a Short's first frame is its cover, RULES 14)
+437:            ev = [f"Dialogue: 0,{ass_time(max(s, caption_from) - t0)},{ass_time(e - t0)},Cap,,0,0,0,,{txt}"
+438:                  for l in lines if l["words"] for s, e, txt in caption_chunks(l) if e > caption_from + 0.3]
+826:                        meta.get("final_title_secs"), meta.get("caption_from", 0.0))
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:39:21Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+
+`cd /d/Story-Channel; grep "^2026-10-19" cost_log.csv | grep -v 003_mitthu | cut -d, -f1,2,6`
+
+```text
+2026-10-19 16:38:04,channels/dadi-ki-kahaniyan/characters/sharma_sheet.png,3.24
+2026-10-19 16:40:19,channels/dadi-ki-kahaniyan/characters/voices/raghu_Puck.wav,0.10
+2026-10-19 16:40:26,channels/dadi-ki-kahaniyan/characters/voices/gupta_Despina.wav,0.12
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:39:25Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_13.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:39:25Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_09.png`
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:39:26Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Check scene cache key includes captions
+
+`sed -n 444,452p scripts/make_short.py`
+
+```text
+            ass = ass_doc(font_family, ev)
+        img = P["image_for"](sc)
+        key = sha(RENDER_VERSION, json.dumps(prof, sort_keys=True), sha(img.read_bytes()),
+                  [l["audio_hash"] for l in lines], json.dumps(shots), ass)
+        plans.append({"scene": sc, "t0": t0, "t1": fcuts[-1] / fps, "frames": fcuts[-1] - fcuts[0],
+                      "shots": shots, "ass": ass, "img": img, "key": key, "desc": desc})
+    return plans
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:39:30Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\_v1\scene_09.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:39:34Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+
+```bash
+cd /d/Story-Channel/channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya; python -X utf8 -c "
+import json;d=json.load(open('scene_prompts.json',encoding='utf-8'))
+print(d['ref_files']); print(d['base'][:1500])"
+```
+
+```text
+{'raghu': 'channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/characters/raghu_sheet.png', 'gupta': 'channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/characters/gupta_sheet.png', 'sona': 'channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/characters/sona_sheet.png', 'raju': 'channels/dadi-ki-kahaniyan/stories/002_sharma-ji-ki-cycle/images/scene_04.png', 'gate': 'channels/dadi-ki-kahaniyan/stories/002_sharma-ji-ki-cycle/images/scene_01.png', 'aangan': 'channels/dadi-ki-kahaniyan/brand/_work/banner_art.png', 'aangan_house': 'channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/refs/aangan_house.png'}
+16:9 landscape scene for a family-friendly Hindi comedy cartoon set in Gulmohar Mohalla, a small Indian neighbourhood with narrow lanes, colourful houses and orange-flowered gulmohar trees, flat 2D cartoon, thick bold black outlines, warm colours, flat cel shading, bright morning light. Mitthu is a bird: he only flies, perches, flaps and talks — he never holds anything and has no hands. No text, signs, letters or numbers anywhere (not even on the gate, the diary or shop boards).
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:39:38Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_18.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:39:38Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_26.png`
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:39:41Z)**_
+
+Ab Short A ka folder bana raha hoon: 10 lines, 9:16 crop windows, aur pehle 1 sec me caption nahi.
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:39:54Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+
+`cd /d/Story-Channel/channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya; R=long/review; ffmpeg -v error -y -i images/scene_26.png -vf "crop=260,220,1100,440,scale=780:-1" -q:v 3 $R/r2_img26_rightcrowd.jpg; ffmpeg -v error -y -i images/scene_26.png -vf "crop=280,320,440,40,scale=700:-1" -q:v 3 $R/r2_img26_sharma_sona.jpg; ffmpeg -v error -y -i images/scene_18.png -vf "crop=560,420,560,220,scale=1000:-1" -q:v 3 $R/r2_img18_stick.jpg; ls $R`
+
+```text
+/usr/bin/bash: line 1: ffmpeg: command not found
+/usr/bin/bash: line 1: ffmpeg: command not found
+/usr/bin/bash: line 1: ffmpeg: command not found
+images_sheet.jpg
+r1_images_zoom.jpg
+r1_sheets_sona_lap.jpg
+sheets_check.jpg
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:39:54Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\review\r2_img26_rightcrowd.jpg`
+
+```text
+File does not exist. Note: your current working directory is D:\Story-Channel.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:40:01Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Create Short A folder from long lines
+
+```bash
+.venv/Scripts/python.exe -X utf8 - <<'EOF'
+import json
+from pathlib import Path
+S = Path("channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya")
+L = json.loads((S / "long/lines.json").read_text(encoding="utf-8"))
+D = S / "shorts/short_01_sona-chori"
+(D / "output").mkdir(parents=True, exist_ok=True); (D / "review").mkdir(exist_ok=True)
+shots = {  # long line no. -> shot / shots ([x, y, zoom, crop_x] on the 16:9 image, 9:16 window)
+    13: {"shots": [[[0.5, 0.30, 1.45, 0.48], 1.6], [[0.5, 0.55, 1.1, 0.58], None]], "mood": "comedy"},
+    15: {"shot": [0.5, 0.30, 1.3, 0.68]},
+    23: {"shots": [[[0.5, 0.25, 1.4, 0.61], 1.3], [[0.5, 0.55, 1.0, 0.47], None]]},
+    26: {"shot": [0.5, 0.45, 1.2, 0.48]},
+    27: {"shot": [0.5, 0.50, 1.2, 0.72]},
+    28: {"shot": [0.5, 0.45, 1.3, 0.48]},
+    29: {"shot": [0.5, 0.45, 1.2, 0.88]},
+    30: {"shot": [0.5, 0.40, 1.4, 0.46]},
+    33: {"shot": [0.5, 0.55, 1.2, 0.30], "mood": "tension"},
+    34: {"shot": [0.5, 0.50, 1.15, 0.72]},
+}
+out = []
+for n, extra in shots.items():
+    l = {k: v for k, v in L[n - 1].items() if k not in ("shot", "shots", "mood", "part", "sfx_after")}
+    l.update(extra)
+    out.append(l)
+(D / "lines.json").write_text("[\n" + ",\n".join("  " + json.dumps(l, ensure_ascii=False) for l in out) + "\n]\n", encoding="utf-8")
+(D / "project.json").write_text(json.dumps({"kind": "short", "name": "short_01_sona-chori", "burn_captions": True,
+  "_note": "Short A (cliffhanger) from story 003 / Long 02, long lines 13,15,23,26-30,33,34. 16:9 images through 9:16 crop windows. Never says Sona is a cat."}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+(D / "shots.json").write_text(json.dumps({"_help": "Every line in lines.json has its own shot/shots override; nothing needed here."}, indent=2) + "\n", encoding="utf-8")
+lm = json.loads((S / "long/meta.json").read_text(encoding="utf-8"))
+meta = {
+  "title": "मिट्ठू चिल्लाया \"सोना चोरी!\" — और मोहल्ला पीछे पड़ गया | किस्सागो #shorts",
+  "description": "एक तोते की आधी सुनी बात… और पूरा गुलमोहर मोहल्ला चोर ढूँढने निकल पड़ा! पर क्या सच में कुछ चोरी हुआ था? पूरी कहानी चैनल पर देखिए।",
+  "hashtags": ["#shorts", "#किस्सागो", "#HindiKahani", "#ComedyStory"],
+  "tags": ["किस्सागो", "Kissago", "मिट्ठू", "सोना चोरी", "गुलमोहर मोहल्ला", "हिंदी कहानी", "Hindi Kahani",
+           "Hindi Comedy Story", "परिवार की कहानी", "Family Story Hindi", "Hindi Shorts"],
+  "music_moods": {k: v for k, v in lm["music_moods"].items() if k in ("comedy", "tension")},
+  "sfx": {},
+  "final_title": "पूरी कहानी चैनल पर",
+  "final_title_secs": 2.0,
+  "end_hold": 2.0,
+  "caption_from": 1.0,
+  "pinned_comment": "पूरी कहानी — मिट्ठू, सोना और पूरा मोहल्ला — चैनल पर देखिए! 🙏",
+  "speed": 1.08, "gap": 0.15, "gap_speaker_change": 0.3,
+}
+(D / "meta.json").write_text(json.dumps(meta, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+print(len(out), "lines;", meta["music_moods"], "title len", len(meta["title"]))
+EOF
+```
+
+```text
+10 lines; {'comedy': 'comedy/Monkeys_Spinning_Monkeys.mp3', 'tension': 'tension/Investigations.mp3'} title len 73
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:40:05Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+
+`cd /d/Story-Channel; ls .venv/Scripts | grep -i -E "python|ffmpeg"; where ffmpeg 2>/dev/null; ls /c/ffmpeg* 2>/dev/null; .venv/Scripts/python -c "import PIL;print(PIL.__version__)"; grep -n -i "ffmpeg" scripts/make_short.py | head -5`
+
+```text
+python.exe
+pythonw.exe
+13.0.0
+37:FFMPEG = ROOT / "tools" / "ffmpeg" / "ffmpeg.exe"
+38:if not FFMPEG.exists():  # new system: ffmpeg from winget on PATH (tools/ffmpeg is not in git)
+39:    FFMPEG = Path(shutil.which("ffmpeg") or FFMPEG)
+160:    run([FFMPEG, "-y", "-i", raw, *args, "-ac", "1", "-ar", SR, "-sample_fmt", "s16", out])
+470:    run([FFMPEG, "-y", "-i", p["img"], "-filter_complex", ";".join(fc), "-map", "[out]", "-frames:v", p["frames"],
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:40:06Z)**_
+
+I'll use PIL for crops.
+
+_**Agent (claude-opus-5-5 2026-10-19 11:40:07Z)**_
+
+Short ke manual cover ki file bhi bana raha hoon. Isme koi nayi image nahi lagegi, thumbnail wali art hi use hogi (₹0).
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:40:15Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+
+```bash
+cd /d/Story-Channel/channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya; cat > "C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad/crop.py" <<'EOF'
+import sys
+from PIL import Image
+src,out,x,y,w,h,sc=sys.argv[1:8]
+im=Image.open(src).convert('RGB'); x,y,w,h=map(int,(x,y,w,h)); sc=float(sc)
+c=im.crop((x,y,x+w,y+h)); c=c.resize((int(w*sc),int(h*sc)),Image.LANCZOS); c.save(out,quality=85)
+EOF
+P=/d/Story-Channel/.venv/Scripts/python; C="C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad/crop.py"; R=long/review
+$P $C images/scene_26.png $R/r2_img26_rightcrowd.jpg 1020 440 356 300 2.5
+$P $C images/scene_26.png $R/r2_img26_sharma_sona.jpg 440 40 280 330 2.2
+$P $C images/scene_18.png $R/r2_img18_stick.jpg 560 240 520 340 2
+echo ok
+```
+
+```text
+ok
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:40:15Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\review\r2_img26_rightcrowd.jpg`
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:40:19Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\scripts\gen_channel_assets.py has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:40:20Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\scripts\gen_channel_assets.py has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:40:33Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Make Short A vertical cover file
+
+`.venv/Scripts/python.exe -X utf8 scripts/gen_channel_assets.py long02_short01_cover 2>&1 | tail -2`
+
+```text
+saved D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\shorts\short_01_sona-chori\output\short_01_cover.png (1080, 1920)
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:40:30Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+
+`cd /d/Story-Channel/channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya; P=/d/Story-Channel/.venv/Scripts/python; C="C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad/crop.py"; $P $C images/scene_26.png long/review/r2_img26_kids.jpg 720 450 480 318 2`
+
+```text
+(Bash completed with no output)
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:40:31Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\review\r2_img26_kids.jpg`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:40:31Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\review\r2_img26_sharma_sona.jpg`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:40:34Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\review\r2_img18_stick.jpg`
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:40:35Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\shorts\short_01_sona-chori\output\short_01_cover.png`
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:40:40Z)**_
+
+Cover sahi bana hai: text 25% height par hai aur matrayein theek hain. Preview build ka intezaar hai.
+
+_**Agent (claude-opus-5-5 2026-10-19 11:40:43Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Peek at preview build output tail
+
+`cat "C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/tasks/b9baq5baz.output" | tail -5`
+
+```text
+(Bash completed with no output)
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:40:47Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+
+```bash
+cd /d/Story-Channel/channels/dadi-ki-kahaniyan; cat > "C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad/grid.py" <<'EOF'
+import sys
+from PIL import Image
+out=sys.argv[1]; files=sys.argv[2:]
+W=640
+ims=[Image.open(f).convert('RGB') for f in files]
+ims=[i.resize((W,int(i.height*W/i.width))) for i in ims]
+cols=2; rows=(len(ims)+1)//2; H=max(i.height for i in ims)
+g=Image.new('RGB',(W*cols,H*rows),'white')
+for k,i in enumerate(ims): g.paste(i,((k%cols)*W,(k//cols)*H))
+g.save(out,quality=85)
+EOF
+/d/Story-Channel/.venv/Scripts/python "C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad/grid.py" stories/003_mitthu-ne-sab-bata-diya/long/review/r2_sheets_ref.jpg characters/dadi_sheet.png characters/pandey_sheet.png characters/golu_sheet.png characters/sharma_sheet.png characters/mitthu_sheet.png ../dadi-ki-kahaniyan/stories/002_sharma-ji-ki-cycle/images/scene_04.png
+```
+
+```text
+(Bash completed with no output)
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:40:47Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\review\r2_sheets_ref.jpg`
+</details></tool-use>
+
+_**Agent - sidechain (2026-10-19 11:40:47Z)**_
+
+[Image: original 1280x3438, displayed at 745x2000. Multiply coordinates by 1.72 to map to original image.]
+
+_**Agent (claude-opus-5-5 2026-10-19 11:40:48Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Build Short A preview
+
+`.venv/Scripts/python.exe -X utf8 scripts/make_short.py channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/shorts/short_01_sona-chori --preview 2>&1 | tail -30`
+
+```text
+Command running in background with ID: b2zm407gw. Output is being written to: C:\Users\ashamim\AppData\Local\Temp\claude\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7\tasks\b2zm407gw.output. You will be notified when it completes — do not poll that file or sleep while waiting. Read the file only if the user asks for progress, or if you need a line it prints before you can go on, such as a server's ready line or port.
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:40:50Z)**_
+
+Scene images look clean. Now the thumbnail.
+
+_**Agent (claude-opus-5-5 2026-10-19 11:40:51Z)**_
+
+Long preview, Short A preview aur Munshi review, teeno peeche chal rahe hain. Jo pehle khatam hoga, uska nateeja dekh kar aage badhunga.
+
+_**Agent (claude-opus-5-5 2026-10-19 11:40:52Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Show changed files so far
+
+`git status --short | head -30`
+
+```text
+ M .claude/agents/munshi.md
+ M .claude/skills/youtube-publish/SKILL.md
+ M .specstory/history/2026-10-17_08-25-27Z-pasted-content-id-aeaa.md
+ M CLAUDE.md
+ M PREVIEW.md
+ M channels/dadi-ki-kahaniyan/log.md
+ M channels/dadi-ki-kahaniyan/pipeline_queue.json
+ M channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_09.png
+ M channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_13.png
+ M channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_18.png
+ M channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_26.png
+ M channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/lines.json
+ M cost_log.csv
+ M scripts/gen_channel_assets.py
+ M scripts/make_short.py
+ M shared/RULES.md
+ M shared/sync.log
+?? channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/output/
+?? channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/shots.json
+?? channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/thumbnail_work/
+?? channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/shorts/
+?? tools/veto.py
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:40:57Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+
+```bash
+cd /d/Story-Channel/channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya; ls -la long/output/long_02_thumbnail.png long/output/long_02_work long/thumbnail_work; /d/Story-Channel/.venv/Scripts/python -c "
+from PIL import Image;im=Image.open('long/output/long_02_thumbnail.png');print(im.size,im.mode)"; cat long/meta.json; cat long/thumbnail_work/long02_thumb.ass; sed -n '/^## 6/,/^## 7/p' script/PLAN.md; grep -n -A25 "L02_THUMB_PROMPT *=" /d/Story-Channel/scripts/gen_channel_assets.py | head -40; cat /d/Story-Channel/channels/dadi-ki-kahaniyan/channel.json | grep -E "title_suffix|brand_label"
+```
+
+```text
+-rw-r--r-- 1 ashamim 1049089 1219227 Oct 19 17:08 long/output/long_02_thumbnail.png
+
+long/output/long_02_work:
+total 124032
+drwxr-xr-x 1 ashamim 1049089        0 Oct 19 17:10 .
+drwxr-xr-x 1 ashamim 1049089        0 Oct 19 17:08 ..
+drwxr-xr-x 1 ashamim 1049089        0 Oct 19 17:08 fonts
+-rw-r--r-- 1 ashamim 1049089   143310 Oct 19 17:08 line_01_mitthu.wav
+-rw-r--r-- 1 ashamim 1049089   277846 Oct 19 17:08 line_02_narrator.wav
+-rw-r--r-- 1 ashamim 1049089   428578 Oct 19 17:08 line_03_narrator.wav
+-rw-r--r-- 1 ashamim 1049089   176032 Oct 19 17:08 line_04_sharma.wav
+-rw-r--r-- 1 ashamim 1049089   310592 Oct 19 17:08 line_05_raghu.wav
+-rw-r--r-- 1 ashamim 1049089   251464 Oct 19 17:08 line_06_narrator.wav
+-rw-r--r-- 1 ashamim 1049089   397718 Oct 19 17:08 line_07_narrator.wav
+-rw-r--r-- 1 ashamim 1049089   209544 Oct 19 17:08 line_08_sharma.wav
+-rw-r--r-- 1 ashamim 1049089   173798 Oct 19 17:08 line_09_mitthu.wav
+-rw-r--r-- 1 ashamim 1049089   193226 Oct 19 17:08 line_10_sharma.wav
+-rw-r--r-- 1 ashamim 1049089   143310 Oct 19 17:08 line_11_mitthu.wav
+-rw-r--r-- 1 ashamim 1049089   361532 Oct 19 17:08 line_12_narrator.wav
+-rw-r--r-- 1 ashamim 1049089   162444 Oct 19 17:08 line_13_mitthu.wav
+-rw-r--r-- 1 ashamim 1049089   217626 Oct 19 17:08 line_14_raju.wav
+-rw-r--r-- 1 ashamim 1049089   302562 Oct 19 17:09 line_15_gupta.wav
+-rw-r--r-- 1 ashamim 1049089   208050 Oct 19 17:09 line_16_narrator.wav
+-rw-r--r-- 1 ashamim 1049089   260064 Oct 19 17:09 line_17_gupta.wav
+-rw-r--r-- 1 ashamim 1049089   163388 Oct 19 17:09 line_18_raju.wav
+-rw-r--r-- 1 ashamim 1049089   256172 Oct 19 17:09 line_19_golu.wav
+-rw-r--r-- 1 ashamim 1049089   249144 Oct 19 17:09 line_20_dadi.wav
+-rw-r--r-- 1 ashamim 1049089   177450 Oct 19 17:09 line_21_golu.wav
+-rw-r--r-- 1 ashamim 1049089   389702 Oct 19 17:09 line_22_dadi.wav
+-rw-r--r-- 1 ashamim 1049089   179722 Oct 19 17:09 line_23_mitthu.wav
+-rw-r--r-- 1 ashamim 1049089   265976 Oct 19 17:09 line_24_narrator.wav
+-rw-r--r-- 1 ashamim 1049089   426822 Oct 19 17:09 line_25_narrator.wav
+-rw-r--r-- 1 ashamim 1049089   222798 Oct 19 17:09 line_26_pandey.wav
+-rw-r--r-- 1 ashamim 1049089   167276 Oct 19 17:09 line_27_gupta.wav
+-rw-r--r-- 1 ashamim 1049089   163278 Oct 19 17:09 line_28_pandey.wav
+-rw-r--r-- 1 ashamim 1049089    92324 Oct 19 17:09 line_29_raju.wav
+-rw-r--r-- 1 ashamim 1049089   130638 Oct 19 17:09 line_30_pandey.wav
+-rw-r--r-- 1 ashamim 1049089   191362 Oct 19 17:09 line_31_sharma.wav
+-rw-r--r-- 1 ashamim 1049089   352274 Oct 19 17:09 line_32_narrator.wav
+-rw-r--r-- 1 ashamim 1049089   179588 Oct 19 17:09 line_33_gupta.wav
+-rw-r--r-- 1 ashamim 1049089   203808 Oct 19 17:09 line_34_raghu.wav
+-rw-r--r-- 1 ashamim 1049089   396010 Oct 19 17:09 line_35_dadi.wav
+-rw-r--r-- 1 ashamim 1049089   240078 Oct 19 17:09 line_36_pandey.wav
+-rw-r--r-- 1 ashamim 1049089   276526 Oct 19 17:09 line_37_dadi.wav
+-rw-r--r-- 1 ashamim 1049089   169086 Oct 19 17:09 line_38_sharma.wav
+-rw-r--r-- 1 ashamim 1049089   217808 Oct 19 17:09 line_39_narrator.wav
+-rw-r--r-- 1 ashamim 1049089   165014 Oct 19 17:09 line_40_golu.wav
+-rw-r--r-- 1 ashamim 1049089   128378 Oct 19 17:09 line_41_mitthu.wav
+-rw-r--r-- 1 ashamim 1049089   270980 Oct 19 17:09 line_42_dadi.wav
+-rw-r--r-- 1 ashamim 1049089   415432 Oct 19 17:09 line_43_dadi.wav
+-rw-r--r-- 1 ashamim 1049089   245812 Oct 19 17:09 line_44_golu.wav
+-rw-r--r-- 1 ashamim 1049089   575310 Oct 19 17:09 line_45_dadi.wav
+-rw-r--r-- 1 ashamim 1049089   301970 Oct 19 17:09 line_46_narrator.wav
+-rw-r--r-- 1 ashamim 1049089   398152 Oct 19 17:09 line_47_narrator.wav
+-rw-r--r-- 1 ashamim 1049089   143316 Oct 19 17:09 line_48_mitthu.wav
+-rw-r--r-- 1 ashamim 1049089   252302 Oct 19 17:09 line_49_sharma.wav
+-rw-r--r-- 1 ashamim 1049089   212722 Oct 19 17:09 line_50_narrator.wav
+-rw-r--r-- 1 ashamim 1049089   128718 Oct 19 17:09 line_51_pandey.wav
+-rw-r--r-- 1 ashamim 1049089   225858 Oct 19 17:09 line_52_gupta.wav
+-rw-r--r-- 1 ashamim 1049089   181516 Oct 19 17:09 line_53_raghu.wav
+-rw-r--r-- 1 ashamim 1049089   522160 Oct 19 17:09 line_54_dadi.wav
+-rw-r--r-- 1 ashamim 1049089   144960 Oct 19 17:09 line_55_golu.wav
+-rw-r--r-- 1 ashamim 1049089   135468 Oct 19 17:09 line_56_mitthu.wav
+-rw-r--r-- 1 ashamim 1049089   321892 Oct 19 17:09 line_57_dadi.wav
+-rw-r--r-- 1 ashamim 1049089     3358 Oct 19 17:10 scenes.txt
+-rw-r--r-- 1 ashamim 1049089 98804940 Oct 19 17:10 video.mp4
+-rw-r--r-- 1 ashamim 1049089 13972364 Oct 19 17:09 voice.wav
+
+long/thumbnail_work:
+total 4441
+drwxr-xr-x 1 ashamim 1049089       0 Oct 19 17:08 .
+drwxr-xr-x 1 ashamim 1049089       0 Oct 19 17:08 ..
+drwxr-xr-x 1 ashamim 1049089       0 Oct 19 17:07 fonts
+-rw-r--r-- 1 ashamim 1049089     654 Oct 19 17:07 long02_thumb.ass
+-rw-r--r-- 1 ashamim 1049089 1247860 Oct 19 17:07 long02_thumb_art.png
+-rw-r--r-- 1 ashamim 1049089 1247860 Oct 19 17:07 long02_thumb_in.png
+-rw-r--r-- 1 ashamim 1049089  801746 Oct 19 17:07 long02_thumb_raw.png
+-rw-r--r-- 1 ashamim 1049089 1234423 Oct 19 17:08 long02_thumb_titled.png
+(1280, 720) RGB
+{
+  "title": "आधी बात, पूरा हंगामा! मिट्ठू ने सब बता दिया | किस्सागो",
+  "description": "गुलमोहर मोहल्ले में एक सुबह मिट्ठू ने आधी बात सुनी और चिल्लाने लगा — \"सोना चोरी! सोना चोरी!\" देखते ही देखते बात सोने के हार और तिजोरी तक पहुँच गई, और एक बेचारे नए दूधवाले पर शक होने लगा। फिर दादी ने एक सीधा-सा सवाल पूछा... 🦜😄\n\nसीख: सुनी-सुनाई बात बिना जाँचे आगे मत बढ़ाओ — पहले पूछो, फिर बोलो।\n\nकिस्सागो — हर शाम एक नया किस्सा, जो हँसाए भी और सिखाए भी।",
+  "hashtags": [
+    "#किस्सागो",
+    "#HindiComedy",
+    "#मिट्ठू",
+    "#HindiKahani",
+    "#FamilyStory"
+  ],
+  "tags": [
+    "किस्सागो",
+    "Kissago",
+    "मिट्ठू",
+    "Mitthu Tota",
+    "सोना चोरी",
+    "आधी बात",
+    "अफ़वाह",
+    "Rumour Story Hindi",
+    "हिंदी कॉमेडी कहानी",
+    "Hindi Comedy Cartoon",
+    "गुलमोहर मोहल्ला",
+    "दादी",
+    "परिवार की कहानी",
+    "Family Story Hindi",
+    "मोहल्ले की कहानी",
+    "Hindi Kahani",
+    "सीख वाली कहानी",
+    "Talking Parrot Story"
+  ],
+  "music_moods": {
+    "comedy": "comedy/Monkeys_Spinning_Monkeys.mp3",
+    "khushi": "khushi/Life_of_Riley.mp3",
+    "tension": "tension/Investigations.mp3",
+    "jaadu": "jaadu/Dreams_Become_Real.mp3",
+    "seekh": "seekh/Peaceful_Desolation.mp3"
+  },
+  "sfx": {
+    "comedy": "comedy_sting_731262.mp3",
+    "tension": "tension_sting_578351.mp3"
+  },
+  "pinned_comment": "सबसे बड़ी गलती किसकी थी — मिट्ठू, गुप्ता आंटी या पांडे जी? कमेंट में बताइए! 🦜",
+  "speed": {
+    "narrator": 0.8,
+    "dadi": 0.9,
+    "sharma": 0.95,
+    "golu": 0.95,
+    "raghu": 0.95,
+    "gupta": 0.95,
+    "raju": 0.95
+  },
+  "gap": 0.4,
+  "_pace_note": "Gemini TTS for story 003 came out faster than Long 01 (narrator 2.46 w/s); tempo brings narration to Long 01's storytelling pace (~1.9-2.0 w/s) so the video lands in the approved 4:45-5:15."
+}
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1280
+PlayResY: 720
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Q,Mukta,175,&H0000E5FF,&H000000FF,&H00000000,&H96000000,-1,0,0,0,100,100,0,0,1,12,7,5,0,0,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:01.00,Q,,0,0,0,,{\an5\pos(275,300)\q2}सोना\N{\c&H003050FF&}चोरी!
+## 6. Thumbnail concepts (no spoiler — the cat is never shown)
+
+- **A:** Mitthu big in front, mid-air, beak wide open; behind him Sharma ji clutching his head and a crowd. Text **"सोना चोरी!"** (title promise, on screen at 0 s).
+- **B:** Raghu the milkman with his cans, surrounded by pointing neighbours and Inspector Pandey; Mitthu on a wall shouting. Text **"चोर कौन?"** (Munshi: reads more like a Dadi Jasoos mystery; A fits the comedy better).
+
+## 7. Shorts (40-45 s, ₹0: reuse images + TTS, speed 1.08, gaps 0.15/0.3)
+365:L02_THUMB_PROMPT = """16:9 YouTube thumbnail illustration for a Hindi family comedy cartoon, NO text or letters anywhere.
+366-Setting: a colourful Indian mohalla lane in bright morning light, Sharma ji's red iron gate, an orange gulmohar tree.
+367-RIGHT HALF of the image: Mitthu the green parrot (exactly as in his reference sheet) BIG in the foreground, mid-air with
+368-his wings spread wide and his red beak wide open, shouting excitedly - very funny and dramatic. Just behind him and lower,
+369-Sharma ji (exactly as in his reference sheet: bald with grey side hair, rectangular glasses, cream kurta, brown sleeveless
+370-jacket) clutching his head with both hands, eyes wide, mouth open in comic panic. Behind them, smaller, two or three
+371-surprised neighbours peeking (no other recurring characters).
+372-No cat anywhere in the picture.
+373-COMPOSITION IS CRITICAL: keep the LEFT 42% of the image as a plain, darker, softly blurred warm orange/brown background
+374-with NO characters or objects (a big title goes there). Keep the BOTTOM-RIGHT corner (last 20% of width, bottom 18% of
+375-height) plain and unimportant (YouTube puts the video length there). Faces big, bold, high contrast, readable when small.
+376-Match the flat 2D cartoon style of the references: thick bold outlines, warm colours, flat cel shading."""
+377-
+378-
+379-def long02_thumb():
+380-    raw = L2W / "long02_thumb_raw.png"
+381-    generate(L02_THUMB_PROMPT, raw, refs=[CHAR / "mitthu_sheet.png", CHAR / "sharma_sheet.png"],
+382-             aspect_ratio="16:9", size="1K")
+383-    cover(raw, TW, TH, L2W / "long02_thumb_art.png")
+384-    long02_thumb_text()
+385-
+386-
+387-def long02_thumb_text():
+388-    """Hook "सोना चोरी!" in two big lines in the empty left part; logo bottom-left (bottom-right = timestamp)."""
+389-    fonts = L2W / "fonts"
+390-    fonts.mkdir(parents=True, exist_ok=True)
+  "title_suffix": "| किस्सागो",
+  "brand_label": "किस्सागो",
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:41:02Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\output\long_02_thumbnail.png`
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:41:04Z)**_
+
+Teen kaam peeche chal rahe hain: Long 02 ka preview, Short A ka preview, aur Munshi ka review (images R2 + thumbnail). Inke nateeje aate hi aage badhunga.
+
+**Naya mode (RULES 14) lag gaya**
+- Ab sirf script approval par aapse milna hai. Uske baad poori pipeline upload tak apne aap chalegi.
+- Video turant public nahi hoga. Har video schedule hoga (long 19:00, Short 21:00), aur 18:45 ke baad upload hua toh agle din ka slot milega.
+- Section 8 ki purani "user ka OK" wali line, `CLAUDE.md`, Munshi aur publish skill bhi isi hisaab se badal diye hain.
+
+**"rok do" command: [tools/veto.py](tools/veto.py)**
+- Ye video ko private karta hai aur schedule (publishAt) hata deta hai.
+- Short ka comment task band karta hai, `log.md` me likhta hai, aur us story ki pipeline rok deta hai.
+- Bina `--apply` ke ye sirf dry run hai.
+- Ye nakli video aur nakli YouTube service par test hua, 5/5 test pass. Asli video ko haath nahi lagaya.
+
+**Long 02 ki pragati**
+- Credits wapas aa gaye the, isliye images 09, 13, 18 aur 26 dobara bani. Ab ek hi Dadi hai, Sharma ji ek hi baar hain, aur Dadi ke paas ek hi chhadi hai.
+- Thumbnail "सोना चोरी!" bana; billi nahi dikhti, aur matrayein sahi hain.
+- Short A ("सच में चोरी?") ka vertical cover bhi ban gaya hai. Short ke pehle 1 sec me caption nahi hoga, iske liye builder me naya option joda.
+- **Kharcha:** 5 images × ₹3.24 = ₹16.20. Aaj ka total ₹103.16 hai, aur ₹500 me se ₹165.14 bache hain (hamare hisaab se).
+- **Story ka total:** ₹103.16, cap ₹130 ke andar.
+
+Sync builds aur review ke baad hoga, taaki Munshi ka verdict bhi saath chala jaaye.
+
+⏰ **Short 01 checklist abhi baaki hai:** Related video = Long 01, aur pehla comment pin karna.
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:41:28Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+
+```bash
+cd /d/Story-Channel/channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya; cat > "C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad/thumb.py" <<'EOF'
+from PIL import Image, ImageChops
+import numpy as np
+T='long/output/long_02_thumbnail.png'
+fin=Image.open(T).convert('RGB'); a=Image.open('long/thumbnail_work/long02_thumb_titled.png').convert('RGB'); b=Image.open('long/thumbnail_work/long02_thumb_in.png').convert('RGB')
+print('final==titled', np.abs(np.asarray(fin,int)-np.asarray(a,int)).max())
+d=np.abs(np.asarray(a,int)-np.asarray(b,int)).sum(2)
+# text fill colours: yellow and red
+A=np.asarray(fin,int)
+yel=(A[:,:,0]>200)&(A[:,:,1]>190)&(A[:,:,2]<80)
+red=(A[:,:,0]>200)&(A[:,:,1]<110)&(A[:,:,2]<110)
+for n,m in (('yellow',yel),('red',red)):
+  m2=m.copy(); m2[:, 560:]=False
+  ys,xs=np.nonzero(m2); print(n, xs.min(),xs.max(),ys.min(),ys.max(), 'h%=',(ys.max()-ys.min())/720*100)
+# diff region outside text
+ys,xs=np.nonzero(d>30); print('diff bbox',xs.min(),xs.max(),ys.min(),ys.max())
+# vertical seam
+print('col 560-575 mean',[int(A[:,x].mean()) for x in range(558,578)])
+# BR corner
+c=fin.crop((1088,634,1280,720)); c.resize((576,258)).save('long/review/r1_thumb_brcorner.jpg',quality=85)
+fin.crop((140,140,420,460)).resize((840,960),Image.LANCZOS).save('long/review/r1_thumb_text_zoom.jpg',quality=85)
+fin.crop((560,180,1100,360)).resize((1080,360),Image.LANCZOS).save('long/review/r1_thumb_peekers.jpg',quality=85)
+s=fin.resize((160,90),Image.LANCZOS); s.save('long/review/r1_thumb_160x90.jpg',quality=90)
+s.resize((640,360),Image.NEAREST).save('long/review/r1_thumb_160x90_x4.jpg',quality=90)
+EOF
+/d/Story-Channel/.venv/Scripts/python "C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad/thumb.py"
+```
+
+```text
+final==titled 255
+yellow 181 368 150 244 h%= 13.055555555555557
+red 79 366 325 634 h%= 42.916666666666664
+diff bbox 164 388 137 439
+col 560-575 mean [29, 29, 29, 29, 29, 29, 29, 29, 25, 67, 157, 146, 148, 135, 128, 135, 136, 136, 136, 136]
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:41:28Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\review\r1_thumb_text_zoom.jpg`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:41:35Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\review\r1_thumb_160x90_x4.jpg`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:41:36Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\review\r1_thumb_peekers.jpg`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:41:41Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\review\r1_thumb_brcorner.jpg`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:41:45Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\thumbnail_work\long02_thumb_raw.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:41:50Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+
+`cd /d/Story-Channel; grep -n -i "003\|long_02\|mitthu-ne" shared/assets_license.csv | cut -c1-200`
+
+```text
+80:channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/characters/raghu_sheet.png,own: Gemini-generated character sheet (cost_log.csv),Kissago (channel owner),own (Gemini-generated),,2026-1
+81:channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/characters/gupta_sheet.png,own: Gemini-generated character sheet (cost_log.csv),Kissago (channel owner),own (Gemini-generated),,2026-1
+82:channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/characters/sona_sheet.png,own: Gemini-generated character sheet (cost_log.csv),Kissago (channel owner),own (Gemini-generated),,2026-10
+83:channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/,own: Gemini-generated scene images (cost_log.csv),Kissago (channel owner),own (Gemini-generated),,2026-10-19
+```
+</details></tool-use>
+
+---
+
+_**User (2026-10-19 11:41:54Z)**_
+
+<task-notification>
+<task-id>b2zm407gw</task-id>
+<tool-use-id>toolu_019Nx8wnst2RrSjULz9zN7yA</tool-use-id>
+<output-file>C:\Users\ashamim\AppData\Local\Temp\claude\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7\tasks\b2zm407gw.output</output-file>
+<status>completed</status>
+<summary>Background command "Build Short A preview" completed (exit code 0)</summary>
+</task-notification>
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-19 11:42:01Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Read Short A build output and check CLAUDE.md state
+
+`cat "C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/tasks/b2zm407gw.output"; echo ---; git diff --stat CLAUDE.md; grep -n "Auto mode" -A3 CLAUDE.md | head`
+
+```text
+[SHORT PREVIEW] 540x960 @ 24 fps
+1/4 voice
+  line  1 [mitthu  ]   0.00-  3.01s  proportional (Whisper runs on --final)
+  line  2 [gupta   ]   3.31-  8.47s  proportional (Whisper runs on --final)
+  line  3 [mitthu  ]   8.77- 11.80s  proportional (Whisper runs on --final)
+  line  4 [pandey  ]  12.10- 16.08s  proportional (Whisper runs on --final)
+  line  5 [gupta   ]  16.38- 19.13s  proportional (Whisper runs on --final)
+  line  6 [pandey  ]  19.43- 22.16s  proportional (Whisper runs on --final)
+  line  7 [raju    ]  22.46- 23.74s  proportional (Whisper runs on --final)
+  line  8 [pandey  ]  24.04- 26.14s  proportional (Whisper runs on --final)
+  line  9 [gupta   ]  26.44- 29.33s  proportional (Whisper runs on --final)
+  line 10 [raghu   ]  29.63- 32.98s  proportional (Whisper runs on --final)
+  total 35.0s
+2/4 scenes
+  scene  9:   0.00-  3.21s  NEW    close1.45@x0.48 | close1.1@x0.58
+  scene 11:   3.21-  8.67s  NEW    close1.3@x0.68
+  scene 14:   8.67- 12.00s  NEW    close1.4@x0.61 | close1.0@x0.47
+  scene 15:  12.00- 16.29s  NEW    close1.2@x0.48
+  scene 16:  16.29- 26.33s  NEW    close1.2@x0.72 | close1.3@x0.48 | close1.2@x0.88 | close1.4@x0.46
+  scene 17:  26.33- 35.00s  NEW    close1.2@x0.3 | close1.15@x0.72
+3/4 audio
+  music: Monkeys_Spinning_Monkeys@0s -> Investigations@26s
+4/4 mux (video stream copied, no re-encode)
+
+DONE [preview] D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\shorts\short_01_sona-chori\output\short_01_sona-chori_preview.mp4  (35.0s video)
+  scenes: 0 cache se, 6 naye   |   build time 63s   |   is build ka kharcha ₹0.00
+  captions:    D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\shorts\short_01_sona-chori\output\short_01_sona-chori_preview.srt
+  paid source files unchanged: 112 files checked
+
+[exited with code 0]
+---
+ CLAUDE.md | 10 ++++++----
+ 1 file changed, 6 insertions(+), 4 deletions(-)
+37:## Auto mode (shared/RULES.md section 14)
+38-- Sirf ek human checkpoint: script approval. Uske baad sheets -> images -> voice samples -> TTS -> preview -> Munshi R1 (auto fix) + R2 -> final -> Munshi final -> long thumbnail -> upload -> Auto Short (build, review, upload) -> first comments -> sync, sab apne aap. Preview par user se nahi milna.
+39-- Har video scheduled upload hota hai (slot tak private: long 19:00, Short 21:00), kabhi turant public nahi. Long upload 18:45 IST ke baad ho to agle din ka slot.
+40-- Har upload ke turant baad user ko ek status line: video link + slot. User slot se pehle "rok do" bole to `.\.venv\Scripts\python -X utf8 tools\veto.py <video_id> --apply` chalao (private + publishAt hatao), log.md me likho, us story ki pipeline pause (pipeline_queue.json: vetoed).
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:42:11Z)**_
+
+<think><details><summary>Thought Process</summary>
+Short A ki preview 35.0 sec ki bani, jo 30–58 sec ke range mein hai, par 45–50 sec target ke liye aur lines jodni hongi. Pehle dekhta hoon ki kaun si lines kahani ka raaz nahi kholti.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:42:14Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+List long lines 12-35 for Short selection
+
+```bash
+.venv/Scripts/python.exe -X utf8 -c "
+import json
+L=json.load(open('channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/lines.json',encoding='utf-8'))
+for i in range(12,36):
+    l=L[i-1]; print(i, l['scene'], l['speaker'], l['text'])
+"
+```
+
+```text
+12 8 narrator और बस, मिट्ठू ने पंख फड़फड़ाए और पूरे मोहल्ले के ऊपर उड़ चला।
+13 9 mitthu सोना चोरी! शर्मा जी का सोना चोरी!
+14 10 raju क्या? शर्मा जी का सोना चोरी हो गया? अरे भाई, सुना तुमने?
+15 11 gupta हाय राम! सोना? ज़रूर शर्मा जी की पत्नी का सोने का हार गया होगा!
+16 11 narrator गुप्ता आंटी ने बात को सीधा हार बना दिया।
+17 12 gupta और सुनो, आज सुबह मैंने एक नया आदमी शर्मा जी के घर के पास देखा था!
+18 12 raju नया आदमी? वो नया दूधवाला तो नहीं?
+19 13 golu दादी! दादी! शर्मा जी का सोने का हार चोरी हो गया! और चोर है नया दूधवाला!
+20 13 dadi अच्छा? तूने अपनी आँखों से देखा, गोलू?
+21 13 golu नहीं... पर सब कह रहे हैं! मिट्ठू ने भी कहा!
+22 13 dadi हम्म। सबके कहने से बात सच नहीं हो जाती। चलो, ज़रा देखते हैं।
+23 14 mitthu हार चोरी! हार चोरी!
+24 14 narrator दस मिनट में पूरा मोहल्ला शर्मा जी के गेट पर जमा था।
+25 15 narrator तभी सीटी बजाते हुए इंस्पेक्टर पांडे पहुँचे, और बड़ी गंभीरता से डायरी खोल ली।
+26 15 pandey शांति! चोरी की रिपोर्ट लिखनी है। बोलो, क्या-क्या गया?
+27 16 gupta सोना, इंस्पेक्टर साहब! सोने का हार!
+28 16 pandey सोना... हार... लिखो, लिखो!
+29 16 raju और तिजोरी भी ख़ाली है, साहब!
+30 16 pandey तिजोरी भी! लिखो, लिखो!
+31 16 sharma हार? तिजोरी? अरे, मेरी बात तो सुनो...
+32 17 narrator पर किसी ने नहीं सुनी। तभी रघु लौटा, और भीड़ में कानाफूसी शुरू हो गई।
+33 17 gupta यही है वो नया आदमी! सुबह यहीं घूम रहा था!
+34 17 raghu मुझे क्यों घूर रहे हैं सब? मैं तो बस दूध देकर गया था!
+35 18 dadi ज़रा ठहरिए, पांडे जी। लिस्ट बाद में — पहले ये तो पूछ लीजिए, चोरी हुआ क्या है?
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:42:15Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+
+```bash
+cd /d/Story-Channel/channels/dadi-ki-kahaniyan; cat > stories/003_mitthu-ne-sab-bata-diya/long/review/r2_images_r1_thumbnail.md <<'EOF'
+# Munshi — 003 long_02 — 2026-10-19
+
+## Scene images R2 (img 09, 13, 18, 26) — PASS
+Opened full size + zoom crops (r2_img26_*.jpg, r2_img18_stick.jpg) vs scene_prompts.json, bible, sheets (dadi, golu, pandey, sharma, mitthu; sona; Raju ref = 002 scene_04).
+- 13: exactly one Dadi on one charpai (green saree yellow border, bun, round glasses, one stick), Golu running in (yellow tee, blue shorts, red shoes); khaprail tiled roof, brown door, fields. R1 BLOCKER fixed.
+- 09: Raju (brown shirt, apron, sooty kettle) + Mitthu flying, beak open, no hands; exactly two customers (young man green shirt, young woman salwar-kameez); no old/bald man. R1 BLOCKER fixed.
+- 18: Dadi holds ONE stick, crook end resting on Pandey's open diary (scribbles, no text), other hand empty; Pandey surprised; Sharma + Golu watch at red gate. R1 MINOR fixed.
+- 26: Sharma (only once) on roof hugging Sona (golden tabby, white paws, green collar, happy); crowd below: one grey-haired man in blue shirt with full hair, no glasses, not Sharma-like; no white-haired old woman. R1 BLOCKER fixed.
+Notes (no action): 09 chai stall has a gas burner, same as the approved Raju ref (not a village kitchen, so channel rule not hit); 26 slim boy in yellow tee in the crowd, not Golu's build/shorts; 26 Mitthu perched in tree (fits).
+Regenerations: 1 each (v1 in images/_v1) -> under the 2-regen cap.
+
+## Long thumbnail R1 — FIX (free, minor)
+long/output/long_02_thumbnail.png: 1280x720 RGB PNG, 1.22 MB.
+- Text "सोना चोरी!" (Mukta via libass): सो, ना, चो, री shaped correctly (zoom r1_thumb_text_zoom.jpg); glyph height ~13% each line; 2 words; yellow/red-orange with thick black outline on dark blurred panel.
+- Title "आधी बात, पूरा हंगामा! मिट्ठू ने सब बता दिया | किस्सागो" does not contain the text -> no repeat.
+- No cat anywhere (raw art checked too); no spoiler. Hook = line 1 Mitthu "सोना चोरी!" at 0 s -> promise kept (verify at preview).
+- Bottom-right 15%x12% (x>1088, y>634): plain lane only (r1_thumb_brcorner.jpg). Logo bottom-left.
+- 160x90 (r1_thumb_160x90_x4.jpg): Mitthu face/beak, Sharma panic face and both text lines still recognisable. Focal point = Mitthu.
+- Mitthu = sheet (green, red beak, red ring, no hands); Sharma = sheet.
+MINOR: no row in shared/assets_license.csv for long_02_thumbnail.png (Gemini art + Mukta OFL + Kissago logo) -> add row (free).
+Notes: hard vertical edge at x~567 between blurred panel and art (generated so in raw; style choice); small bald peeker with moustache/yellow shirt at left wall is not Sharma-like (no glasses, dark side hair).
+EOF
+cat >> log.md <<'EOF'
+2026-10-19 | 003_mitthu-ne-sab-bata-diya long_02 | 4 scene images R2 (~10 min) | PASS | img13 one Dadi/one charpai, img09 Raju + 2 young customers (no Sharma-like), img26 Sharma only on roof with Sona, crowd has no bald/glasses man or white-haired woman, img18 one stick resting on Pandey's diary, other hand empty; 1 regen each (cap 2); notes: gas burner at chai stall = approved Raju ref; story cost Rs103.16/130, no STOP
+2026-10-19 | 003_mitthu-ne-sab-bata-diya long_02 | 8 thumbnail R1 (~10 min) | FIX | 1280x720 PNG 1.22 MB; "सोना चोरी!" shaped ok, ~13% height, 2 words, not in title; no cat/spoiler; BR corner plain; 160x90 readable, focal Mitthu; Mitthu+Sharma = sheets; MINOR free: no assets_license.csv row for long_02_thumbnail.png; no STOP
+EOF
+echo done
+```
+
+```text
+done
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:42:26Z)**_
+
+<think><details><summary>Thought Process</summary>
+Long 02 ka preview ban gaya, uska result dekh raha hoon. Saath me Short A me teen lines add kar raha hoon: line 17 pe Gupta aunty ka "नया आदमी", line 31 pe Sharma ji ka "मेरी बात तो सुनो", aur line 35 pe Dadi ka "चोरी हुआ क्या है?" — ye cliffhanger hai, billi wala raaz abhi nahi khulega.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:42:28Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Read Long 02 preview build summary
+
+`grep -v "proportional" "C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/tasks/b9baq5baz.output"`
+
+```text
+  total 291.1s
+2/4 scenes
+  scene  1:   0.00-  8.75s  NEW    in | close1.8 | out
+  scene  2:   8.75- 17.33s  NEW    pan | close1.6 | top
+  scene  3:  17.33- 20.83s  NEW    out | close1.7
+  scene  4:  20.83- 27.21s  NEW    top | close1.6
+  scene  5:  27.21- 32.33s  NEW    in | close1.8
+  scene  6:  32.33- 44.83s  NEW    pan | close1.6 | close1.9 | in | close1.6
+  scene  7:  44.83- 55.29s  NEW    close2.0 | close1.7 | close2.0
+  scene  8:  55.29- 62.62s  NEW    close1.4 | close1.4 | close1.4
+  scene  9:  62.62- 66.29s  NEW    in | close1.9
+  scene 10:  66.29- 70.79s  NEW    close1.7 | close1.7
+  scene 11:  70.79- 81.25s  NEW    out | close1.8 | in | close1.8
+  scene 12:  81.25- 90.17s  NEW    top | close1.7 | close1.7
+  scene 13:  90.17-112.21s  NEW    close1.7 | close1.7 | close1.7 | close1.7
+  scene 14: 112.21-121.29s  NEW    pan | close1.9 | close1.4
+  scene 15: 121.29-134.71s  NEW    out | close1.7 | in | close1.7 | out
+  scene 16: 134.71-150.00s  NEW    close1.7 | close1.7 | close1.8 | close1.7 | close1.7
+  scene 17: 150.00-165.00s  NEW    in | close1.7 | close1.7 | top | close1.7 | close1.7
+  scene 18: 165.00-178.04s  NEW    close1.6 | close1.7
+  scene 19: 178.04-187.08s  NEW    close1.7 | close1.7
+  scene 20: 187.08-197.38s  NEW    close1.4 | close1.4 | close1.8 | close1.9
+  scene 21: 197.38-203.12s  NEW    close1.4 | close1.4
+  scene 22: 203.12-211.62s  NEW    pan | close1.8 | close1.6
+  scene 23: 211.62-228.50s  NEW    close1.7 | close1.8
+  scene 24: 228.50-234.67s  NEW    top | close1.4
+  scene 25: 234.67-245.67s  NEW    in | close1.9 | close1.8 | top
+  scene 26: 245.67-255.38s  NEW    pan | close1.9 | close1.4 | in
+  scene 27: 255.38-262.83s  NEW    close1.7 | close1.7
+  scene 28: 262.83-266.58s  NEW    close1.7 | close1.7
+  scene 29: 266.58-280.46s  NEW    close1.7 | close1.7
+  scene 30: 280.46-291.08s  NEW    close1.8 | close1.7
+3/4 audio
+  music: Monkeys_Spinning_Monkeys@0s -> Life_of_Riley@8s -> Investigations@32s -> Monkeys_Spinning_Monkeys@62s -> Investigations@121s -> Dreams_Become_Real@165s -> Life_of_Riley@228s -> Peaceful_Desolation@255s
+4/4 mux (video stream copied, no re-encode)
+
+DONE [preview] D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\output\long_02_preview.mp4  (291.1s video)
+  scenes: 0 cache se, 30 naye   |   build time 199s   |   is build ka kharcha ₹0.00
+  captions:    D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\output\long_02_preview.srt
+  paid source files unchanged: 112 files checked
+
+[exited with code 0]
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:42:31Z)**_
+
+Long 02 preview: **4:51**, saare 30 scenes naye, build time 199 sec, kharcha ₹0. Section-13 ki chetavaniyan check kar raha hoon aur Short A dobara bana raha hoon.
+
+_**Agent (claude-opus-5-5 2026-10-19 11:43:34Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Check warnings, extend Short A, rebuild preview
+
+```bash
+grep -i -n "warn\|section\|intro\|first word" "C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/tasks/b9baq5baz.output" | head; .venv/Scripts/python.exe -X utf8 - <<'EOF'
+import json
+from pathlib import Path
+S = Path("channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya")
+L = json.loads((S / "long/lines.json").read_text(encoding="utf-8"))
+D = S / "shorts/short_01_sona-chori"
+cur = json.loads((D / "lines.json").read_text(encoding="utf-8"))
+def mk(n, **extra):
+    l = {k: v for k, v in L[n - 1].items() if k not in ("shot", "shots", "mood", "part", "sfx_after")}
+    l.update(extra); return l
+add = {17: mk(17, shot=[0.5, 0.55, 1.2, 0.39]), 31: mk(31, shot=[0.5, 0.45, 1.3, 0.22]),
+       35: mk(35, shots=[[[0.5, 0.50, 1.2, 0.55], 3.5], [[0.5, 0.45, 1.25, 0.73], None]])}
+texts = [l["text"] for l in cur]
+order = [13, 15, 17, 23, 26, 27, 28, 29, 30, 31, 33, 34, 35]
+byn = {n: next(c for c in cur if c["text"] == L[n - 1]["text"]) for n in order if n not in add}
+byn.update(add)
+out = [byn[n] for n in order]
+(D / "lines.json").write_text("[\n" + ",\n".join("  " + json.dumps(l, ensure_ascii=False) for l in out) + "\n]\n", encoding="utf-8")
+p = json.loads((D / "project.json").read_text(encoding="utf-8"))
+p["_note"] = "Short A (cliffhanger) from story 003 / Long 02, long lines 13,15,17,23,26-31,33-35. 16:9 images through 9:16 crop windows. Never says Sona is a cat; ends on Dadi's question."
+(D / "project.json").write_text(json.dumps(p, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+print(len(out))
+EOF
+.venv/Scripts/python.exe -X utf8 scripts/make_short.py channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/shorts/short_01_sona-chori --preview 2>&1 | grep -v proportional | tail -22
+```
+
+```text
+13
+[SHORT PREVIEW] 540x960 @ 24 fps
+1/4 voice
+  total 49.8s
+2/4 scenes
+  scene  9:   0.00-  3.21s  cache  close1.45@x0.48 | close1.1@x0.58
+  scene 11:   3.21-  8.50s  NEW    close1.3@x0.68
+  scene 12:   8.50- 13.21s  NEW    close1.2@x0.39
+  scene 14:  13.21- 16.54s  cache  close1.4@x0.61 | close1.0@x0.47
+  scene 15:  16.54- 20.83s  NEW    close1.2@x0.48
+  scene 16:  20.83- 34.33s  NEW    close1.2@x0.72 | close1.3@x0.48 | close1.2@x0.88 | close1.4@x0.46 | close1.3@x0.22
+  scene 17:  34.33- 41.17s  NEW    close1.2@x0.3 | close1.15@x0.72
+  scene 18:  41.17- 49.79s  NEW    close1.2@x0.55 | close1.25@x0.73
+3/4 audio
+  music: Monkeys_Spinning_Monkeys@0s -> Investigations@34s
+4/4 mux (video stream copied, no re-encode)
+
+DONE [preview] D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\shorts\short_01_sona-chori\output\short_01_sona-chori_preview.mp4  (49.8s video)
+  scenes: 2 cache se, 6 naye   |   build time 49s   |   is build ka kharcha ₹0.00
+  captions:    D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\shorts\short_01_sona-chori\output\short_01_sona-chori_preview.srt
+  paid source files unchanged: 112 files checked
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:42:47Z)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="SubagentHandback"><details>
+<summary>Tool use: **SubagentHandback**</summary>
+
+```text
+{"success":true,"message":"Report delivered to your caller."}
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:43:39Z)**_
+
+<think><details><summary>Thought Process</summary>
+Images R2 pass ho gaya, par Thumbnail R1 me fix chahiye — `shared/assets_license.csv` me thumbnail ki row missing hai. Ab wo row aur Short ke cover ki row dono add kar raha hoon.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:43:41Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Check license register format and thumbnail rows
+
+`head -1 shared/assets_license.csv; grep -n "thumbnail\|cover" shared/assets_license.csv`
+
+```text
+path,source_url,author,license,attribution_text,date_added
+59:channels/dadi-ki-kahaniyan/brand/,own: Gemini-generated banner/DP/thumbnail art + our own libass text in Mukta,Dadi Ki Kahaniyan,own (Gemini-generated),,2026-10-17
+60:channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long/output/long_01_thumbnail.png,"own: Gemini thumbnail art + our libass text in Mukta + brand/logo_horizontal.png (Gemini icon + Rozha One/Mukta, SIL OFL)",Kissago (channel owner),own (Gemini-generated),,2026-10-18
+63:channels/dadi-ki-kahaniyan/stories/002_sharma-ji-ki-cycle/shorts/short_01_case-01/output/case01_thumbnail.png,"own: Gemini thumbnail art + our libass text in Mukta + brand/logo_horizontal.png (Gemini icon + Rozha One/Mukta, SIL OFL)",Kissago (channel owner),own (Gemini-generated),,2026-10-18
+64:channels/dadi-ki-kahaniyan/stories/002_sharma-ji-ki-cycle/shorts/short_01_case-01/output/case01_thumbnail_vertical.png,"own: Gemini thumbnail art + our libass text in Mukta + brand/logo_horizontal.png (Gemini icon + Rozha One/Mukta, SIL OFL)",Kissago (channel owner),own (Gemini-generated),,2026-10-18
+77:channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/output/short_01_cover.png,"own: Long 01 thumbnail art (long/thumbnail_work/long01_thumb_raw.png, Gemini) + libass Mukta text + brand/logo_horizontal.png",Kissago (channel owner),own (Gemini-generated),,2026-10-18
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:43:50Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Add register rows for thumbnail and Short cover
+
+```bash
+tail -c1 shared/assets_license.csv | od -c | head -1; cat >> shared/assets_license.csv <<'EOF'
+channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/output/long_02_thumbnail.png,"own: Gemini thumbnail art + our libass text in Mukta + brand/logo_horizontal.png (Gemini icon + Rozha One/Mukta, SIL OFL)",Kissago (channel owner),own (Gemini-generated),,2026-10-19
+channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/shorts/short_01_sona-chori/output/short_01_cover.png,"own: Long 02 thumbnail art (long/thumbnail_work/long02_thumb_raw.png, Gemini) + libass Mukta ExtraBold text + brand/logo_horizontal.png",Kissago (channel owner),own (Gemini-generated),,2026-10-19
+EOF
+tail -3 shared/assets_license.csv | cut -c1-90
+```
+
+```text
+0000000  \n
+channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/,own: Gemini-generat
+channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/output/long_02_thumbna
+channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/shorts/short_01_sona-chori/
+```
+</details></tool-use>

@@ -401,7 +401,7 @@ def shot_times(timed, total):
     return out
 
 
-def plan_scenes(P, timed, total, prof, font_family, final_title, title_secs=None):
+def plan_scenes(P, timed, total, prof, font_family, final_title, title_secs=None, caption_from=0.0):
     """Everything needed to render each scene clip, plus its cache hash."""
     focus = P["focus"]
     fps, plans = prof["fps"], []
@@ -433,8 +433,9 @@ def plan_scenes(P, timed, total, prof, font_family, final_title, title_secs=None
         lines = [l for l in timed if l["scene"] == sc]
         ass = None
         if P["burn"]:
-            ev = [f"Dialogue: 0,{ass_time(s - t0)},{ass_time(e - t0)},Cap,,0,0,0,,{txt}"
-                  for l in lines if l["words"] for s, e, txt in caption_chunks(l)]
+            # caption_from: no caption before that second (a Short's first frame is its cover, RULES 14)
+            ev = [f"Dialogue: 0,{ass_time(max(s, caption_from) - t0)},{ass_time(e - t0)},Cap,,0,0,0,,{txt}"
+                  for l in lines if l["words"] for s, e, txt in caption_chunks(l) if e > caption_from + 0.3]
             if idx == len(shots_all) - 1 and final_title:
                 t_end = fcuts[-1] / fps - t0
                 t_beg = max(0.0, t_end - title_secs) if title_secs else 0.0  # e.g. a 2 s end card only
@@ -822,7 +823,7 @@ def main():
 
     print("2/4 scenes")
     plans = plan_scenes(P, timed, total, prof, font_family, meta.get("final_title", "बताओ, दोषी कौन?"),
-                        meta.get("final_title_secs"))
+                        meta.get("final_title_secs"), meta.get("caption_from", 0.0))
     cached, new = build_video(plans, prof, cache_dir, work)
 
     print("3/4 audio")

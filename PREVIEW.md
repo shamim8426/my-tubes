@@ -1,6 +1,6 @@
 # Preview — किस्सागो | Kissago
 
-**Budget bacha:** ₹181.34  ·  **Last image:** 2026-10-19 16:52:10
+**Budget bacha:** ₹165.14  ·  **Last image:** 2026-10-19 17:07:44
 
 ## Characters
 
@@ -242,7 +242,7 @@
 
 ![scene_06](channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_06.png)
 
-### scene_09 — ₹3.24 · 2026-10-19 16:43:03
+### scene_09 — ₹3.24 · 2026-10-19 17:05:06
 
 ![scene_09](channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_09.png)
 
@@ -254,7 +254,7 @@
 
 ![scene_12](channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_12.png)
 
-### scene_13 — ₹3.24 · 2026-10-19 16:44:47
+### scene_13 — ₹3.24 · 2026-10-19 17:04:11
 
 ![scene_13](channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_13.png)
 
@@ -270,7 +270,7 @@
 
 ![scene_17](channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_17.png)
 
-### scene_18 — ₹3.24 · 2026-10-19 16:48:23
+### scene_18 — ₹3.24 · 2026-10-19 17:06:10
 
 ![scene_18](channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_18.png)
 
@@ -290,7 +290,7 @@
 
 ![scene_25](channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_25.png)
 
-### scene_26 — ₹3.24 · 2026-10-19 16:50:59
+### scene_26 — ₹3.24 · 2026-10-19 17:06:50
 
 ![scene_26](channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_26.png)
 
