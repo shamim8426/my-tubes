@@ -1,0 +1,12 @@
+{
+  "_help": "Stage tracker (shared/RULES.md section 14). Stages: script_approved -> assets -> images -> tts -> preview_ready -> approved -> final -> uploaded",
+  "stories": {
+    "003_mitthu-ne-sab-bata-diya": {
+      "video": "long",
+      "stage": "images",
+      "budget_cap_inr": 130,
+      "updated": "2026-10-19",
+      "stopped": "Gemini 402: prepaid credits depleted (account floor, RULES 14). 4 image regens pending: 09, 13, 18, 26 (prompts fixed). Thumbnail pending."
+    }
+  }
+}

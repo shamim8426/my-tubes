@@ -34,6 +34,13 @@ Command: `.\.venv\Scripts\python -X utf8 scripts\make_short.py <video folder> [-
 - **Short -> Long checklist:** session shuru hote hi `channels/<key>/log.md` me `related_video: pending` ya `pin_comment: pending` dikhe to user ko yaad dilao (Studio: Related video = long video, first comment pin). User "ho gaya" bole to us line me `related_video: done, pin_comment: done` (aur date) likho.
 - Munshi ka log aur carry-over: `channels/<key>/log.md`, `channels/<key>/carry_over.md`.
 
+## Auto mode (shared/RULES.md section 14)
+- Script approve hone ke baad sheets -> scene images -> voice samples -> TTS -> thumbnail -> PREVIEW tak sab apne aap chalao (paid bhi), har kadam par user se mat poochho.
+- Har paid call se pehle: story ka kul kharcha (cost_log.csv) ₹130 se upar na jaaye, aur bacha balance ₹50 se neeche na aaye — warna ruko aur poochho. Scene image max 2 baar regenerate.
+- Munshi har stage review kare; R1 FIX apne aap theek karo; R2 ke baad sirf MINOR -> aage badho; BLOCKER / copyright shak / channel ID mismatch -> ruko aur poochho.
+- User se sirf script approval aur preview approval par milna. Preview approval = us long video ka upload "ha" (phir final -> Munshi -> upload -> Short flow).
+- Har auto kadam channel log.md me (kharcha ab tak ke saath) aur user ko ek chhoti status line. Stages `channels/<key>/pipeline_queue.json` me.
+
 ## GitHub sync
 - Har milestone ke baad sync chalao: `powershell -NoProfile -ExecutionPolicy Bypass -File tools\sync.ps1 -Message "<project>: <milestone>"`.
   Milestones: script approved, scene images done, TTS done, final build done, thumbnail done, uploaded (Munshi PUBLISHED ke baad).

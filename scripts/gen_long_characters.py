@@ -14,7 +14,9 @@ from paths import ROOT, channel_dir  # noqa: E402
 
 CHAR = channel_dir() / "characters"
 STYLE_REFS = [CHAR / "dadi_sheet.png", CHAR / "golu_sheet.png"]
-STORY_DIRS = {"long_01": channel_dir() / "stories" / "001_lalchi-halwai"}
+STORY_DIRS = {"long_01": channel_dir() / "stories" / "001_lalchi-halwai",
+              "long_02": channel_dir() / "stories" / "003_mitthu-ne-sab-bata-diya"}
+C01 = channel_dir() / "stories" / "002_sharma-ji-ki-cycle" / "images"  # Case 01 scenes (Sharma ji, Raju look refs)
 STYLE_NOTE = ("The attached images are STYLE references only (the channel's approved sheets): match their flat 2D "
               "cartoon style, thick bold black outlines, warm colours, flat cel shading, clean off-white background and "
               "sheet layout with small uppercase labels. Do NOT draw the grandmother or the boy from them.")
@@ -53,6 +55,36 @@ colour, two simple round handles, a band of traditional desi motifs (paisley and
 Show it labelled from: SIDE VIEW, TOP VIEW (looking inside, empty), THREE-QUARTER VIEW, and MAGIC GLOW (same kadhai
 with a soft warm golden glow and a few sparkles). Same object identical in every view. No people, no other objects."""),
     },
+    "long_02": {
+        # value: (file name, prompt[, extra refs[, output dir]]) - Sharma ji is a recurring channel character
+        "sharma": ("sharma_sheet.png", f"""{SHEET}
+Character: Sharma ji, the Gulmohar Mohalla neighbour in his mid-50s, EXACTLY as he looks in the attached Case 01 scene
+images (those images are the truth for his face, glasses, clothes and colours): bald head with grey hair on the sides,
+rectangular spectacles, cream kurta-pyjama, brown sleeveless jacket, slightly round, always a little worried.
+Poses: STANDING CALLING SOMEONE (one hand cupped at his mouth); WORRIED, HOLDING HIS HEAD with both hands;
+HAPPY, GENTLY HUGGING a small cat-shaped empty space at his chest (do not draw a cat).
+Expressions: WORRIED, CONFUSED, RELIEVED SMILE.""", [C01 / "scene_01.png", C01 / "scene_02.png"], CHAR),
+        "raghu": ("raghu_sheet.png", f"""{SHEET}
+Character: Raghu, a new young Indian milkman about 25. Slim, friendly honest face, short neat black hair, clean-shaven.
+Blue-and-white CHECK shirt with rolled sleeves, khaki trousers, brown sandals. He has a GREEN bicycle with two shiny
+steel milk cans hanging at the back (clearly different from the other milkman Pappu, who wears a white kurta with a red
+gamchha and rides a black cycle).
+Poses: STANDING NEXT TO HIS GREEN BICYCLE with the two milk cans (smiling, waving hello); CARRYING ONE MILK CAN in one
+hand; PUZZLED, palms open ('why is everyone staring at me?').
+Expressions: FRIENDLY SMILE, CONFUSED, RELIEVED LAUGH."""),
+        "gupta": ("gupta_sheet.png", f"""{SHEET}
+Character: Mrs. Gupta, the mohalla's chatty neighbour about 50. Plump, expressive face with big eyes, a big hair bun,
+a maroon bindi, gold bangles on both wrists. PINK saree with a thin gold border, worn neatly.
+Poses: GOSSIPING, leaning in with a hand beside her mouth; 'HAI RAM!' both hands on her cheeks; POINTING dramatically.
+Expressions: SHOCKED, EXCITED GOSSIP, EMBARRASSED APOLOGETIC SMILE."""),
+        "sona": ("sona_sheet.png", """Character reference sheet of ONE cat on a plain off-white background, flat 2D cartoon
+with thick bold black outlines, warm colours, flat cel shading, small uppercase labels. Sona, a golden-orange tabby cat
+with soft darker stripes, WHITE paws, big friendly green eyes, a small GREEN collar with a tiny golden bell. Always calm,
+cosy and happy - never scared, never in danger.
+Top row: SITTING (tail around the paws), LAPPING MILK from a small steel bowl, WALKING (side view).
+Bottom row: SLEEPING CURLED UP in the sun (eyes closed, content), HAPPY FACE close-up, YAWNING.
+The cat must look identical in every pose. No people, no scenery."""),
+    },
 }
 
 if __name__ == "__main__":
@@ -60,7 +92,10 @@ if __name__ == "__main__":
     names = sys.argv[2:] or list(SPECS[vid])
     out_dir = STORY_DIRS[vid] / "characters"
     for name in names:
-        fname, prompt = SPECS[vid][name]
+        fname, prompt, *more = SPECS[vid][name]  # optional: extra refs, output dir (recurring channel characters)
+        extra_refs = more[0] if more else []
+        target = (more[1] if len(more) > 1 else out_dir) / fname
         t0 = time.time()
-        out = generate(f"{prompt}\n\n{STYLE_NOTE}", out_dir / fname, refs=STYLE_REFS, aspect_ratio="3:2", size="1K")
+        out = generate(f"{prompt}\n\n{STYLE_NOTE}", target, refs=STYLE_REFS + list(extra_refs), aspect_ratio="3:2",
+                       size="1K")
         print(f"saved {out}  ({time.time() - t0:.0f}s)", flush=True)

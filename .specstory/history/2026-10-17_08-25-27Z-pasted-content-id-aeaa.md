@@ -54303,3 +54303,2662 @@ ok
 | 2026-10-19 | 003 long_02 script (R2 PASS-WITH-NOTES) | PLAN.md still lists Sharma ji's sheet as "recommended" and total ~₹88 | update PL
 ```
 </details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 10:55:40Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Mark carry-over fixes and sync
+
+```bash
+.venv/Scripts/python.exe -X utf8 -c "
+from pathlib import Path
+p=Path('channels/dadi-ki-kahaniyan/carry_over.md'); lines=p.read_text(encoding='utf-8').split('\n'); n=0
+for i,l in enumerate(lines):
+  if '003 long_02 script' in l and ('line 35' in l or 'PLAN.md still lists' in l) and l.rstrip().endswith('| open |'):
+    note = 'line 35 now \"ज़रा ठहरिए, पांडे जी।\"; scene 18 pose changed to Dadi lowering Pandey\'s diary with her stick' if 'line 35' in l else 'PLAN.md: Sharma ji sheet decided, total ~₹91'
+    lines[i]=l.rstrip()[:-len('| open |')]+f'| fixed 2026-10-19: {note} |'; n+=1
+p.write_text('\n'.join(lines),encoding='utf-8'); print('fixed rows',n)" && powershell -NoProfile -ExecutionPolicy Bypass -File tools/sync.ps1 -Message "story 003: script v3 approved (FIR comedy, narrator rule, मिट्ठू spelling); Munshi R2 PASS-WITH-NOTES" >/dev/null 2>&1; tail -1 shared/sync.log
+```
+
+```text
+fixed rows 2
+2026-10-19 16:25:39  pushed: story 003: script v3 approved (FIR comedy, narrator rule, मिट्ठू spelling); Munshi R2 PASS-WITH-NOTES  (repo pack size 337 MB)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 10:56:01Z)**_
+
+Script v3 final ho gaya. Munshi R2 me **PASS-WITH-NOTES** aaya, aur sab GitHub par sync hai. Ab character sheets ka paid kadam hai, jo aapki "ha" ke baad hi chalega.
+
+## Jo hua (₹0)
+- **Narrator ka niyam:** channel RULES me jod diya: "Dadi moral kahaniyan sunati hain; jin mohalla kahaniyon me Dadi khud kirdaar hain, wahan narrator awaaz narration karti hai."
+- **Spelling:** bible me "मिट्ठू" kar diya, saath me note bhi. Story 003 ki saari files me bhi yahi spelling hai.
+- **Script v3:** "चलो थाने!" hat gaya. Uski jagah Pandey ji gambheerta se report likhte hain aur list badhti jaati hai: "सोना... हार... लिखो, लिखो!" → "तिजोरी भी! लिखो, लिखो!" Ant me Pandey ji kehte hain "ये रिपोर्ट तो फाड़नी पड़ेगी।"
+  - Raghu par shak sirf bheed ki kanaphusi tak rehta hai, koi police kaarvai nahi.
+  - Lambai **~4:55**, 57 lines, intro ~9.5 sec.
+- **Shorts:**
+  - **A (cliffhanger):** ~40–41 sec, Raghu ke "मुझे क्यों घूर रहे हैं सब?" par khatam. Billi ka koi zikr nahi.
+  - **B (Mitthu):** ~43 sec.
+- **Munshi ke 2 sujhaav** theek kiye:
+  - Dadi ki line ab "ज़रा ठहरिए, पांडे जी।" hai, kyunki purani line Case 01 se shabd-ba-shabd milti thi.
+  - Scene 18 me Dadi chhadi se halke se Pandey ji ki diary neeche karti hain. Case 01 jaisa haath utha kar rokne wala pose nahi hai.
+- **Originality:** Case 01 se 6 me se 3 baatein alag hain (plot, genre, ant), jo seema ke barabar hai. Long 01 se 6 me se 6.
+- **Final:** title 3 + thumbnail A.
+
+## Paid kadam: 4 character sheets, kul ₹12.96
+Har sheet ₹3.24, 1K, 3:2. Style reference ke liye Dadi aur Golu ki sheets bhejunga. Pehle inke look tay kar lijiye, kyunki baad me ye har scene me isi tarah dikhenge:
+
+| Kirdaar | Prastavit look | Reference |
+|---|---|---|
+| **Sharma ji** | Bible jaisa: ~55, ganja sar aur safed side ke baal, rectangular chashma, cream kurta-pyjama, bhoori sleeveless jacket | Case 01 ki scene 1 aur 2 images |
+| **Raghu** (naya doodhwala) | ~25, chhote baal, neeli check shirt, khaki pant, hari cycle aur 2 steel dibbe. Pappu (safed kurta, laal gamchha, kaali cycle) se saaf alag | Sirf style |
+| **Mrs. Gupta** | ~50, sunehre kinare wali gulabi saree, bada joodha, maroon bindi, sone ki choodiyan, expressive chehra | Sirf style |
+| **Sona** (billi) | Sunehri-narangi dhaariyon wali billi, safed panje, hara collar aur chhoti ghanti. Hamesha shaant aur khush, kabhi dari hui nahi | Sirf style |
+
+**Chintayein, banane se pehle:**
+1. **Sheet par likhawat:** Gemini kabhi sheet par "FRONT VIEW" jaisi angrezi likhawat daal deta hai. Sheets video me nahi jaati, isliye isse farq nahi padta. Video ki images me koi likhawat nahi hogi.
+2. **Raju ki sheet nahi bana raha:** uska look bible me hai aur Case 01 ki images reference ke liye kaafi hain.
+3. **Budget:** ₹268.30 bache hain. Sheets ke baad ₹255.34 bachenge, aur poori Long 02 ka andaza ~₹91 hai.
+
+Looks theek hain toh **"ha"** likhiye, warna batayein kya badalna hai. Main ek-ek sheet banakar har ek ka kharcha batata jaunga.
+
+⏰ **Yaad dilana:** Short 01 ki checklist abhi bhi baaki hai.
+- Related video = Long 01
+- Pehla comment pin karna
+
+Ho jaye toh "ho gaya" likhiye.
+
+---
+
+_**User (2026-10-19 11:03:43Z)**_
+
+
+
+<pasted_content id="aeaa">
+ha — chaaron character sheets (₹12.96), tumhare bataye looks ke saath. Sharma ji me bible aur Case 01 images me farak ho to Case 01 images ko sahi maano.
+
+Iske saath shared/RULES.md me naya section jodo (bilkul isi text ke saath), aur CLAUDE.md + munshi.md me iska zikr karo:
+
+## 14. Auto mode (after script approval)
+- Once the user approves a script, the whole pipeline up to the PREVIEW runs automatically, including paid steps (character sheets, scene images, voice samples, TTS, thumbnail), without asking for each step.
+- Per-video budget cap: ₹130 total (all paid steps + regenerations). Before every paid call, check the running total for this story in cost_log.csv; if the call would cross ₹130, stop and ASK.
+- Account floor: if the remaining prepaid balance would drop below ₹50, stop and ASK before any paid call.
+- Munshi reviews every stage. R1 FIX/MINOR items are fixed automatically (free or paid within the cap). Max 2 regenerations per scene image; after that ASK.
+- After R2: only MINOR left -> continue (PASS-WITH-NOTES). Any BLOCKER, any copyright doubt, or a channel ID mismatch -> stop and ASK.
+- Human checkpoint 1: script approval. Human checkpoint 2: preview approval. The preview approval also counts as the upload "ha" for that long video.
+- After preview approval: final build -> Munshi final review -> upload long in its slot -> Auto Short flow (section 8) -> comments/checklist. No further questions unless a stop condition above is hit.
+- Every auto step is logged in the channel log.md with cost so far, and shown to the user as one short status line.
+- pipeline_queue.json tracks the long video stages too (script_approved -> assets -> images -> tts -> preview_ready -> approved -> final -> uploaded), and the Stop-hook guard keeps the flow moving until preview_ready or a stop condition.
+
+Long 02 ki script approved hai — ab isi auto mode me sheets se preview tak chalo. Mujhse sirf preview par milna (ya koi stop condition aaye tab).
+</pasted_content id="aeaa">
+
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-19 11:04:00Z)**_
+
+Chaaron sheets ki "ha" mil gayi. Pehle Section 14 ka niyam jod raha hoon, phir auto mode me sheets se preview tak chalunga. Section 14 me `pipeline_queue.json` aur ek "Stop-hook guard" ka zikr hai. Pehle dekh leta hoon ki inme se kya pehle se bana hua hai:
+
+_**Agent (claude-opus-5-5 2026-10-19 11:04:06Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Check queue file, Stop hook, RULES end, budget, prompt format
+
+`ls pipeline_queue.json channels/dadi-ki-kahaniyan/pipeline_queue.json 2>&1 | head; grep -rn "Stop" .claude/settings.json | head; grep -n "^## " shared/RULES.md | tail -3; tail -1 cost_log.csv | awk -F, '{print "remaining ₹"$8}'; head -c 1500 channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/scene_prompts.json`
+
+```text
+ls: cannot access 'pipeline_queue.json': No such file or directory
+ls: cannot access 'channels/dadi-ki-kahaniyan/pipeline_queue.json': No such file or directory
+77:## 11. Review limits and severity
+103:## 12. Originality (YouTube "inauthentic content" policy)
+111:## 13. Audience & algorithm (CTR, retention, session)
+remaining ₹268.30
+{
+  "_help": "31 images for LONG_01. id = first scene number it covers (see LONG_01_SCENES.md); 'covers' lists all scenes using that image.",
+  "out_dir": "channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/images",
+  "aspect": "16:9",
+  "ref_files": {
+    "ghasita": "channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/characters/ghasita_sheet.png",
+    "chhotu": "channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/characters/chhotu_sheet.png",
+    "sadhu": "channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/characters/sadhu_sheet.png",
+    "kadhai": "channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/characters/cadhai_prop.png",
+    "aangan": "channels/dadi-ki-kahaniyan/brand/_work/banner_art.png"
+  },
+  "looks": {
+    "dadi": "Dadi: Indian grandmother ~70, round face, white hair bun, round golden spectacles, light green saree with yellow border, gold bangles, wooden walking stick, small red bindi",
+    "golu": "Golu: chubby Indian boy ~10, messy black hair, yellow T-shirt, blue half-pants, white socks, red shoes",
+    "mitthu": "Mitthu: green parrot with red beak and thin red neck ring",
+    "ghasita": "Ghasita the greedy sweet-shop owner: very fat 50s man, big round belly in a loose cream kurta, white dhoti, cloth money pouch at the waist, shiny bald head with curly salt-and-pepper hair on the sides, upturned salt-and-pepper handlebar moustache, half-closed greedy eyes",
+    "chhotu": "Chhotu the kind helper: thin young man, honest open face, gentle
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:04:13Z)**_
+
+<think><details><summary>Thought Process</summary>
+Section 14 ka text aapke shabdon me jod raha hoon aur `pipeline_queue.json` bana raha hoon — Stop hook settings change karta hai isliye use bina poochhe nahi lagaunga. Ab bina ruke preview tak khud chalunga.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:04:29Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Add RULES 14, CLAUDE.md and munshi notes, queue file
+
+```bash
+.venv/Scripts/python.exe -X utf8 - <<'PYEOF'
+import json
+from pathlib import Path
+p = Path("shared/RULES.md"); s = p.read_text(encoding="utf-8").rstrip("\n")
+s += """
+
+## 14. Auto mode (after script approval)
+- Once the user approves a script, the whole pipeline up to the PREVIEW runs automatically, including paid steps (character sheets, scene images, voice samples, TTS, thumbnail), without asking for each step.
+- Per-video budget cap: ₹130 total (all paid steps + regenerations). Before every paid call, check the running total for this story in cost_log.csv; if the call would cross ₹130, stop and ASK.
+- Account floor: if the remaining prepaid balance would drop below ₹50, stop and ASK before any paid call.
+- Munshi reviews every stage. R1 FIX/MINOR items are fixed automatically (free or paid within the cap). Max 2 regenerations per scene image; after that ASK.
+- After R2: only MINOR left -> continue (PASS-WITH-NOTES). Any BLOCKER, any copyright doubt, or a channel ID mismatch -> stop and ASK.
+- Human checkpoint 1: script approval. Human checkpoint 2: preview approval. The preview approval also counts as the upload "ha" for that long video.
+- After preview approval: final build -> Munshi final review -> upload long in its slot -> Auto Short flow (section 8) -> comments/checklist. No further questions unless a stop condition above is hit.
+- Every auto step is logged in the channel log.md with cost so far, and shown to the user as one short status line.
+- pipeline_queue.json tracks the long video stages too (script_approved -> assets -> images -> tts -> preview_ready -> approved -> final -> uploaded), and the Stop-hook guard keeps the flow moving until preview_ready or a stop condition.
+"""
+p.write_text(s, encoding="utf-8")
+c = Path("CLAUDE.md"); t = c.read_text(encoding="utf-8")
+anchor = "## GitHub sync"
+add = ("## Auto mode (shared/RULES.md section 14)\n"
+       "- Script approve hone ke baad sheets -> scene images -> voice samples -> TTS -> thumbnail -> PREVIEW tak sab apne aap chalao (paid bhi), har kadam par user se mat poochho.\n"
+       "- Har paid call se pehle: story ka kul kharcha (cost_log.csv) ₹130 se upar na jaaye, aur bacha balance ₹50 se neeche na aaye — warna ruko aur poochho. Scene image max 2 baar regenerate.\n"
+       "- Munshi har stage review kare; R1 FIX apne aap theek karo; R2 ke baad sirf MINOR -> aage badho; BLOCKER / copyright shak / channel ID mismatch -> ruko aur poochho.\n"
+       "- User se sirf script approval aur preview approval par milna. Preview approval = us long video ka upload \"ha\" (phir final -> Munshi -> upload -> Short flow).\n"
+       "- Har auto kadam channel log.md me (kharcha ab tak ke saath) aur user ko ek chhoti status line. Stages `channels/<key>/pipeline_queue.json` me.\n\n")
+assert anchor in t; t = t.replace(anchor, add + anchor, 1); c.write_text(t, encoding="utf-8")
+m = Path(".claude/agents/munshi.md"); u = m.read_text(encoding="utf-8")
+a = "- Classify every problem as BLOCKER or MINOR per RULES section 11; after round 2, MINOR-only means PASS-WITH-NOTES."
+assert a in u
+u = u.replace(a, a + "\n- Auto mode (RULES section 14): after the user approves a script, stages run without asking the user. In your report say clearly whether a STOP condition is hit (BLOCKER, copyright doubt, channel ID mismatch, a 3rd regeneration of one image, story cost would cross ₹130, balance would drop below ₹50); otherwise the builder fixes and continues.")
+m.write_text(u, encoding="utf-8")
+q = {"_help": "Stage tracker (shared/RULES.md section 14). Stages: script_approved -> assets -> images -> tts -> preview_ready -> approved -> final -> uploaded",
+     "stories": {"003_mitthu-ne-sab-bata-diya": {"video": "long", "stage": "script_approved", "budget_cap_inr": 130, "updated": "2026-10-19"}}}
+Path("channels/dadi-ki-kahaniyan/pipeline_queue.json").write_text(json.dumps(q, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+print("ok")
+PYEOF
+echo "$(date '+%F %H:%M') | 003 long_02 | AUTO | script approved by user (v3); auto mode to preview started; story cost so far ₹0.00" >> channels/dadi-ki-kahaniyan/log.md; grep -n "^## 14" shared/RULES.md
+```
+
+```text
+ok
+131:## 14. Auto mode (after script approval)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:04:36Z)**_
+
+<think><details><summary>Thought Process</summary>
+Rule gaya aur auto mode start ho gaya. Ab main ek budget guard bana raha hoon jo har paid call se pehle story ka kul kharcha (₹130 limit) aur account ka bacha balance (₹50 limit) check karega.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:04:44Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Write"><details>
+<summary>Tool use: **Write**</summary>
+
+```python
+"""Budget guard for auto mode (shared/RULES.md section 14).
+
+    from story_budget import check
+    check("003_mitthu-ne-sab-bata-diya", next_cost_inr=3.24)   # exits (STOP) if the cap or the floor would be crossed
+
+Story cost = cost_log rows whose file is inside the story folder, plus channel-level files made for it
+(listed in EXTRA_FILES, e.g. a new recurring character sheet or voice samples).
+"""
+import csv
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+LOG = ROOT / "cost_log.csv"
+CAP_INR = 130.0
+FLOOR_INR = 50.0
+EXTRA_FILES = {
+    "003_mitthu-ne-sab-bata-diya": ["channels/dadi-ki-kahaniyan/characters/sharma_sheet.png",
+                                    "channels/dadi-ki-kahaniyan/characters/voices/raghu_",
+                                    "channels/dadi-ki-kahaniyan/characters/voices/gupta_"],
+}
+
+
+def _rows():
+    with LOG.open(encoding="utf-8", newline="") as f:
+        return list(csv.DictReader(f))
+
+
+def story_cost(story: str) -> float:
+    extra = EXTRA_FILES.get(story, [])
+    return sum(float(r["cost_inr"]) for r in _rows()
+               if f"/stories/{story}/" in r["file"] or any(r["file"].startswith(e) for e in extra))
+
+
+def remaining() -> float:
+    rows = _rows()
+    return float(rows[-1]["remaining_inr"]) if rows else 500.0
+
+
+def check(story: str, next_cost_inr: float):
+    spent, left = story_cost(story), remaining()
+    if spent + next_cost_inr > CAP_INR:
+        sys.exit(f"STOP (RULES 14): story {story} has spent ₹{spent:.2f}; +₹{next_cost_inr:.2f} would cross the ₹{CAP_INR:.0f} cap. ASK the user.")
+    if left - next_cost_inr < FLOOR_INR:
+        sys.exit(f"STOP (RULES 14): balance ₹{left:.2f} would drop below ₹{FLOOR_INR:.0f}. ASK the user.")
+    return spent, left
+
+
+if __name__ == "__main__":
+    s = sys.argv[1]
+    print(f"story {s}: spent ₹{story_cost(s):.2f} of ₹{CAP_INR:.0f} | account remaining ₹{remaining():.2f}")
+
+```
+
+```text
+File created successfully at: D:\Story-Channel\scripts\story_budget.py (file state is current in your context — no need to Read it back)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:04:45Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Test budget guard; read character sheet generator
+
+`.venv/Scripts/python.exe -X utf8 scripts/story_budget.py 003_mitthu-ne-sab-bata-diya && sed -n 1,60p scripts/gen_long_characters.py`
+
+```text
+story 003_mitthu-ne-sab-bata-diya: spent ₹0.00 of ₹130 | account remaining ₹268.30
+"""Reference sheets for long-video characters/props (style matched to the approved channel sheets).
+
+Usage: python scripts/gen_long_characters.py long_01 [name ...]
+Output: the story's characters/ folder (STORY_DIRS below)
+"""
+import sys
+import time
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).parent))
+from gemini_image import generate  # noqa: E402
+
+from paths import ROOT, channel_dir  # noqa: E402
+
+CHAR = channel_dir() / "characters"
+STYLE_REFS = [CHAR / "dadi_sheet.png", CHAR / "golu_sheet.png"]
+STORY_DIRS = {"long_01": channel_dir() / "stories" / "001_lalchi-halwai"}
+STYLE_NOTE = ("The attached images are STYLE references only (the channel's approved sheets): match their flat 2D "
+              "cartoon style, thick bold black outlines, warm colours, flat cel shading, clean off-white background and "
+              "sheet layout with small uppercase labels. Do NOT draw the grandmother or the boy from them.")
+
+SHEET = ("Character reference sheet of ONE single character on a plain off-white background. Top row: three full-body "
+         "poses (labelled). Bottom row: three head-and-shoulders expressions (labelled). The character must look "
+         "identical in every pose: same face, body, outfit and colours. No other characters, no scenery.")
+
+SPECS = {
+    "long_01": {
+        "ghasita": ("ghasita_sheet.png", f"""{SHEET}
+Character: Ghasita, a greedy Indian sweet-shop owner (halwai) in his 50s. Very fat with a big round belly showing
+through a loose cream kurta, white dhoti, a cloth money pouch tied at his waist. SHINY BALD head with curly black-grey
+hair only on the sides, a thick HANDLEBAR moustache curled upwards at the ends in salt-and-pepper grey (must look very
+different from a police inspector's straight black moustache), half-closed greedy eyes, small sly mouth.
+Poses: LEANING ON SHOP COUNTER (greedy, holding a small brass weighing scale); SITTING COUNTING COINS (laughing);
+DISMISSIVE HAND WAVE (sneering, shooing someone away).
+Expressions: GREEDY GRIN, SNEERING, SHOCKED (eyes wide, mouth open)."""),
+        "chhotu": ("chhotu_sheet.png", f"""{SHEET}
+Character: Chhotu, a kind young Indian helper in his early 20s. Thin, honest open face, gentle big eyes, short neat
+black hair, clean-shaven. Simple, clean but worn light-blue kurta with a small patch on the sleeve, off-white dhoti,
+barefoot. No accessories.
+Poses: STIRRING JALEBI in a big pan with a ladle; GIVING A ROTI with both hands (compassionate, slightly bending down);
+HOLDING A SMALL GLOWING BRASS CAULDRON in both hands (wonder).
+Expressions: KIND SMILE, CARING, AMAZED."""),
+        "sadhu": ("sadhu_sheet.png", f"""{SHEET}
+Character: Sadhu Baba, a very old, thin Indian holy man in his 70s. Long flowing white beard and white hair tied in a
+small top knot, deep wrinkles, peaceful kind eyes, chandan tilak on forehead, rudraksha bead mala. Simple saffron
+(kesari) dhoti and a saffron cloth over one shoulder, a wooden walking stick (lathi) and a cloth jholi bag on his shoulder.
+Poses: SITTING UNDER A TREE (tired, hungry, cross-legged, only the tree trunk suggested); EATING A ROTI (grateful);
+BLESSING (one palm raised, handing over a small brass cauldron with the other hand).
+Expressions: TIRED, GRATEFUL, WISE SMILE."""),
+        "kadhai": ("cadhai_prop.png", """Prop reference sheet on a plain off-white background, flat 2D cartoon with thick
+bold outlines. Object: a small magical Indian brass kadhai (wok-shaped cauldron) that fits in two hands, golden-bronze
+colour, two simple round handles, a band of traditional desi motifs (paisley and dots) engraved around the rim.
+Show it labelled from: SIDE VIEW, TOP VIEW (looking inside, empty), THREE-QUARTER VIEW, and MAGIC GLOW (same kadhai
+with a soft warm golden glow and a few sparkles). Same object identical in every view. No people, no other objects."""),
+    },
+}
+
+if __name__ == "__main__":
+    vid = sys.argv[1]
+    names = sys.argv[2:] or list(SPECS[vid])
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:04:48Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\scripts\gen_long_characters.py`
+
+```text
+58	if __name__ == "__main__":
+59	    vid = sys.argv[1]
+60	    names = sys.argv[2:] or list(SPECS[vid])
+61	    out_dir = STORY_DIRS[vid] / "characters"
+62	    for name in names:
+63	        fname, prompt = SPECS[vid][name]
+64	        t0 = time.time()
+65	        out = generate(f"{prompt}\n\n{STYLE_NOTE}", out_dir / fname, refs=STYLE_REFS, aspect_ratio="3:2", size="1K")
+66	        print(f"saved {out}  ({time.time() - t0:.0f}s)", flush=True)
+67
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:05:12Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Add Long 02 character sheet specs
+
+```bash
+.venv/Scripts/python.exe - <<'PYEOF'
+from pathlib import Path
+p = Path("scripts/gen_long_characters.py"); s = p.read_text(encoding="utf-8")
+s = s.replace('STORY_DIRS = {"long_01": channel_dir() / "stories" / "001_lalchi-halwai"}',
+              'STORY_DIRS = {"long_01": channel_dir() / "stories" / "001_lalchi-halwai",\n              "long_02": channel_dir() / "stories" / "003_mitthu-ne-sab-bata-diya"}\n'
+              'C01 = channel_dir() / "stories" / "002_sharma-ji-ki-cycle" / "images"  # Case 01 scenes (Sharma ji, Raju look refs)')
+add = '''    "long_02": {
+        # value: (file name, prompt[, extra refs[, output dir]]) - Sharma ji is a recurring channel character
+        "sharma": ("sharma_sheet.png", f"""{SHEET}
+Character: Sharma ji, the Gulmohar Mohalla neighbour in his mid-50s, EXACTLY as he looks in the attached Case 01 scene
+images (those images are the truth for his face, glasses, clothes and colours): bald head with grey hair on the sides,
+rectangular spectacles, cream kurta-pyjama, brown sleeveless jacket, slightly round, always a little worried.
+Poses: STANDING CALLING SOMEONE (one hand cupped at his mouth); WORRIED, HOLDING HIS HEAD with both hands;
+HAPPY, GENTLY HUGGING a small cat-shaped empty space at his chest (do not draw a cat).
+Expressions: WORRIED, CONFUSED, RELIEVED SMILE.""", [C01 / "scene_01.png", C01 / "scene_02.png"], CHAR),
+        "raghu": ("raghu_sheet.png", f"""{SHEET}
+Character: Raghu, a new young Indian milkman about 25. Slim, friendly honest face, short neat black hair, clean-shaven.
+Blue-and-white CHECK shirt with rolled sleeves, khaki trousers, brown sandals. He has a GREEN bicycle with two shiny
+steel milk cans hanging at the back (clearly different from the other milkman Pappu, who wears a white kurta with a red
+gamchha and rides a black cycle).
+Poses: STANDING NEXT TO HIS GREEN BICYCLE with the two milk cans (smiling, waving hello); CARRYING ONE MILK CAN in one
+hand; PUZZLED, palms open ('why is everyone staring at me?').
+Expressions: FRIENDLY SMILE, CONFUSED, RELIEVED LAUGH."""),
+        "gupta": ("gupta_sheet.png", f"""{SHEET}
+Character: Mrs. Gupta, the mohalla's chatty neighbour about 50. Plump, expressive face with big eyes, a big hair bun,
+a maroon bindi, gold bangles on both wrists. PINK saree with a thin gold border, worn neatly.
+Poses: GOSSIPING, leaning in with a hand beside her mouth; 'HAI RAM!' both hands on her cheeks; POINTING dramatically.
+Expressions: SHOCKED, EXCITED GOSSIP, EMBARRASSED APOLOGETIC SMILE."""),
+        "sona": ("sona_sheet.png", """Character reference sheet of ONE cat on a plain off-white background, flat 2D cartoon
+with thick bold black outlines, warm colours, flat cel shading, small uppercase labels. Sona, a golden-orange tabby cat
+with soft darker stripes, WHITE paws, big friendly green eyes, a small GREEN collar with a tiny golden bell. Always calm,
+cosy and happy - never scared, never in danger.
+Top row: SITTING (tail around the paws), LAPPING MILK from a small steel bowl, WALKING (side view).
+Bottom row: SLEEPING CURLED UP in the sun (eyes closed, content), HAPPY FACE close-up, YAWNING.
+The cat must look identical in every pose. No people, no scenery."""),
+    },
+}
+'''
+s = s.replace("    },\n}\n\nif __name__", "    },\n" + add.replace("    },\n}\n", "    },\n") + "}\n\nif __name__", 1) if False else s
+# insert before the final closing brace of SPECS
+i = s.index("\nif __name__")
+head, tail = s[:i], s[i:]
+assert head.rstrip().endswith("},\n}") or head.rstrip().endswith("}")
+k = head.rstrip().rfind("}")
+head = head.rstrip()[:k] + add.rstrip("\n").rstrip("}").rstrip() + "\n}\n"
+s = head + tail
+s = s.replace('''    for name in names:
+        fname, prompt = SPECS[vid][name]
+        t0 = time.time()
+        out = generate(f"{prompt}\\n\\n{STYLE_NOTE}", out_dir / fname, refs=STYLE_REFS, aspect_ratio="3:2", size="1K")''',
+'''    for name in names:
+        fname, prompt, *more = SPECS[vid][name]
+        extra_refs = more[0] if more else []
+        target = (more[1] if len(more) > 1 else out_dir) / fname
+        t0 = time.time()
+        out = generate(f"{prompt}\\n\\n{STYLE_NOTE}", target, refs=STYLE_REFS + list(extra_refs), aspect_ratio="3:2", size="1K")''')
+p.write_text(s, encoding="utf-8")
+PYEOF
+.venv/Scripts/python.exe -W error -c "
+import ast
+with open('scripts/gen_long_characters.py',encoding='utf-8') as f: ast.parse(f.read())
+import sys; sys.path.insert(0,'scripts'); sys.argv=['x']
+import gen_long_characters as g
+print(list(g.SPECS), list(g.SPECS['long_02']), [len(v) for v in g.SPECS['long_02'].values()])"
+```
+
+```text
+['long_01', 'long_02'] ['sharma', 'raghu', 'gupta', 'sona'] [4, 2, 2, 2]
+[This command modified 1 file you've previously read: scripts\gen_long_characters.py. Call Read before editing.]
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:05:16Z)**_
+
+Specs taiyaar hain. Ab chaaron sheets bana raha hoon, ek-ek karke. Har call se pehle budget guard chalega:
+
+_**Agent (claude-opus-5-5 2026-10-19 11:06:58Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Generate 4 character sheets with budget guard
+
+`mkdir -p channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/characters && for n in sharma raghu gupta sona; do .venv/Scripts/python.exe -X utf8 -c "import sys; sys.path.insert(0,'scripts'); from story_budget import check; check('003_mitthu-ne-sab-bata-diya', 3.24)" || break; AUTO_PREVIEW=0 timeout 120 .venv/Scripts/python.exe -X utf8 scripts/gen_long_characters.py long_02 $n 2>&1 | grep -E "cost|saved|rror|SKIP"; done; .venv/Scripts/python.exe -X utf8 scripts/story_budget.py 003_mitthu-ne-sab-bata-diya`
+
+```text
+ValueError: too many values to unpack (expected 2, got 4)
+Is image ka cost: ₹3.24  |  Aaj ka total: ₹3.24  |  ₹500 me se bacha: ₹265.06
+saved D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\characters\raghu_sheet.png  (29s)
+Is image ka cost: ₹3.24  |  Aaj ka total: ₹6.48  |  ₹500 me se bacha: ₹261.82
+saved D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\characters\gupta_sheet.png  (34s)
+Is image ka cost: ₹3.24  |  Aaj ka total: ₹9.72  |  ₹500 me se bacha: ₹258.58
+saved D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\characters\sona_sheet.png  (31s)
+story 003_mitthu-ne-sab-bata-diya: spent ₹9.72 of ₹130 | account remaining ₹258.58
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:07:04Z)**_
+
+<think><details><summary>Thought Process</summary>
+Raghu, Gupta aur Sona ki sheets ban gayi — har ek ₹3.24, total ₹9.72, bacha ₹258.58. Sharma ji ki sheet code galti se nahi bani, main loop me unpack missing tha; use theek kar raha hoon.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:07:04Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\scripts\gen_long_characters.py`
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:07:06Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\scripts\gen_long_characters.py`
+
+```text
+88	}
+89	
+90	if __name__ == "__main__":
+91	    vid = sys.argv[1]
+92	    names = sys.argv[2:] or list(SPECS[vid])
+93	    out_dir = STORY_DIRS[vid] / "characters"
+94	    for name in names:
+95	        fname, prompt = SPECS[vid][name]
+96	        t0 = time.time()
+97	        out = generate(f"{prompt}\n\n{STYLE_NOTE}", out_dir / fname, refs=STYLE_REFS, aspect_ratio="3:2", size="1K")
+98	        print(f"saved {out}  ({time.time() - t0:.0f}s)", flush=True)
+99
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:07:14Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\scripts\gen_long_characters.py has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:08:05Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Generate Sharma ji sheet with Case 01 refs
+
+`.venv/Scripts/python.exe -X utf8 -c "import sys; sys.path.insert(0,'scripts'); from story_budget import check; check('003_mitthu-ne-sab-bata-diya', 3.24)" && AUTO_PREVIEW=0 timeout 120 .venv/Scripts/python.exe -X utf8 scripts/gen_long_characters.py long_02 sharma 2>&1 | grep -E "cost|saved|rror|SKIP"; .venv/Scripts/python.exe -X utf8 scripts/story_budget.py 003_mitthu-ne-sab-bata-diya`
+
+```text
+Is image ka cost: ₹3.24  |  Aaj ka total: ₹12.96  |  ₹500 me se bacha: ₹255.34
+saved D:\Story-Channel\channels\dadi-ki-kahaniyan\characters\sharma_sheet.png  (48s)
+story 003_mitthu-ne-sab-bata-diya: spent ₹12.96 of ₹130 | account remaining ₹255.34
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:08:09Z)**_
+
+Chaaron sheets ban gayi: aaj ka total ₹12.96, story ka kharcha ₹12.96/130, aur ₹255.34 bache. Ek sheet me chaaron dekh raha hoon, saath me Case 01 wale Sharma ji bhi taki milaan ho sake:
+
+_**Agent (claude-opus-5-5 2026-10-19 11:08:15Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Contact sheet of the 4 new character sheets
+
+```bash
+S=channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya && mkdir -p $S/long/review && .venv/Scripts/python.exe -c "
+from PIL import Image
+S='$S'
+ims=[('channels/dadi-ki-kahaniyan/characters/sharma_sheet.png'),(S+'/characters/raghu_sheet.png'),(S+'/characters/gupta_sheet.png'),(S+'/characters/sona_sheet.png')]
+ref=Image.open('channels/dadi-ki-kahaniyan/stories/002_sharma-ji-ki-cycle/images/scene_01.png').convert('RGB').resize((270,480))
+tiles=[Image.open(p).convert('RGB').resize((720,480)) for p in ims]
+c=Image.new('RGB',(720*2+290,480*2),(255,255,255))
+for i,t in enumerate(tiles): c.paste(t,((i%2)*720,(i//2)*480))
+c.paste(ref,(1450,0))
+c.save(S+'/long/review/sheets_check.jpg',quality=88)"
+```
+
+```text
+(Bash completed with no output)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:08:15Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\review\sheets_check.jpg`
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:08:25Z)**_
+
+<think><details><summary>Thought Process</summary>
+Chaaron character sheets (Sharma ji, Raghu, Gupta aunty, Sona) consistent style me ban gaye hain. Munshi ka sheet review background me chal raha hai, aur ab main 21 scene images ke prompts likh raha hoon.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:08:28Z)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="Agent"><details>
+<summary>Tool use: **Agent**</summary>
+Review Long 02 character sheets
+
+```text
+Async agent launched successfully. (This tool result is internal metadata — never quote or paste any part of it, including the agentId below, into a user-facing reply.)
+agentId: a9959d54467005c00 (internal ID - do not mention to user. Use SendMessage with to: 'a9959d54467005c00', summary: '<5-10 word recap>' to continue this agent.)
+The agent is working in the background. You will be notified automatically when it completes. You know nothing about its results until that notification arrives — do not report, assume, or predict them; continue other work or respond to the user in the meantime.
+Do not duplicate this agent's work — avoid working with the same files or topics it is using.
+output_file: C:\Users\ashamim\AppData\Local\Temp\claude\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7\tasks\a9959d54467005c00.output
+Do NOT Read or tail this file via the shell tool — it is the full subagent JSONL transcript and reading it will overflow your context. If the user asks for progress, say the agent is still running; you'll get a completion notification.
+```
+</details></tool-use>
+
+_**Agent - sidechain (2026-10-19 11:08:28Z)**_
+
+AUTO MODE (shared/RULES.md section 14 — read it). Stage 3 review (Character sheets) for story channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya. REVIEW ONLY, JPG temp files in the story's long/review/. Files: channels/dadi-ki-kahaniyan/characters/sharma_sheet.png (NEW recurring sheet; the user said Case 01 images are the truth for his look: channels/dadi-ki-kahaniyan/stories/002_sharma-ji-ki-cycle/images/scene_01.png, scene_02.png), and story characters/raghu_sheet.png, gupta_sheet.png, sona_sheet.png. Approved looks are in the story's script/PLAN.md section 2 and the channel bible (Sharma ji, Mrs. Gupta "gossip queen, gulabi saree"; Pappu doodhwala for contrast with Raghu). Check: each sheet matches its approved look and is consistent across poses; Raghu clearly different from Pappu; Sona calm/happy, never scared (RULES); no franchise/brand look-alikes (RULES 10); style matches the channel sheets; any text on the sheet is harmless (sheets never go into videos). Also register rows: these 4 files need rows in shared/assets_license.csv as own Gemini assets — say if missing (builder will add). Verdict per RULES 11 with STOP-condition line per section 14. One log line (R1, verdict, time). Short report.
+
+_**Agent - sidechain (2026-10-19 11:08:28Z)**_
+
+<system-reminder>
+Your final report is delivered through SubagentHandback: when your work is complete, call SubagentHandback({message: <your full report>}). The call ends your run, so make it your last step. Only a SubagentHandback call reaches your caller as your result; plain text you write at the end is not delivered.
+</system-reminder>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:08:33Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Read shared and channel rules
+
+`cd /d/Story-Channel; sed -n '1,400p' shared/RULES.md | grep -n "" | sed -n '1,400p' | head -c 20000; echo ----; cat channels/dadi-ki-kahaniyan/RULES.md 2>/dev/null | head -100`
+
+```text
+1:# Munshi RULES — Story-Channel
+2:
+3:Shared rules for every channel. Munshi reads this file first, then `channels/<key>/RULES.md`.
+4:- Channel RULES can be stricter than shared RULES, never looser. Copyright, channel ID, secrets and upload safety can never be relaxed by a channel.
+5:
+6:
+7:These are the hard rules. If a builder summary, a script or a file disagrees with them, the rule wins and the step is not PASS. Edit this file to add new rules; Munshi reads it fresh every time.
+8:- A measured value outside a RULES limit is always FIX, never PASS, even if small. (in R1; after R2 see section 11)
+9:
+10:## 1. Budget
+11:- Prepaid Google Cloud budget: ₹500, auto-reload off. Current balance is whatever `cost_log.csv` says.
+12:- Every paid call (Gemini image ≈ ₹3.24 each at 1K, Gemini TTS per line) must be in `cost_log.csv` with date, project, item, ₹.
+13:- No paid call without the user's OK first. A fix that costs money is always ASK, never FIX.
+14:- Flag it if a step cost more than 30% above its estimate (e.g. LONG_01 TTS: estimate ₹4.85, actual ₹6.63).
+15:
+16:## 2. Story and characters (from `channel_bible.md`)
+17:- Characters must match their approved sheets: face, clothes, colours, age look. Compare each scene image against the sheet with Read.
+18:- The action in each image must match what the line says at that moment (who is holding what, who is talking).
+19:
+20:## 3. Audio
+21:- Final loudness: -14 LUFS integrated (±1), true peak ≤ -1.0 dBFS.
+22:- Music sits under the voice: 12–14 dB below for Shorts, up to ~18–20 dB for narration-heavy long videos. If it is quieter than 20 dB under, flag it.
+23:- Music level is measured one way only: integrated LUFS of the voice-only stem vs the music-only stem over the same speech sections. Builder and Munshi both use this method.
+24:- Mood changes get a crossfade (≥1 s). No sudden music cuts under dialogue.
+25:- No leaked background audio, clicks, or a line cut off mid-word.
+26:
+27:## 4. Captions
+28:- One `.srt` per video, Hindi, UTF-8.
+29:- Each caption must appear while that line is being spoken (±0.3 s), over the right character's shot.
+30:- Lines whose timing was estimated rather than taken from Whisper must be listed in the report.
+31:
+32:## 5. Video
+33:- Long video: 1920×1080, 30 fps, H.264, 16:9. Short: 1080×1920, ≤60 s, 9:16.
+34:- Target length: the duration the user approved at preview. Before preview, the script estimate is only a guide. Final must be within ±10% of the approved preview length; outside that is ASK.
+35:- Preview builds (960×540) are only for review. They are never uploaded.
+36:
+37:## 6. Thumbnail
+38:- 1280×720, JPG or PNG, ≤ 2 MB.
+39:- Hindi text is rendered by libass/FFmpeg (HarfBuzz shaping), never drawn by the AI. Zoom in and check matras and joined letters (ड़, दु, क्ष, etc.).
+40:- Text readable on a phone: letter height ≥ ~12% of frame height, high contrast, max ~4 words.
+41:- Thumbnail text must not repeat the title word for word.
+42:- No spoilers: no ending, no twist, no mystery answer.
+43:- Bottom-right corner (~15% × 12%) has nothing important, because YouTube puts the duration there.
+44:
+45:## 7. Metadata
+46:- Title ≤ 100 characters, no `<` or `>`. Description ≤ 5000 characters.
+47:- Tags total ≤ 500 characters. 3–5 hashtags in the description (the first 3 show above the title; more than 15 and YouTube ignores all of them).
+48:- Every CC BY music track used (e.g. Incompetech / Kevin MacLeod) is credited in the description exactly as its licence asks.
+49:- Made-for-kids and AI-disclosure values come from `channels/<key>/channel.json`. Never guess them.
+50:
+51:## 8. Publishing
+52:- Fixed publish times: long video at 19:00 IST, its Short at 21:00 IST the same day.
+53:  - Long upload finished before 18:45 IST -> long publishes 19:00 the same day; otherwise 19:00 the next day.
+54:  - Short upload finished before 20:45 IST -> Short publishes 21:00 the same day as its long; otherwise both move to the next day.
+55:  - A Short not made from a long (e.g. Dadi Jasoos case) also publishes at 21:00.
+56:- Per day per channel: at most one long (19:00) and one Short (21:00).
+57:- Planned frequency: long videos 2-3 per week, Shorts daily (from stories already made, ₹0).
+58:- Nothing goes Public or gets scheduled without the user's OK in that conversation.
+59:- One upload per video. If `output/upload_result.json` exists, do not upload again.
+60:- Short -> Long link (MANDATORY): every Short made from a long video must (a) have the long video's URL in its description with a short CTA line, (b) get an automatic first comment "पूरी कहानी यहाँ देखें 👉 <long URL>" posted right after it becomes public, and (c) the user sets in Studio: Related video = the long video, and pins that comment. The YouTube API cannot set Related video or pin comments, so (c) stays manual; Munshi shows this checklist after every Short upload and asks about it at the start of the next session until the user confirms.
+61:
+62:## 9. Safety
+63:- Never show or commit `.env`, `secrets/`, API keys or OAuth tokens.
+64:- Never delete files; move them to `_to_delete/`.
+65:- Paid source files (story images/, audio/, characters/) are read-only for every build. Builds write only to their own _work/ and output/ folders. After every build Munshi checks that no paid source file changed (git status / hash). Any change is a BLOCKER.
+66:
+67:## 10. Copyright (STRICT — any violation is FIX and blocks upload)
+68:- Every external file used in any video (music, sound effect, font, image, footage, voice) must have a row in `shared/assets_license.csv`: path, source_url, author, license, attribution_text, date_added. No row = not allowed.
+69:- Allowed licences only: CC0; CC BY 4.0 (with exact credit in the description); SIL OFL (fonts); YouTube Audio Library tracks (follow their attribution note); our own Gemini-generated images/voices; our own recordings.
+70:- Never allowed: CC BY-NC (non-commercial, conflicts with monetization), CC BY-ND (we edit/mix), CC BY-SA, "free for personal use", Freesound "Sampling+", unknown source, anything ripped from YouTube/Spotify/Instagram/films/TV, Bollywood or any commercial song (even hummed or sung by TTS), Google/Pinterest images.
+71:- Freesound: licence is per sound. Check each file's own licence page; only CC0 or CC BY 4.0.
+72:- Content: no real brand logos, no film/TV/cartoon characters (Chhota Bheem, Motu Patlu, Disney, etc.), no celebrity likeness, no copied song lyrics, no copied text from modern books. Old folk tales (Panchatantra, Jataka, Akbar-Birbal) are public domain, but we always write our own version, never copy a modern retelling.
+73:- Image prompts never name a studio, franchise or living artist ("Pixar style", "Ghibli style", etc.).
+74:- Before upload, Munshi checks: every audio/image/font file in the final build is in the register, every CC BY item is credited in the description exactly as its licence asks, and no source audio from outside our pipeline is in the mix.
+75:- After upload: if YouTube Studio shows any copyright claim or strike, stop all new uploads and tell the user. CC music sometimes gets false Content ID claims; dispute only with the licence proof from the register, after the user agrees.
+76:
+77:## 11. Review limits and severity
+78:Every problem Munshi reports is marked BLOCKER or MINOR.
+79:
+80:BLOCKER (never waived, in any round):
+81:- Copyright (section 10), wrong channel, any secret exposed.
+82:- Wrong character on screen for a line, wrong voice for a character, a line missing or cut off.
+83:- Caption more than 1 s away from its line, or caption text not matching what is spoken.
+84:- Loudness outside -14 LUFS ±1, true peak above -1.0 dBFS, audible clipping or leaked outside audio.
+85:- Wrong resolution/codec, or a preview file used as final.
+86:- Thumbnail: broken Hindi matras, spoiler, unreadable text, important thing in the bottom-right corner.
+87:- Metadata: title over 100 chars, more than 15 hashtags, missing CC BY credit, "for kids" wording (title, thumbnail, description or tags), mystery answer revealed.
+88:- Length outside ±10% of the approved preview length.
+89:- Story problem: moral missing or a scene that contradicts the script.
+90:
+91:MINOR (everything else that breaks a RULES limit only slightly), e.g.: caption off by 0.3–1 s, caption shorter than 0.4 s, music level within 3 dB of target, thumbnail text slightly under the size rule, small silent gaps, missing colour tags, tiny cosmetic issues.
+92:Taste points (pacing feel, colour choice, music phrase) are "Note" only and never count as problems.
+93:
+94:Rounds:
+95:- Round 1 (R1): full review for that stage; BLOCKER and MINOR both come back as FIX (free) or ASK (paid).
+96:- Round 2 (R2): re-check only what changed and what failed in R1.
+97:- After R2: if any BLOCKER remains → ASK the user, stop. If only MINOR remain → verdict "PASS-WITH-NOTES": the stage is passed and the pipeline moves on to the next step (including upload when the user has approved it). No third round.
+98:- Every MINOR waived after R2 is written to channels/<key>/carry_over.md (project, issue, suggested fix). Before the next video's build, the builder reads carry_over.md and fixes those causes in the pipeline, then marks them done.
+99:
+100:These limits never weaken: copyright (section 10), channel ID check, secrets, and the full pre-upload check.
+101:At the end of each review, add one line to channels/<key>/log.md with the round (R1/R2), verdict and approximate time taken.
+102:
+103:## 12. Originality (YouTube "inauthentic content" policy)
+104:- Every new story must differ clearly from all previous stories of the channel in at least 3 of: moral, main conflict/plot shape, setting, lead characters, genre/tone (comedy, mystery, emotional, adventure), ending type.
+105:- At script stage Munshi compares the new script with every previous story.md in the channel and lists the closest match and what is different. If fewer than 3 differ -> BLOCKER (ASK the user).
+106:- Titles and thumbnails must not follow one fixed template word-for-word across videos.
+107:- The channel name suffix (`title_suffix` in channels/<key>/channel.json, e.g. "| किस्सागो") may stay the same in every title — it is branding. The rest of the title (story name, hook, extra keywords) must vary; do not repeat the same keyword block (like "| Hindi Moral Story | Hindi Kahani") in every video. Rotate keywords or put them in tags/description instead.
+108:- No two videos may reuse the same narration audio. Shorts cut from their own long video are allowed.
+109:- Every 5th long video Munshi writes a short "channel variety" note in log.md: genres used, morals used, what to try next.
+110:
+111:## 13. Audience & algorithm (CTR, retention, session)
+112:Long videos:
+113:- Hook: the first spoken line must start within 1.0 s. The first 30 s must set up the story's main question or conflict. Any frame/intro before the story itself (Dadi-Golu opening) is max 10 s.
+114:- Promise kept: whatever the title and thumbnail promise (e.g. the magic cauldron) must appear on screen within the first 60 s. A title/thumbnail that promises something the video does not show is a BLOCKER (misleading).
+115:- Visual change: no single shot stays without a cut or new camera move for more than 8 s.
+116:- End: the last 20 s carry no essential visuals or captions in the end-screen area, so end-screen elements can sit there. The last spoken line asks viewers one specific question about the story (for comments), not a generic "like and subscribe".
+117:Shorts:
+118:- First frame is a strong visual (no title card, no black frame). First word within 0.5 s.
+119:- Length 30-58 s.
+120:- Captions and key visuals stay out of the bottom 20% and right 15% (YouTube buttons).
+121:- Ending is either a cliffhanger towards the long video or a clean loop back to the first frame.
+122:Thumbnail:
+123:- Readable at phone size: Munshi downscales it to 160x90 px and checks the main face/emotion and the text are still recognisable.
+124:- One clear focal point (a face with strong emotion or the key object), max 4 words, high contrast.
+125:Title:
+126:- The hook words come in the first 40 characters (mobile cuts long titles). Curiosity is fine, misleading is not.
+127:Session:
+128:- Every long video goes into its channel playlist, gets an end screen (next video + subscribe), and every Short from it has Related video = that long (manual Studio checklist).
+129:Severity: a misleading title/thumbnail is a BLOCKER; the rest are FIX in R1 and MINOR after R2 (section 11).
+130:
+131:## 14. Auto mode (after script approval)
+132:- Once the user approves a script, the whole pipeline up to the PREVIEW runs automatically, including paid steps (character sheets, scene images, voice samples, TTS, thumbnail), without asking for each step.
+133:- Per-video budget cap: ₹130 total (all paid steps + regenerations). Before every paid call, check the running total for this story in cost_log.csv; if the call would cross ₹130, stop and ASK.
+134:- Account floor: if the remaining prepaid balance would drop below ₹50, stop and ASK before any paid call.
+135:- Munshi reviews every stage. R1 FIX/MINOR items are fixed automatically (free or paid within the cap). Max 2 regenerations per scene image; after that ASK.
+136:- After R2: only MINOR left -> continue (PASS-WITH-NOTES). Any BLOCKER, any copyright doubt, or a channel ID mismatch -> stop and ASK.
+137:- Human checkpoint 1: script approval. Human checkpoint 2: preview approval. The preview approval also counts as the upload "ha" for that long video.
+138:- After preview approval: final build -> Munshi final review -> upload long in its slot -> Auto Short flow (section 8) -> comments/checklist. No further questions unless a stop condition above is hit.
+139:- Every auto step is logged in the channel log.md with cost so far, and shown to the user as one short status line.
+140:- pipeline_queue.json tracks the long video stages too (script_approved -> assets -> images -> tts -> preview_ready -> approved -> final -> uploaded), and the Stop-hook guard keeps the flow moving until preview_ready or a stop condition.
+----
+# Channel RULES — किस्सागो | Kissago (key: dadi-ki-kahaniyan; formerly दादी की कहानियाँ)
+
+Only the rules special to this channel. Read `shared/RULES.md` first; everything there applies here too.
+- Channel RULES can be stricter than shared RULES, never looser. Copyright, channel ID, secrets and upload safety can never be relaxed by a channel.
+
+## Story and characters (from `channel_bible.md`)
+- Dadi (Kamla Devi) narrates the moral stories. In Gulmohar Mohalla stories where Dadi is herself a character, the narrator voice narrates. Every other character speaks their own lines in their own voice.
+- Mitthu (parrot) has no hands: no hand gestures, holding things or pointing with hands.
+- Dadi's home (in Gulmohar Mohalla): a kacha mud house with a tiled roof, BROWN wooden door, swept aangan, green fields behind, exactly like the channel banner (`channels/dadi-ki-kahaniyan/brand/_work/banner_art.png`). There is no green door.
+- Setting: Dadi's home, the Golu–Mitthu opening/closing frame and all Dadi Jasoos cases are in Gulmohar Mohalla. The story Dadi narrates inside a moral-story video can be set in any village or town the approved script names (e.g. Rampur in LONG_01); check location consistency against that script. Village kitchens still use a mitti ka chulha, never a gas stove.
+
+## Metadata
+- Mystery (Dadi Jasoos) videos: the answer never goes in the title, description or thumbnail. It goes in the pinned comment 24 h after publishing.
+- किस्सागो (Kissago) is set to made_for_kids = false (family audience, decided by the user). So title, thumbnail, description and tags must speak to the whole family, not only to children: no "for kids" / "बच्चों के लिए" / nursery-style wording. Flag any such wording as FIX.
+- Titles end with the channel brand: `title_suffix` from channel.json ("| किस्सागो"). The old suffix "| दादी की कहानियाँ" is not used any more.
+- Thumbnail corner label = `brand_label` from channel.json ("किस्सागो").
+- Dadi, Golu and Mitthu stay the channel's hosts/characters; the mystery series keeps its name "दादी जासूस" (Dadi Jasoos).
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:08:38Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Read bible, plan, log
+
+`cd /d/Story-Channel/channels/dadi-ki-kahaniyan; S=stories/003_mitthu-ne-sab-bata-diya; grep -n -i -A6 "sharma\|gupta\|pappu" channel_bible.md | head -120; echo ----PLAN; sed -n '1,200p' $S/script/PLAN.md | head -150; ls -la $S/characters characters; tail -15 log.md`
+
+```text
+48:| **Sharma ji** (padosi) | ~55 saal, ganja sar with grey side hair, rectangular chashma, cream kurta-pyjama, brown sleeveless jacket. Hamesha kuch khota rehta hai. Ghar ka gate lohe ka (Case 01 se laal paint). |
+49:| **Pappu doodhwala** | ~30 saal, patla, safed kurta, gale me laal gamchha, purani kaali cycle with 2 steel doodh ke dibbe. |
+50:| **Mrs. Gupta** (gossip queen) | gulabi saree |
+51-| **Chaiwala Raju** | ~35 saal, chhoti moonchh, bhoori half-sleeve shirt, kamar par apron, kaali-dhuandaar ketli, mohalle ka chai stall. |
+52-
+53-### Case se aaye characters (dobara aayein to yahi look)
+54-
+55-| Character | Pehli baar | Look |
+56-|---|---|---|
+----PLAN
+# Plan — 003 मिट्ठू ने सब बता दिया! (Long 02) — nothing generated yet
+
+## 1. Scenes (30) and images
+
+| Scene | ~sec | Image | What we see |
+|---|---|---|---|
+| 1 | 9 | NEW 01 | Mitthu flies over Gulmohar Mohalla rooftops, beak open, shouting (hook; title promise on screen at 0 s) |
+| 2 | 8 | NEW 02 | Sharma ji puts a katori of milk on the steps to his roof, calling Sona (cat not shown yet) |
+| 3 | 2 | NEW 03 | Sona close-up: golden cat lapping milk on the steps, happy |
+| 4 | 5 | NEW 04 | Raghu, the new milkman, at Sharma ji's red gate with two milk cans; Sharma ji greets him |
+| 5 | 4 | NEW 05 | Mitthu perched on the gate (wings folded, NO hands), head tilted, listening |
+| 6 | 9 | NEW 06 | Sharma ji at the half-empty katori, worried; Mitthu on the gate in the background |
+| 7 | 13 | reuse 06 | close-up crops: Sharma ji calling / Mitthu shouting |
+| 8 | 6 | reuse 01 | Mitthu takes off - different crop/zoom of image 01 |
+| 9 | 6 | NEW 07 | Mitthu flying past Raju's chai stall, customers looking up |
+| 10 | 4 | reuse 07 | Raju close-up, shocked, kettle in hand |
+| 11 | 10 | NEW 08 | Mrs. Gupta on her balcony (pink saree), hands on cheeks: 'Hai Ram!' |
+| 12 | 9 | NEW 09 | Mrs. Gupta and Raju gossiping at the chai stall, leaning in |
+| 13 | 20 | NEW 10 | Dadi's aangan (brown door, khaprail): Golu runs in to Dadi, excited; Dadi calm |
+| 14 | 10 | NEW 11 | Crowd gathering at Sharma ji's gate, Mitthu shouting above them |
+| 15 | 11 | NEW 12 | Inspector Pandey arrives blowing his whistle and solemnly opens a big diary to write a report (comic, no arrest) |
+| 16 | 12 | reuse 12 | crops: Pandey writing the growing list सोना... हार... तिजोरी; Mrs. Gupta and Raju dictating; Sharma ji trying to speak |
+| 17 | 17 | NEW 13 | Raghu walking back with his cans; the crowd whispering and staring at him (no police action) |
+| 18 | 13 | NEW 14 | Dadi calmly walks through the crowd and gently lowers Pandey's diary with the tip of her walking stick (NOT the raised-hand pose of Case 01) |
+| 19 | 7 | reuse 14 | crop: Dadi asks Sharma ji |
+| 20 | 11 | reuse 11 | wide crowd, stunned silence; Golu's surprised face crop |
+| 21 | 5 | reuse 14 | crop: Dadi 'let's find Sona' |
+| 22 | 9 | NEW 15 | CLUE 1 close-up: half-drunk milk katori + milk drops going up the stairs |
+| 23 | 14 | NEW 16 | CLUE 2: Golu pointing at tiny paw prints in flour drying on a stair; Dadi bending to look |
+| 24 | 4 | NEW 17 | Dadi, Golu and Sharma ji tiptoeing up to the roof |
+| 25 | 14 | NEW 18 | Roof: Sona asleep in the sun next to the warm water tank, peaceful; Mitthu flying in happily |
+| 26 | 9 | NEW 19 | Sharma ji hugging Sona gently; neighbours below laughing |
+| 27 | 7 | NEW 20 | Pandey sheepishly tearing the report page; Mrs. Gupta apologising to Raghu |
+| 28 | 4 | reuse 20 | crop: Raghu smiling, 'next time listen to the whole thing' |
+| 29 | 13 | NEW 21 | Dadi and Golu on the roof at sunset, Dadi teaching, Golu nodding; Sona on Sharma ji's lap behind |
+| 30 | 12 | reuse 21 | crop: Mitthu flapping + Dadi asks the viewers |
+
+**21 new images, 9 scenes reuse an image with a different crop/zoom.** The builder cuts every scene into shots of about 2.6 s (RULES 13: no shot longer than 8 s). All images 16:9.
+
+## 2. Characters
+
+| Character | Status | Sheet? |
+|---|---|---|
+| Dadi, Golu, Mitthu, Inspector Pandey | permanent | existing sheets (reuse) |
+| Sharma ji | recurring (Case 01) | **new sheet (decided by the user)** — made with Case 01 scene images as references so his look stays the same |
+| Raju chaiwala | recurring (Case 01) | look in the bible + Case 01 images (reuse, no sheet) |
+| Mrs. Gupta (gossip queen) | in the bible, never drawn | **new sheet** — proposed look: ~50, pink saree with a gold border, big bun, maroon bindi, gold bangles, expressive |
+| Raghu (new milkman) | NEW | **new sheet** — ~25, short hair, blue check shirt, khaki pants, green bicycle with two steel cans (clearly different from Pappu: white kurta, red gamchha, black cycle) |
+| Sona (Sharma ji's cat) | NEW | **new sheet** — golden-orange tabby, white paws, small green collar with a bell; always calm and happy (never scared) |
+
+Why Raghu and not Pappu: Pappu was already the innocent suspect in Case 01; suspecting him again would repeat that plot (RULES 12). A newcomer also explains why the mohalla suspects him.
+
+## 3. Voices
+
+Existing: narrator (Charon), dadi (Gacrux, medium pace — Dadi is in the story, not telling it), golu, mitthu (+5), sharma, pandey, raju. Channel RULES updated 2026-10-19 (user chose option a): in mohalla stories where Dadi is a character, the narrator voice narrates.
+New: **raghu** (proposal: Puck — young, friendly) and **gupta** (proposal: Despina — chatty, dramatic). One short sample each before the TTS run.
+
+## 4. Cost estimate (each paid step only after your OK)
+
+| Item | Count | Cost |
+|---|---|---|
+| Character sheets: Raghu, Mrs. Gupta, Sona, Sharma ji | 4 | ₹12.96 |
+| Scene images (1K) | 21 | ₹68.04 |
+| Voice samples raghu + gupta | 2 | ~₹0.20 |
+| TTS for 57 lines (~267 s of speech; Long 01: 281 s cost ₹6.63) | 57 | ~₹6.30 |
+| Thumbnail (1K) | 1 | ₹3.24 |
+| Two Shorts (reuse images + TTS) | 2 | ₹0 |
+| **Total** | | **~₹91** |
+
+Budget left before this: ₹268.30.
+
+## 5. Title options (hook in the first 40 characters, `| किस्सागो` suffix, no repeated keyword block)
+
+Recommended: **title 3 + thumbnail A** (the thumbnail text must not repeat the title word for word, RULES 6).
+
+1. `सोना चोरी! तोते की एक बात ने पूरा मोहल्ला हिला दिया | किस्सागो`
+2. `मिट्ठू ने मचाया हंगामा: "सोना चोरी!" | किस्सागो`
+3. `आधी बात, पूरा हंगामा! मिट्ठू ने सब बता दिया | किस्सागो`
+
+## 6. Thumbnail concepts (no spoiler — the cat is never shown)
+
+- **A:** Mitthu big in front, mid-air, beak wide open; behind him Sharma ji clutching his head and a crowd. Text **"सोना चोरी!"** (title promise, on screen at 0 s).
+- **B:** Raghu the milkman with his cans, surrounded by pointing neighbours and Inspector Pandey; Mitthu on a wall shouting. Text **"चोर कौन?"** (Munshi: reads more like a Dadi Jasoos mystery; A fits the comedy better).
+
+## 7. Shorts (40-45 s, ₹0: reuse images + TTS, speed 1.08, gaps 0.15/0.3)
+
+- **Short A — cliffhanger (~41-42 s, twist kept):** lines 13, 15, 23, 26, 27, 28, 29, 30, 33, 34: Mitthu 'सोना चोरी! शर्मा जी का सोना चोरी!' → Mrs. Gupta 'सोने का हार' → 'हार चोरी!' → Pandey's report 'सोना... हार... तिजोरी — लिखो, लिखो!' → the crowd turns on Raghu → Raghu: 'मुझे क्यों घूर रहे हैं सब?'; end card 'पूरी कहानी चैनल पर'. It never says that Sona is a cat.
+- **Short B — Mitthu comedy (~43-44 s):** lines 8, 9, 10, 11, 13, 23, 38, 41, 48, 56: Mitthu turns 'सोना कहाँ गई' into 'सोना चोरी!', 'हार चोरी!', then 'सोना बिल्ली!', 'सोना मिल गया!', 'पहले पूछो!'. It reveals the cat, so publish it **after** the long video (a few days later).
+characters:
+total 2736
+drwxr-xr-x 1 ashamim 1049089      0 Oct 19 16:38 .
+drwxr-xr-x 1 ashamim 1049089      0 Oct 19 16:34 ..
+drwxr-xr-x 1 ashamim 1049089      0 Oct 17 14:53 _rejected_pollinations
+-rw-r--r-- 1 ashamim 1049089 586320 Oct 17 15:10 dadi_sheet.png
+-rw-r--r-- 1 ashamim 1049089 527532 Oct 17 15:15 golu_sheet.png
+-rw-r--r-- 1 ashamim 1049089 487036 Oct 17 15:15 mitthu_sheet.png
+-rw-r--r-- 1 ashamim 1049089 583918 Oct 17 15:15 pandey_sheet.png
+-rw-r--r-- 1 ashamim 1049089 597303 Oct 19 16:38 sharma_sheet.png
+drwxr-xr-x 1 ashamim 1049089      0 Oct 17 23:44 voices
+
+stories/003_mitthu-ne-sab-bata-diya/characters:
+total 1892
+drwxr-xr-x 1 ashamim 1049089      0 Oct 19 16:36 .
+drwxr-xr-x 1 ashamim 1049089      0 Oct 19 16:35 ..
+-rw-r--r-- 1 ashamim 1049089 669669 Oct 19 16:36 gupta_sheet.png
+-rw-r--r-- 1 ashamim 1049089 641239 Oct 19 16:35 raghu_sheet.png
+-rw-r--r-- 1 ashamim 1049089 616497 Oct 19 16:36 sona_sheet.png
+2026-10-18 | short_01_jadui-kadhai | publish dry-run R2 (19:00 slot) | PASS | dry-run OK: scheduled 2026-10-18T19:00:00+05:30, kids=false, captions .srt, no thumb/playlist, 1080x1920 h264 48.3s, parent Ogfqow8rbGY, 1st comment task +5 min; real upload NOT run (blocked by permission classifier) -> user must allow or run it
+2026-10-18 | channel | publish slot | USER APPROVED ONE-TIME | 2026-10-18: Case 01 (Short, scheduled 19:00 earlier) and Long 01 both publish at 19:00 IST; short_01_jadui-kadhai at 21:00 (supersedes the earlier 'both 19:00' exception line)
+2026-10-18 | short_01_jadui-kadhai | short->long checklist | video kWn4jKte090 -> long Ogfqow8rbGY | related_video: pending, pin_comment: pending
+2026-10-18 | short_01_jadui-kadhai | publish | PUBLISHED | video kWn4jKte090 uploaded (scheduled 2026-10-18 21:00 IST requested), parent Ogfqow8rbGY, desc line 1 + 1st comment task StoryChannel-Comment-kWn4jKte090 at 21:05 IST (Ready), captions ok, no thumb/playlist, channel UCy071_4g4vGemktFHybqkhQ verified; manual: Related video + pin comment + confirm Scheduled in Studio
+2026-10-18 | channel brand (Kissago rebrand) | brand R1 (~20 min) | FIX | no BLOCKER; Hindi shaping ok (Rozha One/Mukta via libass, स्स conjunct + ि/ो ok), colours ok (marigold F4A300, cream FFF4DC, DP indigo 1F1B4D exact), alpha clean, DP 98/48 + icon 48 recognisable, banner logo+tagline inside safe area, no AI text, prompts clean, thumbs logo bottom-left/top-centre ok; MINOR: desktop/mobile band edge y=931 cuts Mitthu through the eye (reframe, free); register rows 60/63/64 thumbs still say 'text in Mukta' only (add logo/Rozha One, row 60 author); channel_bible line 6 stale banner/DP paths
+2026-10-18 | channel brand (Kissago rebrand) | brand R2 | PASS-WITH-NOTES | banner_v2 zoom 1.28: Mitthu head fully inside desktop band (eye clear), Golu+Dadi faces in band, logo panel+tagline inside mobile safe x507-2053 and readable; register rows 60/63/64 now list logo (Gemini icon + Rozha One/Mukta) + author Kissago; bible line 6 points to banner_v2/dp/watermark/BRAND.md. Notes -> carry_over (panel corner touches Mitthu head; mobile crop shows only Golu, Dadi face cut at right edge)
+2026-10-18 | channel brand (DP v3 + banner v3) | brand R1 (~15 min) | ASK | DP v3 PASS (ring F4A300 inside circle, icon within r~307 of 378 ring, 98/48 ok, indigo 1F1B4D exact); banner v3: logo+tagline bbox x779-1510 y588-910 inside safe, contrast cream 11:1, tagline matras ok, no AI text, faces in desktop band (Golu chin on edge, Mitthu cut at neck = Note); MINOR needing paid regen (~Rs4.86): Golu drawn slim (bible: gol-matol) and thatched roof (bible/RULES: khaprail tiled) -> user decides; Notes: mobile crop shows only Dadi's hand + Mitthu head top, kissago_dp_v2.png has no register row, bible line 6/BRAND.md still point to v2/dp
+2026-10-18 | brand | banner v3 + DP v3 | USER ACCEPTED (live on YouTube) | Munshi R1 ASK closed as option (a): Golu slimmer + thatched roof kept as Notes
+2026-10-18 | channel brand (banner v4) | brand R1 (~12 min) | ASK | no BLOCKER; PASS items: logo+tagline x692-1245 (27-49%) inside safe, tagline cream on indigo ~10:1, matras ok, khaprail tiled roof + brown door ok, Golu chubby per sheet, Dadi raised open palm, no AI text, edges 0-20% atmosphere, register row 75 present, 4.36 MB; MINOR: Mitthu at x2150-2270 (84-89%) outside safe area (absent on mobile) and desktop band edge y931 cuts through his beak, eye visible and NOT under the Edit button (button starts x2266); Golu face y750-915 (52-64%) and Mitthu 60-67% vs spec 40-58%; Mitthu side-profile realistic, not the option-2 big-round-head icon; Golu ear/hair cut at mobile right edge (x2053-2087). Free reframe can't fix all (crop already bottom-aligned; zoom ~1.18 puts Mitthu head inside band but cuts Golu cheek on mobile) -> real fix = regen ~Rs4.86, user decides
+2026-10-18 | channel brand (banner v5) | brand R1 (~10 min) | ASK | no BLOCKER; PASS items: Dadi face x1229-1530 y575-820, Golu face x1779-1997 y690-895, Mitthu head x1930-2015 y765-845 all fully inside desktop band AND mobile safe 507-2053 (only Mitthu tail tip past x2053), nothing under owner Edit button, logo+tagline x640-1203 (25-47%) inside safe with ~60-80 px clear space to Dadi's bun (rule ~33 px), tagline matras/स्स ok, cream on indigo ~12:1, no AI text, Golu chubby, khaprail tiles + brown door, register row 76, 4.38 MB; MINOR (paid-only fix, user's last paid attempt -> user decides, Munshi suggests accept): Mitthu in 3/4 side profile with small head (red beak + thin red ring ok) not the icon's big round front-facing head; group spans 48-82% width (spec 55-76%), Golu face 48-62% height (spec 38-55%). Builder's claim confirmed: Mitthu's head overlaps Golu's hair/ear, no crop hides Mitthu without cutting Golu
+2026-10-18 | brand | DP | USER CHOSE concept C: monogram "कि" (kissago_dp_ki.png), ₹0
+2026-10-19 | 003_mitthu-ne-sab-bata-diya long_02 | 1 script R1 (~25 min) | FIX | no BLOCKER; 58 lines, speakers ok, Mitthu no hands, cat never in distress, moral + viewer question ok, originality vs Case 01 3/6 differ (plot, genre, ending; setting+leads same, moral close) vs Long 01 6/6; MINOR: intro est 9.7-10.0 s (no margin), Sona missing only at ~45 s (first-30-s conflict), length est 301 s under-counts overhead (Long 01 real 0.49 s/line -> ~311-318 s), rates come from Case 01 cache not Long 01, channel RULES "Dadi narrates" vs narrator voice needs user OK + RULES wording, thumb A text = title 1/2 words -> pair with title 3; cost table ok (~Rs88, budget 268.30)
+2026-10-19 | 003_mitthu-ne-sab-bata-diya long_02 | 1 script R2 (~10 min) | ASK | only M4 open (channel RULES "Dadi narrates" vs narrator voice: user decision + RULES wording); M1-M3, M5 verified fixed: 56 lines script.md = lines.json (text, speaker, scene 1-30), intro lines 1-2 end 9.4-9.75 s, Sona missing 31-32 s (conflict at 0 s via hook), total 294-304 s in 4:45-5:15, title 3 + thumb A no repeat; Short A 9 lines no cat word, ~42.6-44.4 s, Short B ~42.9-44.2 s (both near 45 s top -> re-measure after TTS)
+2026-10-19 | 003_mitthu-ne-sab-bata-diya long_02 | 1 script R2b (changed parts, ~12 min) | PASS-WITH-NOTES | FIR beat ok: no arrest/police action vs Raghu (only crowd whispers + Gupta line 33), तिजोरी first at line 29 in report, payoff line 51 report torn + Gupta apology 52; 57 lines script.md = lines.json (speaker/text/scene); est. 296 s; Short A 10 lines no बिल्ली, twist kept, ends on Raghu; all speakers own voices, Mitthu no hands; RULES narrator line + मिट्ठू spelling (0 old spellings in bible/story) verified; originality vs Case 01 still 3/6 (plot, genre, ending); Notes -> carry_over: line 35 'रुकिए, पांडे जी' verbatim Case 01, intro/Short A margins re-measure after TTS, PLAN Sharma sheet cost
+2026-10-19 16:34 | 003 long_02 | AUTO | script approved by user (v3); auto mode to preview started; story cost so far ₹0.00
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:08:37Z)**_
+
+Ab 21 scene images ke prompts likh raha hoon. Pehle Pandey ji ka look aur `gen_scenes` me `base` key ka istemaal dekh raha hoon:
+
+_**Agent (claude-opus-5-5 2026-10-19 11:08:41Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Pandey look; base usage; example scene entry
+
+```bash
+sed -n '/### 4. Inspector Pandey/,/^### \|^---/p' channels/dadi-ki-kahaniyan/channel_bible.md | head -8; grep -n "base" scripts/gen_scenes.py; .venv/Scripts/python.exe -X utf8 -c "
+import json; d=json.load(open('channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/scene_prompts.json',encoding='utf-8')); print(d.get('base','')[:600]); print(d['scenes'][0])"
+```
+
+```text
+### 4. Inspector Pandey
+- **Look:** ~45 saal, mote, khaki uniform, ghani moonchh.
+- **Role:** har baar dadi se pehle galat aadmi pakadne ki koshish karta hai, phir dadi se haar maanta hai.
+
+---
+5:Spec keys: looks, base, scenes[{id, refs, prompt}], optional out_dir, aspect (default 9:16), ref_files {name: path}.
+59:            generate(f"{spec['base']}\n\n{prompt}", out, refs=refs, aspect_ratio=aspect, size="1K")
+16:9 landscape scene for a family-friendly Hindi moral-story cartoon set in an old Indian village (Rampur), flat 2D cartoon, thick bold black outlines, warm colours, flat cel shading. No modern objects (no gas stoves, plastic, phones, vehicles). No text, signs or letters anywhere.
+{'id': 1, 'covers': [1], 'refs': ['golu', 'mitthu', 'aangan'], 'prompt': "Evening in Dadi's courtyard (as in the location reference: mud house, charpai, golden sunset). {golu} sits hugging a big open box of round yellow laddoos tightly to his chest with a greedy happy face. {mitthu} swoops down towards the laddoos, wings spread. Comic mood."}
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:08:39Z)**_
+
+Now look at the images.
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:08:40Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\characters\sharma_sheet.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:08:41Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\002_sharma-ji-ki-cycle\images\scene_01.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:08:41Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\002_sharma-ji-ki-cycle\images\scene_02.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:08:45Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\characters\raghu_sheet.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:08:45Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\characters\gupta_sheet.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:08:45Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\characters\sona_sheet.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:08:53Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\characters\pandey_sheet.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:08:58Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Probe sizes, register, cost log, prompts
+
+`cd /d/Story-Channel; for f in channels/dadi-ki-kahaniyan/characters/sharma_sheet.png channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/characters/*.png; do ffprobe -v error -show_entries stream=width,height -of csv=p=0 "$f"; done; grep -n -i "sharma_sheet\|raghu_sheet\|gupta_sheet\|sona_sheet\|003_mitthu" shared/assets_license.csv; head -1 shared/assets_license.csv; grep -i "003\|mitthu-ne" cost_log.csv; git status --short channels/dadi-ki-kahaniyan/stories/002_sharma-ji-ki-cycle/images; ls channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/characters; grep -rn -i "sona\|raghu\|gupta" scripts/gen_long_characters.py | head -20`
+
+```text
+/usr/bin/bash: line 1: ffprobe: command not found
+/usr/bin/bash: line 1: ffprobe: command not found
+/usr/bin/bash: line 1: ffprobe: command not found
+/usr/bin/bash: line 1: ffprobe: command not found
+path,source_url,author,license,attribution_text,date_added
+2026-10-17 17:55:07,channels/dadi-ki-kahaniyan/stories/002_sharma-ji-ki-cycle/audio/tts_cache/dadi_7ad6b73e88e36092.wav,gemini-3.8-flash-tts,tts 14.0s,0.00317,0.31,60.05,439.95,dadi-ki-kahaniyan
+2026-10-19 16:35:50,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/characters/raghu_sheet.png,gemini-nano-banana-2.1,1K,0.03360,3.24,3.24,265.06,dadi-ki-kahaniyan
+2026-10-19 16:36:25,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/characters/gupta_sheet.png,gemini-nano-banana-2.1,1K,0.03360,3.24,6.48,261.82,dadi-ki-kahaniyan
+2026-10-19 16:36:57,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/characters/sona_sheet.png,gemini-nano-banana-2.1,1K,0.03360,3.24,9.72,258.58,dadi-ki-kahaniyan
+gupta_sheet.png
+raghu_sheet.png
+sona_sheet.png
+67:        "raghu": ("raghu_sheet.png", f"""{SHEET}
+68:Character: Raghu, a new young Indian milkman about 25. Slim, friendly honest face, short neat black hair, clean-shaven.
+75:        "gupta": ("gupta_sheet.png", f"""{SHEET}
+76:Character: Mrs. Gupta, the mohalla's chatty neighbour about 50. Plump, expressive face with big eyes, a big hair bun,
+80:        "sona": ("sona_sheet.png", """Character reference sheet of ONE cat on a plain off-white background, flat 2D cartoon
+81:with thick bold black outlines, warm colours, flat cel shading, small uppercase labels. Sona, a golden-orange tabby cat
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:09:05Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Check sharma cost, prompts, sizes
+
+`cd /d/Story-Channel; grep -n "sharma_sheet" cost_log.csv; tail -3 cost_log.csv; sed -n 1,100p scripts/gen_long_characters.py | grep -n -i "style\|pixar\|disney\|ghibli\|sharma\|reference" ; ls -la channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/ 2>&1 | head; .venv/Scripts/python -c "from PIL import Image;import sys;[print(p,Image.open(p).size) for p in sys.argv[1:]]" channels/dadi-ki-kahaniyan/characters/sharma_sheet.png channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/characters/*.png`
+
+```text
+152:2026-10-19 16:38:04,channels/dadi-ki-kahaniyan/characters/sharma_sheet.png,gemini-nano-banana-2.1,1K,0.03360,3.24,12.96,255.34,dadi-ki-kahaniyan
+2026-10-19 16:36:25,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/characters/gupta_sheet.png,gemini-nano-banana-2.1,1K,0.03360,3.24,6.48,261.82,dadi-ki-kahaniyan
+2026-10-19 16:36:57,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/characters/sona_sheet.png,gemini-nano-banana-2.1,1K,0.03360,3.24,9.72,258.58,dadi-ki-kahaniyan
+2026-10-19 16:38:04,channels/dadi-ki-kahaniyan/characters/sharma_sheet.png,gemini-nano-banana-2.1,1K,0.03360,3.24,12.96,255.34,dadi-ki-kahaniyan
+1:"""Reference sheets for long-video characters/props (style matched to the approved channel sheets).
+16:STYLE_REFS = [CHAR / "dadi_sheet.png", CHAR / "golu_sheet.png"]
+19:C01 = channel_dir() / "stories" / "002_sharma-ji-ki-cycle" / "images"  # Case 01 scenes (Sharma ji, Raju look refs)
+20:STYLE_NOTE = ("The attached images are STYLE references only (the channel's approved sheets): match their flat 2D "
+21:              "cartoon style, thick bold black outlines, warm colours, flat cel shading, clean off-white background and "
+24:SHEET = ("Character reference sheet of ONE single character on a plain off-white background. Top row: three full-body "
+52:        "kadhai": ("cadhai_prop.png", """Prop reference sheet on a plain off-white background, flat 2D cartoon with thick
+59:        # value: (file name, prompt[, extra refs[, output dir]]) - Sharma ji is a recurring channel character
+60:        "sharma": ("sharma_sheet.png", f"""{SHEET}
+61:Character: Sharma ji, the Gulmohar Mohalla neighbour in his mid-50s, EXACTLY as he looks in the attached Case 01 scene
+80:        "sona": ("sona_sheet.png", """Character reference sheet of ONE cat on a plain off-white background, flat 2D cartoon
+99:        out = generate(f"{prompt}\n\n{STYLE_NOTE}", target, refs=STYLE_REFS + list(extra_refs), aspect_ratio="3:2",
+total 16
+drwxr-xr-x 1 ashamim 1049089    0 Oct 19 16:38 .
+drwxr-xr-x 1 ashamim 1049089    0 Oct 19 16:35 ..
+-rw-r--r-- 1 ashamim 1049089 9975 Oct 19 16:25 lines.json
+drwxr-xr-x 1 ashamim 1049089    0 Oct 19 16:38 review
+channels/dadi-ki-kahaniyan/characters/sharma_sheet.png (1264, 848)
+channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/characters/gupta_sheet.png (1264, 848)
+channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/characters/raghu_sheet.png (1264, 848)
+channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/characters/sona_sheet.png (1264, 848)
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:09:11Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Crop Sona lapping pose to JPG
+
+```bash
+cd /d/Story-Channel; .venv/Scripts/python -c "
+from PIL import Image
+im=Image.open('channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/characters/sona_sheet.png').convert('RGB')
+im.crop((430,130,820,380)).resize((780,500)).save('channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/review/r1_sheets_sona_lap.jpg',quality=85)"
+```
+
+```text
+(Bash completed with no output)
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:09:11Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\review\r1_sheets_sona_lap.jpg`
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:09:20Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Write"><details>
+<summary>Tool use: **Write**</summary>
+
+```json
+{
+  "_help": "21 images for LONG_02 (story 003). id = first scene number it covers; 'covers' lists all scenes using that image (see script/PLAN.md).",
+  "out_dir": "channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images",
+  "aspect": "16:9",
+  "ref_files": {
+    "raghu": "channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/characters/raghu_sheet.png",
+    "gupta": "channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/characters/gupta_sheet.png",
+    "sona": "channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/characters/sona_sheet.png",
+    "raju": "channels/dadi-ki-kahaniyan/stories/002_sharma-ji-ki-cycle/images/scene_04.png",
+    "gate": "channels/dadi-ki-kahaniyan/stories/002_sharma-ji-ki-cycle/images/scene_01.png",
+    "aangan": "channels/dadi-ki-kahaniyan/brand/_work/banner_art.png"
+  },
+  "looks": {
+    "dadi": "Dadi: Indian grandmother ~70, round face, white hair bun, round golden spectacles, light green saree with yellow border, gold bangles, wooden walking stick, small red bindi",
+    "golu": "Golu: CHUBBY Indian boy ~10 with a round face, messy black hair, yellow T-shirt, blue half-pants, white socks, red shoes",
+    "mitthu": "Mitthu: green parrot with a red beak and a thin red neck ring (a bird: wings, no hands)",
+    "pandey": "Inspector Pandey: plump ~45-year-old police inspector, khaki uniform, thick black moustache, cap",
+    "sharma": "Sharma ji: mid-50s neighbour, bald with grey side hair, rectangular spectacles, cream kurta-pyjama, brown sleeveless jacket",
+    "raghu": "Raghu the new milkman: slim ~25-year-old, short neat black hair, blue-and-white check shirt, khaki trousers, a GREEN bicycle with two steel milk cans",
+    "gupta": "Mrs. Gupta: plump ~50-year-old neighbour, big hair bun, maroon bindi, gold bangles, PINK saree with a thin gold border",
+    "sona": "Sona: a golden-orange tabby cat with white paws, green eyes and a small green collar with a tiny golden bell — always calm and happy",
+    "raju": "Raju the chaiwala: ~35, small moustache, brown half-sleeve shirt, apron, black sooty kettle at his tea stall"
+  },
+  "base": "16:9 landscape scene for a family-friendly Hindi comedy cartoon set in Gulmohar Mohalla, a small Indian neighbourhood with narrow lanes, colourful houses and orange-flowered gulmohar trees, flat 2D cartoon, thick bold black outlines, warm colours, flat cel shading, bright morning light. Mitthu is a bird: he only flies, perches, flaps and talks — he never holds anything and has no hands. No text, signs, letters or numbers anywhere (not even on the gate, the diary or shop boards).",
+  "scenes": [
+    {"id": 1, "covers": [1, 8], "refs": ["mitthu", "gate"], "prompt": "{mitthu} flies above the rooftops of Gulmohar Mohalla with his wings spread wide and his beak wide open, shouting excitedly. Below him the lane, Sharma ji's red iron gate and an orange gulmohar tree (as in the location reference). Mitthu is big and in the upper-left third of the frame; dynamic, funny."},
+    {"id": 2, "covers": [2], "refs": ["sharma", "gate"], "prompt": "Morning outside {sharma}'s house near his red iron gate. He bends down and places a small steel katori of milk on the bottom step of the narrow outdoor stairs that lead up to the flat roof; a few steps above, a steel thali with flour is drying in the sun on one step. He looks affectionate. No cat in this picture."},
+    {"id": 3, "covers": [3], "refs": ["sona", "sharma"], "prompt": "Close-up of {sona} happily lapping milk from the small steel katori on the bottom step of the stairs; in the background, slightly out of focus, {sharma} smiles fondly and calls her. Cosy and sweet."},
+    {"id": 4, "covers": [4], "refs": ["raghu", "sharma", "gate"], "prompt": "{raghu} has just arrived at Sharma ji's red iron gate on his green bicycle with two steel milk cans and waves hello with a friendly smile; {sharma} greets him at the gate, a little surprised to see a new face."},
+    {"id": 5, "covers": [5], "refs": ["mitthu", "gate"], "prompt": "{mitthu} perches on top of Sharma ji's red iron gate with his wings folded, head tilted to one side, listening very carefully with one eye wide open — curious and funny. The orange gulmohar tree behind him."},
+    {"id": 6, "covers": [6, 7], "refs": ["sharma", "mitthu", "scene:2"], "prompt": "{sharma} stands at the bottom of the roof stairs looking at the half-empty steel katori of milk, both hands on his head, very worried, calling out; a few small milk drops lead up the steps. {mitthu} sits on the red gate in the background, beak open, repeating what he hears. Same place as in the earlier scene reference."},
+    {"id": 9, "covers": [9, 10], "refs": ["mitthu", "raju"], "prompt": "Raju's chai stall at the corner of the lane (as in the Raju reference image: brown shirt, apron, black sooty kettle). {mitthu} flies low over the stall, wings flapping, beak open, shouting; {raju} looks up shocked with the kettle in his hand, and two customers with glasses of chai stare up open-mouthed."},
+    {"id": 11, "covers": [11], "refs": ["gupta"], "prompt": "{gupta} on the small balcony of her pink house overlooking the lane, both hands on her cheeks, eyes and mouth wide open in dramatic shock ('Hai Ram!'); a few drying clothes on a line behind her. Funny and theatrical."},
+    {"id": 12, "covers": [12], "refs": ["gupta", "raju", "scene:9"], "prompt": "At Raju's chai stall: {gupta} leans in close and whispers gossip with a hand beside her mouth, eyes wide; {raju} leans in to listen, kettle forgotten in his hand. Same stall as in the earlier scene reference. Comic gossip mood."},
+    {"id": 13, "covers": [13], "refs": ["dadi", "golu", "aangan"], "prompt": "Dadi's swept courtyard (as in the location reference: small mud house with a khaprail clay-tile roof, BROWN wooden door, charpai, green fields behind). {golu} runs in, out of breath and excited, arms waving; {dadi} sits calmly on the charpai, raising one eyebrow, unconvinced."},
+    {"id": 14, "covers": [14, 20], "refs": ["sharma", "gupta", "raju", "golu", "mitthu", "gate"], "prompt": "A small curious crowd of neighbours gathered in the lane in front of Sharma ji's red iron gate: {sharma} in the middle looking confused, {gupta} talking animatedly, {raju} with his kettle, {golu} peeking between the grown-ups; {mitthu} flies above the crowd shouting, wings spread. Busy and comic, everyone's faces clearly visible."},
+    {"id": 15, "covers": [15, 16], "refs": ["pandey", "sharma", "gupta", "raju", "gate"], "prompt": "{pandey} stands importantly in front of Sharma ji's red gate with a whistle in his mouth and a big open diary in his hand, pen ready, very serious, writing a report; {gupta} and {raju} lean towards him dictating eagerly, while {sharma} behind them raises a hand, trying to speak, but nobody listens. The diary pages show only scribbles (no readable text). Comic."},
+    {"id": 17, "covers": [17], "refs": ["raghu", "gupta", "sharma", "scene:14"], "prompt": "{raghu} walks back down the lane carrying one steel milk can, puzzled, palms slightly open; the crowd of neighbours by the gate turns to stare at him and whisper behind their hands ({gupta} pointing at him dramatically). No police action. Same lane and crowd as in the earlier scene reference."},
+    {"id": 18, "covers": [18, 19, 21], "refs": ["dadi", "pandey", "sharma", "golu", "scene:15"], "prompt": "{dadi} has walked calmly through the crowd and gently lowers {pandey}'s open diary with the tip of her wooden walking stick, smiling patiently, as if saying 'first ask the right question'; Pandey looks surprised over his moustache; {sharma} and {golu} watch. Dadi's hand is NOT raised — the stick does the talking. Same place as the earlier scene reference."},
+    {"id": 22, "covers": [22], "refs": ["scene:2"], "prompt": "Close-up clue shot at the bottom of the outdoor roof stairs: the small steel katori with milk half drunk, and a trail of small white milk drops going up the stone steps. No people in the frame. Clear, readable clue, warm light."},
+    {"id": 23, "covers": [23], "refs": ["golu", "dadi", "scene:2"], "prompt": "On the roof stairs: {golu} crouches and points excitedly at small cat paw prints pressed into the flour drying in a steel thali on one step, and a few floury paw prints going further up the steps; {dadi} bends down beside him with her spectacles, looking closely and nodding. A clear, readable clue."},
+    {"id": 24, "covers": [24], "refs": ["dadi", "golu", "sharma"], "prompt": "{dadi}, {golu} and {sharma} tiptoe up the narrow outdoor stairs to the flat roof one behind the other, fingers on lips, curious and a little funny; the edge of the bright roof and the sky above them."},
+    {"id": 25, "covers": [25], "refs": ["sona", "mitthu"], "prompt": "On the sunny flat roof next to a warm black water tank: {sona} sleeps peacefully curled up in a patch of sunshine, content and cosy; {mitthu} flies in happily from the side with his wings spread, beak open in joy. Peaceful and sweet, the cat is completely safe and relaxed."},
+    {"id": 26, "covers": [26], "refs": ["sharma", "sona", "gate"], "prompt": "On the roof edge, {sharma} gently hugs {sona} to his chest, laughing with relief, the cat purring happily; below in the lane the neighbours look up and laugh together. Warm and funny."},
+    {"id": 27, "covers": [27, 28], "refs": ["pandey", "gupta", "raghu", "gate"], "prompt": "In the lane by the red gate: {pandey}, sheepish, tears a page out of his diary; {gupta} folds her hands to {raghu} in an embarrassed apology; {raghu} smiles kindly and waves it off, holding his milk can. Light-hearted ending."},
+    {"id": 29, "covers": [29, 30], "refs": ["dadi", "golu", "mitthu", "sharma", "sona"], "prompt": "On the flat roof in warm late-morning light: {dadi} gently explains something to {golu}, who nods with a big understanding smile; {mitthu} flaps his wings happily on the roof wall next to them, beak open; in the background {sharma} sits with {sona} curled on his lap. Calm, warm ending."}
+  ]
+}
+
+```
+
+```text
+File created successfully at: D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\scene_prompts.json (file state is current in your context — no need to Read it back)
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:09:20Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Append R1 verdict to log
+
+`cd /d/Story-Channel; echo "2026-10-19 | 003_mitthu-ne-sab-bata-diya long_02 | 3 character sheets R1 (~10 min) | FIX | no BLOCKER; sharma (matches Case 01 scene_01/02: bald, grey sides, rect. glasses, cream kurta-pyjama, brown jacket), raghu (blue check shirt, khaki, green cycle, 2 steel cans; clearly not Pappu), gupta (pink saree gold border, bun, maroon bindi, gold bangles), sona (golden tabby, white paws, green collar+bell, calm/happy in all 6 poses) all consistent across poses, style = channel sheets, 1264x848, labels English only, no franchise look; cost Rs12.96 = estimate (story total 12.96/130, balance 255.34); MINOR free fix: 4 sheets have no rows in shared/assets_license.csv (builder adds as own Gemini assets); no STOP condition" >> channels/dadi-ki-kahaniyan/log.md`
+
+```text
+(Bash completed with no output)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:09:32Z)**_
+
+<think><details><summary>Thought Process</summary>
+21 image prompts tayyar hain, har ek me character sheets aur location reference included, bina kisi text ke. Ab main images ek-ek karke background me generate karoonga, har call se pehle budget check karte hue — estimated ~12 min aur ₹68.04.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:09:34Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Generate 21 scene images with budget guard (background)
+
+`LOG="C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad/long02_images.log"; : > "$LOG"; for id in 1 2 3 4 5 6 9 11 12 13 14 15 17 18 22 23 24 25 26 27 29; do .venv/Scripts/python.exe -X utf8 -c "import sys; sys.path.insert(0,'scripts'); from story_budget import check; check('003_mitthu-ne-sab-bata-diya', 3.24)" >> "$LOG" 2>&1 || { echo "BUDGET STOP at $id" >> "$LOG"; break; }; AUTO_PREVIEW=0 .venv/Scripts/python.exe -X utf8 scripts/gen_scenes.py channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/scene_prompts.json $id >> "$LOG" 2>&1; done; echo DONE >> "$LOG"; grep -E "SKIP|rror|STOP|DONE" "$LOG"; grep -c "Is image ka cost" "$LOG"`
+
+```text
+Command running in background with ID: b08da8pqx. Output is being written to: C:\Users\ashamim\AppData\Local\Temp\claude\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7\tasks\b08da8pqx.output. You will be notified when it completes — do not poll that file or sleep while waiting. Read the file only if the user asks for progress, or if you need a line it prints before you can go on, such as a server's ready line or port.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:09:40Z)**_
+
+<think><details><summary>Thought Process</summary>
+Images ban rahi hain, tab tak main Raghu aur Gupta aunty ki voices `voices.py` me, `project.json`/`meta.json`, Long 01 se alag music tracks, aur Sheets ki register rows taiyaar kar raha hoon.
+
+</details></think>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:09:43Z)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="SubagentHandback"><details>
+<summary>Tool use: **SubagentHandback**</summary>
+
+```text
+{"success":true,"message":"Report delivered to your caller."}
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:09:57Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Add voices, project/meta, register rows, log
+
+```bash
+.venv/Scripts/python.exe -X utf8 - <<'PYEOF'
+import json, csv, datetime
+from pathlib import Path
+v = Path("scripts/voices.py"); s = v.read_text(encoding="utf-8")
+anchor = '    "kids": ("Zephyr", "a group of excited village children cheering together, loud and joyful", 0),\n'
+assert anchor in s
+s = s.replace(anchor, anchor + '''    # --- long_02 (story 003): मिट्ठू ने सब बता दिया ---
+    "raghu": ("Puck", "friendly, honest young Indian milkman, polite and a little nervous when everyone stares, natural pace", 0),
+    "gupta": ("Despina", "chatty, dramatic 50-year-old Indian neighbour who loves gossip, expressive and theatrical, quick", 0),
+''')
+v.write_text(s, encoding="utf-8")
+S = Path("channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya")
+(S / "long" / "project.json").write_text(json.dumps({"kind": "long", "name": "long_02", "burn_captions": False,
+    "_note": "Story 003 long video: comedy in Gulmohar Mohalla, narrator voice narrates (channel RULES), Dadi is a character."}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+meta = {
+  "title": "आधी बात, पूरा हंगामा! मिट्ठू ने सब बता दिया | किस्सागो",
+  "description": "गुलमोहर मोहल्ले में एक सुबह मिट्ठू ने आधी बात सुनी और चिल्लाने लगा — \"सोना चोरी! सोना चोरी!\" देखते ही देखते बात सोने के हार और तिजोरी तक पहुँच गई, और एक बेचारे नए दूधवाले पर शक होने लगा। फिर दादी ने एक सीधा-सा सवाल पूछा... 🦜😄\n\nसीख: सुनी-सुनाई बात बिना जाँचे आगे मत बढ़ाओ — पहले पूछो, फिर बोलो।\n\nकिस्सागो — हर शाम एक नया किस्सा, जो हँसाए भी और सिखाए भी।",
+  "hashtags": ["#किस्सागो", "#HindiComedy", "#मिट्ठू", "#HindiKahani", "#FamilyStory"],
+  "tags": ["किस्सागो", "Kissago", "मिट्ठू", "Mitthu Tota", "सोना चोरी", "आधी बात", "अफ़वाह", "Rumour Story Hindi",
+           "हिंदी कॉमेडी कहानी", "Hindi Comedy Cartoon", "गुलमोहर मोहल्ला", "दादी", "परिवार की कहानी", "Family Story Hindi",
+           "मोहल्ले की कहानी", "Hindi Kahani", "सीख वाली कहानी", "Talking Parrot Story"],
+  "music_moods": {"comedy": "comedy/Monkeys_Spinning_Monkeys.mp3", "khushi": "khushi/Life_of_Riley.mp3",
+                  "tension": "tension/Investigations.mp3", "jaadu": "jaadu/Dreams_Become_Real.mp3",
+                  "seekh": "seekh/Peaceful_Desolation.mp3"},
+  "sfx": {"comedy": "comedy_sting_731262.mp3", "tension": "tension_sting_578351.mp3"},
+  "pinned_comment": "सबसे बड़ी गलती किसकी थी — मिट्ठू, गुप्ता आंटी या पांडे जी? कमेंट में बताइए! 🦜"
+}
+(S / "long" / "meta.json").write_text(json.dumps(meta, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+p = Path("shared/assets_license.csv")
+rows = list(csv.DictReader(p.open(encoding="utf-8", newline="")))
+have = {r["path"] for r in rows}
+for path in ["channels/dadi-ki-kahaniyan/characters/sharma_sheet.png"] + [str(S / "characters" / f).replace("\\", "/") for f in ("raghu_sheet.png", "gupta_sheet.png", "sona_sheet.png")]:
+    if path not in have:
+        rows.append({"path": path, "source_url": "own: Gemini-generated character sheet (cost_log.csv)", "author": "Kissago (channel owner)",
+                     "license": "own (Gemini-generated)", "attribution_text": "", "date_added": datetime.date.today().isoformat()})
+rows.append({"path": str(S / "images/").replace("\\", "/") + "/", "source_url": "own: Gemini-generated scene images (cost_log.csv)", "author": "Kissago (channel owner)",
+             "license": "own (Gemini-generated)", "attribution_text": "", "date_added": datetime.date.today().isoformat()}) if str(S / "images/").replace("\\", "/") + "/" not in have else None
+with p.open("w", encoding="utf-8", newline="") as fh:
+    w = csv.DictWriter(fh, fieldnames=rows[0].keys()); w.writeheader(); w.writerows(rows)
+print("register", len(rows), "rows; title len", len(meta["title"]), "; tags chars", sum(len(t) + (2 if " " in t else 0) for t in meta["tags"]) + len(meta["tags"]) - 1)
+PYEOF
+.venv/Scripts/python.exe -X utf8 -c "import sys; sys.path.insert(0,'scripts'); from voices import CAST; print(CAST['raghu'][0], CAST['gupta'][0])"; echo "$(date '+%F %H:%M') | 003 long_02 | AUTO | character sheets (sharma, raghu, gupta, sona) done ₹12.96; scene images started; story cost so far ₹12.96" >> channels/dadi-ki-kahaniyan/log.md
+```
+
+```text
+register 54 rows; title len 54 ; tags chars 267
+Puck Despina
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:10:01Z)**_
+
+Sheets ke R1 me Munshi ne sirf ek muft FIX diya tha: register me rows. Wo pichhle kadam me jud chuki hain, check kar raha hoon. Saath me voice samples ki taiyaari:
+
+_**Agent (claude-opus-5-5 2026-10-19 11:10:03Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Verify register rows; read voice sample script
+
+`grep -c "sharma_sheet.png\|raghu_sheet.png\|gupta_sheet.png\|sona_sheet.png" shared/assets_license.csv && sed -n 1,45p scripts/voice_samples.py`
+
+```text
+4
+"""Make 1-line Gemini TTS samples per character for casting.
+
+Usage: python scripts/voice_samples.py [character ...]
+Output: audio/voice_samples/<character>_<Voice>.wav  (cost logged per sample)
+"""
+import sys
+import time
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).parent))
+import cost_log  # noqa: E402
+from gemini_tts import speak  # noqa: E402
+from voices import CAST  # noqa: E402
+
+from paths import ROOT, channel_dir  # noqa: E402
+
+OUT = channel_dir() / "characters" / "voices"
+
+SAMPLE_LINES = {
+    "narrator": "शर्मा जी की नई साइकिल... रातों-रात गायब!",
+    "sharma": "कल ही ख़रीदी थी! रात को गेट से बाँधी थी... और गेट पर कल शाम ही लाल पेंट करवाया था!",
+    "dadi": "बेटा, चोर कितना भी चालाक हो... दादी से नहीं बच सकता!",
+    "golu": "दादी, मुझे पता है चोर कौन है! पप्पू! देखो, उसका गमछा लाल है!",
+    "mitthu": "गीला! गीला!",
+    "pandey": "पकड़ो इसे!",
+    "pappu": "मैं तो रोज़ सुबह दूध देने निकलता हूँ, मैंने कुछ नहीं देखा!",
+    "raju": "हाँ, मैंने कहा था ऐसी साइकिल मुझे भी चाहिए... पर चोरी? कभी नहीं!",
+    "bunty": "मैं तो रात भर घर पर पढ़ाई कर रहा था!",
+    "ghasita": "एक सिक्का भी कम, तो जलेबी नहीं! भागो यहाँ से!",
+    "chhotu": "बाबा, मेरे पास बस यही है। आप खा लीजिए।",
+    "sadhu": "पर याद रखना — ये सिर्फ़ भूखों के लिए है। लालच के लिए नहीं।",
+    "woman": "भैया, आधा किलो जलेबी देना।",
+    "kid": "चाचा, एक जलेबी... बस एक सिक्का कम है।",
+    "villager": "छोटू की जलेबी! इसमें ईमानदारी का स्वाद है!",
+    "kids": "छोटू भैया ज़िंदाबाद!",
+}
+
+if __name__ == "__main__":
+    total = 0.0
+    for name in sys.argv[1:] or list(CAST):
+        voice, style, _ = CAST[name]
+        line = SAMPLE_LINES[name]
+        out = OUT / f"{name}_{voice}.wav"
+        t0 = time.time()
+        try:
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:10:07Z)**_
+
+Rows mil gayi, sheets ka R1 FIX poora hua. Ab Raghu aur Gupta aunty ke voice samples bana raha hoon (~₹0.2), script ki asli lines se:
+
+_**Agent (claude-opus-5-5 2026-10-19 11:10:28Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Generate raghu and gupta voice samples
+
+```bash
+.venv/Scripts/python.exe - <<'PYEOF'
+from pathlib import Path
+p = Path("scripts/voice_samples.py"); s = p.read_text(encoding="utf-8")
+a = '    "kids": "छोटू भैया ज़िंदाबाद!",\n'
+assert a in s
+s = s.replace(a, a + '    "raghu": "मुझे क्यों घूर रहे हैं सब? मैं तो बस दूध देकर गया था!",\n    "gupta": "हाय राम! सोना? ज़रूर शर्मा जी की पत्नी का सोने का हार गया होगा!",\n')
+p.write_text(s, encoding="utf-8")
+PYEOF
+.venv/Scripts/python.exe -X utf8 -c "import sys; sys.path.insert(0,'scripts'); from story_budget import check; check('003_mitthu-ne-sab-bata-diya', 0.5)" && .venv/Scripts/python.exe -X utf8 scripts/voice_samples.py raghu gupta 2>&1 | tail -4 && .venv/Scripts/python.exe -X utf8 scripts/story_budget.py 003_mitthu-ne-sab-bata-diya
+```
+
+```text
+raghu     Puck            4.6s audio,  6.3s wait  usage=reported  Is sample ka cost: ₹0.10  |  Aaj ka total: ₹16.30  |  ₹500 me se bacha: ₹252.00
+gupta     Despina         5.5s audio,  7.4s wait  usage=reported  Is sample ka cost: ₹0.12  |  Aaj ka total: ₹16.42  |  ₹500 me se bacha: ₹251.88
+TOTAL $0.0023 = ₹0.22
+story 003_mitthu-ne-sab-bata-diya: spent ₹16.42 of ₹130 | account remaining ₹251.88
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:10:37Z)**_
+
+<think><details><summary>Thought Process</summary>
+Dono voice samples ban gaye — Raghu ₹0.10, Gupta aunty ₹0.12; story ka total kharcha ₹16.42/130 hai aur ₹251.88 bache hain. Ab images ke saath 57 lines ka TTS (~₹6.3) bana raha hoon taki preview ke liye awaaz pehle se taiyaar ho.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:10:41Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Write"><details>
+<summary>Tool use: **Write**</summary>
+
+```python
+"""Make the TTS cache for story 003 (all spoken lines) with the budget guard; work files go to the scratchpad."""
+import json
+import sys
+from pathlib import Path
+
+ROOT = Path(r"D:\Story-Channel")
+sys.path.insert(0, str(ROOT / "scripts"))
+sys.argv = ["x"]
+import make_short as m  # noqa: E402
+from story_budget import check, story_cost  # noqa: E402
+
+STORY = "003_mitthu-ne-sab-bata-diya"
+S = ROOT / "channels" / "dadi-ki-kahaniyan" / "stories" / STORY
+lines = json.loads((S / "long" / "lines.json").read_text(encoding="utf-8"))
+cache = S / "audio" / "tts_cache"
+cache.mkdir(parents=True, exist_ok=True)
+work = Path(__file__).parent / "long02_tts_work"
+work.mkdir(exist_ok=True)
+made = 0
+for i, l in enumerate(lines, 1):
+    if "text" not in l:
+        continue
+    if not (cache / m.tts_key(l["text"], l["speaker"])).exists():
+        check(STORY, 0.5)  # one line costs well under ₹0.5
+        made += 1
+    m.tts_line(l["text"], l["speaker"], cache, work / f"line_{i:02d}.wav", extra_af=l.get("af"), chorus=l.get("chorus", False))
+print(f"new TTS lines: {made}; story cost now ₹{story_cost(STORY):.2f}")
+
+```
+
+```text
+File created successfully at: C:\Users\ashamim\AppData\Local\Temp\claude\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7\scratchpad\long02_tts.py (file state is current in your context — no need to Read it back)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:19:20Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Generate TTS for all 57 lines with budget guard
+
+`.venv/Scripts/python.exe -X utf8 "C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad/long02_tts.py" 2>&1 | grep -E "new TTS lines|rror|STOP|Traceback" ; tail -1 cost_log.csv | awk -F, '{print "remaining ₹"$8}'`
+
+```text
+new TTS lines: 56; story cost now ₹67.52
+remaining ₹200.78
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:19:32Z)**_
+
+<think><details><summary>Thought Process</summary>
+TTS ke liye 56 nayi lines ban gayi, aur Mitthu ki repeated line cache se mil gayi. Story ka total kharcha ₹67.52 ho gaya hai (₹200.78 bache hain), ab main asli TTS se lambai naap raha hoon.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:19:40Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Measure real TTS durations for Long 02
+
+```bash
+.venv/Scripts/python.exe -X utf8 -c "
+import sys,json,wave; sys.path.insert(0,'scripts'); sys.argv=['x']
+from make_short import tts_key, trim
+S='channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya'
+L=json.load(open(S+'/long/lines.json',encoding='utf-8'))
+t=0; intro=0; d_all=[]
+for i,l in enumerate(L):
+  w=wave.open(S+'/audio/tts_cache/'+tts_key(l['text'],l['speaker'])); d=len(trim(w.readframes(w.getnframes())))/2/w.getframerate(); d_all.append((i+1,l['speaker'],d))
+  if i: t+=0.3
+  if l.get('part')=='intro': intro=t+d
+  t+=d
+print(f'real speech+gaps {t:.1f}s -> video ~{t+1.5:.1f}s ({int((t+1.5)//60)}:{int((t+1.5)%60):02d}) | intro ends {intro:.1f}s')
+from collections import defaultdict
+agg=defaultdict(lambda:[0,0.0])
+for i,sp,d in d_all: agg[sp][0]+=len(L[i-1]['text'].split()); agg[sp][1]+=d
+print(' '.join(f'{k}:{w/d:.2f}w/s' for k,(w,d) in agg.items()))
+"
+```
+
+```text
+real speech+gaps 257.9s -> video ~259.4s (4:19) | intro ends 7.3s
+mitthu:1.78w/s narrator:2.46w/s sharma:2.55w/s raghu:2.84w/s raju:3.03w/s gupta:2.77w/s golu:2.82w/s dadi:2.07w/s pandey:2.04w/s
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:20:00Z)**_
+
+<think><details><summary>Thought Process</summary>
+Asli TTS andaze se tez bani, jisse video ~4:19 (259 sec) ka hoga, target range se kam. Script badalne ke bina, narrator-Dadi ki awaaz ko Long 01 jaisi dheemi raftaar par laane ke alag-alag mel aazma raha hoon.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:20:06Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Compare pacing options for length
+
+```bash
+.venv/Scripts/python.exe -X utf8 -c "
+import sys,json,wave; sys.path.insert(0,'scripts'); sys.argv=['x']
+from make_short import tts_key, trim
+S='channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya'
+L=json.load(open(S+'/long/lines.json',encoding='utf-8'))
+D=[]
+for l in L:
+  w=wave.open(S+'/audio/tts_cache/'+tts_key(l['text'],l['speaker'])); D.append((l['speaker'],len(trim(w.readframes(w.getnframes())))/2/w.getframerate(),l.get('part')))
+def tot(sp_speed, gap, hold=1.5):
+  t=0; intro=0
+  for i,(sp,d,part) in enumerate(D):
+    if i: t+=gap
+    d2=d/sp_speed.get(sp,1.0); t+=d2
+    if part=='intro': intro=t
+  return t+hold, intro
+for name,spd,gap in (('as is',{},0.3),('narr .85',{'narrator':0.85},0.3),('narr .82 dadi .92',{'narrator':0.82,'dadi':0.92},0.35),('narr .80 dadi .90 all .95',{'narrator':0.80,'dadi':0.90,'sharma':0.95,'golu':0.95,'raghu':0.95,'gupta':0.95,'raju':0.95,'pandey':1.0,'mitthu':1.0},0.4)):
+  T,I=tot(spd,gap); print(f'{name:28s} gap {gap}: {T:.0f}s ({int(T//60)}:{int(T%60):02d}) intro {I:.1f}s')
+"
+```
+
+```text
+as is                        gap 0.3: 259s (4:19) intro 7.3s
+narr .85                     gap 0.3: 271s (4:30) intro 8.0s
+narr .82 dadi .92            gap 0.35: 281s (4:41) intro 8.3s
+narr .80 dadi .90 all .95    gap 0.4: 292s (4:51) intro 8.5s
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:20:16Z)**_
+
+<think><details><summary>Thought Process</summary>
+Chautha mel sahi baitha hai: ~4:51 duration, 8.5 sec intro, narrator 0.80x aur Dadi 0.90x speed par jo Long 01 ki raftaar jaisi hai, baaki kirdaar 0.95x par. Ab builder me har kirdaar ke liye alag speed option jod raha hoon (₹0 cost).
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:20:26Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Per-speaker tempo in builder; set Long 02 pacing
+
+```bash
+.venv/Scripts/python.exe - <<'PYEOF'
+from pathlib import Path
+import json
+p = Path("scripts/make_short.py"); s = p.read_text(encoding="utf-8")
+a = '''        tempo = f"atempo={speed}" if speed != 1.0 else None'''
+b = '''        sp_speed = speed.get(line["speaker"], 1.0) if isinstance(speed, dict) else speed  # per-speaker tempo allowed
+        tempo = f"atempo={sp_speed}" if sp_speed != 1.0 else None'''
+assert a in s; s = s.replace(a, b)
+s = s.replace('    """speed: tempo factor for every spoken line (atempo keeps the pitch; cached TTS reused, no new cost).',
+              '    """speed: tempo factor for every spoken line, or {speaker: factor} (atempo keeps the pitch; cached TTS reused).')
+p.write_text(s, encoding="utf-8")
+m = Path("channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/meta.json")
+d = json.loads(m.read_text(encoding="utf-8"))
+d["speed"] = {"narrator": 0.80, "dadi": 0.90, "sharma": 0.95, "golu": 0.95, "raghu": 0.95, "gupta": 0.95, "raju": 0.95}
+d["gap"] = 0.4
+d["_pace_note"] = "Gemini TTS for story 003 came out faster than Long 01 (narrator 2.46 w/s); tempo brings narration to Long 01's storytelling pace (~1.9-2.0 w/s) so the video lands in the approved 4:45-5:15."
+m.write_text(json.dumps(d, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+print("ok")
+PYEOF
+.venv/Scripts/python.exe -m py_compile scripts/make_short.py && echo compiled && echo "$(date '+%F %H:%M') | 003 long_02 | AUTO | voice samples ₹0.22 + TTS 56 lines done; real TTS faster than estimate (4:19) -> per-speaker tempo (narrator 0.80, dadi 0.90, others 0.95) + gap 0.4 -> ~4:51 (free); story cost so far see cost_log" >> channels/dadi-ki-kahaniyan/log.md
+```
+
+```text
+ok
+compiled
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:20:32Z)**_
+
+Auto mode ki abhi ki sthiti: 4 sheets, 2 voice samples aur 56 lines ka TTS ban chuke hain, aur Long 02 ki speed theek kar di hai (~4:51). 21 scene images abhi background me ban rahi hain. Story ka kharcha ab tak ~₹71/130 hai. Images poori hote hi Munshi ka review hoga, phir preview banega aur aapko dikhaunga.
+
+---
+
+_**User (2026-10-19 11:22:10Z)**_
+
+<task-notification>
+<task-id>b08da8pqx</task-id>
+<tool-use-id>toolu_01Dd1RxDKcxPokx13icS4AN2</tool-use-id>
+<output-file>C:\Users\ashamim\AppData\Local\Temp\claude\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7\tasks\b08da8pqx.output</output-file>
+<status>completed</status>
+<summary>Background command "Generate 21 scene images with budget guard (background)" completed (exit code 0)</summary>
+</task-notification>
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-19 11:22:20Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Check image generation results and budget
+
+`cat "C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/tasks/b08da8pqx.output"; ls channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images | wc -l; .venv/Scripts/python.exe -X utf8 scripts/story_budget.py 003_mitthu-ne-sab-bata-diya`
+
+```text
+DONE
+21
+
+[exited with code 0]
+21
+story 003_mitthu-ne-sab-bata-diya: spent ₹86.96 of ₹130 | account remaining ₹181.34
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:22:23Z)**_
+
+Saari 21 images ban gayi, koi skip nahi hui. Story ka kharcha **₹86.96/130** hai, aur account me ₹181.34 bache hain. Pehle khud contact sheet dekh raha hoon:
+
+_**Agent (claude-opus-5-5 2026-10-19 11:22:32Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Contact sheet of 21 scene images
+
+```bash
+S=channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya && .venv/Scripts/python.exe -c "
+from PIL import Image, ImageDraw
+from pathlib import Path
+S=Path('$S'); fs=sorted((S/'images').glob('scene_*.png'))
+w=360; tiles=[]
+for f in fs:
+  im=Image.open(f).convert('RGB'); im=im.resize((w,int(im.height*w/im.width))); d=ImageDraw.Draw(im); d.rectangle((0,0,70,20),fill=(0,0,0)); d.text((4,4),f.stem.replace('scene_','img '),fill=(255,230,0)); tiles.append(im)
+cols=5; h=tiles[0].height
+s=Image.new('RGB',(w*cols,h*((len(tiles)+cols-1)//cols)),(30,30,30))
+for i,t in enumerate(tiles): s.paste(t,((i%cols)*w,(i//cols)*h))
+s.save(S/'long/review/images_sheet.jpg',quality=85); print(len(tiles), s.size)"
+```
+
+```text
+21 (1800, 1000)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:22:33Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\review\images_sheet.jpg`
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:22:49Z)**_
+
+<think><details><summary>Thought Process</summary>
+Img 13 me do Dadi dikh rahi hain aur img 09 me Raju ke stall ka grahak Sharma ji se milta-julta hai — dono ko dobara dekhna hoga. Baaki images theek lag rahi hain; ab Munshi ka poora image review karwa raha hoon.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:25:39Z)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="Agent"><details>
+<summary>Tool use: **Agent**</summary>
+Review Long 02 scene images R1
+
+```text
+  This agent's report was delivered to you as a message from "aa9102f9468816e89" (its SubagentHandback call). Read it there; it is not repeated here.
+  
+agentId: aa9102f9468816e89 (use SendMessage with to: 'aa9102f9468816e89', summary: '<5-10 word recap>' to continue this agent)
+<usage>subagent_tokens: 96866
+tool_uses: 38
+duration_ms: 165396</usage>
+```
+</details></tool-use>
+
+_**Agent - sidechain (2026-10-19 11:22:54Z)**_
+
+AUTO MODE (shared/RULES.md section 14). Stage 4 review (Scene images) R1 for channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya. REVIEW ONLY, JPG temp files in the story's long/review/. Inputs: images/scene_XX.png (21 images; ids = first scene they cover), scene_prompts.json (prompts, refs, covers), script/script.md + long/lines.json (what each scene must show), script/PLAN.md (scene plan), character sheets (channel characters/ dadi, golu, mitthu, pandey, sharma; story characters/ raghu, gupta, sona; Raju ref = channels/dadi-ki-kahaniyan/stories/002_sharma-ji-ki-cycle/images/scene_04.png), channel bible. Contact sheet: long/review/images_sheet.jpg (open each image at full size too).
+Check each image: right characters per the lines it covers and matching their sheets (Golu chubby, Mitthu no hands, Sona calm/never scared, Raghu vs Pappu), no duplicated characters, the action the line describes is visible (clues in 22/23 readable: milk drops up the stairs; paw prints in flour), no AI text/letters/signs, no franchise/brand look-alikes, location consistency (Sharma ji's red gate lane, Dadi's aangan = mud house with khaprail roof, brown door, fields), scene 18 Dadi lowers Pandey's diary with her stick (NOT a raised hand), no police action against Raghu. The builder already spotted: img 13 shows TWO Dadis; img 09 has a customer who looks like Sharma ji. Budget: story ₹86.96 of ₹130 cap, balance ₹181.34; regenerations cost ₹3.24 each, max 2 per image (RULES 14).
+Report: per image OK / FIX (what to change in the prompt) / Note; classify BLOCKER/MINOR per RULES 11; state any STOP condition. One log line (R1, verdict, time). Keep it compact.
+
+_**Agent - sidechain (2026-10-19 11:22:54Z)**_
+
+<system-reminder>
+Your final report is delivered through SubagentHandback: when your work is complete, call SubagentHandback({message: <your full report>}). The call ends your run, so make it your last step. Only a SubagentHandback call reaches your caller as your result; plain text you write at the end is not delivered.
+</system-reminder>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:23:00Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+
+`cd /d/Story-Channel; S=channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya; ls $S $S/images $S/characters $S/long $S/long/review $S/script channels/dadi-ki-kahaniyan/characters; wc -l shared/RULES.md channels/dadi-ki-kahaniyan/RULES.md channels/dadi-ki-kahaniyan/channel_bible.md; tail -5 channels/dadi-ki-kahaniyan/log.md`
+
+```text
+channels/dadi-ki-kahaniyan/characters:
+_rejected_pollinations
+dadi_sheet.png
+golu_sheet.png
+mitthu_sheet.png
+pandey_sheet.png
+sharma_sheet.png
+voices
+
+channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya:
+audio
+characters
+images
+long
+scene_prompts.json
+script
+story.md
+
+channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/characters:
+gupta_sheet.png
+raghu_sheet.png
+sona_sheet.png
+
+channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images:
+scene_01.png
+scene_02.png
+scene_03.png
+scene_04.png
+scene_05.png
+scene_06.png
+scene_09.png
+scene_11.png
+scene_12.png
+scene_13.png
+scene_14.png
+scene_15.png
+scene_17.png
+scene_18.png
+scene_22.png
+scene_23.png
+scene_24.png
+scene_25.png
+scene_26.png
+scene_27.png
+scene_29.png
+
+channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long:
+lines.json
+meta.json
+project.json
+review
+
+channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/review:
+images_sheet.jpg
+r1_sheets_sona_lap.jpg
+sheets_check.jpg
+
+channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/script:
+PLAN.md
+script.md
+  140 shared/RULES.md
+   17 channels/dadi-ki-kahaniyan/RULES.md
+  103 channels/dadi-ki-kahaniyan/channel_bible.md
+  260 total
+2026-10-19 | 003_mitthu-ne-sab-bata-diya long_02 | 1 script R2b (changed parts, ~12 min) | PASS-WITH-NOTES | FIR beat ok: no arrest/police action vs Raghu (only crowd whispers + Gupta line 33), तिजोरी first at line 29 in report, payoff line 51 report torn + Gupta apology 52; 57 lines script.md = lines.json (speaker/text/scene); est. 296 s; Short A 10 lines no बिल्ली, twist kept, ends on Raghu; all speakers own voices, Mitthu no hands; RULES narrator line + मिट्ठू spelling (0 old spellings in bible/story) verified; originality vs Case 01 still 3/6 (plot, genre, ending); Notes -> carry_over: line 35 'रुकिए, पांडे जी' verbatim Case 01, intro/Short A margins re-measure after TTS, PLAN Sharma sheet cost
+2026-10-19 16:34 | 003 long_02 | AUTO | script approved by user (v3); auto mode to preview started; story cost so far ₹0.00
+2026-10-19 | 003_mitthu-ne-sab-bata-diya long_02 | 3 character sheets R1 (~10 min) | FIX | no BLOCKER; sharma (matches Case 01 scene_01/02: bald, grey sides, rect. glasses, cream kurta-pyjama, brown jacket), raghu (blue check shirt, khaki, green cycle, 2 steel cans; clearly not Pappu), gupta (pink saree gold border, bun, maroon bindi, gold bangles), sona (golden tabby, white paws, green collar+bell, calm/happy in all 6 poses) all consistent across poses, style = channel sheets, 1264x848, labels English only, no franchise look; cost Rs12.96 = estimate (story total 12.96/130, balance 255.34); MINOR free fix: 4 sheets have no rows in shared/assets_license.csv (builder adds as own Gemini assets); no STOP condition
+2026-10-19 16:39 | 003 long_02 | AUTO | character sheets (sharma, raghu, gupta, sona) done ₹12.96; scene images started; story cost so far ₹12.96
+2026-10-19 16:50 | 003 long_02 | AUTO | voice samples ₹0.22 + TTS 56 lines done; real TTS faster than estimate (4:19) -> per-speaker tempo (narrator 0.80, dadi 0.90, others 0.95) + gap 0.4 -> ~4:51 (free); story cost so far see cost_log
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:23:05Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+
+`cd /d/Story-Channel; S=channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya; cat shared/RULES.md channels/dadi-ki-kahaniyan/RULES.md channels/dadi-ki-kahaniyan/channel_bible.md`
+
+```text
+# Munshi RULES — Story-Channel
+
+Shared rules for every channel. Munshi reads this file first, then `channels/<key>/RULES.md`.
+- Channel RULES can be stricter than shared RULES, never looser. Copyright, channel ID, secrets and upload safety can never be relaxed by a channel.
+
+
+These are the hard rules. If a builder summary, a script or a file disagrees with them, the rule wins and the step is not PASS. Edit this file to add new rules; Munshi reads it fresh every time.
+- A measured value outside a RULES limit is always FIX, never PASS, even if small. (in R1; after R2 see section 11)
+
+## 1. Budget
+- Prepaid Google Cloud budget: ₹500, auto-reload off. Current balance is whatever `cost_log.csv` says.
+- Every paid call (Gemini image ≈ ₹3.24 each at 1K, Gemini TTS per line) must be in `cost_log.csv` with date, project, item, ₹.
+- No paid call without the user's OK first. A fix that costs money is always ASK, never FIX.
+- Flag it if a step cost more than 30% above its estimate (e.g. LONG_01 TTS: estimate ₹4.85, actual ₹6.63).
+
+## 2. Story and characters (from `channel_bible.md`)
+- Characters must match their approved sheets: face, clothes, colours, age look. Compare each scene image against the sheet with Read.
+- The action in each image must match what the line says at that moment (who is holding what, who is talking).
+
+## 3. Audio
+- Final loudness: -14 LUFS integrated (±1), true peak ≤ -1.0 dBFS.
+- Music sits under the voice: 12–14 dB below for Shorts, up to ~18–20 dB for narration-heavy long videos. If it is quieter than 20 dB under, flag it.
+- Music level is measured one way only: integrated LUFS of the voice-only stem vs the music-only stem over the same speech sections. Builder and Munshi both use this method.
+- Mood changes get a crossfade (≥1 s). No sudden music cuts under dialogue.
+- No leaked background audio, clicks, or a line cut off mid-word.
+
+## 4. Captions
+- One `.srt` per video, Hindi, UTF-8.
+- Each caption must appear while that line is being spoken (±0.3 s), over the right character's shot.
+- Lines whose timing was estimated rather than taken from Whisper must be listed in the report.
+
+## 5. Video
+- Long video: 1920×1080, 30 fps, H.264, 16:9. Short: 1080×1920, ≤60 s, 9:16.
+- Target length: the duration the user approved at preview. Before preview, the script estimate is only a guide. Final must be within ±10% of the approved preview length; outside that is ASK.
+- Preview builds (960×540) are only for review. They are never uploaded.
+
+## 6. Thumbnail
+- 1280×720, JPG or PNG, ≤ 2 MB.
+- Hindi text is rendered by libass/FFmpeg (HarfBuzz shaping), never drawn by the AI. Zoom in and check matras and joined letters (ड़, दु, क्ष, etc.).
+- Text readable on a phone: letter height ≥ ~12% of frame height, high contrast, max ~4 words.
+- Thumbnail text must not repeat the title word for word.
+- No spoilers: no ending, no twist, no mystery answer.
+- Bottom-right corner (~15% × 12%) has nothing important, because YouTube puts the duration there.
+
+## 7. Metadata
+- Title ≤ 100 characters, no `<` or `>`. Description ≤ 5000 characters.
+- Tags total ≤ 500 characters. 3–5 hashtags in the description (the first 3 show above the title; more than 15 and YouTube ignores all of them).
+- Every CC BY music track used (e.g. Incompetech / Kevin MacLeod) is credited in the description exactly as its licence asks.
+- Made-for-kids and AI-disclosure values come from `channels/<key>/channel.json`. Never guess them.
+
+## 8. Publishing
+- Fixed publish times: long video at 19:00 IST, its Short at 21:00 IST the same day.
+  - Long upload finished before 18:45 IST -> long publishes 19:00 the same day; otherwise 19:00 the next day.
+  - Short upload finished before 20:45 IST -> Short publishes 21:00 the same day as its long; otherwise both move to the next day.
+  - A Short not made from a long (e.g. Dadi Jasoos case) also publishes at 21:00.
+- Per day per channel: at most one long (19:00) and one Short (21:00).
+- Planned frequency: long videos 2-3 per week, Shorts daily (from stories already made, ₹0).
+- Nothing goes Public or gets scheduled without the user's OK in that conversation.
+- One upload per video. If `output/upload_result.json` exists, do not upload again.
+- Short -> Long link (MANDATORY): every Short made from a long video must (a) have the long video's URL in its description with a short CTA line, (b) get an automatic first comment "पूरी कहानी यहाँ देखें 👉 <long URL>" posted right after it becomes public, and (c) the user sets in Studio: Related video = the long video, and pins that comment. The YouTube API cannot set Related video or pin comments, so (c) stays manual; Munshi shows this checklist after every Short upload and asks about it at the start of the next session until the user confirms.
+
+## 9. Safety
+- Never show or commit `.env`, `secrets/`, API keys or OAuth tokens.
+- Never delete files; move them to `_to_delete/`.
+- Paid source files (story images/, audio/, characters/) are read-only for every build. Builds write only to their own _work/ and output/ folders. After every build Munshi checks that no paid source file changed (git status / hash). Any change is a BLOCKER.
+
+## 10. Copyright (STRICT — any violation is FIX and blocks upload)
+- Every external file used in any video (music, sound effect, font, image, footage, voice) must have a row in `shared/assets_license.csv`: path, source_url, author, license, attribution_text, date_added. No row = not allowed.
+- Allowed licences only: CC0; CC BY 4.0 (with exact credit in the description); SIL OFL (fonts); YouTube Audio Library tracks (follow their attribution note); our own Gemini-generated images/voices; our own recordings.
+- Never allowed: CC BY-NC (non-commercial, conflicts with monetization), CC BY-ND (we edit/mix), CC BY-SA, "free for personal use", Freesound "Sampling+", unknown source, anything ripped from YouTube/Spotify/Instagram/films/TV, Bollywood or any commercial song (even hummed or sung by TTS), Google/Pinterest images.
+- Freesound: licence is per sound. Check each file's own licence page; only CC0 or CC BY 4.0.
+- Content: no real brand logos, no film/TV/cartoon characters (Chhota Bheem, Motu Patlu, Disney, etc.), no celebrity likeness, no copied song lyrics, no copied text from modern books. Old folk tales (Panchatantra, Jataka, Akbar-Birbal) are public domain, but we always write our own version, never copy a modern retelling.
+- Image prompts never name a studio, franchise or living artist ("Pixar style", "Ghibli style", etc.).
+- Before upload, Munshi checks: every audio/image/font file in the final build is in the register, every CC BY item is credited in the description exactly as its licence asks, and no source audio from outside our pipeline is in the mix.
+- After upload: if YouTube Studio shows any copyright claim or strike, stop all new uploads and tell the user. CC music sometimes gets false Content ID claims; dispute only with the licence proof from the register, after the user agrees.
+
+## 11. Review limits and severity
+Every problem Munshi reports is marked BLOCKER or MINOR.
+
+BLOCKER (never waived, in any round):
+- Copyright (section 10), wrong channel, any secret exposed.
+- Wrong character on screen for a line, wrong voice for a character, a line missing or cut off.
+- Caption more than 1 s away from its line, or caption text not matching what is spoken.
+- Loudness outside -14 LUFS ±1, true peak above -1.0 dBFS, audible clipping or leaked outside audio.
+- Wrong resolution/codec, or a preview file used as final.
+- Thumbnail: broken Hindi matras, spoiler, unreadable text, important thing in the bottom-right corner.
+- Metadata: title over 100 chars, more than 15 hashtags, missing CC BY credit, "for kids" wording (title, thumbnail, description or tags), mystery answer revealed.
+- Length outside ±10% of the approved preview length.
+- Story problem: moral missing or a scene that contradicts the script.
+
+MINOR (everything else that breaks a RULES limit only slightly), e.g.: caption off by 0.3–1 s, caption shorter than 0.4 s, music level within 3 dB of target, thumbnail text slightly under the size rule, small silent gaps, missing colour tags, tiny cosmetic issues.
+Taste points (pacing feel, colour choice, music phrase) are "Note" only and never count as problems.
+
+Rounds:
+- Round 1 (R1): full review for that stage; BLOCKER and MINOR both come back as FIX (free) or ASK (paid).
+- Round 2 (R2): re-check only what changed and what failed in R1.
+- After R2: if any BLOCKER remains → ASK the user, stop. If only MINOR remain → verdict "PASS-WITH-NOTES": the stage is passed and the pipeline moves on to the next step (including upload when the user has approved it). No third round.
+- Every MINOR waived after R2 is written to channels/<key>/carry_over.md (project, issue, suggested fix). Before the next video's build, the builder reads carry_over.md and fixes those causes in the pipeline, then marks them done.
+
+These limits never weaken: copyright (section 10), channel ID check, secrets, and the full pre-upload check.
+At the end of each review, add one line to channels/<key>/log.md with the round (R1/R2), verdict and approximate time taken.
+
+## 12. Originality (YouTube "inauthentic content" policy)
+- Every new story must differ clearly from all previous stories of the channel in at least 3 of: moral, main conflict/plot shape, setting, lead characters, genre/tone (comedy, mystery, emotional, adventure), ending type.
+- At script stage Munshi compares the new script with every previous story.md in the channel and lists the closest match and what is different. If fewer than 3 differ -> BLOCKER (ASK the user).
+- Titles and thumbnails must not follow one fixed template word-for-word across videos.
+- The channel name suffix (`title_suffix` in channels/<key>/channel.json, e.g. "| किस्सागो") may stay the same in every title — it is branding. The rest of the title (story name, hook, extra keywords) must vary; do not repeat the same keyword block (like "| Hindi Moral Story | Hindi Kahani") in every video. Rotate keywords or put them in tags/description instead.
+- No two videos may reuse the same narration audio. Shorts cut from their own long video are allowed.
+- Every 5th long video Munshi writes a short "channel variety" note in log.md: genres used, morals used, what to try next.
+
+## 13. Audience & algorithm (CTR, retention, session)
+Long videos:
+- Hook: the first spoken line must start within 1.0 s. The first 30 s must set up the story's main question or conflict. Any frame/intro before the story itself (Dadi-Golu opening) is max 10 s.
+- Promise kept: whatever the title and thumbnail promise (e.g. the magic cauldron) must appear on screen within the first 60 s. A title/thumbnail that promises something the video does not show is a BLOCKER (misleading).
+- Visual change: no single shot stays without a cut or new camera move for more than 8 s.
+- End: the last 20 s carry no essential visuals or captions in the end-screen area, so end-screen elements can sit there. The last spoken line asks viewers one specific question about the story (for comments), not a generic "like and subscribe".
+Shorts:
+- First frame is a strong visual (no title card, no black frame). First word within 0.5 s.
+- Length 30-58 s.
+- Captions and key visuals stay out of the bottom 20% and right 15% (YouTube buttons).
+- Ending is either a cliffhanger towards the long video or a clean loop back to the first frame.
+Thumbnail:
+- Readable at phone size: Munshi downscales it to 160x90 px and checks the main face/emotion and the text are still recognisable.
+- One clear focal point (a face with strong emotion or the key object), max 4 words, high contrast.
+Title:
+- The hook words come in the first 40 characters (mobile cuts long titles). Curiosity is fine, misleading is not.
+Session:
+- Every long video goes into its channel playlist, gets an end screen (next video + subscribe), and every Short from it has Related video = that long (manual Studio checklist).
+Severity: a misleading title/thumbnail is a BLOCKER; the rest are FIX in R1 and MINOR after R2 (section 11).
+
+## 14. Auto mode (after script approval)
+- Once the user approves a script, the whole pipeline up to the PREVIEW runs automatically, including paid steps (character sheets, scene images, voice samples, TTS, thumbnail), without asking for each step.
+- Per-video budget cap: ₹130 total (all paid steps + regenerations). Before every paid call, check the running total for this story in cost_log.csv; if the call would cross ₹130, stop and ASK.
+- Account floor: if the remaining prepaid balance would drop below ₹50, stop and ASK before any paid call.
+- Munshi reviews every stage. R1 FIX/MINOR items are fixed automatically (free or paid within the cap). Max 2 regenerations per scene image; after that ASK.
+- After R2: only MINOR left -> continue (PASS-WITH-NOTES). Any BLOCKER, any copyright doubt, or a channel ID mismatch -> stop and ASK.
+- Human checkpoint 1: script approval. Human checkpoint 2: preview approval. The preview approval also counts as the upload "ha" for that long video.
+- After preview approval: final build -> Munshi final review -> upload long in its slot -> Auto Short flow (section 8) -> comments/checklist. No further questions unless a stop condition above is hit.
+- Every auto step is logged in the channel log.md with cost so far, and shown to the user as one short status line.
+- pipeline_queue.json tracks the long video stages too (script_approved -> assets -> images -> tts -> preview_ready -> approved -> final -> uploaded), and the Stop-hook guard keeps the flow moving until preview_ready or a stop condition.
+# Channel RULES — किस्सागो | Kissago (key: dadi-ki-kahaniyan; formerly दादी की कहानियाँ)
+
+Only the rules special to this channel. Read `shared/RULES.md` first; everything there applies here too.
+- Channel RULES can be stricter than shared RULES, never looser. Copyright, channel ID, secrets and upload safety can never be relaxed by a channel.
+
+## Story and characters (from `channel_bible.md`)
+- Dadi (Kamla Devi) narrates the moral stories. In Gulmohar Mohalla stories where Dadi is herself a character, the narrator voice narrates. Every other character speaks their own lines in their own voice.
+- Mitthu (parrot) has no hands: no hand gestures, holding things or pointing with hands.
+- Dadi's home (in Gulmohar Mohalla): a kacha mud house with a tiled roof, BROWN wooden door, swept aangan, green fields behind, exactly like the channel banner (`channels/dadi-ki-kahaniyan/brand/_work/banner_art.png`). There is no green door.
+- Setting: Dadi's home, the Golu–Mitthu opening/closing frame and all Dadi Jasoos cases are in Gulmohar Mohalla. The story Dadi narrates inside a moral-story video can be set in any village or town the approved script names (e.g. Rampur in LONG_01); check location consistency against that script. Village kitchens still use a mitti ka chulha, never a gas stove.
+
+## Metadata
+- Mystery (Dadi Jasoos) videos: the answer never goes in the title, description or thumbnail. It goes in the pinned comment 24 h after publishing.
+- किस्सागो (Kissago) is set to made_for_kids = false (family audience, decided by the user). So title, thumbnail, description and tags must speak to the whole family, not only to children: no "for kids" / "बच्चों के लिए" / nursery-style wording. Flag any such wording as FIX.
+- Titles end with the channel brand: `title_suffix` from channel.json ("| किस्सागो"). The old suffix "| दादी की कहानियाँ" is not used any more.
+- Thumbnail corner label = `brand_label` from channel.json ("किस्सागो").
+- Dadi, Golu and Mitthu stay the channel's hosts/characters; the mystery series keeps its name "दादी जासूस" (Dadi Jasoos).
+# CHANNEL BIBLE — "किस्सागो | Kissago"
+
+> Channel ka naam: **किस्सागो | Kissago** (18 Oct 2026 se; pehle "दादी की कहानियाँ", usse pehle "दादी जासूस"). Folder/key `dadi-ki-kahaniyan` wahi hai.
+> Dadi, Golu aur Mitthu channel ke host/characters hain. Mystery series ka naam **"दादी जासूस"** hi rahega — Dadi har case ki jaasoos hain.
+> Title ke ant me `| किस्सागो` (channel.json `title_suffix`); thumbnail ke kone me "किस्सागो".
+> Channel art (live since 18 Oct 2026): `brand/kissago_banner_v3.png` (2560x1440, night sky), `brand/kissago_dp_ki.png` (800x800, monogram "कि"), `brand/watermark.png` (150x150); logo files and rules in `brand/BRAND.md`. Older versions kept: `kissago_banner_v2.png`, `kissago_banner.png`, `kissago_dp.png`, `dadi_ki_kahaniyan_banner.png`.
+
+> Har script aur har image isi bible ko follow karegi. Koi bhi naya case likhne ya image banane se pehle ise padho.
+
+---
+
+## 1. Channel
+
+- **Format:** Hindi mystery Shorts, 45–60 sec, 9:16, flat 2D cartoon style.
+- **Har episode ka dhaancha:** ek chhota case → 3 suspects → chhupe clues → end me **"बताओ, दोषी कौन?"** → answer agle Short ya pinned comment me.
+- **Maqsad:** dimaag chalana + halki comedy + ek chhoti seekh.
+- **Tone:** Family-friendly. Koi khoon-kharaba ya darawni cheez nahi.
+
+---
+
+## 2. Permanent Characters (look KABHI nahi badlega)
+
+### 1. दादी (Kamla Devi)
+- **Look:** ~70 saal, gol chehra, safed baalon ka joora, gol sunehra chashma, halki hari saree with pali border, lakdi ki chhadi, maathe par chhoti bindi.
+- **Swabhav:** shaant, tez nazar, meethi par chubhti baatein.
+- **Catchphrase:** "बेटा, चोर कितना भी चालाक हो... दादी से नहीं बच सकता!"
+
+### 2. गोलू
+- **Look:** ~10 saal ka pota, gol-matol, bikhre kaale baal, peeli T-shirt, neeli half-pant, laal joote.
+- **Swabhav:** jaldbaaz, hamesha galat andaza lagata hai, comedy deta hai.
+- **Catchphrase:** "दादी, मुझे पता है चोर कौन है!" *(aur hamesha galat)*
+
+### 3. मिट्ठू
+> Naam ki spelling har jagah **"मिट्ठू"** (script, captions, title) — user ka faisla 2026-10-19.
+- **Look:** dadi ka hara tota (parrot), laal choonch.
+- **Role:** kabhi-kabhi ek shabd dohrata hai jo clue ban jaata hai.
+
+### 4. Inspector Pandey
+- **Look:** ~45 saal, mote, khaki uniform, ghani moonchh.
+- **Role:** har baar dadi se pehle galat aadmi pakadne ki koshish karta hai, phir dadi se haar maanta hai.
+
+---
+
+## 3. Recurring Side Characters (kabhi-kabhi aayenge, look fixed)
+
+| Character | Look / Pehchaan |
+|---|---|
+| **Sharma ji** (padosi) | ~55 saal, ganja sar with grey side hair, rectangular chashma, cream kurta-pyjama, brown sleeveless jacket. Hamesha kuch khota rehta hai. Ghar ka gate lohe ka (Case 01 se laal paint). |
+| **Pappu doodhwala** | ~30 saal, patla, safed kurta, gale me laal gamchha, purani kaali cycle with 2 steel doodh ke dibbe. |
+| **Mrs. Gupta** (gossip queen) | gulabi saree |
+| **Chaiwala Raju** | ~35 saal, chhoti moonchh, bhoori half-sleeve shirt, kamar par apron, kaali-dhuandaar ketli, mohalle ka chai stall. |
+
+### Case se aaye characters (dobara aayein to yahi look)
+
+| Character | Pehli baar | Look |
+|---|---|---|
+| **Bunty** | Case 01 | ~17 saal, lamba-patla, khade baal, aasmaani shirt, neeli jeans, safed sneakers, college bag. |
+
+---
+
+## 4. New Characters
+
+- Har case ke suspects naye ho sakte hain.
+- Unka look **case file me likho**.
+- Agar dobara aayein to **wahi look** use karo.
+
+---
+
+## 5. Setting — "Gulmohar Mohalla"
+
+- Chhoti galiyan, gulmohar ka ped, chhat, chai stall, park, mandir.
+- **Dadi ka ghar** (mohalle ke kinare): kacha mitti ka ghar, khaprail ki chhat, **bhoora lakdi ka darwaza**, saaf-supa aangan, peeche hare khet. Look reference: `brand/_work/banner_art.png` (channel banner wala aangan). Golu–Mitthu ka opening/closing frame isi aangan me hota hai.
+- Kabhi-kabhi special cases: shaadi, mela, train.
+
+---
+
+## 6. Case Topics
+
+- **Choriyan:** cycle, haar, mithai, ped ke aam
+- **Jhooth pakadna:** alibi galat
+- **Ajeeb ghatnayein:** raat ko chhat par kaun?
+- **Gayab cheezein / janwar**
+
+> **Niyam:** Clue hamesha kahani me dikhna chahiye — viewer ke saath imaandari.
+
+---
+
+## 7. Script Rules
+
+- 110–140 words, simple boli jaane wali Hindi.
+- 2-sec hook.
+- Golu ka **ek galat guess**.
+- Dadi ka **ek clue observation**.
+- End me sawal: **"बताओ, दोषी कौन?"**
+- **Answer alag file me.**
+
+---
+
+## 8. Image Rules
+
+- Pehle har permanent character ka ek **reference sheet** banao (front, side, 3 expressions).
+- Har scene image me in references aur in **exact descriptions** ka use karo.
+- **Style:** flat 2D cartoon, moti outlines, garam rang.
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:23:06Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+
+```bash
+cd /d/Story-Channel; S=channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya; cat $S/script/PLAN.md; cat $S/scene_prompts.json; python -c "
+import json;d=json.load(open('$S/long/lines.json',encoding='utf8'))
+L=d if isinstance(d,list) else d.get('lines',d)
+for i,l in enumerate(L,1): print(i,l.get('scene'),l.get('speaker'),l.get('text'))" 
+```
+
+```text
+Exit code 1
+# Plan — 003 मिट्ठू ने सब बता दिया! (Long 02) — nothing generated yet
+
+## 1. Scenes (30) and images
+
+| Scene | ~sec | Image | What we see |
+|---|---|---|---|
+| 1 | 9 | NEW 01 | Mitthu flies over Gulmohar Mohalla rooftops, beak open, shouting (hook; title promise on screen at 0 s) |
+| 2 | 8 | NEW 02 | Sharma ji puts a katori of milk on the steps to his roof, calling Sona (cat not shown yet) |
+| 3 | 2 | NEW 03 | Sona close-up: golden cat lapping milk on the steps, happy |
+| 4 | 5 | NEW 04 | Raghu, the new milkman, at Sharma ji's red gate with two milk cans; Sharma ji greets him |
+| 5 | 4 | NEW 05 | Mitthu perched on the gate (wings folded, NO hands), head tilted, listening |
+| 6 | 9 | NEW 06 | Sharma ji at the half-empty katori, worried; Mitthu on the gate in the background |
+| 7 | 13 | reuse 06 | close-up crops: Sharma ji calling / Mitthu shouting |
+| 8 | 6 | reuse 01 | Mitthu takes off - different crop/zoom of image 01 |
+| 9 | 6 | NEW 07 | Mitthu flying past Raju's chai stall, customers looking up |
+| 10 | 4 | reuse 07 | Raju close-up, shocked, kettle in hand |
+| 11 | 10 | NEW 08 | Mrs. Gupta on her balcony (pink saree), hands on cheeks: 'Hai Ram!' |
+| 12 | 9 | NEW 09 | Mrs. Gupta and Raju gossiping at the chai stall, leaning in |
+| 13 | 20 | NEW 10 | Dadi's aangan (brown door, khaprail): Golu runs in to Dadi, excited; Dadi calm |
+| 14 | 10 | NEW 11 | Crowd gathering at Sharma ji's gate, Mitthu shouting above them |
+| 15 | 11 | NEW 12 | Inspector Pandey arrives blowing his whistle and solemnly opens a big diary to write a report (comic, no arrest) |
+| 16 | 12 | reuse 12 | crops: Pandey writing the growing list सोना... हार... तिजोरी; Mrs. Gupta and Raju dictating; Sharma ji trying to speak |
+| 17 | 17 | NEW 13 | Raghu walking back with his cans; the crowd whispering and staring at him (no police action) |
+| 18 | 13 | NEW 14 | Dadi calmly walks through the crowd and gently lowers Pandey's diary with the tip of her walking stick (NOT the raised-hand pose of Case 01) |
+| 19 | 7 | reuse 14 | crop: Dadi asks Sharma ji |
+| 20 | 11 | reuse 11 | wide crowd, stunned silence; Golu's surprised face crop |
+| 21 | 5 | reuse 14 | crop: Dadi 'let's find Sona' |
+| 22 | 9 | NEW 15 | CLUE 1 close-up: half-drunk milk katori + milk drops going up the stairs |
+| 23 | 14 | NEW 16 | CLUE 2: Golu pointing at tiny paw prints in flour drying on a stair; Dadi bending to look |
+| 24 | 4 | NEW 17 | Dadi, Golu and Sharma ji tiptoeing up to the roof |
+| 25 | 14 | NEW 18 | Roof: Sona asleep in the sun next to the warm water tank, peaceful; Mitthu flying in happily |
+| 26 | 9 | NEW 19 | Sharma ji hugging Sona gently; neighbours below laughing |
+| 27 | 7 | NEW 20 | Pandey sheepishly tearing the report page; Mrs. Gupta apologising to Raghu |
+| 28 | 4 | reuse 20 | crop: Raghu smiling, 'next time listen to the whole thing' |
+| 29 | 13 | NEW 21 | Dadi and Golu on the roof at sunset, Dadi teaching, Golu nodding; Sona on Sharma ji's lap behind |
+| 30 | 12 | reuse 21 | crop: Mitthu flapping + Dadi asks the viewers |
+
+**21 new images, 9 scenes reuse an image with a different crop/zoom.** The builder cuts every scene into shots of about 2.6 s (RULES 13: no shot longer than 8 s). All images 16:9.
+
+## 2. Characters
+
+| Character | Status | Sheet? |
+|---|---|---|
+| Dadi, Golu, Mitthu, Inspector Pandey | permanent | existing sheets (reuse) |
+| Sharma ji | recurring (Case 01) | **new sheet (decided by the user)** — made with Case 01 scene images as references so his look stays the same |
+| Raju chaiwala | recurring (Case 01) | look in the bible + Case 01 images (reuse, no sheet) |
+| Mrs. Gupta (gossip queen) | in the bible, never drawn | **new sheet** — proposed look: ~50, pink saree with a gold border, big bun, maroon bindi, gold bangles, expressive |
+| Raghu (new milkman) | NEW | **new sheet** — ~25, short hair, blue check shirt, khaki pants, green bicycle with two steel cans (clearly different from Pappu: white kurta, red gamchha, black cycle) |
+| Sona (Sharma ji's cat) | NEW | **new sheet** — golden-orange tabby, white paws, small green collar with a bell; always calm and happy (never scared) |
+
+Why Raghu and not Pappu: Pappu was already the innocent suspect in Case 01; suspecting him again would repeat that plot (RULES 12). A newcomer also explains why the mohalla suspects him.
+
+## 3. Voices
+
+Existing: narrator (Charon), dadi (Gacrux, medium pace — Dadi is in the story, not telling it), golu, mitthu (+5), sharma, pandey, raju. Channel RULES updated 2026-10-19 (user chose option a): in mohalla stories where Dadi is a character, the narrator voice narrates.
+New: **raghu** (proposal: Puck — young, friendly) and **gupta** (proposal: Despina — chatty, dramatic). One short sample each before the TTS run.
+
+## 4. Cost estimate (each paid step only after your OK)
+
+| Item | Count | Cost |
+|---|---|---|
+| Character sheets: Raghu, Mrs. Gupta, Sona, Sharma ji | 4 | ₹12.96 |
+| Scene images (1
+
+... [7523 characters truncated] ...
+
+ "refs": ["dadi", "golu", "aangan"], "prompt": "Dadi's swept courtyard (as in the location reference: small mud house with a khaprail clay-tile roof, BROWN wooden door, charpai, green fields behind). {golu} runs in, out of breath and excited, arms waving; {dadi} sits calmly on the charpai, raising one eyebrow, unconvinced."},
+    {"id": 14, "covers": [14, 20], "refs": ["sharma", "gupta", "raju", "golu", "mitthu", "gate"], "prompt": "A small curious crowd of neighbours gathered in the lane in front of Sharma ji's red iron gate: {sharma} in the middle looking confused, {gupta} talking animatedly, {raju} with his kettle, {golu} peeking between the grown-ups; {mitthu} flies above the crowd shouting, wings spread. Busy and comic, everyone's faces clearly visible."},
+    {"id": 15, "covers": [15, 16], "refs": ["pandey", "sharma", "gupta", "raju", "gate"], "prompt": "{pandey} stands importantly in front of Sharma ji's red gate with a whistle in his mouth and a big open diary in his hand, pen ready, very serious, writing a report; {gupta} and {raju} lean towards him dictating eagerly, while {sharma} behind them raises a hand, trying to speak, but nobody listens. The diary pages show only scribbles (no readable text). Comic."},
+    {"id": 17, "covers": [17], "refs": ["raghu", "gupta", "sharma", "scene:14"], "prompt": "{raghu} walks back down the lane carrying one steel milk can, puzzled, palms slightly open; the crowd of neighbours by the gate turns to stare at him and whisper behind their hands ({gupta} pointing at him dramatically). No police action. Same lane and crowd as in the earlier scene reference."},
+    {"id": 18, "covers": [18, 19, 21], "refs": ["dadi", "pandey", "sharma", "golu", "scene:15"], "prompt": "{dadi} has walked calmly through the crowd and gently lowers {pandey}'s open diary with the tip of her wooden walking stick, smiling patiently, as if saying 'first ask the right question'; Pandey looks surprised over his moustache; {sharma} and {golu} watch. Dadi's hand is NOT raised — the stick does the talking. Same place as the earlier scene reference."},
+    {"id": 22, "covers": [22], "refs": ["scene:2"], "prompt": "Close-up clue shot at the bottom of the outdoor roof stairs: the small steel katori with milk half drunk, and a trail of small white milk drops going up the stone steps. No people in the frame. Clear, readable clue, warm light."},
+    {"id": 23, "covers": [23], "refs": ["golu", "dadi", "scene:2"], "prompt": "On the roof stairs: {golu} crouches and points excitedly at small cat paw prints pressed into the flour drying in a steel thali on one step, and a few floury paw prints going further up the steps; {dadi} bends down beside him with her spectacles, looking closely and nodding. A clear, readable clue."},
+    {"id": 24, "covers": [24], "refs": ["dadi", "golu", "sharma"], "prompt": "{dadi}, {golu} and {sharma} tiptoe up the narrow outdoor stairs to the flat roof one behind the other, fingers on lips, curious and a little funny; the edge of the bright roof and the sky above them."},
+    {"id": 25, "covers": [25], "refs": ["sona", "mitthu"], "prompt": "On the sunny flat roof next to a warm black water tank: {sona} sleeps peacefully curled up in a patch of sunshine, content and cosy; {mitthu} flies in happily from the side with his wings spread, beak open in joy. Peaceful and sweet, the cat is completely safe and relaxed."},
+    {"id": 26, "covers": [26], "refs": ["sharma", "sona", "gate"], "prompt": "On the roof edge, {sharma} gently hugs {sona} to his chest, laughing with relief, the cat purring happily; below in the lane the neighbours look up and laugh together. Warm and funny."},
+    {"id": 27, "covers": [27, 28], "refs": ["pandey", "gupta", "raghu", "gate"], "prompt": "In the lane by the red gate: {pandey}, sheepish, tears a page out of his diary; {gupta} folds her hands to {raghu} in an embarrassed apology; {raghu} smiles kindly and waves it off, holding his milk can. Light-hearted ending."},
+    {"id": 29, "covers": [29, 30], "refs": ["dadi", "golu", "mitthu", "sharma", "sona"], "prompt": "On the flat roof in warm late-morning light: {dadi} gently explains something to {golu}, who nods with a big understanding smile; {mitthu} flaps his wings happily on the roof wall next to them, beak open; in the background {sharma} sits with {sona} curled on his lap. Calm, warm ending."}
+  ]
+}
+Traceback (most recent call last):
+  File "<string>", line 4, in <module>
+    for i,l in enumerate(L,1): print(i,l.get('scene'),l.get('speaker'),l.get('text'))
+                               ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ashamim\AppData\Local\Programs\Python\Python314\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode characters in position 0-3: character maps to <undefined>
+1 1 mitthu
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:23:12Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+
+```bash
+cd /d/Story-Channel; S=channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya; python -X utf8 -c "
+import json;d=json.load(open('$S/scene_prompts.json',encoding='utf8'))
+for k,v in d.items():
+  if k!='scenes': print(k, json.dumps(v,ensure_ascii=False)[:1500])
+for s in d['scenes'][:12]: print(json.dumps(s,ensure_ascii=False))
+"; python -X utf8 -c "
+import json;d=json.load(open('$S/long/lines.json',encoding='utf8'))
+L=d if isinstance(d,list) else d.get('lines',d)
+for i,l in enumerate(L,1): print(i,l.get('scene'),l.get('speaker'),l.get('text'))"
+```
+
+```text
+_help "21 images for LONG_02 (story 003). id = first scene number it covers; 'covers' lists all scenes using that image (see script/PLAN.md)."
+out_dir "channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images"
+aspect "16:9"
+ref_files {"raghu": "channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/characters/raghu_sheet.png", "gupta": "channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/characters/gupta_sheet.png", "sona": "channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/characters/sona_sheet.png", "raju": "channels/dadi-ki-kahaniyan/stories/002_sharma-ji-ki-cycle/images/scene_04.png", "gate": "channels/dadi-ki-kahaniyan/stories/002_sharma-ji-ki-cycle/images/scene_01.png", "aangan": "channels/dadi-ki-kahaniyan/brand/_work/banner_art.png"}
+looks {"dadi": "Dadi: Indian grandmother ~70, round face, white hair bun, round golden spectacles, light green saree with yellow border, gold bangles, wooden walking stick, small red bindi", "golu": "Golu: CHUBBY Indian boy ~10 with a round face, messy black hair, yellow T-shirt, blue half-pants, white socks, red shoes", "mitthu": "Mitthu: green parrot with a red beak and a thin red neck ring (a bird: wings, no hands)", "pandey": "Inspector Pandey: plump ~45-year-old police inspector, khaki uniform, thick black moustache, cap", "sharma": "Sharma ji: mid-50s neighbour, bald with grey side hair, rectangular spectacles, cream kurta-pyjama, brown sleeveless jacket", "raghu": "Raghu the new milkman: slim ~25-year-old, short neat black hair, blue-and-white check shirt, khaki trousers, a GREEN bicycle with two steel milk cans", "gupta": "Mrs. Gupta: plump ~50-year-old neighbour, big hair bun, maroon bindi, gold bangles, PINK saree with a thin gold border", "sona": "Sona: a golden-orange tabby cat with white paws, green eyes and a small green collar with a tiny golden bell — always calm and happy", "raju": "Raju the chaiwala: ~35, small moustache, brown half-sleeve shirt, apron, black sooty kettle at his tea stall"}
+base "16:9 landscape scene for a family-friendly Hindi comedy cartoon set in Gulmohar Mohalla, a small Indian neighbourhood with narrow lanes, colourful houses and orange-flowered gulmohar trees, flat 2D cartoon, thick bold black outlines, warm colours, flat cel shading, bright morning light. Mitthu is a bird: he only flies, perches, flaps and talks — he never holds anything and has no hands. No text, signs, letters or numbers anywhere (not even on the gate, the diary or shop boards)."
+{"id": 1, "covers": [1, 8], "refs": ["mitthu", "gate"], "prompt": "{mitthu} flies above the rooftops of Gulmohar Mohalla with his wings spread wide and his beak wide open, shouting excitedly. Below him the lane, Sharma ji's red iron gate and an orange gulmohar tree (as in the location reference). Mitthu is big and in the upper-left third of the frame; dynamic, funny."}
+{"id": 2, "covers": [2], "refs": ["sharma", "gate"], "prompt": "Morning outside {sharma}'s house near his red iron gate. He bends down and places a small steel katori of milk on the bottom step of the narrow outdoor stairs that lead up to the flat roof; a few steps above, a steel thali with flour is drying in the sun on one step. He looks affectionate. No cat in this picture."}
+{"id": 3, "covers": [3], "refs": ["sona", "sharma"], "prompt": "Close-up of {sona} happily lapping milk from the small steel katori on the bottom step of the stairs; in the background, slightly out of focus, {sharma} smiles fondly and calls her. Cosy and sweet."}
+{"id": 4, "covers": [4], "refs": ["raghu", "sharma", "gate"], "prompt": "{raghu} has just arrived at Sharma ji's red iron gate on his green bicycle with two steel milk cans and waves hello with a friendly smile; {sharma} greets him at the gate, a little surprised to see a new face."}
+{"id": 5, "covers": [5], "refs": ["mitthu", "gate"], "prompt": "{mitthu} perches on top of Sharma ji's red iron gate with his wings folded, head tilted to one side, listening very carefully with one eye wide open — curious and funny. The orange gulmohar tree behind him."}
+{"id": 6, "covers": [6, 7], "refs": ["sharma", "mitthu", "scene:2"], "prompt": "{sharma} stands at the bottom of the roof stairs looking at the half-empty steel katori of milk, both hands on his head, very worried, calling out; a few small milk drops lead up the steps. {mitthu} sits on the red gate in the background, beak open, repeating what he hears. Same place as in the earlier scene reference."}
+{"id": 9, "covers": [9, 10], "refs": ["mitthu", "raju"], "prompt": "Raju's chai stall at the corner of the lane (as in the Raju reference image: brown shirt, apron, black sooty kettle). {mitthu} flies low over the stall, wings flapping, beak open, shouting; {raju} looks up shocked with the kettle in his hand, and two customers with glasses of chai stare up open-mouthed."}
+{"id": 11, "covers": [11], "refs": ["gupta"], "prompt": "{gupta} on the small balcony of her pink house overlooking the lane, both hands on her cheeks, eyes and mouth wide open in dramatic shock ('Hai Ram!'); a few drying clothes on a line behind her. Funny and theatrical."}
+{"id": 12, "covers": [12], "refs": ["gupta", "raju", "scene:9"], "prompt": "At Raju's chai stall: {gupta} leans in close and whispers gossip with a hand beside her mouth, eyes wide; {raju} leans in to listen, kettle forgotten in his hand. Same stall as in the earlier scene reference. Comic gossip mood."}
+{"id": 13, "covers": [13], "refs": ["dadi", "golu", "aangan"], "prompt": "Dadi's swept courtyard (as in the location reference: small mud house with a khaprail clay-tile roof, BROWN wooden door, charpai, green fields behind). {golu} runs in, out of breath and excited, arms waving; {dadi} sits calmly on the charpai, raising one eyebrow, unconvinced."}
+{"id": 14, "covers": [14, 20], "refs": ["sharma", "gupta", "raju", "golu", "mitthu", "gate"], "prompt": "A small curious crowd of neighbours gathered in the lane in front of Sharma ji's red iron gate: {sharma} in the middle looking confused, {gupta} talking animatedly, {raju} with his kettle, {golu} peeking between the grown-ups; {mitthu} flies above the crowd shouting, wings spread. Busy and comic, everyone's faces clearly visible."}
+{"id": 15, "covers": [15, 16], "refs": ["pandey", "sharma", "gupta", "raju", "gate"], "prompt": "{pandey} stands importantly in front of Sharma ji's red gate with a whistle in his mouth and a big open diary in his hand, pen ready, very serious, writing a report; {gupta} and {raju} lean towards him dictating eagerly, while {sharma} behind them raises a hand, trying to speak, but nobody listens. The diary pages show only scribbles (no readable text). Comic."}
+1 1 mitthu सोना चोरी! सोना चोरी!
+2 1 narrator उस सुबह मोहल्ले में हंगामा मच गया। चलिए, पीछे चलते हैं।
+3 2 narrator हर सुबह की तरह शर्मा जी ने अपनी सुनहरी बिल्ली सोना के लिए सीढ़ियों पर दूध रखा।
+4 3 sharma सोना... आ जा मेरी बिटिया, गरम-गरम दूध!
+5 4 raghu नमस्ते शर्मा जी! मैं नया दूधवाला, रघु। पप्पू भैया गाँव गए हैं।
+6 5 narrator मिट्ठू गेट पर बैठा सब सुन रहा था... आधा-अधूरा।
+7 6 narrator शर्मा जी अंदर से लौटे, तो कटोरी आधी खाली थी... और सोना ग़ायब।
+8 6 sharma सोना? सोना! अरे, मेरी सोना कहाँ गई!
+9 7 mitthu सोना कहाँ गई! सोना कहाँ गई!
+10 7 sharma हाय, मेरी सोना चली गई... कोई ले तो नहीं गया?
+11 7 mitthu सोना चोरी! सोना चोरी!
+12 8 narrator और बस, मिट्ठू ने पंख फड़फड़ाए और पूरे मोहल्ले के ऊपर उड़ चला।
+13 9 mitthu सोना चोरी! शर्मा जी का सोना चोरी!
+14 10 raju क्या? शर्मा जी का सोना चोरी हो गया? अरे भाई, सुना तुमने?
+15 11 gupta हाय राम! सोना? ज़रूर शर्मा जी की पत्नी का सोने का हार गया होगा!
+16 11 narrator गुप्ता आंटी ने बात को सीधा हार बना दिया।
+17 12 gupta और सुनो, आज सुबह मैंने एक नया आदमी शर्मा जी के घर के पास देखा था!
+18 12 raju नया आदमी? वो नया दूधवाला तो नहीं?
+19 13 golu दादी! दादी! शर्मा जी का सोने का हार चोरी हो गया! और चोर है नया दूधवाला!
+20 13 dadi अच्छा? तूने अपनी आँखों से देखा, गोलू?
+21 13 golu नहीं... पर सब कह रहे हैं! मिट्ठू ने भी कहा!
+22 13 dadi हम्म। सबके कहने से बात सच नहीं हो जाती। चलो, ज़रा देखते हैं।
+23 14 mitthu हार चोरी! हार चोरी!
+24 14 narrator दस मिनट में पूरा मोहल्ला शर्मा जी के गेट पर जमा था।
+25 15 narrator तभी सीटी बजाते हुए इंस्पेक्टर पांडे पहुँचे, और बड़ी गंभीरता से डायरी खोल ली।
+26 15 pandey शांति! चोरी की रिपोर्ट लिखनी है। बोलो, क्या-क्या गया?
+27 16 gupta सोना, इंस्पेक्टर साहब! सोने का हार!
+28 16 pandey सोना... हार... लिखो, लिखो!
+29 16 raju और तिजोरी भी ख़ाली है, साहब!
+30 16 pandey तिजोरी भी! लिखो, लिखो!
+31 16 sharma हार? तिजोरी? अरे, मेरी बात तो सुनो...
+32 17 narrator पर किसी ने नहीं सुनी। तभी रघु लौटा, और भीड़ में कानाफूसी शुरू हो गई।
+33 17 gupta यही है वो नया आदमी! सुबह यहीं घूम रहा था!
+34 17 raghu मुझे क्यों घूर रहे हैं सब? मैं तो बस दूध देकर गया था!
+35 18 dadi ज़रा ठहरिए, पांडे जी। लिस्ट बाद में — पहले ये तो पूछ लीजिए, चोरी हुआ क्या है?
+36 18 pandey अरे दादी, सोना, हार, तिजोरी — सब लिखा तो है!
+37 19 dadi शर्मा जी, आप बताइए। आपका क्या खोया है?
+38 19 sharma मेरी सोना! मेरी बिल्ली! सुबह से नहीं मिल रही!
+39 20 narrator पूरा मोहल्ला एक पल के लिए चुप हो गया।
+40 20 golu बिल्ली? तो... सोना मतलब बिल्ली?
+41 20 mitthu सोना बिल्ली! सोना बिल्ली!
+42 21 dadi अब असली बात समझ आई। चलो, सोना को ढूँढते हैं।
+43 22 dadi देखो गोलू — कटोरी का दूध आधा पिया है, और छींटे सीढ़ियों पर ऊपर तक गए हैं।
+44 23 golu और दादी, यहाँ! सीढ़ी पर सूखते आटे में नन्हे पंजों के निशान!
+45 23 dadi दूध पिया, पंजे आटे में पड़े, और रास्ता छत की ओर... चोर नहीं, कोई धूप सेंकने गया है।
+46 24 narrator दादी, गोलू और शर्मा जी धीरे-धीरे छत पर पहुँचे।
+47 25 narrator और वहाँ, पानी की गरम टंकी के पास, सोना आराम से धूप में सो रही थी।
+48 25 mitthu सोना मिल गया! सोना मिल गया!
+49 26 sharma मेरी सोना! तू यहाँ आराम कर रही थी, और नीचे पूरा मोहल्ला हिल गया!
+50 26 narrator नीचे खड़े सब लोग ठहाका मारकर हँस पड़े।
+51 27 pandey हें-हें... ये रिपोर्ट तो फाड़नी पड़ेगी।
+52 27 gupta रघु बेटा, मैंने बिना सोचे तुम पर शक किया। माफ़ करना।
+53 28 raghu कोई बात नहीं। बस अगली बार पूरी बात सुन लेना!
+54 29 dadi देखा गोलू? आधी सुनी बात आगे बढ़ाओ, तो बिल्ली सोने का हार बन जाती है, और बेकसूर आदमी चोर।
+55 29 golu समझ गया दादी। पहले पूछो, फिर बोलो!
+56 30 mitthu पहले पूछो! पहले पूछो!
+57 30 dadi कमेंट में बताइए — क्या आपने भी कभी आधी बात सुनकर कुछ गलत समझ लिया?
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:23:15Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\review\images_sheet.jpg`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:23:15Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\review\sheets_check.jpg`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:23:24Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+
+```bash
+cd /d/Story-Channel; C=channels/dadi-ki-kahaniyan; R=$C/stories/003_mitthu-ne-sab-bata-diya/long/review; ffmpeg -v error -y -i $C/characters/dadi_sheet.png -i $C/characters/golu_sheet.png -i $C/characters/mitthu_sheet.png -i $C/characters/pandey_sheet.png -i $C/stories/002_sharma-ji-ki-cycle/images/scene_04.png -i $C/brand/_work/banner_art.png -filter_complex "[0]scale=640:-2,pad=640:440[a];[1]scale=640:-2,pad=640:440[b];[2]scale=640:-2,pad=640:440[c];[3]scale=640:-2,pad=640:440[d];[4]scale=-2:440,scale=640:440:force_original_aspect_ratio=decrease,pad=640:440[e];[5]scale=640:440:force_original_aspect_ratio=decrease,pad=640:440[f];[a][b][c]hstack=3[t];[d][e][f]hstack=3[u];[t][u]vstack" -q:v 4 $R/perm_refs.jpg; ls -la $R; git status --short $C/stories/003_mitthu-ne-sab-bata-diya/images; python -X utf8 - <<'E'
+import csv
+rows=list(csv.reader(open('cost_log.csv',encoding='utf8')))
+print(rows[0]); [print(r) for r in rows[-28:]]
+E
+```
+
+```text
+/usr/bin/bash: line 1: ffmpeg: command not found
+total 952
+drwxr-xr-x 1 ashamim 1049089      0 Oct 19 16:52 .
+drwxr-xr-x 1 ashamim 1049089      0 Oct 19 16:39 ..
+-rw-r--r-- 1 ashamim 1049089 567386 Oct 19 16:52 images_sheet.jpg
+-rw-r--r-- 1 ashamim 1049089  60610 Oct 19 16:39 r1_sheets_sona_lap.jpg
+-rw-r--r-- 1 ashamim 1049089 340064 Oct 19 16:38 sheets_check.jpg
+?? channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/
+['timestamp', 'file', 'model', 'size', 'cost_usd', 'cost_inr', 'today_total_inr', 'remaining_inr', 'channel']
+['2026-10-19 16:46:26', 'channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/narrator_6af65206d2c1d5a1.wav', 'gemini-3.8-flash-tts', 'tts 3.6s', '0.00083', '0.08', '55.81', '212.49', 'dadi-ki-kahaniyan']
+['2026-10-19 16:46:35', 'channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/golu_b31df52533c583be.wav', 'gemini-3.8-flash-tts', 'tts 3.3s', '0.00074', '0.07', '55.88', '212.42', 'dadi-ki-kahaniyan']
+['2026-10-19 16:46:43', 'channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/mitthu_f6a0dcd4dc56b399.wav', 'gemini-3.8-flash-tts', 'tts 2.7s', '0.00061', '0.06', '55.94', '212.36', 'dadi-ki-kahaniyan']
+['2026-10-19 16:46:51', 'channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/dadi_1056ffb8dc274fa5.wav', 'gemini-3.8-flash-tts', 'tts 5.1s', '0.00115', '0.11', '56.05', '212.25', 'dadi-ki-kahaniyan']
+['2026-10-19 16:47:01', 'channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/dadi_c3423b3dfdb4db4e.wav', 'gemini-3.8-flash-tts', 'tts 7.8s', '0.00177', '0.17', '56.22', '212.08', 'dadi-ki-kahaniyan']
+['2026-10-19 16:47:10', 'channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/golu_6c59ee6320e2efb8.wav', 'gemini-3.8-flash-tts', 'tts 4.9s', '0.00111', '0.11', '56.33', '211.97', 'dadi-ki-kahaniyan']
+['2026-10-19 16:47:20', 'channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_17.png', 'gemini-nano-banana-2.1', '1K', '0.03360', '3.24', '59.57', '208.73', 'dadi-ki-kahaniyan']
+['2026-10-19 16:47:21', 'channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/dadi_3a6178c4323b4d6e.wav', 'gemini-3.8-flash-tts', 'tts 10.8s', '0.00244', '0.24', '59.81', '208.49', 'dadi-ki-kahaniyan']
+['2026-10-19 16:47:31', 'channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/narrator_fd00fa48daee3136.wav', 'gemini-3.8-flash-tts', 'tts 5.0s', '0.00114', '0.11', '59.92', '208.38', 'dadi-ki-kahaniyan']
+['2026-10-19 16:47:41', 'channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/narrator_be504eb5ccc3ba08.wav', 'gemini-3.8-flash-tts', 'tts 6.6s', '0.00150', '0.15', '60.07', '208.23', 'dadi-ki-kahaniyan']
+['2026-10-19 16:47:49', 'channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/mitthu_263b007d00331911.wav', 'gemini-3.8-flash-tts', 'tts 3.0s', '0.00068', '0.07', '60.14', '208.16', 'dadi-ki-kahaniyan']
+['2026-10-19 16:47:59', 'channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/sharma_5a8f53a9f3f09495.wav', 'gemini-3.8-flash-tts', 'tts 5.0s', '0.00113', '0.11', '60.25', '208.05', 'dadi-ki-kahaniyan']
+['2026-10-19 16:48:09', 'channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/narrator_d2e7dd2e305e0f21.wav', 'gemini-3.8-flash-tts', 'tts 3.6s', '0.00081', '0.08', '60.33', '207.97', 'dadi-ki-kahaniyan']
+['2026-10-19 16:48:17', 'channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/pandey_e383ae452a4d288e.wav', 'gemini-3.8-flash-tts', 'tts 2.7s', '0.00061', '0.06', '60.39', '207.91', 'dadi-ki-kahaniyan']
+['2026-10-19 16:48:23', 'channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_18.png', 'gemini-nano-banana-2.1', '1K', '0.03360', '3.24', '63.63', '204.67', 'dadi-ki-kahaniyan']
+['2026-10-19 16:48:26', 'channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/gupta_6cb1759b938a1480.wav', 'gemini-3.8-flash-tts', 'tts 4.5s', '0.00103', '0.10', '63.73', '204.57', 'dadi-ki-kahaniyan']
+['2026-10-19 16:48:34', 'channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/raghu_dd35bf41cdbafe49.wav', 'gemini-3.8-flash-tts', 'tts 3.6s', '0.00082', '0.08', '63.81', '204.49', 'dadi-ki-kahaniyan']
+['2026-10-19 16:48:44', 'channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/dadi_28c6df868e03426e.wav', 'gemini-3.8-flash-tts', 'tts 9.8s', '0.00223', '0.22', '64.03', '204.27', 'dadi-ki-kahaniyan']
+['2026-10-19 16:48:53', 'channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/golu_172b0fc9b4d6e567.wav', 'gemini-3.8-flash-tts', 'tts 2.9s', '0.00065', '0.06', '64.09', '204.21', 'dadi-ki-kahaniyan']
+['2026-10-19 16:48:54', 'channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_22.png', 'gemini-nano-banana-2.1', '1K', '0.03360', '3.24', '67.33', '200.97', 'dadi-ki-kahaniyan']
+['2026-10-19 16:49:03', 'channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/mitthu_1feb970886a15030.wav', 'gemini-3.8-flash-tts', 'tts 2.8s', '0.00064', '0.06', '67.39', '200.91', 'dadi-ki-kahaniyan']
+['2026-10-19 16:49:13', 'channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/dadi_3f6848d581c10e11.wav', 'gemini-3.8-flash-tts', 'tts 6.0s', '0.00137', '0.13', '67.52', '200.78', 'dadi-ki-kahaniyan']
+['2026-10-19 16:49:26', 'channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_23.png', 'gemini-nano-banana-2.1', '1K', '0.03360', '3.24', '70.76', '197.54', 'dadi-ki-kahaniyan']
+['2026-10-19 16:49:59', 'channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_24.png', 'gemini-nano-banana-2.1', '1K', '0.03360', '3.24', '74.00', '194.30', 'dadi-ki-kahaniyan']
+['2026-10-19 16:50:27', 'channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_25.png', 'gemini-nano-banana-2.1', '1K', '0.03360', '3.24', '77.24', '191.06', 'dadi-ki-kahaniyan']
+['2026-10-19 16:50:59', 'channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_26.png', 'gemini-nano-banana-2.1', '1K', '0.03360', '3.24', '80.48', '187.82', 'dadi-ki-kahaniyan']
+['2026-10-19 16:51:33', 'channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_27.png', 'gemini-nano-banana-2.1', '1K', '0.03360', '3.24', '83.72', '184.58', 'dadi-ki-kahaniyan']
+['2026-10-19 16:52:10', 'channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_29.png', 'gemini-nano-banana-2.1', '1K', '0.03360', '3.24', '86.96', '181.34', 'dadi-ki-kahaniyan']
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:23:30Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+
+`cd /d/Story-Channel; grep 003_mitthu cost_log.csv | grep images/ | cut -d, -f2 | sort | uniq -c; ls /d/Story-Channel/.venv/Scripts | grep -i -E "ffmpeg|python"; where ffmpeg 2>/dev/null; ls /c/ffmpeg* 2>/dev/null; grep -rn "ffmpeg" scripts/make_short.py | head -3`
+
+```text
+      1 channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_01.png
+      1 channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_02.png
+      1 channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_03.png
+      1 channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_04.png
+      1 channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_05.png
+      1 channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_06.png
+      1 channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_09.png
+      1 channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_11.png
+      1 channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_12.png
+      1 channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_13.png
+      1 channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_14.png
+      1 channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_15.png
+      1 channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_17.png
+      1 channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_18.png
+      1 channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_22.png
+      1 channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_23.png
+      1 channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_24.png
+      1 channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_25.png
+      1 channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_26.png
+      1 channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_27.png
+      1 channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_29.png
+python.exe
+pythonw.exe
+37:FFMPEG = ROOT / "tools" / "ffmpeg" / "ffmpeg.exe"
+38:if not FFMPEG.exists():  # new system: ffmpeg from winget on PATH (tools/ffmpeg is not in git)
+39:    FFMPEG = Path(shutil.which("ffmpeg") or FFMPEG)
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:23:32Z)**_
+
+Now the permanent sheets and refs.
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:23:32Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\characters\dadi_sheet.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:23:33Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\characters\golu_sheet.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:23:33Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\characters\pandey_sheet.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:23:34Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\002_sharma-ji-ki-cycle\images\scene_04.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:23:35Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\banner_art.png`
+</details></tool-use>
+
+_**Agent - sidechain (2026-10-19 11:23:35Z)**_
+
+[Image: original 2560x1440, displayed at 2000x1125. Multiply coordinates by 1.28 to map to original image.]
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:23:37Z)**_
+
+Now each scene image at full size.
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:23:38Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_01.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:23:39Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_02.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:23:40Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_03.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:23:40Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_04.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:23:44Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_05.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:23:45Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_06.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:23:45Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_09.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:23:46Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_11.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:23:56Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_12.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:23:56Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_13.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:23:57Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_14.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:23:58Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_15.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:24:05Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_17.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:24:06Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_18.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:24:06Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_22.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:24:07Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_23.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:24:20Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_24.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:24:20Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_25.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:24:21Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_26.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:24:22Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_27.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:24:22Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\images\scene_29.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:24:38Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+
+```bash
+cd /d/Story-Channel; S=channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya; .venv/Scripts/python -X utf8 - <<E
+from PIL import Image
+S="$S"
+crops=[("15",(640,360,880,520)),("18",(640,340,900,520)),("26",(0,360,700,720)),("09",(420,350,680,768)),("18",(780,330,1100,768)),("03",(0,150,200,560))]
+tiles=[]
+for n,b in crops:
+    im=Image.open(f"{S}/images/scene_{n}.png").convert("RGB")
+    sx=im.width/1376; b=tuple(int(v*sx) for v in b)
+    c=im.crop(b); c.thumbnail((640,480)); tiles.append(c)
+W=Image.new("RGB",(1920,960),(30,30,30))
+for i,t in enumerate(tiles): W.paste(t,((i%3)*640,(i//3)*480))
+W.save(f"{S}/long/review/r1_images_zoom.jpg",quality=85)
+for n in ["01","13","29"]:
+    print(n, Image.open(f"{S}/images/scene_{n}.png").size)
+E
+```
+
+```text
+01 (1376, 768)
+13 (1376, 768)
+29 (1376, 768)
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:24:40Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\long\review\r1_images_zoom.jpg`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:25:04Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+
+`cd /d/Story-Channel; echo "2026-10-19 | 003_mitthu-ne-sab-bata-diya long_02 | 4 scene images R1 (~15 min) | FIX | 21/21 opened full size vs sheets; BLOCKER: img13 two Dadis, img26 duplicate Sharma-lookalike in crowd below, img09 Sharma-lookalike customer at chai stall (Sharma is at home); MINOR: img18 Dadi holds two sticks (stick-on-diary action itself correct); notes: img17/27 Raghu 3 cans (sheet 2), img03 katori on ground not step, img22 katori looks >half full; clues 22/23 readable, no text (diary = scribbles), Mitthu no hands, no police action vs Raghu, red gate lane + aangan consistent; fix = 4 regens x Rs3.24 = Rs12.96 (1st regen each) -> story ~Rs99.92/130, balance ~Rs168.38; no STOP" >> channels/dadi-ki-kahaniyan/log.md; tail -1 channels/dadi-ki-kahaniyan/log.md | cut -c1-80`
+
+```text
+2026-10-19 | 003_mitthu-ne-sab-bata-diya long_02 | 4 scene images R1 (~15 min) |
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-19 11:25:39Z)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="SubagentHandback"><details>
+<summary>Tool use: **SubagentHandback**</summary>
+
+```text
+{"success":true,"message":"Report delivered to your caller."}
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:25:50Z)**_
+
+<think><details><summary>Thought Process</summary>
+R1 me munshi ne 3 BLOCKER (kirdaar frame me do baar - Dadi img 13 me, Sharma ji img 09 aur 26 me) aur 1 MINOR (img 18 me do chhadiyan) pakde hain. Ab charon ki pehli regeneration (₹12.96, cap ke andar) karunga, purani images `images/_v1/` me save karke, aur img 13 ke liye banner se ghar wala hissa kaat kar bina kirdaar wala naya location reference banaunga.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:25:54Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Back up 4 images; crop character-free aangan ref
+
+```bash
+S=channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya && mkdir -p $S/images/_v1 $S/refs && for i in 09 13 18 26; do cp $S/images/scene_$i.png $S/images/_v1/; done && .venv/Scripts/python.exe -c "
+from PIL import Image
+im=Image.open('channels/dadi-ki-kahaniyan/brand/_work/banner_art.png'); print(im.size)
+c=im.crop((0,200,1150,1300)); c.save('$S/refs/aangan_house.png'); print(c.size)" 
+```
+
+```text
+(2560, 1440)
+(1150, 1100)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:25:54Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\003_mitthu-ne-sab-bata-diya\refs\aangan_house.png`
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:25:58Z)**_
+
+Crop ke daayein kinare par Dadi ka thoda hissa aa raha hai. Ise thoda aur chhota kaat raha hoon, phir charon prompts sudhaar kar regenerate karunga:
+
+_**Agent (claude-opus-5-5 2026-10-19 11:26:26Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Fix prompts and regenerate images 9, 13, 18, 26
+
+```bash
+S=channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya && .venv/Scripts/python.exe -c "
+from PIL import Image
+im=Image.open('channels/dadi-ki-kahaniyan/brand/_work/banner_art.png'); im.crop((0,200,1090,1300)).save('$S/refs/aangan_house.png')" && .venv/Scripts/python.exe -X utf8 - <<'PYEOF'
+import json
+from pathlib import Path
+p = Path("channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/scene_prompts.json")
+d = json.loads(p.read_text(encoding="utf-8"))
+d["ref_files"]["aangan_house"] = "channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/refs/aangan_house.png"
+for sc in d["scenes"]:
+    if sc["id"] == 9:
+        sc["prompt"] += " Exactly TWO customers at the stall: a young man in a green shirt and a young woman in a salwar-kameez. NO old man, NO bald man, nobody who looks like Sharma ji (he is at home)."
+    if sc["id"] == 13:
+        sc["refs"] = ["dadi", "golu", "aangan_house"]
+        sc["prompt"] = ("Dadi's swept courtyard (as in the location reference: small mud house with a khaprail clay-tile roof, BROWN wooden door, green fields behind). "
+                        "Only TWO people in the whole picture: {golu} runs in, out of breath and excited, arms waving; and exactly ONE grandmother, {dadi}, sitting calmly on ONE wooden charpai, raising one eyebrow, unconvinced. "
+                        "Draw Dadi only once; there is only one charpai.")
+    if sc["id"] == 18:
+        sc["prompt"] += " Dadi has only ONE walking stick and uses that same stick to lower the diary; her other hand is empty and relaxed. No second stick anywhere."
+    if sc["id"] == 26:
+        sc["prompt"] += " The neighbours below are young and middle-aged men, women and children only: NO bald old man with spectacles, NO white-haired old woman. Sharma ji appears only once (on the roof with Sona)."
+p.write_text(json.dumps(d, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+print("prompts updated")
+PYEOF
+for id in 9 13 18 26; do .venv/Scripts/python.exe -X utf8 -c "import sys; sys.path.insert(0,'scripts'); from story_budget import check; check('003_mitthu-ne-sab-bata-diya', 3.24)" || break; AUTO_PREVIEW=0 .venv/Scripts/python.exe -X utf8 scripts/gen_scenes.py $S/scene_prompts.json $id 2>&1 | grep -E "cost|SKIP|rror"; done; .venv/Scripts/python.exe -X utf8 scripts/story_budget.py 003_mitthu-ne-sab-bata-diya
+```
+
+```text
+prompts updated
+SKIPPED scene 9 after 3s: Gemini 402: [{
+  "error": {
+SKIPPED scene 13 after 4s: Gemini 402: [{
+  "error": {
+SKIPPED scene 18 after 2s: Gemini 402: [{
+  "error": {
+SKIPPED scene 26 after 3s: Gemini 402: [{
+  "error": {
+story 003_mitthu-ne-sab-bata-diya: spent ₹86.96 of ₹130 | account remaining ₹181.34
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:26:33Z)**_
+
+<think><details><summary>Thought Process</summary>
+Gemini ne 402 error diya, matlab Google account ka credit khatam ho gaya hai — jabki cost_log me ₹181 bache dikha rahe hain, toh ek mismatch hai. Pura error detail dekh raha hoon.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-19 11:26:35Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Read the 402 error message (key redacted)
+
+```bash
+.venv/Scripts/python.exe -X utf8 -c "
+import os,requests,json
+from dotenv import load_dotenv; load_dotenv()
+k=os.environ['GEMINI_API_KEY']
+r=requests.post('https://generativelanguage.googleapis.com/v1beta/interactions',headers={'x-goog-api-key':k,'Content-Type':'application/json'},json={'model':'gemini-nano-banana-2.1','input':[{'type':'text','text':'test'}]},timeout=30)
+print(r.status_code); t=r.text; print(t[:700].replace(k,'<KEY>'))"
+```
+
+```text
+402
+[{
+  "error": {
+    "code": 402,
+    "message": "Your prepayment credits are depleted. Please go to AI Studio at https://ai.studio/projects to manage your project and billing. Learn more at https://ai.google.dev/gemini-api/docs/billing#prepay. ",
+    "status": "RESOURCE_EXHAUSTED"
+  }
+}
+]
+```
+</details></tool-use>

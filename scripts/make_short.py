@@ -234,7 +234,7 @@ def word_times(data: bytes, text: str, cache: Path, run_whisper: bool, words_dir
 
 def build_voice(lines, audio_dir: Path, work: Path, run_whisper: bool, end_hold: float = END_HOLD,
                 gap_s: float = GAP, speed: float = 1.0, gap_change: float | None = None):
-    """speed: tempo factor for every spoken line (atempo keeps the pitch; cached TTS reused, no new cost).
+    """speed: tempo factor for every spoken line, or {speaker: factor} (atempo keeps the pitch; cached TTS reused).
     gap_s: silence between two lines of the same speaker; gap_change: when the speaker changes (default = gap_s).
     meta.json "speed" / "gap" / "gap_speaker_change" let a Short run tighter than the long video."""
     pcm, t = bytearray(), 0.0
@@ -258,7 +258,8 @@ def build_voice(lines, audio_dir: Path, work: Path, run_whisper: bool, end_hold:
             events.setdefault("pauses", []).append((start - PAUSE_LEAD, t))
             print(f"  line {i + 1:2d} [{'pause':8s}] {start:6.2f}-{t:6.2f}s  music only")
             continue
-        tempo = f"atempo={speed}" if speed != 1.0 else None
+        sp_speed = speed.get(line["speaker"], 1.0) if isinstance(speed, dict) else speed  # per-speaker tempo allowed
+        tempo = f"atempo={sp_speed}" if sp_speed != 1.0 else None
         data = trim(tts_line(line["text"], line["speaker"], cache,
                              work / f"line_{i + 1:02d}_{line['speaker']}.wav",  # per video, not the shared story audio/
                              extra_af=",".join(f for f in (line.get("af"), tempo) if f) or None,

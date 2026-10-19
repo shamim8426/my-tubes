@@ -27,6 +27,9 @@ CAST = {
     "kid": ("Autonoe", "small poor 8-year-old village boy, timid, hopeful, pleading softly", 0),
     "villager": ("Umbriel", "cheerful village man enjoying a sweet, warm and hearty", 0),
     "kids": ("Zephyr", "a group of excited village children cheering together, loud and joyful", 0),
+    # --- long_02 (story 003): मिट्ठू ने सब बता दिया ---
+    "raghu": ("Puck", "friendly, honest young Indian milkman, polite and a little nervous when everyone stares, natural pace", 0),
+    "gupta": ("Despina", "chatty, dramatic 50-year-old Indian neighbour who loves gossip, expressive and theatrical, quick", 0),
 }
 
 

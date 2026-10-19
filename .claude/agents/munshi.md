@@ -34,6 +34,7 @@ Layout: `channels/<key>/stories/<NNN>_<slug>/` holds images/, audio/, characters
 - **FIX**: something is wrong and the fix is free (re-crop, re-mix, re-render text, re-time captions). Say exactly what to fix.
 - **ASK**: the fix costs money (any Gemini image/TTS call), changes the story, or is a taste call. Stop and let the user decide.
 - Classify every problem as BLOCKER or MINOR per RULES section 11; after round 2, MINOR-only means PASS-WITH-NOTES.
+- Auto mode (RULES section 14): after the user approves a script, stages run without asking the user. In your report say clearly whether a STOP condition is hit (BLOCKER, copyright doubt, channel ID mismatch, a 3rd regeneration of one image, story cost would cross ₹130, balance would drop below ₹50); otherwise the builder fixes and continues.
 
 Report format (Hinglish, friendly but professional, address the user as "bhai", no code blocks in the summary):
 

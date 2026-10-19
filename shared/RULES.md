@@ -127,3 +127,14 @@ Title:
 Session:
 - Every long video goes into its channel playlist, gets an end screen (next video + subscribe), and every Short from it has Related video = that long (manual Studio checklist).
 Severity: a misleading title/thumbnail is a BLOCKER; the rest are FIX in R1 and MINOR after R2 (section 11).
+
+## 14. Auto mode (after script approval)
+- Once the user approves a script, the whole pipeline up to the PREVIEW runs automatically, including paid steps (character sheets, scene images, voice samples, TTS, thumbnail), without asking for each step.
+- Per-video budget cap: ₹130 total (all paid steps + regenerations). Before every paid call, check the running total for this story in cost_log.csv; if the call would cross ₹130, stop and ASK.
+- Account floor: if the remaining prepaid balance would drop below ₹50, stop and ASK before any paid call.
+- Munshi reviews every stage. R1 FIX/MINOR items are fixed automatically (free or paid within the cap). Max 2 regenerations per scene image; after that ASK.
+- After R2: only MINOR left -> continue (PASS-WITH-NOTES). Any BLOCKER, any copyright doubt, or a channel ID mismatch -> stop and ASK.
+- Human checkpoint 1: script approval. Human checkpoint 2: preview approval. The preview approval also counts as the upload "ha" for that long video.
+- After preview approval: final build -> Munshi final review -> upload long in its slot -> Auto Short flow (section 8) -> comments/checklist. No further questions unless a stop condition above is hit.
+- Every auto step is logged in the channel log.md with cost so far, and shown to the user as one short status line.
+- pipeline_queue.json tracks the long video stages too (script_approved -> assets -> images -> tts -> preview_ready -> approved -> final -> uploaded), and the Stop-hook guard keeps the flow moving until preview_ready or a stop condition.

@@ -146,3 +146,86 @@ timestamp,file,model,size,cost_usd,cost_inr,today_total_inr,remaining_inr,channe
 2026-10-18 21:53:01,channels/dadi-ki-kahaniyan/brand/_work/banner_v3_raw.png,gemini-nano-banana-2.1,2K,0.05040,4.86,32.55,278.02,dadi-ki-kahaniyan
 2026-10-18 22:05:01,channels/dadi-ki-kahaniyan/brand/_work/banner_v4_raw.png,gemini-nano-banana-2.1,2K,0.05040,4.86,37.41,273.16,dadi-ki-kahaniyan
 2026-10-18 22:12:17,channels/dadi-ki-kahaniyan/brand/_work/banner_v5_raw.png,gemini-nano-banana-2.1,2K,0.05040,4.86,42.27,268.30,dadi-ki-kahaniyan
+2026-10-19 16:35:50,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/characters/raghu_sheet.png,gemini-nano-banana-2.1,1K,0.03360,3.24,3.24,265.06,dadi-ki-kahaniyan
+2026-10-19 16:36:25,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/characters/gupta_sheet.png,gemini-nano-banana-2.1,1K,0.03360,3.24,6.48,261.82,dadi-ki-kahaniyan
+2026-10-19 16:36:57,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/characters/sona_sheet.png,gemini-nano-banana-2.1,1K,0.03360,3.24,9.72,258.58,dadi-ki-kahaniyan
+2026-10-19 16:38:04,channels/dadi-ki-kahaniyan/characters/sharma_sheet.png,gemini-nano-banana-2.1,1K,0.03360,3.24,12.96,255.34,dadi-ki-kahaniyan
+2026-10-19 16:40:06,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_01.png,gemini-nano-banana-2.1,1K,0.03360,3.24,16.20,252.10,dadi-ki-kahaniyan
+2026-10-19 16:40:19,channels/dadi-ki-kahaniyan/characters/voices/raghu_Puck.wav,gemini-3.8-flash-tts,tts 4.6s,0.00103,0.10,16.30,252.00,dadi-ki-kahaniyan
+2026-10-19 16:40:26,channels/dadi-ki-kahaniyan/characters/voices/gupta_Despina.wav,gemini-3.8-flash-tts,tts 5.5s,0.00124,0.12,16.42,251.88,dadi-ki-kahaniyan
+2026-10-19 16:40:32,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_02.png,gemini-nano-banana-2.1,1K,0.03360,3.24,19.66,248.64,dadi-ki-kahaniyan
+2026-10-19 16:40:51,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/mitthu_4801fde0ac308d89.wav,gemini-3.8-flash-tts,tts 3.0s,0.00068,0.07,19.73,248.57,dadi-ki-kahaniyan
+2026-10-19 16:40:57,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_03.png,gemini-nano-banana-2.1,1K,0.03360,3.24,22.97,245.33,dadi-ki-kahaniyan
+2026-10-19 16:41:10,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/narrator_13e4ebe5013d4d62.wav,gemini-3.8-flash-tts,tts 4.6s,0.00105,0.10,23.07,245.23,dadi-ki-kahaniyan
+2026-10-19 16:41:17,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/narrator_95c64323f3ea9ee5.wav,gemini-3.8-flash-tts,tts 7.2s,0.00162,0.16,23.23,245.07,dadi-ki-kahaniyan
+2026-10-19 16:41:25,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/sharma_fe6eeff53bac282c.wav,gemini-3.8-flash-tts,tts 3.5s,0.00079,0.08,23.31,244.99,dadi-ki-kahaniyan
+2026-10-19 16:41:32,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_04.png,gemini-nano-banana-2.1,1K,0.03360,3.24,26.55,241.75,dadi-ki-kahaniyan
+2026-10-19 16:41:33,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/raghu_a956313cebb18577.wav,gemini-3.8-flash-tts,tts 6.2s,0.00139,0.13,26.68,241.62,dadi-ki-kahaniyan
+2026-10-19 16:41:42,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/narrator_a786040af8e5d645.wav,gemini-3.8-flash-tts,tts 4.2s,0.00095,0.09,26.77,241.53,dadi-ki-kahaniyan
+2026-10-19 16:41:49,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/narrator_2a05201a92ca122c.wav,gemini-3.8-flash-tts,tts 6.6s,0.00150,0.15,26.92,241.38,dadi-ki-kahaniyan
+2026-10-19 16:41:57,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/sharma_c7e43749136f0282.wav,gemini-3.8-flash-tts,tts 4.2s,0.00094,0.09,27.01,241.29,dadi-ki-kahaniyan
+2026-10-19 16:41:58,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_05.png,gemini-nano-banana-2.1,1K,0.03360,3.24,30.25,238.05,dadi-ki-kahaniyan
+2026-10-19 16:42:04,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/mitthu_9ff4a41c6f8d4e3c.wav,gemini-3.8-flash-tts,tts 3.6s,0.00082,0.08,30.33,237.97,dadi-ki-kahaniyan
+2026-10-19 16:42:26,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/sharma_538735e534b80937.wav,gemini-3.8-flash-tts,tts 3.8s,0.00087,0.08,30.41,237.89,dadi-ki-kahaniyan
+2026-10-19 16:42:31,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_06.png,gemini-nano-banana-2.1,1K,0.03360,3.24,33.65,234.65,dadi-ki-kahaniyan
+2026-10-19 16:42:34,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/narrator_45d9de42507de40a.wav,gemini-3.8-flash-tts,tts 6.0s,0.00137,0.13,33.78,234.52,dadi-ki-kahaniyan
+2026-10-19 16:42:42,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/mitthu_b1381cb427bb4e10.wav,gemini-3.8-flash-tts,tts 3.4s,0.00077,0.07,33.85,234.45,dadi-ki-kahaniyan
+2026-10-19 16:42:50,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/raju_7399d39af2ef79c8.wav,gemini-3.8-flash-tts,tts 4.3s,0.00098,0.09,33.94,234.36,dadi-ki-kahaniyan
+2026-10-19 16:42:58,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/gupta_91ffc2a680c04189.wav,gemini-3.8-flash-tts,tts 6.0s,0.00136,0.13,34.07,234.23,dadi-ki-kahaniyan
+2026-10-19 16:43:03,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_09.png,gemini-nano-banana-2.1,1K,0.03360,3.24,37.31,230.99,dadi-ki-kahaniyan
+2026-10-19 16:43:06,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/narrator_d1a03c10bcee0a23.wav,gemini-3.8-flash-tts,tts 3.5s,0.00079,0.08,37.39,230.91,dadi-ki-kahaniyan
+2026-10-19 16:43:14,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/gupta_a349310cee00a721.wav,gemini-3.8-flash-tts,tts 5.2s,0.00117,0.11,37.50,230.80,dadi-ki-kahaniyan
+2026-10-19 16:43:21,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/raju_31e1f28c79f096d1.wav,gemini-3.8-flash-tts,tts 3.2s,0.00074,0.07,37.57,230.73,dadi-ki-kahaniyan
+2026-10-19 16:43:26,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_11.png,gemini-nano-banana-2.1,1K,0.03360,3.24,40.81,227.49,dadi-ki-kahaniyan
+2026-10-19 16:43:29,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/golu_7d65f385580b1182.wav,gemini-3.8-flash-tts,tts 5.1s,0.00115,0.11,40.92,227.38,dadi-ki-kahaniyan
+2026-10-19 16:43:39,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/dadi_bb997c29dcf8e9eb.wav,gemini-3.8-flash-tts,tts 4.7s,0.00106,0.10,41.02,227.28,dadi-ki-kahaniyan
+2026-10-19 16:43:47,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/golu_da5d86aece23cde5.wav,gemini-3.8-flash-tts,tts 3.5s,0.00080,0.08,41.10,227.20,dadi-ki-kahaniyan
+2026-10-19 16:43:56,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/dadi_8a5fc312f033ee46.wav,gemini-3.8-flash-tts,tts 7.3s,0.00166,0.16,41.26,227.04,dadi-ki-kahaniyan
+2026-10-19 16:44:01,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_12.png,gemini-nano-banana-2.1,1K,0.03360,3.24,44.50,223.80,dadi-ki-kahaniyan
+2026-10-19 16:44:04,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/mitthu_0f65d798530d8fc3.wav,gemini-3.8-flash-tts,tts 3.8s,0.00085,0.08,44.58,223.72,dadi-ki-kahaniyan
+2026-10-19 16:44:12,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/narrator_2ec206c96d0b2e75.wav,gemini-3.8-flash-tts,tts 4.4s,0.00102,0.10,44.68,223.62,dadi-ki-kahaniyan
+2026-10-19 16:44:22,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/narrator_ba7201f50242ff24.wav,gemini-3.8-flash-tts,tts 7.1s,0.00161,0.16,44.84,223.46,dadi-ki-kahaniyan
+2026-10-19 16:44:33,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/pandey_ec8d20e1f803462b.wav,gemini-3.8-flash-tts,tts 4.6s,0.00105,0.10,44.94,223.36,dadi-ki-kahaniyan
+2026-10-19 16:44:42,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/gupta_9ac84b61d62f4961.wav,gemini-3.8-flash-tts,tts 3.3s,0.00075,0.07,45.01,223.29,dadi-ki-kahaniyan
+2026-10-19 16:44:47,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_13.png,gemini-nano-banana-2.1,1K,0.03360,3.24,48.25,220.05,dadi-ki-kahaniyan
+2026-10-19 16:44:51,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/pandey_7f1f50421ad5e2fe.wav,gemini-3.8-flash-tts,tts 3.4s,0.00077,0.07,48.32,219.98,dadi-ki-kahaniyan
+2026-10-19 16:45:00,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/raju_f70ff467f442c685.wav,gemini-3.8-flash-tts,tts 1.8s,0.00042,0.04,48.36,219.94,dadi-ki-kahaniyan
+2026-10-19 16:45:09,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/pandey_e97a96737107c832.wav,gemini-3.8-flash-tts,tts 2.7s,0.00062,0.06,48.42,219.88,dadi-ki-kahaniyan
+2026-10-19 16:45:17,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/sharma_bc3b826d7aa9a637.wav,gemini-3.8-flash-tts,tts 3.8s,0.00086,0.08,48.50,219.80,dadi-ki-kahaniyan
+2026-10-19 16:45:27,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/narrator_a06e67402cbfcb22.wav,gemini-3.8-flash-tts,tts 5.9s,0.00133,0.13,48.63,219.67,dadi-ki-kahaniyan
+2026-10-19 16:45:28,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_14.png,gemini-nano-banana-2.1,1K,0.03360,3.24,51.87,216.43,dadi-ki-kahaniyan
+2026-10-19 16:45:35,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/gupta_7d7716ca3635fe07.wav,gemini-3.8-flash-tts,tts 3.6s,0.00081,0.08,51.95,216.35,dadi-ki-kahaniyan
+2026-10-19 16:45:44,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/raghu_70390620ab402ef4.wav,gemini-3.8-flash-tts,tts 4.0s,0.00092,0.09,52.04,216.26,dadi-ki-kahaniyan
+2026-10-19 16:45:53,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/dadi_5ff9328846d94361.wav,gemini-3.8-flash-tts,tts 7.4s,0.00169,0.16,52.20,216.10,dadi-ki-kahaniyan
+2026-10-19 16:46:02,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/pandey_7f9981f27f8c99d6.wav,gemini-3.8-flash-tts,tts 5.0s,0.00113,0.11,52.31,215.99,dadi-ki-kahaniyan
+2026-10-19 16:46:10,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/dadi_5d5da4189a6d3106.wav,gemini-3.8-flash-tts,tts 5.2s,0.00118,0.11,52.42,215.88,dadi-ki-kahaniyan
+2026-10-19 16:46:19,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/sharma_8d3af07b0b652c3a.wav,gemini-3.8-flash-tts,tts 3.4s,0.00076,0.07,52.49,215.81,dadi-ki-kahaniyan
+2026-10-19 16:46:23,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_15.png,gemini-nano-banana-2.1,1K,0.03360,3.24,55.73,212.57,dadi-ki-kahaniyan
+2026-10-19 16:46:26,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/narrator_6af65206d2c1d5a1.wav,gemini-3.8-flash-tts,tts 3.6s,0.00083,0.08,55.81,212.49,dadi-ki-kahaniyan
+2026-10-19 16:46:35,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/golu_b31df52533c583be.wav,gemini-3.8-flash-tts,tts 3.3s,0.00074,0.07,55.88,212.42,dadi-ki-kahaniyan
+2026-10-19 16:46:43,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/mitthu_f6a0dcd4dc56b399.wav,gemini-3.8-flash-tts,tts 2.7s,0.00061,0.06,55.94,212.36,dadi-ki-kahaniyan
+2026-10-19 16:46:51,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/dadi_1056ffb8dc274fa5.wav,gemini-3.8-flash-tts,tts 5.1s,0.00115,0.11,56.05,212.25,dadi-ki-kahaniyan
+2026-10-19 16:47:01,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/dadi_c3423b3dfdb4db4e.wav,gemini-3.8-flash-tts,tts 7.8s,0.00177,0.17,56.22,212.08,dadi-ki-kahaniyan
+2026-10-19 16:47:10,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/golu_6c59ee6320e2efb8.wav,gemini-3.8-flash-tts,tts 4.9s,0.00111,0.11,56.33,211.97,dadi-ki-kahaniyan
+2026-10-19 16:47:20,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_17.png,gemini-nano-banana-2.1,1K,0.03360,3.24,59.57,208.73,dadi-ki-kahaniyan
+2026-10-19 16:47:21,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/dadi_3a6178c4323b4d6e.wav,gemini-3.8-flash-tts,tts 10.8s,0.00244,0.24,59.81,208.49,dadi-ki-kahaniyan
+2026-10-19 16:47:31,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/narrator_fd00fa48daee3136.wav,gemini-3.8-flash-tts,tts 5.0s,0.00114,0.11,59.92,208.38,dadi-ki-kahaniyan
+2026-10-19 16:47:41,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/narrator_be504eb5ccc3ba08.wav,gemini-3.8-flash-tts,tts 6.6s,0.00150,0.15,60.07,208.23,dadi-ki-kahaniyan
+2026-10-19 16:47:49,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/mitthu_263b007d00331911.wav,gemini-3.8-flash-tts,tts 3.0s,0.00068,0.07,60.14,208.16,dadi-ki-kahaniyan
+2026-10-19 16:47:59,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/sharma_5a8f53a9f3f09495.wav,gemini-3.8-flash-tts,tts 5.0s,0.00113,0.11,60.25,208.05,dadi-ki-kahaniyan
+2026-10-19 16:48:09,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/narrator_d2e7dd2e305e0f21.wav,gemini-3.8-flash-tts,tts 3.6s,0.00081,0.08,60.33,207.97,dadi-ki-kahaniyan
+2026-10-19 16:48:17,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/pandey_e383ae452a4d288e.wav,gemini-3.8-flash-tts,tts 2.7s,0.00061,0.06,60.39,207.91,dadi-ki-kahaniyan
+2026-10-19 16:48:23,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_18.png,gemini-nano-banana-2.1,1K,0.03360,3.24,63.63,204.67,dadi-ki-kahaniyan
+2026-10-19 16:48:26,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/gupta_6cb1759b938a1480.wav,gemini-3.8-flash-tts,tts 4.5s,0.00103,0.10,63.73,204.57,dadi-ki-kahaniyan
+2026-10-19 16:48:34,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/raghu_dd35bf41cdbafe49.wav,gemini-3.8-flash-tts,tts 3.6s,0.00082,0.08,63.81,204.49,dadi-ki-kahaniyan
+2026-10-19 16:48:44,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/dadi_28c6df868e03426e.wav,gemini-3.8-flash-tts,tts 9.8s,0.00223,0.22,64.03,204.27,dadi-ki-kahaniyan
+2026-10-19 16:48:53,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/golu_172b0fc9b4d6e567.wav,gemini-3.8-flash-tts,tts 2.9s,0.00065,0.06,64.09,204.21,dadi-ki-kahaniyan
+2026-10-19 16:48:54,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_22.png,gemini-nano-banana-2.1,1K,0.03360,3.24,67.33,200.97,dadi-ki-kahaniyan
+2026-10-19 16:49:03,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/mitthu_1feb970886a15030.wav,gemini-3.8-flash-tts,tts 2.8s,0.00064,0.06,67.39,200.91,dadi-ki-kahaniyan
+2026-10-19 16:49:13,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/audio/tts_cache/dadi_3f6848d581c10e11.wav,gemini-3.8-flash-tts,tts 6.0s,0.00137,0.13,67.52,200.78,dadi-ki-kahaniyan
+2026-10-19 16:49:26,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_23.png,gemini-nano-banana-2.1,1K,0.03360,3.24,70.76,197.54,dadi-ki-kahaniyan
+2026-10-19 16:49:59,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_24.png,gemini-nano-banana-2.1,1K,0.03360,3.24,74.00,194.30,dadi-ki-kahaniyan
+2026-10-19 16:50:27,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_25.png,gemini-nano-banana-2.1,1K,0.03360,3.24,77.24,191.06,dadi-ki-kahaniyan
+2026-10-19 16:50:59,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_26.png,gemini-nano-banana-2.1,1K,0.03360,3.24,80.48,187.82,dadi-ki-kahaniyan
+2026-10-19 16:51:33,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_27.png,gemini-nano-banana-2.1,1K,0.03360,3.24,83.72,184.58,dadi-ki-kahaniyan
+2026-10-19 16:52:10,channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_29.png,gemini-nano-banana-2.1,1K,0.03360,3.24,86.96,181.34,dadi-ki-kahaniyan

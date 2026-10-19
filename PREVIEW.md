@@ -1,6 +1,6 @@
 # Preview — किस्सागो | Kissago
 
-**Budget bacha:** ₹268.30  ·  **Last image:** 2026-10-18 22:12:17
+**Budget bacha:** ₹181.34  ·  **Last image:** 2026-10-19 16:52:10
 
 ## Characters
 
@@ -20,6 +20,10 @@
 
 ![pandey_sheet](channels/dadi-ki-kahaniyan/characters/pandey_sheet.png)
 
+### sharma_sheet — ₹3.24 · 2026-10-19 16:38:04
+
+![sharma_sheet](channels/dadi-ki-kahaniyan/characters/sharma_sheet.png)
+
 ### cadhai_prop — ₹3.24 · 2026-10-17 23:00:22
 
 ![cadhai_prop](channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/characters/cadhai_prop.png)
@@ -35,6 +39,18 @@
 ### sadhu_sheet — ₹3.24 · 2026-10-17 23:00:01
 
 ![sadhu_sheet](channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/characters/sadhu_sheet.png)
+
+### gupta_sheet — ₹3.24 · 2026-10-19 16:36:25
+
+![gupta_sheet](channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/characters/gupta_sheet.png)
+
+### raghu_sheet — ₹3.24 · 2026-10-19 16:35:50
+
+![raghu_sheet](channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/characters/raghu_sheet.png)
+
+### sona_sheet — ₹3.24 · 2026-10-19 16:36:57
+
+![sona_sheet](channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/characters/sona_sheet.png)
 
 ## Scenes
 
@@ -201,3 +217,87 @@
 ### scene_10 — ₹3.24 · 2026-10-17 15:31:35
 
 ![scene_10](channels/dadi-ki-kahaniyan/stories/002_sharma-ji-ki-cycle/images/scene_10.png)
+
+### scene_01 — ₹3.24 · 2026-10-19 16:40:06
+
+![scene_01](channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_01.png)
+
+### scene_02 — ₹3.24 · 2026-10-19 16:40:32
+
+![scene_02](channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_02.png)
+
+### scene_03 — ₹3.24 · 2026-10-19 16:40:57
+
+![scene_03](channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_03.png)
+
+### scene_04 — ₹3.24 · 2026-10-19 16:41:32
+
+![scene_04](channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_04.png)
+
+### scene_05 — ₹3.24 · 2026-10-19 16:41:58
+
+![scene_05](channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_05.png)
+
+### scene_06 — ₹3.24 · 2026-10-19 16:42:31
+
+![scene_06](channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_06.png)
+
+### scene_09 — ₹3.24 · 2026-10-19 16:43:03
+
+![scene_09](channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_09.png)
+
+### scene_11 — ₹3.24 · 2026-10-19 16:43:26
+
+![scene_11](channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_11.png)
+
+### scene_12 — ₹3.24 · 2026-10-19 16:44:01
+
+![scene_12](channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_12.png)
+
+### scene_13 — ₹3.24 · 2026-10-19 16:44:47
+
+![scene_13](channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_13.png)
+
+### scene_14 — ₹3.24 · 2026-10-19 16:45:28
+
+![scene_14](channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_14.png)
+
+### scene_15 — ₹3.24 · 2026-10-19 16:46:23
+
+![scene_15](channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_15.png)
+
+### scene_17 — ₹3.24 · 2026-10-19 16:47:20
+
+![scene_17](channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_17.png)
+
+### scene_18 — ₹3.24 · 2026-10-19 16:48:23
+
+![scene_18](channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_18.png)
+
+### scene_22 — ₹3.24 · 2026-10-19 16:48:54
+
+![scene_22](channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_22.png)
+
+### scene_23 — ₹3.24 · 2026-10-19 16:49:26
+
+![scene_23](channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_23.png)
+
+### scene_24 — ₹3.24 · 2026-10-19 16:49:59
+
+![scene_24](channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_24.png)
+
+### scene_25 — ₹3.24 · 2026-10-19 16:50:27
+
+![scene_25](channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_25.png)
+
+### scene_26 — ₹3.24 · 2026-10-19 16:50:59
+
+![scene_26](channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_26.png)
+
+### scene_27 — ₹3.24 · 2026-10-19 16:51:33
+
+![scene_27](channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_27.png)
+
+### scene_29 — ₹3.24 · 2026-10-19 16:52:10
+
+![scene_29](channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_29.png)

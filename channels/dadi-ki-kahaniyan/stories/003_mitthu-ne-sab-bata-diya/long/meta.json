@@ -1,0 +1,54 @@
+{
+  "title": "आधी बात, पूरा हंगामा! मिट्ठू ने सब बता दिया | किस्सागो",
+  "description": "गुलमोहर मोहल्ले में एक सुबह मिट्ठू ने आधी बात सुनी और चिल्लाने लगा — \"सोना चोरी! सोना चोरी!\" देखते ही देखते बात सोने के हार और तिजोरी तक पहुँच गई, और एक बेचारे नए दूधवाले पर शक होने लगा। फिर दादी ने एक सीधा-सा सवाल पूछा... 🦜😄\n\nसीख: सुनी-सुनाई बात बिना जाँचे आगे मत बढ़ाओ — पहले पूछो, फिर बोलो।\n\nकिस्सागो — हर शाम एक नया किस्सा, जो हँसाए भी और सिखाए भी।",
+  "hashtags": [
+    "#किस्सागो",
+    "#HindiComedy",
+    "#मिट्ठू",
+    "#HindiKahani",
+    "#FamilyStory"
+  ],
+  "tags": [
+    "किस्सागो",
+    "Kissago",
+    "मिट्ठू",
+    "Mitthu Tota",
+    "सोना चोरी",
+    "आधी बात",
+    "अफ़वाह",
+    "Rumour Story Hindi",
+    "हिंदी कॉमेडी कहानी",
+    "Hindi Comedy Cartoon",
+    "गुलमोहर मोहल्ला",
+    "दादी",
+    "परिवार की कहानी",
+    "Family Story Hindi",
+    "मोहल्ले की कहानी",
+    "Hindi Kahani",
+    "सीख वाली कहानी",
+    "Talking Parrot Story"
+  ],
+  "music_moods": {
+    "comedy": "comedy/Monkeys_Spinning_Monkeys.mp3",
+    "khushi": "khushi/Life_of_Riley.mp3",
+    "tension": "tension/Investigations.mp3",
+    "jaadu": "jaadu/Dreams_Become_Real.mp3",
+    "seekh": "seekh/Peaceful_Desolation.mp3"
+  },
+  "sfx": {
+    "comedy": "comedy_sting_731262.mp3",
+    "tension": "tension_sting_578351.mp3"
+  },
+  "pinned_comment": "सबसे बड़ी गलती किसकी थी — मिट्ठू, गुप्ता आंटी या पांडे जी? कमेंट में बताइए! 🦜",
+  "speed": {
+    "narrator": 0.8,
+    "dadi": 0.9,
+    "sharma": 0.95,
+    "golu": 0.95,
+    "raghu": 0.95,
+    "gupta": 0.95,
+    "raju": 0.95
+  },
+  "gap": 0.4,
+  "_pace_note": "Gemini TTS for story 003 came out faster than Long 01 (narrator 2.46 w/s); tempo brings narration to Long 01's storytelling pace (~1.9-2.0 w/s) so the video lands in the approved 4:45-5:15."
+}
