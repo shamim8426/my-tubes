@@ -49785,3 +49785,73 @@ _**Agent (claude-opus-5-5 2026-10-18 17:21:16Z)**_
 <summary>Tool use: **Read**</summary>
  `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\_work\dp_ki_zoom.jpg`
 </details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 17:21:20Z)**_
+
+"कि" sahi bana hai: ि ki matra ka ghumav क ke upar theek se juda hai, aur shirorekha poori hai. Ab BRAND.md, bible aur register update karke sync kar raha hoon:
+
+_**Agent (claude-opus-5-5 2026-10-18 17:21:38Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Record DP choice in docs/register/log and sync
+
+```bash
+.venv/Scripts/python.exe -X utf8 - <<'PYEOF'
+import csv, datetime
+from pathlib import Path
+B = Path("channels/dadi-ki-kahaniyan")
+m = B / "brand/BRAND.md"; t = m.read_text(encoding="utf-8")
+old = "`kissago_dp_v3.png` (800x800, indigo + marigold ring + warm glow — live)"
+assert old in t
+t = t.replace(old, "`kissago_dp_ki.png` (800x800, **profile picture**: monogram \"कि\" in Rozha One marigold on indigo with a marigold ring — chosen by the user 2026-10-18; older DP options: `kissago_dp_v3.png`, `_work/dp_concepts/`)")
+t = t.replace("- **Icon only:** profile picture, video watermark, favicon-size places, anything smaller than ~200 px wide.",
+              "- **Monogram \"कि\":** profile picture only (`kissago_dp_ki.png`).\n- **Icon only (Mitthu):** video watermark, favicon-size places, anything smaller than ~200 px wide.")
+m.write_text(t, encoding="utf-8")
+b = B / "channel_bible.md"; s = b.read_text(encoding="utf-8")
+old2 = "`brand/kissago_dp_v3.png` (800x800, marigold ring)"
+assert old2 in s
+s = s.replace(old2, "`brand/kissago_dp_ki.png` (800x800, monogram \"कि\")")
+b.write_text(s, encoding="utf-8")
+p = Path("shared/assets_license.csv")
+rows = list(csv.DictReader(p.open(encoding="utf-8", newline="")))
+path = "channels/dadi-ki-kahaniyan/brand/kissago_dp_ki.png"
+if path not in {r["path"] for r in rows}:
+    rows.append({"path": path, "source_url": "own: \"कि\" rendered by libass in Rozha One (shared/fonts, SIL OFL) on indigo + marigold ring (scripts/gen_brand.dp_concepts C)",
+                 "author": "Kissago (channel owner)", "license": "own", "attribution_text": "", "date_added": datetime.date.today().isoformat()})
+with p.open("w", encoding="utf-8", newline="") as fh:
+    w = csv.DictWriter(fh, fieldnames=rows[0].keys()); w.writeheader(); w.writerows(rows)
+print("ok,", len(rows), "register rows")
+PYEOF
+echo "$(date +%F) | brand | DP | USER CHOSE concept C: monogram \"कि\" (kissago_dp_ki.png), ₹0" >> channels/dadi-ki-kahaniyan/log.md && powershell -NoProfile -ExecutionPolicy Bypass -File tools/sync.ps1 -Message "brand: DP = monogram कि (concept C)" >/dev/null 2>&1; tail -1 shared/sync.log
+```
+
+```text
+ok, 49 register rows
+2026-10-18 22:51:37  pushed: brand: DP = monogram कि (concept C)  (repo pack size 337 MB)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-18 17:21:45Z)**_
+
+Nayi DP taiyaar hai: **"कि" monogram**. Kharcha ₹0.
+
+**File:** `channels/dadi-ki-kahaniyan/brand/kissago_dp_ki.png` (800×800)
+- "कि" Rozha One font me hai, marigold rang me, indigo background par, marigold ring ke saath.
+- Zoom karke check kiya: ि ki matra aur shirorekha sahi hain.
+- 98 aur 48 px par bhi saaf aur tez dikhta hai.
+
+**Kya update kiya:**
+- **BRAND.md:** DP ab "कि" monogram hai. Mitthu wala icon watermark aur logo me rahega.
+- **Bible** me channel art ki line, aur **register** me nayi row.
+- **Log** me aapka faisla likha.
+- **Sync:** `pushed: brand: DP = monogram कि (concept C)`
+
+**Lagane ke liye:** YouTube Studio → Customization → Branding → Picture → **Change** → ye file chuniye: `D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\kissago_dp_ki.png`
+
+**Abhi baaki hai:**
+- Banner: v5 final (a) ya ek aur regen (b)?
+- Short ka cover Studio se lagana
+- Short ki checklist: Related video aur comment pin
+- Playlists ke IDs
+- Shorts cover ke liye "text upar ke 12% se neeche" wala niyam
