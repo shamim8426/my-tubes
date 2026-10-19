@@ -1,5 +1,5 @@
 {
-  "_help": "Story 004 (Long 03): 15 scene images (ids 2-16; id = scene number) + Mishra dada's sheet (image 1, scripts/gen_long_characters.py long_03) = 16 new images (RULES 15). Refs: only the characters in the scene, plus a location image where the place must match.",
+  "_help": "Story 004 (Long 03): 13 scene images (ids 2,4-8,10-16; id = scene number) + Mishra dada's sheet = 14 new images. Plan shrunk on 2026-10-19 after the first ACTUAL cost (sheet ₹5.83 incl. GST: 1,367 thinking tokens): scene 3 -> crops of image 4, scene 9 (footsteps beat) -> zoom on the white figure in image 2 (RULES 15: shrink, never stop).",
   "out_dir": "channels/dadi-ki-kahaniyan/stories/004_chhat-par-bhoot/images",
   "aspect": "16:9",
   "ref_files": {
@@ -29,22 +29,14 @@
       "prompt": "Night, wide view across the lane towards Sharma ji's two-storey house (as in the location reference: narrow outdoor stairs up to a flat roof, red iron gate below), under a big full moon and many stars. On the flat roof a tall figure completely wrapped in a plain white shawl walks slowly, seen small, far away and from behind - no face visible; soft and mysterious, not scary. A white bedsheet hangs on a clothesline on the same roof. Dark blue night, one faint warm window."
     },
     {
-      "id": 3,
-      "refs": [
-        "golu",
-        "mitthu",
-        "aangan_house"
-      ],
-      "prompt": "Night, inside Dadi's small mud house with a clay-tile roof (as in the location reference): {golu} sits on the sill of a small open wooden window, sweaty, fanning himself with a round hand fan, staring out wide-eyed; {mitthu} perches on the window frame right next to his shoulder, also staring out. No electricity: the room is dark blue, moonlight falls on Golu's face. Through the window, far away, a moonlit row of flat roofs."
-    },
-    {
       "id": 4,
       "refs": [
         "dadi",
         "golu",
-        "mitthu"
+        "mitthu",
+        "aangan_house"
       ],
-      "prompt": "Night, inside Dadi's small mud house: {dadi} lies on a charpai under a thin sheet, half asleep, calmly waving one hand as if saying 'go to sleep'; {golu} at the open window points outside excitedly with a scared face; {mitthu} perches on the window frame with puffed-up feathers. Moonlight through the window lights both faces clearly."
+      "prompt": "Night, inside Dadi's small mud house with a clay-tile roof (as in the location reference), no electricity, dark blue room lit by moonlight: on the RIGHT, {golu} sits on the sill of a small open wooden window, sweaty, a round hand fan in one hand, pointing outside with the other, scared and excited; {mitthu} perches on the window frame right next to his shoulder with puffed-up feathers, staring out. On the LEFT, {dadi} lies on a charpai under a thin sheet, half asleep, calmly waving one hand as if saying 'go to sleep'. Through the window, far away, a moonlit row of flat roofs. All three faces clearly lit."
     },
     {
       "id": 5,
@@ -79,11 +71,6 @@
         "gupta_house"
       ],
       "prompt": "Night, Mrs. Gupta's pink two-storey house with a balcony (as in the location reference), with EVERY window and the balcony lit bright yellow, glowing against the dark blue lane; {gupta} at the front door hurriedly pulling the door shut, holding the handle, worried face, glancing back over her shoulder."
-    },
-    {
-      "id": 9,
-      "refs": [],
-      "prompt": "Night close-up on a flat concrete roof, low camera angle: two old bare feet in simple brown chappals take a slow step, and the edge of a plain white woollen shawl trails behind them. Only the feet, ankles and shawl edge are visible - no body, no face. Moonlight and stars, calm and mysterious, not scary."
     },
     {
       "id": 10,
@@ -135,9 +122,10 @@
         "pandey",
         "sharma",
         "dadi",
-        "golu"
+        "golu",
+        "mitthu"
       ],
-      "prompt": "Early evening on Mishra dada's flat roof in warm golden dusk light: neighbours sit on mats with glasses of chai and a big plate of pakoras. {mishra} in the middle, smiling happily; {gupta} offers him the plate of pakoras; {pandey} hides his lathi behind his back and scratches his head sheepishly; {sharma} laughs; {dadi} and {golu} sit together nearby; Mitthu the green parrot perches on the railing."
+      "prompt": "Early evening on Mishra dada's flat roof in warm golden dusk light: neighbours sit on mats with glasses of chai and a big plate of pakoras. {mishra} in the middle, smiling happily; {gupta} offers him the plate of pakoras; {pandey} hides his lathi behind his back and scratches his head sheepishly; {sharma} laughs; {dadi} and {golu} sit together nearby; {mitthu} perches on the railing, beak open happily. No other people."
     },
     {
       "id": 16,
@@ -147,7 +135,7 @@
         "mishra",
         "mitthu"
       ],
-      "prompt": "Night on the same flat roof under a sky full of stars: everyone laughs together on mats around a small glowing lantern - {dadi}, {golu} and {mishra} in front, {mitthu} perched on the railing next to Golu; a few other neighbours softly visible behind them. Warm, cosy and happy."
+      "prompt": "Night on the same flat roof under a sky full of stars: {dadi}, {golu} and {mishra} sit on a mat around a small glowing lantern, all laughing together; {mitthu} perches on the railing next to Golu. Exactly these four, no other people. Keep the group in the LEFT 60% of the image; the right side is open starry sky over the rooftops. Warm, cosy and happy."
     }
   ]
 }

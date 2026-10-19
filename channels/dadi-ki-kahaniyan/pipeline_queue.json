@@ -14,11 +14,12 @@
     },
     "004_chhat-par-bhoot": {
       "video": "long",
-      "stage": "script_approved",
+      "stage": "images",
       "profile": "RULES 15",
       "budget_cap_inr": 110,
       "updated": "2026-10-19",
-      "note": "Munshi script R1 running; then sheet -> images -> TTS -> final"
+      "note": "Munshi script R1 running; then sheet -> images -> TTS -> final",
+      "stopped": "Gemini 429 'project has exceeded its monthly spending cap' (AI Studio spend cap, https://ai.studio/spend) -> user must raise the cap. Done: Mishra sheet, images 2,4,5,6, Mishra voice sample, 15/40 TTS lines. Pending: images 7,8,10-16, 25 TTS lines, thumbnail, Short cover, final, uploads."
     }
   }
 }

@@ -1,6 +1,6 @@
 # Preview — किस्सागो | Kissago
 
-**Budget bacha:** ₹165.14  ·  **Last image:** 2026-10-19 17:07:44
+**Budget bacha:** ₹400.33  ·  **Last image:** 2026-10-19 20:51:26
 
 ## Characters
 
@@ -51,6 +51,10 @@
 ### sona_sheet — ₹3.24 · 2026-10-19 16:36:57
 
 ![sona_sheet](channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/characters/sona_sheet.png)
+
+### mishra_sheet — ₹4.94 · 2026-10-19 20:47:39
+
+![mishra_sheet](channels/dadi-ki-kahaniyan/stories/004_chhat-par-bhoot/characters/mishra_sheet.png)
 
 ## Scenes
 
@@ -301,3 +305,19 @@
 ### scene_29 — ₹3.24 · 2026-10-19 16:52:10
 
 ![scene_29](channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_29.png)
+
+### scene_02 — ₹3.74 · 2026-10-19 20:49:05
+
+![scene_02](channels/dadi-ki-kahaniyan/stories/004_chhat-par-bhoot/images/scene_02.png)
+
+### scene_04 — ₹4.91 · 2026-10-19 20:49:59
+
+![scene_04](channels/dadi-ki-kahaniyan/stories/004_chhat-par-bhoot/images/scene_04.png)
+
+### scene_05 — ₹4.78 · 2026-10-19 20:50:33
+
+![scene_05](channels/dadi-ki-kahaniyan/stories/004_chhat-par-bhoot/images/scene_05.png)
+
+### scene_06 — ₹4.94 · 2026-10-19 20:51:26
+
+![scene_06](channels/dadi-ki-kahaniyan/stories/004_chhat-par-bhoot/images/scene_06.png)
