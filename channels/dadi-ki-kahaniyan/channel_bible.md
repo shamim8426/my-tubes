@@ -30,7 +30,8 @@
 - **Swabhav:** jaldbaaz, hamesha galat andaza lagata hai, comedy deta hai.
 - **Catchphrase:** "दादी, मुझे पता है चोर कौन है!" *(aur hamesha galat)*
 
-### 3. मिठ्ठू
+### 3. मिट्ठू
+> Naam ki spelling har jagah **"मिट्ठू"** (script, captions, title) — user ka faisla 2026-10-19.
 - **Look:** dadi ka hara tota (parrot), laal choonch.
 - **Role:** kabhi-kabhi ek shabd dohrata hai jo clue ban jaata hai.
 

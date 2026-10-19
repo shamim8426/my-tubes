@@ -15,13 +15,13 @@
 | 9 | 6 | NEW 07 | Mitthu flying past Raju's chai stall, customers looking up |
 | 10 | 4 | reuse 07 | Raju close-up, shocked, kettle in hand |
 | 11 | 10 | NEW 08 | Mrs. Gupta on her balcony (pink saree), hands on cheeks: 'Hai Ram!' |
-| 12 | 13 | NEW 09 | Mrs. Gupta and Raju gossiping at the chai stall, leaning in |
+| 12 | 9 | NEW 09 | Mrs. Gupta and Raju gossiping at the chai stall, leaning in |
 | 13 | 20 | NEW 10 | Dadi's aangan (brown door, khaprail): Golu runs in to Dadi, excited; Dadi calm |
-| 14 | 19 | NEW 11 | Crowd gathering at Sharma ji's gate, Mitthu shouting above them |
-| 15 | 7 | NEW 12 | Inspector Pandey arrives blowing his whistle, belly first, comic |
-| 16 | 6 | reuse 12 | crop: Sharma ji confused + Mrs. Gupta pointing |
-| 17 | 14 | NEW 13 | Raghu walking back with his cans, everyone staring; Pandey pointing at him |
-| 18 | 10 | NEW 14 | Dadi steps forward, one hand raised 'wait!', walking stick in the other |
+| 14 | 10 | NEW 11 | Crowd gathering at Sharma ji's gate, Mitthu shouting above them |
+| 15 | 11 | NEW 12 | Inspector Pandey arrives blowing his whistle and solemnly opens a big diary to write a report (comic, no arrest) |
+| 16 | 12 | reuse 12 | crops: Pandey writing the growing list सोना... हार... तिजोरी; Mrs. Gupta and Raju dictating; Sharma ji trying to speak |
+| 17 | 17 | NEW 13 | Raghu walking back with his cans; the crowd whispering and staring at him (no police action) |
+| 18 | 13 | NEW 14 | Dadi calmly walks through the crowd and gently lowers Pandey's diary with the tip of her walking stick (NOT the raised-hand pose of Case 01) |
 | 19 | 7 | reuse 14 | crop: Dadi asks Sharma ji |
 | 20 | 11 | reuse 11 | wide crowd, stunned silence; Golu's surprised face crop |
 | 21 | 5 | reuse 14 | crop: Dadi 'let's find Sona' |
@@ -30,7 +30,7 @@
 | 24 | 4 | NEW 17 | Dadi, Golu and Sharma ji tiptoeing up to the roof |
 | 25 | 14 | NEW 18 | Roof: Sona asleep in the sun next to the warm water tank, peaceful; Mitthu flying in happily |
 | 26 | 9 | NEW 19 | Sharma ji hugging Sona gently; neighbours below laughing |
-| 27 | 8 | NEW 20 | Pandey (sheepish) and Mrs. Gupta apologising to Raghu |
+| 27 | 7 | NEW 20 | Pandey sheepishly tearing the report page; Mrs. Gupta apologising to Raghu |
 | 28 | 4 | reuse 20 | crop: Raghu smiling, 'next time listen to the whole thing' |
 | 29 | 13 | NEW 21 | Dadi and Golu on the roof at sunset, Dadi teaching, Golu nodding; Sona on Sharma ji's lap behind |
 | 30 | 12 | reuse 21 | crop: Mitthu flapping + Dadi asks the viewers |
@@ -42,7 +42,7 @@
 | Character | Status | Sheet? |
 |---|---|---|
 | Dadi, Golu, Mitthu, Inspector Pandey | permanent | existing sheets (reuse) |
-| Sharma ji | recurring (Case 01) | **no sheet yet** — only Case 01 scene images; a sheet keeps him consistent across 13 scenes (recommended) |
+| Sharma ji | recurring (Case 01) | **new sheet (decided by the user)** — made with Case 01 scene images as references so his look stays the same |
 | Raju chaiwala | recurring (Case 01) | look in the bible + Case 01 images (reuse, no sheet) |
 | Mrs. Gupta (gossip queen) | in the bible, never drawn | **new sheet** — proposed look: ~50, pink saree with a gold border, big bun, maroon bindi, gold bangles, expressive |
 | Raghu (new milkman) | NEW | **new sheet** — ~25, short hair, blue check shirt, khaki pants, green bicycle with two steel cans (clearly different from Pappu: white kurta, red gamchha, black cycle) |
@@ -52,20 +52,20 @@ Why Raghu and not Pappu: Pappu was already the innocent suspect in Case 01; susp
 
 ## 3. Voices
 
-Existing: narrator (Charon), dadi (Gacrux, medium pace — Dadi is in the story, not telling it), golu, mitthu (+5), sharma, pandey, raju. Note: channel RULES says "Dadi narrates" — needs the user's OK to change (Munshi M4).
+Existing: narrator (Charon), dadi (Gacrux, medium pace — Dadi is in the story, not telling it), golu, mitthu (+5), sharma, pandey, raju. Channel RULES updated 2026-10-19 (user chose option a): in mohalla stories where Dadi is a character, the narrator voice narrates.
 New: **raghu** (proposal: Puck — young, friendly) and **gupta** (proposal: Despina — chatty, dramatic). One short sample each before the TTS run.
 
 ## 4. Cost estimate (each paid step only after your OK)
 
 | Item | Count | Cost |
 |---|---|---|
-| Character sheets: Raghu, Mrs. Gupta, Sona (+ Sharma ji recommended) | 3 (+1) | ₹9.72 (₹12.96 with Sharma ji) |
+| Character sheets: Raghu, Mrs. Gupta, Sona, Sharma ji | 4 | ₹12.96 |
 | Scene images (1K) | 21 | ₹68.04 |
 | Voice samples raghu + gupta | 2 | ~₹0.20 |
-| TTS for 56 lines (~270 s of speech; Long 01: 281 s cost ₹6.63) | 56 | ~₹6.40 |
+| TTS for 57 lines (~267 s of speech; Long 01: 281 s cost ₹6.63) | 57 | ~₹6.30 |
 | Thumbnail (1K) | 1 | ₹3.24 |
 | Two Shorts (reuse images + TTS) | 2 | ₹0 |
-| **Total** | | **~₹88** (₹91 with Sharma ji's sheet) |
+| **Total** | | **~₹91** |
 
 Budget left before this: ₹268.30.
 
@@ -84,5 +84,5 @@ Recommended: **title 3 + thumbnail A** (the thumbnail text must not repeat the t
 
 ## 7. Shorts (40-45 s, ₹0: reuse images + TTS, speed 1.08, gaps 0.15/0.3)
 
-- **Short A — cliffhanger (~42.5 s, twist kept):** lines 13, 14, 15, 19, 24, 28, 30, 32, 33: Mitthu 'सोना चोरी! शर्मा जी का सोना चोरी!' → Raju → Mrs. Gupta 'सोने का हार' → 'पूरी तिजोरी' → 'हार चोरी!' → Pandey → Gupta points at Raghu → Raghu pleads → Pandey 'चलो थाने!'; end card "पूरी कहानी चैनल पर". It never says that Sona is a cat.
-- **Short B — Mitthu comedy (~42.8 s):** lines 8, 9, 10, 11, 13, 24, 37, 40, 47, 55: Mitthu turns 'सोना कहाँ गई' into 'सोना चोरी!', 'हार चोरी!', then 'सोना बिल्ली!', 'सोना मिल गया!', 'पहले पूछो!'. It reveals the cat, so publish it **after** the long video (a few days later).
+- **Short A — cliffhanger (~41-42 s, twist kept):** lines 13, 15, 23, 26, 27, 28, 29, 30, 33, 34: Mitthu 'सोना चोरी! शर्मा जी का सोना चोरी!' → Mrs. Gupta 'सोने का हार' → 'हार चोरी!' → Pandey's report 'सोना... हार... तिजोरी — लिखो, लिखो!' → the crowd turns on Raghu → Raghu: 'मुझे क्यों घूर रहे हैं सब?'; end card 'पूरी कहानी चैनल पर'. It never says that Sona is a cat.
+- **Short B — Mitthu comedy (~43-44 s):** lines 8, 9, 10, 11, 13, 23, 38, 41, 48, 56: Mitthu turns 'सोना कहाँ गई' into 'सोना चोरी!', 'हार चोरी!', then 'सोना बिल्ली!', 'सोना मिल गया!', 'पहले पूछो!'. It reveals the cat, so publish it **after** the long video (a few days later).
