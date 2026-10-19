@@ -415,6 +415,65 @@ Dialogue: 0,0:00:00.00,0:00:01.00,Q,,0,0,0,,{{\\an5\\pos(275,300)\\q2}}सोन
     print("saved", out, Image.open(out).size)
 
 
+LONG03 = channel_dir() / "stories" / "004_chhat-par-bhoot"
+L3W = LONG03 / "long" / "thumbnail_work"
+
+L03_THUMB_PROMPT = """16:9 YouTube thumbnail illustration for a Hindi family comedy cartoon, NO text or letters anywhere.
+Setting: NIGHT in a small Indian mohalla, deep navy-blue sky with a big glowing full moon and stars; still family-friendly,
+funny, NOT scary (no monster, no skull, no scary face).
+RIGHT HALF of the image: on a flat rooftop in the upper-right, a tall figure completely wrapped in a plain white shawl,
+softly glowing in the moonlight, seen from behind - its face is NEVER visible. Big in the foreground below: Golu (exactly
+as in his reference sheet: chubby boy, yellow T-shirt, blue half-pants) and Inspector Pandey (exactly as in his reference
+sheet: plump, khaki uniform, cap, thick black moustache, holding a lathi) hugging each other tightly in comic fright, eyes
+huge, mouths open; Mitthu the green parrot (exactly as in his sheet, a bird with no hands) on Pandey's shoulder with all
+his feathers standing up. Faces bright and clearly lit by warm light.
+COMPOSITION IS CRITICAL: keep the LEFT 42% of the image as a plain, darker, softly blurred deep-blue night background with
+NO characters or objects (a big title goes there). Keep the BOTTOM-RIGHT corner (last 20% of width, bottom 18% of height)
+plain and unimportant (YouTube puts the video length there). Faces big, bold, high contrast, readable when small.
+Match the flat 2D cartoon style of the references: thick bold outlines, warm colours, flat cel shading."""
+
+
+def long03_thumb():
+    raw = L3W / "long03_thumb_raw.png"
+    from story_budget import check
+    check(LONG03.name, 4.2)  # RULES 15 budget guard (pre-GST estimate)
+    generate(L03_THUMB_PROMPT, raw, refs=[CHAR / "golu_sheet.png", CHAR / "pandey_sheet.png", CHAR / "mitthu_sheet.png"],
+             aspect_ratio="16:9", size="1K")
+    cover(raw, TW, TH, L3W / "long03_thumb_art.png")
+    long03_thumb_text()
+
+
+def long03_thumb_text():
+    """"छत पर भूत?" in two big lines in the empty left part; logo bottom-left (bottom-right = timestamp)."""
+    fonts = L3W / "fonts"
+    fonts.mkdir(parents=True, exist_ok=True)
+    shutil.copy(FONTS_DIR / "Mukta-Bold.ttf", fonts / "Mukta-Bold.ttf")
+    ass = f"""[Script Info]
+ScriptType: v4.00+
+PlayResX: {TW}
+PlayResY: {TH}
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Q,Mukta,165,&H0000E5FF,&H000000FF,&H00000000,&H96000000,-1,0,0,0,100,100,0,0,1,12,7,5,0,0,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:01.00,Q,,0,0,0,,{{\\an5\\pos(270,290)\\q2}}छत पर\\N{{\\c&H00FFFFFF&}}भूत?
+"""
+    (L3W / "long03_thumb.ass").write_text(ass, encoding="utf-8")
+    shutil.copy(L3W / "long03_thumb_art.png", L3W / "long03_thumb_in.png")
+    subprocess.run([str(FFMPEG), "-v", "error", "-y", "-i", "long03_thumb_in.png", "-vf",
+                    "subtitles=filename=long03_thumb.ass:fontsdir=fonts", "-frames:v", "1", "long03_thumb_titled.png"],
+                   cwd=L3W, check=True)
+    out = LONG03 / "long" / "output" / "long_03_thumbnail.png"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copy(L3W / "long03_thumb_titled.png", out)
+    brand_corner(out, "bl")
+    print("saved", out, Image.open(out).size)
+
+
 L02_SHORT01 = LONG02 / "shorts" / "short_01_sona-chori"
 
 
@@ -466,10 +525,11 @@ Dialogue: 0,0:00:00.00,0:00:01.00,Q,,0,0,0,,{{\\an5\\pos({W // 2},{int(H * 0.33)
 
 
 if __name__ == "__main__":
-    for d in (WORK, C1W, L1W, L2W):
+    for d in (WORK, C1W, L1W, L2W, L3W):
         d.mkdir(parents=True, exist_ok=True)
     {"banner": banner, "dp": dp, "text": text, "thumb": thumb, "thumb_text": thumb_text,
      "thumb_v": thumb_v, "thumb_v_text": thumb_v_text,
      "long01_thumb": long01_thumb, "long01_thumb_text": long01_thumb_text,
      "short01_cover": short01_cover, "long02_thumb": long02_thumb,
-     "long02_thumb_text": long02_thumb_text, "long02_short01_cover": long02_short01_cover}[sys.argv[1]]()
+     "long02_thumb_text": long02_thumb_text, "long02_short01_cover": long02_short01_cover,
+     "long03_thumb": long03_thumb, "long03_thumb_text": long03_thumb_text}[sys.argv[1]]()

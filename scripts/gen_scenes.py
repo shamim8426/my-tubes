@@ -13,6 +13,9 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 from gemini_image import generate  # noqa: E402
 from paths import ROOT, channel_dir, channel_of  # noqa: E402
+import pricing  # noqa: E402
+from gemini_image import MODEL  # noqa: E402
+from story_budget import check  # noqa: E402
 
 
 def load(arg):
@@ -54,6 +57,9 @@ def main(arg: str, only: list[int]):
             prompt += ("\n\nThe attached image is a STYLE reference only: match its art style, outline thickness "
                        "and colour palette exactly. Do NOT draw the grandmother from it in this scene.")
         out = out_dir / f"scene_{scene['id']:02d}.png"
+        # RULES 15 budget guard: story cap + ₹50 floor on actual cost (exits before spending)
+        est = pricing.image_estimate_usd(MODEL, "1K", len(spec['base']) + len(prompt), len(refs)) * pricing.usd_to_inr()
+        check(out_dir.parent.name, est)
         t0 = time.time()
         try:
             generate(f"{spec['base']}\n\n{prompt}", out, refs=refs, aspect_ratio=aspect, size="1K")

@@ -20,7 +20,10 @@ WANT = {
     "tension_sting": "suspense sting dramatic",
     "whoosh": "whoosh swish",
     "magic": "magic sparkle chime",
+    "night": "night crickets",
+    "steps": "footsteps slow",
 }
+DURATION = {"night": "[2 TO 6]", "steps": "[0.8 TO 3]"}  # default [0.3 TO 4]
 PER_KIND = 2
 
 
@@ -35,10 +38,10 @@ def main():
     for kind in kinds:
         query = WANT[kind]
         r = requests.get(API, params={
-            "query": query, "filter": 'license:"Creative Commons 0" duration:[0.3 TO 4]',
+            "query": query, "filter": f'license:"Creative Commons 0" duration:{DURATION.get(kind, "[0.3 TO 4]")}',
             "sort": "score", "page_size": 10,
             "fields": "id,name,username,license,duration,previews,url,avg_rating,num_downloads",
-        }, headers={"Authorization": f"Token {token}"}, timeout=30)
+        }, headers={"Authorization": f"Token {token}"}, timeout=90)
         r.raise_for_status()
         results = r.json()["results"][:PER_KIND]
         for s in results:

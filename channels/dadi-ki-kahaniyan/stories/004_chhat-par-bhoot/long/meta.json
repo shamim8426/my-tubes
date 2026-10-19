@@ -1,0 +1,53 @@
+{
+  "title": "आधी रात छत पर भूत? मोहल्ले का सबसे बड़ा राज़ | किस्सागो",
+  "description": "गुलमोहर मोहल्ले में आधी रात शर्मा जी की छत पर एक सफ़ेद परछाईं धीरे-धीरे चलती दिखी — और पूरा मोहल्ला डर गया! पांडे जी लाठी लेकर निकले, गुप्ता आंटी ने सारी बत्तियाँ जला दीं... फिर दादी लालटेन लेकर ख़ुद छत पर गईं। 🏮🌙\n\nसीख: जिससे हम डरते हैं, अक्सर वो बस अकेला होता है।\n\nकिस्सागो — हर शाम एक नया किस्सा, जो हँसाए भी और सिखाए भी।",
+  "hashtags": [
+    "#किस्सागो",
+    "#HindiKahani",
+    "#छतपरभूत",
+    "#HindiComedy",
+    "#FamilyStory"
+  ],
+  "tags": [
+    "किस्सागो",
+    "Kissago",
+    "छत पर भूत",
+    "Chhat Par Bhoot",
+    "भूत की कहानी",
+    "मज़ेदार कहानी",
+    "गुलमोहर मोहल्ला",
+    "दादी की कहानी",
+    "हिंदी कहानी",
+    "Hindi Kahani",
+    "Hindi Comedy Story",
+    "Hindi Story with Moral",
+    "परिवार की कहानी",
+    "Family Story Hindi",
+    "Cartoon Story Hindi",
+    "मोहल्ले की कहानी"
+  ],
+  "music_moods": {
+    "tension": "tension/Investigations.mp3",
+    "comedy": "comedy/Monkeys_Spinning_Monkeys.mp3",
+    "seekh": "seekh/Touching_Moments_Two_Higher.mp3",
+    "khushi": "khushi/Carefree.mp3"
+  },
+  "sfx": {
+    "night": "night_822935.mp3",
+    "steps": "steps_682886.mp3",
+    "comedy": "comedy_sting_731262.mp3"
+  },
+  "pinned_comment": "क्या आपके मोहल्ले में भी कोई 'मिश्रा दादा' हैं? आज उनसे दो बातें ज़रूर कीजिए 🙏 — कमेंट में बताइए!",
+  "speed": {
+    "narrator": 0.8,
+    "dadi": 0.9,
+    "mishra": 0.9,
+    "sharma": 0.95,
+    "golu": 0.95,
+    "gupta": 0.95,
+    "pandey": 0.95
+  },
+  "gap": 0.6,
+  "end_hold": 8.0,
+  "_pace_note": "Rates measured from Long 02 TTS; gap 0.6 + two story beats (footsteps 1.5 s, 1.0 s before the reveal) bring the estimate into 3:40-4:00 without touching dialogue (RULES 15)."
+}

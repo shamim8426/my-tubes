@@ -55,6 +55,7 @@
 | Character | Pehli baar | Look |
 |---|---|---|
 | **Bunty** | Case 01 | ~17 saal, lamba-patla, khade baal, aasmaani shirt, neeli jeans, safed sneakers, college bag. |
+| **Mishra dada** | Story 004 (Long 03) | ~70 saal, dubla, chhote safed baal, safed moonchh, patla gol chashma, safed kurta-pyjama, safed oonee shawl, bhoori chappal, narm sharmili muskaan. Sharma ji ka upar wala kamra kiraye par. Sheet: `stories/004_chhat-par-bhoot/characters/mishra_sheet.png`. Awaaz: Enceladus. |
 
 ---
 

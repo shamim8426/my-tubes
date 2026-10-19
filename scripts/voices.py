@@ -30,6 +30,8 @@ CAST = {
     # --- long_02 (story 003): मिट्ठू ने सब बता दिया ---
     "raghu": ("Puck", "friendly, honest young Indian milkman, polite and a little nervous when everyone stares, natural pace", 0),
     "gupta": ("Despina", "chatty, dramatic 50-year-old Indian neighbour who loves gossip, expressive and theatrical, quick", 0),
+    # --- long_03 (story 004): छत पर भूत? ---
+    "mishra": ("Enceladus", "gentle, soft-spoken 70-year-old Indian man, polite, a little lonely and shy, slow and warm", 0),
 }
 
 

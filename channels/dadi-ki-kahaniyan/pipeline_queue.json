@@ -11,6 +11,14 @@
       "slot": "long 2026-10-20 19:00, Short A 2026-10-20 21:00",
       "long_video_id": "gLUM0zcECSk",
       "short_a_video_id": "BzpR3Xawpsk"
+    },
+    "004_chhat-par-bhoot": {
+      "video": "long",
+      "stage": "script_approved",
+      "profile": "RULES 15",
+      "budget_cap_inr": 110,
+      "updated": "2026-10-19",
+      "note": "Munshi script R1 running; then sheet -> images -> TTS -> final"
     }
   }
 }

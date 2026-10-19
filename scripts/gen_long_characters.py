@@ -15,7 +15,8 @@ from paths import ROOT, channel_dir  # noqa: E402
 CHAR = channel_dir() / "characters"
 STYLE_REFS = [CHAR / "dadi_sheet.png", CHAR / "golu_sheet.png"]
 STORY_DIRS = {"long_01": channel_dir() / "stories" / "001_lalchi-halwai",
-              "long_02": channel_dir() / "stories" / "003_mitthu-ne-sab-bata-diya"}
+              "long_02": channel_dir() / "stories" / "003_mitthu-ne-sab-bata-diya",
+              "long_03": channel_dir() / "stories" / "004_chhat-par-bhoot"}
 C01 = channel_dir() / "stories" / "002_sharma-ji-ki-cycle" / "images"  # Case 01 scenes (Sharma ji, Raju look refs)
 STYLE_NOTE = ("The attached images are STYLE references only (the channel's approved sheets): match their flat 2D "
               "cartoon style, thick bold black outlines, warm colours, flat cel shading, clean off-white background and "
@@ -85,6 +86,15 @@ Top row: SITTING (tail around the paws), LAPPING MILK from a small steel bowl, W
 Bottom row: SLEEPING CURLED UP in the sun (eyes closed, content), HAPPY FACE close-up, YAWNING.
 The cat must look identical in every pose. No people, no scenery."""),
     },
+}
+SPECS["long_03"] = {
+    "mishra": ("mishra_sheet.png", f"""{SHEET}
+Character: Mishra dada, a gentle, thin Indian man about 70, new tenant in Gulmohar Mohalla. Short white hair, a neat white
+moustache, thin round spectacles, kind tired eyes, a soft shy smile. Plain white kurta-pyjama with a soft white woollen
+shawl over his shoulders, simple brown chappals. Calm and polite, a little lonely - never scary, never ghost-like.
+Poses: WALKING SLOWLY with the shawl wrapped around him (seen from the front); STANDING, LOOKING UP AT THE STARS with his
+hands folded behind his back; SITTING ON A MAT, POINTING UP AT THE SKY happily.
+Expressions: LONELY SOFT SMILE, SURPRISED AND APOLOGETIC, WARM HAPPY LAUGH."""),
 }
 
 if __name__ == "__main__":

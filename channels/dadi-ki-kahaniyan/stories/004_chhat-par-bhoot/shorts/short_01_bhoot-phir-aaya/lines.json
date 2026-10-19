@@ -1,0 +1,12 @@
+[
+  {"scene": 2, "speaker": "golu", "text": "दादी... शर्मा जी की छत पर... भूत!", "mood": "tension"},
+  {"scene": 6, "speaker": "pandey", "text": "डरपोक हो सब! आज रात मैं लाठी लेकर ख़ुद देखूँगा।", "mood": "comedy"},
+  {"scene": 7, "speaker": "narrator", "text": "रात हुई। पांडे जी लाठी लेकर छत की सीढ़ी तक पहुँचे... और वहीं रुक गए।", "mood": "tension"},
+  {"scene": 7, "speaker": "pandey", "text": "सीढ़ी... थोड़ी कमज़ोर लग रही है। कल देखेंगे।", "sfx_after": "comedy"},
+  {"scene": 8, "speaker": "narrator", "text": "गुप्ता आंटी ने घर की सारी बत्तियाँ जलाईं और दरवाज़ा तीन बार बंद किया।"},
+  {"scene": 2, "speaker": "narrator", "text": "और तभी... वो सफ़ेद परछाईं फिर दिखी।"},
+  {"scene": 9, "speaker": "narrator", "pause": 1.2, "sfx": "steps"},
+  {"scene": 10, "speaker": "golu", "text": "दादी! वो फिर आ गया!"},
+  {"scene": 10, "speaker": "mitthu", "text": "बचाओ! बचाओ!"},
+  {"scene": 12, "speaker": "narrator", "text": "दादी सीढ़ियाँ चढ़ीं। लालटेन की रोशनी में सफ़ेद आकृति धीरे से मुड़ी..."}
+]

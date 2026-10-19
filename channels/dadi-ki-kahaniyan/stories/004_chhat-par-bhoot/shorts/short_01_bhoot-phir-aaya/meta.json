@@ -1,0 +1,50 @@
+{
+  "title": "पांडे जी की लाठी भी काँप गई! आधी रात का सफ़ेद साया | किस्सागो #shorts",
+  "description": "आधी रात शर्मा जी की छत पर फिर दिखी वो सफ़ेद परछाईं… पांडे जी सीढ़ी पर ही रुक गए, और दादी लालटेन लेकर ऊपर चल पड़ीं। आगे क्या हुआ? पूरी कहानी चैनल पर देखिए।",
+  "hashtags": [
+    "#shorts",
+    "#किस्सागो",
+    "#HindiKahani",
+    "#ComedyStory"
+  ],
+  "tags": [
+    "किस्सागो",
+    "Kissago",
+    "छत पर भूत",
+    "पांडे जी",
+    "गुलमोहर मोहल्ला",
+    "हिंदी कहानी",
+    "Hindi Kahani",
+    "Hindi Comedy Story",
+    "परिवार की कहानी",
+    "Family Story Hindi",
+    "Hindi Shorts"
+  ],
+  "music_moods": {
+    "tension": "tension/Investigations.mp3",
+    "comedy": "comedy/Monkeys_Spinning_Monkeys.mp3"
+  },
+  "sfx": {
+    "night": "night_822935.mp3",
+    "steps": "steps_682886.mp3"
+  },
+  "final_title": "पूरी कहानी नीचे दिए लिंक पर",
+  "final_title_secs": 2.0,
+  "end_hold": 2.0,
+  "caption_from": 1.0,
+  "music_below_db": 13.3,
+  "pinned_comment": "पूरी कहानी — छत पर भूत था या कुछ और? — चैनल पर देखिए! 🏮",
+  "speed": 1.05,
+  "gap": 0.25,
+  "gap_speaker_change": 0.35,
+  "cover": {
+    "label": "किस्सागो",
+    "title": "छत पर भूत?",
+    "prompt": "Hero (33%-63% height): Inspector Pandey, big, standing on the first step of narrow outdoor stairs at night, holding his lathi, knees shaking, sweat drops, eyes wide with fear but trying to look brave. Lower part (61%-82%): far behind on a moonlit flat roof, a small figure wrapped in a plain white shawl seen from behind (no face, not scary); in the foreground corner Golu peeking scared with Mitthu the parrot perched beside him. Night palette: deep navy sky with a big moon, warm orange lantern glow lower down; faces clearly lit.",
+    "refs": [
+      "pandey",
+      "golu",
+      "mitthu"
+    ]
+  }
+}

@@ -24,6 +24,7 @@ EXTRA_FILES = {
     "003_mitthu-ne-sab-bata-diya": ["channels/dadi-ki-kahaniyan/characters/sharma_sheet.png",
                                     "channels/dadi-ki-kahaniyan/characters/voices/raghu_",
                                     "channels/dadi-ki-kahaniyan/characters/voices/gupta_"],
+    "004_chhat-par-bhoot": ["channels/dadi-ki-kahaniyan/characters/voices/mishra_"],
 }
 
 
