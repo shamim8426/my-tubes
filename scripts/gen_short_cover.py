@@ -96,7 +96,7 @@ def main():
     work.mkdir(exist_ok=True)
     raw, art = work / "cover_raw.png", work / "cover_art.png"
     if not text_only:
-        check(story.name, 3.24)  # RULES 14 budget guard (exits on STOP)
+        check(story.name, 5.0)  # budget guard (actual ~₹5 + GST per 1K image with refs)
         if painted.is_painted(story, chan):
             prompt = f"{LAYOUT_PAINTED}\n\n{c['prompt']}\n{painted.notes(c.get('refs', []))}".strip()
             painted.guard(prompt)

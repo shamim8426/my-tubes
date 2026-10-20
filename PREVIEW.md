@@ -1,6 +1,6 @@
 # Preview — किस्सागो | Kissago
 
-**Budget bacha:** ₹279.81  ·  **Last image:** 2026-10-20 23:24:09
+**Budget bacha:** ₹195.94  ·  **Last image:** 2026-10-20 23:43:31
 
 ## Characters
 
@@ -357,3 +357,59 @@
 ### scene_16 — ₹4.96 · 2026-10-20 11:23:21
 
 ![scene_16](channels/dadi-ki-kahaniyan/stories/004_chhat-par-bhoot/images/scene_16.png)
+
+### scene_02 — ₹4.97 · 2026-10-20 23:36:12
+
+![scene_02](channels/dadi-ki-kahaniyan/stories/005_gulmohar-ka-khazana/images/scene_02.png)
+
+### scene_03 — ₹4.47 · 2026-10-20 23:36:44
+
+![scene_03](channels/dadi-ki-kahaniyan/stories/005_gulmohar-ka-khazana/images/scene_03.png)
+
+### scene_04 — ₹5.40 · 2026-10-20 23:37:18
+
+![scene_04](channels/dadi-ki-kahaniyan/stories/005_gulmohar-ka-khazana/images/scene_04.png)
+
+### scene_05 — ₹4.55 · 2026-10-20 23:37:42
+
+![scene_05](channels/dadi-ki-kahaniyan/stories/005_gulmohar-ka-khazana/images/scene_05.png)
+
+### scene_06 — ₹5.28 · 2026-10-20 23:38:12
+
+![scene_06](channels/dadi-ki-kahaniyan/stories/005_gulmohar-ka-khazana/images/scene_06.png)
+
+### scene_07 — ₹5.16 · 2026-10-20 23:38:50
+
+![scene_07](channels/dadi-ki-kahaniyan/stories/005_gulmohar-ka-khazana/images/scene_07.png)
+
+### scene_09 — ₹5.22 · 2026-10-20 23:39:28
+
+![scene_09](channels/dadi-ki-kahaniyan/stories/005_gulmohar-ka-khazana/images/scene_09.png)
+
+### scene_10 — ₹5.17 · 2026-10-20 23:40:01
+
+![scene_10](channels/dadi-ki-kahaniyan/stories/005_gulmohar-ka-khazana/images/scene_10.png)
+
+### scene_11 — ₹5.11 · 2026-10-20 23:40:39
+
+![scene_11](channels/dadi-ki-kahaniyan/stories/005_gulmohar-ka-khazana/images/scene_11.png)
+
+### scene_12 — ₹4.90 · 2026-10-20 23:41:13
+
+![scene_12](channels/dadi-ki-kahaniyan/stories/005_gulmohar-ka-khazana/images/scene_12.png)
+
+### scene_13 — ₹4.93 · 2026-10-20 23:41:44
+
+![scene_13](channels/dadi-ki-kahaniyan/stories/005_gulmohar-ka-khazana/images/scene_13.png)
+
+### scene_14 — ₹4.77 · 2026-10-20 23:42:09
+
+![scene_14](channels/dadi-ki-kahaniyan/stories/005_gulmohar-ka-khazana/images/scene_14.png)
+
+### scene_15 — ₹5.74 · 2026-10-20 23:42:41
+
+![scene_15](channels/dadi-ki-kahaniyan/stories/005_gulmohar-ka-khazana/images/scene_15.png)
+
+### scene_16 — ₹5.42 · 2026-10-20 23:43:31
+
+![scene_16](channels/dadi-ki-kahaniyan/stories/005_gulmohar-ka-khazana/images/scene_16.png)

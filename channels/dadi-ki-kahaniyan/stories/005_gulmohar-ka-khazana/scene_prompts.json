@@ -27,7 +27,7 @@
       "refs": [
         "tara"
       ],
-      "prompt": "Close-up of an old yellowed hand-drawn treasure map held open by {tara}'s hands (only her hands and braids at the edges): drawn only with simple pictures - a big gulmohar tree, a hand pump, two walls side by side with a gap between them, a small X mark and a row of little footprints. Absolutely no letters, no words, no numbers anywhere on the map. Warm afternoon light, paper texture."
+      "prompt": "Close-up of an old yellowed hand-drawn treasure map held open by {tara}'s hands (only her hands and braids at the edges): drawn only with simple pictures - a big gulmohar tree, a hand pump, two walls side by side with a gap between them, a small X mark and a row of little footprints. A few faded, smudged lines of old ink near the edge that cannot be read (no letters, no words, no numbers anywhere on the map). Warm afternoon light, paper texture."
     },
     {
       "id": 4,
@@ -37,7 +37,7 @@
         "tinku",
         "mitthu"
       ],
-      "prompt": "In Dadi's sunny aangan: the three children sit together on a charpai reading the old map; {tara} points at it with her pencil, serious and focused; {golu} grins excitedly; {tinku} holds his tummy with a hopeful hungry smile; {mitthu} perches on Golu's shoulder. Golden summer afternoon, gulmohar flowers on the ground. The map shows only pictures, no writing."
+      "prompt": "In Dadi's sunny aangan: the three children sit together on a charpai reading the old map; {tara} points at it with her pencil, serious and focused; {golu} grins excitedly; {tinku} holds his tummy with a hopeful hungry smile; {mitthu} perches on Golu's shoulder. Golden summer afternoon, gulmohar flowers on the ground. The map shows only pictures and a few faded, unreadable ink smudges, no letters or numbers."
     },
     {
       "id": 5,
@@ -57,7 +57,7 @@
         "tinku",
         "pandey"
       ],
-      "prompt": "A small vegetable patch with rows of cauliflowers next to a house in the lane: {golu} and {tinku} dig with a small spade and their hands, soil flying, {tara} holds the map; behind them {pandey} in his vest-and-uniform at home bursts out of his gate, shouting angrily, one hand raised. Comic, golden afternoon."
+      "prompt": "A small vegetable patch with rows of cauliflowers next to a house in the lane: {golu} and {tinku} dig with a small spade and their hands, soil flying, {tara} holds the map; behind them {pandey} in his khaki uniform and cap bursts out of his gate, shouting angrily, one hand raised. Comic, golden afternoon."
     },
     {
       "id": 7,
@@ -67,7 +67,7 @@
         "tinku",
         "mitthu"
       ],
-      "prompt": "Comic chase in the narrow lane: the three children run away fast towards the camera, {tinku}'s loose striped shirt flapping in the wind, {golu} puffing, {tara} clutching the map; {mitthu} flies ahead of them squawking. A low brick wall runs along the right side of the lane. Bright golden afternoon, dust kicked up.",
+      "prompt": "Behind a low brick wall at the end of the narrow lane, golden afternoon: the three children hide crouched, panting after running; {tinku} peeks back over the top of the wall, his loose striped shirt crumpled; {tara} kneels and unfolds the old map on her knees, studying it seriously; {golu} catches his breath, hands on his knees; {mitthu} perches on top of the wall. The map shows only faint pictures, no writing.",
       "covers": [
         7,
         8
@@ -90,7 +90,7 @@
         "tinku",
         "mitthu"
       ],
-      "prompt": "At the old iron hand pump: {golu} pumps the handle with both hands, water gushing into a puddle; {tinku} stares amazed; {tara} smiles knowingly, listening; {mitthu} perches on top of the hand pump, beak open. Water splashes sparkle in the golden light."
+      "prompt": "At the old iron hand pump on its small cement platform: {golu} grips the pump handle with both hands and has just started to pump, the first gush of water splashing out; {tinku} stares amazed; {tara} smiles knowingly, listening; {mitthu} perches on top of the hand pump, beak open. Water splashes sparkle in the golden light."
     },
     {
       "id": 11,
@@ -108,7 +108,7 @@
         "tinku",
         "golu"
       ],
-      "prompt": "Close at the narrow crack between the two old brick walls: {tara} shines a small torch into the crack; {tinku}, brave but scared, slides his very thin arm into the crack up to the elbow, eyes squeezed half shut; {golu} watches holding his breath. A tiny glint of something inside the dark gap. Warm afternoon light."
+      "prompt": "Close at the narrow crack between two old brick walls, warm afternoon light: {tara} shines a small torch into the crack and in its light a tiny glint shows deep inside; {tinku} kneels right beside the crack with his sleeve rolled up, brave but scared, his very thin hand only just starting to slide into the opening; {golu} watches holding his breath."
     },
     {
       "id": 13,
@@ -117,7 +117,7 @@
         "tara",
         "tinku"
       ],
-      "prompt": "Close-up from above of an old rusty tin box just opened on the ground by the hand pump: inside are colourful glass marbles, a small wooden spinning top, and an old faded black-and-white photo of four small children standing together (tiny, faces soft and unclear). The children's hands and faces around the edges of the frame, amazed. No writing visible anywhere."
+      "prompt": "Close-up from above of an old rusty tin box just opened on the ground by the hand pump: inside are colourful glass marbles, a small wooden spinning top, and an old faded black-and-white photo of four small children standing together: one chubby round boy and one small girl with two braids among them (tiny, faces soft and unclear). The children's hands and faces around the edges of the frame, amazed. No writing visible anywhere."
     },
     {
       "id": 14,

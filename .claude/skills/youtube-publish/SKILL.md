@@ -49,3 +49,4 @@ Quota: default 10,000 units/day; one upload costs about 1,600, thumbnail 50, cap
 8a. Veto ("rok do" before the slot): `python tools/veto.py <video_id>` (dry run first by default; add `--apply`) sets the video private and removes publishAt, logs it, and marks the story vetoed in pipeline_queue.json.
 8b. Short with a parent: show the user the manual checklist (Studio: Related video = long video; pin the first comment once it is posted) — RULES section 8.
 9. Append a PUBLISHED line to `channels/<key>/log.md` and update the story's `story.md` status.
+   Also fill the story's row in `channels/<key>/story_registry.md`: "Publish (IST)" = video ids + slot. Views/Likes are filled later, when analytics are read.

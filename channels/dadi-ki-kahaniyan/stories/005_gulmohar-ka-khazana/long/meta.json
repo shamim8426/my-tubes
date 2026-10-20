@@ -19,7 +19,7 @@
     "हिंदी कहानी",
     "Hindi Kahani",
     "Hindi Story with Moral",
-    "बच्चों की टोली",
+    "गोलू की टोली",
     "गर्मी की छुट्टियाँ",
     "Family Story Hindi",
     "Cartoon Story Hindi",
@@ -39,11 +39,11 @@
   },
   "pinned_comment": "आपके बचपन का सबसे पक्का दोस्त कौन था? और आपने कभी कोई 'खज़ाना' छुपाया था? कमेंट में बताइए! 🗺️",
   "speed": {
-    "narrator": 0.9,
+    "narrator": 0.95,
     "dadi": 0.9,
     "pandey": 0.95
   },
-  "gap": 0.5,
+  "gap": 0.4,
   "end_hold": 8.0,
   "thumbnail": {
     "text": "किसका है ये खज़ाना?",
@@ -51,7 +51,7 @@
       "किसका है",
       "ये खज़ाना?"
     ],
-    "prompt": "Golden summer afternoon in Gulmohar Mohalla. RIGHT side: Golu, Tara and Tinku stand close together holding an old yellowed treasure map (pictures only, no writing), all three amazed with wide eyes and open mouths; behind them a big gulmohar tree with flame-orange flowers; in front of them, near an old iron hand pump, a small rusty tin box glows with golden light; Mitthu flies above them with wings spread. No grandmother, no policeman, no photo.",
+    "prompt": "Golden summer afternoon in Gulmohar Mohalla. RIGHT side: Golu, Tara and Tinku stand close together holding a big old yellowed treasure map open in front of them (the map is the focal point; only faint pictures, no writing), all three amazed with wide eyes and open mouths; behind them a big gulmohar tree with flame-orange flowers; near their feet, by an old iron hand pump, a SMALL rusty tin box with a soft golden glow; Mitthu flies above them with wings spread. No grandmother, no policeman, no photo.",
     "refs": [
       "golu",
       "tara",

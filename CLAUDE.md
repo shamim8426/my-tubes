@@ -27,6 +27,9 @@ Command: `.\.venv\Scripts\python -X utf8 scripts\make_short.py <video folder> [-
 - Build ke baad hamesha batao: preview ya final, scenes cached/naye, build time, aur kharcha.
 - Shorts ka music ab 3.5 dB dheema hai (`MUSIC_BELOW_VOICE_DB["short"] = 12.5`, stem method se 12-14 LU target); Case 01 ke agle rebuild par bhi lagega.
 
+## Kalam (script writer)
+- Nayi kahani / story ideas / script: `kalam` subagent (`.claude/agents/kalam.md`, skill `new-story`). Kalam 5 options ya poori script likhta hai, Munshi se review karwata hai; khud approve nahi karta, paid kaam kabhi shuru nahi. Registry: `channels/<key>/story_registry.md`.
+
 ## Munshi (review + publish)
 - Har production step ke baad `munshi` subagent ko bulao aur uska verdict mujhe dikhao. FIX ho to free fix karo aur dobara review karwao; ASK ho to mujhse poochho.
 - Upload sirf `munshi` karega, `youtube-publish` skill ke hisaab se, meri "ha" ke baad — auto mode (RULES 14) me script approval hi "ha" hai, upload hamesha scheduled (veto window).
