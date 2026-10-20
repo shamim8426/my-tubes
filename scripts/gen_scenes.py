@@ -3,9 +3,14 @@
 Usage:  python scripts/gen_scenes.py channels/<key>/stories/<story>/scene_prompts.json [ids...]
         (images go to the story's images/, shared by its long video and shorts)
 Spec keys: looks, base, scenes[{id, refs, prompt}], optional out_dir, aspect (default 9:16), ref_files {name: path}.
-Refs: "scene:N" -> an earlier image in out_dir; a name in ref_files -> that file; else channels/<key>/characters/<name>_sheet.png.
+Refs: "scene:N" -> an earlier image in out_dir; a name in ref_files -> that file; else the character sheet.
+Style: channel.json "image_style": "kissago_painted" -> from story 005 every prompt ends with the verbatim style
+block of brand/STYLE_PAINTED.md and character refs are characters/<name>/sheet_painted.png (a missing painted
+sheet stops that scene: make it first, ~Rs 6 from the story budget). Spec "style": "flat" keeps the old look.
+Every prompt passes the studio/film/artist name guard (RULES 12a) before any paid call.
 """
 import json
+import re
 import sys
 import time
 from pathlib import Path
@@ -17,6 +22,13 @@ import pricing  # noqa: E402
 from gemini_image import MODEL  # noqa: E402
 from story_budget import check  # noqa: E402
 
+sys.path.insert(0, str(ROOT / "tools"))
+from name_guard import find_names  # noqa: E402
+
+PAINTED_FROM = 5  # first story number in Kissago Painted
+MITTHU_NOTE = ("Mitthu is a bird with wings and feet only, no hands; only a thin red ring around his neck, throat "
+               "and chin plain green, no black patch.")
+
 
 def load(arg):
     path = ROOT / arg
@@ -24,7 +36,15 @@ def load(arg):
         path = path / "scene_prompts.json"
     spec = json.loads(path.read_text(encoding="utf-8"))
     out_dir = ROOT / spec["out_dir"] if "out_dir" in spec else path.parent / "images"
-    spec["_chars"] = channel_dir(channel_of(path)) / "characters"
+    chan = channel_dir(channel_of(path))
+    spec["_chars"] = chan / "characters"
+    cfg = json.loads((chan / "channel.json").read_text(encoding="utf-8"))
+    num = int("".join(c for c in out_dir.parent.name.split("_")[0] if c.isdigit()) or 0)
+    spec["_painted"] = (cfg.get("image_style") == "kissago_painted" and num >= PAINTED_FROM
+                        and spec.get("style") != "flat")
+    if spec["_painted"]:
+        guide = (chan / "brand" / "STYLE_PAINTED.md").read_text(encoding="utf-8")
+        spec["_style_block"] = re.search(r"## 1\..*?```\n(.*?)\n```", guide, re.S).group(1).strip()
     return spec, out_dir
 
 
@@ -33,6 +53,8 @@ def ref_path(ref: str, spec, out_dir: Path) -> Path:
         return out_dir / f"scene_{int(ref[6:]):02d}.png"
     if ref in spec.get("ref_files", {}):
         return ROOT / spec["ref_files"][ref]
+    if spec.get("_painted"):
+        return spec["_chars"] / ref / "sheet_painted.png"
     return spec["_chars"] / f"{ref}_sheet.png"
 
 
@@ -53,16 +75,23 @@ def main(arg: str, only: list[int]):
                        "outfit and colours EXACTLY as in the references, keep places consistent with any location "
                        "reference, and match their art style. Draw only the characters this prompt asks for.")
         else:
-            refs = [spec["_chars"] / "dadi_sheet.png"]
+            refs = [spec["_chars"] / ("dadi/sheet_painted.png" if spec.get("_painted") else "dadi_sheet.png")]
             prompt += ("\n\nThe attached image is a STYLE reference only: match its art style, outline thickness "
                        "and colour palette exactly. Do NOT draw the grandmother from it in this scene.")
+        if spec.get("_painted") and "mitthu" in scene["refs"]:
+            prompt += "\n" + MITTHU_NOTE
+        full = f"{spec['base']}\n\n{prompt}"
+        if find_names(full):
+            print(f"BLOCKED scene {scene['id']}: studio/film/artist name in the prompt (RULES 12a); nothing spent",
+                  flush=True)
+            continue
         out = out_dir / f"scene_{scene['id']:02d}.png"
         # RULES 15 budget guard: story cap + ₹50 floor on actual cost (exits before spending)
         est = pricing.image_estimate_usd(MODEL, "1K", len(spec['base']) + len(prompt), len(refs)) * pricing.usd_to_inr()
         check(out_dir.parent.name, est)
         t0 = time.time()
         try:
-            generate(f"{spec['base']}\n\n{prompt}", out, refs=refs, aspect_ratio=aspect, size="1K")
+            generate(full, out, refs=refs, aspect_ratio=aspect, size="1K", style=spec.get("_style_block"))
             print(f"saved {out}  ({time.time() - t0:.0f}s)", flush=True)
         except Exception as e:  # timeout (>90s) or API error -> skip, continue with next scene
             print(f"SKIPPED scene {scene['id']} after {time.time() - t0:.0f}s: {e}", flush=True)

@@ -19,5 +19,7 @@
   "playlists": {
     "dadi-jasoos": "",
     "moral-stories": ""
-  }
+  },
+  "image_style": "kissago_painted",
+  "_image_style_note": "Kissago Painted from story 005 (approved 2026-10-20); stories up to 004 keep the flat look. Style block: brand/STYLE_PAINTED.md; refs: characters/<name>/sheet_painted.png"
 }

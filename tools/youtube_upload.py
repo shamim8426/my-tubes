@@ -105,6 +105,14 @@ def validate(job: dict, job_path: Path) -> list:
     tags = job.get("tags", [])
     if not title:
         errs.append("title missing")
+    # RULES 12a: no studio/film/anime/artist name in any metadata or file name (hashed list in tools/name_guard.py)
+    from name_guard import find_names
+    meta_text = " ".join([title, desc, " ".join(tags), str(job.get("first_comment", "")), str(job.get("playlist", "")),
+                          *(Path(str(job.get(k, ""))).name.replace("_", " ").replace("-", " ")
+                            for k in ("video", "thumbnail", "captions"))])
+    if find_names(meta_text):
+        errs.append("BLOCK (RULES 12a): a studio/film/anime/artist name is in the title/description/tags/comment/"
+                    "file names - remove it before upload")
     if len(title) > 100:
         errs.append(f"title too long ({len(title)} > 100)")
     if len(desc) > 5000:

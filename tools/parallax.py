@@ -412,6 +412,16 @@ def safe_rect(iw, ih, aspect, cx, cy, fx, fy, zc, box, keep=(0.03, 0.85)):
     return cx, fx, zc, "unchanged"
 
 
+def _encoder(out, W, H, crf=18, preset="slow"):
+    return subprocess.Popen(
+        [str(FFMPEG), "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "bgr24", "-s", f"{W}x{H}", "-r", str(FPS),
+         "-i", "-", "-vf", "scale=out_color_matrix=bt709:out_range=tv,format=yuv420p,setsar=1,"
+         "setparams=range=tv:color_primaries=bt709:color_trc=bt709:colorspace=bt709",
+         "-c:v", "libx264", "-preset", preset, "-crf", str(crf), "-pix_fmt", "yuv420p", "-color_range", "tv",
+         "-colorspace", "bt709", "-color_primaries", "bt709", "-color_trc", "bt709", "-r", str(FPS), str(out)],
+        stdin=subprocess.PIPE)
+
+
 def render_clip(img_path, out, seconds=6.0, preset="push_in", fmt="long", cx=0.5, cy=0.5, amp=AMP,
                 overlays=(), mode="auto", crf=18, enc_preset="slow"):
     """Stand-alone test clip. mode: auto (parallax with the quality guard) | parallax (no guard) | zoom."""

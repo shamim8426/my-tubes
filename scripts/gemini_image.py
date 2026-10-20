@@ -41,12 +41,14 @@ def _find_image(obj):
     return None
 
 
-def generate(prompt: str, out: Path, refs: list[Path] = (), aspect_ratio="1:1", size="1K") -> Path:
+def generate(prompt: str, out: Path, refs: list[Path] = (), aspect_ratio="1:1", size="1K",
+             style: str | None = None) -> Path:
+    """style: None = the old flat-cartoon STYLE line; a string replaces it (e.g. the Kissago Painted block)."""
     key = os.environ.get("GEMINI_API_KEY")
     if not key:
         raise RuntimeError("GEMINI_API_KEY missing in .env")
 
-    inputs = [{"type": "text", "text": f"{prompt}\n\n{STYLE}"}]
+    inputs = [{"type": "text", "text": f"{prompt}\n\n{STYLE if style is None else style}".rstrip()}]
     for ref in refs:
         mime = mimetypes.guess_type(ref)[0] or "image/png"
         inputs.append({"type": "image", "mime_type": mime,

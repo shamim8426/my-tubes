@@ -1,6 +1,6 @@
 # Preview — किस्सागो | Kissago
 
-**Budget bacha:** ₹330.79  ·  **Last image:** 2026-10-20 11:30:06
+**Budget bacha:** ₹297.35  ·  **Last image:** 2026-10-20 22:24:42
 
 ## Characters
 

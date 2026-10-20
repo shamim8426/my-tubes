@@ -25,6 +25,9 @@ EXTRA_FILES = {
                                     "channels/dadi-ki-kahaniyan/characters/voices/raghu_",
                                     "channels/dadi-ki-kahaniyan/characters/voices/gupta_"],
     "004_chhat-par-bhoot": ["channels/dadi-ki-kahaniyan/characters/voices/mishra_"],
+    # style migration "Kissago Painted" (own budget ₹35, not in any story)
+    "style_migration": ["channels/dadi-ki-kahaniyan/characters/dadi/sheet_painted", "channels/dadi-ki-kahaniyan/characters/golu/sheet_painted",
+                        "channels/dadi-ki-kahaniyan/characters/mitthu/sheet_painted", "style_tests/painted/"],
 }
 
 

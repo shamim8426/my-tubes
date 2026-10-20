@@ -294,3 +294,10 @@ timestamp,file,model,size,cost_usd,cost_inr,today_total_inr,remaining_inr,channe
 2026-10-20 11:29:05,channels/dadi-ki-kahaniyan/stories/004_chhat-par-bhoot/long/thumbnail_work/long03_thumb_raw.png,gemini-nano-banana-2.1,1K,0.05400,5.21,62.59,337.57,dadi-ki-kahaniyan,3.79,5.2111,0.94,3736,3093
 2026-10-20 11:30:06,channels/dadi-ki-kahaniyan/stories/004_chhat-par-bhoot/shorts/short_01_bhoot-phir-aaya/thumbnail_work/cover_raw.png,gemini-nano-banana-2.1,1K,0.05956,5.75,69.37,330.79,dadi-ki-kahaniyan,3.95,5.7473,1.03,4855,3610
 2026-10-20 11:32:36,channels/dadi-ki-kahaniyan/stories/004_chhat-par-bhoot/audio/tts_cache/narrator_a8c19c42ffd04edc.wav,gemini-3.8-flash-tts,tts 5.8s,0.00132,0.13,69.52,330.64,dadi-ki-kahaniyan,0.13,0.1277,0.02,19,146
+2026-10-20 20:52:49,style_tests/painted/cap_check.wav,gemini-3.8-flash-tts,tts 1.2s,0.00027,0.03,69.55,330.61,dadi-ki-kahaniyan,0.03,0.0262,0.00,3,30
+2026-10-20 20:54:33,channels/dadi-ki-kahaniyan/characters/dadi/sheet_painted.png,gemini-nano-banana-2.1,1K,0.04829,4.66,75.05,325.11,dadi-ki-kahaniyan,3.45,4.6596,0.84,1366,2805
+2026-10-20 20:54:58,channels/dadi-ki-kahaniyan/characters/golu/sheet_painted.png,gemini-nano-banana-2.1,1K,0.04525,4.37,80.20,319.96,dadi-ki-kahaniyan,3.44,4.3664,0.79,1350,2403
+2026-10-20 20:55:24,channels/dadi-ki-kahaniyan/characters/mitthu/sheet_painted.png,gemini-nano-banana-2.1,1K,0.04739,4.57,85.60,314.56,dadi-ki-kahaniyan,3.44,4.5729,0.82,1357,2687
+2026-10-20 20:56:29,style_tests/painted/scene_A.png,gemini-nano-banana-2.1,1K,0.05188,5.01,91.51,308.65,dadi-ki-kahaniyan,3.76,5.0062,0.90,3560,2845
+2026-10-20 20:57:04,style_tests/painted/scene_B.png,gemini-nano-banana-2.1,1K,0.05162,4.98,97.38,302.78,dadi-ki-kahaniyan,3.76,4.9810,0.90,3551,2812
+2026-10-20 22:24:42,channels/dadi-ki-kahaniyan/characters/mitthu/sheet_painted.png,gemini-nano-banana-2.1,1K,0.04766,4.60,102.81,297.35,dadi-ki-kahaniyan,3.45,4.5996,0.83,1396,2716

@@ -55,6 +55,8 @@ econcile_balance.py <AI Studio balance ₹>` (pehli baar checkpoint), Long 03 ke
 
 - Motion: default 2.5D parallax (`tools/parallax.py`, Depth Anything V2 Small, CPU, free; model `models/` me, deploy.ps1 download karta hai). `--motion zoom` = purana Ken Burns. Guard artifact par motion aadha ya zoom fallback karta hai (`shared/parallax_log.jsonl`). Shorts: `shots.json` me `"subjects": {"<scene>": [x0,y0,x1,y1]}` (bolne wale ka chehra/haath/ishara) - builder crop 3-85% me rakhta hai, warna centre khiskata/zoom-out karta hai. Overlays: meta.json `"overlays": {"<scene>": [["fireflies", 0.22]], ...}` (fireflies/dust/rain/diya, opacity 0.15-0.35).
 
+- Image style: story 005 se **Kissago Painted** (`channels/dadi-ki-kahaniyan/brand/STYLE_PAINTED.md`; channel.json `image_style`). `gen_scenes.py` style block + `characters/<naam>/sheet_painted.png` refs apne aap lagata hai (nayi painted sheet ~₹6, story budget se). Kisi studio/film/anime/artist ka naam KAHIN nahi (RULES 12a); `tools/name_guard.py` prompts aur upload metadata check karta hai (naam mila = BLOCK).
+
 ## GitHub sync
 - Har milestone ke baad sync chalao: `powershell -NoProfile -ExecutionPolicy Bypass -File tools\sync.ps1 -Message "<project>: <milestone>"`.
   Milestones: script approved, scene images done, TTS done, final build done, thumbnail done, uploaded (Munshi PUBLISHED ke baad).

@@ -24,6 +24,7 @@ Quota: default 10,000 units/day; one upload costs about 1,600, thumbnail 50, cap
 
 ## Per-video steps
 1. Confirm in `channels/<key>/log.md`: PASS for final build, thumbnail and metadata of this project. Confirm `output/upload_result.json` does not exist.
+   Name check (RULES 12a): `python tools/name_guard.py <meta.json> <.txt> <upload.json>` must print OK. `tools/youtube_upload.py` also refuses (dry-run and upload) when a studio/film/anime/artist name is in the title, description, tags, comment, playlist or file names: BLOCK, never work around it.
 2. Read `channels/<key>/channel.json` for made_for_kids, contains_synthetic_media, category_id, language, publish time, playlist id. If made_for_kids is null, ASK the user and save the answer there.
 3. Pick publish time per RULES section 8 and `publish_times_ist` in channel.json: long video 19:00 IST, Short 21:00 IST.
    - Long: upload finished before 18:45 IST -> 19:00 the same day, else 19:00 the next day.

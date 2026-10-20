@@ -1,0 +1,82 @@
+[
+ {
+  "image": "D:\\Story-Channel\\channels\\dadi-ki-kahaniyan\\brand\\_work\\banner_art.png",
+  "out": "D:\\Story-Channel\\style_tests\\painted\\old_0.mp4",
+  "format": "long",
+  "seconds": 6.0,
+  "preset": "pull_out",
+  "mode": "parallax",
+  "amp": 0.035,
+  "reason": "ok",
+  "fg_share": 0.426,
+  "ragged": 3.08,
+  "thin": 0.01,
+  "jump": 0.07,
+  "fg_parts": 2,
+  "overlays": [
+   "dust"
+  ],
+  "cpu_s": 104.0,
+  "wall_s": 48.9
+ },
+ {
+  "image": "D:\\Story-Channel\\style_tests\\painted\\scene_A.png",
+  "out": "D:\\Story-Channel\\style_tests\\painted\\new_0.mp4",
+  "format": "long",
+  "seconds": 6.0,
+  "preset": "pull_out",
+  "mode": "zoom",
+  "amp": 0.0,
+  "reason": "depth jump 0.27 at the foreground edge (smear risk)",
+  "fg_share": 0.679,
+  "ragged": 3.23,
+  "thin": 0.015,
+  "jump": 0.27,
+  "fg_parts": 1,
+  "overlays": [
+   "dust"
+  ],
+  "cpu_s": 44.6,
+  "wall_s": 36.9
+ },
+ {
+  "image": "D:\\Story-Channel\\channels\\dadi-ki-kahaniyan\\stories\\004_chhat-par-bhoot\\images\\scene_16.png",
+  "out": "D:\\Story-Channel\\style_tests\\painted\\old_1.mp4",
+  "format": "long",
+  "seconds": 6.0,
+  "preset": "push_in",
+  "mode": "zoom",
+  "amp": 0.0,
+  "reason": "depth jump 0.2 at the foreground edge (smear risk)",
+  "fg_share": 0.521,
+  "ragged": 1.78,
+  "thin": 0.0,
+  "jump": 0.2,
+  "fg_parts": 1,
+  "overlays": [
+   "fireflies"
+  ],
+  "cpu_s": 47.4,
+  "wall_s": 36.1
+ },
+ {
+  "image": "D:\\Story-Channel\\style_tests\\painted\\scene_B.png",
+  "out": "D:\\Story-Channel\\style_tests\\painted\\new_1.mp4",
+  "format": "long",
+  "seconds": 6.0,
+  "preset": "push_in",
+  "mode": "zoom",
+  "amp": 0.0,
+  "reason": "depth jump 0.33 at the foreground edge (smear risk)",
+  "fg_share": 0.421,
+  "ragged": 1.64,
+  "thin": 0.001,
+  "jump": 0.33,
+  "fg_parts": 1,
+  "overlays": [
+   "fireflies"
+  ],
+  "cpu_s": 91.6,
+  "wall_s": 66.9
+ }
+]

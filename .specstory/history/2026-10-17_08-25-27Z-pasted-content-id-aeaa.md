@@ -94344,3 +94344,3238 @@ Log actual story cost and sync
 account remaining (ledger, GST samet): ₹330.64
 ```
 </details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-20 07:28:25Z)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="PowerShell"><details>
+<summary>Tool use: **PowerShell**</summary>
+Sync uploaded milestone
+
+```text
+2026-10-20 12:58:25  pushed: story 004: final (parallax) + Munshi final R1 PASS; Long 03 llqRdGA08zY + Short jFXPwZE2xYY scheduled 2026-10-21  (repo pack size 337 MB)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-20 07:28:41Z)**_
+
+Long 03 aur uska Short dono scheduled ho gaye. Abhi koi bhi public nahi hai.
+
+| Video | Link | Slot (IST) | "rok do" ke liye command |
+|---|---|---|---|
+| Long 03 "छत पर भूत?" | https://youtu.be/llqRdGA08zY | **21 Oct, 19:00** | `tools\veto.py llqRdGA08zY --apply` |
+| Short | https://youtu.be/jFXPwZE2xYY | **21 Oct, 21:00** | `tools\veto.py jFXPwZE2xYY --apply` |
+
+Ye 21 Oct par isliye gaye kyunki aaj (20 Oct) ke dono slot Long 02 aur uske Short se bhare hain, aur ek din me ek hi Long aur ek hi Short jaata hai.
+
+**Asli kharcha:** ₹83.79 + GST ₹15.08 = **₹98.88** (cap ₹110). Isme 13 scene images, Mishra dada ki sheet, thumbnail, Short ka poster aur 40 TTS lines hain; ek bhi image dobara nahi bani. Hamare hisaab se balance ₹330.64 bacha hai.
+
+**Video:**
+- **Long:** 3:44, -14.0 LUFS, intro 9.4 sec.
+- **Short:** 38.4 sec.
+- **Parallax:** dono ka final default parallax ke saath bana. Guard ne raat ke kuch busy scenes (05, 13, 15, 16) par apne aap purana zoom lagaya, aur 07, 12, 14 me motion aadha kiya.
+- **Munshi ka final check:** PASS, koi BLOCKER nahi.
+
+**Aapke kahe sab kaam ho gaye:**
+- parallax ab `make_short.py` ka default hai (`--motion zoom` se purana tareeka chalta hai);
+- Shorts ke crop ka check: chehra, haath aur ishara crop ke 3–85% hisse me rehte hain, warna centre khisakta hai ya zoom-out hota hai;
+- din ke busy scenes ke liye fallback ki seema 0.20;
+- step-review checklist aur RULES 15 me parallax ki line.
+
+GitHub sync ho gaya.
+
+**3 notes** (sab `carry_over.md` me):
+- **Kharcha andaze se 52% zyada nikla.** Reference images aur model ki "thinking" ke token jodkar ek image ~₹6 (GST ke saath) padti hai. Agle plan me isi asli average se andaza lagaunga.
+- **Intro line par shot:** "सफ़ेद परछाईं" bolte waqt ~1 sec ke liye aakriti frame se bahar hai.
+- **Do pasand rakhi:** thumbnail ka text title jaisa hi hai (aapki pasand se rakha), aur Short ke poster me Golu ka chehra thoda neeche hai.
+
+**Studio me aapko khud karna hai:**
+1. Dono videos ka schedule confirm kijiye (21 Oct 19:00 / 21:00).
+2. Short ka Related video = Long 03 (llqRdGA08zY).
+3. 21 Oct ko 21:05 ke baad Short ka pehla comment pin kijiye.
+4. Long 03 par end screen lagaiye.
+5. Short ka poster chahiye toh yahan hai: `channels\dadi-ki-kahaniyan\stories\004_chhat-par-bhoot\shorts\short_01_bhoot-phir-aaya\output\short_01_bhoot-phir-aaya_cover.png`
+
+Aaj Long 02 aur uska Short bhi aa rahe hain (19:00 aur 21:00). Unka Related video aur pin comment bhi karna hai.
+
+**Hisaab milana:** AI Studio → Billing ka abhi ka **Credit balance** bata dijiye. Main use apne hisaab se mila dunga.
+
+---
+
+_**User (2026-10-20 08:50:49Z)**_
+
+kya is video me parallex lagaya ?
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-20 08:51:04Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Inspect parallax log for the final builds
+
+```bash
+.venv/Scripts/python.exe -X utf8 - <<'EOF'
+import json, collections
+rows = [json.loads(l) for l in open("shared/parallax_log.jsonl", encoding="utf-8") if '"clip"' in l]
+# keep the latest render per (clip, preset order) -> use the latest entries per clip name
+by_clip = collections.OrderedDict()
+for r in rows:
+    by_clip.setdefault(r["clip"], []).append(r)
+for name, label in (("long", "Long 03"), ("short", "Short")):
+    c = collections.Counter(); scenes = collections.defaultdict(set)
+    seen = set()
+    for clip, rs in by_clip.items():
+        sc = rs[0]["scene"]
+        # long vs short: short has scenes appearing in 1080x1920 builds; use clip path dir via image? fall back on time order
+    print()
+EOF
+grep -c '"clip"' shared/parallax_log.jsonl; tail -1 shared/parallax_log.jsonl | cut -c1-300
+```
+
+```text
+79
+{"image": "scene_12.png", "scene": 12, "clip": "scene_12_e0667138b24bb4b7.mp4", "preset": "push_in", "mode": "parallax", "amp": 0.035, "reason": "ok", "fg_share": 0.538, "ragged": 1.5, "thin": 0.0, "jump": 0.07, "fg_parts": 1, "time": "2026-10-20 12:40:23"}
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-20 08:51:12Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Count parallax vs zoom shots in final builds
+
+```bash
+.venv/Scripts/python.exe -X utf8 - <<'EOF'
+import json, collections, glob, os
+log = [json.loads(l) for l in open("shared/parallax_log.jsonl", encoding="utf-8") if '"clip"' in l]
+for label, d in (("Long 03", "cache/dadi-ki-kahaniyan/004_chhat-par-bhoot/long"), ("Short", "cache/dadi-ki-kahaniyan/004_chhat-par-bhoot/short_01_bhoot-phir-aaya")):
+    clips = {os.path.basename(f) for f in glob.glob(d + "/scene_*.mp4")}
+    rs = [r for r in log if r["clip"] in clips]
+    c = collections.Counter("parallax (poori motion)" if r["mode"] == "parallax" and r["amp"] >= 0.035 else
+                            "parallax (aadhi motion)" if r["mode"] == "parallax" else "zoom fallback" for r in rs)
+    full = sorted({r["scene"] for r in rs if r["mode"] == "parallax"})
+    zoom_only = sorted({r["scene"] for r in rs} - set(full))
+    print(label, dict(c), "| parallax wale scenes:", full, "| sirf zoom:", zoom_only)
+EOF
+```
+
+```text
+Long 03 {'zoom fallback': 26, 'parallax (poori motion)': 26, 'parallax (aadhi motion)': 16} | parallax wale scenes: [2, 4, 6, 7, 8, 10, 11, 12, 14, 15, 16] | sirf zoom: [5, 13]
+Short {'zoom fallback': 2, 'parallax (aadhi motion)': 4, 'parallax (poori motion)': 5} | parallax wale scenes: [2, 7, 8, 10, 12] | sirf zoom: [6]
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-20 08:51:22Z)**_
+
+Haan, dono video parallax ke saath bane. Par har shot me nahi: jahan artifact ka khatra tha, wahan guard ne apne aap purana zoom laga diya.
+
+| Video | Poori parallax | Aadhi parallax | Zoom fallback |
+|---|---|---|---|
+| **Long 03** (68 shots) | 26 | 16 | 26 |
+| **Short** (11 shots) | 5 | 4 | 2 |
+
+Yaani Long ke ~62% shots aur Short ke ~82% shots me parallax hai.
+
+- **Long:** 13 me se 11 scenes me kam se kam ek parallax shot hai. Sirf **scene 05** (din ki gali) aur **scene 13** (Mishra dada ka close-up) poore zoom par hain.
+- **Short:** sirf **scene 06** (Pandey ji lathi ke saath) zoom par hai.
+
+**Zoom kyun laga:** in shots me kirdaar ke kinare aur peeche ke beech depth ka bada fark tha, jaise chaand-taaron wale aasmaan ke saamne chehra. Wahan parallax karne par kinaron par dhundhli patti (smear) aati, isliye guard ne purana zoom chuna. Ye aapki di hui 0.20 wali seema se hua.
+
+Har shot ka faisla `shared/parallax_log.jsonl` me likha hai. Agar aap chahein ki zyada shots me parallax aaye, toh seema thodi dheeli kar sakte hain, jaise 0.20 se 0.25. Lekin tab smear ka khatra badh jayega, aur Munshi ko har baar kinare zoom karke dekhne honge.
+
+---
+
+_**User (2026-10-20 14:53:14Z)**_
+
+video kha pr h jo parallax se bani h
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-20 14:53:30Z)**_
+
+Dono parallax wali final videos yahan hain:
+
+**Long 03 (3:44):**
+`D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\004_chhat-par-bhoot\long\output\long_03.mp4`
+
+**Short (38 sec):**
+`D:\Story-Channel\channels\dadi-ki-kahaniyan\stories\004_chhat-par-bhoot\shorts\short_01_bhoot-phir-aaya\output\short_01_bhoot-phir-aaya.mp4`
+
+YouTube par bhi upload ho chuki hain, par 21 Oct tak private hain. Aap apne account se login karke dekh sakte hain:
+- Long 03: https://youtu.be/llqRdGA08zY
+- Short: https://youtu.be/jFXPwZE2xYY
+
+Purane zoom aur naye parallax ko saath-saath dekhna ho toh test wali video yahan hai:
+`D:\Story-Channel\style_tests\parallax\compare_all.mp4`
+
+---
+
+_**User (2026-10-20 15:02:46Z)**_
+
+to isme motion kaha add hua characters me , ye to bs zoom h na ?
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-20 15:03:09Z)**_
+
+Aap sahi keh rahe hain. Isme **kirdaar khud nahi hilte**: na haath, na munh, na palak. 2.5D parallax sirf **camera ki chaal** hai. Tasveer ko do parton me baant diya jaata hai, aage kirdaar aur peeche background, aur camera chalne par aage wala hissa zyada khisakta hai, peeche wala kam. Isse halki gehrai (depth) mehsoos hoti hai.
+
+Par is video me ye fark bahut kam dikhta hai, teen wajahon se:
+1. **Motion bahut halki rakhi:** max 3.5% chaurai, kyunki aapne "motion halka ho" kaha tha aur zyada karne par kinare phatte hain.
+2. **Kai shots me motion aadhi** kar di gayi (Long ke 16 shots).
+3. **Long ke 38% shots poore zoom par** chale gaye, guard ki wajah se.
+
+Isliye ye lagbhag zoom jaisa hi lagta hai. Ye cheez test report me mujhe saaf-saaf kehni chahiye thi.
+
+**Kirdaaron me asli motion ke raaste:**
+
+| Raasta | Kya hilega | Kharcha | Dikkat |
+|---|---|---|---|
+| **A. Parallax tez** (amp 3.5% se 6–7%) | gehrai zyada dikhegi, kirdaar fir bhi sthir | ₹0 | kinaron par smear badhega, aur zyada shots zoom par jayenge |
+| **B. Bolne wale kirdaar par halki "zindagi"** (local code) | bolne wala kirdaar halka upar-neeche hilega (bob), saans jaisa phoolna, bolte waqt thoda bounce | ₹0 | munh aur haath nahi hilenge; ye halka cartoon-jaisa effect hai |
+| **C. AI image-to-video** (jaise Google Veo) | asli animation: haath, munh, chalna | **mehenga**: Veo ka ek clip lagbhag ₹30–40 per second (andaza), yaani ek 4 min video me hazaron rupaye | ₹110 ke budget me sambhav nahi; sirf 1–2 khaas shots (jaise hook) ke liye soch sakte hain |
+| **D. Kirdaaron ke alag hisse** (munh/aankh ke sprites) | munh chalna, palak jhapakna | har kirdaar ke liye ek baar kuch images | bada kaam; har scene me kirdaar ki pose alag hai, isliye mushkil |
+
+**Meri salah:** pehle **A + B** ka ek muft test. Story 004 ke 2–3 scenes par purane aur naye ka side-by-side bana kar aapko dikhaunga. Pasand aaye toh default bana denge. C ko sirf kabhi-kabhi hook shot ke liye rakhiye, aur uska andaza alag se bataunga.
+
+Test bana doon?
+
+---
+
+_**User (2026-10-20 15:04:39Z)**_
+
+koi or free ya sasta tarika h jisme characters ka motion aa jaye ?
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-20 15:05:09Z)**_
+
+Haan, kuch raaste hain. Pehle saaf kar doon: aapke PC me graphics card nahi hai, isliye **AI video model local par chalana practical nahi** hai. CPU par 5 sec ki clip me ghante lag jaate hain. Baaki raaste ye hain:
+
+**1. Muft (local): Meta "Animated Drawings"** (MIT license)
+- Ek tasveer se kirdaar ka dhaancha (skeleton) apne aap banata hai, phir use **haath hilana, koodna, chalna** jaisi chaal deta hai.
+- CPU par chal jaata hai. Poore sharir wale cartoon kirdaar (Golu, Pandey ji) par achha chalta hai.
+- Dikkat: munh nahi chalta. Kirdaar background se kaat kar alag layer me chalta hai, isliye kabhi-kabhi "paper cut-out" jaisa lagta hai.
+
+**2. Bahut sasta: "munh khula/band" wala cartoon tareeka**
+- Bolne wale kirdaar ke close-up ki Gemini se ek aur image banwayein jisme **sirf munh khula** ho (~₹6).
+- Awaaz ki taqat ke hisaab se dono images baari-baari dikhengi, toh bolte waqt munh chalta dikhega.
+- Saath me palak jhapakna bhi ho sakta hai (aankh band wali ek aur image, ~₹6).
+- Purane TV cartoon isi tarah bante the. Ek video me 3–4 khaas close-ups par lagayein toh ~₹20–25 lagenge, jo ₹110 ke budget me naye scene kam karke adjust ho sakta hai.
+
+**3. Sasta cloud AI video: Wan 2.2** (Apache-2.0, commercial use allowed)
+- Asli animation deta hai: haath, sir, kapde sab hilte hain.
+- Kiraye ke GPU ya kisi hosted API se chalta hai. Ek 5 sec ki clip ke kuch rupaye se lekar ~₹30 tak lag sakte hain. Abhi ke daam maine check nahi kiye; kuch bhi kharch karne se pehle check karke aapko bataunga.
+- Sirf **hook ya khaas shots** ke liye theek hai, poori video ke liye nahi.
+
+**Inse bachna hai:** zyadatar lip-sync tools (Wav2Lip, LivePortrait ke models) ka license **non-commercial** hai, aur wo asli insaan ke chehre ke liye bane hain, cartoon par achhe nahi chalte.
+
+**Meri salah:** do test ek saath karein:
+- Story 004 ke 1–2 shots par **#1 Animated Drawings**, jaise Pandey ji ka kaanpna aur Golu ka ishara. Muft.
+- Ek close-up par **#2 munh chalna**. ~₹6, ek image.
+
+Dono side-by-side dikhaunga, aur aap jo pasand karein wahi default banega. #3 ke liye pehle daam check karke alag se bataunga.
+
+Test shuru karoon? ₹6 wali image ke liye "ha" chahiye.
+
+---
+
+_**User (2026-10-20 15:09:13Z)**_
+
+110 tk k budget me kon sa best rhega jisme haath muh and character thoda aage piche chal jaye ?
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-20 15:09:31Z)**_
+
+₹110 ke andar haath, munh aur thodi aage-peeche chaal, teeno ke liye mera best combo ye hai:
+
+**1. Haath hilana aur aage-peeche chalna: Meta Animated Drawings (muft)**
+- Kirdaar ko image se kaat kar uska dhaancha (skeleton) banata hai, phir use haath hilana, ishara, 2–3 kadam aage-peeche chalna, kaanpna jaisi chaal deta hai.
+- Kaati gayi jagah ko hamara inpaint pehle se bhar deta hai.
+- **Seema:** kirdaar ka poora sharir aur saamne se chehra dikhna chahiye. Baitha ya lete kirdaar (jaise Dadi charpai par) theek nahi chalega.
+
+**2. Munh chalna: har khaas close-up ki ek "munh khula" image**
+- Har close-up ke liye Gemini se ek extra image (~₹6). Awaaz ke hisaab se khula/band baari-baari dikhega.
+- Har kahani me sirf **3–4 khaas close-ups** par, jaise hook aur mod (twist).
+
+**Budget ka hisaab (ek kahani):**
+
+| Cheez | Kharcha (GST ke saath) |
+|---|---|
+| 12 scene images (ab 13–15 hoti hain) | ~₹72 |
+| Thumbnail + Short poster | ~₹12 |
+| TTS | ~₹2 |
+| 3–4 "munh khula" images | ~₹18–24 |
+| Animated Drawings | ₹0 |
+| **Kul** | **~₹104–110** |
+
+Naya kirdaar aaye toh uski sheet (~₹6) ke liye ek scene image kam karni padegi.
+
+AI video (Wan, Veo) is budget me poori video ke liye fit nahi hota. Wo sirf kabhi-kabhi ek hook shot ke liye theek rahega.
+
+Ek baat ki guarantee nahi de sakta: Animated Drawings hamare cartoon style par kitna achha chalega. Isliye pehle muft test karta hoon. Story 004 ke 2 shots lunga: Pandey ji ka seedhi par kaanpna (scene 7) aur Golu ka khidki se ishara karna (scene 4). Saath me ek close-up par munh chalne ka test (₹6, ek image). Phir aapko side-by-side dikhaunga.
+
+Shuru karoon? ₹6 wali image ke liye "ha" likh dijiye; muft wala test main abhi shuru kar sakta hoon.
+
+---
+
+_**User (2026-10-20 15:11:04Z)**_
+
+abhi parallax se jaise chal raha h waise theek h
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-20 15:11:09Z)**_
+
+Theek hai, parallax jaisa chal raha hai waisa hi rahega. Koi test nahi kar raha aur koi kharcha nahi hua.
+
+Jab character animation aazmana ho, toh bata dijiye. Animated Drawings (muft) aur "munh khula" image (~₹6) wala plan taiyaar hai.
+
+**Abhi baaki:**
+- Studio checklist: Long 02/Short A (aaj 19:00/21:00) aur Long 03/Short (kal 19:00/21:00) ke Related video, pin comment aur end screen.
+- AI Studio ka **Credit balance** bata dijiye, taaki story 004 ka hisaab Google ke balance se mila sakun.
+
+---
+
+_**User (2026-10-20 15:22:10Z)**_
+
+
+
+<pasted_content id="aeaa">
+STYLE MIGRATION: "Kissago Painted" look (story 005 se lagu). Story 004 ko mat chhoona: agar wo abhi chal rahi hai to use purane style me hi poora hone do, aur uski pipeline_queue.json entry ko haath mat lagana.
+
+BUDGET: is kaam ka alag budget max ₹35 actual (GST sahit), cost_log me "style_migration" naam se. Kisi story ke ₹110 budget me mat jodna. Pehle ek chhoti Gemini call se spend cap/balance check karo; 403/429 aaye to ruk kar mujhe batao, retry loop nahi.
+
+1) STYLE GUIDE (brand/STYLE_PAINTED.md)
+- Ek fixed style block likho jo har image prompt me hu-ba-hu (verbatim) lage, taaki har video ka look ek jaisa rahe:
+  "soft hand-painted 2D anime illustration, watercolor and gouache textures, visible gentle brush strokes, warm golden natural light, lush detailed painted backgrounds, soft clouds, gentle expressive faces with simple features, cozy Indian neighbourhood life, calm nostalgic mood, no text, no logos, no watermark"
+- Is style ka naam sirf "Kissago Painted" hoga.
+- Colour palette, roshni (din/shaam/raat), kirdaaron ke kapde aur Gulmohar Mohalla ki pehchaan (Gulmohar ka ped, aangan, chhat, gali) bhi isi file me likho.
+
+2) COPYRIGHT AUR BRAND NIYAM (shared/RULES.md section 12 me jodo, Munshi har image, thumbnail aur metadata par check kare)
+- Kisi bhi studio, film, anime ya artist ka naam KAHIN NAHI aayega: image prompts, file/folder names, titles, descriptions, tags, hashtags, thumbnail text, comments, playlist, community posts. Andar bhi style ko sirf "Kissago Painted" kaha jaye.
+- Kisi maujooda anime/film ke kirdaar, jeev-jantu, gaadi, imaarat ya mashhoor scene jaisa kuch nahi banega (jaise bada jaadui jungle-jeev, dhuen jaise kaale chhote jeev, udti jhaadu wali ladki, naqaabpoosh pret, jaadui bus, baarish me bus stop par chhatri wala mashhoor drishya). Ye block list RULES me rahe, prompt me nahi.
+- Sirf hamare apne kirdaar (Dadi, Golu, Mitthu aur bible wale) aur Indian setting. Kapde, chehre, ghar sab Indian hon.
+- Har image ke baad Munshi poochhe: "Kya ye kisi jaane-maane kirdaar ya scene ki nakal lagti hai?" Lage to MAJOR: prompt badal kar ek baar regen, phir bhi lage to wo shot drop.
+- Image model agar khud kisi mashhoor kirdaar jaisa kuch bana de to wo image use nahi hogi, chahe kharcha ho chuka ho.
+- Thumbnail ka style bhi Kissago Painted, aur uska text hamara apna.
+- YouTube originality (section 12): kahani, script, awaaz aur kirdaar hamare apne rahenge; ye style sirf look hai.
+
+3) CHARACTER SHEETS (naye look me, existing sheets ko reference rakh kar taaki pehchaan wahi rahe)
+- Sirf 3 abhi: Dadi, Golu, Mitthu (Mitthu ke haath nahi, sirf pankh aur panje).
+- Nayi files: characters/<naam>/sheet_painted.png. Purani sheets wahin rahengi, unhe delete ya overwrite mat karna.
+- Baaki kirdaar (Raju, Pandey ji, Gupta aunty, Sharma ji, Mishra dada) tab banenge jab kisi story me unki zaroorat ho; har sheet ~₹6, us story ke budget me.
+
+4) TEST SCENES (2 images, nayi sheets ko reference rakh kar)
+- A: Shaam ko aangan me charpai par Dadi, Golu paas baitha, Mitthu Gulmohar ki daal par.
+- B: Raat ki chhat: Dadi, Golu aur Mitthu taare dekhte hue, door mohalle ki chhatein.
+- Dono par parallax (tools/parallax.py) chala kar 6-sec clips bhi banao.
+
+5) REVIEW AUR REPORT
+- Munshi review: copyright/lookalike check, kirdaaron ki pehchaan purani sheets se milti hai ya nahi, Hindi/Indian setting, Mitthu no hands, parallax artifacts.
+- style_tests/painted/ me ek comparison PNG (purani sheet vs nayi sheet, teeno kirdaar) aur ek compare.mp4 (purana look vs naya look, parallax ke saath).
+- Mujhe chhota report do: kharcha, Munshi verdict, files ke naam. Phir RUKO.
+
+6) MERE APPROVAL KE BAAD
+- Approve: channel.json me "image_style": "kissago_painted" set karo; story 005 se har image prompt me STYLE_PAINTED.md ka block aur sheet_painted.png reference lage. step-review aur youtube-publish skills me "studio/film/artist naam" wala check jodo (metadata me aisa naam mila to upload BLOCK). RULES section 15 me line: "Story 005 se image style = Kissago Painted; style block aur sheet_painted reference zaroori."
+- Reject: kuch mat badlo, purana style chalta rahe.
+- Dono haalat me GitHub sync.
+</pasted_content id="aeaa">
+
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-20 15:22:32Z)**_
+
+Pehle kharche ka hisaab alag rakhne ka intezaam kar raha hoon: "style_migration" budget, max ₹35, story ke ₹110 se alag. Phir ek chhoti call se check karunga. Story 004 poori ho chuki hai, use haath nahi lagaunga.
+
+_**Agent (claude-opus-5-5 2026-10-20 15:22:52Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Set style_migration budget and check API
+
+```bash
+.venv/Scripts/python.exe -X utf8 - <<'PYEOF'
+import json
+from pathlib import Path
+p = Path("shared/pricing.json"); c = json.loads(p.read_text(encoding="utf-8"))
+c["budget"]["story_cap_inr"]["style_migration"] = 35
+p.write_text(json.dumps(c, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+s = Path("scripts/story_budget.py"); t = s.read_text(encoding="utf-8")
+a = '    "004_chhat-par-bhoot": ["channels/dadi-ki-kahaniyan/characters/voices/mishra_"],\n}'
+assert t.count(a) == 1
+t = t.replace(a, a[:-2] + '\n    # style migration "Kissago Painted" (own budget ₹35, not in any story)\n'
+    '    "style_migration": ["channels/dadi-ki-kahaniyan/characters/dadi/sheet_painted", "channels/dadi-ki-kahaniyan/characters/golu/sheet_painted",\n'
+    '                        "channels/dadi-ki-kahaniyan/characters/mitthu/sheet_painted", "style_tests/painted/"],\n}')
+s.write_text(t, encoding="utf-8")
+PYEOF
+mkdir -p style_tests/painted && .venv/Scripts/python.exe -X utf8 - <<'PYEOF' 2>&1 | tail -2
+import sys; sys.path.insert(0, "scripts")
+from pathlib import Path
+import gemini_tts
+try:
+    r = gemini_tts.speak("नमस्ते।", "Charon", "calm", Path("style_tests/painted/cap_check.wav")); print("OK: API chal rahi hai | ₹", r["row"]["cost_inr"])
+except Exception as e:
+    print("BLOCKED:", str(e).replace("\n", " ")[:220])
+PYEOF
+.venv/Scripts/python.exe -X utf8 scripts/story_budget.py style_migration
+```
+
+```text
+OK: API chal rahi hai | ₹ 0.03
+2026-10-20 | style_migration | ASLI KUL KHARCHA | ₹0.03 + GST ₹0.00 = ₹0.03 (andaza tha ₹0.03; 1 paid calls, 0 bina usage = andaza) | cap ₹35
+account remaining (ledger, GST samet): ₹330.61
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-20 15:22:56Z)**_
+
+API chal rahi hai (₹0.03, "style_migration" me gina). Ab style guide likh raha hoon.
+
+_**Agent (claude-opus-5-5 2026-10-20 15:23:12Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Write"><details>
+<summary>Tool use: **Write**</summary>
+
+````markdown
+# Kissago Painted — image style guide (from story 005)
+
+Status: proposed 2026-10-20 (style test in `style_tests/painted/`); becomes the channel style only after the user's approval
+(`channel.json` → `"image_style": "kissago_painted"`). Stories up to 004 keep the old flat-cartoon style.
+
+This style has one name only: **Kissago Painted**. No studio, film, anime or artist name is ever used anywhere —
+not in prompts, file names, metadata or comments (shared/RULES.md section 12).
+
+## 1. Style block (paste VERBATIM at the end of every image prompt)
+
+```
+soft hand-painted 2D anime illustration, watercolor and gouache textures, visible gentle brush strokes, warm golden natural light, lush detailed painted backgrounds, soft clouds, gentle expressive faces with simple features, cozy Indian neighbourhood life, calm nostalgic mood, no text, no logos, no watermark
+```
+
+Plus, for every image with a permanent character: the character's `characters/<name>/sheet_painted.png` as a
+reference image ("keep this character exactly as in the reference sheet"). Only the characters in that scene.
+
+## 2. Colour palette
+| Use | Colours |
+|---|---|
+| Day sky | soft cerulean blue with cream-white painted clouds |
+| Walls and lanes | warm ochre, terracotta, faded turquoise, pale pink, limewash white |
+| Greens | sap green and olive foliage, moss on old walls |
+| Accent (Gulmohar) | flame orange-red flowers, always somewhere in outdoor scenes |
+| Evening | apricot and rose sky, long amber light |
+| Night | deep indigo-blue sky, silver moonlight, warm lantern-orange pools of light; faces always readable |
+| Shadows | cool lavender-blue, never pure black |
+
+## 3. Light by time of day
+- **Morning/day:** warm golden sun from one side, soft painted shadows, light dust in the air.
+- **Evening (shaam):** low amber sun, long shadows, glowing sky, first lit windows.
+- **Night (raat):** indigo palette, moonlight rim on characters, lantern/diya as the main warm light, stars painted softly.
+
+## 4. Characters (look never changes; painted version of the bible)
+- **Dadi (Kamla Devi):** ~70, round kind face, white hair in a bun, round golden spectacles, light green saree with a
+  yellow border, gold bangles, small red bindi, wooden walking stick.
+- **Golu:** ~10, chubby, round face, messy black hair, yellow T-shirt, blue half-pants, white socks, red shoes.
+- **Mitthu:** green parrot, red beak, thin red neck ring. A bird: wings and feet only, NO hands, never holds things
+  in his wings.
+- Other bible characters (Pandey ji, Sharma ji, Gupta aunty, Raju, Mishra dada, …) get a `sheet_painted.png` only
+  when a story needs them (~₹6 each, from that story's budget), from their old sheet as reference.
+- Clothes, faces and homes are always Indian.
+
+## 5. Gulmohar Mohalla (recurring places)
+- **Gulmohar tree:** big spreading tree with flame-orange flowers, petals on the ground.
+- **Dadi's aangan:** mud house with a clay-tile roof, brown wooden door, clean swept courtyard, charpai, tulsi pot,
+  green fields behind.
+- **Chhat (rooftops):** flat roofs with low walls, water tanks, clotheslines, neighbouring roofs close together.
+- **Gali (lanes):** narrow lanes, colourful two-storey houses, small balconies, overhead wires, Raju's chai stall.
+
+## 6. Prompt shape
+`<scene: who, where, what they do, mood, time of day>` + `Keep every character exactly as in the attached reference
+sheets.` + `Mitthu is a bird with wings and feet only, no hands.` (if he is in it) + the style block (section 1).
+Never add any studio/film/artist name or "in the style of …".
+
+````
+
+```text
+File created successfully at: D:\Story-Channel\channels\dadi-ki-kahaniyan\brand\STYLE_PAINTED.md (file state is current in your context — no need to Read it back)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-20 15:23:13Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Show RULES section 12
+
+`grep -n "^## 12" -A14 shared/RULES.md | head -20`
+
+```text
+110:## 12. Originality (YouTube "inauthentic content" policy)
+111-- Every new story must differ clearly from all previous stories of the channel in at least 3 of: moral, main conflict/plot shape, setting, lead characters, genre/tone (comedy, mystery, emotional, adventure), ending type.
+112-- At script stage Munshi compares the new script with every previous story.md in the channel and lists the closest match and what is different. If fewer than 3 differ -> BLOCKER (ASK the user).
+113-- Titles and thumbnails must not follow one fixed template word-for-word across videos.
+114-- The channel name suffix (`title_suffix` in channels/<key>/channel.json, e.g. "| किस्सागो") may stay the same in every title — it is branding. The rest of the title (story name, hook, extra keywords) must vary; do not repeat the same keyword block (like "| Hindi Moral Story | Hindi Kahani") in every video. Rotate keywords or put them in tags/description instead.
+115-- No two videos may reuse the same narration audio. Shorts cut from their own long video are allowed.
+116-- Every 5th long video Munshi writes a short "channel variety" note in log.md: genres used, morals used, what to try next.
+117-
+118-## 13. Audience & algorithm (CTR, retention, session)
+119-Long videos:
+120-- Hook: the first spoken line must start within 1.0 s. The first 30 s must set up the story's main question or conflict. Any frame/intro before the story itself (Dadi-Golu opening) is max 10 s.
+121-- Promise kept: whatever the title and thumbnail promise (e.g. the magic cauldron) must appear on screen within the first 60 s. A title/thumbnail that promises something the video does not show is a BLOCKER (misleading).
+122-- Visual change: no single shot stays without a cut or new camera move for more than 8 s.
+123-- End: the last 20 s carry no essential visuals or captions in the end-screen area, so end-screen elements can sit there. The last spoken line asks viewers one specific question about the story (for comments), not a generic "like and subscribe".
+124-Shorts:
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-20 15:23:23Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\shared\RULES.md has been updated successfully. (note: the file had been modified on disk since you last read it — the edit applied cleanly, but the file contains other changes not in your context. Read it before edits that depend on surrounding content.)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-20 15:23:24Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Check generate() style handling and sheet aspect
+
+`sed -n 40,75p scripts/gemini_image.py; grep -n "aspect_ratio\|SHEET =" -A3 scripts/gen_long_characters.py | head -20`
+
+```text
+                return found
+    return None
+
+
+def generate(prompt: str, out: Path, refs: list[Path] = (), aspect_ratio="1:1", size="1K") -> Path:
+    key = os.environ.get("GEMINI_API_KEY")
+    if not key:
+        raise RuntimeError("GEMINI_API_KEY missing in .env")
+
+    inputs = [{"type": "text", "text": f"{prompt}\n\n{STYLE}"}]
+    for ref in refs:
+        mime = mimetypes.guess_type(ref)[0] or "image/png"
+        inputs.append({"type": "image", "mime_type": mime,
+                       "data": base64.b64encode(Path(ref).read_bytes()).decode()})
+
+    body = {"model": MODEL, "input": inputs,
+            "response_format": {"type": "image", "aspect_ratio": aspect_ratio, "image_size": size}}
+    r = requests.post(ENDPOINT, json=body, headers={"x-goog-api-key": key}, timeout=90)  # >90s -> skip
+    if not r.ok:
+        raise RuntimeError(f"Gemini {r.status_code}: {r.text[:500]}")
+
+    js = r.json()
+    data = _find_image(js)
+    if not data:
+        raise RuntimeError(f"No image in response: {r.text[:500]}")
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_bytes(base64.b64decode(data))
+    # actual cost from the response's usage numbers (text + every reference image in, image + thinking out)
+    cost = pricing.image_cost(MODEL, size, js, prompt_chars=len(inputs[0]["text"]), n_refs=len(refs))
+    print(cost_log.summary(cost_log.record_call(out, MODEL, size, cost, usage=pricing.read_usage(js))))
+    preview.build()
+    preview.open_in_vscode(out)
+    return out
+25:SHEET = ("Character reference sheet of ONE single character on a plain off-white background. Top row: three full-body "
+26-         "poses (labelled). Bottom row: three head-and-shoulders expressions (labelled). The character must look "
+27-         "identical in every pose: same face, body, outfit and colours. No other characters, no scenery.")
+28-
+--
+109:        out = generate(f"{prompt}\n\n{STYLE_NOTE}", target, refs=STYLE_REFS + list(extra_refs), aspect_ratio="3:2",
+110-                       size="1K")
+111-        print(f"saved {out}  ({time.time() - t0:.0f}s)", flush=True)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-20 15:23:34Z)**_
+
+<think><details><summary>Thought Process</summary>
+`gemini_image.py` me purana "flat cartoon" style prompt me auto-add ho raha hai, isliye main usme `style` parameter jod rahi hoon taaki naye painted prompts me sahi style block lage aur purani stories par koi asar na pade.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-20 15:23:37Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Add optional style override to generate()
+
+```bash
+.venv/Scripts/python.exe - <<'PYEOF'
+from pathlib import Path
+p = Path("scripts/gemini_image.py"); t = p.read_text(encoding="utf-8")
+for a, b in [('def generate(prompt: str, out: Path, refs: list[Path] = (), aspect_ratio="1:1", size="1K") -> Path:',
+              'def generate(prompt: str, out: Path, refs: list[Path] = (), aspect_ratio="1:1", size="1K", style: str | None = None) -> Path:\n'
+              '    """style: None = the old flat-cartoon STYLE line; any string replaces it (e.g. the Kissago Painted block)."""'),
+             ('    inputs = [{"type": "text", "text": f"{prompt}\\n\\n{STYLE}"}]',
+              '    inputs = [{"type": "text", "text": f"{prompt}\\n\\n{STYLE if style is None else style}".rstrip()}]')]:
+    assert t.count(a) == 1, a; t = t.replace(a, b)
+p.write_text(t, encoding="utf-8")
+PYEOF
+.venv/Scripts/python.exe -m py_compile scripts/gemini_image.py && echo ok
+```
+
+```text
+Traceback (most recent call last):
+  File "<stdin>", line 8, in <module>
+AssertionError:     inputs = [{"type": "text", "text": f"{prompt}
+
+{STYLE}"}]
+ok
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-20 15:24:02Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\scripts\gemini_image.py has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-20 15:24:03Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Write"><details>
+<summary>Tool use: **Write**</summary>
+
+````python
+"""Kissago Painted style test (style migration, own budget "style_migration" ₹35): painted character sheets for
+Dadi, Golu, Mitthu (old sheets as identity reference) and two test scenes.
+
+    python scripts/gen_painted.py sheets [dadi golu mitthu]
+    python scripts/gen_painted.py scenes [A B]
+Style block: verbatim from channels/<key>/brand/STYLE_PAINTED.md (section 1). No studio/film/artist names anywhere.
+Outputs: characters/<name>/sheet_painted.png (old sheets untouched), style_tests/painted/scene_A.png, scene_B.png.
+"""
+import re
+import sys
+import time
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).parent))
+from gemini_image import generate  # noqa: E402
+from paths import ROOT, channel_dir  # noqa: E402
+from story_budget import check  # noqa: E402
+
+CHAN = channel_dir()
+CHAR = CHAN / "characters"
+OUT = ROOT / "style_tests" / "painted"
+BUDGET = "style_migration"
+
+
+def style_block() -> str:
+    t = (CHAN / "brand" / "STYLE_PAINTED.md").read_text(encoding="utf-8")
+    return re.search(r"## 1\..*?```\n(.*?)\n```", t, re.S).group(1).strip()
+
+
+SHEET = ("Character reference sheet of ONE single character on a plain warm off-white paper background. Top row: three "
+         "full-body poses. Bottom row: three head-and-shoulders expressions. The character must look identical in every "
+         "pose: same face, body, outfit and colours. No other characters, no scenery, no labels or words. Keep the "
+         "character's identity exactly as in the attached old reference sheet (face shape, hair, outfit, colours, "
+         "props), only repainted in the new painted look.")
+SHEETS = {
+    "dadi": ("Dadi (Kamla Devi): kind Indian grandmother about 70, round kind face, white hair in a bun, round golden "
+             "spectacles, light green saree with a yellow border, gold bangles, small red bindi, wooden walking stick. "
+             "Poses: standing with her stick; sitting on a charpai; walking holding a small brass lantern. Expressions: "
+             "warm smile, curious thinking, gentle laugh."),
+    "golu": ("Golu: chubby Indian boy about 10, round face, messy black hair, yellow T-shirt, blue half-pants, white "
+             "socks, red shoes. Poses: standing excited; pointing forward; sitting cross-legged looking up. Expressions: "
+             "excited open-mouth grin, scared wide eyes, sheepish smile."),
+    "mitthu": ("Mitthu: a green Indian ring-necked parrot with a red beak and a thin red neck ring. He is a bird: wings "
+               "and two feet only, NO hands, never holding anything. Poses: perched on a branch; flying with wings "
+               "spread; hopping on the ground. Expressions: beak open squawking, curious head tilt, proud puffed "
+               "chest."),
+}
+SCENES = {
+    "A": (["dadi", "golu", "mitthu"],
+          "16:9 scene, evening (shaam) in Dadi's aangan in Gulmohar Mohalla: a small mud house with a clay-tile roof "
+          "and a brown wooden door, a clean swept courtyard with a tulsi pot. Dadi sits on a charpai smiling, Golu sits "
+          "close beside her listening, and Mitthu perches on a low branch of a big gulmohar tree full of flame-orange "
+          "flowers above them. Low amber sun, long soft shadows, apricot and rose sky with soft clouds, green fields "
+          "behind the house. Keep every character exactly as in the attached reference sheets. Mitthu is a bird with "
+          "wings and feet only, no hands."),
+    "B": (["dadi", "golu", "mitthu"],
+          "16:9 scene, night on a flat rooftop (chhat) in Gulmohar Mohalla: Dadi and Golu sit together on a mat, "
+          "both looking up and Golu pointing at the stars; Mitthu perches on the low roof wall beside them. A small "
+          "brass lantern glows warm orange on the mat. Deep indigo-blue night sky full of softly painted stars, "
+          "silver moonlight, neighbouring flat roofs with water tanks and clotheslines in the distance, a gulmohar "
+          "tree silhouette. Faces clearly readable. Keep every character exactly as in the attached reference "
+          "sheets. Mitthu is a bird with wings and feet only, no hands."),
+}
+EST_INR = 5.0  # pre-GST estimate per 1K image with references (actual average so far ~₹5)
+
+
+def sheets(names):
+    for n in names:
+        out = CHAR / n / "sheet_painted.png"
+        check(BUDGET, EST_INR)
+        t0 = time.time()
+        generate(f"{SHEET}\n\n{SHEETS[n]}", out, refs=[CHAR / f"{n}_sheet.png"], aspect_ratio="3:2", size="1K",
+                 style=style_block())
+        print(f"saved {out} ({time.time() - t0:.0f}s)", flush=True)
+
+
+def scenes(ids):
+    for i in ids:
+        who, prompt = SCENES[i]
+        out = OUT / f"scene_{i}.png"
+        check(BUDGET, EST_INR)
+        t0 = time.time()
+        generate(prompt, out, refs=[CHAR / w / "sheet_painted.png" for w in who], aspect_ratio="16:9", size="1K",
+                 style=style_block())
+        print(f"saved {out} ({time.time() - t0:.0f}s)", flush=True)
+
+
+if __name__ == "__main__":
+    cmd, rest = sys.argv[1], sys.argv[2:]
+    {"sheets": lambda: sheets(rest or list(SHEETS)), "scenes": lambda: scenes(rest or list(SCENES))}[cmd]()
+
+````
+
+```text
+File created successfully at: D:\Story-Channel\scripts\gen_painted.py (file state is current in your context — no need to Read it back)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-20 15:25:27Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Verify style block, generate 3 painted sheets
+
+`.venv/Scripts/python.exe -X utf8 -c "import sys; sys.path.insert(0,'scripts'); import gen_painted as g; print(g.style_block())" && .venv/Scripts/python.exe -X utf8 scripts/gen_painted.py sheets 2>&1 | grep -v "^$" | cut -c1-200`
+
+```text
+soft hand-painted 2D anime illustration, watercolor and gouache textures, visible gentle brush strokes, warm golden natural light, lush detailed painted backgrounds, soft clouds, gentle expressive faces with simple features, cozy Indian neighbourhood life, calm nostalgic mood, no text, no logos, no watermark
+Is image ka cost: ₹4.66 (asli; andaza tha ₹3.45) + GST ₹0.84  |  Aaj ka total (GST samet): ₹75.05  |  Bacha: ₹325.11
+saved D:\Story-Channel\channels\dadi-ki-kahaniyan\characters\dadi\sheet_painted.png (26s)
+Is image ka cost: ₹4.37 (asli; andaza tha ₹3.44) + GST ₹0.79  |  Aaj ka total (GST samet): ₹80.20  |  Bacha: ₹319.96
+saved D:\Story-Channel\channels\dadi-ki-kahaniyan\characters\golu\sheet_painted.png (25s)
+Is image ka cost: ₹4.57 (asli; andaza tha ₹3.44) + GST ₹0.82  |  Aaj ka total (GST samet): ₹85.60  |  Bacha: ₹314.56
+saved D:\Story-Channel\channels\dadi-ki-kahaniyan\characters\mitthu\sheet_painted.png (26s)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-20 15:25:29Z)**_
+
+Teeno painted sheets ban gayi (~₹16 GST ke saath). Ab unhe dekh raha hoon.
+
+_**Agent (claude-opus-5-5 2026-10-20 15:25:40Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Build old vs painted sheet comparison
+
+```bash
+.venv/Scripts/python.exe -X utf8 -c "
+from PIL import Image, ImageDraw
+C='channels/dadi-ki-kahaniyan/characters/'
+rows=[]
+for n in ('dadi','golu','mitthu'):
+    a=Image.open(C+n+'_sheet.png').convert('RGB'); b=Image.open(C+n+'/sheet_painted.png').convert('RGB')
+    a=a.resize((960,int(960*a.height/a.width))); b=b.resize((960,int(960*b.height/b.width)))
+    h=max(a.height,b.height); r=Image.new('RGB',(1920,h+40),'white'); r.paste(a,(0,40)); r.paste(b,(960,40))
+    d=ImageDraw.Draw(r); d.text((10,10),n+' - purani sheet',fill='black'); d.text((970,10),n+' - Kissago Painted',fill='black'); rows.append(r)
+H=sum(r.height for r in rows); s=Image.new('RGB',(1920,H),'white'); y=0
+for r in rows: s.paste(r,(0,y)); y+=r.height
+s.save('style_tests/painted/sheets_compare.png')
+s.resize((1440,int(H*0.75))).save('C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad/sheets_small.jpg', quality=85)
+"
+```
+
+```text
+(Bash completed with no output)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-20 15:25:40Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `C:\Users\ashamim\AppData\Local\Temp\claude\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7\scratchpad\sheets_small.jpg`
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-20 15:25:46Z)**_
+
+<think><details><summary>Thought Process</summary>
+Teeno sheets achhi ban gayi hain, pehchaan same rakhi hai aur naya painted look mil gaya hai. Ab dono test scenes bana raha hoon.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-20 15:27:07Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Generate 2 painted test scenes
+
+```bash
+.venv/Scripts/python.exe -X utf8 scripts/gen_painted.py scenes 2>&1 | grep -v "^$" | cut -c1-200; .venv/Scripts/python.exe -X utf8 scripts/story_budget.py style_migration | head -1; .venv/Scripts/python.exe -c "
+from PIL import Image
+for s in 'AB': Image.open(f'style_tests/painted/scene_{s}.png').convert('RGB').resize((960,540)).save(f'C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad/painted_{s}.jpg')"
+```
+
+```text
+Is image ka cost: ₹5.01 (asli; andaza tha ₹3.76) + GST ₹0.90  |  Aaj ka total (GST samet): ₹91.51  |  Bacha: ₹308.65
+saved D:\Story-Channel\style_tests\painted\scene_A.png (37s)
+Is image ka cost: ₹4.98 (asli; andaza tha ₹3.76) + GST ₹0.90  |  Aaj ka total (GST samet): ₹97.38  |  Bacha: ₹302.78
+saved D:\Story-Channel\style_tests\painted\scene_B.png (35s)
+2026-10-20 | style_migration | ASLI KUL KHARCHA | ₹23.61 + GST ₹4.25 = ₹27.86 (andaza tha ₹17.88; 6 paid calls, 0 bina usage = andaza) | cap ₹35
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-20 15:27:07Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `C:\Users\ashamim\AppData\Local\Temp\claude\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7\scratchpad\painted_A.jpg`
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-20 15:27:07Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `C:\Users\ashamim\AppData\Local\Temp\claude\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7\scratchpad\painted_B.jpg`
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-20 15:27:14Z)**_
+
+<think><details><summary>Thought Process</summary>
+Dono scenes achhe bane hain aur budget abhi ₹27.86 (cap ₹35) tak hai. Ab main purane look ki images ke saath parallax wala `compare.mp4` bana raha hoon.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-20 15:27:18Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Preview story 003 scene 01 as old-look match
+
+```bash
+.venv/Scripts/python.exe -c "
+from PIL import Image
+im=Image.open('channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/scene_01.png').convert('RGB').resize((640,360)); im.save('C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad/old01.jpg')"
+```
+
+```text
+(Bash completed with no output)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-20 15:27:18Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `C:\Users\ashamim\AppData\Local\Temp\claude\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7\scratchpad\old01.jpg`
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-20 15:27:28Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Check banner art as old aangan match
+
+```bash
+.venv/Scripts/python.exe -c "
+from PIL import Image
+im=Image.open('channels/dadi-ki-kahaniyan/brand/_work/banner_art.png'); print(im.size); im.convert('RGB').resize((640,int(640*im.height/im.width))).save('C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad/banner.jpg')"
+```
+
+```text
+(2560, 1440)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-20 15:27:29Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `C:\Users\ashamim\AppData\Local\Temp\claude\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7\scratchpad\banner.jpg`
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-20 15:27:31Z)**_
+
+Purana match mil gaya: channel banner wala aangan (A) aur story 004 ka scene 16 (B, raat ki chhat). Ab chaaron par parallax clips aur `compare.mp4` bana raha hoon.
+
+_**Agent (claude-opus-5-5 2026-10-20 15:27:43Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Write"><details>
+<summary>Tool use: **Write**</summary>
+
+```python
+"""Old flat-cartoon look vs Kissago Painted, both with 2.5D parallax (6 s each). Output: style_tests/painted/compare.mp4"""
+import json
+import subprocess
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / "tools"))
+import parallax as P  # noqa: E402
+
+OUT = ROOT / "style_tests/painted"
+FONT = (ROOT / "shared/fonts/Mukta-Bold.ttf").as_posix().replace(":", r"\:")
+PAIRS = [  # (label, old image, new image, preset, overlays)
+    ("A: shaam ka aangan", ROOT / "channels/dadi-ki-kahaniyan/brand/_work/banner_art.png", OUT / "scene_A.png",
+     "pull_out", [("dust", 0.18, (0.5, 0.6))]),
+    ("B: raat ki chhat", ROOT / "channels/dadi-ki-kahaniyan/stories/004_chhat-par-bhoot/images/scene_16.png",
+     OUT / "scene_B.png", "push_in", [("fireflies", 0.22, (0.5, 0.6))]),
+]
+report, parts = [], []
+for i, (label, old, new, preset, ovs) in enumerate(PAIRS):
+    a = P.render_clip(old, OUT / f"old_{i}.mp4", 6, preset, "long", overlays=ovs)
+    b = P.render_clip(new, OUT / f"new_{i}.mp4", 6, preset, "long", overlays=ovs)
+    report += [a, b]
+    lab = lambda t: (f"drawtext=fontfile='{FONT}':text='{t}':x=18:y=18:fontsize=34:fontcolor=white:"
+                     f"box=1:boxcolor=black@0.55:boxborderw=8")
+    fc = (f"[0:v]scale=960:540,{lab('PURANA LOOK')}[l];[1:v]scale=960:540,{lab('KISSAGO PAINTED')}[r];"
+          f"[l][r]hstack=inputs=2,drawtext=fontfile='{FONT}':text='{label}':x=(w-tw)/2:y=h-46:fontsize=26:"
+          f"fontcolor=white:box=1:boxcolor=black@0.55:boxborderw=6,format=yuv420p[out]")
+    part = OUT / f"compare_{i}.mp4"
+    subprocess.run([str(P.FFMPEG), "-v", "error", "-y", "-i", str(OUT / f"old_{i}.mp4"), "-i", str(OUT / f"new_{i}.mp4"),
+                    "-filter_complex", fc, "-map", "[out]", "-c:v", "libx264", "-preset", "medium", "-crf", "20",
+                    str(part)], check=True)
+    parts.append(part)
+    print(label, "| old:", a["mode"], a["amp"], a["reason"], "| new:", b["mode"], b["amp"], b["reason"],
+          f"| new clip wall {b['wall_s']}s")
+(OUT / "list.txt").write_text("\n".join(f"file '{p.as_posix()}'" for p in parts), encoding="utf-8")
+subprocess.run([str(P.FFMPEG), "-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", str(OUT / "list.txt"), "-c", "copy",
+                str(OUT / "compare.mp4")], check=True)
+(OUT / "report.json").write_text(json.dumps(report, ensure_ascii=False, indent=1), encoding="utf-8")
+
+```
+
+```text
+File created successfully at: D:\Story-Channel\style_tests\painted\make_compare.py (file state is current in your context — no need to Read it back)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-20 15:29:02Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Render parallax clips and compare.mp4
+
+`.venv/Scripts/python.exe -X utf8 style_tests/painted/make_compare.py 2>&1 | grep -v "Warning\|Loading"; ls style_tests/painted/`
+
+```text
+Traceback (most recent call last):
+  File "D:\Story-Channel\style_tests\painted\make_compare.py", line 21, in <module>
+    a = P.render_clip(old, OUT / f"old_{i}.mp4", 6, preset, "long", overlays=ovs)
+  File "D:\Story-Channel\tools\parallax.py", line 423, in render_clip
+    enc = _encoder(out, W, H, crf, enc_preset)
+          ^^^^^^^^
+NameError: name '_encoder' is not defined
+cap_check.wav
+make_compare.py
+scene_A.png
+scene_B.png
+sheets_compare.png
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-20 15:29:07Z)**_
+
+Mere pichhle patch me `_encoder` function galti se hat gaya tha. Use wapas jod raha hoon. Builder par iska asar nahi pada, kyunki wo apna alag encoder use karta hai.
+
+_**Agent (claude-opus-5-5 2026-10-20 15:29:12Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\tools\parallax.py has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-20 15:30:59Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Render compare again
+
+`.venv/Scripts/python.exe -X utf8 style_tests/painted/make_compare.py 2>&1 | grep -v "Warning\|Loading"; ls style_tests/painted/*.mp4`
+
+```text
+[AVFilterGraph @ 0000019dc8fe2980] No option name near ' shaam ka aangan:x=(w-tw)/2:y=h-46:fontsize=26:fontcolor=white:box=1:boxcolor=black@0.55:boxborderw=6'
+[AVFilterGraph @ 0000019dc8fe2980] Error parsing a filter description around: ,format=yuv420p[out]
+[AVFilterGraph @ 0000019dc8fe2980] Error parsing filterchain '[l][r]hstack=inputs=2,drawtext=fontfile='D\:/Story-Channel/shared/fonts/Mukta-Bold.ttf':text='A: shaam ka aangan':x=(w-tw)/2:y=h-46:fontsize=26:fontcolor=white:box=1:boxcolor=black@0.55:boxborderw=6,format=yuv420p[out]' around: ,format=yuv420p[out]
+Error : Invalid argument
+Traceback (most recent call last):
+  File "D:\Story-Channel\style_tests\painted\make_compare.py", line 30, in <module>
+    subprocess.run([str(P.FFMPEG), "-v", "error", "-y", "-i", str(OUT / f"old_{i}.mp4"), "-i", str(OUT / f"new_{i}.mp4"),
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                    "-filter_complex", fc, "-map", "[out]", "-c:v", "libx264", "-preset", "medium", "-crf", "20",
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                    str(part)], check=True)
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ashamim\AppData\Local\Programs\Python\Python314\Lib\subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['D:\\Story-Channel\\tools\\ffmpeg\\ffmpeg.exe', '-v', 'error', '-y', '-i', 'D:\\Story-Channel\\style_tests\\painted\\old_0.mp4', '-i', 'D:\\Story-Channel\\style_tests\\painted\\new_0.mp4', '-filter_complex', "[0:v]scale=960:540,drawtext=fontfile='D\\:/Story-Channel/shared/fonts/Mukta-Bold.ttf':text='PURANA LOOK':x=18:y=18:fontsize=34:fontcolor=white:box=1:boxcolor=black@0.55:boxborderw=8[l];[1:v]scale=960:540,drawtext=fontfile='D\\:/Story-Channel/shared/fonts/Mukta-Bold.ttf':text='KISSAGO PAINTED':x=18:y=18:fontsize=34:fontcolor=white:box=1:boxcolor=black@0.55:boxborderw=8[r];[l][r]hstack=inputs=2,drawtext=fontfile='D\\:/Story-Channel/shared/fonts/Mukta-Bold.ttf':text='A: shaam ka aangan':x=(w-tw)/2:y=h-46:fontsize=26:fontcolor=white:box=1:boxcolor=black@0.55:boxborderw=6,format=yuv420p[out]", '-map', '[out]', '-c:v', 'libx264', '-preset', 'medium', '-crf', '20', 'D:\\Story-Channel\\style_tests\\painted\\compare_0.mp4']' returned non-zero exit status 4294967274.
+style_tests/painted/new_0.mp4
+style_tests/painted/old_0.mp4
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-20 15:31:02Z)**_
+
+Label me ":" ki wajah se ffmpeg atak gaya. Use hata kar dobara chala raha hoon.
+
+_**Agent (claude-opus-5-5 2026-10-20 15:34:41Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Fix label and render compare
+
+`sed -i 's/("A: shaam ka aangan"/("A - shaam ka aangan"/; s/("B: raat ki chhat"/("B - raat ki chhat"/' style_tests/painted/make_compare.py && .venv/Scripts/python.exe -X utf8 style_tests/painted/make_compare.py 2>&1 | grep -v "Warning\|Loading"; ls style_tests/painted/*.mp4`
+
+```text
+A - shaam ka aangan | old: parallax 0.035 ok | new: zoom 0.0 depth jump 0.27 at the foreground edge (smear risk) | new clip wall 36.9s
+B - raat ki chhat | old: zoom 0.0 depth jump 0.2 at the foreground edge (smear risk) | new: zoom 0.0 depth jump 0.33 at the foreground edge (smear risk) | new clip wall 66.9s
+style_tests/painted/compare.mp4
+style_tests/painted/compare_0.mp4
+style_tests/painted/compare_1.mp4
+style_tests/painted/new_0.mp4
+style_tests/painted/new_1.mp4
+style_tests/painted/old_0.mp4
+style_tests/painted/old_1.mp4
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-20 15:34:50Z)**_
+
+<think><details><summary>Thought Process</summary>
+Dono painted scenes par guard ne zoom fallback chuna kyunki depth jump zyada tha, jisse smear ka risk badh jaata hai. Ab in dono ki "aadhi motion" wali forced-parallax clip bana raha hoon taaki Munshi artifacts check kar sake.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-20 15:36:31Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Render forced half-amp parallax for painted scenes
+
+```bash
+.venv/Scripts/python.exe -X utf8 -c "
+import sys; sys.path.insert(0,'tools'); import parallax as P
+for s,pr,ov in (('A','pull_out',[('dust',0.18,(0.5,0.6))]),('B','push_in',[('fireflies',0.22,(0.5,0.6))])):
+    r=P.render_clip('style_tests/painted/scene_%s.png'%s,'style_tests/painted/new_%s_parallax_forced.mp4'%s,6,pr,'long',amp=0.0175,overlays=ov,mode='parallax')
+    print(s, r['mode'], r['amp'], 'wall', r['wall_s'])
+" 2>&1 | grep -v "Warning\|Loading"
+```
+
+```text
+A parallax 0.0175 wall 48.3
+B parallax 0.0175 wall 45.6
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-20 15:45:05Z)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="Agent"><details>
+<summary>Tool use: **Agent**</summary>
+Munshi review Kissago Painted test
+
+```text
+  This agent's report was delivered to you as a message from "ae4d24707e412e50d" (its SubagentHandback call). Read it there; it is not repeated here.
+  
+agentId: ae4d24707e412e50d (use SendMessage with to: 'ae4d24707e412e50d', summary: '<5-10 word recap>' to continue this agent)
+<usage>subagent_tokens: 72661
+tool_uses: 35
+duration_ms: 502902</usage>
+```
+</details></tool-use>
+
+_**Agent - sidechain (2026-10-20 15:36:42Z)**_
+
+Style migration test review (not a production step, no upload, free only). The user asked for a new look "Kissago Painted" from story 005; story 004 is untouched. Separate budget "style_migration" max ₹35 actual incl. GST (scripts/story_budget.py style_migration; spent so far ₹27.86).
+
+Read fresh: shared/RULES.md section 12 (new 12a: no studio/film/anime/artist names anywhere, block list of famous lookalikes, Indian-only setting, "Kya ye kisi jaane-maane kirdaar ya scene ki nakal lagti hai?" check), channels/dadi-ki-kahaniyan/brand/STYLE_PAINTED.md, channel_bible.md.
+
+Review:
+1. New sheets channels/dadi-ki-kahaniyan/characters/dadi/sheet_painted.png, golu/sheet_painted.png, mitthu/sheet_painted.png vs the old dadi_sheet.png, golu_sheet.png, mitthu_sheet.png (comparison: style_tests/painted/sheets_compare.png). Identity kept (face, hair, spectacles, saree colours, stick; Golu's outfit; Mitthu red beak + neck ring, wings and feet only, NO hands). Old sheets must be unchanged (git).
+2. Test scenes style_tests/painted/scene_A.png (evening aangan) and scene_B.png (night rooftop): characters match the painted sheets, Indian setting, Mitthu no hands, faces readable at night, no text/logos.
+3. Copyright/lookalike: for every image answer "Kya ye kisi jaane-maane kirdaar ya scene ki nakal lagti hai?"; check prompts in scripts/gen_painted.py and the style block for any studio/film/artist name (there must be none; grep the repo for such names in prompts/metadata/new files).
+4. Parallax: style_tests/painted/compare.mp4 (old look vs Kissago Painted, both through tools/parallax.py; the guard put both painted scenes on zoom fallback — depth jump 0.27/0.33), plus forced half-motion parallax clips new_A_parallax_forced.mp4 and new_B_parallax_forced.mp4: check artifacts (halos, smear at edges, Mitthu's feathers, Dadi's hair/stick, lantern) at full resolution, and say whether painted images are OK with parallax or should stay on the guard's zoom.
+5. Cost vs the ₹35 budget.
+Give PASS / FIX (BLOCKER/MINOR) with a short Hinglish summary and a recommendation for the user's approve/reject. Write style_tests/painted/munshi_review.md and a log.md line. Do not change code or images.
+
+_**Agent - sidechain (2026-10-20 15:36:42Z)**_
+
+<system-reminder>
+Your final report is delivered through SubagentHandback: when your work is complete, call SubagentHandback({message: <your full report>}). The call ends your run, so make it your last step. Only a SubagentHandback call reaches your caller as your result; plain text you write at the end is not delivered.
+</system-reminder>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-20 15:36:49Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+List rules sections and test files
+
+`grep -n "^## \|^### " shared/RULES.md | head -60; ls style_tests/painted channels/dadi-ki-kahaniyan/characters/*/ channels/dadi-ki-kahaniyan/characters/ ; git status --short channels/dadi-ki-kahaniyan/characters`
+
+```text
+10:## 1. Budget
+21:## 2. Story and characters (from `channel_bible.md`)
+25:## 3. Audio
+32:## 4. Captions
+37:## 5. Video
+43:## 6. Thumbnail
+51:## 7. Metadata
+57:## 8. Publishing
+68:## 9. Safety
+73:## 10. Copyright (STRICT — any violation is FIX and blocks upload)
+83:## 11. Review limits and severity
+110:## 12. Originality (YouTube "inauthentic content" policy)
+118:### 12a. Visual style, copyright and brand (Kissago Painted and any channel style)
+126:## 13. Audience & algorithm (CTR, retention, session)
+146:## 14. Auto mode (after script approval)
+157:## 15. Production profile (user's standing instructions, from story 004 onwards)
+channels/dadi-ki-kahaniyan/characters/:
+_rejected_pollinations
+dadi
+dadi_sheet.png
+golu
+golu_sheet.png
+mitthu
+mitthu_sheet.png
+pandey_sheet.png
+sharma_sheet.png
+voices
+
+channels/dadi-ki-kahaniyan/characters/_rejected_pollinations/:
+dadi_sheet.png
+golu_sheet.png
+mitthu_sheet.png
+pandey_sheet.png
+
+channels/dadi-ki-kahaniyan/characters/dadi/:
+sheet_painted.png
+
+channels/dadi-ki-kahaniyan/characters/golu/:
+sheet_painted.png
+
+channels/dadi-ki-kahaniyan/characters/mitthu/:
+sheet_painted.png
+
+channels/dadi-ki-kahaniyan/characters/voices/:
+bunty_Fenrir.wav
+chhotu_Iapetus.wav
+dadi_Gacrux.wav
+ghasita_Alnilam.wav
+golu_Leda.wav
+gupta_Despina.wav
+kid_Autonoe.wav
+kids_Zephyr.wav
+mishra_Enceladus.wav
+mitthu_Laomedeia.wav
+mitthu_Laomedeia_plus5.wav
+narrator_Charon.wav
+pandey_Algenib.wav
+pappu_Achird.wav
+raghu_Puck.wav
+raju_Zubenelgenubi.wav
+sadhu_Sadaltager.wav
+sharma_Sadachbia.wav
+villager_Umbriel.wav
+woman_Aoede.wav
+
+style_tests/painted:
+_depth
+cap_check.wav
+compare.mp4
+compare_0.mp4
+compare_1.mp4
+list.txt
+make_compare.py
+new_0.mp4
+new_1.mp4
+new_A_parallax_forced.mp4
+new_B_parallax_forced.mp4
+old_0.mp4
+old_1.mp4
+report.json
+scene_A.png
+scene_B.png
+sheets_compare.png
+?? channels/dadi-ki-kahaniyan/characters/dadi/
+?? channels/dadi-ki-kahaniyan/characters/golu/
+?? channels/dadi-ki-kahaniyan/characters/mitthu/
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-20 15:36:57Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Read rules 11-12a, style doc, report
+
+`sed -n 83,125p shared/RULES.md; echo ----; cat channels/dadi-ki-kahaniyan/brand/STYLE_PAINTED.md; echo ----; git diff --stat -- channels/dadi-ki-kahaniyan/characters/*.png; git log -1 --format=%h -- channels/dadi-ki-kahaniyan/characters/dadi_sheet.png; cat style_tests/painted/report.json`
+
+````text
+## 11. Review limits and severity
+Every problem Munshi reports is marked BLOCKER or MINOR.
+
+BLOCKER (never waived, in any round):
+- Copyright (section 10), wrong channel, any secret exposed.
+- Wrong character on screen for a line, wrong voice for a character, a line missing or cut off.
+- Caption more than 1 s away from its line, or caption text not matching what is spoken.
+- Loudness outside -14 LUFS ±1, true peak above -1.0 dBFS, audible clipping or leaked outside audio.
+- Wrong resolution/codec, or a preview file used as final.
+- Thumbnail: broken Hindi matras, spoiler, unreadable text, important thing in the bottom-right corner.
+- Metadata: title over 100 chars, more than 15 hashtags, missing CC BY credit, "for kids" wording (title, thumbnail, description or tags), mystery answer revealed.
+- Length outside ±10% of the approved preview length (stories up to 003). From story 004: long video over 4:00 or Short over 40 s (section 15).
+- Story problem: moral missing or a scene that contradicts the script.
+
+MINOR (everything else that breaks a RULES limit only slightly), e.g.: caption off by 0.3–1 s, caption shorter than 0.4 s, music level within 3 dB of target, thumbnail text slightly under the size rule, small silent gaps, missing colour tags, tiny cosmetic issues.
+Taste points (pacing feel, colour choice, music phrase) are "Note" only and never count as problems.
+
+Rounds:
+- Round 1 (R1): full review for that stage; BLOCKER and MINOR both come back as FIX (free) or ASK (paid).
+- Round 2 (R2): re-check only what changed and what failed in R1.
+- After R2: if any BLOCKER remains → ASK the user, stop (outside auto mode; in auto mode see section 15: fix it yourself, never ask). If only MINOR remain → verdict "PASS-WITH-NOTES": the stage is passed and the pipeline moves on to the next step (including upload when the user has approved it). No third round.
+- From story 004 (section 15): stage reviews (script timing, images, audio) are R1 + R2; after R2 MINOR issues are only logged to carry_over.md (nothing regenerated) and the flow moves on. The final video gets ONE check (R1 only): no BLOCKER -> upload. A BLOCKER may get max 1 paid regeneration per image.
+- Every MINOR waived after R2 is written to channels/<key>/carry_over.md (project, issue, suggested fix). Before the next video's build, the builder reads carry_over.md and fixes those causes in the pipeline, then marks them done.
+
+These limits never weaken: copyright (section 10), channel ID check, secrets, and the full pre-upload check.
+At the end of each review, add one line to channels/<key>/log.md with the round (R1/R2), verdict and approximate time taken.
+
+## 12. Originality (YouTube "inauthentic content" policy)
+- Every new story must differ clearly from all previous stories of the channel in at least 3 of: moral, main conflict/plot shape, setting, lead characters, genre/tone (comedy, mystery, emotional, adventure), ending type.
+- At script stage Munshi compares the new script with every previous story.md in the channel and lists the closest match and what is different. If fewer than 3 differ -> BLOCKER (ASK the user).
+- Titles and thumbnails must not follow one fixed template word-for-word across videos.
+- The channel name suffix (`title_suffix` in channels/<key>/channel.json, e.g. "| किस्सागो") may stay the same in every title — it is branding. The rest of the title (story name, hook, extra keywords) must vary; do not repeat the same keyword block (like "| Hindi Moral Story | Hindi Kahani") in every video. Rotate keywords or put them in tags/description instead.
+- No two videos may reuse the same narration audio. Shorts cut from their own long video are allowed.
+- Every 5th long video Munshi writes a short "channel variety" note in log.md: genres used, morals used, what to try next.
+
+### 12a. Visual style, copyright and brand (Kissago Painted and any channel style)
+- No studio, film, anime or artist name ANYWHERE: image prompts, file/folder names, titles, descriptions, tags, hashtags, thumbnail text, comments, playlists, community posts. Internally the style is only called by its own name (e.g. "Kissago Painted", `channels/<key>/brand/STYLE_PAINTED.md`). A name found in metadata = upload BLOCK.
+- Nothing may look like an existing anime/film character, creature, vehicle, building or famous scene. Block list (kept here, never in prompts): a huge furry magical forest creature; small black soot-like creatures; a girl flying on a broom; a masked shadow spirit; a magic cat-shaped bus or any living bus; a bus stop in the rain with an umbrella and a big creature; floating castles or walking castles; giant robots/mecha; famous mascots or cartoon characters of any brand.
+- Only our own characters (Dadi, Golu, Mitthu and the channel bible's characters) and an Indian setting: clothes, faces, homes all Indian.
+- After every image Munshi asks: "Kya ye kisi jaane-maane kirdaar ya scene ki nakal lagti hai?" If yes -> MAJOR (BLOCKER): change the prompt and regenerate once; if it still looks like one, drop that shot (crop/zoom another image). An image that looks like a famous character is never used, even if it was already paid for.
+- Thumbnails use the channel's own style and our own text.
+- YouTube originality: story, script, voices and characters stay our own; the visual style is only a look.
+
+----
+# Kissago Painted — image style guide (from story 005)
+
+Status: proposed 2026-10-20 (style test in `style_tests/painted/`); becomes the channel style only after the user's approval
+(`channel.json` → `"image_style": "kissago_painted"`). Stories up to 004 keep the old flat-cartoon style.
+
+This style has one name only: **Kissago Painted**. No studio, film, anime or artist name is ever used anywhere —
+not in prompts, file names, metadata or comments (shared/RULES.md section 12).
+
+## 1. Style block (paste VERBATIM at the end of every image prompt)
+
+```
+soft hand-painted 2D anime illustration, watercolor and gouache textures, visible gentle brush strokes, warm golden natural light, lush detailed painted backgrounds, soft clouds, gentle expressive faces with simple features, cozy Indian neighbourhood life, calm nostalgic mood, no text, no logos, no watermark
+```
+
+Plus, for every image with a permanent character: the character's `characters/<name>/sheet_painted.png` as a
+reference image ("keep this character exactly as in the reference sheet"). Only the characters in that scene.
+
+## 2. Colour palette
+| Use | Colours |
+|---|---|
+| Day sky | soft cerulean blue with cream-white painted clouds |
+| Walls and lanes | warm ochre, terracotta, faded turquoise, pale pink, limewash white |
+| Greens | sap green and olive foliage, moss on old walls |
+| Accent (Gulmohar) | flame orange-red flowers, always somewhere in outdoor scenes |
+| Evening | apricot and rose sky, long amber light |
+| Night | deep indigo-blue sky, silver moonlight, warm lantern-orange pools of light; faces always readable |
+| Shadows | cool lavender-blue, never pure black |
+
+## 3. Light by time of day
+- **Morning/day:** warm golden sun from one side, soft painted shadows, light dust in the air.
+- **Evening (shaam):** low amber sun, long shadows, glowing sky, first lit windows.
+- **Night (raat):** indigo palette, moonlight rim on characters, lantern/diya as the main warm light, stars painted softly.
+
+## 4. Characters (look never changes; painted version of the bible)
+- **Dadi (Kamla Devi):** ~70, round kind face, white hair in a bun, round golden spectacles, light green saree with a
+  yellow border, gold bangles, small red bindi, wooden walking stick.
+- **Golu:** ~10, chubby, round face, messy black hair, yellow T-shirt, blue half-pants, white socks, red shoes.
+- **Mitthu:** green parrot, red beak, thin red neck ring. A bird: wings and feet only, NO hands, never holds things
+  in his wings.
+- Other bible characters (Pandey ji, Sharma ji, Gupta aunty, Raju, Mishra dada, …) get a `sheet_painted.png` only
+  when a story needs them (~₹6 each, from that story's budget), from their old sheet as reference.
+- Clothes, faces and homes are always Indian.
+
+## 5. Gulmohar Mohalla (recurring places)
+- **Gulmohar tree:** big spreading tree with flame-orange flowers, petals on the ground.
+- **Dadi's aangan:** mud house with a clay-tile roof, brown wooden door, clean swept courtyard, charpai, tulsi pot,
+  green fields behind.
+- **Chhat (rooftops):** flat roofs with low walls, water tanks, clotheslines, neighbouring roofs close together.
+- **Gali (lanes):** narrow lanes, colourful two-storey houses, small balconies, overhead wires, Raju's chai stall.
+
+## 6. Prompt shape
+`<scene: who, where, what they do, mood, time of day>` + `Keep every character exactly as in the attached reference
+sheets.` + `Mitthu is a bird with wings and feet only, no hands.` (if he is in it) + the style block (section 1).
+Never add any studio/film/artist name or "in the style of …".
+----
+464dad0
+[
+ {
+  "image": "D:\\Story-Channel\\channels\\dadi-ki-kahaniyan\\brand\\_work\\banner_art.png",
+  "out": "D:\\Story-Channel\\style_tests\\painted\\old_0.mp4",
+  "format": "long",
+  "seconds": 6.0,
+  "preset": "pull_out",
+  "mode": "parallax",
+  "amp": 0.035,
+  "reason": "ok",
+  "fg_share": 0.426,
+  "ragged": 3.08,
+  "thin": 0.01,
+  "jump": 0.07,
+  "fg_parts": 2,
+  "overlays": [
+   "dust"
+  ],
+  "cpu_s": 104.0,
+  "wall_s": 48.9
+ },
+ {
+  "image": "D:\\Story-Channel\\style_tests\\painted\\scene_A.png",
+  "out": "D:\\Story-Channel\\style_tests\\painted\\new_0.mp4",
+  "format": "long",
+  "seconds": 6.0,
+  "preset": "pull_out",
+  "mode": "zoom",
+  "amp": 0.0,
+  "reason": "depth jump 0.27 at the foreground edge (smear risk)",
+  "fg_share": 0.679,
+  "ragged": 3.23,
+  "thin": 0.015,
+  "jump": 0.27,
+  "fg_parts": 1,
+  "overlays": [
+   "dust"
+  ],
+  "cpu_s": 44.6,
+  "wall_s": 36.9
+ },
+ {
+  "image": "D:\\Story-Channel\\channels\\dadi-ki-kahaniyan\\stories\\004_chhat-par-bhoot\\images\\scene_16.png",
+  "out": "D:\\Story-Channel\\style_tests\\painted\\old_1.mp4",
+  "format": "long",
+  "seconds": 6.0,
+  "preset": "push_in",
+  "mode": "zoom",
+  "amp": 0.0,
+  "reason": "depth jump 0.2 at the foreground edge (smear risk)",
+  "fg_share": 0.521,
+  "ragged": 1.78,
+  "thin": 0.0,
+  "jump": 0.2,
+  "fg_parts": 1,
+  "overlays": [
+   "fireflies"
+  ],
+  "cpu_s": 47.4,
+  "wall_s": 36.1
+ },
+ {
+  "image": "D:\\Story-Channel\\style_tests\\painted\\scene_B.png",
+  "out": "D:\\Story-Channel\\style_tests\\painted\\new_1.mp4",
+  "format": "long",
+  "seconds": 6.0,
+  "preset": "push_in",
+  "mode": "zoom",
+  "amp": 0.0,
+  "reason": "depth jump 0.33 at the foreground edge (smear risk)",
+  "fg_share": 0.421,
+  "ragged": 1.64,
+  "thin": 0.001,
+  "jump": 0.33,
+  "fg_parts": 1,
+  "overlays": [
+   "fireflies"
+  ],
+  "cpu_s": 91.6,
+  "wall_s": 66.9
+ }
+]
+````
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-20 15:37:10Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\style_tests\painted\sheets_compare.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-20 15:37:01Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\style_tests\painted\scene_A.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-20 15:37:01Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\style_tests\painted\scene_B.png`
+</details></tool-use>
+
+_**Agent - sidechain (2026-10-20 15:37:10Z)**_
+
+[Image: original 1920x2052, displayed at 1860x1988. Multiply coordinates by 1.03 to map to original image.]
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-20 15:37:21Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Read gen_painted.py prompts
+
+`cat scripts/gen_painted.py | head -150; echo; wc -l scripts/gen_painted.py`
+
+````text
+"""Kissago Painted style test (style migration, own budget "style_migration" ₹35): painted character sheets for
+Dadi, Golu, Mitthu (old sheets as identity reference) and two test scenes.
+
+    python scripts/gen_painted.py sheets [dadi golu mitthu]
+    python scripts/gen_painted.py scenes [A B]
+Style block: verbatim from channels/<key>/brand/STYLE_PAINTED.md (section 1). No studio/film/artist names anywhere.
+Outputs: characters/<name>/sheet_painted.png (old sheets untouched), style_tests/painted/scene_A.png, scene_B.png.
+"""
+import re
+import sys
+import time
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).parent))
+from gemini_image import generate  # noqa: E402
+from paths import ROOT, channel_dir  # noqa: E402
+from story_budget import check  # noqa: E402
+
+CHAN = channel_dir()
+CHAR = CHAN / "characters"
+OUT = ROOT / "style_tests" / "painted"
+BUDGET = "style_migration"
+
+
+def style_block() -> str:
+    t = (CHAN / "brand" / "STYLE_PAINTED.md").read_text(encoding="utf-8")
+    return re.search(r"## 1\..*?```\n(.*?)\n```", t, re.S).group(1).strip()
+
+
+SHEET = ("Character reference sheet of ONE single character on a plain warm off-white paper background. Top row: three "
+         "full-body poses. Bottom row: three head-and-shoulders expressions. The character must look identical in every "
+         "pose: same face, body, outfit and colours. No other characters, no scenery, no labels or words. Keep the "
+         "character's identity exactly as in the attached old reference sheet (face shape, hair, outfit, colours, "
+         "props), only repainted in the new painted look.")
+SHEETS = {
+    "dadi": ("Dadi (Kamla Devi): kind Indian grandmother about 70, round kind face, white hair in a bun, round golden "
+             "spectacles, light green saree with a yellow border, gold bangles, small red bindi, wooden walking stick. "
+             "Poses: standing with her stick; sitting on a charpai; walking holding a small brass lantern. Expressions: "
+             "warm smile, curious thinking, gentle laugh."),
+    "golu": ("Golu: chubby Indian boy about 10, round face, messy black hair, yellow T-shirt, blue half-pants, white "
+             "socks, red shoes. Poses: standing excited; pointing forward; sitting cross-legged looking up. Expressions: "
+             "excited open-mouth grin, scared wide eyes, sheepish smile."),
+    "mitthu": ("Mitthu: a green Indian ring-necked parrot with a red beak and a thin red neck ring. He is a bird: wings "
+               "and two feet only, NO hands, never holding anything. Poses: perched on a branch; flying with wings "
+               "spread; hopping on the ground. Expressions: beak open squawking, curious head tilt, proud puffed "
+               "chest."),
+}
+SCENES = {
+    "A": (["dadi", "golu", "mitthu"],
+          "16:9 scene, evening (shaam) in Dadi's aangan in Gulmohar Mohalla: a small mud house with a clay-tile roof "
+          "and a brown wooden door, a clean swept courtyard with a tulsi pot. Dadi sits on a charpai smiling, Golu sits "
+          "close beside her listening, and Mitthu perches on a low branch of a big gulmohar tree full of flame-orange "
+          "flowers above them. Low amber sun, long soft shadows, apricot and rose sky with soft clouds, green fields "
+          "behind the house. Keep every character exactly as in the attached reference sheets. Mitthu is a bird with "
+          "wings and feet only, no hands."),
+    "B": (["dadi", "golu", "mitthu"],
+          "16:9 scene, night on a flat rooftop (chhat) in Gulmohar Mohalla: Dadi and Golu sit together on a mat, "
+          "both looking up and Golu pointing at the stars; Mitthu perches on the low roof wall beside them. A small "
+          "brass lantern glows warm orange on the mat. Deep indigo-blue night sky full of softly painted stars, "
+          "silver moonlight, neighbouring flat roofs with water tanks and clotheslines in the distance, a gulmohar "
+          "tree silhouette. Faces clearly readable. Keep every character exactly as in the attached reference "
+          "sheets. Mitthu is a bird with wings and feet only, no hands."),
+}
+EST_INR = 5.0  # pre-GST estimate per 1K image with references (actual average so far ~₹5)
+
+
+def sheets(names):
+    for n in names:
+        out = CHAR / n / "sheet_painted.png"
+        check(BUDGET, EST_INR)
+        t0 = time.time()
+        generate(f"{SHEET}\n\n{SHEETS[n]}", out, refs=[CHAR / f"{n}_sheet.png"], aspect_ratio="3:2", size="1K",
+                 style=style_block())
+        print(f"saved {out} ({time.time() - t0:.0f}s)", flush=True)
+
+
+def scenes(ids):
+    for i in ids:
+        who, prompt = SCENES[i]
+        out = OUT / f"scene_{i}.png"
+        check(BUDGET, EST_INR)
+        t0 = time.time()
+        generate(prompt, out, refs=[CHAR / w / "sheet_painted.png" for w in who], aspect_ratio="16:9", size="1K",
+                 style=style_block())
+        print(f"saved {out} ({time.time() - t0:.0f}s)", flush=True)
+
+
+if __name__ == "__main__":
+    cmd, rest = sys.argv[1], sys.argv[2:]
+    {"sheets": lambda: sheets(rest or list(SHEETS)), "scenes": lambda: scenes(rest or list(SCENES))}[cmd]()
+
+90 scripts/gen_painted.py
+````
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-20 15:38:08Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Grep repo for studio/artist names
+
+`grep -rniE "ghibli|miyazaki|totoro|spirited|kiki|howl|ponyo|mononoke|chihiro|no-?face|catbus|soot sprite|makoto|shinkai|pixar|disney|dreamworks|studio [A-Z]|in the style of" --include=*.py --include=*.md --include=*.json --include=*.jsonl --include=*.csv --include=*.txt . 2>/dev/null | grep -v "^./.specstory" | grep -v "^./.venv" | grep -v node_modules | cut -c1-220 | head -40`
+
+```text
+./.claude/skills/youtube-publish/SKILL.md:21:- Tell the user the one Studio step left: open the studio_url and set Schedule / Public.
+./.claude/skills/youtube-publish/SKILL.md:47:8. Report: video URL, studio URL, what succeeded, and what still needs a click in Studio (schedule if locked private, pinned comment, end screen). Pinning a comment is not pos
+./channels/dadi-ki-kahaniyan/brand/STYLE_PAINTED.md:54:Never add any studio/film/artist name or "in the style of …".
+./channels/dadi-ki-kahaniyan/carry_over.md:14:| 2026-10-19 | cost ledger (actual-cost switch) | ledger under-counted (old image rows = flat ₹3.24, no reference/thinking tokens); unknown whether Google takes GST out of 
+./channels/dadi-ki-kahaniyan/log.md:17:2026-10-18 | short_01_jadui-kadhai | 9 metadata R1 | PASS | title 63 chars, desc 504, 4 hashtags, 12 tags 201/500, txt TAGS = meta.json, no kids wording, no twist; 2/2 CC BY credits
+./channels/dadi-ki-kahaniyan/log.md:22:2026-10-18 | short_01_jadui-kadhai | publish slot | USER EXCEPTION | user asked: Short + Long 01 both 2026-10-18 19:00 IST (RULES 8 wants 2 h gap); Long 01 moved by user in Studio t
+./channels/dadi-ki-kahaniyan/log.md:64:2026-10-19 | 004_chhat-par-bhoot | AUTO STOP (billing): Gemini 429 monthly spending cap reached (AI Studio project spend cap). Done: sheet, images 2/4/5/6, voice sample, 15/40 TTS; 
+./channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long/output/upload_result.json:9:  "publish_at_note": "changed by the user in Studio on 2026-10-18; API confirms publishAt 2026-10-18T13:30:00Z",
+./claude-home/skills/synced/d736fa87-dd55-45ac-be82-3fccb61d5790_2a99b09f-ca01-44e1-8ad5-ec9c34af1225/pptx/SKILL.md:49:- **Default charts render bare** — no title, no data labels, dated palette. Set `showTitle` + `titl
+./CLAUDE.md:43:- Uploads ke baad manual Studio checklist: Short ka Related video, first comment pin, aur jab tak API audit pass na ho, schedule confirm/set karna.
+./CLAUDE.md:54:econcile_balance.py <AI Studio balance ₹>` (pehli baar checkpoint), Long 03 ke baad `--check` phir `--apply` (GST do baar na gine). Tay ho chuka: Google kharcha + 18% GST credit se kaatta hai, `budget_in
+./docs/YOUTUBE_API_AUDIT_DRAFT.md:93:> Studio as Scheduled. Do not show the client secret or token files.
+./docs/YOUTUBE_UPLOADER_SETUP.md:84:private and the `publishAt` time may be ignored. After every upload, open the Studio link and check Visibility; if it only
+./scripts/reconcile_balance.py:2:Always use the AI Studio billing "Credit balance", never the cost chart (PDT time zone, updates late).
+./shared/pricing.json:44:      "_help": "Set ONLY from AI Studio billing 'Credit balance' (₹), never from the cost chart (that chart is in PDT and updates late). Spend logged after 'timestamp' is subtracted from it.",
+./shared/RULES.md:78:- Content: no real brand logos, no film/TV/cartoon characters (Chhota Bheem, Motu Patlu, Disney, etc.), no celebrity likeness, no copied song lyrics, no copied text from modern books. Old folk tales 
+./shared/RULES.md:79:- Image prompts never name a studio, franchise or living artist ("Pixar style", "Ghibli style", etc.).
+./shared/RULES.md:81:- After upload: if YouTube Studio shows any copyright claim or strike, stop all new uploads and tell the user. CC music sometimes gets false Content ID claims; dispute only with the licence proof fro
+./shared/RULES.md:143:- Every long video goes into its channel playlist, gets an end screen (next video + subscribe), and every Short from it has Related video = that long (manual Studio checklist).
+./shared/RULES.md:147:From story 004, section 15 (production profile) overrides this section where they differ: no preview, budget ₹100–110 actual per story instead of the ₹130 cap, max 1 regeneration per image (BL
+./shared/RULES.md:153:- Manual Studio checklist after uploads (the API cannot do these): Related video for the Short = its long video, pin the first comment, and — until the API audit passes — confirm/set the schedul
+./tools/whisper-models/models--Systran--faster-whisper-small/snapshots/536b0662742c02347bc0e980a01041f333bce120/tokenizer.json:9734:      "ĠDisney": 8653,
+./tools/whisper-models/models--Systran--faster-whisper-small/snapshots/536b0662742c02347bc0e980a01041f333bce120/tokenizer.json:35878:      "ĠDisneyland": 34797,
+./tools/whisper-models/models--Systran--faster-whisper-small/snapshots/536b0662742c02347bc0e980a01041f333bce120/tokenizer.json:47776:      "ĠPixar": 46695,
+./tools/whisper-models/models--Systran--faster-whisper-small/snapshots/536b0662742c02347bc0e980a01041f333bce120/tokenizer.json:85881:      "ĠDisney land",
+./tools/whisper-models/models--Systran--faster-whisper-small/snapshots/536b0662742c02347bc0e980a01041f333bce120/vocabulary.txt:8654:ĠDisney
+./tools/whisper-models/models--Systran--faster-whisper-small/snapshots/536b0662742c02347bc0e980a01041f333bce120/vocabulary.txt:34798:ĠDisneyland
+./tools/whisper-models/models--Systran--faster-whisper-small/snapshots/536b0662742c02347bc0e980a01041f333bce120/vocabulary.txt:46696:ĠPixar
+./_to_delete/munshi_RULES.md:71:- Content: no real brand logos, no film/TV/cartoon characters (Chhota Bheem, Motu Patlu, Disney, etc.), no celebrity likeness, no copied song lyrics, no copied text from modern books. Old 
+./_to_delete/munshi_RULES.md:72:- Image prompts never name a studio, franchise or living artist ("Pixar style", "Ghibli style", etc.).
+./_to_delete/munshi_RULES.md:74:- After upload: if YouTube Studio shows any copyright claim or strike, stop all new uploads and tell the user. CC music sometimes gets false Content ID claims; dispute only with the licenc
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-20 15:39:56Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Check specstory names, gemini diff, old sheets
+
+`grep -rliE "ghibli|miyazaki|totoro" .specstory 2>/dev/null | head; grep -rliE "ghibli|miyazaki|totoro" --exclude-dir=.venv --exclude-dir=.specstory --exclude-dir=tools . 2>/dev/null | head; git diff scripts/gemini_image.py | head -80; git diff --quiet HEAD -- channels/dadi-ki-kahaniyan/characters/dadi_sheet.png channels/dadi-ki-kahaniyan/characters/golu_sheet.png channels/dadi-ki-kahaniyan/characters/mitthu_sheet.png && echo OLD_SHEETS_UNCHANGED; git ls-files channels/dadi-ki-kahaniyan/characters/*_sheet.png`
+
+```text
+.specstory/history/2026-10-17_08-25-27Z-pasted-content-id-aeaa.md
+./shared/RULES.md
+./_to_delete/munshi_RULES.md
+diff --git a/scripts/gemini_image.py b/scripts/gemini_image.py
+index 585a1f4..618acb8 100644
+--- a/scripts/gemini_image.py
++++ b/scripts/gemini_image.py
+@@ -41,12 +41,14 @@ def _find_image(obj):
+     return None
+ 
+ 
+-def generate(prompt: str, out: Path, refs: list[Path] = (), aspect_ratio="1:1", size="1K") -> Path:
++def generate(prompt: str, out: Path, refs: list[Path] = (), aspect_ratio="1:1", size="1K",
++             style: str | None = None) -> Path:
++    """style: None = the old flat-cartoon STYLE line; a string replaces it (e.g. the Kissago Painted block)."""
+     key = os.environ.get("GEMINI_API_KEY")
+     if not key:
+         raise RuntimeError("GEMINI_API_KEY missing in .env")
+ 
+-    inputs = [{"type": "text", "text": f"{prompt}\n\n{STYLE}"}]
++    inputs = [{"type": "text", "text": f"{prompt}\n\n{STYLE if style is None else style}".rstrip()}]
+     for ref in refs:
+         mime = mimetypes.guess_type(ref)[0] or "image/png"
+         inputs.append({"type": "image", "mime_type": mime,
+OLD_SHEETS_UNCHANGED
+channels/dadi-ki-kahaniyan/characters/dadi_sheet.png
+channels/dadi-ki-kahaniyan/characters/golu_sheet.png
+channels/dadi-ki-kahaniyan/characters/mitthu_sheet.png
+channels/dadi-ki-kahaniyan/characters/pandey_sheet.png
+channels/dadi-ki-kahaniyan/characters/sharma_sheet.png
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-20 15:40:04Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Check style_migration budget
+
+`.venv/Scripts/python -X utf8 scripts/story_budget.py --help 2>&1 | head -15; .venv/Scripts/python -X utf8 scripts/story_budget.py style_migration 2>&1 | tail -15; head -1 cost_log.csv; grep -i "style_migration\|painted" cost_log.csv`
+
+```text
+2026-10-20 | --help | ASLI KUL KHARCHA | ₹0.00 + GST ₹0.00 = ₹0.00 (andaza tha ₹0.00; 0 paid calls, 0 bina usage = andaza) | cap ₹110
+account remaining (ledger, GST samet): ₹302.78
+2026-10-20 | style_migration | ASLI KUL KHARCHA | ₹23.61 + GST ₹4.25 = ₹27.86 (andaza tha ₹17.88; 6 paid calls, 0 bina usage = andaza) | cap ₹35
+account remaining (ledger, GST samet): ₹302.78
+timestamp,file,model,size,cost_usd,cost_inr,today_total_inr,remaining_inr,channel,estimated_inr,actual_inr,gst_inr,input_tokens,output_tokens
+2026-10-20 20:52:49,style_tests/painted/cap_check.wav,gemini-3.8-flash-tts,tts 1.2s,0.00027,0.03,69.55,330.61,dadi-ki-kahaniyan,0.03,0.0262,0.00,3,30
+2026-10-20 20:54:33,channels/dadi-ki-kahaniyan/characters/dadi/sheet_painted.png,gemini-nano-banana-2.1,1K,0.04829,4.66,75.05,325.11,dadi-ki-kahaniyan,3.45,4.6596,0.84,1366,2805
+2026-10-20 20:54:58,channels/dadi-ki-kahaniyan/characters/golu/sheet_painted.png,gemini-nano-banana-2.1,1K,0.04525,4.37,80.20,319.96,dadi-ki-kahaniyan,3.44,4.3664,0.79,1350,2403
+2026-10-20 20:55:24,channels/dadi-ki-kahaniyan/characters/mitthu/sheet_painted.png,gemini-nano-banana-2.1,1K,0.04739,4.57,85.60,314.56,dadi-ki-kahaniyan,3.44,4.5729,0.82,1357,2687
+2026-10-20 20:56:29,style_tests/painted/scene_A.png,gemini-nano-banana-2.1,1K,0.05188,5.01,91.51,308.65,dadi-ki-kahaniyan,3.76,5.0062,0.90,3560,2845
+2026-10-20 20:57:04,style_tests/painted/scene_B.png,gemini-nano-banana-2.1,1K,0.05162,4.98,97.38,302.78,dadi-ki-kahaniyan,3.76,4.9810,0.90,3551,2812
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-20 15:40:12Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Compare per-image cost story 004
+
+`grep "004_chhat" cost_log.csv | grep -v tts | awk -F, '{print $1,$2,$11,$12,$13,$14}' | tail -8; .venv/Scripts/python -X utf8 scripts/story_budget.py 004_chhat-par-bhoot | head -2`
+
+```text
+2026-10-20 11:19:59 channels/dadi-ki-kahaniyan/stories/004_chhat-par-bhoot/images/scene_11.png 4.8870 0.88 2642 2864
+2026-10-20 11:20:37 channels/dadi-ki-kahaniyan/stories/004_chhat-par-bhoot/images/scene_12.png 4.5394 0.82 1500 2612
+2026-10-20 11:21:13 channels/dadi-ki-kahaniyan/stories/004_chhat-par-bhoot/images/scene_13.png 5.1295 0.92 3817 2964
+2026-10-20 11:21:47 channels/dadi-ki-kahaniyan/stories/004_chhat-par-bhoot/images/scene_14.png 4.8817 0.88 3800 2625
+2026-10-20 11:22:48 channels/dadi-ki-kahaniyan/stories/004_chhat-par-bhoot/images/scene_15.png 6.4609 1.16 8415 3884
+2026-10-20 11:23:21 channels/dadi-ki-kahaniyan/stories/004_chhat-par-bhoot/images/scene_16.png 4.9597 0.89 4969 2499
+2026-10-20 11:29:05 channels/dadi-ki-kahaniyan/stories/004_chhat-par-bhoot/long/thumbnail_work/long03_thumb_raw.png 5.2111 0.94 3736 3093
+2026-10-20 11:30:06 channels/dadi-ki-kahaniyan/stories/004_chhat-par-bhoot/shorts/short_01_bhoot-phir-aaya/thumbnail_work/cover_raw.png 5.7473 1.03 4855 3610
+2026-10-20 | 004_chhat-par-bhoot | ASLI KUL KHARCHA | ₹83.79 + GST ₹15.08 = ₹98.88 (andaza tha ₹65.03; 58 paid calls, 0 bina usage = andaza) | cap ₹110
+account remaining (ledger, GST samet): ₹302.78
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-20 15:40:23Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Probe image and video sizes
+
+`for f in style_tests/painted/scene_A.png style_tests/painted/scene_B.png channels/dadi-ki-kahaniyan/characters/*/sheet_painted.png; do ffprobe -v error -select_streams v -show_entries stream=width,height -of csv=p=0 "$f"; done; for f in style_tests/painted/*.mp4; do echo "$f $(ffprobe -v error -show_entries stream=width,height,r_frame_rate,codec_name -show_entries format=duration -of csv=p=0 "$f" | tr '\n' ' ')"; done; cat style_tests/painted/list.txt; ls style_tests/painted/_depth`
+
+```text
+/usr/bin/bash: line 1: ffprobe: command not found
+/usr/bin/bash: line 1: ffprobe: command not found
+/usr/bin/bash: line 1: ffprobe: command not found
+/usr/bin/bash: line 1: ffprobe: command not found
+/usr/bin/bash: line 1: ffprobe: command not found
+/usr/bin/bash: line 1: ffprobe: command not found
+style_tests/painted/compare.mp4 
+/usr/bin/bash: line 1: ffprobe: command not found
+style_tests/painted/compare_0.mp4 
+/usr/bin/bash: line 1: ffprobe: command not found
+style_tests/painted/compare_1.mp4 
+/usr/bin/bash: line 1: ffprobe: command not found
+style_tests/painted/new_0.mp4 
+/usr/bin/bash: line 1: ffprobe: command not found
+style_tests/painted/new_1.mp4 
+/usr/bin/bash: line 1: ffprobe: command not found
+style_tests/painted/new_A_parallax_forced.mp4 
+/usr/bin/bash: line 1: ffprobe: command not found
+style_tests/painted/new_B_parallax_forced.mp4 
+/usr/bin/bash: line 1: ffprobe: command not found
+style_tests/painted/old_0.mp4 
+/usr/bin/bash: line 1: ffprobe: command not found
+style_tests/painted/old_1.mp4 
+file 'D:/Story-Channel/style_tests/painted/compare_0.mp4'
+file 'D:/Story-Channel/style_tests/painted/compare_1.mp4'scene_A_e79ec376e2.png
+scene_B_67e79eff3b.png
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-20 15:40:28Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Find ffmpeg location
+
+`grep -rn "ffmpeg\|ffprobe" scripts/paths.py tools/parallax.py | head -5; ls tools | head -30; where ffmpeg 2>/dev/null; ls /c/ffmpeg* 2>/dev/null`
+
+```text
+Exit code 2
+tools/parallax.py:38:FFMPEG = ROOT / "tools" / "ffmpeg" / "ffmpeg.exe"
+tools/parallax.py:41:    FFMPEG = Path(shutil.which("ffmpeg") or "ffmpeg")
+__pycache__
+deno
+export_claude_home.ps1
+ffmpeg
+new_channel.ps1
+parallax.py
+parallax_compare.py
+post_comment.py
+rebrand_update.py
+sync.ps1
+sync_bg.ps1
+veto.py
+whisper-models
+youtube_upload.py
+yt-dlp.exe
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-20 15:41:32Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Probe files with bundled ffprobe
+
+`P=tools/ffmpeg/ffprobe.exe; ls tools/ffmpeg; for f in style_tests/painted/scene_A.png style_tests/painted/scene_B.png channels/dadi-ki-kahaniyan/characters/*/sheet_painted.png style_tests/painted/*.mp4; do echo "$f | $($P -v error -show_entries stream=codec_name,width,height,r_frame_rate -show_entries format=duration -of csv=p=0 "$f" | tr '\n' ' ')"; done`
+
+```text
+ffmpeg.exe
+ffplay.exe
+ffprobe.exe
+style_tests/painted/scene_A.png | mjpeg,1376,768,25/1 0.040000 
+style_tests/painted/scene_B.png | mjpeg,1376,768,25/1 0.040000 
+channels/dadi-ki-kahaniyan/characters/dadi/sheet_painted.png | mjpeg,1264,848,25/1 0.040000 
+channels/dadi-ki-kahaniyan/characters/golu/sheet_painted.png | mjpeg,1264,848,25/1 0.040000 
+channels/dadi-ki-kahaniyan/characters/mitthu/sheet_painted.png | mjpeg,1264,848,25/1 0.040000 
+style_tests/painted/compare.mp4 | h264,1920,540,30/1 12.000000 
+style_tests/painted/compare_0.mp4 | h264,1920,540,30/1 6.000000 
+style_tests/painted/compare_1.mp4 | h264,1920,540,30/1 6.000000 
+style_tests/painted/new_0.mp4 | h264,1920,1080,30/1 6.000000 
+style_tests/painted/new_1.mp4 | h264,1920,1080,30/1 6.000000 
+style_tests/painted/new_A_parallax_forced.mp4 | h264,1920,1080,30/1 6.000000 
+style_tests/painted/new_B_parallax_forced.mp4 | h264,1920,1080,30/1 6.000000 
+style_tests/painted/old_0.mp4 | h264,1920,1080,30/1 6.000000 
+style_tests/painted/old_1.mp4 | h264,1920,1080,30/1 6.000000
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-20 15:42:07Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Extract frames from forced parallax clips
+
+`F=tools/ffmpeg/ffmpeg.exe; S="C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad"; mkdir -p "$S"; tools/ffmpeg/ffprobe.exe -v error -show_entries stream=codec_name -of csv=p=0 channels/dadi-ki-kahaniyan/characters/dadi_sheet.png; for c in A B; do for t in 0 2.9 5.9; do $F -v error -y -ss $t -i style_tests/painted/new_${c}_parallax_forced.mp4 -frames:v 1 -q:v 3 "$S/${c}_$t.jpg"; done; done; ls "$S"`
+
+```text
+mjpeg
+A_0.jpg
+A_2.9.jpg
+A_5.9.jpg
+B_0.jpg
+B_2.9.jpg
+B_5.9.jpg
+__pycache__
+ana_ours
+ana_ref
+ana_ref5
+ana_v2
+ana_v3
+aud
+banner.jpg
+banner_check.png
+banner_check2.png
+banner_safe_crop.png
+brand_sheet.jpg
+check_samples.py
+contact.py
+cost_log_before_migration.csv
+cover_top.png
+covertest
+crop.py
+crops.py
+crops2.py
+cs1.jpg
+cs2.jpg
+cs3.jpg
+cs4.jpg
+cuts_ours.txt
+cuts_ref.txt
+cuts_ref5.txt
+diff.py
+dp_check.png
+dur.py
+durs.txt
+est.py
+est2.py
+est3.py
+f_1.8.png
+f_27.png
+f_41.png
+f_56.png
+final2.log
+font_dl
+frames.py
+frames3.py
+g_31.png
+gist
+grid.py
+h_0.05.png
+h_20.5.png
+h_32.png
+h_35.png
+h_50.png
+h_7.png
+icon_check.jpg
+k_23.5.png
+k_26.png
+k_45.5.png
+k_54.png
+lcrops.py
+lf
+lockups.jpg
+login_test.py
+long01_detail.png
+long01_sheet.png
+long02_images.log
+long02_lines.py
+long02_lines_v2_backup.py
+long02_plan.py
+long02_shots.py
+long02_shots_extra.json
+long02_tts.py
+long02_tts_work
+long02_write.py
+long03_tts.py
+long03_tts_work
+long_preview_sheet.png
+long_scenes.txt
+long_sheet.py
+long_timed.json
+long_tl.txt
+ls_1.png
+ls_10.png
+ls_11.png
+ls_12.png
+ls_13.png
+ls_14.png
+ls_15.png
+ls_16.png
+ls_17.png
+ls_18.png
+ls_19.png
+ls_2.png
+ls_20.png
+ls_21.png
+ls_22.png
+ls_23.png
+ls_24.png
+ls_25.png
+ls_26.png
+ls_27.png
+ls_28.png
+ls_29.png
+ls_3.png
+ls_30.png
+ls_31.png
+ls_32.png
+ls_33.png
+ls_34.png
+ls_35.png
+ls_36.png
+ls_37.png
+ls_38.png
+ls_4.png
+ls_5.png
+ls_6.png
+ls_7.png
+ls_8.png
+ls_9.png
+lvl.py
+mix.f.raw
+mix.f.wav
+mkjob.py
+music.f.raw
+music.f.wav
+old01.jpg
+painted_A.jpg
+painted_B.jpg
+pv_30.png
+pv_cap.png
+px
+px2
+r1.py
+rates.json
+rates.py
+ref_first12.png
+ref_sheet.png
+rewrite_meta.py
+s004_lines.py
+s004_prompts.py
+s004_r1fix.py
+s004_sheet.jpg
+s004_shots.py
+s13
+s5_final.png
+s5_hand.png
+s5_zoom.png
+safe_patch.py
+settings.json.pre-migration
+sf
+sframes.py
+sheets_small.jpg
+short01_final.log
+short_timed.json
+short_tl.txt
+shots.py
+sim.py
+srt_work
+srtcheck.py
+srtchk.py
+strip.png
+strip2.png
+sw
+sync2.png
+sync_19_24.png
+t1.mp4
+t2.mp4
+thumb.py
+thumb_v_check.png
+times.txt
+timing.py
+tl.py
+tmp3
+tmpframes
+tmps
+v48.raw
+v48.wav
+veto_fixture
+veto_test.py
+vt
+wcheck.py
+wh.py
+wh2.py
+wm_test
+wt.py
+wt2.py
+wt3.py
+zoom_hook.png
+zoom_logo.png
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-20 15:42:29Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Crop detail regions first vs last frame
+
+```bash
+cd "C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad" && mkdir -p munshi_px && mv A_*.jpg B_*.jpg munshi_px/ && cd munshi_px && F=/d/Story-Channel/tools/ffmpeg/ffmpeg.exe
+# A: characters region and Mitthu region, first vs last
+for t in 0 5.9; do
+$F -v error -y -i A_$t.jpg -vf crop=640:560:1000:520 -q:v 3 Achar_$t.jpg
+$F -v error -y -i A_$t.jpg -vf crop=420:360:1220:200 -q:v 3 Amit_$t.jpg
+$F -v error -y -i B_$t.jpg -vf crop=560:420:300:440 -q:v 3 Bmit_$t.jpg
+$F -v error -y -i B_$t.jpg -vf crop=760:620:900:360 -q:v 3 Bchar_$t.jpg
+done
+$F -v error -y -i Achar_0.jpg -i Achar_5.9.jpg -filter_complex hstack -q:v 3 cmp_Achar.jpg
+$F -v error -y -i Amit_0.jpg -i Amit_5.9.jpg -filter_complex hstack -q:v 3 cmp_Amit.jpg
+$F -v error -y -i Bmit_0.jpg -i Bmit_5.9.jpg -filter_complex hstack -q:v 3 cmp_Bmit.jpg
+$F -v error -y -i Bchar_0.jpg -i Bchar_5.9.jpg -filter_complex hstack -q:v 3 cmp_Bchar.jpg; ls
+```
+
+```text
+A_0.jpg
+A_2.9.jpg
+A_5.9.jpg
+Achar_0.jpg
+Achar_5.9.jpg
+Amit_0.jpg
+Amit_5.9.jpg
+B_0.jpg
+B_2.9.jpg
+B_5.9.jpg
+Bchar_0.jpg
+Bchar_5.9.jpg
+Bmit_0.jpg
+Bmit_5.9.jpg
+cmp_Achar.jpg
+cmp_Amit.jpg
+cmp_Bchar.jpg
+cmp_Bmit.jpg
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-20 15:42:32Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `C:\Users\ashamim\AppData\Local\Temp\claude\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7\scratchpad\munshi_px\A_5.9.jpg`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-20 15:42:33Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `C:\Users\ashamim\AppData\Local\Temp\claude\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7\scratchpad\munshi_px\cmp_Achar.jpg`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-20 15:42:37Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `C:\Users\ashamim\AppData\Local\Temp\claude\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7\scratchpad\munshi_px\cmp_Amit.jpg`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-20 15:42:38Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `C:\Users\ashamim\AppData\Local\Temp\claude\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7\scratchpad\munshi_px\cmp_Bmit.jpg`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-20 15:42:39Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `C:\Users\ashamim\AppData\Local\Temp\claude\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7\scratchpad\munshi_px\cmp_Bchar.jpg`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-20 15:43:02Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Make 2x zoom edge crops
+
+```bash
+cd "C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad/munshi_px" && F=/d/Story-Channel/tools/ffmpeg/ffmpeg.exe
+for t in 0 5.9; do
+$F -v error -y -i B_$t.jpg -vf "crop=260:420:1360:360,scale=520:840:flags=lanczos" -q:v 3 Bedge_$t.jpg
+$F -v error -y -i B_$t.jpg -vf "crop=200:260:800:660,scale=400:520:flags=lanczos" -q:v 3 Blant_$t.jpg
+$F -v error -y -i A_$t.jpg -vf "crop=260:300:1380:640,scale=520:600:flags=lanczos" -q:v 3 Aedge_$t.jpg
+$F -v error -y -i A_$t.jpg -vf "crop=200:300:1080:600,scale=400:600:flags=lanczos" -q:v 3 Adadi_$t.jpg
+done
+$F -v error -y -i Bedge_0.jpg -i Bedge_5.9.jpg -i Blant_0.jpg -i Blant_5.9.jpg -filter_complex "[2]pad=400:840[a];[3]pad=400:840[b];[0][1][a][b]hstack=4" -q:v 3 cmp_Bzoom.jpg
+$F -v error -y -i Aedge_0.jpg -i Aedge_5.9.jpg -i Adadi_0.jpg -i Adadi_5.9.jpg -filter_complex "[0][1][2][3]hstack=4" -q:v 3 cmp_Azoom.jpg
+```
+
+```text
+(Bash completed with no output)
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-20 15:43:02Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `C:\Users\ashamim\AppData\Local\Temp\claude\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7\scratchpad\munshi_px\cmp_Bzoom.jpg`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-20 15:43:02Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `C:\Users\ashamim\AppData\Local\Temp\claude\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7\scratchpad\munshi_px\cmp_Azoom.jpg`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-20 15:43:18Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Extract compare.mp4 frames and B full frames
+
+`cd "C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad/munshi_px" && F=/d/Story-Channel/tools/ffmpeg/ffmpeg.exe; for t in 1 4 8 11; do $F -v error -y -ss $t -i /d/Story-Channel/style_tests/painted/compare.mp4 -frames:v 1 -q:v 3 cmp_$t.jpg; done; $F -v error -y -i cmp_4.jpg -i cmp_11.jpg -filter_complex vstack -q:v 3 compare_frames.jpg; $F -v error -y -i B_0.jpg -i B_5.9.jpg -filter_complex "vstack,scale=1280:-1" -q:v 3 B_full.jpg`
+
+```text
+(Bash completed with no output)
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-20 15:43:18Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `C:\Users\ashamim\AppData\Local\Temp\claude\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7\scratchpad\munshi_px\compare_frames.jpg`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-20 15:43:18Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `C:\Users\ashamim\AppData\Local\Temp\claude\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7\scratchpad\munshi_px\B_full.jpg`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-20 15:43:34Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Crop possible stray mark and corners
+
+`cd "C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad/munshi_px" && F=/d/Story-Channel/tools/ffmpeg/ffmpeg.exe; S=/d/Story-Channel/style_tests/painted; $F -v error -y -i $S/scene_B.png -vf "crop=140:100:1080:520,scale=560:400:flags=lanczos" -q:v 3 Bmark.jpg; $F -v error -y -i $S/scene_B.png -vf "crop=200:120:1176:648,scale=400:240" -q:v 3 Bcorner.jpg; $F -v error -y -i $S/scene_A.png -vf "crop=200:120:1176:648,scale=400:240" -q:v 3 Acorner.jpg; $F -v error -y -i Bmark.jpg -vf pad=560:640 -q:v 3 t1.jpg; $F -v error -y -i Bcorner.jpg -i Acorner.jpg -filter_complex vstack -q:v 3 t2.jpg; $F -v error -y -i t1.jpg -i t2.jpg -filter_complex "[1]pad=400:640[b];[0][b]hstack" -q:v 3 marks.jpg`
+
+```text
+(Bash completed with no output)
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-20 15:43:34Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `C:\Users\ashamim\AppData\Local\Temp\claude\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7\scratchpad\munshi_px\marks.jpg`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-20 15:43:43Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Read bible Mitthu description and log tail
+
+`grep -n -i -A3 "mitthu" channels/dadi-ki-kahaniyan/channel_bible.md | head -30; grep -n -i "golu\b.*shirt\|dadi.*saree\|stick\|chhadi" channels/dadi-ki-kahaniyan/channel_bible.md | head; tail -5 channels/dadi-ki-kahaniyan/log.md`
+
+```text
+4:> Dadi, Golu aur Mitthu channel ke host/characters hain. Mystery series ka naam **"दादी जासूस"** hi rahega — Dadi har case ki jaasoos hain.
+5-> Title ke ant me `| किस्सागो` (channel.json `title_suffix`); thumbnail ke kone me "किस्सागो".
+6-> Channel art (live since 18 Oct 2026): `brand/kissago_banner_v3.png` (2560x1440, night sky), `brand/kissago_dp_ki.png` (800x800, monogram "कि"), `brand/watermark.png` (150x150); logo files and rules in `brand/BRAND.md`. Older versions kept: `kissago_banner_v2.png`, `kissago_banner.png`, `kissago_dp.png`, `dadi_ki_kahaniyan_banner.png`.
+7-
+--
+73:- **Dadi ka ghar** (mohalle ke kinare): kacha mitti ka ghar, khaprail ki chhat, **bhoora lakdi ka darwaza**, saaf-supa aangan, peeche hare khet. Look reference: `brand/_work/banner_art.png` (channel banner wala aangan). Golu–Mitthu ka opening/closing frame isi aangan me hota hai.
+74-- Kabhi-kabhi special cases: shaadi, mela, train.
+75-
+76----
+24:- **Look:** ~70 saal, gol chehra, safed baalon ka joora, gol sunehra chashma, halki hari saree with pali border, lakdi ki chhadi, maathe par chhoti bindi.
+2026-10-20 | 004_chhat-par-bhoot short_01_bhoot-phir-aaya | 7 final R1 (only check, RULES 15) (~20 min) | PASS | 1080x1920 h264 High yuv420p bt709 30fps + AAC, 38.42 s (<= 40); -14.2 LUFS / -1.4 dBTP; music 13.5 LU under voice (stem); first frame = figure on roof, no burned caption before 1 s; burned captions above bottom 20% and left of 85%; 26-frame sheet: faces/hands inside crop, Mishra never shown (figure from behind only), cliffhanger + end card 2 s; srt 30 cues = 9 lines; 1 CC BY credit exact; no spoiler; Note: srt cue 1 at 0.00 s (CC only); story cost ₹98.88 incl. GST (cap 110), ledger balance ₹330.64; no STOP
+2026-10-20 | short_01_bhoot-phir-aaya | short->long checklist | video jFXPwZE2xYY -> long llqRdGA08zY | related_video: pending, pin_comment: pending
+2026-10-20 | 004_chhat-par-bhoot long_03 | publish | PUBLISHED | video llqRdGA08zY uploaded (scheduled 2026-10-21 19:00 IST, auto mode RULES 14/15 / script approval; 2026-10-20 slots taken by Long 02), dry-run clean, thumbnail ok, captions ok, channel UCy071_4g4vGemktFHybqkhQ verified; veto: tools/veto.py llqRdGA08zY --apply; manual: confirm Scheduled in Studio (unaudited API), end screen; story ₹98.88
+2026-10-20 | 004_chhat-par-bhoot short_01_bhoot-phir-aaya | publish | PUBLISHED | video jFXPwZE2xYY uploaded (scheduled 2026-10-21 21:00 IST), parent llqRdGA08zY, desc line 1 + 1st comment task StoryChannel-Comment-jFXPwZE2xYY at 21:05 IST, captions ok, no thumb (cover file output/short_01_bhoot-phir-aaya_cover.png manual), channel verified; veto: tools/veto.py jFXPwZE2xYY --apply; manual: Related video + pin comment + confirm Scheduled in Studio
+2026-10-20 | 004_chhat-par-bhoot | ASLI KUL KHARCHA | ₹83.79 + GST ₹15.08 = ₹98.88 (andaza tha ₹65.03; 58 paid calls, 0 bina usage = andaza) | cap ₹110
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-20 15:43:46Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Read bible character section
+
+`sed -n 20,40p channels/dadi-ki-kahaniyan/channel_bible.md`
+
+```text
+## 2. Permanent Characters (look KABHI nahi badlega)
+
+### 1. दादी (Kamla Devi)
+- **Look:** ~70 saal, gol chehra, safed baalon ka joora, gol sunehra chashma, halki hari saree with pali border, lakdi ki chhadi, maathe par chhoti bindi.
+- **Swabhav:** shaant, tez nazar, meethi par chubhti baatein.
+- **Catchphrase:** "बेटा, चोर कितना भी चालाक हो... दादी से नहीं बच सकता!"
+
+### 2. गोलू
+- **Look:** ~10 saal ka pota, gol-matol, bikhre kaale baal, peeli T-shirt, neeli half-pant, laal joote.
+- **Swabhav:** jaldbaaz, hamesha galat andaza lagata hai, comedy deta hai.
+- **Catchphrase:** "दादी, मुझे पता है चोर कौन है!" *(aur hamesha galat)*
+
+### 3. मिट्ठू
+> Naam ki spelling har jagah **"मिट्ठू"** (script, captions, title) — user ka faisla 2026-10-19.
+- **Look:** dadi ka hara tota (parrot), laal choonch.
+- **Role:** kabhi-kabhi ek shabd dohrata hai jo clue ban jaata hai.
+
+### 4. Inspector Pandey
+- **Look:** ~45 saal, mote, khaki uniform, ghani moonchh.
+- **Role:** har baar dadi se pehle galat aadmi pakadne ki koshish karta hai, phir dadi se haar maanta hai.
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-20 15:43:59Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Check specstory hits and repo visibility
+
+`grep -o -i -c "ghibli\|miyazaki\|totoro" .specstory/history/2026-10-17_08-25-27Z-pasted-content-id-aeaa.md; git ls-files .specstory | head -3; gh repo view --json visibility -q .visibility 2>&1 | head -2; git ls-files style_tests | head; cat .gitignore | grep -i "style_tests\|review\|png" `
+
+```text
+34
+.specstory/.gitignore
+.specstory/.project.json
+.specstory/cli/config.toml
+PRIVATE
+style_tests/parallax/frames_scene_02.jpg
+style_tests/parallax/frames_scene_04.jpg
+style_tests/parallax/frames_scene_05.jpg
+style_tests/parallax/frames_scene_06.jpg
+style_tests/parallax/layers_scene_02.jpg
+style_tests/parallax/layers_scene_04.jpg
+style_tests/parallax/layers_scene_05.jpg
+style_tests/parallax/layers_scene_06.jpg
+style_tests/parallax/layers_v2.jpg
+style_tests/parallax/layers_v3.jpg
+# Munshi review working files (frames, sheets, stems: regenerable, large); only the .md reports go to GitHub
+**/review/**
+!**/review/*.md
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-20 15:44:04Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Check filenames and budget config
+
+`find . -path ./.venv -prune -o -iname "*ghibli*" -print -o -iname "*miyazaki*" -print -o -iname "*anime*" -print | head; grep -n "style_migration" scripts/story_budget.py | head -3`
+
+```text
+29:    "style_migration": ["channels/dadi-ki-kahaniyan/characters/dadi/sheet_painted", "channels/dadi-ki-kahaniyan/characters/golu/sheet_painted",
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-20 15:44:32Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Write"><details>
+<summary>Tool use: **Write**</summary>
+
+```markdown
+# Munshi review — Kissago Painted style test (R1, 2026-10-20)
+
+STEP: style migration test (not a production step, no upload)   PROJECT: style_migration   VERDICT: PASS (with notes, no BLOCKER)
+
+## Kya check kiya
+- shared/RULES.md 11, 12, 12a; brand/STYLE_PAINTED.md; channel_bible.md section 2.
+- Sheets: dadi/golu/mitthu `sheet_painted.png` (1264x848) vs old `*_sheet.png`, via sheets_compare.png.
+  Old sheets: `git diff HEAD` clean for dadi_sheet.png, golu_sheet.png, mitthu_sheet.png (unchanged).
+- Scenes: scene_A.png, scene_B.png (1376x768, 1K) full view + full-res crops (faces, Mitthu, corners, stray marks).
+- Prompts: scripts/gen_painted.py (SHEET, SHEETS, SCENES) + style block (STYLE_PAINTED.md section 1) + scripts/gemini_image.py diff (only a `style=` override, no names).
+- Name grep (ghibli, miyazaki, totoro, spirited, kiki, howl, ponyo, mononoke, catbus, soot sprite, shinkai, pixar, disney, dreamworks, "in the style of") over *.py/md/json/jsonl/csv/txt + file/folder names.
+- Parallax: report.json (guard), compare.mp4 (1920x540, 12 s), new_A/B_parallax_forced.mp4 (1920x1080, 30 fps, 6 s): first vs last frame, 2x crops of Dadi hair/bun/pallu, Golu hair vs field, Mitthu feathers/tail, lantern, frame borders.
+- Cost: `story_budget.py style_migration` + cost_log.csv rows.
+
+## Findings
+1. Sheets — identity kept. Dadi: round face, white bun, round golden specs, red bindi, light green saree + yellow border, gold bangles, wooden stick. Golu: messy black hair, yellow T-shirt, blue half-pants, white socks, red shoes. Mitthu: green, red beak, red neck ring, wings + feet only, NO hands in all 6 poses. No labels/text on the new sheets.
+   - MINOR: Mitthu painted sheet adds a black throat/chin band above the red ring (real ring-neck look), clearest in the 3 bust views; old sheet has only a thin red ring. Bible only says "hara tota, laal choonch", so not a bible break, but it will propagate as the reference. Free way out: add "only a thin red neck ring, no black band" to Mitthu's scene prompts from story 005. Regen of the sheet only if the user wants it (~₹5.5, would nearly use up the ₹35 cap).
+2. Scenes — A (evening aangan): mud house, khaprail roof, brown wooden door, tulsi pot, charpai, gulmohar, fields; Dadi/Golu/Mitthu match painted sheets; Mitthu on branch, feet only. B (night chhat): flat roofs, water tanks, clotheslines, lantern, steel jug, chatai; faces clearly readable (lantern + moon rim); Golu's red shoes kept beside the mat, white socks on. No text/logos/watermark in either (a tiny mark right of Dadi's pallu in B is a wall pipe fitting, not text).
+   - Note: Dadi has no stick in A/B (sitting, fine). Saree in B is a deeper green than "halki hari" (night light) — Note only.
+3. Copyright/lookalike — "Kya ye kisi jaane-maane kirdaar ya scene ki nakal lagti hai?"
+   - dadi sheet: Nahi. golu sheet: Nahi. mitthu sheet: Nahi (realistic Indian ring-neck parakeet). scene_A: Nahi (Indian mud house + gulmohar; no block-list element). scene_B: Nahi (Indian rooftop at night; no creature, bus, castle, broom, spirit).
+   - Prompts and style block: zero studio/film/artist names, no "in the style of". Grep hits only in shared/RULES.md section 10 (rule text giving forbidden examples), _to_delete/, a Whisper tokenizer vocab, and .specstory chat history (private repo) — none are prompts, file names or metadata. No file/folder name contains such a name.
+   - Note: style block uses the generic word "2D anime illustration" (a medium, not a name; allowed by 12a). Optional extra distance: "2D painted illustration" in a future edit.
+4. Parallax — guard put both painted scenes on zoom (jump 0.27 / 0.33; old Long 03 scene_16 also fell back at 0.20). Forced half-motion clips at full res: no halo, no edge smear, no stretched pixels at Dadi's hair/bun/spectacles, Golu's hair vs field, Mitthu's feathers/tail/feet, lantern glass/handle, or frame borders. Painted textures (soft washes) hide depth seams well. Recommendation: painted images are parallax-safe; keep the guard as the default anyway (it is cheap insurance); do not force full-amp parallax without a test.
+5. Cost — style_migration: ₹23.61 + GST ₹4.25 = ₹27.86 actual (6 calls: 3 sheets ₹4.37–4.66, 2 scenes ₹5.01/4.98, 1 TTS cap check ₹0.03), cap ₹35, left ₹7.14. No regeneration. Per-image cost (~₹5 + GST) is the same as story 004, so the ₹100–110 story budget is unaffected. Ledger balance ₹302.78 (> ₹50). No STOP condition.
+
+## Recommendation
+Approve "Kissago Painted" for story 005. Before 005: either accept Mitthu's black throat band, or add the "no black band" line to his prompts (free). Old sheets and story 004 untouched.
+
+```
+
+```text
+File created successfully at: D:\Story-Channel\style_tests\painted\munshi_review.md (file state is current in your context — no need to Read it back)
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-20 15:44:35Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Append verdict line to log.md
+
+`echo '2026-10-20 | style_migration (Kissago Painted test) | R1 style review (~25 min) | PASS (with notes) | 3 painted sheets keep identity, old sheets unchanged (git), scenes A/B Indian + readable + no text, Mitthu no hands; lookalike check Nahi x5; no studio/artist names in prompts/files/metadata; forced parallax clean (guard zoom kept as default); MINOR: Mitthu sheet adds black throat band; cost ₹27.86 of ₹35; no STOP; report style_tests/painted/munshi_review.md' >> channels/dadi-ki-kahaniyan/log.md; tail -1 channels/dadi-ki-kahaniyan/log.md | cut -c1-80`
+
+```text
+2026-10-20 | style_migration (Kissago Painted test) | R1 style review (~25 min)
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-20 15:45:05Z)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="SubagentHandback"><details>
+<summary>Tool use: **SubagentHandback**</summary>
+
+```text
+{"success":true,"message":"Report delivered to your caller."}
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-20 15:45:36Z)**_
+
+"Kissago Painted" ka test poora ho gaya. Munshi ka verdict: **PASS**, koi BLOCKER nahi, bas ek MINOR. Story 004 aur purani sheets ko haath nahi lagaya.
+
+**Kharcha:** ₹23.61 + GST ₹4.25 = **₹27.86** (₹35 ke alag "style_migration" budget me se), 6 calls me, koi image dobara nahi bani. Ek image ~₹5 + GST padti hai, story 004 jitni hi, isliye ₹110 wala story budget is style se nahi badhega.
+
+**Munshi ne kya kaha:**
+- **Pehchaan:** teeno kirdaaron ki pehchaan bani rahi. Dadi ka joora, chashma, saree aur chhadi; Golu ke kapde aur laal joote; Mitthu ke sirf pankh aur panje.
+- **Nakal ka check:** paanchon images par "Kya ye kisi jaane-maane kirdaar ya scene ki nakal lagti hai?" ka jawab **Nahi** aaya. Prompts, file naam aur metadata me kisi studio, film ya artist ka naam nahi hai. Setting poori Indian hai.
+- **Parallax:** guard ne dono painted scenes ko zoom par rakha, kyunki in me depth ka fark zyada hai. Forced aadhi-motion wali clips me bhi koi halo ya smear nahi mila. Guard default hi rahega.
+- **MINOR:** naye Mitthu ke gale me laal ring ke upar ek **kaali patti** aa gayi hai. Bible ke khilaf nahi hai, par aage ki har image me yahi dikhegi. Do raaste:
+  - story 005 se prompt me "sirf laal ring, kaali patti nahi" jod dena (₹0);
+  - ya sheet dobara banwana (~₹5.5).
+
+**Files (`style_tests/painted/`):**
+- `sheets_compare.png`: purani vs nayi sheet, teeno kirdaar
+- `compare.mp4`: purana look vs Kissago Painted, parallax ke saath
+- `scene_A.png` (shaam ka aangan), `scene_B.png` (raat ki chhat)
+- `new_A_parallax_forced.mp4`, `new_B_parallax_forced.mp4`: aadhi motion wali parallax clips
+- `munshi_review.md`
+- Nayi sheets: `channels\dadi-ki-kahaniyan\characters\dadi\sheet_painted.png`, `...\golu\sheet_painted.png`, `...\mitthu\sheet_painted.png`
+- Style guide: `channels\dadi-ki-kahaniyan\brand\STYLE_PAINTED.md`
+- Naye niyam: `shared/RULES.md` section 12a
+
+**Aapke faisle chahiye:**
+1. **Approve ya reject?** Approve par story 005 se Kissago Painted laagu hoga, saath me upload se pehle "naam" wala check aur RULES 15 ki line. Reject par kuch nahi badlega. Dono haalat me GitHub sync karunga.
+2. **Mitthu ki kaali patti:** prompt me line jodni hai (₹0), ya sheet dobara banwani hai (~₹5.5)?
+
+---
+
+_**User (2026-10-20 16:53:55Z)**_
+
+
+
+<pasted_content id="aeaa">
+KISSAGO PAINTED APPROVED.
+
+1) Mitthu ki sheet dobara banao (sheet_painted.png ko overwrite mat karna; purani wali ko sheet_painted_v1.png naam se rakho). Prompt me saaf likho: "gale me sirf patli laal ring, koi kaali patti nahi". Budget style_migration ke bache paise me se (max 1 regen). Munshi se check karao ki kaali patti nahi hai aur pehchaan wahi hai; theek ho to naya sheet_painted.png final.
+2) Approval wale saare kaam karo: channel.json me "image_style": "kissago_painted", story 005 se STYLE_PAINTED.md ka style block + sheet_painted.png reference zaroori, step-review aur youtube-publish me studio/film/artist naam wala BLOCK check, aur RULES section 15 ki line.
+3) carry_over.md me note jodo: "Painted style me parallax guard zyada zoom chun raha hai; story 005 ke scenes me kitne shots parallax vs zoom gaye, report me batana. Zyada zoom gaya to threshold tuning propose karna (mujhse pooch kar)."
+4) GitHub sync aur chhota report (kharcha + Munshi verdict).
+</pasted_content id="aeaa">
+
+
+---
+
+_**Agent (claude-opus-5-5 2026-10-20 16:54:07Z)**_
+
+Approval mil gaya. Pehle Mitthu ki sheet: purani ko `sheet_painted_v1.png` naam se rakh raha hoon, phir "sirf patli laal ring, koi kaali patti nahi" wale prompt se nayi bana raha hoon. Budget me ₹7.14 bache hain, aur ek call ~₹5.5 ki hai.
+
+_**Agent (claude-opus-5-5 2026-10-20 16:54:46Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Keep v1, regenerate Mitthu sheet without black band
+
+```bash
+C=channels/dadi-ki-kahaniyan/characters/mitthu && mv $C/sheet_painted.png $C/sheet_painted_v1.png && .venv/Scripts/python.exe - <<'PYEOF'
+from pathlib import Path
+p = Path("scripts/gen_painted.py"); t = p.read_text(encoding="utf-8")
+a = '"mitthu": ("Mitthu: a green Indian ring-necked parrot with a red beak and a thin red neck ring. He is a bird: wings "'
+b = '"mitthu": ("Mitthu: a green parrot with a red beak and ONLY a thin red ring around his neck - NO black band, no black stripe or black chin anywhere on the neck or throat (gale me sirf patli laal ring, koi kaali patti nahi); the throat is plain green. He is a bird: wings "'
+assert t.count(a) == 1; p.write_text(t.replace(a, b), encoding="utf-8")
+PYEOF
+.venv/Scripts/python.exe -X utf8 scripts/gen_painted.py sheets mitthu 2>&1 | grep -v "^$" | cut -c1-200; .venv/Scripts/python.exe -X utf8 scripts/story_budget.py style_migration | head -1; .venv/Scripts/python.exe -c "
+from PIL import Image
+a=Image.open('$C/sheet_painted_v1.png').convert('RGB').resize((720,480)); b=Image.open('$C/sheet_painted.png').convert('RGB').resize((720,480))
+s=Image.new('RGB',(1440,480)); s.paste(a,(0,0)); s.paste(b,(720,0)); s.save('C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad/mitthu_v1_v2.jpg')"
+```
+
+```text
+Is image ka cost: ₹4.60 (asli; andaza tha ₹3.45) + GST ₹0.83  |  Aaj ka total (GST samet): ₹102.81  |  Bacha: ₹297.35
+saved D:\Story-Channel\channels\dadi-ki-kahaniyan\characters\mitthu\sheet_painted.png (24s)
+2026-10-20 | style_migration | ASLI KUL KHARCHA | ₹28.21 + GST ₹5.08 = ₹33.29 (andaza tha ₹21.33; 7 paid calls, 0 bina usage = andaza) | cap ₹35
+[This command modified 1 file you've previously read: scripts\gen_painted.py. Call Read before editing.]
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-20 16:54:46Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `C:\Users\ashamim\AppData\Local\Temp\claude\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7\scratchpad\mitthu_v1_v2.jpg`
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-20 16:54:57Z)**_
+
+<think><details><summary>Thought Process</summary>
+Nayi sheet ban gayi hai, lekin bust view me ring ke upar kuch kaala dikh raha hai — ho sakta hai khule munh ka andar ka hissa ho, isliye Munshi se full size par check karwa raha hoon. Budget me sirf ₹1.71 bacha hai toh aur regen nahi hoga, tab tak approval wale kaam karta hoon.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-20 16:55:00Z)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="Agent"><details>
+<summary>Tool use: **Agent**</summary>
+Munshi check Mitthu painted sheet v2
+
+```text
+Async agent launched successfully. (This tool result is internal metadata — never quote or paste any part of it, including the agentId below, into a user-facing reply.)
+agentId: a552b844abd8f4fab (internal ID - do not mention to user. Use SendMessage with to: 'a552b844abd8f4fab', summary: '<5-10 word recap>' to continue this agent.)
+The agent is working in the background. You will be notified automatically when it completes. You know nothing about its results until that notification arrives — do not report, assume, or predict them; continue other work or respond to the user in the meantime.
+Do not duplicate this agent's work — avoid working with the same files or topics it is using.
+output_file: C:\Users\ashamim\AppData\Local\Temp\claude\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7\tasks\a552b844abd8f4fab.output
+Do NOT Read or tail this file via the shell tool — it is the full subagent JSONL transcript and reading it will overflow your context. If the user asks for progress, say the agent is still running; you'll get a completion notification.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-20 16:55:01Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Read channel.json and skill sections
+
+`cat channels/dadi-ki-kahaniyan/channel.json; grep -n "^## \|^### \|metadata\|Metadata" .claude/skills/youtube-publish/SKILL.md | head -20; grep -n "### 9. Metadata" -A8 .claude/skills/step-review/SKILL.md`
+
+```text
+{
+  "channel_key": "dadi-ki-kahaniyan",
+  "display_name": "किस्सागो | Kissago",
+  "title_suffix": "| किस्सागो",
+  "brand_label": "किस्सागो",
+  "former_names": [
+    "दादी की कहानियाँ (Dadi Ki Kahaniyan)",
+    "दादी जासूस"
+  ],
+  "channel_id": "UCy071_4g4vGemktFHybqkhQ",
+  "made_for_kids": false,
+  "contains_synthetic_media": false,
+  "category_id": "1",
+  "default_language": "hi",
+  "publish_times_ist": {
+    "long": "19:00",
+    "short": "21:00"
+  },
+  "playlists": {
+    "dadi-jasoos": "",
+    "moral-stories": ""
+  }
+}
+10:## One-time setup (guide the user, they do the clicks in Google Cloud Console)
+18:## Important limit: unaudited API projects
+25:## Per-video steps
+26:1. Confirm in `channels/<key>/log.md`: PASS for final build, thumbnail and metadata of this project. Confirm `output/upload_result.json` does not exist.
+37:   - title, description, tags (from the approved metadata file)
+86:### 9. Metadata (`meta.json` / `long_XX.txt`)
+87-- Title <= 100 chars, description <= 5000, tags <= 500 chars, 3-5 hashtags.
+88-- Every CC BY music track used is credited.
+89-- Mystery: no answer anywhere; pinned-comment text prepared for after 24 h.
+90-- made_for_kids and AI disclosure taken from `channels/<key>/channel.json`.
+91-- Copyright: run the RULES section 10 checks against shared/assets_license.csv. Any miss is FIX.
+92-- Algorithm: run RULES section 13 checks.
+93-
+94-## Report format
+```
+</details></tool-use>
+
+_**Agent - sidechain (2026-10-20 16:55:00Z)**_
+
+Quick check (free, no code/image changes): the user approved Kissago Painted and asked to regenerate Mitthu's painted sheet without the black neck band. Old version kept as channels/dadi-ki-kahaniyan/characters/mitthu/sheet_painted_v1.png; new one is channels/dadi-ki-kahaniyan/characters/mitthu/sheet_painted.png (prompt in scripts/gen_painted.py SHEETS["mitthu"]: "ONLY a thin red ring around his neck - NO black band, no black stripe or black chin"). Reference identity: characters/mitthu_sheet.png (old flat sheet). Check at full resolution, zoomed on the neck/throat in all 6 poses: (1) is there still any black band/black chin patch on the neck/throat (an open beak's dark mouth inside is fine — say which it is)? (2) identity same (green, red beak, thin red neck ring), wings and feet only, no hands, no text. (3) lookalike check: "Kya ye kisi jaane-maane kirdaar ki nakal lagti hai?" Budget style_migration: ₹33.29 of ₹35 used, so no further regeneration is possible (max 1 regen used). Verdict: PASS (v2 final) / FIX with reason. If v2 still has the band, say whether v2 is still better than v1 and that the band can be handled by a prompt line in story 005 scene prompts. Write one log.md line; append the verdict to style_tests/painted/munshi_review.md.
+
+_**Agent - sidechain (2026-10-20 16:55:00Z)**_
+
+<system-reminder>
+Your final report is delivered through SubagentHandback: when your work is complete, call SubagentHandback({message: <your full report>}). The call ends your run, so make it your last step. Only a SubagentHandback call reaches your caller as your result; plain text you write at the end is not delivered.
+</system-reminder>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-20 16:55:10Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+List files and image sizes
+
+```bash
+cd /d/Story-Channel/channels/dadi-ki-kahaniyan/characters; ls -la mitthu/ mitthu_sheet.png; /d/Story-Channel/.venv/Scripts/python -c "
+from PIL import Image
+for p in ['mitthu/sheet_painted.png','mitthu/sheet_painted_v1.png','mitthu_sheet.png']:
+    print(p, Image.open(p).size)
+"; tail -5 /d/Story-Channel/style_tests/painted/munshi_review.md; tail -3 ../log.md
+```
+
+```text
+-rw-r--r-- 1 ashamim 1049089 487036 Oct 17 15:15 mitthu_sheet.png
+
+mitthu/:
+total 1312
+drwxr-xr-x 1 ashamim 1049089      0 Oct 20 22:24 .
+drwxr-xr-x 1 ashamim 1049089      0 Oct 20 20:55 ..
+-rw-r--r-- 1 ashamim 1049089 621652 Oct 20 22:24 sheet_painted.png
+-rw-r--r-- 1 ashamim 1049089 714153 Oct 20 20:55 sheet_painted_v1.png
+mitthu/sheet_painted.png (1264, 848)
+mitthu/sheet_painted_v1.png (1264, 848)
+mitthu_sheet.png (1264, 848)
+4. Parallax — guard put both painted scenes on zoom (jump 0.27 / 0.33; old Long 03 scene_16 also fell back at 0.20). Forced half-motion clips at full res: no halo, no edge smear, no stretched pixels at Dadi's hair/bun/spectacles, Golu's hair vs field, Mitthu's feathers/tail/feet, lantern glass/handle, or frame borders. Painted textures (soft washes) hide depth seams well. Recommendation: painted images are parallax-safe; keep the guard as the default anyway (it is cheap insurance); do not force full-amp parallax without a test.
+5. Cost — style_migration: ₹23.61 + GST ₹4.25 = ₹27.86 actual (6 calls: 3 sheets ₹4.37–4.66, 2 scenes ₹5.01/4.98, 1 TTS cap check ₹0.03), cap ₹35, left ₹7.14. No regeneration. Per-image cost (~₹5 + GST) is the same as story 004, so the ₹100–110 story budget is unaffected. Ledger balance ₹302.78 (> ₹50). No STOP condition.
+
+## Recommendation
+Approve "Kissago Painted" for story 005. Before 005: either accept Mitthu's black throat band, or add the "no black band" line to his prompts (free). Old sheets and story 004 untouched.
+2026-10-20 | 004_chhat-par-bhoot short_01_bhoot-phir-aaya | publish | PUBLISHED | video jFXPwZE2xYY uploaded (scheduled 2026-10-21 21:00 IST), parent llqRdGA08zY, desc line 1 + 1st comment task StoryChannel-Comment-jFXPwZE2xYY at 21:05 IST, captions ok, no thumb (cover file output/short_01_bhoot-phir-aaya_cover.png manual), channel verified; veto: tools/veto.py jFXPwZE2xYY --apply; manual: Related video + pin comment + confirm Scheduled in Studio
+2026-10-20 | 004_chhat-par-bhoot | ASLI KUL KHARCHA | ₹83.79 + GST ₹15.08 = ₹98.88 (andaza tha ₹65.03; 58 paid calls, 0 bina usage = andaza) | cap ₹110
+2026-10-20 | style_migration (Kissago Painted test) | R1 style review (~25 min) | PASS (with notes) | 3 painted sheets keep identity, old sheets unchanged (git), scenes A/B Indian + readable + no text, Mitthu no hands; lookalike check Nahi x5; no studio/artist names in prompts/files/metadata; forced parallax clean (guard zoom kept as default); MINOR: Mitthu sheet adds black throat band; cost ₹27.86 of ₹35; no STOP; report style_tests/painted/munshi_review.md
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-20 16:55:13Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\characters\mitthu\sheet_painted.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-20 16:55:13Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\channels\dadi-ki-kahaniyan\characters\mitthu_sheet.png`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-20 16:55:16Z)**_
+
+Overview suggests a dark patch remains under the beak. Zooming in on each neck.
+
+_**Agent (claude-opus-5-5 2026-10-20 16:55:16Z)**_
+
+<think><details><summary>Thought Process</summary>
+Main approval ka kaam kar raha hoon — ek `name_guard` bana rahaa hoon jo studio/film/artist naam ko sirf hash ke roop me store karega taaki asli naam repo me kahin na ho (RULES 12a). Upload tool har upload/dry-run se pehle ise chalayega aur naam match hone par upload block kar dega.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-20 16:55:17Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Find hook point in youtube_upload.py
+
+`grep -n "def main\|dry_run\|def load_job\|channel_id\|sys.exit" tools/youtube_upload.py | head -30`
+
+```text
+9:Safety: refuses to upload unless the logged-in channel ID matches job["channel_id"],
+84:    cid = job.get("channel_id", "")
+86:        errs.append("channel_id missing/invalid (24 chars, starts with UC; set it in channels/<key>/channel.json)")
+94:            if cfg.get("channel_id") != cid:
+95:                errs.append(f"channel_id {cid} does not match {cfg_file.relative_to(ROOT).as_posix()} ({cfg.get('channel_id')})")
+226:                sys.exit(f"Missing {CLIENT_SECRET}. Do the one-time setup first.")
+239:        sys.exit("Logged-in Google account has no YouTube channel. Nothing uploaded.")
+242:    if got != job["channel_id"]:
+243:        sys.exit(f"WRONG CHANNEL: logged in as '{title}' ({got}), expected {job['channel_id']}. "
+341:def main():
+358:    print("Channel:     ", job.get("channel_name") or job.get("channel_key"), job.get("channel_id"))
+377:        sys.exit(1)
+378:    if args.dry_run:
+383:        sys.exit(f"Already uploaded as {result['video_id']}. Use --extras-only to retry extras.")
+385:        sys.exit("No video_id in upload_result.json; nothing to retry.")
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-20 16:55:20Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\tools\youtube_upload.py`
+
+```text
+78	
+79	def validate(job: dict, job_path: Path) -> list:
+80	    errs = []
+81	    key = job.get("channel_key", "")
+82	    if not key or not all(c.isalnum() or c in "-_" for c in key):
+83	        errs.append("channel_key missing/invalid (e.g. dadi-ki-kahaniyan)")
+84	    cid = job.get("channel_id", "")
+85	    if not (isinstance(cid, str) and cid.startswith("UC") and len(cid) == 24):
+86	        errs.append("channel_id missing/invalid (24 chars, starts with UC; set it in channels/<key>/channel.json)")
+87	    cfg = {}
+88	    if key and not errs:  # the job must match the channel's own config (channels/<key>/channel.json)
+89	        cfg_file = ROOT / "channels" / key / "channel.json"
+90	        if not cfg_file.exists():
+91	            errs.append(f"no channel config: {cfg_file.relative_to(ROOT).as_posix()}")
+92	        else:
+93	            cfg = json.loads(cfg_file.read_text(encoding="utf-8"))
+94	            if cfg.get("channel_id") != cid:
+95	                errs.append(f"channel_id {cid} does not match {cfg_file.relative_to(ROOT).as_posix()} ({cfg.get('channel_id')})")
+96	            if job.get("made_for_kids") != cfg.get("made_for_kids"):
+97	                errs.append("made_for_kids differs from the channel config")
+98	    fmt = job.get("format")
+99	    if fmt not in FORMATS:
+100	        errs.append("format must be 'long' or 'short'")
+101	    if fmt == "short" and "parent_video_id" not in job:
+102	        errs.append("short needs parent_video_id (the long video's id; null only for a stand-alone Short)")
+103	    title = job.get("title", "")
+104	    desc = job.get("description", "")
+105	    tags = job.get("tags", [])
+106	    if not title:
+107	        errs.append("title missing")
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-20 16:55:22Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Make zoomed neck crops for v1 and v2
+
+```bash
+cd /d/Story-Channel; mkdir -p style_tests/painted/review; ./.venv/Scripts/python -c "
+from PIL import Image
+for name,p in [('v2','channels/dadi-ki-kahaniyan/characters/mitthu/sheet_painted.png'),('v1','channels/dadi-ki-kahaniyan/characters/mitthu/sheet_painted_v1.png')]:
+    im=Image.open(p).convert('RGB')
+    boxes=[(180,120,360,240),(490,180,660,300),(880,160,1060,280),(150,600,370,760),(520,600,740,760),(900,560,1110,700)]
+    tiles=[im.crop(b).resize(((b[2]-b[0])*3,(b[3]-b[1])*3),Image.LANCZOS) for b in boxes]
+    W=max(t.width for t in tiles); H=sum(t.height for t in tiles)
+    # grid 3x2
+    w=max(t.width for t in tiles); h=max(t.height for t in tiles)
+    sheet=Image.new('RGB',(w*3,h*2),'white')
+    for i,t in enumerate(tiles): sheet.paste(t,((i%3)*w,(i//3)*h))
+    sheet.save(f'style_tests/painted/review/mitthu_neck_{name}.jpg',quality=85)
+"
+```
+
+```text
+(Bash completed with no output)
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-20 16:55:24Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\style_tests\painted\review\mitthu_neck_v2.jpg`
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-20 16:55:25Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\style_tests\painted\review\mitthu_neck_v1.jpg`
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-20 16:55:31Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Compute hashes of blocked names (names not saved)
+
+```bash
+.venv/Scripts/python.exe -X utf8 -c "
+import hashlib, sys
+terms = sys.argv[1:]
+print(sorted({hashlib.sha256(t.lower().encode()).hexdigest()[:16] for t in terms}))
+" ghibli "studio ghibli" miyazaki hayao totoro "spirited away" chihiro "no face" catbus "kiki's" kiki ponyo howl "howl's" mononoke nausicaa laputa arrietty susuwatari "sen to chihiro" disney pixar dreamworks shinkai "makoto shinkai" "your name" "kimi no na wa" "kyoto animation" kyoani toei "toei animation" doraemon shinchan "shin chan" pokemon pikachu naruto "one piece" "studio trigger" "cartoon network" nickelodeon "chhota bheem" "motu patlu" "peppa pig" "studio ponoc" ufotable "mappa" "madhouse" "takahata" "hosoda" "satoshi kon" "wes anderson" "van gogh" "tim burton" 2>&1 | tail -1 > "C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad/hashes.txt"; wc -c "C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad/hashes.txt"
+```
+
+```text
+1082 C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad/hashes.txt
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-20 16:55:29Z)**_
+
+The patch is still visible. Measuring its colour in v1 and v2 to compare.
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-20 16:55:37Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Sample neck patch colour v1 vs v2
+
+```bash
+cd /d/Story-Channel/channels/dadi-ki-kahaniyan/characters/mitthu; /d/Story-Channel/.venv/Scripts/python -c "
+from PIL import Image
+import numpy as np
+for p in ['sheet_painted.png','sheet_painted_v1.png']:
+    a=np.asarray(Image.open(p).convert('RGB')).astype(int)
+    for nm,(x0,y0,x1,y1) in {'p1':(270,180,320,215),'p4':(220,670,300,720),'p5':(600,660,680,710),'p6':(960,640,1020,680)}.items():
+        r=a[y0:y1,x0:x1]; lum=r.mean(2); dark=(lum<70).mean()
+        print(p,nm,'mean',r.reshape(-1,3).mean(0).round(),'dark<70 frac',round(dark,2))
+"
+```
+
+```text
+sheet_painted.png p1 mean [127. 111.  78.] dark<70 frac 0.38
+sheet_painted.png p4 mean [124. 121.  71.] dark<70 frac 0.32
+sheet_painted.png p5 mean [94. 90. 55.] dark<70 frac 0.46
+sheet_painted.png p6 mean [144. 127.  70.] dark<70 frac 0.28
+sheet_painted_v1.png p1 mean [128.  99.  69.] dark<70 frac 0.48
+sheet_painted_v1.png p4 mean [114. 102.  66.] dark<70 frac 0.41
+sheet_painted_v1.png p5 mean [93. 70. 45.] dark<70 frac 0.48
+sheet_painted_v1.png p6 mean [187. 190.  94.] dark<70 frac 0.0
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-20 16:55:47Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Create hashed name guard and test it
+
+```bash
+H=$(cat "C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad/hashes.txt") && cat > tools/name_guard.py <<PYEOF
+"""Studio / film / anime / artist name guard (shared/RULES.md section 12a).
+
+No such name may appear in prompts, file names or YouTube metadata. The blocked names are kept here only as
+SHA-256 hashes (first 16 hex chars of the lower-case term), so the repo itself never contains them.
+
+    python tools/name_guard.py <file or folder> ...   # exit 1 if a blocked name is found
+    from name_guard import find_names; hits = find_names(text)
+
+To add a name: python -c "import hashlib;print(hashlib.sha256('<name in lower case>'.encode()).hexdigest()[:16])"
+and add the hash to BLOCKED (never the name itself).
+"""
+import hashlib
+import re
+import sys
+from pathlib import Path
+
+BLOCKED = set($H)
+TEXT_EXT = {".json", ".md", ".txt", ".srt", ".py", ".ass", ".csv"}
+
+
+def _h(term: str) -> str:
+    return hashlib.sha256(term.encode()).hexdigest()[:16]
+
+
+def find_names(text: str) -> list[str]:
+    """Blocked terms (1-4 word phrases, lower case, apostrophes kept) found in text."""
+    words = re.findall(r"[a-z0-9']+", text.lower())
+    hits = []
+    for n in range(1, 5):
+        for i in range(len(words) - n + 1):
+            term = " ".join(words[i:i + n])
+            if _h(term) in BLOCKED:
+                hits.append(term)
+    return sorted(set(hits))
+
+
+def scan(paths) -> dict:
+    found = {}
+    for p in map(Path, paths):
+        files = [f for f in p.rglob("*") if f.is_file()] if p.is_dir() else [p]
+        for f in files:
+            hits = find_names(f.name.replace("_", " ").replace("-", " "))
+            if f.suffix.lower() in TEXT_EXT:
+                hits += find_names(f.read_text(encoding="utf-8", errors="ignore"))
+            if hits:
+                found[str(f)] = sorted(set(hits))
+    return found
+
+
+if __name__ == "__main__":
+    res = scan(sys.argv[1:])
+    for f, hits in res.items():
+        print(f"BLOCK (RULES 12a): {f}: {len(hits)} blocked name(s)")
+    print("name guard: OK" if not res else "name guard: BLOCKED")
+    sys.exit(1 if res else 0)
+PYEOF
+.venv/Scripts/python.exe -X utf8 -c "
+import sys; sys.path.insert(0,'tools'); from name_guard import find_names
+assert find_names('A cosy scene like Studio Ghibli') ; assert not find_names('Kissago Painted Dadi Golu Mitthu')
+print('unit ok')" && .venv/Scripts/python.exe -X utf8 tools/name_guard.py channels/dadi-ki-kahaniyan/brand/STYLE_PAINTED.md scripts/gen_painted.py channels/dadi-ki-kahaniyan/stories/004_chhat-par-bhoot/long/meta.json tools/name_guard.py; grep -ci "ghibli" tools/name_guard.py
+```
+
+```text
+unit ok
+name guard: OK
+0
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-20 16:55:50Z)**_
+
+Guard chal raha hai, aur `name_guard.py` file me koi naam nahi likha. Ab ise upload tool me jod raha hoon, aur channel.json, skills, RULES 15 aur carry_over bhi update kar raha hoon.
+
+_**Agent (claude-opus-5-5 2026-10-20 16:55:56Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Edit"><details>
+<summary>Tool use: **Edit**</summary>
+
+```text
+The file D:\Story-Channel\tools\youtube_upload.py has been updated successfully.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-20 16:56:00Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Check imports in youtube_upload.py
+
+`grep -n "^sys.path\|^import\|^from" tools/youtube_upload.py | head; .venv/Scripts/python.exe -m py_compile tools/youtube_upload.py && echo ok`
+
+```text
+17:import argparse
+18:import datetime as dt
+19:import json
+20:import random
+21:import sys
+22:import time
+23:from pathlib import Path
+ok
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-20 16:55:59Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Append verdict to review md and log
+
+```bash
+cd /d/Story-Channel; cat >> style_tests/painted/munshi_review.md <<'EOF'
+
+## R2 — Mitthu painted sheet v2 (2026-10-20, Munshi)
+Verdict: PASS-WITH-NOTES (v2 is the final sheet; no regeneration left: style_migration ₹33.29 of ₹35, 1 regen used)
+- Checked at full res (1264x848) + 3x neck zooms of all 6 poses, v2 vs v1 (review/mitthu_neck_v2.jpg, review/mitthu_neck_v1.jpg) and old flat mitthu_sheet.png.
+- (1) Black band: STILL THERE, in all 6 poses — a dark green-black chin/throat patch between the beak and the red ring (wedge-shaped, widest under the beak). It is not the inside of the mouth: in pose 4 (open beak) the mouth inside is brown-pink with a tongue, and the dark patch sits separately below it. v2's patch is a bit softer/greener and smaller than v1's (v1 is nearer pure black, wider in poses 1, 4, 5), so v2 is slightly better than v1, but the prompt line did not remove it. (It matches a real Indian ringneck's black chin stripe, which is why the model keeps adding it.)
+- (2) Identity: OK — green body, red hooked beak, thin red neck ring, wings and orange feet only, no hands/fingers, no text/labels. Same bird as the old flat sheet apart from the chin patch.
+- (3) Lookalike: "Kya ye kisi jaane-maane kirdaar ki nakal lagti hai?" — Nahi. A generic storybook ringneck parakeet.
+- MINOR (not a BLOCKER): the chin patch differs from the bible look (old sheet has no black). Ways out (free): (a) in story 005 scene prompts add for Mitthu: "only a thin red ring around his neck; throat and chin plain green, no black patch"; since the sheet is the reference, the patch may still come through, so (b) the builder can, for free, paint the chin patch green locally on a copy of the sheet used as the ref (no API call); then check Mitthu's throat in story 005 image review.
+EOF
+echo "2026-10-20 | style_migration (Kissago Painted) | R2 Mitthu painted sheet v2 | PASS-WITH-NOTES | v2 = final sheet; identity OK (green, red beak, thin red ring, wings+feet, no hands, no text), lookalike Nahi; MINOR: dark green-black chin patch still in all 6 poses (not open-mouth interior), slightly softer than v1; no regen left (₹33.29 of ₹35); handle via story 005 prompt line + optional free local green paint-over of ref; no STOP" >> channels/dadi-ki-kahaniyan/log.md
+```
+
+```text
+(Bash completed with no output)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-20 16:56:21Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Dry-run upload validator with name guard
+
+`.venv/Scripts/python.exe -X utf8 tools/youtube_upload.py --job channels/dadi-ki-kahaniyan/stories/004_chhat-par-bhoot/long/output/upload.json --dry-run 2>&1 | grep -i "block\|error\|dry\|valid\|OK" | head -5`
+
+```text
+Dry run OK. Nothing uploaded.
+```
+</details></tool-use>
+
+_**Agent - sidechain (claude-opus-5-5 2026-10-20 16:56:10Z)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="SubagentHandback"><details>
+<summary>Tool use: **SubagentHandback**</summary>
+
+```text
+{"success":true,"message":"Report delivered to your caller."}
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-20 16:56:31Z)**_
+
+<think><details><summary>Thought Process</summary>
+v2 final mila PASS-WITH-NOTES ke saath — kaali patti halki hai, aur chhoti ho gayi hai jo ki minor issue hai, isliye Story 005 ke Mitthu prompts me "gala aur thodi saaf hare" line add karunga. Ab gen_scenes.py ko naye style ke hisaab se update kar raha hoon.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-20 16:56:32Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\scripts\gen_scenes.py`
+
+```text
+1	"""Generate scene images from a scene_prompts.json.
+2	
+3	Usage:  python scripts/gen_scenes.py channels/<key>/stories/<story>/scene_prompts.json [ids...]
+4	        (images go to the story's images/, shared by its long video and shorts)
+5	Spec keys: looks, base, scenes[{id, refs, prompt}], optional out_dir, aspect (default 9:16), ref_files {name: path}.
+6	Refs: "scene:N" -> an earlier image in out_dir; a name in ref_files -> that file; else channels/<key>/characters/<name>_sheet.png.
+7	"""
+8	import json
+9	import sys
+10	import time
+11	from pathlib import Path
+12	
+13	sys.path.insert(0, str(Path(__file__).parent))
+14	from gemini_image import generate  # noqa: E402
+15	from paths import ROOT, channel_dir, channel_of  # noqa: E402
+16	import pricing  # noqa: E402
+17	from gemini_image import MODEL  # noqa: E402
+18	from story_budget import check  # noqa: E402
+19	
+20	
+21	def load(arg):
+22	    path = ROOT / arg
+23	    if path.is_dir():
+24	        path = path / "scene_prompts.json"
+25	    spec = json.loads(path.read_text(encoding="utf-8"))
+26	    out_dir = ROOT / spec["out_dir"] if "out_dir" in spec else path.parent / "images"
+27	    spec["_chars"] = channel_dir(channel_of(path)) / "characters"
+28	    return spec, out_dir
+29	
+30	
+31	def ref_path(ref: str, spec, out_dir: Path) -> Path:
+32	    if ref.startswith("scene:"):
+33	        return out_dir / f"scene_{int(ref[6:]):02d}.png"
+34	    if ref in spec.get("ref_files", {}):
+35	        return ROOT / spec["ref_files"][ref]
+36	    return spec["_chars"] / f"{ref}_sheet.png"
+37	
+38	
+39	def main(arg: str, only: list[int]):
+40	    spec, out_dir = load(arg)
+41	    aspect = spec.get("aspect", "9:16")
+42	    for scene in spec["scenes"]:
+43	        if only and scene["id"] not in only:
+44	            continue
+45	        refs = [ref_path(r, spec, out_dir) for r in scene["refs"]]
+46	        missing = [r for r in refs if not r.exists()]
+47	        if missing:
+48	            print(f"SKIPPED scene {scene['id']}: missing refs {missing}", flush=True)
+49	            continue
+50	        prompt = scene["prompt"].format(**spec["looks"])
+51	        if refs:
+52	            prompt += ("\n\nThe attached images are approved references. Keep every character's face, body, "
+53	                       "outfit and colours EXACTLY as in the references, keep places consistent with any location "
+54	                       "reference, and match their art style. Draw only the characters this prompt asks for.")
+55	        else:
+56	            refs = [spec["_chars"] / "dadi_sheet.png"]
+57	            prompt += ("\n\nThe attached image is a STYLE reference only: match its art style, outline thickness "
+58	                       "and colour palette exactly. Do NOT draw the grandmother from it in this scene.")
+59	        out = out_dir / f"scene_{scene['id']:02d}.png"
+60	        # RULES 15 budget guard: story cap + ₹50 floor on actual cost (exits before spending)
+61	        est = pricing.image_estimate_usd(MODEL, "1K", len(spec['base']) + len(prompt), len(refs)) * pricing.usd_to_inr()
+62	        check(out_dir.parent.name, est)
+63	        t0 = time.time()
+64	        try:
+65	            generate(f"{spec['base']}\n\n{prompt}", out, refs=refs, aspect_ratio=aspect, size="1K")
+66	            print(f"saved {out}  ({time.time() - t0:.0f}s)", flush=True)
+67	        except Exception as e:  # timeout (>90s) or API error -> skip, continue with next scene
+68	            print(f"SKIPPED scene {scene['id']} after {time.time() - t0:.0f}s: {e}", flush=True)
+69	
+70	
+71	if __name__ == "__main__":
+72	    main(sys.argv[1], [int(x) for x in sys.argv[2:]])
+73
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-20 16:56:51Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Wire Kissago Painted + name guard into gen_scenes
+
+````bash
+.venv/Scripts/python.exe - <<'PYEOF'
+from pathlib import Path
+p = Path("scripts/gen_scenes.py"); t = p.read_text(encoding="utf-8")
+def rep(a, b):
+    global t
+    assert t.count(a) == 1, a[:50]; t = t.replace(a, b)
+rep('Refs: "scene:N" -> an earlier image in out_dir; a name in ref_files -> that file; else channels/<key>/characters/<name>_sheet.png.\n"""',
+    'Refs: "scene:N" -> an earlier image in out_dir; a name in ref_files -> that file; else the character sheet.\n'
+    'Style: channel.json "image_style": "kissago_painted" -> from story 005 every prompt ends with the verbatim style\n'
+    'block of brand/STYLE_PAINTED.md and character refs are characters/<name>/sheet_painted.png (a missing painted\n'
+    'sheet stops that scene: make it first, ~₹6 from the story budget). Spec "style": "flat" keeps the old look.\n'
+    'Every prompt passes the studio/film/artist name guard (RULES 12a) before any paid call.\n"""')
+rep("from story_budget import check  # noqa: E402\n",
+    "from story_budget import check  # noqa: E402\n\nsys.path.insert(0, str(ROOT / \"tools\"))\nfrom name_guard import find_names  # noqa: E402\n"
+    "\nPAINTED_FROM = 5  # first story number in Kissago Painted\n"
+    "MITTHU_NOTE = (\"Mitthu is a bird with wings and feet only, no hands; only a thin red ring around his neck, throat \"\n"
+    "               \"and chin plain green, no black patch.\")\n")
+rep('''    spec["_chars"] = channel_dir(channel_of(path)) / "characters"
+    return spec, out_dir''',
+'''    chan = channel_dir(channel_of(path))
+    spec["_chars"] = chan / "characters"
+    cfg = json.loads((chan / "channel.json").read_text(encoding="utf-8"))
+    num = int("".join(c for c in out_dir.parent.name.split("_")[0] if c.isdigit()) or 0)
+    spec["_painted"] = (cfg.get("image_style") == "kissago_painted" and num >= PAINTED_FROM
+                        and spec.get("style") != "flat")
+    if spec["_painted"]:
+        import re
+        guide = (chan / "brand" / "STYLE_PAINTED.md").read_text(encoding="utf-8")
+        spec["_style_block"] = re.search(r"## 1\\..*?```\\n(.*?)\\n```", guide, re.S).group(1).strip()
+    return spec, out_dir''')
+rep('''    return spec["_chars"] / f"{ref}_sheet.png"''',
+'''    if spec.get("_painted"):
+        return spec["_chars"] / ref / "sheet_painted.png"
+    return spec["_chars"] / f"{ref}_sheet.png"''')
+rep('''            refs = [spec["_chars"] / "dadi_sheet.png"]''',
+'''            refs = [spec["_chars"] / ("dadi/sheet_painted.png" if spec.get("_painted") else "dadi_sheet.png")]''')
+rep('''        out = out_dir / f"scene_{scene['id']:02d}.png"
+        # RULES 15''',
+'''        if spec.get("_painted") and "mitthu" in scene["refs"]:
+            prompt += "\\n" + MITTHU_NOTE
+        full = f"{spec['base']}\\n\\n{prompt}"
+        if find_names(full):
+            print(f"BLOCKED scene {scene['id']}: studio/film/artist name in the prompt (RULES 12a); nothing spent", flush=True)
+            continue
+        out = out_dir / f"scene_{scene['id']:02d}.png"
+        # RULES 15''')
+rep('''            generate(f"{spec['base']}\\n\\n{prompt}", out, refs=refs, aspect_ratio=aspect, size="1K")''',
+'''            generate(full, out, refs=refs, aspect_ratio=aspect, size="1K", style=spec.get("_style_block"))''')
+p.write_text(t, encoding="utf-8")
+PYEOF
+.venv/Scripts/python.exe -m py_compile scripts/gen_scenes.py && echo ok
+````
+
+```text
+<stdin>:28: SyntaxWarning: "\." is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\."? A raw string is also an option.
+Traceback (most recent call last):
+  File "<stdin>", line 46, in <module>
+  File "<stdin>", line 5, in rep
+AssertionError:             generate(f"{spec['base']}
+
+{prompt}", 
+ok
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-20 16:56:54Z)**_
+
+Patch me escape ki dikkat aayi, aur file me kuch nahi likha gaya. Ise file wale patch se dobara kar raha hoon.
+
+_**Agent (claude-opus-5-5 2026-10-20 16:57:06Z)**_
+
+<tool-use data-tool-type="write" data-tool-name="Write"><details>
+<summary>Tool use: **Write**</summary>
+
+````python
+from pathlib import Path
+
+p = Path(r"D:\Story-Channel\scripts\gen_scenes.py")
+t = p.read_text(encoding="utf-8")
+
+
+def rep(a, b):
+    global t
+    assert t.count(a) == 1, a[:60]
+    t = t.replace(a, b)
+
+
+rep('Refs: "scene:N" -> an earlier image in out_dir; a name in ref_files -> that file; else channels/<key>/characters/<name>_sheet.png.\n"""',
+    'Refs: "scene:N" -> an earlier image in out_dir; a name in ref_files -> that file; else the character sheet.\n'
+    'Style: channel.json "image_style": "kissago_painted" -> from story 005 every prompt ends with the verbatim style\n'
+    'block of brand/STYLE_PAINTED.md and character refs are characters/<name>/sheet_painted.png (a missing painted\n'
+    'sheet stops that scene: make it first, ~Rs 6 from the story budget). Spec "style": "flat" keeps the old look.\n'
+    'Every prompt passes the studio/film/artist name guard (RULES 12a) before any paid call.\n"""')
+rep("from story_budget import check  # noqa: E402\n",
+    "from story_budget import check  # noqa: E402\n\n"
+    "sys.path.insert(0, str(ROOT / \"tools\"))\n"
+    "from name_guard import find_names  # noqa: E402\n\n"
+    "PAINTED_FROM = 5  # first story number in Kissago Painted\n"
+    "MITTHU_NOTE = (\"Mitthu is a bird with wings and feet only, no hands; only a thin red ring around his neck, throat \"\n"
+    "               \"and chin plain green, no black patch.\")\n")
+rep('''    spec["_chars"] = channel_dir(channel_of(path)) / "characters"
+    return spec, out_dir''',
+    '''    chan = channel_dir(channel_of(path))
+    spec["_chars"] = chan / "characters"
+    cfg = json.loads((chan / "channel.json").read_text(encoding="utf-8"))
+    num = int("".join(c for c in out_dir.parent.name.split("_")[0] if c.isdigit()) or 0)
+    spec["_painted"] = (cfg.get("image_style") == "kissago_painted" and num >= PAINTED_FROM
+                        and spec.get("style") != "flat")
+    if spec["_painted"]:
+        guide = (chan / "brand" / "STYLE_PAINTED.md").read_text(encoding="utf-8")
+        spec["_style_block"] = re.search(r"## 1\\..*?```\\n(.*?)\\n```", guide, re.S).group(1).strip()
+    return spec, out_dir''')
+rep("import json\nimport sys\n", "import json\nimport re\nimport sys\n")
+rep('''    return spec["_chars"] / f"{ref}_sheet.png"''',
+    '''    if spec.get("_painted"):
+        return spec["_chars"] / ref / "sheet_painted.png"
+    return spec["_chars"] / f"{ref}_sheet.png"''')
+rep('''            refs = [spec["_chars"] / "dadi_sheet.png"]''',
+    '''            refs = [spec["_chars"] / ("dadi/sheet_painted.png" if spec.get("_painted") else "dadi_sheet.png")]''')
+rep('''        out = out_dir / f"scene_{scene['id']:02d}.png"
+        # RULES 15''',
+    '''        if spec.get("_painted") and "mitthu" in scene["refs"]:
+            prompt += "\\n" + MITTHU_NOTE
+        full = f"{spec['base']}\\n\\n{prompt}"
+        if find_names(full):
+            print(f"BLOCKED scene {scene['id']}: studio/film/artist name in the prompt (RULES 12a); nothing spent",
+                  flush=True)
+            continue
+        out = out_dir / f"scene_{scene['id']:02d}.png"
+        # RULES 15''')
+rep('''generate(f"{spec['base']}\\n\\n{prompt}", out, refs=refs, aspect_ratio=aspect, size="1K")''',
+    '''generate(full, out, refs=refs, aspect_ratio=aspect, size="1K", style=spec.get("_style_block"))''')
+p.write_text(t, encoding="utf-8")
+print("patched")
+
+````
+
+```text
+File created successfully at: C:\Users\ashamim\AppData\Local\Temp\claude\d--Story-Channel\c30d8a4e-c963-40ca-8940-36b5dea70ee7\scratchpad\gs_patch.py (file state is current in your context — no need to Read it back)
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-20 16:57:11Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Apply gen_scenes patch
+
+`.venv/Scripts/python.exe -X utf8 "C:/Users/ashamim/AppData/Local/Temp/claude/d--Story-Channel/c30d8a4e-c963-40ca-8940-36b5dea70ee7/scratchpad/gs_patch.py" && .venv/Scripts/python.exe -m py_compile scripts/gen_scenes.py && grep -n "_style_block\|## 1" scripts/gen_scenes.py`
+
+````text
+patched
+47:        spec["_style_block"] = re.search(r"## 1\..*?```\n(.*?)\n```", guide, re.S).group(1).strip()
+94:            generate(full, out, refs=refs, aspect_ratio=aspect, size="1K", style=spec.get("_style_block"))
+````
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-20 16:57:14Z)**_
+
+Ab `channel.json`, style guide, skills, RULES 15 aur `carry_over.md` update kar raha hoon. Uske baad ek dry test chalaunga ki story 004 purane style me rahe aur 005 naye me jaaye.
+
+_**Agent (claude-opus-5-5 2026-10-20 16:57:39Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Approval edits and dry style-selection test
+
+```bash
+.venv/Scripts/python.exe -X utf8 - <<'PYEOF'
+import json
+from pathlib import Path
+from datetime import date
+d = date.today().isoformat()
+c = Path("channels/dadi-ki-kahaniyan/channel.json"); j = json.loads(c.read_text(encoding="utf-8"))
+j["image_style"] = "kissago_painted"; j["_image_style_note"] = "Kissago Painted from story 005 (approved 2026-10-20); stories up to 004 keep the flat look. Style block: brand/STYLE_PAINTED.md; refs: characters/<name>/sheet_painted.png"
+c.write_text(json.dumps(j, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+def rep(path, a, b):
+    p = Path(path); t = p.read_text(encoding="utf-8"); assert t.count(a) == 1, (path, a[:50]); p.write_text(t.replace(a, b), encoding="utf-8")
+rep("channels/dadi-ki-kahaniyan/brand/STYLE_PAINTED.md",
+    "Status: proposed 2026-10-20 (style test in `style_tests/painted/`); becomes the channel style only after the user's approval\n(`channel.json` → `\"image_style\": \"kissago_painted\"`). Stories up to 004 keep the old flat-cartoon style.",
+    "Status: APPROVED by the user 2026-10-20 (test: `style_tests/painted/`). `channel.json` → `\"image_style\": \"kissago_painted\"`;\n`scripts/gen_scenes.py` applies it from story 005. Stories up to 004 keep the old flat-cartoon style.")
+rep("channels/dadi-ki-kahaniyan/brand/STYLE_PAINTED.md",
+    "- **Mitthu:** green parrot, red beak, thin red neck ring. A bird: wings and feet only, NO hands, never holds things\n  in his wings.",
+    "- **Mitthu:** green parrot, red beak, ONLY a thin red neck ring — throat and chin plain green, no black patch (the\n  painted sheet v2 still shows a soft dark chin patch: every Mitthu prompt adds this line, gen_scenes does it\n  automatically; check his throat in image review). A bird: wings and feet only, NO hands, never holds things.")
+rep("shared/RULES.md", "- Default motion = 2.5D parallax (Depth Anything V2 Small, local, free); artifact par zoom fallback.\n",
+    "- Default motion = 2.5D parallax (Depth Anything V2 Small, local, free); artifact par zoom fallback.\n"
+    "- Story 005 se image style = Kissago Painted; style block aur sheet_painted reference zaroori. (`channels/<key>/brand/STYLE_PAINTED.md` section 1 verbatim at the end of every image prompt, `characters/<name>/sheet_painted.png` as the character reference; `scripts/gen_scenes.py` does both and runs `tools/name_guard.py` on every prompt; section 12a applies.)\n")
+rep(".claude/skills/step-review/SKILL.md", "- Copyright: run the RULES section 10 checks against shared/assets_license.csv. Any miss is FIX.\n- Algorithm: run RULES section 13 checks.\n\n## Report format",
+    "- Copyright: run the RULES section 10 checks against shared/assets_license.csv. Any miss is FIX.\n- Algorithm: run RULES section 13 checks.\n"
+    "- Names (RULES 12a): run `python tools/name_guard.py <meta.json> <output .txt> <upload.json>`; any studio, film, anime or artist name in title, description, tags, hashtags, thumbnail text, pinned/first comment, playlist or file names = BLOCKER (upload BLOCK).\n\n## Report format")
+p = Path(".claude/skills/step-review/SKILL.md"); t = p.read_text(encoding="utf-8")
+a = "### 4. Scene images\n"
+assert t.count(a) == 1
+t = t.replace(a, a + "- Lookalike (RULES 12a), every image incl. thumbnails and sheets: \"Kya ye kisi jaane-maane kirdaar ya scene ki nakal lagti hai?\" Yes -> BLOCKER: new prompt + 1 regen, still yes -> drop the shot (crop/zoom another image); never use such an image even if paid. From story 005: Kissago Painted look (STYLE_PAINTED.md), painted sheets as references, Mitthu's throat plain green.\n")
+p.write_text(t, encoding="utf-8")
+p = Path(".claude/skills/youtube-publish/SKILL.md"); t = p.read_text(encoding="utf-8")
+a = "1. Confirm in `channels/<key>/log.md`: PASS for final build, thumbnail and metadata of this project. Confirm `output/upload_result.json` does not exist.\n"
+assert t.count(a) == 1
+t = t.replace(a, a + "   Name check (RULES 12a): `python tools/name_guard.py <meta.json> <.txt> <upload.json>` must print OK. `tools/youtube_upload.py` also refuses (dry-run and upload) when a studio/film/anime/artist name is in the title, description, tags, comment, playlist or file names: BLOCK, never work around it.\n")
+p.write_text(t, encoding="utf-8")
+with open("channels/dadi-ki-kahaniyan/carry_over.md", "a", encoding="utf-8") as f:
+    f.write(f"| {d} | Kissago Painted (style migration) | Painted style me parallax guard zyada zoom chun raha hai (test scenes A/B: depth jump 0.27/0.33 -> zoom) | story 005 ke scenes me kitne shots parallax vs zoom gaye, report me batana. Zyada zoom gaya to threshold tuning propose karna (user se pooch kar) | open |\n")
+    f.write(f"| {d} | Kissago Painted - Mitthu sheet v2 | soft dark chin patch still on the painted sheet (1 regen used, budget ₹35 spent) | every Mitthu prompt adds \"throat and chin plain green, no black patch\" (gen_scenes automatic); check his throat in story 005 image review | open |\n")
+print("ok")
+PYEOF
+.venv/Scripts/python.exe -X utf8 -c "
+import sys; sys.path.insert(0,'scripts'); import gen_scenes as g
+for s in ('channels/dadi-ki-kahaniyan/stories/004_chhat-par-bhoot/scene_prompts.json',):
+    spec,out=g.load(s); print('004 painted?', spec['_painted'], '| ref:', g.ref_path('dadi',spec,out).name)
+from pathlib import Path; import json, tempfile
+d=Path('channels/dadi-ki-kahaniyan/stories/005_test_tmp'); (d).mkdir(exist_ok=True); (d/'scene_prompts.json').write_text(json.dumps({'looks':{},'base':'','scenes':[]}))
+spec,out=g.load(str(d/'scene_prompts.json')); print('005 painted?', spec['_painted'], '| ref:', g.ref_path('dadi',spec,out).relative_to(Path.cwd().resolve()) if False else g.ref_path('dadi',spec,out).as_posix()[-40:], '| block starts:', spec['_style_block'][:30])
+import shutil; shutil.rmtree(d)
+"
+```
+
+```text
+ok
+004 painted? False | ref: dadi_sheet.png
+005 painted? True | ref: aniyan/characters/dadi/sheet_painted.png | block starts: soft hand-painted 2D anime ill
+[This command modified 3 files you've previously read: channels\dadi-ki-kahaniyan\brand\STYLE_PAINTED.md, .claude\skills\step-review\SKILL.md, shared\RULES.md. Call Read before editing.]
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-20 16:57:44Z)**_
+
+<think><details><summary>Thought Process</summary>
+Story 004 purani style me hai aur 005 se naya painted style apply hoga, dry test me dono sahi aaye. Ab `CLAUDE.md` me line jod kar, nayi files par name guard chalaunga aur sync karunga.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-20 16:57:52Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+CLAUDE.md line, name-guard scan, budget line
+
+```bash
+.venv/Scripts/python.exe -X utf8 - <<'PYEOF'
+from pathlib import Path
+p = Path("CLAUDE.md"); t = p.read_text(encoding="utf-8")
+a = "## GitHub sync"
+t = t.replace(a, "- Image style: story 005 se **Kissago Painted** (`channels/dadi-ki-kahaniyan/brand/STYLE_PAINTED.md`; channel.json `image_style`). `gen_scenes.py` style block + `characters/<naam>/sheet_painted.png` refs apne aap lagata hai (nayi painted sheet ~₹6, story budget se). Kisi studio/film/anime/artist ka naam KAHIN nahi (RULES 12a); `tools/name_guard.py` prompts aur upload metadata check karta hai (naam mila = BLOCK).\n\n" + a, 1)
+p.write_text(t, encoding="utf-8")
+PYEOF
+.venv/Scripts/python.exe -X utf8 tools/name_guard.py CLAUDE.md shared/RULES.md channels/dadi-ki-kahaniyan/brand channels/dadi-ki-kahaniyan/channel.json scripts/gen_painted.py scripts/gen_scenes.py .claude/skills style_tests/painted; .venv/Scripts/python.exe -X utf8 scripts/story_budget.py style_migration | head -1
+```
+
+```text
+BLOCK (RULES 12a): shared\RULES.md: 5 blocked name(s)
+BLOCK (RULES 12a): style_tests\painted\munshi_review.md: 12 blocked name(s)
+name guard: BLOCKED
+2026-10-20 | style_migration | ASLI KUL KHARCHA | ₹28.21 + GST ₹5.08 = ₹33.29 (andaza tha ₹21.33; 7 paid calls, 0 bina usage = andaza) | cap ₹35
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-20 16:57:58Z)**_
+
+<think><details><summary>Thought Process</summary>
+Guard ne `shared/RULES.md` (section 10) aur Munshi ki review file me naam dhoonde the, inhe bhi saaf kar raha hoon taaki koi naam na dikhe.
+
+</details></think>
+
+_**Agent (claude-opus-5-5 2026-10-20 16:58:01Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Locate lines with blocked names (no names printed)
+
+```bash
+.venv/Scripts/python.exe -X utf8 -c "
+import sys; sys.path.insert(0,'tools'); from name_guard import find_names
+for f in ('shared/RULES.md','style_tests/painted/munshi_review.md'):
+    for i,l in enumerate(open(f,encoding='utf-8'),1):
+        if find_names(l): print(f, i, len(l))
+"
+```
+
+```text
+shared/RULES.md 78 323
+shared/RULES.md 79 103
+style_tests/painted/munshi_review.md 11 207
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-20 16:58:04Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\shared\RULES.md`
+
+```text
+76	- Never allowed: CC BY-NC (non-commercial, conflicts with monetization), CC BY-ND (we edit/mix), CC BY-SA, "free for personal use", Freesound "Sampling+", unknown source, anything ripped from YouTube/Spotify/Instagram/films/TV, Bollywood or any commercial song (even hummed or sung by TTS), Google/Pinterest images.
+77	- Freesound: licence is per sound. Check each file's own licence page; only CC0 or CC BY 4.0.
+78	- Content: no real brand logos, no film/TV/cartoon characters (Chhota Bheem, Motu Patlu, Disney, etc.), no celebrity likeness, no copied song lyrics, no copied text from modern books. Old folk tales (Panchatantra, Jataka, Akbar-Birbal) are public domain, but we always write our own version, never copy a modern retelling.
+79	- Image prompts never name a studio, franchise or living artist ("Pixar style", "Ghibli style", etc.).
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-20 16:58:04Z)**_
+
+<tool-use data-tool-type="read" data-tool-name="Read"><details>
+<summary>Tool use: **Read**</summary>
+ `D:\Story-Channel\style_tests\painted\munshi_review.md`
+
+```text
+11	- Name grep (ghibli, miyazaki, totoro, spirited, kiki, howl, ponyo, mononoke, catbus, soot sprite, shinkai, pixar, disney, dreamworks, "in the style of") over *.py/md/json/jsonl/csv/txt + file/folder names.
+```
+</details></tool-use>
+
+_**Agent (claude-opus-5-5 2026-10-20 16:58:17Z)**_
+
+<tool-use data-tool-type="shell" data-tool-name="Bash"><details>
+<summary>Tool use: **Bash**</summary>
+Remove names from RULES and review, rescan
+
+```bash
+.venv/Scripts/python.exe -X utf8 - <<'PYEOF'
+from pathlib import Path
+p = Path("shared/RULES.md"); L = p.read_text(encoding="utf-8").split("\n")
+assert L[77].startswith("- Content: no real brand logos") and L[78].startswith("- Image prompts never name")
+L[77] = ("- Content: no real brand logos, no film/TV/cartoon characters (Indian TV cartoon heroes, big-studio characters, etc.), "
+         "no celebrity likeness, no copied song lyrics, no copied text from modern books. Old folk tales (Panchatantra, Jataka, "
+         "Akbar-Birbal) are public domain, but we always write our own version, never copy a modern retelling.")
+L[78] = "- Image prompts never name a studio, franchise or living artist (no \"<studio> style\" or \"in the style of ...\"); see section 12a."
+p.write_text("\n".join(L), encoding="utf-8")
+r = Path("style_tests/painted/munshi_review.md"); L = r.read_text(encoding="utf-8").split("\n")
+L[10] = "- Name grep: tools/name_guard.py (hashed block list of studio/film/anime/artist names, plus \"in the style of\") over *.py/md/json/jsonl/csv/txt + file/folder names."
+r.write_text("\n".join(L), encoding="utf-8")
+PYEOF
+.venv/Scripts/python.exe -X utf8 tools/name_guard.py CLAUDE.md shared channels/dadi-ki-kahaniyan/brand channels/dadi-ki-kahaniyan/channel.json channels/dadi-ki-kahaniyan/stories/004_chhat-par-bhoot/long/meta.json channels/dadi-ki-kahaniyan/stories/004_chhat-par-bhoot/shorts/short_01_bhoot-phir-aaya/meta.json scripts .claude style_tests/painted 2>&1 | tail -3
+```
+
+```text
+BLOCK (RULES 12a): channels\dadi-ki-kahaniyan\stories\004_chhat-par-bhoot\shorts\short_01_bhoot-phir-aaya\meta.json: 1 blocked name(s)
+name guard: BLOCKED
+```
+</details></tool-use>

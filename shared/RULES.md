@@ -75,8 +75,8 @@ These are the hard rules. If a builder summary, a script or a file disagrees wit
 - Allowed licences only: CC0; CC BY 4.0 (with exact credit in the description); SIL OFL (fonts); YouTube Audio Library tracks (follow their attribution note); our own Gemini-generated images/voices; our own recordings.
 - Never allowed: CC BY-NC (non-commercial, conflicts with monetization), CC BY-ND (we edit/mix), CC BY-SA, "free for personal use", Freesound "Sampling+", unknown source, anything ripped from YouTube/Spotify/Instagram/films/TV, Bollywood or any commercial song (even hummed or sung by TTS), Google/Pinterest images.
 - Freesound: licence is per sound. Check each file's own licence page; only CC0 or CC BY 4.0.
-- Content: no real brand logos, no film/TV/cartoon characters (Chhota Bheem, Motu Patlu, Disney, etc.), no celebrity likeness, no copied song lyrics, no copied text from modern books. Old folk tales (Panchatantra, Jataka, Akbar-Birbal) are public domain, but we always write our own version, never copy a modern retelling.
-- Image prompts never name a studio, franchise or living artist ("Pixar style", "Ghibli style", etc.).
+- Content: no real brand logos, no film/TV/cartoon characters (Indian TV cartoon heroes, big-studio characters, etc.), no celebrity likeness, no copied song lyrics, no copied text from modern books. Old folk tales (Panchatantra, Jataka, Akbar-Birbal) are public domain, but we always write our own version, never copy a modern retelling.
+- Image prompts never name a studio, franchise or living artist (no "<studio> style" or "in the style of ..."); see section 12a.
 - Before upload, Munshi checks: every audio/image/font file in the final build is in the register, every CC BY item is credited in the description exactly as its licence asks, and no source audio from outside our pipeline is in the mix.
 - After upload: if YouTube Studio shows any copyright claim or strike, stop all new uploads and tell the user. CC music sometimes gets false Content ID claims; dispute only with the licence proof from the register, after the user agrees.
 
@@ -114,6 +114,14 @@ At the end of each review, add one line to channels/<key>/log.md with the round 
 - The channel name suffix (`title_suffix` in channels/<key>/channel.json, e.g. "| किस्सागो") may stay the same in every title — it is branding. The rest of the title (story name, hook, extra keywords) must vary; do not repeat the same keyword block (like "| Hindi Moral Story | Hindi Kahani") in every video. Rotate keywords or put them in tags/description instead.
 - No two videos may reuse the same narration audio. Shorts cut from their own long video are allowed.
 - Every 5th long video Munshi writes a short "channel variety" note in log.md: genres used, morals used, what to try next.
+
+### 12a. Visual style, copyright and brand (Kissago Painted and any channel style)
+- No studio, film, anime or artist name ANYWHERE: image prompts, file/folder names, titles, descriptions, tags, hashtags, thumbnail text, comments, playlists, community posts. Internally the style is only called by its own name (e.g. "Kissago Painted", `channels/<key>/brand/STYLE_PAINTED.md`). A name found in metadata = upload BLOCK.
+- Nothing may look like an existing anime/film character, creature, vehicle, building or famous scene. Block list (kept here, never in prompts): a huge furry magical forest creature; small black soot-like creatures; a girl flying on a broom; a masked shadow spirit; a magic cat-shaped bus or any living bus; a bus stop in the rain with an umbrella and a big creature; floating castles or walking castles; giant robots/mecha; famous mascots or cartoon characters of any brand.
+- Only our own characters (Dadi, Golu, Mitthu and the channel bible's characters) and an Indian setting: clothes, faces, homes all Indian.
+- After every image Munshi asks: "Kya ye kisi jaane-maane kirdaar ya scene ki nakal lagti hai?" If yes -> MAJOR (BLOCKER): change the prompt and regenerate once; if it still looks like one, drop that shot (crop/zoom another image). An image that looks like a famous character is never used, even if it was already paid for.
+- Thumbnails use the channel's own style and our own text.
+- YouTube originality: story, script, voices and characters stay our own; the visual style is only a look.
 
 ## 13. Audience & algorithm (CTR, retention, session)
 Long videos:
@@ -162,4 +170,5 @@ From story 004, section 15 (production profile) overrides this section where the
   - Any BLOCKER after R2 that can be fixed for free: fix it yourself. One that cannot be fixed for free: handle it the same way (crop/zoom reuse, move the line to another image), never by asking.
 - Final video: Munshi does one final check (R1 only). If no BLOCKER -> upload in the slot (veto window stays: scheduled, "rok do" possible before the slot).
 - Default motion = 2.5D parallax (Depth Anything V2 Small, local, free); artifact par zoom fallback.
+- Story 005 se image style = Kissago Painted; style block aur sheet_painted reference zaroori. (`channels/<key>/brand/STYLE_PAINTED.md` section 1 verbatim at the end of every image prompt, `characters/<name>/sheet_painted.png` as the character reference; `scripts/gen_scenes.py` does both and runs `tools/name_guard.py` on every prompt; section 12a applies.)
   (`scripts/make_short.py --motion parallax` is the default, `--motion zoom` keeps the old Ken Burns; the guard in `tools/parallax.py` halves the motion or falls back to zoom per shot and logs it in shared/parallax_log.jsonl. Shorts: shots.json "subjects" boxes keep each speaker's face/hands/gesture inside 3-85% of the crop width.)

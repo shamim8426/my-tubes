@@ -40,6 +40,7 @@ Use this after every production step of a video in the Story-Channel project. Al
 - Props are period/setting correct (mitti ka chulha, not gas stove).
 
 ### 4. Scene images
+- Lookalike (RULES 12a), every image incl. thumbnails and sheets: "Kya ye kisi jaane-maane kirdaar ya scene ki nakal lagti hai?" Yes -> BLOCKER: new prompt + 1 regen, still yes -> drop the shot (crop/zoom another image); never use such an image even if paid. From story 005: Kissago Painted look (STYLE_PAINTED.md), painted sheets as references, Mitthu's throat plain green.
 - Make or open a contact sheet. Each image: correct characters, matching their sheets; location consistent; the action of the line is visible (who holds what, who is speaking).
 - No garbled AI text in the image, no extra fingers or broken faces in the main subject.
 - 16:9 for long, 9:16 for shorts.
@@ -90,6 +91,7 @@ Use this after every production step of a video in the Story-Channel project. Al
 - made_for_kids and AI disclosure taken from `channels/<key>/channel.json`.
 - Copyright: run the RULES section 10 checks against shared/assets_license.csv. Any miss is FIX.
 - Algorithm: run RULES section 13 checks.
+- Names (RULES 12a): run `python tools/name_guard.py <meta.json> <output .txt> <upload.json>`; any studio, film, anime or artist name in title, description, tags, hashtags, thumbnail text, pinned/first comment, playlist or file names = BLOCKER (upload BLOCK).
 
 ## Report format
 Write in Hinglish, friendly but professional, address the user as "bhai". Keep it short.
