@@ -56,7 +56,8 @@ def ref_path(name: str, story: Path, chan: Path) -> Path:
     sys.exit(f"cover ref not found: {name}")
 
 
-def draw_text(art: Path, out: Path, work: Path, label: str, title: str, label_y=0.178, title_y=0.268):
+def draw_text(art: Path, out: Path, work: Path, label: str, title: str, label_y=0.178, title_y=0.268,
+              title_size=280):
     fonts = work / "fonts"
     fonts.mkdir(parents=True, exist_ok=True)
     shutil.copy(FONTS_DIR / "Mukta-ExtraBold.ttf", fonts / "Mukta-ExtraBold.ttf")
@@ -69,7 +70,7 @@ ScaledBorderAndShadow: yes
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
 Style: L,Mukta ExtraBold,95,&H0060C8F0,&H000000FF,&H00101010,&H96000000,-1,0,0,0,100,100,0,0,1,5,3,5,40,40,0,1
-Style: T,Mukta ExtraBold,280,&H0000E5FF,&H000000FF,&H00000000,&H96000000,-1,0,0,0,100,100,0,0,1,14,8,5,40,40,0,1
+Style: T,Mukta ExtraBold,{title_size},&H0000E5FF,&H000000FF,&H00000000,&H96000000,-1,0,0,0,100,100,0,0,1,14,8,5,40,40,0,1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
@@ -112,7 +113,8 @@ def main():
         im.crop((x, y, x + W, y + H)).save(art)
     out = sdir / "output" / f"{name}_cover.png"
     out.parent.mkdir(exist_ok=True)
-    draw_text(art, out, work, c["label"], c["title"], c.get("label_y", 0.178), c.get("title_y", 0.268))
+    draw_text(art, out, work, c["label"], c["title"], c.get("label_y", 0.178), c.get("title_y", 0.268),
+              c.get("title_size", 280))
     print("saved", out, Image.open(out).size)
 
 

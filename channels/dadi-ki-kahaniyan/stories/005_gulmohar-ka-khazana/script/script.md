@@ -5,7 +5,7 @@ Builder (free, allowed by the user): narrator lines 3, 16, 24, 34, 45 shortened 
 Style: Kissago Painted, summer-holiday golden afternoon/evening; no cozy pal. Map and photo carry NO readable writing (lines come as captions).
 
 1. GOLU: "तारा! टिंकू! देखो... ये तो खज़ाने का नक्शा है!"
-2. NARRATOR: "एक पुराना नक्शा, तीन दोस्त, एक तोता... और साठ साल पुराना एक राज़।"
+2. NARRATOR: "एक पुराना नक्शा... और साठ साल पुराना एक राज़।" (shortened after TTS for the 10 s intro; was: "एक पुराना नक्शा, तीन दोस्त, एक तोता... और साठ साल पुराना एक राज़।")
 3. NARRATOR: "गर्मी की छुट्टियों में दादी के पुराने संदूक से एक पीला, मुड़ा कागज़ निकला।"
 4. TARA: "रुको! पहले सोचो, फिर दौड़ो। इस पर कुछ लिखा है।"
 5. TARA: "गुलमोहर से सात कदम, पूरब की ओर चलो। जहाँ पानी गीत गाए, वहाँ रुककर सुनो।"

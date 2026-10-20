@@ -34,11 +34,12 @@ unimportant (YouTube puts the video length there). Faces big, bright and express
 warm/cool contrast. Keep every character EXACTLY as in the attached reference sheets."""
 
 
-def draw(art: Path, out: Path, work: Path, lines):
+def draw(art: Path, out: Path, work: Path, lines, size=128, all_yellow=False):
     fonts = work / "fonts"
     fonts.mkdir(parents=True, exist_ok=True)
     shutil.copy(FONTS_DIR / "Mukta-Bold.ttf", fonts / "Mukta-Bold.ttf")
-    txt = "\\N".join([lines[0]] + [f"{{\\c&H00FFFFFF&}}{l}" for l in lines[1:]])
+    white = "" if all_yellow else "{\\c&H00FFFFFF&}"
+    txt = "\\N".join([lines[0]] + [f"{white}{l}" for l in lines[1:]])
     ass = f"""[Script Info]
 ScriptType: v4.00+
 PlayResX: {TW}
@@ -47,7 +48,7 @@ ScaledBorderAndShadow: yes
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: Q,Mukta,128,&H0000E5FF,&H000000FF,&H00000000,&H96000000,-1,0,0,0,100,100,0,0,1,11,7,5,0,0,0,1
+Style: Q,Mukta,{size},&H0000E5FF,&H000000FF,&H00000000,&H96000000,-1,0,0,0,100,100,0,0,1,11,7,5,0,0,0,1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
@@ -83,7 +84,7 @@ def main():
         cover(raw, TW, TH, art)
     out = ldir / "output" / f"{name}_thumbnail.png"
     out.parent.mkdir(exist_ok=True)
-    draw(art, out, work, t.get("lines") or [t["text"]])
+    draw(art, out, work, t.get("lines") or [t["text"]], t.get("size", 128), t.get("all_yellow", False))
     print("saved", out, Image.open(out).size)
 
 

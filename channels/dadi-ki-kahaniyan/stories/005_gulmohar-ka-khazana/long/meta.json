@@ -39,12 +39,12 @@
   },
   "pinned_comment": "आपके बचपन का सबसे पक्का दोस्त कौन था? और आपने कभी कोई 'खज़ाना' छुपाया था? कमेंट में बताइए! 🗺️",
   "speed": {
-    "narrator": 0.95,
+    "narrator": 1.0,
     "dadi": 0.9,
     "pandey": 0.95
   },
-  "gap": 0.4,
-  "end_hold": 8.0,
+  "gap": 0.35,
+  "end_hold": 7.0,
   "thumbnail": {
     "text": "किसका है ये खज़ाना?",
     "lines": [
@@ -57,6 +57,18 @@
       "tara",
       "tinku",
       "mitthu"
+    ],
+    "size": 147,
+    "all_yellow": true
+  },
+  "overlays": {
+    "2": [
+      [
+        "dust",
+        0.18,
+        0.6,
+        0.3
+      ]
     ]
   }
 }
