@@ -1,0 +1,4 @@
+file 'D:/Story-Channel/style_tests/parallax/compare_scene_02.mp4'
+file 'D:/Story-Channel/style_tests/parallax/compare_scene_04.mp4'
+file 'D:/Story-Channel/style_tests/parallax/compare_scene_05.mp4'
+file 'D:/Story-Channel/style_tests/parallax/compare_scene_06.mp4'

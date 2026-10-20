@@ -78,7 +78,12 @@ if (-not (git config --global user.email)) {
 
 Step "6/10 Python packages (whisper/torch can take a while)"
 python -m pip install --upgrade pip
+python -m pip install torch --index-url https://download.pytorch.org/whl/cpu  # CPU build first (no graphics card needed)
 if (Test-Path "requirements.txt") { python -m pip install -r requirements.txt }
+# 2.5D parallax depth model: ONLY Depth Anything V2 Small (Apache-2.0). Base/Large/Giant are non-commercial: never.
+if (-not (Test-Path "models\depth-anything-v2-small\model.safetensors")) {
+    python -c "from huggingface_hub import snapshot_download; snapshot_download('depth-anything/Depth-Anything-V2-Small-hf', local_dir='models/depth-anything-v2-small', allow_patterns=['*.json','*.safetensors','*.md'])"
+} else { Write-Host "    depth model already present" }
 
 Step "7/10 Fonts"
 $fontDir = Join-Path $Path "shared\fonts"

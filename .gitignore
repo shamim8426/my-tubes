@@ -32,6 +32,9 @@ cache/
 tools/ffmpeg/
 tools/deno/
 tools/whisper-models/
+# 2.5D parallax depth model (Depth Anything V2 Small, Apache-2.0; deploy.ps1 downloads it)
+models/
+**/images/_depth/
 tools/yt-dlp.exe
 # Claude account's auto-synced built-in skills (come back by themselves after login)
 claude-home/skills/synced/
