@@ -12,3 +12,7 @@
 - `night_822935.mp3` — "cricket chirping (slow)" by _sinny_ (2.8s, CC0) https://freesound.org/people/_sinny_/sounds/822935/
 - `steps_682886.mp3` — "Very_Slow_Footsteps_Hardwood.wav" by drewsimko (2.7s, CC0) https://freesound.org/people/drewsimko/sounds/682886/
 - `steps_324584.mp3` — "MALFOY_Florian_2015_2016_Footsteps.wav" by univ_lyon3 (1.9s, CC0) https://freesound.org/people/univ_lyon3/sounds/324584/ (moved to _to_delete/sfx_unused, not used)
+- `creak_647646.mp3` — "door creak 1.wav" by soundofsong (1.2s, CC0) https://freesound.org/people/soundofsong/sounds/647646/ (moved to _to_delete/sfx_unused, not used)
+- `creak_377552.mp3` — "Wooden Creak" by Mafon2 (0.9s, CC0) https://freesound.org/people/Mafon2/sounds/377552/
+- `pump_832465.mp3` — "Handcar Pump 2 (Out 1)" by qubodup (1.1s, CC0) https://freesound.org/people/qubodup/sounds/832465/
+- `pump_832464.mp3` — "Handcar Pump 1 (In 1)" by qubodup (1.1s, CC0) https://freesound.org/people/qubodup/sounds/832464/ (moved to _to_delete/sfx_unused, not used)

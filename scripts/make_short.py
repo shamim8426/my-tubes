@@ -136,7 +136,8 @@ def tts_key(text, speaker):
 
 def check_tts_spend(lines, cache: Path, allow: bool):
     """Paid TTS only on cache miss, and only with --spend. Otherwise stop and show the estimate."""
-    misses = [l for l in lines if "text" in l and not (cache / tts_key(l["text"], l["speaker"])).exists()]
+    misses = [{**l, "speaker": sp} for l in lines if "text" in l for sp in [l["speaker"], *l.get("with", [])]
+              if not (cache / tts_key(l["text"], sp)).exists()]
     if not misses:
         return
     secs = sum(len(l["text"].split()) / 2.4 for l in misses)  # ~2.4 words/s
@@ -272,6 +273,16 @@ def build_voice(lines, audio_dir: Path, work: Path, run_whisper: bool, end_hold:
                              work / f"line_{i + 1:02d}_{line['speaker']}.wav",  # per video, not the shared story audio/
                              extra_af=",".join(f for f in (line.get("af"), tempo) if f) or None,
                              chorus=line.get("chorus", False)))
+        if line.get("with"):  # several characters say the line together: each own TTS voice, mixed, same start
+            parts = [np.frombuffer(data, np.int16).astype(np.float32)]
+            for sp in line["with"]:
+                sp_tempo = speed.get(sp, 1.0) if isinstance(speed, dict) else speed
+                d2 = trim(tts_line(line["text"], sp, cache, work / f"line_{i + 1:02d}_{sp}.wav",
+                                   extra_af=f"atempo={sp_tempo}" if sp_tempo != 1.0 else None))
+                parts.append(np.frombuffer(d2, np.int16).astype(np.float32))
+            n_max = max(len(p) for p in parts)
+            mix = sum(np.pad(p, (0, n_max - len(p))) for p in parts) * (1.2 / len(parts) ** 0.5)
+            data = np.clip(mix, -32768, 32767).astype(np.int16).tobytes()
         words, note = word_times(data, line["text"], cache, run_whisper, words_dir=work / "words")
         gap = 0.0
         if i:

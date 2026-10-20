@@ -1,0 +1,158 @@
+{
+  "_help": "Story 005 (Long 04), Kissago Painted: 14 scene images (ids 2-7, 9-16; id = first scene number) + Pandey ji's painted sheet = 15 new images. Scene 8 = crops of image 7 (plan: budget). gen_scenes adds the STYLE_PAINTED block, painted sheet refs, Mitthu/Tinku/Tara notes and the name guard.",
+  "out_dir": "channels/dadi-ki-kahaniyan/stories/005_gulmohar-ka-khazana/images",
+  "aspect": "16:9",
+  "looks": {
+    "golu": "Golu (chubby boy ~10, messy black hair, yellow T-shirt, blue half-pants, red shoes)",
+    "tara": "Tara (girl ~9, two long braids with red ribbons, yellow frock, small notebook and pencil)",
+    "tinku": "Tinku (very thin boy ~9, round spectacles, loose orange-cream striped shirt, half-pants)",
+    "mitthu": "Mitthu (green parrot, red beak, thin red neck ring; wings and feet only)",
+    "dadi": "Dadi (grandmother ~70, white hair bun, round golden spectacles, light green saree with yellow border)",
+    "pandey": "Pandey ji (plump police inspector ~45, thick black moustache, khaki uniform and cap)"
+  },
+  "base": "16:9 landscape scene in Gulmohar Mohalla, a small Indian neighbourhood with narrow lanes, colourful two-storey houses, mud-and-tile homes and big gulmohar trees with flame-orange flowers; summer holidays, warm golden afternoon or evening light. Family-friendly; the children look innocent and age-appropriate. No text, letters, words or numbers anywhere in the image.",
+  "scenes": [
+    {
+      "id": 2,
+      "refs": [
+        "golu",
+        "tara",
+        "tinku",
+        "mitthu"
+      ],
+      "prompt": "Inside Dadi's mud house on a hot summer afternoon, warm golden light through a small window: an old wooden trunk is open, clothes folded aside; {golu} kneels and lifts out a yellowed folded paper with both hands, amazed; {tara} and {tinku} lean in from both sides peeking, eyes wide; {mitthu} perches on the trunk's open lid. The paper shows only faint drawn lines, no writing."
+    },
+    {
+      "id": 3,
+      "refs": [
+        "tara"
+      ],
+      "prompt": "Close-up of an old yellowed hand-drawn treasure map held open by {tara}'s hands (only her hands and braids at the edges): drawn only with simple pictures - a big gulmohar tree, a hand pump, two walls side by side with a gap between them, a small X mark and a row of little footprints. Absolutely no letters, no words, no numbers anywhere on the map. Warm afternoon light, paper texture."
+    },
+    {
+      "id": 4,
+      "refs": [
+        "golu",
+        "tara",
+        "tinku",
+        "mitthu"
+      ],
+      "prompt": "In Dadi's sunny aangan: the three children sit together on a charpai reading the old map; {tara} points at it with her pencil, serious and focused; {golu} grins excitedly; {tinku} holds his tummy with a hopeful hungry smile; {mitthu} perches on Golu's shoulder. Golden summer afternoon, gulmohar flowers on the ground. The map shows only pictures, no writing."
+    },
+    {
+      "id": 5,
+      "refs": [
+        "golu",
+        "tara",
+        "tinku",
+        "mitthu"
+      ],
+      "prompt": "Under the big gulmohar tree in the mohalla lane on a golden afternoon: {golu} takes huge exaggerated long steps away from the tree trunk, counting; {tara} and {tinku} count along with their fingers; {mitthu} flies above them. Flame-orange flowers everywhere."
+    },
+    {
+      "id": 6,
+      "refs": [
+        "golu",
+        "tara",
+        "tinku",
+        "pandey"
+      ],
+      "prompt": "A small vegetable patch with rows of cauliflowers next to a house in the lane: {golu} and {tinku} dig with a small spade and their hands, soil flying, {tara} holds the map; behind them {pandey} in his vest-and-uniform at home bursts out of his gate, shouting angrily, one hand raised. Comic, golden afternoon."
+    },
+    {
+      "id": 7,
+      "refs": [
+        "golu",
+        "tara",
+        "tinku",
+        "mitthu"
+      ],
+      "prompt": "Comic chase in the narrow lane: the three children run away fast towards the camera, {tinku}'s loose striped shirt flapping in the wind, {golu} puffing, {tara} clutching the map; {mitthu} flies ahead of them squawking. A low brick wall runs along the right side of the lane. Bright golden afternoon, dust kicked up.",
+      "covers": [
+        7,
+        8
+      ]
+    },
+    {
+      "id": 9,
+      "refs": [
+        "tara",
+        "golu",
+        "tinku"
+      ],
+      "prompt": "An old iron hand pump on a small cement platform at a corner of the mohalla, an old brick wall behind it: {tara} walks towards it taking tiny careful steps, looking at the map; {golu} and {tinku} follow behind her. Golden late afternoon light, long shadows."
+    },
+    {
+      "id": 10,
+      "refs": [
+        "golu",
+        "tara",
+        "tinku",
+        "mitthu"
+      ],
+      "prompt": "At the old iron hand pump: {golu} pumps the handle with both hands, water gushing into a puddle; {tinku} stares amazed; {tara} smiles knowingly, listening; {mitthu} perches on top of the hand pump, beak open. Water splashes sparkle in the golden light."
+    },
+    {
+      "id": 11,
+      "refs": [
+        "golu",
+        "tara",
+        "tinku"
+      ],
+      "prompt": "Behind the hand pump: two old brick walls stand close with a narrow dark vertical crack between them; {golu}'s hand is stuck at the opening of the crack and {tara} tries next to him, both straining; {tinku} stands behind them, nervous, as they all slowly turn to look at him. Golden light, mossy bricks."
+    },
+    {
+      "id": 12,
+      "refs": [
+        "tara",
+        "tinku",
+        "golu"
+      ],
+      "prompt": "Close at the narrow crack between the two old brick walls: {tara} shines a small torch into the crack; {tinku}, brave but scared, slides his very thin arm into the crack up to the elbow, eyes squeezed half shut; {golu} watches holding his breath. A tiny glint of something inside the dark gap. Warm afternoon light."
+    },
+    {
+      "id": 13,
+      "refs": [
+        "golu",
+        "tara",
+        "tinku"
+      ],
+      "prompt": "Close-up from above of an old rusty tin box just opened on the ground by the hand pump: inside are colourful glass marbles, a small wooden spinning top, and an old faded black-and-white photo of four small children standing together (tiny, faces soft and unclear). The children's hands and faces around the edges of the frame, amazed. No writing visible anywhere."
+    },
+    {
+      "id": 14,
+      "refs": [
+        "dadi",
+        "golu",
+        "tara",
+        "tinku",
+        "mitthu"
+      ],
+      "prompt": "Evening in Dadi's aangan in warm golden light: {dadi} sits on the charpai holding the old photo and laughs heartily, hand to her chest; {golu}, {tara} and {tinku} crowd around her, curious and excited; {mitthu} perches on the charpai's edge. The rusty tin box with marbles lies open beside her."
+    },
+    {
+      "id": 15,
+      "refs": [
+        "pandey",
+        "dadi",
+        "golu",
+        "tara",
+        "tinku",
+        "mitthu"
+      ],
+      "prompt": "At Dadi's brown wooden door in the evening: {pandey} stands in the doorway holding a dug-up cauliflower in one hand, his angry face melting into an emotional soft look as he stares at the old photo {dadi} shows him; {golu}, {tara} and {tinku} stand open-mouthed in surprise; {mitthu} flaps on the door frame. Warm evening light."
+    },
+    {
+      "id": 16,
+      "refs": [
+        "pandey",
+        "dadi",
+        "golu",
+        "tara",
+        "tinku",
+        "mitthu"
+      ],
+      "prompt": "Golden summer evening under the big gulmohar tree: {pandey} happily spins a small wooden top on the ground; {dadi} sits playing marbles; {golu}, {tara} and {tinku} cheer and laugh; {mitthu} flies around happily; behind them the vegetable patch has fresh new cauliflower plants. Keep the group in the LEFT 60% of the image; the right side is the glowing evening sky and the gulmohar tree. Exactly these characters, no other people."
+    }
+  ]
+}

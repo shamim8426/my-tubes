@@ -22,8 +22,10 @@ WANT = {
     "magic": "magic sparkle chime",
     "night": "night crickets",
     "steps": "footsteps slow",
+    "creak": "wooden chest creak",
+    "pump": "hand pump squeak",
 }
-DURATION = {"night": "[2 TO 6]", "steps": "[0.8 TO 3]"}  # default [0.3 TO 4]
+DURATION = {"night": "[2 TO 6]", "steps": "[0.8 TO 3]", "creak": "[0.5 TO 3]", "pump": "[1 TO 4]"}  # default [0.3 TO 4]
 PER_KIND = 2
 
 

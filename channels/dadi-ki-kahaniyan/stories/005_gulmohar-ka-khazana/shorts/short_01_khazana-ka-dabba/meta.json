@@ -1,0 +1,52 @@
+{
+  "title": "टिंकू ने दरार में हाथ डाला... और निकला 60 साल पुराना डिब्बा! | किस्सागो #shorts",
+  "description": "दो दीवारों के बीच एक पतली दरार... जहाँ बड़ा हाथ न जाए। टिंकू ने हिम्मत की, और बाहर आया एक पुराना डिब्बा — उसमें एक पुरानी फ़ोटो! पर फ़ोटो में हैं कौन? पूरी कहानी चैनल पर देखिए।",
+  "hashtags": [
+    "#shorts",
+    "#किस्सागो",
+    "#HindiKahani",
+    "#खज़ाना"
+  ],
+  "tags": [
+    "किस्सागो",
+    "Kissago",
+    "खज़ाना",
+    "टिंकू",
+    "गोलू की टोली",
+    "हिंदी कहानी",
+    "Hindi Kahani",
+    "Hindi Shorts",
+    "दोस्ती की कहानी",
+    "Family Story Hindi"
+  ],
+  "music_moods": {
+    "tension": "tension/Hidden_Agenda.mp3",
+    "jaadu": "jaadu/Enchanted_Valley.mp3"
+  },
+  "sfx": {},
+  "final_title": "पूरी कहानी नीचे दिए लिंक पर",
+  "final_title_secs": 2.0,
+  "end_hold": 2.0,
+  "caption_from": 1.0,
+  "music_below_db": 13.3,
+  "pinned_comment": "फ़ोटो में कौन था? पूरी कहानी चैनल पर देखिए! 🗺️",
+  "speed": {
+    "narrator": 1.0,
+    "golu": 1.05,
+    "tara": 1.08,
+    "tinku": 1.08
+  },
+  "gap": 0.15,
+  "gap_speaker_change": 0.3,
+  "cover": {
+    "label": "किस्सागो",
+    "title": "किसका है ये डिब्बा?",
+    "prompt": "Hero (33%-63% height): Tinku, very thin boy with round spectacles, his thin arm reaching into a narrow crack between two old brick walls, face brave but scared. Lower part (61%-82%): Golu and Tara crouched beside him watching, Tara holding a torch, warm golden afternoon light; Mitthu perched on the wall top. No photo, no grandmother, no policeman.",
+    "refs": [
+      "tinku",
+      "golu",
+      "tara",
+      "mitthu"
+    ]
+  }
+}

@@ -44,6 +44,10 @@ SHEETS = {
                "and two feet only, NO hands, never holding anything. Poses: perched on a branch; flying with wings "
                "spread; hopping on the ground. Expressions: beak open squawking, curious head tilt, proud puffed "
                "chest."),
+    "pandey": ("Inspector Pandey: plump Indian police inspector about 45, round face, thick black moustache, khaki "
+               "uniform with a brown belt and a khaki cap, a wooden lathi. Comic but kind. Poses: standing proudly with "
+               "the lathi; walking angrily holding a dug-up cauliflower; spinning a small wooden top with a happy "
+               "smile. Expressions: angry shout, surprised, emotional soft smile."),
 }
 TOLI_SHEET = ("Character reference sheet of ONE single child character on a plain warm off-white paper background. "
               "Top row: full-body FRONT view, full-body SIDE view, and one full-body action pose. Bottom row: four "
@@ -92,10 +96,10 @@ SCENES = {
 EST_INR = 5.0  # pre-GST estimate per 1K image with references (actual average so far ~₹5)
 
 
-def sheets(names):
+def sheets(names, budget=BUDGET):
     for n in names:
         out = CHAR / n / "sheet_painted.png"
-        check(BUDGET, EST_INR)
+        check(budget, EST_INR)
         t0 = time.time()
         generate(f"{SHEET}\n\n{SHEETS[n]}", out, refs=[CHAR / f"{n}_sheet.png"], aspect_ratio="3:2", size="1K",
                  style=style_block())
@@ -115,5 +119,9 @@ def scenes(ids):
 
 if __name__ == "__main__":
     cmd, rest = sys.argv[1], sys.argv[2:]
+    if cmd == "sheets" and rest and rest[0].startswith("--budget="):
+        b, rest = rest[0].split("=", 1)[1], rest[1:]
+        sheets(rest, b)
+        sys.exit()
     {"sheets": lambda: sheets(rest or list(SHEETS)), "scenes": lambda: scenes(rest or list(SCENES)),
      "toli": lambda: toli(rest or list(TOLI))}[cmd]()

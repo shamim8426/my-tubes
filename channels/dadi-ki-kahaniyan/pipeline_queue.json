@@ -22,6 +22,15 @@
       "slot": "long 2026-10-21 19:00, Short A 2026-10-21 21:00",
       "long_video_id": "llqRdGA08zY",
       "short_a_video_id": "jFXPwZE2xYY"
+    },
+    "005_gulmohar-ka-khazana": {
+      "video": "long",
+      "stage": "script_approved",
+      "profile": "RULES 15",
+      "style": "kissago_painted",
+      "budget_cap_inr": 110,
+      "updated": "2026-10-20",
+      "note": "Munshi script R1 next"
     }
   }
 }

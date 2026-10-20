@@ -310,3 +310,4 @@ timestamp,file,model,size,cost_usd,cost_inr,today_total_inr,remaining_inr,channe
 2026-10-20 22:50:31,channels/dadi-ki-kahaniyan/characters/_review/voices/tinku_Achernar.wav,gemini-3.8-flash-tts,tts 4.2s,0.00096,0.09,114.42,285.74,dadi-ki-kahaniyan,0.10,0.0927,0.02,14,106
 2026-10-20 22:50:38,channels/dadi-ki-kahaniyan/characters/_review/voices/tinku_Vindemiatrix.wav,gemini-3.8-flash-tts,tts 4.0s,0.00091,0.09,114.52,285.64,dadi-ki-kahaniyan,0.09,0.0875,0.02,14,100
 2026-10-20 22:50:45,channels/dadi-ki-kahaniyan/characters/_review/voices/tinku_Callirrhoe.wav,gemini-3.8-flash-tts,tts 4.4s,0.00101,0.10,114.64,285.52,dadi-ki-kahaniyan,0.10,0.0971,0.02,14,111
+2026-10-20 23:24:09,channels/dadi-ki-kahaniyan/characters/pandey/sheet_painted.png,gemini-nano-banana-2.1,1K,0.05015,4.84,120.35,279.81,dadi-ki-kahaniyan,3.45,4.8394,0.87,1363,3054

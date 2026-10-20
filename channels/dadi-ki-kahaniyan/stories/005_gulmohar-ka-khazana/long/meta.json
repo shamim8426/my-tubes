@@ -1,0 +1,62 @@
+{
+  "title": "दादी का 60 साल पुराना राज़! गुलमोहर मोहल्ले का खज़ाना | किस्सागो",
+  "description": "गर्मी की छुट्टियों में दादी के पुराने संदूक से निकला एक खज़ाने का नक्शा! गोलू, तारा, टिंकू और मिट्ठू निकल पड़े पहेलियाँ सुलझाने — गुलमोहर का पेड़, गाता हुआ हैंडपंप और दो दीवारों के बीच छुपा एक राज़... पर ये खज़ाना आख़िर किसका है? 🗺️🌳\n\nसीख: सच्ची दोस्ती ही सबसे बड़ा खज़ाना है।\n\nकिस्सागो — हर शाम एक नया किस्सा, जो हँसाए भी और सिखाए भी।",
+  "hashtags": [
+    "#किस्सागो",
+    "#खज़ाना",
+    "#HindiKahani",
+    "#DostiKiKahani",
+    "#GolukiToli"
+  ],
+  "tags": [
+    "किस्सागो",
+    "Kissago",
+    "खज़ाने की कहानी",
+    "Treasure Hunt Story Hindi",
+    "गुलमोहर मोहल्ला",
+    "दोस्ती की कहानी",
+    "दादी की कहानी",
+    "हिंदी कहानी",
+    "Hindi Kahani",
+    "Hindi Story with Moral",
+    "बच्चों की टोली",
+    "गर्मी की छुट्टियाँ",
+    "Family Story Hindi",
+    "Cartoon Story Hindi",
+    "पहेली वाली कहानी"
+  ],
+  "music_moods": {
+    "jaadu": "jaadu/Enchanted_Valley.mp3",
+    "khushi": "khushi/Life_of_Riley.mp3",
+    "comedy": "comedy/Fluffing_a_Duck.mp3",
+    "tension": "tension/Hidden_Agenda.mp3",
+    "seekh": "seekh/Touching_Moments_Two_Higher.mp3"
+  },
+  "sfx": {
+    "creak": "creak_377552.mp3",
+    "pump": "pump_832465.mp3",
+    "comedy": "comedy_sting_731262.mp3"
+  },
+  "pinned_comment": "आपके बचपन का सबसे पक्का दोस्त कौन था? और आपने कभी कोई 'खज़ाना' छुपाया था? कमेंट में बताइए! 🗺️",
+  "speed": {
+    "narrator": 0.9,
+    "dadi": 0.9,
+    "pandey": 0.95
+  },
+  "gap": 0.5,
+  "end_hold": 8.0,
+  "thumbnail": {
+    "text": "किसका है ये खज़ाना?",
+    "lines": [
+      "किसका है",
+      "ये खज़ाना?"
+    ],
+    "prompt": "Golden summer afternoon in Gulmohar Mohalla. RIGHT side: Golu, Tara and Tinku stand close together holding an old yellowed treasure map (pictures only, no writing), all three amazed with wide eyes and open mouths; behind them a big gulmohar tree with flame-orange flowers; in front of them, near an old iron hand pump, a small rusty tin box glows with golden light; Mitthu flies above them with wings spread. No grandmother, no policeman, no photo.",
+    "refs": [
+      "golu",
+      "tara",
+      "tinku",
+      "mitthu"
+    ]
+  }
+}

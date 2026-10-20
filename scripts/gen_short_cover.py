@@ -19,6 +19,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 from gemini_image import generate  # noqa: E402
 from paths import FONTS_DIR, ROOT, channel_dir, channel_of  # noqa: E402
 from story_budget import check  # noqa: E402
+import painted  # noqa: E402
 
 W, H = 1080, 1920
 FFMPEG = ROOT / "tools" / "ffmpeg" / "ffmpeg.exe"
@@ -35,6 +36,16 @@ COMPOSITION IS CRITICAL:
 - 61%-82%: the key object and the other characters described below, faces clearly visible.
 - bottom 18%: only bodies/ground, no faces.
 The attached last image is a COMPOSITION and MOOD reference only: do not copy its characters or objects.
+Keep every character EXACTLY as in the attached reference sheets (faces, outfits, colours)."""
+
+# Kissago Painted (story 005+): same composition, painted look; no flat style reference image
+LAYOUT_PAINTED = """Vertical 9:16 poster-style cover for a Hindi family Short, NO text or letters anywhere.
+Look: warm painted poster with strong contrast: a deeper sky at the top fading into warm golden light lower down.
+COMPOSITION IS CRITICAL:
+- top 33% of the height: only sky/background (a title is added there later); nothing important, no faces.
+- 33%-63%: ONE big hero character as described below, large and expressive.
+- 61%-80%: the key object and the other characters described below, faces clearly visible.
+- bottom 20%: only bodies/ground, no faces.
 Keep every character EXACTLY as in the attached reference sheets (faces, outfits, colours)."""
 
 
@@ -86,8 +97,14 @@ def main():
     raw, art = work / "cover_raw.png", work / "cover_art.png"
     if not text_only:
         check(story.name, 3.24)  # RULES 14 budget guard (exits on STOP)
-        refs = [ref_path(r, story, chan) for r in c.get("refs", [])] + [chan / STYLE_REF]
-        generate(f"{LAYOUT}\n\n{c['prompt']}", raw, refs=refs, aspect_ratio="9:16", size="1K")
+        if painted.is_painted(story, chan):
+            prompt = f"{LAYOUT_PAINTED}\n\n{c['prompt']}\n{painted.notes(c.get('refs', []))}".strip()
+            painted.guard(prompt)
+            generate(prompt, raw, refs=[painted.sheet(chan, r) for r in c.get("refs", [])], aspect_ratio="9:16",
+                     size="1K", style=painted.style_block(chan))
+        else:
+            refs = [ref_path(r, story, chan) for r in c.get("refs", [])] + [chan / STYLE_REF]
+            generate(f"{LAYOUT}\n\n{c['prompt']}", raw, refs=refs, aspect_ratio="9:16", size="1K")
         im = Image.open(raw).convert("RGB")
         k = max(W / im.width, H / im.height)
         im = im.resize((round(im.width * k), round(im.height * k)), Image.LANCZOS)
