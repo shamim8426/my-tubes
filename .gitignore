@@ -43,3 +43,6 @@ claude-home/skills/synced/
 _to_delete/
 Thumbs.db
 desktop.ini
+
+# chat history (SpecStory): stays on this PC only, never on GitHub (2026-10-20)
+.specstory/
