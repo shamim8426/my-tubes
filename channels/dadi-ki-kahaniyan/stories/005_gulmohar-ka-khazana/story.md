@@ -10,10 +10,10 @@
 | Item | Status |
 |---|---|
 | Script | approved by the user (checkpoint 1) |
-| Pandey ji painted sheet | |
-| Scene images | |
-| TTS | |
-| Long video | |
-| Thumbnail | |
-| Short A | |
-| Upload | |
+| Pandey ji painted sheet | done |
+| Scene images | done (14, Kissago Painted) |
+| TTS | done |
+| Long video | long_04.mp4 237.4 s, Munshi final R1 PASS 2026-10-21 |
+| Thumbnail | long_04_thumbnail.png (set via API) |
+| Short A | short_01_khazana-ka-dabba.mp4 36.7 s, final R1 PASS; cover file manual |
+| Upload | PUBLISHED (scheduled): Long 04 wKH56WivpEs 2026-10-22 19:00 IST; Short VYbq2WkgSaU 2026-10-22 21:00 IST (parent wKH56WivpEs). Story cost ₹108.96 incl. GST |

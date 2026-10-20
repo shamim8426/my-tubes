@@ -25,12 +25,15 @@
     },
     "005_gulmohar-ka-khazana": {
       "video": "long",
-      "stage": "script_approved",
+      "stage": "short_uploaded",
       "profile": "RULES 15",
       "style": "kissago_painted",
       "budget_cap_inr": 110,
-      "updated": "2026-10-20",
-      "note": "Munshi script R1 next"
+      "updated": "2026-10-21",
+      "note": "Munshi final R1 PASS (long + Short). Long 04 wKH56WivpEs scheduled 2026-10-22 19:00 IST, Short A VYbq2WkgSaU scheduled 2026-10-22 21:00 IST (1st comment task 21:05). Manual Studio: confirm both schedules, Related video Short = Long 04, pin comment, end screen, cover file. Story cost Rs108.96 incl. GST.",
+      "slot": "long 2026-10-22 19:00, Short A 2026-10-22 21:00",
+      "long_video_id": "wKH56WivpEs",
+      "short_a_video_id": "VYbq2WkgSaU"
     }
   }
 }
