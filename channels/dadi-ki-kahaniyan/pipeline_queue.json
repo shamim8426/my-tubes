@@ -14,12 +14,14 @@
     },
     "004_chhat-par-bhoot": {
       "video": "long",
-      "stage": "images",
+      "stage": "short_uploaded",
       "profile": "RULES 15",
       "budget_cap_inr": 110,
-      "updated": "2026-10-19",
-      "note": "Munshi script R1 running; then sheet -> images -> TTS -> final",
-      "stopped": "Gemini 429 'project has exceeded its monthly spending cap' (AI Studio spend cap, https://ai.studio/spend) -> user must raise the cap. Done: Mishra sheet, images 2,4,5,6, Mishra voice sample, 15/40 TTS lines. Pending: images 7,8,10-16, 25 TTS lines, thumbnail, Short cover, final, uploads."
+      "updated": "2026-10-20",
+      "note": "Munshi final R1 PASS (long + Short). Long 03 llqRdGA08zY scheduled 2026-10-21 19:00 IST, Short A jFXPwZE2xYY scheduled 2026-10-21 21:00 IST (1st comment task 21:05). Manual Studio: confirm both schedules, Related video Short = Long 03, pin comment, end screen, cover file. Story cost Rs98.88 incl. GST.",
+      "slot": "long 2026-10-21 19:00, Short A 2026-10-21 21:00",
+      "long_video_id": "llqRdGA08zY",
+      "short_a_video_id": "jFXPwZE2xYY"
     }
   }
 }

@@ -64,3 +64,4 @@
 2026-10-19 20:52:24  pushed: story 004: sheet + images 2,4,5,6 + 15 TTS; AUTO STOP - AI Studio monthly spend cap  (repo pack size 337 MB)
 2026-10-19 21:11:17  pushed: auto: session end  (repo pack size 337 MB)
 2026-10-20 09:11:17  pushed: parallax: tools/parallax.py (Depth Anything V2 Small, CPU) + compare test, Munshi R2 PASS-WITH-NOTES; story 004 still blocked by Gemini spend cap  (repo pack size 337 MB)
+2026-10-20 11:56:03  pushed: story 004: scene images + TTS + thumbnail + Short cover done; parallax default in make_short (--motion zoom), crop safety, RULES 15 + step-review  (repo pack size 337 MB)

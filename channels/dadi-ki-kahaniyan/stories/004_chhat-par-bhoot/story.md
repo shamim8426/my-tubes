@@ -10,10 +10,10 @@
 | Item | Status |
 |---|---|
 | Script | approved by the user (checkpoint 1) |
-| Mishra dada sheet | |
-| Scene images | |
-| TTS | |
-| Long video | |
-| Thumbnail | |
-| Short A | |
-| Upload | |
+| Mishra dada sheet | done (₹ actual in cost_log) |
+| Scene images | 13 new + crops/zooms, Munshi stages R2 PASS-WITH-NOTES |
+| TTS | 40 lines done, Whisper-timed |
+| Long video | long/output/long_03.mp4 224.3 s, parallax; Munshi final R1 PASS (2026-10-20) |
+| Thumbnail | long/output/long_03_thumbnail.png (set via API) |
+| Short A | short_01_bhoot-phir-aaya 38.4 s; Munshi final R1 PASS; cover file output/short_01_bhoot-phir-aaya_cover.png (manual) |
+| Upload | Long 03 llqRdGA08zY scheduled 2026-10-21 19:00 IST; Short jFXPwZE2xYY scheduled 2026-10-21 21:00 IST (parent llqRdGA08zY). Story cost ₹98.88 incl. GST |

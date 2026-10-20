@@ -45,7 +45,7 @@ def build() -> Path:
 
 
 def open_in_vscode(path: Path):
-    if os.environ.get("AUTO_PREVIEW", "1") == "0":
+    if os.environ.get("AUTO_PREVIEW", "0") != "1":  # off by default (user, 2026-10-20); AUTO_PREVIEW=1 turns it on
         return
     code = shutil.which("code")
     if code:

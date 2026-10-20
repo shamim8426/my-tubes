@@ -106,8 +106,9 @@ def guard_write(path, new_tts=False):
 
 
 def snapshot(dirs):
-    """{file: (size, mtime_ns)} of every file in the paid source folders."""
-    return {f: (f.stat().st_size, f.stat().st_mtime_ns) for d in dirs if d.exists() for f in d.rglob("*") if f.is_file()}
+    """{file: (size, mtime_ns)} of every file in the paid source folders (images/_depth = free parallax cache)."""
+    return {f: (f.stat().st_size, f.stat().st_mtime_ns) for d in dirs if d.exists() for f in d.rglob("*")
+            if f.is_file() and "_depth" not in f.parts}
 
 
 def check_snapshot(before, dirs):
