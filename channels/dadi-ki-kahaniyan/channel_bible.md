@@ -41,6 +41,31 @@
 
 ---
 
+## 2a. Golu ki toli (permanent; approved by the user 2026-10-20)
+
+**Toli:** Golu (himmat), Tara (dimaag), Tinku (hasi), Mitthu (gadbad). Raju pehle jaisa: kabhi-kabhi aane wala dost.
+Painted sheets: `characters/tara/sheet_painted.png`, `characters/tinku/sheet_painted.png` (Kissago Painted, story 005 se).
+
+### तारा (Tara), ~9 saal — toli ka dimaag
+- **Roop:** chamakti badi aankhein, do lambi chotiyan laal ribbon ke saath, khuli muskaan, peeli frock, chappal; haath me chhoti notebook + pencil.
+- **Swabhaav:** hoshiyaar, dhyan se dekhne wali, paheliyan sabse pehle sulajhaati, thodi bossy par dil ki achhi. (Varnan uske swabhaav aur khushmizaaji par; roop par zor nahi.)
+- **Pakki line:** "रुको! पहले सोचो, फिर दौड़ो।"
+- **Awaaz:** Gemini TTS **Pulcherrima**, speed 1.0 (sample `characters/voices/tara_Pulcherrima.wav`; chosen by the user).
+
+### टिंकू (Tinku), ~9 saal — hasi ka khazana
+- **Roop:** bahut dubla-patla aur Golu se thoda lamba, bade gol chashme, dheeli dhaaridaar shirt, half pant, bikhre baal.
+- **Swabhaav:** thoda darpok, hamesha bhookha, bhola aur mazaakiya; mushkil waqt me himmat dikhata hai.
+- **Pakki line:** "मुझे कोई डर नहीं लग रहा... बस भूख लग रही है!"
+- **Awaaz:** Gemini TTS **Achernar**, speed 1.0 (sample `characters/voices/tinku_Achernar.wav`; chosen by the user). Golu: Leda, 0.95.
+
+### Toli ke niyam
+- Image prompts: Tinku = "very thin, skinny arms and legs, a little taller than Golu", stripes ALWAYS orange-cream (never red-white, never a yellow or plain shirt), never a cap, scarf, robe, mark on the forehead or wand. Tara = calm "thinking" face (focused, not worried). (gen_scenes adds these lines automatically.)
+- Sab bachche umar ke hisaab se masoom aur family-friendly dikhte hain.
+- Golu aur Tara sirf dost hain: kisi kahani, thumbnail, title ya comment me romance/crush wala angle KABHI nahi.
+- Tinku ke patlepan ka mazaak ho sakta hai, par kahani ant me use kabhi neecha nahi dikhayegi (wahi uski taakat banegi, ya dost saath denge).
+
+---
+
 ## 3. Recurring Side Characters (kabhi-kabhi aayenge, look fixed)
 
 | Character | Look / Pehchaan |

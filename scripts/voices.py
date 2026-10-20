@@ -32,6 +32,9 @@ CAST = {
     "gupta": ("Despina", "chatty, dramatic 50-year-old Indian neighbour who loves gossip, expressive and theatrical, quick", 0),
     # --- long_03 (story 004): छत पर भूत? ---
     "mishra": ("Enceladus", "gentle, soft-spoken 70-year-old Indian man, polite, a little lonely and shy, slow and warm", 0),
+    # --- Golu ki toli (permanent, 2026-10-20) ---
+    "tara": ("Pulcherrima", "clever, cheerful 9-year-old Indian girl: clear, quick, bright and confident, a little bossy but warm", 0),
+    "tinku": ("Achernar", "thin, innocent 9-year-old Indian boy: slightly thin, light voice, sweet and funny, a little shaky when scared", 0),
 }
 
 

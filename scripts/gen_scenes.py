@@ -26,6 +26,11 @@ sys.path.insert(0, str(ROOT / "tools"))
 from name_guard import find_names  # noqa: E402
 
 PAINTED_FROM = 5  # first story number in Kissago Painted
+CHAR_NOTES = {  # added to every painted prompt that has this character (channel_bible 2a)
+    "tinku": ("Tinku is very thin with skinny arms and legs and a little taller than Golu; his shirt stripes are always "
+              "orange and cream; no cap, scarf, robe, forehead mark or wand."),
+    "tara": "Tara looks focused and cheerful when thinking, not worried.",
+}
 MITTHU_NOTE = ("Mitthu is a bird with wings and feet only, no hands; only a thin red ring around his neck, throat "
                "and chin plain green, no black patch.")
 
@@ -80,6 +85,8 @@ def main(arg: str, only: list[int]):
                        "and colour palette exactly. Do NOT draw the grandmother from it in this scene.")
         if spec.get("_painted") and "mitthu" in scene["refs"]:
             prompt += "\n" + MITTHU_NOTE
+        if spec.get("_painted"):
+            prompt += "".join("\n" + CHAR_NOTES[c] for c in scene["refs"] if c in CHAR_NOTES)
         full = f"{spec['base']}\n\n{prompt}"
         if find_names(full):
             print(f"BLOCKED scene {scene['id']}: studio/film/artist name in the prompt (RULES 12a); nothing spent",

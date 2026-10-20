@@ -45,6 +45,34 @@ SHEETS = {
                "spread; hopping on the ground. Expressions: beak open squawking, curious head tilt, proud puffed "
                "chest."),
 }
+TOLI_SHEET = ("Character reference sheet of ONE single child character on a plain warm off-white paper background. "
+              "Top row: full-body FRONT view, full-body SIDE view, and one full-body action pose. Bottom row: four "
+              "head-and-shoulders expressions: happy, surprised, scared, thinking. The same child in every view: same "
+              "face, hair, outfit and colours, full outfit visible. No other characters, no scenery, no labels or words. "
+              "The attached sheet is Golu from the same world: match his painted look, age and body proportions "
+              "(same age group, same height scale), but draw only the new child described here. Innocent, "
+              "age-appropriate, family-friendly look.")
+TOLI = {
+    "tara": ("Tara: a cheerful, clever Indian girl about 9 years old, the same height as Golu. Big bright curious eyes, "
+             "two long braids tied with red ribbons, an open friendly smile, a simple knee-length yellow frock, plain "
+             "chappals; she holds a small notebook and a pencil. Action pose: tapping her pencil on the notebook, "
+             "thinking."),
+    "tinku": ("Tinku: a very thin, lanky Indian boy about 9 years old, a little taller than Golu and much thinner. "
+              "Big round spectacles, messy hair, a loose striped half-sleeve shirt, half-pants, sandals. Gentle, "
+              "innocent, funny face. Action pose: holding his tummy with a hungry, sheepish grin."),
+}
+
+
+def toli(names):
+    for n in names:
+        out = CHAR / n / "sheet_painted.png"
+        check("new_characters", EST_INR)
+        t0 = time.time()
+        generate(TOLI_SHEET + "\n\n" + TOLI[n], out, refs=[CHAR / "golu" / "sheet_painted.png"], aspect_ratio="3:2",
+                 size="1K", style=style_block())
+        print(f"saved {out} ({time.time() - t0:.0f}s)", flush=True)
+
+
 SCENES = {
     "A": (["dadi", "golu", "mitthu"],
           "16:9 scene, evening (shaam) in Dadi's aangan in Gulmohar Mohalla: a small mud house with a clay-tile roof "
@@ -87,4 +115,5 @@ def scenes(ids):
 
 if __name__ == "__main__":
     cmd, rest = sys.argv[1], sys.argv[2:]
-    {"sheets": lambda: sheets(rest or list(SHEETS)), "scenes": lambda: scenes(rest or list(SCENES))}[cmd]()
+    {"sheets": lambda: sheets(rest or list(SHEETS)), "scenes": lambda: scenes(rest or list(SCENES)),
+     "toli": lambda: toli(rest or list(TOLI))}[cmd]()

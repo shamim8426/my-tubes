@@ -905,9 +905,14 @@ def main():
     print(f"[{P['kind'].upper()} {mode.upper()}] {prof['w']}x{prof['h']} @ {prof['fps']} fps")
     print("1/4 voice")
     check_tts_spend(lines, audio_dir / "tts_cache", a.spend)
+    speed = meta.get("speed", 1.0)
+    num = int("".join(ch for ch in P["story"].name.split("_")[0] if ch.isdigit()) or 0)
+    if num >= 5 and isinstance(speed, dict):  # channel.json "voices" speeds fill speakers the meta does not set
+        cv = json.loads((ROOT / "channels" / P["channel"] / "channel.json").read_text(encoding="utf-8")).get("voices", {})
+        speed = {**{k: v["speed"] for k, v in cv.items() if isinstance(v, dict) and "speed" in v}, **speed}
     voice, total, timed, events = build_voice(lines, audio_dir, work, run_whisper=(mode == "final"),
                                               end_hold=meta.get("end_hold", END_HOLD), gap_s=meta.get("gap", GAP),
-                                              speed=meta.get("speed", 1.0), gap_change=meta.get("gap_speaker_change"))
+                                              speed=speed, gap_change=meta.get("gap_speaker_change"))
     if a.seconds:  # test render: keep the lines that start inside the first N seconds
         total = min(total, a.seconds)
         timed = [l for l in timed if l["start"] < total]

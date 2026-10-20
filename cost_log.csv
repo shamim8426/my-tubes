@@ -301,3 +301,12 @@ timestamp,file,model,size,cost_usd,cost_inr,today_total_inr,remaining_inr,channe
 2026-10-20 20:56:29,style_tests/painted/scene_A.png,gemini-nano-banana-2.1,1K,0.05188,5.01,91.51,308.65,dadi-ki-kahaniyan,3.76,5.0062,0.90,3560,2845
 2026-10-20 20:57:04,style_tests/painted/scene_B.png,gemini-nano-banana-2.1,1K,0.05162,4.98,97.38,302.78,dadi-ki-kahaniyan,3.76,4.9810,0.90,3551,2812
 2026-10-20 22:24:42,channels/dadi-ki-kahaniyan/characters/mitthu/sheet_painted.png,gemini-nano-banana-2.1,1K,0.04766,4.60,102.81,297.35,dadi-ki-kahaniyan,3.45,4.5996,0.83,1396,2716
+2026-10-20 22:47:41,channels/dadi-ki-kahaniyan/characters/_review/voices/cap_check.wav,gemini-3.8-flash-tts,tts 1.3s,0.00029,0.03,102.84,297.32,dadi-ki-kahaniyan,0.03,0.0279,0.01,3,32
+2026-10-20 22:49:14,channels/dadi-ki-kahaniyan/characters/tara/sheet_painted.png,gemini-nano-banana-2.1,1K,0.05370,5.18,108.96,291.20,dadi-ki-kahaniyan,3.45,5.1822,0.93,1396,3521
+2026-10-20 22:49:41,channels/dadi-ki-kahaniyan/characters/tinku/sheet_painted.png,gemini-nano-banana-2.1,1K,0.04467,4.31,114.04,286.12,dadi-ki-kahaniyan,3.45,4.3104,0.78,1393,2317
+2026-10-20 22:50:10,channels/dadi-ki-kahaniyan/characters/_review/voices/tara_Erinome.wav,gemini-3.8-flash-tts,tts 3.7s,0.00084,0.08,114.14,286.02,dadi-ki-kahaniyan,0.08,0.0813,0.01,12,93
+2026-10-20 22:50:16,channels/dadi-ki-kahaniyan/characters/_review/voices/tara_Pulcherrima.wav,gemini-3.8-flash-tts,tts 3.4s,0.00076,0.07,114.23,285.93,dadi-ki-kahaniyan,0.08,0.0735,0.01,12,84
+2026-10-20 22:50:23,channels/dadi-ki-kahaniyan/characters/_review/voices/tara_Kore.wav,gemini-3.8-flash-tts,tts 3.2s,0.00074,0.07,114.31,285.85,dadi-ki-kahaniyan,0.07,0.0709,0.01,12,81
+2026-10-20 22:50:31,channels/dadi-ki-kahaniyan/characters/_review/voices/tinku_Achernar.wav,gemini-3.8-flash-tts,tts 4.2s,0.00096,0.09,114.42,285.74,dadi-ki-kahaniyan,0.10,0.0927,0.02,14,106
+2026-10-20 22:50:38,channels/dadi-ki-kahaniyan/characters/_review/voices/tinku_Vindemiatrix.wav,gemini-3.8-flash-tts,tts 4.0s,0.00091,0.09,114.52,285.64,dadi-ki-kahaniyan,0.09,0.0875,0.02,14,100
+2026-10-20 22:50:45,channels/dadi-ki-kahaniyan/characters/_review/voices/tinku_Callirrhoe.wav,gemini-3.8-flash-tts,tts 4.4s,0.00101,0.10,114.64,285.52,dadi-ki-kahaniyan,0.10,0.0971,0.02,14,111

@@ -21,5 +21,20 @@
     "moral-stories": ""
   },
   "image_style": "kissago_painted",
-  "_image_style_note": "Kissago Painted from story 005 (approved 2026-10-20); stories up to 004 keep the flat look. Style block: brand/STYLE_PAINTED.md; refs: characters/<name>/sheet_painted.png"
+  "_image_style_note": "Kissago Painted from story 005 (approved 2026-10-20); stories up to 004 keep the flat look. Style block: brand/STYLE_PAINTED.md; refs: characters/<name>/sheet_painted.png",
+  "voices": {
+    "_help": "Permanent characters: Gemini TTS voice + default speed. From story 005 make_short uses these speeds for speakers not set in the video's meta.json speed. Full cast with style text: scripts/voices.py",
+    "golu": {
+      "voice": "Leda",
+      "speed": 0.95
+    },
+    "tara": {
+      "voice": "Pulcherrima",
+      "speed": 1.0
+    },
+    "tinku": {
+      "voice": "Achernar",
+      "speed": 1.0
+    }
+  }
 }
