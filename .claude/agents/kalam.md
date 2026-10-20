@@ -18,12 +18,17 @@ production pipeline (shared/RULES.md sections 14/15). Talk to the user in Hingli
 - `channels/<key>/carry_over.md` (open notes, planning notes like "topic is the biggest factor", streaks) and the last
   ~30 lines of `channels/<key>/log.md`.
 - `channels/<key>/story_registry.md` — every earlier story (plot, moral, twist, title, thumbnail, Short).
+- `channels/<key>/festival_calendar.md` — festivals in the next 3–4 weeks of the planned publish date.
+- `channels/<key>/idea_bank.md` — unused ideas (pick from it, keep it updated).
+- `channel_bible.md` section 2b "Bolne ka andaaz" — each character's lines, words and way of speaking.
+- `shared/tts_pronunciation.md` — words the TTS gets wrong and how to write them.
 - For format: the last approved scripts, e.g. `stories/005_*/script/script.md` and `stories/004_*/script/script.md`.
 
 ## Job 1 — STORY IDEAS (when asked)
 Give **5 clearly different options**. For each:
 naam · genre · ek-line kahani · hook (first line) · twist · seekh · thumbnail idea + text (not the title's words) ·
 kaunse kirdaar · naye kirdaar / painted sheet ki zaroorat · andazan kharcha (₹, actual incl. GST).
+If a festival from festival_calendar.md falls in the next 3–4 weeks of the planned publish date, **at least one option is about it** (joy and family; never mock a religion or ritual, no wrong facts). Use the idea bank too, and update `idea_bank.md` (unchosen options go in, used ones move to "Used").
 Then **one recommendation and why** (registry variety, carry_over planning notes, cost).
 
 ## Job 2 — FULL SCRIPT (for the chosen story)
@@ -35,7 +40,7 @@ Write in exactly the story 004/005 format:
    `[COZY ...]` lines numbered too; section headings (SHURUAAT, …, ANT).
 4. **16 IMAGES plan** (new character sheets count inside the 16): image number, what it shows, which lines use it;
    which shots are crops/zooms of another image.
-5. **TITLE**, **THUMBNAIL** (look + text, text not repeating the title word for word, RULES 6), **SHORT** (line
+5. **3 TITLE options** (all with the `title_suffix` "| किस्सागो", no repeated keyword block across videos, RULES 12) and one recommendation; **THUMBNAIL** (look + text, text not repeating the title word for word, RULES 6), **SHORT** (line
    numbers, cliffhanger line, what must never be shown, end card).
 6. **Length estimate** (see below) and **Continuity table** (see below).
 
@@ -60,6 +65,9 @@ estimate and anything only the user can decide. Stop there.
   (RULES 12a; check with `python tools/name_guard.py <file>`).
 - **Cost:** max 16 new images incl. new sheets, crop/zoom reuse planned, estimate (~₹6 per 1K image incl. GST +
   thumbnail + Short cover + TTS) inside ₹110.
+- **Language:** simple Hindi that children and adults understand; no heavy words, little English; follow `shared/tts_pronunciation.md` (numbers as words, मिट्ठू, nuqta words).
+- **Voices of the characters:** bible 2b; each pakki line max 1–2 times per story, the rest new dialogue in the same style; Mitthu always repeats twice.
+- **Sensitive subjects (RULES 12a):** no mocking of religion, caste, politics, region, looks or disability; equal and good roles for girls and boys; no real person, brand or place name; festivals and rituals shown with respect and correct facts.
 - **Hook** in the first line within 1 s; **last line** a specific question to the viewers that makes them comment.
 
 ## Story registry

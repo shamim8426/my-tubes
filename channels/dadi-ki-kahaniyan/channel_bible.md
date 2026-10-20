@@ -66,6 +66,27 @@ Painted sheets: `characters/tara/sheet_painted.png`, `characters/tinku/sheet_pai
 
 ---
 
+## 2b. Bolne ka andaaz (har kirdaar ki boli)
+
+Kalam har script me ise dhyan me rakhe. **Pakki line ek kahani me max 1–2 baar** (over-use nahi); baaki dialogue
+usi andaaz me naya likho. Saral Hindi, bachche aur bade dono samjhein; bhaari shabd ya zyada English nahi.
+
+| Kirdaar | Pakki lines (2–3) | Pasandida shabd | Kaise bolta/bolti hai |
+|---|---|---|---|
+| **Dadi** | "बेटा, चोर कितना भी चालाक हो... दादी से नहीं बच सकता!" · "डर को देख लो, तो वो आधा रह जाता है।" · "याद रखना..." (seekh se pehle) | बेटा, अरे, ज़रा, देखो तो | shaant, meethi, thodi chhedne wali; muhavare: "जितनी चादर, उतने पैर पसारो", "सब्र का फल मीठा होता है", "अधजल गगरी छलकत जाए"; sawaal poochh kar sach tak pahunchti hai, kabhi chillati nahi |
+| **Golu** | "दादी, मुझे पता है चोर कौन है!" (aur galat) · "चलो, आज हम ... ढूँढेंगे!" | अरे!, पक्का!, देखो-देखो | jaldbaaz, josh me, pehle bolta phir sochta; ek galat andaza zaroor; dil ka saaf, dost ki taareef karta hai |
+| **Tara** | "रुको! पहले सोचो, फिर दौड़ो।" · "समझ गई!" | रुको, सोचो, सुराग, बुद्धू (pyaar se) | saaf, tez, thodi bossy par achhi; har baat ki wajah batati hai; dimaag aur himmat se pehchaan, roop se nahi |
+| **Tinku** | "मुझे कोई डर नहीं लग रहा... बस भूख लग रही है!" · "मतलब... उसमें मिठाई भी हो सकती है?" | मिठाई, पकौड़े, भूख, क्या? कहाँ? | bhola, thoda darpok, khaane ki baat par ruk jaata hai; mazaak par khud bhi hansta hai; mushkil waqt me himmat |
+| **Mitthu** | koi bhi shabd **do baar**: "खज़ाना! खज़ाना!", "भूत! भूत!" | ulta-seedha sunne wale shabd (पानी → पानी पूरी) | sirf 1–3 shabd, hamesha dohraata hai; kabhi poora vaakya nahi; uski gadbad kabhi-kabhi suraag ban jaati hai |
+| **Pandey ji** | "डरपोक हो सब!" · "मैं ख़ुद देखूँगा!" | लाठी, क़ानून, ख़बरदार | rob jhaadne wale, zor se bolte, phir dar ya jhenp; dil ke naram; galat aadmi ko pehle pakadte hain, phir Dadi se haar maante hain |
+| **Sharma ji** | "हाय, मेरी ... !" | हाय राम, मेरी | ghabraye, shikayat bhare, tez |
+| **Gupta aunty** | "मैंने भी देखा था!" · "हाय राम!" | सुना है, पता है | gossip, dramatic, baat ko bada karke batati hain; dil ki achhi |
+| **Raju (chaiwala)** | "चाय पियोगे?" | भैया, गरमा-गरम | baatooni, casual, sab ki khabar rakhta hai |
+| **Mishra dada** | "माफ़ कीजिए..." | बेटा, भाई साहब | dheere, narm, tameez wale, thode akele |
+| **Narrator** | — | — | kahani sunane wala, saaf aur garam; scene set karta hai, kirdaaron ki jagah nahi bolta; Dadi ke kirdaar wali kahani me hamesha Narrator (Charon) |
+
+---
+
 ## 3. Recurring Side Characters (kabhi-kabhi aayenge, look fixed)
 
 | Character | Look / Pehchaan |

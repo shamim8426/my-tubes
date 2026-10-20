@@ -122,6 +122,7 @@ At the end of each review, add one line to channels/<key>/log.md with the round 
 - After every image Munshi asks: "Kya ye kisi jaane-maane kirdaar ya scene ki nakal lagti hai?" If yes -> MAJOR (BLOCKER): change the prompt and regenerate once; if it still looks like one, drop that shot (crop/zoom another image). An image that looks like a famous character is never used, even if it was already paid for.
 - Thumbnails use the channel's own style and our own text.
 - YouTube originality: story, script, voices and characters stay our own; the visual style is only a look.
+- Sensitive subjects: never mock any religion, caste, politics, region, skin colour/looks or disability; festivals and rituals are shown with respect and correct facts (no guesses — check `channels/<key>/festival_calendar.md` and reliable sources). Boys and girls get equal and good roles (Tara is known for her brains and courage). No real person, brand or real place name (Gulmohar Mohalla and our own invented places only). Any breach = BLOCKER.
 - Children (Golu, Tara, Tinku and any child): always age-appropriate, innocent and family-friendly in looks, poses and words; a girl is described by her nature, not her looks. Never any romance/crush angle between children (stories, thumbnails, titles, descriptions, comments). A child may be teased (e.g. Tinku's thinness) but the story never ends by putting them down — it becomes their strength or friends stand by them. Any breach = BLOCKER.
 
 ## 13. Audience & algorithm (CTR, retention, session)
