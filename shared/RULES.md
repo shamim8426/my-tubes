@@ -161,3 +161,5 @@ From story 004, section 15 (production profile) overrides this section where the
   - A BLOCKER still in an image after its 1 regeneration: do not ask — build that scene from a crop/zoom of a good image (or move the scene's line onto another image) and continue.
   - Any BLOCKER after R2 that can be fixed for free: fix it yourself. One that cannot be fixed for free: handle it the same way (crop/zoom reuse, move the line to another image), never by asking.
 - Final video: Munshi does one final check (R1 only). If no BLOCKER -> upload in the slot (veto window stays: scheduled, "rok do" possible before the slot).
+- Default motion = 2.5D parallax (Depth Anything V2 Small, local, free); artifact par zoom fallback.
+  (`scripts/make_short.py --motion parallax` is the default, `--motion zoom` keeps the old Ken Burns; the guard in `tools/parallax.py` halves the motion or falls back to zoom per shot and logs it in shared/parallax_log.jsonl. Shorts: shots.json "subjects" boxes keep each speaker's face/hands/gesture inside 3-85% of the crop width.)

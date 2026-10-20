@@ -1,9 +1,11 @@
-"""One command -> full Short (voice, captions, Ken Burns, music, -14 LUFS, metadata).
+"""One command -> full Short or long video (voice, captions, 2.5D parallax or Ken Burns, music, -14 LUFS, metadata).
 
 Usage:  python scripts/make_short.py <case> [--preview | --final] [--spend]
           --preview (default)  540x960, 24 fps, ultrafast: only for checking -> output/<case>_preview.mp4
           --final              1080x1920, 30 fps, good quality + Whisper/frame/loudness checks -> output/<case>.mp4
           --spend              allow paid TTS for lines not in the cache (otherwise the build stops and shows the cost)
+          --motion parallax    (default) 2.5D parallax, tools/parallax.py (guard: halved motion / zoom fallback)
+          --motion zoom        the old Ken Burns moves
 Needs:  a video folder with project.json (channels/<key>/stories/<story>/long or .../shorts/short_XX_<slug>)
         + lines.json, meta.json, shots.json; story-level images/scene_XX.png, audio/, scene_prompts.json
 
@@ -33,6 +35,11 @@ import cost_log  # noqa: E402
 import gemini_tts  # noqa: E402
 from voices import CAST, pitch_filter  # noqa: E402
 from paths import FONTS_DIR, MUSIC_DIR, REGISTER, ROOT, SFX_DIR, channel_of, story_of  # noqa: E402
+
+sys.path.insert(0, str(ROOT / "tools"))
+import parallax as PX  # noqa: E402  (2.5D parallax, Depth Anything V2 Small on CPU; torch loads only when needed)
+
+PARALLAX_VERSION = 1  # bump when tools/parallax.py rendering changes, to invalidate parallax clips
 
 FFMPEG = ROOT / "tools" / "ffmpeg" / "ffmpeg.exe"
 if not FFMPEG.exists():  # new system: ffmpeg from winget on PATH (tools/ffmpeg is not in git)
@@ -401,11 +408,24 @@ def shot_times(timed, total):
     return out
 
 
-def plan_scenes(P, timed, total, prof, font_family, final_title, title_secs=None, caption_from=0.0):
+def mood_at(timed):
+    """Music mood in force at each line (a "mood" key starts a section and carries forward)."""
+    cur, out = None, []
+    for l in timed:
+        cur = l.get("mood", cur)
+        out.append(cur)
+    return out
+
+
+def plan_scenes(P, timed, total, prof, font_family, final_title, title_secs=None, caption_from=0.0, motion="parallax",
+                overlays=None):
     """Everything needed to render each scene clip, plus its cache hash."""
     focus = P["focus"]
+    subjects = focus.get("subjects", {})  # scene -> subject box [x0, y0, x1, y1] (fractions) for crop safety
     fps, plans = prof["fps"], []
     shots_all = shot_times(timed, total)
+    moods = mood_at(timed)
+    prev_preset = None
     for idx, (sc, cuts, tags) in enumerate(shots_all):
         fcuts = [round(c * fps) for c in cuts]  # one global frame grid -> no drift between clips
         t0 = fcuts[0] / fps
@@ -413,23 +433,43 @@ def plan_scenes(P, timed, total, prof, font_family, final_title, title_secs=None
         closes, wide = (spec["closes"], spec.get("wide", True)) if isinstance(spec, dict) else (spec, True)
         # 1 shot: close-up matters more; "wide": false (scene sharing an image with another) -> close-ups only
         cycle = closes if (closes and (len(cuts) == 2 or not wide)) else ["wide"] + closes
-        shots, desc = [], []
+        img = P["image_for"](sc)
+        mood = next((moods[i] for i, l in enumerate(timed) if l["scene"] == sc), None)
+        shots, pshots, desc = [], [], []
         for k in range(len(cuts) - 1):
             n = fcuts[k + 1] - fcuts[k]
             shot = tags[k] or cycle[k % len(cycle)]
-            if shot == "wide":
+            is_wide = shot == "wide"
+            # x, y: inside the frame-shaped window; optional crop_x/crop_y: where that window sits on a wider or
+            # taller image (subject centre, 0-1; default centre) - e.g. a 9:16 Short from 16:9 story images
+            fx, fy, zc, *crop = (0.5, 0.5, 1.0) if is_wide else shot
+            note = ""
+            boxes = subjects.get(str(sc)) or []
+            boxes = [boxes] if boxes and not isinstance(boxes[0], list) else boxes
+            if P["kind"] == "short" and boxes:  # crop safety: subject (face/hands/gesture) inside 3-85% of width
+                iw, ih = Image.open(img).size
+                cx, cy = (list(crop) + [0.5, 0.5])[:2]
+                rx, ry, rw, rh = PX.shot_rect(iw, ih, prof["w"] / prof["h"], cx, cy, fx, fy, zc)
+                mid = ((rx + rw / 2) / iw, (ry + rh / 2) / ih)  # the shot's subject = the box nearest its centre
+                box = min(boxes, key=lambda b: ((b[0] + b[2]) / 2 - mid[0]) ** 2 + ((b[1] + b[3]) / 2 - mid[1]) ** 2)
+                ncx, nfx, nzc, why = PX.safe_rect(iw, ih, prof["w"] / prof["h"], cx, cy, fx, fy, zc, box)
+                if why != "ok":
+                    crop, fx, zc, note = [round(ncx, 3), cy], nfx, round(nzc, 3), f"[safe: {why}]"
+            if is_wide:
                 move = MOVE_CYCLE[(idx + k) % len(MOVE_CYCLE)]
                 z, x, y = (e.format(n=n) for e in MOVES[move])
-                desc.append(move)
+                preset = PX.choose_preset(mood, prev_preset)
             else:
-                # x, y: inside the frame-shaped window; optional crop_x/crop_y: where that window sits on a wider or
-                # taller image (subject centre, 0-1; default centre) - e.g. a 9:16 Short from 16:9 story images
-                fx, fy, zc, *crop = shot
                 z = f"{zc}+{zc * 0.06:.3f}*on/{n}"  # slow push-in on the close-up
                 x = f"max(0,min(iw-iw/zoom,{fx}*iw-iw/zoom/2))"
                 y = f"max(0,min(ih-ih/zoom,{fy}*ih-ih/zoom/2))"
-                desc.append(f"close{zc}" + (f"@x{crop[0]}" if crop else ""))
-            shots.append((n, z, x, y) + (tuple(crop) if shot != "wide" and crop else ()))
+                preset = "static_breathe" if prev_preset == "push_in" else "push_in"
+            prev_preset = preset
+            label = (move if is_wide else f"close{zc}" + (f"@x{crop[0]}" if crop else ""))
+            desc.append((preset if motion == "parallax" else label) + (f" {note}" if note else ""))
+            shots.append((n, z, x, y) + (tuple(crop) if crop else ()))
+            cx, cy = (list(crop) + [0.5, 0.5])[:2]
+            pshots.append({"n": n, "preset": preset, "cx": cx, "cy": cy, "fx": fx, "fy": fy, "zc": zc})
         lines = [l for l in timed if l["scene"] == sc]
         ass = None
         if P["burn"]:
@@ -442,15 +482,53 @@ def plan_scenes(P, timed, total, prof, font_family, final_title, title_secs=None
                 ev.append(f"Dialogue: 1,{ass_time(t_beg)},{ass_time(t_end)},Title,,0,0,0,,"
                           f"{{\\fad(300,0)}}{final_title}")
             ass = ass_doc(font_family, ev)
-        img = P["image_for"](sc)
-        key = sha(RENDER_VERSION, json.dumps(prof, sort_keys=True), sha(img.read_bytes()),
-                  [l["audio_hash"] for l in lines], json.dumps(shots), ass)
+        ovs = [tuple(o[:2]) + ((tuple(o[2:4]),) if len(o) >= 4 else ((0.5, 0.6),))
+               for o in (overlays or {}).get(str(sc), [])]
+        key_parts = [RENDER_VERSION, json.dumps(prof, sort_keys=True), sha(img.read_bytes()),
+                     [l["audio_hash"] for l in lines], json.dumps(shots), ass]
+        if motion == "parallax":  # zoom builds keep their old cache keys
+            key_parts += [PARALLAX_VERSION, json.dumps(pshots), json.dumps(ovs)]
         plans.append({"scene": sc, "t0": t0, "t1": fcuts[-1] / fps, "frames": fcuts[-1] - fcuts[0],
-                      "shots": shots, "ass": ass, "img": img, "key": key, "desc": desc})
+                      "shots": shots, "pshots": pshots, "overlays": ovs, "motion": motion, "ass": ass, "img": img,
+                      "key": sha(*key_parts), "desc": desc})
     return plans
 
 
+def render_scene_parallax(p, prof, clip: Path, work: Path):
+    """2.5D parallax (tools/parallax.py): frames made in Python, captions burned and encoded by FFmpeg."""
+    w, h, fps = prof["w"], prof["h"], prof["fps"]
+    ass_name = f"scene_{p['scene']:02d}_{p['key']}.ass"
+    vf = ""
+    if p["ass"]:
+        (work / ass_name).write_text(p["ass"], encoding="utf-8")
+        vf = f"subtitles=filename={ass_name}:fontsdir=fonts,"
+    vf += ("scale=out_color_matrix=bt709:out_range=tv,format=yuv420p,setsar=1,"
+           "setparams=range=tv:color_primaries=bt709:color_trc=bt709:colorspace=bt709")
+    tmp = clip.with_suffix(".part.mp4")
+    enc = subprocess.Popen([str(FFMPEG), "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "bgr24", "-s", f"{w}x{h}",
+                            "-r", str(fps), "-i", "-", "-vf", vf, "-frames:v", str(p["frames"]), "-c:v", "libx264",
+                            *prof["enc"], "-pix_fmt", "yuv420p", "-color_range", "tv", "-colorspace", "bt709",
+                            "-color_primaries", "bt709", "-color_trc", "bt709", "-r", str(fps),
+                            "-video_track_timescale", str(fps * 1000), str(tmp)], cwd=work, stdin=subprocess.PIPE)
+    iw, ih = Image.open(p["img"]).size
+    notes = []
+    for s in p["pshots"]:
+        rect = PX.shot_rect(iw, ih, w / h, s["cx"], s["cy"], s["fx"], s["fy"], s["zc"])
+        frames, info = PX.shot_frames(p["img"], w, h, s["n"], s["preset"], rect, overlays=p["overlays"])
+        for f in frames:
+            enc.stdin.write(f.tobytes())
+        notes.append(f"{info['preset']}:{info['mode']}" + ("" if info["reason"] in ("ok",) else f"({info['reason']})"))
+        PX.log({"image": Path(p["img"]).name, "scene": p["scene"], "clip": clip.name, **info})
+    enc.stdin.close()
+    if enc.wait():
+        raise RuntimeError(f"ffmpeg failed for scene {p['scene']}")
+    tmp.replace(clip)
+    p["result"] = notes
+
+
 def render_scene(p, prof, clip: Path, work: Path):
+    if p.get("motion") == "parallax":
+        return render_scene_parallax(p, prof, clip, work)
     w, h, fps = prof["w"], prof["h"], prof["fps"]
     ass_name = f"scene_{p['scene']:02d}_{p['key']}.ass"
     if p["ass"]:
@@ -479,9 +557,14 @@ def build_video(plans, prof, cache_dir: Path, work: Path):
     for p in plans:
         state = "NEW" if p in todo else "cache"
         print(f"  scene {p['scene']:2d}: {p['t0']:6.2f}-{p['t1']:6.2f}s  {state:5s}  {' | '.join(p['desc'])}")
+    for img in sorted({p["img"] for p in todo if p.get("motion") == "parallax"}):
+        PX.depth_map(img)  # depth maps one at a time (model on CPU), then the clips render in parallel
     with ThreadPoolExecutor(max_workers=max(2, (os.cpu_count() or 4) // 2)) as pool:
         list(pool.map(lambda p: render_scene(p, prof, cache_dir / f"scene_{p['scene']:02d}_{p['key']}.mp4", work),
                       todo))
+    fallbacks = [f"scene {p['scene']}: {r}" for p in todo for r in p.get("result", []) if ":zoom" in r or "halved" in r]
+    if fallbacks:
+        print("  parallax guard (motion halved / zoom fallback):\n    " + "\n    ".join(fallbacks))
     listing = [f"file '{(cache_dir / f'scene_{p['scene']:02d}_{p['key']}.mp4').as_posix()}'" for p in plans]
     (work / "scenes.txt").write_text("\n".join(listing), encoding="utf-8")
     run([FFMPEG, "-y", "-f", "concat", "-safe", "0", "-i", "scenes.txt", "-c", "copy", "video.mp4"], cwd=work)
@@ -774,6 +857,8 @@ def main():
     ap.add_argument("--spend", action="store_true", help="allow paid TTS for uncached lines")
     ap.add_argument("--plan", action="store_true", help="validate only: resolve and check every input path, no render")
     ap.add_argument("--seconds", type=float, help="preview only the first N seconds (quick test render)")
+    ap.add_argument("--motion", choices=["parallax", "zoom"], default="parallax",
+                    help="parallax (default, 2.5D, RULES 15) or zoom (the old Ken Burns moves)")
     a = ap.parse_args()
     mode = "final" if a.final else "preview"
     if a.seconds and mode == "final":
@@ -833,8 +918,10 @@ def main():
         print("  SECTION 13:", w)
 
     print("2/4 scenes")
+    PX.FPS = prof["fps"]  # overlays and the 8 s shot limit run on the build's frame rate
+    print(f"  motion: {a.motion}")
     plans = plan_scenes(P, timed, total, prof, font_family, meta.get("final_title", "बताओ, दोषी कौन?"),
-                        meta.get("final_title_secs"), meta.get("caption_from", 0.0))
+                        meta.get("final_title_secs"), meta.get("caption_from", 0.0), a.motion, meta.get("overlays"))
     cached, new = build_video(plans, prof, cache_dir, work)
 
     print("3/4 audio")

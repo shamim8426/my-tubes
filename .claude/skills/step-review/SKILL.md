@@ -66,6 +66,15 @@ Use this after every production step of a video in the Story-Channel project. Al
 - Duration within the range the user approved at preview.
 - Copyright: run the RULES section 10 checks against shared/assets_license.csv. Any miss is FIX.
 - Algorithm: run RULES section 13 checks.
+- Parallax artifacts (default motion, RULES 15): for every scene extract the first, middle and last frame of each
+  shot and look at full-resolution crops of character edges. Look for: halos or smears at outlines, inpaint
+  smear in the revealed sliver, feathers/wings (Mitthu), hair, Dadi's stick, Pandey's lathi, wires and tree edges
+  ghosting, faces stretched or wobbling, any frame edge or border showing, jitter. The build prints the guard's
+  "motion halved / zoom fallback" list and shared/parallax_log.jsonl has every shot's decision. A visible artifact
+  on a face or a key character -> BLOCKER: fix free by rebuilding that scene with smaller motion or
+  `--motion zoom` for it (log it); minor edge softness elsewhere -> MINOR.
+- Shorts crop safety: in each shot the speaking character's face, hands and gesture are fully inside the crop and
+  out of the right 15% (YouTube buttons) and bottom 20%; shots.json "subjects" boxes drive the builder's check.
 
 ### 8. Thumbnail
 - 1280x720, <= 2 MB, jpg/png.

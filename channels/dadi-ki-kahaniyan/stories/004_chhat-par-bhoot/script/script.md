@@ -7,7 +7,7 @@ Length target 3:40–4:00 (from measured TTS speed); if cutting is needed, short
 
 ## INTRO (part: intro, ≤10 s) — img 2: white figure walking on the roof
 1. [SFX: night] GOLU (kaanpti awaaz): "दादी... शर्मा जी की छत पर... भूत!"
-2. NARRATOR: "आधी रात, सफ़ेद परछाईं, और डरा हुआ पूरा मोहल्ला। पर सच कुछ और ही निकला।"
+2. NARRATOR: "आधी रात, सफ़ेद परछाईं... पर सच कुछ और ही निकला।" (shortened 2026-10-20 so the intro stays <= 10 s; was: "आधी रात, सफ़ेद परछाईं, और डरा हुआ पूरा मोहल्ला। पर सच कुछ और ही निकला।")
 
 ## SHURUAAT
 3. NARRATOR: "गुलमोहर मोहल्ले में उस रात बिजली गई हुई थी। गर्मी से परेशान गोलू खिड़की पर बैठा था।"

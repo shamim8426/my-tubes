@@ -45,7 +45,7 @@ def ref_path(name: str, story: Path, chan: Path) -> Path:
     sys.exit(f"cover ref not found: {name}")
 
 
-def draw_text(art: Path, out: Path, work: Path, label: str, title: str):
+def draw_text(art: Path, out: Path, work: Path, label: str, title: str, label_y=0.178, title_y=0.268):
     fonts = work / "fonts"
     fonts.mkdir(parents=True, exist_ok=True)
     shutil.copy(FONTS_DIR / "Mukta-ExtraBold.ttf", fonts / "Mukta-ExtraBold.ttf")
@@ -62,8 +62,8 @@ Style: T,Mukta ExtraBold,280,&H0000E5FF,&H000000FF,&H00000000,&H96000000,-1,0,0,
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
-Dialogue: 0,0:00:00.00,0:00:01.00,L,,0,0,0,,{{\\an5\\pos({W // 2},{int(H * 0.178)})}}{label}
-Dialogue: 0,0:00:00.00,0:00:01.00,T,,0,0,0,,{{\\an5\\pos({W // 2},{int(H * 0.268)})}}{title}
+Dialogue: 0,0:00:00.00,0:00:01.00,L,,0,0,0,,{{\\an5\\pos({W // 2},{int(H * label_y)})}}{label}
+Dialogue: 0,0:00:00.00,0:00:01.00,T,,0,0,0,,{{\\an5\\pos({W // 2},{int(H * title_y)})}}{title}
 """
     (work / "cover.ass").write_text(ass, encoding="utf-8")
     shutil.copy(art, work / "cover_in.png")
@@ -95,7 +95,7 @@ def main():
         im.crop((x, y, x + W, y + H)).save(art)
     out = sdir / "output" / f"{name}_cover.png"
     out.parent.mkdir(exist_ok=True)
-    draw_text(art, out, work, c["label"], c["title"])
+    draw_text(art, out, work, c["label"], c["title"], c.get("label_y", 0.178), c.get("title_y", 0.268))
     print("saved", out, Image.open(out).size)
 
 

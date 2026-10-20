@@ -49,5 +49,56 @@
   },
   "gap": 0.6,
   "end_hold": 8.0,
-  "_pace_note": "Rates measured from Long 02 TTS; gap 0.6 + two story beats (footsteps 1.5 s, 1.0 s before the reveal) bring the estimate into 3:40-4:00 without touching dialogue (RULES 15)."
+  "_pace_note": "Rates measured from Long 02 TTS; gap 0.6 + two story beats (footsteps 1.5 s, 1.0 s before the reveal) bring the estimate into 3:40-4:00 without touching dialogue (RULES 15).",
+  "overlays": {
+    "_help": "[kind, opacity(, x, y)] per scene, tools/parallax.py Overlay",
+    "2": [
+      [
+        "fireflies",
+        0.22
+      ]
+    ],
+    "14": [
+      [
+        "fireflies",
+        0.2
+      ]
+    ],
+    "16": [
+      [
+        "fireflies",
+        0.22
+      ],
+      [
+        "diya",
+        0.2,
+        0.3,
+        0.8
+      ]
+    ],
+    "11": [
+      [
+        "diya",
+        0.2,
+        0.3,
+        0.47
+      ]
+    ],
+    "12": [
+      [
+        "diya",
+        0.2,
+        0.27,
+        0.8
+      ]
+    ],
+    "13": [
+      [
+        "diya",
+        0.18,
+        0.38,
+        0.6
+      ]
+    ]
+  }
 }

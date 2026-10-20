@@ -57,7 +57,7 @@ MOOD_PRESETS = {           # first choice per music mood; never the same preset 
 }
 # quality guard: risk = share of thin foreground parts x depth jump at the foreground edge
 RISK_HALF, RISK_FALLBACK = 0.05, 0.10
-JUMP_HALF, JUMP_FALLBACK = 0.10, 0.25  # depth jump at the fg edge: busy day scenes smear in the revealed sliver
+JUMP_HALF, JUMP_FALLBACK = 0.10, 0.20  # depth jump at the fg edge: busy day scenes smear in the revealed sliver
 FG_MIN, FG_MAX = 0.03, 0.85  # foreground share of the frame; outside -> the split is not meaningful
 
 
@@ -312,70 +312,123 @@ class Overlay:
 
 
 # ---------- render ----------
-def _source(img_path, W, H, cx, cy):
-    """Image (BGR) and its depth, cropped to the frame's aspect around (cx, cy), resized to the overscanned size."""
-    img = cv2.imread(str(img_path), cv2.IMREAD_COLOR)
+_IMG = {}
+
+
+def _image(path):
+    path = str(path)
+    if path not in _IMG:
+        _IMG[path] = cv2.imread(path, cv2.IMREAD_COLOR)
+    return _IMG[path]
+
+
+def shot_rect(iw, ih, aspect, cx=0.5, cy=0.5, fx=0.5, fy=0.5, zc=1.0):
+    """Source rectangle (x0, y0, w, h) of one shot, exactly like make_short's zoom: a frame-shaped window on the
+    image centred on (cx, cy), then a 1/zc part of it centred on (fx, fy) inside that window."""
+    cw, ch = min(iw, ih * aspect), min(ih, iw / aspect)
+    wx0 = max(0.0, min(iw - cw, cx * iw - cw / 2))
+    wy0 = max(0.0, min(ih - ch, cy * ih - ch / 2))
+    rw, rh = cw / zc, ch / zc
+    return (wx0 + max(0.0, min(cw - rw, fx * cw - rw / 2)), wy0 + max(0.0, min(ch - rh, fy * ch - rh / 2)), rw, rh)
+
+
+def _source(img_path, W, H, cx=0.5, cy=0.5, rect=None):
+    """Image (BGR) and its depth for one shot rectangle, resized to the overscanned frame size."""
+    img = _image(img_path)
     dep = depth_map(img_path)
     ih, iw = img.shape[:2]
-    ar = W / H
-    cw, ch = (min(iw, ih * ar), min(ih, iw / ar))
-    x0 = int(max(0, min(iw - cw, cx * iw - cw / 2)))
-    y0 = int(max(0, min(ih - ch, cy * ih - ch / 2)))
-    img, dep = img[y0:y0 + int(ch), x0:x0 + int(cw)], dep[y0:y0 + int(ch), x0:x0 + int(cw)]
+    x0, y0, w, h = rect or shot_rect(iw, ih, W / H, cx, cy)
+    x0, y0, x1, y1 = int(round(x0)), int(round(y0)), int(round(x0 + w)), int(round(y0 + h))
     sw, sh = int(round(W * OVERSCAN)), int(round(H * OVERSCAN))
-    return (cv2.resize(img, (sw, sh), interpolation=cv2.INTER_LANCZOS4),
-            cv2.resize(dep, (sw, sh), interpolation=cv2.INTER_LINEAR))
+    return (cv2.resize(img[y0:y1, x0:x1], (sw, sh), interpolation=cv2.INTER_LANCZOS4),
+            cv2.resize(dep[y0:y1, x0:x1], (sw, sh), interpolation=cv2.INTER_LINEAR))
 
 
-def _encoder(out, W, H, crf=18, preset="slow"):
-    return subprocess.Popen(
-        [str(FFMPEG), "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "bgr24", "-s", f"{W}x{H}", "-r", str(FPS),
-         "-i", "-", "-vf", "scale=out_color_matrix=bt709:out_range=tv,format=yuv420p,setsar=1,"
-         "setparams=range=tv:color_primaries=bt709:color_trc=bt709:colorspace=bt709",
-         "-c:v", "libx264", "-preset", preset, "-crf", str(crf), "-pix_fmt", "yuv420p", "-color_range", "tv",
-         "-colorspace", "bt709", "-color_primaries", "bt709", "-color_trc", "bt709", "-r", str(FPS), str(out)],
-        stdin=subprocess.PIPE)
+def shot_frames(img_path, W, H, n, preset="push_in", rect=None, amp=AMP, mode="auto", overlays=(), cx=0.5, cy=0.5):
+    """(frame generator, info). mode: auto (quality guard) | parallax | zoom. Motion longer than MAX_SECONDS
+    becomes a slow static_breathe (one shot never runs a big move for more than 8 s)."""
+    img, dep = _source(Path(img_path), W, H, cx, cy, rect)
+    if n > MAX_SECONDS * FPS:
+        preset = "static_breathe"
+    plate = pdepth = alpha = fgd = None
+    if mode == "zoom":
+        decision, use_amp, reason, stats = "zoom", 0.0, "zoom mode", {}
+    else:
+        plate, pdepth, alpha, fgd, stats = layers(img, dep)
+        decision, use_amp, reason = guard(stats, amp) if mode == "auto" else (mode, amp, "forced")
+    ovs = [Overlay(k, o, W, H, n, at) for k, o, at in overlays]
+
+    def gen():
+        if decision != "zoom":
+            bw, fw = DepthWarp(pdepth, W, H), DepthWarp(fgd, W, H)
+        for i in range(n):
+            p = i / max(1, n - 1)
+            if decision == "zoom":
+                frame = _warp(img, kenburns(p), 0, 0, W, H)
+            else:
+                z, dx, dy = motion(preset, p, use_amp)
+                mx, my = bw.maps(z, dx, dy)
+                bg = cv2.remap(plate, mx, my, cv2.INTER_LINEAR, borderMode=cv2.BORDER_REFLECT)
+                mx, my = fw.maps(z, dx, dy)
+                fg = cv2.remap(img, mx, my, cv2.INTER_LINEAR, borderMode=cv2.BORDER_REFLECT)
+                al = cv2.remap(alpha, mx, my, cv2.INTER_LINEAR, borderMode=cv2.BORDER_REFLECT)
+                frame = cv2.blendLinear(fg, bg, al, 1 - al)
+            for ov in ovs:
+                frame = ov.apply(frame, i)
+            yield frame
+
+    return gen(), {"preset": preset, "mode": decision, "amp": round(use_amp, 4), "reason": reason, **stats}
+
+
+def log(entry):
+    with LOG.open("a", encoding="utf-8") as f:
+        f.write(json.dumps({**entry, "time": time.strftime("%Y-%m-%d %H:%M:%S")}, ensure_ascii=False) + "\n")
+
+
+# ---------- crop safety (Shorts) ----------
+def safe_rect(iw, ih, aspect, cx, cy, fx, fy, zc, box, keep=(0.03, 0.85)):
+    """Crop safety: box = the subject (face, hands, a pointing arm) as [x0, y0, x1, y1], fractions of the image,
+    from shots.json "subjects". Its part inside the shot's rows must sit in keep[0]-keep[1] of the crop width
+    (Shorts: the right 15% has the YouTube buttons). Otherwise the crop centre moves; if it still does not fit,
+    the shot zooms out (smaller zc, down to 1). Returns (cx, fx, zc, note)."""
+    x0, y0, w, h = shot_rect(iw, ih, aspect, cx, cy, fx, fy, zc)
+    sx0, sx1 = box[0] * iw, box[2] * iw
+
+    def fits(rx0, rw):
+        return sx0 >= rx0 + keep[0] * rw - 1 and sx1 <= rx0 + keep[1] * rw + 1
+
+    if fits(x0, w):
+        return cx, fx, zc, "ok"
+    steps = [zc] + [z for z in (zc * 0.85, zc * 0.7, zc * 0.55) if z > 1.0] + ([1.0] if zc > 1.0 else [])
+    for z in steps:
+        rw = w * zc / z
+        want = (sx0 + sx1) / 2 - (keep[0] + keep[1]) / 2 * rw  # subject centre in the middle of the keep range
+        rx0 = max(0.0, min(iw - rw, want))
+        if fits(rx0, rw) or z == steps[-1]:
+            ncx = (rx0 + rw / 2) / iw
+            # the window at zc=1 is centred on ncx; fx 0.5 keeps the zoomed part centred in it
+            return ncx, 0.5, z, (f"centre {cx:.2f}->{ncx:.2f}" + (f", zoom {zc:.2f}->{z:.2f}" if z != zc else "")
+                                 + ("" if fits(rx0, rw) else " (subject wider than the safe area: best fit)"))
+    return cx, fx, zc, "unchanged"
 
 
 def render_clip(img_path, out, seconds=6.0, preset="push_in", fmt="long", cx=0.5, cy=0.5, amp=AMP,
                 overlays=(), mode="auto", crf=18, enc_preset="slow"):
-    """mode: auto (parallax with the quality guard) | parallax (no guard) | zoom (Ken Burns only)."""
+    """Stand-alone test clip. mode: auto (parallax with the quality guard) | parallax (no guard) | zoom."""
     t_start = time.process_time()
     w0 = time.time()
     W, H = FORMATS[fmt]
-    seconds = min(float(seconds), MAX_SECONDS)
-    n = max(1, round(seconds * FPS))
-    img, dep = _source(Path(img_path), W, H, cx, cy)
-    t_depth = time.time() - w0
-    plate, pdepth, alpha, fgd, stats = layers(img, dep)
-    decision, use_amp, reason = guard(stats, amp) if mode == "auto" else (mode, amp, "forced")
-    bw, fw = DepthWarp(pdepth, W, H), DepthWarp(fgd, W, H)
-    ovs = [Overlay(k, o, W, H, n, at) for k, o, at in overlays]
+    n = max(1, round(min(float(seconds), MAX_SECONDS) * FPS))
+    frames, info = shot_frames(img_path, W, H, n, preset, None, amp, mode, overlays, cx, cy)
     enc = _encoder(out, W, H, crf, enc_preset)
-    for i in range(n):
-        p = i / max(1, n - 1)
-        if decision == "zoom":
-            frame = _warp(img, kenburns(p), 0, 0, W, H)
-        else:
-            z, dx, dy = motion(preset, p, use_amp)
-            mx, my = bw.maps(z, dx, dy)
-            bg = cv2.remap(plate, mx, my, cv2.INTER_LINEAR, borderMode=cv2.BORDER_REFLECT)
-            mx, my = fw.maps(z, dx, dy)
-            fg = cv2.remap(img, mx, my, cv2.INTER_LINEAR, borderMode=cv2.BORDER_REFLECT)
-            al = cv2.remap(alpha, mx, my, cv2.INTER_LINEAR, borderMode=cv2.BORDER_REFLECT)
-            frame = cv2.blendLinear(fg, bg, al, 1 - al)
-        for ov in ovs:
-            frame = ov.apply(frame, i)
-        enc.stdin.write(frame.tobytes())
+    for f in frames:
+        enc.stdin.write(f.tobytes())
     enc.stdin.close()
     enc.wait()
-    res = {"image": str(Path(img_path).relative_to(ROOT)) if Path(img_path).is_relative_to(ROOT) else str(img_path),
-           "out": str(out), "format": fmt, "seconds": round(n / FPS, 2), "preset": preset, "mode": decision,
-           "amp": round(use_amp, 4), "reason": reason, **stats, "overlays": [k for k, _, _ in overlays],
-           "cpu_s": round(time.process_time() - t_start, 1), "wall_s": round(time.time() - w0, 1),
-           "depth_wall_s": round(t_depth, 1), "time": time.strftime("%Y-%m-%d %H:%M:%S")}
-    with LOG.open("a", encoding="utf-8") as f:
-        f.write(json.dumps(res, ensure_ascii=False) + "\n")
+    res = {"image": str(img_path), "out": str(out), "format": fmt, "seconds": round(n / FPS, 2), **info,
+           "overlays": [k for k, _, _ in overlays], "cpu_s": round(time.process_time() - t_start, 1),
+           "wall_s": round(time.time() - w0, 1)}
+    log(res)
     return res
 
 

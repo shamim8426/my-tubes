@@ -44,6 +44,24 @@
       "pandey",
       "golu",
       "mitthu"
+    ],
+    "label_y": 0.172,
+    "title_y": 0.24
+  },
+  "overlays": {
+    "2": [
+      [
+        "fireflies",
+        0.2
+      ]
+    ],
+    "12": [
+      [
+        "diya",
+        0.2,
+        0.27,
+        0.8
+      ]
     ]
   }
 }
