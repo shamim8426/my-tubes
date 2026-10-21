@@ -7,6 +7,24 @@
 - `shared/`: music/, sfx/, fonts/, assets_license.csv, RULES.md (sab channels ke common niyam), sync.log
 - `channels/_template/`: naye channel/kahani ka khaali dhaancha. Naya channel: `powershell -File tools\new_channel.ps1 -Key <key> -Name "<naam>"`
 
+## NAYA SESSION CHECKLIST ("resume karo")
+User sirf "resume karo" likhe to yahi karo: pehle sirf padho, kuch mat badlo, koi paid call nahi.
+1. Padho (is kram me): CLAUDE.md, `shared/RULES.md` (khaas 6, 10, 12, 12a, 12b, 13, 15), `channels/<key>/RULES.md`;
+   `channels/<key>/`: channel.json, channel_bible.md (2a, 2b sahit), story_registry.md, idea_bank.md, festival_calendar.md,
+   carry_over.md (sirf `open`), log.md (aakhri ~50 lines), pipeline_queue.json; `brand/STYLE_PAINTED.md`,
+   `brand/STYLE_LEARNINGS.md`, `research/` ka sabse naya `trends_*.md`; `shared/pricing.json`, `shared/tts_pronunciation.md`;
+   `.claude/agents/munshi.md`, `.claude/agents/kalam.md`, skills step-review, youtube-publish, new-story, trend-research;
+   har uploaded story ka `long/output/upload_result.json` aur `shorts/*/output/upload_result.json`.
+2. User ko chhota status do (table):
+   - Har story: Long/Short video ID, status (live / scheduled / private / pending; `publish_at` aaj se pehle = live), slot,
+     Studio me baaki manual kaam (log.md me `related_video`/`pin_comment: pending`, schedule confirm, end screen).
+   - pipeline_queue.json me koi stage adhoora? Background: `Get-ScheduledTask StoryChannel*` (comment tasks, sync) aur chalte python process.
+   - Balance: `pricing.json` checkpoint + `.venv\Scripts\python -X utf8 scripts\story_budget.py <story>` ki "account remaining" line;
+     ₹50 floor aur agli story (~₹110) ke baad kitna bachega; recharge chahiye ho to batao. Reconcile (`--check`) baaki ho to yaad dilao.
+   - Pakke faisle confirm karo (channel.json, bible, RULES 15 se): image_style, motion default, awaazein, lambai/kharcha cap,
+     publish slots, Kalam ka kram, RULES 12b.
+3. Phir user ke agle kaam ka intezaar, ya jo kaam pipeline_queue/log me adhoora ho uska agla kadam batao.
+
 ## किस्सागो | Kissago (channel key: dadi-ki-kahaniyan; pehle "दादी की कहानियाँ")
 Title suffix aur thumbnail label `channels/dadi-ki-kahaniyan/channel.json` (`title_suffix`, `brand_label`) se lo.
 Har script, case file aur image prompt se pehle [channels/dadi-ki-kahaniyan/channel_bible.md](channels/dadi-ki-kahaniyan/channel_bible.md) padho aur uske rules exactly follow karo:
