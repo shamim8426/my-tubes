@@ -35,6 +35,11 @@ CAST = {
     # --- Golu ki toli (permanent, 2026-10-20) ---
     "tara": ("Pulcherrima", "clever, cheerful 9-year-old Indian girl: clear, quick, bright and confident, a little bossy but warm", 0),
     "tinku": ("Achernar", "thin, innocent 9-year-old Indian boy: slightly thin, light voice, sweet and funny, a little shaky when scared", 0),
+    # --- long_06 (story 007): बच्चों की अदालत (new keys only; the old pandey/sharma styles stay for cache keys) ---
+    "pandey_soft": ("Algenib", "the same pompous Indian police inspector now whispering softly, amused, trying not to "
+                               "laugh", 0),
+    "sharma_fond": ("Sadachbia", "forgetful, flustered 55-year-old Indian neighbour, then laughing warmly at himself, "
+                                 "friendly", 0),
 }
 
 

@@ -1,0 +1,82 @@
+{
+  "_help": "Story 007 (Long 06), Kissago Painted: 13 scene images (id = image number = scene number in lines.json) + Sharma ji's painted sheet (scripts/gen_painted.py sheets --budget=007_bachchon-ki-adalat sharma) = 14 new images. gen_scenes adds the STYLE_PAINTED block, painted sheet refs, Mitthu/Tinku/Tara notes and the name guard.",
+  "out_dir": "channels/dadi-ki-kahaniyan/stories/007_bachchon-ki-adalat/images",
+  "aspect": "16:9",
+  "looks": {
+    "golu": "Golu (chubby boy ~10, messy black hair, yellow T-shirt, blue half-pants, red shoes)",
+    "tara": "Tara (girl ~9, two long braids with red ribbons, yellow frock)",
+    "tinku": "Tinku (very thin boy ~9, round spectacles, loose orange-cream striped shirt, half-pants)",
+    "mitthu": "Mitthu (green parrot, red beak, thin red neck ring; wings and feet only)",
+    "dadi": "Dadi (grandmother ~70, white hair bun, round golden spectacles, light green saree with yellow border, wooden walking stick)",
+    "pandey": "Pandey ji (plump police inspector ~45, thick black moustache, khaki uniform and cap)",
+    "sharma": "Sharma ji (friendly neighbour ~55, bald with grey side hair, rectangular spectacles, cream kurta-pyjama, brown sleeveless jacket)"
+  },
+  "base": "16:9 landscape scene in Dadi's aangan in Gulmohar Mohalla on a calm late-October Sunday morning: a mud house with a clay-tile roof and a BROWN wooden door, a clean swept courtyard, a tulsi pot and a pot of orange marigolds, a big green gulmohar tree WITHOUT flowers, green fields behind; warm golden sun from one side, soft lavender shadows, light dust in the air. A pretend children's court is set up in the courtyard: a charpai at the back centre (the judge's seat), a small wooden patla next to it, a low bamboo-stick enclosure tied with string around one low wooden stool (mudha) on the RIGHT (the dock), a low wooden bench on the LEFT for waiting elders, a steel plate of round laddoos. Everyone wears their usual everyday clothes, no costumes. Family-friendly; the children look innocent and age-appropriate and are polite to the elders. No text, letters, words or numbers anywhere in the image (the notebook pages are blank).",
+  "scenes": [
+    {
+      "id": 1,
+      "refs": ["golu", "tara", "tinku", "mitthu"],
+      "prompt": "Early morning setup of the pretend court, the courtyard still half-arranged: {golu} drags a charpai across the courtyard with both hands, excited, his back turned towards the parrot; {tinku} carries a steel plate of round laddoos carefully; {tara} places a wooden rolling pin (belan) on a small wooden patla, cheerful. On the left near the tulsi pot stands a simple wooden perch stand: {mitthu} sits on it with his beak open, calling, next to a small EMPTY, dry steel water bowl fixed to the perch (clearly visible, nothing inside). No adults in this image."
+    },
+    {
+      "id": 2,
+      "refs": ["golu", "tara", "tinku", "mitthu"],
+      "prompt": "The pretend court is ready: {tara} sits cross-legged on the charpai at the back centre holding a wooden rolling pin like a judge's gavel, calm confident face, one finger raised as if stating a rule; {golu} stands proudly in front of the charpai like a lawyer, chest out; {tinku} stands beside the steel plate of laddoos holding a thin notebook with blank pages, proud; {mitthu} perches on the charpai's wooden rail. The bamboo dock on the right and the bench on the left are empty. No adults, no water bowl."
+    },
+    {
+      "id": 3,
+      "refs": ["golu", "tara", "tinku", "pandey", "sharma"],
+      "prompt": "Arrival at the brown wooden door of the courtyard: {pandey} strides in smiling bossily, twirling his moustache with one hand, a lathi under his arm; {sharma} follows just behind him looking around worried as if searching for something, his rectangular spectacles pushed UP on his forehead; {golu}, {tara} and {tinku} stand in front greeting them politely with folded hands (namaste), smiling. The elders look happy to have been invited. No grandmother in this image."
+    },
+    {
+      "id": 4,
+      "refs": ["dadi", "golu", "tara", "tinku", "mitthu", "pandey", "sharma"],
+      "prompt": "Wide view of the pretend court in session: {pandey} sits on the low stool inside the bamboo dock on the RIGHT, amused, arms folded; on the low bench on the LEFT {sharma} (spectacles pushed up on his forehead) and {dadi} wait and smile; {tara} sits on the charpai at the back centre with the rolling pin; {tinku} stands announcing loudly, holding his blank notebook; {golu} walks like a lawyer in the middle, one hand raised; {mitthu} perches on the charpai's rail. Everyone is smiling; it is a happy game."
+    },
+    {
+      "id": 5,
+      "refs": ["golu", "tinku", "mitthu", "pandey"],
+      "prompt": "The 'evidence' moment in the pretend court: {tinku} holds up a broken round laddoo with a funny sad face; {mitthu} flaps his wings on the charpai rail with his beak wide open; {pandey} sits in the bamboo dock on the right with his chest puffed out, then a little sheepish half-smile under his moustache; {golu} points at the broken laddoo like a lawyer. Light and comic, nobody is upset."
+    },
+    {
+      "id": 6,
+      "refs": ["golu", "tara", "tinku", "pandey"],
+      "prompt": "The first verdict: on the LEFT third of the frame {tara} sits on the charpai and raises the wooden rolling pin high above the small wooden patla, a serious-but-kind judge face (clear, uncluttered space around her); on the right {pandey} sits in the bamboo dock whispering with one finger on his lips, eyes twinkling with fun; in the middle {golu} and {tinku} giggle behind their hands. Warm, playful, respectful."
+    },
+    {
+      "id": 7,
+      "refs": ["golu", "tara", "tinku", "mitthu", "sharma"],
+      "prompt": "The second case: {sharma} sits on the stool in the bamboo dock on the right looking around anxiously, his rectangular spectacles pushed UP on his forehead (no focus on his head, only the spectacles); {tinku} laughs kindly and taps his OWN forehead to show where the spectacles are; {golu} presents with an open palm like a lawyer; {tara} smiles on the charpai at the back; {mitthu} perches on the charpai rail."
+    },
+    {
+      "id": 8,
+      "refs": ["golu", "tara", "tinku", "sharma"],
+      "prompt": "The second verdict, a happy gift: {sharma} now wears his spectacles on his eyes, with a bright colourful braided cord tied to them hanging around his neck, laughing happily; {tara} stands beside the charpai having just given it to him, smiling; {golu} and {tinku} clap. Sharma ji looks delighted, not embarrassed."
+    },
+    {
+      "id": 9,
+      "refs": ["dadi", "golu", "tara", "tinku", "mitthu"],
+      "prompt": "The third case: {dadi} sits on the low stool inside the bamboo dock on the right, her walking stick beside her, one hand on her cheek in playful mock surprise, eyes laughing; {golu} presents with both hands spread wide as if saying 'so many stories'; {tara} sits on the charpai at the back smiling with the rolling pin; {tinku} stands with his blank notebook; {mitthu} perches on the charpai rail. The children are fond and respectful; Dadi enjoys the game."
+    },
+    {
+      "id": 10,
+      "refs": ["golu", "tara", "tinku", "mitthu"],
+      "prompt": "The parrot's call: on the left near the tulsi pot {mitthu} sits on his wooden perch stand flapping his wings with his beak wide open, next to his EMPTY, dry steel water bowl (clearly visible, nothing inside); in the middle {golu} waves his hand dismissively without looking at the parrot, busy; {tinku} looks up from his blank notebook; {tara} has stood up from the charpai and looks straight at the dry bowl with a calm, focused thinking face. No adults in this image."
+    },
+    {
+      "id": 11,
+      "refs": ["golu", "tara", "tinku", "mitthu", "dadi"],
+      "prompt": "Close view: in the foreground the EMPTY dry steel water bowl on the wooden perch stand, {mitthu} on the perch looking down into it; in the soft background {tara}, {tinku} and {dadi} turn to look at {golu}; {golu} stands with a sorry, guilty face, hand behind his head. Gentle and caring mood, nobody is angry. No other adults."
+    },
+    {
+      "id": 12,
+      "refs": ["golu", "tara", "tinku", "mitthu"],
+      "prompt": "{golu} kneels by the wooden perch stand and pours clean water from a small brass lota into the steel bowl; {mitthu} happily drinks from the bowl; {tara} and {tinku} stand beside smiling warmly. Soft morning sun, a tender moment."
+    },
+    {
+      "id": 13,
+      "refs": ["dadi", "golu", "tara", "tinku", "mitthu", "pandey", "sharma"],
+      "prompt": "Finale, wide: the whole group stands together in the LEFT 55% of the frame: {golu} stands straight in front of the charpai with a hand on his heart; {tara} on the charpai holds the rolling pin with a kind smile; {tinku} holds the plate of laddoos happily; {pandey} laughs with a hand over his mouth; {sharma} (colourful cord on his spectacles, spectacles on his eyes) and {dadi} smile on the bench; {mitthu} sits on his perch with the steel bowl now full of water. The RIGHT side of the frame is calm and empty of people: the brown door, the marigold pot, the green fields in soft sunlight."
+    }
+  ]
+}

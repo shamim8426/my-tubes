@@ -48,6 +48,10 @@ SHEETS = {
                "uniform with a brown belt and a khaki cap, a wooden lathi. Comic but kind. Poses: standing proudly with "
                "the lathi; walking angrily holding a dug-up cauliflower; spinning a small wooden top with a happy "
                "smile. Expressions: angry shout, surprised, emotional soft smile."),
+    "sharma": ("Sharma ji: friendly Indian neighbour about 55, bald head with grey hair on the sides, rectangular "
+               "spectacles, cream kurta-pyjama, brown sleeveless jacket. Poses: standing politely; looking around worried "
+               "with his spectacles pushed up on his forehead; laughing at himself with a hand on his forehead. "
+               "Expressions: worried, sheepish laugh, happy. Do not copy any labels or words from the old sheet."),
 }
 TOLI_SHEET = ("Character reference sheet of ONE single child character on a plain warm off-white paper background. "
               "Top row: full-body FRONT view, full-body SIDE view, and one full-body action pose. Bottom row: four "

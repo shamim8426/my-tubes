@@ -52,11 +52,11 @@
     },
     "007_bachchon-ki-adalat": {
       "video": "long",
-      "stage": "script_approved",
+      "stage": "tts",
       "profile": "RULES 15",
       "style": "kissago_painted",
       "budget_cap_inr": 110,
-      "updated": "2026-10-21",
+      "updated": "2026-10-22",
       "publish_target": "2026-10-23 .. 2026-10-24 (RULES 8 clock)",
       "note": "Approved by the user 2026-10-21 (title 1, thumb 'फ़ैसला क्या होगा?', no cozy pal, line 37 removed). RULES 15 auto pipeline running. Balance from ledger Rs176.56 (Credit balance from the user pending for reconcile --check)."
     }

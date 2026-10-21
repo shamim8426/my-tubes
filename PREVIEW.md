@@ -1,6 +1,6 @@
 # Preview — किस्सागो | Kissago
 
-**Budget bacha:** ₹176.56  ·  **Last image:** 2026-10-20 23:55:11
+**Budget bacha:** ₹68.74  ·  **Last image:** 2026-10-22 00:05:43
 
 ## Characters
 
@@ -413,3 +413,55 @@
 ### scene_16 — ₹5.42 · 2026-10-20 23:43:31
 
 ![scene_16](channels/dadi-ki-kahaniyan/stories/005_gulmohar-ka-khazana/images/scene_16.png)
+
+### scene_01 — ₹5.88 · 2026-10-21 23:42:15
+
+![scene_01](channels/dadi-ki-kahaniyan/stories/007_bachchon-ki-adalat/images/scene_01.png)
+
+### scene_02 — ₹5.26 · 2026-10-21 23:42:50
+
+![scene_02](channels/dadi-ki-kahaniyan/stories/007_bachchon-ki-adalat/images/scene_02.png)
+
+### scene_03 — ₹5.72 · 2026-10-21 23:43:31
+
+![scene_03](channels/dadi-ki-kahaniyan/stories/007_bachchon-ki-adalat/images/scene_03.png)
+
+### scene_04 — ₹5.92 · 2026-10-21 23:44:10
+
+![scene_04](channels/dadi-ki-kahaniyan/stories/007_bachchon-ki-adalat/images/scene_04.png)
+
+### scene_05 — ₹5.55 · 2026-10-21 23:44:44
+
+![scene_05](channels/dadi-ki-kahaniyan/stories/007_bachchon-ki-adalat/images/scene_05.png)
+
+### scene_06 — ₹4.80 · 2026-10-21 23:45:15
+
+![scene_06](channels/dadi-ki-kahaniyan/stories/007_bachchon-ki-adalat/images/scene_06.png)
+
+### scene_07 — ₹5.58 · 2026-10-21 23:45:49
+
+![scene_07](channels/dadi-ki-kahaniyan/stories/007_bachchon-ki-adalat/images/scene_07.png)
+
+### scene_08 — ₹5.41 · 2026-10-21 23:46:23
+
+![scene_08](channels/dadi-ki-kahaniyan/stories/007_bachchon-ki-adalat/images/scene_08.png)
+
+### scene_09 — ₹6.41 · 2026-10-21 23:47:17
+
+![scene_09](channels/dadi-ki-kahaniyan/stories/007_bachchon-ki-adalat/images/scene_09.png)
+
+### scene_10 — ₹4.80 · 2026-10-21 23:47:44
+
+![scene_10](channels/dadi-ki-kahaniyan/stories/007_bachchon-ki-adalat/images/scene_10.png)
+
+### scene_11 — ₹4.87 · 2026-10-21 23:48:10
+
+![scene_11](channels/dadi-ki-kahaniyan/stories/007_bachchon-ki-adalat/images/scene_11.png)
+
+### scene_12 — ₹5.27 · 2026-10-21 23:48:43
+
+![scene_12](channels/dadi-ki-kahaniyan/stories/007_bachchon-ki-adalat/images/scene_12.png)
+
+### scene_13 — ₹6.16 · 2026-10-21 23:49:22
+
+![scene_13](channels/dadi-ki-kahaniyan/stories/007_bachchon-ki-adalat/images/scene_13.png)

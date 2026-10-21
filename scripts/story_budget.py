@@ -29,6 +29,7 @@ EXTRA_FILES = {
     "style_migration": ["channels/dadi-ki-kahaniyan/characters/dadi/sheet_painted", "channels/dadi-ki-kahaniyan/characters/golu/sheet_painted",
                         "channels/dadi-ki-kahaniyan/characters/mitthu/sheet_painted", "style_tests/painted/"],
     "005_gulmohar-ka-khazana": ["channels/dadi-ki-kahaniyan/characters/pandey/"],
+    "007_bachchon-ki-adalat": ["channels/dadi-ki-kahaniyan/characters/sharma/"],
     # new permanent characters Tara + Tinku (own budget ₹20)
     "new_characters": ["channels/dadi-ki-kahaniyan/characters/tara/", "channels/dadi-ki-kahaniyan/characters/tinku/",
                        "channels/dadi-ki-kahaniyan/characters/_review/"],

@@ -1,0 +1,63 @@
+{
+  "title": "बच्चों की अदालत! कटघरे में पांडे जी, शर्मा जी और दादी | किस्सागो",
+  "description": "रविवार की सुबह, दादी का आँगन... और मोहल्ले के बड़े कटघरे में! जज तारा, वकील गोलू और पेशकार टिंकू ने छुट्टी के दिन अपनी अदालत लगाई। पांडे जी के 'ख़बरदार!' से कबूतर उड़ गए, शर्मा जी रोज़ चश्मा खोते हैं, और दादी कहती हैं 'बस एक कहानी'... एक-एक कर सबके मुक़दमे, सबकी मज़ेदार सज़ाएँ। पर आख़िरी मुक़दमा किस पर चलेगा? ⚖️😄\n\nसीख: जो नियम सबके लिए, वही अपने लिए।\n\nकिस्सागो — हर शाम एक नया किस्सा, जो हँसाए भी और सिखाए भी।",
+  "hashtags": [
+    "#किस्सागो",
+    "#HindiKahani",
+    "#FamilyComedy",
+    "#GolukiToli"
+  ],
+  "tags": [
+    "किस्सागो",
+    "Kissago",
+    "अदालत की कहानी",
+    "मज़ेदार अदालत",
+    "गुलमोहर मोहल्ला",
+    "गोलू की टोली",
+    "दादी की कहानी",
+    "हिंदी कहानी",
+    "Hindi Kahani",
+    "Funny Court Story Hindi",
+    "Family Comedy Hindi",
+    "पांडे जी",
+    "रविवार की मस्ती",
+    "Moral Story Hindi",
+    "Hindi Story with Moral"
+  ],
+  "music_moods": {
+    "comedy": "comedy/Fluffing_a_Duck.mp3",
+    "seekh": "seekh/Touching_Moments_Two_Higher.mp3",
+    "khushi": "khushi/Life_of_Riley.mp3"
+  },
+  "sfx": {
+    "comedy": "comedy_sting_731262.mp3"
+  },
+  "pinned_comment": "आपके घर में बच्चों की अदालत लगे, तो पहला मुक़दमा किस पर होगा? और सज़ा क्या होगी? कमेंट में बताइए! ⚖️",
+  "speed": {
+    "narrator": 1.0,
+    "dadi": 0.9,
+    "pandey": 0.95,
+    "pandey_soft": 0.95,
+    "sharma_fond": 0.95
+  },
+  "gap": 0.35,
+  "end_hold": 7.0,
+  "thumbnail": {
+    "text": "फ़ैसला क्या होगा?",
+    "lines": [
+      "फ़ैसला",
+      "क्या होगा?"
+    ],
+    "prompt": "Sunday morning in Dadi's courtyard, warm golden light against a cool soft-blue sky, a pretend children's court. RIGHT-CENTRE: Tara sits on a charpai holding a wooden rolling pin raised like a judge's gavel, confident, kind judge face (the focal point). AT THE RIGHT: Pandey ji in the low bamboo-stick dock, upper body only, kept above the bottom 20% of the frame, with big surprised eyes and his thick moustache, one hand on his chest as if saying 'me?', comic, not upset; the bottom-right corner is plain ground. Golu stands beside the enclosure pointing like a lawyer; Tinku holds a steel plate of round laddoos; Mitthu the parrot flies above with wings spread. No water bowl, no other adults.",
+    "refs": [
+      "tara",
+      "pandey",
+      "golu",
+      "tinku",
+      "mitthu"
+    ],
+    "size": 150,
+    "all_yellow": true
+  },
+  "overlays": {}
+}

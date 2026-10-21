@@ -1,0 +1,56 @@
+{
+  "title": "पांडे जी कटघरे में! बच्चों ने लगाई अदालत | किस्सागो #shorts",
+  "description": "रविवार की सुबह दादी के आँगन में लगी एक अनोखी अदालत — जज तारा, वकील गोलू, पेशकार टिंकू। और पहला मुक़दमा... पांडे जी पर! उनके एक 'ख़बरदार!' से कबूतर उड़ गए और टिंकू का लड्डू गिर गया। अब फ़ैसला क्या होगा? पूरी कहानी चैनल पर देखिए।",
+  "hashtags": [
+    "#shorts",
+    "#किस्सागो",
+    "#HindiKahani",
+    "#FamilyComedy"
+  ],
+  "tags": [
+    "किस्सागो",
+    "Kissago",
+    "अदालत",
+    "पांडे जी",
+    "गोलू की टोली",
+    "हिंदी कहानी",
+    "Hindi Kahani",
+    "Hindi Shorts",
+    "Family Comedy Hindi",
+    "मज़ेदार कहानी"
+  ],
+  "music_moods": {
+    "comedy": "comedy/Fluffing_a_Duck.mp3"
+  },
+  "sfx": {},
+  "final_title": "पांडे जी को क्या सज़ा मिली? पूरी कहानी नीचे दिए लिंक पर",
+  "final_title_secs": 2.0,
+  "end_hold": 2.0,
+  "caption_from": 1.0,
+  "music_below_db": 13.3,
+  "pinned_comment": "आपके हिसाब से पांडे जी को क्या सज़ा मिलनी चाहिए? अंदाज़ा लगाइए, फिर पूरी कहानी देखिए! ⚖️",
+  "speed": {
+    "narrator": 1.0,
+    "golu": 1.05,
+    "tara": 1.05,
+    "tinku": 1.05,
+    "pandey": 1.0
+  },
+  "gap": 0.15,
+  "gap_speaker_change": 0.3,
+  "cover": {
+    "label": "किस्सागो",
+    "title": "ख़ामोश! अदालत!",
+    "prompt": "Hero (33%-63% height): Tara, a cheerful clever girl with two braids and red ribbons, sitting on a charpai and raising a wooden rolling pin high like a judge's gavel, confident and kind judge face. Lower part (61%-80%): Pandey ji the plump police inspector inside a low bamboo-stick enclosure (the dock), surprised and comic with his thick moustache; Golu pointing like a lawyer and thin Tinku holding a plate of round laddoos beside him. Mitthu the green parrot small in the top-right corner below 15% height. Warm Sunday morning courtyard. No water bowl, no grandmother, no other adults.",
+    "refs": [
+      "tara",
+      "pandey",
+      "golu",
+      "tinku",
+      "mitthu"
+    ],
+    "label_y": 0.17,
+    "title_y": 0.28,
+    "title_size": 170
+  }
+}

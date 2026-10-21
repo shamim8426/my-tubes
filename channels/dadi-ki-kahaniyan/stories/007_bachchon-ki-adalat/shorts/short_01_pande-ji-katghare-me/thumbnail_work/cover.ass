@@ -1,0 +1,15 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: L,Mukta ExtraBold,95,&H0060C8F0,&H000000FF,&H00101010,&H96000000,-1,0,0,0,100,100,0,0,1,5,3,5,40,40,0,1
+Style: T,Mukta ExtraBold,170,&H0000E5FF,&H000000FF,&H00000000,&H96000000,-1,0,0,0,100,100,0,0,1,14,8,5,40,40,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:01.00,L,,0,0,0,,{\an5\pos(540,326)}किस्सागो
+Dialogue: 0,0:00:00.00,0:00:01.00,T,,0,0,0,,{\an5\pos(540,537)}ख़ामोश! अदालत!
