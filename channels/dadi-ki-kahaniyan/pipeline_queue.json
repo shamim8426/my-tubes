@@ -38,6 +38,27 @@
       "short_a_video_id": "XEnsuAw85bI",
       "short_a_v1_removed": "VYbq2WkgSaU (revealed the treasure; removed by the user 2026-10-21)",
       "public_status": "long + Short public (manual, Studio) - confirmed by the user 2026-10-21"
+    },
+    "006_rangoli-par-nanhe-panje": {
+      "video": "long",
+      "stage": "script_approved",
+      "hold": true,
+      "profile": "RULES 15",
+      "style": "kissago_painted",
+      "budget_cap_inr": 110,
+      "updated": "2026-10-21",
+      "note": "Script approved by the user for Diwali, on HOLD: no paid step until the user releases it. Open: title (1/2), thumbnail text, publish target 29-31 Oct (user 2026-10-21), cozy pal; balance ~Rs176 before start.",
+      "publish_target": "2026-10-29 .. 2026-10-31 (earliest_date 2026-10-29 in the long's upload.json; RULES 8 clock decides inside it)"
+    },
+    "007_bachchon-ki-adalat": {
+      "video": "long",
+      "stage": "script",
+      "profile": "RULES 15",
+      "style": "kissago_painted",
+      "budget_cap_inr": 110,
+      "updated": "2026-10-21",
+      "publish_target": "2026-10-23 .. 2026-10-24 (RULES 8 clock)",
+      "note": "Option A 'बच्चों की अदालत v2' chosen by the user 2026-10-21 (Ravivaar/chhutti, no Bal Diwas). Kalam writing the script. Paid pipeline only after 'approved' + balance check (user recharging). Earlier 007 pick 'दादी का पहला वीडियो कॉल' stopped before any file; stays open in idea_bank."
     }
   }
 }

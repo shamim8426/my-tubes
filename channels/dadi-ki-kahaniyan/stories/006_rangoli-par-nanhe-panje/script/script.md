@@ -277,15 +277,15 @@ image 6 becomes a crop of image 5 (afternoon light lost, acceptable) — never s
 
 Decided right after the upload from the IST clock (`"publish_at": "auto"`): upload 19:00–23:59 -> Long public now,
 Short +60 min; upload 00:00–18:59 -> Long 19:00 the same day, Short 20:00. One long per day: 21 Oct (Long 03) and
-22 Oct (Long 04) are taken, so the earliest possible day is 23 Oct. The user's earlier wish "1–3 Nov" can be kept with
-`"earliest_date": "2026-11-01"` in the Long's upload.json (then 1 Nov 19:00 / 20:00 if that day is free) — user decides.
+22 Oct (Long 04) are taken, so the earliest possible day is 23 Oct. USER 2026-10-21: publish target **29–31 Oct** -> `"earliest_date": "2026-10-29"` in the Long's upload.json (the
+RULES 8 clock decides inside that window; story stays on HOLD until the user releases it).
 Metadata frames it as a Diwali-week story ("इस दिवाली..."), never "आज दिवाली है".
 
 ## OPEN FOR THE USER (only the user decides)
 
 1. Title: option 1 (recommended) or 2.
 2. Thumbnail text "भोर में कौन आया?" (alternative: "किसके पंजे?").
-3. Publish timing: by the RULES 8 clock as soon as it is ready (earliest 23 Oct), or with earliest_date 2026-11-01.
+3. Publish timing: DECIDED 2026-10-21 — target 29–31 Oct (earliest_date 2026-10-29), HOLD until the user releases it.
 4. Shape note (Munshi R1): watch -> sympathetic "culprit" -> include them is close in shape to 004 (RULES 12 still
    met, 5 points differ). Nayapan Kalam 7.5 / Munshi ~7.
 5. Cozy pal (~10 s) yes/no.
