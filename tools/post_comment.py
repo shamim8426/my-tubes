@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
-"""Post the Short -> Long first comment once the Short is public (RULES section 8, Short -> Long link).
+"""Post a video's first comment once it is public: a Short's Short -> Long link (RULES section 8), or a long's
+"first_comment" from its upload.json.
 
 Usage:
     python tools/post_comment.py --job <short video folder>/output/upload.json --dry-run
     python tools/post_comment.py --job <short video folder>/output/upload.json      (run by the scheduled task)
 
 Runs from the Windows scheduled task StoryChannel-Comment-<video_id> that youtube_upload.py creates for
-publish_at + 5 min. Checks the logged-in channel, waits while the video is not public yet (15 min, max 6 tries),
-posts "पूरी कहानी यहाँ देखें 👉 <long URL>", writes comment_id to upload_result.json, logs to shared/sync.log and
+the real publish time + 5 min. Checks the logged-in channel, waits while the video is not public yet (15 min, max 12
+tries = 3 h, for the manual Studio step while the API is unaudited), posts "पूरी कहानी यहाँ देखें 👉 <long URL>" (or the job's first_comment), writes comment_id to upload_result.json, logs to shared/sync.log and
 removes its own scheduled task. Never prints tokens.
 """
 import argparse
@@ -77,9 +78,9 @@ def remove_task(name: str):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--job", required=True, help="the Short's upload.json")
+    ap.add_argument("--job", required=True, help="the video's upload.json")
     ap.add_argument("--dry-run", action="store_true", help="show what would happen; no network, no comment")
-    ap.add_argument("--attempts", type=int, default=6)
+    ap.add_argument("--attempts", type=int, default=12)
     ap.add_argument("--wait-min", type=float, default=15)
     a = ap.parse_args()
 
@@ -91,9 +92,9 @@ def main():
     sys.path.insert(0, str(ROOT / "tools"))
     import youtube_upload as yu  # noqa: E402
 
-    if not parent:
-        sys.exit("job has no parent_video_id: nothing to post")
-    text = comment_text(parent)
+    if not parent and not job.get("first_comment"):
+        sys.exit("job has no parent_video_id or first_comment: nothing to post")
+    text = comment_text(parent) if parent else job["first_comment"]
     if a.dry_run:
         print("DRY RUN (no network, no comment)")
         print("Channel:   ", job.get("channel_name"), job.get("channel_id"))

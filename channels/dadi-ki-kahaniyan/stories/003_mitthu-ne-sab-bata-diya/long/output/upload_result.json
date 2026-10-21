@@ -5,5 +5,7 @@
   "uploaded_at": "2026-10-19T14:01:45.086738+00:00",
   "publish_at": "2026-10-20T19:00:00+05:30",
   "thumbnail_ok": true,
-  "captions_ok": true
+  "captions_ok": true,
+  "status": "public (manual)",
+  "public_confirmed": "2026-10-21 (user: made PUBLIC in Studio)"
 }

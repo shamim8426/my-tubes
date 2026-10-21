@@ -166,20 +166,30 @@ def validate(job: dict, job_path: Path) -> list:
         errs.append(f"captions not found: {srt}")
 
     pub = job.get("publish_at")
-    if pub:
+    if fmt == "short" and pub == "auto" and job.get("parent_video_id"):
+        from publish_slot import find_result, result_publish_time
+        if not result_publish_time(find_result(job["parent_video_id"]) or {}):
+            errs.append(f"parent {job['parent_video_id']}: no upload_result.json with a publish time (upload the long first)")
+    if pub and pub != "auto":  # "auto" = decided after the upload from the IST clock (RULES section 8)
         try:
             t = dt.datetime.fromisoformat(pub)
             if t.tzinfo is None:
                 errs.append("publish_at needs a timezone, e.g. 2026-10-21T19:00:00+05:30")
             elif t <= dt.datetime.now(dt.timezone.utc) + dt.timedelta(minutes=15):
                 errs.append("publish_at must be at least 15 minutes in the future")
-            if t.tzinfo is not None:  # fixed slot per format (RULES section 8; channel.json publish_times_ist)
+            if t.tzinfo is not None:  # slot per format (RULES section 8; channel.json publish_times_ist)
                 ist = t.astimezone(dt.timezone(dt.timedelta(hours=5, minutes=30)))
-                want = cfg.get("publish_times_ist", {"long": "19:00", "short": "21:00"}).get(fmt)
+                want = cfg.get("publish_times_ist", {"long": "19:00", "short": "20:00"}).get(fmt)
                 if want and f"{ist:%H:%M}" != want:
-                    errs.append(f"publish_at is {ist:%H:%M} IST; a {fmt} video publishes at {want} IST")
+                    errs.append(f"publish_at is {ist:%H:%M} IST; a scheduled {fmt} video publishes at {want} IST "
+                                "(or use \"publish_at\": \"auto\")")
         except ValueError:
-            errs.append("publish_at is not ISO 8601")
+            errs.append("publish_at is not ISO 8601 (or \"auto\")")
+    if job.get("earliest_date"):
+        try:
+            dt.date.fromisoformat(job["earliest_date"])
+        except ValueError:
+            errs.append("earliest_date must be YYYY-MM-DD")
     if job.get("privacy", "private") not in ("private", "unlisted", "public"):
         errs.append("privacy must be private, unlisted or public")
     return errs
@@ -198,22 +208,75 @@ def add_parent_link(job):
     return line
 
 
-def short_followups(job, job_path, result):
-    """After a Short upload: schedule the first comment (publish_at + 5 min) and add the manual checklist to the
-    channel log (Related video + pin comment stay manual; the API cannot do them)."""
+def plan_publish(yt, job, result):
+    """RULES section 8: decide public-now or the schedule from the IST clock right after the upload.
+    Returns (when, mode) and stores planned_publish_at / publish_action in result."""
+    import publish_slot as ps
+
+    now = ps.now_ist()
+    long_time, gap, _ = ps.channel_times(job["channel_key"])
+    earliest = dt.date.fromisoformat(job["earliest_date"]) if job.get("earliest_date") else None
+    if job["format"] == "long":
+        taken = ps.local_long_days(job["channel_key"], result["video_id"])
+        try:
+            taken |= ps.api_long_days(yt, result["video_id"])
+        except Exception as e:  # the local list still counts
+            print("note: channel video list not read from the API:", str(e)[:200])
+        when, mode = ps.plan_long(now, taken, long_time, earliest)
+    elif job.get("parent_video_id"):
+        parent = ps.find_result(job["parent_video_id"])
+        when, mode = ps.plan_short(now, dt.datetime.fromisoformat(ps.result_publish_time(parent)), gap)
+    else:
+        when, mode = ps.plan_standalone_short(now, long_time, gap, earliest)
+    result["planned_publish_at"] = when.isoformat(timespec="minutes")
+    result["publish_action"] = "public_now" if mode == "now" else "schedule"
+    return when, mode
+
+
+def apply_publish(yt, job, result, when, mode):
+    """Audited API project (channel.json api_audited = true): set public / publishAt ourselves.
+    Otherwise the video stays private and the user gets a STUDIO ACTION message."""
+    cfg = json.loads((ROOT / "channels" / job["channel_key"] / "channel.json").read_text(encoding="utf-8"))
+    vid = result["video_id"]
+    if cfg.get("api_audited"):
+        from veto import STATUS_KEEP
+        cur = yt.videos().list(part="status", id=vid).execute()["items"][0]["status"]
+        body = {k: cur[k] for k in STATUS_KEEP if k in cur}
+        if mode == "now":
+            body["privacyStatus"] = "public"
+        else:
+            body.update(privacyStatus="private", publishAt=when.isoformat())
+        with_retry(lambda: yt.videos().update(part="status", body={"id": vid, "status": body}).execute(), "status")
+        result["status"] = "public (api)" if mode == "now" else "scheduled (api)"
+        return None
+    result["status"] = "private - studio action pending"
+    what = "abhi PUBLIC karo" if mode == "now" else f"{when:%Y-%m-%d %H:%M} IST par SCHEDULE karo"
+    lines = [f"STUDIO ACTION ({job['format']}): {vid} \"{job['title']}\"",
+             f"  -> {what}   ({result['studio_url']})"]
+    if job["format"] == "short" and job.get("parent_video_id"):
+        lines.append(f"  -> Related video = {job['parent_video_id']} (https://youtu.be/{job['parent_video_id']})")
+    if result.get("comment_task_at"):
+        lines.append(f"  -> first comment ~{dt.datetime.fromisoformat(result['comment_task_at']):%Y-%m-%d %H:%M} IST "
+                     "aayega: tab pin karo")
+    return "\n".join(lines)
+
+
+def comment_followups(job, job_path, result, when):
+    """Schedule the first comment (real publish time + 5 min) and, for a Short of a long, add the manual
+    checklist to the channel log (Related video + pin comment stay manual; the API cannot do them)."""
     from post_comment import schedule_task
-    when = (dt.datetime.fromisoformat(job["publish_at"]) if job.get("publish_at")
-            else dt.datetime.now(dt.timezone.utc)) + dt.timedelta(minutes=5)
+    when = when + dt.timedelta(minutes=5)
     try:
         result["comment_task"] = schedule_task(job_path, result["video_id"], when)
-        result["comment_task_at"] = when.isoformat()
+        result["comment_task_at"] = when.isoformat(timespec="minutes")
     except Exception as e:
         result["comment_task_error"] = str(e)[:300]
-    log_file = ROOT / "channels" / job["channel_key"] / "log.md"
-    with log_file.open("a", encoding="utf-8") as f:
-        f.write(f"{dt.date.today().isoformat()} | {Path(job['video']).stem} | short->long checklist | "
-                f"video {result['video_id']} -> long {job['parent_video_id']} | "
-                "related_video: pending, pin_comment: pending\n")
+    if job.get("format") == "short" and job.get("parent_video_id"):
+        log_file = ROOT / "channels" / job["channel_key"] / "log.md"
+        with log_file.open("a", encoding="utf-8") as f:
+            f.write(f"{dt.date.today().isoformat()} | {Path(job['video']).stem} | short->long checklist | "
+                    f"video {result['video_id']} -> long {job['parent_video_id']} | "
+                    "related_video: pending, pin_comment: pending\n")
 
 
 def get_service(job):
@@ -279,7 +342,9 @@ def upload_video(yt, job, job_path):
     }
     if "contains_synthetic_media" in job:
         status["containsSyntheticMedia"] = bool(job["contains_synthetic_media"])
-    if job.get("publish_at"):
+    if job.get("publish_at") == "auto":
+        status["privacyStatus"] = "private"  # public/schedule is decided after the upload (plan_publish)
+    elif job.get("publish_at"):
         status["privacyStatus"] = "private"  # required by YouTube for scheduling
         status["publishAt"] = job["publish_at"]
 
@@ -366,8 +431,23 @@ def main():
     print("Channel:     ", job.get("channel_name") or job.get("channel_key"), job.get("channel_id"))
     print("Title:       ", job.get("title"))
     print("Video:       ", resolve(job_path, job.get("video")))
-    print("Privacy:     ", "scheduled" if job.get("publish_at") else job.get("privacy", "private"))
-    print("Publish at:  ", job.get("publish_at") or "-")
+    print("Privacy:     ", "auto (RULES 8, after upload)" if job.get("publish_at") == "auto"
+          else "scheduled" if job.get("publish_at") else job.get("privacy", "private"))
+    print("Publish at:  ", job.get("publish_at") or "-", f"(earliest {job['earliest_date']})" if job.get("earliest_date") else "")
+    if job.get("publish_at") == "auto" and not errs:
+        import publish_slot as ps
+        now = ps.now_ist()
+        long_time, gap, _ = ps.channel_times(job["channel_key"])
+        earliest = dt.date.fromisoformat(job["earliest_date"]) if job.get("earliest_date") else None
+        if job.get("format") == "long":
+            when, mode = ps.plan_long(now, ps.local_long_days(job["channel_key"]), long_time, earliest)
+        elif job.get("parent_video_id"):
+            when, mode = ps.plan_short(now, dt.datetime.fromisoformat(
+                ps.result_publish_time(ps.find_result(job["parent_video_id"]))), gap)
+        else:
+            when, mode = ps.plan_standalone_short(now, long_time, gap, earliest)
+        print("If done now: ", "PUBLIC NOW" if mode == "now" else f"SCHEDULE {when:%Y-%m-%d %H:%M} IST",
+              "(local list only; the real decision is made after the upload)")
     print("Made for kids:", job.get("made_for_kids"))
     print("Thumbnail:   ", job.get("thumbnail") or "-")
     print("Captions:    ", job.get("captions") or "-")
@@ -377,7 +457,9 @@ def main():
         print("Parent long: ", job.get("parent_video_id") or "- (stand-alone Short)")
         if parent_line:
             print("Desc line 1: ", parent_line)
-            print("1st comment: ", parent_line, "(scheduled task, publish_at + 5 min)")
+            print("1st comment: ", parent_line, "(scheduled task, real publish time + 5 min)")
+    elif job.get("first_comment"):
+        print("1st comment: ", job["first_comment"], "(scheduled task, real publish time + 5 min)")
     if errs:
         print("\nPROBLEMS:")
         for e in errs:
@@ -409,12 +491,30 @@ def main():
     if args.force_thumbnail:
         result.pop("thumbnail_ok", None)
     do_extras(yt, job, job_path, result["video_id"], result)
-    if parent_line and not result.get("comment_task") and not result.get("comment_id"):
-        short_followups(job, job_path, result)
-        print("Studio (manual): set Related video =", f"https://youtu.be/{job['parent_video_id']}",
-              "and pin the first comment after it is posted.")
+    auto = job.get("publish_at") == "auto"
+    if auto and not result.get("planned_publish_at"):
+        when, mode = plan_publish(yt, job, result)
+        result_path.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
+    elif auto:
+        when = dt.datetime.fromisoformat(result["planned_publish_at"])
+        mode = "now" if result.get("publish_action") == "public_now" else "schedule"
+    else:
+        when = dt.datetime.fromisoformat(job["publish_at"]) if job.get("publish_at") else dt.datetime.now(dt.timezone.utc)
+    if (parent_line or job.get("first_comment")) and not result.get("comment_task") and not result.get("comment_id"):
+        comment_followups(job, job_path, result, max(when, dt.datetime.now(dt.timezone.utc)))
+    if auto and not result.get("status"):
+        msg = apply_publish(yt, job, result, when, mode)
+        if msg:
+            result["studio_action"] = msg
+            log_file = ROOT / "channels" / job["channel_key"] / "log.md"
+            with log_file.open("a", encoding="utf-8") as f:
+                f.write(f"{dt.date.today().isoformat()} | {Path(job['video']).stem} | studio action | video "
+                        f"{result['video_id']} | {result['publish_action']} {result['planned_publish_at']} | "
+                        "studio_action: pending\n")
     result_path.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
     print(json.dumps(result, ensure_ascii=False, indent=2))
+    if result.get("studio_action") and result.get("status", "").startswith("private"):
+        print("\n" + result["studio_action"])
 
 
 if __name__ == "__main__":

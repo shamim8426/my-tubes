@@ -50,7 +50,7 @@ the script never deletes anything).
 | contains_synthetic_media | `false` |
 | category_id | `1` |
 | default_language | `hi` |
-| publish_times_ist | long `19:00`, Short `21:00` (RULES section 8) |
+| publish_times_ist | long `19:00`, Short `20:00`; `short_after_long_min` 60; `api_audited` (RULES section 8) |
 | playlists | not filled yet |
 
 ## 4. Safety checks in the script
@@ -63,8 +63,9 @@ the script never deletes anything).
 - **Metadata limits:** title ≤100, description ≤5000, tags ≤500 chars, ≤15 hashtags, no `<` `>`.
 - **No duplicates:** if `upload_result.json` already has a video id, it refuses (use `--extras-only` to retry
   thumbnail/captions/playlist).
-- `publish_at` must have a timezone, be ≥15 min in the future and match the channel's slot (long 19:00, Short 21:00 IST); scheduled videos go up
-  as private + publishAt.
+- `publish_at`: normally `"auto"` — decided after the upload from the IST clock (RULES section 8, `tools/publish_slot.py`):
+  19:00–23:59 public now, otherwise 19:00 the same day, Short +60 min, one long per day. An explicit time must have a timezone, be
+  ≥15 min in the future and be 19:00 (long) / 20:00 (Short) IST. While `api_audited` is false the video stays private and a STUDIO ACTION is printed.
 
 ## 5. How an upload happens
 

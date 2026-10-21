@@ -5,23 +5,25 @@
       "video": "long",
       "stage": "short_uploaded",
       "budget_cap_inr": 130,
-      "updated": "2026-10-19",
+      "updated": "2026-10-21",
       "mode": "auto v2 (no preview checkpoint; veto window)",
       "note": "Munshi final R1/R2 PASS (long srt re-timed), Short A final R1 PASS; long gLUM0zcECSk scheduled 2026-10-20 19:00 IST, Short A BzpR3Xawpsk scheduled 2026-10-20 21:00 IST (1st comment task 21:05). Manual Studio: confirm both schedules, Related video Short A = long, pin comment. Story cost Rs103.16.",
       "slot": "long 2026-10-20 19:00, Short A 2026-10-20 21:00",
       "long_video_id": "gLUM0zcECSk",
-      "short_a_video_id": "BzpR3Xawpsk"
+      "short_a_video_id": "BzpR3Xawpsk",
+      "public_status": "long + Short public (manual, Studio) - confirmed by the user 2026-10-21"
     },
     "004_chhat-par-bhoot": {
       "video": "long",
       "stage": "short_uploaded",
       "profile": "RULES 15",
       "budget_cap_inr": 110,
-      "updated": "2026-10-20",
+      "updated": "2026-10-21",
       "note": "Munshi final R1 PASS (long + Short). Long 03 llqRdGA08zY scheduled 2026-10-21 19:00 IST, Short A jFXPwZE2xYY scheduled 2026-10-21 21:00 IST (1st comment task 21:05). Manual Studio: confirm both schedules, Related video Short = Long 03, pin comment, end screen, cover file. Story cost Rs98.88 incl. GST.",
       "slot": "long 2026-10-21 19:00, Short A 2026-10-21 21:00",
       "long_video_id": "llqRdGA08zY",
-      "short_a_video_id": "jFXPwZE2xYY"
+      "short_a_video_id": "jFXPwZE2xYY",
+      "public_status": "long + Short public (manual, Studio) - confirmed by the user 2026-10-21"
     },
     "005_gulmohar-ka-khazana": {
       "video": "long",
@@ -34,7 +36,8 @@
       "slot": "long 2026-10-22 19:00, Short A 2026-10-22 21:00",
       "long_video_id": "wKH56WivpEs",
       "short_a_video_id": "XEnsuAw85bI",
-      "short_a_v1_removed": "VYbq2WkgSaU (revealed the treasure; removed by the user 2026-10-21)"
+      "short_a_v1_removed": "VYbq2WkgSaU (revealed the treasure; removed by the user 2026-10-21)",
+      "public_status": "long + Short public (manual, Studio) - confirmed by the user 2026-10-21"
     }
   }
 }

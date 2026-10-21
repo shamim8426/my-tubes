@@ -55,13 +55,16 @@ These are the hard rules. If a builder summary, a script or a file disagrees wit
 - Made-for-kids and AI-disclosure values come from `channels/<key>/channel.json`. Never guess them.
 
 ## 8. Publishing
-- Fixed publish times: long video at 19:00 IST, its Short at 21:00 IST the same day.
-  - Long upload finished before 18:45 IST -> long publishes 19:00 the same day; otherwise 19:00 the next day.
-  - Short upload finished before 20:45 IST -> Short publishes 21:00 the same day as its long; otherwise both move to the next day.
-  - A Short not made from a long (e.g. Dadi Jasoos case) also publishes at 21:00.
-- Per day per channel: at most one long (19:00) and one Short (21:00).
+- Publish timing (user rule 2026-10-21; replaces the old fixed "long 19:00 / Short 21:00" slots). Decided right AFTER the upload finishes, from the real IST clock (Asia/Kolkata); `tools/youtube_upload.py` with `"publish_at": "auto"` does it (`tools/publish_slot.py`):
+  - Upload finished 19:00–23:59 IST -> the long goes public NOW; its Short 60 min after the long (if that is after 23:59, the Short also goes public now).
+  - Upload finished 00:00–18:59 IST -> the long is scheduled 19:00 the SAME day; its Short 20:00 the same day.
+  - One long per day: a day that already has a long (public or scheduled; checked in every upload_result.json and via the YouTube API) gets no second long -> the next free day 19:00, its Short 20:00.
+  - A Short uploaded after its time has passed goes public now. A stand-alone Short (e.g. Dadi Jasoos case) follows the same clock at 20:00.
+  - Optional `earliest_date` in upload.json (e.g. a festival story): the long is not placed before that date; the rules above still apply from that date.
+- API audit not passed (channel.json `api_audited: false`, the current state): videos upload as private. Right after the upload the user gets one clear STUDIO ACTION message: video ID, title and the exact action ("abhi PUBLIC karo" or "<date> 19:00 par SCHEDULE karo"), a separate line for the Short, the Short's Related video (long ID) and when the first comment arrives to pin. When the user says "ho gaya", log it. Once `api_audited` is true, the uploader sets public / publishAt itself and the message is only a report.
+- First comment: a scheduled task 5 min after the real publish time (public now -> 5 min after the upload); it retries for up to 3 h while the video is still private.
 - Planned frequency: long videos 2-3 per week, Shorts daily (from stories already made, ₹0).
-- Nothing goes Public or gets scheduled without the user's OK, except in auto mode (section 14): there the script approval covers the scheduled upload, with the "rok do" veto window before the slot.
+- Nothing goes Public or gets scheduled without the user's OK, except in auto mode (section 14): there the script approval covers the upload and its publish timing above; a scheduled video keeps the "rok do" veto window before its time (a video that goes public now has none).
 - One upload per video. If `output/upload_result.json` exists, do not upload again.
 - Short -> Long link (MANDATORY): every Short made from a long video must (a) have the long video's URL in its description with a short CTA line, (b) get an automatic first comment "पूरी कहानी यहाँ देखें 👉 <long URL>" posted right after it becomes public, and (c) the user sets in Studio: Related video = the long video, and pins that comment. The YouTube API cannot set Related video or pin comments, so (c) stays manual; Munshi shows this checklist after every Short upload and asks about it at the start of the next session until the user confirms.
 
@@ -156,11 +159,10 @@ Severity: a misleading title/thumbnail is a BLOCKER; the rest are FIX in R1 and 
 ## 14. Auto mode (after script approval)
 From story 004, section 15 (production profile) overrides this section where they differ: no preview, budget ₹100–110 actual per story instead of the ₹130 cap, max 1 regeneration per image (BLOCKER only) instead of 2, final check R1 only. Everything else here (veto window, slots, covers, stop conditions, Studio checklist, logging) still applies.
 - Human checkpoint: ONLY script approval. After that everything runs automatically without asking for each step: assets (character sheets, voice samples), scene images, TTS, preview, Munshi R1 (FIX items fixed automatically, free or paid within the cap) + R2, final build, Munshi final review, long thumbnail, upload, Auto Short flow (section 8: build, review, upload), first comments, sync.
-- Veto window instead of approval: every video is uploaded as scheduled (private until its slot: long 19:00 IST, Short 21:00 IST), never published immediately. Right after each upload, show the user one status line with the video link and slot. If the user says "rok do" before the slot, run `tools/veto.py <video_id>` (sets the video private and removes publishAt via the API), log it in the channel log.md, and pause the pipeline for that story.
-- Slot: if the pipeline finishes too late for today's slot (long upload after 18:45 IST), use the next day's slot (Short follows section 8).
+- Publish timing: section 8 (decided after the upload from the IST clock: 19:00–23:59 public now, otherwise 19:00 the same day; Short +60 min; one long per day). Right after each upload, show the user one status line (video link + public now / scheduled time) and, while the API is unaudited, the STUDIO ACTION message. Veto window for scheduled videos: if the user says "rok do" before the time, run `tools/veto.py <video_id>` (sets the video private and removes publishAt via the API), log it in the channel log.md, and pause the pipeline for that story.
 - Thumbnails: the long thumbnail is set via the API automatically. Short covers cannot be set by the API: the Short's first frame is its cover (hook visual, no caption in the first 1 s, any text inside 15%-85% of the height); also save a vertical cover file (1080x1920) in the Short's output/ for manual use.
 - Stop conditions: ONLY the 3 in section 1 (balance below ₹50 -> ask the user to recharge, copyright doubt, channel ID mismatch). Budget cap, regeneration limits and BLOCKERs after R2 never stop the flow; they are handled as in section 15 (story 003 used a ₹130 cap and max 2 regenerations).
-- Manual Studio checklist after uploads (the API cannot do these): Related video for the Short = its long video, pin the first comment, and — until the API audit passes — confirm/set the schedule in Studio. Munshi shows it after the uploads and asks about it at the start of the next session until the user confirms.
+- Manual Studio checklist after uploads (the API cannot do these): Related video for the Short = its long video, pin the first comment, and — until the API audit passes — the STUDIO ACTION (make public now / set the schedule). Munshi shows it after the uploads and asks about it at the start of the next session until the user confirms.
 - Every auto step is logged in the channel log.md with cost so far, and shown to the user as one short status line.
 - pipeline_queue.json tracks each story's stages (script_approved -> assets -> images -> tts -> preview -> final -> uploaded -> short_uploaded -> done, or stopped/vetoed with the reason).
 
@@ -178,7 +180,7 @@ From story 004, section 15 (production profile) overrides this section where the
   - Cost about to cross ₹110: do not ask — shrink the plan yourself (fewer new images, more crop/zoom reuse) and continue.
   - A BLOCKER still in an image after its 1 regeneration: do not ask — build that scene from a crop/zoom of a good image (or move the scene's line onto another image) and continue.
   - Any BLOCKER after R2 that can be fixed for free: fix it yourself. One that cannot be fixed for free: handle it the same way (crop/zoom reuse, move the line to another image), never by asking.
-- Final video: Munshi does one final check (R1 only). If no BLOCKER -> upload in the slot (veto window stays: scheduled, "rok do" possible before the slot).
+- Final video: Munshi does one final check (R1 only). If no BLOCKER -> upload; publish timing per section 8 (public now or scheduled from the IST clock right after the upload; "rok do" possible before a scheduled time; STUDIO ACTION message while the API is unaudited).
 - Default motion = 2.5D parallax (Depth Anything V2 Small, local, free); artifact par zoom fallback.
 - Story 005 se image style = Kissago Painted; style block aur sheet_painted reference zaroori. (`channels/<key>/brand/STYLE_PAINTED.md` section 1 verbatim at the end of every image prompt, `characters/<name>/sheet_painted.png` as the character reference; `scripts/gen_scenes.py` does both and runs `tools/name_guard.py` on every prompt; section 12a applies.)
   (`scripts/make_short.py --motion parallax` is the default, `--motion zoom` keeps the old Ken Burns; the guard in `tools/parallax.py` halves the motion or falls back to zoom per shot and logs it in shared/parallax_log.jsonl. Shorts: shots.json "subjects" boxes keep each speaker's face/hands/gesture inside 3-85% of the crop width.)

@@ -5,7 +5,7 @@
 नया किस्सा: रोज़ शाम 7 बजे।
 सब्सक्राइब करें और घंटी दबाएँ, ताकि कोई किस्सा न छूटे!
 
-## Alternative that matches RULES section 8 (long videos 2-3 per week at 19:00, a Short every day at 21:00)
+## Alternative that matches RULES section 8 (long videos 2-3 per week around 19:00, Shorts an hour after)
 किस्सागो — जहाँ दादी सुनाती हैं हँसाने और सिखाने वाले किस्से: जादू, लालच की सीख, और "दादी जासूस" की मज़ेदार पहेलियाँ — पूरे परिवार के लिए हिंदी कार्टून कहानियाँ।
 पूरी कहानियाँ: हफ़्ते में 2-3 बार, शाम 7 बजे | Shorts: रोज़ रात 9 बजे।
 सब्सक्राइब करें और घंटी दबाएँ, ताकि कोई किस्सा न छूटे!

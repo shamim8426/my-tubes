@@ -50,22 +50,27 @@ Command: `.\.venv\Scripts\python -X utf8 scripts\make_short.py <video folder> [-
 
 ## Munshi (review + publish)
 - Har production step ke baad `munshi` subagent ko bulao aur uska verdict mujhe dikhao. FIX ho to free fix karo aur dobara review karwao; ASK ho to mujhse poochho.
-- Upload sirf `munshi` karega, `youtube-publish` skill ke hisaab se, meri "ha" ke baad — auto mode (RULES 14) me script approval hi "ha" hai, upload hamesha scheduled (veto window).
+- Upload sirf `munshi` karega, `youtube-publish` skill ke hisaab se, meri "ha" ke baad — auto mode (RULES 14) me script approval hi "ha" hai; publish ka samay RULES 8 ke naye niyam se (neeche).
 - Naye niyam: sab channels ke liye `shared/RULES.md`, sirf ek channel ke liye `channels/<key>/RULES.md` (channel ke niyam sakht ho sakte hain, dheele kabhi nahi).
 - **Short -> Long checklist:** session shuru hote hi `channels/<key>/log.md` me `related_video: pending` ya `pin_comment: pending` dikhe to user ko yaad dilao (Studio: Related video = long video, first comment pin). User "ho gaya" bole to us line me `related_video: done, pin_comment: done` (aur date) likho.
 - Munshi ka log aur carry-over: `channels/<key>/log.md`, `channels/<key>/carry_over.md`.
 
 ## Auto mode (shared/RULES.md section 14)
 - Sirf ek human checkpoint: script approval. Uske baad sheets -> images -> voice samples -> TTS -> preview -> Munshi R1 (auto fix) + R2 -> final -> Munshi final -> long thumbnail -> upload -> Auto Short (build, review, upload) -> first comments -> sync, sab apne aap. Preview par user se nahi milna.
-- Har video scheduled upload hota hai (slot tak private: long 19:00, Short 21:00), kabhi turant public nahi. Long upload 18:45 IST ke baad ho to agle din ka slot.
-- Har upload ke turant baad user ko ek status line: video link + slot. User slot se pehle "rok do" bole to `.\.venv\Scripts\python -X utf8 tools\veto.py <video_id> --apply` chalao (private + publishAt hatao), log.md me likho, us story ki pipeline pause (pipeline_queue.json: vetoed).
+- **Publish timing (RULES 8, 2026-10-21 se):** upload.json me `"publish_at": "auto"`; upload pura hote hi IST ghadi se faisla (`tools/publish_slot.py`):
+  - 19:00–23:59 -> Long TURANT public; Short Long ke 60 min baad (23:59 ke baad pade to Short bhi turant).
+  - 00:00–18:59 -> Long usi din 19:00 par schedule, Short usi din 20:00.
+  - Ek din, ek Long: us din pehle se Long public/scheduled ho to agla khaali din (19:00 / 20:00). Festival story ke liye `earliest_date` de sakte ho.
+  - API audit pass nahi (`channel.json` `api_audited: false`): video private upload, phir user ko saaf **STUDIO ACTION** message (video ID, title, "abhi PUBLIC karo" ya "<date> 19:00 par SCHEDULE karo", Short ki alag line, Related video = Long ID, comment pin ka samay). User "ho gaya" bole to log.md me `studio_action: done` (date). Audit pass -> `api_audited: true`, uploader khud public/publishAt karega.
+  - First comment task: asli publish samay + 5 min (turant public -> upload + 5 min).
+- Har upload ke turant baad user ko ek status line: video link + samay (public now / scheduled). Scheduled video ke samay se pehle user "rok do" bole to `.\.venv\Scripts\python -X utf8 tools\veto.py <video_id> --apply` chalao (private + publishAt hatao), log.md me likho, us story ki pipeline pause (pipeline_queue.json: vetoed).
 - Long thumbnail API se apne aap. Short cover API se nahi lagta: Short ka pehla frame hi cover (hook visual, pehle 1 s caption nahi, text 15%-85% height me) + ek vertical cover file output/ me manual use ke liye.
 - Ruko aur poochho SIRF 3 haalat me: Google balance ₹50 se kam (user ko recharge ke liye batao), copyright shak, channel ID mismatch. Baaki sab khud sambhalo (RULES 15) aur log.md me likho.
-- Uploads ke baad manual Studio checklist: Short ka Related video, first comment pin, aur jab tak API audit pass na ho, schedule confirm/set karna.
+- Uploads ke baad manual Studio checklist: Short ka Related video, first comment pin, aur jab tak API audit pass na ho, STUDIO ACTION (public / schedule) karna.
 - Har auto kadam channel log.md me (kharcha ab tak ke saath) aur user ko ek chhoti status line. Stages `channels/<key>/pipeline_queue.json` me.
 
 ## Production profile (shared/RULES.md section 15, story 004 / Long 03 se)
-- Long 02 (story 003) aur uska Short jaise hain waise rahenge. Story 004 se: sirf script approval; koi preview nahi — Munshi stage R1+R2 (script timing, images, audio) ke baad seedha FINAL; final par Munshi ka ek hi check (R1) -> scheduled upload (veto window).
+- Long 02 (story 003) aur uska Short jaise hain waise rahenge. Story 004 se: sirf script approval; koi preview nahi — Munshi stage R1+R2 (script timing, images, audio) ke baad seedha FINAL; final par Munshi ka ek hi check (R1) -> upload, samay RULES 8 ke niyam se.
 - Lambai: long max 4:00 (target 3:40–4:00), Short max 40 s (target 35–40 s); script measured TTS speed se likho.
 - Kharcha: ₹100–110 ASLI (usageMetadata, reference images samet) per story (long + Short + thumbnail). Kuch banane se pehle asli kharche ka andaza; ₹110 se upar ho to plan saral karo, kabhi budget se upar shuru mat karo. Max 16 nayi scene images (baaki crop/zoom), sirf 1K, refs sirf us scene ke kirdaar, purani sheets dobara, regen max 1 aur sirf BLOCKER par.
 - R2 ke baad MINOR sirf carry_over.md me, kuch regenerate nahi. Koi paid call poochhni nahi. Ruko sirf: balance ₹50 se kam (recharge batao) / copyright shak / channel ID mismatch.
