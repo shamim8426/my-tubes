@@ -52,13 +52,13 @@
     },
     "007_bachchon-ki-adalat": {
       "video": "long",
-      "stage": "script",
+      "stage": "script_approved",
       "profile": "RULES 15",
       "style": "kissago_painted",
       "budget_cap_inr": 110,
       "updated": "2026-10-21",
       "publish_target": "2026-10-23 .. 2026-10-24 (RULES 8 clock)",
-      "note": "Option A 'बच्चों की अदालत v2' chosen by the user 2026-10-21 (Ravivaar/chhutti, no Bal Diwas). Kalam writing the script. Paid pipeline only after 'approved' + balance check (user recharging). Earlier 007 pick 'दादी का पहला वीडियो कॉल' stopped before any file; stays open in idea_bank."
+      "note": "Approved by the user 2026-10-21 (title 1, thumb 'फ़ैसला क्या होगा?', no cozy pal, line 37 removed). RULES 15 auto pipeline running. Balance from ledger Rs176.56 (Credit balance from the user pending for reconcile --check)."
     }
   }
 }

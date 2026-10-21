@@ -1,6 +1,7 @@
-# Story 007 — "बच्चों की अदालत" (Long 06) — script v2 DRAFT (Kalam, 2026-10-21; Munshi R1 FIX -> fixed, R2 PASS-WITH-NOTES, R2 minors fixed) — NOT approved
+# Story 007 — "बच्चों की अदालत" (Long 06) — script v2 APPROVED by the user 2026-10-21 (checkpoint 1)
 
-Status: draft for Munshi script review, then the user's approval (checkpoint 1). No paid step has started.
+Status: APPROVED 2026-10-21 with the user's decisions: title 1, thumbnail text "फ़ैसला क्या होगा?", no cozy pal, line 37
+removed (36 -> 38 directly), publish by the RULES 8 clock (23 Oct first free day). RULES 15 auto pipeline runs from here.
 Chosen from idea_bank ("बच्चों की अदालत v2", offered 2026-10-21) with the user's final note: set on a chhutti ka din /
 Ravivaar in Dadi's aangan, NO Bal Diwas mention anywhere; Tara = jaj, Golu = vakil, Tinku = peshkar; the elders'
 sazaayein are loving and funny, never humiliating; children respect the elders throughout; the last case is Mitthu's;
@@ -113,7 +114,7 @@ the characters in that scene). Painted sheets that exist: Dadi, Golu, Mitthu, Ta
 ## AAKHRI MUQADMA
 
 36. MITTHU (apne adde par, zor se, pankh phadphada kar): "पानी! पानी!"
-37. TINKU (uth kar laddoo ki thaali ki taraf daudte hue): "पानी? लड्डू के साथ तो मुझे भी चाहिए!"
+37. *(removed by the user 2026-10-21 — line 36 goes straight to line 38)*
 38. GOLU (haath hila kar, bina dekhe): "मिट्ठू, तुम्हारी बारी बाद में!"
 39. TARA (uth kar): "रुको! पहले सोचो, फिर दौड़ो। देखो... मिट्ठू का कटोरा।"
 40. NARRATOR: "कटोरा सूखा था। सुबह से एक बूँद नहीं।"
@@ -158,7 +159,7 @@ steel bowl stands near the tulsi (only in images 1, 10–13).
 | 7 | Case 2: Sharma ji in the कटघरा looking around anxiously, **spectacles pushed up on his forehead**; Tinku laughing and tapping his OWN forehead to show where; Golu presenting with an open palm; Tara on the charpai smiling; Mitthu on the rail. | golu, tara, tinku, mitthu, sharma | 23 (wide), 24 (zoom Golu), 25 (zoom Tinku), 26 (zoom Sharma), 27 (zoom Golu) |
 | 8 | Verdict 2: Sharma ji wearing his spectacles on his eyes now, with a colourful braided cord tied to them, laughing happily; Tara (standing by the charpai) has just given it; Golu and Tinku clapping. | golu, tara, tinku, sharma | 28 (zoom Tara only — the cord is not on yet while she speaks), 29 (2 shots: wide, then zoom Sharma) |
 | 9 | Case 3: Dadi sitting on the mudha in the कटघरा with her stick, hand on her cheek in mock surprise, eyes laughing; Golu presenting with both hands spread ("dus kahaniyan"); Tara on the charpai smiling; Tinku with the notebook; Mitthu on the rail. | dadi, golu, tara, tinku, mitthu | 30 (wide), 31 (zoom Dadi), 32 (zoom Golu), 33 (zoom Dadi), 34 (zoom Tara), 35 (zoom Dadi) |
-| 10 | Mitthu's call: Mitthu on his perch stand, wings flapping, beak wide open; Tinku jumping up toward the laddoo plate; Golu waving it off without looking; Tara standing up, looking at Mitthu's dry empty steel bowl (clearly visible on the perch), calm thinking face. No adults in this image (no refs for them). | golu, tara, tinku, mitthu | 36 (zoom Mitthu), 37 (zoom Tinku), 38 (zoom Golu), 39 (2 shots: zoom Tara, then push to the bowl), 41 (zoom Tara) |
+| 10 | Mitthu's call: Mitthu on his perch stand, wings flapping, beak wide open; Tinku looking up from his notebook; Golu waving it off without looking; Tara standing up, looking at Mitthu's dry empty steel bowl (clearly visible on the perch), calm thinking face. No adults in this image (no refs for them). | golu, tara, tinku, mitthu | 36 (zoom Mitthu), 38 (zoom Golu), 39 (2 shots: zoom Tara, then push to the bowl), 41 (zoom Tara) |
 | 11 | Close-up: the dry empty steel bowl on Mitthu's perch, Mitthu looking down at it; in the soft background Tara, Tinku and Dadi turning to look at Golu (Pandey ji and Sharma ji NOT in this image); Golu with a sorry, guilty face. | golu, tara, tinku, mitthu, dadi | 40 (close on bowl), 42 (pull out to Golu), 43 (zoom Golu, 2 shots) |
 | 12 | Golu kneeling, pouring water from a brass lota into the bowl; Mitthu happily drinking; Tara and Tinku smiling beside. | golu, tara, tinku, mitthu | 44 (2 shots), 49 (zoom Mitthu) |
 | 13 | Finale wide: Golu standing straight in front of Tara's charpai, hand on his heart; Tara with the belan, kind smile; Tinku with the laddoo plate; Pandey ji (laughing, hand over his mouth), Sharma ji (cord on spectacles) and Dadi smiling on the bench; Mitthu on his perch, bowl full. Whole group in the LEFT ~55%; right side calm (door, tulsi, fields) for the end screen. | dadi, golu, tara, tinku, mitthu, pandey, sharma | 45 (zoom Golu), 46 (zoom Tinku), 47 (zoom Golu), 48 (2 shots: zoom Tara, wide), 50 (zoom Pandey), 51–54 + end hold (wide/left-group crops only; line 54 ~8.8 s = 2 shots) |
@@ -210,7 +211,9 @@ tinku, mitthu.
 
 ---
 
-## LENGTH ESTIMATE (measured TTS rates, story 005 cache calibrated to its real 237.4 s build — same base as 006)
+## LENGTH ESTIMATE — after the user's cut of line 37 (Tinku, 8 words): **~3:48 (~227.7 s)**, still inside 3:40–4:00; re-measured after TTS.
+
+### Original estimate (measured TTS rates, story 005 cache calibrated to its real 237.4 s build — same base as 006)
 
 Rates (s/word after tempo and trim): narrator 0.424 · Golu 0.385 · Tara 0.412 · Tinku 0.543 · Dadi 0.543 ·
 Mitthu ~2.15 s per line. New for 007 (raw cache s/word: Pandey 0.49–0.56 in stories 003–005, Sharma 0.38–0.44 in
@@ -259,7 +262,7 @@ end_hold 7 s (005/006 settings). SFX line 21 ~1.5 s.
 | Places | Dadi's aangan (brown door, mud house, charpai, tulsi); the pigeons were on "छत" (any rooftop, no place named) | bible 5, channel RULES | yes |
 | Gulmohar | green, not in bloom in late October | STYLE_PAINTED (accent = marigold pot) | yes |
 | Spectacles | on Sharma ji's forehead in images 3, 4, 7 -> on his eyes with the cord in 8 and 13 | — | yes |
-| Laddoo | fee "एक लड्डू" per case (9) -> broken laddoo evidence (15) -> "पानी? लड्डू के साथ..." (37) -> four cases = "चार लड्डू" (53) | — | yes |
+| Laddoo | fee "एक लड्डू" per case (9) -> broken laddoo evidence (15) -> four cases = "चार लड्डू" (53) | — | yes |
 | Mitthu's bowl | empty from morning (1, 5) -> noticed (39–41) -> filled (44) -> full (13) | — | yes |
 | Pakki lines (≤ 2 each) | Pandey "मैं ख़ुद देखूँगा!" 1, "डरपोक हो सब!" 1; Sharma "हाय, मेरा ...!" 1 (+ "हाय राम" 1); Tara "रुको! पहले सोचो, फिर दौड़ो।" 1; Dadi "याद रखना" 1; Tinku/Golu catchphrases 0 | bible 2b | yes |
 
