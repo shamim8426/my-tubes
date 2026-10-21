@@ -115,6 +115,13 @@ At the end of each review, add one line to channels/<key>/log.md with the round 
 - No two videos may reuse the same narration audio. Shorts cut from their own long video are allowed.
 - Every 5th long video Munshi writes a short "channel variety" note in log.md: genres used, morals used, what to try next.
 
+### 12b. Nayapan (freshness) — strict, for every story option and script
+1. No folk tale / old story retold: no known old story in a new dress, even with new names or characters (Panchatantra, Jataka, Hitopadesh, Akbar-Birbal, Tenali Raman, Vikram-Betaal, Aesop, foreign fairy tales; the thirsty crow, hare and tortoise, the golden egg, the greedy dog, the lion and the mouse, the honest woodcutter, the magic lamp, "the wolf is coming" and the like). A moral may be shared, but the plot, the order of events and the twist must be new.
+2. Worn tropes only with a truly new twist, and the option must say so: cruel step-family, poor vs rich direct revenge, the greedy one simply punished, a magic object fixes everything, "it was a dream" ending, a god/fairy arrives to solve it, the plain reversal "the thief was a helper". Endings always come from the characters' understanding, effort or friendship — never from magic.
+3. An option with nayapan below 7/10 is never offered. Kalam asks itself: "Would a child say 'I have heard this before'?" — if yes, drop it.
+4. From trends only the topic, mood or hook type may be taken — never a plot, twist, character, specific dialogue or title.
+Munshi: a plot/twist/title too close to a known story or to a video in the latest trends reference list = MAJOR, even with different names.
+
 ### 12a. Visual style, copyright and brand (Kissago Painted and any channel style)
 - No studio, film, anime or artist name ANYWHERE: image prompts, file/folder names, titles, descriptions, tags, hashtags, thumbnail text, comments, playlists, community posts. Internally the style is only called by its own name (e.g. "Kissago Painted", `channels/<key>/brand/STYLE_PAINTED.md`). A name found in metadata = upload BLOCK.
 - Nothing may look like an existing anime/film character, creature, vehicle, building or famous scene. Block list (kept here, never in prompts): a huge furry magical forest creature; small black soot-like creatures; a girl flying on a broom; a masked shadow spirit; a magic cat-shaped bus or any living bus; a bus stop in the rain with an umbrella and a big creature; floating castles or walking castles; giant robots/mecha; famous mascots or cartoon characters of any brand.
