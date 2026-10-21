@@ -74,6 +74,7 @@ Use this after every production step of a video in the Story-Channel project. Al
   "motion halved / zoom fallback" list and shared/parallax_log.jsonl has every shot's decision. A visible artifact
   on a face or a key character -> BLOCKER: fix free by rebuilding that scene with smaller motion or
   `--motion zoom` for it (log it); minor edge softness elsewhere -> MINOR.
+- Shorts no-reveal (RULES 13): the Short (frames, captions, end card, title, description, cover) shows nothing of the discovery/answer/twist — not what was found, not who did it. Any reveal = BLOCKER.
 - Shorts crop safety: in each shot the speaking character's face, hands and gesture are fully inside the crop and
   out of the right 15% (YouTube buttons) and bottom 20%; shots.json "subjects" boxes drive the builder's check.
 

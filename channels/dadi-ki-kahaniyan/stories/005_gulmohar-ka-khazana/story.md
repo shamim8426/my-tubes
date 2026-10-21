@@ -15,5 +15,5 @@
 | TTS | done |
 | Long video | long_04.mp4 237.4 s, Munshi final R1 PASS 2026-10-21 |
 | Thumbnail | long_04_thumbnail.png (set via API) |
-| Short A | short_01_khazana-ka-dabba.mp4 36.7 s, final R1 PASS; cover file manual |
-| Upload | PUBLISHED (scheduled): Long 04 wKH56WivpEs 2026-10-22 19:00 IST; Short VYbq2WkgSaU 2026-10-22 21:00 IST (parent wKH56WivpEs). Story cost ₹108.96 incl. GST |
+| Short A | v2 (no reveal, ends on "मिल गया!!") short_01_khazana-ka-dabba.mp4 36.0 s, final R1 PASS 2026-10-21; cover file manual. v1 (36.7 s, showed box/marbles/photo) removed by the user, files in output/_v1_revealed/ |
+| Upload | PUBLISHED (scheduled): Long 04 wKH56WivpEs 2026-10-22 19:00 IST; Short v2 XEnsuAw85bI 2026-10-22 21:00 IST (parent wKH56WivpEs; v1 VYbq2WkgSaU removed by the user). Story cost ₹108.96 incl. GST |

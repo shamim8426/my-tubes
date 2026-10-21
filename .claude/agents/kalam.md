@@ -40,6 +40,7 @@ Write in exactly the story 004/005 format:
    `[COZY ...]` lines numbered too; section headings (SHURUAAT, …, ANT).
 4. **16 IMAGES plan** (new character sheets count inside the 16): image number, what it shows, which lines use it;
    which shots are crops/zooms of another image.
+4b. **SHORT rule:** the Short stops BEFORE the discovery/answer (RULES 13 no-reveal): never show or name what was found, who did it or the twist; end on the question or the moment of discovery. Title, description and cover of the Short must not reveal it either.
 5. **3 TITLE options** (all with the `title_suffix` "| किस्सागो", no repeated keyword block across videos, RULES 12) and one recommendation; **THUMBNAIL** (look + text, text not repeating the title word for word, RULES 6), **SHORT** (line
    numbers, cliffhanger line, what must never be shown, end card).
 6. **Length estimate** (see below) and **Continuity table** (see below).

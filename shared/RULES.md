@@ -132,6 +132,7 @@ Long videos:
 - Visual change: no single shot stays without a cut or new camera move for more than 8 s.
 - End: the last 20 s carry no essential visuals or captions in the end-screen area, so end-screen elements can sit there. The last spoken line asks viewers one specific question about the story (for comments), not a generic "like and subscribe".
 Shorts:
+- No reveal (user rule 2026-10-21): a Short cut from a long video stops BEFORE the discovery/answer — it never shows or names what was found, who did it, or the twist (e.g. no box contents, no culprit, no photo). It ends on the question or the moment of discovery ("मिल गया!!"), so the long video keeps the payoff. A reveal in a Short = BLOCKER.
 - First frame is a strong visual (no title card, no black frame). First word within 0.5 s.
 - Length 30-58 s (stories up to 003). From story 004: max 40 s, target 35-40 s (section 15).
 - Captions and key visuals stay out of the bottom 20% and right 15% (YouTube buttons).
