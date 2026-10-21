@@ -40,6 +40,8 @@ tools/yt-dlp.exe
 claude-home/skills/synced/
 
 # ---- misc ----
+# study downloads (RULES 12c): local only, deleted within 24 h, never on GitHub
+study/
 _to_delete/
 Thumbs.db
 desktop.ini

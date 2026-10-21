@@ -83,6 +83,12 @@ econcile_balance.py <AI Studio balance ₹>` (pehli baar checkpoint), Long 03 ke
 
 - Image style: story 005 se **Kissago Painted** (`channels/dadi-ki-kahaniyan/brand/STYLE_PAINTED.md`; channel.json `image_style`). `gen_scenes.py` style block + `characters/<naam>/sheet_painted.png` refs apne aap lagata hai (nayi painted sheet ~₹6, story budget se). Kisi studio/film/anime/artist ka naam KAHIN nahi (RULES 12a); `tools/name_guard.py` prompts aur upload metadata check karta hai (naam mila = BLOCK).
 
+## Study download (shared/RULES.md 12c)
+- Sirf jab user link de kar kahe "isse seekho". yt-dlp bina login/cookies, max 480p, sirf `study/` (git-ignored). Frames +
+  Whisper ke sirf aankde (text kabhi save nahi). Analysis ke baad turant (max 24 h) sab mitao, log.md + research/study_log.md
+  me likho. Seekh sirf tareeke -> brand/STYLE_LEARNINGS.md, lagu karne se pehle user se poochho. Unka koi frame/audio/
+  plot/title/channel naam hamari video ya prompts me KABHI nahi; frames kabhi Gemini ko reference nahi.
+
 ## GitHub sync
 - Har milestone ke baad sync chalao: `powershell -NoProfile -ExecutionPolicy Bypass -File tools\sync.ps1 -Message "<project>: <milestone>"`.
   Milestones: script approved, scene images done, TTS done, final build done, thumbnail done, uploaded (Munshi PUBLISHED ke baad).

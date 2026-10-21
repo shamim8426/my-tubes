@@ -135,6 +135,23 @@ Munshi: a plot/twist/title too close to a known story or to a video in the lates
 - Sensitive subjects: never mock any religion, caste, politics, region, skin colour/looks or disability; festivals and rituals are shown with respect and correct facts (no guesses — check `channels/<key>/festival_calendar.md` and reliable sources). Boys and girls get equal and good roles (Tara is known for her brains and courage). No real person, brand or real place name (Gulmohar Mohalla and our own invented places only). Any breach = BLOCKER.
 - Children (Golu, Tara, Tinku and any child): always age-appropriate, innocent and family-friendly in looks, poses and words; a girl is described by her nature, not her looks. Never any romance/crush angle between children (stories, thumbnails, titles, descriptions, comments). A child may be teased (e.g. Tinku's thinness) but the story never ends by putting them down — it becomes their strength or friends stand by them. Any breach = BLOCKER.
 
+### 12c. Study download (user rule 2026-10-22)
+- WHEN: only when the user gives a link and says "isse seekho". Never on our own initiative.
+- HOW: `tools/yt-dlp.exe`, no login and no cookies (the user's YouTube account is never connected), max 480p, only into
+  the git-ignored `study/` folder at the project root (never any other repo folder, never synced). Learn from: FFmpeg
+  frames at every shot change + every 2 s, and Whisper used ONLY for numbers (each line's length, speaking rate, where
+  the silences are). No dialogue/script text is ever saved.
+- AFTER: video, frames and audio are deleted right after the analysis (max 24 h). Log in `channels/<key>/log.md`: when,
+  which link, why, deleted. Add the link + title (no channel name) to `channels/<key>/research/study_log.md`.
+- WHAT we learn (general methods only): hook structure, shot length, camera moves, text/graphics style and placement,
+  transitions, colour and light, when music/SFX change, voice pace, the CTA. Result goes to
+  `channels/<key>/brand/STYLE_LEARNINGS.md` with "how we build it with our tools"; nothing is applied before the user agrees.
+- STRICT BAN (never in our videos): any frame, clip, image, audio, music, SFX or voice from the download; their script,
+  dialogue, plot, order of events, twist, characters, title or thumbnail; their channel name anywhere (metadata, prompts,
+  files); study frames are never given to Gemini or any image model as a reference. A breach = BLOCKER.
+- Munshi: every new script, thumbnail and Short is compared with the videos in study_log.md; a plot, dialogue, title or
+  visual too close = MAJOR.
+
 ## 13. Audience & algorithm (CTR, retention, session)
 Long videos:
 - Hook: the first spoken line must start within 1.0 s. The first 30 s must set up the story's main question or conflict. Any frame/intro before the story itself (Dadi-Golu opening) is max 10 s.

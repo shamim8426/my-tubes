@@ -1,6 +1,6 @@
 ---
 name: trend-research
-description: Public-metadata trend research for Hindi kids/moral/family story channels (top videos of the last 6-12 months + the next festival). Used by Kalam before every set of story options. Writes channels/<key>/research/trends_<YYYY-MM-DD>.md. Free, no downloads.
+description: Public-metadata trend research for Hindi kids/moral/family story channels (top videos of the last 6-12 months + the next festival). Used by Kalam before every set of story options. Writes channels/<key>/research/trends_<YYYY-MM-DD>.md. Free, no downloads (study downloads only per RULES 12c).
 ---
 
 # Trend research (Kalam step a)
@@ -16,7 +16,7 @@ description: Public-metadata trend research for Hindi kids/moral/family story ch
   last 6–12 months, plus top videos about the next festival from `channels/<key>/festival_calendar.md`.
 - `tools/yt-dlp.exe --flat-playlist --skip-download -J <channel>/videos` (and `--skip-download -j <video>` for
   upload date) — title, views, duration, upload date, channel. ~30 videos.
-- **Never download** video, audio or thumbnails; never keep frames or screenshots in the repo. A thumbnail may only be
+- **Never download** video, audio or thumbnails for trend research (the only exception is a user-requested study, shared/RULES.md 12c, done separately); never keep frames or screenshots in the repo. A thumbnail may only be
   looked at once by URL to understand colour/emotion — never stored, never given to Gemini as a reference. If a
   tool auto-saves a copy outside the repo, delete it after looking.
 - If YouTube blocks or rate-limits: do not bypass; work with what was found and say so in the file.

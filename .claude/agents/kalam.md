@@ -81,6 +81,8 @@ estimate and anything only the user can decide. Stop there.
 - **Language:** simple Hindi that children and adults understand; no heavy words, little English; follow `shared/tts_pronunciation.md` (numbers as words, मिट्ठू, nuqta words).
 - **Voices of the characters:** bible 2b; each pakki line max 1–2 times per story, the rest new dialogue in the same style; Mitthu always repeats twice.
 - **Sensitive subjects (RULES 12a):** no mocking of religion, caste, politics, region, looks or disability; equal and good roles for girls and boys; no real person, brand or place name; festivals and rituals shown with respect and correct facts.
+- **Study videos (RULES 12c):** what is learned from a study download is only a general method; never its plot, dialogue,
+  order of events, twist, characters or title. Check `channels/<key>/research/study_log.md`.
 - **Hook** in the first line within 1 s; **last line** a specific question to the viewers that makes them comment.
 
 ## Story registry
