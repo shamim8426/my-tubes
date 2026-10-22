@@ -27,6 +27,6 @@ this file (moves a used idea to "Used", adds new unused ones). One line each; ch
 |---|---|
 | छत पर भूत? | 004 |
 | गुलमोहर मोहल्ले का खज़ाना | 005 |
-| रंगोली पर नन्हे पंजे | 006 (approved 2026-10-21, on hold) |
+| रंगोली पर नन्हे पंजे (offered 2026-10-21; CHOSEN by the user, script draft 006 in review — moves to "Used" on approval) | Diwali: Dhanteras se Diwali tak toli ki rangoli (beech me saade chawal ka kamal) subah nanhe panjon se bigdi milti hai; Golu ka shaq Tinku par (light, no put-down); Tara ka clue + bhor ki pehredari ka plan; Mitthu sabse pehle dekhta hai ("चिक-चिक! चिक-चिक!"); sach: neem ki gilahri-maa chawal apne khokhle tane me le jaati hai; Tinku ki bhookh daya banti hai; Golu maafi maangta hai aur gilahriyon ki saade chawal ki rangoli ka idea deta hai, toli milkar banati hai (Dadi: rang aur mithai unke liye nahi). No Pandey ji, no firecrackers. Existing painted sheets only, ~₹104 | Diwali (publish Sun 1 Nov), festival, toli, nayapan 7–7.5/10 |
 | बच्चों की अदालत v2 (Ravivaar, no Bal Diwas; user note 2026-10-21) | 007 (script v1 in review, 2026-10-21; not approved) |
 | बच्चों की अदालत (v1, Bal Diwas version) | superseded by v2 -> 007 |
