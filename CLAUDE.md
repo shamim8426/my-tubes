@@ -89,6 +89,11 @@ econcile_balance.py <AI Studio balance ₹>` (pehli baar checkpoint), Long 03 ke
   me likho. Seekh sirf tareeke -> brand/STYLE_LEARNINGS.md, lagu karne se pehle user se poochho. Unka koi frame/audio/
   plot/title/channel naam hamari video ya prompts me KABHI nahi; frames kabhi Gemini ko reference nahi.
 
+## Khoji (real stories, naya channel — abhi temporary `channels/_new_realstories/`)
+- `khoji` subagent: "khoji scout <category>" (25–30 kahaniyan -> saturation check Hindi vs English -> score -> TOP 5 -> RUKO)
+  aur "khoji dossier <kahani>" ([F#] tathya, har tathye ke 2+ bharosemand source). Koi paid call nahi, Kissago pipeline nahi chhoota.
+- YouTube look-up sirf `tools/yt_read.py` (read-only, din me max 10 search). Niyam: shared/RULES.md section 16; Kalam REAL STORY MODE, Munshi FACT CHECK.
+
 ## GitHub sync
 - Har milestone ke baad sync chalao: `powershell -NoProfile -ExecutionPolicy Bypass -File tools\sync.ps1 -Message "<project>: <milestone>"`.
   Milestones: script approved, scene images done, TTS done, final build done, thumbnail done, uploaded (Munshi PUBLISHED ke baad).

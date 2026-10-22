@@ -201,3 +201,22 @@ From story 004, section 15 (production profile) overrides this section where the
 - Default motion = 2.5D parallax (Depth Anything V2 Small, local, free); artifact par zoom fallback.
 - Story 005 se image style = Kissago Painted; style block aur sheet_painted reference zaroori. (`channels/<key>/brand/STYLE_PAINTED.md` section 1 verbatim at the end of every image prompt, `characters/<name>/sheet_painted.png` as the character reference; `scripts/gen_scenes.py` does both and runs `tools/name_guard.py` on every prompt; section 12a applies.)
   (`scripts/make_short.py --motion parallax` is the default, `--motion zoom` keeps the old Ken Burns; the guard in `tools/parallax.py` halves the motion or falls back to zoom per shot and logs it in shared/parallax_log.jsonl. Shorts: shots.json "subjects" boxes keep each speaker's face/hands/gesture inside 3-85% of the crop width.)
+
+## 16. Real stories (channels with "real_stories": true in channel.json; user rule 2026-10-22)
+Applies only to a real/true-stories channel (now the temporary `channels/_new_realstories/`). Kissago's fictional stories
+are not affected.
+- Research: Khoji (`.claude/agents/khoji.md`) makes `stories/<NNN>_<slug>/research/dossier.md` + `sources.json`: every
+  fact has an ID [F#] and at least 2 independent reliable sources (official report, court record, academic paper,
+  museum/archive, major news organisation). Wikipedia is only a starting point; blogs, forums, YouTube and social media
+  are never final sources. Unsure = "vivaadit" or "pata nahi", never written as fact.
+- Script (Kalam REAL STORY MODE): written only from the dossier; every factual line carries its [F#]; invented scenes or
+  dialogue are marked [NATYA]; a disputed claim is told as "कुछ लोग कहते हैं...". The [F#]/[NATYA] tags are removed from
+  the spoken text and captions at production.
+- Munshi FACT CHECK: every [F#] matches the dossier and its main sources are opened; a factual line without an ID = MAJOR;
+  politics, an unproven accusation against a living person, or disrespect to victims = BLOCKER.
+- Never: politics/elections/parties/religious disputes; accusations against living people unless proven in court;
+  gruesome detail; names or identities of children; another channel's script, title, thumbnail or angle.
+- Description: a "Sources" list (the dossier's main sources) and the line "Kuch drishya aur samvaad kahani ke liye natya
+  roop me dikhaye gaye hain." A fictional story on such a channel says "काल्पनिक कहानी" clearly in the title or opening.
+- YouTube look-ups for saturation: `tools/yt_read.py` (read-only, max 10 searches per day); real photos are never used as
+  image references.

@@ -85,6 +85,14 @@ estimate and anything only the user can decide. Stop there.
   order of events, twist, characters or title. Check `channels/<key>/research/study_log.md`.
 - **Hook** in the first line within 1 s; **last line** a specific question to the viewers that makes them comment.
 
+## REAL STORY MODE (shared/RULES.md section 16; only for a channel with "real_stories": true)
+- Write ONLY from the story's `research/dossier.md`. Every factual line ends with its fact ID [F#]; any invented scene,
+  thought or dialogue is marked [NATYA]; a disputed claim is told as "कुछ लोग कहते हैं..." with its [F#].
+- Never add a fact that is not in the dossier ("ye daava MAT karna" list is binding). No politics, no unproven accusation,
+  respect for victims, no children's names.
+- The script ends with a "Sources" block (dossier main sources) for the description and the natya line from RULES 16.
+- Munshi's script review for these stories includes the FACT CHECK.
+
 ## Story registry
 When the user approves a script, add its row to `channels/<key>/story_registry.md` (views/likes stay blank; the
 youtube-publish flow fills publish date and video ids after upload).
