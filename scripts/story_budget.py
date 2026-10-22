@@ -33,6 +33,9 @@ EXTRA_FILES = {
     # new permanent characters Tara + Tinku (own budget ₹20)
     "new_characters": ["channels/dadi-ki-kahaniyan/characters/tara/", "channels/dadi-ki-kahaniyan/characters/tinku/",
                        "channels/dadi-ki-kahaniyan/characters/_review/"],
+    # character look refresh (Tinku's mummy + new finish tests; own budget ₹20, user 2026-10-22)
+    "character_refresh": ["channels/dadi-ki-kahaniyan/characters/tinku_mummy/",
+                          "channels/dadi-ki-kahaniyan/characters/_v2_look/"],
 }
 
 

@@ -445,3 +445,14 @@ timestamp,file,model,size,cost_usd,cost_inr,today_total_inr,remaining_inr,channe
 2026-10-22 00:00:24,channels/dadi-ki-kahaniyan/stories/007_bachchon-ki-adalat/audio/tts_cache/dadi_df713eb4ec06846f.wav,gemini-3.8-flash-tts,tts 8.0s,0.00180,0.17,0.45,81.52,dadi-ki-kahaniyan,0.18,0.1740,0.03,24,199
 2026-10-22 00:05:04,channels/dadi-ki-kahaniyan/stories/007_bachchon-ki-adalat/long/thumbnail_work/thumb_raw.png,gemini-nano-banana-2.1,1K,0.05656,5.46,6.89,75.08,dadi-ki-kahaniyan,4.12,5.4585,0.98,6035,2975
 2026-10-22 00:05:43,channels/dadi-ki-kahaniyan/stories/007_bachchon-ki-adalat/shorts/short_01_pande-ji-katghare-me/thumbnail_work/cover_raw.png,gemini-nano-banana-2.1,1K,0.05565,5.37,13.23,68.74,dadi-ki-kahaniyan,4.12,5.3704,0.97,6046,2851
+2026-10-22 22:53:26,channels/dadi-ki-kahaniyan/characters/tinku_mummy/sheet_painted_test.png,gemini-nano-banana-2.1,1K,0.05475,5.28,19.46,62.51,dadi-ki-kahaniyan,3.46,5.2832,0.95,1464,3647
+2026-10-22 22:57:33,channels/dadi-ki-kahaniyan/characters/tinku_mummy/portrait_test2.png,gemini-nano-banana-2.1,1K,0.04277,4.13,24.33,57.64,dadi-ki-kahaniyan,3.47,4.1274,0.74,1484,2046
+2026-10-22 23:01:18,channels/dadi-ki-kahaniyan/characters/tinku_mummy/portrait_test3_v2style.png,gemini-nano-banana-2.1,1K,0.04315,4.16,29.25,52.73,dadi-ki-kahaniyan,3.46,4.1640,0.75,1487,2096
+2026-10-22 23:11:35,channels/dadi-ki-kahaniyan/characters/_v2_look/dadi.png,gemini-nano-banana-2.1,1K,0.04209,4.06,34.04,47.93,dadi-ki-kahaniyan,3.46,4.0621,0.73,1423,1968
+2026-10-22 23:12:00,channels/dadi-ki-kahaniyan/characters/_v2_look/golu.png,gemini-nano-banana-2.1,1K,0.04644,4.48,39.33,42.64,dadi-ki-kahaniyan,3.45,4.4816,0.81,1411,2550
+2026-10-22 23:12:28,channels/dadi-ki-kahaniyan/characters/_v2_look/tara.png,gemini-nano-banana-2.1,1K,0.04614,4.45,44.58,37.39,dadi-ki-kahaniyan,3.45,4.4521,0.80,1407,2510
+2026-10-22 23:12:52,channels/dadi-ki-kahaniyan/characters/_v2_look/tinku.png,gemini-nano-banana-2.1,1K,0.04588,4.43,49.81,32.17,dadi-ki-kahaniyan,3.45,4.4278,0.80,1419,2474
+2026-10-22 23:13:14,channels/dadi-ki-kahaniyan/characters/_v2_look/tinku_mummy.png,gemini-nano-banana-2.1,1K,0.04436,4.28,54.86,27.11,dadi-ki-kahaniyan,3.30,4.2811,0.77,321,2491
+2026-10-22 23:13:41,channels/dadi-ki-kahaniyan/characters/_v2_look/mitthu.png,gemini-nano-banana-2.1,1K,0.04882,4.71,60.42,21.56,dadi-ki-kahaniyan,3.45,4.7112,0.85,1407,2868
+2026-10-22 23:14:07,channels/dadi-ki-kahaniyan/characters/_v2_look/pandey.png,gemini-nano-banana-2.1,1K,0.04943,4.77,66.05,15.93,dadi-ki-kahaniyan,3.45,4.7697,0.86,1396,2951
+2026-10-22 23:14:45,channels/dadi-ki-kahaniyan/characters/_v2_look/sharma.png,gemini-nano-banana-2.1,1K,0.04795,4.63,71.51,10.47,dadi-ki-kahaniyan,3.45,4.6274,0.83,1388,2756
