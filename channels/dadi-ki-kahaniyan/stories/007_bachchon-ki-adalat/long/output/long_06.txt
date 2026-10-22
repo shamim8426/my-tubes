@@ -8,16 +8,16 @@ DESCRIPTION:
 
 किस्सागो — हर शाम एक नया किस्सा, जो हँसाए भी और सिखाए भी।
 
-Music: "Fluffing a Duck" Kevin MacLeod (incompetech.com)
-Licensed under Creative Commons: By Attribution 4.0 License
+Music: "Fluffing a Duck" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
 http://creativecommons.org/licenses/by/4.0/
 
-Music: "Touching Moments Two - Higher" Kevin MacLeod (incompetech.com)
-Licensed under Creative Commons: By Attribution 4.0 License
+Music: "Touching Moments Two - Higher" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
 http://creativecommons.org/licenses/by/4.0/
 
-Music: "Life of Riley" Kevin MacLeod (incompetech.com)
-Licensed under Creative Commons: By Attribution 4.0 License
+Music: "Life of Riley" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
 http://creativecommons.org/licenses/by/4.0/
 
 Sound effects: freesound.org (CC0)

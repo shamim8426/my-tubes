@@ -52,13 +52,16 @@
     },
     "007_bachchon-ki-adalat": {
       "video": "long",
-      "stage": "tts",
+      "stage": "short_uploaded",
       "profile": "RULES 15",
       "style": "kissago_painted",
       "budget_cap_inr": 110,
       "updated": "2026-10-22",
       "publish_target": "2026-10-23 .. 2026-10-24 (RULES 8 clock)",
-      "note": "Approved by the user 2026-10-21 (title 1, thumb 'फ़ैसला क्या होगा?', no cozy pal, line 37 removed). RULES 15 auto pipeline running. Balance from ledger Rs176.56 (Credit balance from the user pending for reconcile --check)."
+      "note": "Munshi final R1 FIX -> free fixes applied; uploaded private 2026-10-22. User: Studio schedule both, Related video Short = Long 06, pin comments after 19:05/20:05. Story cost Rs107.82 incl. GST.",
+      "long_video_id": "jLgI8SjSUmE",
+      "short_a_video_id": "9vaaFFZuCro",
+      "slot": "long 2026-10-23 19:00, Short 2026-10-23 20:00 (RULES 8 clock; STUDIO ACTION pending)"
     }
   }
 }

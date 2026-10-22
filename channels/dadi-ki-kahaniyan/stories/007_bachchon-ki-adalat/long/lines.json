@@ -18,7 +18,7 @@
   {"scene": 5, "speaker": "pandey", "text": "डरपोक हो सब! ...अच्छा-अच्छा, आवाज़ ज़रा ऊँची है। पर डाँटता दिल से नहीं हूँ।", "_line": 17, "shots": [[[0.8, 0.6, 1.8], 3.5], [[0.65, 0.55, 1.4], null]]},
   {"scene": 6, "speaker": "tara", "text": "फ़ैसला सुनाया जाता है...", "_line": 18, "shot": [0.31, 0.5, 1.9]},
   {"scene": 6, "speaker": "tara", "text": "आज शाम तक पांडे जी हर बात... धीरे बोलेंगे!", "_line": 19, "shot": [0.36, 0.55, 1.4]},
-  {"scene": 6, "speaker": "pandey_soft", "text": "ख़बरदार... जो कोई हँसा!", "_line": 20, "shot": [0.8, 0.55, 1.8]},
+  {"scene": 6, "speaker": "pandey_soft", "text": "ख़बरदार... जो कोई हँसा!", "_line": 20, "shot": [0.8, 0.55, 1.8], "af": "volume=5dB"},
   {"scene": 6, "speaker": "narrator", "pause": 1.5, "sfx": "comedy", "_line": 21, "_note": "comedy sting, everyone laughs"},
   {"scene": 6, "speaker": "pandey_soft", "text": "वैसे जज साहिबा, आपकी आवाज़ भी कम नहीं!", "_line": 22, "shot": [0.8, 0.55, 1.7]},
   {"scene": 7, "speaker": "tinku", "text": "मुक़दमा नंबर दो! शर्मा जी!", "_line": 23, "shot": [0.58, 0.5, 1.2]},
