@@ -5,3 +5,4 @@ Munshi compares every new script, thumbnail and Short with this list (too close 
 
 | Date | Link | Title | Why | Deleted |
 |---|---|---|---|---|
+| 2026-10-22 | https://youtu.be/MhKwvl_OPqU | How Did Ancient Humans Sleep Through Endless Rain? | user: 'isse seekho' (graphics/pace) | yes, 2026-10-22 |

@@ -75,3 +75,25 @@ For us: our 3:40–4:00 story format stays (RULES 15); a cozy segment of 10–20
 4. **Subah ki dhoop:** morning sun over the chhat, Dadi waters the tulsi, Mitthu sunbathes on the railing, gulmohar petals drift.
 5. **Shaam ke pakode:** evening drizzle, the mohalla gathers under Raju's tin roof, pakodas frying, warm light on wet faces.
 Placement (RULES 13): long videos only, never in Shorts (max 40 s, first word ≤ 0.5 s); never at the start (first spoken line ≤ 1.0 s, intro ≤ 10 s, the story's question inside the first 30 s) and never in the last 20 s (end screen). Only at a natural pause in the middle or right after the twist, with ambience sound and gentle parallax; no new characters needed.
+
+## Study 2026-10-22 (RULES 12c; one explainer video, link in research/study_log.md) — PROPOSAL, nothing applied
+Data: frames at every shot change + every 2 s, FFmpeg scene/silence detection, Whisper numbers only (no text kept).
+All downloaded files deleted the same night. General methods only — no frame, plot, title or name is used.
+
+| What | Their video (17 min, narrated explainer) | Ours now (story long 3:40–4:00) |
+|---|---|---|
+| Shot length | median 2.0 s, mean 2.5 s; first 30 s only ~4 cuts (6–8 s slow pushes), then 4.5 s -> 3 s -> 1.9 s at the end (pace speeds up) | ~2.6 s target, about the same from start to end |
+| Voice pace | 3.07 words/s (~184 wpm), the same in every part; speech 93% of the runtime | narrator ~2.4 w/s, kids ~2.6 w/s, Dadi ~1.8 w/s; gap 0.35 s per line |
+| Silence | almost none: pauses ≤ 0.7 s, voice runs nearly non-stop | music-only pauses and SFX beats on purpose |
+| Look | very detailed painted backgrounds + very simple characters (big round head, stick limbs) | Kissago Painted: detailed backgrounds AND detailed characters |
+| On-screen text | none (no captions burned in, no labels) | long: none; Short: burned captions |
+| CTA | an animated like/subscribe pill near the bottom-centre at ~45 s and again near the end | spoken viewer question at the end only |
+| Structure | the past -> modern experts/museum as "proof" -> today's family facing the same problem -> past and present shown side by side in one frame | Dadi/toli story with a moral |
+| Colour | cool blue-grey rain world, one warm ember/fire as the focal point; modern night rooms cool with warm lamps | same idea already in STYLE_PAINTED (monsoon row, warm/cool) |
+
+### What we could try (needs the user's OK first)
+1. **Calm first 10–20 s, faster end.** Keep the intro shots long (5–7 s, slow push-in) and let shots get shorter towards the climax (2 s). How: lines.json `shot`/`shots` per line already allow it; make_short `SHOT_LEN` could take a per-section value (small code change, ₹0).
+2. **Early subscribe nudge.** A small animated like/subscribe pill (our own drawing, our colours) for ~3 s at ~45–60 s and in the end screen. How: one PNG/ASS overlay in make_short at a set time, outside the caption area; no voice line needed. Check RULES 13 (not in the first 30 s hook, not over a key visual).
+3. **"Then and now" frame.** For memory stories (e.g. Dadi's childhood vs today) one split or side-by-side image showing both times. How: a Gemini scene prompt with two halves, or two of our images side by side in FFmpeg (₹0).
+4. **Tighter voice for narrator-heavy parts.** Their pace (3 w/s) is much faster than ours; for our family audience keep dialogue as now, but narrator bridges could go 2.6–2.8 w/s (narrator speed 1.05–1.1) to gain time for story.
+5. **Not for us:** the simple stick-figure character look (our characters are fixed by the bible) and non-stop narration without pauses (our comedy needs pauses).
