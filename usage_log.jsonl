@@ -256,3 +256,4 @@
 {"timestamp": "2026-10-24 23:24:43", "file": "channels/noor-e-raah/samples/sync_sample/lines/032_ustaad.wav", "model": "gemini-3.8-flash-tts", "size": "tts 8.5s", "usage": {"input": 20, "output": 212, "thoughts": 0, "output_image": null}}
 {"timestamp": "2026-10-24 23:24:57", "file": "channels/noor-e-raah/samples/sync_sample/lines/032_ustaad.wav", "model": "gemini-3.8-flash-tts", "size": "tts 7.6s", "usage": {"input": 20, "output": 189, "thoughts": 0, "output_image": null}}
 {"timestamp": "2026-10-24 23:25:11", "file": "channels/noor-e-raah/samples/sync_sample/lines/032_ustaad.wav", "model": "gemini-3.8-flash-tts", "size": "tts 6.8s", "usage": {"input": 20, "output": 169, "thoughts": 0, "output_image": null}}
+{"timestamp": "2026-10-24 23:36:35", "file": "channels/noor-e-raah/samples/sync_sample/lines/007_ustaad.wav", "model": "gemini-3.8-flash-tts", "size": "tts 6.7s", "usage": {"input": 26, "output": 167, "thoughts": 0, "output_image": null}}

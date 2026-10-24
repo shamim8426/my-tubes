@@ -43,6 +43,9 @@ claude-home/skills/synced/
 shared/music/noor/_options/
 shared/sfx/noor/_options/
 
+# Noor-e-Raah sample build temp files (free to rebuild)
+channels/noor-e-raah/samples/**/_*
+
 # ---- misc ----
 # study downloads (RULES 12c): local only, deleted within 24 h, never on GitHub
 study/

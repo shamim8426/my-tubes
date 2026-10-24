@@ -7,7 +7,6 @@ budget "noor_samples" (₹45 incl. GST) checked before every paid call.
 """
 import json
 import re
-import unicodedata
 import subprocess
 import sys
 import wave
@@ -58,12 +57,6 @@ CARDS = ["मक्की (ज़्यादातर उलमा)", "आय�
 FPS, GAP, XF = 30, 0.6, 0.5
 
 
-def hindi(text: str) -> str:
-    """Screen text only: precomposed nuqta letters (क़ U+0958 ...) -> letter + ़, because Mukta drops the dot on the
-    precomposed form. Never applied to Arabic (Tanzil text stays byte-for-byte)."""
-    return unicodedata.normalize("NFD", text)
-
-
 def run(args):
     subprocess.run([FF, "-hide_banner", "-loglevel", "error", "-y", *args], check=True)
 
@@ -104,7 +97,8 @@ def voices():
     for n, who, text in LINES:
         f = OUT / "lines" / f"{n:03d}_{who}.wav"
         v = VOICES[who]
-        for attempt in range(3):  # first take + max 2 retries (RULES 1b)
+        ok = f.with_suffix(".ok")  # passed once = never re-checked (Whisper is not fully repeatable)
+        for attempt in range(0 if (f.exists() and ok.exists()) else 3):  # first take + max 2 retries (RULES 1b)
             if not f.exists():
                 story_budget.check("noor_samples", pricing.tts_estimate_usd(gemini_tts.MODEL, len(text) + len(v["style"]),
                                                                             len(text) / 8) * pricing.usd_to_inr())
@@ -116,24 +110,52 @@ def voices():
             heard = " ".join(s.text.strip() for s in model.transcribe(x16, language="hi", beam_size=5)[0])
             miss = missing(text, heard)
             print(f"line {n} {who}: missing={miss} | {heard}")
-            if not miss or attempt == 2:
+            if not miss:
+                ok.write_text(heard, encoding="utf-8")
+                break
+            if attempt == 2:
                 break
             f.unlink()
         files.append(f)
     return files
 
 
+def ts(t: float) -> str:
+    t = max(t, 0.0)
+    return f"{int(t // 3600)}:{int(t % 3600 // 60):02d}:{t % 60:05.2f}"
+
+
+def hindi_ass(starts, lens, arabic_off, t_card) -> str:
+    """All Hindi screen text through libass: ffmpeg drawtext drops the nuqta of क़ु (tested with Mukta and Nirmala)."""
+    head = ("[Script Info]\nScriptType: v4.00+\nPlayResX: 1920\nPlayResY: 1080\nWrapStyle: 2\n\n[V4+ Styles]\n"
+            "Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, "
+            "Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, "
+            "MarginR, MarginV, Encoding\n"
+            "Style: Sub,Mukta Bold,64,&H00FFFFFF,&H00FFFFFF,&H73000000,&H73000000,0,0,0,0,100,100,0,0,3,12,0,2,80,80,120,1\n"
+            "Style: Card,Mukta Bold,58,&H00FFFFFF,&H00FFFFFF,&H64261408,&H64261408,0,0,0,0,100,100,0,0,3,14,0,7,0,0,0,1\n"
+            "Style: Label,Mukta Bold,46,&H14FFFFFF,&H00FFFFFF,&H80000000,&H80000000,0,0,0,0,100,100,0,0,1,0,2,8,0,0,0,1\n"
+            "Style: TitleHi,Mukta Bold,92,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,8,0,0,0,1\n"
+            "Style: Series,Mukta Bold,52,&H005AA5C9,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,8,0,0,0,1\n\n"
+            "[Events]\nFormat: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text\n")
+    ev = [f"Dialogue: 0,{ts(0)},{ts(t_card)},TitleHi,,0,0,0,,{{\\pos(960,600)}}{TITLE_HI}",
+          f"Dialogue: 0,{ts(0)},{ts(t_card)},Series,,0,0,0,,{{\\pos(960,722)}}{SERIES}"]
+    for i, c in enumerate(CARDS):  # info cards during line 7
+        ev.append(f"Dialogue: 0,{ts(starts[2] + i * 0.7)},{ts(starts[2] + lens[2])},Card,,0,0,0,,"
+                  f"{{\\pos(115,{100 + i * 110})\\fad(250,200)}}{c}")
+    ev.append(f"Dialogue: 0,{ts(starts[3])},{ts(arabic_off - 0.5)},Label,,0,0,0,,{{\\pos(960,452)\\fad(250,250)}}{LABEL}")
+    for (_, _, text), s, ln in zip(LINES, starts, lens):
+        ev.append(f"Dialogue: 0,{ts(s)},{ts(s + ln)},Sub,,0,0,0,,{text}")
+    return head + "\n".join(ev) + "\n"
+
+
 def title_card(path: Path):
-    """Calligraphy title card made with fonts only (no AI text)."""
-    t = {k: OUT / f"_{k}.txt" for k in ("ar", "hi", "se")}
-    t["ar"].write_text(TITLE_AR, encoding="utf-8"); t["hi"].write_text(hindi(TITLE_HI), encoding="utf-8")  # noqa: E702
-    t["se"].write_text(hindi(SERIES), encoding="utf-8")
+    """Calligraphy title card made with fonts only (no AI text); its Hindi lines come from the ASS file."""
+    t = OUT / "_title_ar.txt"
+    t.write_text(TITLE_AR, encoding="utf-8")
     vf = ("drawbox=x=iw*0.18:y=ih*0.18:w=iw*0.64:h=ih*0.64:color=0xC9A55A@0.55:t=3,"
           "drawbox=x=iw*0.19:y=ih*0.195:w=iw*0.62:h=ih*0.61:color=0xC9A55A@0.25:t=1,"
-          f"drawtext=fontfile='{esc(FONT_AR)}':textfile='{esc(t['ar'])}':text_shaping=1:fontsize=150:fontcolor=0xF3E3B8:"
-          "x=(w-text_w)/2:y=h*0.30,"
-          f"drawtext=fontfile='{esc(FONT_HI)}':textfile='{esc(t['hi'])}':fontsize=60:fontcolor=white:x=(w-text_w)/2:y=h*0.56,"
-          f"drawtext=fontfile='{esc(FONT_HI)}':textfile='{esc(t['se'])}':fontsize=34:fontcolor=0xC9A55A:x=(w-text_w)/2:y=h*0.67")
+          f"drawtext=fontfile='{esc(FONT_AR)}':textfile='{esc(t)}':text_shaping=1:fontsize=150:fontcolor=0xF3E3B8:"
+          "x=(w-text_w)/2:y=h*0.30")
     run(["-f", "lavfi", "-i", "gradients=s=1920x1080:c0=0x0B1426:c1=0x1C2A44:x0=0:y0=0:x1=1920:y1=1080:d=1", "-frames:v", "1",
          "-vf", vf, str(path)])
 
@@ -190,31 +212,17 @@ def main():
         last = out_lbl
 
     # ---- text overlays (fonts only)
-    tx = {}
-    def tfile(key, text):  # noqa: E306
-        p = OUT / f"_t_{key}.txt"; p.write_text(hindi(text) if key != "ar" else text, encoding="utf-8"); tx[key] = p  # noqa: E702
-    tfile("ar", ARABIC); tfile("label", LABEL)  # noqa: E702
-    for i, (n, _, text) in enumerate(LINES):
-        tfile(f"l{n}", text)
-    for i, c in enumerate(CARDS):
-        tfile(f"c{i}", c)
+    ar = OUT / "_t_ar.txt"
+    ar.write_text(ARABIC, encoding="utf-8")
+    ass = OUT / "_hindi.ass"
+    ass.write_text(hindi_ass(starts, lens, arabic_off, T_CARD), encoding="utf-8")
     ov = []
     a_alpha = (f"if(lt(t,{A0:.2f}),0,if(lt(t,{A0 + 0.5:.2f}),(t-{A0:.2f})/0.5,if(lt(t,{arabic_off - 0.5:.2f}),1,"
                f"if(lt(t,{arabic_off:.2f}),({arabic_off:.2f}-t)/0.5,0))))")
     ov.append(f"drawbox=x=0:y=ih*0.20:w=iw:h=ih*0.30:color=black@0.30:t=fill:enable='between(t,{A0:.2f},{arabic_off:.2f})'")
-    ov.append(f"drawtext=fontfile='{esc(FONT_AR)}':textfile='{esc(tx['ar'])}':text_shaping=1:fontsize=96:fontcolor=white:"
+    ov.append(f"drawtext=fontfile='{esc(FONT_AR)}':textfile='{esc(ar)}':text_shaping=1:fontsize=96:fontcolor=white:"
               f"alpha='{a_alpha}':x=(w-text_w)/2:y=h*0.25:shadowcolor=black@0.6:shadowx=2:shadowy=2")
-    ov.append(f"drawtext=fontfile='{esc(FONT_HI)}':textfile='{esc(tx['label'])}':fontsize=32:fontcolor=white@0.92:"
-              f"enable='between(t,{starts[3]:.2f},{arabic_off - 0.5:.2f})':x=(w-text_w)/2:y=h*0.42")
-    for i, c in enumerate(CARDS):  # info cards during line 7
-        t0 = starts[2] + i * 0.7
-        ov.append(f"drawtext=fontfile='{esc(FONT_HI)}':textfile='{esc(tx[f'c{i}'])}':fontsize=40:fontcolor=white:"
-                  f"box=1:boxcolor=0x0B1426@0.55:boxborderw=14:enable='between(t,{t0:.2f},{starts[2] + lens[2]:.2f})':"
-                  f"x=w*0.06:y=h*(0.10+{i}*0.085)")
-    for (n, _, _), s, ln in zip(LINES, starts, lens):  # subtitles
-        ov.append(f"drawtext=fontfile='{esc(FONT_HI)}':textfile='{esc(tx[f'l{n}'])}':fontsize=40:fontcolor=white:"
-                  f"box=1:boxcolor=black@0.45:boxborderw=12:enable='between(t,{s:.2f},{s + ln:.2f})':"
-                  f"x=(w-text_w)/2:y=h*0.83")
+    ov.append(f"subtitles=filename='{esc(ass)}':fontsdir='{esc(FONT_HI.parent)}'")  # all Hindi text
     fc.append(f"{last}{','.join(ov)},format=yuv420p[vout]")
 
     # ---- audio
