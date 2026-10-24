@@ -5,9 +5,11 @@ Har video ek surah: uska parichay, shan-e-nuzul, aayat-dar-aayat tarjuma aur sar
 Format aur sakht niyam: `channels/noor-e-raah/RULES.md` (section 1–3). Tilawat nahi, background music nahi.
 
 ## 2. Awaaz
-- Sirf ek NARRATOR (Hindi). Narrator ki awaaz audition ke baad tay hogi (recharge ke baad). Koi kirdaar, koi dialogue nahi.
+- Sirf ek NARRATOR (Hindi). Audition 2026-10-24 (free key): `characters/voices/audition_2026-10-24/`; awaaz user tay
+  karega. Koi kirdaar, koi dialogue nahi.
 - Andaaz: shaant, izzat bhara, saaf Hindi; mushkil Urdu/Arabic shabd ho to ek baar aasaan matlab ke saath.
-- Har aayat ka tarjuma hu-ba-hu chune hue tarjume se; uske baad "आसान अल्फ़ाज़ में..." se matlab.
+- Har aayat ka tarjuma RULES 1a ke kram se (saaf licence wala tarjuma / copyright-mukt purana tarjuma hu-ba-hu /
+  warna SARAL BHAAVARTH); uske baad "आसान अल्फ़ाज़ में..." se matlab.
 
 ## 3. Screen
 - Arabic aayat bade Arabic font me (beech me), neeche Hindi tarjuma ka caption.

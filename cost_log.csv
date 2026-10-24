@@ -456,3 +456,9 @@ timestamp,file,model,size,cost_usd,cost_inr,today_total_inr,remaining_inr,channe
 2026-10-22 23:13:41,channels/dadi-ki-kahaniyan/characters/_v2_look/mitthu.png,gemini-nano-banana-2.1,1K,0.04882,4.71,60.42,21.56,dadi-ki-kahaniyan,3.45,4.7112,0.85,1407,2868
 2026-10-22 23:14:07,channels/dadi-ki-kahaniyan/characters/_v2_look/pandey.png,gemini-nano-banana-2.1,1K,0.04943,4.77,66.05,15.93,dadi-ki-kahaniyan,3.45,4.7697,0.86,1396,2951
 2026-10-22 23:14:45,channels/dadi-ki-kahaniyan/characters/_v2_look/sharma.png,gemini-nano-banana-2.1,1K,0.04795,4.63,71.51,10.47,dadi-ki-kahaniyan,3.45,4.6274,0.83,1388,2756
+2026-10-24 21:15:21,channels/noor-e-raah/characters/voices/audition_2026-10-24/Iapetus.wav,gemini-3.8-flash-tts,tts 31.2s free,0.00000,0.00,0.00,10.47,noor-e-raah,0.69,0.0000,0.00,141,781
+2026-10-24 21:15:39,channels/noor-e-raah/characters/voices/audition_2026-10-24/Algieba.wav,gemini-3.8-flash-tts,tts 36.3s free,0.00000,0.00,0.00,10.47,noor-e-raah,0.80,0.0000,0.00,141,908
+2026-10-24 21:15:55,channels/noor-e-raah/characters/voices/audition_2026-10-24/Schedar.wav,gemini-3.8-flash-tts,tts 30.0s free,0.00000,0.00,0.00,10.47,noor-e-raah,0.67,0.0000,0.00,141,749
+2026-10-24 21:16:12,channels/noor-e-raah/characters/voices/audition_2026-10-24/Rasalgethi.wav,gemini-3.8-flash-tts,tts 35.5s free,0.00000,0.00,0.00,10.47,noor-e-raah,0.79,0.0000,0.00,141,887
+2026-10-24 21:16:31,channels/noor-e-raah/characters/voices/audition_2026-10-24/Sulafat.wav,gemini-3.8-flash-tts,tts 35.9s free,0.00000,0.00,0.00,10.47,noor-e-raah,0.79,0.0000,0.00,141,898
+2026-10-24 21:16:49,channels/noor-e-raah/characters/voices/audition_2026-10-24/Erinome.wav,gemini-3.8-flash-tts,tts 34.4s free,0.00000,0.00,0.00,10.47,noor-e-raah,0.76,0.0000,0.00,141,859

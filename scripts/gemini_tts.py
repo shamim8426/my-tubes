@@ -45,7 +45,7 @@ def _usage_tokens(js):
         get("output_tokens", "total_output_tokens", "candidatestokencount")
 
 
-def speak(text: str, voice: str, style: str, out: Path) -> dict:
+def speak(text: str, voice: str, style: str, out: Path, free_only=False) -> dict:
     body = {
         "model": MODEL,
         "input": [{"type": "user_input", "content": [{
@@ -54,7 +54,8 @@ def speak(text: str, voice: str, style: str, out: Path) -> dict:
         "response_format": {"type": "audio", "mime_type": "audio/l16", "sample_rate": SR},
         "generation_config": {"speech_config": [{"voice": voice}]},
     }
-    r, tier = gemini_keys.post(ENDPOINT, body, out, timeout=90, label="Gemini TTS")  # free key first for free channels
+    r, tier = gemini_keys.post(ENDPOINT, body, out, timeout=90, label="Gemini TTS",
+                               free_only=free_only)  # free key first for free channels
     if not r.ok:
         raise RuntimeError(f"Gemini TTS {r.status_code}: {r.text[:500]}")
     js = r.json()

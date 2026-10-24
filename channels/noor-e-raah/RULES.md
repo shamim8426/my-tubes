@@ -17,11 +17,22 @@ Only the rules special to this channel. Read `shared/RULES.md` first; everything
      Makki vs Madani): "ज़्यादातर उलमा के मुताबिक़ ..." + the other view, both with sources. Weak / disputed narrations are
      NEVER in the video; they go to the dossier's "chhodi gayi" list.
   3. **AAYAT-DAR-AAYAT**: the Arabic ayah on screen (font, exact text from the licensed source, no audio); the narrator
-     reads the chosen Hindi translation word for word; then the simple meaning (only from the dossier, agreed in 2+
+     reads the translation chosen per section 1a; then the simple meaning (only from the dossier, agreed in 2+
      tafseer); where it fits, one modern example marked [MISAAL] in the script.
   4. **SEEKH**: 2–3 practical lessons from the surah. At the end a hint of the next video.
 - Content comes only from the story's dossier (Khoji, section 3 below). A shan-e-nuzul statement without a source =
   BLOCKER.
+
+## 1a. Tarjuma (user, 2026-10-24) — never ask anyone for permission (no emails / permission requests)
+Use the first that is available, in this order:
+1. A Hindi translation whose own website terms say CLEARLY that commercial / YouTube use with credit is allowed
+   (terms text + link in the dossier).
+2. A copyright-free old translation: translator died 60+ years ago (India rule), with proof (death year from 2 reliable
+   sources) in the dossier. Read word for word; an Urdu one only in our own letter-for-letter Devanagari transliteration.
+3. Otherwise **SARAL BHAAVARTH**: the meaning of 2–3 accepted translations in our own simple words (no copy of any one);
+   on screen "सरल भावार्थ — माने हुए तर्जुमों के आधार पर". Munshi compares every line with all three translations
+   side by side: different meaning = BLOCKER, copied wording = MAJOR.
+Arabic text: Tanzil terms (verbatim, no change, no Unicode normalisation; attribution + link in the description).
 
 ## 2. Visuals
 - **Never any image, face, silhouette, shadow, outline or back-view of any Prophet (Nabi), of the Prophet Muhammad ﷺ,
