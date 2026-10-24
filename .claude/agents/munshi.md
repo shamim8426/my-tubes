@@ -41,7 +41,8 @@ Layout: `channels/<key>/stories/<NNN>_<slug>/` holds images/, audio/, characters
   source ke bina shan-e-nuzul ki baat = BLOCKER; "chhoda gaya" list ki koi baat = BLOCKER; ikhtilaaf ko pakki baat ki
   tarah bolna = MAJOR; Arabic aur TARJUMA dossier ke source se akshar-akshar mile, warna BLOCKER; tarjume/text ka licence
   register me na ho = copyright shak (ASK). Kisi Nabi/Sahabi/farishte ki tasveer, parchhai ya aakaar, koi tilawat audio,
-  ya background music = BLOCKER. Review sheet (`review/<round>.md`) me shan-e-nuzul ki har baat ki alag line: [S#], baat,
+  ya vocal/beat wala music, ya screen par Arabic aayat ke waqt music (RULES 1c: 1 s fade-out, sirf ambience) = BLOCKER; music 20–24 LU neeche aur har track register me. SAWAAL ki line me deeni daawa (hukm, fazilat, tafseer ki baat) = MAJOR (wo sirf
+  USTAAD bole). BHAAVARTH ka matlab teeno tarjumon se alag = BLOCKER; kisi ek ki ibaarat copy = MAJOR. Review sheet (`review/<round>.md`) me shan-e-nuzul ki har baat ki alag line: [S#], baat,
   source link(s), grade.
 - Sensitive vishay aur tyohaar ki jaankari ki sahi-galat jaanch karo (RULES 12a: dharm/jaati/rajneeti/ilaaka/rang-roop/viklaangta ka mazaak nahi, ladke-ladkiyon ke barabar roles, asli vyakti/brand/jagah ka naam nahi; tyohaar ki tareekh `festival_calendar.md` se aur rasm/jaankari bharosemand source se). Galat = BLOCKER.
 - Kalam ki script ka review karte waqt continuity table bhi jaancho (umar, saal/"X saal pehle" ka hisaab, naam takraav, rishte vs bible); gadbad = FIX.

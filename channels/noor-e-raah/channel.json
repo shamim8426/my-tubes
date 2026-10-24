@@ -21,6 +21,32 @@
   "playlists": {},
   "content_format": "surah_explainer",
   "tilawat": false,
-  "background_music": false,
-  "_format_note": "User 2026-10-24 FINAL: no recitation audio (human or AI), no background music; order: surah parichay -> shan-e-nuzul (sourced) -> aayat-dar-aayat (Arabic on screen + Hindi tarjuma + simple meaning) -> seekh. No image/silhouette of any Prophet or Sahabi. channels/noor-e-raah/RULES.md"
+  "background_music": "soft",
+  "_format_note": "User 2026-10-24 FINAL: no recitation audio (human or AI), very soft instrumental music (RULES 1c, from 2026-10-24); order: surah parichay -> shan-e-nuzul (sourced) -> aayat-dar-aayat (Arabic on screen + Hindi tarjuma + simple meaning) -> seekh. No image/silhouette of any Prophet or Sahabi. channels/noor-e-raah/RULES.md",
+  "voices": {
+    "_help": "RULES 1b (user 2026-10-24): two speakers in a conversation; audition characters/voices/audition_2026-10-24/",
+    "ustaad": {
+      "voice": "Algieba",
+      "role": "aayat, bhaavarth, matlab, parichay, shan-e-nuzul (only voice for religious claims)",
+      "style": "Calm, respectful Indian Hindi-Urdu teacher explaining the Quran to a family in everyday language: warm, steady and clear, correct Urdu nuqta sounds (ज़, फ़, क़, ख़, ग़), unhurried pace, gentle reverence, no drama, never singing or chanting"
+    },
+    "sawaal": {
+      "voice": "Sulafat",
+      "role": "aam aadmi ke sawaal, misaal, chhota saar",
+      "style": "Soft, respectful, curious Indian Hindi-speaking woman asking simple everyday questions and telling a short real-life example: natural, warm, conversational, correct Urdu nuqta sounds, never singing or chanting"
+    }
+  },
+  "translation_mode": "saral_bhaavarth",
+  "music": {
+    "_help": "RULES 1c (user 2026-10-24). Sources only: YouTube Audio Library (shared/music/noor/, licence type noted), Incompetech (CC BY), Pixabay backup; every track in shared/assets_license.csv",
+    "below_voice_lu": [
+      20,
+      24
+    ],
+    "ducking": true,
+    "voice_reverb": "light warm",
+    "ayah_on_screen": "music fade-out 1 s, light ambience only; music back slowly after the ayah",
+    "tracks": [],
+    "_tracks_note": "Empty until the user picks (2026-10-24). Options + samples: channels/noor-e-raah/music_samples/ (files in shared/music/noor/_options/, git-ignored). Only picked tracks go to shared/assets_license.csv."
+  }
 }

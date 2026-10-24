@@ -7,8 +7,8 @@ Only the rules special to this channel. Read `shared/RULES.md` first; everything
 - **No recitation audio at all**: no human tilawat, no AI tilawat, no clip of any qari. Any recitation audio in a
   video = BLOCKER. (The earlier tilawat research / recording plan is closed; `docs/IJAAZAT_NAMA_TILAWAT.md` stays only
   as a document.)
-- **No background music.** Only the narrator's voice (and at most very soft natural ambience: wind, night; no
-  instruments, no nasheed, no vocal drones). Music = BLOCKER.
+- **Music: very soft instrumental only** (section 1c, user 2026-10-24; replaces the earlier "no music" rule). No vocals,
+  no nasheed, no beat.
 - Every video, in this order:
   1. **SURAH KA PARICHAY**: name and its meaning; Makki/Madani; number of ayat; order in the Quran (number); order of
      revelation (only if an accepted list gives it, with source); other names of the surah; its main message in 1–2 lines.
@@ -23,6 +23,17 @@ Only the rules special to this channel. Read `shared/RULES.md` first; everything
 - Content comes only from the story's dossier (Khoji, section 3 below). A shan-e-nuzul statement without a source =
   BLOCKER.
 
+## 1c. Music and sound (user, 2026-10-24) — channel.json "background_music": "soft"
+- VERY soft instrumental: ambient pad, light ney/flute, soft piano or light oud notes; no beat/rhythm, no vocals, no
+  catchy tune. Plus light natural ambience by the scene's mood (wind, birds, rain, water, crickets, desert wind).
+- Level: music 20–24 LU below the narration, with ducking; light warm reverb on the voices.
+- **Arabic ayah on screen: music fades out in 1 s, only light ambience; after the ayah the music comes back slowly.**
+  Music under an on-screen ayah = BLOCKER.
+- Sources ONLY: (1) YouTube Audio Library (the user downloads in Studio into `shared/music/noor/`; note the licence
+  type; "Attribution required" -> credit), (2) Kevin MacLeod / Incompetech (CC BY 4.0, credit), (3) Pixabay only as
+  backup. Every track in `shared/assets_license.csv` before use; credits in the description.
+- Script cues: `[MUSIC soft: <mood>]`, `[AMBIENCE: <sound>]`, `[MUSIC fade-out 1s — ARABIC ON SCREEN]`, `[MUSIC back slowly]`.
+
 ## 1a. Tarjuma (user, 2026-10-24) — never ask anyone for permission (no emails / permission requests)
 Use the first that is available, in this order:
 1. A Hindi translation whose own website terms say CLEARLY that commercial / YouTube use with credit is allowed
@@ -33,6 +44,24 @@ Use the first that is available, in this order:
    on screen "सरल भावार्थ — माने हुए तर्जुमों के आधार पर". Munshi compares every line with all three translations
    side by side: different meaning = BLOCKER, copied wording = MAJOR.
 Arabic text: Tanzil terms (verbatim, no change, no Unicode normalisation; attribution + link in the description).
+Rule order for choosing (user, 2026-10-24): 1) far from any firqa/maslak (no maslak name on screen), 2) licence clear,
+3) easy language.
+**DECIDED 2026-10-24: SARAL BHAAVARTH for the channel.** Why: (1) the only "copyright free" Hindi translation
+(CPS/Goodword, Maulana Wahiduddin Khan, imprint page 3: "This translation of the Quran is copyright free") says nothing
+about commercial use, neither in the PDF nor on cpsglobal.org/goodwordquran.com, and a related CPS English text is listed
+under CC BY-NC-ND on archive.org; (2) the public-domain old translations (Shaikh-ul-Hind 1920, Thanvi, Kanzul Iman) carry a
+maslak identity and old/heavy language; (3) the bhaavarth is licence-safe, easy, and checked line by line against three
+accepted translations. Revisit only if a translation's own terms say commercial/YouTube use clearly.
+
+## 1b. Two voices (user, 2026-10-24) — a conversation in everyday language
+- **USTAAD** (Gemini voice Algieba): Arabic ayah announcement, bhaavarth, matlab, parichay and shan-e-nuzul. Only the
+  Ustaad makes a religious claim, and only from the dossier sources.
+- **SAWAAL** (Gemini voice Sulafat): the ordinary person's questions ("iska matlab hamari zindagi me kya hai?"), the
+  [MISAAL] stories and short summaries. Respectful and soft; never states a religious ruling or fact on her own.
+- Long ~8:00, at most 2 MISAAL per video.
+- TTS completeness: EVERY line is checked with Whisper against its text; a missing word = make that line again on the
+  free key (max 2 tries); still missing = shorten/simplify that line (same meaning) and make it again. Sulafat dropped a
+  clause in the audition, so this check is never skipped.
 
 ## 2. Visuals
 - **Never any image, face, silhouette, shadow, outline or back-view of any Prophet (Nabi), of the Prophet Muhammad ﷺ,

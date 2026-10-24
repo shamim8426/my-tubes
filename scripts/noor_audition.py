@@ -31,10 +31,17 @@ NUQTA = str.maketrans({"़": None})  # combining nuqta
 PRECOMPOSED = {"ज़": "ज", "फ़": "फ", "क़": "क", "ख़": "ख", "ग़": "ग", "ड़": "ड", "ढ़": "ढ"}
 
 
+SPELLING = {"ं": "न", "ँ": "न", "्": "", "ू": "ु", "ी": "ि", "ै": "े", "ौ": "ो", "ा": "", "ह": ""}  # Whisper's spelling
+
+
 def plain(s: str) -> str:
+    """Nuqta removed and common Whisper spelling variants folded (बंदा = बन्दा, सूरह = सुरा)."""
     for a, b in PRECOMPOSED.items():
         s = s.replace(a, b)
-    return s.translate(NUQTA)
+    s = s.translate(NUQTA)
+    for a, b in SPELLING.items():
+        s = s.replace(a, b)
+    return s
 
 
 def synth():
@@ -88,7 +95,7 @@ def found(word: str, heard: list, cutoff=0.7) -> bool:
     (or two heard words joined) that is >= 70 % similar counts as heard."""
     from difflib import SequenceMatcher
     cands = heard + [a + b for a, b in zip(heard, heard[1:])]
-    return any(SequenceMatcher(None, word, c).ratio() >= cutoff for c in cands)
+    return any(SequenceMatcher(None, word, c).ratio() >= cutoff or (len(word) >= 2 and word in c) for c in cands)
 
 
 def main():

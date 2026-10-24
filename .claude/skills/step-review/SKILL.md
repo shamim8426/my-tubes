@@ -36,7 +36,7 @@ Use this after every production step of a video in the Story-Channel project. Al
   anything from "chhoda gaya" = BLOCKER; ikhtilaaf told as certain = MAJOR.
 - Every ayah: ARABIC and TARJUMA match the dossier's source letter for letter; licences of both in
   shared/assets_license.csv (missing = copyright doubt, ASK).
-- No recitation audio, no music cue, no visual of any Prophet/Sahabi/angel (even silhouette/shadow) = BLOCKER.
+- No recitation audio, no vocal/beat music, no music while an Arabic ayah is on screen (RULES 1c cues), no visual of any Prophet/Sahabi/angel (even silhouette/shadow) = BLOCKER.
 - Review sheet lists every shan-e-nuzul statement on its own line with its source link(s).
 
 ### 2. Scene breakdown (`*_SCENES.md`, `shots.json`)

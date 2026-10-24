@@ -39,6 +39,10 @@ tools/yt-dlp.exe
 # Claude account's auto-synced built-in skills (come back by themselves after login)
 claude-home/skills/synced/
 
+# music/ambience OPTIONS not yet picked (free to download again; picked tracks move out and are tracked)
+shared/music/noor/_options/
+shared/sfx/noor/_options/
+
 # ---- misc ----
 # study downloads (RULES 12c): local only, deleted within 24 h, never on GitHub
 study/

@@ -94,8 +94,11 @@ estimate and anything only the user can decide. Stop there.
 - Munshi's script review for these stories includes the FACT CHECK.
 
 ## SURAH MODE (channel noor-e-raah; `channels/noor-e-raah/RULES.md` is binding)
-- Write ONLY from the story's `research/dossier.md` (Khoji MODE 3). No recitation audio, no music cues, no characters:
-  one NARRATOR only. Kissago parts (Dadi, Golu, 16 images, mystery question, RULES 15 length) do not apply.
+- Write ONLY from the story's `research/dossier.md` (Khoji MODE 3). No recitation audio; soft-music/ambience cues per channel RULES 1c (music fades out while an ayah is on screen). Two speakers in an
+  everyday-language conversation (channel RULES 1b): `USTAAD:` (all religious content, from sources) and `SAWAAL:`
+  (questions, the [MISAAL] stories, short summaries; never a religious claim of her own). Translation = SARAL BHAAVARTH
+  (RULES 1a). Long ~8:00, max 2 MISAAL. Kissago parts (Dadi, Golu, 16 images, mystery question, RULES 15 length) do
+  not apply.
 - Order: 1) SURAH KA PARICHAY 2) SHAN-E-NUZUL 3) AAYAT-DAR-AAYAT 4) SEEKH + next-video hint.
 - Line tags: every parichay / shan-e-nuzul line ends with its [S#]; every meaning line with its [M#]; every ayah block
   is `[AYAH n] ARABIC: <exact text from dossier>` / `TARJUMA: "<exact translation from dossier>"` (narrator reads the
