@@ -1,2 +1,3 @@
 # Munshi log
 2026-10-24 | setup | YouTube login | channel नूर-ए-राह | Noor-e-Raah (UCmw4fs9jN49GTq7wVSdYm6w) verified via channels.list; own OAuth client + token in secrets/noor-e-raah/ (gitignored); tools/yt_auth.py per-channel; api_audited: false (uploads private + STUDIO ACTION); audit draft docs/YOUTUBE_API_AUDIT_DRAFT_NOOR_E_RAAH.md; Gemini spend tagged channel noor-e-raah (story_budget.py --channel)
+2026-10-24 | research | tilawat license | ₹0, no download; 13 sources checked: koi bhi commercial/YouTube use saaf allowed nahi -> pilot Al-Fatiha bina tilawat (Arabic font + Hindi matlab); leads: Maher al-Muaiqly CC BY (unreviewed), Aaqib Azeez CC0 (uploader rights unproven), King Fahd Complex; docs/TILAWAT_LICENSE_RESEARCH.md, docs/IJAAZAT_NAMA_TILAWAT.md
