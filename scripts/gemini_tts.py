@@ -1,13 +1,12 @@
 """Gemini TTS helper. Key from .env (never printed). Every call is logged to cost_log.csv."""
 import base64
-import os
 import wave
 from pathlib import Path
 
-import requests
 from dotenv import load_dotenv
 
 import cost_log
+import gemini_keys
 import pricing
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -47,9 +46,6 @@ def _usage_tokens(js):
 
 
 def speak(text: str, voice: str, style: str, out: Path) -> dict:
-    key = os.environ.get("GEMINI_API_KEY")
-    if not key:
-        raise RuntimeError("GEMINI_API_KEY missing in .env")
     body = {
         "model": MODEL,
         "input": [{"type": "user_input", "content": [{
@@ -58,7 +54,7 @@ def speak(text: str, voice: str, style: str, out: Path) -> dict:
         "response_format": {"type": "audio", "mime_type": "audio/l16", "sample_rate": SR},
         "generation_config": {"speech_config": [{"voice": voice}]},
     }
-    r = requests.post(ENDPOINT, json=body, headers={"x-goog-api-key": key}, timeout=90)
+    r, tier = gemini_keys.post(ENDPOINT, body, out, timeout=90, label="Gemini TTS")  # free key first for free channels
     if not r.ok:
         raise RuntimeError(f"Gemini TTS {r.status_code}: {r.text[:500]}")
     js = r.json()
@@ -72,8 +68,10 @@ def speak(text: str, voice: str, style: str, out: Path) -> dict:
     secs = len(pcm) / 2 / SR
 
     cost = pricing.tts_cost(MODEL, js, text_chars=len(text) + len(style), seconds=secs)
+    if tier == "free":
+        cost["actual_usd"] = 0.0
     estimated = cost["actual_usd"] is None
     usd = cost["estimated_usd"] if estimated else cost["actual_usd"]
-    row = cost_log.record_call(out, MODEL, f"tts {secs:.1f}s{' est' if estimated else ''}", cost,
+    row = cost_log.record_call(out, MODEL, f"tts {secs:.1f}s{' est' if estimated else ''}{' free' if tier == 'free' else ''}", cost,
                                usage=pricing.read_usage(js))
     return {"seconds": secs, "usd": usd, "row": row, "usage_reported": not estimated}

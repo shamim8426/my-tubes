@@ -1,13 +1,12 @@
 """Gemini (Nano Banana) image helper. Key is read from .env and never printed."""
 import base64
 import mimetypes
-import os
 from pathlib import Path
 
-import requests
 from dotenv import load_dotenv
 
 import cost_log
+import gemini_keys
 import preview
 import pricing
 
@@ -44,10 +43,6 @@ def _find_image(obj):
 def generate(prompt: str, out: Path, refs: list[Path] = (), aspect_ratio="1:1", size="1K",
              style: str | None = None) -> Path:
     """style: None = the old flat-cartoon STYLE line; a string replaces it (e.g. the Kissago Painted block)."""
-    key = os.environ.get("GEMINI_API_KEY")
-    if not key:
-        raise RuntimeError("GEMINI_API_KEY missing in .env")
-
     inputs = [{"type": "text", "text": f"{prompt}\n\n{STYLE if style is None else style}".rstrip()}]
     for ref in refs:
         mime = mimetypes.guess_type(ref)[0] or "image/png"
@@ -56,7 +51,7 @@ def generate(prompt: str, out: Path, refs: list[Path] = (), aspect_ratio="1:1", 
 
     body = {"model": MODEL, "input": inputs,
             "response_format": {"type": "image", "aspect_ratio": aspect_ratio, "image_size": size}}
-    r = requests.post(ENDPOINT, json=body, headers={"x-goog-api-key": key}, timeout=90)  # >90s -> skip
+    r, tier = gemini_keys.post(ENDPOINT, body, out, timeout=90)  # >90s -> skip; free key first for free channels
     if not r.ok:
         raise RuntimeError(f"Gemini {r.status_code}: {r.text[:500]}")
 
@@ -68,7 +63,10 @@ def generate(prompt: str, out: Path, refs: list[Path] = (), aspect_ratio="1:1", 
     out.write_bytes(base64.b64decode(data))
     # actual cost from the response's usage numbers (text + every reference image in, image + thinking out)
     cost = pricing.image_cost(MODEL, size, js, prompt_chars=len(inputs[0]["text"]), n_refs=len(refs))
-    print(cost_log.summary(cost_log.record_call(out, MODEL, size, cost, usage=pricing.read_usage(js))))
+    if tier == "free":
+        cost["actual_usd"] = 0.0
+    print(cost_log.summary(cost_log.record_call(out, MODEL, size + (" free" if tier == "free" else ""), cost,
+                                                usage=pricing.read_usage(js))))
     preview.build()
     preview.open_in_vscode(out)
     return out

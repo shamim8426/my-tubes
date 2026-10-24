@@ -1,5 +1,8 @@
 # Tilawat (readymade recording) — license research, channel नूर-ए-राह
 
+> **BAND (user, 2026-10-24):** format FINAL = tilawat nahi (no recitation audio, human or AI). This research is kept
+> only as a record; see `channels/noor-e-raah/RULES.md` section 1.
+
 Date: 2026-10-24. Cost ₹0. Nothing was downloaded.
 Rule used (user, 2026-10-24): a recording is "allowed" ONLY if commercial / YouTube use is written clearly by the
 rights holder. Any doubt = NOT allowed (shared/RULES.md section 10; a copyright doubt is a stop condition).

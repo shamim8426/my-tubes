@@ -93,6 +93,20 @@ estimate and anything only the user can decide. Stop there.
 - The script ends with a "Sources" block (dossier main sources) for the description and the natya line from RULES 16.
 - Munshi's script review for these stories includes the FACT CHECK.
 
+## SURAH MODE (channel noor-e-raah; `channels/noor-e-raah/RULES.md` is binding)
+- Write ONLY from the story's `research/dossier.md` (Khoji MODE 3). No recitation audio, no music cues, no characters:
+  one NARRATOR only. Kissago parts (Dadi, Golu, 16 images, mystery question, RULES 15 length) do not apply.
+- Order: 1) SURAH KA PARICHAY 2) SHAN-E-NUZUL 3) AAYAT-DAR-AAYAT 4) SEEKH + next-video hint.
+- Line tags: every parichay / shan-e-nuzul line ends with its [S#]; every meaning line with its [M#]; every ayah block
+  is `[AYAH n] ARABIC: <exact text from dossier>` / `TARJUMA: "<exact translation from dossier>"` (narrator reads the
+  tarjuma word for word) / `MATLAB: ... [M#]`; a modern example is marked [MISAAL] and must not add a religious claim.
+  Disputed points: "ज़्यादातर उलमा के मुताबिक़ ..." + the other view, as graded in the dossier. Nothing from the
+  "chhoda gaya" list. Tags are removed from the spoken text and captions at production.
+- Each section names its visual (places/mood only — never a Prophet, Sahabi or angel in any form; RULES section 2).
+- End of the script: "Sources" block for the description (tafseer books, Arabic text source, translation + attribution)
+  and a length estimate (the user sets the target length after the pilot).
+- Munshi's script review for these scripts includes the SURAH CHECK.
+
 ## Story registry
 When the user approves a script, add its row to `channels/<key>/story_registry.md` (views/likes stay blank; the
 youtube-publish flow fills publish date and video ids after upload).

@@ -30,6 +30,15 @@ Use this after every production step of a video in the Story-Channel project. Al
 - Originality: run RULES section 12 checks.
 - Algorithm: run RULES section 13 checks.
 
+### 1b. Surah script (channel noor-e-raah)
+- Order: parichay -> shan-e-nuzul -> aayat-dar-aayat -> seekh + next-video hint.
+- Every [S#]/[M#] exists in the dossier with the same grade; open the main sources. Missing source = BLOCKER;
+  anything from "chhoda gaya" = BLOCKER; ikhtilaaf told as certain = MAJOR.
+- Every ayah: ARABIC and TARJUMA match the dossier's source letter for letter; licences of both in
+  shared/assets_license.csv (missing = copyright doubt, ASK).
+- No recitation audio, no music cue, no visual of any Prophet/Sahabi/angel (even silhouette/shadow) = BLOCKER.
+- Review sheet lists every shan-e-nuzul statement on its own line with its source link(s).
+
 ### 2. Scene breakdown (`*_SCENES.md`, `shots.json`)
 - Every script line maps to a scene; no scene without a line or a music-only note.
 - Shared-image scene pairs have a different crop/zoom that actually shows the subject of the line.
