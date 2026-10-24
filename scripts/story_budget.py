@@ -38,6 +38,8 @@ EXTRA_FILES = {
     # character look refresh (Tinku's mummy + new finish tests; own budget ₹20, user 2026-10-22)
     "character_refresh": ["channels/dadi-ki-kahaniyan/characters/tinku_mummy/",
                           "channels/dadi-ki-kahaniyan/characters/_v2_look/"],
+    # Noor-e-Raah samples: dialogue, look test, 30 s sync sample (own budget ₹45 incl. GST, user 2026-10-24)
+    "noor_samples": ["channels/noor-e-raah/music_samples/", "channels/noor-e-raah/samples/"],
 }
 
 

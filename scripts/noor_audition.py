@@ -31,7 +31,11 @@ NUQTA = str.maketrans({"़": None})  # combining nuqta
 PRECOMPOSED = {"ज़": "ज", "फ़": "फ", "क़": "क", "ख़": "ख", "ग़": "ग", "ड़": "ड", "ढ़": "ढ"}
 
 
-SPELLING = {"ं": "न", "ँ": "न", "्": "", "ू": "ु", "ी": "ि", "ै": "े", "ौ": "ो", "ा": "", "ह": ""}  # Whisper's spelling
+SPELLING = {"ं": "न", "ँ": "न", "्": "", "ू": "ु", "ी": "ि", "ै": "े", "ौ": "ो", "ा": "", "ह": "",
+            # Whisper often swaps aspirated/unaspirated and close stops (सीधा -> सीथा, पढ़ -> पर): fold them
+            "ख": "क", "घ": "ग", "छ": "च", "झ": "ज", "ठ": "ट", "ढ": "ड", "थ": "त", "ध": "त", "द": "त",
+            "फ": "प", "भ": "प", "ब": "प", "ड़": "र", "ढ़": "र", "ड": "र", "व": "", "य": "",
+            "आ": "अ", "ई": "इ", "ऊ": "उ", "ऐ": "ए", "औ": "ओ"}  # Whisper's spelling
 
 
 def plain(s: str) -> str:
@@ -87,13 +91,15 @@ def whisper_check():
 
 
 def clean(w: str) -> str:
-    return "".join(c for c in w if c.isalnum() or "ऀ" <= c <= "ॿ").strip("।")
+    return "".join(c for c in w if (c.isalnum() or "ऀ" <= c <= "ॿ") and c not in "।॥")
 
 
 def found(word: str, heard: list, cutoff=0.7) -> bool:
     """Whisper small writes Hindi without nuqta and joins/splits words; so: nuqta removed on both sides, then a word
     (or two heard words joined) that is >= 70 % similar counts as heard."""
     from difflib import SequenceMatcher
+    if len(word) <= 2:  # "है", "से" etc. fold to 1-2 letters: too short to judge, never a reason to remake a line
+        return True
     cands = heard + [a + b for a, b in zip(heard, heard[1:])]
     return any(SequenceMatcher(None, word, c).ratio() >= cutoff or (len(word) >= 2 and word in c) for c in cands)
 
@@ -117,6 +123,20 @@ def main():
     (OUT / "audition.md").write_text("\n".join(md) + "\n", encoding="utf-8")
     print("\n".join(md[6:6 + 2 + len(rows)]))
     print("->", (OUT / "audition.md").relative_to(ROOT).as_posix())
+
+
+def missing(text: str, heard_text: str, cutoff=0.7) -> list:
+    """Script words Whisper did not hear. Also accepts two script words heard as one (उस्ताद जी -> उस्ताजी,
+    शुक्र अदा -> शुक्रदा)."""
+    from difflib import SequenceMatcher
+    heard = [clean(w) for w in plain(heard_text).split()]
+    words = [(w, clean(plain(w))) for w in text.replace("...", " ").split() if clean(w)]
+    ok = {i for i, (_, p) in enumerate(words) if found(p, heard, cutoff)}
+    for i in range(len(words) - 1):
+        joined = words[i][1] + words[i + 1][1]
+        if any(SequenceMatcher(None, joined, c).ratio() >= cutoff for c in heard):
+            ok |= {i, i + 1}
+    return [w for i, (w, _) in enumerate(words) if i not in ok]
 
 
 if __name__ == "__main__":

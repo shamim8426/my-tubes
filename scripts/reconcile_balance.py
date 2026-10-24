@@ -4,6 +4,7 @@ Always use the AI Studio billing "Credit balance", never the cost chart (PDT tim
     python scripts/reconcile_balance.py <balance_inr>            # first time: set the checkpoint to this balance
     python scripts/reconcile_balance.py <balance_inr> --check    # later (e.g. after Long 03): compare, change nothing
     python scripts/reconcile_balance.py <balance_inr> --apply    # compare, move the checkpoint (GST setting is never changed)
+    ... --topup <inr>   # credits added (recharge) since the checkpoint; they are not spend
 
 How it avoids counting GST twice: Google's drop in balance since the checkpoint is compared with what we logged
 since then, once WITHOUT GST and once WITH GST. Whichever is closer tells whether Google takes GST out of the
@@ -34,9 +35,11 @@ def main():
     if mode != "set":
         if not cp.get("timestamp"):
             sys.exit("No checkpoint yet: run once without --check/--apply to set it.")
-        drop = cp["inr"] - bal
+        topup = float(sys.argv[sys.argv.index("--topup") + 1]) if "--topup" in sys.argv else 0.0
+        drop = cp["inr"] + topup - bal
         n, base, with_gst, est = logged_since(cp["timestamp"])
-        print(f"Google balance: ₹{cp['inr']:.2f} ({cp['timestamp']}) -> ₹{bal:.2f} now: drop ₹{drop:.2f}")
+        print(f"Google balance: ₹{cp['inr']:.2f} ({cp['timestamp']}) + top-up ₹{topup:.2f} -> ₹{bal:.2f} now: "
+              f"drop ₹{drop:.2f}")
         print(f"Our log since then: {n} calls ({est} estimate-only): ₹{base:.2f} without GST, ₹{with_gst:.2f} with GST")
         gst_in = abs(drop - with_gst) < abs(drop - base)
         best = with_gst if gst_in else base

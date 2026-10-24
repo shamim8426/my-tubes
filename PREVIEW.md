@@ -1,6 +1,6 @@
 # Preview — किस्सागो | Kissago
 
-**Budget bacha:** ₹10.47  ·  **Last image:** 2026-10-22 23:14:45
+**Budget bacha:** ₹484.81  ·  **Last image:** 2026-10-24 23:23:19
 
 ## Characters
 
@@ -465,3 +465,15 @@
 ### scene_13 — ₹6.16 · 2026-10-21 23:49:22
 
 ![scene_13](channels/dadi-ki-kahaniyan/stories/007_bachchon-ki-adalat/images/scene_13.png)
+
+### dawn_valley — ₹4.18 · 2026-10-24 23:22:39
+
+![dawn_valley](channels/noor-e-raah/samples/sync_sample/images/dawn_valley.png)
+
+### green_after_rain — ₹4.12 · 2026-10-24 23:22:59
+
+![green_after_rain](channels/noor-e-raah/samples/sync_sample/images/green_after_rain.png)
+
+### open_door_sunrise — ₹4.23 · 2026-10-24 23:23:19
+
+![open_door_sunrise](channels/noor-e-raah/samples/sync_sample/images/open_door_sunrise.png)
