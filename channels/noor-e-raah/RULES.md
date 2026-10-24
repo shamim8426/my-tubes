@@ -90,6 +90,9 @@ accepted translations. Revisit only if a translation's own terms say commercial/
 - `GEMINI_API_KEY_FREE` (this channel's own Google project, no billing) is used ONLY for this channel's work, never
   for Kissago or any other channel. Free first; on 429 (free quota) the same request goes to the paid `GEMINI_API_KEY`
   (`scripts/gemini_keys.py`; a free call is logged with actual ₹0 and "free" in the size column).
+- Production TTS (user, 2026-10-24): free first; as soon as the free quota is used up (429) the same line goes to the
+  paid key — never wait for the next day. (Paid only while the balance is above the ₹50 floor; below it = stop and ask
+  for a recharge.) The `free_only` mode (stop on 429) is only for auditions/tests the user marks as ₹0.
 
 ## Metadata
 - Description: the sources list (tafseer books, Arabic text source, translation source with its attribution).

@@ -46,7 +46,27 @@
     "ducking": true,
     "voice_reverb": "light warm",
     "ayah_on_screen": "music fade-out 1 s, light ambience only; music back slowly after the ayah",
-    "tracks": [],
-    "_tracks_note": "Empty until the user picks (2026-10-24). Options + samples: channels/noor-e-raah/music_samples/ (files in shared/music/noor/_options/, git-ignored). Only picked tracks go to shared/assets_license.csv."
+    "tracks": {
+      "parichay": "shared/music/noor/Soaring.mp3",
+      "shan_e_nuzul_and_between_ayat": "shared/music/noor/Quietude_Sections_Merged.mp3",
+      "matlab_misaal_seekh_ant": "shared/music/noor/River_Flute.mp3"
+    },
+    "_tracks_note": "Picked by the user 2026-10-24 (samples 4, 5, 8). All in shared/assets_license.csv.",
+    "ambience": {
+      "shan_e_nuzul": [
+        "shared/sfx/noor/desert_wind_felixblume_156414.mp3",
+        "shared/sfx/noor/night_wind_crickets_felixblume_165526.mp3"
+      ],
+      "misaal": "shared/sfx/noor/wind_birds_petebuchwald_288899.mp3",
+      "default": "shared/sfx/noor/gentle_breeze_mario1298_181252.mp3",
+      "_note": "River Flute already has river sound: never add separate water ambience with it; birds under River Flute very low."
+    }
+  },
+  "series": {
+    "A": "शुरू से क़ुरआन"
+  },
+  "tagline": "क़ुरआन, आसान ज़बान में।",
+  "spelling": {
+    "quran": "क़ुरआन (everywhere: series, tagline, titles, description, script)"
   }
 }

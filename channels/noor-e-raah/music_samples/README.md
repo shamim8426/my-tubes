@@ -1,5 +1,13 @@
 # Music samples — नूर-ए-राह (2026-10-24, ₹0)
 
+> **FINAL (user 2026-10-24): #5 Soaring -> parichay; #8 Quietude -> shan-e-nuzul + aayaton ke beech; #4 River Flute ->
+> matlab, misaal, seekh, ant (iske saath alag paani ki ambience nahi).** Ambience: shan-e-nuzul = registaan/raat ki hawa,
+> misaal = parinde (bahut halka), baaki = halki hawa. Files `shared/music/noor/`, `shared/sfx/noor/`; register me darj;
+> `channel.json` "music". Neeche ki table options ka record hai.
+>
+> **"सीधा" line: take 1 rakha (user 2026-10-24).** Takes: `seedha_take1.wav` (8.9 s; Whisper: sirf "सीधा" -> "सीड़ा") aur `seedha_take2.wav` (moved to _to_delete; 8.0 s; Whisper:
+> "अल-फ़ातिहा", "क़ुरआन", "सीधा" kamzor). Take 3 nahi bana: free key quota 429 (paid par nahi gaye).
+
 **Kuch bhi final nahi.** User jo chunega, sirf wahi `shared/music/noor/` me jayega aur `shared/assets_license.csv` me
 darj hoga. Options ki files `shared/music/noor/_options/` aur `shared/sfx/noor/_options/` me hain (git-ignored, dobara
 free me download ho sakti hain).
