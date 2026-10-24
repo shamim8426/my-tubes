@@ -5,11 +5,13 @@
 
     python scripts/story_budget.py <story>          # one line: the story's actual total (+ GST)
     python scripts/story_budget.py <story> --log    # same line appended to the channel log.md (end of a story)
+    python scripts/story_budget.py --channel <key>  # one channel's own total (cost_log "channel" column) + its cap
 
 Story cost = cost_log rows whose file is inside the story folder, plus channel-level files made for it
 (EXTRA_FILES, e.g. a new recurring character sheet or voice samples). A row counts its actual cost (API usage
 numbers) or, when the API reported none, its estimate; GST is added when pricing.json budget_includes_gst.
-Cap per story and floor: shared/pricing.json "budget".
+Cap per story and floor: shared/pricing.json "budget". All channels share one Gemini key and balance; each
+channel's spend is counted on its own (budget.channel_cap_inr, null = no cap, only shown).
 """
 import sys
 from datetime import date
@@ -55,6 +57,22 @@ def cap(story: str):
     return caps.get(story, caps["default"])
 
 
+def story_channel(story: str) -> str:
+    """Channel key of a story folder (channels/<key>/stories/<story>), else the default channel."""
+    hit = next(iter(sorted((ROOT / "channels").glob(f"*/stories/{story}"))), None)
+    return hit.parent.parent.name if hit else cost_log.DEFAULT_CHANNEL
+
+
+def channel_cap(key: str):
+    return pricing.config()["budget"].get("channel_cap_inr", {}).get(key)
+
+
+def channel_line(key: str) -> str:
+    spent, limit = cost_log.channel_spent(key), channel_cap(key)
+    return (f"{date.today().isoformat()} | channel {key} | KUL KHARCHA (GST samet) ₹{spent:.2f}"
+            + (f" | cap ₹{limit:.0f}, bacha ₹{limit - spent:.2f}" if limit is not None else " | cap: none"))
+
+
 def remaining() -> float:
     return cost_log.remaining()
 
@@ -67,6 +85,11 @@ def check(story: str, next_cost_inr: float):
     if limit is not None and spent + nxt > limit:
         sys.exit(f"OVER CAP (RULES 15): story {story} has spent ₹{spent:.2f} (actual); +₹{nxt:.2f} would cross the "
                  f"₹{limit:.0f} cap. Not a user stop (RULES 15): shrink the plan (fewer new images, more crop/zoom reuse), log it, continue.")
+    key = story_channel(story)
+    ch_limit = channel_cap(key)
+    if ch_limit is not None and cost_log.channel_spent(key) + nxt > ch_limit:
+        sys.exit(f"OVER CHANNEL CAP: channel {key} has spent ₹{cost_log.channel_spent(key):.2f}; +₹{nxt:.2f} would "
+                 f"cross its ₹{ch_limit:.0f} cap (shared/pricing.json budget.channel_cap_inr). ASK the user.")
     floor = cfg["budget"]["floor_inr"]
     if left - nxt < floor:
         sys.exit(f"STOP (RULES 14/15): balance ₹{left:.2f} would drop below ₹{floor:.0f}. ASK the user to recharge Google credits.")
@@ -86,11 +109,15 @@ def summary_line(story: str) -> str:
 
 
 if __name__ == "__main__":
+    if sys.argv[1] == "--channel":
+        print(channel_line(sys.argv[2]))
+        print(f"account remaining (ledger, GST samet): ₹{remaining():.2f}")
+        sys.exit(0)
     s = sys.argv[1]
     line = summary_line(s)
     print(line)
     print(f"account remaining (ledger, GST samet): ₹{remaining():.2f}")
     if "--log" in sys.argv:
-        key = next((r["channel"] for r in _story_rows(s)), None) or "dadi-ki-kahaniyan"
+        key = story_channel(s)
         with (ROOT / "channels" / key / "log.md").open("a", encoding="utf-8") as f:
             f.write(line + "\n")

@@ -1,0 +1,2 @@
+# Munshi log
+2026-10-24 | setup | YouTube login | channel नूर-ए-राह | Noor-e-Raah (UCmw4fs9jN49GTq7wVSdYm6w) verified via channels.list; own OAuth client + token in secrets/noor-e-raah/ (gitignored); tools/yt_auth.py per-channel; api_audited: false (uploads private + STUDIO ACTION); audit draft docs/YOUTUBE_API_AUDIT_DRAFT_NOOR_E_RAAH.md; Gemini spend tagged channel noor-e-raah (story_budget.py --channel)

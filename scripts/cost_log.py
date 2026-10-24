@@ -72,6 +72,12 @@ def remaining(rows=None) -> float:
     return BUDGET_INR - sum(charge_inr(r) for r in rows)
 
 
+def channel_spent(key: str, rows=None) -> float:
+    """What one channel has taken from the shared balance (the "channel" column; GST as charge_inr)."""
+    rows = _rows() if rows is None else rows
+    return sum(charge_inr(r) for r in rows if (r.get("channel") or DEFAULT_CHANNEL) == key)
+
+
 def record_call(file: Path, model: str, size: str, cost: dict, when: datetime | None = None,
                 usage: dict | None = None) -> dict:
     """Log one paid call. cost = pricing.image_cost()/tts_cost() result (estimated_usd, actual_usd, tokens)."""

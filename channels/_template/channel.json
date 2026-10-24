@@ -4,6 +4,8 @@
   "title_suffix": "| CHANNEL_NAME",
   "brand_label": "CHANNEL_NAME",
   "channel_id": "",
+  "secrets_dir": "secrets/CHANNEL_KEY",
+  "_secrets_note": "This channel's own OAuth client_secret.json + token.json (gitignored). Login: python tools/yt_auth.py <channel_key>",
   "made_for_kids": null,
   "contains_synthetic_media": false,
   "category_id": "1",

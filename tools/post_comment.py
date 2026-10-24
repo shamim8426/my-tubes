@@ -116,7 +116,7 @@ def main():
         log(f"ERROR: comment for {vid}: no YouTube token ({yu.token_path(job).name}); log in once, then run again")
         sys.exit(1)
 
-    yt = yu.get_service(job)
+    yt = yu.get_service(job, interactive=False)
     yu.check_channel(yt, job)
     for attempt in range(1, a.attempts + 1):
         items = yt.videos().list(part="status", id=vid).execute().get("items", [])

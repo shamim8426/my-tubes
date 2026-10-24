@@ -8,11 +8,11 @@ Usage:
 
 Safety: refuses to upload unless the logged-in channel ID matches job["channel_id"],
 and unless ffprobe confirms the file is a real final build (size, codec, pix_fmt).
-One token per channel: secrets/youtube_token_<channel_key>.json.
+One OAuth client + one token per channel (tools/yt_auth.py; channel.json "secrets_dir").
 
 One-time setup: see the youtube-publish skill. Needs
     pip install google-api-python-client google-auth-oauthlib
-and secrets/client_secret.json (OAuth "Desktop app" client).
+and the channel's own client_secret.json (OAuth "Desktop app" client), then: python tools/yt_auth.py <channel_key>
 """
 import argparse
 import datetime as dt
@@ -29,16 +29,10 @@ except Exception:
     pass
 
 ROOT = Path(__file__).resolve().parent.parent
-SECRETS = ROOT / "secrets"
-CLIENT_SECRET = SECRETS / "client_secret.json"
 FORMATS = {  # what a final upload must look like
     "long": {"width": 1920, "height": 1080, "max_seconds": None},
     "short": {"width": 1080, "height": 1920, "max_seconds": 60},
 }
-SCOPES = [
-    "https://www.googleapis.com/auth/youtube.upload",
-    "https://www.googleapis.com/auth/youtube.force-ssl",  # captions + playlists
-]
 RETRY_STATUS = {500, 502, 503, 504}
 MAX_RETRIES = 8
 
@@ -51,7 +45,8 @@ def resolve(job_path: Path, p):
 
 
 def token_path(job):
-    return SECRETS / f"youtube_token_{job['channel_key']}.json"
+    from yt_auth import paths
+    return paths(job["channel_key"])[1]
 
 
 def probe(video: Path):
@@ -279,28 +274,9 @@ def comment_followups(job, job_path, result, when):
                     "related_video: pending, pin_comment: pending\n")
 
 
-def get_service(job):
-    from google.auth.transport.requests import Request
-    from google.oauth2.credentials import Credentials
-    from google_auth_oauthlib.flow import InstalledAppFlow
-    from googleapiclient.discovery import build
-
-    tok = token_path(job)
-    creds = None
-    if tok.exists():
-        creds = Credentials.from_authorized_user_file(str(tok), SCOPES)
-    if not creds or not creds.valid:
-        if creds and creds.expired and creds.refresh_token:
-            creds.refresh(Request())
-        else:
-            if not CLIENT_SECRET.exists():
-                sys.exit(f"Missing {CLIENT_SECRET}. Do the one-time setup first.")
-            print(f"Browser login: pick the Google account AND the channel '{job.get('channel_name', job['channel_key'])}'.")
-            flow = InstalledAppFlow.from_client_secrets_file(str(CLIENT_SECRET), SCOPES)
-            creds = flow.run_local_server(port=0)
-        SECRETS.mkdir(exist_ok=True)
-        tok.write_text(creds.to_json(), encoding="utf-8")
-    return build("youtube", "v3", credentials=creds)
+def get_service(job, interactive=True):
+    from yt_auth import service
+    return service(job["channel_key"], interactive=interactive, channel_name=job.get("channel_name", ""))
 
 
 def check_channel(yt, job):
@@ -312,7 +288,7 @@ def check_channel(yt, job):
     title = items[0]["snippet"]["title"]
     if got != job["channel_id"]:
         sys.exit(f"WRONG CHANNEL: logged in as '{title}' ({got}), expected {job['channel_id']}. "
-                 f"Nothing uploaded. Delete {token_path(job).name} in secrets/ and log in again with the right channel.")
+                 f"Nothing uploaded. Delete {token_path(job).relative_to(ROOT).as_posix()} and log in again with the right channel.")
     print(f"Channel OK: {title} ({got})")
 
 
