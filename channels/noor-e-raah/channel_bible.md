@@ -19,7 +19,7 @@ Format aur sakht niyam: `channels/noor-e-raah/RULES.md` (section 1–3). Tilawat
 - Arabic aayat bade Arabic font me (beech me), neeche Hindi tarjuma ka caption.
 - Shan-e-nuzul: sirf jagah aur mahaul (Makka ki ghaatiyaan, registaan, raat, purane ghar, diye). Kisi Nabi, Sahabi,
   farishte ki koi tasveer, parchhai ya aakaar kabhi nahi.
-- Look test (style, rang, font) recharge ke baad; tab tak TODO.
+- Style (user 2026-10-25): **cinematic painted** (look test a) default; Arabic font Amiri, Hindi Mukta (libass).
 
 ## 4. Kram (har video)
 1. Surah ka parichay → 2. Shan-e-nuzul → 3. Aayat-dar-aayat → 4. Seekh + agli video ka ishaara.

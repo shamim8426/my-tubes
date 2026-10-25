@@ -3,7 +3,10 @@ ayah 1 lines 30, 32), 3 new images + the look-test image a + 1 calligraphy title
 ambience cues, music fade-out 1 s before the Arabic ayah, River Flute back after it. Paid key allowed (free first);
 budget "noor_samples" (₹45 incl. GST) checked before every paid call.
 
-    .venv\\Scripts\\python -X utf8 scripts\\noor_sync_sample.py
+    .venv\\Scripts\\python -X utf8 scripts\\noor_sync_sample.py             # style a -> samples/sync_sample/
+    .venv\\Scripts\\python -X utf8 scripts\\noor_sync_sample.py --style b   # style b test -> samples/sync_sample_b/
+      (user 2026-10-25, budget "noor_style_b" ₹12: 2 new images; the look-test b image is reused and the door shot
+       reuses the dawn image with another move; voice lines copied from the style a sample)
 """
 import json
 import re
@@ -25,13 +28,15 @@ from noor_audition import missing  # noqa: E402
 from noor_look_test import SCENE as LOOK_SCENE, STYLES  # noqa: E402,F401
 
 ROOT = Path(__file__).resolve().parent.parent
-OUT = ROOT / "channels/noor-e-raah/samples/sync_sample"
-LOOK_A = ROOT / "channels/noor-e-raah/samples/look_test/a_cinematic_painted.png"
+STYLE_B = "--style" in sys.argv and sys.argv[sys.argv.index("--style") + 1] == "b"
+OUT = ROOT / "channels/noor-e-raah/samples" / ("sync_sample_b" if STYLE_B else "sync_sample")
+LOOK_A = ROOT / "channels/noor-e-raah/samples/look_test" / ("b_soft_watercolor.png" if STYLE_B else "a_cinematic_painted.png")
+BUDGET = "noor_style_b" if STYLE_B else "noor_samples"
 FF = next(str(p) for p in (ROOT / "tools/ffmpeg/bin/ffmpeg.exe", ROOT / "tools/ffmpeg/ffmpeg.exe") if p.exists())
 FONT_AR = ROOT / "shared/fonts/Amiri-Regular.ttf"
 FONT_HI = ROOT / "shared/fonts/Mukta-Bold.ttf"
 VOICES = json.loads((ROOT / "channels/noor-e-raah/channel.json").read_text(encoding="utf-8"))["voices"]
-STYLE = STYLES["a_cinematic_painted"]
+STYLE = STYLES["b_soft_watercolor" if STYLE_B else "a_cinematic_painted"]
 IMAGES = {  # script SCREEN notes (parichay: valley in growing light; ayah 1: green earth after rain, morning sun)
     "dawn_valley": "A wide valley between two rocky hills of old Arabia at the very first light of dawn, the sky turning "
                    "from deep blue to soft gold, a sandy path, a few date palms, calm and hopeful. Wide 16:9; keep the "
@@ -79,13 +84,15 @@ def wav_len(p):
 def images():
     (OUT / "images").mkdir(parents=True, exist_ok=True)
     for name, scene in IMAGES.items():
+        if STYLE_B and name == "open_door_sunrise":  # ₹12 cap: 2 new images only
+            continue
         img = OUT / "images" / f"{name}.png"
         if img.exists():
             continue
         if find_names(scene + " " + STYLE):
             sys.exit(f"BLOCK (RULES 12a): name in prompt {name}")
         est = pricing.image_estimate_usd(gemini_image.MODEL, "1K", len(scene) + len(STYLE), 0) * pricing.usd_to_inr()
-        story_budget.check("noor_samples", est)
+        story_budget.check(BUDGET, est)
         gemini_image.generate(scene, img, aspect_ratio="16:9", size="1K", style=STYLE)
 
 
@@ -93,6 +100,11 @@ def voices():
     from faster_whisper import WhisperModel
     model = WhisperModel("small", device="cpu", compute_type="int8", download_root=str(ROOT / "tools/whisper-models"))
     (OUT / "lines").mkdir(parents=True, exist_ok=True)
+    if STYLE_B:  # same lines, same voices: copy the style a takes (₹0)
+        import shutil
+        for f in (OUT.parent / "sync_sample/lines").glob("*.*"):
+            if not (OUT / "lines" / f.name).exists():
+                shutil.copy(f, OUT / "lines" / f.name)
     files = []
     for n, who, text in LINES:
         f = OUT / "lines" / f"{n:03d}_{who}.wav"
@@ -100,7 +112,7 @@ def voices():
         ok = f.with_suffix(".ok")  # passed once = never re-checked (Whisper is not fully repeatable)
         for attempt in range(0 if (f.exists() and ok.exists()) else 3):  # first take + max 2 retries (RULES 1b)
             if not f.exists():
-                story_budget.check("noor_samples", pricing.tts_estimate_usd(gemini_tts.MODEL, len(text) + len(v["style"]),
+                story_budget.check(BUDGET, pricing.tts_estimate_usd(gemini_tts.MODEL, len(text) + len(v["style"]),
                                                                             len(text) / 8) * pricing.usd_to_inr())
                 gemini_tts.speak(text, v["voice"], v["style"], f)
             with wave.open(str(f)) as w:
@@ -205,7 +217,7 @@ def main():
     card = OUT / "_card.png"
     title_card(card)
     base = [(card, 0.0), (LOOK_A, T_CARD), (OUT / "images/dawn_valley.png", starts[1] - 0.3),
-            (OUT / "images/green_after_rain.png", fade_start), (OUT / "images/open_door_sunrise.png", arabic_off)]
+            (OUT / "images/green_after_rain.png", fade_start), (OUT / ("images/dawn_valley.png" if STYLE_B else "images/open_door_sunrise.png"), arabic_off)]
     seq = []  # split stretches longer than MAX_SHOT into equal parts (same image, next move)
     for i, (img, s) in enumerate(base):
         e = base[i + 1][1] if i + 1 < len(base) else END
@@ -276,7 +288,7 @@ def main():
     for p in OUT.glob("_shot*.mp4"):
         p.unlink()
     print(f"OK {out.relative_to(ROOT).as_posix()}  {END:.1f}s  total {lufs(out):.1f} LUFS")
-    print(story_budget.summary_line("noor_samples"))
+    print(story_budget.summary_line(BUDGET))
 
 
 if __name__ == "__main__":

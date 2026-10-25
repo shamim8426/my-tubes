@@ -94,7 +94,7 @@ estimate and anything only the user can decide. Stop there.
 - Munshi's script review for these stories includes the FACT CHECK.
 
 ## SURAH MODE (channel noor-e-raah; `channels/noor-e-raah/RULES.md` is binding)
-- Write ONLY from the story's `research/dossier.md` (Khoji MODE 3). No recitation audio; soft-music/ambience cues per channel RULES 1c (music fades out while an ayah is on screen). Two speakers in an
+- Write ONLY from the story's `research/dossier.md` (Khoji MODE 3). No recitation audio; soft-music/ambience cues per channel RULES 1c (music continuous; a soft swoosh cue as each ayah comes on screen). Two speakers in an
   everyday-language conversation (channel RULES 1b): `USTAAD:` (all religious content, from sources) and `SAWAAL:`
   (questions, the [MISAAL] stories, short summaries; never a religious claim of her own). Translation = SARAL BHAAVARTH
   (RULES 1a). Long ~8:00, max 2 MISAAL. Kissago parts (Dadi, Golu, 16 images, mystery question, RULES 15 length) do
@@ -108,6 +108,10 @@ estimate and anything only the user can decide. Stop there.
 - Each section names its visual (places/mood only — never a Prophet, Sahabi or angel in any form; RULES section 2).
 - End of the script: "Sources" block for the description (tafseer books, Arabic text source, translation + attribution)
   and a length estimate (the user sets the target length after the pilot).
+- From story 002 (user 2026-10-25, channel RULES 2a): the narration speaks to the viewer directly with "आप"
+  (include them: "आप जब दुआ के लिए हाथ उठाते हैं…"), and visual notes prefer POV shots ("darshak ki aankh": their own
+  hands, steps, view). People only from the back/far/silhouette without facial detail; never any Prophet, Sahabi, angel or
+  person named in the Quran - their stories only through places and symbols. Worship scenes only from far/back.
 - Munshi's script review for these scripts includes the SURAH CHECK.
 
 ## Story registry

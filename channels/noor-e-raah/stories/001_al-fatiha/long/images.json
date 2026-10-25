@@ -1,0 +1,181 @@
+{
+ "_help": "Al-Fatiha images (style a, cinematic painted; user 2026-10-25). start = the spoken line it first appears on, or 'ayah' = from that ayah's music fade-out (Arabic on screen). 'reuse' = an already paid sample image (₹0). Every new prompt gets the style block + 'no people/text' from scripts/noor_look_test.py STYLES['a_cinematic_painted']. Script SCREEN notes: places and mood only - never any Prophet, Sahabi, angel or person; no Ka'ba; no writing.",
+ "images": [
+  {
+   "id": "01_dawn_valley",
+   "start": {
+    "line": 3
+   },
+   "reuse": "channels/noor-e-raah/samples/sync_sample/images/dawn_valley.png"
+  },
+  {
+   "id": "02_valley_sunrise",
+   "start": {
+    "line": 5
+   },
+   "prompt": "The same kind of wide valley between rocky hills of old Arabia a little later at sunrise: the sun just rising between the hills, warm golden light spreading over a sandy path and a few date palms, long soft shadows, hopeful mood. Wide 16:9; keep the upper-left area calm for small on-screen cards."
+  },
+  {
+   "id": "03_seven_lamps",
+   "start": {
+    "line": 9
+   },
+   "prompt": "Seven small clay oil lamps standing in one neat row on an old stone ledge at blue dusk, each with a small warm flame, soft glow on weathered stone, a calm desert valley softly blurred behind. Wide 16:9; keep the upper-middle area calm for on-screen text."
+  },
+  {
+   "id": "04_hill_path_morning",
+   "start": {
+    "line": 12
+   },
+   "prompt": "A winding footpath climbing gently up a rocky desert hill in soft morning light, the path glowing warm where the sun touches it, open sky above, peaceful and inviting. Wide 16:9."
+  },
+  {
+   "id": "05_night_lamp_path",
+   "start": {
+    "line": 16
+   },
+   "reuse": "channels/noor-e-raah/samples/look_test/a_cinematic_painted.png"
+  },
+  {
+   "id": "06_makka_night_houses",
+   "start": {
+    "line": 18
+   },
+   "prompt": "Old Arabian town of the 7th century at night in a narrow valley of the Hijaz: simple flat-roofed mud-brick and stone houses with closed wooden doors, one small clay lamp glowing in a window, dark black-brown rocky hills around, a deep starry sky. Completely empty: no people, no figures, no silhouettes, no animals - empty streets, empty stairs and empty doorways. No domes, no minarets, no modern lights. Wide 16:9.",
+   "_regen": "user 2026-10-25: regenerated (first image had a seated figure by the stairs; Munshi R1 BLOCKER)"
+  },
+  {
+   "id": "07_rocky_valley_moon",
+   "start": {
+    "line": 19
+   },
+   "prompt": "Dry black-brown rocky hills around a narrow sandy wadi under a bright moon, silver moonlight on the rocks, a few date palms, quiet desert night. Wide 16:9."
+  },
+  {
+   "id": "08_predawn_houses",
+   "start": {
+    "line": 22
+   },
+   "prompt": "A few old flat-roofed mud-brick houses in a dry wadi of the Hijaz just before dawn: dark black-brown and grey granite-like rocky hills with rough broken slopes around, sandy dry valley floor with scattered stones and a few date palms, the sky soft deep blue turning pale near the horizon, the last stars fading. No cactus, no red sandstone, no mesas or flat-topped cliffs. Completely empty: no people, no figures. Wide 16:9.",
+   "_regen": "user 2026-10-25: regenerated to look like the Hijaz (first one looked like an American desert)"
+  },
+  {
+   "id": "09_single_lamp_dark",
+   "start": {
+    "line": 25
+   },
+   "prompt": "A single small clay oil lamp with one calm warm flame in deep darkness, its soft glow on a rough stone surface, everything else in gentle shadow, peaceful and focused. Wide 16:9; keep the upper-middle area calm and dark for on-screen text."
+  },
+  {
+   "id": "10_green_after_rain",
+   "start": {
+    "ayah": 1
+   },
+   "reuse": "channels/noor-e-raah/samples/sync_sample/images/green_after_rain.png"
+  },
+  {
+   "id": "11_open_door_sunrise",
+   "start": {
+    "line": 32
+   },
+   "reuse": "channels/noor-e-raah/samples/sync_sample/images/open_door_sunrise.png"
+  },
+  {
+   "id": "12_worlds_panorama",
+   "start": {
+    "ayah": 2
+   },
+   "prompt": "A vast panorama of many worlds in one view: a calm sea on one side, high mountains, green fields, and above them a night sky with the bright Milky Way, a distant flock of birds against the dusk, majestic and peaceful. Wide 16:9; keep the upper-middle area calm for on-screen text."
+  },
+  {
+   "id": "13_birds_fields_sunrise",
+   "start": {
+    "line": 38
+   },
+   "prompt": "A flock of small birds flying over golden fields at sunrise, soft morning haze, distant hills, warm light, a feeling of gratitude and freshness. Wide 16:9."
+  },
+  {
+   "id": "14_sunbeams_after_rain",
+   "start": {
+    "line": 42
+   },
+   "prompt": "Rain clouds parting over green fields and a small desert oasis, warm sunbeams breaking through, fresh wet leaves shining, a gentle rainbow, the gift of rain and light. Wide 16:9."
+  },
+  {
+   "id": "15_mountain_spring",
+   "start": {
+    "ayah": 3
+   },
+   "prompt": "A clear mountain spring flowing over smooth stones between rocks, fresh green plants on its banks, soft morning sunlight sparkling on the water, calm and merciful mood. Wide 16:9; keep the upper-middle area calm for on-screen text."
+  },
+  {
+   "id": "16_vast_plain_dusk",
+   "start": {
+    "ayah": 4
+   },
+   "prompt": "A vast, empty, silent plain stretching to a far horizon at sunset, the sun low and large, long shadows, a serious and solemn but not frightening mood. Wide 16:9; keep the upper-middle area calm for on-screen text."
+  },
+  {
+   "id": "17_harvest_field_dusk",
+   "start": {
+    "line": 57
+   },
+   "prompt": "A ripe wheat field ready for harvest at dusk, heavy golden ears swaying, a small mud-brick farm house far away, warm last light, the feeling of reaping what was sown. Wide 16:9."
+  },
+  {
+   "id": "18_lamp_toward_light",
+   "start": {
+    "ayah": 5
+   },
+   "prompt": "A dark quiet valley at night with one narrow path leading toward a single soft bright light on the horizon, a small lamp beside the path, everything else in deep calm shadow. Wide 16:9; keep the upper-middle area calm for on-screen text."
+  },
+  {
+   "id": "19_tea_medicine_window",
+   "start": {
+    "line": 67
+   },
+   "prompt": "A simple wooden table by a window in morning light: a cup of warm herbal tea with steam, a small glass medicine bottle, a folded cloth, plain mud-plaster wall, quiet and caring mood. No people. Wide 16:9."
+  },
+  {
+   "id": "20_single_lamp_dark_b",
+   "start": {
+    "line": 71
+   },
+   "reuse_id": "09_single_lamp_dark"
+  },
+  {
+   "id": "21_straight_desert_path",
+   "start": {
+    "ayah": 6
+   },
+   "prompt": "One straight, clear path running across a calm desert all the way to the horizon, soft dunes on both sides, early morning light, clean and simple composition. Wide 16:9; keep the upper-middle area calm for on-screen text."
+  },
+  {
+   "id": "22_path_fading_tracks",
+   "start": {
+    "ayah": 7
+   },
+   "prompt": "The same straight desert path leading toward a soft light on the horizon, while thin side tracks branch off left and right and fade away into the sand and get lost, calm morning light. Wide 16:9; keep the upper-middle area calm for on-screen text."
+  },
+  {
+   "id": "23_golden_valley_full_light",
+   "start": {
+    "line": 90
+   },
+   "prompt": "The wide valley between rocky hills of old Arabia in full golden morning light, everything clearly lit, date palms, a sandy path, open blue sky, a feeling of clarity and hope. Wide 16:9; keep the left third calm for small on-screen cards."
+  },
+  {
+   "id": "24_crescent_night_valley",
+   "start": {
+    "line": 94
+   },
+   "prompt": "A peaceful desert valley at night under a thin crescent moon and a sky full of stars, faint warm glow of one distant lamp, very calm, good for an end screen. Wide 16:9; keep the center calm for on-screen text.",
+   "rect": {
+    "fx": 1.0,
+    "fy": 0.4,
+    "zc": 1.8
+   },
+   "_rect_note": "Munshi R1 note: a modern A-frame tent + fire at x 0.33-0.36; window = right part only"
+  }
+ ]
+}

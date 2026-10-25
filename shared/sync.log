@@ -111,3 +111,4 @@
 2026-10-24 23:31:03  pushed: nightly sync  (repo pack size 337 MB)
 2026-10-24 23:42:44  pushed: noor-e-raah: samples (dialogue, look test, 30s sync) + reconcile checkpoint ₹515.31  (repo pack size 337 MB)
 2026-10-24 23:43:18  pushed: noor-e-raah: untrack sample temp files  (repo pack size 337 MB)
+2026-10-25 12:44:11  pushed: motion: smooth sub-pixel camera moves (both builders), motion_check tool, noor sync sample rebuilt  (repo pack size 337 MB)

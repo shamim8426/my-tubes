@@ -26,13 +26,19 @@ Only the rules special to this channel. Read `shared/RULES.md` first; everything
 ## 1c. Music and sound (user, 2026-10-24) — channel.json "background_music": "soft"
 - VERY soft instrumental: ambient pad, light ney/flute, soft piano or light oud notes; no beat/rhythm, no vocals, no
   catchy tune. Plus light natural ambience by the scene's mood (wind, birds, rain, water, crickets, desert wind).
-- Level: music 20–24 LU below the narration, with ducking; light warm reverb on the voices.
-- **Arabic ayah on screen: music fades out in 1 s, only light ambience; after the ayah the music comes back slowly.**
-  Music under an on-screen ayah = BLOCKER.
+- Level: music **~19 LU below the narration as heard in the mix** (user 2026-10-25: "thoda zyada"; was 20–24), with
+  ducking; light warm reverb on the voices; swoosh ~14 LU under the voice.
+- Arabic (ayat, surah title, thumbnail) is drawn by **libass (ASS, font Amiri)**, never by ffmpeg drawtext — drawtext puts
+  the harakat off their letters (Munshi final R1 2026-10-25). Hindi screen text likewise libass (nuqta).
+- **Music is continuous through the whole video (user 2026-10-25; replaces the earlier fade-out rule): it does NOT
+  stop for an ayah.** As each new ayah comes on screen, one soft swoosh (`shared/sfx/noor/swoosh_*`, ~14 LU under the
+  voice) brings the Arabic in. Track changes only by a slow crossfade. Music stopping/gapping around an ayah = MINOR;
+  a loud hit or a beat = BLOCKER.
 - Sources ONLY: (1) YouTube Audio Library (the user downloads in Studio into `shared/music/noor/`; note the licence
   type; "Attribution required" -> credit), (2) Kevin MacLeod / Incompetech (CC BY 4.0, credit), (3) Pixabay only as
   backup. Every track in `shared/assets_license.csv` before use; credits in the description.
-- Script cues: `[MUSIC soft: <mood>]`, `[AMBIENCE: <sound>]`, `[MUSIC fade-out 1s — ARABIC ON SCREEN]`, `[MUSIC back slowly]`.
+- Script cues: `[MUSIC soft: <mood>]`, `[AMBIENCE: <sound>]`, `[SWOOSH — ARABIC ON SCREEN]` (older scripts:
+  `[MUSIC fade-out 1s — ARABIC ON SCREEN]` = the same, the music plays on), `[MUSIC: <track>]` for a crossfade.
 
 ## 1a. Tarjuma (user, 2026-10-24) — never ask anyone for permission (no emails / permission requests)
 Use the first that is available, in this order:
@@ -71,6 +77,36 @@ accepted translations. Revisit only if a translation's own terms say commercial/
 - Arabic text is rendered by us in an Arabic font (licence in `shared/assets_license.csv`), never drawn by AI.
   Hindi text likewise. No AI-written letters in images.
 - No studio/artist/brand names in prompts (shared RULES 12a).
+
+### 2a. "Immersive" andaaz (user 2026-10-25) — from story 002 (Al-Baqarah 1-5); 001 Al-Fatiha stays as it is
+- **Ordinary people may appear, but ONLY from the back, far away or as a silhouette, faces without any detail.**
+  A visible or detailed face = BLOCKER.
+- **NEVER, in any form (not from the back, not far, not as silhouette/shadow/light):** any Prophet (Nabi), the
+  Prophet Muhammad ﷺ, his family, any Sahabi, any angel, and any person named in the Quran (e.g. Musa, Ibrahim, Yusuf,
+  Maryam AS, Firaun …). Their stories are shown only through places and symbols (sea, staff-less landscape, well,
+  palm, light). = BLOCKER.
+- **Worship scenes** (dua, namaz, sajda) only from far or from the back; Munshi checks the posture is correct and
+  respectful (no wrong/odd namaz posture, no mixed or immodest dress). Wrong posture = BLOCKER.
+- **POV shots first:** prefer "darshak ki aankh" shots — the viewer's own hands raised in dua, their own steps on a path,
+  what they see — over third-person scenes.
+- Style for 002 onward: to be chosen after the "cinematic watercolor" / "Musafir" tests (`samples/immersive_test/`,
+  `samples/musafir_test/`).
+- **"Musafir" — the one permanent character, FINAL look v3 (user 2026-10-25, Munshi R2 PASS; from story 002):** an
+  ordinary slim YOUNG man of 18-20, CLEAN-SHAVEN, short dark hair, plain light earth-tone (beige/khaki) kurta-pajama, a
+  small cloth bag on the shoulder, bare head or a small plain cap, simple sandals. NOT white clothes with a white head
+  cloth, NO robe/cloak, NO turban (so he never looks like a Prophet or a Sahabi). Not resembling any specific or famous
+  person. Reference: `characters/musafir/sheet_v3.png`; for scene prompts use ONLY `characters/musafir/ref_back_dua.png`
+  (standing + dua views), never a sheet view with a turned head.
+- **Musafir is shown ONLY FROM BEHIND** — directly behind or at most ~20° off, head turned away. No part of the face
+  ever: no nose tip, eyelash, eyebrow, lip or chin past the outline of the head/cheek. Never a three-quarter view, a
+  "lost profile", a side profile or a profile silhouette (tested twice: the model cannot hold those angles). The full
+  body may be shown. Any face feature = BLOCKER (Munshi zooms 8x/16x on every head).
+- **Script, captions, titles and descriptions NEVER hint that the Musafir is any special or named person** — he is just
+  "एक मुसाफ़िर", an ordinary traveller like the viewer. A hint = BLOCKER.
+- Dua posture (Musafir or anyone): elbows bent and close to the body, hands in front of the chest below the chin, palms
+  open facing up toward the face, head slightly bowed — never hands beside the head, above the shoulders or palms forward. His look comes from his
+  character sheet (`characters/musafir/sheet_*.png`, used as the image reference) and never changes. Hands: exactly
+  five fingers (Munshi zooms). Dua/worship poses only from the back or far, correct and respectful. Face detail = BLOCKER.
 
 ## 3. Research (Khoji, mode "surah") and review (Munshi)
 - Dossier per video: `stories/<NNN>_<slug>/research/dossier.md` + `sources.json`, with the section

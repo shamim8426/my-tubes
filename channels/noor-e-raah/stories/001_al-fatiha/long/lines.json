@@ -37,7 +37,10 @@
   "section": "INTRO (`part: intro`, hook)",
   "ayah": null,
   "text": "उस्ताद जी, जो सूरह हम बचपन से सुनते आए हैं — क्या हम उसका मतलब जानते हैं?",
-  "tags": []
+  "tags": [],
+  "audio": "audio/tts/003_sawaal.wav",
+  "seconds": 6.36,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -49,7 +52,11 @@
   "text": "आज उसी को समझेंगे — सूरह अल-फ़ातिहा, जिसे नबी सल्लल्लाहु अलैहि वसल्लम ने क़ुरआन की सबसे अज़ीम सूरह बताया।",
   "tags": [
    "S17"
-  ]
+  ],
+  "audio": "audio/tts/004_ustaad.wav",
+  "seconds": 9.84,
+  "tts_ok": true,
+  "user_accepted": "2026-10-25"
  },
  {
   "kind": "section",
@@ -69,7 +76,10 @@
   "section": "1. SURAH KA PARICHAY",
   "ayah": null,
   "text": "पहले नाम। 'फ़ातिहा' का मतलब क्या है?",
-  "tags": []
+  "tags": [],
+  "audio": "audio/tts/005_sawaal.wav",
+  "seconds": 3.8,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -81,7 +91,10 @@
   "text": "'फ़ातिहा' यानी खोलने वाली। क़ुरआन इसी सूरह से खुलता है।",
   "tags": [
    "S1"
-  ]
+  ],
+  "audio": "audio/tts/006_ustaad.wav",
+  "seconds": 5.44,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -94,7 +107,10 @@
   "tags": [
    "S12",
    "S10"
-  ]
+  ],
+  "audio": "audio/tts/007_ustaad.wav",
+  "seconds": 6.68,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -106,7 +122,10 @@
   "text": "हम जो गिनती ले रहे हैं, उसमें बिस्मिल्लाह पहली आयत है।",
   "tags": [
    "S11"
-  ]
+  ],
+  "audio": "audio/tts/008_ustaad.wav",
+  "seconds": 4.68,
+  "tts_ok": true
  },
  {
   "kind": "screen",
@@ -122,7 +141,10 @@
   "section": "1. SURAH KA PARICHAY",
   "ayah": null,
   "text": "और इसके नाम? मैंने एक से ज़्यादा सुने हैं।",
-  "tags": []
+  "tags": [],
+  "audio": "audio/tts/009_sawaal.wav",
+  "seconds": 4.52,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -134,7 +156,10 @@
   "text": "हाँ, कई नाम हैं। 'उम्मुल-क़ुरआन' — यानी क़ुरआन की असल, उसकी जड़।",
   "tags": [
    "S2"
-  ]
+  ],
+  "audio": "audio/tts/010_ustaad.wav",
+  "seconds": 7.36,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -146,7 +171,10 @@
   "text": "'अस-सब्उल-मसानी' — यानी बार-बार दोहराई जाने वाली सात आयतें।",
   "tags": [
    "S3"
-  ]
+  ],
+  "audio": "audio/tts/011_ustaad.wav",
+  "seconds": 7.64,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -156,7 +184,10 @@
   "section": "1. SURAH KA PARICHAY",
   "ayah": null,
   "text": "अच्छा! तो एक बात में — इस सूरह में है क्या?",
-  "tags": []
+  "tags": [],
+  "audio": "audio/tts/012_sawaal.wav",
+  "seconds": 3.84,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -168,7 +199,10 @@
   "text": "पहले अल्लाह की तारीफ़, फिर सिर्फ़ उसी की इबादत और उसी से मदद, और आख़िर में सीधी राह की दुआ।",
   "tags": [
    "S20"
-  ]
+  ],
+  "audio": "audio/tts/013_ustaad.wav",
+  "seconds": 9.48,
+  "tts_ok": true
  },
  {
   "kind": "section",
@@ -204,7 +238,10 @@
   "section": "2. SHAN-E-NUZUL",
   "ayah": null,
   "text": "ये सूरह कब उतरी? कोई ख़ास वाक़िया?",
-  "tags": []
+  "tags": [],
+  "audio": "audio/tts/016_sawaal.wav",
+  "seconds": 3.88,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -216,7 +253,10 @@
   "text": "पहले एक साफ़ बात: इसके उतरने के किसी ख़ास वाक़िये की कोई मज़बूत रिवायत नहीं मिलती।",
   "tags": [
    "S15"
-  ]
+  ],
+  "audio": "audio/tts/017_ustaad.wav",
+  "seconds": 7.4,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -229,7 +269,10 @@
   "tags": [
    "S15",
    "S9"
-  ]
+  ],
+  "audio": "audio/tts/018_ustaad.wav",
+  "seconds": 8.96,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -239,7 +282,10 @@
   "section": "2. SHAN-E-NUZUL",
   "ayah": null,
   "text": "और कोई दूसरी राय भी है?",
-  "tags": []
+  "tags": [],
+  "audio": "audio/tts/019_sawaal.wav",
+  "seconds": 2.64,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -251,7 +297,10 @@
   "text": "कुछ उलमा ने इसे मदीना में उतरी सूरह माना।",
   "tags": [
    "S9"
-  ]
+  ],
+  "audio": "audio/tts/020_ustaad.wav",
+  "seconds": 4.68,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -263,7 +312,10 @@
   "text": "और कुछ ने कहा कि ये दो बार उतरी — एक बार मक्का में, एक बार मदीना में।",
   "tags": [
    "S9"
-  ]
+  ],
+  "audio": "audio/tts/021_ustaad.wav",
+  "seconds": 6.4,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -275,7 +327,10 @@
   "text": "इमाम इब्न कसीर के नज़दीक पहली राय — यानी इसका मक्की होना — ज़्यादा मुनासिब है।",
   "tags": [
    "S9"
-  ]
+  ],
+  "audio": "audio/tts/022_ustaad.wav",
+  "seconds": 7.4,
+  "tts_ok": true
  },
  {
   "kind": "section",
@@ -317,7 +372,10 @@
   "section": "3. AAYAT-DAR-AAYAT",
   "ayah": null,
   "text": "अब आयतें। पढ़ते वक़्त किस बात पर ध्यान दें?",
-  "tags": []
+  "tags": [],
+  "audio": "audio/tts/025_sawaal.wav",
+  "seconds": 3.48,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -330,7 +388,10 @@
   "tags": [
    "S16",
    "S4"
-  ]
+  ],
+  "audio": "audio/tts/026_ustaad.wav",
+  "seconds": 10.4,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -342,7 +403,10 @@
   "text": "'और मेरे बंदे को वो मिलेगा जो उसने माँगा।' फिर हदीस बताती है कि फ़ातिहा के हिस्सों पर अल्लाह की तरफ़ से जवाब आता है।",
   "tags": [
    "S16"
-  ]
+  ],
+  "audio": "audio/tts/027_ustaad.wav",
+  "seconds": 9.48,
+  "tts_ok": true
  },
  {
   "kind": "ayah",
@@ -383,7 +447,10 @@
   "section": "3. AAYAT-DAR-AAYAT",
   "ayah": 1,
   "text": "पहली आयत: अल्लाह के नाम से शुरू — वो, जो बेहद मेहरबान है, और बहुत रहम करने वाला है।",
-  "tags": []
+  "tags": [],
+  "audio": "audio/tts/030_ustaad.wav",
+  "seconds": 9.28,
+  "tts_ok": true
  },
  {
   "kind": "cue",
@@ -403,7 +470,10 @@
   "text": "यानी हर काम की शुरुआत अल्लाह के नाम से — उसकी मदद और बरकत के साथ।",
   "tags": [
    "M1"
-  ]
+  ],
+  "audio": "audio/tts/032_ustaad.wav",
+  "seconds": 6.76,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -415,7 +485,10 @@
   "text": "'रहमान' और 'रहीम' — दोनों उसकी बहुत बड़ी और पूरी रहमत के नाम हैं।",
   "tags": [
    "M1"
-  ]
+  ],
+  "audio": "audio/tts/033_ustaad.wav",
+  "seconds": 6.72,
+  "tts_ok": true
  },
  {
   "kind": "ayah",
@@ -456,7 +529,10 @@
   "section": "3. AAYAT-DAR-AAYAT",
   "ayah": 2,
   "text": "दूसरी आयत: हर तारीफ़ असल में अल्लाह की है — वो सारे जहानों का पालने वाला मालिक है।",
-  "tags": []
+  "tags": [],
+  "audio": "audio/tts/036_ustaad.wav",
+  "seconds": 9.24,
+  "tts_ok": true
  },
  {
   "kind": "cue",
@@ -474,7 +550,10 @@
   "section": "3. AAYAT-DAR-AAYAT",
   "ayah": 2,
   "text": "'हम्द' — क्या ये बस शुक्रिया कहना है?",
-  "tags": []
+  "tags": [],
+  "audio": "audio/tts/038_sawaal.wav",
+  "seconds": 3.68,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -486,7 +565,10 @@
   "text": "'हम्द' सिर्फ़ शुक्रिया नहीं — किसी की ख़ूबियों की तारीफ़ भी हम्द है।",
   "tags": [
    "M2"
-  ]
+  ],
+  "audio": "audio/tts/039_ustaad.wav",
+  "seconds": 5.96,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -498,7 +580,10 @@
   "text": "'रब' वो मालिक है जो पालता है, सँभालता है। और 'आलमीन' यानी अल्लाह के सिवा सारी मख़लूक़ — हर जहान।",
   "tags": [
    "M2"
-  ]
+  ],
+  "audio": "audio/tts/040_ustaad.wav",
+  "seconds": 11.56,
+  "tts_ok": true
  },
  {
   "kind": "cue",
@@ -518,7 +603,10 @@
   "text": "कोई हमारा गिरा सामान उठा दे, तो हम झट से 'शुक्रिया' कहते हैं।",
   "tags": [
    "MISAAL"
-  ]
+  ],
+  "audio": "audio/tts/042_sawaal.wav",
+  "seconds": 4.4,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -530,7 +618,10 @@
   "text": "पर बारिश, साँस, सुबह का सूरज — ये तो बिना माँगे मिले। इन्हें देने वाले की ख़ूबियों को सराहना... क्या यही हम्द है?",
   "tags": [
    "MISAAL"
-  ]
+  ],
+  "audio": "audio/tts/043_sawaal.wav",
+  "seconds": 10.64,
+  "tts_ok": true
  },
  {
   "kind": "cue",
@@ -551,7 +642,10 @@
   "tags": [
    "M2",
    "S16"
-  ]
+  ],
+  "audio": "audio/tts/045_ustaad.wav",
+  "seconds": 9.6,
+  "tts_ok": true
  },
  {
   "kind": "ayah",
@@ -592,7 +686,10 @@
   "section": "3. AAYAT-DAR-AAYAT",
   "ayah": 3,
   "text": "तीसरी आयत: वो बेहद मेहरबान है, बहुत रहम करने वाला।",
-  "tags": []
+  "tags": [],
+  "audio": "audio/tts/048_ustaad.wav",
+  "seconds": 6.12,
+  "tts_ok": true
  },
  {
   "kind": "cue",
@@ -612,7 +709,10 @@
   "text": "'रब' के ठीक बाद रहमत का ज़िक्र — यानी वो सारे जहान को किसी मजबूरी से नहीं, अपनी रहमत से पालता है।",
   "tags": [
    "M3"
-  ]
+  ],
+  "audio": "audio/tts/050_ustaad.wav",
+  "seconds": 9.6,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -625,7 +725,10 @@
   "tags": [
    "M3",
    "S16"
-  ]
+  ],
+  "audio": "audio/tts/051_ustaad.wav",
+  "seconds": 7.72,
+  "tts_ok": true
  },
  {
   "kind": "ayah",
@@ -666,7 +769,10 @@
   "section": "3. AAYAT-DAR-AAYAT",
   "ayah": 4,
   "text": "चौथी आयत: जिस दिन हर किसी को बदला मिलेगा, उस दिन का मालिक वही है।",
-  "tags": []
+  "tags": [],
+  "audio": "audio/tts/054_ustaad.wav",
+  "seconds": 7.48,
+  "tts_ok": true
  },
  {
   "kind": "cue",
@@ -684,7 +790,11 @@
   "section": "3. AAYAT-DAR-AAYAT",
   "ayah": 4,
   "text": "उस्ताद जी, ख़ास 'उस दिन' का मालिक क्यों कहा गया?",
-  "tags": []
+  "tags": [],
+  "audio": "audio/tts/056_sawaal.wav",
+  "seconds": 4.16,
+  "tts_ok": true,
+  "user_accepted": "2026-10-25"
  },
  {
   "kind": "line",
@@ -696,7 +806,10 @@
   "text": "मालिक तो वो हमेशा है; पर हिसाब और बदले के उस दिन कोई और, किसी चीज़ का नाम-भर का मालिक भी नहीं होगा।",
   "tags": [
    "M4"
-  ]
+  ],
+  "audio": "audio/tts/057_ustaad.wav",
+  "seconds": 8.88,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -708,7 +821,11 @@
   "text": "दुनिया अमल की जगह है, और हर अमल का पूरा बदला उसी दिन मिलेगा।",
   "tags": [
    "M4"
-  ]
+  ],
+  "audio": "audio/tts/058_ustaad.wav",
+  "seconds": 6.68,
+  "tts_ok": true,
+  "user_accepted": "2026-10-25"
  },
  {
   "kind": "line",
@@ -720,7 +837,10 @@
   "text": "जवाब: 'मेरे बंदे ने मेरी बुज़ुर्गी बयान की' — 'बुज़ुर्गी' यानी बड़ाई।",
   "tags": [
    "S16"
-  ]
+  ],
+  "audio": "audio/tts/059_ustaad.wav",
+  "seconds": 6.2,
+  "tts_ok": true
  },
  {
   "kind": "ayah",
@@ -761,7 +881,10 @@
   "section": "3. AAYAT-DAR-AAYAT",
   "ayah": 5,
   "text": "पाँचवीं आयत: ऐ अल्लाह, हम सिर्फ़ तेरी इबादत करते हैं, और मदद भी सिर्फ़ तुझसे ही माँगते हैं।",
-  "tags": []
+  "tags": [],
+  "audio": "audio/tts/062_ustaad.wav",
+  "seconds": 8.4,
+  "tts_ok": true
  },
  {
   "kind": "cue",
@@ -781,7 +904,11 @@
   "text": "ध्यान दीजिए — यहाँ से बंदा 'वो' नहीं, सीधे 'तू' कह कर अल्लाह से बात करता है।",
   "tags": [
    "M5"
-  ]
+  ],
+  "audio": "audio/tts/064_ustaad.wav",
+  "seconds": 8.08,
+  "tts_ok": true,
+  "user_accepted": "2026-10-25"
  },
  {
   "kind": "line",
@@ -793,7 +920,10 @@
   "text": "अरबी में 'तुझी को' पहले आया — यानी सिर्फ़ तू। इबादत यानी पूरी मोहब्बत से, ख़ुद को छोटा मान कर झुकना।",
   "tags": [
    "M5"
-  ]
+  ],
+  "audio": "audio/tts/065_ustaad.wav",
+  "seconds": 10.88,
+  "tts_ok": true
  },
  {
   "kind": "cue",
@@ -813,7 +943,11 @@
   "text": "पर उस्ताद जी, बुख़ार में हम डॉक्टर के पास जाते हैं, मुश्किल में दोस्त से मदद माँगते हैं।",
   "tags": [
    "MISAAL"
-  ]
+  ],
+  "audio": "audio/tts/067_sawaal.wav",
+  "seconds": 6.76,
+  "tts_ok": true,
+  "user_accepted": "2026-10-25"
  },
  {
   "kind": "cue",
@@ -831,7 +965,10 @@
   "section": "3. AAYAT-DAR-AAYAT",
   "ayah": 5,
   "text": "तो इस आयत का इससे क्या रिश्ता है?",
-  "tags": []
+  "tags": [],
+  "audio": "audio/tts/069_sawaal.wav",
+  "seconds": 3.12,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -844,7 +981,10 @@
   "tags": [
    "M5",
    "MISAAL"
-  ]
+  ],
+  "audio": "audio/tts/070_ustaad.wav",
+  "seconds": 12.64,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -856,7 +996,10 @@
   "text": "जवाब: 'ये मेरे और मेरे बंदे के बीच है, और मेरे बंदे को वो मिलेगा जो उसने माँगा।'",
   "tags": [
    "S16"
-  ]
+  ],
+  "audio": "audio/tts/071_ustaad.wav",
+  "seconds": 8.36,
+  "tts_ok": true
  },
  {
   "kind": "ayah",
@@ -897,7 +1040,10 @@
   "section": "3. AAYAT-DAR-AAYAT",
   "ayah": 6,
   "text": "छठी आयत: हमें सीधी राह दिखा, और उस पर चला।",
-  "tags": []
+  "tags": [],
+  "audio": "audio/tts/074_ustaad.wav",
+  "seconds": 5.84,
+  "tts_ok": true
  },
  {
   "kind": "cue",
@@ -915,7 +1061,10 @@
   "section": "3. AAYAT-DAR-AAYAT",
   "ayah": 6,
   "text": "जो पहले से सीधी राह पर है, वो भी रोज़ ये दुआ क्यों माँगे?",
-  "tags": []
+  "tags": [],
+  "audio": "audio/tts/076_sawaal.wav",
+  "seconds": 4.52,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -927,7 +1076,10 @@
   "text": "सीधी राह यानी साफ़ रास्ता, जिसमें भटकाव की कोई शाख़ न हो।",
   "tags": [
    "M6"
-  ]
+  ],
+  "audio": "audio/tts/077_ustaad.wav",
+  "seconds": 6.16,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -939,7 +1091,10 @@
   "text": "ईमान वाला भी रोज़ माँगता है कि अल्लाह उसे इसी राह पर जमाए रखे — क्योंकि हर क़दम पर रहनुमाई चाहिए।",
   "tags": [
    "M6"
-  ]
+  ],
+  "audio": "audio/tts/078_ustaad.wav",
+  "seconds": 8.24,
+  "tts_ok": true
  },
  {
   "kind": "ayah",
@@ -980,7 +1135,10 @@
   "section": "3. AAYAT-DAR-AAYAT",
   "ayah": 7,
   "text": "सातवीं आयत: उन लोगों की राह, जिन्हें तूने अपनी नेमतों से नवाज़ा; न उनकी राह, जिन पर तेरा ग़ुस्सा हुआ, और न उनकी, जो रास्ते से भटक गए।",
-  "tags": []
+  "tags": [],
+  "audio": "audio/tts/081_ustaad.wav",
+  "seconds": 14.0,
+  "tts_ok": true
  },
  {
   "kind": "cue",
@@ -998,7 +1156,11 @@
   "section": "3. AAYAT-DAR-AAYAT",
   "ayah": 7,
   "text": "ये नेमत वाले लोग कौन हैं? और किनकी राह से बचने की दुआ है?",
-  "tags": []
+  "tags": [],
+  "audio": "audio/tts/083_sawaal.wav",
+  "seconds": 5.72,
+  "tts_ok": true,
+  "user_accepted": "2026-10-25"
  },
  {
   "kind": "line",
@@ -1010,7 +1172,10 @@
   "text": "सूरह अन-निसा की आयत उनहत्तर बताती है — नबी, सिद्दीक़ीन यानी सच्चाई में सबसे पक्के लोग, शहीद, और नेक लोग।",
   "tags": [
    "M7"
-  ]
+  ],
+  "audio": "audio/tts/084_ustaad.wav",
+  "seconds": 11.72,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -1022,7 +1187,10 @@
   "text": "और बचने की दुआ दो राहों से है: एक उनकी, जिन्होंने हक़ जान कर भी जान-बूझकर छोड़ दिया;",
   "tags": [
    "M7"
-  ]
+  ],
+  "audio": "audio/tts/085_ustaad.wav",
+  "seconds": 8.84,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -1034,7 +1202,10 @@
   "text": "और दूसरी उनकी, जो इल्म के बिना या लापरवाही से भटक गए।",
   "tags": [
    "M7"
-  ]
+  ],
+  "audio": "audio/tts/086_ustaad.wav",
+  "seconds": 5.28,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -1046,7 +1217,10 @@
   "text": "आख़िरी दुआ पर जवाब: 'ये मेरे बंदे के लिए है, और मेरे बंदे को वो मिलेगा जो उसने माँगा।'",
   "tags": [
    "S16"
-  ]
+  ],
+  "audio": "audio/tts/087_ustaad.wav",
+  "seconds": 8.24,
+  "tts_ok": true
  },
  {
   "kind": "section",
@@ -1082,7 +1256,10 @@
   "section": "4. SEEKH",
   "ayah": null,
   "text": "तो उस्ताद जी, हमारी ज़िंदगी के लिए सीख क्या है?",
-  "tags": []
+  "tags": [],
+  "audio": "audio/tts/090_sawaal.wav",
+  "seconds": 3.76,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -1095,7 +1272,10 @@
   "tags": [
    "S20",
    "M2"
-  ]
+  ],
+  "audio": "audio/tts/091_ustaad.wav",
+  "seconds": 9.12,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -1107,7 +1287,10 @@
   "text": "दूसरी: मेहनत भी, मदद भी — पर दिल का आख़िरी भरोसा अल्लाह पर।",
   "tags": [
    "M5"
-  ]
+  ],
+  "audio": "audio/tts/092_ustaad.wav",
+  "seconds": 7.12,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -1119,7 +1302,10 @@
   "text": "तीसरी: सीधी राह की दुआ एक बार नहीं — हर दिन, हर फ़ैसले पर।",
   "tags": [
    "M6"
-  ]
+  ],
+  "audio": "audio/tts/093_ustaad.wav",
+  "seconds": 7.4,
+  "tts_ok": true
  },
  {
   "kind": "screen",
@@ -1137,7 +1323,10 @@
   "text": "अगली बार, 'शुरू से क़ुरआन' में: सूरह अल-बक़रह की पहली पाँच आयतें।",
   "tags": [
    "NEXT"
-  ]
+  ],
+  "audio": "audio/tts/094_ustaad.wav",
+  "seconds": 5.96,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -1147,7 +1336,10 @@
   "section": "4. SEEKH",
   "ayah": null,
   "text": "और आप कमेंट में बताइए — फ़ातिहा की कौन-सी आयत आपके दिल के सबसे क़रीब है, और क्यों?",
-  "tags": []
+  "tags": [],
+  "audio": "audio/tts/095_sawaal.wav",
+  "seconds": 7.04,
+  "tts_ok": true
  },
  {
   "kind": "cue",

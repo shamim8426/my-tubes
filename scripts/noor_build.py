@@ -116,6 +116,33 @@ def tts(story: Path):
     print("\n".join(md[:5]))
 
 
+def images(story: Path):
+    """long/images.json: new images (style block + no people/text, 16:9, 1K) or reused paid sample images."""
+    import shutil
+    sys.path.insert(0, str(ROOT / "tools"))
+    import gemini_image
+    from name_guard import find_names
+    from noor_look_test import STYLES
+    style = STYLES["a_cinematic_painted"]
+    plan = json.loads((story / "long/images.json").read_text(encoding="utf-8"))["images"]
+    out = story / "images"
+    out.mkdir(exist_ok=True)
+    for im in plan:
+        f = out / f"{im['id']}.png"
+        if f.exists() or "reuse_id" in im:
+            continue
+        if "reuse" in im:
+            shutil.copy(ROOT / im["reuse"], f)
+            print(f"{im['id']}: reused (₹0)")
+            continue
+        if find_names(im["prompt"] + " " + style):
+            sys.exit(f"BLOCK (RULES 12a): a name in the prompt of {im['id']}")
+        est = pricing.image_estimate_usd(gemini_image.MODEL, "1K", len(im["prompt"]) + len(style), 0) * pricing.usd_to_inr()
+        story_budget.check(story.name, est)
+        gemini_image.generate(im["prompt"], f, aspect_ratio="16:9", size="1K", style=style)
+    print(story_budget.summary_line(story.name))
+
+
 def main():
     story = (ROOT / sys.argv[1]).resolve() if not Path(sys.argv[1]).is_absolute() else Path(sys.argv[1])
     stage = sys.argv[2]
@@ -127,6 +154,8 @@ def main():
               "sawaal", sum(1 for i in items if i.get("speaker") == "sawaal"))
     elif stage == "tts":
         tts(story)
+    elif stage == "images":
+        images(story)
 
 
 if __name__ == "__main__":

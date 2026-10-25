@@ -14,3 +14,14 @@
 - open | long/review/script_sheet.md: (b) ke neeche "Line 28: Bismillah..." -> line 27; (c) notes "Line 96 viewers se sawaal" -> line 95 (sirf number).
 - open | audio stage: line 14 Soaring -> Quietude ≥1 s crossfade (shared RULES 3), dialogue ke beech nahi; line 23 (Quietude) aur 88 (River Flute) par track jaari rahe, restart nahi.
 - open | audio stage: wind_birds_petebuchwald_288899 aur gentle_breeze me paani ki awaaz nahi (kaan se), Soaring me beat/percussion nahi (RULES 1c) — mix me jaancho.
+
+## 001_al-fatiha (images R2, 2026-10-25) — open
+- open | long/review/tts_report.md purana hai (12:50, "Whisper OK 53/62"); lines.json 62/62 tts_ok + .ok sab maujood. Report refresh karo (sirf bookkeeping, ₹0).
+- open | 08_predawn_houses: darwaze ke daayein (x~675-700, y~510-560) safed plaster ka khamba/buttress, upar gol gaanth. Munshi: deewar ka hissa, insaan nahi. Agar user ko aakaar dikhe: free rect {fx 0.249, fy 0.5, zc 2.2} (x 35-655, ghar + darwaza + lantern rehte hain), delogo nahi.
+- open | 24_crescent_night_valley: rect window (x 0.445-0.996) tent se bahar, par usme ab bhi laal chattan/mesa (American look, jo 08 me user ne hataya). End screen hai, niyam nahi tootta; agli kahaniyon ke prompts me "no mesas, no red sandstone" pehle se likho.
+- open | 06 khidki ka chiraag phir diya-jaisa (R1 note 5); agle prompts me "spouted Arabian clay oil lamp".
+
+## 001_al-fatiha (FINAL R2, 2026-10-25) — open
+- open | first audible word 1.05 s (line placed 0.80 s, TTS wav has ~0.25 s lead breath); RULES 13 ≤1.0 s. Next video: LEAD 0.7 or trim TTS lead silence.
+- open | thumbnail main Hindi text ≈8% of frame height (rule ~12%); next thumbnail bigger font / fewer words per line.
+- open | metadata chapter ayah 5 at 4:43 begins 0.4 s before line 59 ends; chapter time = swoosh time floored (4:44), not cue time.

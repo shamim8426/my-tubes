@@ -41,7 +41,9 @@ Layout: `channels/<key>/stories/<NNN>_<slug>/` holds images/, audio/, characters
   source ke bina shan-e-nuzul ki baat = BLOCKER; "chhoda gaya" list ki koi baat = BLOCKER; ikhtilaaf ko pakki baat ki
   tarah bolna = MAJOR; Arabic aur TARJUMA dossier ke source se akshar-akshar mile, warna BLOCKER; tarjume/text ka licence
   register me na ho = copyright shak (ASK). Kisi Nabi/Sahabi/farishte ki tasveer, parchhai ya aakaar, koi tilawat audio,
-  ya vocal/beat wala music, ya screen par Arabic aayat ke waqt music (RULES 1c: 1 s fade-out, sirf ambience) = BLOCKER; music 20–24 LU neeche aur har track register me. SAWAAL ki line me deeni daawa (hukm, fazilat, tafseer ki baat) = MAJOR (wo sirf
+  ya vocal/beat wala music = BLOCKER; music poori video me lagaataar (RULES 1c, 2026-10-25): aayat par music rukna = MINOR, har aayat par sirf ek halka swoosh, zor ka hit = BLOCKER; music 20–24 LU neeche aur har track register me. Story 002 se (RULES 2a): aam insaan sirf peeth/door/parchhai, chehra bina detail (detailed chehra = BLOCKER);
+  Nabi/Sahabi/farishta/Quran me naam se aaye log kisi bhi roop me = BLOCKER; ibaadat ka drishya sirf door/peeth se aur
+  sahi, izzat bhara posture (galat posture = BLOCKER). SAWAAL ki line me deeni daawa (hukm, fazilat, tafseer ki baat) = MAJOR (wo sirf
   USTAAD bole). BHAAVARTH ka matlab teeno tarjumon se alag = BLOCKER; kisi ek ki ibaarat copy = MAJOR. Review sheet (`review/<round>.md`) me shan-e-nuzul ki har baat ki alag line: [S#], baat,
   source link(s), grade.
 - Sensitive vishay aur tyohaar ki jaankari ki sahi-galat jaanch karo (RULES 12a: dharm/jaati/rajneeti/ilaaka/rang-roop/viklaangta ka mazaak nahi, ladke-ladkiyon ke barabar roles, asli vyakti/brand/jagah ka naam nahi; tyohaar ki tareekh `festival_calendar.md` se aur rasm/jaankari bharosemand source se). Galat = BLOCKER.

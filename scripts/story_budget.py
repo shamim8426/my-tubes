@@ -39,7 +39,18 @@ EXTRA_FILES = {
     "character_refresh": ["channels/dadi-ki-kahaniyan/characters/tinku_mummy/",
                           "channels/dadi-ki-kahaniyan/characters/_v2_look/"],
     # Noor-e-Raah samples: dialogue, look test, 30 s sync sample (own budget ₹45 incl. GST, user 2026-10-24)
-    "noor_samples": ["channels/noor-e-raah/music_samples/", "channels/noor-e-raah/samples/"],
+    "noor_samples": ["channels/noor-e-raah/music_samples/", "channels/noor-e-raah/samples/look_test/",
+                     "channels/noor-e-raah/samples/sync_sample/"],
+    # style b test (user 2026-10-25, own budget ₹12)
+    "noor_style_b": ["channels/noor-e-raah/samples/sync_sample_b/"],
+    # "immersive" cinematic watercolor test (user 2026-10-25, own budget ₹25)
+    "noor_immersive_test": ["channels/noor-e-raah/samples/immersive_test/"],
+    # "Musafir" character sheet + 3 scenes x 2 cinematic styles (user 2026-10-25, own budget ₹40)
+    "noor_musafir_test": ["channels/noor-e-raah/samples/musafir_test/"],
+    # "Musafir" v2: young, beardless, kurta-pajama; style V2 only (user 2026-10-25, own budget ₹20)
+    "noor_musafir_v2": ["channels/noor-e-raah/samples/musafir_v2/"],
+    # "Musafir" v3: beige kurta-pajama, only from behind (user 2026-10-25, own budget ₹12)
+    "noor_musafir_v3": ["channels/noor-e-raah/samples/musafir_v3/"],
 }
 
 

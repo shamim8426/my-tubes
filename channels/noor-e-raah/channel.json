@@ -68,5 +68,7 @@
   "tagline": "क़ुरआन, आसान ज़बान में।",
   "spelling": {
     "quran": "क़ुरआन (everywhere: series, tagline, titles, description, script)"
-  }
+  },
+  "image_style": "noor_cinematic_painted",
+  "_image_style_note": "User 2026-10-25: style a (cinematic painted) is the default. Style block: scripts/noor_look_test.py STYLES['a_cinematic_painted']. No people, no text in images; Arabic/Hindi only via fonts."
 }

@@ -1,0 +1,1896 @@
+{
+ "lines": [
+  {
+   "kind": "line",
+   "n": 3,
+   "speaker": "sawaal",
+   "role": "",
+   "section": "INTRO (`part: intro`, hook)",
+   "ayah": null,
+   "text": "उस्ताद जी, जो सूरह हम बचपन से सुनते आए हैं — क्या हम उसका मतलब जानते हैं?",
+   "tags": [],
+   "audio": "audio/tts/003_sawaal.wav",
+   "seconds": 6.36,
+   "tts_ok": true,
+   "start": 0.8,
+   "end": 6.689
+  },
+  {
+   "kind": "line",
+   "n": 4,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "INTRO (`part: intro`, hook)",
+   "ayah": null,
+   "text": "आज उसी को समझेंगे — सूरह अल-फ़ातिहा, जिसे नबी सल्लल्लाहु अलैहि वसल्लम ने क़ुरआन की सबसे अज़ीम सूरह बताया।",
+   "tags": [
+    "S17"
+   ],
+   "audio": "audio/tts/004_ustaad.wav",
+   "seconds": 9.84,
+   "tts_ok": true,
+   "user_accepted": "2026-10-25",
+   "start": 7.289,
+   "end": 16.4
+  },
+  {
+   "kind": "line",
+   "n": 5,
+   "speaker": "sawaal",
+   "role": "",
+   "section": "1. SURAH KA PARICHAY",
+   "ayah": null,
+   "text": "पहले नाम। 'फ़ातिहा' का मतलब क्या है?",
+   "tags": [],
+   "audio": "audio/tts/005_sawaal.wav",
+   "seconds": 3.8,
+   "tts_ok": true,
+   "start": 17.8,
+   "end": 21.319
+  },
+  {
+   "kind": "line",
+   "n": 6,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "1. SURAH KA PARICHAY",
+   "ayah": null,
+   "text": "'फ़ातिहा' यानी खोलने वाली। क़ुरआन इसी सूरह से खुलता है।",
+   "tags": [
+    "S1"
+   ],
+   "audio": "audio/tts/006_ustaad.wav",
+   "seconds": 5.44,
+   "tts_ok": true,
+   "start": 21.919,
+   "end": 26.956
+  },
+  {
+   "kind": "line",
+   "n": 7,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "1. SURAH KA PARICHAY",
+   "ayah": null,
+   "text": "ये क़ुरआन की पहली सूरह है, और इसकी आयतें सात हैं — इस पर उलमा एक राय हैं।",
+   "tags": [
+    "S12",
+    "S10"
+   ],
+   "audio": "audio/tts/007_ustaad.wav",
+   "seconds": 6.68,
+   "tts_ok": true,
+   "start": 27.306,
+   "end": 33.491
+  },
+  {
+   "kind": "line",
+   "n": 8,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "1. SURAH KA PARICHAY",
+   "ayah": null,
+   "text": "हम जो गिनती ले रहे हैं, उसमें बिस्मिल्लाह पहली आयत है।",
+   "tags": [
+    "S11"
+   ],
+   "audio": "audio/tts/008_ustaad.wav",
+   "seconds": 4.68,
+   "tts_ok": true,
+   "start": 33.841,
+   "end": 38.174
+  },
+  {
+   "kind": "line",
+   "n": 9,
+   "speaker": "sawaal",
+   "role": "",
+   "section": "1. SURAH KA PARICHAY",
+   "ayah": null,
+   "text": "और इसके नाम? मैंने एक से ज़्यादा सुने हैं।",
+   "tags": [],
+   "audio": "audio/tts/009_sawaal.wav",
+   "seconds": 4.52,
+   "tts_ok": true,
+   "start": 38.774,
+   "end": 42.959
+  },
+  {
+   "kind": "line",
+   "n": 10,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "1. SURAH KA PARICHAY",
+   "ayah": null,
+   "text": "हाँ, कई नाम हैं। 'उम्मुल-क़ुरआन' — यानी क़ुरआन की असल, उसकी जड़।",
+   "tags": [
+    "S2"
+   ],
+   "audio": "audio/tts/010_ustaad.wav",
+   "seconds": 7.36,
+   "tts_ok": true,
+   "start": 43.559,
+   "end": 50.374
+  },
+  {
+   "kind": "line",
+   "n": 11,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "1. SURAH KA PARICHAY",
+   "ayah": null,
+   "text": "'अस-सब्उल-मसानी' — यानी बार-बार दोहराई जाने वाली सात आयतें।",
+   "tags": [
+    "S3"
+   ],
+   "audio": "audio/tts/011_ustaad.wav",
+   "seconds": 7.64,
+   "tts_ok": true,
+   "start": 50.724,
+   "end": 57.798
+  },
+  {
+   "kind": "line",
+   "n": 12,
+   "speaker": "sawaal",
+   "role": "",
+   "section": "1. SURAH KA PARICHAY",
+   "ayah": null,
+   "text": "अच्छा! तो एक बात में — इस सूरह में है क्या?",
+   "tags": [],
+   "audio": "audio/tts/012_sawaal.wav",
+   "seconds": 3.84,
+   "tts_ok": true,
+   "start": 58.398,
+   "end": 61.954
+  },
+  {
+   "kind": "line",
+   "n": 13,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "1. SURAH KA PARICHAY",
+   "ayah": null,
+   "text": "पहले अल्लाह की तारीफ़, फिर सिर्फ़ उसी की इबादत और उसी से मदद, और आख़िर में सीधी राह की दुआ।",
+   "tags": [
+    "S20"
+   ],
+   "audio": "audio/tts/013_ustaad.wav",
+   "seconds": 9.48,
+   "tts_ok": true,
+   "start": 62.554,
+   "end": 71.331
+  },
+  {
+   "kind": "line",
+   "n": 16,
+   "speaker": "sawaal",
+   "role": "",
+   "section": "2. SHAN-E-NUZUL",
+   "ayah": null,
+   "text": "ये सूरह कब उतरी? कोई ख़ास वाक़िया?",
+   "tags": [],
+   "audio": "audio/tts/016_sawaal.wav",
+   "seconds": 3.88,
+   "tts_ok": true,
+   "start": 72.731,
+   "end": 76.324
+  },
+  {
+   "kind": "line",
+   "n": 17,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "2. SHAN-E-NUZUL",
+   "ayah": null,
+   "text": "पहले एक साफ़ बात: इसके उतरने के किसी ख़ास वाक़िये की कोई मज़बूत रिवायत नहीं मिलती।",
+   "tags": [
+    "S15"
+   ],
+   "audio": "audio/tts/017_ustaad.wav",
+   "seconds": 7.4,
+   "tts_ok": true,
+   "start": 76.924,
+   "end": 83.776
+  },
+  {
+   "kind": "line",
+   "n": 18,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "2. SHAN-E-NUZUL",
+   "ayah": null,
+   "text": "ज़्यादातर उलमा के मुताबिक़ ये मक्की सूरह है — मक्का में, पैग़म्बरी के बिल्कुल शुरुआती दौर में उतरी।",
+   "tags": [
+    "S15",
+    "S9"
+   ],
+   "audio": "audio/tts/018_ustaad.wav",
+   "seconds": 8.96,
+   "tts_ok": true,
+   "start": 84.126,
+   "end": 92.422
+  },
+  {
+   "kind": "line",
+   "n": 19,
+   "speaker": "sawaal",
+   "role": "",
+   "section": "2. SHAN-E-NUZUL",
+   "ayah": null,
+   "text": "और कोई दूसरी राय भी है?",
+   "tags": [],
+   "audio": "audio/tts/019_sawaal.wav",
+   "seconds": 2.64,
+   "tts_ok": true,
+   "start": 93.022,
+   "end": 95.467
+  },
+  {
+   "kind": "line",
+   "n": 20,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "2. SHAN-E-NUZUL",
+   "ayah": null,
+   "text": "कुछ उलमा ने इसे मदीना में उतरी सूरह माना।",
+   "tags": [
+    "S9"
+   ],
+   "audio": "audio/tts/020_ustaad.wav",
+   "seconds": 4.68,
+   "tts_ok": true,
+   "start": 96.067,
+   "end": 100.4
+  },
+  {
+   "kind": "line",
+   "n": 21,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "2. SHAN-E-NUZUL",
+   "ayah": null,
+   "text": "और कुछ ने कहा कि ये दो बार उतरी — एक बार मक्का में, एक बार मदीना में।",
+   "tags": [
+    "S9"
+   ],
+   "audio": "audio/tts/021_ustaad.wav",
+   "seconds": 6.4,
+   "tts_ok": true,
+   "start": 100.75,
+   "end": 106.676
+  },
+  {
+   "kind": "line",
+   "n": 22,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "2. SHAN-E-NUZUL",
+   "ayah": null,
+   "text": "इमाम इब्न कसीर के नज़दीक पहली राय — यानी इसका मक्की होना — ज़्यादा मुनासिब है।",
+   "tags": [
+    "S9"
+   ],
+   "audio": "audio/tts/022_ustaad.wav",
+   "seconds": 7.4,
+   "tts_ok": true,
+   "start": 107.026,
+   "end": 113.878
+  },
+  {
+   "kind": "line",
+   "n": 25,
+   "speaker": "sawaal",
+   "role": "",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": null,
+   "text": "अब आयतें। पढ़ते वक़्त किस बात पर ध्यान दें?",
+   "tags": [],
+   "audio": "audio/tts/025_sawaal.wav",
+   "seconds": 3.48,
+   "tts_ok": true,
+   "start": 115.278,
+   "end": 118.5
+  },
+  {
+   "kind": "line",
+   "n": 26,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": null,
+   "text": "एक हदीस-ए-क़ुदसी में अल्लाह फ़रमाता है: 'मैंने नमाज़ को अपने और अपने बंदे के बीच आधा-आधा बाँट दिया है।'",
+   "tags": [
+    "S16",
+    "S4"
+   ],
+   "audio": "audio/tts/026_ustaad.wav",
+   "seconds": 10.4,
+   "tts_ok": true,
+   "start": 119.1,
+   "end": 128.73
+  },
+  {
+   "kind": "line",
+   "n": 27,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": null,
+   "text": "'और मेरे बंदे को वो मिलेगा जो उसने माँगा।' फिर हदीस बताती है कि फ़ातिहा के हिस्सों पर अल्लाह की तरफ़ से जवाब आता है।",
+   "tags": [
+    "S16"
+   ],
+   "audio": "audio/tts/027_ustaad.wav",
+   "seconds": 9.48,
+   "tts_ok": true,
+   "start": 129.08,
+   "end": 137.857
+  },
+  {
+   "kind": "line",
+   "n": 30,
+   "speaker": "ustaad",
+   "role": "bhaavarth",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 1,
+   "text": "पहली आयत: अल्लाह के नाम से शुरू — वो, जो बेहद मेहरबान है, और बहुत रहम करने वाला है।",
+   "tags": [],
+   "audio": "audio/tts/030_ustaad.wav",
+   "seconds": 9.28,
+   "tts_ok": true,
+   "start": 140.807,
+   "end": 149.4
+  },
+  {
+   "kind": "line",
+   "n": 32,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 1,
+   "text": "यानी हर काम की शुरुआत अल्लाह के नाम से — उसकी मदद और बरकत के साथ।",
+   "tags": [
+    "M1"
+   ],
+   "audio": "audio/tts/032_ustaad.wav",
+   "seconds": 6.76,
+   "tts_ok": true,
+   "start": 150.55,
+   "end": 156.809
+  },
+  {
+   "kind": "line",
+   "n": 33,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 1,
+   "text": "'रहमान' और 'रहीम' — दोनों उसकी बहुत बड़ी और पूरी रहमत के नाम हैं।",
+   "tags": [
+    "M1"
+   ],
+   "audio": "audio/tts/033_ustaad.wav",
+   "seconds": 6.72,
+   "tts_ok": true,
+   "start": 157.159,
+   "end": 163.381
+  },
+  {
+   "kind": "line",
+   "n": 36,
+   "speaker": "ustaad",
+   "role": "bhaavarth",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 2,
+   "text": "दूसरी आयत: हर तारीफ़ असल में अल्लाह की है — वो सारे जहानों का पालने वाला मालिक है।",
+   "tags": [],
+   "audio": "audio/tts/036_ustaad.wav",
+   "seconds": 9.24,
+   "tts_ok": true,
+   "start": 166.331,
+   "end": 174.887
+  },
+  {
+   "kind": "line",
+   "n": 38,
+   "speaker": "sawaal",
+   "role": "",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 2,
+   "text": "'हम्द' — क्या ये बस शुक्रिया कहना है?",
+   "tags": [],
+   "audio": "audio/tts/038_sawaal.wav",
+   "seconds": 3.68,
+   "tts_ok": true,
+   "start": 176.287,
+   "end": 179.694
+  },
+  {
+   "kind": "line",
+   "n": 39,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 2,
+   "text": "'हम्द' सिर्फ़ शुक्रिया नहीं — किसी की ख़ूबियों की तारीफ़ भी हम्द है।",
+   "tags": [
+    "M2"
+   ],
+   "audio": "audio/tts/039_ustaad.wav",
+   "seconds": 5.96,
+   "tts_ok": true,
+   "start": 180.294,
+   "end": 185.813
+  },
+  {
+   "kind": "line",
+   "n": 40,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 2,
+   "text": "'रब' वो मालिक है जो पालता है, सँभालता है। और 'आलमीन' यानी अल्लाह के सिवा सारी मख़लूक़ — हर जहान।",
+   "tags": [
+    "M2"
+   ],
+   "audio": "audio/tts/040_ustaad.wav",
+   "seconds": 11.56,
+   "tts_ok": true,
+   "start": 186.163,
+   "end": 196.867
+  },
+  {
+   "kind": "line",
+   "n": 42,
+   "speaker": "sawaal",
+   "role": "misaal",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 2,
+   "text": "कोई हमारा गिरा सामान उठा दे, तो हम झट से 'शुक्रिया' कहते हैं।",
+   "tags": [
+    "MISAAL"
+   ],
+   "audio": "audio/tts/042_sawaal.wav",
+   "seconds": 4.4,
+   "tts_ok": true,
+   "start": 197.467,
+   "end": 201.541
+  },
+  {
+   "kind": "line",
+   "n": 43,
+   "speaker": "sawaal",
+   "role": "misaal",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 2,
+   "text": "पर बारिश, साँस, सुबह का सूरज — ये तो बिना माँगे मिले। इन्हें देने वाले की ख़ूबियों को सराहना... क्या यही हम्द है?",
+   "tags": [
+    "MISAAL"
+   ],
+   "audio": "audio/tts/043_sawaal.wav",
+   "seconds": 10.64,
+   "tts_ok": true,
+   "start": 201.891,
+   "end": 211.743
+  },
+  {
+   "kind": "line",
+   "n": 45,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 2,
+   "text": "हाँ, यही। और इस आयत पर हदीस में अल्लाह का जवाब है: 'मेरे बंदे ने मेरी हम्द की।'",
+   "tags": [
+    "M2",
+    "S16"
+   ],
+   "audio": "audio/tts/045_ustaad.wav",
+   "seconds": 9.6,
+   "tts_ok": true,
+   "start": 212.343,
+   "end": 221.231
+  },
+  {
+   "kind": "line",
+   "n": 48,
+   "speaker": "ustaad",
+   "role": "bhaavarth",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 3,
+   "text": "तीसरी आयत: वो बेहद मेहरबान है, बहुत रहम करने वाला।",
+   "tags": [],
+   "audio": "audio/tts/048_ustaad.wav",
+   "seconds": 6.12,
+   "tts_ok": true,
+   "start": 224.181,
+   "end": 229.848
+  },
+  {
+   "kind": "line",
+   "n": 50,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 3,
+   "text": "'रब' के ठीक बाद रहमत का ज़िक्र — यानी वो सारे जहान को किसी मजबूरी से नहीं, अपनी रहमत से पालता है।",
+   "tags": [
+    "M3"
+   ],
+   "audio": "audio/tts/050_ustaad.wav",
+   "seconds": 9.6,
+   "tts_ok": true,
+   "start": 230.998,
+   "end": 239.887
+  },
+  {
+   "kind": "line",
+   "n": 51,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 3,
+   "text": "वो रब भी है, और रहमत वाला भी। जवाब: 'मेरे बंदे ने मेरी तारीफ़ की।'",
+   "tags": [
+    "M3",
+    "S16"
+   ],
+   "audio": "audio/tts/051_ustaad.wav",
+   "seconds": 7.72,
+   "tts_ok": true,
+   "start": 240.237,
+   "end": 247.385
+  },
+  {
+   "kind": "line",
+   "n": 54,
+   "speaker": "ustaad",
+   "role": "bhaavarth",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 4,
+   "text": "चौथी आयत: जिस दिन हर किसी को बदला मिलेगा, उस दिन का मालिक वही है।",
+   "tags": [],
+   "audio": "audio/tts/054_ustaad.wav",
+   "seconds": 7.48,
+   "tts_ok": true,
+   "start": 250.335,
+   "end": 257.261
+  },
+  {
+   "kind": "line",
+   "n": 56,
+   "speaker": "sawaal",
+   "role": "",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 4,
+   "text": "उस्ताद जी, ख़ास 'उस दिन' का मालिक क्यों कहा गया?",
+   "tags": [],
+   "audio": "audio/tts/056_sawaal.wav",
+   "seconds": 4.16,
+   "tts_ok": true,
+   "user_accepted": "2026-10-25",
+   "start": 258.661,
+   "end": 262.513
+  },
+  {
+   "kind": "line",
+   "n": 57,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 4,
+   "text": "मालिक तो वो हमेशा है; पर हिसाब और बदले के उस दिन कोई और, किसी चीज़ का नाम-भर का मालिक भी नहीं होगा।",
+   "tags": [
+    "M4"
+   ],
+   "audio": "audio/tts/057_ustaad.wav",
+   "seconds": 8.88,
+   "tts_ok": true,
+   "start": 263.113,
+   "end": 271.335
+  },
+  {
+   "kind": "line",
+   "n": 58,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 4,
+   "text": "दुनिया अमल की जगह है, और हर अमल का पूरा बदला उसी दिन मिलेगा।",
+   "tags": [
+    "M4"
+   ],
+   "audio": "audio/tts/058_ustaad.wav",
+   "seconds": 6.68,
+   "tts_ok": true,
+   "user_accepted": "2026-10-25",
+   "start": 271.685,
+   "end": 277.87
+  },
+  {
+   "kind": "line",
+   "n": 59,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 4,
+   "text": "जवाब: 'मेरे बंदे ने मेरी बुज़ुर्गी बयान की' — 'बुज़ुर्गी' यानी बड़ाई।",
+   "tags": [
+    "S16"
+   ],
+   "audio": "audio/tts/059_ustaad.wav",
+   "seconds": 6.2,
+   "tts_ok": true,
+   "start": 278.22,
+   "end": 283.961
+  },
+  {
+   "kind": "line",
+   "n": 62,
+   "speaker": "ustaad",
+   "role": "bhaavarth",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 5,
+   "text": "पाँचवीं आयत: ऐ अल्लाह, हम सिर्फ़ तेरी इबादत करते हैं, और मदद भी सिर्फ़ तुझसे ही माँगते हैं।",
+   "tags": [],
+   "audio": "audio/tts/062_ustaad.wav",
+   "seconds": 8.4,
+   "tts_ok": true,
+   "start": 286.911,
+   "end": 294.689
+  },
+  {
+   "kind": "line",
+   "n": 64,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 5,
+   "text": "ध्यान दीजिए — यहाँ से बंदा 'वो' नहीं, सीधे 'तू' कह कर अल्लाह से बात करता है।",
+   "tags": [
+    "M5"
+   ],
+   "audio": "audio/tts/064_ustaad.wav",
+   "seconds": 8.08,
+   "tts_ok": true,
+   "user_accepted": "2026-10-25",
+   "start": 295.839,
+   "end": 303.32
+  },
+  {
+   "kind": "line",
+   "n": 65,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 5,
+   "text": "अरबी में 'तुझी को' पहले आया — यानी सिर्फ़ तू। इबादत यानी पूरी मोहब्बत से, ख़ुद को छोटा मान कर झुकना।",
+   "tags": [
+    "M5"
+   ],
+   "audio": "audio/tts/065_ustaad.wav",
+   "seconds": 10.88,
+   "tts_ok": true,
+   "start": 303.67,
+   "end": 313.744
+  },
+  {
+   "kind": "line",
+   "n": 67,
+   "speaker": "sawaal",
+   "role": "misaal",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 5,
+   "text": "पर उस्ताद जी, बुख़ार में हम डॉक्टर के पास जाते हैं, मुश्किल में दोस्त से मदद माँगते हैं।",
+   "tags": [
+    "MISAAL"
+   ],
+   "audio": "audio/tts/067_sawaal.wav",
+   "seconds": 6.76,
+   "tts_ok": true,
+   "user_accepted": "2026-10-25",
+   "start": 314.344,
+   "end": 320.604
+  },
+  {
+   "kind": "line",
+   "n": 69,
+   "speaker": "sawaal",
+   "role": "",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 5,
+   "text": "तो इस आयत का इससे क्या रिश्ता है?",
+   "tags": [],
+   "audio": "audio/tts/069_sawaal.wav",
+   "seconds": 3.12,
+   "tts_ok": true,
+   "start": 320.954,
+   "end": 323.843
+  },
+  {
+   "kind": "line",
+   "n": 70,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 5,
+   "text": "आयत दिल के भरोसे की बात करती है — इलाज और दोस्त की मदद अपनी जगह, पर आख़िरी भरोसा और उम्मीद सिर्फ़ अल्लाह पर।",
+   "tags": [
+    "M5",
+    "MISAAL"
+   ],
+   "audio": "audio/tts/070_ustaad.wav",
+   "seconds": 12.64,
+   "tts_ok": true,
+   "start": 324.443,
+   "end": 336.146
+  },
+  {
+   "kind": "line",
+   "n": 71,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 5,
+   "text": "जवाब: 'ये मेरे और मेरे बंदे के बीच है, और मेरे बंदे को वो मिलेगा जो उसने माँगा।'",
+   "tags": [
+    "S16"
+   ],
+   "audio": "audio/tts/071_ustaad.wav",
+   "seconds": 8.36,
+   "tts_ok": true,
+   "start": 336.496,
+   "end": 344.237
+  },
+  {
+   "kind": "line",
+   "n": 74,
+   "speaker": "ustaad",
+   "role": "bhaavarth",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 6,
+   "text": "छठी आयत: हमें सीधी राह दिखा, और उस पर चला।",
+   "tags": [],
+   "audio": "audio/tts/074_ustaad.wav",
+   "seconds": 5.84,
+   "tts_ok": true,
+   "start": 347.187,
+   "end": 352.594
+  },
+  {
+   "kind": "line",
+   "n": 76,
+   "speaker": "sawaal",
+   "role": "",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 6,
+   "text": "जो पहले से सीधी राह पर है, वो भी रोज़ ये दुआ क्यों माँगे?",
+   "tags": [],
+   "audio": "audio/tts/076_sawaal.wav",
+   "seconds": 4.52,
+   "tts_ok": true,
+   "start": 353.994,
+   "end": 358.18
+  },
+  {
+   "kind": "line",
+   "n": 77,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 6,
+   "text": "सीधी राह यानी साफ़ रास्ता, जिसमें भटकाव की कोई शाख़ न हो।",
+   "tags": [
+    "M6"
+   ],
+   "audio": "audio/tts/077_ustaad.wav",
+   "seconds": 6.16,
+   "tts_ok": true,
+   "start": 358.78,
+   "end": 364.483
+  },
+  {
+   "kind": "line",
+   "n": 78,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 6,
+   "text": "ईमान वाला भी रोज़ माँगता है कि अल्लाह उसे इसी राह पर जमाए रखे — क्योंकि हर क़दम पर रहनुमाई चाहिए।",
+   "tags": [
+    "M6"
+   ],
+   "audio": "audio/tts/078_ustaad.wav",
+   "seconds": 8.24,
+   "tts_ok": true,
+   "start": 364.833,
+   "end": 372.463
+  },
+  {
+   "kind": "line",
+   "n": 81,
+   "speaker": "ustaad",
+   "role": "bhaavarth",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 7,
+   "text": "सातवीं आयत: उन लोगों की राह, जिन्हें तूने अपनी नेमतों से नवाज़ा; न उनकी राह, जिन पर तेरा ग़ुस्सा हुआ, और न उनकी, जो रास्ते से भटक गए।",
+   "tags": [],
+   "audio": "audio/tts/081_ustaad.wav",
+   "seconds": 14.0,
+   "tts_ok": true,
+   "start": 375.413,
+   "end": 388.376
+  },
+  {
+   "kind": "line",
+   "n": 83,
+   "speaker": "sawaal",
+   "role": "",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 7,
+   "text": "ये नेमत वाले लोग कौन हैं? और किनकी राह से बचने की दुआ है?",
+   "tags": [],
+   "audio": "audio/tts/083_sawaal.wav",
+   "seconds": 5.72,
+   "tts_ok": true,
+   "user_accepted": "2026-10-25",
+   "start": 389.776,
+   "end": 395.072
+  },
+  {
+   "kind": "line",
+   "n": 84,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 7,
+   "text": "सूरह अन-निसा की आयत उनहत्तर बताती है — नबी, सिद्दीक़ीन यानी सच्चाई में सबसे पक्के लोग, शहीद, और नेक लोग।",
+   "tags": [
+    "M7"
+   ],
+   "audio": "audio/tts/084_ustaad.wav",
+   "seconds": 11.72,
+   "tts_ok": true,
+   "start": 395.672,
+   "end": 406.524
+  },
+  {
+   "kind": "line",
+   "n": 85,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 7,
+   "text": "और बचने की दुआ दो राहों से है: एक उनकी, जिन्होंने हक़ जान कर भी जान-बूझकर छोड़ दिया;",
+   "tags": [
+    "M7"
+   ],
+   "audio": "audio/tts/085_ustaad.wav",
+   "seconds": 8.84,
+   "tts_ok": true,
+   "start": 406.874,
+   "end": 415.059
+  },
+  {
+   "kind": "line",
+   "n": 86,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 7,
+   "text": "और दूसरी उनकी, जो इल्म के बिना या लापरवाही से भटक गए।",
+   "tags": [
+    "M7"
+   ],
+   "audio": "audio/tts/086_ustaad.wav",
+   "seconds": 5.28,
+   "tts_ok": true,
+   "start": 415.409,
+   "end": 420.298
+  },
+  {
+   "kind": "line",
+   "n": 87,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 7,
+   "text": "आख़िरी दुआ पर जवाब: 'ये मेरे बंदे के लिए है, और मेरे बंदे को वो मिलेगा जो उसने माँगा।'",
+   "tags": [
+    "S16"
+   ],
+   "audio": "audio/tts/087_ustaad.wav",
+   "seconds": 8.24,
+   "tts_ok": true,
+   "start": 420.648,
+   "end": 428.278
+  },
+  {
+   "kind": "line",
+   "n": 90,
+   "speaker": "sawaal",
+   "role": "",
+   "section": "4. SEEKH",
+   "ayah": null,
+   "text": "तो उस्ताद जी, हमारी ज़िंदगी के लिए सीख क्या है?",
+   "tags": [],
+   "audio": "audio/tts/090_sawaal.wav",
+   "seconds": 3.76,
+   "tts_ok": true,
+   "start": 429.678,
+   "end": 433.159
+  },
+  {
+   "kind": "line",
+   "n": 91,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "4. SEEKH",
+   "ayah": null,
+   "text": "पहली: माँगने से पहले तारीफ़ और शुक्र — तफ़सीर इसे माँगने का सबसे बेहतर तरीक़ा बताती है।",
+   "tags": [
+    "S20",
+    "M2"
+   ],
+   "audio": "audio/tts/091_ustaad.wav",
+   "seconds": 9.12,
+   "tts_ok": true,
+   "start": 433.759,
+   "end": 442.204
+  },
+  {
+   "kind": "line",
+   "n": 92,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "4. SEEKH",
+   "ayah": null,
+   "text": "दूसरी: मेहनत भी, मदद भी — पर दिल का आख़िरी भरोसा अल्लाह पर।",
+   "tags": [
+    "M5"
+   ],
+   "audio": "audio/tts/092_ustaad.wav",
+   "seconds": 7.12,
+   "tts_ok": true,
+   "start": 442.554,
+   "end": 449.146
+  },
+  {
+   "kind": "line",
+   "n": 93,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "4. SEEKH",
+   "ayah": null,
+   "text": "तीसरी: सीधी राह की दुआ एक बार नहीं — हर दिन, हर फ़ैसले पर।",
+   "tags": [
+    "M6"
+   ],
+   "audio": "audio/tts/093_ustaad.wav",
+   "seconds": 7.4,
+   "tts_ok": true,
+   "start": 449.496,
+   "end": 456.348
+  },
+  {
+   "kind": "line",
+   "n": 94,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "4. SEEKH",
+   "ayah": null,
+   "text": "अगली बार, 'शुरू से क़ुरआन' में: सूरह अल-बक़रह की पहली पाँच आयतें।",
+   "tags": [
+    "NEXT"
+   ],
+   "audio": "audio/tts/094_ustaad.wav",
+   "seconds": 5.96,
+   "tts_ok": true,
+   "start": 456.698,
+   "end": 462.217
+  },
+  {
+   "kind": "line",
+   "n": 95,
+   "speaker": "sawaal",
+   "role": "",
+   "section": "4. SEEKH",
+   "ayah": null,
+   "text": "और आप कमेंट में बताइए — फ़ातिहा की कौन-सी आयत आपके दिल के सबसे क़रीब है, और क्यों?",
+   "tags": [],
+   "audio": "audio/tts/095_sawaal.wav",
+   "seconds": 7.04,
+   "tts_ok": true,
+   "start": 462.817,
+   "end": 469.335
+  }
+ ],
+ "ayat": [
+  {
+   "ayah": 1,
+   "fade": 137.85740740740735,
+   "a0": 138.45740740740735,
+   "swoosh": 137.95740740740735,
+   "text": "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ",
+   "off": 150.19999999999993
+  },
+  {
+   "ayah": 2,
+   "fade": 163.38148148148142,
+   "a0": 163.9814814814814,
+   "swoosh": 163.4814814814814,
+   "text": "ٱلْحَمْدُ لِلَّهِ رَبِّ ٱلْعَٰلَمِينَ",
+   "off": 175.68703703703696
+  },
+  {
+   "ayah": 3,
+   "fade": 221.23148148148135,
+   "a0": 221.83148148148135,
+   "swoosh": 221.33148148148135,
+   "text": "ٱلرَّحْمَٰنِ ٱلرَّحِيمِ",
+   "off": 230.648148148148
+  },
+  {
+   "ayah": 4,
+   "fade": 247.38518518518504,
+   "a0": 247.98518518518503,
+   "swoosh": 247.48518518518503,
+   "text": "مَٰلِكِ يَوْمِ ٱلدِّينِ",
+   "off": 258.06111111111096
+  },
+  {
+   "ayah": 5,
+   "fade": 283.96111111111105,
+   "a0": 284.5611111111111,
+   "swoosh": 284.0611111111111,
+   "text": "إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ",
+   "off": 295.4888888888889
+  },
+  {
+   "ayah": 6,
+   "fade": 344.23703703703717,
+   "a0": 344.8370370370372,
+   "swoosh": 344.3370370370372,
+   "text": "ٱهْدِنَا ٱلصِّرَٰطَ ٱلْمُسْتَقِيمَ",
+   "off": 353.3944444444446
+  },
+  {
+   "ayah": 7,
+   "fade": 372.46296296296316,
+   "a0": 373.0629629629632,
+   "swoosh": 372.5629629629632,
+   "text": "صِرَٰطَ ٱلَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ ٱلْمَغْضُوبِ عَلَيْهِمْ وَلَا ٱلضَّآلِّينَ",
+   "off": 389.17592592592615
+  }
+ ],
+ "music": [
+  {
+   "track": "Soaring",
+   "start": 0.8,
+   "fin": 1.5,
+   "end": 73.6314814814815,
+   "fout": 1.5
+  },
+  {
+   "track": "Quietude",
+   "start": 72.1314814814815,
+   "fin": 1.5,
+   "end": 151.69999999999993,
+   "fout": 1.5
+  },
+  {
+   "track": "River Flute",
+   "start": 150.19999999999993,
+   "fin": 2.5,
+   "end": 472.3351851851857,
+   "fout": 3.0
+  }
+ ],
+ "amb": [
+  {
+   "names": [
+    "breeze"
+   ],
+   "start": 0.0,
+   "end": 73.1314814814815
+  },
+  {
+   "names": [
+    "desert",
+    "night"
+   ],
+   "start": 72.1314814814815,
+   "end": 115.67777777777773
+  },
+  {
+   "names": [
+    "breeze"
+   ],
+   "start": 114.67777777777773,
+   "end": 197.86666666666656
+  },
+  {
+   "names": [
+    "birds",
+    "breeze"
+   ],
+   "start": 196.86666666666656,
+   "end": 212.74259259259247
+  },
+  {
+   "names": [
+    "breeze"
+   ],
+   "start": 211.74259259259247,
+   "end": 314.74444444444447
+  },
+  {
+   "names": [
+    "birds",
+    "breeze"
+   ],
+   "start": 313.74444444444447,
+   "end": 321.60370370370373
+  },
+  {
+   "names": [
+    "breeze"
+   ],
+   "start": 320.60370370370373,
+   "end": 473.3351851851857
+  }
+ ],
+ "end": 473.335,
+ "fade_at": {
+  "1": 137.85740740740735,
+  "2": 163.38148148148142,
+  "3": 221.23148148148135,
+  "4": 247.38518518518504,
+  "5": 283.96111111111105,
+  "6": 344.23703703703717,
+  "7": 372.46296296296316
+ },
+ "shots": [
+  {
+   "img": "01_dawn_valley.png",
+   "id": "01_dawn_valley",
+   "start": 0.0,
+   "end": 5.833,
+   "move": "push_in",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "01_dawn_valley.png",
+   "id": "01_dawn_valley",
+   "start": 5.833,
+   "end": 11.667,
+   "move": "pan_right",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "01_dawn_valley.png",
+   "id": "01_dawn_valley",
+   "start": 11.667,
+   "end": 17.5,
+   "move": "pull_out",
+   "fx": 0.62,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "02_valley_sunrise.png",
+   "id": "02_valley_sunrise",
+   "start": 17.5,
+   "end": 24.491,
+   "move": "pan_left",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "02_valley_sunrise.png",
+   "id": "02_valley_sunrise",
+   "start": 24.491,
+   "end": 31.483,
+   "move": "gentle_orbit",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "02_valley_sunrise.png",
+   "id": "02_valley_sunrise",
+   "start": 31.483,
+   "end": 38.474,
+   "move": "push_in",
+   "fx": 0.62,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "03_seven_lamps.png",
+   "id": "03_seven_lamps",
+   "start": 38.474,
+   "end": 45.015,
+   "move": "pan_left",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "03_seven_lamps.png",
+   "id": "03_seven_lamps",
+   "start": 45.015,
+   "end": 51.557,
+   "move": "pull_out",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "03_seven_lamps.png",
+   "id": "03_seven_lamps",
+   "start": 51.557,
+   "end": 58.098,
+   "move": "pan_right",
+   "fx": 0.62,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "04_hill_path_morning.png",
+   "id": "04_hill_path_morning",
+   "start": 58.098,
+   "end": 65.264,
+   "move": "push_in",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "04_hill_path_morning.png",
+   "id": "04_hill_path_morning",
+   "start": 65.264,
+   "end": 72.431,
+   "move": "pan_right",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "05_night_lamp_path.png",
+   "id": "05_night_lamp_path",
+   "start": 72.431,
+   "end": 78.129,
+   "move": "pull_out",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "05_night_lamp_path.png",
+   "id": "05_night_lamp_path",
+   "start": 78.129,
+   "end": 83.826,
+   "move": "pan_left",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "06_makka_night_houses.png",
+   "id": "06_makka_night_houses",
+   "start": 83.826,
+   "end": 88.274,
+   "move": "gentle_orbit",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "06_makka_night_houses.png",
+   "id": "06_makka_night_houses",
+   "start": 88.274,
+   "end": 92.722,
+   "move": "push_in",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "07_rocky_valley_moon.png",
+   "id": "07_rocky_valley_moon",
+   "start": 92.722,
+   "end": 99.724,
+   "move": "pan_left",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "07_rocky_valley_moon.png",
+   "id": "07_rocky_valley_moon",
+   "start": 99.724,
+   "end": 106.726,
+   "move": "pull_out",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "08_predawn_houses.png",
+   "id": "08_predawn_houses",
+   "start": 106.726,
+   "end": 110.852,
+   "move": "pan_right",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "08_predawn_houses.png",
+   "id": "08_predawn_houses",
+   "start": 110.852,
+   "end": 114.978,
+   "move": "push_in",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "09_single_lamp_dark.png",
+   "id": "09_single_lamp_dark",
+   "start": 114.978,
+   "end": 122.604,
+   "move": "pan_right",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "09_single_lamp_dark.png",
+   "id": "09_single_lamp_dark",
+   "start": 122.604,
+   "end": 130.231,
+   "move": "pull_out",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "09_single_lamp_dark.png",
+   "id": "09_single_lamp_dark",
+   "start": 130.231,
+   "end": 137.857,
+   "move": "pan_left",
+   "fx": 0.62,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "10_green_after_rain.png",
+   "id": "10_green_after_rain",
+   "start": 137.857,
+   "end": 144.054,
+   "move": "gentle_orbit",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "10_green_after_rain.png",
+   "id": "10_green_after_rain",
+   "start": 144.054,
+   "end": 150.25,
+   "move": "push_in",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "11_open_door_sunrise.png",
+   "id": "11_open_door_sunrise",
+   "start": 150.25,
+   "end": 156.816,
+   "move": "pan_left",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "11_open_door_sunrise.png",
+   "id": "11_open_door_sunrise",
+   "start": 156.816,
+   "end": 163.381,
+   "move": "pull_out",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "12_worlds_panorama.png",
+   "id": "12_worlds_panorama",
+   "start": 163.381,
+   "end": 169.684,
+   "move": "pan_right",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "12_worlds_panorama.png",
+   "id": "12_worlds_panorama",
+   "start": 169.684,
+   "end": 175.987,
+   "move": "push_in",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "13_birds_fields_sunrise.png",
+   "id": "13_birds_fields_sunrise",
+   "start": 175.987,
+   "end": 183.047,
+   "move": "pan_right",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "13_birds_fields_sunrise.png",
+   "id": "13_birds_fields_sunrise",
+   "start": 183.047,
+   "end": 190.107,
+   "move": "pull_out",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "13_birds_fields_sunrise.png",
+   "id": "13_birds_fields_sunrise",
+   "start": 190.107,
+   "end": 197.167,
+   "move": "pan_left",
+   "fx": 0.62,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "14_sunbeams_after_rain.png",
+   "id": "14_sunbeams_after_rain",
+   "start": 197.167,
+   "end": 203.183,
+   "move": "gentle_orbit",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "14_sunbeams_after_rain.png",
+   "id": "14_sunbeams_after_rain",
+   "start": 203.183,
+   "end": 209.199,
+   "move": "push_in",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "14_sunbeams_after_rain.png",
+   "id": "14_sunbeams_after_rain",
+   "start": 209.199,
+   "end": 215.215,
+   "move": "pan_left",
+   "fx": 0.62,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "14_sunbeams_after_rain.png",
+   "id": "14_sunbeams_after_rain",
+   "start": 215.215,
+   "end": 221.231,
+   "move": "pull_out",
+   "fx": 0.5,
+   "fy": 0.45,
+   "zc": 1.25
+  },
+  {
+   "img": "15_mountain_spring.png",
+   "id": "15_mountain_spring",
+   "start": 221.231,
+   "end": 227.77,
+   "move": "pan_right",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "15_mountain_spring.png",
+   "id": "15_mountain_spring",
+   "start": 227.77,
+   "end": 234.308,
+   "move": "push_in",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "15_mountain_spring.png",
+   "id": "15_mountain_spring",
+   "start": 234.308,
+   "end": 240.847,
+   "move": "pan_right",
+   "fx": 0.62,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "15_mountain_spring.png",
+   "id": "15_mountain_spring",
+   "start": 240.847,
+   "end": 247.385,
+   "move": "pull_out",
+   "fx": 0.5,
+   "fy": 0.45,
+   "zc": 1.25
+  },
+  {
+   "img": "16_vast_plain_dusk.png",
+   "id": "16_vast_plain_dusk",
+   "start": 247.385,
+   "end": 255.099,
+   "move": "pan_left",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "16_vast_plain_dusk.png",
+   "id": "16_vast_plain_dusk",
+   "start": 255.099,
+   "end": 262.813,
+   "move": "gentle_orbit",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "17_harvest_field_dusk.png",
+   "id": "17_harvest_field_dusk",
+   "start": 262.813,
+   "end": 269.862,
+   "move": "push_in",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "17_harvest_field_dusk.png",
+   "id": "17_harvest_field_dusk",
+   "start": 269.862,
+   "end": 276.912,
+   "move": "pan_left",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "17_harvest_field_dusk.png",
+   "id": "17_harvest_field_dusk",
+   "start": 276.912,
+   "end": 283.961,
+   "move": "pull_out",
+   "fx": 0.62,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "18_lamp_toward_light.png",
+   "id": "18_lamp_toward_light",
+   "start": 283.961,
+   "end": 291.482,
+   "move": "pan_right",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "18_lamp_toward_light.png",
+   "id": "18_lamp_toward_light",
+   "start": 291.482,
+   "end": 299.003,
+   "move": "push_in",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "18_lamp_toward_light.png",
+   "id": "18_lamp_toward_light",
+   "start": 299.003,
+   "end": 306.523,
+   "move": "pan_right",
+   "fx": 0.62,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "18_lamp_toward_light.png",
+   "id": "18_lamp_toward_light",
+   "start": 306.523,
+   "end": 314.044,
+   "move": "pull_out",
+   "fx": 0.5,
+   "fy": 0.45,
+   "zc": 1.25
+  },
+  {
+   "img": "19_tea_medicine_window.png",
+   "id": "19_tea_medicine_window",
+   "start": 314.044,
+   "end": 321.428,
+   "move": "pan_left",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "19_tea_medicine_window.png",
+   "id": "19_tea_medicine_window",
+   "start": 321.428,
+   "end": 328.812,
+   "move": "gentle_orbit",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "19_tea_medicine_window.png",
+   "id": "19_tea_medicine_window",
+   "start": 328.812,
+   "end": 336.196,
+   "move": "push_in",
+   "fx": 0.62,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "09_single_lamp_dark.png",
+   "id": "20_single_lamp_dark_b",
+   "start": 336.196,
+   "end": 340.217,
+   "move": "pan_left",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "09_single_lamp_dark.png",
+   "id": "20_single_lamp_dark_b",
+   "start": 340.217,
+   "end": 344.237,
+   "move": "pull_out",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "21_straight_desert_path.png",
+   "id": "21_straight_desert_path",
+   "start": 344.237,
+   "end": 351.294,
+   "move": "pan_right",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "21_straight_desert_path.png",
+   "id": "21_straight_desert_path",
+   "start": 351.294,
+   "end": 358.35,
+   "move": "push_in",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "21_straight_desert_path.png",
+   "id": "21_straight_desert_path",
+   "start": 358.35,
+   "end": 365.406,
+   "move": "pan_right",
+   "fx": 0.62,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "21_straight_desert_path.png",
+   "id": "21_straight_desert_path",
+   "start": 365.406,
+   "end": 372.463,
+   "move": "pull_out",
+   "fx": 0.5,
+   "fy": 0.45,
+   "zc": 1.25
+  },
+  {
+   "img": "22_path_fading_tracks.png",
+   "id": "22_path_fading_tracks",
+   "start": 372.463,
+   "end": 379.577,
+   "move": "pan_left",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "22_path_fading_tracks.png",
+   "id": "22_path_fading_tracks",
+   "start": 379.577,
+   "end": 386.692,
+   "move": "gentle_orbit",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "22_path_fading_tracks.png",
+   "id": "22_path_fading_tracks",
+   "start": 386.692,
+   "end": 393.806,
+   "move": "push_in",
+   "fx": 0.62,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "22_path_fading_tracks.png",
+   "id": "22_path_fading_tracks",
+   "start": 393.806,
+   "end": 400.92,
+   "move": "pan_left",
+   "fx": 0.5,
+   "fy": 0.45,
+   "zc": 1.25
+  },
+  {
+   "img": "22_path_fading_tracks.png",
+   "id": "22_path_fading_tracks",
+   "start": 400.92,
+   "end": 408.035,
+   "move": "pull_out",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "22_path_fading_tracks.png",
+   "id": "22_path_fading_tracks",
+   "start": 408.035,
+   "end": 415.149,
+   "move": "pan_right",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "22_path_fading_tracks.png",
+   "id": "22_path_fading_tracks",
+   "start": 415.149,
+   "end": 422.264,
+   "move": "push_in",
+   "fx": 0.62,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "22_path_fading_tracks.png",
+   "id": "22_path_fading_tracks",
+   "start": 422.264,
+   "end": 429.378,
+   "move": "pan_right",
+   "fx": 0.5,
+   "fy": 0.45,
+   "zc": 1.25
+  },
+  {
+   "img": "23_golden_valley_full_light.png",
+   "id": "23_golden_valley_full_light",
+   "start": 429.378,
+   "end": 436.133,
+   "move": "pull_out",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "23_golden_valley_full_light.png",
+   "id": "23_golden_valley_full_light",
+   "start": 436.133,
+   "end": 442.888,
+   "move": "pan_left",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "23_golden_valley_full_light.png",
+   "id": "23_golden_valley_full_light",
+   "start": 442.888,
+   "end": 449.643,
+   "move": "gentle_orbit",
+   "fx": 0.62,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "23_golden_valley_full_light.png",
+   "id": "23_golden_valley_full_light",
+   "start": 449.643,
+   "end": 456.398,
+   "move": "push_in",
+   "fx": 0.5,
+   "fy": 0.45,
+   "zc": 1.25
+  },
+  {
+   "img": "24_crescent_night_valley.png",
+   "id": "24_crescent_night_valley",
+   "start": 456.398,
+   "end": 462.044,
+   "move": "pan_left",
+   "fx": 1.0,
+   "fy": 0.4,
+   "zc": 1.8
+  },
+  {
+   "img": "24_crescent_night_valley.png",
+   "id": "24_crescent_night_valley",
+   "start": 462.044,
+   "end": 467.689,
+   "move": "pull_out",
+   "fx": 1.0,
+   "fy": 0.4,
+   "zc": 1.8
+  },
+  {
+   "img": "24_crescent_night_valley.png",
+   "id": "24_crescent_night_valley",
+   "start": 467.689,
+   "end": 473.335,
+   "move": "pan_right",
+   "fx": 1.0,
+   "fy": 0.4,
+   "zc": 1.8
+  }
+ ]
+}

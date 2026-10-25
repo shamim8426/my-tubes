@@ -560,3 +560,68 @@ timestamp,file,model,size,cost_usd,cost_inr,today_total_inr,remaining_inr,channe
 2026-10-25 12:42:56,channels/noor-e-raah/stories/001_al-fatiha/audio/tts/071_ustaad.wav,gemini-3.8-flash-tts,tts 8.4s,0.00189,0.18,7.31,473.78,noor-e-raah,0.19,0.1828,0.03,27,209
 2026-10-25 12:43:16,channels/noor-e-raah/stories/001_al-fatiha/audio/tts/074_ustaad.wav,gemini-3.8-flash-tts,tts 5.8s,0.00132,0.13,7.46,473.63,noor-e-raah,0.13,0.1276,0.02,16,146
 2026-10-25 12:43:36,channels/noor-e-raah/stories/001_al-fatiha/audio/tts/076_sawaal.wav,gemini-3.8-flash-tts,tts 4.5s,0.00103,0.10,7.58,473.51,noor-e-raah,0.10,0.0990,0.02,18,113
+2026-10-25 12:43:52,channels/noor-e-raah/stories/001_al-fatiha/audio/tts/077_ustaad.wav,gemini-3.8-flash-tts,tts 7.1s,0.00161,0.16,7.76,473.33,noor-e-raah,0.16,0.1556,0.03,20,178
+2026-10-25 12:44:12,channels/noor-e-raah/stories/001_al-fatiha/audio/tts/077_ustaad.wav,gemini-3.8-flash-tts,tts 7.2s,0.00162,0.16,7.95,473.14,noor-e-raah,0.16,0.1564,0.03,20,179
+2026-10-25 12:44:29,channels/noor-e-raah/stories/001_al-fatiha/audio/tts/077_ustaad.wav,gemini-3.8-flash-tts,tts 6.2s,0.00140,0.13,8.11,472.98,noor-e-raah,0.14,0.1347,0.02,20,154
+2026-10-25 12:44:45,channels/noor-e-raah/stories/001_al-fatiha/audio/tts/078_ustaad.wav,gemini-3.8-flash-tts,tts 8.5s,0.00193,0.19,8.33,472.76,noor-e-raah,0.19,0.1864,0.03,30,213
+2026-10-25 12:45:09,channels/noor-e-raah/stories/001_al-fatiha/audio/tts/078_ustaad.wav,gemini-3.8-flash-tts,tts 8.2s,0.00187,0.18,8.54,472.55,noor-e-raah,0.19,0.1804,0.03,30,206
+2026-10-25 12:45:30,channels/noor-e-raah/stories/001_al-fatiha/audio/tts/081_ustaad.wav,gemini-3.8-flash-tts,tts 14.1s,0.00319,0.31,8.90,472.19,noor-e-raah,0.31,0.3079,0.06,45,352
+2026-10-25 12:45:53,channels/noor-e-raah/stories/001_al-fatiha/audio/tts/081_ustaad.wav,gemini-3.8-flash-tts,tts 14.2s,0.00322,0.31,9.27,471.82,noor-e-raah,0.32,0.3105,0.06,45,355
+2026-10-25 12:46:12,channels/noor-e-raah/stories/001_al-fatiha/audio/tts/081_ustaad.wav,gemini-3.8-flash-tts,tts 14.0s,0.00317,0.31,9.63,471.46,noor-e-raah,0.31,0.3061,0.06,45,350
+2026-10-25 12:46:32,channels/noor-e-raah/stories/001_al-fatiha/audio/tts/083_sawaal.wav,gemini-3.8-flash-tts,tts 5.6s,0.00127,0.12,9.78,471.32,noor-e-raah,0.13,0.1225,0.02,19,140
+2026-10-25 12:46:50,channels/noor-e-raah/stories/001_al-fatiha/audio/tts/083_sawaal.wav,gemini-3.8-flash-tts,tts 5.6s,0.00126,0.12,9.92,471.17,noor-e-raah,0.13,0.1216,0.02,19,139
+2026-10-25 12:47:05,channels/noor-e-raah/stories/001_al-fatiha/audio/tts/083_sawaal.wav,gemini-3.8-flash-tts,tts 5.7s,0.00130,0.13,10.07,471.02,noor-e-raah,0.13,0.1251,0.02,19,143
+2026-10-25 12:47:21,channels/noor-e-raah/stories/001_al-fatiha/audio/tts/084_ustaad.wav,gemini-3.8-flash-tts,tts 11.7s,0.00266,0.26,10.37,470.72,noor-e-raah,0.26,0.2563,0.05,37,293
+2026-10-25 12:47:37,channels/noor-e-raah/stories/001_al-fatiha/audio/tts/085_ustaad.wav,gemini-3.8-flash-tts,tts 8.8s,0.00198,0.19,10.60,470.50,noor-e-raah,0.20,0.1915,0.03,27,219
+2026-10-25 12:47:53,channels/noor-e-raah/stories/001_al-fatiha/audio/tts/085_ustaad.wav,gemini-3.8-flash-tts,tts 8.8s,0.00200,0.19,10.82,470.27,noor-e-raah,0.20,0.1932,0.03,27,221
+2026-10-25 12:48:07,channels/noor-e-raah/stories/001_al-fatiha/audio/tts/086_ustaad.wav,gemini-3.8-flash-tts,tts 5.5s,0.00124,0.12,10.96,470.13,noor-e-raah,0.13,0.1198,0.02,17,137
+2026-10-25 12:48:21,channels/noor-e-raah/stories/001_al-fatiha/audio/tts/086_ustaad.wav,gemini-3.8-flash-tts,tts 5.5s,0.00124,0.12,11.11,469.99,noor-e-raah,0.13,0.1198,0.02,17,137
+2026-10-25 12:48:36,channels/noor-e-raah/stories/001_al-fatiha/audio/tts/086_ustaad.wav,gemini-3.8-flash-tts,tts 5.3s,0.00120,0.12,11.24,469.85,noor-e-raah,0.12,0.1155,0.02,17,132
+2026-10-25 12:48:51,channels/noor-e-raah/stories/001_al-fatiha/audio/tts/087_ustaad.wav,gemini-3.8-flash-tts,tts 7.8s,0.00177,0.17,11.44,469.65,noor-e-raah,0.18,0.1708,0.03,29,195
+2026-10-25 12:49:07,channels/noor-e-raah/stories/001_al-fatiha/audio/tts/087_ustaad.wav,gemini-3.8-flash-tts,tts 8.2s,0.00187,0.18,11.66,469.44,noor-e-raah,0.19,0.1803,0.03,29,206
+2026-10-25 12:49:20,channels/noor-e-raah/stories/001_al-fatiha/audio/tts/090_sawaal.wav,gemini-3.8-flash-tts,tts 3.8s,0.00085,0.08,11.75,469.34,noor-e-raah,0.09,0.0824,0.01,15,94
+2026-10-25 12:49:33,channels/noor-e-raah/stories/001_al-fatiha/audio/tts/091_ustaad.wav,gemini-3.8-flash-tts,tts 9.1s,0.00207,0.20,11.99,469.10,noor-e-raah,0.21,0.1994,0.04,28,228
+2026-10-25 12:49:49,channels/noor-e-raah/stories/001_al-fatiha/audio/tts/092_ustaad.wav,gemini-3.8-flash-tts,tts 7.1s,0.00161,0.16,12.17,468.92,noor-e-raah,0.16,0.1555,0.03,19,178
+2026-10-25 12:50:05,channels/noor-e-raah/stories/001_al-fatiha/audio/tts/093_ustaad.wav,gemini-3.8-flash-tts,tts 7.4s,0.00168,0.16,12.36,468.73,noor-e-raah,0.17,0.1626,0.03,21,186
+2026-10-25 12:50:18,channels/noor-e-raah/stories/001_al-fatiha/audio/tts/093_ustaad.wav,gemini-3.8-flash-tts,tts 7.4s,0.00168,0.16,12.56,468.54,noor-e-raah,0.17,0.1617,0.03,21,185
+2026-10-25 12:50:32,channels/noor-e-raah/stories/001_al-fatiha/audio/tts/094_ustaad.wav,gemini-3.8-flash-tts,tts 6.0s,0.00135,0.13,12.71,468.38,noor-e-raah,0.14,0.1308,0.02,28,149
+2026-10-25 12:50:47,channels/noor-e-raah/stories/001_al-fatiha/audio/tts/095_sawaal.wav,gemini-3.8-flash-tts,tts 7.0s,0.00160,0.15,12.89,468.20,noor-e-raah,0.16,0.1543,0.03,29,176
+2026-10-25 13:15:14,channels/noor-e-raah/samples/sync_sample_b/images/dawn_valley.png,gemini-nano-banana-2.1,1K,0.04228,4.08,17.71,463.39,noor-e-raah,3.26,4.0799,0.73,121,2253
+2026-10-25 13:15:35,channels/noor-e-raah/samples/sync_sample_b/images/green_after_rain.png,gemini-nano-banana-2.1,1K,0.04058,3.92,22.33,458.76,noor-e-raah,3.26,3.9164,0.70,116,2028
+2026-10-25 13:23:03,channels/noor-e-raah/stories/001_al-fatiha/images/02_valley_sunrise.png,gemini-nano-banana-2.1,1K,0.04327,4.18,27.25,453.84,noor-e-raah,3.26,4.1757,0.75,133,2383
+2026-10-25 13:23:24,channels/noor-e-raah/stories/001_al-fatiha/images/03_seven_lamps.png,gemini-nano-banana-2.1,1K,0.04494,4.34,32.37,448.72,noor-e-raah,3.26,4.3367,0.78,125,2607
+2026-10-25 13:23:47,channels/noor-e-raah/stories/001_al-fatiha/images/04_hill_path_morning.png,gemini-nano-banana-2.1,1K,0.04275,4.13,37.24,443.85,noor-e-raah,3.26,4.1254,0.74,105,2319
+2026-10-25 13:24:14,channels/noor-e-raah/stories/001_al-fatiha/images/06_makka_night_houses.png,gemini-nano-banana-2.1,1K,0.04537,4.38,42.41,438.69,noor-e-raah,3.26,4.3784,0.79,138,2662
+2026-10-25 13:24:34,channels/noor-e-raah/stories/001_al-fatiha/images/07_rocky_valley_moon.png,gemini-nano-banana-2.1,1K,0.03857,3.72,46.80,434.29,noor-e-raah,3.26,3.7221,0.67,104,1762
+2026-10-25 13:24:54,channels/noor-e-raah/stories/001_al-fatiha/images/08_predawn_houses.png,gemini-nano-banana-2.1,1K,0.04149,4.00,51.52,429.57,noor-e-raah,3.26,4.0034,0.72,112,2149
+2026-10-25 13:25:15,channels/noor-e-raah/stories/001_al-fatiha/images/09_single_lamp_dark.png,gemini-nano-banana-2.1,1K,0.04091,3.95,56.18,424.91,noor-e-raah,3.26,3.9482,0.71,121,2071
+2026-10-25 13:25:39,channels/noor-e-raah/stories/001_al-fatiha/images/12_worlds_panorama.png,gemini-nano-banana-2.1,1K,0.04362,4.21,61.15,419.94,noor-e-raah,3.26,4.2098,0.76,133,2430
+2026-10-25 13:26:00,channels/noor-e-raah/stories/001_al-fatiha/images/13_birds_fields_sunrise.png,gemini-nano-banana-2.1,1K,0.04196,4.05,65.93,415.17,noor-e-raah,3.26,4.0488,0.73,101,2214
+2026-10-25 13:26:30,channels/noor-e-raah/stories/001_al-fatiha/images/14_sunbeams_after_rain.png,gemini-nano-banana-2.1,1K,0.04145,4.00,70.65,410.45,noor-e-raah,3.26,3.9996,0.72,106,2145
+2026-10-25 13:28:14,channels/noor-e-raah/stories/001_al-fatiha/images/15_mountain_spring.png,gemini-nano-banana-2.1,1K,0.04037,3.90,75.24,405.85,noor-e-raah,3.26,3.8961,0.70,116,2000
+2026-10-25 13:28:41,channels/noor-e-raah/stories/001_al-fatiha/images/16_vast_plain_dusk.png,gemini-nano-banana-2.1,1K,0.04347,4.19,80.19,400.90,noor-e-raah,3.26,4.1946,0.76,118,2412
+2026-10-25 13:29:06,channels/noor-e-raah/stories/001_al-fatiha/images/17_harvest_field_dusk.png,gemini-nano-banana-2.1,1K,0.04218,4.07,85.00,396.10,noor-e-raah,3.26,4.0702,0.73,109,2242
+2026-10-25 13:29:30,channels/noor-e-raah/stories/001_al-fatiha/images/18_lamp_toward_light.png,gemini-nano-banana-2.1,1K,0.04262,4.11,89.85,391.24,noor-e-raah,3.26,4.1131,0.74,120,2299
+2026-10-25 13:29:52,channels/noor-e-raah/stories/001_al-fatiha/images/19_tea_medicine_window.png,gemini-nano-banana-2.1,1K,0.04265,4.12,94.71,386.39,noor-e-raah,3.26,4.1155,0.74,117,2303
+2026-10-25 13:30:16,channels/noor-e-raah/stories/001_al-fatiha/images/21_straight_desert_path.png,gemini-nano-banana-2.1,1K,0.04383,4.23,99.70,381.39,noor-e-raah,3.26,4.2299,0.76,117,2461
+2026-10-25 13:30:51,channels/noor-e-raah/stories/001_al-fatiha/images/22_path_fading_tracks.png,gemini-nano-banana-2.1,1K,0.04469,4.31,104.79,376.31,noor-e-raah,3.26,4.3124,0.78,122,2574
+2026-10-25 13:31:14,channels/noor-e-raah/stories/001_al-fatiha/images/23_golden_valley_full_light.png,gemini-nano-banana-2.1,1K,0.04254,4.11,109.63,371.46,noor-e-raah,3.26,4.1053,0.74,121,2288
+2026-10-25 13:31:35,channels/noor-e-raah/stories/001_al-fatiha/images/24_crescent_night_valley.png,gemini-nano-banana-2.1,1K,0.04237,4.09,114.45,366.64,noor-e-raah,3.26,4.0888,0.74,117,2266
+2026-10-25 13:51:42,channels/noor-e-raah/stories/001_al-fatiha/images/06_makka_night_houses.png,gemini-nano-banana-2.1,1K,0.04346,4.19,119.40,361.69,noor-e-raah,3.27,4.1936,0.75,166,2401
+2026-10-25 13:52:04,channels/noor-e-raah/stories/001_al-fatiha/images/08_predawn_houses.png,gemini-nano-banana-2.1,1K,0.04270,4.12,124.27,356.83,noor-e-raah,3.27,4.1206,0.74,167,2300
+2026-10-25 13:58:00,channels/noor-e-raah/samples/immersive_test/1_pov_dua_hands.png,gemini-nano-banana-2.1,1K,0.04012,3.87,128.83,352.26,noor-e-raah,3.27,3.8712,0.70,139,1961
+2026-10-25 13:58:25,channels/noor-e-raah/samples/immersive_test/2_pov_lantern_path.png,gemini-nano-banana-2.1,1K,0.04173,4.03,133.59,347.51,noor-e-raah,3.26,4.0272,0.72,132,2178
+2026-10-25 13:59:00,channels/noor-e-raah/samples/immersive_test/3_traveller_back.png,gemini-nano-banana-2.1,1K,0.04574,4.41,138.79,342.30,noor-e-raah,3.26,4.4139,0.79,128,2713
+2026-10-25 13:59:32,channels/noor-e-raah/samples/immersive_test/4_mother_child_far.png,gemini-nano-banana-2.1,1K,0.04112,3.97,143.48,337.62,noor-e-raah,3.26,3.9677,0.71,131,2096
+2026-10-25 14:40:28,channels/noor-e-raah/samples/musafir_test/musafir_sheet.png,gemini-nano-banana-2.1,1K,0.05274,5.09,149.48,331.61,noor-e-raah,3.28,5.0898,0.92,268,3619
+2026-10-25 14:40:57,channels/noor-e-raah/samples/musafir_test/1_dua_sunrise__V1_cinematic_painted.png,gemini-nano-banana-2.1,1K,0.04060,3.92,154.10,326.99,noor-e-raah,3.44,3.9175,0.71,1354,1782
+2026-10-25 14:41:29,channels/noor-e-raah/samples/musafir_test/1_dua_sunrise__V2_cinematic_matte.png,gemini-nano-banana-2.1,1K,0.04593,4.43,159.34,321.76,noor-e-raah,3.44,4.4325,0.80,1362,2492
+2026-10-25 14:42:06,channels/noor-e-raah/samples/musafir_test/2_two_paths__V1_cinematic_painted.png,gemini-nano-banana-2.1,1K,0.04535,4.38,164.50,316.59,noor-e-raah,3.44,4.3764,0.79,1359,2415
+2026-10-25 14:42:44,channels/noor-e-raah/samples/musafir_test/2_two_paths__V2_cinematic_matte.png,gemini-nano-banana-2.1,1K,0.04757,4.59,169.92,311.18,noor-e-raah,3.45,4.5903,0.83,1367,2709
+2026-10-25 14:43:28,channels/noor-e-raah/samples/musafir_test/3_night_stars__V1_cinematic_painted.png,gemini-nano-banana-2.1,1K,0.04446,4.29,174.98,306.11,noor-e-raah,3.44,4.2900,0.77,1357,2296
+2026-10-25 14:44:13,channels/noor-e-raah/samples/musafir_test/3_night_stars__V2_cinematic_matte.png,gemini-nano-banana-2.1,1K,0.04624,4.46,180.24,300.85,noor-e-raah,3.44,4.4626,0.80,1365,2533
+2026-10-25 14:52:58,channels/noor-e-raah/samples/musafir_v2/musafir_v2_sheet.png,gemini-nano-banana-2.1,1K,0.05547,5.35,186.56,294.53,noor-e-raah,3.31,5.3526,0.96,408,3954
+2026-10-25 14:53:37,channels/noor-e-raah/samples/musafir_v2/1_dua_sunrise__V2.png,gemini-nano-banana-2.1,1K,0.05111,4.93,192.38,288.71,noor-e-raah,3.47,4.9318,0.89,1506,3153
+2026-10-25 14:53:56,channels/noor-e-raah/samples/musafir_v2/2_two_paths__V2.png,gemini-nano-banana-2.1,1K,0.03982,3.84,196.91,284.18,noor-e-raah,3.46,3.8430,0.69,1434,1663
+2026-10-25 17:14:43,channels/noor-e-raah/samples/musafir_v3/musafir_v3_sheet.png,gemini-nano-banana-2.1,1K,0.05153,4.97,202.78,278.31,noor-e-raah,3.31,4.9723,0.90,431,3424
+2026-10-25 17:15:09,channels/noor-e-raah/samples/musafir_v3/2_two_paths__V2.png,gemini-nano-banana-2.1,1K,0.04575,4.41,207.99,273.10,noor-e-raah,3.46,4.4149,0.79,1490,2442

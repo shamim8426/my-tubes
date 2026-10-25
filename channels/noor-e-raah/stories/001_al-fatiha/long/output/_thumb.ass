@@ -1,0 +1,17 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1280
+PlayResY: 720
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Big,Mukta ExtraBold,124,&H00FFFFFF,&H00FFFFFF,&H00101010,&H90000000,0,0,0,0,100,100,0,0,1,7,4,7,0,0,0,1
+Style: Small,Mukta Bold,50,&H005AC8F5,&H00FFFFFF,&H00101010,&H90000000,0,0,0,0,100,100,0,0,1,4,2,7,0,0,0,1
+Style: Ar,Amiri,260,&H00B8E3F3,&H00FFFFFF,&H00101010,&H99000000,0,0,0,0,100,100,0,0,1,0,4,7,0,0,0,0
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:05.00,Ar,,0,0,0,,{\pos(56,-30)}ٱلْفَاتِحَة
+Dialogue: 0,0:00:00.00,0:00:05.00,Big,,0,0,0,,{\pos(56,262)}रोज़ पढ़ते हैं…\Nसमझते हैं?
+Dialogue: 0,0:00:00.00,0:00:05.00,Small,,0,0,0,,{\pos(62,200)}7 आयतें, आसान ज़बान में
