@@ -174,7 +174,7 @@ Session:
 Severity: a misleading title/thumbnail is a BLOCKER; the rest are FIX in R1 and MINOR after R2 (section 11).
 
 ## 14. Auto mode (after script approval)
-From story 004, section 15 (production profile) overrides this section where they differ: no preview, budget ₹100–110 actual per story instead of the ₹130 cap, max 1 regeneration per image (BLOCKER only) instead of 2, final check R1 only. Everything else here (veto window, slots, covers, stop conditions, Studio checklist, logging) still applies.
+From story 004, section 15 (production profile) overrides this section where they differ: no preview, budget target ₹100, HARD limit ₹120 actual per story (user 2026-10-26) instead of the ₹130 cap, max 1 regeneration per image (BLOCKER only) instead of 2, final check R1 only. Everything else here (veto window, slots, covers, stop conditions, Studio checklist, logging) still applies.
 - Human checkpoint: ONLY script approval. After that everything runs automatically without asking for each step: assets (character sheets, voice samples), scene images, TTS, preview, Munshi R1 (FIX items fixed automatically, free or paid within the cap) + R2, final build, Munshi final review, long thumbnail, upload, Auto Short flow (section 8: build, review, upload), first comments, sync.
 - Publish timing: section 8 (decided after the upload from the IST clock: 19:00–23:59 public now, otherwise 19:00 the same day; Short +60 min; one long per day). Right after each upload, show the user one status line (video link + public now / scheduled time) and, while the API is unaudited, the STUDIO ACTION message. Veto window for scheduled videos: if the user says "rok do" before the time, run `tools/veto.py <video_id>` (sets the video private and removes publishAt via the API), log it in the channel log.md, and pause the pipeline for that story.
 - Thumbnails: the long thumbnail is set via the API automatically. Short covers cannot be set by the API: the Short's first frame is its cover (hook visual, no caption in the first 1 s, any text inside 15%-85% of the height); also save a vertical cover file (1080x1920) in the Short's output/ for manual use.
@@ -186,7 +186,7 @@ From story 004, section 15 (production profile) overrides this section where the
 ## 15. Production profile (user's standing instructions, from story 004 onwards)
 - Only human checkpoint: script approval. Everything after that runs automatically with Munshi reviews: assets, images, TTS, final build, thumbnail, upload, Short, comments, sync.
 - Length: long video max 4:00 (target 3:40–4:00). Short max 40 s (target 35–40 s). The script is written to this length using measured TTS speed.
-- Cost: ₹100–110 per story in ACTUAL cost (usageMetadata, incl. reference images), covering long + its Short + thumbnail. Before generating anything, estimate the actual cost; if above ₹110, simplify the plan first (fewer new images, more crop/zoom reuse) — never start over budget.
+- Cost (user 2026-10-26, ALL channels): target ₹100, **HARD limit ₹120 per story** in ACTUAL cost incl. GST (usageMetadata, incl. reference images), covering the long + ALL its Shorts + thumbnail. No paid call may take a story past ₹120 (`scripts/story_budget.py` refuses it; cap in `shared/pricing.json`). A channel's RULES may set a lower limit, never a higher one. Before generating anything, estimate the actual cost; if above ₹100, simplify the plan first (free sources, cards, fewer new images, more crop/zoom reuse) — never start over budget.
   - Max 16 new scene images per long video; the rest are crops/zooms of those.
   - 1K images only. Reference images: only the characters present in that scene.
   - Reuse existing character sheets; new sheets only for genuinely new characters.
@@ -194,7 +194,7 @@ From story 004, section 15 (production profile) overrides this section where the
 - No preview video. Munshi reviews the stages (script timing, images, audio) — R1 and R2 — and right after R2 the FINAL video is built directly.
 - After R2: MINOR issues are ignored (logged to carry_over.md), nothing is regenerated, move to the next step.
 - No paid call needs the user's OK. Stop and ask ONLY when: (1) the Google balance is below ₹50 (ask the user to recharge), (2) there is a copyright doubt, (3) the channel ID does not match. Everything else is handled without asking and written to the channel log.md:
-  - Cost about to cross ₹110: do not ask — shrink the plan yourself (fewer new images, more crop/zoom reuse) and continue.
+  - Cost about to cross ₹120: do not ask — shrink the plan yourself (fewer new images, more crop/zoom reuse) and continue.
   - A BLOCKER still in an image after its 1 regeneration: do not ask — build that scene from a crop/zoom of a good image (or move the scene's line onto another image) and continue.
   - Any BLOCKER after R2 that can be fixed for free: fix it yourself. One that cannot be fixed for free: handle it the same way (crop/zoom reuse, move the line to another image), never by asking.
 - Final video: Munshi does one final check (R1 only). If no BLOCKER -> upload; publish timing per section 8 (public now or scheduled from the IST clock right after the upload; "rok do" possible before a scheduled time; STUDIO ACTION message while the API is unaudited).

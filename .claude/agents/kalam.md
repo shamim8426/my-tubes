@@ -79,7 +79,7 @@ estimate and anything only the user can decide. Stop there.
   images (letters, maps, notes → captions/overlay). No brand, logo, studio, film, anime or artist names anywhere
   (RULES 12a; check with `python tools/name_guard.py <file>`).
 - **Cost:** max 16 new images incl. new sheets, crop/zoom reuse planned, estimate (~₹6 per 1K image incl. GST +
-  thumbnail + Short cover + TTS) inside ₹110.
+  thumbnail + Short cover + TTS) inside ₹120 (hard limit per story, target ₹100; shared RULES 15).
 - **Language:** simple Hindi that children and adults understand; no heavy words, little English; follow `shared/tts_pronunciation.md` (numbers as words, मिट्ठू, nuqta words).
 - **Voices of the characters:** bible 2b; each pakki line max 1–2 times per story, the rest new dialogue in the same style; Mitthu always repeats twice.
 - **Sensitive subjects (RULES 12a):** no mocking of religion, caste, politics, region, looks or disability; equal and good roles for girls and boys; no real person, brand or place name; festivals and rituals shown with respect and correct facts.

@@ -27,7 +27,7 @@ ambience by mood (RULES 1c).
 No tilawat (RULES 1) · tarjuma = SARAL BHAAVARTH (1a) · Arabic only Tanzil bytes via libass/Amiri; Hindi via libass
 (1c, STYLE_NOOR) · never any Prophet/Sahabi/angel/Quran-named person in any form (2, 2a) · Shorts: last ayah complete
 (2b) · sources + grades, nothing from "chhoda gaya" (3) · fazilat only from sahih hadith (Khoji dossier) · Gemini free
-key first for TTS, images paid (5) · budget ₹150 per story, ₹50 floor (shared RULES) · Munshi BLOCKER open = no upload ·
+key first for TTS, images paid (5) · budget target ₹100, HARD limit ₹120 per story (Long + Shorts + thumbnail), ₹50 floor (shared RULES) · Munshi BLOCKER open = no upload ·
 private + STUDIO ACTION while api_audited false.
 
 ## Learnings ka saar (Nigraan, `learnings.md`)

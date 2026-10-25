@@ -97,7 +97,7 @@ def check(story: str, next_cost_inr: float):
     spent, left, limit = story_cost(story), remaining(), cap(story)
     if limit is not None and spent + nxt > limit:
         sys.exit(f"OVER CAP (RULES 15): story {story} has spent ₹{spent:.2f} (actual); +₹{nxt:.2f} would cross the "
-                 f"₹{limit:.0f} cap. Not a user stop (RULES 15): shrink the plan (fewer new images, more crop/zoom reuse), log it, continue.")
+                 f"₹{limit:.0f} HARD limit (RULES 15, user 2026-10-26). Not a user stop: shrink the plan (fewer new images, more crop/zoom reuse), log it, continue.")
     key = story_channel(story)
     ch_limit = channel_cap(key)
     if ch_limit is not None and cost_log.channel_spent(key) + nxt > ch_limit:
@@ -118,7 +118,8 @@ def summary_line(story: str) -> str:
     limit = cap(story)
     return (f"{date.today().isoformat()} | {story} | ASLI KUL KHARCHA | ₹{base:.2f} + GST ₹{gst:.2f} = ₹{base + gst:.2f}"
             f" (andaza tha ₹{est:.2f}; {len(rows)} paid calls, {no_usage} bina usage = andaza)"
-            + (f" | cap ₹{limit:.0f}" if limit is not None else ""))
+            + (f" | target ₹{pricing.config()['budget'].get('story_target_inr', limit):.0f}, hard limit ₹{limit:.0f}"
+               if limit is not None else ""))
 
 
 if __name__ == "__main__":

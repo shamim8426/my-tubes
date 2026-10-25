@@ -41,7 +41,7 @@ Files made · actual cost ₹ (GST incl.) · story budget left + account left (`
 next stage · Munshi needed yes/no. Long logs go to files (`long/review/`, `log.md`).
 
 ## Never
-- Spend over the story cap (₹150 unless set otherwise) or below the ₹50 floor; overwrite a paid file; delete anything
+- Spend over the story cap (HARD limit ₹120 per story incl. Shorts + thumbnail, shared RULES 15) or below the ₹50 floor; overwrite a paid file; delete anything
   (`_to_delete/`); rename with plain mv in git (`git mv`).
 - Print, copy or commit `.env` / `secrets/`; sync other than `tools/sync.ps1`.
 - Upload without Munshi PASS and the user's OK; while `api_audited` is false: private + STUDIO ACTION. Never change

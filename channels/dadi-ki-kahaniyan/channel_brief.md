@@ -24,7 +24,7 @@ Mood music from `shared/music/<mood>/` (all in `shared/assets_license.csv`); Sho
 make_short MUSIC_BELOW_VOICE_DB.
 
 ## Pakke niyam (hawale)
-Budget ₹100-110 actual per story, ₹50 floor (shared RULES 1, 15) · length long ≤ 4:00, Short ≤ 40 s (RULES 15) ·
+Budget target ₹100, HARD limit ₹120 actual per story (Long + Shorts + thumbnail), ₹50 floor (shared RULES 1, 15) · length long ≤ 4:00, Short ≤ 40 s (RULES 15) ·
 auto mode after script approval (RULES 14) · publish RULES 8 + STUDIO ACTION while api_audited false ·
 originality 12, 12b · algorithm 13 · copyright 10 · motion: parallax default, smooth sub-pixel (CLAUDE.md) ·
 channel RULES (Short cover style, metadata).

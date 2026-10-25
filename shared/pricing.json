@@ -31,8 +31,10 @@
     }
   },
   "budget": {
+    "story_target_inr": 100,
     "story_cap_inr": {
-      "default": 110,
+      "_help": "HARD limit per story = Long + all its Shorts + thumbnail, GST samet, all channels (user 2026-10-26). Older stories keep their own historical caps.",
+      "default": 120,
       "001_lalchi-halwai": null,
       "002_sharma-ji-ki-cycle": null,
       "003_mitthu-ne-sab-bata-diya": 130,
