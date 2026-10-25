@@ -7,9 +7,9 @@
   "channel_id": "UCmw4fs9jN49GTq7wVSdYm6w",
   "secrets_dir": "secrets/noor-e-raah",
   "_secrets_note": "This channel's own OAuth client_secret.json + token.json (gitignored). Login: python tools/yt_auth.py <channel_key>",
-  "made_for_kids": null,
+  "made_for_kids": false,
   "contains_synthetic_media": false,
-  "category_id": "1",
+  "category_id": "27",
   "default_language": "hi",
   "publish_times_ist": {
     "long": "19:00",
@@ -18,7 +18,9 @@
   "short_after_long_min": 60,
   "api_audited": false,
   "_publish_note": "shared/RULES.md section 8 (2026-10-21): decided right after the upload from the IST clock. Long: 19:00-23:59 -> public now, 00:00-18:59 -> 19:00 same day; one long per day (else next free day). Short of a long: long + 60 min (19:00 -> 20:00; after 23:59 -> public now). api_audited false -> upload private + STUDIO ACTION message; true -> tools/youtube_upload.py sets public/publishAt itself.",
-  "playlists": {},
+  "playlists": {
+    "shuru-se-quran": "PLFdT8vEdAjQM"
+  },
   "content_format": "surah_explainer",
   "tilawat": false,
   "background_music": "soft",
@@ -70,5 +72,6 @@
     "quran": "क़ुरआन (everywhere: series, tagline, titles, description, script)"
   },
   "image_style": "noor_cinematic_painted",
-  "_image_style_note": "User 2026-10-25: style a (cinematic painted) is the default. Style block: scripts/noor_look_test.py STYLES['a_cinematic_painted']. No people, no text in images; Arabic/Hindi only via fonts."
+  "_image_style_note": "User 2026-10-25: style a (cinematic painted) is the default. Style block: scripts/noor_look_test.py STYLES['a_cinematic_painted']. No people, no text in images; Arabic/Hindi only via fonts.",
+  "_upload_note": "User 2026-10-25: made_for_kids false; synthetic flag false + description line 'Is video ke drishya aur awaaz AI ki madad se banaye gaye hain.'; category 27 Education."
 }

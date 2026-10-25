@@ -117,3 +117,4 @@
 2026-10-25 17:54:27  SKIPPED big file (>50MB): channels/noor-e-raah/stories/001_al-fatiha/long/output/_mix.wav
 2026-10-25 17:54:27  SKIPPED big file (>50MB): channels/noor-e-raah/stories/001_al-fatiha/long/output/_music.wav
 2026-10-25 17:55:15  pushed: noor-e-raah: Al-Fatiha final build (Munshi R2 PASS), Musafir v3, immersive tests  (repo pack size 337 MB)
+2026-10-25 17:55:48  pushed: noor-e-raah: untrack render temp files  (repo pack size 337 MB)

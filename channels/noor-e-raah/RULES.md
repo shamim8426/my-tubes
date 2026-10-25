@@ -108,6 +108,13 @@ accepted translations. Revisit only if a translation's own terms say commercial/
   character sheet (`characters/musafir/sheet_*.png`, used as the image reference) and never changes. Hands: exactly
   five fingers (Munshi zooms). Dua/worship poses only from the back or far, correct and respectful. Face detail = BLOCKER.
 
+## 2b. Shorts (user 2026-10-25)
+- **A Short never ends on a half ayah.** Every ayah that appears in a Short is complete: the full Arabic on screen
+  (whole ayah, never cut) + its complete bhaavarth line, and if its matlab is used, the whole matlab sentence(s). If the
+  time limit does not allow the complete last ayah, drop that ayah — never cut it, never end mid-sentence.
+- No sentence is cut anywhere in a Short (start or end); the last spoken line ends naturally before the end card.
+- Munshi checks every Short: last ayah complete + no cut sentence; a half ayah or cut line = BLOCKER.
+
 ## 3. Research (Khoji, mode "surah") and review (Munshi)
 - Dossier per video: `stories/<NNN>_<slug>/research/dossier.md` + `sources.json`, with the section
   **"Surah parichay + Shan-e-Nuzul"**: every point has source(s) and a grade: **maana hua** / **ikhtilaaf** /

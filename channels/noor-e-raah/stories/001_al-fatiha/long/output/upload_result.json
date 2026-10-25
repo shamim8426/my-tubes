@@ -1,0 +1,16 @@
+{
+  "video_id": "kmYyRGdykjY",
+  "url": "https://youtu.be/kmYyRGdykjY",
+  "studio_url": "https://studio.youtube.com/video/kmYyRGdykjY/edit",
+  "uploaded_at": "2026-10-25T12:31:46.202170+00:00",
+  "publish_at": "auto",
+  "thumbnail_error": "<HttpError 403 when requesting https://youtube.googleapis.com/upload/youtube/v3/thumbnails/set?videoId=kmYyRGdykjY&alt=json&uploadType=media returned \"The authenticated user doesn't have permissions to upload and set custom video thumbnails.\". Details: \"[{'message': \"The authenticated user doesn't h",
+  "captions_ok": true,
+  "playlist_ok": true,
+  "planned_publish_at": "2026-10-25T19:00+05:30",
+  "publish_action": "schedule",
+  "comment_task": "StoryChannel-Comment-kmYyRGdykjY",
+  "comment_task_at": "2026-10-25T19:05+05:30",
+  "status": "private - studio action pending",
+  "studio_action": "STUDIO ACTION (long): kmYyRGdykjY \"Surah Al-Fatiha ka Matlab Hindi Mein | Roz Padhte Hain, Samajhte Hain? | Noor-e-Raah\"\n  -> 2026-10-25 19:00 IST par SCHEDULE karo   (https://studio.youtube.com/video/kmYyRGdykjY/edit)\n  -> first comment ~2026-10-25 19:05 IST aayega: tab pin karo"
+}

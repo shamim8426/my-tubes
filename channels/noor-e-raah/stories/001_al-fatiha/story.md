@@ -9,6 +9,6 @@
 |---|---|
 | Scene images | |
 | TTS | |
-| Long video | |
+| Long video | final 7:53 (Munshi final R2 PASS-WITH-NOTES) |
 | Shorts | |
-| Upload | |
+| Upload | Long kmYyRGdykjY uploaded private 2026-10-25 18:01 IST; STUDIO ACTION pending: schedule 2026-10-25 19:00 IST; thumbnail manual baaki; first comment 19:05 IST (pin) |
