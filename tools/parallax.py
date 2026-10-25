@@ -4,7 +4,7 @@ Depth: ONLY Depth Anything V2 Small (depth-anything/Depth-Anything-V2-Small-hf, 
 Base/Large/Giant are CC BY-NC (non-commercial) and must never be used.
 
     python tools/parallax.py clip <image> <out.mp4> [--preset push_in] [--seconds 6] [--format long|short]
-                                  [--cx 0.5] [--amp 0.035] [--overlay fireflies:0.25] [--overlay diya:0.25@0.3,0.6]
+                                  [--cx 0.5] [--amp 0.04] [--overlay fireflies:0.25] [--overlay diya:0.25@0.3,0.6]
     python tools/parallax.py depth <image>          # build/cache the depth map only
 
 How a shot is made (layered depth):
@@ -14,10 +14,11 @@ How a shot is made (layered depth):
   3. background plate = the image with the foreground filled by OpenCV inpaint, moving with the depth of what is
      behind; floors/walls have the same depth in both layers, so they never tear - the inpainted plate is only
      seen in the thin sliver a real depth jump reveals
-  4. depth d moves (0.5 + 0.5 d) of the preset's move: foreground max ~3.5% of the width, far background half;
-     eased in and out (cosine)
+  4. depth d moves (0.5 + 0.5 d) of the preset's move: pans ~4% of the width, push/pull 1.00 -> 1.07, far background
+     half; eased in and out (cosine); sampled sub-pixel with cubic interpolation (no integer-pixel shake;
+     tools/motion_check.py measures it)
   5. quality guard: thin foreground parts (feathers, hair, sticks) at a big depth jump -> motion halved, and if
-     still risky -> Ken Burns zoom fallback (same move as make_short "in"); every decision goes to
+     still risky -> rigid camera move of the same preset without depth ("zoom" mode); every decision goes to
      shared/parallax_log.jsonl
 Output: Long 1920x1080 / Short 1080x1920, 30 fps, H.264, yuv420p, bt709 (same tags as make_short).
 """
@@ -44,7 +45,8 @@ LOG = ROOT / "shared" / "parallax_log.jsonl"
 FORMATS = {"long": (1920, 1080), "short": (1080, 1920)}
 FPS = 30
 MAX_SECONDS = 8.0          # one parallax shot never runs longer than this
-AMP = 0.035                # foreground max movement, fraction of the frame width (3-4%)
+AMP = 0.04                 # pan: foreground travel, fraction of the frame width (~4%; user 2026-10-25)
+ZOOM = 0.07                # push/pull: 1.00 -> 1.07 over the shot, eased in-out (user 2026-10-25)
 OVERSCAN = 1 + AMP         # just the room the sideways moves need (fg max amp/2 per side); zoom only enlarges
 PRESETS = ["push_in", "pull_out", "pan_left", "pan_right", "gentle_orbit", "static_breathe"]
 MOOD_PRESETS = {           # first choice per music mood; never the same preset twice in a row
@@ -185,27 +187,27 @@ def ease(p):
 
 def motion(preset, p, amp):
     """(zoom, dx, dy) for the NEAREST depth (d = 1); depth d moves (0.5 + 0.5 d) of it, so the far background
-    moves half as much as the foreground. zoom = extra scale, dx/dy = fraction of the frame width/height."""
+    moves half as much as the foreground. zoom = extra scale, dx/dy = fraction of the frame width/height.
+    amp below AMP (the quality guard halves it) scales the zoom down by the same factor."""
     e, a = ease(p), amp
     if preset == "push_in":
-        return 2 * a * e, 0, 0
+        return ZOOM * (a / AMP) * e, 0, 0
     if preset == "pull_out":
-        return 2 * a * (1 - e), 0, 0
+        return ZOOM * (a / AMP) * (1 - e), 0, 0
+    k = a / AMP
+    lift = ZOOM * k * (0.43 + 0.43 * e)  # pans/orbit/breathe also zoom 1.03 -> 1.06: at scale 1.0 a sub-pixel pan
+    #                                      shimmers (jerk 0.27 vs 0.054 measured, tools/motion_check.py)
     if preset == "pan_right":    # camera moves right -> the scene slides left
-        return 0, a * (0.5 - e), 0
+        return lift, a * (0.5 - e), 0
     if preset == "pan_left":
-        return 0, a * (e - 0.5), 0
+        return lift, a * (e - 0.5), 0
     if preset == "gentle_orbit":
         th = math.pi * (e - 0.5)
-        return a * 0.4 * math.cos(th), a * 0.5 * math.sin(th), 0
+        return lift + a * 0.4 * math.cos(th), a * 0.5 * math.sin(th), 0
     if preset == "static_breathe":
         s = 0.5 - 0.5 * math.cos(2 * math.pi * p)
-        return a * 0.5 * s, 0, -a * 0.15 * s
+        return ZOOM * k * 0.43 + a * 0.5 * s, 0, -a * 0.15 * s
     raise ValueError(preset)
-
-
-def kenburns(p):  # the old make_short "in" move: 1 -> 1.08 centred, linear
-    return 1 + 0.08 * p
 
 
 def choose_preset(mood, previous=None):
@@ -221,7 +223,7 @@ def _warp(src, scale, dx, dy, W, H):
     s = scale
     M = np.float32([[s, 0, (1 - s) * sw / 2 + dx * W - (sw - W) / 2],
                     [0, s, (1 - s) * sh / 2 + dy * H - (sh - H) / 2]])
-    return cv2.warpAffine(src, M, (W, H), flags=cv2.INTER_LINEAR, borderMode=cv2.BORDER_REFLECT)
+    return cv2.warpAffine(src, M, (W, H), flags=cv2.INTER_CUBIC, borderMode=cv2.BORDER_REFLECT)  # sub-pixel, no shake
 
 
 class DepthWarp:
@@ -364,13 +366,14 @@ def shot_frames(img_path, W, H, n, preset="push_in", rect=None, amp=AMP, mode="a
         for i in range(n):
             p = i / max(1, n - 1)
             if decision == "zoom":
-                frame = _warp(img, kenburns(p), 0, 0, W, H)
+                z, dx, dy = motion(preset, p, AMP)  # rigid camera move, same presets (no depth)
+                frame = _warp(img, 1 + z, dx, dy, W, H)
             else:
                 z, dx, dy = motion(preset, p, use_amp)
                 mx, my = bw.maps(z, dx, dy)
-                bg = cv2.remap(plate, mx, my, cv2.INTER_LINEAR, borderMode=cv2.BORDER_REFLECT)
+                bg = cv2.remap(plate, mx, my, cv2.INTER_CUBIC, borderMode=cv2.BORDER_REFLECT)
                 mx, my = fw.maps(z, dx, dy)
-                fg = cv2.remap(img, mx, my, cv2.INTER_LINEAR, borderMode=cv2.BORDER_REFLECT)
+                fg = cv2.remap(img, mx, my, cv2.INTER_CUBIC, borderMode=cv2.BORDER_REFLECT)
                 al = cv2.remap(alpha, mx, my, cv2.INTER_LINEAR, borderMode=cv2.BORDER_REFLECT)
                 frame = cv2.blendLinear(fg, bg, al, 1 - al)
             for ov in ovs:

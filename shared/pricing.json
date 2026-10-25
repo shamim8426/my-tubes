@@ -39,7 +39,8 @@
       "style_migration": 35,
       "new_characters": 20,
       "character_refresh": 60,
-      "noor_samples": 45
+      "noor_samples": 45,
+      "001_al-fatiha": 150
     },
     "channel_cap_inr": {
       "_help": "Own spend limit per channel (cost_log 'channel' column, GST samet). null = no cap, only counted. All channels share one Gemini key and balance.",

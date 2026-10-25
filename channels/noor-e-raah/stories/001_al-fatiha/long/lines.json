@@ -1,1 +1,1160 @@
-[]
+[
+ {
+  "kind": "section",
+  "name": "HEADER"
+ },
+ {
+  "kind": "section",
+  "name": "INTRO (`part: intro`, hook)"
+ },
+ {
+  "kind": "screen",
+  "section": "INTRO (`part: intro`, hook)",
+  "ayah": null,
+  "note": "SCREEN: subah ki pehli roshni me do pahadiyon ke beech khulti ghaati; beech me khaali, bina likhai ka sunehri"
+ },
+ {
+  "kind": "cue",
+  "n": 1,
+  "type": "music",
+  "value": "soft: Soaring — intro + parichay",
+  "section": "INTRO (`part: intro`, hook)",
+  "ayah": null
+ },
+ {
+  "kind": "cue",
+  "n": 2,
+  "type": "ambience",
+  "value": "gentle breeze (Freesound CC0)",
+  "section": "INTRO (`part: intro`, hook)",
+  "ayah": null
+ },
+ {
+  "kind": "line",
+  "n": 3,
+  "speaker": "sawaal",
+  "role": "",
+  "section": "INTRO (`part: intro`, hook)",
+  "ayah": null,
+  "text": "उस्ताद जी, जो सूरह हम बचपन से सुनते आए हैं — क्या हम उसका मतलब जानते हैं?",
+  "tags": []
+ },
+ {
+  "kind": "line",
+  "n": 4,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "INTRO (`part: intro`, hook)",
+  "ayah": null,
+  "text": "आज उसी को समझेंगे — सूरह अल-फ़ातिहा, जिसे नबी सल्लल्लाहु अलैहि वसल्लम ने क़ुरआन की सबसे अज़ीम सूरह बताया।",
+  "tags": [
+   "S17"
+  ]
+ },
+ {
+  "kind": "section",
+  "name": "1. SURAH KA PARICHAY"
+ },
+ {
+  "kind": "screen",
+  "section": "1. SURAH KA PARICHAY",
+  "ayah": null,
+  "note": "SCREEN: wahi ghaati, roshni badhti hui; info cards font se: \"मक्की (ज़्यादातर उलमा)\", \"आयतें: 7\", \"क़ुरआन में क्रम: 1\""
+ },
+ {
+  "kind": "line",
+  "n": 5,
+  "speaker": "sawaal",
+  "role": "",
+  "section": "1. SURAH KA PARICHAY",
+  "ayah": null,
+  "text": "पहले नाम। 'फ़ातिहा' का मतलब क्या है?",
+  "tags": []
+ },
+ {
+  "kind": "line",
+  "n": 6,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "1. SURAH KA PARICHAY",
+  "ayah": null,
+  "text": "'फ़ातिहा' यानी खोलने वाली। क़ुरआन इसी सूरह से खुलता है।",
+  "tags": [
+   "S1"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 7,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "1. SURAH KA PARICHAY",
+  "ayah": null,
+  "text": "ये क़ुरआन की पहली सूरह है, और इसकी आयतें सात हैं — इस पर उलमा एक राय हैं।",
+  "tags": [
+   "S12",
+   "S10"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 8,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "1. SURAH KA PARICHAY",
+  "ayah": null,
+  "text": "हम जो गिनती ले रहे हैं, उसमें बिस्मिल्लाह पहली आयत है।",
+  "tags": [
+   "S11"
+  ]
+ },
+ {
+  "kind": "screen",
+  "section": "1. SURAH KA PARICHAY",
+  "ayah": null,
+  "note": "SCREEN: naamon ke do cards, ek-ek kar (font se, Arabic naam + Hindi matlab): उम्मुल-क़ुरआन, अस-सब्उल-मसानी"
+ },
+ {
+  "kind": "line",
+  "n": 9,
+  "speaker": "sawaal",
+  "role": "",
+  "section": "1. SURAH KA PARICHAY",
+  "ayah": null,
+  "text": "और इसके नाम? मैंने एक से ज़्यादा सुने हैं।",
+  "tags": []
+ },
+ {
+  "kind": "line",
+  "n": 10,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "1. SURAH KA PARICHAY",
+  "ayah": null,
+  "text": "हाँ, कई नाम हैं। 'उम्मुल-क़ुरआन' — यानी क़ुरआन की असल, उसकी जड़।",
+  "tags": [
+   "S2"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 11,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "1. SURAH KA PARICHAY",
+  "ayah": null,
+  "text": "'अस-सब्उल-मसानी' — यानी बार-बार दोहराई जाने वाली सात आयतें।",
+  "tags": [
+   "S3"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 12,
+  "speaker": "sawaal",
+  "role": "",
+  "section": "1. SURAH KA PARICHAY",
+  "ayah": null,
+  "text": "अच्छा! तो एक बात में — इस सूरह में है क्या?",
+  "tags": []
+ },
+ {
+  "kind": "line",
+  "n": 13,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "1. SURAH KA PARICHAY",
+  "ayah": null,
+  "text": "पहले अल्लाह की तारीफ़, फिर सिर्फ़ उसी की इबादत और उसी से मदद, और आख़िर में सीधी राह की दुआ।",
+  "tags": [
+   "S20"
+  ]
+ },
+ {
+  "kind": "section",
+  "name": "2. SHAN-E-NUZUL"
+ },
+ {
+  "kind": "screen",
+  "section": "2. SHAN-E-NUZUL",
+  "ayah": null,
+  "note": "SCREEN: saatvi sadi ka Makka — sookhi kaali-bhoori chattani pahadiyan, tang wadi, retili zameen, kuchh khajoor ke"
+ },
+ {
+  "kind": "cue",
+  "n": 14,
+  "type": "music",
+  "value": "soft: Quietude – Ambient Synth Soundscape Pack (01 Sections Merged) — shan-e-nuzul",
+  "section": "2. SHAN-E-NUZUL",
+  "ayah": null
+ },
+ {
+  "kind": "cue",
+  "n": 15,
+  "type": "ambience",
+  "value": "desert wind + night wind with crickets (Freesound CC0)",
+  "section": "2. SHAN-E-NUZUL",
+  "ayah": null
+ },
+ {
+  "kind": "line",
+  "n": 16,
+  "speaker": "sawaal",
+  "role": "",
+  "section": "2. SHAN-E-NUZUL",
+  "ayah": null,
+  "text": "ये सूरह कब उतरी? कोई ख़ास वाक़िया?",
+  "tags": []
+ },
+ {
+  "kind": "line",
+  "n": 17,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "2. SHAN-E-NUZUL",
+  "ayah": null,
+  "text": "पहले एक साफ़ बात: इसके उतरने के किसी ख़ास वाक़िये की कोई मज़बूत रिवायत नहीं मिलती।",
+  "tags": [
+   "S15"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 18,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "2. SHAN-E-NUZUL",
+  "ayah": null,
+  "text": "ज़्यादातर उलमा के मुताबिक़ ये मक्की सूरह है — मक्का में, पैग़म्बरी के बिल्कुल शुरुआती दौर में उतरी।",
+  "tags": [
+   "S15",
+   "S9"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 19,
+  "speaker": "sawaal",
+  "role": "",
+  "section": "2. SHAN-E-NUZUL",
+  "ayah": null,
+  "text": "और कोई दूसरी राय भी है?",
+  "tags": []
+ },
+ {
+  "kind": "line",
+  "n": 20,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "2. SHAN-E-NUZUL",
+  "ayah": null,
+  "text": "कुछ उलमा ने इसे मदीना में उतरी सूरह माना।",
+  "tags": [
+   "S9"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 21,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "2. SHAN-E-NUZUL",
+  "ayah": null,
+  "text": "और कुछ ने कहा कि ये दो बार उतरी — एक बार मक्का में, एक बार मदीना में।",
+  "tags": [
+   "S9"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 22,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "2. SHAN-E-NUZUL",
+  "ayah": null,
+  "text": "इमाम इब्न कसीर के नज़दीक पहली राय — यानी इसका मक्की होना — ज़्यादा मुनासिब है।",
+  "tags": [
+   "S9"
+  ]
+ },
+ {
+  "kind": "section",
+  "name": "3. AAYAT-DAR-AAYAT"
+ },
+ {
+  "kind": "screen",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": null,
+  "note": "SCREEN (har aayat): beech me Arabic aayat bade Arabic font me (Tanzil Uthmani), neeche Hindi BHAAVARTH caption,"
+ },
+ {
+  "kind": "screen",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": null,
+  "note": "SCREEN (shuru): andhere me ek akela mitti ka diya — shaant."
+ },
+ {
+  "kind": "cue",
+  "n": 23,
+  "type": "music",
+  "value": "soft: Quietude – Ambient Synth Soundscape Pack (01 Sections Merged) — aayaton ke beech ka hissa",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": null
+ },
+ {
+  "kind": "cue",
+  "n": 24,
+  "type": "ambience",
+  "value": "gentle breeze (Freesound CC0)",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": null
+ },
+ {
+  "kind": "line",
+  "n": 25,
+  "speaker": "sawaal",
+  "role": "",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": null,
+  "text": "अब आयतें। पढ़ते वक़्त किस बात पर ध्यान दें?",
+  "tags": []
+ },
+ {
+  "kind": "line",
+  "n": 26,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": null,
+  "text": "एक हदीस-ए-क़ुदसी में अल्लाह फ़रमाता है: 'मैंने नमाज़ को अपने और अपने बंदे के बीच आधा-आधा बाँट दिया है।'",
+  "tags": [
+   "S16",
+   "S4"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 27,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": null,
+  "text": "'और मेरे बंदे को वो मिलेगा जो उसने माँगा।' फिर हदीस बताती है कि फ़ातिहा के हिस्सों पर अल्लाह की तरफ़ से जवाब आता है।",
+  "tags": [
+   "S16"
+  ]
+ },
+ {
+  "kind": "ayah",
+  "ayah": 1
+ },
+ {
+  "kind": "screen",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 1,
+  "note": "SCREEN: baarish ke baad hari hoti zameen, subah ki dhoop"
+ },
+ {
+  "kind": "cue",
+  "n": 28,
+  "type": "music",
+  "value": "fade-out 1s — ARABIC ON SCREEN",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 1
+ },
+ {
+  "kind": "cue",
+  "n": 29,
+  "type": "ambience",
+  "value": "gentle breeze (Freesound CC0)",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 1
+ },
+ {
+  "kind": "arabic",
+  "ayah": 1,
+  "text": "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ"
+ },
+ {
+  "kind": "line",
+  "n": 30,
+  "speaker": "ustaad",
+  "role": "bhaavarth",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 1,
+  "text": "पहली आयत: अल्लाह के नाम से शुरू — वो, जो बेहद मेहरबान है, और बहुत रहम करने वाला है।",
+  "tags": []
+ },
+ {
+  "kind": "cue",
+  "n": 31,
+  "type": "music",
+  "value": "back slowly: River Flute — matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 1
+ },
+ {
+  "kind": "line",
+  "n": 32,
+  "speaker": "ustaad",
+  "role": "matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 1,
+  "text": "यानी हर काम की शुरुआत अल्लाह के नाम से — उसकी मदद और बरकत के साथ।",
+  "tags": [
+   "M1"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 33,
+  "speaker": "ustaad",
+  "role": "matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 1,
+  "text": "'रहमान' और 'रहीम' — दोनों उसकी बहुत बड़ी और पूरी रहमत के नाम हैं।",
+  "tags": [
+   "M1"
+  ]
+ },
+ {
+  "kind": "ayah",
+  "ayah": 2
+ },
+ {
+  "kind": "screen",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 2,
+  "note": "SCREEN: alag-alag jahan — samandar, pahad, raat ki aakaash-ganga, door udta parindon ka jhund, khet"
+ },
+ {
+  "kind": "cue",
+  "n": 34,
+  "type": "music",
+  "value": "fade-out 1s — ARABIC ON SCREEN",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 2
+ },
+ {
+  "kind": "cue",
+  "n": 35,
+  "type": "ambience",
+  "value": "gentle breeze (Freesound CC0)",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 2
+ },
+ {
+  "kind": "arabic",
+  "ayah": 2,
+  "text": "ٱلْحَمْدُ لِلَّهِ رَبِّ ٱلْعَٰلَمِينَ"
+ },
+ {
+  "kind": "line",
+  "n": 36,
+  "speaker": "ustaad",
+  "role": "bhaavarth",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 2,
+  "text": "दूसरी आयत: हर तारीफ़ असल में अल्लाह की है — वो सारे जहानों का पालने वाला मालिक है।",
+  "tags": []
+ },
+ {
+  "kind": "cue",
+  "n": 37,
+  "type": "music",
+  "value": "back slowly: River Flute — matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 2
+ },
+ {
+  "kind": "line",
+  "n": 38,
+  "speaker": "sawaal",
+  "role": "",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 2,
+  "text": "'हम्द' — क्या ये बस शुक्रिया कहना है?",
+  "tags": []
+ },
+ {
+  "kind": "line",
+  "n": 39,
+  "speaker": "ustaad",
+  "role": "matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 2,
+  "text": "'हम्द' सिर्फ़ शुक्रिया नहीं — किसी की ख़ूबियों की तारीफ़ भी हम्द है।",
+  "tags": [
+   "M2"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 40,
+  "speaker": "ustaad",
+  "role": "matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 2,
+  "text": "'रब' वो मालिक है जो पालता है, सँभालता है। और 'आलमीन' यानी अल्लाह के सिवा सारी मख़लूक़ — हर जहान।",
+  "tags": [
+   "M2"
+  ]
+ },
+ {
+  "kind": "cue",
+  "n": 41,
+  "type": "ambience",
+  "value": "birds, bahut dheemi, River Flute ke neeche (Freesound CC0) — MISAAL",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 2
+ },
+ {
+  "kind": "line",
+  "n": 42,
+  "speaker": "sawaal",
+  "role": "misaal",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 2,
+  "text": "कोई हमारा गिरा सामान उठा दे, तो हम झट से 'शुक्रिया' कहते हैं।",
+  "tags": [
+   "MISAAL"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 43,
+  "speaker": "sawaal",
+  "role": "misaal",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 2,
+  "text": "पर बारिश, साँस, सुबह का सूरज — ये तो बिना माँगे मिले। इन्हें देने वाले की ख़ूबियों को सराहना... क्या यही हम्द है?",
+  "tags": [
+   "MISAAL"
+  ]
+ },
+ {
+  "kind": "cue",
+  "n": 44,
+  "type": "ambience",
+  "value": "wapas gentle breeze (Freesound CC0)",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 2
+ },
+ {
+  "kind": "line",
+  "n": 45,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 2,
+  "text": "हाँ, यही। और इस आयत पर हदीस में अल्लाह का जवाब है: 'मेरे बंदे ने मेरी हम्द की।'",
+  "tags": [
+   "M2",
+   "S16"
+  ]
+ },
+ {
+  "kind": "ayah",
+  "ayah": 3
+ },
+ {
+  "kind": "screen",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 3,
+  "note": "SCREEN: pahadi chashma, saaf behta paani, subah ki dhoop"
+ },
+ {
+  "kind": "cue",
+  "n": 46,
+  "type": "music",
+  "value": "fade-out 1s — ARABIC ON SCREEN",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 3
+ },
+ {
+  "kind": "cue",
+  "n": 47,
+  "type": "ambience",
+  "value": "gentle breeze (Freesound CC0)",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 3
+ },
+ {
+  "kind": "arabic",
+  "ayah": 3,
+  "text": "ٱلرَّحْمَٰنِ ٱلرَّحِيمِ"
+ },
+ {
+  "kind": "line",
+  "n": 48,
+  "speaker": "ustaad",
+  "role": "bhaavarth",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 3,
+  "text": "तीसरी आयत: वो बेहद मेहरबान है, बहुत रहम करने वाला।",
+  "tags": []
+ },
+ {
+  "kind": "cue",
+  "n": 49,
+  "type": "music",
+  "value": "back slowly: River Flute — matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 3
+ },
+ {
+  "kind": "line",
+  "n": 50,
+  "speaker": "ustaad",
+  "role": "matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 3,
+  "text": "'रब' के ठीक बाद रहमत का ज़िक्र — यानी वो सारे जहान को किसी मजबूरी से नहीं, अपनी रहमत से पालता है।",
+  "tags": [
+   "M3"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 51,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 3,
+  "text": "वो रब भी है, और रहमत वाला भी। जवाब: 'मेरे बंदे ने मेरी तारीफ़ की।'",
+  "tags": [
+   "M3",
+   "S16"
+  ]
+ },
+ {
+  "kind": "ayah",
+  "ayah": 4
+ },
+ {
+  "kind": "screen",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 4,
+  "note": "SCREEN: khaali, shaant, vishaal maidan; dhalta sooraj, sunsaan ufaq — gambhir, darawna nahi"
+ },
+ {
+  "kind": "cue",
+  "n": 52,
+  "type": "music",
+  "value": "fade-out 1s — ARABIC ON SCREEN",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 4
+ },
+ {
+  "kind": "cue",
+  "n": 53,
+  "type": "ambience",
+  "value": "gentle breeze (Freesound CC0)",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 4
+ },
+ {
+  "kind": "arabic",
+  "ayah": 4,
+  "text": "مَٰلِكِ يَوْمِ ٱلدِّينِ"
+ },
+ {
+  "kind": "line",
+  "n": 54,
+  "speaker": "ustaad",
+  "role": "bhaavarth",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 4,
+  "text": "चौथी आयत: जिस दिन हर किसी को बदला मिलेगा, उस दिन का मालिक वही है।",
+  "tags": []
+ },
+ {
+  "kind": "cue",
+  "n": 55,
+  "type": "music",
+  "value": "back slowly: River Flute — matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 4
+ },
+ {
+  "kind": "line",
+  "n": 56,
+  "speaker": "sawaal",
+  "role": "",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 4,
+  "text": "उस्ताद जी, ख़ास 'उस दिन' का मालिक क्यों कहा गया?",
+  "tags": []
+ },
+ {
+  "kind": "line",
+  "n": 57,
+  "speaker": "ustaad",
+  "role": "matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 4,
+  "text": "मालिक तो वो हमेशा है; पर हिसाब और बदले के उस दिन कोई और, किसी चीज़ का नाम-भर का मालिक भी नहीं होगा।",
+  "tags": [
+   "M4"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 58,
+  "speaker": "ustaad",
+  "role": "matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 4,
+  "text": "दुनिया अमल की जगह है, और हर अमल का पूरा बदला उसी दिन मिलेगा।",
+  "tags": [
+   "M4"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 59,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 4,
+  "text": "जवाब: 'मेरे बंदे ने मेरी बुज़ुर्गी बयान की' — 'बुज़ुर्गी' यानी बड़ाई।",
+  "tags": [
+   "S16"
+  ]
+ },
+ {
+  "kind": "ayah",
+  "ayah": 5
+ },
+ {
+  "kind": "screen",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 5,
+  "note": "SCREEN: andhere me akela diya — ek hi roshni ki taraf"
+ },
+ {
+  "kind": "cue",
+  "n": 60,
+  "type": "music",
+  "value": "fade-out 1s — ARABIC ON SCREEN",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 5
+ },
+ {
+  "kind": "cue",
+  "n": 61,
+  "type": "ambience",
+  "value": "gentle breeze (Freesound CC0)",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 5
+ },
+ {
+  "kind": "arabic",
+  "ayah": 5,
+  "text": "إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ"
+ },
+ {
+  "kind": "line",
+  "n": 62,
+  "speaker": "ustaad",
+  "role": "bhaavarth",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 5,
+  "text": "पाँचवीं आयत: ऐ अल्लाह, हम सिर्फ़ तेरी इबादत करते हैं, और मदद भी सिर्फ़ तुझसे ही माँगते हैं।",
+  "tags": []
+ },
+ {
+  "kind": "cue",
+  "n": 63,
+  "type": "music",
+  "value": "back slowly: River Flute — matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 5
+ },
+ {
+  "kind": "line",
+  "n": 64,
+  "speaker": "ustaad",
+  "role": "matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 5,
+  "text": "ध्यान दीजिए — यहाँ से बंदा 'वो' नहीं, सीधे 'तू' कह कर अल्लाह से बात करता है।",
+  "tags": [
+   "M5"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 65,
+  "speaker": "ustaad",
+  "role": "matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 5,
+  "text": "अरबी में 'तुझी को' पहले आया — यानी सिर्फ़ तू। इबादत यानी पूरी मोहब्बत से, ख़ुद को छोटा मान कर झुकना।",
+  "tags": [
+   "M5"
+  ]
+ },
+ {
+  "kind": "cue",
+  "n": 66,
+  "type": "ambience",
+  "value": "birds, bahut dheemi, River Flute ke neeche (Freesound CC0) — MISAAL",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 5
+ },
+ {
+  "kind": "line",
+  "n": 67,
+  "speaker": "sawaal",
+  "role": "misaal",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 5,
+  "text": "पर उस्ताद जी, बुख़ार में हम डॉक्टर के पास जाते हैं, मुश्किल में दोस्त से मदद माँगते हैं।",
+  "tags": [
+   "MISAAL"
+  ]
+ },
+ {
+  "kind": "cue",
+  "n": 68,
+  "type": "ambience",
+  "value": "wapas gentle breeze (Freesound CC0)",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 5
+ },
+ {
+  "kind": "line",
+  "n": 69,
+  "speaker": "sawaal",
+  "role": "",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 5,
+  "text": "तो इस आयत का इससे क्या रिश्ता है?",
+  "tags": []
+ },
+ {
+  "kind": "line",
+  "n": 70,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 5,
+  "text": "आयत दिल के भरोसे की बात करती है — इलाज और दोस्त की मदद अपनी जगह, पर आख़िरी भरोसा और उम्मीद सिर्फ़ अल्लाह पर।",
+  "tags": [
+   "M5",
+   "MISAAL"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 71,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 5,
+  "text": "जवाब: 'ये मेरे और मेरे बंदे के बीच है, और मेरे बंदे को वो मिलेगा जो उसने माँगा।'",
+  "tags": [
+   "S16"
+  ]
+ },
+ {
+  "kind": "ayah",
+  "ayah": 6
+ },
+ {
+  "kind": "screen",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 6,
+  "note": "SCREEN: registaan me ek seedha, saaf raasta ufaq tak; koi insaan nahi"
+ },
+ {
+  "kind": "cue",
+  "n": 72,
+  "type": "music",
+  "value": "fade-out 1s — ARABIC ON SCREEN",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 6
+ },
+ {
+  "kind": "cue",
+  "n": 73,
+  "type": "ambience",
+  "value": "gentle breeze (Freesound CC0)",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 6
+ },
+ {
+  "kind": "arabic",
+  "ayah": 6,
+  "text": "ٱهْدِنَا ٱلصِّرَٰطَ ٱلْمُسْتَقِيمَ"
+ },
+ {
+  "kind": "line",
+  "n": 74,
+  "speaker": "ustaad",
+  "role": "bhaavarth",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 6,
+  "text": "छठी आयत: हमें सीधी राह दिखा, और उस पर चला।",
+  "tags": []
+ },
+ {
+  "kind": "cue",
+  "n": 75,
+  "type": "music",
+  "value": "back slowly: River Flute — matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 6
+ },
+ {
+  "kind": "line",
+  "n": 76,
+  "speaker": "sawaal",
+  "role": "",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 6,
+  "text": "जो पहले से सीधी राह पर है, वो भी रोज़ ये दुआ क्यों माँगे?",
+  "tags": []
+ },
+ {
+  "kind": "line",
+  "n": 77,
+  "speaker": "ustaad",
+  "role": "matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 6,
+  "text": "सीधी राह यानी साफ़ रास्ता, जिसमें भटकाव की कोई शाख़ न हो।",
+  "tags": [
+   "M6"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 78,
+  "speaker": "ustaad",
+  "role": "matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 6,
+  "text": "ईमान वाला भी रोज़ माँगता है कि अल्लाह उसे इसी राह पर जमाए रखे — क्योंकि हर क़दम पर रहनुमाई चाहिए।",
+  "tags": [
+   "M6"
+  ]
+ },
+ {
+  "kind": "ayah",
+  "ayah": 7
+ },
+ {
+  "kind": "screen",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 7,
+  "note": "SCREEN: wahi seedha raasta; dono taraf bhatakte, ret me mitte raaste (koi aadmi nahi); door pakka raasta roshni ki taraf"
+ },
+ {
+  "kind": "cue",
+  "n": 79,
+  "type": "music",
+  "value": "fade-out 1s — ARABIC ON SCREEN",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 7
+ },
+ {
+  "kind": "cue",
+  "n": 80,
+  "type": "ambience",
+  "value": "gentle breeze (Freesound CC0)",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 7
+ },
+ {
+  "kind": "arabic",
+  "ayah": 7,
+  "text": "صِرَٰطَ ٱلَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ ٱلْمَغْضُوبِ عَلَيْهِمْ وَلَا ٱلضَّآلِّينَ"
+ },
+ {
+  "kind": "line",
+  "n": 81,
+  "speaker": "ustaad",
+  "role": "bhaavarth",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 7,
+  "text": "सातवीं आयत: उन लोगों की राह, जिन्हें तूने अपनी नेमतों से नवाज़ा; न उनकी राह, जिन पर तेरा ग़ुस्सा हुआ, और न उनकी, जो रास्ते से भटक गए।",
+  "tags": []
+ },
+ {
+  "kind": "cue",
+  "n": 82,
+  "type": "music",
+  "value": "back slowly: River Flute — matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 7
+ },
+ {
+  "kind": "line",
+  "n": 83,
+  "speaker": "sawaal",
+  "role": "",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 7,
+  "text": "ये नेमत वाले लोग कौन हैं? और किनकी राह से बचने की दुआ है?",
+  "tags": []
+ },
+ {
+  "kind": "line",
+  "n": 84,
+  "speaker": "ustaad",
+  "role": "matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 7,
+  "text": "सूरह अन-निसा की आयत उनहत्तर बताती है — नबी, सिद्दीक़ीन यानी सच्चाई में सबसे पक्के लोग, शहीद, और नेक लोग।",
+  "tags": [
+   "M7"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 85,
+  "speaker": "ustaad",
+  "role": "matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 7,
+  "text": "और बचने की दुआ दो राहों से है: एक उनकी, जिन्होंने हक़ जान कर भी जान-बूझकर छोड़ दिया;",
+  "tags": [
+   "M7"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 86,
+  "speaker": "ustaad",
+  "role": "matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 7,
+  "text": "और दूसरी उनकी, जो इल्म के बिना या लापरवाही से भटक गए।",
+  "tags": [
+   "M7"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 87,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 7,
+  "text": "आख़िरी दुआ पर जवाब: 'ये मेरे बंदे के लिए है, और मेरे बंदे को वो मिलेगा जो उसने माँगा।'",
+  "tags": [
+   "S16"
+  ]
+ },
+ {
+  "kind": "section",
+  "name": "4. SEEKH"
+ },
+ {
+  "kind": "screen",
+  "section": "4. SEEKH",
+  "ayah": null,
+  "note": "SCREEN: subah ka sunehra ujala, khulti ghaati (intro wali jagah, ab poori roshni); seekh ke chhote cards font se"
+ },
+ {
+  "kind": "cue",
+  "n": 88,
+  "type": "music",
+  "value": "soft: River Flute — seekh + ant",
+  "section": "4. SEEKH",
+  "ayah": null
+ },
+ {
+  "kind": "cue",
+  "n": 89,
+  "type": "ambience",
+  "value": "gentle breeze (Freesound CC0)",
+  "section": "4. SEEKH",
+  "ayah": null
+ },
+ {
+  "kind": "line",
+  "n": 90,
+  "speaker": "sawaal",
+  "role": "",
+  "section": "4. SEEKH",
+  "ayah": null,
+  "text": "तो उस्ताद जी, हमारी ज़िंदगी के लिए सीख क्या है?",
+  "tags": []
+ },
+ {
+  "kind": "line",
+  "n": 91,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "4. SEEKH",
+  "ayah": null,
+  "text": "पहली: माँगने से पहले तारीफ़ और शुक्र — तफ़सीर इसे माँगने का सबसे बेहतर तरीक़ा बताती है।",
+  "tags": [
+   "S20",
+   "M2"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 92,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "4. SEEKH",
+  "ayah": null,
+  "text": "दूसरी: मेहनत भी, मदद भी — पर दिल का आख़िरी भरोसा अल्लाह पर।",
+  "tags": [
+   "M5"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 93,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "4. SEEKH",
+  "ayah": null,
+  "text": "तीसरी: सीधी राह की दुआ एक बार नहीं — हर दिन, हर फ़ैसले पर।",
+  "tags": [
+   "M6"
+  ]
+ },
+ {
+  "kind": "screen",
+  "section": "4. SEEKH",
+  "ayah": null,
+  "note": "SCREEN (end, last ~20 s end-screen area khaali): tagline card \"क़ुरआन, आसान ज़बान में।\" + series \"शुरू से क़ुरआन\" + chhota card \"Arabic text: Tanzil Project, tanzil.net\" + \"सरल भावार्थ — माने हुए तर्जुमों के आधार पर\""
+ },
+ {
+  "kind": "line",
+  "n": 94,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "4. SEEKH",
+  "ayah": null,
+  "text": "अगली बार, 'शुरू से क़ुरआन' में: सूरह अल-बक़रह की पहली पाँच आयतें।",
+  "tags": [
+   "NEXT"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 95,
+  "speaker": "sawaal",
+  "role": "",
+  "section": "4. SEEKH",
+  "ayah": null,
+  "text": "और आप कमेंट में बताइए — फ़ातिहा की कौन-सी आयत आपके दिल के सबसे क़रीब है, और क्यों?",
+  "tags": []
+ },
+ {
+  "kind": "cue",
+  "n": 96,
+  "type": "music",
+  "value": "River Flute dheere fade-out; aakhri ~3 s sirf gentle breeze",
+  "section": "4. SEEKH",
+  "ayah": null
+ }
+]

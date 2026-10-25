@@ -49,6 +49,19 @@ def keys_for(out, model: str = "") -> list[tuple[str, str]]:
     return keys
 
 
+def _post(endpoint, body, key, timeout):
+    """One request; a dropped connection or a read time-out is tried again twice (5 s, 15 s)."""
+    import time
+    for wait in (5, 15, None):
+        try:
+            return requests.post(endpoint, json=body, headers={"x-goog-api-key": key}, timeout=timeout)
+        except (requests.ConnectionError, requests.Timeout):
+            if wait is None:
+                raise
+            print(f"Gemini: network error, retry in {wait}s", flush=True)
+            time.sleep(wait)
+
+
 class FreeQuotaOver(RuntimeError):
     """free_only call got 429 (or has no free key): stop, never spend."""
 
@@ -60,12 +73,12 @@ def post(endpoint: str, body: dict, out, timeout=90, label="Gemini", free_only=F
         keys = [k for k in keys if k[0] == "free"]
         if not keys:
             raise FreeQuotaOver(f"{label}: no free key for this channel/model; paid key not allowed here")
-        r = requests.post(endpoint, json=body, headers={"x-goog-api-key": keys[0][1]}, timeout=timeout)
+        r = _post(endpoint, body, keys[0][1], timeout)
         if r.status_code == 429:
             raise FreeQuotaOver(f"{label}: free key quota used up (429); paid key not allowed here")
         return r, "free"
     for i, (tier, key) in enumerate(keys):
-        r = requests.post(endpoint, json=body, headers={"x-goog-api-key": key}, timeout=timeout)
+        r = _post(endpoint, body, key, timeout)
         if r.status_code == 429 and tier == "free" and i + 1 < len(keys):
             print(f"{label}: free key quota (429) -> same request on the paid key")
             continue

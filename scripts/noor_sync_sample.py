@@ -160,13 +160,24 @@ def title_card(path: Path):
          "-vf", vf, str(path)])
 
 
-def shot(img: Path, dur: float, out: Path, zoom_in=True):
+MOVES = ["push_in", "pan_right", "pull_out", "pan_left", "gentle_orbit"]  # every shot a different move
+MAX_SHOT = 8.0  # one move over 6-8 s; a longer stretch on one image is split into two moves
+
+
+def shot(img: Path, dur: float, out: Path, preset: str):
+    """Eased camera move (tools/parallax.py, "zoom" mode = no depth): 1.00 -> 1.07 or ~4% pan, sub-pixel cubic
+    sampling - no zoompan integer-pixel shake (tools/motion_check.py)."""
+    import parallax as PX
     frames = max(int(round(dur * FPS)), 1)
-    z = f"min(1+{0.06 / frames:.6f}*on,1.06)" if zoom_in else f"max(1.06-{0.06 / frames:.6f}*on,1.0)"
-    run(["-loop", "1", "-i", str(img), "-vf",
-         f"scale=3840:2160:force_original_aspect_ratio=increase,crop=3840:2160,"
-         f"zoompan=z='{z}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={frames}:s=1920x1080:fps={FPS},format=yuv420p",
-         "-frames:v", str(frames), "-c:v", "libx264", "-preset", "veryfast", "-crf", "18", str(out)])
+    enc = subprocess.Popen([FF, "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "bgr24", "-s", "1920x1080",
+                            "-r", str(FPS), "-i", "-", "-frames:v", str(frames), "-c:v", "libx264", "-preset", "veryfast",
+                            "-crf", "16", "-pix_fmt", "yuv420p", str(out)], stdin=subprocess.PIPE)
+    gen, _ = PX.shot_frames(img, 1920, 1080, frames, preset, mode="zoom")
+    for f in gen:
+        enc.stdin.write(f.tobytes())
+    enc.stdin.close()
+    if enc.wait():
+        raise RuntimeError(f"encode failed: {out.name}")
 
 
 def main():
@@ -193,14 +204,21 @@ def main():
     # ---- shots: card | look A (line 5) | dawn valley (6-7) | green after rain (ayah) | open door (matlab)
     card = OUT / "_card.png"
     title_card(card)
-    seq = [(card, 0.0), (LOOK_A, T_CARD), (OUT / "images/dawn_valley.png", starts[1] - 0.3),
-           (OUT / "images/green_after_rain.png", fade_start), (OUT / "images/open_door_sunrise.png", arabic_off)]
+    base = [(card, 0.0), (LOOK_A, T_CARD), (OUT / "images/dawn_valley.png", starts[1] - 0.3),
+            (OUT / "images/green_after_rain.png", fade_start), (OUT / "images/open_door_sunrise.png", arabic_off)]
+    seq = []  # split stretches longer than MAX_SHOT into equal parts (same image, next move)
+    for i, (img, s) in enumerate(base):
+        e = base[i + 1][1] if i + 1 < len(base) else END
+        parts = max(1, int(-(-(e - s) // MAX_SHOT)))
+        seq += [(img, s + k * (e - s) / parts) for k in range(parts)]
     clips = []
     for i, (img, s) in enumerate(seq):
         nxt = seq[i + 1][1] if i + 1 < len(seq) else END
         dur = nxt - s + (XF if i + 1 < len(seq) else 0)
         c = OUT / f"_shot{i}.mp4"
-        shot(img, dur, c, zoom_in=i % 2 == 0)
+        preset = "static_breathe" if img == card else MOVES[(i - 1) % len(MOVES)]
+        shot(img, dur, c, preset)
+        print(f"shot {i}: {img.name} {s:.1f}-{nxt:.1f}s {preset}")
         clips.append((c, s))
     # chain with xfade: clip i+1 content starts at its timeline start
     inputs, fc, last = [], [], "[0:v]"
@@ -241,13 +259,14 @@ def main():
     f_gain = -38.0 - lufs(flute, 120, max(f_len, 5))
     b_gain = -46.0 - lufs(breeze, 5, END)
     fmt = "aformat=sample_fmts=fltp:sample_rates=48000:channel_layouts=stereo"
-    afc = [f"[5]{fmt},volume={v_gain:.2f}dB,aecho=0.8:0.7:40|75:0.10|0.06,asplit=2[v][vk]",
-           f"[6]{fmt},volume={s_gain:.2f}dB,afade=t=in:d=1.5,afade=t=out:st={fade_start:.2f}:d=1,apad=whole_dur={END:.2f}[ms]",
-           f"[7]{fmt},volume={f_gain:.2f}dB,afade=t=in:d=2.5,adelay={int(music_back * 1000)}:all=1,"
+    nv = len(clips)  # audio inputs come after the video clips: voice, Soaring, River Flute, breeze
+    afc = [f"[{nv}]{fmt},volume={v_gain:.2f}dB,aecho=0.8:0.7:40|75:0.10|0.06,asplit=2[v][vk]",
+           f"[{nv + 1}]{fmt},volume={s_gain:.2f}dB,afade=t=in:d=1.5,afade=t=out:st={fade_start:.2f}:d=1,apad=whole_dur={END:.2f}[ms]",
+           f"[{nv + 2}]{fmt},volume={f_gain:.2f}dB,afade=t=in:d=2.5,adelay={int(music_back * 1000)}:all=1,"
            f"afade=t=out:st={END - 1.5:.2f}:d=1.5,apad=whole_dur={END:.2f}[mf]",
            "[ms][mf]amix=inputs=2:normalize=0[m0]",
            "[m0][vk]sidechaincompress=threshold=0.03:ratio=3:attack=20:release=400[m]",
-           f"[8]{fmt},volume={b_gain:.2f}dB,afade=t=in:d=0.8,apad=whole_dur={END:.2f}[b]",
+           f"[{nv + 3}]{fmt},volume={b_gain:.2f}dB,afade=t=in:d=0.8,apad=whole_dur={END:.2f}[b]",
            f"[v][m][b]amix=inputs=3:normalize=0,atrim=0:{END:.2f},afade=t=out:st={END - 1.2:.2f}:d=1.2,alimiter=limit=0.89[aout]"]
     out = OUT / "sync_sample.mp4"
     run(inputs + ["-i", str(voice), "-ss", "20", "-t", f"{s_len:.2f}", "-i", str(soar),

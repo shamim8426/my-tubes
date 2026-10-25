@@ -26,3 +26,4 @@
 2026-10-24 | dialogue sample | free key 429 on line 1 (aaj ka quota khatam) -> RUKA, paid nahi; script scripts/noor_dialogue_sample.py (lines cache, Whisper check, max 2 retry) quota reset ke baad chalegi
 2026-10-24 | noor_samples | ASLI KUL KHARCHA | ₹27.15 + GST ₹4.89 = ₹32.03 (andaza tha ₹23.57; 31 paid calls, 0 bina usage = andaza) | cap ₹45
 2026-10-24 | samples | dialogue_sample.wav (31.9s, ₹2.07), look test 3 style (₹13.65), sync_sample.mp4 (42.1s, style a, ₹16.3); fixes: Amiri (Amiri Quran Google subset tofu deta tha), Hindi screen text libass/ASS se (drawtext क़ु ka nukta girata hai), Whisper matcher sudhaar + .ok cache; REVIEWED + style choice ka intezaar
+2026-10-25 | motion | shake fix | zoompan (jerk 1.78) -> tools/parallax.py cubic sub-pixel warp (0.03-0.06); zoom 1.00->1.07, pan 4% + 1.03->1.06, ease; make_short zoom path bhi isi se (PARALLAX_VERSION 2); tools/motion_check.py; sync_sample dobara (₹0)

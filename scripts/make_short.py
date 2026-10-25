@@ -39,7 +39,8 @@ from paths import FONTS_DIR, MUSIC_DIR, REGISTER, ROOT, SFX_DIR, channel_of, sto
 sys.path.insert(0, str(ROOT / "tools"))
 import parallax as PX  # noqa: E402  (2.5D parallax, Depth Anything V2 Small on CPU; torch loads only when needed)
 
-PARALLAX_VERSION = 1  # bump when tools/parallax.py rendering changes, to invalidate parallax clips
+PARALLAX_VERSION = 2  # bump when tools/parallax.py rendering changes, to invalidate parallax clips
+#                      (2: cubic sub-pixel sampling, zoom 1.00->1.07 + 4% pans eased; 2026-10-25, no shake)
 
 FFMPEG = ROOT / "tools" / "ffmpeg" / "ffmpeg.exe"
 if not FFMPEG.exists():  # new system: ffmpeg from winget on PATH (tools/ffmpeg is not in git)
@@ -498,8 +499,7 @@ def plan_scenes(P, timed, total, prof, font_family, final_title, title_secs=None
                for o in (overlays or {}).get(str(sc), [])]
         key_parts = [RENDER_VERSION, json.dumps(prof, sort_keys=True), sha(img.read_bytes()),
                      [l["audio_hash"] for l in lines], json.dumps(shots), ass]
-        if motion == "parallax":  # zoom builds keep their old cache keys
-            key_parts += [PARALLAX_VERSION, json.dumps(pshots), json.dumps(ovs)]
+        key_parts += [PARALLAX_VERSION, json.dumps(pshots), json.dumps(ovs)]  # both motions render in Python now
         plans.append({"scene": sc, "t0": t0, "t1": fcuts[-1] / fps, "frames": fcuts[-1] - fcuts[0],
                       "shots": shots, "pshots": pshots, "overlays": ovs, "motion": motion, "ass": ass, "img": img,
                       "key": sha(*key_parts), "desc": desc})
@@ -507,7 +507,8 @@ def plan_scenes(P, timed, total, prof, font_family, final_title, title_secs=None
 
 
 def render_scene_parallax(p, prof, clip: Path, work: Path):
-    """2.5D parallax (tools/parallax.py): frames made in Python, captions burned and encoded by FFmpeg."""
+    """tools/parallax.py frames (2.5D parallax, or with --motion zoom the same eased camera moves without depth),
+    sub-pixel cubic sampling (no zoompan integer-pixel shake); captions burned and encoded by FFmpeg."""
     w, h, fps = prof["w"], prof["h"], prof["fps"]
     ass_name = f"scene_{p['scene']:02d}_{p['key']}.ass"
     vf = ""
@@ -526,7 +527,8 @@ def render_scene_parallax(p, prof, clip: Path, work: Path):
     notes = []
     for s in p["pshots"]:
         rect = PX.shot_rect(iw, ih, w / h, s["cx"], s["cy"], s["fx"], s["fy"], s["zc"])
-        frames, info = PX.shot_frames(p["img"], w, h, s["n"], s["preset"], rect, overlays=p["overlays"])
+        frames, info = PX.shot_frames(p["img"], w, h, s["n"], s["preset"], rect, overlays=p["overlays"],
+                                      mode="zoom" if p.get("motion") == "zoom" else "auto")
         for f in frames:
             enc.stdin.write(f.tobytes())
         notes.append(f"{info['preset']}:{info['mode']}" + ("" if info["reason"] in ("ok",) else f"({info['reason']})"))
@@ -539,29 +541,9 @@ def render_scene_parallax(p, prof, clip: Path, work: Path):
 
 
 def render_scene(p, prof, clip: Path, work: Path):
-    if p.get("motion") == "parallax":
-        return render_scene_parallax(p, prof, clip, work)
-    w, h, fps = prof["w"], prof["h"], prof["fps"]
-    ass_name = f"scene_{p['scene']:02d}_{p['key']}.ass"
-    if p["ass"]:
-        (work / ass_name).write_text(p["ass"], encoding="utf-8")
-    subs = f",subtitles=filename={ass_name}:fontsdir=fonts" if p["ass"] else ""
-    n = len(p["shots"])
-    pre = f"[0:v]scale={w * 2}:{h * 2}:force_original_aspect_ratio=increase"
-    fc = [pre + (f",split={n}" + "".join(f"[i{k}]" for k in range(n)) if n > 1 else "[i0]")]
-    for k, (d, z, x, y, *crop) in enumerate(p["shots"]):
-        cx, cy = (list(crop) + [0.5, 0.5])[:2]  # frame-shaped window on the image, centred on (cx, cy)
-        win = (f"crop={w * 2}:{h * 2}:x='max(0,min(iw-ow,{cx}*iw-ow/2))':y='max(0,min(ih-oh,{cy}*ih-oh/2))'")
-        fc.append(f"[i{k}]{win},zoompan=z='{z}':x='{x}':y='{y}':d={d}:s={w}x{h}:fps={fps}[z{k}]")
-    fc.append("".join(f"[z{k}]" for k in range(n)) + (f"concat=n={n}:v=1:a=0" if n > 1 else "null")
-              + f"{subs},scale=out_color_matrix=bt709:out_range=tv,format=yuv420p,setsar=1,"
-                f"setparams=range=tv:color_primaries=bt709:color_trc=bt709:colorspace=bt709[out]")
-    tmp = clip.with_suffix(".part.mp4")
-    run([FFMPEG, "-y", "-i", p["img"], "-filter_complex", ";".join(fc), "-map", "[out]", "-frames:v", p["frames"],
-         "-c:v", "libx264", *prof["enc"], "-pix_fmt", "yuv420p", "-color_range", "tv", "-colorspace", "bt709",
-         "-color_primaries", "bt709", "-color_trc", "bt709", "-r", fps,
-         "-video_track_timescale", fps * 1000, tmp], cwd=work)
-    tmp.replace(clip)
+    # zoompan (the old Ken Burns path) stepped by whole pixels and shook (jerk 1.78 vs 0.03, tools/motion_check.py):
+    # every motion now renders through tools/parallax.py
+    return render_scene_parallax(p, prof, clip, work)
 
 
 def build_video(plans, prof, cache_dir: Path, work: Path):
