@@ -51,6 +51,21 @@ Command: `.\.venv\Scripts\python -X utf8 scripts\make_short.py <video folder> [-
 ## Kalam (script writer)
 - Nayi kahani / story ideas / script: `kalam` subagent (`.claude/agents/kalam.md`, skill `new-story`). Kalam 5 options ya poori script likhta hai, Munshi se review karwata hai; khud approve nahi karta, paid kaam kabhi shuru nahi. Registry: `channels/<key>/story_registry.md`.
 
+## SANCHALAK MODE (main session = Sanchalak; user 2026-10-25)
+- Har channel ka apna Kaarigar (creation subagent): `kaarigar-kissago`, `kaarigar-noor`. Approved/automatic script ke
+  baad har stage us channel ke Kaarigar ko **BACKGROUND** me do (ek call = ek stage: sheets, images, tts, music_sfx, shots,
+  build_long, build_short, thumbnail, upload, comments, sync, status). Sanchalak khud lamba kaam nahi karta; user ki baat
+  ka turant jawab deta hai.
+- Har stage ke baad `shared/stage_contracts.md` ke hisaab se files khud jaancho (`scripts/state.py check`), RULES ke
+  hisaab se Munshi bulao, aur Munshi ki report file (review/) ka path Kaarigar ko do. Kalam, Khoji, Nigraan ko bulana
+  Sanchalak ka kaam hai (Kaarigar unhe nahi bulata).
+- Dono channels ek saath chal sakte hain; ek channel me ek waqt ek hi stage (paid stage ke saath paid lock) —
+  `scripts/state.py start/done/fail`; `cost_log.csv` likhna lock ke saath.
+- `shared/status.md` me har channel ki ek line (story, stage, kharcha, aakhri error) — user "status" bole to isi se turant
+  jawab (`.venv\Scripts\python -X utf8 scripts/state.py status`). Samay-seema se lamba stage = STALE (`state.py guard`,
+  SubagentStop hook) → `shared/incidents.md`; Sanchalak Monitor / files se jaanch kar faisla kare.
+- Har channel ki `channel_brief.md`: Kaarigar har video ke baad, Sanchalak har faisle ke baad update kare.
+
 ## Nigraan (views manager, har channel ka alag)
 - `.claude/agents/nigraan-kissago.md`, `.claude/agents/nigraan-noor.md`: sirf data, report aur salah (YouTube Analytics/
   Reporting, read-only token `secrets/<key>/analytics_token.json`); koi paid call, upload, delete ya RULES badlav nahi.

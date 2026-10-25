@@ -389,3 +389,4 @@
 {"timestamp": "2026-10-25 14:53:56", "file": "channels/noor-e-raah/samples/musafir_v2/2_two_paths__V2.png", "model": "gemini-nano-banana-2.1", "size": "1K", "usage": {"input": 1434, "output": 1476, "thoughts": 187, "output_image": 1120}}
 {"timestamp": "2026-10-25 17:14:43", "file": "channels/noor-e-raah/samples/musafir_v3/musafir_v3_sheet.png", "model": "gemini-nano-banana-2.1", "size": "1K", "usage": {"input": 431, "output": 2162, "thoughts": 1262, "output_image": 1120}}
 {"timestamp": "2026-10-25 17:15:09", "file": "channels/noor-e-raah/samples/musafir_v3/2_two_paths__V2.png", "model": "gemini-nano-banana-2.1", "size": "1K", "usage": {"input": 1490, "output": 1624, "thoughts": 818, "output_image": 1120}}
+{"timestamp": "2026-10-25 18:50:26", "file": "channels/noor-e-raah/stories/001_al-fatiha/images/thumb_v2_surah_scene.png", "model": "gemini-nano-banana-2.1", "size": "1K", "usage": {"input": 214, "output": 1569, "thoughts": 1528, "output_image": 1120}}

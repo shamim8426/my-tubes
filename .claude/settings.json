@@ -6,6 +6,17 @@
     ]
   },
   "hooks": {
+    "SubagentStop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"${CLAUDE_PROJECT_DIR}/.venv/Scripts/python.exe\" -X utf8 \"${CLAUDE_PROJECT_DIR}/scripts/state.py\" guard",
+            "timeout": 15
+          }
+        ]
+      }
+    ],
     "SessionEnd": [
       {
         "hooks": [

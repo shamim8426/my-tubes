@@ -115,7 +115,7 @@ estimate and anything only the user can decide. Stop there.
   hands, steps, view). People only from the back/far/silhouette without facial detail; never any Prophet, Sahabi, angel or
   person named in the Quran - their stories only through places and symbols. Worship scenes only from far/back.
 - From story 002 (user 2026-10-25, channel RULES 1b): SAWAAL asks at most 3-4 real questions per video, well spaced
-  (about 1.5-2 min of Ustaad between them, never two within ~60 s); her other lines are short reactions, the misaal or a
+  (3-3.5 min of Ustaad between them, never two less than ~3 min apart; ~3 questions in an 8 min video); her other lines are short reactions, the misaal or a
   summary. Count the questions in the length table.
 - Munshi's script review for these scripts includes the SURAH CHECK.
 

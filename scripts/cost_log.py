@@ -102,21 +102,48 @@ def record_call(file: Path, model: str, size: str, cost: dict, when: datetime | 
         "input_tokens": "" if cost.get("input_tokens") is None else cost["input_tokens"],
         "output_tokens": "" if cost.get("output_tokens") is None else cost["output_tokens"],
     }
-    rows = _rows()
-    today = row["timestamp"][:10]
-    row["today_total_inr"] = f"{sum(charge_inr(r) for r in rows if r['timestamp'].startswith(today)) + charge_inr(row):.2f}"
-    row["remaining_inr"] = f"{remaining(rows + [row]):.2f}"
-    new = not LOG.exists()
-    with LOG.open("a", encoding="utf-8", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=FIELDS)
-        if new:
-            w.writeheader()
-        w.writerow(row)
-    if usage is not None:
-        with USAGE_LOG.open("a", encoding="utf-8") as f:
-            f.write(json.dumps({"timestamp": row["timestamp"], "file": row["file"], "model": model, "size": size,
-                                "usage": usage}, ensure_ascii=False) + "\n")
+    with _locked():  # two channels' Kaarigars may log at the same moment
+        rows = _rows()
+        today = row["timestamp"][:10]
+        row["today_total_inr"] = f"{sum(charge_inr(r) for r in rows if r['timestamp'].startswith(today)) + charge_inr(row):.2f}"
+        row["remaining_inr"] = f"{remaining(rows + [row]):.2f}"
+        new = not LOG.exists()
+        with LOG.open("a", encoding="utf-8", newline="") as f:
+            w = csv.DictWriter(f, fieldnames=FIELDS)
+            if new:
+                w.writeheader()
+            w.writerow(row)
+        if usage is not None:
+            with USAGE_LOG.open("a", encoding="utf-8") as f:
+                f.write(json.dumps({"timestamp": row["timestamp"], "file": row["file"], "model": model, "size": size,
+                                    "usage": usage}, ensure_ascii=False) + "\n")
     return row
+
+
+class _locked:
+    """Exclusive lock file next to cost_log.csv (created atomically; a lock older than 2 min is stale and removed)."""
+    LOCK = ROOT / "cost_log.csv.lock"
+
+    def __enter__(self):
+        import time
+        for _ in range(600):  # up to ~60 s
+            try:
+                fd = os.open(self.LOCK, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
+                os.write(fd, str(os.getpid()).encode())
+                os.close(fd)
+                return self
+            except FileExistsError:
+                try:
+                    if time.time() - self.LOCK.stat().st_mtime > 120:
+                        self.LOCK.unlink(missing_ok=True)
+                        continue
+                except FileNotFoundError:
+                    continue
+                time.sleep(0.1)
+        raise RuntimeError("cost_log.csv is locked for over 60 s (another writer?)")
+
+    def __exit__(self, *exc):
+        self.LOCK.unlink(missing_ok=True)
 
 
 def record(file: Path, model: str, size: str, when: datetime | None = None) -> dict:

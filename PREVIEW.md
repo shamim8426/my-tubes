@@ -1,6 +1,6 @@
 # Preview — किस्सागो | Kissago
 
-**Budget bacha:** ₹273.10  ·  **Last image:** 2026-10-25 17:15:09
+**Budget bacha:** ₹267.55  ·  **Last image:** 2026-10-25 18:50:26
 
 ## Characters
 
@@ -577,3 +577,7 @@
 ### 24_crescent_night_valley — ₹4.09 · 2026-10-25 13:31:35
 
 ![24_crescent_night_valley](channels/noor-e-raah/stories/001_al-fatiha/images/24_crescent_night_valley.png)
+
+### thumb_v2_surah_scene — ₹4.70 · 2026-10-25 18:50:26
+
+![thumb_v2_surah_scene](channels/noor-e-raah/stories/001_al-fatiha/images/thumb_v2_surah_scene.png)

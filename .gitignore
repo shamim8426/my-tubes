@@ -57,3 +57,6 @@ desktop.ini
 
 # chat history (SpecStory): stays on this PC only, never on GitHub (2026-10-20)
 .specstory/
+
+# cost_log write lock (scripts/cost_log.py)
+cost_log.csv.lock
