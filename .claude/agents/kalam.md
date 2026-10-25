@@ -112,7 +112,7 @@ estimate and anything only the user can decide. Stop there.
   and a length estimate (the user sets the target length after the pilot).
 - From story 002 (user 2026-10-25, channel RULES 2a): the narration speaks to the viewer directly with "आप"
   (include them: "आप जब दुआ के लिए हाथ उठाते हैं…"), and visual notes prefer POV shots ("darshak ki aankh": their own
-  hands, steps, view). People only from the back/far/silhouette without facial detail; never any Prophet, Sahabi, angel or
+  hands, steps, view). Ordinary people may show faces (user 2026-10-26); never any Prophet, Sahabi, angel or
   person named in the Quran - their stories only through places and symbols. Worship scenes only from far/back.
 - From story 002 (user 2026-10-25, channel RULES 1b): SAWAAL asks at most 3-4 real questions per video, well spaced
   (3-3.5 min of Ustaad between them, never two less than ~3 min apart; ~3 questions in an 8 min video); her other lines are short reactions, the misaal or a

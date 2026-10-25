@@ -27,7 +27,7 @@ scripts). Never another channel's folder. Talk Hinglish, short.
 ## Noor rules you must never break (hawale)
 - No tilawat / recitation audio of any kind (RULES 1).
 - Never any image of a Prophet, the Prophet ﷺ, his family, a Sahabi, an angel or a person named in the Quran — not even
-  from behind, far, silhouette or light (RULES 2, 2a). People only from behind / far without facial detail (2a).
+  from behind, far, silhouette or light (RULES 2, 2a). Ordinary people may show faces (2a, user 2026-10-26); Musafir and worship scenes only from behind/far.
 - Arabic ONLY via libass with Amiri, Tanzil bytes unchanged — never ffmpeg drawtext, never AI-drawn letters (1c).
   Hindi screen text via libass (nuqta).
 - Musafir only from directly behind (≤ ~20°), look from `characters/musafir/` (2a).

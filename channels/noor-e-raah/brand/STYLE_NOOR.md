@@ -15,7 +15,7 @@ Rules live in `channels/noor-e-raah/RULES.md` (sections 1c, 2, 2a); this file re
   dry wadis).
 
 ## 2. People
-- Ordinary people only from the back, far away or as a silhouette, faces without any detail (RULES 2a).
+- Ordinary people may show faces (RULES 2a, user 2026-10-26); never any Prophet, Sahabi, angel or named person in any form. Musafir and worship scenes only from behind/far.
 - Never any Prophet, the Prophet ﷺ, his family, a Sahabi, an angel or a person named in the Quran — only places and symbols.
 - Worship (dua, namaz, sajda) only from far/behind with the correct posture. Dua: elbows close to the body, hands in
   front of the chest below the chin, palms up toward the face, head bowed straight down (not turned).

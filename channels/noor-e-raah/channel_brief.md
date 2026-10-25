@@ -8,8 +8,8 @@ Quran ki surah, aasaan Hindi me (series "शुरू से क़ुरआन"
 families: parichay → shan-e-nuzul → aayat-dar-aayat (saral bhaavarth + matlab) → seekh (channel RULES 1).
 
 ## Look
-001: style a "cinematic painted", places only. From 002: "immersive" (RULES 2a) — POV first, people only from
-behind/far without facial detail; style choice from the tests pending (`brand/STYLE_NOOR.md`).
+001: style a "cinematic painted", places only. From 002: "immersive" (RULES 2a) — POV first, ordinary people may show
+faces (2026-10-26; never a Prophet/Sahabi/angel in any form; Musafir + worship only from behind/far); style choice from the tests pending (`brand/STYLE_NOOR.md`).
 
 ## Awaazein + roles (RULES 1b, channel.json "voices")
 USTAAD = Algieba (aayat, bhaavarth, matlab, parichay, shan-e-nuzul; only he makes religious claims, with sources).

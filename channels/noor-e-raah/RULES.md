@@ -83,8 +83,9 @@ accepted translations. Revisit only if a translation's own terms say commercial/
 - No studio/artist/brand names in prompts (shared RULES 12a).
 
 ### 2a. "Immersive" andaaz (user 2026-10-25) — from story 002 (Al-Baqarah 1-5); 001 Al-Fatiha stays as it is
-- **Ordinary people may appear, but ONLY from the back, far away or as a silhouette, faces without any detail.**
-  A visible or detailed face = BLOCKER.
+- **Ordinary people may appear, faces included** (user 2026-10-26; before: back/far/silhouette only) — AI or stock.
+  Conditions: never resembling a real/famous person; modest dress; a stock person (real, identifiable) never in a sin,
+  punishment or Jahannam context (stock licence: no "bad light"). Musafir and worship scenes keep their own rules below.
 - **NEVER, in any form (not from the back, not far, not as silhouette/shadow/light):** any Prophet (Nabi), the
   Prophet Muhammad ﷺ, his family, any Sahabi, any angel, and any person named in the Quran (e.g. Musa, Ibrahim, Yusuf,
   Maryam AS, Firaun …). Their stories are shown only through places and symbols (sea, staff-less landscape, well,
