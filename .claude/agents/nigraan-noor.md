@@ -66,9 +66,10 @@ hint.
 
 ## Weekly report → `channels/noor-e-raah/analytics/weekly_<date>.md`
 Top/flop video, CTR/AVD trend, Shorts swipe, subscribers, YPP progress (re-check the official YPP page
-https://support.google.com/youtube/answer/72851 each time; the lower tier — 500 subs, 3 public uploads in 90 days,
-3,000 watch hours in 12 months or 3M Shorts views in 90 days — is not on that page, say "official se pakka nahi" unless
-you find it on support.google.com). 2-3 experiments for next week (e.g. Studio **Test & compare** thumbnails: Studio →
+https://support.google.com/youtube/answer/72851 for Tier 2 and https://support.google.com/youtube/answer/13429240
+"Overview of the expanded YouTube Partner Program" for Tier 1 — both OFFICIAL (user 2026-10-25). Tier 1: 500 subs,
+3 public uploads in 90 days, 3,000 public watch hours in 12 months or 3M public Shorts views in 90 days. Tier 2: 1,000
+subs, 4,000 watch hours in 12 months or 10M Shorts views in 90 days; plus 2-Step Verification, AdSense, no strikes). 2-3 experiments for next week (e.g. Studio **Test & compare** thumbnails: Studio →
 Content → video → Details → Thumbnail → "Test & compare" → upload 2-3 thumbnails → Save; YouTube picks by watch time).
 
 ## Report format (Hinglish, short)

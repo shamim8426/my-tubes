@@ -1,0 +1,57 @@
+{
+ "id": "gLUM0zcECSk",
+ "title": "आधी बात, पूरा हंगामा! मिट्ठू ने सब बता दिया | किस्सागो",
+ "published": "2026-10-19T14:10:15Z",
+ "privacy": "public",
+ "seconds": 297,
+ "statistics": {
+  "viewCount": "1",
+  "likeCount": "0",
+  "dislikeCount": "0",
+  "favoriteCount": "0",
+  "commentCount": "0"
+ },
+ "is_short": false,
+ "totals": {
+  "views": 1,
+  "engagedViews": 1,
+  "estimatedMinutesWatched": 3,
+  "averageViewDuration": 230,
+  "averageViewPercentage": 77.74,
+  "subscribersGained": 0,
+  "likes": 0,
+  "comments": 0,
+  "shares": 0
+ },
+ "traffic": [
+  {
+   "insightTrafficSourceType": "EXT_URL",
+   "views": 1,
+   "estimatedMinutesWatched": 3
+  }
+ ],
+ "retention": [],
+ "daily": [
+  {
+   "day": "2026-10-19",
+   "views": 0,
+   "estimatedMinutesWatched": 0
+  },
+  {
+   "day": "2026-10-20",
+   "views": 1,
+   "estimatedMinutesWatched": 3
+  },
+  {
+   "day": "2026-10-21",
+   "views": 0,
+   "estimatedMinutesWatched": 0
+  },
+  {
+   "day": "2026-10-22",
+   "views": 0,
+   "estimatedMinutesWatched": 0
+  }
+ ],
+ "fetched": "2026-10-25T18:33:46"
+}

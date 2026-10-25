@@ -1,0 +1,62 @@
+{
+ "id": "llqRdGA08zY",
+ "title": "आधी रात छत पर भूत? मोहल्ले का सबसे बड़ा राज़ | किस्सागो",
+ "published": "2026-10-20T14:48:57Z",
+ "privacy": "public",
+ "seconds": 225,
+ "statistics": {
+  "viewCount": "4",
+  "likeCount": "0",
+  "dislikeCount": "0",
+  "favoriteCount": "0",
+  "commentCount": "0"
+ },
+ "is_short": false,
+ "totals": {
+  "views": 4,
+  "engagedViews": 3,
+  "estimatedMinutesWatched": 3,
+  "averageViewDuration": 79,
+  "averageViewPercentage": 35.42,
+  "subscribersGained": 0,
+  "likes": 0,
+  "comments": 0,
+  "shares": 0
+ },
+ "traffic": [
+  {
+   "insightTrafficSourceType": "NO_LINK_OTHER",
+   "views": 2,
+   "estimatedMinutesWatched": 0
+  },
+  {
+   "insightTrafficSourceType": "YT_SEARCH",
+   "views": 1,
+   "estimatedMinutesWatched": 0
+  },
+  {
+   "insightTrafficSourceType": "EXT_URL",
+   "views": 1,
+   "estimatedMinutesWatched": 3
+  }
+ ],
+ "retention": [],
+ "daily": [
+  {
+   "day": "2026-10-20",
+   "views": 3,
+   "estimatedMinutesWatched": 3
+  },
+  {
+   "day": "2026-10-21",
+   "views": 1,
+   "estimatedMinutesWatched": 0
+  },
+  {
+   "day": "2026-10-22",
+   "views": 0,
+   "estimatedMinutesWatched": 0
+  }
+ ],
+ "fetched": "2026-10-25T18:33:40"
+}
