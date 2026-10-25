@@ -396,6 +396,8 @@ def srt(tl, path):
 def main():
     story = Path(sys.argv[1]) if Path(sys.argv[1]).is_absolute() else (ROOT / sys.argv[1]).resolve()
     seconds = float(sys.argv[sys.argv.index("--seconds") + 1]) if "--seconds" in sys.argv else 1e9
+    from paths import learnings_brief
+    print("learnings.md (Nigraan) LAGU KARO:\n  " + (learnings_brief(story.parents[1].name).replace("\n", "\n  ") or "-"))
     items = json.loads((story / "long/lines.json").read_text(encoding="utf-8"))
     tl = timeline(items)
     shots = shots_for(story, tl)

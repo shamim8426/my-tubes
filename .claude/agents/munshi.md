@@ -41,12 +41,14 @@ Layout: `channels/<key>/stories/<NNN>_<slug>/` holds images/, audio/, characters
   source ke bina shan-e-nuzul ki baat = BLOCKER; "chhoda gaya" list ki koi baat = BLOCKER; ikhtilaaf ko pakki baat ki
   tarah bolna = MAJOR; Arabic aur TARJUMA dossier ke source se akshar-akshar mile, warna BLOCKER; tarjume/text ka licence
   register me na ho = copyright shak (ASK). Kisi Nabi/Sahabi/farishte ki tasveer, parchhai ya aakaar, koi tilawat audio,
-  ya vocal/beat wala music = BLOCKER; music poori video me lagaataar (RULES 1c, 2026-10-25): aayat par music rukna = MINOR, har aayat par sirf ek halka swoosh, zor ka hit = BLOCKER; music 20–24 LU neeche aur har track register me. Noor-e-Raah Short (RULES 2b): har aayat poori (poori Arabic + poora bhaavarth, matlab ho to poora), koi aayat ya
+  ya vocal/beat wala music = BLOCKER; music poori video me lagaataar (RULES 1c, 2026-10-25): aayat par music rukna = MINOR, har aayat par sirf ek halka swoosh, zor ka hit = BLOCKER; music 20–24 LU neeche aur har track register me. Noor-e-Raah story 002 se (RULES 1b): SAWAAL ke asli sawaal max 3-4, do sawaal ~60 s ke andar nahi; zyada ya paas-paas = MAJOR. Noor-e-Raah Short (RULES 2b): har aayat poori (poori Arabic + poora bhaavarth, matlab ho to poora), koi aayat ya
   vaakya beech me kata nahi, aakhri line poori; aadhi aayat ya kata vaakya = BLOCKER. Story 002 se (RULES 2a): aam insaan sirf peeth/door/parchhai, chehra bina detail (detailed chehra = BLOCKER);
   Nabi/Sahabi/farishta/Quran me naam se aaye log kisi bhi roop me = BLOCKER; ibaadat ka drishya sirf door/peeth se aur
   sahi, izzat bhara posture (galat posture = BLOCKER). SAWAAL ki line me deeni daawa (hukm, fazilat, tafseer ki baat) = MAJOR (wo sirf
   USTAAD bole). BHAAVARTH ka matlab teeno tarjumon se alag = BLOCKER; kisi ek ki ibaarat copy = MAJOR. Review sheet (`review/<round>.md`) me shan-e-nuzul ki har baat ki alag line: [S#], baat,
   source link(s), grade.
+- Nigraan learnings: `channels/<key>/learnings.md` ke "LAGU KARO" items script/thumbnail/Short me lage ya nahi, aur
+  "Mat dohrao" list ki koi line/visual dobara to nahi aaya — na lage ho to MINOR (wajah likho).
 - Sensitive vishay aur tyohaar ki jaankari ki sahi-galat jaanch karo (RULES 12a: dharm/jaati/rajneeti/ilaaka/rang-roop/viklaangta ka mazaak nahi, ladke-ladkiyon ke barabar roles, asli vyakti/brand/jagah ka naam nahi; tyohaar ki tareekh `festival_calendar.md` se aur rasm/jaankari bharosemand source se). Galat = BLOCKER.
 - Kalam ki script ka review karte waqt continuity table bhi jaancho (umar, saal/"X saal pehle" ka hisaab, naam takraav, rishte vs bible); gadbad = FIX.
 - Production profile (RULES section 15, from story 004): no preview build; review stages (script timing incl. length vs long max 4:00 / Short max 40 s, images, audio) in R1 + R2; after R2 MINOR only go to carry_over.md (no regeneration, flow continues); the final video gets ONE check (R1 only) and, with no BLOCKER, goes to the scheduled upload. Check the story's ACTUAL cost (usageMetadata) against ₹100–110, max 16 new scene images, 1K only, max 1 regeneration per image (BLOCKER only). Stories up to 003 keep the older rules.

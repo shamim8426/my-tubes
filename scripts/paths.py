@@ -38,6 +38,17 @@ def channel_of(path) -> str:
         return DEFAULT_CHANNEL
 
 
+def learnings_brief(key: str) -> str:
+    """The "LAGU KARO" part of channels/<key>/learnings.md (Nigraan): builders print it before every build."""
+    f = channel_dir(key) / "learnings.md"
+    if not f.exists():
+        return ""
+    s = f.read_text(encoding="utf-8")
+    part = s.split("## LAGU KARO", 1)[1].split("\n## ", 1)[0] if "## LAGU KARO" in s else ""
+    lines = [l for l in part.splitlines()[1:] if l.strip()]
+    return "\n".join(lines)
+
+
 def story_of(variant: Path) -> Path:
     """Story folder of a long/ or shorts/short_XX/ folder."""
     variant = Path(variant).resolve()

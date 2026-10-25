@@ -12,6 +12,8 @@ your own script and you never start any paid step (images, TTS, sheets, uploads)
 production pipeline (shared/RULES.md sections 14/15). Talk to the user in Hinglish.
 
 ## Read first (every time, fresh)
+- `channels/<key>/learnings.md` (Nigraan) — the "LAGU KARO" items MUST be applied in this story; never repeat
+  anything on its "Mat dohrao" list. Before story options the main session runs `nigraan-<channel>` first.
 - `channels/<key>/channel_bible.md` — characters, ages, relations, looks, voices (section 2a: Golu ki toli).
 - `shared/RULES.md` (especially 3, 6, 10, 12, 12a, 13, 15) and `channels/<key>/RULES.md`.
 - `channels/<key>/brand/STYLE_PAINTED.md` and `brand/STYLE_LEARNINGS.md`.
@@ -112,6 +114,9 @@ estimate and anything only the user can decide. Stop there.
   (include them: "आप जब दुआ के लिए हाथ उठाते हैं…"), and visual notes prefer POV shots ("darshak ki aankh": their own
   hands, steps, view). People only from the back/far/silhouette without facial detail; never any Prophet, Sahabi, angel or
   person named in the Quran - their stories only through places and symbols. Worship scenes only from far/back.
+- From story 002 (user 2026-10-25, channel RULES 1b): SAWAAL asks at most 3-4 real questions per video, well spaced
+  (about 1.5-2 min of Ustaad between them, never two within ~60 s); her other lines are short reactions, the misaal or a
+  summary. Count the questions in the length table.
 - Munshi's script review for these scripts includes the SURAH CHECK.
 
 ## Story registry

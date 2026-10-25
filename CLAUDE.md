@@ -23,6 +23,9 @@ User sirf "resume karo" likhe to yahi karo: pehle sirf padho, kuch mat badlo, ko
      ₹50 floor aur agli story (~₹110) ke baad kitna bachega; recharge chahiye ho to batao. Reconcile (`--check`) baaki ho to yaad dilao.
    - Pakke faisle confirm karo (channel.json, bible, RULES 15 se): image_style, motion default, awaazein, lambai/kharcha cap,
      publish slots, Kalam ka kram, RULES 12b.
+   - **Nigraan check:** har channel ki `learnings.md` ka "LAGU KARO" hissa; kis video ka 48 h / 7 din post-mortem
+     due hai (upload_result.json ke publish samay se) aur aaj Ravivaar ho to hafte ka report — ye user ko batao
+     (agent `nigraan-kissago` / `nigraan-noor`, data `tools/yt_analytics.py <key> fetch`, read-only, ₹0).
 3. Phir user ke agle kaam ka intezaar, ya jo kaam pipeline_queue/log me adhoora ho uska agla kadam batao.
 
 ## किस्सागो | Kissago (channel key: dadi-ki-kahaniyan; pehle "दादी की कहानियाँ")
@@ -47,6 +50,13 @@ Command: `.\.venv\Scripts\python -X utf8 scripts\make_short.py <video folder> [-
 
 ## Kalam (script writer)
 - Nayi kahani / story ideas / script: `kalam` subagent (`.claude/agents/kalam.md`, skill `new-story`). Kalam 5 options ya poori script likhta hai, Munshi se review karwata hai; khud approve nahi karta, paid kaam kabhi shuru nahi. Registry: `channels/<key>/story_registry.md`.
+
+## Nigraan (views manager, har channel ka alag)
+- `.claude/agents/nigraan-kissago.md`, `.claude/agents/nigraan-noor.md`: sirf data, report aur salah (YouTube Analytics/
+  Reporting, read-only token `secrets/<key>/analytics_token.json`); koi paid call, upload, delete ya RULES badlav nahi.
+- Chalta hai: har nayi kahani se PEHLE (Kalam se pehle), har video ke 48 h aur 7 din baad (post-mortem), har Ravivaar,
+  ya user kahe "nigraan report". Seekh `channels/<key>/learnings.md` me (saboot ke saath; 500 impressions / Shorts 1,000
+  views se kam = "kam data"). Kalam, thumbnail builder aur builders ise padhte hain; Munshi palan jaanchta hai.
 
 ## Munshi (review + publish)
 - Har production step ke baad `munshi` subagent ko bulao aur uska verdict mujhe dikhao. FIX ho to free fix karo aur dobara review karwao; ASK ho to mujhse poochho.

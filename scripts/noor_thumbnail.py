@@ -17,6 +17,9 @@ def esc(p: Path) -> str:
 
 def main():
     story = (ROOT / sys.argv[1]).resolve()
+    sys.path.insert(0, str(ROOT / "scripts"))
+    from paths import learnings_brief
+    print("learnings.md (Nigraan) LAGU KARO:\n  " + (learnings_brief(story.parents[1].name).replace("\n", "\n  ") or "-"))
     img = story / "images" / f"{sys.argv[2]}.png"
     arabic, hindi = sys.argv[3], sys.argv[4]
     small = sys.argv[5] if len(sys.argv) > 5 else ""

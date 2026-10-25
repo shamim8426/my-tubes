@@ -864,6 +864,8 @@ def main():
         ap.error("project folder required, e.g. channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long")
     P = load_project(name)
     os.environ["STORY_CHANNEL"] = P["channel"]  # cost_log rows get this channel
+    from paths import learnings_brief
+    print("  learnings.md (Nigraan) LAGU KARO:\n    " + (learnings_brief(P["channel"]).replace("\n", "\n    ") or "-"))
     prof = PROFILES[(P["kind"], mode)]
     case = P["name"]
     lines = json.loads((P["dir"] / "lines.json").read_text(encoding="utf-8"))

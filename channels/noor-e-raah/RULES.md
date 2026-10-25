@@ -65,6 +65,10 @@ accepted translations. Revisit only if a translation's own terms say commercial/
 - **SAWAAL** (Gemini voice Sulafat): the ordinary person's questions ("iska matlab hamari zindagi me kya hai?"), the
   [MISAAL] stories and short summaries. Respectful and soft; never states a religious ruling or fact on her own.
 - Long ~8:00, at most 2 MISAAL per video.
+- **Questions (user 2026-10-25, from story 002):** SAWAAL asks at most **3-4 real questions per video**, never in quick
+  succession — a good gap between questions (roughly 1.5-2 minutes of Ustaad's explanation; never two questions
+  within ~60 s). Her other lines are short reactions, a misaal or a summary, not new questions. Munshi counts the
+  question lines; more than 4, or two within ~60 s = MAJOR.
 - TTS completeness: EVERY line is checked with Whisper against its text; a missing word = make that line again on the
   free key (max 2 tries); still missing = shorten/simplify that line (same meaning) and make it again. Sulafat dropped a
   clause in the audition, so this check is never skipped.
