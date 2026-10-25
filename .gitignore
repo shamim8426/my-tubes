@@ -45,6 +45,8 @@ shared/sfx/noor/_options/
 
 # Noor-e-Raah sample build temp files (free to rebuild)
 channels/noor-e-raah/samples/**/_*
+# Noor-e-Raah render temp files (stems, ASS, text files; rebuilt free by scripts/noor_render.py)
+channels/noor-e-raah/stories/*/long/output/_*
 
 # ---- misc ----
 # study downloads (RULES 12c): local only, deleted within 24 h, never on GitHub
