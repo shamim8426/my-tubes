@@ -40,7 +40,8 @@ Layout: `channels/<key>/stories/<NNN>_<slug>/` holds images/, audio/, characters
 - SURAH CHECK (channel noor-e-raah, its RULES.md): har [S#]/[M#] dossier se milao aur uske mukhya source khud kholo;
   source ke bina shan-e-nuzul ki baat = BLOCKER; "chhoda gaya" list ki koi baat = BLOCKER; ikhtilaaf ko pakki baat ki
   tarah bolna = MAJOR; Arabic aur TARJUMA dossier ke source se akshar-akshar mile, warna BLOCKER; tarjume/text ka licence
-  register me na ho = copyright shak (ASK). Kisi Nabi/Sahabi/farishte ki tasveer, parchhai ya aakaar, koi tilawat audio,
+  register me na ho = copyright shak (ASK). Noor HARD RULE 2a (2026-10-26): insaan sirf haath/qadam/kareeb ka hissa;
+  poora insaan ya chehra kisi drishya/misaal ko act karta hua (AI ya stock) = BLOCKER. Kisi Nabi/Sahabi/farishte ki tasveer, parchhai ya aakaar, koi tilawat audio,
   ya vocal/beat wala music = BLOCKER; music poori video me lagaataar (RULES 1c, 2026-10-25): aayat par music rukna = MINOR, har aayat par sirf ek halka swoosh, zor ka hit = BLOCKER; music 20–24 LU neeche aur har track register me. Noor-e-Raah story 002 se (RULES 1b): SAWAAL ke asli sawaal max 3-4, do sawaalon ke beech 3-3.5 min ka gap; 4 se zyada ya ~3 min se kam gap = MAJOR. Noor-e-Raah Short (RULES 2b): har aayat poori (poori Arabic + poora bhaavarth, matlab ho to poora), koi aayat ya
   vaakya beech me kata nahi, aakhri line poori; aadhi aayat ya kata vaakya = BLOCKER. Story 002 se (RULES 2a): aam insaan sirf peeth/door/parchhai, chehra bina detail (detailed chehra = BLOCKER);
   Nabi/Sahabi/farishta/Quran me naam se aaye log kisi bhi roop me = BLOCKER; ibaadat ka drishya sirf door/peeth se aur

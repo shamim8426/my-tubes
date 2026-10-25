@@ -83,9 +83,14 @@ accepted translations. Revisit only if a translation's own terms say commercial/
 - No studio/artist/brand names in prompts (shared RULES 12a).
 
 ### 2a. "Immersive" andaaz (user 2026-10-25) — from story 002 (Al-Baqarah 1-5); 001 Al-Fatiha stays as it is
-- **Ordinary people may appear, faces included** (user 2026-10-26; before: back/far/silhouette only) — AI or stock.
-  Conditions: never resembling a real/famous person; modest dress; a stock person (real, identifiable) never in a sin,
-  punishment or Jahannam context (stock licence: no "bad light"). Musafir and worship scenes keep their own rules below.
+- **HARD RULE — people only as close details (user 2026-10-26, after the shabd-sync demo; replaces "faces
+  allowed" from earlier the same day):** a person is shown ONLY as a close-up detail — hands, feet/steps, a shoulder,
+  holding/giving/picking something up — like the open hand in the demo's first shot. NO full figures and NO faces
+  acting out a scene or misaal (e.g. two men handing over books in a street) — neither AI nor stock. Prefer a real
+  stock clip of the hands/action; AI only when no stock fits, and then also only the hands/detail, photo look.
+  Hands: exactly five fingers, natural (Munshi zooms). A full figure or face acting a scene = BLOCKER.
+  Also: modest sleeves/dress; a stock person never in a sin, punishment or Jahannam context (licence: no "bad light").
+  Musafir (only from behind) and worship scenes (far/back) keep their own rules below.
 - **NEVER, in any form (not from the back, not far, not as silhouette/shadow/light):** any Prophet (Nabi), the
   Prophet Muhammad ﷺ, his family, any Sahabi, any angel, and any person named in the Quran (e.g. Musa, Ibrahim, Yusuf,
   Maryam AS, Firaun …). Their stories are shown only through places and symbols (sea, staff-less landscape, well,
