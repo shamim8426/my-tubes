@@ -22,7 +22,7 @@ User sirf "resume karo" likhe to yahi karo: pehle sirf padho, kuch mat badlo, ko
    - Balance: `pricing.json` checkpoint + `.venv\Scripts\python -X utf8 scripts\story_budget.py <story>` ki "account remaining" line;
      ₹50 floor aur agli story (~₹120) ke baad kitna bachega; recharge chahiye ho to batao. Reconcile (`--check`) baaki ho to yaad dilao.
    - Pakke faisle confirm karo (channel.json, bible, RULES 15 se): image_style, motion default, awaazein, lambai/kharcha cap,
-     publish slots, Kalam ka kram, RULES 12a/12b (sirf hard copyright niyam, 2026-10-27).
+     publish slots, Kalam ka kram, RULES 12b.
    - **Nigraan check:** har channel ki `learnings.md` ka "LAGU KARO" hissa; kis video ka 48 h / 7 din post-mortem
      due hai (upload_result.json ke publish samay se) aur aaj Ravivaar ho to hafte ka report — ye user ko batao
      (agent `nigraan-kissago` / `nigraan-noor`, data `tools/yt_analytics.py <key> fetch`, read-only, ₹0).
@@ -106,13 +106,15 @@ econcile_balance.py <AI Studio balance ₹>` (pehli baar checkpoint), Long 03 ke
 
 - Motion: default 2.5D parallax (`tools/parallax.py`, Depth Anything V2 Small, CPU, free; model `models/` me, deploy.ps1 download karta hai). `--motion zoom` = wahi eased camera moves bina depth ke (zoompan ab kahin nahi: wo pixel-pixel kaanpta tha). Motion default (2026-10-25, dono builder): sub-pixel cubic warp, zoom 1.00→1.07 / pan ~4% (pan ke saath halka 1.03→1.06 zoom), ease-in-out, har shot alag move, ek move max 8 s; jaanch `tools/motion_check.py` (jerk ~0.03-0.06 vs zoompan 1.78). Guard artifact par motion aadha ya zoom fallback karta hai (`shared/parallax_log.jsonl`). Shorts: `shots.json` me `"subjects": {"<scene>": [x0,y0,x1,y1]}` (bolne wale ka chehra/haath/ishara) - builder crop 3-85% me rakhta hai, warna centre khiskata/zoom-out karta hai. Overlays: meta.json `"overlays": {"<scene>": [["fireflies", 0.22]], ...}` (fireflies/dust/rain/diya, opacity 0.15-0.35).
 
-- Image style: story 005 se **Kissago Painted** (`channels/dadi-ki-kahaniyan/brand/STYLE_PAINTED.md`; channel.json `image_style`). `gen_scenes.py` style block + `characters/<naam>/sheet_painted.png` refs apne aap lagata hai (nayi painted sheet ~₹6, story budget se). Studio/film/anime/artist naam sirf public metadata me mana (RULES 12a, trademark); `tools/youtube_upload.py` name_guard se BLOCK karta hai. Prompts me rok nahi; image kisi maujooda kirdaar/scene jaisi na ho.
+- Image style: story 005 se **Kissago Painted** (`channels/dadi-ki-kahaniyan/brand/STYLE_PAINTED.md`; channel.json `image_style`). `gen_scenes.py` style block + `characters/<naam>/sheet_painted.png` refs apne aap lagata hai (nayi painted sheet ~₹6, story budget se). Kisi studio/film/anime/artist ka naam KAHIN nahi (RULES 12a); `tools/name_guard.py` prompts aur upload metadata check karta hai (naam mila = BLOCK).
 
 ## Study download (shared/RULES.md 12c)
-- Sirf jab user link de kar kahe "isse seekho". yt-dlp bina login/cookies, max 480p, sirf `study/` (git-ignored). Frames +
-  Whisper ke sirf aankde (text kabhi save nahi). Analysis ke baad turant (max 24 h) sab mitao, log.md + research/study_log.md
-  me likho. Seekh (RULES 12b ALLOWED: style, rang, banawat, raftaar, dhaancha, vishay, title/thumbnail ka dhaancha) -> brand/STYLE_LEARNINGS.md, seedha lagu kar sakte ho (log me likho). Unka koi frame/audio/
-  plot/title/channel naam hamari video ya prompts me KABHI nahi; frames kabhi Gemini ko reference nahi.
+- Jab user link de kar kahe "isse seekho". yt-dlp bina login/cookies, sirf `study/` (git-ignored, kabhi sync nahi); koi bhi
+  resolution, frames + Whisper (transcript sirf `study/` me, temporary). Analysis ke baad (max 24 h) sab mitao, log.md +
+  research/study_log.md me likho. Seekh (style, rang, banawat, camera, raftaar, dhaancha, sound ka tareeka, vishay,
+  title/thumbnail ka dhaancha) -> brand/STYLE_LEARNINGS.md, seedha lagu kar sakte ho (log me likho). HARD: unka koi frame/
+  clip/audio/awaaz, script/dialogue, plot+twist, kirdaar, hu-ba-hu title/thumbnail ya channel naam (public metadata) hamari
+  video me KABHI nahi; frames kabhi Gemini ko reference nahi.
 
 ## Khoji (real stories, naya channel — abhi temporary `channels/_new_realstories/`)
 - `khoji` subagent: "khoji scout <category>" (25–30 kahaniyan -> saturation check Hindi vs English -> score -> TOP 5 -> RUKO)

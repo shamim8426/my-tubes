@@ -56,7 +56,7 @@ reference image ("keep this character exactly as in the reference sheet"). Only 
 ## 6. Prompt shape
 `<scene: who, where, what they do, mood, time of day>` + `Keep every character exactly as in the attached reference
 sheets.` + `Mitthu is a bird with wings and feet only, no hands.` (if he is in it) + the style block (section 1).
-Never put a studio/film/artist name or a "… style" claim in public metadata (RULES 12a); the image must not look like any existing character or famous scene.
+Never add any studio/film/artist name or "in the style of …".
 
 ## 7. Cozy pal (from story 005; learnings: brand/STYLE_LEARNINGS.md)
 - **Max ONE cozy pal per Long video, 10–15 s**, counted inside the 4:00 limit (RULES 15). Story dialogue is never cut
