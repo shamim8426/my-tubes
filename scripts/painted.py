@@ -39,5 +39,5 @@ def notes(refs) -> str:
 
 
 def guard(prompt: str):
-    if find_names(prompt):
-        sys.exit("BLOCKED (RULES 12a): studio/film/artist name in the prompt; nothing spent")
+    """Prompts are no longer name-blocked (RULES 12a 2026-10-27: only public metadata is); kept as a no-op hook."""
+    return None

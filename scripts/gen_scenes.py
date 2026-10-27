@@ -7,7 +7,7 @@ Refs: "scene:N" -> an earlier image in out_dir; a name in ref_files -> that file
 Style: channel.json "image_style": "kissago_painted" -> from story 005 every prompt ends with the verbatim style
 block of brand/STYLE_PAINTED.md and character refs are characters/<name>/sheet_painted.png (a missing painted
 sheet stops that scene: make it first, ~Rs 6 from the story budget). Spec "style": "flat" keeps the old look.
-Every prompt passes the studio/film/artist name guard (RULES 12a) before any paid call.
+Public metadata is name-guarded in the uploader (RULES 12a); prompts are not blocked (2026-10-27).
 """
 import json
 import re
@@ -88,10 +88,6 @@ def main(arg: str, only: list[int]):
         if spec.get("_painted"):
             prompt += "".join("\n" + CHAR_NOTES[c] for c in scene["refs"] if c in CHAR_NOTES)
         full = f"{spec['base']}\n\n{prompt}"
-        if find_names(full):
-            print(f"BLOCKED scene {scene['id']}: studio/film/artist name in the prompt (RULES 12a); nothing spent",
-                  flush=True)
-            continue
         out = out_dir / f"scene_{scene['id']:02d}.png"
         # RULES 15 budget guard: story cap + ₹50 floor on actual cost (exits before spending)
         est = pricing.image_estimate_usd(MODEL, "1K", len(spec['base']) + len(prompt), len(refs)) * pricing.usd_to_inr()

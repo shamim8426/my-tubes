@@ -118,39 +118,58 @@ At the end of each review, add one line to channels/<key>/log.md with the round 
 - No two videos may reuse the same narration audio. Shorts cut from their own long video are allowed.
 - Every 5th long video Munshi writes a short "channel variety" note in log.md: genres used, morals used, what to try next.
 
-### 12b. Nayapan (freshness) — strict, for every story option and script
-1. No folk tale / old story retold: no known old story in a new dress, even with new names or characters (Panchatantra, Jataka, Hitopadesh, Akbar-Birbal, Tenali Raman, Vikram-Betaal, Aesop, foreign fairy tales; the thirsty crow, hare and tortoise, the golden egg, the greedy dog, the lion and the mouse, the honest woodcutter, the magic lamp, "the wolf is coming" and the like). A moral may be shared, but the plot, the order of events and the twist must be new.
-2. Worn tropes only with a truly new twist, and the option must say so: cruel step-family, poor vs rich direct revenge, the greedy one simply punished, a magic object fixes everything, "it was a dream" ending, a god/fairy arrives to solve it, the plain reversal "the thief was a helper". Endings always come from the characters' understanding, effort or friendship — never from magic.
-3. An option with nayapan below 7/10 is never offered. Kalam asks itself: "Would a child say 'I have heard this before'?" — if yes, drop it.
-4. From trends only the topic, mood or hook type may be taken — never a plot, twist, character, specific dialogue or title.
-Munshi: a plot/twist/title too close to a known story or to a video in the latest trends reference list = MAJOR, even with different names.
+### 12b. Learning from other videos and old stories (user rule 2026-10-27: only hard rules)
+ALLOWED (ideas and methods are not protected by copyright — use them freely):
+- general art style and medium (painted, watercolour, 2D, 3D…), colour palette, light by time of day, warm/cool contrast;
+- composition principles (wide vs close, rule of thirds, empty sky/space), camera moves, shot length, cuts, transitions;
+- pacing and structure (hook timing, when the story turns, how it ends), video length, Shorts format, upload timing;
+- sound methods (music level, where ambience/silence goes, SFX types — with our own or licensed audio);
+- topics, moods, genres, hook types, title/thumbnail SHAPE (length, emotion, emoji use, colours — our own words);
+- description/tag structure; public-domain folk tales, fables and their morals (retelling is legal; our own wording).
+HARD — never (copyright / derivative work):
+1. No frame, clip, screenshot, thumbnail, image, audio, music, SFX or voice from another creator's video — not directly,
+   not edited, not as an image-model reference (no image-to-image from their frames).
+2. No copying of another creator's protected expression: their script, dialogue or narration text (also not
+   translated), their specific plot sequence + twist, their original characters (design, name, distinctive look),
+   their exact title, tagline, logo or channel name.
+3. No shot-by-shot remake of a specific scene or thumbnail of another video.
+4. A modern retelling by someone else (a book, film or channel's version of a folk tale) is their expression: we may
+   use the public-domain tale, never their version's text, added characters or new twists.
+Munshi: a plot+twist, dialogue, title or visual too close to a video in the latest `research/trends_*.md` reference
+list or `research/study_log.md` = MAJOR (copyright risk), even with different names.
 
-### 12a. Visual style, copyright and brand (Kissago Painted and any channel style)
-- No studio, film, anime or artist name ANYWHERE: image prompts, file/folder names, titles, descriptions, tags, hashtags, thumbnail text, comments, playlists, community posts. Internally the style is only called by its own name (e.g. "Kissago Painted", `channels/<key>/brand/STYLE_PAINTED.md`). A name found in metadata = upload BLOCK.
-- Nothing may look like an existing anime/film character, creature, vehicle, building or famous scene. Block list (kept here, never in prompts): a huge furry magical forest creature; small black soot-like creatures; a girl flying on a broom; a masked shadow spirit; a magic cat-shaped bus or any living bus; a bus stop in the rain with an umbrella and a big creature; floating castles or walking castles; giant robots/mecha; famous mascots or cartoon characters of any brand.
-- Only our own characters (Dadi, Golu, Mitthu and the channel bible's characters) and an Indian setting: clothes, faces, homes all Indian.
-- After every image Munshi asks: "Kya ye kisi jaane-maane kirdaar ya scene ki nakal lagti hai?" If yes -> MAJOR (BLOCKER): change the prompt and regenerate once; if it still looks like one, drop that shot (crop/zoom another image). An image that looks like a famous character is never used, even if it was already paid for.
-- Thumbnails use the channel's own style and our own text.
-- YouTube originality: story, script, voices and characters stay our own; the visual style is only a look.
+### 12a. Visual style, copyright and brand (HARD)
+- Public metadata (title, description, tags, hashtags, thumbnail text, pinned/first comment, playlist, community post,
+  uploaded file names): no studio, film, anime, brand or artist name, no "… style" claim (trademark + YouTube
+  misleading-metadata policy). `tools/youtube_upload.py` blocks it (name_guard). Internal prompts/notes may describe or
+  name a style; the output must still pass the next two rules.
+- Nothing in our images may look like an existing copyrighted character, creature, mascot, vehicle, building or a
+  famous specific scene (block list kept here, never in prompts): a huge furry magical forest creature; small black
+  soot-like creatures; a girl flying on a broom; a masked shadow spirit; a magic cat-shaped bus or any living bus; a
+  bus stop in the rain with an umbrella and a big creature; floating or walking castles; giant robots/mecha; any
+  brand's mascot or cartoon character.
+- Only our own characters (channel bible) — never another creator's or franchise's character.
+- After every image Munshi asks: "Kya ye kisi jaane-maane kirdaar ya scene ki nakal lagti hai?" If yes -> MAJOR
+  (BLOCKER): change the prompt and regenerate once; if it still looks like one, drop that shot (crop/zoom another
+  image). Such an image is never used, even if paid for.
+- Thumbnails: our own art and our own text (never another video's thumbnail, see 12b).
+- YouTube "reused / inauthentic content" + impersonation policy: our story, script, voices and characters are our own;
+  we never present ourselves as another channel.
 - Sensitive subjects: never mock any religion, caste, politics, region, skin colour/looks or disability; festivals and rituals are shown with respect and correct facts (no guesses — check `channels/<key>/festival_calendar.md` and reliable sources). Boys and girls get equal and good roles (Tara is known for her brains and courage). No real person, brand or real place name (Gulmohar Mohalla and our own invented places only). Any breach = BLOCKER.
 - Children (Golu, Tara, Tinku and any child): always age-appropriate, innocent and family-friendly in looks, poses and words; a girl is described by her nature, not her looks. Never any romance/crush angle between children (stories, thumbnails, titles, descriptions, comments). A child may be teased (e.g. Tinku's thinness) but the story never ends by putting them down — it becomes their strength or friends stand by them. Any breach = BLOCKER.
 
-### 12c. Study download (user rule 2026-10-22)
-- WHEN: only when the user gives a link and says "isse seekho". Never on our own initiative.
-- HOW: `tools/yt-dlp.exe`, no login and no cookies (the user's YouTube account is never connected), max 480p, only into
-  the git-ignored `study/` folder at the project root (never any other repo folder, never synced). Learn from: FFmpeg
-  frames at every shot change + every 2 s, and Whisper used ONLY for numbers (each line's length, speaking rate, where
-  the silences are). No dialogue/script text is ever saved.
-- AFTER: video, frames and audio are deleted right after the analysis (max 24 h). Log in `channels/<key>/log.md`: when,
-  which link, why, deleted. Add the link + title (no channel name) to `channels/<key>/research/study_log.md`.
-- WHAT we learn (general methods only): hook structure, shot length, camera moves, text/graphics style and placement,
-  transitions, colour and light, when music/SFX change, voice pace, the CTA. Result goes to
-  `channels/<key>/brand/STYLE_LEARNINGS.md` with "how we build it with our tools"; nothing is applied before the user agrees.
-- STRICT BAN (never in our videos): any frame, clip, image, audio, music, SFX or voice from the download; their script,
-  dialogue, plot, order of events, twist, characters, title or thumbnail; their channel name anywhere (metadata, prompts,
-  files); study frames are never given to Gemini or any image model as a reference. A breach = BLOCKER.
-- Munshi: every new script, thumbnail and Short is compared with the videos in study_log.md; a plot, dialogue, title or
-  visual too close = MAJOR.
+### 12c. Study download (user rule 2026-10-22; loosened 2026-10-27)
+- WHEN: only when the user gives a link and says "isse seekho" (YouTube terms: no mass downloading).
+- HOW: `tools/yt-dlp.exe`, no login and no cookies, max 480p, only into the git-ignored `study/` folder (never synced).
+  Frames at shot changes + every 2 s; Whisper only for numbers (line length, speaking rate, silences) — their
+  dialogue/script text is never saved.
+- AFTER: video, frames and audio deleted right after the analysis (max 24 h). Log in `channels/<key>/log.md`; link +
+  title (no channel name) in `channels/<key>/research/study_log.md`.
+- WHAT we learn: everything 12b ALLOWS. Learnings go to `brand/STYLE_LEARNINGS.md` and may be used directly (log what
+  was applied).
+- HARD BAN: everything 12b HARD lists — no frame/clip/image/audio/voice from the download in our videos, never a study
+  frame as an image-model reference, no script/dialogue/plot+twist/characters/title/thumbnail copied, no channel name
+  in our metadata. A breach = BLOCKER.
 
 ## 13. Audience & algorithm (CTR, retention, session)
 Long videos:

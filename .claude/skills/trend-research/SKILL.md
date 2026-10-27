@@ -24,7 +24,7 @@ description: Public-metadata trend research for Hindi kids/moral/family story ch
 
 ## Output: `channels/<key>/research/trends_<YYYY-MM-DD>.md`
 1. Date, how many videos/channels, data limits.
-2. **General patterns only** (no plot, title wording or thumbnail copied):
+2. **Patterns** — everything RULES 12b ALLOWS (style, pacing, structure, topics, moods, title/thumbnail shape); never their script, plot+twist, characters, exact titles or visuals:
    - topics (top 5), hook types, title shape/emotion (length, question vs exclamation, emoji use — described, not
      quoted), thumbnail colour/emotion, length vs views, what worked in Shorts.
    - what this means for Kissago (our characters, Gulmohar Mohalla, Kissago Painted).
