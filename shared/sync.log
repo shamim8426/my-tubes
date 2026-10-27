@@ -142,3 +142,4 @@
 2026-10-26 07:51:02  ERROR: push failed (internet / gh auth?). Commit is saved locally.
 2026-10-26 23:30:29  pushed: nightly sync  (repo pack size 337 MB)
 2026-10-27 20:25:41  pushed: RULES 12a/12b/12c: only hard copyright/legal/YouTube-policy rules; learning style/pacing/structure/topics/folk tales allowed  (repo pack size 337 MB)
+2026-10-27 20:29:57  pushed: revert broad 12a/12b change; loosen ONLY study-download rules (12c) to hard copyright/ToS rules  (repo pack size 337 MB)

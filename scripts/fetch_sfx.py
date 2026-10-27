@@ -24,8 +24,12 @@ WANT = {
     "steps": "footsteps slow",
     "creak": "wooden chest creak",
     "pump": "hand pump squeak",
+    "birds": "birds morning village",
+    "paper": "paper rustle",
+    "dig": "digging soil shovel",
+    "run": "running footsteps dirt",
 }
-DURATION = {"night": "[2 TO 6]", "steps": "[0.8 TO 3]", "creak": "[0.5 TO 3]", "pump": "[1 TO 4]"}  # default [0.3 TO 4]
+DURATION = {"night": "[2 TO 6]", "steps": "[0.8 TO 3]", "creak": "[0.5 TO 3]", "pump": "[1 TO 4]", "birds": "[8 TO 40]", "paper": "[0.5 TO 3]", "dig": "[1 TO 5]", "run": "[1 TO 5]"}  # default [0.3 TO 4]
 PER_KIND = 2
 
 

@@ -16,3 +16,9 @@
 - `creak_377552.mp3` — "Wooden Creak" by Mafon2 (0.9s, CC0) https://freesound.org/people/Mafon2/sounds/377552/
 - `pump_832465.mp3` — "Handcar Pump 2 (Out 1)" by qubodup (1.1s, CC0) https://freesound.org/people/qubodup/sounds/832465/
 - `pump_832464.mp3` — "Handcar Pump 1 (In 1)" by qubodup (1.1s, CC0) https://freesound.org/people/qubodup/sounds/832464/ (moved to _to_delete/sfx_unused, not used)
+- `birds_841386.mp3` — "Village(ManDaKi)" by ManDaKi (22.0s, CC0) https://freesound.org/people/ManDaKi/sounds/841386/
+- `birds_830375.mp3` — "Village ambience: Birds chirping, dog barking, light traffic, cars" by Milkybread (22.4s, CC0) https://freesound.org/people/Milkybread/sounds/830375/
+- `paper_353125.mp3` — "Paper Rustle" by BenjaminNelan (1.1s, CC0) https://freesound.org/people/BenjaminNelan/sounds/353125/
+- `paper_10420.mp3` — "rustle.paper_Tear_11.aif" by batchku (0.9s, CC0) https://freesound.org/people/batchku/sounds/10420/
+- `run_816792.mp3` — "running on dirt 2 edit" by Luisa_Sanchez (3.4s, CC0) https://freesound.org/people/Luisa_Sanchez/sounds/816792/
+- `run_571937.mp3` — "Footsteps_Grass+Dirt_5" by Joao_Janz (4.0s, CC0) https://freesound.org/people/Joao_Janz/sounds/571937/
