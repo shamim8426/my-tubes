@@ -5,7 +5,7 @@
  "privacy": "public",
  "seconds": 307,
  "statistics": {
-  "viewCount": "5",
+  "viewCount": "6",
   "likeCount": "0",
   "dislikeCount": "0",
   "favoriteCount": "0",
@@ -61,7 +61,27 @@
    "day": "2026-10-22",
    "views": 0,
    "estimatedMinutesWatched": 0
+  },
+  {
+   "day": "2026-10-23",
+   "views": 0,
+   "estimatedMinutesWatched": 0
+  },
+  {
+   "day": "2026-10-24",
+   "views": 0,
+   "estimatedMinutesWatched": 0
+  },
+  {
+   "day": "2026-10-25",
+   "views": 0,
+   "estimatedMinutesWatched": 0
+  },
+  {
+   "day": "2026-10-26",
+   "views": 0,
+   "estimatedMinutesWatched": 0
   }
  ],
- "fetched": "2026-10-25T18:33:53"
+ "fetched": "2026-10-29T16:29:52"
 }

@@ -1,10 +1,17 @@
 {
  "channel": "नूर-ए-राह | Noor-e-Raah",
  "statistics": {
-  "viewCount": "0",
+  "viewCount": "261",
   "subscriberCount": "1",
   "hiddenSubscriberCount": false,
   "videoCount": "1"
  },
- "totals": []
+ "totals": [
+  {
+   "views": 56,
+   "estimatedMinutesWatched": 48,
+   "subscribersGained": 1,
+   "subscribersLost": 0
+  }
+ ]
 }
