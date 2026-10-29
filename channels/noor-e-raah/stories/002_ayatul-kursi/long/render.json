@@ -1,0 +1,43 @@
+{
+ "_note": "Ayatul Kursi screen config for scripts/noor_render.py (cards from the script's SCREEN notes; title from thumbnail.json; end card = last two lines).",
+ "title_ar": "آيَةُ ٱلْكُرْسِيِّ",
+ "title_hi": "आयतुल कुर्सी",
+ "series": "नूर-ए-राह",
+ "tagline": "क़ुरआन, आसान ज़बान में।",
+ "cards": [
+  {
+   "line": 5,
+   "until": 6,
+   "y": 100,
+   "stack": true,
+   "items": [
+    "सूरह अल-बक़रह · आयत 255",
+    "मदनी"
+   ]
+  },
+  {
+   "line": 62,
+   "until": 64,
+   "y": 100,
+   "items": [
+    "1. वो हमेशा ज़िंदा, सबको सँभालने वाला"
+   ]
+  },
+  {
+   "line": 63,
+   "until": 64,
+   "y": 210,
+   "items": [
+    "2. इख़्तियार, इजाज़त, इल्म — सब उसके हाथ में"
+   ]
+  },
+  {
+   "line": 64,
+   "until": 64,
+   "y": 320,
+   "items": [
+    "3. मतलब समझ कर पढ़ें"
+   ]
+  }
+ ]
+}

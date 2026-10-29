@@ -1,8 +1,8 @@
 {
  "arabic": "آيَةُ ٱلْكُرْسِيِّ",
  "hindi": "आयतुल कुर्सी",
- "chip": "क़ुरआन की सबसे महान आयत",
- "hook": "क्या आप इसका *असली मतलब*\nजानते हैं?",
+ "chip": "हदीस में: क़ुरआन की सबसे अज़ीम आयत",
+ "hook": "रोज़ पढ़ते हैं —\nपर *10 बातें* जानते हैं?",
  "image": "images/thumb_scene_b.png",
  "scene": "A grand empty Islamic prayer hall at night seen from the centre: tall pointed arches, an intricate geometric star-pattern ceiling, carved lattice windows with warm golden light shafts streaming in through floating dust, rows of old brass hanging lanterns glowing warm amber, polished stone floor reflecting the light. The LEFT 40 percent of the image is darker and calmer with fewer details, kept quiet for large text. Cinematic, reverent, deep indigo and gold. Wide 16:9. No people, no text, no letters, no writing, no calligraphy.",
  "chosen": {
@@ -11,5 +11,6 @@
   "by": "user 2026-10-30",
   "status": "in use for now, user will check later; a free-engine wallpaper can replace it",
   "file": "long/output/002_ayatul-kursi_thumbnail.jpg"
- }
+ },
+ "title": "Ayatul Kursi ka Matlab Hindi Mein | Saral Bhaavarth, Line by Line | Noor-e-Raah"
 }

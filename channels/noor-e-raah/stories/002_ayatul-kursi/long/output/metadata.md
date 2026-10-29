@@ -1,0 +1,43 @@
+# 002 Ayatul Kursi — YouTube metadata (DRAFT; chapters TODO after render; Munshi checks before upload)
+
+## Title (recommended first; search phrase first, suffix as in 001)
+1. Ayatul Kursi ka Matlab Hindi Mein | Saral Bhaavarth, Line by Line | Noor-e-Raah
+2. Ayatul Kursi Hindi Mein | 10 Jumle, 10 Baatein aur Hadith | Noor-e-Raah
+3. Ayatul Kursi ka Matlab | Roz Padhte Hain, Ab Samjhein | Noor-e-Raah
+
+(Thumbnail: chip "हदीस में: क़ुरआन की सबसे अज़ीम आयत", hook "रोज़ पढ़ते हैं — पर 10 बातें जानते हैं?" — title ke shabd nahi dohrata.)
+
+## Description
+आयतुल कुर्सी (सूरह अल-बक़रह, आयत 255) — हम इसे रोज़ पढ़ते हैं। इस वीडियो में उस्ताद और एक आम सवाल पूछने वाली की बातचीत में: आयत का परिचय, इसके उतरने के बारे में क्या मिलता है, आयत के दस जुमलों का अरबी, सरल भावार्थ और मतलब, और इस आयत के बारे में दो सही हदीसें (मुस्लिम और बुख़ारी)।
+
+सरल भावार्थ — माने हुए तर्जुमों के आधार पर (शब्दशः तर्जुमा नहीं)। सूरह अल-बक़रह क़ुरआन की दूसरी सूरह है, पूरी मदनी है, और उसकी आयतें 286 गिनी जाती हैं (कुछ गिनती के तरीक़ों में 287)। आयतुल कुर्सी के उतरने का कोई मज़बूत, ख़ास वाक़िया रिवायतों में नहीं मिलता। "कुर्सी" की हक़ीक़त पर उलमा के कई क़ौल हैं; वीडियो में उन्हें वैसे ही बताया गया है।
+
+TODO (render ke baad asli samay): 0:00 शुरुआत · 0:15 परिचय · 0:29 शान-ए-नुज़ूल पर बात · 0:34 पूरी आयत · 0:46 जुमला 1 · जुमला 2 ... जुमला 10 · हदीस में आयतुल कुर्सी · सीख
+
+अगली वीडियो: सूरह अल-इख़लास।
+आप बताइए — इन दस बातों में से कौन-सी आपके दिल को सबसे ज़्यादा छू गई, और क्यों?
+
+SOURCES
+- Arabic Quran text: Tanzil Project (https://tanzil.net) — Tanzil Quran Text, Copyright (C) 2007-2021 Tanzil Project, License: Creative Commons Attribution 3.0. Text unchanged; check https://tanzil.net/updates/ for changes.
+- सरल भावार्थ: माने हुए तर्जुमों (Azizul Haq al-Umari / QuranEnc.com; Shaikh-ul-Hind Mahmud Hasan; Suhel Farooq Khan & Saifur Rahman Nadwi) के आधार पर — शब्दशः तर्जुमा नहीं।
+- Tafseer: Tafsir Ibn Kathir; Ma'ariful Qur'an (Mufti Muhammad Shafi); al-Qurtubi, al-Jami' li-Ahkam al-Qur'an; al-Tabari, Jami' al-Bayan.
+- Hadith: Sahih Muslim 810; Sahih al-Bukhari 2311.
+- Surah data: Tanzil Quran Metadata (CC BY 3.0, https://tanzil.net).
+
+MUSIC
+- "Soaring" Kevin MacLeod (incompetech.com)
+  Licensed under Creative Commons: By Attribution 4.0 License
+  http://creativecommons.org/licenses/by/4.0/
+- "River Flute" Kevin MacLeod (incompetech.com)
+  Licensed under Creative Commons: By Attribution 4.0 License
+  http://creativecommons.org/licenses/by/4.0/
+- Ambience: freesound.org (CC0)
+
+Fonts: Amiri, Mukta (SIL Open Font License). Images and voices: AI-generated.
+
+#आयतुलकुर्सी #क़ुरआन #नूरएराह
+
+## Tags
+आयतुल कुर्सी, आयतुल कुर्सी का मतलब, आयतुल कुर्सी हिंदी में, आयत 255 सूरह बक़रह, ayatul kursi, ayatul kursi ka matlab, ayatul kursi meaning in hindi, ayatul kursi hindi, quran in hindi, क़ुरआन आसान ज़बान में, noor e raah
+
+## Upload settings (as 001, channel.json): category 27, made_for_kids false, language hi, private (api_audited false) + STUDIO ACTION; captions long/output/002_ayatul-kursi.srt.

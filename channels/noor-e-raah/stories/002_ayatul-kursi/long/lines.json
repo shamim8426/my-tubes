@@ -1,0 +1,915 @@
+[
+ {
+  "kind": "section",
+  "name": "HEADER"
+ },
+ {
+  "kind": "section",
+  "name": "INTRO (`part: intro`, hook)"
+ },
+ {
+  "kind": "screen",
+  "section": "INTRO (`part: intro`, hook)",
+  "ayah": null,
+  "note": "SCREEN: raat ka khula aasmaan, taare, door tak khaali ret ke teele; upar Arabic title आयतुल कुर्सी (font se) aur neeche chhota caption \"10 लाइनें, 10 बातें\". Pehla frame bina awaaz ke bhi samajh aaye."
+ },
+ {
+  "kind": "cue",
+  "n": 1,
+  "type": "music",
+  "value": "soft: Soaring — intro + parichay",
+  "section": "INTRO (`part: intro`, hook)",
+  "ayah": null
+ },
+ {
+  "kind": "cue",
+  "n": 2,
+  "type": "ambience",
+  "value": "gentle breeze (Freesound CC0)",
+  "section": "INTRO (`part: intro`, hook)",
+  "ayah": null
+ },
+ {
+  "kind": "line",
+  "n": 3,
+  "speaker": "sawaal",
+  "role": "",
+  "section": "INTRO (`part: intro`, hook)",
+  "ayah": null,
+  "text": "उस्ताद जी, आयतुल कुर्सी तो रोज़ पढ़ते हैं — पर क्या हर लाइन का मतलब जानते हैं?",
+  "tags": []
+ },
+ {
+  "kind": "line",
+  "n": 4,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "INTRO (`part: intro`, hook)",
+  "ayah": null,
+  "text": "आज इसकी दस लाइनें, दस बातें। और हदीस के मुताबिक़ ये क़ुरआन की सबसे अज़ीम आयत है।",
+  "tags": [
+   "FZ-A"
+  ]
+ },
+ {
+  "kind": "section",
+  "name": "1. SURAH KA PARICHAY"
+ },
+ {
+  "kind": "screen",
+  "section": "1. SURAH KA PARICHAY",
+  "ayah": null,
+  "note": "SCREEN: subah ki roshni me khajoor ke ped aur mitti ke ghar (saatvi sadi ka Madina), khaali; font se do chhote cards: \"सूरह अल-बक़रह · आयत 255\", \"मदनी\""
+ },
+ {
+  "kind": "line",
+  "n": 5,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "1. SURAH KA PARICHAY",
+  "ayah": null,
+  "text": "ये क़ुरआन की दूसरी सूरह अल-बक़रह की आयत नंबर दो सौ पचपन है; बक़रह पूरी मदनी है, यानी मदीना में उतरी।",
+  "tags": [
+   "P1",
+   "P2"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 6,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "1. SURAH KA PARICHAY",
+  "ayah": null,
+  "text": "नाम 'कुर्सी' लफ़्ज़ से है, जो इसी आयत में आया है।",
+  "tags": [
+   "P3"
+  ]
+ },
+ {
+  "kind": "section",
+  "name": "2. SHAN-E-NUZUL"
+ },
+ {
+  "kind": "screen",
+  "section": "2. SHAN-E-NUZUL",
+  "ayah": null,
+  "note": "SCREEN: wahi khaali khajoor ka raasta, subah ka ujala; koi insaan nahi, koi gumbad/minar nahi"
+ },
+ {
+  "kind": "line",
+  "n": 7,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "2. SHAN-E-NUZUL",
+  "ayah": null,
+  "text": "इसके उतरने का कोई मज़बूत, ख़ास वाक़िया रिवायतों में नहीं मिलता।",
+  "tags": [
+   "N1",
+   "N2"
+  ]
+ },
+ {
+  "kind": "section",
+  "name": "3. AAYAT-DAR-AAYAT"
+ },
+ {
+  "kind": "screen",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": null,
+  "note": "SCREEN (har Arabic block): Arabic bade Amiri font me (Tanzil Uthmani, bytes unchanged), upar chhota label \"सरल भावार्थ — माने हुए तर्जुमों के आधार पर\" (sirf BHAAVARTH line par), neeche Hindi caption. Poori aayat ke baad har jumla alag Arabic block hai."
+ },
+ {
+  "kind": "ayah",
+  "ayah": 1
+ },
+ {
+  "kind": "screen",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 1,
+  "note": "SCREEN: raat ka taaron bhara aasmaan, shaant; poori aayat Arabic me (50 shabd) — swoosh ke saath aati hai"
+ },
+ {
+  "kind": "cue",
+  "n": 8,
+  "type": "music",
+  "value": "fade-out 1s — ARABIC ON SCREEN",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 1
+ },
+ {
+  "kind": "arabic",
+  "ayah": 1,
+  "text": "ٱللَّهُ لَآ إِلَٰهَ إِلَّا هُوَ ٱلْحَىُّ ٱلْقَيُّومُ لَا تَأْخُذُهُۥ سِنَةٌ وَلَا نَوْمٌ لَّهُۥ مَا فِى ٱلسَّمَٰوَٰتِ وَمَا فِى ٱلْأَرْضِ مَن ذَا ٱلَّذِى يَشْفَعُ عِندَهُۥٓ إِلَّا بِإِذْنِهِۦ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلَا يُحِيطُونَ بِشَىْءٍ مِّنْ عِلْمِهِۦٓ إِلَّا بِمَا شَآءَ وَسِعَ كُرْسِيُّهُ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضَ وَلَا يَـُٔودُهُۥ حِفْظُهُمَا وَهُوَ ٱلْعَلِىُّ ٱلْعَظِيمُ"
+ },
+ {
+  "kind": "line",
+  "n": 9,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 1,
+  "text": "ये रही पूरी आयत। इसमें दस जुमले हैं — अब एक-एक करके।",
+  "tags": [
+   "P4"
+  ]
+ },
+ {
+  "kind": "cue",
+  "n": 10,
+  "type": "music",
+  "value": "back slowly: River Flute — matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 1
+ },
+ {
+  "kind": "ayah",
+  "ayah": 2
+ },
+ {
+  "kind": "screen",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 2,
+  "note": "SCREEN: subah ka pehla ujala, khaali shaant registaan ka ufaq"
+ },
+ {
+  "kind": "cue",
+  "n": 11,
+  "type": "music",
+  "value": "fade-out 1s — ARABIC ON SCREEN",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 2
+ },
+ {
+  "kind": "arabic",
+  "ayah": 2,
+  "text": "ٱللَّهُ لَآ إِلَٰهَ إِلَّا هُوَ"
+ },
+ {
+  "kind": "line",
+  "n": 12,
+  "speaker": "ustaad",
+  "role": "bhaavarth",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 2,
+  "text": "पहला जुमला: अल्लाह — उसके सिवा इबादत के लायक़ कोई नहीं।",
+  "tags": []
+ },
+ {
+  "kind": "cue",
+  "n": 13,
+  "type": "music",
+  "value": "back slowly: River Flute — matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 2
+ },
+ {
+  "kind": "line",
+  "n": 14,
+  "speaker": "ustaad",
+  "role": "matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 2,
+  "text": "'अल्लाह' उसी ज़ात का नाम है, जो सारी मख़लूक़ का अकेला रब है — इसलिए बंदगी सिर्फ़ उसी की।",
+  "tags": [
+   "U1"
+  ]
+ },
+ {
+  "kind": "ayah",
+  "ayah": 3
+ },
+ {
+  "kind": "screen",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 3,
+  "note": "SCREEN: registaan ke beech hara chashma aur khajoor — zindagi aur sahaara"
+ },
+ {
+  "kind": "cue",
+  "n": 15,
+  "type": "music",
+  "value": "fade-out 1s — ARABIC ON SCREEN",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 3
+ },
+ {
+  "kind": "arabic",
+  "ayah": 3,
+  "text": "ٱلْحَىُّ ٱلْقَيُّومُ"
+ },
+ {
+  "kind": "line",
+  "n": 16,
+  "speaker": "ustaad",
+  "role": "bhaavarth",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 3,
+  "text": "दूसरा जुमला: वो हमेशा ज़िंदा है, और सबको थामे-सँभाले हुए है।",
+  "tags": []
+ },
+ {
+  "kind": "cue",
+  "n": 17,
+  "type": "music",
+  "value": "back slowly: River Flute — matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 3
+ },
+ {
+  "kind": "line",
+  "n": 18,
+  "speaker": "ustaad",
+  "role": "matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 3,
+  "text": "'हय्य' यानी हमेशा ज़िंदा — जिसे कभी मौत नहीं आती।",
+  "tags": [
+   "U2"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 19,
+  "speaker": "ustaad",
+  "role": "matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 3,
+  "text": "'क़य्यूम' यानी जो ख़ुद अपने दम पर क़ायम है और सबको क़ायम रखता है — सब उसके सहारे, वो किसी के सहारे नहीं।",
+  "tags": [
+   "U2"
+  ]
+ },
+ {
+  "kind": "ayah",
+  "ayah": 4
+ },
+ {
+  "kind": "screen",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 4,
+  "note": "SCREEN: chaandni me soye hue ghar ki chhatein (khaali), bas ek diya jaagta hua"
+ },
+ {
+  "kind": "cue",
+  "n": 20,
+  "type": "music",
+  "value": "fade-out 1s — ARABIC ON SCREEN",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 4
+ },
+ {
+  "kind": "arabic",
+  "ayah": 4,
+  "text": "لَا تَأْخُذُهُۥ سِنَةٌ وَلَا نَوْمٌ"
+ },
+ {
+  "kind": "line",
+  "n": 21,
+  "speaker": "ustaad",
+  "role": "bhaavarth",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 4,
+  "text": "तीसरा जुमला: न उसे ऊँघ आती है, न नींद।",
+  "tags": []
+ },
+ {
+  "kind": "cue",
+  "n": 22,
+  "type": "music",
+  "value": "back slowly: River Flute — matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 4
+ },
+ {
+  "kind": "line",
+  "n": 23,
+  "speaker": "sawaal",
+  "role": "misaal",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 4,
+  "text": "हम तो थोड़ी देर जागें तो आँखें भारी हो जाती हैं, और ऊँघ आने लगती है।",
+  "tags": [
+   "MISAAL"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 24,
+  "speaker": "ustaad",
+  "role": "matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 4,
+  "text": "'सिनह' यानी ऊँघ, 'नौम' यानी गहरी नींद — दोनों नहीं। उसे कभी कोई कमी या बेख़बरी नहीं।",
+  "tags": [
+   "U3"
+  ]
+ },
+ {
+  "kind": "ayah",
+  "ayah": 5
+ },
+ {
+  "kind": "screen",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 5,
+  "note": "SCREEN: pahaad, samandar aur taaron bhara aasmaan ek hi nazar me"
+ },
+ {
+  "kind": "cue",
+  "n": 25,
+  "type": "music",
+  "value": "fade-out 1s — ARABIC ON SCREEN",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 5
+ },
+ {
+  "kind": "arabic",
+  "ayah": 5,
+  "text": "لَّهُۥ مَا فِى ٱلسَّمَٰوَٰتِ وَمَا فِى ٱلْأَرْضِ"
+ },
+ {
+  "kind": "line",
+  "n": 26,
+  "speaker": "ustaad",
+  "role": "bhaavarth",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 5,
+  "text": "चौथा जुमला: आसमानों में जो कुछ है और ज़मीन में जो कुछ है — सब उसी का है।",
+  "tags": []
+ },
+ {
+  "kind": "cue",
+  "n": 27,
+  "type": "music",
+  "value": "back slowly: River Flute — matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 5
+ },
+ {
+  "kind": "line",
+  "n": 28,
+  "speaker": "ustaad",
+  "role": "matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 5,
+  "text": "यानी हर चीज़ उसकी मिल्कियत है, और इख़्तियार भी उसी का।",
+  "tags": [
+   "U4"
+  ]
+ },
+ {
+  "kind": "ayah",
+  "ayah": 6
+ },
+ {
+  "kind": "screen",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 6,
+  "note": "SCREEN: ek band naqqashidaar lakdi ka darwaza, kinaron se andar ki roshni chhanti hui; koi insaan nahi"
+ },
+ {
+  "kind": "cue",
+  "n": 29,
+  "type": "music",
+  "value": "fade-out 1s — ARABIC ON SCREEN",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 6
+ },
+ {
+  "kind": "arabic",
+  "ayah": 6,
+  "text": "مَن ذَا ٱلَّذِى يَشْفَعُ عِندَهُۥٓ إِلَّا بِإِذْنِهِۦ"
+ },
+ {
+  "kind": "line",
+  "n": 30,
+  "speaker": "ustaad",
+  "role": "bhaavarth",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 6,
+  "text": "पाँचवाँ जुमला: कौन है जो उसकी इजाज़त के बिना, उसके सामने किसी की सिफ़ारिश कर सके?",
+  "tags": []
+ },
+ {
+  "kind": "cue",
+  "n": 31,
+  "type": "music",
+  "value": "back slowly: River Flute — matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 6
+ },
+ {
+  "kind": "line",
+  "n": 32,
+  "speaker": "ustaad",
+  "role": "matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 6,
+  "text": "सिफ़ारिश यानी किसी के हक़ में बात करना — उसके सामने बिना इजाज़त कोई बोल तक नहीं सकता।",
+  "tags": [
+   "U5"
+  ]
+ },
+ {
+  "kind": "ayah",
+  "ayah": 7
+ },
+ {
+  "kind": "screen",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 7,
+  "note": "SCREEN: dhundh me jaata ek raasta, aage bhi peeche bhi door tak (khaali)"
+ },
+ {
+  "kind": "cue",
+  "n": 33,
+  "type": "music",
+  "value": "fade-out 1s — ARABIC ON SCREEN",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 7
+ },
+ {
+  "kind": "arabic",
+  "ayah": 7,
+  "text": "يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ"
+ },
+ {
+  "kind": "line",
+  "n": 34,
+  "speaker": "ustaad",
+  "role": "bhaavarth",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 7,
+  "text": "छठा जुमला: वो जानता है जो उनके आगे है, और जो उनके पीछे है।",
+  "tags": []
+ },
+ {
+  "kind": "cue",
+  "n": 35,
+  "type": "music",
+  "value": "back slowly: River Flute — matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 7
+ },
+ {
+  "kind": "line",
+  "n": 36,
+  "speaker": "ustaad",
+  "role": "matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 7,
+  "text": "उलमा के मुताबिक़ इसके मानी हैं: बीता और आने वाला, या ज़ाहिर और छुपा — सब उसके इल्म में है।",
+  "tags": [
+   "U6"
+  ]
+ },
+ {
+  "kind": "ayah",
+  "ayah": 8
+ },
+ {
+  "kind": "screen",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 8,
+  "note": "SCREEN: bade andhere hall me ek chhota diya, uski roshni ka ek chhota ghera; baaki andhera"
+ },
+ {
+  "kind": "cue",
+  "n": 37,
+  "type": "music",
+  "value": "fade-out 1s — ARABIC ON SCREEN",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 8
+ },
+ {
+  "kind": "arabic",
+  "ayah": 8,
+  "text": "وَلَا يُحِيطُونَ بِشَىْءٍ مِّنْ عِلْمِهِۦٓ إِلَّا بِمَا شَآءَ"
+ },
+ {
+  "kind": "line",
+  "n": 38,
+  "speaker": "ustaad",
+  "role": "bhaavarth",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 8,
+  "text": "सातवाँ जुमला: उसके इल्म का कोई हिस्सा कोई घेर नहीं सकता — बस उतना, जितना वो ख़ुद चाहे।",
+  "tags": []
+ },
+ {
+  "kind": "cue",
+  "n": 39,
+  "type": "music",
+  "value": "back slowly: River Flute — matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 8
+ },
+ {
+  "kind": "line",
+  "n": 40,
+  "speaker": "ustaad",
+  "role": "matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 8,
+  "text": "यानी हम उतना ही जानते हैं जितना उसने जानने दिया। पूरा इल्म सिर्फ़ उसी का है।",
+  "tags": [
+   "U7"
+  ]
+ },
+ {
+  "kind": "ayah",
+  "ayah": 9
+ },
+ {
+  "kind": "screen",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 9,
+  "note": "SCREEN: khaali vishaal registaan, door ret par padi ek chhoti angoothi-si gol cheez, upar bahut bada aasmaan"
+ },
+ {
+  "kind": "cue",
+  "n": 41,
+  "type": "music",
+  "value": "fade-out 1s — ARABIC ON SCREEN",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 9
+ },
+ {
+  "kind": "arabic",
+  "ayah": 9,
+  "text": "وَسِعَ كُرْسِيُّهُ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضَ"
+ },
+ {
+  "kind": "line",
+  "n": 42,
+  "speaker": "ustaad",
+  "role": "bhaavarth",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 9,
+  "text": "आठवाँ जुमला: उसकी कुर्सी आसमानों और ज़मीन को समेटे हुए है।",
+  "tags": []
+ },
+ {
+  "kind": "cue",
+  "n": 43,
+  "type": "music",
+  "value": "back slowly: River Flute — matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 9
+ },
+ {
+  "kind": "line",
+  "n": 44,
+  "speaker": "ustaad",
+  "role": "matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 9,
+  "text": "'कुर्सी' की हक़ीक़त पर उलमा के कई क़ौल हैं: इब्ने अब्बास रज़ियल्लाहु अन्हु का एक क़ौल है अल्लाह का इल्म, और ज़्यादातर रिवायतों के मुताबिक़ वो अर्श के सामने एक अज़ीम मख़लूक़ है।",
+  "tags": [
+   "K1",
+   "K2"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 45,
+  "speaker": "ustaad",
+  "role": "matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 9,
+  "text": "नबी सल्लल्लाहु अलैहि वसल्लम ने बताया कि सातों आसमान उसके मुक़ाबले में वीराने में पड़े एक छल्ले जैसे हैं।",
+  "tags": [
+   "K3"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 46,
+  "speaker": "ustaad",
+  "role": "matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 9,
+  "text": "हर क़ौल का सार एक: अल्लाह की अज़मत के सामने आसमान-ज़मीन बहुत छोटे — और वो किसी जगह या तख़्त का मोहताज नहीं।",
+  "tags": [
+   "K5"
+  ]
+ },
+ {
+  "kind": "ayah",
+  "ayah": 10
+ },
+ {
+  "kind": "screen",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 10,
+  "note": "SCREEN: ek ke baad ek khade pahaad aur shaant jheel, subah ki halki roshni"
+ },
+ {
+  "kind": "cue",
+  "n": 47,
+  "type": "music",
+  "value": "fade-out 1s — ARABIC ON SCREEN",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 10
+ },
+ {
+  "kind": "arabic",
+  "ayah": 10,
+  "text": "وَلَا يَـُٔودُهُۥ حِفْظُهُمَا"
+ },
+ {
+  "kind": "line",
+  "n": 48,
+  "speaker": "ustaad",
+  "role": "bhaavarth",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 10,
+  "text": "नौवाँ जुमला: और उन दोनों की निगहबानी उसे ज़रा भी भारी नहीं पड़ती।",
+  "tags": []
+ },
+ {
+  "kind": "cue",
+  "n": 49,
+  "type": "music",
+  "value": "back slowly: River Flute — matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 10
+ },
+ {
+  "kind": "line",
+  "n": 50,
+  "speaker": "ustaad",
+  "role": "matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 10,
+  "text": "यानी आसमान और ज़मीन को सँभाले रखना उसके लिए न बोझ है, न मुश्किल।",
+  "tags": [
+   "U9"
+  ]
+ },
+ {
+  "kind": "ayah",
+  "ayah": 11
+ },
+ {
+  "kind": "screen",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 11,
+  "note": "SCREEN: badalon ke beech se utarti sunehri kirnein, khula aasmaan"
+ },
+ {
+  "kind": "cue",
+  "n": 51,
+  "type": "music",
+  "value": "fade-out 1s — ARABIC ON SCREEN",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 11
+ },
+ {
+  "kind": "arabic",
+  "ayah": 11,
+  "text": "وَهُوَ ٱلْعَلِىُّ ٱلْعَظِيمُ"
+ },
+ {
+  "kind": "line",
+  "n": 52,
+  "speaker": "ustaad",
+  "role": "bhaavarth",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 11,
+  "text": "दसवाँ जुमला: और वही सबसे बुलंद है, सबसे अज़ीम है।",
+  "tags": []
+ },
+ {
+  "kind": "cue",
+  "n": 53,
+  "type": "music",
+  "value": "back slowly: River Flute — matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 11
+ },
+ {
+  "kind": "line",
+  "n": 54,
+  "speaker": "ustaad",
+  "role": "matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 11,
+  "text": "'अलिय्य' यानी मर्तबे में सबसे ऊँचा, जगह की ऊँचाई के मानी में नहीं। 'अज़ीम' यानी अज़मत और ताक़त में सबसे बड़ा।",
+  "tags": [
+   "U10"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 55,
+  "speaker": "sawaal",
+  "role": "",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 11,
+  "text": "दस जुमले हो गए — अब पढ़ते वक़्त हर लाइन का मतलब सामने रहेगा।",
+  "tags": []
+ },
+ {
+  "kind": "section",
+  "name": "4. HADITH ME AYATUL KURSI"
+ },
+ {
+  "kind": "screen",
+  "section": "4. HADITH ME AYATUL KURSI",
+  "ayah": null,
+  "note": "SCREEN: saada mitti ka kamra, chatai aur ek diya, khaali; phir raat ki khidki se taare, takiya aur bistar, koi insaan nahi. Hadith ke alfaaz chhote caption me."
+ },
+ {
+  "kind": "cue",
+  "n": 56,
+  "type": "music",
+  "value": "soft: River Flute — hadith + seekh",
+  "section": "4. HADITH ME AYATUL KURSI",
+  "ayah": null
+ },
+ {
+  "kind": "line",
+  "n": 57,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "4. HADITH ME AYATUL KURSI",
+  "ayah": null,
+  "text": "मुस्लिम की हदीस में है कि नबी सल्लल्लाहु अलैहि वसल्लम ने उबैय बिन काब रज़ियल्लाहु अन्हु से पूछा:",
+  "tags": [
+   "FZ-A"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 58,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "4. HADITH ME AYATUL KURSI",
+  "ayah": null,
+  "text": "'ऐ अबुल-मुन्ज़िर, अल्लाह की किताब की कौन-सी आयत तुम्हारे पास सबसे अज़ीम है?' उन्होंने आयतुल कुर्सी पढ़ी, तो नबी सल्लल्लाहु अलैहि वसल्लम ने उनका सीना थपथपाकर कहा: 'तुम्हें इल्म मुबारक हो!'",
+  "tags": [
+   "FZ-A"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 59,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "4. HADITH ME AYATUL KURSI",
+  "ayah": null,
+  "text": "बुख़ारी की हदीस में है: सोने के लिए बिस्तर पर जाओ, तो आयतुल कुर्सी पढ़ लो — अल्लाह की तरफ़ से एक निगहबान तुम्हारे साथ रहेगा, और सुबह तक शैतान तुम्हारे क़रीब नहीं आएगा।",
+  "tags": [
+   "FZ-B"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 60,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "4. HADITH ME AYATUL KURSI",
+  "ayah": null,
+  "text": "ये अल्लाह पर भरोसे और उससे दुआ की बात है; नतीजा उसी के हाथ में है।",
+  "tags": [
+   "FZ-B"
+  ]
+ },
+ {
+  "kind": "section",
+  "name": "5. SEEKH"
+ },
+ {
+  "kind": "screen",
+  "section": "5. SEEKH",
+  "ayah": null,
+  "note": "SCREEN: subah ka sunehra ujala registaan par; seekh ke teen chhote cards font se"
+ },
+ {
+  "kind": "line",
+  "n": 61,
+  "speaker": "sawaal",
+  "role": "",
+  "section": "5. SEEKH",
+  "ayah": null,
+  "text": "उस्ताद जी, इस आयत से हमें क्या सीख मिलती है?",
+  "tags": []
+ },
+ {
+  "kind": "line",
+  "n": 62,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "5. SEEKH",
+  "ayah": null,
+  "text": "पहली: अल्लाह हमेशा ज़िंदा है, सबको सँभालता है, उसे ऊँघ भी नहीं आती, नींद भी नहीं — भरोसा उसी पर।",
+  "tags": [
+   "U2",
+   "U3"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 63,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "5. SEEKH",
+  "ayah": null,
+  "text": "दूसरी: इख़्तियार, इजाज़त और इल्म सब उसके हाथ में हैं — उम्मीद और मदद उसी से।",
+  "tags": [
+   "U4",
+   "U5",
+   "U7"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 64,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "5. SEEKH",
+  "ayah": null,
+  "text": "तीसरी: इसे मतलब समझ कर पढ़ें — हर बार ये दस बातें याद आएँगी।",
+  "tags": [
+   "P4"
+  ]
+ },
+ {
+  "kind": "screen",
+  "section": "5. SEEKH",
+  "ayah": null,
+  "note": "SCREEN (end, aakhri ~15 s end-screen area khaali): tagline card \"क़ुरआन, आसान ज़बान में।\" + chhota card \"Arabic text: Tanzil Project, tanzil.net\" + \"सरल भावार्थ — माने हुए तर्जुमों के आधार पर\""
+ },
+ {
+  "kind": "line",
+  "n": 65,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "5. SEEKH",
+  "ayah": null,
+  "text": "अगली बार, नूर-ए-राह में: सूरह अल-इख़लास — सिर्फ़ चार आयतें।",
+  "tags": [
+   "NEXT"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 66,
+  "speaker": "sawaal",
+  "role": "",
+  "section": "5. SEEKH",
+  "ayah": null,
+  "text": "और आप कमेंट में बताइए — इन दस बातों में से कौन-सी आपके दिल को सबसे ज़्यादा छू गई, और क्यों।",
+  "tags": []
+ },
+ {
+  "kind": "cue",
+  "n": 67,
+  "type": "music",
+  "value": "River Flute dheere fade-out; aakhri ~3 s sirf gentle breeze",
+  "section": "5. SEEKH",
+  "ayah": null
+ }
+]

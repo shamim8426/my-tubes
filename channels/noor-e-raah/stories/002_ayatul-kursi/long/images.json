@@ -1,0 +1,193 @@
+{
+ "_help": "Ayatul Kursi images (002). Same format as 001: start = spoken line it first appears on, or 'ayah' = from that Arabic block's swoosh (AYAH 1 = whole ayah, AYAH 2..11 = jumla 1..10). reuse_id = an image already in this story (free crop/zoom, optional rect). 12 new images, prompts = places/sky/light/lamps only, simple and concrete so a FREE flux-class model can draw them (scripts/cf_image.py, free first; the builder adds the style block). Every new prompt ends 'No people, no text, no writing'. Never any Prophet/Sahabi/angel/person, never a throne or a depiction of Allah, no domes/minarets/modern buildings.",
+ "images": [
+  {
+   "id": "01_night_stars_dunes",
+   "start": {
+    "line": 3
+   },
+   "prompt": "A wide night sky full of bright stars and a faint Milky Way over smooth empty sand dunes, deep blue and indigo colours, soft starlight on the sand, calm and reverent. Wide 16:9; keep the upper-middle area calm for on-screen text. No people, no text, no writing."
+  },
+  {
+   "id": "02_lamp_on_stone",
+   "start": {
+    "line": 4
+   },
+   "prompt": "A single small clay oil lamp with one calm warm flame on a rough stone ledge in a dark room, soft golden glow on the stone, everything else in gentle shadow. Wide 16:9; keep the upper-middle area calm for on-screen text. No people, no text, no writing."
+  },
+  {
+   "id": "03_madina_dawn_houses",
+   "start": {
+    "line": 5
+   },
+   "prompt": "Old flat-roofed mud-brick and stone houses among tall date palms in a dry Arabian valley at sunrise, warm light on the walls, an empty sandy lane, dark rocky hills behind, quiet morning. No domes, no minarets, no electric lights, no modern buildings. Wide 16:9. No people, no animals, no text, no writing."
+  },
+  {
+   "id": "04_date_palm_path",
+   "start": {
+    "line": 6
+   },
+   "prompt": "A sandy footpath between date palms in soft morning light leading away into the distance, long gentle shadows, a few low mud-brick walls, peaceful and empty. Wide 16:9. No people, no animals, no text, no writing."
+  },
+  {
+   "id": "01_night_stars_dunes_b",
+   "start": {
+    "ayah": 1
+   },
+   "reuse_id": "01_night_stars_dunes",
+   "rect": {
+    "fx": 0.5,
+    "fy": 0.35,
+    "zc": 1.3
+   },
+   "_note": "full ayah on a calm dark sky; reuse = free"
+  },
+  {
+   "id": "05_dawn_horizon",
+   "start": {
+    "ayah": 2
+   },
+   "prompt": "The first light of dawn over a vast, calm, empty desert, a thin line of gold on the horizon, the sky turning from deep blue to pale gold, still and silent. Wide 16:9; keep the upper-middle area calm for on-screen text. No people, no text, no writing."
+  },
+  {
+   "id": "06_oasis_spring",
+   "start": {
+    "ayah": 3
+   },
+   "prompt": "A small green oasis in the desert: clear spring water, tall date palms and green plants around it, warm afternoon light, sand dunes behind, a feeling of life and calm. Wide 16:9; keep the upper-middle area calm for on-screen text. No people, no animals, no text, no writing."
+  },
+  {
+   "id": "07_moonlit_rooftops_lamp",
+   "start": {
+    "ayah": 4
+   },
+   "prompt": "Flat-roofed mud-brick houses of an old Arabian town asleep under a bright moon and a starry sky, everything silent and dark except one single small lamp glowing warm in one window. No domes, no minarets. Wide 16:9; keep the upper-middle area calm for on-screen text. No people, no text, no writing."
+  },
+  {
+   "id": "08_vast_panorama",
+   "start": {
+    "ayah": 5
+   },
+   "prompt": "A huge panorama in one view: a calm sea, tall mountains, green valleys, and above them a sky full of stars with a bright Milky Way, majestic and peaceful. Wide 16:9; keep the upper-middle area calm for on-screen text. No people, no text, no writing."
+  },
+  {
+   "id": "09_lit_door",
+   "start": {
+    "ayah": 6
+   },
+   "prompt": "A closed old plain wooden door with simple geometric panels in a thick stone wall, bright warm golden light shining through the gaps around its edges and under it, dark surrounding wall, calm and mysterious. Wide 16:9; keep the upper-middle area calm for on-screen text. No people, no text, no letters, no writing."
+  },
+  {
+   "id": "04_date_palm_path_b",
+   "start": {
+    "ayah": 7
+   },
+   "reuse_id": "04_date_palm_path",
+   "rect": {
+    "fx": 0.5,
+    "fy": 0.55,
+    "zc": 1.2
+   },
+   "_note": "path ahead and behind; reuse = free"
+  },
+  {
+   "id": "02_lamp_on_stone_b",
+   "start": {
+    "ayah": 8
+   },
+   "reuse_id": "02_lamp_on_stone",
+   "rect": {
+    "fx": 0.5,
+    "fy": 0.6,
+    "zc": 1.5
+   },
+   "_note": "a small circle of light in the dark; reuse = free"
+  },
+  {
+   "id": "10_ring_in_desert",
+   "start": {
+    "ayah": 9
+   },
+   "prompt": "An enormous empty flat desert plain under a huge sky at dusk, and far away in the lower middle of the picture one tiny plain metal ring lying on the sand, very small against the vast landscape, a feeling of scale and grandeur. Wide 16:9; keep the upper-middle area calm for on-screen text. No people, no text, no writing."
+  },
+  {
+   "id": "10_ring_in_desert_b",
+   "start": {
+    "line": 45
+   },
+   "reuse_id": "10_ring_in_desert",
+   "rect": {
+    "fx": 0.5,
+    "fy": 0.68,
+    "zc": 1.7
+   },
+   "_note": "line 45 (the ring example): zoom on the small ring in the lower middle; Munshi/builder to adjust fx/fy after seeing the real image"
+  },
+  {
+   "id": "08_vast_panorama_b",
+   "start": {
+    "ayah": 10
+   },
+   "reuse_id": "08_vast_panorama",
+   "rect": {
+    "fx": 0.62,
+    "fy": 0.5,
+    "zc": 1.2
+   },
+   "_note": "sky and earth together; reuse = free"
+  },
+  {
+   "id": "11_sunrays_clouds",
+   "start": {
+    "ayah": 11
+   },
+   "prompt": "Golden sun rays breaking through huge towering clouds over distant mountains, a vast glowing sky, majestic, calm and awe-inspiring. Wide 16:9; keep the upper-middle area calm for on-screen text. No people, no text, no writing."
+  },
+  {
+   "id": "03_madina_dawn_houses_b",
+   "start": {
+    "line": 57
+   },
+   "reuse_id": "03_madina_dawn_houses",
+   "rect": {
+    "fx": 0.4,
+    "fy": 0.5,
+    "zc": 1.25
+   },
+   "_note": "hadith of Ubayy: a place only (Madina morning), no person; reuse = free"
+  },
+  {
+   "id": "12_bedtime_room_lamp",
+   "start": {
+    "line": 59
+   },
+   "prompt": "A simple empty bed with a pillow and a folded blanket on a mud floor next to a small window showing a starry night, a small oil lamp glowing softly on the floor, a calm bedtime mood. Wide 16:9. No people, no text, no writing."
+  },
+  {
+   "id": "05_dawn_horizon_b",
+   "start": {
+    "line": 61
+   },
+   "reuse_id": "05_dawn_horizon",
+   "rect": {
+    "fx": 0.5,
+    "fy": 0.5,
+    "zc": 1.1
+   },
+   "_note": "seekh: warm morning light; reuse = free"
+  },
+  {
+   "id": "01_night_stars_dunes_c",
+   "start": {
+    "line": 65
+   },
+   "reuse_id": "01_night_stars_dunes",
+   "rect": {
+    "fx": 0.5,
+    "fy": 0.3,
+    "zc": 1.1
+   },
+   "_note": "end card area calm; reuse = free"
+  }
+ ]
+}
