@@ -129,6 +129,7 @@ def images(story: Path):
     plan = json.loads((story / "long/images.json").read_text(encoding="utf-8"))["images"]
     out = story / "images"
     out.mkdir(exist_ok=True)
+    free_ok = "--paid" not in sys.argv  # FREE FIRST (user 2026-10-30): Cloudflare flux Rs0, paid Gemini only as the fallback
     for im in plan:
         f = out / f"{im['id']}.png"
         if f.exists() or "reuse_id" in im:
@@ -139,6 +140,15 @@ def images(story: Path):
             continue
         if find_names(im["prompt"] + " " + style):
             sys.exit(f"BLOCK (RULES 12a): a name in the prompt of {im['id']}")
+        if free_ok:
+            import cf_image
+            try:
+                cf_image.generate(f"{im['prompt']} {style}", f)
+                print(f"{im['id']}: free engine (Cloudflare flux), Rs0")
+                continue
+            except cf_image.FreeImageError as e:
+                free_ok = False  # do not try again for the rest of this run
+                print(f"free engine unavailable ({e}); paid Gemini fallback for the remaining images - write the reason in log.md")
         est = pricing.image_estimate_usd(gemini_image.MODEL, "1K", len(im["prompt"]) + len(style), 0) * pricing.usd_to_inr()
         story_budget.check(story.name, est)
         gemini_image.generate(im["prompt"], f, aspect_ratio="16:9", size="1K", style=style)

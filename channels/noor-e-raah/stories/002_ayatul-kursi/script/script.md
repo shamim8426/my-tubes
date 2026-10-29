@@ -1,5 +1,8 @@
 # 002 — आयतुल कुर्सी (सूरह अल-बक़रह 2:255) | नूर-ए-राह — script (SURAH MODE, do awaazein)
 
+
+> **Trim 2026-10-30 (after the real TTS: 6:25 -> ~5:30, user rule 4-6 min):** lines 6, 14, 28, 36, 46, 50, 55 removed (numbers NOT renumbered; their cached audio stays unused). Tags of removed lines (P3 name note, U1/U4/U6/U9 matlab, K-summary) stay in the dossier only.
+
 > **LENGTH DECISION (user 2026-10-30):** daily series of short surahs -> this video is **4-6 min** (script target 4:00-5:30,
 > estimate ~5:20 below); the bible's "Long ~8:00" and RULES 1b "~3 questions in 8 min" do not apply to this series.
 
@@ -50,7 +53,6 @@
 ## 1. SURAH KA PARICHAY
 [SCREEN: subah ki roshni me khajoor ke ped aur mitti ke ghar (saatvi sadi ka Madina), khaali; font se do chhote cards: "सूरह अल-बक़रह · आयत 255", "मदनी"]
 5. USTAAD: "ये क़ुरआन की दूसरी सूरह अल-बक़रह की आयत नंबर दो सौ पचपन है; बक़रह पूरी मदनी है, यानी मदीना में उतरी।" [P1][P2]
-6. USTAAD: "नाम 'कुर्सी' लफ़्ज़ से है, जो इसी आयत में आया है।" [P3]
 ## 2. SHAN-E-NUZUL
 [SCREEN: wahi khaali khajoor ka raasta, subah ka ujala; koi insaan nahi, koi gumbad/minar nahi]
 7. USTAAD: "इसके उतरने का कोई मज़बूत, ख़ास वाक़िया रिवायतों में नहीं मिलता।" [N1][N2]
@@ -68,7 +70,6 @@ ARABIC: ٱللَّهُ لَآ إِلَٰهَ إِلَّا هُوَ ٱلْحَ�
 ARABIC: ٱللَّهُ لَآ إِلَٰهَ إِلَّا هُوَ
 12. USTAAD — BHAAVARTH: "पहला जुमला: अल्लाह — उसके सिवा इबादत के लायक़ कोई नहीं।"
 13. [MUSIC continue: River Flute — matlab]
-14. USTAAD — MATLAB: "'अल्लाह' उसी ज़ात का नाम है, जो सारी मख़लूक़ का अकेला रब है — इसलिए बंदगी सिर्फ़ उसी की।" [U1]
 ### [AYAH 3]
 [SCREEN: registaan ke beech hara chashma aur khajoor — zindagi aur sahaara]
 15. [SWOOSH — ARABIC ON SCREEN]
@@ -91,7 +92,6 @@ ARABIC: لَا تَأْخُذُهُۥ سِنَةٌ وَلَا نَوْمٌ
 ARABIC: لَّهُۥ مَا فِى ٱلسَّمَٰوَٰتِ وَمَا فِى ٱلْأَرْضِ
 26. USTAAD — BHAAVARTH: "चौथा जुमला: आसमानों में जो कुछ है और ज़मीन में जो कुछ है — सब उसी का है।"
 27. [MUSIC continue: River Flute — matlab]
-28. USTAAD — MATLAB: "यानी हर चीज़ उसकी मिल्कियत है, और इख़्तियार भी उसी का।" [U4]
 ### [AYAH 6]
 [SCREEN: ek band naqqashidaar lakdi ka darwaza, kinaron se andar ki roshni chhanti hui; koi insaan nahi]
 29. [SWOOSH — ARABIC ON SCREEN]
@@ -105,7 +105,6 @@ ARABIC: مَن ذَا ٱلَّذِى يَشْفَعُ عِندَهُۥٓ إِل�
 ARABIC: يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ
 34. USTAAD — BHAAVARTH: "छठा जुमला: वो जानता है जो उनके आगे है, और जो उनके पीछे है।"
 35. [MUSIC continue: River Flute — matlab]
-36. USTAAD — MATLAB: "उलमा के मुताबिक़ इसके मानी हैं: बीता और आने वाला, या ज़ाहिर और छुपा — सब उसके इल्म में है।" [U6]
 ### [AYAH 8]
 [SCREEN: bade andhere hall me ek chhota diya, uski roshni ka ek chhota ghera; baaki andhera]
 37. [SWOOSH — ARABIC ON SCREEN]
@@ -121,14 +120,12 @@ ARABIC: وَسِعَ كُرْسِيُّهُ ٱلسَّمَٰوَٰتِ وَٱل�
 43. [MUSIC continue: River Flute — matlab]
 44. USTAAD — MATLAB: "'कुर्सी' की हक़ीक़त पर उलमा के कई क़ौल हैं: इब्ने अब्बास रज़ियल्लाहु अन्हु का एक क़ौल है अल्लाह का इल्म, और ज़्यादातर रिवायतों के मुताबिक़ वो अर्श के सामने एक अज़ीम मख़लूक़ है।" [K1][K2]
 45. USTAAD — MATLAB: "नबी सल्लल्लाहु अलैहि वसल्लम ने बताया कि सातों आसमान उसके मुक़ाबले में वीराने में पड़े एक छल्ले जैसे हैं।" [K3]
-46. USTAAD — MATLAB: "हर क़ौल का सार एक: अल्लाह की अज़मत के सामने आसमान-ज़मीन बहुत छोटे — और वो किसी जगह या तख़्त का मोहताज नहीं।" [K5]
 ### [AYAH 10]
 [SCREEN: ek ke baad ek khade pahaad aur shaant jheel, subah ki halki roshni]
 47. [SWOOSH — ARABIC ON SCREEN]
 ARABIC: وَلَا يَـُٔودُهُۥ حِفْظُهُمَا
 48. USTAAD — BHAAVARTH: "नौवाँ जुमला: और उन दोनों की निगहबानी उसे ज़रा भी भारी नहीं पड़ती।"
 49. [MUSIC continue: River Flute — matlab]
-50. USTAAD — MATLAB: "यानी आसमान और ज़मीन को सँभाले रखना उसके लिए न बोझ है, न मुश्किल।" [U9]
 ### [AYAH 11]
 [SCREEN: badalon ke beech se utarti sunehri kirnein, khula aasmaan]
 51. [SWOOSH — ARABIC ON SCREEN]
@@ -136,7 +133,6 @@ ARABIC: وَهُوَ ٱلْعَلِىُّ ٱلْعَظِيمُ
 52. USTAAD — BHAAVARTH: "दसवाँ जुमला: और वही सबसे बुलंद है, सबसे अज़ीम है।"
 53. [MUSIC continue: River Flute — matlab]
 54. USTAAD — MATLAB: "'अलिय्य' यानी मर्तबे में सबसे ऊँचा, जगह की ऊँचाई के मानी में नहीं। 'अज़ीम' यानी अज़मत और ताक़त में सबसे बड़ा।" [U10]
-55. SAWAAL: "दस जुमले हो गए — अब पढ़ते वक़्त हर लाइन का मतलब सामने रहेगा।"
 ## 4. HADITH ME AYATUL KURSI
 [SCREEN: saada mitti ka kamra, chatai aur ek diya, khaali; phir raat ki khidki se taare, takiya aur bistar, koi insaan nahi. Hadith ke alfaaz chhote caption me.]
 56. [MUSIC soft: River Flute — hadith + seekh]

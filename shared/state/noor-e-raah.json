@@ -1,11 +1,11 @@
 {
- "story": "001_al-fatiha",
- "stage": "status",
+ "story": "002_ayatul-kursi",
+ "stage": "tts",
  "status": "done",
- "started": "2026-10-25T22:54:33",
- "finished": "2026-10-25T22:54:55",
- "pid": 39164,
- "paid": false,
- "cost": "0",
+ "started": "2026-10-29T20:58:10",
+ "finished": "2026-10-29T21:08:19",
+ "pid": 2271,
+ "paid": true,
+ "cost": "18.72",
  "note": null
 }

@@ -37,7 +37,10 @@
   "section": "INTRO (`part: intro`, hook)",
   "ayah": null,
   "text": "उस्ताद जी, आयतुल कुर्सी तो रोज़ पढ़ते हैं — पर क्या हर लाइन का मतलब जानते हैं?",
-  "tags": []
+  "tags": [],
+  "audio": "audio/tts/003_sawaal.wav",
+  "seconds": 6.36,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -49,7 +52,10 @@
   "text": "आज इसकी दस लाइनें, दस बातें। और हदीस के मुताबिक़ ये क़ुरआन की सबसे अज़ीम आयत है।",
   "tags": [
    "FZ-A"
-  ]
+  ],
+  "audio": "audio/tts/004_ustaad.wav",
+  "seconds": 8.88,
+  "tts_ok": true
  },
  {
   "kind": "section",
@@ -72,19 +78,10 @@
   "tags": [
    "P1",
    "P2"
-  ]
- },
- {
-  "kind": "line",
-  "n": 6,
-  "speaker": "ustaad",
-  "role": "",
-  "section": "1. SURAH KA PARICHAY",
-  "ayah": null,
-  "text": "नाम 'कुर्सी' लफ़्ज़ से है, जो इसी आयत में आया है।",
-  "tags": [
-   "P3"
-  ]
+  ],
+  "audio": "audio/tts/005_ustaad.wav",
+  "seconds": 11.6,
+  "tts_ok": true
  },
  {
   "kind": "section",
@@ -107,7 +104,10 @@
   "tags": [
    "N1",
    "N2"
-  ]
+  ],
+  "audio": "audio/tts/007_ustaad.wav",
+  "seconds": 5.72,
+  "tts_ok": true
  },
  {
   "kind": "section",
@@ -152,7 +152,10 @@
   "text": "ये रही पूरी आयत। इसमें दस जुमले हैं — अब एक-एक करके।",
   "tags": [
    "P4"
-  ]
+  ],
+  "audio": "audio/tts/009_ustaad.wav",
+  "seconds": 6.16,
+  "tts_ok": true
  },
  {
   "kind": "cue",
@@ -193,7 +196,10 @@
   "section": "3. AAYAT-DAR-AAYAT",
   "ayah": 2,
   "text": "पहला जुमला: अल्लाह — उसके सिवा इबादत के लायक़ कोई नहीं।",
-  "tags": []
+  "tags": [],
+  "audio": "audio/tts/012_ustaad.wav",
+  "seconds": 5.76,
+  "tts_ok": true
  },
  {
   "kind": "cue",
@@ -202,18 +208,6 @@
   "value": "continue: River Flute — matlab",
   "section": "3. AAYAT-DAR-AAYAT",
   "ayah": 2
- },
- {
-  "kind": "line",
-  "n": 14,
-  "speaker": "ustaad",
-  "role": "matlab",
-  "section": "3. AAYAT-DAR-AAYAT",
-  "ayah": 2,
-  "text": "'अल्लाह' उसी ज़ात का नाम है, जो सारी मख़लूक़ का अकेला रब है — इसलिए बंदगी सिर्फ़ उसी की।",
-  "tags": [
-   "U1"
-  ]
  },
  {
   "kind": "ayah",
@@ -246,7 +240,10 @@
   "section": "3. AAYAT-DAR-AAYAT",
   "ayah": 3,
   "text": "दूसरा जुमला: वो हमेशा ज़िंदा है, और सबको थामे-सँभाले हुए है।",
-  "tags": []
+  "tags": [],
+  "audio": "audio/tts/016_ustaad.wav",
+  "seconds": 6.68,
+  "tts_ok": true
  },
  {
   "kind": "cue",
@@ -266,7 +263,10 @@
   "text": "'हय्य' यानी हमेशा ज़िंदा — जिसे कभी मौत नहीं आती।",
   "tags": [
    "U2"
-  ]
+  ],
+  "audio": "audio/tts/018_ustaad.wav",
+  "seconds": 5.84,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -278,7 +278,10 @@
   "text": "'क़य्यूम' यानी जो ख़ुद अपने दम पर क़ायम है और सबको क़ायम रखता है — सब उसके सहारे, वो किसी के सहारे नहीं।",
   "tags": [
    "U2"
-  ]
+  ],
+  "audio": "audio/tts/019_ustaad.wav",
+  "seconds": 10.12,
+  "tts_ok": true
  },
  {
   "kind": "ayah",
@@ -311,7 +314,10 @@
   "section": "3. AAYAT-DAR-AAYAT",
   "ayah": 4,
   "text": "तीसरा जुमला: न उसे ऊँघ आती है, न नींद।",
-  "tags": []
+  "tags": [],
+  "audio": "audio/tts/021_ustaad.wav",
+  "seconds": 5.4,
+  "tts_ok": true
  },
  {
   "kind": "cue",
@@ -331,7 +337,10 @@
   "text": "हम तो थोड़ी देर जागें तो आँखें भारी हो जाती हैं, और ऊँघ आने लगती है।",
   "tags": [
    "MISAAL"
-  ]
+  ],
+  "audio": "audio/tts/023_sawaal.wav",
+  "seconds": 4.76,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -343,7 +352,10 @@
   "text": "'सिनह' यानी ऊँघ, 'नौम' यानी गहरी नींद — दोनों नहीं। उसे कभी कोई कमी या बेख़बरी नहीं।",
   "tags": [
    "U3"
-  ]
+  ],
+  "audio": "audio/tts/024_ustaad.wav",
+  "seconds": 10.12,
+  "tts_ok": true
  },
  {
   "kind": "ayah",
@@ -376,7 +388,10 @@
   "section": "3. AAYAT-DAR-AAYAT",
   "ayah": 5,
   "text": "चौथा जुमला: आसमानों में जो कुछ है और ज़मीन में जो कुछ है — सब उसी का है।",
-  "tags": []
+  "tags": [],
+  "audio": "audio/tts/026_ustaad.wav",
+  "seconds": 8.08,
+  "tts_ok": true
  },
  {
   "kind": "cue",
@@ -385,18 +400,6 @@
   "value": "continue: River Flute — matlab",
   "section": "3. AAYAT-DAR-AAYAT",
   "ayah": 5
- },
- {
-  "kind": "line",
-  "n": 28,
-  "speaker": "ustaad",
-  "role": "matlab",
-  "section": "3. AAYAT-DAR-AAYAT",
-  "ayah": 5,
-  "text": "यानी हर चीज़ उसकी मिल्कियत है, और इख़्तियार भी उसी का।",
-  "tags": [
-   "U4"
-  ]
  },
  {
   "kind": "ayah",
@@ -429,7 +432,10 @@
   "section": "3. AAYAT-DAR-AAYAT",
   "ayah": 6,
   "text": "पाँचवाँ जुमला: कौन है जो उसकी इजाज़त के बिना, उसके सामने किसी की सिफ़ारिश कर सके?",
-  "tags": []
+  "tags": [],
+  "audio": "audio/tts/030_ustaad.wav",
+  "seconds": 8.28,
+  "tts_ok": true
  },
  {
   "kind": "cue",
@@ -449,7 +455,10 @@
   "text": "सिफ़ारिश यानी किसी के हक़ में बात करना — उसके सामने बिना इजाज़त कोई बोल तक नहीं सकता।",
   "tags": [
    "U5"
-  ]
+  ],
+  "audio": "audio/tts/032_ustaad.wav",
+  "seconds": 8.4,
+  "tts_ok": true
  },
  {
   "kind": "ayah",
@@ -482,7 +491,10 @@
   "section": "3. AAYAT-DAR-AAYAT",
   "ayah": 7,
   "text": "छठा जुमला: वो जानता है जो उनके आगे है, और जो उनके पीछे है।",
-  "tags": []
+  "tags": [],
+  "audio": "audio/tts/034_ustaad.wav",
+  "seconds": 7.56,
+  "tts_ok": true
  },
  {
   "kind": "cue",
@@ -491,18 +503,6 @@
   "value": "continue: River Flute — matlab",
   "section": "3. AAYAT-DAR-AAYAT",
   "ayah": 7
- },
- {
-  "kind": "line",
-  "n": 36,
-  "speaker": "ustaad",
-  "role": "matlab",
-  "section": "3. AAYAT-DAR-AAYAT",
-  "ayah": 7,
-  "text": "उलमा के मुताबिक़ इसके मानी हैं: बीता और आने वाला, या ज़ाहिर और छुपा — सब उसके इल्म में है।",
-  "tags": [
-   "U6"
-  ]
  },
  {
   "kind": "ayah",
@@ -535,7 +535,10 @@
   "section": "3. AAYAT-DAR-AAYAT",
   "ayah": 8,
   "text": "सातवाँ जुमला: उसके इल्म का कोई हिस्सा कोई घेर नहीं सकता — बस उतना, जितना वो ख़ुद चाहे।",
-  "tags": []
+  "tags": [],
+  "audio": "audio/tts/038_ustaad.wav",
+  "seconds": 9.88,
+  "tts_ok": true
  },
  {
   "kind": "cue",
@@ -555,7 +558,10 @@
   "text": "यानी हम उतना ही जानते हैं जितना उसने जानने दिया। पूरा इल्म सिर्फ़ उसी का है।",
   "tags": [
    "U7"
-  ]
+  ],
+  "audio": "audio/tts/040_ustaad.wav",
+  "seconds": 7.8,
+  "tts_ok": true
  },
  {
   "kind": "ayah",
@@ -588,7 +594,10 @@
   "section": "3. AAYAT-DAR-AAYAT",
   "ayah": 9,
   "text": "आठवाँ जुमला: उसकी कुर्सी आसमानों और ज़मीन को समेटे हुए है।",
-  "tags": []
+  "tags": [],
+  "audio": "audio/tts/042_ustaad.wav",
+  "seconds": 6.28,
+  "tts_ok": true
  },
  {
   "kind": "cue",
@@ -609,7 +618,10 @@
   "tags": [
    "K1",
    "K2"
-  ]
+  ],
+  "audio": "audio/tts/044_ustaad.wav",
+  "seconds": 14.92,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -621,19 +633,10 @@
   "text": "नबी सल्लल्लाहु अलैहि वसल्लम ने बताया कि सातों आसमान उसके मुक़ाबले में वीराने में पड़े एक छल्ले जैसे हैं।",
   "tags": [
    "K3"
-  ]
- },
- {
-  "kind": "line",
-  "n": 46,
-  "speaker": "ustaad",
-  "role": "matlab",
-  "section": "3. AAYAT-DAR-AAYAT",
-  "ayah": 9,
-  "text": "हर क़ौल का सार एक: अल्लाह की अज़मत के सामने आसमान-ज़मीन बहुत छोटे — और वो किसी जगह या तख़्त का मोहताज नहीं।",
-  "tags": [
-   "K5"
-  ]
+  ],
+  "audio": "audio/tts/045_ustaad.wav",
+  "seconds": 10.88,
+  "tts_ok": true
  },
  {
   "kind": "ayah",
@@ -666,7 +669,10 @@
   "section": "3. AAYAT-DAR-AAYAT",
   "ayah": 10,
   "text": "नौवाँ जुमला: और उन दोनों की निगहबानी उसे ज़रा भी भारी नहीं पड़ती।",
-  "tags": []
+  "tags": [],
+  "audio": "audio/tts/048_ustaad.wav",
+  "seconds": 7.4,
+  "tts_ok": true
  },
  {
   "kind": "cue",
@@ -675,18 +681,6 @@
   "value": "continue: River Flute — matlab",
   "section": "3. AAYAT-DAR-AAYAT",
   "ayah": 10
- },
- {
-  "kind": "line",
-  "n": 50,
-  "speaker": "ustaad",
-  "role": "matlab",
-  "section": "3. AAYAT-DAR-AAYAT",
-  "ayah": 10,
-  "text": "यानी आसमान और ज़मीन को सँभाले रखना उसके लिए न बोझ है, न मुश्किल।",
-  "tags": [
-   "U9"
-  ]
  },
  {
   "kind": "ayah",
@@ -719,7 +713,10 @@
   "section": "3. AAYAT-DAR-AAYAT",
   "ayah": 11,
   "text": "दसवाँ जुमला: और वही सबसे बुलंद है, सबसे अज़ीम है।",
-  "tags": []
+  "tags": [],
+  "audio": "audio/tts/052_ustaad.wav",
+  "seconds": 6.92,
+  "tts_ok": true
  },
  {
   "kind": "cue",
@@ -739,17 +736,10 @@
   "text": "'अलिय्य' यानी मर्तबे में सबसे ऊँचा, जगह की ऊँचाई के मानी में नहीं। 'अज़ीम' यानी अज़मत और ताक़त में सबसे बड़ा।",
   "tags": [
    "U10"
-  ]
- },
- {
-  "kind": "line",
-  "n": 55,
-  "speaker": "sawaal",
-  "role": "",
-  "section": "3. AAYAT-DAR-AAYAT",
-  "ayah": 11,
-  "text": "दस जुमले हो गए — अब पढ़ते वक़्त हर लाइन का मतलब सामने रहेगा।",
-  "tags": []
+  ],
+  "audio": "audio/tts/054_ustaad.wav",
+  "seconds": 10.6,
+  "tts_ok": true
  },
  {
   "kind": "section",
@@ -779,7 +769,10 @@
   "text": "मुस्लिम की हदीस में है कि नबी सल्लल्लाहु अलैहि वसल्लम ने उबैय बिन काब रज़ियल्लाहु अन्हु से पूछा:",
   "tags": [
    "FZ-A"
-  ]
+  ],
+  "audio": "audio/tts/057_ustaad.wav",
+  "seconds": 8.04,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -791,7 +784,10 @@
   "text": "'ऐ अबुल-मुन्ज़िर, अल्लाह की किताब की कौन-सी आयत तुम्हारे पास सबसे अज़ीम है?' उन्होंने आयतुल कुर्सी पढ़ी, तो नबी सल्लल्लाहु अलैहि वसल्लम ने उनका सीना थपथपाकर कहा: 'तुम्हें इल्म मुबारक हो!'",
   "tags": [
    "FZ-A"
-  ]
+  ],
+  "audio": "audio/tts/058_ustaad.wav",
+  "seconds": 16.44,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -803,7 +799,10 @@
   "text": "बुख़ारी की हदीस में अबू हुरैरा रज़ियल्लाहु अन्हु की रिवायत है कि उन्हें बताया गया: सोने के लिए बिस्तर पर जाओ, तो आयतुल कुर्सी पढ़ लो — अल्लाह की तरफ़ से एक निगहबान तुम्हारे साथ रहेगा, और सुबह तक शैतान तुम्हारे क़रीब नहीं आएगा। और नबी सल्लल्लाहु अलैहि वसल्लम ने फ़रमाया कि उसने सच कहा।",
   "tags": [
    "FZ-B"
-  ]
+  ],
+  "audio": "audio/tts/059_ustaad.wav",
+  "seconds": 25.04,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -815,7 +814,10 @@
   "text": "ये अल्लाह पर भरोसे और उससे दुआ की बात है; नतीजा उसी के हाथ में है।",
   "tags": [
    "FZ-B"
-  ]
+  ],
+  "audio": "audio/tts/060_ustaad.wav",
+  "seconds": 7.04,
+  "tts_ok": true
  },
  {
   "kind": "section",
@@ -835,7 +837,10 @@
   "section": "5. SEEKH",
   "ayah": null,
   "text": "उस्ताद जी, इस आयत से हमें क्या सीख मिलती है?",
-  "tags": []
+  "tags": [],
+  "audio": "audio/tts/061_sawaal.wav",
+  "seconds": 4.0,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -848,7 +853,10 @@
   "tags": [
    "U2",
    "U3"
-  ]
+  ],
+  "audio": "audio/tts/062_ustaad.wav",
+  "seconds": 10.32,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -862,7 +870,10 @@
    "U4",
    "U5",
    "U7"
-  ]
+  ],
+  "audio": "audio/tts/063_ustaad.wav",
+  "seconds": 10.0,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -874,7 +885,10 @@
   "text": "तीसरी: इसे मतलब समझ कर पढ़ें — हर बार ये दस बातें याद आएँगी।",
   "tags": [
    "P4"
-  ]
+  ],
+  "audio": "audio/tts/064_ustaad.wav",
+  "seconds": 6.16,
+  "tts_ok": true
  },
  {
   "kind": "screen",
@@ -892,7 +906,10 @@
   "text": "अगली बार, नूर-ए-राह में: सूरह अल-इख़लास — सिर्फ़ चार आयतें।",
   "tags": [
    "NEXT"
-  ]
+  ],
+  "audio": "audio/tts/065_ustaad.wav",
+  "seconds": 6.28,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -902,7 +919,10 @@
   "section": "5. SEEKH",
   "ayah": null,
   "text": "और आप कमेंट में बताइए — इन दस बातों में से कौन-सी आपके दिल को सबसे ज़्यादा छू गई, और क्यों।",
-  "tags": []
+  "tags": [],
+  "audio": "audio/tts/066_sawaal.wav",
+  "seconds": 7.16,
+  "tts_ok": true
  },
  {
   "kind": "cue",
