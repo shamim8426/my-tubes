@@ -43,16 +43,19 @@ git -c core.quotepath=false diff --cached --name-only --diff-filter=AM | while I
   fi
 done
 
-if git diff --cached --quiet; then log "no changes"; exit 0; fi
+# "no changes" only on screen: a log line here would itself be a change left behind
+if git diff --cached --quiet; then echo "no changes"; exit 0; fi
 
 [ -n "$MSG" ] || MSG="auto sync $(TZ=Asia/Kolkata date '+%Y-%m-%d %H:%M') (cloud)"
+branch="$(git branch --show-current)"
+# the sync line goes into this same commit, so the tree is clean after the push
+log "pushed: $MSG (branch $branch)"
+git add shared/sync.log
 git commit -q -m "$MSG" || { log "ERROR: commit failed"; exit 1; }
 
-branch="$(git branch --show-current)"
 if ! git pull -q --rebase --autostash origin "$branch"; then
   git rebase --abort 2>/dev/null
   log "ERROR: pull/rebase conflict. Commit is saved locally; ask Claude Code to resolve."
   exit 1
 fi
 git push -q -u origin "$branch" || { log "ERROR: push failed. Commit is saved locally."; exit 1; }
-log "pushed: $MSG (branch $branch)"
