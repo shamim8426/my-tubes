@@ -1,6 +1,6 @@
 # YouTube API Services — Audit form, project "noor-e-raah" (draft answers)
 
-Draft for the owner to copy into the form by hand. This is a separate audit from Kissago's
+Draft for the owner to copy into the form by hand. This is a separate audit from Jugnu Stories's
 (`docs/YOUTUBE_API_AUDIT_DRAFT.md`): another Google account, another Cloud project, another OAuth client.
 No secrets here (no client secret, no token). Match each answer to the closest field in the live form and fill the
 `<<...>>` placeholders yourself.

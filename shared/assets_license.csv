@@ -52,91 +52,91 @@ shared/sfx/magic_376745.mp3,https://freesound.org/people/ZenithInfinitiveStudios
 shared/fonts/Mukta-Bold.ttf,https://fonts.google.com/specimen/Mukta,"Girish Dalvi, Ek Type",SIL OFL 1.1 (shared/fonts/OFL.txt),,2026-10-17
 shared/fonts/Mukta-ExtraBold.ttf,https://fonts.google.com/specimen/Mukta,"Girish Dalvi, Ek Type",SIL OFL 1.1 (shared/fonts/OFL.txt),,2026-10-17
 shared/music/mystery_bed.wav,own: synthesised by scripts/gen_music.py,Dadi Ki Kahaniyan,own,,2026-10-17
-channels/dadi-ki-kahaniyan/characters/,own: Gemini-generated character sheets (cost_log.csv),Dadi Ki Kahaniyan,own (Gemini-generated),,2026-10-17
-channels/dadi-ki-kahaniyan/stories/002_sharma-ji-ki-cycle/images/,own: Gemini-generated scene images (cost_log.csv),Dadi Ki Kahaniyan,own (Gemini-generated),,2026-10-17
-channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/characters/,own: Gemini-generated character/prop sheets (cost_log.csv),Dadi Ki Kahaniyan,own (Gemini-generated),,2026-10-17
-channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/images/,own: Gemini-generated scene images (cost_log.csv),Dadi Ki Kahaniyan,own (Gemini-generated),,2026-10-17
-channels/dadi-ki-kahaniyan/brand/,own: Gemini-generated banner/DP/thumbnail art + our own libass text in Mukta,Dadi Ki Kahaniyan,own (Gemini-generated),,2026-10-17
-channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long/output/long_01_thumbnail.png,"own: Gemini thumbnail art + our libass text in Mukta + brand/logo_horizontal.png (Gemini icon + Rozha One/Mukta, SIL OFL)",Kissago (channel owner),own (Gemini-generated),,2026-10-18
+channels/jugnu-stories/characters/,own: Gemini-generated character sheets (cost_log.csv),Dadi Ki Kahaniyan,own (Gemini-generated),,2026-10-17
+channels/jugnu-stories/stories/002_sharma-ji-ki-cycle/images/,own: Gemini-generated scene images (cost_log.csv),Dadi Ki Kahaniyan,own (Gemini-generated),,2026-10-17
+channels/jugnu-stories/stories/001_lalchi-halwai/characters/,own: Gemini-generated character/prop sheets (cost_log.csv),Dadi Ki Kahaniyan,own (Gemini-generated),,2026-10-17
+channels/jugnu-stories/stories/001_lalchi-halwai/images/,own: Gemini-generated scene images (cost_log.csv),Dadi Ki Kahaniyan,own (Gemini-generated),,2026-10-17
+channels/jugnu-stories/brand/,own: Gemini-generated banner/DP/thumbnail art + our own libass text in Mukta,Dadi Ki Kahaniyan,own (Gemini-generated),,2026-10-17
+channels/jugnu-stories/stories/001_lalchi-halwai/long/output/long_01_thumbnail.png,"own: Gemini thumbnail art + our libass text in Mukta + brand/logo_horizontal.png (Gemini icon + Rozha One/Mukta, SIL OFL)",Kissago (channel owner),own (Gemini-generated),,2026-10-18
 channels/*/stories/*/audio/tts_cache/,own: Gemini TTS voices (cost_log.csv),Dadi Ki Kahaniyan,own (Gemini-generated),,2026-10-17
-channels/dadi-ki-kahaniyan/brand/kissago_banner.png,"own: Gemini banner art (brand/_work/banner_art.png) + our own libass text in Mukta (shared/fonts, SIL OFL)",Kissago (channel owner),own (Gemini-generated),,2026-10-18
-channels/dadi-ki-kahaniyan/stories/002_sharma-ji-ki-cycle/shorts/short_01_case-01/output/case01_thumbnail.png,"own: Gemini thumbnail art + our libass text in Mukta + brand/logo_horizontal.png (Gemini icon + Rozha One/Mukta, SIL OFL)",Kissago (channel owner),own (Gemini-generated),,2026-10-18
-channels/dadi-ki-kahaniyan/stories/002_sharma-ji-ki-cycle/shorts/short_01_case-01/output/case01_thumbnail_vertical.png,"own: Gemini thumbnail art + our libass text in Mukta + brand/logo_horizontal.png (Gemini icon + Rozha One/Mukta, SIL OFL)",Kissago (channel owner),own (Gemini-generated),,2026-10-18
+channels/jugnu-stories/brand/kissago_banner.png,"own: Gemini banner art (brand/_work/banner_art.png) + our own libass text in Mukta (shared/fonts, SIL OFL)",Kissago (channel owner),own (Gemini-generated),,2026-10-18
+channels/jugnu-stories/stories/002_sharma-ji-ki-cycle/shorts/short_01_case-01/output/case01_thumbnail.png,"own: Gemini thumbnail art + our libass text in Mukta + brand/logo_horizontal.png (Gemini icon + Rozha One/Mukta, SIL OFL)",Kissago (channel owner),own (Gemini-generated),,2026-10-18
+channels/jugnu-stories/stories/002_sharma-ji-ki-cycle/shorts/short_01_case-01/output/case01_thumbnail_vertical.png,"own: Gemini thumbnail art + our libass text in Mukta + brand/logo_horizontal.png (Gemini icon + Rozha One/Mukta, SIL OFL)",Kissago (channel owner),own (Gemini-generated),,2026-10-18
 shared/fonts/RozhaOne-Regular.ttf,https://github.com/google/fonts/tree/main/ofl/rozhaone (Google Fonts),Indian Type Foundry,SIL OFL 1.1 (shared/fonts/OFL_RozhaOne.txt),,2026-10-18
-channels/dadi-ki-kahaniyan/brand/icon.png,"own: Gemini icon (brand/_work/icon_v2.png, option 2), background removed by script",Kissago (channel owner),own (Gemini-generated),,2026-10-18
-channels/dadi-ki-kahaniyan/brand/wordmark.png,"own: libass render, Rozha One + Mukta (shared/fonts, SIL OFL)",Kissago (channel owner),own,,2026-10-18
-channels/dadi-ki-kahaniyan/brand/logo_horizontal.png,own: icon.png + wordmark.png,Kissago (channel owner),own,,2026-10-18
-channels/dadi-ki-kahaniyan/brand/logo_stacked.png,own: icon.png + wordmark.png,Kissago (channel owner),own,,2026-10-18
-channels/dadi-ki-kahaniyan/brand/kissago_dp.png,own: icon.png on indigo,Kissago (channel owner),own,,2026-10-18
-channels/dadi-ki-kahaniyan/brand/watermark.png,own: icon.png 150x150,Kissago (channel owner),own,,2026-10-18
-channels/dadi-ki-kahaniyan/brand/kissago_banner_v2.png,own: Gemini background (brand/_work/banner_v2_raw.png) + logo + Mukta tagline,Kissago (channel owner),own (Gemini-generated),,2026-10-18
-channels/dadi-ki-kahaniyan/brand/kissago_dp_v3.png,own: icon.png on indigo + marigold ring and glow (script),Kissago (channel owner),own,,2026-10-18
-channels/dadi-ki-kahaniyan/brand/kissago_banner_v3.png,own: Gemini night background (brand/_work/banner_v3_raw.png) + logo_horizontal + Mukta tagline,Kissago (channel owner),own (Gemini-generated),,2026-10-18
-channels/dadi-ki-kahaniyan/brand/kissago_banner_v4.png,own: Gemini night background (brand/_work/banner_v4_raw.png; v2/v3 as style refs) + logo_horizontal + Mukta tagline,Kissago (channel owner),own (Gemini-generated),,2026-10-18
-channels/dadi-ki-kahaniyan/brand/kissago_banner_v5.png,own: Gemini night background (brand/_work/banner_v5_raw.png; v2/v4 as style refs) + logo_horizontal + Mukta tagline,Kissago (channel owner),own (Gemini-generated),,2026-10-18
-channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/output/short_01_cover.png,"own: Long 01 thumbnail art (long/thumbnail_work/long01_thumb_raw.png, Gemini) + libass Mukta text + brand/logo_horizontal.png",Kissago (channel owner),own (Gemini-generated),,2026-10-18
-channels/dadi-ki-kahaniyan/brand/kissago_dp_ki.png,"own: ""कि"" rendered by libass in Rozha One (shared/fonts, SIL OFL) on indigo + marigold ring (scripts/gen_brand.dp_concepts C)",Kissago (channel owner),own,,2026-10-18
-channels/dadi-ki-kahaniyan/characters/sharma_sheet.png,own: Gemini-generated character sheet (cost_log.csv),Kissago (channel owner),own (Gemini-generated),,2026-10-19
-channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/characters/raghu_sheet.png,own: Gemini-generated character sheet (cost_log.csv),Kissago (channel owner),own (Gemini-generated),,2026-10-19
-channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/characters/gupta_sheet.png,own: Gemini-generated character sheet (cost_log.csv),Kissago (channel owner),own (Gemini-generated),,2026-10-19
-channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/characters/sona_sheet.png,own: Gemini-generated character sheet (cost_log.csv),Kissago (channel owner),own (Gemini-generated),,2026-10-19
-channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/images/,own: Gemini-generated scene images (cost_log.csv),Kissago (channel owner),own (Gemini-generated),,2026-10-19
-channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/long/output/long_02_thumbnail.png,"own: Gemini thumbnail art + our libass text in Mukta + brand/logo_horizontal.png (Gemini icon + Rozha One/Mukta, SIL OFL)",Kissago (channel owner),own (Gemini-generated),,2026-10-19
-channels/dadi-ki-kahaniyan/stories/003_mitthu-ne-sab-bata-diya/shorts/short_01_sona-chori/output/short_01_cover.png,"own: Long 02 thumbnail art (long/thumbnail_work/long02_thumb_raw.png, Gemini) + libass Mukta ExtraBold text + brand/logo_horizontal.png",Kissago (channel owner),own (Gemini-generated),,2026-10-19
+channels/jugnu-stories/brand/icon.png,"own: Gemini icon (brand/_work/icon_v2.png, option 2), background removed by script",Kissago (channel owner),own (Gemini-generated),,2026-10-18
+channels/jugnu-stories/brand/wordmark.png,"own: libass render, Rozha One + Mukta (shared/fonts, SIL OFL)",Kissago (channel owner),own,,2026-10-18
+channels/jugnu-stories/brand/logo_horizontal.png,own: icon.png + wordmark.png,Kissago (channel owner),own,,2026-10-18
+channels/jugnu-stories/brand/logo_stacked.png,own: icon.png + wordmark.png,Kissago (channel owner),own,,2026-10-18
+channels/jugnu-stories/brand/kissago_dp.png,own: icon.png on indigo,Kissago (channel owner),own,,2026-10-18
+channels/jugnu-stories/brand/watermark.png,own: icon.png 150x150,Kissago (channel owner),own,,2026-10-18
+channels/jugnu-stories/brand/kissago_banner_v2.png,own: Gemini background (brand/_work/banner_v2_raw.png) + logo + Mukta tagline,Kissago (channel owner),own (Gemini-generated),,2026-10-18
+channels/jugnu-stories/brand/kissago_dp_v3.png,own: icon.png on indigo + marigold ring and glow (script),Kissago (channel owner),own,,2026-10-18
+channels/jugnu-stories/brand/kissago_banner_v3.png,own: Gemini night background (brand/_work/banner_v3_raw.png) + logo_horizontal + Mukta tagline,Kissago (channel owner),own (Gemini-generated),,2026-10-18
+channels/jugnu-stories/brand/kissago_banner_v4.png,own: Gemini night background (brand/_work/banner_v4_raw.png; v2/v3 as style refs) + logo_horizontal + Mukta tagline,Kissago (channel owner),own (Gemini-generated),,2026-10-18
+channels/jugnu-stories/brand/kissago_banner_v5.png,own: Gemini night background (brand/_work/banner_v5_raw.png; v2/v4 as style refs) + logo_horizontal + Mukta tagline,Kissago (channel owner),own (Gemini-generated),,2026-10-18
+channels/jugnu-stories/stories/001_lalchi-halwai/shorts/short_01_jadui-kadhai/output/short_01_cover.png,"own: Long 01 thumbnail art (long/thumbnail_work/long01_thumb_raw.png, Gemini) + libass Mukta text + brand/logo_horizontal.png",Kissago (channel owner),own (Gemini-generated),,2026-10-18
+channels/jugnu-stories/brand/kissago_dp_ki.png,"own: ""कि"" rendered by libass in Rozha One (shared/fonts, SIL OFL) on indigo + marigold ring (scripts/gen_brand.dp_concepts C)",Kissago (channel owner),own,,2026-10-18
+channels/jugnu-stories/characters/sharma_sheet.png,own: Gemini-generated character sheet (cost_log.csv),Kissago (channel owner),own (Gemini-generated),,2026-10-19
+channels/jugnu-stories/stories/003_mitthu-ne-sab-bata-diya/characters/raghu_sheet.png,own: Gemini-generated character sheet (cost_log.csv),Kissago (channel owner),own (Gemini-generated),,2026-10-19
+channels/jugnu-stories/stories/003_mitthu-ne-sab-bata-diya/characters/gupta_sheet.png,own: Gemini-generated character sheet (cost_log.csv),Kissago (channel owner),own (Gemini-generated),,2026-10-19
+channels/jugnu-stories/stories/003_mitthu-ne-sab-bata-diya/characters/sona_sheet.png,own: Gemini-generated character sheet (cost_log.csv),Kissago (channel owner),own (Gemini-generated),,2026-10-19
+channels/jugnu-stories/stories/003_mitthu-ne-sab-bata-diya/images/,own: Gemini-generated scene images (cost_log.csv),Kissago (channel owner),own (Gemini-generated),,2026-10-19
+channels/jugnu-stories/stories/003_mitthu-ne-sab-bata-diya/long/output/long_02_thumbnail.png,"own: Gemini thumbnail art + our libass text in Mukta + brand/logo_horizontal.png (Gemini icon + Rozha One/Mukta, SIL OFL)",Kissago (channel owner),own (Gemini-generated),,2026-10-19
+channels/jugnu-stories/stories/003_mitthu-ne-sab-bata-diya/shorts/short_01_sona-chori/output/short_01_cover.png,"own: Long 02 thumbnail art (long/thumbnail_work/long02_thumb_raw.png, Gemini) + libass Mukta ExtraBold text + brand/logo_horizontal.png",Kissago (channel owner),own (Gemini-generated),,2026-10-19
 shared/sfx/night_822935.mp3,https://freesound.org/people/_sinny_/sounds/822935/,_sinny_,CC0 (verified via Freesound API),,2026-10-19
 shared/sfx/steps_682886.mp3,https://freesound.org/people/drewsimko/sounds/682886/,drewsimko,CC0 (verified via Freesound API),,2026-10-19
 models/depth-anything-v2-small (Depth Anything V2 Small),https://huggingface.co/depth-anything/Depth-Anything-V2-Small-hf,Depth Anything team (TikTok/HKU),Apache-2.0 (model card license: apache-2.0; commercial use OK). Base/Large/Giant are CC BY-NC 4.0 - NOT used,,2026-10-20
-channels/dadi-ki-kahaniyan/stories/004_chhat-par-bhoot/images/scene_02.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-20
-channels/dadi-ki-kahaniyan/stories/004_chhat-par-bhoot/images/scene_04.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-20
-channels/dadi-ki-kahaniyan/stories/004_chhat-par-bhoot/images/scene_05.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-20
-channels/dadi-ki-kahaniyan/stories/004_chhat-par-bhoot/images/scene_06.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-20
-channels/dadi-ki-kahaniyan/stories/004_chhat-par-bhoot/images/scene_07.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-20
-channels/dadi-ki-kahaniyan/stories/004_chhat-par-bhoot/images/scene_08.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-20
-channels/dadi-ki-kahaniyan/stories/004_chhat-par-bhoot/images/scene_10.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-20
-channels/dadi-ki-kahaniyan/stories/004_chhat-par-bhoot/images/scene_11.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-20
-channels/dadi-ki-kahaniyan/stories/004_chhat-par-bhoot/images/scene_12.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-20
-channels/dadi-ki-kahaniyan/stories/004_chhat-par-bhoot/images/scene_13.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-20
-channels/dadi-ki-kahaniyan/stories/004_chhat-par-bhoot/images/scene_14.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-20
-channels/dadi-ki-kahaniyan/stories/004_chhat-par-bhoot/images/scene_15.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-20
-channels/dadi-ki-kahaniyan/stories/004_chhat-par-bhoot/images/scene_16.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-20
-channels/dadi-ki-kahaniyan/stories/004_chhat-par-bhoot/characters/mishra_sheet.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-20
-channels/dadi-ki-kahaniyan/stories/004_chhat-par-bhoot/long/output/long_03_thumbnail.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-20
-channels/dadi-ki-kahaniyan/stories/004_chhat-par-bhoot/shorts/short_01_bhoot-phir-aaya/output/short_01_bhoot-phir-aaya_cover.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-20
+channels/jugnu-stories/stories/004_chhat-par-bhoot/images/scene_02.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-20
+channels/jugnu-stories/stories/004_chhat-par-bhoot/images/scene_04.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-20
+channels/jugnu-stories/stories/004_chhat-par-bhoot/images/scene_05.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-20
+channels/jugnu-stories/stories/004_chhat-par-bhoot/images/scene_06.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-20
+channels/jugnu-stories/stories/004_chhat-par-bhoot/images/scene_07.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-20
+channels/jugnu-stories/stories/004_chhat-par-bhoot/images/scene_08.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-20
+channels/jugnu-stories/stories/004_chhat-par-bhoot/images/scene_10.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-20
+channels/jugnu-stories/stories/004_chhat-par-bhoot/images/scene_11.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-20
+channels/jugnu-stories/stories/004_chhat-par-bhoot/images/scene_12.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-20
+channels/jugnu-stories/stories/004_chhat-par-bhoot/images/scene_13.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-20
+channels/jugnu-stories/stories/004_chhat-par-bhoot/images/scene_14.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-20
+channels/jugnu-stories/stories/004_chhat-par-bhoot/images/scene_15.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-20
+channels/jugnu-stories/stories/004_chhat-par-bhoot/images/scene_16.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-20
+channels/jugnu-stories/stories/004_chhat-par-bhoot/characters/mishra_sheet.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-20
+channels/jugnu-stories/stories/004_chhat-par-bhoot/long/output/long_03_thumbnail.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-20
+channels/jugnu-stories/stories/004_chhat-par-bhoot/shorts/short_01_bhoot-phir-aaya/output/short_01_bhoot-phir-aaya_cover.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-20
 shared/sfx/creak_377552.mp3,https://freesound.org/people/Mafon2/sounds/377552/,Mafon2,CC0 (verified via Freesound API),,2026-10-20
 shared/sfx/pump_832465.mp3,https://freesound.org/people/qubodup/sounds/832465/,qubodup,CC0 (verified via Freesound API),,2026-10-20
-channels/dadi-ki-kahaniyan/stories/005_gulmohar-ka-khazana/images/scene_02.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-21
-channels/dadi-ki-kahaniyan/stories/005_gulmohar-ka-khazana/images/scene_03.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-21
-channels/dadi-ki-kahaniyan/stories/005_gulmohar-ka-khazana/images/scene_04.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-21
-channels/dadi-ki-kahaniyan/stories/005_gulmohar-ka-khazana/images/scene_05.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-21
-channels/dadi-ki-kahaniyan/stories/005_gulmohar-ka-khazana/images/scene_06.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-21
-channels/dadi-ki-kahaniyan/stories/005_gulmohar-ka-khazana/images/scene_07.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-21
-channels/dadi-ki-kahaniyan/stories/005_gulmohar-ka-khazana/images/scene_09.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-21
-channels/dadi-ki-kahaniyan/stories/005_gulmohar-ka-khazana/images/scene_10.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-21
-channels/dadi-ki-kahaniyan/stories/005_gulmohar-ka-khazana/images/scene_11.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-21
-channels/dadi-ki-kahaniyan/stories/005_gulmohar-ka-khazana/images/scene_12.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-21
-channels/dadi-ki-kahaniyan/stories/005_gulmohar-ka-khazana/images/scene_13.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-21
-channels/dadi-ki-kahaniyan/stories/005_gulmohar-ka-khazana/images/scene_14.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-21
-channels/dadi-ki-kahaniyan/stories/005_gulmohar-ka-khazana/images/scene_15.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-21
-channels/dadi-ki-kahaniyan/stories/005_gulmohar-ka-khazana/images/scene_16.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-21
-channels/dadi-ki-kahaniyan/characters/pandey/sheet_painted.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-21
-channels/dadi-ki-kahaniyan/stories/005_gulmohar-ka-khazana/long/output/long_04_thumbnail.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-21
-channels/dadi-ki-kahaniyan/stories/005_gulmohar-ka-khazana/shorts/short_01_khazana-ka-dabba/output/short_01_khazana-ka-dabba_cover.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-21
-channels/dadi-ki-kahaniyan/stories/007_bachchon-ki-adalat/images/scene_01.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-22
-channels/dadi-ki-kahaniyan/stories/007_bachchon-ki-adalat/images/scene_02.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-22
-channels/dadi-ki-kahaniyan/stories/007_bachchon-ki-adalat/images/scene_03.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-22
-channels/dadi-ki-kahaniyan/stories/007_bachchon-ki-adalat/images/scene_04.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-22
-channels/dadi-ki-kahaniyan/stories/007_bachchon-ki-adalat/images/scene_05.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-22
-channels/dadi-ki-kahaniyan/stories/007_bachchon-ki-adalat/images/scene_06.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-22
-channels/dadi-ki-kahaniyan/stories/007_bachchon-ki-adalat/images/scene_07.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-22
-channels/dadi-ki-kahaniyan/stories/007_bachchon-ki-adalat/images/scene_08.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-22
-channels/dadi-ki-kahaniyan/stories/007_bachchon-ki-adalat/images/scene_09.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-22
-channels/dadi-ki-kahaniyan/stories/007_bachchon-ki-adalat/images/scene_10.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-22
-channels/dadi-ki-kahaniyan/stories/007_bachchon-ki-adalat/images/scene_11.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-22
-channels/dadi-ki-kahaniyan/stories/007_bachchon-ki-adalat/images/scene_12.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-22
-channels/dadi-ki-kahaniyan/stories/007_bachchon-ki-adalat/images/scene_13.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-22
-channels/dadi-ki-kahaniyan/stories/007_bachchon-ki-adalat/long/output/long_06_thumbnail.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-22
-channels/dadi-ki-kahaniyan/stories/007_bachchon-ki-adalat/shorts/short_01_pande-ji-katghare-me/output/short_01_pande-ji-katghare-me_cover.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-22
-channels/dadi-ki-kahaniyan/stories/007_bachchon-ki-adalat/shorts/short_01_pande-ji-katghare-me/output/short_01_pande-ji-katghare-me_cover.jpg,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-22
+channels/jugnu-stories/stories/005_gulmohar-ka-khazana/images/scene_02.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-21
+channels/jugnu-stories/stories/005_gulmohar-ka-khazana/images/scene_03.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-21
+channels/jugnu-stories/stories/005_gulmohar-ka-khazana/images/scene_04.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-21
+channels/jugnu-stories/stories/005_gulmohar-ka-khazana/images/scene_05.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-21
+channels/jugnu-stories/stories/005_gulmohar-ka-khazana/images/scene_06.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-21
+channels/jugnu-stories/stories/005_gulmohar-ka-khazana/images/scene_07.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-21
+channels/jugnu-stories/stories/005_gulmohar-ka-khazana/images/scene_09.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-21
+channels/jugnu-stories/stories/005_gulmohar-ka-khazana/images/scene_10.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-21
+channels/jugnu-stories/stories/005_gulmohar-ka-khazana/images/scene_11.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-21
+channels/jugnu-stories/stories/005_gulmohar-ka-khazana/images/scene_12.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-21
+channels/jugnu-stories/stories/005_gulmohar-ka-khazana/images/scene_13.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-21
+channels/jugnu-stories/stories/005_gulmohar-ka-khazana/images/scene_14.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-21
+channels/jugnu-stories/stories/005_gulmohar-ka-khazana/images/scene_15.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-21
+channels/jugnu-stories/stories/005_gulmohar-ka-khazana/images/scene_16.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-21
+channels/jugnu-stories/characters/pandey/sheet_painted.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-21
+channels/jugnu-stories/stories/005_gulmohar-ka-khazana/long/output/long_04_thumbnail.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-21
+channels/jugnu-stories/stories/005_gulmohar-ka-khazana/shorts/short_01_khazana-ka-dabba/output/short_01_khazana-ka-dabba_cover.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-21
+channels/jugnu-stories/stories/007_bachchon-ki-adalat/images/scene_01.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-22
+channels/jugnu-stories/stories/007_bachchon-ki-adalat/images/scene_02.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-22
+channels/jugnu-stories/stories/007_bachchon-ki-adalat/images/scene_03.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-22
+channels/jugnu-stories/stories/007_bachchon-ki-adalat/images/scene_04.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-22
+channels/jugnu-stories/stories/007_bachchon-ki-adalat/images/scene_05.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-22
+channels/jugnu-stories/stories/007_bachchon-ki-adalat/images/scene_06.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-22
+channels/jugnu-stories/stories/007_bachchon-ki-adalat/images/scene_07.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-22
+channels/jugnu-stories/stories/007_bachchon-ki-adalat/images/scene_08.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-22
+channels/jugnu-stories/stories/007_bachchon-ki-adalat/images/scene_09.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-22
+channels/jugnu-stories/stories/007_bachchon-ki-adalat/images/scene_10.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-22
+channels/jugnu-stories/stories/007_bachchon-ki-adalat/images/scene_11.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-22
+channels/jugnu-stories/stories/007_bachchon-ki-adalat/images/scene_12.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-22
+channels/jugnu-stories/stories/007_bachchon-ki-adalat/images/scene_13.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-22
+channels/jugnu-stories/stories/007_bachchon-ki-adalat/long/output/long_06_thumbnail.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-22
+channels/jugnu-stories/stories/007_bachchon-ki-adalat/shorts/short_01_pande-ji-katghare-me/output/short_01_pande-ji-katghare-me_cover.png,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-22
+channels/jugnu-stories/stories/007_bachchon-ki-adalat/shorts/short_01_pande-ji-katghare-me/output/short_01_pande-ji-katghare-me_cover.jpg,Gemini API (gemini-nano-banana-2.1),own generation (Kissago),own (AI-generated for this channel),,2026-10-22
 channels/noor-e-raah/stories/001_al-fatiha/research/dossier.md#1.1 (Arabic Quran text; production copy from tanzil.net/download quran-uthmani),https://tanzil.net/docs/text_license,Tanzil Project,CC BY 3.0 (verbatim only; no changes),"Arabic Quran text: Tanzil Project (https://tanzil.net) — Tanzil Quran Text, Copyright (C) 2007-2021 Tanzil Project, License: Creative Commons Attribution 3.0. Text unchanged; check https://tanzil.net/updates/ for changes.",2026-10-24
 shared/music/noor/Soaring.mp3,https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1600040,Kevin MacLeod,CC BY 4.0,"""Soaring"" Kevin MacLeod (incompetech.com)
 Licensed under Creative Commons: By Attribution 4.0 License

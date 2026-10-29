@@ -18,7 +18,7 @@ SFX_DIR = SHARED / "sfx"
 FONTS_DIR = SHARED / "fonts"
 REGISTER = SHARED / "assets_license.csv"
 CHANNELS = ROOT / "channels"
-DEFAULT_CHANNEL = "dadi-ki-kahaniyan"
+DEFAULT_CHANNEL = "jugnu-stories"
 
 
 def channel_dir(key: str = DEFAULT_CHANNEL) -> Path:

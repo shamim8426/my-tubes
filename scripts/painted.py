@@ -1,5 +1,5 @@
-"""Kissago Painted helpers shared by gen_short_cover.py and gen_thumb_painted.py (gen_scenes.py has its own copy
-of the rules). A story uses the painted style when channel.json "image_style" is "kissago_painted" and its number is
+"""Jugnu Painted helpers shared by gen_short_cover.py and gen_thumb_painted.py (gen_scenes.py has its own copy
+of the rules). A story uses the painted style when channel.json "image_style" is "jugnu_painted" and its number is
 >= gen_scenes.PAINTED_FROM (5)."""
 import json
 import re
@@ -17,7 +17,7 @@ from name_guard import find_names  # noqa: E402
 def is_painted(story_dir: Path, chan: Path) -> bool:
     cfg = json.loads((chan / "channel.json").read_text(encoding="utf-8"))
     num = int("".join(c for c in story_dir.name.split("_")[0] if c.isdigit()) or 0)
-    return cfg.get("image_style") == "kissago_painted" and num >= PAINTED_FROM
+    return cfg.get("image_style") == "jugnu_painted" and num >= PAINTED_FROM
 
 
 def style_block(chan: Path) -> str:

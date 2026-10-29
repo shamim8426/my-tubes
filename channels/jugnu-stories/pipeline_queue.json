@@ -1,0 +1,67 @@
+{
+  "_help": "Stage tracker (shared/RULES.md section 14, only checkpoint = script approval). Stages: script_approved -> assets -> images -> tts -> preview -> final -> uploaded -> short_uploaded -> done; or stopped/vetoed (reason in 'stopped').",
+  "stories": {
+    "003_mitthu-ne-sab-bata-diya": {
+      "video": "long",
+      "stage": "short_uploaded",
+      "budget_cap_inr": 130,
+      "updated": "2026-10-21",
+      "mode": "auto v2 (no preview checkpoint; veto window)",
+      "note": "Munshi final R1/R2 PASS (long srt re-timed), Short A final R1 PASS; long gLUM0zcECSk scheduled 2026-10-20 19:00 IST, Short A BzpR3Xawpsk scheduled 2026-10-20 21:00 IST (1st comment task 21:05). Manual Studio: confirm both schedules, Related video Short A = long, pin comment. Story cost Rs103.16.",
+      "slot": "long 2026-10-20 19:00, Short A 2026-10-20 21:00",
+      "long_video_id": "gLUM0zcECSk",
+      "short_a_video_id": "BzpR3Xawpsk",
+      "public_status": "long + Short public (manual, Studio) - confirmed by the user 2026-10-21"
+    },
+    "004_chhat-par-bhoot": {
+      "video": "long",
+      "stage": "short_uploaded",
+      "profile": "RULES 15",
+      "budget_cap_inr": 110,
+      "updated": "2026-10-21",
+      "note": "Munshi final R1 PASS (long + Short). Long 03 llqRdGA08zY scheduled 2026-10-21 19:00 IST, Short A jFXPwZE2xYY scheduled 2026-10-21 21:00 IST (1st comment task 21:05). Manual Studio: confirm both schedules, Related video Short = Long 03, pin comment, end screen, cover file. Story cost Rs98.88 incl. GST.",
+      "slot": "long 2026-10-21 19:00, Short A 2026-10-21 21:00",
+      "long_video_id": "llqRdGA08zY",
+      "short_a_video_id": "jFXPwZE2xYY",
+      "public_status": "long + Short public (manual, Studio) - confirmed by the user 2026-10-21"
+    },
+    "005_gulmohar-ka-khazana": {
+      "video": "long",
+      "stage": "short_uploaded",
+      "profile": "RULES 15",
+      "style": "jugnu_painted",
+      "budget_cap_inr": 110,
+      "updated": "2026-10-21",
+      "note": "Munshi final R1 PASS (long + Short v2). Long 04 wKH56WivpEs scheduled 2026-10-22 19:00 IST; Short A v2 (no reveal) XEnsuAw85bI scheduled 2026-10-22 21:00 IST (1st comment task 21:05), replaces removed v1 VYbq2WkgSaU. Manual Studio: confirm both schedules, Related video Short = Long 04, pin comment, end screen, cover file. Story cost Rs108.96 incl. GST.",
+      "slot": "long 2026-10-22 19:00, Short A 2026-10-22 21:00",
+      "long_video_id": "wKH56WivpEs",
+      "short_a_video_id": "XEnsuAw85bI",
+      "short_a_v1_removed": "VYbq2WkgSaU (revealed the treasure; removed by the user 2026-10-21)",
+      "public_status": "long + Short public (manual, Studio) - confirmed by the user 2026-10-21"
+    },
+    "006_rangoli-par-nanhe-panje": {
+      "video": "long",
+      "stage": "script_approved",
+      "hold": true,
+      "profile": "RULES 15",
+      "style": "jugnu_painted",
+      "budget_cap_inr": 110,
+      "updated": "2026-10-21",
+      "note": "Script approved by the user for Diwali, on HOLD: no paid step until the user releases it. Open: title (1/2), thumbnail text, publish target 29-31 Oct (user 2026-10-21), cozy pal; balance ~Rs176 before start.",
+      "publish_target": "2026-10-29 .. 2026-10-31 (earliest_date 2026-10-29 in the long's upload.json; RULES 8 clock decides inside it)"
+    },
+    "007_bachchon-ki-adalat": {
+      "video": "long",
+      "stage": "short_uploaded",
+      "profile": "RULES 15",
+      "style": "jugnu_painted",
+      "budget_cap_inr": 110,
+      "updated": "2026-10-22",
+      "publish_target": "2026-10-23 .. 2026-10-24 (RULES 8 clock)",
+      "note": "Munshi final R1 FIX -> free fixes applied; uploaded private 2026-10-22. User: Studio schedule both, Related video Short = Long 06, pin comments after 19:05/20:05. Story cost Rs107.82 incl. GST.",
+      "long_video_id": "jLgI8SjSUmE",
+      "short_a_video_id": "9vaaFFZuCro",
+      "slot": "long 2026-10-23 19:00, Short 2026-10-23 20:00 (RULES 8 clock; STUDIO ACTION pending)"
+    }
+  }
+}

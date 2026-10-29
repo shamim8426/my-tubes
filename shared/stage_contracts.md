@@ -12,9 +12,9 @@ stage, Munshi needed yes/no. Long logs go to files, never into the report.
 | Stage | Paid? | Limit | Must exist / be true after the stage | Munshi after |
 |---|---|---|---|---|
 | status | no | 10 min | shared/status.md refreshed; report lists the channel's story, stage, open items | no |
-| sheets | yes | 30 min | new character sheets in characters/<name>/ (Kissago) or characters/musafir/ (Noor); cost_log rows | yes (sheets) |
-| images | yes | 60 min | every image in the plan exists (Kissago scene_prompts.json / Noor long/images.json); 16:9 or 9:16 as planned; name_guard OK | yes (images) |
-| tts | yes (free key first) | 60 min | long/lines.json: every spoken line has audio + seconds + tts_ok (Noor) / TTS cache complete (Kissago); report of lines that missed words | yes (audio) |
+| sheets | yes | 30 min | new character sheets in characters/<name>/ (Jugnu Stories) or characters/musafir/ (Noor); cost_log rows | yes (sheets) |
+| images | yes | 60 min | every image in the plan exists (Jugnu Stories scene_prompts.json / Noor long/images.json); 16:9 or 9:16 as planned; name_guard OK | yes (images) |
+| tts | yes (free key first) | 60 min | long/lines.json: every spoken line has audio + seconds + tts_ok (Noor) / TTS cache complete (Jugnu Stories); report of lines that missed words | yes (audio) |
 | music_sfx | no | 15 min | every track/SFX used is in shared/assets_license.csv | no |
 | shots | no | 15 min | shots.json / images.json timing covers every line; no visual longer than the channel's max | no |
 | build_long | no | 60 min | long/output/<story>_final.mp4 (no .part.mp4 left), 1920x1080 30 fps H.264+AAC, ~-14 LUFS; .srt | yes (final) |

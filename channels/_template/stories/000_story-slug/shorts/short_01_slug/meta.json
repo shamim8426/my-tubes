@@ -6,8 +6,8 @@
   "pinned_comment": "",
   "caption_from": 1.0,
   "cover": {
-    "_help": "Poster cover (channel RULES 'Short cover'): python scripts/gen_short_cover.py <this folder> (~₹3.24). label: 'किस्सागो जासूस' for Dadi Jasoos, else 'किस्सागो'. title: 2-3 words ending ? or !, not the video title word for word, no spoiler. prompt: hero character (33-63% height) + key object and other characters (61-82%). refs: character names.",
-    "label": "किस्सागो",
+    "_help": "Poster cover (channel RULES 'Short cover'): python scripts/gen_short_cover.py <this folder> (~₹3.24). label: 'Jugnu Stories' for Dadi Jasoos, else 'Jugnu Stories'. title: 2-3 words ending ? or !, not the video title word for word, no spoiler. prompt: hero character (33-63% height) + key object and other characters (61-82%). refs: character names.",
+    "label": "Jugnu Stories",
     "title": "",
     "prompt": "",
     "refs": []

@@ -23,21 +23,21 @@ import pricing  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 EXTRA_FILES = {
-    "003_mitthu-ne-sab-bata-diya": ["channels/dadi-ki-kahaniyan/characters/sharma_sheet.png",
-                                    "channels/dadi-ki-kahaniyan/characters/voices/raghu_",
-                                    "channels/dadi-ki-kahaniyan/characters/voices/gupta_"],
-    "004_chhat-par-bhoot": ["channels/dadi-ki-kahaniyan/characters/voices/mishra_"],
-    # style migration "Kissago Painted" (own budget ₹35, not in any story)
-    "style_migration": ["channels/dadi-ki-kahaniyan/characters/dadi/sheet_painted", "channels/dadi-ki-kahaniyan/characters/golu/sheet_painted",
-                        "channels/dadi-ki-kahaniyan/characters/mitthu/sheet_painted", "style_tests/painted/"],
-    "005_gulmohar-ka-khazana": ["channels/dadi-ki-kahaniyan/characters/pandey/"],
-    "007_bachchon-ki-adalat": ["channels/dadi-ki-kahaniyan/characters/sharma/"],
+    "003_mitthu-ne-sab-bata-diya": ["channels/jugnu-stories/characters/sharma_sheet.png",
+                                    "channels/jugnu-stories/characters/voices/raghu_",
+                                    "channels/jugnu-stories/characters/voices/gupta_"],
+    "004_chhat-par-bhoot": ["channels/jugnu-stories/characters/voices/mishra_"],
+    # style migration "Jugnu Painted" (own budget ₹35, not in any story)
+    "style_migration": ["channels/jugnu-stories/characters/dadi/sheet_painted", "channels/jugnu-stories/characters/golu/sheet_painted",
+                        "channels/jugnu-stories/characters/mitthu/sheet_painted", "style_tests/painted/"],
+    "005_gulmohar-ka-khazana": ["channels/jugnu-stories/characters/pandey/"],
+    "007_bachchon-ki-adalat": ["channels/jugnu-stories/characters/sharma/"],
     # new permanent characters Tara + Tinku (own budget ₹20)
-    "new_characters": ["channels/dadi-ki-kahaniyan/characters/tara/", "channels/dadi-ki-kahaniyan/characters/tinku/",
-                       "channels/dadi-ki-kahaniyan/characters/_review/"],
+    "new_characters": ["channels/jugnu-stories/characters/tara/", "channels/jugnu-stories/characters/tinku/",
+                       "channels/jugnu-stories/characters/_review/"],
     # character look refresh (Tinku's mummy + new finish tests; own budget ₹20, user 2026-10-22)
-    "character_refresh": ["channels/dadi-ki-kahaniyan/characters/tinku_mummy/",
-                          "channels/dadi-ki-kahaniyan/characters/_v2_look/"],
+    "character_refresh": ["channels/jugnu-stories/characters/tinku_mummy/",
+                          "channels/jugnu-stories/characters/_v2_look/"],
     # Noor-e-Raah samples: dialogue, look test, 30 s sync sample (own budget ₹45 incl. GST, user 2026-10-24)
     "noor_samples": ["channels/noor-e-raah/music_samples/", "channels/noor-e-raah/samples/look_test/",
                      "channels/noor-e-raah/samples/sync_sample/"],

@@ -26,7 +26,7 @@ def _costs():
 
 def build() -> Path:
     costs, last = _costs()
-    lines = ["# Preview — किस्सागो | Kissago", ""]
+    lines = ["# Preview — Jugnu Stories", ""]
     if last:
         lines += [f"**Budget bacha:** ₹{last['remaining_inr']}  ·  **Last image:** {last['timestamp']}", ""]
     for title, kind in SECTIONS:

@@ -1,4 +1,4 @@
-"""Long-video thumbnail in Kissago Painted (story 005+), 1280x720.
+"""Long-video thumbnail in Jugnu Painted (story 005+), 1280x720.
 
 Usage: python scripts/gen_thumb_painted.py <story>/long [--text-only]
   reads long/meta.json "thumbnail": {"text": "किसका है ये खज़ाना?", "lines": ["किसका है", "ये खज़ाना?"],
@@ -68,7 +68,7 @@ def main():
     story = ldir.parent
     chan = channel_dir(channel_of(ldir))
     if not painted.is_painted(story, chan):
-        sys.exit("this story is not in Kissago Painted; use the older thumbnail functions")
+        sys.exit("this story is not in Jugnu Painted; use the older thumbnail functions")
     meta = json.loads((ldir / "meta.json").read_text(encoding="utf-8"))
     t = meta["thumbnail"]
     name = json.loads((ldir / "project.json").read_text(encoding="utf-8")).get("name", ldir.name)

@@ -75,7 +75,7 @@ shutil.copy(real, cost_log.LOG)
 n_old = len(cost_log._rows())
 story = "003_mitthu-ne-sab-bata-diya"
 old_line = story_budget.summary_line(story)
-f = cost_log.ROOT / "channels/dadi-ki-kahaniyan/stories" / story / "images/scene_99_test.png"
+f = cost_log.ROOT / "channels/jugnu-stories/stories" / story / "images/scene_99_test.png"
 resp = {"usage": {"total_input_tokens": 4300, "total_output_tokens": 1120, "total_thought_tokens": 600,
                   "output_tokens_by_modality": [{"modality": "image", "tokens": 1120}]}}
 cost = pricing.image_cost(IMG, "1K", resp, prompt_chars=1200, n_refs=3)

@@ -1,4 +1,4 @@
-# किस्सागो | Kissago — Story Channel
+# Jugnu Stories — Story Channel
 
 ## Project dhaancha (multi-channel)
 - `channels/<channel_key>/`: channel.json, RULES.md, channel_bible.md, log.md, carry_over.md, brand/, characters/ (permanent characters + voices/)
@@ -25,12 +25,12 @@ User sirf "resume karo" likhe to yahi karo: pehle sirf padho, kuch mat badlo, ko
      publish slots, Kalam ka kram, RULES 12b.
    - **Nigraan check:** har channel ki `learnings.md` ka "LAGU KARO" hissa; kis video ka 48 h / 7 din post-mortem
      due hai (upload_result.json ke publish samay se) aur aaj Ravivaar ho to hafte ka report — ye user ko batao
-     (agent `nigraan-kissago` / `nigraan-noor`, data `tools/yt_analytics.py <key> fetch`, read-only, ₹0).
+     (agent `nigraan-jugnu` / `nigraan-noor`, data `tools/yt_analytics.py <key> fetch`, read-only, ₹0).
 3. Phir user ke agle kaam ka intezaar, ya jo kaam pipeline_queue/log me adhoora ho uska agla kadam batao.
 
-## किस्सागो | Kissago (channel key: dadi-ki-kahaniyan; pehle "दादी की कहानियाँ")
-Title suffix aur thumbnail label `channels/dadi-ki-kahaniyan/channel.json` (`title_suffix`, `brand_label`) se lo.
-Har script, case file aur image prompt se pehle [channels/dadi-ki-kahaniyan/channel_bible.md](channels/dadi-ki-kahaniyan/channel_bible.md) padho aur uske rules exactly follow karo:
+## Jugnu Stories (channel key: jugnu-stories; pehle "दादी की कहानियाँ")
+Title suffix aur thumbnail label `channels/jugnu-stories/channel.json` (`title_suffix`, `brand_label`) se lo.
+Har script, case file aur image prompt se pehle [channels/jugnu-stories/channel_bible.md](channels/jugnu-stories/channel_bible.md) padho aur uske rules exactly follow karo:
 - Permanent characters ka look kabhi mat badlo — bible ke exact descriptions use karo.
 - Script: 110–140 words, 2-sec hook, Golu ka ek galat guess, Dadi ka ek clue observation, end me "बताओ, दोषी कौन?". Answer alag file me.
 - Naye suspects ka look case file me likho; dobara aayein to wahi look use karo.
@@ -52,7 +52,7 @@ Command: `.\.venv\Scripts\python -X utf8 scripts\make_short.py <video folder> [-
 - Nayi kahani / story ideas / script: `kalam` subagent (`.claude/agents/kalam.md`, skill `new-story`). Kalam 5 options ya poori script likhta hai, Munshi se review karwata hai; khud approve nahi karta, paid kaam kabhi shuru nahi. Registry: `channels/<key>/story_registry.md`.
 
 ## SANCHALAK MODE (main session = Sanchalak; user 2026-10-25)
-- Har channel ka apna Kaarigar (creation subagent): `kaarigar-kissago`, `kaarigar-noor`. Approved/automatic script ke
+- Har channel ka apna Kaarigar (creation subagent): `kaarigar-jugnu`, `kaarigar-noor`. Approved/automatic script ke
   baad har stage us channel ke Kaarigar ko **BACKGROUND** me do (ek call = ek stage: sheets, images, tts, music_sfx, shots,
   build_long, build_short, thumbnail, upload, comments, sync, status). Sanchalak khud lamba kaam nahi karta; user ki baat
   ka turant jawab deta hai.
@@ -67,7 +67,7 @@ Command: `.\.venv\Scripts\python -X utf8 scripts\make_short.py <video folder> [-
 - Har channel ki `channel_brief.md`: Kaarigar har video ke baad, Sanchalak har faisle ke baad update kare.
 
 ## Nigraan (views manager, har channel ka alag)
-- `.claude/agents/nigraan-kissago.md`, `.claude/agents/nigraan-noor.md`: sirf data, report aur salah (YouTube Analytics/
+- `.claude/agents/nigraan-jugnu.md`, `.claude/agents/nigraan-noor.md`: sirf data, report aur salah (YouTube Analytics/
   Reporting, read-only token `secrets/<key>/analytics_token.json`); koi paid call, upload, delete ya RULES badlav nahi.
 - Chalta hai: har nayi kahani se PEHLE (Kalam se pehle), har video ke 48 h aur 7 din baad (post-mortem), har Ravivaar,
   ya user kahe "nigraan report". Seekh `channels/<key>/learnings.md` me (saboot ke saath; 500 impressions / Shorts 1,000
@@ -106,7 +106,7 @@ econcile_balance.py <AI Studio balance ₹>` (pehli baar checkpoint), Long 03 ke
 
 - Motion: default 2.5D parallax (`tools/parallax.py`, Depth Anything V2 Small, CPU, free; model `models/` me, deploy.ps1 download karta hai). `--motion zoom` = wahi eased camera moves bina depth ke (zoompan ab kahin nahi: wo pixel-pixel kaanpta tha). Motion default (2026-10-25, dono builder): sub-pixel cubic warp, zoom 1.00→1.07 / pan ~4% (pan ke saath halka 1.03→1.06 zoom), ease-in-out, har shot alag move, ek move max 8 s; jaanch `tools/motion_check.py` (jerk ~0.03-0.06 vs zoompan 1.78). Guard artifact par motion aadha ya zoom fallback karta hai (`shared/parallax_log.jsonl`). Shorts: `shots.json` me `"subjects": {"<scene>": [x0,y0,x1,y1]}` (bolne wale ka chehra/haath/ishara) - builder crop 3-85% me rakhta hai, warna centre khiskata/zoom-out karta hai. Overlays: meta.json `"overlays": {"<scene>": [["fireflies", 0.22]], ...}` (fireflies/dust/rain/diya, opacity 0.15-0.35).
 
-- Image style: story 005 se **Kissago Painted** (`channels/dadi-ki-kahaniyan/brand/STYLE_PAINTED.md`; channel.json `image_style`). `gen_scenes.py` style block + `characters/<naam>/sheet_painted.png` refs apne aap lagata hai (nayi painted sheet ~₹6, story budget se). Kisi studio/film/anime/artist ka naam KAHIN nahi (RULES 12a); `tools/name_guard.py` prompts aur upload metadata check karta hai (naam mila = BLOCK).
+- Image style: story 005 se **Jugnu Painted** (`channels/jugnu-stories/brand/STYLE_PAINTED.md`; channel.json `image_style`). `gen_scenes.py` style block + `characters/<naam>/sheet_painted.png` refs apne aap lagata hai (nayi painted sheet ~₹6, story budget se). Kisi studio/film/anime/artist ka naam KAHIN nahi (RULES 12a); `tools/name_guard.py` prompts aur upload metadata check karta hai (naam mila = BLOCK).
 
 ## Study download (shared/RULES.md 12c)
 - Jab user link de kar kahe "isse seekho". yt-dlp bina login/cookies, sirf `study/` (git-ignored, kabhi sync nahi); koi bhi
@@ -118,7 +118,7 @@ econcile_balance.py <AI Studio balance ₹>` (pehli baar checkpoint), Long 03 ke
 
 ## Khoji (real stories, naya channel — abhi temporary `channels/_new_realstories/`)
 - `khoji` subagent: "khoji scout <category>" (25–30 kahaniyan -> saturation check Hindi vs English -> score -> TOP 5 -> RUKO)
-  aur "khoji dossier <kahani>" ([F#] tathya, har tathye ke 2+ bharosemand source). Koi paid call nahi, Kissago pipeline nahi chhoota.
+  aur "khoji dossier <kahani>" ([F#] tathya, har tathye ke 2+ bharosemand source). Koi paid call nahi, Jugnu Stories pipeline nahi chhoota.
 - YouTube look-up sirf `tools/yt_read.py` (read-only, din me max 10 search). Niyam: shared/RULES.md section 16; Kalam REAL STORY MODE, Munshi FACT CHECK.
 
 ## Cloud (web) session (Linux, claude.ai/code)
@@ -137,5 +137,5 @@ econcile_balance.py <AI Studio balance ₹>` (pehli baar checkpoint), Long 03 ke
 - Session band hone par hook aur raat 11:30 ka task apne aap sync karte hain.
 - Sync log: `shared/sync.log`. Koi ERROR dikhe to mujhe batao.
 - Secrets (.env, secrets/) kabhi repo me nahi jaate; sync.ps1 aisa hone par ruk jaata hai.
-- Commit message (user 2026-10-29, PC + cloud): hamesha simple English, chhota, `<area>: <what changed>` (jaise `nigraan: analytics fetch`, `kissago 006: scene images done`); Hinglish nahi.
+- Commit message (user 2026-10-29, PC + cloud): hamesha simple English, chhota, `<area>: <what changed>` (jaise `nigraan: analytics fetch`, `jugnu 006: scene images done`); Hinglish nahi.
 - Cloud ke baad PC par sync + jaanch: `docs/PC_SYNC_AFTER_CLOUD.md`.

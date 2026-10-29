@@ -861,7 +861,7 @@ def main():
 
     name = a.case_opt or a.case_pos
     if not name:
-        ap.error("project folder required, e.g. channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long")
+        ap.error("project folder required, e.g. channels/jugnu-stories/stories/001_lalchi-halwai/long")
     P = load_project(name)
     os.environ["STORY_CHANNEL"] = P["channel"]  # cost_log rows get this channel
     from paths import learnings_brief

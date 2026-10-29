@@ -51,7 +51,7 @@
     },
     "channel_cap_inr": {
       "_help": "Own spend limit per channel (cost_log 'channel' column, GST samet). null = no cap, only counted. All channels share one Gemini key and balance.",
-      "dadi-ki-kahaniyan": null,
+      "jugnu-stories": null,
       "noor-e-raah": null
     },
     "floor_inr": 50,

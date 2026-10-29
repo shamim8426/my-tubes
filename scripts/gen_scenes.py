@@ -4,7 +4,7 @@ Usage:  python scripts/gen_scenes.py channels/<key>/stories/<story>/scene_prompt
         (images go to the story's images/, shared by its long video and shorts)
 Spec keys: looks, base, scenes[{id, refs, prompt}], optional out_dir, aspect (default 9:16), ref_files {name: path}.
 Refs: "scene:N" -> an earlier image in out_dir; a name in ref_files -> that file; else the character sheet.
-Style: channel.json "image_style": "kissago_painted" -> from story 005 every prompt ends with the verbatim style
+Style: channel.json "image_style": "jugnu_painted" -> from story 005 every prompt ends with the verbatim style
 block of brand/STYLE_PAINTED.md and character refs are characters/<name>/sheet_painted.png (a missing painted
 sheet stops that scene: make it first, ~Rs 6 from the story budget). Spec "style": "flat" keeps the old look.
 Every prompt passes the studio/film/artist name guard (RULES 12a) before any paid call.
@@ -25,7 +25,7 @@ from story_budget import check  # noqa: E402
 sys.path.insert(0, str(ROOT / "tools"))
 from name_guard import find_names  # noqa: E402
 
-PAINTED_FROM = 5  # first story number in Kissago Painted
+PAINTED_FROM = 5  # first story number in Jugnu Painted
 CHAR_NOTES = {  # added to every painted prompt that has this character (channel_bible 2a)
     "tinku": ("Tinku is very thin with skinny arms and legs and a little taller than Golu; his shirt stripes are always "
               "orange and cream; no cap, scarf, robe, forehead mark or wand."),
@@ -45,7 +45,7 @@ def load(arg):
     spec["_chars"] = chan / "characters"
     cfg = json.loads((chan / "channel.json").read_text(encoding="utf-8"))
     num = int("".join(c for c in out_dir.parent.name.split("_")[0] if c.isdigit()) or 0)
-    spec["_painted"] = (cfg.get("image_style") == "kissago_painted" and num >= PAINTED_FROM
+    spec["_painted"] = (cfg.get("image_style") == "jugnu_painted" and num >= PAINTED_FROM
                         and spec.get("style") != "flat")
     if spec["_painted"]:
         guide = (chan / "brand" / "STYLE_PAINTED.md").read_text(encoding="utf-8")

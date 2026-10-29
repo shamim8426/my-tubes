@@ -29,8 +29,8 @@ C1W = CASE01 / "thumbnail_work"
 FFMPEG = ROOT / "tools" / "ffmpeg" / "ffmpeg.exe"
 if not FFMPEG.exists():  # new system: ffmpeg from winget on PATH (tools/ffmpeg is not in git)
     FFMPEG = Path(shutil.which("ffmpeg") or FFMPEG)
-BRAND = channel_config()["brand_label"]  # "किस्सागो": banner title + thumbnail corner label
-TAGLINE = "Kissago · हर शाम एक नया किस्सा"  # small line under the banner title
+BRAND = channel_config()["brand_label"]  # "Jugnu Stories": banner title + thumbnail corner label
+TAGLINE = "Jugnu Stories · हर शाम एक नया किस्सा"  # small line under the banner title
 
 BW, BH = 2560, 1440
 SAFE_W, SAFE_H = 1546, 423  # YouTube: area visible on every device

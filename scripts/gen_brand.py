@@ -1,4 +1,4 @@
-"""Kissago brand kit (BRAND.md). Paid steps only with the user's OK.
+"""Jugnu Stories brand kit (BRAND.md). Paid steps only with the user's OK.
 
 Usage: python scripts/gen_brand.py icons [1 2 3 4]   -> brand/_work/icon_v<N>.png (Gemini 1K, ₹3.24 each)
 """
@@ -124,8 +124,8 @@ Dialogue: 0,0:00:00.00,0:00:01.00,A,,0,0,0,,{{\\pos({W // 2},{H // 2})}}{text}
 
 
 def wordmark() -> Image.Image:
-    """'किस्सागो' (Rozha One, marigold) over a small 'KISSAGO' (Mukta Bold, cream, letter-spaced)."""
-    name = text_layer("किस्सागो", "Rozha One", 420, MARIGOLD)
+    """'Jugnu Stories' (Rozha One, marigold) over a small 'KISSAGO' (Mukta Bold, cream, letter-spaced)."""
+    name = text_layer("Jugnu Stories", "Rozha One", 420, MARIGOLD)
     sub = text_layer("KISSAGO", "Mukta", 120, CREAM, bold=True, spacing=28)
     sub = sub.resize((int(name.width * 0.62), int(sub.height * name.width * 0.62 / sub.width)), Image.LANCZOS)
     gap = int(name.height * 0.10)
@@ -489,10 +489,10 @@ def dp_concepts():
     mono = text_layer("कि", "Rozha One", 520, MARIGOLD)
     k = min(470 / mono.width, 470 / mono.height); mono = mono.resize((int(mono.width * k), int(mono.height * k)), Image.LANCZOS)
     c.alpha_composite(mono, ((S - mono.width) // 2, (S - mono.height) // 2 + 20)); _ring(c, MARIGOLD); concepts["C_monogram_ki"] = c
-    # D: badge - Mitthu + name "किस्सागो" under him inside the circle
+    # D: badge - Mitthu + name "Jugnu Stories" under him inside the circle
     d = Image.new("RGBA", (S, S), INDIGO + (255,)); _glow(d, cy=0.40, radius=0.33)
     small = ic.resize((400, 400), Image.LANCZOS); d.alpha_composite(small, (200, 95))
-    name = text_layer("किस्सागो", "Rozha One", 200, MARIGOLD)
+    name = text_layer("Jugnu Stories", "Rozha One", 200, MARIGOLD)
     k = 430 / name.width; name = name.resize((430, int(name.height * k)), Image.LANCZOS)
     d.alpha_composite(name, ((S - name.width) // 2, 505)); _ring(d, MARIGOLD); concepts["D_badge_mitthu_name"] = d
     # E: inverted - cream background, indigo ring, Mitthu (stands out in a dark-mode feed)

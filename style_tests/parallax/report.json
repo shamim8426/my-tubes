@@ -1,6 +1,6 @@
 [
  {
-  "image": "channels\\dadi-ki-kahaniyan\\stories\\004_chhat-par-bhoot\\images\\scene_02.png",
+  "image": "channels\\jugnu-stories\\stories\\004_chhat-par-bhoot\\images\\scene_02.png",
   "out": "D:\\Story-Channel\\style_tests\\parallax\\new_scene_02.mp4",
   "format": "long",
   "seconds": 6.0,
@@ -25,7 +25,7 @@
   "old_zoom_wall_s": 11.3
  },
  {
-  "image": "channels\\dadi-ki-kahaniyan\\stories\\004_chhat-par-bhoot\\images\\scene_04.png",
+  "image": "channels\\jugnu-stories\\stories\\004_chhat-par-bhoot\\images\\scene_04.png",
   "out": "D:\\Story-Channel\\style_tests\\parallax\\new_scene_04.mp4",
   "format": "long",
   "seconds": 6.0,
@@ -50,7 +50,7 @@
   "old_zoom_wall_s": 16.0
  },
  {
-  "image": "channels\\dadi-ki-kahaniyan\\stories\\004_chhat-par-bhoot\\images\\scene_05.png",
+  "image": "channels\\jugnu-stories\\stories\\004_chhat-par-bhoot\\images\\scene_05.png",
   "out": "D:\\Story-Channel\\style_tests\\parallax\\new_scene_05.mp4",
   "format": "long",
   "seconds": 6.0,
@@ -73,7 +73,7 @@
   "old_zoom_wall_s": 12.8
  },
  {
-  "image": "channels\\dadi-ki-kahaniyan\\stories\\004_chhat-par-bhoot\\images\\scene_06.png",
+  "image": "channels\\jugnu-stories\\stories\\004_chhat-par-bhoot\\images\\scene_06.png",
   "out": "D:\\Story-Channel\\style_tests\\parallax\\new_scene_06.mp4",
   "format": "long",
   "seconds": 6.0,
@@ -96,7 +96,7 @@
   "old_zoom_wall_s": 18.4
  },
  {
-  "image": "channels\\dadi-ki-kahaniyan\\stories\\004_chhat-par-bhoot\\images\\scene_04.png",
+  "image": "channels\\jugnu-stories\\stories\\004_chhat-par-bhoot\\images\\scene_04.png",
   "out": "D:\\Story-Channel\\style_tests\\parallax\\short_scene_04.mp4",
   "format": "short",
   "seconds": 6.0,

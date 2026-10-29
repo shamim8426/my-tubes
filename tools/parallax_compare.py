@@ -15,7 +15,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import parallax as P  # noqa: E402
 
 ROOT = P.ROOT
-IMG = ROOT / "channels/dadi-ki-kahaniyan/stories/004_chhat-par-bhoot/images"
+IMG = ROOT / "channels/jugnu-stories/stories/004_chhat-par-bhoot/images"
 OUT = ROOT / "style_tests/parallax"
 FONT = (ROOT / "shared/fonts/Mukta-Bold.ttf").as_posix().replace(":", r"\:")
 SECS = 6.0

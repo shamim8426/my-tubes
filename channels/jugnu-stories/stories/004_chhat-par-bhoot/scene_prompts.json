@@ -1,0 +1,141 @@
+{
+  "_help": "Story 004 (Long 03): 13 scene images (ids 2,4-8,10-16; id = scene number) + Mishra dada's sheet = 14 new images. Plan shrunk on 2026-10-19 after the first ACTUAL cost (sheet ₹5.83 incl. GST: 1,367 thinking tokens): scene 3 -> crops of image 4, scene 9 (footsteps beat) -> zoom on the white figure in image 2 (RULES 15: shrink, never stop).",
+  "out_dir": "channels/jugnu-stories/stories/004_chhat-par-bhoot/images",
+  "aspect": "16:9",
+  "ref_files": {
+    "mishra": "channels/jugnu-stories/stories/004_chhat-par-bhoot/characters/mishra_sheet.png",
+    "gupta": "channels/jugnu-stories/stories/003_mitthu-ne-sab-bata-diya/characters/gupta_sheet.png",
+    "house": "channels/jugnu-stories/stories/003_mitthu-ne-sab-bata-diya/images/scene_02.png",
+    "stairs": "channels/jugnu-stories/stories/003_mitthu-ne-sab-bata-diya/images/scene_24.png",
+    "gupta_house": "channels/jugnu-stories/stories/003_mitthu-ne-sab-bata-diya/images/scene_11.png",
+    "aangan_house": "channels/jugnu-stories/stories/003_mitthu-ne-sab-bata-diya/refs/aangan_house.png"
+  },
+  "looks": {
+    "dadi": "Dadi: Indian grandmother ~70, round face, white hair bun, round golden spectacles, light green saree with yellow border, gold bangles, wooden walking stick, small red bindi",
+    "golu": "Golu: CHUBBY Indian boy ~10 with a round face, messy black hair, yellow T-shirt, blue half-pants, white socks, red shoes",
+    "mitthu": "Mitthu: green parrot with a red beak and a thin red neck ring (a bird: wings, no hands)",
+    "pandey": "Inspector Pandey: plump ~45-year-old police inspector, khaki uniform, thick black moustache, cap",
+    "sharma": "Sharma ji: mid-50s neighbour, bald with grey side hair, rectangular spectacles, cream kurta-pyjama, brown sleeveless jacket",
+    "gupta": "Mrs. Gupta: plump ~50-year-old neighbour, big hair bun, maroon bindi, gold bangles, PINK saree with a thin gold border",
+    "mishra": "Mishra dada: thin ~70-year-old Indian man, short white hair, white moustache, thin round spectacles, plain white kurta-pyjama with a soft white woollen shawl over his shoulders, gentle soft smile"
+  },
+  "base": "16:9 landscape scene for a family-friendly Hindi cartoon set in Gulmohar Mohalla, a small Indian neighbourhood with narrow lanes, colourful houses with flat roofs and orange-flowered gulmohar trees; flat 2D cartoon, thick bold black outlines, warm colours, flat cel shading. NIGHT scenes use a deep blue-black night palette with moonlight or warm lantern light, but every face is clearly lit and easy to read. NEVER scary: no ghost, no monster, no skull, no scary or hidden-horror face, no blood. The 'white figure' is always just a person wrapped in a plain white woollen shawl, and its face is never shown unless the prompt says so. Mitthu is a bird: he only flies, perches, flaps and talks - he never holds anything and has no hands. No text, signs, letters or numbers anywhere.",
+  "scenes": [
+    {
+      "id": 2,
+      "refs": [
+        "house"
+      ],
+      "prompt": "Night, wide view across the lane towards Sharma ji's two-storey house (as in the location reference: narrow outdoor stairs up to a flat roof, red iron gate below), under a big full moon and many stars. On the flat roof a tall figure completely wrapped in a plain white shawl walks slowly, seen small, far away and from behind - no face visible; soft and mysterious, not scary. A white bedsheet hangs on a clothesline on the same roof. Dark blue night, one faint warm window."
+    },
+    {
+      "id": 4,
+      "refs": [
+        "dadi",
+        "golu",
+        "mitthu",
+        "aangan_house"
+      ],
+      "prompt": "Night, inside Dadi's small mud house with a clay-tile roof (as in the location reference), no electricity, dark blue room lit by moonlight: on the RIGHT, {golu} sits on the sill of a small open wooden window, sweaty, a round hand fan in one hand, pointing outside with the other, scared and excited; {mitthu} perches on the window frame right next to his shoulder with puffed-up feathers, staring out. On the LEFT, {dadi} lies on a charpai under a thin sheet, half asleep, calmly waving one hand as if saying 'go to sleep'. Through the window, far away, a moonlit row of flat roofs. All three faces clearly lit."
+    },
+    {
+      "id": 5,
+      "refs": [
+        "gupta",
+        "sharma",
+        "pandey"
+      ],
+      "prompt": "Bright morning in the lane in front of Sharma ji's red iron gate and an orange gulmohar tree: {gupta} talks dramatically with wide eyes, one hand raised high to show 'this tall'; {sharma} hugs a rolled-up mattress to his chest, scared; {pandey} stands with his hands on his hips, listening with a doubtful frown."
+    },
+    {
+      "id": 6,
+      "refs": [
+        "pandey",
+        "golu",
+        "mitthu"
+      ],
+      "prompt": "Morning in the same lane: {pandey} puffs out his chest, holding a long wooden lathi upright like a hero, chin up, boastful; next to him {golu} seriously holds out a small steel plate of yellow laddoos; {mitthu} perches on the red iron gate with his beak wide open, excited."
+    },
+    {
+      "id": 7,
+      "refs": [
+        "pandey",
+        "stairs"
+      ],
+      "prompt": "Night at the bottom of the narrow outdoor concrete stairs that lead up to Sharma ji's flat roof (as in the location reference): {pandey} stands on the first step holding his lathi, knees knocking, sweat drops flying, looking up the dark stairs with a forced brave face. Dark blue night, moonlight on his face."
+    },
+    {
+      "id": 8,
+      "refs": [
+        "gupta",
+        "gupta_house"
+      ],
+      "prompt": "Night, Mrs. Gupta's pink two-storey house with a balcony (as in the location reference), with EVERY window and the balcony lit bright yellow, glowing against the dark blue lane; {gupta} at the front door hurriedly pulling the door shut, holding the handle, worried face, glancing back over her shoulder."
+    },
+    {
+      "id": 10,
+      "refs": [
+        "dadi",
+        "golu",
+        "mitthu"
+      ],
+      "prompt": "Night, inside Dadi's small mud house: {golu} has jumped into {dadi}'s arms and hugs her tightly with his eyes squeezed shut; Dadi sits up on her charpai, calm, holding him; {mitthu} flaps his wings wildly on the window frame, a few green feathers in the air. Moonlight lights their faces."
+    },
+    {
+      "id": 11,
+      "refs": [
+        "dadi",
+        "golu"
+      ],
+      "prompt": "Night in the lane near Sharma ji's house: {dadi} holds up a glowing old brass lantern in one hand and her wooden walking stick in the other, calm and determined; {golu} hides half behind her saree, peeking out, scared but curious. Warm lantern light on both faces against the dark blue night."
+    },
+    {
+      "id": 12,
+      "refs": [
+        "stairs"
+      ],
+      "prompt": "Night, at the top of the narrow outdoor stairs, at the edge of the flat roof (as in the location reference): warm lantern light (an old brass lantern held up by a hand in a light-green saree sleeve, entering from the bottom-left corner) falls on a tall figure wrapped in a plain white woollen shawl who is slowly turning around. We see only the back of the shawl and one shoulder; the head is covered by the shawl and the face is turned away, completely hidden. Stars above. Mysterious, gentle, not scary."
+    },
+    {
+      "id": 13,
+      "refs": [
+        "mishra",
+        "dadi",
+        "golu"
+      ],
+      "prompt": "Night on the flat roof in warm lantern light: big close-up of {mishra} (face and shoulders, the white shawl around him), gentle, a little sad and lonely, with a soft polite smile and kind eyes; starry sky behind him. On the left {dadi} holds up the brass lantern and looks at him kindly; {golu} peeks out from behind Dadi."
+    },
+    {
+      "id": 14,
+      "refs": [
+        "golu",
+        "mishra",
+        "mitthu"
+      ],
+      "prompt": "Night on the flat roof under a sky full of stars: {golu} and {mishra} sit side by side on a mat, both pointing up at the sky together - Golu excited, Mishra dada smiling warmly; the seven bright stars of the Saptarishi (Big Dipper) shine clearly in the sky; {mitthu} perches on the roof railing beside them."
+    },
+    {
+      "id": 15,
+      "refs": [
+        "mishra",
+        "gupta",
+        "pandey",
+        "sharma",
+        "dadi",
+        "golu",
+        "mitthu"
+      ],
+      "prompt": "Early evening on Mishra dada's flat roof in warm golden dusk light: neighbours sit on mats with glasses of chai and a big plate of pakoras. {mishra} in the middle, smiling happily; {gupta} offers him the plate of pakoras; {pandey} hides his lathi behind his back and scratches his head sheepishly; {sharma} laughs; {dadi} and {golu} sit together nearby; {mitthu} perches on the railing, beak open happily. No other people."
+    },
+    {
+      "id": 16,
+      "refs": [
+        "dadi",
+        "golu",
+        "mishra",
+        "mitthu"
+      ],
+      "prompt": "Night on the same flat roof under a sky full of stars: {dadi}, {golu} and {mishra} sit on a mat around a small glowing lantern, all laughing together; {mitthu} perches on the railing next to Golu. Exactly these four, no other people. Keep the group in the LEFT 60% of the image; the right side is open starry sky over the rooftops. Warm, cosy and happy."
+    }
+  ]
+}

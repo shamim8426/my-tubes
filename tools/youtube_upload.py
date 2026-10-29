@@ -2,8 +2,8 @@
 """YouTube uploader for Story-Channel, used by the Munshi agent.
 
 Usage:
-    python tools/youtube_upload.py --job channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long/output/upload.json --dry-run
-    python tools/youtube_upload.py --job channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long/output/upload.json
+    python tools/youtube_upload.py --job channels/jugnu-stories/stories/001_lalchi-halwai/long/output/upload.json --dry-run
+    python tools/youtube_upload.py --job channels/jugnu-stories/stories/001_lalchi-halwai/long/output/upload.json
     python tools/youtube_upload.py --job ... --extras-only   # retry thumbnail/captions/playlist
 
 Safety: refuses to upload unless the logged-in channel ID matches job["channel_id"],
@@ -75,7 +75,7 @@ def validate(job: dict, job_path: Path) -> list:
     errs = []
     key = job.get("channel_key", "")
     if not key or not all(c.isalnum() or c in "-_" for c in key):
-        errs.append("channel_key missing/invalid (e.g. dadi-ki-kahaniyan)")
+        errs.append("channel_key missing/invalid (e.g. jugnu-stories)")
     cid = job.get("channel_id", "")
     if not (isinstance(cid, str) and cid.startswith("UC") and len(cid) == 24):
         errs.append("channel_id missing/invalid (24 chars, starts with UC; set it in channels/<key>/channel.json)")

@@ -42,7 +42,7 @@ def _find_image(obj):
 
 def generate(prompt: str, out: Path, refs: list[Path] = (), aspect_ratio="1:1", size="1K",
              style: str | None = None) -> Path:
-    """style: None = the old flat-cartoon STYLE line; a string replaces it (e.g. the Kissago Painted block)."""
+    """style: None = the old flat-cartoon STYLE line; a string replaces it (e.g. the Jugnu Painted block)."""
     inputs = [{"type": "text", "text": f"{prompt}\n\n{STYLE if style is None else style}".rstrip()}]
     for ref in refs:
         mime = mimetypes.guess_type(ref)[0] or "image/png"

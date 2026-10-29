@@ -54,6 +54,11 @@ if [ -n "${STORY_SECRETS_B64:-}" ] && [ ! -d secrets ]; then
   printf '%s' "$STORY_SECRETS_B64" | base64 -d | tar -xz -C secrets \
     || { echo "session-start: STORY_SECRETS_B64 could not be unpacked" >&2; rm -rf secrets; }
 fi
+# channel renamed 2026-10-29 (dadi-ki-kahaniyan -> jugnu-stories): an older secrets archive still uses the old key
+if [ -d secrets/dadi-ki-kahaniyan ] && [ ! -d secrets/jugnu-stories ]; then mv secrets/dadi-ki-kahaniyan secrets/jugnu-stories; fi
+if [ -f secrets/youtube_token_dadi-ki-kahaniyan.json ] && [ ! -f secrets/youtube_token_jugnu-stories.json ]; then
+  mv secrets/youtube_token_dadi-ki-kahaniyan.json secrets/youtube_token_jugnu-stories.json
+fi
 
 # 5. Session environment
 if [ -n "${CLAUDE_ENV_FILE:-}" ]; then

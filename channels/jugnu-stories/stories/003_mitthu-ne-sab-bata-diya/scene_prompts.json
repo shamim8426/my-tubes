@@ -1,0 +1,290 @@
+{
+  "_help": "21 images for LONG_02 (story 003). id = first scene number it covers; 'covers' lists all scenes using that image (see script/PLAN.md).",
+  "out_dir": "channels/jugnu-stories/stories/003_mitthu-ne-sab-bata-diya/images",
+  "aspect": "16:9",
+  "ref_files": {
+    "raghu": "channels/jugnu-stories/stories/003_mitthu-ne-sab-bata-diya/characters/raghu_sheet.png",
+    "gupta": "channels/jugnu-stories/stories/003_mitthu-ne-sab-bata-diya/characters/gupta_sheet.png",
+    "sona": "channels/jugnu-stories/stories/003_mitthu-ne-sab-bata-diya/characters/sona_sheet.png",
+    "raju": "channels/jugnu-stories/stories/002_sharma-ji-ki-cycle/images/scene_04.png",
+    "gate": "channels/jugnu-stories/stories/002_sharma-ji-ki-cycle/images/scene_01.png",
+    "aangan": "channels/jugnu-stories/brand/_work/banner_art.png",
+    "aangan_house": "channels/jugnu-stories/stories/003_mitthu-ne-sab-bata-diya/refs/aangan_house.png"
+  },
+  "looks": {
+    "dadi": "Dadi: Indian grandmother ~70, round face, white hair bun, round golden spectacles, light green saree with yellow border, gold bangles, wooden walking stick, small red bindi",
+    "golu": "Golu: CHUBBY Indian boy ~10 with a round face, messy black hair, yellow T-shirt, blue half-pants, white socks, red shoes",
+    "mitthu": "Mitthu: green parrot with a red beak and a thin red neck ring (a bird: wings, no hands)",
+    "pandey": "Inspector Pandey: plump ~45-year-old police inspector, khaki uniform, thick black moustache, cap",
+    "sharma": "Sharma ji: mid-50s neighbour, bald with grey side hair, rectangular spectacles, cream kurta-pyjama, brown sleeveless jacket",
+    "raghu": "Raghu the new milkman: slim ~25-year-old, short neat black hair, blue-and-white check shirt, khaki trousers, a GREEN bicycle with two steel milk cans",
+    "gupta": "Mrs. Gupta: plump ~50-year-old neighbour, big hair bun, maroon bindi, gold bangles, PINK saree with a thin gold border",
+    "sona": "Sona: a golden-orange tabby cat with white paws, green eyes and a small green collar with a tiny golden bell — always calm and happy",
+    "raju": "Raju the chaiwala: ~35, small moustache, brown half-sleeve shirt, apron, black sooty kettle at his tea stall"
+  },
+  "base": "16:9 landscape scene for a family-friendly Hindi comedy cartoon set in Gulmohar Mohalla, a small Indian neighbourhood with narrow lanes, colourful houses and orange-flowered gulmohar trees, flat 2D cartoon, thick bold black outlines, warm colours, flat cel shading, bright morning light. Mitthu is a bird: he only flies, perches, flaps and talks — he never holds anything and has no hands. No text, signs, letters or numbers anywhere (not even on the gate, the diary or shop boards).",
+  "scenes": [
+    {
+      "id": 1,
+      "covers": [
+        1,
+        8
+      ],
+      "refs": [
+        "mitthu",
+        "gate"
+      ],
+      "prompt": "{mitthu} flies above the rooftops of Gulmohar Mohalla with his wings spread wide and his beak wide open, shouting excitedly. Below him the lane, Sharma ji's red iron gate and an orange gulmohar tree (as in the location reference). Mitthu is big and in the upper-left third of the frame; dynamic, funny."
+    },
+    {
+      "id": 2,
+      "covers": [
+        2
+      ],
+      "refs": [
+        "sharma",
+        "gate"
+      ],
+      "prompt": "Morning outside {sharma}'s house near his red iron gate. He bends down and places a small steel katori of milk on the bottom step of the narrow outdoor stairs that lead up to the flat roof; a few steps above, a steel thali with flour is drying in the sun on one step. He looks affectionate. No cat in this picture."
+    },
+    {
+      "id": 3,
+      "covers": [
+        3
+      ],
+      "refs": [
+        "sona",
+        "sharma"
+      ],
+      "prompt": "Close-up of {sona} happily lapping milk from the small steel katori on the bottom step of the stairs; in the background, slightly out of focus, {sharma} smiles fondly and calls her. Cosy and sweet."
+    },
+    {
+      "id": 4,
+      "covers": [
+        4
+      ],
+      "refs": [
+        "raghu",
+        "sharma",
+        "gate"
+      ],
+      "prompt": "{raghu} has just arrived at Sharma ji's red iron gate on his green bicycle with two steel milk cans and waves hello with a friendly smile; {sharma} greets him at the gate, a little surprised to see a new face."
+    },
+    {
+      "id": 5,
+      "covers": [
+        5
+      ],
+      "refs": [
+        "mitthu",
+        "gate"
+      ],
+      "prompt": "{mitthu} perches on top of Sharma ji's red iron gate with his wings folded, head tilted to one side, listening very carefully with one eye wide open — curious and funny. The orange gulmohar tree behind him."
+    },
+    {
+      "id": 6,
+      "covers": [
+        6,
+        7
+      ],
+      "refs": [
+        "sharma",
+        "mitthu",
+        "scene:2"
+      ],
+      "prompt": "{sharma} stands at the bottom of the roof stairs looking at the half-empty steel katori of milk, both hands on his head, very worried, calling out; a few small milk drops lead up the steps. {mitthu} sits on the red gate in the background, beak open, repeating what he hears. Same place as in the earlier scene reference."
+    },
+    {
+      "id": 9,
+      "covers": [
+        9,
+        10
+      ],
+      "refs": [
+        "mitthu",
+        "raju"
+      ],
+      "prompt": "Raju's chai stall at the corner of the lane (as in the Raju reference image: brown shirt, apron, black sooty kettle). {mitthu} flies low over the stall, wings flapping, beak open, shouting; {raju} looks up shocked with the kettle in his hand, and two customers with glasses of chai stare up open-mouthed. Exactly TWO customers at the stall: a young man in a green shirt and a young woman in a salwar-kameez. NO old man, NO bald man, nobody who looks like Sharma ji (he is at home)."
+    },
+    {
+      "id": 11,
+      "covers": [
+        11
+      ],
+      "refs": [
+        "gupta"
+      ],
+      "prompt": "{gupta} on the small balcony of her pink house overlooking the lane, both hands on her cheeks, eyes and mouth wide open in dramatic shock ('Hai Ram!'); a few drying clothes on a line behind her. Funny and theatrical."
+    },
+    {
+      "id": 12,
+      "covers": [
+        12
+      ],
+      "refs": [
+        "gupta",
+        "raju",
+        "scene:9"
+      ],
+      "prompt": "At Raju's chai stall: {gupta} leans in close and whispers gossip with a hand beside her mouth, eyes wide; {raju} leans in to listen, kettle forgotten in his hand. Same stall as in the earlier scene reference. Comic gossip mood."
+    },
+    {
+      "id": 13,
+      "covers": [
+        13
+      ],
+      "refs": [
+        "dadi",
+        "golu",
+        "aangan_house"
+      ],
+      "prompt": "Dadi's swept courtyard (as in the location reference: small mud house with a khaprail clay-tile roof, BROWN wooden door, green fields behind). Only TWO people in the whole picture: {golu} runs in, out of breath and excited, arms waving; and exactly ONE grandmother, {dadi}, sitting calmly on ONE wooden charpai, raising one eyebrow, unconvinced. Draw Dadi only once; there is only one charpai."
+    },
+    {
+      "id": 14,
+      "covers": [
+        14,
+        20
+      ],
+      "refs": [
+        "sharma",
+        "gupta",
+        "raju",
+        "golu",
+        "mitthu",
+        "gate"
+      ],
+      "prompt": "A small curious crowd of neighbours gathered in the lane in front of Sharma ji's red iron gate: {sharma} in the middle looking confused, {gupta} talking animatedly, {raju} with his kettle, {golu} peeking between the grown-ups; {mitthu} flies above the crowd shouting, wings spread. Busy and comic, everyone's faces clearly visible."
+    },
+    {
+      "id": 15,
+      "covers": [
+        15,
+        16
+      ],
+      "refs": [
+        "pandey",
+        "sharma",
+        "gupta",
+        "raju",
+        "gate"
+      ],
+      "prompt": "{pandey} stands importantly in front of Sharma ji's red gate with a whistle in his mouth and a big open diary in his hand, pen ready, very serious, writing a report; {gupta} and {raju} lean towards him dictating eagerly, while {sharma} behind them raises a hand, trying to speak, but nobody listens. The diary pages show only scribbles (no readable text). Comic."
+    },
+    {
+      "id": 17,
+      "covers": [
+        17
+      ],
+      "refs": [
+        "raghu",
+        "gupta",
+        "sharma",
+        "scene:14"
+      ],
+      "prompt": "{raghu} walks back down the lane carrying one steel milk can, puzzled, palms slightly open; the crowd of neighbours by the gate turns to stare at him and whisper behind their hands ({gupta} pointing at him dramatically). No police action. Same lane and crowd as in the earlier scene reference."
+    },
+    {
+      "id": 18,
+      "covers": [
+        18,
+        19,
+        21
+      ],
+      "refs": [
+        "dadi",
+        "pandey",
+        "sharma",
+        "golu",
+        "scene:15"
+      ],
+      "prompt": "{dadi} has walked calmly through the crowd and gently lowers {pandey}'s open diary with the tip of her wooden walking stick, smiling patiently, as if saying 'first ask the right question'; Pandey looks surprised over his moustache; {sharma} and {golu} watch. Dadi's hand is NOT raised — the stick does the talking. Same place as the earlier scene reference. Dadi has only ONE walking stick and uses that same stick to lower the diary; her other hand is empty and relaxed. No second stick anywhere."
+    },
+    {
+      "id": 22,
+      "covers": [
+        22
+      ],
+      "refs": [
+        "scene:2"
+      ],
+      "prompt": "Close-up clue shot at the bottom of the outdoor roof stairs: the small steel katori with milk half drunk, and a trail of small white milk drops going up the stone steps. No people in the frame. Clear, readable clue, warm light."
+    },
+    {
+      "id": 23,
+      "covers": [
+        23
+      ],
+      "refs": [
+        "golu",
+        "dadi",
+        "scene:2"
+      ],
+      "prompt": "On the roof stairs: {golu} crouches and points excitedly at small cat paw prints pressed into the flour drying in a steel thali on one step, and a few floury paw prints going further up the steps; {dadi} bends down beside him with her spectacles, looking closely and nodding. A clear, readable clue."
+    },
+    {
+      "id": 24,
+      "covers": [
+        24
+      ],
+      "refs": [
+        "dadi",
+        "golu",
+        "sharma"
+      ],
+      "prompt": "{dadi}, {golu} and {sharma} tiptoe up the narrow outdoor stairs to the flat roof one behind the other, fingers on lips, curious and a little funny; the edge of the bright roof and the sky above them."
+    },
+    {
+      "id": 25,
+      "covers": [
+        25
+      ],
+      "refs": [
+        "sona",
+        "mitthu"
+      ],
+      "prompt": "On the sunny flat roof next to a warm black water tank: {sona} sleeps peacefully curled up in a patch of sunshine, content and cosy; {mitthu} flies in happily from the side with his wings spread, beak open in joy. Peaceful and sweet, the cat is completely safe and relaxed."
+    },
+    {
+      "id": 26,
+      "covers": [
+        26
+      ],
+      "refs": [
+        "sharma",
+        "sona",
+        "gate"
+      ],
+      "prompt": "On the roof edge, {sharma} gently hugs {sona} to his chest, laughing with relief, the cat purring happily; below in the lane the neighbours look up and laugh together. Warm and funny. The neighbours below are young and middle-aged men, women and children only: NO bald old man with spectacles, NO white-haired old woman. Sharma ji appears only once (on the roof with Sona)."
+    },
+    {
+      "id": 27,
+      "covers": [
+        27,
+        28
+      ],
+      "refs": [
+        "pandey",
+        "gupta",
+        "raghu",
+        "gate"
+      ],
+      "prompt": "In the lane by the red gate: {pandey}, sheepish, tears a page out of his diary; {gupta} folds her hands to {raghu} in an embarrassed apology; {raghu} smiles kindly and waves it off, holding his milk can. Light-hearted ending."
+    },
+    {
+      "id": 29,
+      "covers": [
+        29,
+        30
+      ],
+      "refs": [
+        "dadi",
+        "golu",
+        "mitthu",
+        "sharma",
+        "sona"
+      ],
+      "prompt": "On the flat roof in warm late-morning light: {dadi} gently explains something to {golu}, who nods with a big understanding smile; {mitthu} flaps his wings happily on the roof wall next to them, beak open; in the background {sharma} sits with {sona} curled on his lap. Calm, warm ending."
+    }
+  ]
+}

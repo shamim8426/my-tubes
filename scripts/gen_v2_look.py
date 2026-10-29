@@ -1,4 +1,4 @@
-"""One-off: new cute 'Kissago Painted v2' portraits of all characters (user request 2026-10-22). Run from the repo root."""
+"""One-off: new cute 'Jugnu Painted v2' portraits of all characters (user request 2026-10-22). Run from the repo root."""
 import sys
 from pathlib import Path
 
@@ -7,7 +7,7 @@ from name_guard import find_names  # noqa: E402
 from gemini_image import generate  # noqa: E402
 import story_budget as SB  # noqa: E402
 
-CH = Path("channels/dadi-ki-kahaniyan/characters")
+CH = Path("channels/jugnu-stories/characters")
 OUT = CH / "_v2_look"
 STYLE = ("clean 2D digital illustration with smooth soft cel shading and gentle gradients, thin clean linework, very cute "
          "and beautiful characters with luminous large expressive eyes and bright catchlights, soft rosy blush, glossy hair "

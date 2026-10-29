@@ -114,7 +114,7 @@ At the end of each review, add one line to channels/<key>/log.md with the round 
 - Every new story must differ clearly from all previous stories of the channel in at least 3 of: moral, main conflict/plot shape, setting, lead characters, genre/tone (comedy, mystery, emotional, adventure), ending type.
 - At script stage Munshi compares the new script with every previous story.md in the channel and lists the closest match and what is different. If fewer than 3 differ -> BLOCKER (ASK the user).
 - Titles and thumbnails must not follow one fixed template word-for-word across videos.
-- The channel name suffix (`title_suffix` in channels/<key>/channel.json, e.g. "| किस्सागो") may stay the same in every title — it is branding. The rest of the title (story name, hook, extra keywords) must vary; do not repeat the same keyword block (like "| Hindi Moral Story | Hindi Kahani") in every video. Rotate keywords or put them in tags/description instead.
+- The channel name suffix (`title_suffix` in channels/<key>/channel.json, e.g. "| Jugnu Stories") may stay the same in every title — it is branding. The rest of the title (story name, hook, extra keywords) must vary; do not repeat the same keyword block (like "| Hindi Moral Story | Hindi Kahani") in every video. Rotate keywords or put them in tags/description instead.
 - No two videos may reuse the same narration audio. Shorts cut from their own long video are allowed.
 - Every 5th long video Munshi writes a short "channel variety" note in log.md: genres used, morals used, what to try next.
 
@@ -125,8 +125,8 @@ At the end of each review, add one line to channels/<key>/log.md with the round 
 4. From trends only the topic, mood or hook type may be taken — never a plot, twist, character, specific dialogue or title.
 Munshi: a plot/twist/title too close to a known story or to a video in the latest trends reference list = MAJOR, even with different names.
 
-### 12a. Visual style, copyright and brand (Kissago Painted and any channel style)
-- No studio, film, anime or artist name ANYWHERE: image prompts, file/folder names, titles, descriptions, tags, hashtags, thumbnail text, comments, playlists, community posts. Internally the style is only called by its own name (e.g. "Kissago Painted", `channels/<key>/brand/STYLE_PAINTED.md`). A name found in metadata = upload BLOCK.
+### 12a. Visual style, copyright and brand (Jugnu Painted and any channel style)
+- No studio, film, anime or artist name ANYWHERE: image prompts, file/folder names, titles, descriptions, tags, hashtags, thumbnail text, comments, playlists, community posts. Internally the style is only called by its own name (e.g. "Jugnu Painted", `channels/<key>/brand/STYLE_PAINTED.md`). A name found in metadata = upload BLOCK.
 - Nothing may look like an existing anime/film character, creature, vehicle, building or famous scene. Block list (kept here, never in prompts): a huge furry magical forest creature; small black soot-like creatures; a girl flying on a broom; a masked shadow spirit; a magic cat-shaped bus or any living bus; a bus stop in the rain with an umbrella and a big creature; floating castles or walking castles; giant robots/mecha; famous mascots or cartoon characters of any brand.
 - Only our own characters (Dadi, Golu, Mitthu and the channel bible's characters) and an Indian setting: clothes, faces, homes all Indian.
 - After every image Munshi asks: "Kya ye kisi jaane-maane kirdaar ya scene ki nakal lagti hai?" If yes -> MAJOR (BLOCKER): change the prompt and regenerate once; if it still looks like one, drop that shot (crop/zoom another image). An image that looks like a famous character is never used, even if it was already paid for.
@@ -201,11 +201,11 @@ From story 004, section 15 (production profile) overrides this section where the
   - Any BLOCKER after R2 that can be fixed for free: fix it yourself. One that cannot be fixed for free: handle it the same way (crop/zoom reuse, move the line to another image), never by asking.
 - Final video: Munshi does one final check (R1 only). If no BLOCKER -> upload; publish timing per section 8 (public now or scheduled from the IST clock right after the upload; "rok do" possible before a scheduled time; STUDIO ACTION message while the API is unaudited).
 - Default motion = 2.5D parallax (Depth Anything V2 Small, local, free); artifact par zoom fallback.
-- Story 005 se image style = Kissago Painted; style block aur sheet_painted reference zaroori. (`channels/<key>/brand/STYLE_PAINTED.md` section 1 verbatim at the end of every image prompt, `characters/<name>/sheet_painted.png` as the character reference; `scripts/gen_scenes.py` does both and runs `tools/name_guard.py` on every prompt; section 12a applies.)
+- Story 005 se image style = Jugnu Painted; style block aur sheet_painted reference zaroori. (`channels/<key>/brand/STYLE_PAINTED.md` section 1 verbatim at the end of every image prompt, `characters/<name>/sheet_painted.png` as the character reference; `scripts/gen_scenes.py` does both and runs `tools/name_guard.py` on every prompt; section 12a applies.)
   (`scripts/make_short.py --motion parallax` is the default, `--motion zoom` keeps the old Ken Burns; the guard in `tools/parallax.py` halves the motion or falls back to zoom per shot and logs it in shared/parallax_log.jsonl. Shorts: shots.json "subjects" boxes keep each speaker's face/hands/gesture inside 3-85% of the crop width.)
 
 ## 16. Real stories (channels with "real_stories": true in channel.json; user rule 2026-10-22)
-Applies only to a real/true-stories channel (now the temporary `channels/_new_realstories/`). Kissago's fictional stories
+Applies only to a real/true-stories channel (now the temporary `channels/_new_realstories/`). Jugnu Stories's fictional stories
 are not affected.
 - Research: Khoji (`.claude/agents/khoji.md`) makes `stories/<NNN>_<slug>/research/dossier.md` + `sources.json`: every
   fact has an ID [F#] and at least 2 independent reliable sources (official report, court record, academic paper,

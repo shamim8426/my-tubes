@@ -2,7 +2,7 @@
 
 Free-first (user rule 2026-10-24): GEMINI_API_KEY_FREE (the Noor-e-Raah Google project, no billing) is used ONLY for
 files of the channels in FREE_CHANNELS. Such a call goes to the free key first; on 429 (free quota used up) the same
-request goes straight to the paid GEMINI_API_KEY. Every other channel (Kissago) only ever uses the paid key.
+request goes straight to the paid GEMINI_API_KEY. Every other channel (Jugnu Stories) only ever uses the paid key.
 A free call is logged in cost_log.csv with actual ₹0 and " free" in its size column.
 Only models in FREE_MODELS try the free key: test 2026-10-24 (free key, ₹0): gemini-3.8-flash-tts works;
 gemini-nano-banana-2.1 gives 429 "limit: 0 ... on Free Tier", so images always use the paid key.

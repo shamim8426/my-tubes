@@ -8,7 +8,7 @@ description: Stage-by-stage review checklist for Story-Channel videos (script to
 Use this after every production step of a video in the Story-Channel project. Always read `shared/RULES.md`, then `channels/<key>/RULES.md`, and `channels/<key>/channel_bible.md` first. Verify by opening files yourself; never accept a summary as proof.
 
 ## General method
-1. Identify the video folder (e.g. `channels/dadi-ki-kahaniyan/stories/001_lalchi-halwai/long`) and the stage just finished.
+1. Identify the video folder (e.g. `channels/jugnu-stories/stories/001_lalchi-halwai/long`) and the stage just finished.
 2. List the files the stage produced and confirm each exists, with size and date.
 3. Run the stage checklist below. For every item record what you actually opened or measured.
 4. Decide the verdict: PASS (all verified), FIX (free fix needed), ASK (paid fix, story change, or taste call).
@@ -49,7 +49,7 @@ Use this after every production step of a video in the Story-Channel project. Al
 - Props are period/setting correct (mitti ka chulha, not gas stove).
 
 ### 4. Scene images
-- Lookalike (RULES 12a), every image incl. thumbnails and sheets: "Kya ye kisi jaane-maane kirdaar ya scene ki nakal lagti hai?" Yes -> BLOCKER: new prompt + 1 regen, still yes -> drop the shot (crop/zoom another image); never use such an image even if paid. From story 005: Kissago Painted look (STYLE_PAINTED.md), painted sheets as references, Mitthu's throat plain green.
+- Lookalike (RULES 12a), every image incl. thumbnails and sheets: "Kya ye kisi jaane-maane kirdaar ya scene ki nakal lagti hai?" Yes -> BLOCKER: new prompt + 1 regen, still yes -> drop the shot (crop/zoom another image); never use such an image even if paid. From story 005: Jugnu Painted look (STYLE_PAINTED.md), painted sheets as references, Mitthu's throat plain green.
 - Make or open a contact sheet. Each image: correct characters, matching their sheets; location consistent; the action of the line is visible (who holds what, who is speaking).
 - No garbled AI text in the image, no extra fingers or broken faces in the main subject.
 - 16:9 for long, 9:16 for shorts.

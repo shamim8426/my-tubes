@@ -29,7 +29,7 @@ except Exception:
 
 ROOT = Path(__file__).resolve().parent.parent
 SECRETS = ROOT / "secrets"
-LEGACY = {"dadi-ki-kahaniyan"}  # channels that keep the old shared layout (token untouched)
+LEGACY = {"jugnu-stories"}  # channels that keep the old shared layout (token untouched)
 SCOPES = [
     "https://www.googleapis.com/auth/youtube.upload",
     "https://www.googleapis.com/auth/youtube",

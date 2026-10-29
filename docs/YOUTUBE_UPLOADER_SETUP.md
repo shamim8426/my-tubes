@@ -1,6 +1,6 @@
 # YouTube Uploader — setup record
 
-How the automatic YouTube upload for **किस्सागो | Kissago** (formerly दादी की कहानियाँ; key `dadi-ki-kahaniyan`) is set up, and how to use or rebuild it.
+How the automatic YouTube upload for **Jugnu Stories** (formerly दादी की कहानियाँ; key `jugnu-stories`) is set up, and how to use or rebuild it.
 Set up on 18 Oct 2026. First upload: Long 01 (https://youtu.be/Ogfqow8rbGY).
 
 > No secrets are in this file. `secrets/` and `.env` are never committed.
@@ -11,11 +11,11 @@ Set up on 18 Oct 2026. First upload: Long 01 (https://youtu.be/Ogfqow8rbGY).
 |---|---|---|
 | Upload script | `tools/youtube_upload.py` | yes |
 | Publish steps (for Munshi) | `.claude/skills/youtube-publish/SKILL.md` | yes |
-| Channel settings | `channels/dadi-ki-kahaniyan/channel.json` | yes |
+| Channel settings | `channels/jugnu-stories/channel.json` | yes |
 | Per-video job | `<video folder>/output/upload.json` (written by Munshi) | yes |
 | Upload result | `<video folder>/output/upload_result.json` (video id, URLs) | yes |
 | OAuth client | `secrets/client_secret.json` | **no** (keep a copy in Drive / password manager) |
-| Login token | `secrets/youtube_token_dadi-ki-kahaniyan.json` | **no** (re-created by logging in again) |
+| Login token | `secrets/youtube_token_jugnu-stories.json` | **no** (re-created by logging in again) |
 | Python libs | `google-api-python-client`, `google-auth-oauthlib` (in `requirements.txt`) | yes |
 
 ## 2. Google Cloud settings (project: "Default Gemini Project")
@@ -40,11 +40,11 @@ The app is not verified by Google. That is fine for our own channel: the login s
 (Advanced → Go to Dadi Ki Kahaniyan Uploader). Scopes asked: `youtube.upload` and `youtube.force-ssl` (captions + playlists;
 the script never deletes anything).
 
-## 3. Channel config (`channels/dadi-ki-kahaniyan/channel.json`; the upload script reads it by `channel_key` and stops if the job's channel_id differs)
+## 3. Channel config (`channels/jugnu-stories/channel.json`; the upload script reads it by `channel_key` and stops if the job's channel_id differs)
 
 | Key | Value |
 |---|---|
-| channel_key | `dadi-ki-kahaniyan` |
+| channel_key | `jugnu-stories` |
 | channel_id | `UCy071_4g4vGemktFHybqkhQ` |
 | made_for_kids | `false` (user's final decision: family content) |
 | contains_synthetic_media | `false` |
@@ -69,11 +69,11 @@ the script never deletes anything).
 
 ## 5. How an upload happens
 
-1. Munshi gives PASS for final build, thumbnail, metadata and copyright (logged in `channels/dadi-ki-kahaniyan/log.md`).
+1. Munshi gives PASS for final build, thumbnail, metadata and copyright (logged in `channels/jugnu-stories/log.md`).
 2. Munshi writes `output/upload.json` and runs
    `.venv\Scripts\python tools\youtube_upload.py --job <project>\output\upload.json --dry-run`.
 3. The user sees the summary and says "upload karo" / "ha".
-4. Munshi runs the same command without `--dry-run`, then writes a PUBLISHED line in `channels/dadi-ki-kahaniyan/log.md`.
+4. Munshi runs the same command without `--dry-run`, then writes a PUBLISHED line in `channels/jugnu-stories/log.md`.
 5. Builder runs `tools\sync.ps1 -Message "<project>: uploaded"`.
 
 Still done by hand in YouTube Studio: check the schedule (see 6), pin the comment after publish, end screen,
@@ -90,10 +90,10 @@ says Private, set Schedule by hand. Applying for the audit (free, a few weeks) r
 1. `deploy.ps1` installs Python libs and FFmpeg.
 2. Copy `client_secret.json` from your backup into `secrets/` (or download it again: Google Auth Platform → Clients →
    story-channel-uploader → download).
-3. First upload (or a login test) opens the browser: choose `shamimx.ali@gmail.com`, channel **किस्सागो | Kissago**,
+3. First upload (or a login test) opens the browser: choose `shamimx.ali@gmail.com`, channel **Jugnu Stories**,
    accept the unverified-app warning and both permissions. The token is saved again.
 
-If the login ever stops working: delete `secrets/youtube_token_dadi-ki-kahaniyan.json` and log in again. To remove
+If the login ever stops working: delete `secrets/youtube_token_jugnu-stories.json` and log in again. To remove
 access completely: https://myaccount.google.com/permissions.
 
 ## 8. Adding another channel later

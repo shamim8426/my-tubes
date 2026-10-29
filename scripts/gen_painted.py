@@ -1,4 +1,4 @@
-"""Kissago Painted style test (style migration, own budget "style_migration" ₹35): painted character sheets for
+"""Jugnu Painted style test (style migration, own budget "style_migration" ₹35): painted character sheets for
 Dadi, Golu, Mitthu (old sheets as identity reference) and two test scenes.
 
     python scripts/gen_painted.py sheets [dadi golu mitthu]

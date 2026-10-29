@@ -27,7 +27,7 @@ description: Public-metadata trend research for Hindi kids/moral/family story ch
 2. **General patterns only** (no plot, title wording or thumbnail copied):
    - topics (top 5), hook types, title shape/emotion (length, question vs exclamation, emoji use — described, not
      quoted), thumbnail colour/emotion, length vs views, what worked in Shorts.
-   - what this means for Kissago (our characters, Gulmohar Mohalla, Kissago Painted).
+   - what this means for Jugnu Stories (our characters, Gulmohar Mohalla, Jugnu Painted).
 3. **Reference list (internal only):** title + link of each video looked at — Munshi uses it to check that our plots,
    twists and titles are not too close. This list never goes into any title, description, tag, comment or prompt.
 4. Run `python tools/name_guard.py <file>` on the **patterns part**: no studio/film/anime/artist names there

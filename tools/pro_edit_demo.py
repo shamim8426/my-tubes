@@ -18,7 +18,7 @@ import numpy as np
 
 ROOT = Path(__file__).resolve().parent.parent
 FFMPEG = ROOT / "tools" / "ffmpeg" / "ffmpeg.exe"
-S = ROOT / "channels/dadi-ki-kahaniyan/stories/005_gulmohar-ka-khazana/long/output"
+S = ROOT / "channels/jugnu-stories/stories/005_gulmohar-ka-khazana/long/output"
 WORK = S / "long_04_work"
 SFX = ROOT / "shared/sfx"
 OUT = ROOT / "style_tests/pro_edit"

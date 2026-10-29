@@ -11,9 +11,9 @@ import parallax as P  # noqa: E402
 OUT = ROOT / "style_tests/painted"
 FONT = (ROOT / "shared/fonts/Mukta-Bold.ttf").as_posix().replace(":", r"\:")
 PAIRS = [  # (label, old image, new image, preset, overlays)
-    ("A - shaam ka aangan", ROOT / "channels/dadi-ki-kahaniyan/brand/_work/banner_art.png", OUT / "scene_A.png",
+    ("A - shaam ka aangan", ROOT / "channels/jugnu-stories/brand/_work/banner_art.png", OUT / "scene_A.png",
      "pull_out", [("dust", 0.18, (0.5, 0.6))]),
-    ("B - raat ki chhat", ROOT / "channels/dadi-ki-kahaniyan/stories/004_chhat-par-bhoot/images/scene_16.png",
+    ("B - raat ki chhat", ROOT / "channels/jugnu-stories/stories/004_chhat-par-bhoot/images/scene_16.png",
      OUT / "scene_B.png", "push_in", [("fireflies", 0.22, (0.5, 0.6))]),
 ]
 report, parts = [], []

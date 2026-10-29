@@ -1,7 +1,7 @@
 """Poster-style Short cover (channels/<key>/RULES.md "Short cover"), 1080x1920.
 
 Usage: python scripts/gen_short_cover.py <short folder> [--text-only]
-  reads meta.json "cover": {"label": "किस्सागो जासूस", "title": "सोना चोरी?", "prompt": "...", "refs": ["pandey", ...]}
+  reads meta.json "cover": {"label": "Jugnu Stories", "title": "सोना चोरी?", "prompt": "...", "refs": ["pandey", ...]}
   refs: a character name (story characters/ then channel characters/ <name>_sheet.png) or a path from the project root.
   --text-only: redraw the text on the existing art (free).
 Paid: one Gemini image (9:16, 1K). Checks the story budget (RULES 14) first. Hindi text is drawn here with libass,
@@ -38,7 +38,7 @@ COMPOSITION IS CRITICAL:
 The attached last image is a COMPOSITION and MOOD reference only: do not copy its characters or objects.
 Keep every character EXACTLY as in the attached reference sheets (faces, outfits, colours)."""
 
-# Kissago Painted (story 005+): same composition, painted look; no flat style reference image
+# Jugnu Painted (story 005+): same composition, painted look; no flat style reference image
 LAYOUT_PAINTED = """Vertical 9:16 poster-style cover for a Hindi family Short, NO text or letters anywhere.
 Look: warm painted poster with strong contrast: a deeper sky at the top fading into warm golden light lower down.
 COMPOSITION IS CRITICAL:

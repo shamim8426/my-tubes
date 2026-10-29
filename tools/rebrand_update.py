@@ -2,8 +2,8 @@
 """One-off rebrand: replace the old channel name in already uploaded videos (title, description, tags).
 
 Usage:
-    python tools/rebrand_update.py --channel dadi-ki-kahaniyan              (dry run: read + show old -> new, change nothing)
-    python tools/rebrand_update.py --channel dadi-ki-kahaniyan --apply      (after the user's OK: videos.update)
+    python tools/rebrand_update.py --channel jugnu-stories              (dry run: read + show old -> new, change nothing)
+    python tools/rebrand_update.py --channel jugnu-stories --apply      (after the user's OK: videos.update)
     add --thumb <video_id>=<png> to also set a new custom thumbnail on --apply (not for Shorts)
 
 Reads the videos through the API (videos.list, 1 unit each); --apply calls videos.update (50 units each, snippet only:
@@ -26,16 +26,16 @@ import youtube_upload as yu  # noqa: E402
 # order matters: the full old tagline first, then names and hashtags
 REPLACE = [
     # (b) Case 01: series name in the title, brand at the end
-    ("| दादी की कहानियाँ केस #1 #shorts", "| दादी जासूस केस #1 | किस्सागो #shorts"),
+    ("| दादी की कहानियाँ केस #1 #shorts", "| दादी जासूस केस #1 | Jugnu Stories #shorts"),
     # (c) Case 01: 8 hashtags -> 5 (RULES 7)
     ("#दादीकीकहानियाँ #DadiKiKahaniyan #HindiMystery #पहेली #MysteryShorts #HindiCartoon #DetectiveStory #Shorts",
-     "#Shorts #किस्सागो #दादीजासूस #HindiMystery #पहेली"),
+     "#Shorts #JugnuStories #दादीजासूस #HindiMystery #पहेली"),
     ("दादी की कहानियाँ — दादी हर हफ़्ते सुनाती हैं एक नई कहानी, जो हँसाए भी और सिखाए भी।",
-     "किस्सागो — हर शाम एक नया किस्सा, जो हँसाए भी और सिखाए भी।"),
-    ("#दादीकीकहानियाँ", "#किस्सागो"),
-    ("#DadiKiKahaniyan", "#Kissago"),
-    ("दादी की कहानियाँ", "किस्सागो"),
-    ("Dadi Ki Kahaniyan", "Kissago"),
+     "Jugnu Stories — हर शाम एक नया किस्सा, जो हँसाए भी और सिखाए भी।"),
+    ("#दादीकीकहानियाँ", "#JugnuStories"),
+    ("#DadiKiKahaniyan", "#Jugnu Stories"),
+    ("दादी की कहानियाँ", "Jugnu Stories"),
+    ("Dadi Ki Kahaniyan", "Jugnu Stories"),
 ]
 
 

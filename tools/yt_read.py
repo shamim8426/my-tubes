@@ -23,7 +23,7 @@ except Exception:
 
 ROOT = Path(__file__).resolve().parent.parent
 QUOTA_LOG = ROOT / "channels" / "_new_realstories" / "research" / "yt_quota.log"
-TOKEN_CHANNEL = "dadi-ki-kahaniyan"  # read calls only; the new channel has no token yet
+TOKEN_CHANNEL = "jugnu-stories"  # read calls only; the new channel has no token yet
 MAX_SEARCHES_PER_DAY = 10
 
 
