@@ -125,7 +125,9 @@ econcile_balance.py <AI Studio balance ₹>` (pehli baar checkpoint), Long 03 ke
 - `.claude/hooks/session-start.sh` khud setup karta hai (sirf cloud me): `.venv` (Linux; `.venv/Scripts/python` bhi chalta hai, isliye upar ke commands `/` ke saath wahi rehte hain), fonts, depth model, `secrets/`.
 - API keys environment variables se aati hain (`GEMINI_API_KEY` waghaira, .env ki zaroorat nahi). `secrets/` folder env var `STORY_SECRETS_B64` (secrets/ ka tar.gz, base64) se banta hai.
 - Network me `huggingface.co` allowed na ho to depth model nahi aata: tab build `--motion zoom` se. Freesound/Pixabay bhi network allow list me chahiye.
-- Sync: `bash tools/sync.sh "<project>: <milestone>"` (powershell nahi). Windows ke scheduled tasks / SessionEnd hook cloud me nahi chalte.
+- PC aur cloud dono ek hi `main` branch par kaam karte hain (user 2026-10-29): cloud me bhi kaam `main` par, koi alag branch nahi. Session shuru hote hi hook `main` ko fast-forward pull karta hai (dono jagah).
+- Ek waqt me ek hi jagah kaam karo (PC ya cloud); jagah badalne se pehle sync. Dono jagah ek saath paid stage kabhi nahi (cost_log.csv / state lock sirf ek machine ke andar kaam karte hain).
+- Sync: `bash tools/sync.sh "<project>: <milestone>"` (powershell nahi). Session band hone par `tools/session_end_cloud.sh` apne aap sync karta hai; Windows ke scheduled tasks cloud me nahi chalte.
 - Cloud me banayi files session ke saath mit jaati hain: har milestone par sync zaroori.
 
 ## GitHub sync

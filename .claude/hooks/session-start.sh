@@ -4,11 +4,17 @@
 # Windows-style commands in CLAUDE.md and settings.json work here too), fonts, depth model, secrets.
 set -euo pipefail
 
+cd "${CLAUDE_PROJECT_DIR:-.}"
+
+# Both PC and cloud: bring in work pushed from the other place. Only on main with a clean tree, fast-forward only
+# (never a merge or conflict); offline or diverged = skipped, sync.ps1 / sync.sh rebase later as before.
+if [ "$(git branch --show-current 2>/dev/null)" = "main" ] && [ -z "$(git status --porcelain 2>/dev/null)" ]; then
+  timeout 60 git pull -q --ff-only origin main >/dev/null 2>&1 || echo "session-start: git pull skipped (offline or diverged)" >&2
+fi
+
 if [ "${CLAUDE_CODE_REMOTE:-}" != "true" ]; then
   exit 0
 fi
-
-cd "${CLAUDE_PROJECT_DIR:-.}"
 
 # 1. Python packages: only when requirements.txt or this script changed since the last good install
 hashes=.venv/.session-start.sha256
