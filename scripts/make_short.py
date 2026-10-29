@@ -6,6 +6,7 @@ Usage:  python scripts/make_short.py <case> [--preview | --final] [--spend]
           --spend              allow paid TTS for lines not in the cache (otherwise the build stops and shows the cost)
           --motion parallax    (default) 2.5D parallax, tools/parallax.py (guard: halved motion / zoom fallback)
           --motion zoom        the old Ken Burns moves
+          --no-edit            ignore edit_plan.json (the Sampadak's finishing edit, tools/edit_fx.py)
 Needs:  a video folder with project.json (channels/<key>/stories/<story>/long or .../shorts/short_XX_<slug>)
         + lines.json, meta.json, shots.json; story-level images/scene_XX.png, audio/, scene_prompts.json
 
@@ -38,6 +39,7 @@ from paths import FONTS_DIR, MUSIC_DIR, REGISTER, ROOT, SFX_DIR, channel_of, sto
 
 sys.path.insert(0, str(ROOT / "tools"))
 import parallax as PX  # noqa: E402  (2.5D parallax, Depth Anything V2 Small on CPU; torch loads only when needed)
+import edit_fx as FX  # noqa: E402  (Sampadak finishing edit, only when the video folder has edit_plan.json)
 
 PARALLAX_VERSION = 2  # bump when tools/parallax.py rendering changes, to invalidate parallax clips
 #                      (2: cubic sub-pixel sampling, zoom 1.00->1.07 + 4% pans eased; 2026-10-25, no shake)
@@ -634,9 +636,10 @@ def leading_silence(f) -> float:
     return float(m.group(2)) if m and float(m.group(1)) <= 0.05 else 0.0
 
 
-def build_audio(voice, total, events, meta, work: Path, two_pass: bool, below_db: float):
+def build_audio(voice, total, events, meta, work: Path, two_pass: bool, below_db: float, extras=()):
     """Voice + music (one track, or a track per mood with crossfades) at a fixed level under the voice + stings;
-    music muted in any music_silent window. Also writes music.wav (music stem) for the level check."""
+    music muted in any music_silent window. Also writes music.wav (music stem) for the level check.
+    extras: edit_plan sound design [(file, start s, dB below voice, loop)] (tools/edit_fx.py audio_extras)."""
     v_lufs = integrated_lufs(voice)
     segs = music_segments(events, meta, total)
     lufs_of = {}
@@ -676,7 +679,16 @@ def build_audio(voice, total, events, meta, work: Path, two_pass: bool, below_db
         fc.append(f"[{n_in + k}:a]aresample=48000,aformat=channel_layouts=stereo,volume={gain:.2f}dB,"
                   f"adelay={ms}|{ms}[s{k}]")
         mix_in += f"[s{k}]"
-    fc.append(f"{mix_in}amix=inputs={2 + len(events['sfx'])}:duration=first:normalize=0[out]")
+    n_in += len(events["sfx"])
+    for k, (f, at, below, loop) in enumerate(extras):
+        gain = v_lufs - below - integrated_lufs(f, 60)
+        inputs += (["-stream_loop", "-1"] if loop else []) + ["-i", f]
+        ms = int(at * 1000)
+        shape = f"atrim=0:{total:.3f},afade=t=in:d=1.5,afade=t=out:st={max(0.0, total - 1.5):.2f}:d=1.5," if loop else ""
+        fc.append(f"[{n_in + k}:a]aresample=48000,aformat=channel_layouts=stereo,{shape}volume={gain:.2f}dB,"
+                  f"adelay={ms}|{ms}[x{k}]")
+        mix_in += f"[x{k}]"
+    fc.append(f"{mix_in}amix=inputs={2 + len(events['sfx']) + len(extras)}:duration=first:normalize=0[out]")
     mix = work / "mix.wav"
     run([FFMPEG, "-y", *inputs, "-filter_complex", ";".join(fc), "-map", "[out]", "-t", f"{total:.3f}", mix,
          "-map", "[mstem]", "-t", f"{total:.3f}", work / "music.wav"])
@@ -853,6 +865,7 @@ def main():
     ap.add_argument("--seconds", type=float, help="preview only the first N seconds (quick test render)")
     ap.add_argument("--motion", choices=["parallax", "zoom"], default="parallax",
                     help="parallax (default, 2.5D, RULES 15) or zoom (the old Ken Burns moves)")
+    ap.add_argument("--no-edit", action="store_true", help="ignore edit_plan.json (build without the finishing edit)")
     a = ap.parse_args()
     mode = "final" if a.final else "preview"
     if a.seconds and mode == "final":
@@ -879,6 +892,10 @@ def main():
     if missing:
         sys.exit(f"Missing scene images: {missing}")
     check_register(meta)
+    edit_plan = None if a.no_edit else FX.load(P["dir"] / "edit_plan.json")
+    if edit_plan:  # its sound files are assets like any other (RULES section 10)
+        for s in edit_plan.get("sfx", []) + ([edit_plan["ambience"]] if edit_plan.get("ambience") else []):
+            register_row(SFX_DIR / s["file"])
     if a.plan:
         plan_report(P, lines, meta)
         return
@@ -924,14 +941,24 @@ def main():
     plans = plan_scenes(P, timed, total, prof, font_family, meta.get("final_title", "बताओ, दोषी कौन?"),
                         meta.get("final_title_secs"), meta.get("caption_from", 0.0), a.motion, meta.get("overlays"))
     cached, new = build_video(plans, prof, cache_dir, work)
+    video, extras = "video.mp4", []
+    if edit_plan:  # Sampadak's finishing edit (tools/edit_fx.py): one extra encode of the joined video
+        R = FX.resolve(edit_plan, timed, [(p["scene"], p["t0"]) for p in plans], total, P["burn"])
+        shutil.copy(FONTS_DIR / "Mukta-Bold.ttf", work / "fonts" / "Mukta-Bold.ttf")
+        FX.finish_video(FFMPEG, work / "video.mp4", work / "video_edit.mp4", R, prof, work)
+        extras = FX.audio_extras(edit_plan, timed, SFX_DIR, total)
+        video = "video_edit.mp4"
+        print(f"  edit_plan: grade {R['grade']}, {len(R['cuts'])} transitions, {len(R['punches'])} punch-ins, "
+              f"{len(R['shakes'])} shakes, {len(R['texts'])} texts, {len(extras)} sound accents"
+              + "".join(f"\n  edit_plan NOTE: {x}" for x in R["notes"]))
 
     print("3/4 audio")
     norm = build_audio(voice, total, events, meta, work, two_pass=(mode == "final"),
-                       below_db=meta.get("music_below_db", MUSIC_BELOW_VOICE_DB[P["kind"]]))
+                       below_db=meta.get("music_below_db", MUSIC_BELOW_VOICE_DB[P["kind"]]), extras=extras)
 
     print("4/4 mux (video stream copied, no re-encode)")
     out = out_dir / (f"{case}.mp4" if mode == "final" else f"{case}_preview.mp4")
-    run([FFMPEG, "-y", "-i", "video.mp4", "-i", norm, "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-ar", 48000,
+    run([FFMPEG, "-y", "-i", video, "-i", norm, "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-ar", 48000,
          "-shortest", "-movflags", "+faststart", out], cwd=work)
     report = ""
     if not a.seconds:  # every video gets an .srt (RULES section 4), also Shorts with burned captions

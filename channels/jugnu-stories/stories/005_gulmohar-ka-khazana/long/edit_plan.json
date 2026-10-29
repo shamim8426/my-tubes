@@ -1,0 +1,55 @@
+{
+  "_note": "Pilot edit (Sampadak, 2026-10-29): look of tools/pro_edit_demo.py moved to line anchors. Line numbers = builder's 1-based lines.",
+  "grade": "warm_story",
+  "vignette": 0.22,
+  "grain": 3.0,
+  "light_leak": [[4, 33]],
+  "transitions": {
+    "default": "cut",
+    "scenes": {"5": "whip", "6": "whip", "8": "whip", "9": "whip", "11": "whip", "15": "whip", "14": "dip", "16": "dip"}
+  },
+  "punch_ins": [
+    {"line": 2, "offset": 0.0, "dur": 3.4, "zoom": 1.10, "x": 0.5, "y": 0.45},
+    {"line": 13, "offset": 0.0, "dur": 3.4, "zoom": 1.14, "x": 0.55, "y": 0.4},
+    {"line": 33, "offset": 1.6, "dur": 1.4, "zoom": 1.12, "x": 0.5, "y": 0.5},
+    {"line": 44, "offset": 0.0, "dur": 1.7, "zoom": 1.12, "x": 0.5, "y": 0.45}
+  ],
+  "shake": [{"line": 13, "offset": 0.0, "dur": 0.55}],
+  "texts": [
+    {"line": 4, "offset": 0.0, "dur": 4.0, "style": "title", "text": "गुलमोहर मोहल्ले का खज़ाना"},
+    {"line": 5, "offset": 0.1, "dur": 2.6, "style": "tag", "text": "तारा"},
+    {"line": 6, "offset": 0.0, "dur": 5.7, "style": "note", "text": "गुलमोहर से सात कदम, पूरब की ओर चलो।\\Nजहाँ पानी गीत गाए, वहाँ रुककर सुनो।"},
+    {"line": 7, "offset": 0.0, "dur": 5.9, "style": "note", "text": "दो दीवारों के बीच, जहाँ बड़ा हाथ न जाए...\\Nवहीं छुपा है खज़ाना, जो दोस्ती निभाए।"},
+    {"line": 8, "offset": 0.1, "dur": 2.6, "style": "tag", "text": "टिंकू"},
+    {"line": 9, "offset": 0.1, "dur": 1.8, "style": "tag", "text": "मिट्ठू"},
+    {"line": 12, "offset": 0.0, "dur": 0.75, "style": "pop", "text": "1", "pos": [0.78, 0.3]},
+    {"line": 12, "offset": 0.81, "dur": 0.95, "style": "pop", "text": "2", "pos": [0.81, 0.3]},
+    {"line": 12, "offset": 1.84, "dur": 0.65, "style": "pop", "text": "3", "pos": [0.84, 0.3]},
+    {"line": 12, "offset": 2.54, "dur": 1.5, "style": "pop", "text": "7!", "pos": [0.86, 0.3]},
+    {"line": 13, "offset": 0.4, "dur": 2.6, "style": "tag", "text": "पांडे जी"},
+    {"line": 24, "offset": 0.0, "dur": 2.7, "style": "note", "text": "जहाँ पानी गीत गाए..."},
+    {"line": 26, "offset": 0.0, "dur": 2.2, "style": "note", "text": "जहाँ बड़ा हाथ न जाए..."},
+    {"line": 39, "offset": 0.2, "dur": 2.6, "style": "tag", "text": "दादी"}
+  ],
+  "sfx": [
+    {"line": 2, "offset": -0.1, "file": "paper_353125.mp3", "below_db": 14},
+    {"line": 4, "offset": -0.1, "file": "magic_376747.mp3", "below_db": 16},
+    {"line": 6, "offset": -0.2, "file": "paper_353125.mp3", "below_db": 16},
+    {"line": 11, "offset": -0.2, "file": "whoosh_803771.mp3", "below_db": 18},
+    {"line": 12, "offset": 0.0, "file": "magic_376745.mp3", "below_db": 20},
+    {"line": 12, "offset": 0.81, "file": "magic_376745.mp3", "below_db": 20},
+    {"line": 12, "offset": 1.84, "file": "magic_376745.mp3", "below_db": 20},
+    {"line": 12, "offset": 2.54, "file": "magic_376747.mp3", "below_db": 15},
+    {"line": 13, "offset": -0.2, "file": "whoosh_142348.mp3", "below_db": 16},
+    {"line": 14, "offset": 0.3, "file": "run_816792.mp3", "below_db": 12},
+    {"line": 15, "offset": -0.2, "file": "whoosh_803771.mp3", "below_db": 18},
+    {"line": 17, "offset": -0.2, "file": "whoosh_803771.mp3", "below_db": 18},
+    {"line": 24, "offset": 0.0, "file": "magic_376747.mp3", "below_db": 18},
+    {"line": 25, "offset": -0.2, "file": "whoosh_803771.mp3", "below_db": 18},
+    {"line": 27, "offset": 0.0, "file": "tension_sting_578351.mp3", "below_db": 16},
+    {"line": 33, "offset": 1.6, "file": "magic_376747.mp3", "below_db": 15},
+    {"line": 41, "offset": -0.2, "file": "whoosh_803771.mp3", "below_db": 18},
+    {"line": 44, "offset": 0.0, "file": "comedy_sting_731261.mp3", "below_db": 15}
+  ],
+  "ambience": {"file": "birds_841386.mp3", "below_db": 28}
+}
