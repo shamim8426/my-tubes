@@ -121,6 +121,13 @@ econcile_balance.py <AI Studio balance ₹>` (pehli baar checkpoint), Long 03 ke
   aur "khoji dossier <kahani>" ([F#] tathya, har tathye ke 2+ bharosemand source). Koi paid call nahi, Kissago pipeline nahi chhoota.
 - YouTube look-up sirf `tools/yt_read.py` (read-only, din me max 10 search). Niyam: shared/RULES.md section 16; Kalam REAL STORY MODE, Munshi FACT CHECK.
 
+## Cloud (web) session (Linux, claude.ai/code)
+- `.claude/hooks/session-start.sh` khud setup karta hai (sirf cloud me): `.venv` (Linux; `.venv/Scripts/python` bhi chalta hai, isliye upar ke commands `/` ke saath wahi rehte hain), fonts, depth model, `secrets/`.
+- API keys environment variables se aati hain (`GEMINI_API_KEY` waghaira, .env ki zaroorat nahi). `secrets/` folder env var `STORY_SECRETS_B64` (secrets/ ka tar.gz, base64) se banta hai.
+- Network me `huggingface.co` allowed na ho to depth model nahi aata: tab build `--motion zoom` se. Freesound/Pixabay bhi network allow list me chahiye.
+- Sync: `bash tools/sync.sh "<project>: <milestone>"` (powershell nahi). Windows ke scheduled tasks / SessionEnd hook cloud me nahi chalte.
+- Cloud me banayi files session ke saath mit jaati hain: har milestone par sync zaroori.
+
 ## GitHub sync
 - Har milestone ke baad sync chalao: `powershell -NoProfile -ExecutionPolicy Bypass -File tools\sync.ps1 -Message "<project>: <milestone>"`.
   Milestones: script approved, scene images done, TTS done, final build done, thumbnail done, uploaded (Munshi PUBLISHED ke baad).

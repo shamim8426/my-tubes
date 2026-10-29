@@ -3,12 +3,14 @@
 
     .venv\\Scripts\\python -X utf8 scripts\\noor_thumbnail.py <story> <image id> "<arabic>" "<hindi line>" ["<small line>"]
 """
+import shutil
 import subprocess
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-FF = next(str(p) for p in (ROOT / "tools/ffmpeg/bin/ffmpeg.exe", ROOT / "tools/ffmpeg/ffmpeg.exe") if p.exists())
+FF = next((str(p) for p in (ROOT / "tools/ffmpeg/bin/ffmpeg.exe", ROOT / "tools/ffmpeg/ffmpeg.exe") if p.exists()),
+          None) or shutil.which("ffmpeg")  # Linux / cloud: ffmpeg on PATH
 
 
 def esc(p: Path) -> str:

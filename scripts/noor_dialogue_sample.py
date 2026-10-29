@@ -7,6 +7,7 @@ ducking, gentle breeze -46 LUFS. Output: channels/noor-e-raah/music_samples/dial
 """
 import json
 import re
+import shutil
 import subprocess
 import sys
 import wave
@@ -22,7 +23,8 @@ import pricing  # noqa: E402
 import story_budget  # noqa: E402
 from noor_audition import missing  # noqa: E402
 
-FF = next(str(p) for p in (ROOT / "tools/ffmpeg/bin/ffmpeg.exe", ROOT / "tools/ffmpeg/ffmpeg.exe") if p.exists())
+FF = next((str(p) for p in (ROOT / "tools/ffmpeg/bin/ffmpeg.exe", ROOT / "tools/ffmpeg/ffmpeg.exe") if p.exists()),
+          None) or shutil.which("ffmpeg")  # Linux / cloud: ffmpeg on PATH
 OUT = ROOT / "channels/noor-e-raah/music_samples"
 WORK = OUT / "dialogue_lines"
 VOICES = json.loads((ROOT / "channels/noor-e-raah/channel.json").read_text(encoding="utf-8"))["voices"]

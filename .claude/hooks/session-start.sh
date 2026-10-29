@@ -1,0 +1,55 @@
+#!/bin/bash
+# Story-Channel: Claude Code cloud (web) session setup. Linux only; does nothing on the Windows PC.
+# Python packages -> .venv (with .venv/Scripts/python.exe pointing at the Linux python, so the
+# Windows-style commands in CLAUDE.md and settings.json work here too), fonts, depth model, secrets.
+set -euo pipefail
+
+if [ "${CLAUDE_CODE_REMOTE:-}" != "true" ]; then
+  exit 0
+fi
+
+cd "${CLAUDE_PROJECT_DIR:-.}"
+
+# 1. Python packages: only when requirements.txt or this script changed since the last good install
+hashes=.venv/.session-start.sha256
+if ! sha256sum --check --status "$hashes" 2>/dev/null; then
+  rm -f "$hashes"
+  [ -x .venv/bin/python ] || uv venv -q --seed .venv
+  # torch CPU build if download.pytorch.org is allowed, else the normal PyPI build
+  VIRTUAL_ENV="$PWD/.venv" uv pip install -q torch --index-url https://download.pytorch.org/whl/cpu 2>/dev/null \
+    || echo "session-start: download.pytorch.org not reachable, torch comes from PyPI" >&2
+  VIRTUAL_ENV="$PWD/.venv" uv pip install -q -r requirements.txt
+  sha256sum .claude/hooks/session-start.sh requirements.txt > "$hashes"
+fi
+
+# Windows-style paths used in CLAUDE.md / settings.json (.venv\Scripts\python)
+mkdir -p .venv/Scripts
+for n in python python.exe; do ln -sf ../bin/python ".venv/Scripts/$n"; done
+
+# 2. Fonts (Mukta, Amiri, Rozha One) for ffmpeg/libass captions
+mkdir -p "$HOME/.local/share/fonts"
+cp -u shared/fonts/*.ttf "$HOME/.local/share/fonts/" 2>/dev/null || true
+command -v fc-cache >/dev/null && fc-cache -f "$HOME/.local/share/fonts" >/dev/null 2>&1 || true
+
+# 3. Depth model for 2.5D parallax (ONLY Depth Anything V2 Small, Apache-2.0). Needs huggingface.co allowed.
+if [ ! -f models/depth-anything-v2-small/model.safetensors ]; then
+  .venv/bin/python -c "from huggingface_hub import snapshot_download; snapshot_download('depth-anything/Depth-Anything-V2-Small-hf', local_dir='models/depth-anything-v2-small', allow_patterns=['*.json','*.safetensors','*.md'])" >/dev/null 2>&1 \
+    || echo "session-start: depth model not downloaded (huggingface.co blocked?); until then build with --motion zoom" >&2
+fi
+
+# 4. secrets/ folder from the environment variable STORY_SECRETS_B64 (base64 of a tar.gz of secrets/).
+#    API keys (GEMINI_API_KEY ...) are read straight from environment variables; no .env needed.
+if [ -n "${STORY_SECRETS_B64:-}" ] && [ ! -d secrets ]; then
+  mkdir -p secrets
+  printf '%s' "$STORY_SECRETS_B64" | base64 -d | tar -xz -C secrets \
+    || { echo "session-start: STORY_SECRETS_B64 could not be unpacked" >&2; rm -rf secrets; }
+fi
+
+# 5. Session environment
+if [ -n "${CLAUDE_ENV_FILE:-}" ]; then
+  {
+    echo "export PATH=\"$PWD/.venv/bin:\$PATH\""
+    echo "export PYTHONUTF8=1"
+    echo "export TZ=Asia/Kolkata"
+  } >> "$CLAUDE_ENV_FILE"
+fi

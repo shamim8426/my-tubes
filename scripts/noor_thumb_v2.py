@@ -6,6 +6,7 @@ Paid: 1 image (~₹5), story budget 001_al-fatiha.
 
     .venv\\Scripts\\python -X utf8 scripts\\noor_thumb_v2.py channels/noor-e-raah/stories/001_al-fatiha
 """
+import shutil
 import subprocess
 import sys
 from pathlib import Path
@@ -22,7 +23,8 @@ from name_guard import find_names  # noqa: E402
 from noor_look_test import STYLES  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
-FF = next(str(p) for p in (ROOT / "tools/ffmpeg/bin/ffmpeg.exe", ROOT / "tools/ffmpeg/ffmpeg.exe") if p.exists())
+FF = next((str(p) for p in (ROOT / "tools/ffmpeg/bin/ffmpeg.exe", ROOT / "tools/ffmpeg/ffmpeg.exe") if p.exists()),
+          None) or shutil.which("ffmpeg")  # Linux / cloud: ffmpeg on PATH
 SCENE = ("One powerful symbolic landscape: a vast quiet desert where a deep indigo starry night on the left gives way to a "
          "radiant golden dawn on the right; the sun is just rising on the far right horizon, with soft golden god rays "
          "spreading across the sky like mercy; one single bright, perfectly straight path of warm light runs from the "

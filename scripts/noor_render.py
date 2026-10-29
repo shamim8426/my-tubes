@@ -10,6 +10,7 @@ Output: <story>/long/output/<story>_final.mp4 (+ .srt, timeline.json). --seconds
 import json
 import math
 import re
+import shutil
 import subprocess
 import sys
 import wave
@@ -23,7 +24,8 @@ import numpy as np  # noqa: E402
 import parallax as PX  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
-FF = next(str(p) for p in (ROOT / "tools/ffmpeg/bin/ffmpeg.exe", ROOT / "tools/ffmpeg/ffmpeg.exe") if p.exists())
+FF = next((str(p) for p in (ROOT / "tools/ffmpeg/bin/ffmpeg.exe", ROOT / "tools/ffmpeg/ffmpeg.exe") if p.exists()),
+          None) or shutil.which("ffmpeg")  # Linux / cloud: ffmpeg on PATH
 W, H, FPS, SR = 1920, 1080, 30, 48000
 FONT_AR = ROOT / "shared/fonts/Amiri-Regular.ttf"
 FONT_DIR = ROOT / "shared/fonts"

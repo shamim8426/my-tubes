@@ -3,6 +3,7 @@ Paid images (budget "noor_samples", ₹45 incl. GST, checked before every call).
 
     .venv\\Scripts\\python -X utf8 scripts\\noor_look_test.py
 """
+import shutil
 import subprocess
 import sys
 from pathlib import Path
@@ -16,7 +17,8 @@ from name_guard import find_names  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "channels" / "noor-e-raah" / "samples" / "look_test"
-FF = next(str(p) for p in (ROOT / "tools/ffmpeg/bin/ffmpeg.exe", ROOT / "tools/ffmpeg/ffmpeg.exe") if p.exists())
+FF = next((str(p) for p in (ROOT / "tools/ffmpeg/bin/ffmpeg.exe", ROOT / "tools/ffmpeg/ffmpeg.exe") if p.exists()),
+          None) or shutil.which("ffmpeg")  # Linux / cloud: ffmpeg on PATH
 NO = "no people, no human figures, no animals, no faces, no silhouettes of people, no text, no letters, no calligraphy, no logos, no watermark"
 SCENE = ("A quiet desert night among the hills of 7th-century Arabia: a narrow sandy path winding between dark rocky hills, "
          "a few small clay oil lamps placed along the path glowing warm orange, a sky full of bright stars and the faint "
