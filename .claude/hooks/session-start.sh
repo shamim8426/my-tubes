@@ -25,12 +25,16 @@ if ! sha256sum --check --status "$hashes" 2>/dev/null; then
   VIRTUAL_ENV="$PWD/.venv" uv pip install -q torch --index-url https://download.pytorch.org/whl/cpu 2>/dev/null \
     || echo "session-start: download.pytorch.org not reachable, torch comes from PyPI" >&2
   VIRTUAL_ENV="$PWD/.venv" uv pip install -q -r requirements.txt
+  # study download / trend research (RULES 12c): on the PC these are tools/yt-dlp.exe + tools/deno
+  VIRTUAL_ENV="$PWD/.venv" uv pip install -q -U yt-dlp deno
   sha256sum .claude/hooks/session-start.sh requirements.txt > "$hashes"
 fi
 
 # Windows-style paths used in CLAUDE.md / settings.json (.venv\Scripts\python)
 mkdir -p .venv/Scripts
 for n in python python.exe; do ln -sf ../bin/python ".venv/Scripts/$n"; done
+# tools/yt-dlp.exe as on the PC (git-ignored), so RULES 12c / trend-research commands stay the same
+ln -sf ../.venv/bin/yt-dlp tools/yt-dlp.exe
 
 # 2. Fonts (Mukta, Amiri, Rozha One) for ffmpeg/libass captions
 mkdir -p "$HOME/.local/share/fonts"

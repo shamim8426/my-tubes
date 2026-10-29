@@ -129,6 +129,7 @@ econcile_balance.py <AI Studio balance ₹>` (pehli baar checkpoint), Long 03 ke
 - Ek waqt me ek hi jagah kaam karo (PC ya cloud); jagah badalne se pehle sync. Dono jagah ek saath paid stage kabhi nahi (cost_log.csv / state lock sirf ek machine ke andar kaam karte hain).
 - Sync: `bash tools/sync.sh "<project>: <milestone>"` (powershell nahi). Session band hone par `tools/session_end_cloud.sh` apne aap sync karta hai; Windows ke scheduled tasks cloud me nahi chalte.
 - Cloud me banayi files session ke saath mit jaati hain: har milestone par sync zaroori.
+- Study download / trend research (RULES 12c): hook `yt-dlp` + `deno` lagata hai, `tools/yt-dlp.exe` cloud me bhi chalta hai; network me `www.youtube.com`, `youtube.com`, `*.googlevideo.com`, `i.ytimg.com` chahiye. YouTube sign-in / bot check maange to cloud me RUKO (cookies/login kabhi nahi) aur study PC par karo.
 
 ## GitHub sync
 - Har milestone ke baad sync chalao: `powershell -NoProfile -ExecutionPolicy Bypass -File tools\sync.ps1 -Message "<project>: <milestone>"`.
