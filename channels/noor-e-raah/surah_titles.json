@@ -1,0 +1,72 @@
+{
+ "ayatul-kursi": {
+  "hindi": "आयतुल कुर्सी",
+  "arabic": "آيَةُ ٱلْكُرْسِيِّ",
+  "ayat": 1,
+  "ref": "2:255",
+  "arabic_check": "Munshi: compare with Tanzil (thumbnail + video title card)"
+ },
+ "al-ikhlas": {
+  "hindi": "सूरह अल-इख़लास",
+  "arabic": "سُورَةُ ٱلْإِخْلَاصِ",
+  "ayat": 4,
+  "ref": "112",
+  "arabic_check": "Munshi: compare with Tanzil (thumbnail + video title card)"
+ },
+ "al-falaq": {
+  "hindi": "सूरह अल-फ़लक़",
+  "arabic": "سُورَةُ ٱلْفَلَقِ",
+  "ayat": 5,
+  "ref": "113",
+  "arabic_check": "Munshi: compare with Tanzil (thumbnail + video title card)"
+ },
+ "an-nas": {
+  "hindi": "सूरह अन-नास",
+  "arabic": "سُورَةُ ٱلنَّاسِ",
+  "ayat": 6,
+  "ref": "114",
+  "arabic_check": "Munshi: compare with Tanzil (thumbnail + video title card)"
+ },
+ "al-kafirun": {
+  "hindi": "सूरह अल-काफ़िरून",
+  "arabic": "سُورَةُ ٱلْكَافِرُونَ",
+  "ayat": 6,
+  "ref": "109",
+  "arabic_check": "Munshi: compare with Tanzil (thumbnail + video title card)"
+ },
+ "al-kausar": {
+  "hindi": "सूरह अल-कौसर",
+  "arabic": "سُورَةُ ٱلْكَوْثَرِ",
+  "ayat": 3,
+  "ref": "108",
+  "arabic_check": "Munshi: compare with Tanzil (thumbnail + video title card)"
+ },
+ "al-asr": {
+  "hindi": "सूरह अल-अस्र",
+  "arabic": "سُورَةُ ٱلْعَصْرِ",
+  "ayat": 3,
+  "ref": "103",
+  "arabic_check": "Munshi: compare with Tanzil (thumbnail + video title card)"
+ },
+ "al-fil": {
+  "hindi": "सूरह अल-फ़ील",
+  "arabic": "سُورَةُ ٱلْفِيلِ",
+  "ayat": 5,
+  "ref": "105",
+  "arabic_check": "Munshi: compare with Tanzil (thumbnail + video title card)"
+ },
+ "al-qadr": {
+  "hindi": "सूरह अल-क़द्र",
+  "arabic": "سُورَةُ ٱلْقَدْرِ",
+  "ayat": 5,
+  "ref": "97",
+  "arabic_check": "Munshi: compare with Tanzil (thumbnail + video title card)"
+ },
+ "ad-duha": {
+  "hindi": "सूरह अद-दुहा",
+  "arabic": "سُورَةُ ٱلضُّحَىٰ",
+  "ayat": 11,
+  "ref": "93",
+  "arabic_check": "Munshi: compare with Tanzil (thumbnail + video title card)"
+ }
+}

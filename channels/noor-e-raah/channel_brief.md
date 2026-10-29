@@ -35,10 +35,14 @@ private + STUDIO ACTION while api_audited false.
 Empty — first post-mortem of Al-Fatiha 48 h after it went live.
 
 ## Abhi ki series / plan
+2026-10-30: series_queue.json (10 items, 002-011), then 012 Al-Baqarah 1-5. Demand check: research/surah_demand_2026-10-30.md.
 001 Al-Fatiha uploaded private (kmYyRGdykjY), STUDIO ACTION: schedule 2026-10-25 19:00, thumbnail by hand (v2A/v2B to
 choose), pin comment. Next: 4 Shorts of Al-Fatiha (needs a 9:16 renderer), then 002 Al-Baqarah 1-5.
 
 ## Bade faisle
+- 2026-10-30 (user) Daily series: 10 short, most-searched surahs BEFORE Al-Baqarah, one video a day, auto edit + PRIVATE upload; the user
+  makes it public after watching and asks for updates. No script checkpoint (Munshi reviews). New playlist. Top-up by the user.
+  Thumbnail v3 (Arabic calligraphy + Hindi + hook). Run book: docs/NOOR_DAILY_RUN.md; queue: series_queue.json.
 - 2026-10-24 Format final: no tilawat; saral bhaavarth; two voices.
 - 2026-10-25 Music continuous + swoosh; style a default for 001; Musafir v3; questions max 3-4, 3-3.5 min apart;
   Shorts never cut an ayah; Arabic via libass.
