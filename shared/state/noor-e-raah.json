@@ -1,11 +1,11 @@
 {
  "story": "002_ayatul-kursi",
- "stage": "tts",
+ "stage": "images",
  "status": "done",
- "started": "2026-10-29T20:58:10",
- "finished": "2026-10-29T21:08:19",
- "pid": 2271,
+ "started": "2026-10-29T21:10:34",
+ "finished": "2026-10-29T21:14:16",
+ "pid": 2835,
  "paid": true,
- "cost": "18.72",
+ "cost": "58.6",
  "note": null
 }

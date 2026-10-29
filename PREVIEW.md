@@ -1,6 +1,6 @@
 # Preview — Jugnu Stories
 
-**Budget bacha:** ₹258.13  ·  **Last image:** 2026-10-29 19:54:21
+**Budget bacha:** ₹189.44  ·  **Last image:** 2026-10-29 21:14:09
 
 ## Characters
 
@@ -581,6 +581,54 @@
 ### thumb_v2_surah_scene — ₹4.70 · 2026-10-25 18:50:26
 
 ![thumb_v2_surah_scene](channels/noor-e-raah/stories/001_al-fatiha/images/thumb_v2_surah_scene.png)
+
+### 01_night_stars_dunes — ₹4.11 · 2026-10-29 21:11:34
+
+![01_night_stars_dunes](channels/noor-e-raah/stories/002_ayatul-kursi/images/01_night_stars_dunes.png)
+
+### 02_lamp_on_stone — ₹4.46 · 2026-10-29 21:11:50
+
+![02_lamp_on_stone](channels/noor-e-raah/stories/002_ayatul-kursi/images/02_lamp_on_stone.png)
+
+### 03_madina_dawn_houses — ₹3.72 · 2026-10-29 21:12:01
+
+![03_madina_dawn_houses](channels/noor-e-raah/stories/002_ayatul-kursi/images/03_madina_dawn_houses.png)
+
+### 04_date_palm_path — ₹3.96 · 2026-10-29 21:12:14
+
+![04_date_palm_path](channels/noor-e-raah/stories/002_ayatul-kursi/images/04_date_palm_path.png)
+
+### 05_dawn_horizon — ₹4.32 · 2026-10-29 21:12:29
+
+![05_dawn_horizon](channels/noor-e-raah/stories/002_ayatul-kursi/images/05_dawn_horizon.png)
+
+### 06_oasis_spring — ₹4.22 · 2026-10-29 21:12:44
+
+![06_oasis_spring](channels/noor-e-raah/stories/002_ayatul-kursi/images/06_oasis_spring.png)
+
+### 07_moonlit_rooftops_lamp — ₹4.28 · 2026-10-29 21:13:00
+
+![07_moonlit_rooftops_lamp](channels/noor-e-raah/stories/002_ayatul-kursi/images/07_moonlit_rooftops_lamp.png)
+
+### 08_vast_panorama — ₹4.16 · 2026-10-29 21:13:15
+
+![08_vast_panorama](channels/noor-e-raah/stories/002_ayatul-kursi/images/08_vast_panorama.png)
+
+### 09_lit_door — ₹3.88 · 2026-10-29 21:13:26
+
+![09_lit_door](channels/noor-e-raah/stories/002_ayatul-kursi/images/09_lit_door.png)
+
+### 10_ring_in_desert — ₹4.39 · 2026-10-29 21:13:42
+
+![10_ring_in_desert](channels/noor-e-raah/stories/002_ayatul-kursi/images/10_ring_in_desert.png)
+
+### 11_sunrays_clouds — ₹4.24 · 2026-10-29 21:13:57
+
+![11_sunrays_clouds](channels/noor-e-raah/stories/002_ayatul-kursi/images/11_sunrays_clouds.png)
+
+### 12_bedtime_room_lamp — ₹3.90 · 2026-10-29 21:14:09
+
+![12_bedtime_room_lamp](channels/noor-e-raah/stories/002_ayatul-kursi/images/12_bedtime_room_lamp.png)
 
 ### thumb_scene_a — ₹4.18 · 2026-10-29 19:54:05
 

@@ -686,3 +686,15 @@ timestamp,file,model,size,cost_usd,cost_inr,today_total_inr,remaining_inr,channe
 2026-10-29 21:07:51,channels/noor-e-raah/stories/002_ayatul-kursi/audio/tts/030_ustaad.wav,gemini-3.8-flash-tts,tts 8.3s,0.00188,0.18,19.13,248.42,noor-e-raah,0.19,0.1811,0.03,28,207
 2026-10-29 21:08:05,channels/noor-e-raah/stories/002_ayatul-kursi/audio/tts/057_ustaad.wav,gemini-3.8-flash-tts,tts 8.2s,0.00186,0.18,19.34,248.21,noor-e-raah,0.19,0.1791,0.03,40,204
 2026-10-29 21:08:14,channels/noor-e-raah/stories/002_ayatul-kursi/audio/tts/057_ustaad.wav,gemini-3.8-flash-tts,tts 8.0s,0.00183,0.18,19.55,248.00,noor-e-raah,0.18,0.1765,0.03,40,201
+2026-10-29 21:11:34,channels/noor-e-raah/stories/002_ayatul-kursi/images/01_night_stars_dunes.png,gemini-nano-banana-2.1,1K,0.04262,4.11,24.41,243.14,noor-e-raah,3.26,4.1132,0.74,131,2297
+2026-10-29 21:11:50,channels/noor-e-raah/stories/002_ayatul-kursi/images/02_lamp_on_stone.png,gemini-nano-banana-2.1,1K,0.04621,4.46,29.67,237.88,noor-e-raah,3.26,4.4595,0.80,128,2776
+2026-10-29 21:12:01,channels/noor-e-raah/stories/002_ayatul-kursi/images/03_madina_dawn_houses.png,gemini-nano-banana-2.1,1K,0.03850,3.72,34.05,233.50,noor-e-raah,3.26,3.7153,0.67,142,1745
+2026-10-29 21:12:14,channels/noor-e-raah/stories/002_ayatul-kursi/images/04_date_palm_path.png,gemini-nano-banana-2.1,1K,0.04102,3.96,38.72,228.83,noor-e-raah,3.26,3.9583,0.71,116,2086
+2026-10-29 21:12:29,channels/noor-e-raah/stories/002_ayatul-kursi/images/05_dawn_horizon.png,gemini-nano-banana-2.1,1K,0.04472,4.32,43.82,223.73,noor-e-raah,3.26,4.3159,0.78,131,2577
+2026-10-29 21:12:44,channels/noor-e-raah/stories/002_ayatul-kursi/images/06_oasis_spring.png,gemini-nano-banana-2.1,1K,0.04370,4.22,48.79,218.76,noor-e-raah,3.26,4.2170,0.76,133,2440
+2026-10-29 21:13:00,channels/noor-e-raah/stories/002_ayatul-kursi/images/07_moonlit_rooftops_lamp.png,gemini-nano-banana-2.1,1K,0.04438,4.28,53.85,213.71,noor-e-raah,3.26,4.2824,0.77,140,2529
+2026-10-29 21:13:15,channels/noor-e-raah/stories/002_ayatul-kursi/images/08_vast_panorama.png,gemini-nano-banana-2.1,1K,0.04308,4.16,58.75,208.80,noor-e-raah,3.26,4.1571,0.75,129,2358
+2026-10-29 21:13:26,channels/noor-e-raah/stories/002_ayatul-kursi/images/09_lit_door.png,gemini-nano-banana-2.1,1K,0.04018,3.88,63.33,204.22,noor-e-raah,3.26,3.8773,0.70,136,1970
+2026-10-29 21:13:42,channels/noor-e-raah/stories/002_ayatul-kursi/images/10_ring_in_desert.png,gemini-nano-banana-2.1,1K,0.04548,4.39,68.50,199.05,noor-e-raah,3.26,4.3890,0.79,141,2676
+2026-10-29 21:13:57,channels/noor-e-raah/stories/002_ayatul-kursi/images/11_sunrays_clouds.png,gemini-nano-banana-2.1,1K,0.04399,4.24,73.51,194.04,noor-e-raah,3.26,4.2446,0.76,119,2481
+2026-10-29 21:14:09,channels/noor-e-raah/stories/002_ayatul-kursi/images/12_bedtime_room_lamp.png,gemini-nano-banana-2.1,1K,0.04039,3.90,78.11,189.44,noor-e-raah,3.26,3.8975,0.70,121,2001
