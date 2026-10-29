@@ -3,4 +3,4 @@
 | Channel | Story | Stage | Status | Since | Cost ₹ | Last error |
 |---|---|---|---|---|---|---|
 | jugnu-stories | 007_bachchon-ki-adalat | status | done | 2026-10-25T22:55:11 | 0 | - |
-| noor-e-raah | 002_ayatul-kursi | edit | done | 2026-10-29T21:42:07 | 0 | - |
+| noor-e-raah | 002_ayatul-kursi | build_long | done | 2026-10-29T22:22:53 | 0 | - |

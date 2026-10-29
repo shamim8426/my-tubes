@@ -276,9 +276,9 @@ def build_audio(story, tl, out_dir, seconds):
           "[1][vk]sidechaincompress=threshold=0.03:ratio=3:attack=20:release=400[m];"
           "[v][m][2]amix=inputs=3:normalize=0[o]")
     run(["-i", str(vfile), "-i", str(mfile), "-i", str(afile), "-filter_complex", fc, "-map", "[o]", "-ar", str(SR), str(mix)])
-    final = out_dir / "_audio_final.wav"
+    final = out_dir / "_audio_final.wav"  # limit 0.77 (-2.3 dB): true peak after AAC stayed -0.7 dBFS with 0.84 on story 002
     g = TARGET_LUFS - lufs_file(mix)
-    run(["-i", str(mix), "-af", f"volume={g:.2f}dB,alimiter=limit=0.84:level=false", "-ar", str(SR), str(final)])
+    run(["-i", str(mix), "-af", f"volume={g:.2f}dB,alimiter=limit=0.77:level=false", "-ar", str(SR), str(final)])
     return final
 
 

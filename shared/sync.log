@@ -169,3 +169,4 @@
 2026-10-30 02:40:11  pushed: noor 002: trim script to 5:32 after real TTS; free-first images in noor_build (branch main)
 2026-10-30 02:44:40  pushed: noor 002: 12 scene images (paid fallback after free quota), cost log (branch main)
 2026-10-30 03:12:07  pushed: noor: fix long-ayah layout in noor_render; 002 edit plan (branch main)
+2026-10-30 03:55:31  pushed: noor 002: final video 5:32 (true peak fixed), limiter 0.77 in noor_render (branch main)
