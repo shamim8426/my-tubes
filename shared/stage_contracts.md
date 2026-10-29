@@ -20,7 +20,7 @@ stage, Munshi needed yes/no. Long logs go to files, never into the report.
 | edit | no | 20 min | Sampadak agent: `<video folder>/edit_plan.json` + `review/edit_notes.md`; follows `channels/<key>/brand/EDIT_STYLE.md`; a 30-40 s test build ran; no paid call, no change of length/lines (Sampadak is called by the Sanchalak, not by the Kaarigar) | yes (edit) |
 | build_long | no | 60 min | long/output/<story>_final.mp4 (no .part.mp4 left), 1920x1080 30 fps H.264+AAC, ~-14 LUFS; .srt | yes (final) |
 | build_short | no | 30 min | shorts/<short>/output/*.mp4 1080x1920, ≤ channel max length; Noor: last ayah complete (RULES 2b) | yes (final) |
-| thumbnail | maybe (1 image) | 15 min | 1280x720 ≤ 2 MB; Arabic/Hindi via libass (Noor); no AI text | yes (thumbnail) |
+| thumbnail | maybe (1 image) | 15 min | 1280x720 ≤ 2 MB; Noor: `scripts/noor_thumb_v3.py` (Arabic Aref Ruqaa via Pillow+raqm, Hindi/hook via libass, never drawtext); no AI-drawn text | yes (thumbnail) |
 | upload | no | 30 min | only after Munshi PASS + the user's OK (or auto mode where allowed); upload_result.json with video_id; private + STUDIO ACTION while api_audited is false | Munshi does it |
 | comments | no | 10 min | scheduled comment task exists or comment_id saved | no |
 | sync | no | 10 min | tools/sync.ps1 line "pushed" in shared/sync.log; no secret staged | no |

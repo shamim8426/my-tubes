@@ -35,3 +35,12 @@ Rules live in `channels/noor-e-raah/RULES.md` (sections 1c, 2, 2a); this file re
 - Music continuous through the video (Soaring / Quietude / River Flute), ~19 LU under the voice; a soft swoosh as each
   ayah comes in; ambience by mood (RULES 1c).
 - Camera moves: eased, sub-pixel (tools/parallax.py), zoom 1.00→1.07 or ~4% pan, one move per 6-8 s.
+
+## 5. Thumbnail (v3, 2026-10-30; `scripts/noor_thumb_v3.py`)
+- Arabic surah name: Aref Ruqaa Bold (calligraphy, OFL), drawn with Pillow + libraqm (HarfBuzz) as gold with glow; NOT by
+  libass because this ffmpeg's libass cannot shape Aref Ruqaa (tofu boxes). Never ffmpeg drawtext, never AI-drawn letters.
+  Video text stays libass + Amiri (section 4). `--arabic amiri` = the old libass path. The Arabic string comes from
+  `surah_titles.json` / Tanzil names and is checked by Munshi (thumbnail stage).
+- Hindi name + hook line + chip: libass (Mukta ExtraBold). Hook = one short, true, respectful line; "*word*" in yellow.
+  No fear, no false promise, no "ban/halal/haram" claims, no person image. YouTube's time stamp covers the bottom-right.
+- Three layouts (A left column, B centred, C hook-first); Nigraan compares CTR later (learnings.md).
