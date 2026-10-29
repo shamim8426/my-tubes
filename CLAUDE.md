@@ -137,3 +137,5 @@ econcile_balance.py <AI Studio balance ₹>` (pehli baar checkpoint), Long 03 ke
 - Session band hone par hook aur raat 11:30 ka task apne aap sync karte hain.
 - Sync log: `shared/sync.log`. Koi ERROR dikhe to mujhe batao.
 - Secrets (.env, secrets/) kabhi repo me nahi jaate; sync.ps1 aisa hone par ruk jaata hai.
+- Commit message (user 2026-10-29, PC + cloud): hamesha simple English, chhota, `<area>: <what changed>` (jaise `nigraan: analytics fetch`, `kissago 006: scene images done`); Hinglish nahi.
+- Cloud ke baad PC par sync + jaanch: `docs/PC_SYNC_AFTER_CLOUD.md`.
