@@ -144,6 +144,7 @@
 2026-10-27 20:25:41  pushed: RULES 12a/12b/12c: only hard copyright/legal/YouTube-policy rules; learning style/pacing/structure/topics/folk tales allowed  (repo pack size 337 MB)
 2026-10-27 20:29:57  pushed: revert broad 12a/12b change; loosen ONLY study-download rules (12c) to hard copyright/ToS rules  (repo pack size 337 MB)
 2026-10-27 23:30:44  pushed: nightly sync  (repo pack size 337 MB)
+2026-10-28 23:30:55  pushed: nightly sync  (repo pack size 337 MB)
 2026-10-29 21:16:59  pushed: cloud: network allow list in CLAUDE.md (branch main)
 2026-10-29 22:01:16  pushed: nigraan: analytics fetch 2026-10-29 (cloud) (branch main)
 2026-10-29 22:01:42  pushed: cloud: sync.sh keeps sync.log in the same commit (branch main)
