@@ -131,7 +131,7 @@
    "reuse_id": "10_ring_in_desert",
    "rect": {
     "fx": 0.5,
-    "fy": 0.68,
+    "fy": 0.72,
     "zc": 1.7
    },
    "_note": "line 45 (the ring example): zoom on the small ring in the lower middle; Munshi/builder to adjust fx/fy after seeing the real image"
@@ -174,7 +174,13 @@
    "start": {
     "line": 59
    },
-   "prompt": "A simple empty bed with a pillow and a folded blanket on a mud floor next to a small window showing a starry night, a small oil lamp glowing softly on the floor, a calm bedtime mood. Wide 16:9. No people, no text, no writing."
+   "prompt": "A simple empty bed with a pillow and a folded blanket on a mud floor next to a small window showing a starry night, a small oil lamp glowing softly on the floor, a calm bedtime mood. Wide 16:9. No people, no text, no writing.",
+   "rect": {
+    "fx": 0.75,
+    "fy": 0.5,
+    "zc": 1.55
+   },
+   "_note": "Munshi images R1 BLOCKER: the lamp in this image is a glass-chimney lamp (not an old clay oil lamp); a fixed crop keeps it out of frame (free)"
   },
   {
    "id": "05_dawn_horizon_b",

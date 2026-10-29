@@ -25,3 +25,8 @@
 - open | first audible word 1.05 s (line placed 0.80 s, TTS wav has ~0.25 s lead breath); RULES 13 ≤1.0 s. Next video: LEAD 0.7 or trim TTS lead silence.
 - open | thumbnail main Hindi text ≈8% of frame height (rule ~12%); next thumbnail bigger font / fewer words per line.
 - open | metadata chapter ayah 5 at 4:43 begins 0.4 s before line 59 ends; chapter time = swoosh time floored (4:44), not cue time.
+
+## 002_ayatul-kursi (images R1, 2026-10-30) — open
+- fixed | 12_bedtime_room_lamp: glass-chimney lamp (STYLE_NOOR 1 "never a modern lantern") -> fixed free by a fixed crop in images.json (rect fx 0.75 fy 0.5 zc 1.55 = x 489-1370, lamp at x~390 out of frame); Munshi final to confirm on the render.
+- open | 04_date_palm_path: tiny metal wall lantern at ~(912,450) (small, mid-ground; accepted). Next prompts: "no lantern, only an old clay oil lamp".
+- open | 06_oasis_spring / 08_vast_panorama / 11_sunrays_clouds are more saturated/illustrated than the matte set; 08 and 11 show snow peaks/pine (not Arabian, used only for "vastness"). Next prompts: keep one matte painted family, Arabian landscapes only.

@@ -55,3 +55,4 @@
 2026-10-29 | 002_ayatul-kursi | images | 002 images: free engine tried first: Cloudflare answered HTTP 429, the daily free allocation (10,000 neurons) was used up -> paid Gemini fallback, 12 images, est Rs~55-60
 2026-10-29 | 002_ayatul-kursi | script R3 | PASS-WITH-NOTES | free trim (7 lines) checked: structure complete, 2 sawaal ~4:45 gap, first Arabic ~35 s, plan 5:32, Arabic==sources, no chhoda gaya; note: K5 'not in a place' line gone (only line 54 left), stale line refs in source map
 2026-10-29 | 002_ayatul-kursi | images R1 | FIX | 12 images clean (no person/text/domes); BLOCKER 12_bedtime_room_lamp has glass-chimney modern lamp -> crop out lamp or use 02 crop; minors: wall lantern in 04, 06 oversaturated; crops OK; review/images_review.md
+2026-10-30 | 002_ayatul-kursi | images R1 fix (Sanchalak) | BLOCKER 12_bedtime_room_lamp fixed free by crop (images.json rect), 10_ring_in_desert_b fy 0.72; MINOR items in carry_over.md | Rs0
