@@ -626,3 +626,5 @@ timestamp,file,model,size,cost_usd,cost_inr,today_total_inr,remaining_inr,channe
 2026-10-25 17:14:43,channels/noor-e-raah/samples/musafir_v3/musafir_v3_sheet.png,gemini-nano-banana-2.1,1K,0.05153,4.97,202.78,278.31,noor-e-raah,3.31,4.9723,0.90,431,3424
 2026-10-25 17:15:09,channels/noor-e-raah/samples/musafir_v3/2_two_paths__V2.png,gemini-nano-banana-2.1,1K,0.04575,4.41,207.99,273.10,noor-e-raah,3.46,4.4149,0.79,1490,2442
 2026-10-25 18:50:26,channels/noor-e-raah/stories/001_al-fatiha/images/thumb_v2_surah_scene.png,gemini-nano-banana-2.1,1K,0.04875,4.70,213.54,267.55,noor-e-raah,3.28,4.7042,0.85,214,3097
+2026-10-29 19:54:05,channels/noor-e-raah/stories/002_ayatul-kursi/images/thumb_scene_a.png,gemini-nano-banana-2.1,1K,0.04328,4.18,4.93,262.62,noor-e-raah,3.28,4.1769,0.75,201,2371
+2026-10-29 19:54:21,channels/noor-e-raah/stories/002_ayatul-kursi/images/thumb_scene_b.png,gemini-nano-banana-2.1,1K,0.03948,3.81,9.42,258.13,noor-e-raah,3.27,3.8100,0.69,176,1869

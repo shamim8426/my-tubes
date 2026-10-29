@@ -1,6 +1,6 @@
 # Preview — Jugnu Stories
 
-**Budget bacha:** ₹267.55  ·  **Last image:** 2026-10-25 18:50:26
+**Budget bacha:** ₹258.13  ·  **Last image:** 2026-10-29 19:54:21
 
 ## Characters
 
@@ -581,3 +581,11 @@
 ### thumb_v2_surah_scene — ₹4.70 · 2026-10-25 18:50:26
 
 ![thumb_v2_surah_scene](channels/noor-e-raah/stories/001_al-fatiha/images/thumb_v2_surah_scene.png)
+
+### thumb_scene_a — ₹4.18 · 2026-10-29 19:54:05
+
+![thumb_scene_a](channels/noor-e-raah/stories/002_ayatul-kursi/images/thumb_scene_a.png)
+
+### thumb_scene_b — ₹3.81 · 2026-10-29 19:54:21
+
+![thumb_scene_b](channels/noor-e-raah/stories/002_ayatul-kursi/images/thumb_scene_b.png)
