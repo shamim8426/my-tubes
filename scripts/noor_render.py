@@ -49,10 +49,26 @@ VOICE_LUFS, MUSIC_BELOW, TARGET_LUFS = -16.0, 20.2, -14.0  # 20.2 here = 19 LU u
 TEMPO = 1.08  # voices 8 % faster, same pitch (user 2026-10-25); from the same TTS files, no new TTS
 SUB_COLOUR = {"ustaad": "&H00FFFFFF", "sawaal": "&H0080D8F5"}  # white / soft gold (ASS is BGR)
 LABEL = "सरल भावार्थ — माने हुए तर्जुमों के आधार पर"
-TITLE_AR, TITLE_HI, SERIES, TAGLINE = "سُورَةُ ٱلْفَاتِحَةِ", "सूरह अल-फ़ातिहा", "शुरू से क़ुरआन", "क़ुरआन, आसान ज़बान में।"
-CARDS = {7: ["मक्की (ज़्यादातर उलमा)", "आयतें: 7", "क़ुरआन में क्रम: 1"], 10: ["उम्मुल-क़ुरआन — क़ुरआन की असल"],
-         11: ["अस-सब्उल-मसानी — बार-बार दोहराई जाने वाली सात"], 91: ["1. माँगने से पहले तारीफ़ और शुक्र"],
-         92: ["2. मेहनत भी, भरोसा अल्लाह पर"], 93: ["3. हर दिन सीधी राह की दुआ"]}
+SERIES_DEFAULT, TAGLINE_DEFAULT = "नूर-ए-राह", "क़ुरआन, आसान ज़बान में।"
+CFG = {}  # per-story screen config, set by load_cfg(story) (long/render.json); see render_cfg_help below
+
+
+def load_cfg(story: Path) -> dict:
+    """long/render.json: {"title_ar", "title_hi", "series", "tagline", "end_from": <line n where the end card starts>,
+    "cards": [{"line": n, "until": m, "y": 120, "stack": false, "items": ["..."]}]}.  Missing keys fall back to
+    thumbnail.json (arabic/hindi), SERIES_DEFAULT/TAGLINE_DEFAULT, no cards, end card on the last two lines.
+    Story 001 keeps its own render.json (its old hard-coded values)."""
+    f = story / "long/render.json"
+    cfg = json.loads(f.read_text(encoding="utf-8")) if f.exists() else {}
+    th = story / "thumbnail.json"
+    if th.exists():
+        t = json.loads(th.read_text(encoding="utf-8"))
+        cfg.setdefault("title_ar", t.get("arabic", ""))
+        cfg.setdefault("title_hi", t.get("hindi", ""))
+    cfg.setdefault("series", SERIES_DEFAULT)
+    cfg.setdefault("tagline", TAGLINE_DEFAULT)
+    cfg.setdefault("cards", [])
+    return cfg
 
 
 def run(args, **kw):
@@ -297,36 +313,46 @@ def ass_doc(tl):
     ev = []
     lines = tl["lines"]
     first_end = lines[1]["end"] if len(lines) > 1 else lines[0]["end"]
-    ev.append(f"Dialogue: 2,{ts(0.2)},{ts(first_end)},ArTitle,,0,0,0,,{{\\pos(960,110)\\fad(400,400)}}{TITLE_AR}")
+    end_from = CFG.get("end_from") or (lines[-2]["n"] if len(lines) > 1 else lines[0]["n"])
+    ar_fs = title_fs(CFG["title_ar"])
+    ev.append(f"Dialogue: 2,{ts(0.2)},{ts(first_end)},ArTitle,,0,0,0,,{{\\pos(960,110)\\fs{ar_fs}\\fad(400,400)}}{CFG['title_ar']}")
     for ay in tl["ayat"]:  # Tanzil text bytes unchanged
         ev.append(f"Dialogue: 2,{ts(ay['a0'])},{ts(ay['off'])},Ayah,,0,0,0,,"
                   f"{{\\pos(960,165)\\fs{arabic_fs(ay['text'])}\\fad(500,{int(ARABIC_FADE * 1000)})}}{ay['text']}")
-    ev.append(f"Dialogue: 1,{ts(0.2)},{ts(first_end)},Big,,0,0,0,,{{\\pos(960,560)\\fad(400,400)}}{TITLE_HI}")
-    ev.append(f"Dialogue: 1,{ts(0.2)},{ts(first_end)},Gold,,0,0,0,,{{\\pos(960,690)\\fad(400,400)}}{SERIES}")
+    ev.append(f"Dialogue: 1,{ts(0.2)},{ts(first_end)},Big,,0,0,0,,{{\\pos(960,560)\\fad(400,400)}}{CFG['title_hi']}")
+    ev.append(f"Dialogue: 1,{ts(0.2)},{ts(first_end)},Gold,,0,0,0,,{{\\pos(960,690)\\fad(400,400)}}{CFG['series']}")
     for l in lines:
-        top = "{\\an8\\pos(960,150)}" if l["n"] >= 94 else ""  # last lines above the end-screen area
+        top = "{\\an8\\pos(960,150)}" if l["n"] >= end_from else ""  # last lines above the end-screen area
         ev.append(f"Dialogue: 0,{ts(l['start'])},{ts(l['end'])},Sub_{l['speaker']},,0,0,0,,{top}{l['text']}")
         if l["role"] == "bhaavarth":
             ev.append(f"Dialogue: 1,{ts(l['start'])},{ts(l['end'] + ARABIC_HOLD)},Label,,0,0,0,,"
                       f"{{\\pos(960,470)\\fad(250,250)}}{LABEL}")
     by_n = {l["n"]: l for l in lines}
-    for n, cards in CARDS.items():
+    for card in CFG["cards"]:
+        n = card["line"]
         if n not in by_n:
             continue
         l = by_n[n]
-        end = by_n[93]["end"] if n in (91, 92, 93) else (by_n[8]["end"] if n == 7 else l["end"])
-        for i, c in enumerate(cards):
-            y = 100 + i * 110 if n == 7 else 100 + (n - 91) * 110 if n in (91, 92, 93) else 120
+        end = by_n[card["until"]]["end"] if card.get("until") in by_n else l["end"]
+        for i, c in enumerate(card["items"]):
+            y = card.get("y", 120) + (i * 110 if card.get("stack") else 0)
             ev.append(f"Dialogue: 1,{ts(l['start'] + i * 0.7)},{ts(end)},Card,,0,0,0,,{{\\pos(110,{y})\\fad(250,200)}}{c}")
-    # end card (lines 94-95 + tail)
-    if 94 in by_n:
-        a = by_n[94]["start"]
-        ev.append(f"Dialogue: 1,{ts(a)},{ts(tl['end'])},Big,,0,0,0,,{{\\pos(960,330)\\fad(500,600)}}{TAGLINE}")
-        ev.append(f"Dialogue: 1,{ts(a)},{ts(tl['end'])},Gold,,0,0,0,,{{\\pos(960,460)\\fad(500,600)}}{SERIES}")
+    # end card (the last lines + tail)
+    if end_from in by_n:
+        a = by_n[end_from]["start"]
+        ev.append(f"Dialogue: 1,{ts(a)},{ts(tl['end'])},Big,,0,0,0,,{{\\pos(960,330)\\fad(500,600)}}{CFG['tagline']}")
+        ev.append(f"Dialogue: 1,{ts(a)},{ts(tl['end'])},Gold,,0,0,0,,{{\\pos(960,460)\\fad(500,600)}}{CFG['series']}")
         ev.append(f"Dialogue: 1,{ts(a)},{ts(tl['end'])},Small,,0,0,0,,{{\\pos(960,560)\\fad(500,600)}}"
                   f"Arabic text: Tanzil Project, tanzil.net  ·  {LABEL}")
     return head + "\n".join(styles) + "\n\n[Events]\nFormat: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, " \
                                       "Effect, Text\n" + "\n".join(ev) + "\n"
+
+
+def title_fs(text: str) -> int:
+    """ASS size of the big Arabic title: the old Al-Fatiha size (400), smaller when the name is wider than ~1300 px."""
+    from PIL import ImageFont
+    w = ImageFont.truetype(str(FONT_AR), 92).getlength(text)
+    return int(400 * min(1.0, 1300 / w)) if w else 400
 
 
 def arabic_fs(text: str) -> int:
@@ -402,6 +428,7 @@ def main():
     from paths import learnings_brief
     print("learnings.md (Nigraan) LAGU KARO:\n  " + (learnings_brief(story.parents[1].name).replace("\n", "\n  ") or "-"))
     items = json.loads((story / "long/lines.json").read_text(encoding="utf-8"))
+    CFG.update(load_cfg(story))
     tl = timeline(items)
     shots = shots_for(story, tl)
     out_dir = story / "long/output"
