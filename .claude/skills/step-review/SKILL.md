@@ -60,6 +60,14 @@ Use this after every production step of a video in the Story-Channel project. Al
 - Run Whisper on each line and compare the transcript with its text; list mismatches.
 - Cost vs estimate; flag if >30% over.
 
+### 5b. Edit (Sampadak: `edit_plan.json`)
+- `channels/<key>/brand/EDIT_STYLE.md` exists and the plan uses only what it allows (Noor: look only, nothing else).
+- `review/edit_notes.md` gives a reason (beat / retention drop point) for each kind of effect; no effects "everywhere".
+- Every SFX/ambience file in the plan is in `shared/assets_license.csv`; all anchors are real line numbers.
+- A test build of the first 30-40 s ran; length and line timing unchanged; loudness still -14 LUFS +/-1, TP <= -1.0.
+- Look at 3+ frames: Arabic/Hindi text untouched and readable, no effect over faces' meaning, Shorts safe zone free
+  (bottom 20 %, right 15 %), riddle notes never show the answer. Any breach of EDIT_STYLE "Never" = BLOCKER.
+
 ### 6. Preview build
 - `ffprobe`: resolution 960x540, duration vs target.
 - Extract one frame per line (mid-line timestamp) and check the right character/scene is on screen.

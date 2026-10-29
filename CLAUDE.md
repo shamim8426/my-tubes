@@ -73,6 +73,14 @@ Command: `.\.venv\Scripts\python -X utf8 scripts\make_short.py <video folder> [-
   ya user kahe "nigraan report". Seekh `channels/<key>/learnings.md` me (saboot ke saath; 500 impressions / Shorts 1,000
   views se kam = "kam data"). Kalam, thumbnail builder aur builders ise padhte hain; Munshi palan jaanchta hai.
 
+## Sampadak (video editor, har channel ke liye)
+- `.claude/agents/sampadak.md`: `shots` ke baad aur build se pehle, Sanchalak channel key + video folder deta hai. Sampadak
+  `channels/<key>/brand/EDIT_STYLE.md` ke hisaab se video ko analyse karke `<video folder>/edit_plan.json` +
+  `review/edit_notes.md` likhta hai (stage `edit`, ₹0, koi upload/paid call nahi). Naya channel: `channels/_template/brand/EDIT_STYLE.md` copy karke ek baar bharo.
+- Builder plan khud padhta hai: `scripts/make_short.py` (Jugnu Stories: grade, transitions, punch-in, text, SFX) aur `scripts/noor_render.py`
+  (Noor: sirf colour look, Arabic ke text se pehle). `--no-edit` plan ko ignore karta hai. Plan na ho toh build pehle jaisi.
+- Noor me kuch bhi Arabic/Hindi text ke upar, shake, whip, extra SFX, tilawat: kabhi nahi (Noor EDIT_STYLE).
+
 ## Munshi (review + publish)
 - Har production step ke baad `munshi` subagent ko bulao aur uska verdict mujhe dikhao. FIX ho to free fix karo aur dobara review karwao; ASK ho to mujhse poochho.
 - Upload sirf `munshi` karega, `youtube-publish` skill ke hisaab se, meri "ha" ke baad — auto mode (RULES 14) me script approval hi "ha" hai; publish ka samay RULES 8 ke naye niyam se (neeche).

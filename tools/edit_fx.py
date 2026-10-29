@@ -126,9 +126,79 @@ def ass_doc(texts, w, h):
             f"[Events]\nFormat: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text\n{ev}\n")
 
 
+class Finisher:
+    """The per-frame look: punch-in/shake -> transitions -> grade, vignette, light leak, grain. Used by finish_video
+    (joined video) and by builders that make their own frames (Noor: apply BEFORE libass draws the Arabic, so the
+    Arabic keeps its colours)."""
+
+    def __init__(self, R, w, h, fps):
+        self.R, self.w, self.h, self.fps = R, w, h, fps
+        self.tabs = _grade_tables(R["grade"]) if R["grade"] != "none" else None
+        self.sat = GRADES[R["grade"]][4]
+        yy, xx = np.mgrid[0:h, 0:w].astype(np.float32)
+        self.vig = None
+        if R["vignette"]:
+            d = np.sqrt(((xx - w / 2) / (w / 2)) ** 2 + ((yy - h / 2) / (h / 2)) ** 2)
+            self.vig = (1 - R["vignette"] * np.clip(d - 0.55, 0, 1) ** 1.5)[..., None].astype(np.float32)
+        self.glow = (np.exp(-(((xx - w * 0.85) / (w * 0.35)) ** 2 + ((yy + h * 0.1) / (h * 0.6)) ** 2))[..., None]
+                     * np.float32((40, 90, 140)) * 0.35).astype(np.float32) if R["leaks"] else None
+        rng = np.random.default_rng(3)
+        self.grains = ([rng.normal(0, R["grain"], (h // 2, w // 2, 1)).repeat(2, 0).repeat(2, 1).astype(np.float32)
+                        for _ in range(6)] if R["grain"] else None)
+        self.tf = TRANSITION_FRAMES / fps
+
+    def apply(self, f, i):
+        R, w, h, fps = self.R, self.w, self.h, self.fps
+        t = i / fps
+        z, cx, cy = _zoom_at(t, R["punches"])
+        dx = dy = 0.0
+        for s, dur in R["shakes"]:
+            if s <= t < s + dur:
+                a = 14 * (h / 1080) * (1 - (t - s) / dur)
+                dx, dy, z = a * math.sin(t * 90), a * math.cos(t * 73), max(z, 1.04)
+        if z > 1.0001 or dx or dy:
+            M = np.float32([[z, 0, (1 - z) * cx * w + dx], [0, z, (1 - z) * cy * h + dy]])
+            f = cv2.warpAffine(f, M, (w, h), flags=cv2.INTER_CUBIC, borderMode=cv2.BORDER_REFLECT)
+        fade = 1.0
+        for c, kind in R["cuts"]:
+            d = t - c
+            if -self.tf <= d < self.tf:
+                k = 1 - abs(d) / self.tf
+                if kind == "whip":
+                    f = np.roll(cv2.blur(f, (int(9 + 70 * k * w / 1920) | 1, 1)), int(np.sign(d or 1) * -90 * k * w / 1920),
+                                axis=1)
+                elif kind == "flash":
+                    f = cv2.addWeighted(f, 1 - 0.85 * k, np.full_like(f, 255), 0.85 * k, 0)
+                elif kind == "dip":
+                    fade = min(fade, 1 - 0.9 * k)
+        if self.tabs:
+            f = cv2.merge([cv2.LUT(ch, tb) for ch, tb in zip(cv2.split(f), self.tabs)])
+        f = f.astype(np.float32)
+        if self.sat != 1.0:
+            gray = f.mean(axis=2, keepdims=True)
+            f = gray + (f - gray) * self.sat
+        if self.vig is not None:
+            f *= self.vig
+        if self.glow is not None and any(a <= t < b for a, b in R["leaks"]):
+            f += np.roll(self.glow, int(w * 0.05 * math.sin(t * 0.3)), axis=1)
+        if self.grains:
+            f += self.grains[i % 6]
+        if fade < 1.0:
+            f *= fade
+        return np.clip(f, 0, 255).astype(np.uint8)
+
+
+def look_only(plan):
+    """R for a builder that only wants the colour look (grade, vignette, grain, light leak) and no cuts/punch-ins/text:
+    Noor-e-Raah. `light_leak` is not used there."""
+    return {"grade": plan.get("grade", "none"), "vignette": float(plan.get("vignette", 0.0)),
+            "grain": float(plan.get("grain", 0.0)), "leaks": [], "cuts": [], "punches": [], "shakes": [], "texts": [],
+            "notes": []}
+
+
 def finish_video(ffmpeg, src: Path, dst: Path, R, prof, work: Path):
-    """Frame pass over the joined video: punch-in/shake -> transitions -> grade, vignette, light leak, grain;
-    then text burned by libass while encoding (same bt709 tags and encoder settings as the scene clips)."""
+    """Frame pass over the joined video (Finisher), then text burned by libass while encoding (same bt709 tags and
+    encoder settings as the scene clips)."""
     w, h, fps = prof["w"], prof["h"], prof["fps"]
     cap = cv2.VideoCapture(str(src))
     n = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
@@ -143,60 +213,12 @@ def finish_video(ffmpeg, src: Path, dst: Path, R, prof, work: Path):
                             "-color_range", "tv", "-colorspace", "bt709", "-color_primaries", "bt709",
                             "-color_trc", "bt709", "-r", str(fps), "-video_track_timescale", str(fps * 1000), str(dst)],
                            cwd=work, stdin=subprocess.PIPE)
-    tabs = _grade_tables(R["grade"]) if R["grade"] != "none" else None
-    sat = GRADES[R["grade"]][4]
-    yy, xx = np.mgrid[0:h, 0:w].astype(np.float32)
-    vig = None
-    if R["vignette"]:
-        d = np.sqrt(((xx - w / 2) / (w / 2)) ** 2 + ((yy - h / 2) / (h / 2)) ** 2)
-        vig = (1 - R["vignette"] * np.clip(d - 0.55, 0, 1) ** 1.5)[..., None].astype(np.float32)
-    glow = (np.exp(-(((xx - w * 0.85) / (w * 0.35)) ** 2 + ((yy + h * 0.1) / (h * 0.6)) ** 2))[..., None]
-            * np.float32((40, 90, 140)) * 0.35).astype(np.float32) if R["leaks"] else None
-    rng = np.random.default_rng(3)
-    grains = ([rng.normal(0, R["grain"], (h // 2, w // 2, 1)).repeat(2, 0).repeat(2, 1).astype(np.float32)
-               for _ in range(6)] if R["grain"] else None)
-    tf = TRANSITION_FRAMES / fps
+    fin = Finisher(R, w, h, fps)
     for i in range(n):
         ok, f = cap.read()
         if not ok:
             break
-        t = i / fps
-        z, cx, cy = _zoom_at(t, R["punches"])
-        dx = dy = 0.0
-        for s, dur in R["shakes"]:
-            if s <= t < s + dur:
-                a = 14 * (h / 1080) * (1 - (t - s) / dur)
-                dx, dy, z = a * math.sin(t * 90), a * math.cos(t * 73), max(z, 1.04)
-        if z > 1.0001 or dx or dy:
-            M = np.float32([[z, 0, (1 - z) * cx * w + dx], [0, z, (1 - z) * cy * h + dy]])
-            f = cv2.warpAffine(f, M, (w, h), flags=cv2.INTER_CUBIC, borderMode=cv2.BORDER_REFLECT)
-        fade = 1.0
-        for c, kind in R["cuts"]:
-            d = t - c
-            if -tf <= d < tf:
-                k = 1 - abs(d) / tf
-                if kind == "whip":
-                    f = np.roll(cv2.blur(f, (int(9 + 70 * k * w / 1920) | 1, 1)), int(np.sign(d or 1) * -90 * k * w / 1920),
-                                axis=1)
-                elif kind == "flash":
-                    f = cv2.addWeighted(f, 1 - 0.85 * k, np.full_like(f, 255), 0.85 * k, 0)
-                elif kind == "dip":
-                    fade = min(fade, 1 - 0.9 * k)
-        if tabs:
-            f = cv2.merge([cv2.LUT(ch, tb) for ch, tb in zip(cv2.split(f), tabs)])
-        f = f.astype(np.float32)
-        if sat != 1.0:
-            gray = f.mean(axis=2, keepdims=True)
-            f = gray + (f - gray) * sat
-        if vig is not None:
-            f *= vig
-        if glow is not None and any(a <= t < b for a, b in R["leaks"]):
-            f += np.roll(glow, int(w * 0.05 * math.sin(t * 0.3)), axis=1)
-        if grains:
-            f += grains[i % 6]
-        if fade < 1.0:
-            f *= fade
-        enc.stdin.write(np.clip(f, 0, 255).astype(np.uint8).tobytes())
+        enc.stdin.write(fin.apply(f, i).tobytes())
     enc.stdin.close()
     cap.release()
     if enc.wait():

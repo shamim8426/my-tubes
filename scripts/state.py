@@ -23,7 +23,7 @@ STATUS = ROOT / "shared" / "status.md"
 INCIDENTS = ROOT / "shared" / "incidents.md"
 CHANNELS = ["jugnu-stories", "noor-e-raah"]
 PAID = {"sheets", "images", "tts", "thumbnail"}  # stages that may spend money (Gemini)
-LIMIT_MIN = {"sheets": 30, "images": 60, "tts": 60, "music_sfx": 15, "shots": 15, "build_long": 60, "build_short": 30,
+LIMIT_MIN = {"sheets": 30, "images": 60, "tts": 60, "music_sfx": 15, "shots": 15, "edit": 20, "build_long": 60, "build_short": 30,
              "thumbnail": 15, "upload": 30, "comments": 10, "sync": 10, "status": 10}
 
 
@@ -95,6 +95,7 @@ def check(key, story, stage):
         "tts": [sd / "long/lines.json"], "images": [sd / "images"], "build_long": [sd / "long/output"],
         "thumbnail": [sd / "long/output"], "upload": [sd / "long/output/upload_result.json"],
         "status": [ROOT / "shared/status.md"],
+        "edit": [sd / "long/edit_plan.json", sd / "long/review/edit_notes.md"],
     }.get(stage, [])
     missing = [p.relative_to(ROOT).as_posix() for p in need if not p.exists()]
     if stage == "build_long":

@@ -22,6 +22,7 @@ import cv2  # noqa: E402
 import numpy as np  # noqa: E402
 
 import parallax as PX  # noqa: E402
+import edit_fx as FX  # noqa: E402  (Sampadak look: long/edit_plan.json, optional)
 
 ROOT = Path(__file__).resolve().parent.parent
 FF = next((str(p) for p in (ROOT / "tools/ffmpeg/bin/ffmpeg.exe", ROOT / "tools/ffmpeg/ffmpeg.exe") if p.exists()),
@@ -429,8 +430,12 @@ def main():
                             "-color_range", "tv", "-colorspace", "bt709", "-color_primaries", "bt709", "-color_trc", "bt709",
                             "-c:a", "aac", "-b:a", "192k", "-t", f"{dur:.3f}", "-movflags", "+faststart", str(part)],
                            stdin=subprocess.PIPE)
+    plan = None if "--no-edit" in sys.argv else FX.load(story / "long/edit_plan.json")
+    fin = FX.Finisher(FX.look_only(plan), W, H, FPS) if plan else None  # colour look only; before libass draws the text
+    if plan:
+        print(f"edit_plan: look {plan.get('grade', 'none')}, vignette {plan.get('vignette', 0)}, grain {plan.get('grain', 0)}")
     for i, fr in enumerate(frames(shots, n)):
-        enc.stdin.write(fr.tobytes())
+        enc.stdin.write((fin.apply(fr, i) if fin else fr).tobytes())
         if i % 900 == 0:
             print(f"  frame {i}/{n}", flush=True)
     enc.stdin.close()

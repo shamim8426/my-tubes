@@ -17,6 +17,7 @@ stage, Munshi needed yes/no. Long logs go to files, never into the report.
 | tts | yes (free key first) | 60 min | long/lines.json: every spoken line has audio + seconds + tts_ok (Noor) / TTS cache complete (Jugnu Stories); report of lines that missed words | yes (audio) |
 | music_sfx | no | 15 min | every track/SFX used is in shared/assets_license.csv | no |
 | shots | no | 15 min | shots.json / images.json timing covers every line; no visual longer than the channel's max | no |
+| edit | no | 20 min | Sampadak agent: `<video folder>/edit_plan.json` + `review/edit_notes.md`; follows `channels/<key>/brand/EDIT_STYLE.md`; a 30-40 s test build ran; no paid call, no change of length/lines (Sampadak is called by the Sanchalak, not by the Kaarigar) | yes (edit) |
 | build_long | no | 60 min | long/output/<story>_final.mp4 (no .part.mp4 left), 1920x1080 30 fps H.264+AAC, ~-14 LUFS; .srt | yes (final) |
 | build_short | no | 30 min | shorts/<short>/output/*.mp4 1080x1920, ≤ channel max length; Noor: last ayah complete (RULES 2b) | yes (final) |
 | thumbnail | maybe (1 image) | 15 min | 1280x720 ≤ 2 MB; Arabic/Hindi via libass (Noor); no AI text | yes (thumbnail) |
