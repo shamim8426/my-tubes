@@ -133,7 +133,7 @@
   "kind": "cue",
   "n": 8,
   "type": "music",
-  "value": "fade-out 1s — ARABIC ON SCREEN",
+  "value": "swoosh — ARABIC ON SCREEN",
   "section": "3. AAYAT-DAR-AAYAT",
   "ayah": 1
  },
@@ -158,7 +158,7 @@
   "kind": "cue",
   "n": 10,
   "type": "music",
-  "value": "back slowly: River Flute — matlab",
+  "value": "continue: River Flute — matlab",
   "section": "3. AAYAT-DAR-AAYAT",
   "ayah": 1
  },
@@ -176,7 +176,7 @@
   "kind": "cue",
   "n": 11,
   "type": "music",
-  "value": "fade-out 1s — ARABIC ON SCREEN",
+  "value": "swoosh — ARABIC ON SCREEN",
   "section": "3. AAYAT-DAR-AAYAT",
   "ayah": 2
  },
@@ -199,7 +199,7 @@
   "kind": "cue",
   "n": 13,
   "type": "music",
-  "value": "back slowly: River Flute — matlab",
+  "value": "continue: River Flute — matlab",
   "section": "3. AAYAT-DAR-AAYAT",
   "ayah": 2
  },
@@ -229,7 +229,7 @@
   "kind": "cue",
   "n": 15,
   "type": "music",
-  "value": "fade-out 1s — ARABIC ON SCREEN",
+  "value": "swoosh — ARABIC ON SCREEN",
   "section": "3. AAYAT-DAR-AAYAT",
   "ayah": 3
  },
@@ -252,7 +252,7 @@
   "kind": "cue",
   "n": 17,
   "type": "music",
-  "value": "back slowly: River Flute — matlab",
+  "value": "continue: River Flute — matlab",
   "section": "3. AAYAT-DAR-AAYAT",
   "ayah": 3
  },
@@ -294,7 +294,7 @@
   "kind": "cue",
   "n": 20,
   "type": "music",
-  "value": "fade-out 1s — ARABIC ON SCREEN",
+  "value": "swoosh — ARABIC ON SCREEN",
   "section": "3. AAYAT-DAR-AAYAT",
   "ayah": 4
  },
@@ -317,7 +317,7 @@
   "kind": "cue",
   "n": 22,
   "type": "music",
-  "value": "back slowly: River Flute — matlab",
+  "value": "continue: River Flute — matlab",
   "section": "3. AAYAT-DAR-AAYAT",
   "ayah": 4
  },
@@ -359,7 +359,7 @@
   "kind": "cue",
   "n": 25,
   "type": "music",
-  "value": "fade-out 1s — ARABIC ON SCREEN",
+  "value": "swoosh — ARABIC ON SCREEN",
   "section": "3. AAYAT-DAR-AAYAT",
   "ayah": 5
  },
@@ -382,7 +382,7 @@
   "kind": "cue",
   "n": 27,
   "type": "music",
-  "value": "back slowly: River Flute — matlab",
+  "value": "continue: River Flute — matlab",
   "section": "3. AAYAT-DAR-AAYAT",
   "ayah": 5
  },
@@ -412,7 +412,7 @@
   "kind": "cue",
   "n": 29,
   "type": "music",
-  "value": "fade-out 1s — ARABIC ON SCREEN",
+  "value": "swoosh — ARABIC ON SCREEN",
   "section": "3. AAYAT-DAR-AAYAT",
   "ayah": 6
  },
@@ -435,7 +435,7 @@
   "kind": "cue",
   "n": 31,
   "type": "music",
-  "value": "back slowly: River Flute — matlab",
+  "value": "continue: River Flute — matlab",
   "section": "3. AAYAT-DAR-AAYAT",
   "ayah": 6
  },
@@ -465,7 +465,7 @@
   "kind": "cue",
   "n": 33,
   "type": "music",
-  "value": "fade-out 1s — ARABIC ON SCREEN",
+  "value": "swoosh — ARABIC ON SCREEN",
   "section": "3. AAYAT-DAR-AAYAT",
   "ayah": 7
  },
@@ -488,7 +488,7 @@
   "kind": "cue",
   "n": 35,
   "type": "music",
-  "value": "back slowly: River Flute — matlab",
+  "value": "continue: River Flute — matlab",
   "section": "3. AAYAT-DAR-AAYAT",
   "ayah": 7
  },
@@ -518,7 +518,7 @@
   "kind": "cue",
   "n": 37,
   "type": "music",
-  "value": "fade-out 1s — ARABIC ON SCREEN",
+  "value": "swoosh — ARABIC ON SCREEN",
   "section": "3. AAYAT-DAR-AAYAT",
   "ayah": 8
  },
@@ -541,7 +541,7 @@
   "kind": "cue",
   "n": 39,
   "type": "music",
-  "value": "back slowly: River Flute — matlab",
+  "value": "continue: River Flute — matlab",
   "section": "3. AAYAT-DAR-AAYAT",
   "ayah": 8
  },
@@ -571,7 +571,7 @@
   "kind": "cue",
   "n": 41,
   "type": "music",
-  "value": "fade-out 1s — ARABIC ON SCREEN",
+  "value": "swoosh — ARABIC ON SCREEN",
   "section": "3. AAYAT-DAR-AAYAT",
   "ayah": 9
  },
@@ -594,7 +594,7 @@
   "kind": "cue",
   "n": 43,
   "type": "music",
-  "value": "back slowly: River Flute — matlab",
+  "value": "continue: River Flute — matlab",
   "section": "3. AAYAT-DAR-AAYAT",
   "ayah": 9
  },
@@ -649,7 +649,7 @@
   "kind": "cue",
   "n": 47,
   "type": "music",
-  "value": "fade-out 1s — ARABIC ON SCREEN",
+  "value": "swoosh — ARABIC ON SCREEN",
   "section": "3. AAYAT-DAR-AAYAT",
   "ayah": 10
  },
@@ -672,7 +672,7 @@
   "kind": "cue",
   "n": 49,
   "type": "music",
-  "value": "back slowly: River Flute — matlab",
+  "value": "continue: River Flute — matlab",
   "section": "3. AAYAT-DAR-AAYAT",
   "ayah": 10
  },
@@ -702,7 +702,7 @@
   "kind": "cue",
   "n": 51,
   "type": "music",
-  "value": "fade-out 1s — ARABIC ON SCREEN",
+  "value": "swoosh — ARABIC ON SCREEN",
   "section": "3. AAYAT-DAR-AAYAT",
   "ayah": 11
  },
@@ -725,7 +725,7 @@
   "kind": "cue",
   "n": 53,
   "type": "music",
-  "value": "back slowly: River Flute — matlab",
+  "value": "continue: River Flute — matlab",
   "section": "3. AAYAT-DAR-AAYAT",
   "ayah": 11
  },
@@ -800,7 +800,7 @@
   "role": "",
   "section": "4. HADITH ME AYATUL KURSI",
   "ayah": null,
-  "text": "बुख़ारी की हदीस में है: सोने के लिए बिस्तर पर जाओ, तो आयतुल कुर्सी पढ़ लो — अल्लाह की तरफ़ से एक निगहबान तुम्हारे साथ रहेगा, और सुबह तक शैतान तुम्हारे क़रीब नहीं आएगा।",
+  "text": "बुख़ारी की हदीस में अबू हुरैरा रज़ियल्लाहु अन्हु की रिवायत है कि उन्हें बताया गया: सोने के लिए बिस्तर पर जाओ, तो आयतुल कुर्सी पढ़ लो — अल्लाह की तरफ़ से एक निगहबान तुम्हारे साथ रहेगा, और सुबह तक शैतान तुम्हारे क़रीब नहीं आएगा। और नबी सल्लल्लाहु अलैहि वसल्लम ने फ़रमाया कि उसने सच कहा।",
   "tags": [
    "FZ-B"
   ]

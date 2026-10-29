@@ -146,12 +146,12 @@ def timeline(items):
             first_section = False
         elif k == "cue" and it["type"] == "music":
             v = it["value"]
-            if "fade-out" in v and "ARABIC" in v:
+            if ("fade-out" in v or v.lower().startswith("swoosh")) and "ARABIC" in v:  # swoosh = the new cue name
                 # user 2026-10-25: the music no longer stops for an ayah - it plays on; a soft swoosh brings the Arabic in
                 arabic = {"ayah": it["ayah"], "fade": t, "a0": t + AYAH_LEAD, "swoosh": t + AYAH_LEAD - 0.5}
                 fade_at[it["ayah"]] = t
                 t = arabic["a0"] + ARABIC_ALONE
-            elif v.lower().startswith("back slowly"):
+            elif v.lower().startswith(("back slowly", "continue")):  # "continue: <track>" = the music plays on
                 if arabic:
                     arabic["off"] = t + ARABIC_HOLD + ARABIC_FADE
                     ayat.append(arabic)

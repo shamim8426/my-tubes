@@ -24,7 +24,7 @@ from noor_audition import missing  # noqa: E402
 ROOT = Path(__file__).resolve().parent.parent
 TAG = re.compile(r"\s*\[(?:S\d+|M\d+|MISAAL|NEXT)\]")
 LINE = re.compile(r"^(\d+)\.\s+(USTAAD|SAWAAL)(?:\s+—\s+([A-Z]+))?:\s*\"(.*)\"\s*((?:\[[^\]]+\]\s*)*)$")
-CUE = re.compile(r"^(\d+)\.\s+\[(MUSIC|AMBIENCE)([^\]]*)\]\s*$")
+CUE = re.compile(r"^(\d+)\.\s+\[(MUSIC|AMBIENCE|SWOOSH)([^\]]*)\]\s*$")  # SWOOSH = new cue (RULES 1c), see below
 
 
 def parse(story: Path) -> list:
@@ -55,8 +55,10 @@ def parse(story: Path) -> list:
                           "tags": re.findall(r"\[([^\]]+)\]", tags)})
             continue
         if m := CUE.match(s):
-            items.append({"kind": "cue", "n": int(m.group(1)), "type": m.group(2).lower(),
-                          "value": m.group(3).strip(" :—"), "section": section, "ayah": ayah})
+            typ, val = m.group(2).lower(), m.group(3).strip(" :—")
+            if typ == "swoosh":  # `[SWOOSH — ARABIC ON SCREEN]` = the music plays on, one soft swoosh brings the Arabic in
+                typ, val = "music", "swoosh — " + val
+            items.append({"kind": "cue", "n": int(m.group(1)), "type": typ, "value": val, "section": section, "ayah": ayah})
     return items
 
 

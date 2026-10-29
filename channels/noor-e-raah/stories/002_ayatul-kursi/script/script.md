@@ -17,7 +17,7 @@
     (line 23: insaani thakaan/ooongh — koi deeni daava nahi), ek chhoti pratikriya (line 55) aur aakhri line 66 (darshakon se
     comment ki guzarish, Ustaad se sawaal nahi). Khud koi hukm, fazeelat, hadith ya tafseer ki baat nahi.
 - **Audio:** KOI tilawat nahi (na insaani, na AI), Arabic sirf screen par. Music continuous (RULES 1c, ~19 LU neeche), har Arabic
-  block par ek halka swoosh (cue `[MUSIC fade-out 1s — ARABIC ON SCREEN]` = wahi swoosh cue; **music chalta rehta hai**, band
+  block par ek halka swoosh (cue `[SWOOSH — ARABIC ON SCREEN]` = wahi swoosh cue; **music chalta rehta hai**, band
   nahi hota). Tracks: Soaring (intro + parichay) -> River Flute (matlab, hadith, seekh, ant). Ambience: gentle breeze (Freesound CC0).
 - **Tarjuma = SARAL BHAAVARTH (RULES 1a).** Teen maane hue tarjume (al-Umari/QuranEnc, Mahmud Hasan (PD), Tanzil hi.hindi) ke
   saanjhe matlab par, apne shabdon me (`research/translation_options.md`); koi 5+ shabd ka hu-ba-hu tukda nahi; brackets/footnotes
@@ -58,83 +58,83 @@
 [SCREEN (har Arabic block): Arabic bade Amiri font me (Tanzil Uthmani, bytes unchanged), upar chhota label "सरल भावार्थ — माने हुए तर्जुमों के आधार पर" (sirf BHAAVARTH line par), neeche Hindi caption. Poori aayat ke baad har jumla alag Arabic block hai.]
 ### [AYAH 1]
 [SCREEN: raat ka taaron bhara aasmaan, shaant; poori aayat Arabic me (50 shabd) — swoosh ke saath aati hai]
-8. [MUSIC fade-out 1s — ARABIC ON SCREEN]
+8. [SWOOSH — ARABIC ON SCREEN]
 ARABIC: ٱللَّهُ لَآ إِلَٰهَ إِلَّا هُوَ ٱلْحَىُّ ٱلْقَيُّومُ لَا تَأْخُذُهُۥ سِنَةٌ وَلَا نَوْمٌ لَّهُۥ مَا فِى ٱلسَّمَٰوَٰتِ وَمَا فِى ٱلْأَرْضِ مَن ذَا ٱلَّذِى يَشْفَعُ عِندَهُۥٓ إِلَّا بِإِذْنِهِۦ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلَا يُحِيطُونَ بِشَىْءٍ مِّنْ عِلْمِهِۦٓ إِلَّا بِمَا شَآءَ وَسِعَ كُرْسِيُّهُ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضَ وَلَا يَـُٔودُهُۥ حِفْظُهُمَا وَهُوَ ٱلْعَلِىُّ ٱلْعَظِيمُ
 9. USTAAD: "ये रही पूरी आयत। इसमें दस जुमले हैं — अब एक-एक करके।" [P4]
-10. [MUSIC back slowly: River Flute — matlab]
+10. [MUSIC continue: River Flute — matlab]
 ### [AYAH 2]
 [SCREEN: subah ka pehla ujala, khaali shaant registaan ka ufaq]
-11. [MUSIC fade-out 1s — ARABIC ON SCREEN]
+11. [SWOOSH — ARABIC ON SCREEN]
 ARABIC: ٱللَّهُ لَآ إِلَٰهَ إِلَّا هُوَ
 12. USTAAD — BHAAVARTH: "पहला जुमला: अल्लाह — उसके सिवा इबादत के लायक़ कोई नहीं।"
-13. [MUSIC back slowly: River Flute — matlab]
+13. [MUSIC continue: River Flute — matlab]
 14. USTAAD — MATLAB: "'अल्लाह' उसी ज़ात का नाम है, जो सारी मख़लूक़ का अकेला रब है — इसलिए बंदगी सिर्फ़ उसी की।" [U1]
 ### [AYAH 3]
 [SCREEN: registaan ke beech hara chashma aur khajoor — zindagi aur sahaara]
-15. [MUSIC fade-out 1s — ARABIC ON SCREEN]
+15. [SWOOSH — ARABIC ON SCREEN]
 ARABIC: ٱلْحَىُّ ٱلْقَيُّومُ
 16. USTAAD — BHAAVARTH: "दूसरा जुमला: वो हमेशा ज़िंदा है, और सबको थामे-सँभाले हुए है।"
-17. [MUSIC back slowly: River Flute — matlab]
+17. [MUSIC continue: River Flute — matlab]
 18. USTAAD — MATLAB: "'हय्य' यानी हमेशा ज़िंदा — जिसे कभी मौत नहीं आती।" [U2]
 19. USTAAD — MATLAB: "'क़य्यूम' यानी जो ख़ुद अपने दम पर क़ायम है और सबको क़ायम रखता है — सब उसके सहारे, वो किसी के सहारे नहीं।" [U2]
 ### [AYAH 4]
 [SCREEN: chaandni me soye hue ghar ki chhatein (khaali), bas ek diya jaagta hua]
-20. [MUSIC fade-out 1s — ARABIC ON SCREEN]
+20. [SWOOSH — ARABIC ON SCREEN]
 ARABIC: لَا تَأْخُذُهُۥ سِنَةٌ وَلَا نَوْمٌ
 21. USTAAD — BHAAVARTH: "तीसरा जुमला: न उसे ऊँघ आती है, न नींद।"
-22. [MUSIC back slowly: River Flute — matlab]
+22. [MUSIC continue: River Flute — matlab]
 23. SAWAAL — MISAAL: "हम तो थोड़ी देर जागें तो आँखें भारी हो जाती हैं, और ऊँघ आने लगती है।" [MISAAL]
 24. USTAAD — MATLAB: "'सिनह' यानी ऊँघ, 'नौम' यानी गहरी नींद — दोनों नहीं। उसे कभी कोई कमी या बेख़बरी नहीं।" [U3]
 ### [AYAH 5]
 [SCREEN: pahaad, samandar aur taaron bhara aasmaan ek hi nazar me]
-25. [MUSIC fade-out 1s — ARABIC ON SCREEN]
+25. [SWOOSH — ARABIC ON SCREEN]
 ARABIC: لَّهُۥ مَا فِى ٱلسَّمَٰوَٰتِ وَمَا فِى ٱلْأَرْضِ
 26. USTAAD — BHAAVARTH: "चौथा जुमला: आसमानों में जो कुछ है और ज़मीन में जो कुछ है — सब उसी का है।"
-27. [MUSIC back slowly: River Flute — matlab]
+27. [MUSIC continue: River Flute — matlab]
 28. USTAAD — MATLAB: "यानी हर चीज़ उसकी मिल्कियत है, और इख़्तियार भी उसी का।" [U4]
 ### [AYAH 6]
 [SCREEN: ek band naqqashidaar lakdi ka darwaza, kinaron se andar ki roshni chhanti hui; koi insaan nahi]
-29. [MUSIC fade-out 1s — ARABIC ON SCREEN]
+29. [SWOOSH — ARABIC ON SCREEN]
 ARABIC: مَن ذَا ٱلَّذِى يَشْفَعُ عِندَهُۥٓ إِلَّا بِإِذْنِهِۦ
 30. USTAAD — BHAAVARTH: "पाँचवाँ जुमला: कौन है जो उसकी इजाज़त के बिना, उसके सामने किसी की सिफ़ारिश कर सके?"
-31. [MUSIC back slowly: River Flute — matlab]
+31. [MUSIC continue: River Flute — matlab]
 32. USTAAD — MATLAB: "सिफ़ारिश यानी किसी के हक़ में बात करना — उसके सामने बिना इजाज़त कोई बोल तक नहीं सकता।" [U5]
 ### [AYAH 7]
 [SCREEN: dhundh me jaata ek raasta, aage bhi peeche bhi door tak (khaali)]
-33. [MUSIC fade-out 1s — ARABIC ON SCREEN]
+33. [SWOOSH — ARABIC ON SCREEN]
 ARABIC: يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ
 34. USTAAD — BHAAVARTH: "छठा जुमला: वो जानता है जो उनके आगे है, और जो उनके पीछे है।"
-35. [MUSIC back slowly: River Flute — matlab]
+35. [MUSIC continue: River Flute — matlab]
 36. USTAAD — MATLAB: "उलमा के मुताबिक़ इसके मानी हैं: बीता और आने वाला, या ज़ाहिर और छुपा — सब उसके इल्म में है।" [U6]
 ### [AYAH 8]
 [SCREEN: bade andhere hall me ek chhota diya, uski roshni ka ek chhota ghera; baaki andhera]
-37. [MUSIC fade-out 1s — ARABIC ON SCREEN]
+37. [SWOOSH — ARABIC ON SCREEN]
 ARABIC: وَلَا يُحِيطُونَ بِشَىْءٍ مِّنْ عِلْمِهِۦٓ إِلَّا بِمَا شَآءَ
 38. USTAAD — BHAAVARTH: "सातवाँ जुमला: उसके इल्म का कोई हिस्सा कोई घेर नहीं सकता — बस उतना, जितना वो ख़ुद चाहे।"
-39. [MUSIC back slowly: River Flute — matlab]
+39. [MUSIC continue: River Flute — matlab]
 40. USTAAD — MATLAB: "यानी हम उतना ही जानते हैं जितना उसने जानने दिया। पूरा इल्म सिर्फ़ उसी का है।" [U7]
 ### [AYAH 9]
 [SCREEN: khaali vishaal registaan, door ret par padi ek chhoti angoothi-si gol cheez, upar bahut bada aasmaan]
-41. [MUSIC fade-out 1s — ARABIC ON SCREEN]
+41. [SWOOSH — ARABIC ON SCREEN]
 ARABIC: وَسِعَ كُرْسِيُّهُ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضَ
 42. USTAAD — BHAAVARTH: "आठवाँ जुमला: उसकी कुर्सी आसमानों और ज़मीन को समेटे हुए है।"
-43. [MUSIC back slowly: River Flute — matlab]
+43. [MUSIC continue: River Flute — matlab]
 44. USTAAD — MATLAB: "'कुर्सी' की हक़ीक़त पर उलमा के कई क़ौल हैं: इब्ने अब्बास रज़ियल्लाहु अन्हु का एक क़ौल है अल्लाह का इल्म, और ज़्यादातर रिवायतों के मुताबिक़ वो अर्श के सामने एक अज़ीम मख़लूक़ है।" [K1][K2]
 45. USTAAD — MATLAB: "नबी सल्लल्लाहु अलैहि वसल्लम ने बताया कि सातों आसमान उसके मुक़ाबले में वीराने में पड़े एक छल्ले जैसे हैं।" [K3]
 46. USTAAD — MATLAB: "हर क़ौल का सार एक: अल्लाह की अज़मत के सामने आसमान-ज़मीन बहुत छोटे — और वो किसी जगह या तख़्त का मोहताज नहीं।" [K5]
 ### [AYAH 10]
 [SCREEN: ek ke baad ek khade pahaad aur shaant jheel, subah ki halki roshni]
-47. [MUSIC fade-out 1s — ARABIC ON SCREEN]
+47. [SWOOSH — ARABIC ON SCREEN]
 ARABIC: وَلَا يَـُٔودُهُۥ حِفْظُهُمَا
 48. USTAAD — BHAAVARTH: "नौवाँ जुमला: और उन दोनों की निगहबानी उसे ज़रा भी भारी नहीं पड़ती।"
-49. [MUSIC back slowly: River Flute — matlab]
+49. [MUSIC continue: River Flute — matlab]
 50. USTAAD — MATLAB: "यानी आसमान और ज़मीन को सँभाले रखना उसके लिए न बोझ है, न मुश्किल।" [U9]
 ### [AYAH 11]
 [SCREEN: badalon ke beech se utarti sunehri kirnein, khula aasmaan]
-51. [MUSIC fade-out 1s — ARABIC ON SCREEN]
+51. [SWOOSH — ARABIC ON SCREEN]
 ARABIC: وَهُوَ ٱلْعَلِىُّ ٱلْعَظِيمُ
 52. USTAAD — BHAAVARTH: "दसवाँ जुमला: और वही सबसे बुलंद है, सबसे अज़ीम है।"
-53. [MUSIC back slowly: River Flute — matlab]
+53. [MUSIC continue: River Flute — matlab]
 54. USTAAD — MATLAB: "'अलिय्य' यानी मर्तबे में सबसे ऊँचा, जगह की ऊँचाई के मानी में नहीं। 'अज़ीम' यानी अज़मत और ताक़त में सबसे बड़ा।" [U10]
 55. SAWAAL: "दस जुमले हो गए — अब पढ़ते वक़्त हर लाइन का मतलब सामने रहेगा।"
 ## 4. HADITH ME AYATUL KURSI
@@ -142,7 +142,7 @@ ARABIC: وَهُوَ ٱلْعَلِىُّ ٱلْعَظِيمُ
 56. [MUSIC soft: River Flute — hadith + seekh]
 57. USTAAD: "मुस्लिम की हदीस में है कि नबी सल्लल्लाहु अलैहि वसल्लम ने उबैय बिन काब रज़ियल्लाहु अन्हु से पूछा:" [FZ-A]
 58. USTAAD: "'ऐ अबुल-मुन्ज़िर, अल्लाह की किताब की कौन-सी आयत तुम्हारे पास सबसे अज़ीम है?' उन्होंने आयतुल कुर्सी पढ़ी, तो नबी सल्लल्लाहु अलैहि वसल्लम ने उनका सीना थपथपाकर कहा: 'तुम्हें इल्म मुबारक हो!'" [FZ-A]
-59. USTAAD: "बुख़ारी की हदीस में है: सोने के लिए बिस्तर पर जाओ, तो आयतुल कुर्सी पढ़ लो — अल्लाह की तरफ़ से एक निगहबान तुम्हारे साथ रहेगा, और सुबह तक शैतान तुम्हारे क़रीब नहीं आएगा।" [FZ-B]
+59. USTAAD: "बुख़ारी की हदीस में अबू हुरैरा रज़ियल्लाहु अन्हु की रिवायत है कि उन्हें बताया गया: सोने के लिए बिस्तर पर जाओ, तो आयतुल कुर्सी पढ़ लो — अल्लाह की तरफ़ से एक निगहबान तुम्हारे साथ रहेगा, और सुबह तक शैतान तुम्हारे क़रीब नहीं आएगा। और नबी सल्लल्लाहु अलैहि वसल्लम ने फ़रमाया कि उसने सच कहा।" [FZ-B]
 60. USTAAD: "ये अल्लाह पर भरोसे और उससे दुआ की बात है; नतीजा उसी के हाथ में है।" [FZ-B]
 ## 5. SEEKH
 [SCREEN: subah ka sunehra ujala registaan par; seekh ke teen chhote cards font se]

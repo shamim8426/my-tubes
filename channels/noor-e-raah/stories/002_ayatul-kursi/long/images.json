@@ -50,6 +50,19 @@
    "prompt": "The first light of dawn over a vast, calm, empty desert, a thin line of gold on the horizon, the sky turning from deep blue to pale gold, still and silent. Wide 16:9; keep the upper-middle area calm for on-screen text. No people, no text, no writing."
   },
   {
+   "id": "05_dawn_horizon_c",
+   "start": {
+    "line": 18
+   },
+   "reuse_id": "05_dawn_horizon",
+   "rect": {
+    "fx": 0.62,
+    "fy": 0.55,
+    "zc": 1.25
+   },
+   "_note": "Munshi R1 #3: split the 16 s on 05_dawn_horizon (first minute) into two crops; free reuse"
+  },
+  {
    "id": "06_oasis_spring",
    "start": {
     "ayah": 3

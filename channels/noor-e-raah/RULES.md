@@ -37,8 +37,9 @@ Only the rules special to this channel. Read `shared/RULES.md` first; everything
 - Sources ONLY: (1) YouTube Audio Library (the user downloads in Studio into `shared/music/noor/`; note the licence
   type; "Attribution required" -> credit), (2) Kevin MacLeod / Incompetech (CC BY 4.0, credit), (3) Pixabay only as
   backup. Every track in `shared/assets_license.csv` before use; credits in the description.
+- **Length for the daily short-surah series (2026-10-30; proposed by Claude, accepted by the user's "ha start kro", the user may change it after watching the private video):** 4-6 minutes (target 4:00-5:30) for surahs of 1-11 ayat; the "about 8:00" of the bible stays for long surahs. Hook promise and the first full ayah within ~35 s (learnings.md).
 - Script cues: `[MUSIC soft: <mood>]`, `[AMBIENCE: <sound>]`, `[SWOOSH — ARABIC ON SCREEN]` (older scripts:
-  `[MUSIC fade-out 1s — ARABIC ON SCREEN]` = the same, the music plays on), `[MUSIC: <track>]` for a crossfade.
+  `[MUSIC fade-out 1s — ARABIC ON SCREEN]` = the same, the music plays on; `scripts/noor_build.py` + `noor_render.py` read both), `[MUSIC continue: <track>]` ends the Arabic block and the music plays on (older: `[MUSIC back slowly: <track>]`), `[MUSIC: <track>]` for a crossfade.
 
 ## 1a. Tarjuma (user, 2026-10-24) — never ask anyone for permission (no emails / permission requests)
 Use the first that is available, in this order:
