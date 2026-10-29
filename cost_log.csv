@@ -785,3 +785,5 @@ timestamp,file,model,size,cost_usd,cost_inr,today_total_inr,remaining_inr,channe
 2026-10-30 07:03:32,channels/noor-e-raah/stories/003_al-ikhlas/audio/tts/050_ustaad.wav,gemini-3.8-flash-tts,tts 6.7s,0.00153,0.15,56.45,132.99,noor-e-raah,0.15,0.1473,0.03,28,168
 2026-10-30 07:03:40,channels/noor-e-raah/stories/003_al-ikhlas/audio/tts/051_sawaal.wav,gemini-3.8-flash-tts,tts 7.2s free,0.00000,0.00,56.45,132.99,noor-e-raah,0.16,0.0000,0.00,28,181
 2026-10-30 07:08:10,channels/noor-e-raah/stories/003_al-ikhlas/images/thumb_scene_a.png,gemini-nano-banana-2.1,1K,0.04579,4.42,61.66,127.78,noor-e-raah,3.27,4.4192,0.80,170,2712
+2026-10-30 02:33:54,channels/jugnu-stories/brand/_work/v6/banner_gemini_a.png,gemini-nano-banana-2.1,2K,0.07246,6.99,8.25,259.30,jugnu-stories,5.93,6.9920,1.26,7419,3137
+2026-10-30 02:35:17,channels/jugnu-stories/brand/_work/v6/banner_gemini_b.png,gemini-nano-banana-2.1,2K,0.06498,6.27,15.65,251.90,jugnu-stories,5.08,6.2703,1.13,1508,3322
