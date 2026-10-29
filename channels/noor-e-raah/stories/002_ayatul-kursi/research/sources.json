@@ -1,0 +1,742 @@
+{
+ "story": "002_ayatul-kursi",
+ "channel": "noor-e-raah",
+ "made_by": "Khoji MODE 3",
+ "date": "2026-10-29",
+ "note": "All accessed 2026-10-29 from a cloud container where tanzil.net, sunnah.com, quran.com, islamqa, islamweb, altafsir, archive.org were NOT reachable; hadith/tafsir text read from public GitHub datasets (data only, no code run). 'opened': false = not opened, second-hand from web-search snippet or unreachable; confirm on a PC. IK=Ibn Kathir, MQ=Ma'ariful Qur'an, QT=Qurtubi, TB=Tabari.",
+ "ayah": {
+  "ref": "2:255",
+  "source": "Tanzil Uthmani (txt-2), pause marks off, via risan/quran-json data/tanzil/uthmani.json",
+  "file_sha256": "adaebb377c60eba1bab6ef652959c7a0b4ccb4d0ca42145945c14ecdbeb4b761",
+  "ayah_string_sha256_utf8": "cdf04bda6db38541c5d84d515be92968fc30e60051165a9aa14da016470ca4fe",
+  "code_points": 408,
+  "words": 50,
+  "text": "ٱللَّهُ لَآ إِلَٰهَ إِلَّا هُوَ ٱلْحَىُّ ٱلْقَيُّومُ لَا تَأْخُذُهُۥ سِنَةٌ وَلَا نَوْمٌ لَّهُۥ مَا فِى ٱلسَّمَٰوَٰتِ وَمَا فِى ٱلْأَرْضِ مَن ذَا ٱلَّذِى يَشْفَعُ عِندَهُۥٓ إِلَّا بِإِذْنِهِۦ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلَا يُحِيطُونَ بِشَىْءٍ مِّنْ عِلْمِهِۦٓ إِلَّا بِمَا شَآءَ وَسِعَ كُرْسِيُّهُ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضَ وَلَا يَـُٔودُهُۥ حِفْظُهُمَا وَهُوَ ٱلْعَلِىُّ ٱلْعَظِيمُ",
+  "normalisation": "none - never NFC/NFKC",
+  "pc_check": "byte-compare with tanzil.net quran-uthmani 2:255 once (strip BOM)"
+ },
+ "not_opened": [
+  "tanzil.net",
+  "sunnah.com",
+  "quran.com",
+  "islamqa.info / islamqa.org",
+  "islamweb.net",
+  "altafsir.com",
+  "archive.org Wahidi PDF",
+  "Fath al-Bari on Bukhari 2311",
+  "Nasa'i 'Amal al-Yawm wa al-Layla 100 original",
+  "Silsila Sahiha 109 / 972",
+  "Musnad Ahmad (Ubayy / Abu Dharr)"
+ ],
+ "source_keys": {
+  "TANZIL_LIC": {
+   "url": "https://tanzil.net/docs/text_license",
+   "publisher": "Tanzil Project (terms as quoted in 001 dossier 1.1; page not re-opened here)",
+   "published": "2007-2021",
+   "accessed": "2026-10-29",
+   "type": "licence",
+   "opened": false
+  },
+  "TANZIL_SNAP": {
+   "url": "https://github.com/risan/quran-json (data/tanzil/uthmani.json; origin https://tanzil.net/pub/download/index.php?quranType=uthmani&outType=txt-2&agree=true)",
+   "publisher": "risan/quran-json snapshot of Tanzil Uthmani",
+   "published": "unknown",
+   "accessed": "2026-10-29",
+   "type": "text_snapshot",
+   "opened": true,
+   "note": "file sha256 adaebb377c60eba1bab6ef652959c7a0b4ccb4d0ca42145945c14ecdbeb4b761 (matches data/meta/sources.json and sha256sum); repo revision e20bba6abe2cc37f77f5aae5266f39cc55b9ca77; pause-marks option off; local clone in scratchpad, data only"
+  },
+  "TANZIL_CH": {
+   "url": "https://github.com/risan/quran-json (data/tanzil/chapters.json)",
+   "publisher": "Tanzil chapter metadata via risan/quran-json",
+   "published": "unknown",
+   "accessed": "2026-10-29",
+   "type": "text_metadata",
+   "opened": true,
+   "note": "chapter 2: Al-Baqara, The Cow, medinan, 286; juz 3 starts 2:253"
+  },
+  "KFGQPC_CHECK": {
+   "url": "https://github.com/risan/quran-json (data/quranpedia/qpc-hafs.json)",
+   "publisher": "KFGQPC Hafs via quranpedia.net dump (independent cross-check only)",
+   "published": "unknown",
+   "accessed": "2026-10-29",
+   "type": "text_crosscheck",
+   "opened": true,
+   "note": "letter skeleton of 2:255 identical to Tanzil, 50 words"
+  },
+  "QE_OMARI_JSON": {
+   "url": "https://github.com/risan/quran-json (data/quranenc/hindi_omari.json; origin quranenc.com hindi_omari V1.1.5)",
+   "publisher": "QuranEnc al-Umari Hindi V1.1.5 (comparison only)",
+   "published": "unknown",
+   "accessed": "2026-10-29",
+   "type": "translation",
+   "opened": true
+  },
+  "FAWAZ_QURAN": {
+   "url": "https://raw.githubusercontent.com/fawazahmed0/quran-api/1/editions/<edition>/2/255.json",
+   "publisher": "fawazahmed0/quran-api (Unlicense repo; text origin per edition)",
+   "published": "unknown",
+   "accessed": "2026-10-29",
+   "type": "translation",
+   "opened": true,
+   "note": "editions used: urd-mahmoodulhassan (dailyayat.com), hin-suhelfarooqkhan (tanzil), hin-muhammadfarooqk (tanzil), urd-abulaalamaududi, urd-muhammadtaqiusm, eng-ummmuhammad"
+  },
+  "HADITH_API": {
+   "url": "https://raw.githubusercontent.com/fawazahmed0/hadith-api/1/editions/<edition>.json",
+   "publisher": "fawazahmed0/hadith-api (Unlicense repo; texts sunnah.com-derived; grades field from sunnah.com)",
+   "published": "unknown",
+   "accessed": "2026-10-29",
+   "type": "hadith_dataset",
+   "opened": true,
+   "note": "eng-muslim/ara-muslim (hadithnumber 1885 = arabicnumber 810, ref book 6 hadith 313), eng-bukhari/ara-bukhari 2311, 3275, 5010; eng-tirmidhi 2878-2880, 2884; eng-nasai (Sunan only; no 'Amal al-Yawm wa al-Layla)"
+  },
+  "IK_EN_255": {
+   "url": "https://raw.githubusercontent.com/spa5k/tafsir_api/main/tafsir/en-tafisr-ibn-kathir/2/255.json",
+   "publisher": "Tafsir Ibn Kathir (abridged EN) 2:255, via spa5k/tafsir_api (MIT; text from qul.tarteel.ai)",
+   "published": "unknown",
+   "accessed": "2026-10-29",
+   "type": "tafseer",
+   "opened": true
+  },
+  "IK_AR_255": {
+   "url": "https://raw.githubusercontent.com/spa5k/tafsir_api/main/tafsir/ar-tafsir-ibn-kathir/2/255.json",
+   "publisher": "Tafsir Ibn Kathir (Arabic) 2:255 via spa5k/tafsir_api",
+   "published": "unknown",
+   "accessed": "2026-10-29",
+   "type": "tafseer",
+   "opened": true
+  },
+  "IK_EN_21": {
+   "url": "https://raw.githubusercontent.com/spa5k/tafsir_api/main/tafsir/en-tafisr-ibn-kathir/2/1.json",
+   "publisher": "Tafsir Ibn Kathir (EN) 2:1: 'Al-Baqarah was revealed in Al-Madinah ... no disagreement'",
+   "published": "unknown",
+   "accessed": "2026-10-29",
+   "type": "tafseer",
+   "opened": true
+  },
+  "IK_AR_21": {
+   "url": "https://raw.githubusercontent.com/spa5k/tafsir_api/main/tafsir/ar-tafsir-ibn-kathir/2/1.json",
+   "publisher": "Tafsir Ibn Kathir (AR) 2:1: madaniyya bila khilaf; ayat 287 per counters",
+   "published": "unknown",
+   "accessed": "2026-10-29",
+   "type": "tafseer",
+   "opened": true
+  },
+  "QT_255": {
+   "url": "https://raw.githubusercontent.com/spa5k/tafsir_api/main/tafsir/ar-tafseer-al-qurtubi/2/255.json",
+   "publisher": "al-Qurtubi, al-Jami' li-Ahkam al-Qur'an 2:255 via spa5k/tafsir_api",
+   "published": "unknown",
+   "accessed": "2026-10-29",
+   "type": "tafseer",
+   "opened": true
+  },
+  "TB_255": {
+   "url": "https://raw.githubusercontent.com/spa5k/tafsir_api/main/tafsir/ar-tafsir-al-tabari/2/255.json",
+   "publisher": "al-Tabari, Jami' al-Bayan 2:255 (Shakir ed. notes) via spa5k/tafsir_api",
+   "published": "unknown",
+   "accessed": "2026-10-29",
+   "type": "tafseer",
+   "opened": true
+  },
+  "IAH_255": {
+   "url": "https://raw.githubusercontent.com/spa5k/tafsir_api/main/tafsir/tafsir-ibn-abi-hatim/2/255.json",
+   "publisher": "Tafsir Ibn Abi Hatim 2:255 via spa5k/tafsir_api",
+   "published": "unknown",
+   "accessed": "2026-10-29",
+   "type": "tafseer",
+   "opened": true
+  },
+  "BAGHAWI_255": {
+   "url": "https://raw.githubusercontent.com/spa5k/tafsir_api/main/tafsir/ar-tafsir-al-baghawi/2/255.json",
+   "publisher": "al-Baghawi 2:255 via spa5k/tafsir_api (no nuzul for 255; nuzul only for 256)",
+   "published": "unknown",
+   "accessed": "2026-10-29",
+   "type": "tafseer",
+   "opened": true
+  },
+  "MQ_255": {
+   "url": "https://raw.githubusercontent.com/spa5k/tafsir_api/main/tafsir/en-tafsir-maarif-ul-quran/2/255.json",
+   "publisher": "Ma'ariful Qur'an (EN) 2:255 via spa5k/tafsir_api",
+   "published": "unknown",
+   "accessed": "2026-10-29",
+   "type": "tafseer",
+   "opened": true
+  },
+  "JAL_255": {
+   "url": "https://raw.githubusercontent.com/spa5k/tafsir_api/main/tafsir/en-al-jalalayn/2/255.json",
+   "publisher": "Tafsir al-Jalalayn (EN) 2:255",
+   "published": "unknown",
+   "accessed": "2026-10-29",
+   "type": "tafseer",
+   "opened": true
+  },
+  "WAHIDI_DATA": {
+   "url": "https://raw.githubusercontent.com/spa5k/tafsir_api/main/tafsir/en-asbab-al-nuzul-by-al-wahidi/2.json (2/255.json = 404)",
+   "publisher": "al-Wahidi Asbab al-Nuzul (altafsir EN, via spa5k/tafsir_api): ayah list for surah 2 has 256 but not 255",
+   "published": "unknown",
+   "accessed": "2026-10-29",
+   "type": "asbab",
+   "opened": true,
+   "note": "second-hand dataset; confirm on altafsir.com / archive.org PDF on a PC"
+  },
+  "SUNNAH_MUSLIM810": {
+   "url": "https://sunnah.com/muslim:810",
+   "publisher": "Sahih Muslim 810 (sunnah.com)",
+   "published": "unknown",
+   "accessed": "2026-10-29",
+   "type": "hadith",
+   "opened": false,
+   "note": "not reachable; number from HADITH_API arabicnumber"
+  },
+  "SUNNAH_BUKHARI2311": {
+   "url": "https://sunnah.com/bukhari:2311",
+   "publisher": "Sahih al-Bukhari 2311 (sunnah.com)",
+   "published": "unknown",
+   "accessed": "2026-10-29",
+   "type": "hadith",
+   "opened": false,
+   "note": "not reachable; also 3275, 5010"
+  },
+  "NASAI_AMAL": {
+   "url": "https://www.muftiwp.gov.my/en/artikel/irsyad-al-hadith/1446-irsyad-al-hadith-series-136-the-advantages-of-ayat-al-kursi",
+   "publisher": "Mufti WP Malaysia (search snippet: Nasa'i Kubra 9848, Tabarani Mu'jam al-Kabir 7532)",
+   "published": "unknown",
+   "accessed": "2026-10-29",
+   "type": "secondary",
+   "opened": false
+  },
+  "NASAI_GRADE_FATWA": {
+   "url": "https://www.islamweb.net/ar/fatwa/276580/",
+   "publisher": "islamweb fatwa on grade of the after-prayer hadith (search snippet only)",
+   "published": "unknown",
+   "accessed": "2026-10-29",
+   "type": "secondary",
+   "opened": false,
+   "note": "gradings reported second-hand: Ibn Hibban, Albani sahih; Ibn al-Jawzi mawdu'; chain: Muhammad ibn Himyar"
+  },
+  "ABUDHARR_SILSILA109": {
+   "url": "https://islamqa.org/?p=120616",
+   "publisher": "IslamQA/Islamland/Hadithanswers (search snippet): Abu Dharr Kursi hadith, Silsila Sahiha 109, Ibn Hibban Ihsan 361",
+   "published": "unknown",
+   "accessed": "2026-10-29",
+   "type": "secondary",
+   "opened": false
+  },
+  "WIKISHIA": {
+   "url": "https://en.wikishia.net/view/Ayat_al-Kursi",
+   "publisher": "WikiShia (search snippet: cause of revelation '-', Medinan)",
+   "published": "unknown",
+   "accessed": "2026-10-29",
+   "type": "secondary",
+   "opened": false,
+   "note": "pointer only, not a final source"
+  },
+  "ALTAFSIR_WAHIDI_PC": {
+   "url": "https://www.altafsir.com/",
+   "publisher": "altafsir.com (Wahidi, others)",
+   "published": "unknown",
+   "accessed": "2026-10-29",
+   "type": "tafseer",
+   "opened": false,
+   "note": "not reachable; confirm on PC"
+  }
+ },
+ "facts": [
+  {
+   "id": "T1",
+   "claim": "Arabic 2:255 = Tanzil Uthmani snapshot string (see ayah_text); CC BY 3.0, verbatim only, credit Tanzil Project + link; PC byte-check vs tanzil.net advisable",
+   "grade": "licence ALLOWED",
+   "confidence": "pakka",
+   "sources": [
+    "TANZIL_SNAP",
+    "TANZIL_LIC",
+    "KFGQPC_CHECK"
+   ]
+  },
+  {
+   "id": "T2",
+   "claim": "Hindi = saral bhaavarth from 3 accepted translations (al-Umari, Mahmud Hasan, Tanzil hi.hindi); no translation text is copied",
+   "grade": "decision (001)",
+   "confidence": "pakka",
+   "sources": [
+    "QE_OMARI_JSON",
+    "FAWAZ_QURAN"
+   ]
+  },
+  {
+   "id": "P1",
+   "claim": "2:255 in Al-Baqarah (2nd surah), 255th ayah (Kufi count), surah 286 ayat (counters differ: 287), juz 3",
+   "grade": "maana hua (ayah count: ikhtilaaf)",
+   "confidence": "pakka",
+   "sources": [
+    "TANZIL_CH",
+    "IK_AR_21"
+   ]
+  },
+  {
+   "id": "P2",
+   "claim": "Al-Baqarah entirely Madani, no disagreement",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "IK_EN_21",
+    "IK_AR_21",
+    "TANZIL_CH"
+   ]
+  },
+  {
+   "id": "P3",
+   "claim": "Name 'Ayat al-Kursi' used in Sahih al-Bukhari wording (aayat al-kursi)",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "HADITH_API",
+    "QT_255",
+    "IK_EN_255"
+   ]
+  },
+  {
+   "id": "P4",
+   "claim": "Ayah has ten complete sentences",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "IK_EN_255",
+    "MQ_255"
+   ]
+  },
+  {
+   "id": "P5",
+   "claim": "Link 2:254 (shafa'a mentioned) -> 2:255 (intercession only by permission): no tafseer source found",
+   "grade": "anumaan",
+   "confidence": "anumaan",
+   "sources": [
+    "TANZIL_SNAP"
+   ]
+  },
+  {
+   "id": "N1",
+   "claim": "No sound specific shan-e-nuzul for 2:255 found; Wahidi dataset has 2:256 but not 2:255; IK/MQ/JAL/Baghawi none",
+   "grade": "maana hua (none established)",
+   "confidence": "vivaadit",
+   "sources": [
+    "WAHIDI_DATA",
+    "IK_EN_255",
+    "MQ_255",
+    "JAL_255",
+    "BAGHAWI_255",
+    "WIKISHIA"
+   ]
+  },
+  {
+   "id": "N2",
+   "claim": "Safe wording: no strong occasion reported; part of Al-Baqarah revealed in Madina",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "WAHIDI_DATA",
+    "IK_EN_255",
+    "IK_EN_21"
+   ]
+  },
+  {
+   "id": "N3",
+   "claim": "Qurtubi: revealed at night, Zayd called to write it (no isnad)",
+   "grade": "chhoda gaya",
+   "confidence": "anumaan",
+   "sources": [
+    "QT_255"
+   ]
+  },
+  {
+   "id": "C1",
+   "claim": "Ibn Abi Hatim 2580 (Ibn Abbas): Musa AS, two bottles, 'then Ayat al-Kursi was revealed' - Israelite-style; Qurtubi: similar report not sahih",
+   "grade": "chhoda gaya",
+   "confidence": "anumaan",
+   "sources": [
+    "IAH_255",
+    "QT_255"
+   ]
+  },
+  {
+   "id": "C2",
+   "claim": "Rabi' bin Anas: kursi verse revealed, companions ask about Arsh, 39:67 revealed - mursal tabi'i, other ayah",
+   "grade": "chhoda gaya",
+   "confidence": "anumaan",
+   "sources": [
+    "IAH_255",
+    "TB_255"
+   ]
+  },
+  {
+   "id": "C3",
+   "claim": "Ibn al-Hanafiyya: idols/crowns fell, devils fled - no isnad",
+   "grade": "chhoda gaya",
+   "confidence": "anumaan",
+   "sources": [
+    "QT_255"
+   ]
+  },
+  {
+   "id": "C4",
+   "claim": "Tabari's own context for the intercession line (polytheists' idol-worship) - not a chained shan-e-nuzul; do not call it that",
+   "grade": "chhoda gaya",
+   "confidence": "anumaan",
+   "sources": [
+    "TB_255",
+    "QT_255"
+   ]
+  },
+  {
+   "id": "C5",
+   "claim": "Tirmidhi 2878 'sayyid al-ayat' - daif (Shakir, Albani, Bashar, Zubair)",
+   "grade": "chhoda gaya",
+   "confidence": "anumaan",
+   "sources": [
+    "HADITH_API"
+   ]
+  },
+  {
+   "id": "C6",
+   "claim": "Tirmidhi 2879 Ha-Mim al-Mu'min + Ayat al-Kursi morning/evening - daif (Shakir, Albani, Zubair); Tirmidhi: gharib",
+   "grade": "chhoda gaya",
+   "confidence": "anumaan",
+   "sources": [
+    "HADITH_API",
+    "QT_255"
+   ]
+  },
+  {
+   "id": "C7",
+   "claim": "Tirmidhi 2880 Abu Ayyub ghoul - ikhtilaaf (Shakir/Albani sahih, Zubair daif; Tirmidhi hasan gharib); jinn content",
+   "grade": "chhoda gaya",
+   "confidence": "anumaan",
+   "sources": [
+    "HADITH_API",
+    "IK_EN_255"
+   ]
+  },
+  {
+   "id": "C8",
+   "claim": "Greatest Name in 2:255 and 3:1-2 (Asma bint Yazid) - out of video scope; IK: Tirmidhi hasan sahih",
+   "grade": "chhoda gaya",
+   "confidence": "anumaan",
+   "sources": [
+    "IK_EN_255"
+   ]
+  },
+  {
+   "id": "C9",
+   "claim": "Ayah has tongue and two lips at the leg of the Throne (Ahmad) - grade not checked; Muslim omits it",
+   "grade": "chhoda gaya",
+   "confidence": "anumaan",
+   "sources": [
+    "IK_EN_255",
+    "QT_255"
+   ]
+  },
+  {
+   "id": "C10",
+   "claim": "50 words x 50 blessings; a third of the Quran; 'Wali-ullah' in Torah - no isnad/grade",
+   "grade": "chhoda gaya",
+   "confidence": "anumaan",
+   "sources": [
+    "QT_255"
+   ]
+  },
+  {
+   "id": "C11",
+   "claim": "Hadith qudsi to Musa: reward of prophets for each prayer (via al-Hakim al-Tirmidhi) - no grade",
+   "grade": "chhoda gaya",
+   "confidence": "anumaan",
+   "sources": [
+    "QT_255"
+   ]
+  },
+  {
+   "id": "C12",
+   "claim": "Kursi a pearl, qalam a pearl (Ali, Ibn Asakir) - no grade",
+   "grade": "chhoda gaya",
+   "confidence": "anumaan",
+   "sources": [
+    "QT_255"
+   ]
+  },
+  {
+   "id": "C13",
+   "claim": "Umar / companion wrestles jinn (Darimi, Abu Nu'aym) - jinn narrative, no second grader",
+   "grade": "chhoda gaya",
+   "confidence": "anumaan",
+   "sources": [
+    "QT_255"
+   ]
+  },
+  {
+   "id": "C14",
+   "claim": "Ali / Anas versions of the after-prayer reward - weak (second-hand summary)",
+   "grade": "chhoda gaya",
+   "confidence": "anumaan",
+   "sources": [
+    "NASAI_GRADE_FATWA",
+    "QT_255"
+   ]
+  },
+  {
+   "id": "C15",
+   "claim": "Tirmidhi 2884 Ibn Mas'ud - one grader only, mauquf",
+   "grade": "chhoda gaya",
+   "confidence": "anumaan",
+   "sources": [
+    "HADITH_API"
+   ]
+  },
+  {
+   "id": "U1",
+   "claim": "La ilaha illa Huwa: none worthy of worship but Him",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "IK_EN_255",
+    "MQ_255",
+    "FAWAZ_QURAN"
+   ]
+  },
+  {
+   "id": "U2",
+   "claim": "Al-Hayy al-Qayyum: ever-living, sustains all, needs none",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "IK_EN_255",
+    "MQ_255",
+    "QT_255"
+   ]
+  },
+  {
+   "id": "U3",
+   "claim": "Sinah/nawm: no drowsiness, no sleep; no shortcoming/heedlessness",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "IK_EN_255",
+    "MQ_255",
+    "QT_255"
+   ]
+  },
+  {
+   "id": "U4",
+   "claim": "Everything in heavens and earth is His",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "IK_EN_255",
+    "MQ_255"
+   ]
+  },
+  {
+   "id": "U5",
+   "claim": "No intercession except by His permission",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "IK_EN_255",
+    "MQ_255",
+    "QT_255"
+   ]
+  },
+  {
+   "id": "U6",
+   "claim": "He knows what is before and behind them (both readings allowed)",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "IK_EN_255",
+    "MQ_255",
+    "QT_255"
+   ]
+  },
+  {
+   "id": "U7",
+   "claim": "None encompass any of His knowledge except what He wills",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "IK_EN_255",
+    "MQ_255",
+    "QT_255"
+   ]
+  },
+  {
+   "id": "U8",
+   "claim": "His Kursi extends over heavens and earth (reality of Kursi: see K1-K6)",
+   "grade": "maana hua (azmat) / ikhtilaaf (reality)",
+   "confidence": "pakka",
+   "sources": [
+    "IK_EN_255",
+    "MQ_255",
+    "QT_255",
+    "TB_255"
+   ]
+  },
+  {
+   "id": "U9",
+   "claim": "Their preservation does not burden/tire Him",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "IK_EN_255",
+    "MQ_255",
+    "QT_255",
+    "TB_255"
+   ]
+  },
+  {
+   "id": "U10",
+   "claim": "Al-'Aliyy al-'Azim: most high in rank, most great",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "IK_EN_255",
+    "MQ_255",
+    "QT_255"
+   ]
+  },
+  {
+   "id": "K1",
+   "claim": "Kursi = His knowledge (Ibn Abbas via Sa'id ibn Jubayr); Tabari prefers",
+   "grade": "ikhtilaaf",
+   "confidence": "vivaadit",
+   "sources": [
+    "TB_255",
+    "QT_255"
+   ]
+  },
+  {
+   "id": "K2",
+   "claim": "Kursi = a great creation before the Arsh ('place of the feet' wording, Ibn Abbas mauquf, Hakim sahih; Abu Musa munqati'); Qurtubi: most reports point here",
+   "grade": "ikhtilaaf",
+   "confidence": "vivaadit",
+   "sources": [
+    "IK_EN_255",
+    "QT_255",
+    "TB_255",
+    "IAH_255"
+   ]
+  },
+  {
+   "id": "K3",
+   "claim": "Seven heavens in the Kursi like a ring thrown in a desert; Arsh over Kursi likewise (Abu Dharr)",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "QT_255",
+    "MQ_255",
+    "IK_EN_255",
+    "ABUDHARR_SILSILA109"
+   ],
+   "note": "Qurtubi: Ajurri, Ibn Hibban in his Sahih, Bayhaqi said sahih; Albani Silsila Sahiha 109 per secondary only"
+  },
+  {
+   "id": "K4",
+   "claim": "Hasan: Kursi = Arsh itself",
+   "grade": "chhoda gaya",
+   "confidence": "vivaadit",
+   "sources": [
+    "QT_255",
+    "TB_255"
+   ]
+  },
+  {
+   "id": "K5",
+   "claim": "Kursi is not a seat for Allah to sit on; He is above sitting/standing/place; Salaf: accept as it came without likening",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "MQ_255",
+    "QT_255",
+    "IK_EN_255"
+   ]
+  },
+  {
+   "id": "K6",
+   "claim": "Some translations render Kursi as sovereignty (hi.farooq 'prabhuta', Maududi 'hukumat'); others literal",
+   "grade": "ikhtilaaf",
+   "confidence": "pakka",
+   "sources": [
+    "FAWAZ_QURAN"
+   ]
+  },
+  {
+   "id": "FZ-A",
+   "claim": "Greatest ayah: Sahih Muslim 810 (Ubayy bin Ka'b) - exact Arabic in ayah_text/hadith_text; supported by Ahmad (IK/MQ) and Qurtubi",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "HADITH_API",
+    "SUNNAH_MUSLIM810",
+    "IK_EN_255",
+    "MQ_255",
+    "QT_255"
+   ],
+   "hadith_arabic": "يَا أَبَا الْمُنْذِرِ أَتَدْرِي أَىُّ آيَةٍ مِنْ كِتَابِ اللَّهِ مَعَكَ أَعْظَمُ ... قَالَ قُلْتُ اللَّهُ لاَ إِلَهَ إِلاَّ هُوَ الْحَىُّ الْقَيُّومُ ... وَقَالَ وَاللَّهِ لِيَهْنِكَ الْعِلْمُ أَبَا الْمُنْذِرِ",
+   "hadith_english_dataset": "O Abu'l-Mundhir, do you know the verse from the Book of Allah which, according to you, is the greatest? ... I said: Allah, there is no god but He, the Living, the Eternal. Thereupon he struck me on my breast and said: May knowledge be pleasant for you, O Abu'l-Mundhir",
+   "usable": true,
+   "opened_on_sunnah_com": false
+  },
+  {
+   "id": "FZ-B",
+   "claim": "Bedtime: recite Ayat al-Kursi -> a guard from Allah stays, Shaytan will not come near till morning (Abu Hurayrah) - Bukhari 2311 (full), 3275, 5010; Nasa'i 'Amal al-Yawm per Ibn Kathir",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "HADITH_API",
+    "SUNNAH_BUKHARI2311",
+    "IK_EN_255",
+    "QT_255"
+   ],
+   "hadith_arabic_2311": "إِذَا أَوَيْتَ إِلَى فِرَاشِكَ فَاقْرَأْ آيَةَ الْكُرْسِيِّ ... حَتَّى تَخْتِمَ الآيَةَ، فَإِنَّكَ لَنْ يَزَالَ عَلَيْكَ مِنَ اللَّهِ حَافِظٌ وَلاَ يَقْرَبَنَّكَ شَيْطَانٌ حَتَّى تُصْبِحَ",
+   "usable": true,
+   "nuance": "isnad opens with 'wa qala Uthman ibn al-Haytham' (ta'liq form; Uthman a direct shaykh of Bukhari per biography snippet); confirm Fath al-Bari on a PC",
+   "opened_on_sunnah_com": false
+  },
+  {
+   "id": "FZ-C",
+   "claim": "After every obligatory prayer: only death stops entry to Paradise (Abu Umamah; Nasa'i 'Amal al-Yawm 100 / Kubra 9848; Tabarani)",
+   "grade": "ikhtilaaf",
+   "confidence": "vivaadit",
+   "sources": [
+    "NASAI_AMAL",
+    "NASAI_GRADE_FATWA",
+    "MQ_255",
+    "QT_255"
+   ],
+   "usable": false,
+   "note": "sahih per Ibn Hibban/Albani (second-hand), mawdu' per Ibn al-Jawzi (disputed); channel rule: sahih only"
+  },
+  {
+   "id": "FZ-D",
+   "claim": "Sayyid al-ayat / greatest name / lips / third of Quran / morning-evening / ghoul",
+   "grade": "chhoda gaya",
+   "confidence": "anumaan",
+   "sources": [
+    "HADITH_API",
+    "IK_EN_255",
+    "QT_255"
+   ],
+   "usable": false
+  },
+  {
+   "id": "FZ-E",
+   "claim": "Abu Dharr: which ayah revealed is greatest? Ayat al-Kursi (Ahmad)",
+   "grade": "maana hua (support only)",
+   "confidence": "vivaadit",
+   "sources": [
+    "QT_255",
+    "MQ_255",
+    "IK_EN_255"
+   ],
+   "usable": "only alongside FZ-A",
+   "note": "Ahmad text not opened"
+  }
+ ]
+}
