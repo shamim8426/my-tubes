@@ -39,3 +39,18 @@ Nothing disrespectful or misleading found. "सबसे अज़ीम" is alw
 
 ## Still open (PC / later)
 tanzil.net byte compare + Amiri render of يَـُٔودُهُۥ; sunnah.com Muslim 810 / Bukhari 2311/3275/5010 wording; real TTS length <= 5:30 and first Arabic <= ~35 s (my estimate ~0:33). Metadata draft chapters at render.
+
+---
+# R3 (2026-10-29) - quick re-check after free trim (lines 6, 14, 28, 36, 46, 50, 55 removed) - VERDICT: PASS-WITH-NOTES
+
+## Verified
+1. Structure complete: parichay (5) -> shan-e-nuzul statement (7, N1/N2 kept) -> whole ayah (AYAH 1) -> 10 units, each with Arabic + bhaavarth (12,16,21,26,30,34,38,42,48,52) -> hadith 57-60 -> seekh 62-64 -> next video 65 + comment prompt 66. lines.json has 34 lines, none of the removed numbers. Missing matlab for U1, U4, U6, U9 is acceptable: bhaavarth alone is accurate and not misleading. U10 line 54 still says "ऊँचाई जगह के मानी में नहीं" (K5 core). Kursi K1/K2/K3 lines 44/45 kept, ikhtilaaf wording intact.
+2. Tags: only tags that lost every line are P3 and K5 (+ U1/U4/U6/U9 matlab; U4 still cited at 63). No spoken claim lacks a tag. Source map rows (P3 line 6, U-row, K5 line 46, line 55 refs, sawaal table line 55) are stale text only; trim note at top covers it.
+3. Real sawaal: line 3 (0:00) and line 61 (~4:50): 2, gap ~4:45. OK.
+4. First full Arabic: lines 3-7 end ~32.6 s, first Arabic block ~34-35 s (line 9 ends 38.7 s). Total plan 5:32 (332.3 s), within 4-6 min series rule.
+5. images.json 04_date_palm_path start line 7; render.json card line 5 until 5: consistent. Images not yet generated here (plan lists them missing), nothing else changed.
+6. No "chhoda gaya" content added. Arabic: AYAH 1 == sources.json ayah text, 10 units joined == whole (code compare, True/True).
+
+## Notes (MINOR, carry_over)
+- K5 line (Allah not in a place / not needing throne) removed: after the Kursi lines 44/45 only line 54 carries the idea. Dossier "safe line" ideally stays; if length allows later, re-add as one short Ustaad line after 45 (about 8 s, 5:40). Not a blocker.
+- Refresh stale line numbers in SOURCE MAP / sawaal table (cosmetic).
