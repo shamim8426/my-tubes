@@ -996,7 +996,7 @@
    "end": 193.289,
    "move": "pan_left",
    "fx": 0.5,
-   "fy": 0.68,
+   "fy": 0.72,
    "zc": 1.7
   },
   {
@@ -1006,7 +1006,7 @@
    "end": 198.476,
    "move": "gentle_orbit",
    "fx": 0.5,
-   "fy": 0.68,
+   "fy": 0.72,
    "zc": 1.7
   },
   {
@@ -1095,9 +1095,9 @@
    "start": 253.617,
    "end": 261.48,
    "move": "gentle_orbit",
-   "fx": 0.5,
+   "fx": 0.75,
    "fy": 0.5,
-   "zc": 1.0
+   "zc": 1.55
   },
   {
    "img": "12_bedtime_room_lamp.png",
@@ -1105,9 +1105,9 @@
    "start": 261.48,
    "end": 269.344,
    "move": "push_in",
-   "fx": 0.38,
+   "fx": 0.75,
    "fy": 0.5,
-   "zc": 1.15
+   "zc": 1.55
   },
   {
    "img": "12_bedtime_room_lamp.png",
@@ -1115,9 +1115,9 @@
    "start": 269.344,
    "end": 277.207,
    "move": "pan_left",
-   "fx": 0.62,
+   "fx": 0.75,
    "fy": 0.5,
-   "zc": 1.15
+   "zc": 1.55
   },
   {
    "img": "12_bedtime_room_lamp.png",
@@ -1125,9 +1125,9 @@
    "start": 277.207,
    "end": 285.07,
    "move": "pull_out",
-   "fx": 0.5,
-   "fy": 0.45,
-   "zc": 1.25
+   "fx": 0.75,
+   "fy": 0.5,
+   "zc": 1.55
   },
   {
    "img": "05_dawn_horizon.png",

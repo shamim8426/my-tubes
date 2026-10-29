@@ -316,9 +316,14 @@ def ass_doc(tl):
     end_from = CFG.get("end_from") or (lines[-2]["n"] if len(lines) > 1 else lines[0]["n"])
     ar_fs = title_fs(CFG["title_ar"])
     ev.append(f"Dialogue: 2,{ts(0.2)},{ts(first_end)},ArTitle,,0,0,0,,{{\\pos(960,110)\\fs{ar_fs}\\fad(400,400)}}{CFG['title_ar']}")
-    for ay in tl["ayat"]:  # Tanzil text bytes unchanged
-        ev.append(f"Dialogue: 2,{ts(ay['a0'])},{ts(ay['off'])},Ayah,,0,0,0,,"
-                  f"{{\\pos(960,165)\\fs{arabic_fs(ay['text'])}\\fad(500,{int(ARABIC_FADE * 1000)})}}{ay['text']}")
+    for ay in tl["ayat"]:  # Tanzil text bytes unchanged (a long ayah is only split at spaces, never edited)
+        # the "सरल भावार्थ" label sits at y 470 while a bhaavarth line is spoken: the ayah ink must stay above it then
+        with_label = any(l["role"] == "bhaavarth" and l["start"] < ay["off"] and l["end"] + ARABIC_HOLD > ay["a0"] for l in lines)
+        parts, band = ayah_lines(ay["text"], 450 if with_label else 760)
+        ay["band"] = band
+        for ln, fs, y in parts:
+            ev.append(f"Dialogue: 2,{ts(ay['a0'])},{ts(ay['off'])},Ayah,,0,0,0,,"
+                      f"{{\\pos(960,{y})\\fs{fs}\\fad(500,{int(ARABIC_FADE * 1000)})}}{ln}")
     ev.append(f"Dialogue: 1,{ts(0.2)},{ts(first_end)},Big,,0,0,0,,{{\\pos(960,560)\\fad(400,400)}}{CFG['title_hi']}")
     ev.append(f"Dialogue: 1,{ts(0.2)},{ts(first_end)},Gold,,0,0,0,,{{\\pos(960,690)\\fad(400,400)}}{CFG['series']}")
     for l in lines:
@@ -350,17 +355,56 @@ def ass_doc(tl):
 
 def title_fs(text: str) -> int:
     """ASS size of the big Arabic title: the old Al-Fatiha size (400), smaller when the name is wider than ~1300 px."""
-    from PIL import ImageFont
-    w = ImageFont.truetype(str(FONT_AR), 92).getlength(text)
+    w = amiri_px(92).getlength(text)
     return int(400 * min(1.0, 1300 / w)) if w else 400
+
+
+def amiri_px(size: int):
+    """Amiri for measuring text width: the BASIC layout engine on purpose. Every constant here (AMIRI_ASS_K, the 1700 px
+    limit) was calibrated on the PC, whose Pillow has no libraqm; the cloud's Pillow (RAQM) would measure ~1.5x too narrow."""
+    from PIL import ImageFont
+    return ImageFont.truetype(str(FONT_AR), size, layout_engine=ImageFont.Layout.BASIC)
+
+
+LIBASS_WIDER = 1.11  # libass draws Amiri ~11 % wider than the BASIC measure (measured 2026-10-30, em 40-52)
+
+
+def ayah_lines(text: str, end_y: int):
+    """Layout of an ayah block. Returns [(line text, ASS size, \\pos y)] and the dark band (top, bottom) in px.
+    A short ayah stays ONE line exactly as before (arabic_fs, pos y 165). A long one (the 50-word Ayatul Kursi) is wrapped by
+    us, line by line, in a smaller size: libass's own wrapping/line spacing for Amiri is far too loose (4 lines at the old
+    size ran into the subtitles, Sampadak 2026-10-30). Measured in libass: a line's ink starts 1.0 em below its \\pos y and is
+    ~2.7 em high, so lines are 2.6 em apart; the whole block's ink must end above end_y."""
+    for size in (78, 72, 64, 58):
+        if amiri_px(size).getlength(text) <= 1700:
+            return [(text, int(size * AMIRI_ASS_K), 165)], None
+    words = text.split(" ")
+    limit = 1700 / LIBASS_WIDER
+    for em in (60, 56, 52, 48, 44, 40, 36):
+        f = amiri_px(em)
+        lines, cur = [], ""
+        for w in words:
+            t = (cur + " " + w).strip()
+            if cur and f.getlength(t) > limit:
+                lines.append(cur)
+                cur = w
+            else:
+                cur = t
+        lines.append(cur)
+        pitch = 2.6 * em
+        ink0 = 235  # top of the first line's ink (inside the dark band that starts at 194)
+        bottom = ink0 + (len(lines) - 1) * pitch + 2.7 * em
+        if bottom <= end_y or em == 36:
+            fs = int(em * AMIRI_ASS_K)
+            return [(ln, fs, int(ink0 + i * pitch - 1.0 * em)) for i, ln in enumerate(lines)], (194, int(bottom + 30))
+    raise AssertionError("unreachable")
 
 
 def arabic_fs(text: str) -> int:
     """ASS font size for an ayah so it fits ~1700 px: libass draws Amiri AMIRI_ASS_K times smaller than its pixel size
     (measured: same text 1183 px wide at 100 px vs 272 px at ASS size 100 - Amiri's very tall line metrics)."""
-    from PIL import ImageFont
     for size in (78, 72, 64, 58):  # capped: a short ayah at 96 reached the label line
-        if ImageFont.truetype(str(FONT_AR), size).getlength(text) <= 1700:
+        if amiri_px(size).getlength(text) <= 1700:
             return int(size * AMIRI_ASS_K)
     return int(52 * AMIRI_ASS_K)
 
@@ -368,7 +412,9 @@ def arabic_fs(text: str) -> int:
 def video_filter(tl, out_dir, ass: Path):
     f = []
     for ay in tl["ayat"]:  # dark band behind the Arabic (the Arabic itself is drawn by libass from the ASS file)
-        f.append(f"drawbox=x=0:y=ih*0.18:w=iw:h=ih*0.33:color=black@0.30:t=fill:"
+        y0, y1 = ay.get("band") or (None, None)  # a multi-line ayah (ayah_lines) needs a taller dark band
+        box = f"y={y0}:h={y1 - y0}" if y0 is not None else "y=ih*0.18:h=ih*0.33"
+        f.append(f"drawbox=x=0:{box}:w=iw:color=black@0.30:t=fill:"
                  f"enable='between(t,{ay['a0']:.2f},{ay['off']:.2f})'")
     f.append(f"subtitles=filename='{esc(ass)}':fontsdir='{esc(FONT_DIR)}'")
     f.append("scale=out_color_matrix=bt709:out_range=tv,format=yuv420p,setsar=1,"
