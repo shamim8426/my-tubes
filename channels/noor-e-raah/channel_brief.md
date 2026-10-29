@@ -40,6 +40,7 @@ Empty — first post-mortem of Al-Fatiha 48 h after it went live.
 choose), pin comment. Next: 4 Shorts of Al-Fatiha (needs a 9:16 renderer), then 002 Al-Baqarah 1-5.
 
 ## Bade faisle
+- 2026-10-30 (user) Free first for AI images: wallpapers via Cloudflare flux (scripts/cf_image.py, Rs0), Gemini paid only as fallback.
 - 2026-10-30 (user) Daily series: 10 short, most-searched surahs BEFORE Al-Baqarah, one video a day, auto edit + PRIVATE upload; the user
   makes it public after watching and asks for updates. No script checkpoint (Munshi reviews). New playlist. Top-up by the user.
   Thumbnail v3 (Arabic calligraphy + Hindi + hook). Run book: docs/NOOR_DAILY_RUN.md; queue: series_queue.json.

@@ -17,7 +17,7 @@ The Sanchalak (main session) follows this list. Rules live in `shared/RULES.md`,
 4. `kaarigar-noor` stages, ONE stage per call, in the background, each followed by Munshi when the stage contract says so:
    `images` (paid) -> `tts` (free key first) -> `music_sfx` -> `shots` -> **`edit`** (agent `sampadak`, Noor = look only)
    -> `build_long` (`scripts/noor_render.py <story>`) -> `thumbnail` (`scripts/noor_thumb_v3.py`, one wallpaper image
-   with `--generate`, layouts A/B/C; Munshi picks by the thumbnail checklist, the default is C unless Nigraan data says otherwise)
+   with `--generate`: FREE FIRST (Cloudflare flux, Rs0), paid Gemini only as fallback (user 2026-10-30); layouts A/B/C; Munshi picks by the thumbnail checklist, the default is C unless Nigraan data says otherwise)
    -> Munshi final.
 5. Upload (Munshi, `youtube-publish` skill): private + STUDIO ACTION text; upload the chosen thumbnail via the API
    (needs the channel's phone verification; if the API says 403 the thumbnail file path is put into the STUDIO ACTION

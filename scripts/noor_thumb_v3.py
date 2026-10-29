@@ -6,8 +6,9 @@ one honest hook line + a small chip, over a dark Islamic landscape wallpaper. Th
 Hindi/hook/chip are drawn by libass (sizes measured through libass itself, no per-font constants). The ARABIC name is
 drawn with Pillow + libraqm (HarfBuzz: correct joining and harakat, same shaping engine as libass) in Aref Ruqaa because
 this ffmpeg's libass cannot shape Aref Ruqaa / Reem Kufi / Scheherazade (tofu boxes, tested 2026-10-30). Never ffmpeg
-drawtext, never AI-drawn letters (RULES 1c). `--arabic amiri` = the old libass + Amiri path. Video text stays libass + Amiri. Free when the wallpaper exists; a new wallpaper (--generate)
-is one paid image (~Rs5, story budget check first). No people (RULES 2/2a); no studio/film/artist name (name_guard).
+drawtext, never AI-drawn letters (RULES 1c). `--arabic amiri` = the old libass + Amiri path. Video text stays libass + Amiri.
+Wallpaper: an existing image is free; --generate is FREE FIRST (Cloudflare flux, Rs0, scripts/cf_image.py) and only falls back to
+one paid Gemini image (~Rs4-5, story budget check) in --engine auto. No people (RULES 2/2a); no studio/film/artist name (name_guard).
 
 Spec: <story>/thumbnail.json
   {"arabic": "آيَةُ ٱلْكُرْسِيِّ", "hindi": "आयतुल कुर्सी", "chip": "1 आयत • आसान मतलब",
@@ -16,7 +17,7 @@ Spec: <story>/thumbnail.json
   curiosity, never fear, never a false promise (Munshi checks).
 
 Usage: .venv/Scripts/python -X utf8 scripts/noor_thumb_v3.py channels/noor-e-raah/stories/<story> [--spec file]
-         [--image wallpaper.png] [--generate] [--hindi-font "Yatra One"] [--layouts ABC] [--out-dir dir]
+         [--image wallpaper.png] [--generate [--engine auto|free|paid]] [--hindi-font "Yatra One"] [--layouts ABC] [--out-dir dir]
 Output: <story>/long/output/<story>_thumbnail_v3A/B/C.jpg (1280x720, < 2 MB). YouTube's time stamp covers the bottom-right
 corner: no text is placed there.
 """
@@ -257,18 +258,31 @@ def render(spec, image: Path, layout, hindi_font, out: Path, arabic="aref"):
     return kb
 
 
-def generate(story: Path, spec, img: Path):
-    import gemini_image
-    import pricing
-    import story_budget
-    from name_guard import find_names
+def generate(story: Path, spec, img: Path, engine="auto"):
+    """Wallpaper. FREE FIRST (user 2026-10-30): Cloudflare flux (Rs0); the paid Gemini image only as the fallback in
+    `auto` (story budget check first) or when asked (`--engine paid`). `--engine free` never spends."""
     from noor_look_test import STYLES
+    from name_guard import find_names
     style_block = STYLES["a_cinematic_painted"]
     scene = spec.get("scene")
     if not scene:
         sys.exit('thumbnail.json needs a "scene" prompt for --generate (no people, empty dark area on the text side)')
     if find_names(scene + " " + style_block):
         sys.exit("BLOCK (RULES 12a): a name in the prompt")
+    if engine in ("auto", "free"):
+        import cf_image
+        try:
+            cf_image.generate(f"{scene} {style_block}", img)
+            print(f"wallpaper: free engine (Cloudflare flux), Rs0 -> {img.name}")
+            return
+        except cf_image.FreeImageError as e:
+            print(f"free engine unavailable: {e}")
+            if engine == "free":
+                sys.exit("--engine free: stopped, nothing was spent")
+            print("falling back to the paid Gemini image (story budget check first)")
+    import gemini_image
+    import pricing
+    import story_budget
     est = pricing.image_estimate_usd(gemini_image.MODEL, "1K", len(scene) + len(style_block), 0) * pricing.usd_to_inr()
     story_budget.check(story.name, est)
     gemini_image.generate(scene, img, aspect_ratio="16:9", size="1K", style=style_block)
@@ -280,7 +294,9 @@ def main():
     ap.add_argument("story")
     ap.add_argument("--spec")
     ap.add_argument("--image")
-    ap.add_argument("--generate", action="store_true", help="paid: make the wallpaper from spec['scene'] (story budget check)")
+    ap.add_argument("--generate", action="store_true", help="make the wallpaper from spec['scene']")
+    ap.add_argument("--engine", choices=["auto", "free", "paid"], default="auto",
+                    help="auto = free Cloudflare flux first, paid Gemini only as fallback; free = never spend; paid = Gemini only")
     ap.add_argument("--hindi-font", default="Mukta ExtraBold")
     ap.add_argument("--arabic", choices=["aref", "amiri"], default="aref", help="aref = Pillow+raqm calligraphy (default); amiri = libass")
     ap.add_argument("--layouts", default="ABC")
@@ -294,7 +310,7 @@ def main():
             sys.exit(f"thumbnail spec has no '{k}'")
     img = Path(a.image) if a.image else story / spec.get("image", "images/thumb_scene.png")
     if a.generate and not img.exists():
-        generate(story, spec, img)
+        generate(story, spec, img, a.engine)
     if not img.exists():
         sys.exit(f"wallpaper missing: {img} (pass --image, or --generate for one paid image)")
     out_dir = Path(a.out_dir) if a.out_dir else story / "long/output"
