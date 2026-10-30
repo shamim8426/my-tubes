@@ -67,3 +67,4 @@
 2026-10-30 | 002_ayatul-kursi_final | studio action | video rRtM7wFIVcA | schedule 2026-10-30T19:00+05:30 | studio_action: pending
 
 - 2026-10-30 Noor 002 v2 (UCHARAN format, 7:21) UPLOADED private: https://youtu.be/rRtM7wFIVcA — Munshi final R3 PASS. Replaces v1 ckcufoYVPH8 (upload_result_v1_ckcufoYVPH8.json kept): user deletes v1 in Studio, schedules v2 for 2026-10-30 19:00 IST (or later), pins first comment (no powershell in cloud). Cost story 002 total Rs81.41 incl. GST. Carry-over: listen lines 72/76/77/78; Tanzil transliteration row for assets_license.csv.
+- 2026-10-30 nigraan: pre-003 fetch; kmYyRGdykjY 214 views/54.5% @30s/AVD 24.3%; Ayatul Kursi rRtM7wFIVcA public 30 Oct 06:24, 0 views; learnings LAGU KARO refreshed (kam data)

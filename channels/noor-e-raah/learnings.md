@@ -11,7 +11,13 @@ before every new video; Munshi checks it was followed. Every learning has proof:
   33-38 s par ->50% (ginti wali line), pehli aayat 2:20 par tab tak 33% bache; AVD 2:38 / 33.4%.
   Naapna: agli video ka retention @30 s aur @2:00 is se upar ho.
 
+- [2026-10-30, HINT / kam data] **Title/hook/thumbnail (003 Al-Ikhlas)**: title me search shabd pehle ("Surah Al-Ikhlas ka
+  Matlab Hindi Mein"); thumbnail <= 3-4 bade shabd + ek chehra-rahit emotion/diya, high contrast; pehle frame bina awaaz
+  samajh aaye. Saboot: kmYyRGdykjY 214 views, 44 engaged (20.6%), @30 s retention 54.5%, AVD 115 s / 24.3% (fetch 2026-10-30).
+  Naapna: 003 ka @30 s > 60% aur AVD% > 30%.
+
 ## Pakki seekh (proof ke saath)
+(abhi koi nahi: sab video < 500 impressions)
 (empty)
 
 ## Mat dohrao (lines/visuals where retention dropped)
