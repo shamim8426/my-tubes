@@ -1,9 +1,9 @@
 {
  "story": "003_al-ikhlas",
  "stage": "build_long",
- "status": "running",
+ "status": "done",
  "started": "2026-10-30T07:04:12",
- "finished": null,
+ "finished": "2026-10-30T07:37:10",
  "pid": 2701,
  "paid": false,
  "cost": null,
