@@ -1,0 +1,10 @@
+# Final review - 003 Al-Ikhlas long (Munshi, 2026-10-30) - VERDICT: PASS (not uploaded)
+Verified: 1920x1080/30fps, 341.0 s, -14.2 LUFS, TP -1.4; voice -17.1 / music -36.2 LUFS (19.1 LU under, RULES 1c ~19); music per-second RMS shows no gap (only fade-in 0 s and the outro fade); 38 SRT cues == 38 timeline lines, times identical.
+Frames (31 sampled): title card, 0:24 cards, 0:36 whole surah (2 lines, above subtitle), ucharan+bhaavarth+label for all 4 jumle, matlab, hadith 215/268 (2-line subtitle, no overlap, inside safe area), takeaway cards 318, end card 339. Hindi shaping and nuqta correct (zoom: क़ुल, क़ुरआन, इख़लास, कुफ़ुवन); text_scale 1.35 readable.
+Arabic: ASS text == sources.json (Tanzil) for whole surah and each ayah (code compare). 112:4 last glyph zoomed: dammatan + small meem rendered in the Amiri/raqm run, whole word أَحَدٌۢ intact -> open item closed. Tanzil byte compare + sunnah.com stay PC-only (carry_over).
+Ucharan on screen == script line == research/ucharan.md for all 4. Label appears only on bhaavarth lines.
+Hadith (lines 40-45) == dossier Z1/Z3/Z4/Z6 wording; Z6 told as ikhtilaaf; no ruling/sawab claim. Sources list Bukhari 5013, 7375; Muslim 812, 813 consistent with Z1/Z3/Z4.
+Thumbnail C kept: hook biggest, honest, bottom-right empty, Arabic title joined/readable.
+FREE FIX done: CHAPTERS_TODO replaced in upload.json + metadata.md (0:00, 0:22, 0:42, 1:08, 1:39, 2:17, 2:47, 3:28, 4:52; all >=10 s apart). Hindi AI line, sources, music credits kept. Dry-run OK.
+MINOR (carry_over, no regeneration): chip text on thumbnail small at phone size; thumbnail Arabic is heavy/slanted (legible); ucharan Hindi line tight letter-spacing at 2:25; description still has the English "Images and voices: AI-generated." before the Hindi line (drop English if wanted); add Muslim 811 to Sources if sunnah.com check passes (line 4 Z2); description says "सहीह हदीसें" - keep only if PC check passes; listen once to ucharan lines 14/20/27/33 (Whisper cannot judge Arabic).
+No STOP condition.

@@ -34,3 +34,8 @@
 ## 003_al-ikhlas (images R1, 2026-10-30) - open
 - open | 08_empty_room_morning_b: rect fx .7 drops the window; optional fx 0.4 fy 0.6 (free).
 - open | 03_makka_valley_night: tiny warm window glows on far houses; accepted.
+
+## 003_al-ikhlas (FINAL R1, 2026-10-30) - open
+- open | PC: Tanzil byte compare 112:1-4; sunnah.com Bukhari 5013/7375, Muslim 812/813 (+811 for Z2 line 4); keep "सहीह हदीसें" only if passes.
+- open | thumbnail chip text small at phone size; Arabic title heavy/slanted; description English "Images and voices: AI-generated." duplicate; ucharan Hindi letter-spacing tight (2:25).
+- open | listen once to ucharan lines 14/20/27/33.

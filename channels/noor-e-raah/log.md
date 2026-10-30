@@ -72,3 +72,8 @@
 - 2026-10-30 003 images: free engine tried first, Cloudflare HTTP 429 (daily 10,000 neurons used up) -> paid Gemini for 9 images, Rs43.58 incl GST
 2026-10-30 | noor 003 long | images R1 | PASS | 9 images clean, minor crop note only
 2026-10-30 | noor 003_al-ikhlas | TTS audio review | PASS | 38/38 whisper ok (17, 43 verified), no clipping, voices consistent, uccharan plain; minor notes only
+2026-10-30 | 003_al-ikhlas | final R1 | PASS | frames/Hindi shaping/Arabic==Tanzil incl 112:4 glyph OK, -14.2 LUFS TP -1.4, music continuous 19.1 LU under, ucharan ok, thumbnail C kept, chapters filled in upload.json+metadata.md, dry-run OK; minors in review/final_review.md; not uploaded; no STOP
+2026-10-30 | 003_al-ikhlas_final | studio action | video 3fj1U_Q4Ku8 | schedule 2026-10-31T19:00+05:30 | studio_action: pending
+2026-10-30 | 003_al-ikhlas | ASLI KUL KHARCHA | ₹49.46 + GST ₹8.90 = ₹58.36 (andaza tha ₹44.19; 64 paid calls, 0 bina usage = andaza) | target ₹100, hard limit ₹120
+
+- 2026-10-30 Noor 003 Al-Ikhlas UPLOADED private: https://youtu.be/3fj1U_Q4Ku8 — Munshi final R1 PASS, thumbnail layout C. STUDIO ACTION: schedule 2026-10-31 19:00 IST (002 is already public today), pin first comment (no powershell in cloud). New format (ucharan + bigger text) applied. Carry-over: PC checks (Tanzil bytes, sunnah.com), listen to ucharan lines 14/20/27/33.
