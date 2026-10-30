@@ -1,0 +1,10 @@
+{
+ "arabic": "سُورَةُ ٱلْإِخْلَاصِ",
+ "hindi": "सूरह अल-इख़लास",
+ "chip": "हदीस में: क़ुरआन के तिहाई के बराबर",
+ "hook": "सिर्फ़ *4 आयतें* —\nइनमें है क्या?",
+ "image": "images/thumb_scene_a.png",
+ "scene": "A vast quiet desert at night under a huge starry sky with one single very bright star above a distant low sand ridge, a small old clay oil lamp with one warm flame glowing on a flat stone in the lower right foreground. The LEFT 45 percent of the image is darker and calmer with fewer details, kept quiet for large text. Matte painted look, reverent, deep indigo and gold. Wide 16:9. No people, no animals, no text, no letters, no writing, no calligraphy.",
+ "title": "Surah Al-Ikhlas ka Matlab Hindi Mein | 4 Ayat, Padhne ki Madad aur Hadith | Noor-e-Raah",
+ "_note": "free-first: scene via scripts/cf_image.py; paid wallpaper only after a log.md reason. Text rendered by scripts/noor_thumb_v3.py; layout A/B/C chosen by the user. Chip = Z1/Z2 sahih wording; hook does not repeat the title words."
+}

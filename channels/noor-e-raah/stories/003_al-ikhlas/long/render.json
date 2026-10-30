@@ -1,0 +1,43 @@
+{
+  "_note": "Al-Ikhlas screen config for scripts/noor_render.py (cards from the script's SCREEN notes; title from thumbnail.json; end card = last two lines 50, 51). text_scale default (1.35).",
+  "title_ar": "سُورَةُ ٱلْإِخْلَاصِ",
+  "title_hi": "सूरह अल-इख़लास",
+  "series": "नूर-ए-राह",
+  "tagline": "क़ुरआन, आसान ज़बान में।",
+  "cards": [
+    {
+      "line": 6,
+      "until": 6,
+      "y": 100,
+      "stack": true,
+      "items": [
+        "सूरह अल-इख़लास · क़ुरआन की 112वीं सूरह",
+        "4 आयतें"
+      ]
+    },
+    {
+      "line": 47,
+      "until": 49,
+      "y": 100,
+      "items": [
+        "1. अल्लाह एक है — भरोसा उसी पर"
+      ]
+    },
+    {
+      "line": 48,
+      "until": 49,
+      "y": 210,
+      "items": [
+        "2. सब उसके मोहताज, वो किसी का नहीं"
+      ]
+    },
+    {
+      "line": 49,
+      "until": 49,
+      "y": 320,
+      "items": [
+        "3. मतलब समझ कर पढ़ें"
+      ]
+    }
+  ]
+}
