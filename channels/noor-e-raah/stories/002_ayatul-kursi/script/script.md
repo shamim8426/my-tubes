@@ -106,7 +106,7 @@ ARABIC: لَا تَأْخُذُهُۥ سِنَةٌ وَلَا نَوْمٌ
 [SCREEN: pahaad, samandar aur taaron bhara aasmaan ek hi nazar me]
 25. [SWOOSH — ARABIC ON SCREEN]
 ARABIC: لَّهُۥ مَا فِى ٱلسَّمَٰوَٰتِ وَمَا فِى ٱلْأَرْضِ
-74. USTAAD — UCHARAN: "लहू मा फ़ी अस्समावाति वमा फ़ी अल अर्ज़"
+74. USTAAD — UCHARAN: "लहू मा फ़ी अस्समावाति वमा फ़िल अर्ज़"
 26. USTAAD — BHAAVARTH: "चौथा जुमला: आसमानों में जो कुछ है और ज़मीन में जो कुछ है — सब उसी का है।"
 27. [MUSIC continue: River Flute — matlab]
 82. USTAAD — MATLAB: "यानी आसमानों और ज़मीन की हर चीज़ उसी की मिल्कियत है, सब उसके बंदे हैं। इख़्तियार भी उसी का है।" [U4]
@@ -184,6 +184,7 @@ ARABIC: وَهُوَ ٱلْعَلِىُّ ٱلْعَظِيمُ
 - सरल भावार्थ: माने हुए तर्जुमों (Azizul Haq al-Umari / QuranEnc.com; Shaikh-ul-Hind Mahmud Hasan; Suhel Farooq Khan & Saifur Rahman Nadwi / Tanzil hi.hindi) के आधार पर — शब्दशः तर्जुमा नहीं।
 - Tafseer: Tafsir Ibn Kathir (2:255); Ma'ariful Qur'an (Mufti Muhammad Shafi); al-Qurtubi, al-Jami' li-Ahkam al-Qur'an; al-Tabari, Jami' al-Bayan.
 - Hadith: Sahih Muslim 810; Sahih al-Bukhari 2311 (also 3275, 5010). (PC par sunnah.com se wording dobara dekhni baaki.)
+- उच्चारण (Arabic की हिंदी लिपि): टंज़ील ट्रांसलिटरेशन से मिलाकर — पढ़ने की मदद, तिलावत नहीं।
 - Surah data: Tanzil Quran Metadata (CC BY 3.0, https://tanzil.net).
 - Music: "Soaring" Kevin MacLeod (incompetech.com) · "River Flute" Kevin MacLeod (incompetech.com) — both CC BY 4.0, http://creativecommons.org/licenses/by/4.0/
 - Ambience: freesound.org (CC0)

@@ -58,6 +58,21 @@
   "tts_ok": true
  },
  {
+  "kind": "line",
+  "n": 70,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "INTRO (`part: intro`, hook)",
+  "ayah": null,
+  "text": "ये पढ़ने की मदद है, तिलावत नहीं — सही तिलावत किसी क़ारी से सुनें।",
+  "tags": [
+   "NOTE"
+  ],
+  "audio": "audio/tts/070_ustaad.wav",
+  "seconds": 6.04,
+  "tts_ok": true
+ },
+ {
   "kind": "section",
   "name": "1. SURAH KA PARICHAY"
  },
@@ -190,6 +205,19 @@
  },
  {
   "kind": "line",
+  "n": 71,
+  "speaker": "ustaad",
+  "role": "ucharan",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 2,
+  "text": "अल्लाहु ला इलाहा इल्ला हुव",
+  "tags": [],
+  "audio": "audio/tts/071_ustaad.wav",
+  "seconds": 3.88,
+  "tts_ok": true
+ },
+ {
+  "kind": "line",
   "n": 12,
   "speaker": "ustaad",
   "role": "bhaavarth",
@@ -208,6 +236,21 @@
   "value": "continue: River Flute — matlab",
   "section": "3. AAYAT-DAR-AAYAT",
   "ayah": 2
+ },
+ {
+  "kind": "line",
+  "n": 81,
+  "speaker": "ustaad",
+  "role": "matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 2,
+  "text": "'अल्लाह' उस ज़ात का नाम है जो सारी मख़लूक़ का अकेला रब है। इसीलिए इबादत सिर्फ़ उसी की।",
+  "tags": [
+   "U1"
+  ],
+  "audio": "audio/tts/081_ustaad.wav",
+  "seconds": 9.28,
+  "tts_ok": true
  },
  {
   "kind": "ayah",
@@ -231,6 +274,19 @@
   "kind": "arabic",
   "ayah": 3,
   "text": "ٱلْحَىُّ ٱلْقَيُّومُ"
+ },
+ {
+  "kind": "line",
+  "n": 72,
+  "speaker": "ustaad",
+  "role": "ucharan",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 3,
+  "text": "अल हय्युल क़य्यूम",
+  "tags": [],
+  "audio": "audio/tts/072_ustaad.wav",
+  "seconds": 2.8,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -308,6 +364,19 @@
  },
  {
   "kind": "line",
+  "n": 73,
+  "speaker": "ustaad",
+  "role": "ucharan",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 4,
+  "text": "ला ताख़ुज़ुहू सिनतुन वला नौम",
+  "tags": [],
+  "audio": "audio/tts/073_ustaad.wav",
+  "seconds": 4.84,
+  "tts_ok": true
+ },
+ {
+  "kind": "line",
   "n": 21,
   "speaker": "ustaad",
   "role": "bhaavarth",
@@ -382,6 +451,19 @@
  },
  {
   "kind": "line",
+  "n": 74,
+  "speaker": "ustaad",
+  "role": "ucharan",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 5,
+  "text": "लहू मा फ़ी अस्समावाति वमा फ़िल अर्ज़",
+  "tags": [],
+  "audio": "audio/tts/074_ustaad.wav",
+  "seconds": 4.68,
+  "tts_ok": true
+ },
+ {
+  "kind": "line",
   "n": 26,
   "speaker": "ustaad",
   "role": "bhaavarth",
@@ -400,6 +482,21 @@
   "value": "continue: River Flute — matlab",
   "section": "3. AAYAT-DAR-AAYAT",
   "ayah": 5
+ },
+ {
+  "kind": "line",
+  "n": 82,
+  "speaker": "ustaad",
+  "role": "matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 5,
+  "text": "यानी आसमानों और ज़मीन की हर चीज़ उसी की मिल्कियत है, सब उसके बंदे हैं। इख़्तियार भी उसी का है।",
+  "tags": [
+   "U4"
+  ],
+  "audio": "audio/tts/082_ustaad.wav",
+  "seconds": 8.92,
+  "tts_ok": true
  },
  {
   "kind": "ayah",
@@ -423,6 +520,19 @@
   "kind": "arabic",
   "ayah": 6,
   "text": "مَن ذَا ٱلَّذِى يَشْفَعُ عِندَهُۥٓ إِلَّا بِإِذْنِهِۦ"
+ },
+ {
+  "kind": "line",
+  "n": 75,
+  "speaker": "ustaad",
+  "role": "ucharan",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 6,
+  "text": "मन ज़ा अल्लज़ी यशफ़उ इंदहू इल्ला बि इज़्निह",
+  "tags": [],
+  "audio": "audio/tts/075_ustaad.wav",
+  "seconds": 5.32,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -461,6 +571,21 @@
   "tts_ok": true
  },
  {
+  "kind": "line",
+  "n": 83,
+  "speaker": "ustaad",
+  "role": "matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 6,
+  "text": "जिसे वो इजाज़त दे, वही बोल सकता है; उसकी इजाज़त के बिना कोई दम नहीं मार सकता।",
+  "tags": [
+   "U5"
+  ],
+  "audio": "audio/tts/083_ustaad.wav",
+  "seconds": 7.72,
+  "tts_ok": true
+ },
+ {
   "kind": "ayah",
   "ayah": 7
  },
@@ -485,6 +610,19 @@
  },
  {
   "kind": "line",
+  "n": 76,
+  "speaker": "ustaad",
+  "role": "ucharan",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 7,
+  "text": "यअलमु मा बैना ऐदीहिम वमा ख़लफ़हुम",
+  "tags": [],
+  "audio": "audio/tts/076_ustaad.wav",
+  "seconds": 6.48,
+  "tts_ok": true
+ },
+ {
+  "kind": "line",
   "n": 34,
   "speaker": "ustaad",
   "role": "bhaavarth",
@@ -503,6 +641,21 @@
   "value": "continue: River Flute — matlab",
   "section": "3. AAYAT-DAR-AAYAT",
   "ayah": 7
+ },
+ {
+  "kind": "line",
+  "n": 84,
+  "speaker": "ustaad",
+  "role": "matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 7,
+  "text": "यानी बीता कल, आज और आने वाला कल — हर बात उसे मालूम है। ज़ाहिर भी, और छुपी हुई भी।",
+  "tags": [
+   "U6"
+  ],
+  "audio": "audio/tts/084_ustaad.wav",
+  "seconds": 10.24,
+  "tts_ok": true
  },
  {
   "kind": "ayah",
@@ -526,6 +679,19 @@
   "kind": "arabic",
   "ayah": 8,
   "text": "وَلَا يُحِيطُونَ بِشَىْءٍ مِّنْ عِلْمِهِۦٓ إِلَّا بِمَا شَآءَ"
+ },
+ {
+  "kind": "line",
+  "n": 77,
+  "speaker": "ustaad",
+  "role": "ucharan",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 8,
+  "text": "वला युहीतूना बि शैइन मिन इल्मिही इल्ला बिमा शा",
+  "tags": [],
+  "audio": "audio/tts/077_ustaad.wav",
+  "seconds": 6.4,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -588,6 +754,19 @@
  },
  {
   "kind": "line",
+  "n": 78,
+  "speaker": "ustaad",
+  "role": "ucharan",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 9,
+  "text": "वसिअ कुर्सिय्युहु अस्समावाति वल अर्ज़",
+  "tags": [],
+  "audio": "audio/tts/078_ustaad.wav",
+  "seconds": 4.04,
+  "tts_ok": true
+ },
+ {
+  "kind": "line",
   "n": 42,
   "speaker": "ustaad",
   "role": "bhaavarth",
@@ -639,6 +818,21 @@
   "tts_ok": true
  },
  {
+  "kind": "line",
+  "n": 85,
+  "speaker": "ustaad",
+  "role": "matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 9,
+  "text": "हर क़ौल का सार एक ही है: अल्लाह की अज़मत इतनी बड़ी है कि आसमान और ज़मीन उसके सामने बहुत छोटे हैं — और वो किसी जगह या तख़्त का मोहताज नहीं।",
+  "tags": [
+   "K5"
+  ],
+  "audio": "audio/tts/085_ustaad.wav",
+  "seconds": 13.84,
+  "tts_ok": true
+ },
+ {
   "kind": "ayah",
   "ayah": 10
  },
@@ -663,6 +857,19 @@
  },
  {
   "kind": "line",
+  "n": 79,
+  "speaker": "ustaad",
+  "role": "ucharan",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 10,
+  "text": "वला यऊदुहू हिफ़्ज़ुहुमा",
+  "tags": [],
+  "audio": "audio/tts/079_ustaad.wav",
+  "seconds": 4.12,
+  "tts_ok": true
+ },
+ {
+  "kind": "line",
   "n": 48,
   "speaker": "ustaad",
   "role": "bhaavarth",
@@ -681,6 +888,21 @@
   "value": "continue: River Flute — matlab",
   "section": "3. AAYAT-DAR-AAYAT",
   "ayah": 10
+ },
+ {
+  "kind": "line",
+  "n": 86,
+  "speaker": "ustaad",
+  "role": "matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 10,
+  "text": "यानी आसमानों और ज़मीन को सँभालना उसके लिए बिलकुल आसान है। न कोई बोझ, न कोई थकान।",
+  "tags": [
+   "U9"
+  ],
+  "audio": "audio/tts/086_ustaad.wav",
+  "seconds": 9.44,
+  "tts_ok": true
  },
  {
   "kind": "ayah",
@@ -704,6 +926,19 @@
   "kind": "arabic",
   "ayah": 11,
   "text": "وَهُوَ ٱلْعَلِىُّ ٱلْعَظِيمُ"
+ },
+ {
+  "kind": "line",
+  "n": 80,
+  "speaker": "ustaad",
+  "role": "ucharan",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 11,
+  "text": "व हुवल अलिय्युल अज़ीम",
+  "tags": [],
+  "audio": "audio/tts/080_ustaad.wav",
+  "seconds": 3.32,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -898,7 +1133,7 @@
  },
  {
   "kind": "line",
-  "n": 65,
+  "n": 87,
   "speaker": "ustaad",
   "role": "",
   "section": "5. SEEKH",
@@ -907,26 +1142,26 @@
   "tags": [
    "NEXT"
   ],
-  "audio": "audio/tts/065_ustaad.wav",
-  "seconds": 6.28,
+  "audio": "audio/tts/087_ustaad.wav",
+  "seconds": 6.0,
   "tts_ok": true
  },
  {
   "kind": "line",
-  "n": 66,
+  "n": 88,
   "speaker": "sawaal",
   "role": "",
   "section": "5. SEEKH",
   "ayah": null,
   "text": "और आप कमेंट में बताइए — इन दस बातों में से कौन-सी आपके दिल को सबसे ज़्यादा छू गई, और क्यों।",
   "tags": [],
-  "audio": "audio/tts/066_sawaal.wav",
-  "seconds": 7.16,
+  "audio": "audio/tts/088_sawaal.wav",
+  "seconds": 7.2,
   "tts_ok": true
  },
  {
   "kind": "cue",
-  "n": 67,
+  "n": 89,
   "type": "music",
   "value": "River Flute dheere fade-out; aakhri ~3 s sirf gentle breeze",
   "section": "5. SEEKH",

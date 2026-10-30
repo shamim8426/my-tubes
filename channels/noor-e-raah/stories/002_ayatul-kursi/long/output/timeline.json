@@ -34,6 +34,23 @@
   },
   {
    "kind": "line",
+   "n": 70,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "INTRO (`part: intro`, hook)",
+   "ayah": null,
+   "text": "ये पढ़ने की मदद है, तिलावत नहीं — सही तिलावत किसी क़ारी से सुनें।",
+   "tags": [
+    "NOTE"
+   ],
+   "audio": "audio/tts/070_ustaad.wav",
+   "seconds": 6.04,
+   "tts_ok": true,
+   "start": 15.861,
+   "end": 21.454
+  },
+  {
+   "kind": "line",
    "n": 5,
    "speaker": "ustaad",
    "role": "",
@@ -47,8 +64,8 @@
    "audio": "audio/tts/005_ustaad.wav",
    "seconds": 11.6,
    "tts_ok": true,
-   "start": 16.661,
-   "end": 27.402
+   "start": 22.604,
+   "end": 33.344
   },
   {
    "kind": "line",
@@ -65,8 +82,8 @@
    "audio": "audio/tts/007_ustaad.wav",
    "seconds": 5.72,
    "tts_ok": true,
-   "start": 28.552,
-   "end": 33.848
+   "start": 34.494,
+   "end": 39.791
   },
   {
    "kind": "line",
@@ -82,8 +99,23 @@
    "audio": "audio/tts/009_ustaad.wav",
    "seconds": 6.16,
    "tts_ok": true,
-   "start": 37.598,
-   "end": 43.302
+   "start": 43.541,
+   "end": 49.244
+  },
+  {
+   "kind": "line",
+   "n": 71,
+   "speaker": "ustaad",
+   "role": "ucharan",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 2,
+   "text": "अल्लाहु ला इलाहा इल्ला हुव",
+   "tags": [],
+   "audio": "audio/tts/071_ustaad.wav",
+   "seconds": 3.88,
+   "tts_ok": true,
+   "start": 52.994,
+   "end": 56.587
   },
   {
    "kind": "line",
@@ -97,8 +129,40 @@
    "audio": "audio/tts/012_ustaad.wav",
    "seconds": 5.76,
    "tts_ok": true,
-   "start": 47.052,
-   "end": 52.385
+   "start": 56.937,
+   "end": 62.27
+  },
+  {
+   "kind": "line",
+   "n": 81,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 2,
+   "text": "'अल्लाह' उस ज़ात का नाम है जो सारी मख़लूक़ का अकेला रब है। इसीलिए इबादत सिर्फ़ उसी की।",
+   "tags": [
+    "U1"
+   ],
+   "audio": "audio/tts/081_ustaad.wav",
+   "seconds": 9.28,
+   "tts_ok": true,
+   "start": 63.42,
+   "end": 72.013
+  },
+  {
+   "kind": "line",
+   "n": 72,
+   "speaker": "ustaad",
+   "role": "ucharan",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 3,
+   "text": "अल हय्युल क़य्यूम",
+   "tags": [],
+   "audio": "audio/tts/072_ustaad.wav",
+   "seconds": 2.8,
+   "tts_ok": true,
+   "start": 74.963,
+   "end": 77.556
   },
   {
    "kind": "line",
@@ -112,8 +176,8 @@
    "audio": "audio/tts/016_ustaad.wav",
    "seconds": 6.68,
    "tts_ok": true,
-   "start": 56.135,
-   "end": 62.32
+   "start": 77.906,
+   "end": 84.091
   },
   {
    "kind": "line",
@@ -129,8 +193,8 @@
    "audio": "audio/tts/018_ustaad.wav",
    "seconds": 5.84,
    "tts_ok": true,
-   "start": 63.47,
-   "end": 68.878
+   "start": 85.241,
+   "end": 90.648
   },
   {
    "kind": "line",
@@ -146,8 +210,23 @@
    "audio": "audio/tts/019_ustaad.wav",
    "seconds": 10.12,
    "tts_ok": true,
-   "start": 69.228,
-   "end": 78.598
+   "start": 90.998,
+   "end": 100.369
+  },
+  {
+   "kind": "line",
+   "n": 73,
+   "speaker": "ustaad",
+   "role": "ucharan",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 4,
+   "text": "ला ताख़ुज़ुहू सिनतुन वला नौम",
+   "tags": [],
+   "audio": "audio/tts/073_ustaad.wav",
+   "seconds": 4.84,
+   "tts_ok": true,
+   "start": 103.319,
+   "end": 107.8
   },
   {
    "kind": "line",
@@ -161,8 +240,8 @@
    "audio": "audio/tts/021_ustaad.wav",
    "seconds": 5.4,
    "tts_ok": true,
-   "start": 81.548,
-   "end": 86.548
+   "start": 108.15,
+   "end": 113.15
   },
   {
    "kind": "line",
@@ -178,8 +257,8 @@
    "audio": "audio/tts/023_sawaal.wav",
    "seconds": 4.76,
    "tts_ok": true,
-   "start": 87.948,
-   "end": 92.356
+   "start": 114.55,
+   "end": 118.957
   },
   {
    "kind": "line",
@@ -195,8 +274,23 @@
    "audio": "audio/tts/024_ustaad.wav",
    "seconds": 10.12,
    "tts_ok": true,
-   "start": 92.956,
-   "end": 102.326
+   "start": 119.557,
+   "end": 128.928
+  },
+  {
+   "kind": "line",
+   "n": 74,
+   "speaker": "ustaad",
+   "role": "ucharan",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 5,
+   "text": "लहू मा फ़ी अस्समावाति वमा फ़िल अर्ज़",
+   "tags": [],
+   "audio": "audio/tts/074_ustaad.wav",
+   "seconds": 4.68,
+   "tts_ok": true,
+   "start": 131.878,
+   "end": 136.211
   },
   {
    "kind": "line",
@@ -210,8 +304,40 @@
    "audio": "audio/tts/026_ustaad.wav",
    "seconds": 8.08,
    "tts_ok": true,
-   "start": 105.276,
-   "end": 112.757
+   "start": 136.561,
+   "end": 144.043
+  },
+  {
+   "kind": "line",
+   "n": 82,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 5,
+   "text": "यानी आसमानों और ज़मीन की हर चीज़ उसी की मिल्कियत है, सब उसके बंदे हैं। इख़्तियार भी उसी का है।",
+   "tags": [
+    "U4"
+   ],
+   "audio": "audio/tts/082_ustaad.wav",
+   "seconds": 8.92,
+   "tts_ok": true,
+   "start": 145.193,
+   "end": 153.452
+  },
+  {
+   "kind": "line",
+   "n": 75,
+   "speaker": "ustaad",
+   "role": "ucharan",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 6,
+   "text": "मन ज़ा अल्लज़ी यशफ़उ इंदहू इल्ला बि इज़्निह",
+   "tags": [],
+   "audio": "audio/tts/075_ustaad.wav",
+   "seconds": 5.32,
+   "tts_ok": true,
+   "start": 156.402,
+   "end": 161.328
   },
   {
    "kind": "line",
@@ -225,8 +351,8 @@
    "audio": "audio/tts/030_ustaad.wav",
    "seconds": 8.28,
    "tts_ok": true,
-   "start": 116.507,
-   "end": 124.174
+   "start": 161.678,
+   "end": 169.344
   },
   {
    "kind": "line",
@@ -242,8 +368,40 @@
    "audio": "audio/tts/032_ustaad.wav",
    "seconds": 8.4,
    "tts_ok": true,
-   "start": 125.324,
-   "end": 133.102
+   "start": 170.494,
+   "end": 178.272
+  },
+  {
+   "kind": "line",
+   "n": 83,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 6,
+   "text": "जिसे वो इजाज़त दे, वही बोल सकता है; उसकी इजाज़त के बिना कोई दम नहीं मार सकता।",
+   "tags": [
+    "U5"
+   ],
+   "audio": "audio/tts/083_ustaad.wav",
+   "seconds": 7.72,
+   "tts_ok": true,
+   "start": 178.622,
+   "end": 185.77
+  },
+  {
+   "kind": "line",
+   "n": 76,
+   "speaker": "ustaad",
+   "role": "ucharan",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 7,
+   "text": "यअलमु मा बैना ऐदीहिम वमा ख़लफ़हुम",
+   "tags": [],
+   "audio": "audio/tts/076_ustaad.wav",
+   "seconds": 6.48,
+   "tts_ok": true,
+   "start": 188.72,
+   "end": 194.72
   },
   {
    "kind": "line",
@@ -257,8 +415,40 @@
    "audio": "audio/tts/034_ustaad.wav",
    "seconds": 7.56,
    "tts_ok": true,
-   "start": 136.052,
-   "end": 143.052
+   "start": 195.07,
+   "end": 202.07
+  },
+  {
+   "kind": "line",
+   "n": 84,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 7,
+   "text": "यानी बीता कल, आज और आने वाला कल — हर बात उसे मालूम है। ज़ाहिर भी, और छुपी हुई भी।",
+   "tags": [
+    "U6"
+   ],
+   "audio": "audio/tts/084_ustaad.wav",
+   "seconds": 10.24,
+   "tts_ok": true,
+   "start": 203.22,
+   "end": 212.702
+  },
+  {
+   "kind": "line",
+   "n": 77,
+   "speaker": "ustaad",
+   "role": "ucharan",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 8,
+   "text": "वला युहीतूना बि शैइन मिन इल्मिही इल्ला बिमा शा",
+   "tags": [],
+   "audio": "audio/tts/077_ustaad.wav",
+   "seconds": 6.4,
+   "tts_ok": true,
+   "start": 215.652,
+   "end": 221.578
   },
   {
    "kind": "line",
@@ -272,8 +462,8 @@
    "audio": "audio/tts/038_ustaad.wav",
    "seconds": 9.88,
    "tts_ok": true,
-   "start": 146.802,
-   "end": 155.95
+   "start": 221.928,
+   "end": 231.076
   },
   {
    "kind": "line",
@@ -289,8 +479,23 @@
    "audio": "audio/tts/040_ustaad.wav",
    "seconds": 7.8,
    "tts_ok": true,
-   "start": 157.1,
-   "end": 164.322
+   "start": 232.226,
+   "end": 239.448
+  },
+  {
+   "kind": "line",
+   "n": 78,
+   "speaker": "ustaad",
+   "role": "ucharan",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 9,
+   "text": "वसिअ कुर्सिय्युहु अस्समावाति वल अर्ज़",
+   "tags": [],
+   "audio": "audio/tts/078_ustaad.wav",
+   "seconds": 4.04,
+   "tts_ok": true,
+   "start": 242.398,
+   "end": 246.139
   },
   {
    "kind": "line",
@@ -304,8 +509,8 @@
    "audio": "audio/tts/042_ustaad.wav",
    "seconds": 6.28,
    "tts_ok": true,
-   "start": 167.272,
-   "end": 173.087
+   "start": 246.489,
+   "end": 252.304
   },
   {
    "kind": "line",
@@ -322,8 +527,8 @@
    "audio": "audio/tts/044_ustaad.wav",
    "seconds": 14.92,
    "tts_ok": true,
-   "start": 174.237,
-   "end": 188.052
+   "start": 253.454,
+   "end": 267.269
   },
   {
    "kind": "line",
@@ -339,8 +544,40 @@
    "audio": "audio/tts/045_ustaad.wav",
    "seconds": 10.88,
    "tts_ok": true,
-   "start": 188.402,
-   "end": 198.476
+   "start": 267.619,
+   "end": 277.693
+  },
+  {
+   "kind": "line",
+   "n": 85,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 9,
+   "text": "हर क़ौल का सार एक ही है: अल्लाह की अज़मत इतनी बड़ी है कि आसमान और ज़मीन उसके सामने बहुत छोटे हैं — और वो किसी जगह या तख़्त का मोहताज नहीं।",
+   "tags": [
+    "K5"
+   ],
+   "audio": "audio/tts/085_ustaad.wav",
+   "seconds": 13.84,
+   "tts_ok": true,
+   "start": 278.043,
+   "end": 290.857
+  },
+  {
+   "kind": "line",
+   "n": 79,
+   "speaker": "ustaad",
+   "role": "ucharan",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 10,
+   "text": "वला यऊदुहू हिफ़्ज़ुहुमा",
+   "tags": [],
+   "audio": "audio/tts/079_ustaad.wav",
+   "seconds": 4.12,
+   "tts_ok": true,
+   "start": 293.807,
+   "end": 297.622
   },
   {
    "kind": "line",
@@ -354,8 +591,40 @@
    "audio": "audio/tts/048_ustaad.wav",
    "seconds": 7.4,
    "tts_ok": true,
-   "start": 201.426,
-   "end": 208.278
+   "start": 297.972,
+   "end": 304.824
+  },
+  {
+   "kind": "line",
+   "n": 86,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 10,
+   "text": "यानी आसमानों और ज़मीन को सँभालना उसके लिए बिलकुल आसान है। न कोई बोझ, न कोई थकान।",
+   "tags": [
+    "U9"
+   ],
+   "audio": "audio/tts/086_ustaad.wav",
+   "seconds": 9.44,
+   "tts_ok": true,
+   "start": 305.974,
+   "end": 314.715
+  },
+  {
+   "kind": "line",
+   "n": 80,
+   "speaker": "ustaad",
+   "role": "ucharan",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 11,
+   "text": "व हुवल अलिय्युल अज़ीम",
+   "tags": [],
+   "audio": "audio/tts/080_ustaad.wav",
+   "seconds": 3.32,
+   "tts_ok": true,
+   "start": 317.665,
+   "end": 320.739
   },
   {
    "kind": "line",
@@ -369,8 +638,8 @@
    "audio": "audio/tts/052_ustaad.wav",
    "seconds": 6.92,
    "tts_ok": true,
-   "start": 212.028,
-   "end": 218.435
+   "start": 321.089,
+   "end": 327.496
   },
   {
    "kind": "line",
@@ -386,8 +655,8 @@
    "audio": "audio/tts/054_ustaad.wav",
    "seconds": 10.6,
    "tts_ok": true,
-   "start": 219.585,
-   "end": 229.4
+   "start": 328.646,
+   "end": 338.461
   },
   {
    "kind": "line",
@@ -403,8 +672,8 @@
    "audio": "audio/tts/057_ustaad.wav",
    "seconds": 8.04,
    "tts_ok": true,
-   "start": 230.55,
-   "end": 237.994
+   "start": 339.611,
+   "end": 347.056
   },
   {
    "kind": "line",
@@ -420,8 +689,8 @@
    "audio": "audio/tts/058_ustaad.wav",
    "seconds": 16.44,
    "tts_ok": true,
-   "start": 238.344,
-   "end": 253.567
+   "start": 347.406,
+   "end": 362.628
   },
   {
    "kind": "line",
@@ -437,8 +706,8 @@
    "audio": "audio/tts/059_ustaad.wav",
    "seconds": 25.04,
    "tts_ok": true,
-   "start": 253.917,
-   "end": 277.102
+   "start": 362.978,
+   "end": 386.163
   },
   {
    "kind": "line",
@@ -454,8 +723,8 @@
    "audio": "audio/tts/060_ustaad.wav",
    "seconds": 7.04,
    "tts_ok": true,
-   "start": 277.452,
-   "end": 283.97
+   "start": 386.513,
+   "end": 393.031
   },
   {
    "kind": "line",
@@ -469,8 +738,8 @@
    "audio": "audio/tts/061_sawaal.wav",
    "seconds": 4.0,
    "tts_ok": true,
-   "start": 285.37,
-   "end": 289.074
+   "start": 394.431,
+   "end": 398.135
   },
   {
    "kind": "line",
@@ -487,8 +756,8 @@
    "audio": "audio/tts/062_ustaad.wav",
    "seconds": 10.32,
    "tts_ok": true,
-   "start": 289.674,
-   "end": 299.23
+   "start": 398.735,
+   "end": 408.291
   },
   {
    "kind": "line",
@@ -506,8 +775,8 @@
    "audio": "audio/tts/063_ustaad.wav",
    "seconds": 10.0,
    "tts_ok": true,
-   "start": 299.58,
-   "end": 308.839
+   "start": 408.641,
+   "end": 417.9
   },
   {
    "kind": "line",
@@ -523,12 +792,12 @@
    "audio": "audio/tts/064_ustaad.wav",
    "seconds": 6.16,
    "tts_ok": true,
-   "start": 309.189,
-   "end": 314.893
+   "start": 418.25,
+   "end": 423.954
   },
   {
    "kind": "line",
-   "n": 65,
+   "n": 87,
    "speaker": "ustaad",
    "role": "",
    "section": "5. SEEKH",
@@ -537,116 +806,116 @@
    "tags": [
     "NEXT"
    ],
-   "audio": "audio/tts/065_ustaad.wav",
-   "seconds": 6.28,
+   "audio": "audio/tts/087_ustaad.wav",
+   "seconds": 6.0,
    "tts_ok": true,
-   "start": 315.243,
-   "end": 321.057
+   "start": 424.304,
+   "end": 429.859
   },
   {
    "kind": "line",
-   "n": 66,
+   "n": 88,
    "speaker": "sawaal",
    "role": "",
    "section": "5. SEEKH",
    "ayah": null,
    "text": "और आप कमेंट में बताइए — इन दस बातों में से कौन-सी आपके दिल को सबसे ज़्यादा छू गई, और क्यों।",
    "tags": [],
-   "audio": "audio/tts/066_sawaal.wav",
-   "seconds": 7.16,
+   "audio": "audio/tts/088_sawaal.wav",
+   "seconds": 7.2,
    "tts_ok": true,
-   "start": 321.657,
-   "end": 328.287
+   "start": 430.459,
+   "end": 437.126
   }
  ],
  "ayat": [
   {
    "ayah": 1,
-   "fade": 34.648148148148145,
-   "a0": 35.24814814814815,
-   "swoosh": 34.74814814814815,
+   "fade": 40.59074074074074,
+   "a0": 41.19074074074074,
+   "swoosh": 40.69074074074074,
    "text": "ٱللَّهُ لَآ إِلَٰهَ إِلَّا هُوَ ٱلْحَىُّ ٱلْقَيُّومُ لَا تَأْخُذُهُۥ سِنَةٌ وَلَا نَوْمٌ لَّهُۥ مَا فِى ٱلسَّمَٰوَٰتِ وَمَا فِى ٱلْأَرْضِ مَن ذَا ٱلَّذِى يَشْفَعُ عِندَهُۥٓ إِلَّا بِإِذْنِهِۦ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلَا يُحِيطُونَ بِشَىْءٍ مِّنْ عِلْمِهِۦٓ إِلَّا بِمَا شَآءَ وَسِعَ كُرْسِيُّهُ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضَ وَلَا يَـُٔودُهُۥ حِفْظُهُمَا وَهُوَ ٱلْعَلِىُّ ٱلْعَظِيمُ",
-   "off": 44.10185185185185
+   "off": 50.044444444444444
   },
   {
    "ayah": 2,
-   "fade": 44.10185185185185,
-   "a0": 44.70185185185185,
-   "swoosh": 44.20185185185185,
+   "fade": 50.044444444444444,
+   "a0": 50.644444444444446,
+   "swoosh": 50.144444444444446,
    "text": "ٱللَّهُ لَآ إِلَٰهَ إِلَّا هُوَ",
-   "off": 53.18518518518518
+   "off": 63.07037037037038
   },
   {
    "ayah": 3,
-   "fade": 53.18518518518518,
-   "a0": 53.785185185185185,
-   "swoosh": 53.285185185185185,
+   "fade": 72.01296296296297,
+   "a0": 72.61296296296297,
+   "swoosh": 72.11296296296297,
    "text": "ٱلْحَىُّ ٱلْقَيُّومُ",
-   "off": 63.12037037037037
+   "off": 84.89074074074074
   },
   {
    "ayah": 4,
-   "fade": 78.59814814814814,
-   "a0": 79.19814814814814,
-   "swoosh": 78.69814814814814,
+   "fade": 100.3685185185185,
+   "a0": 100.9685185185185,
+   "swoosh": 100.4685185185185,
    "text": "لَا تَأْخُذُهُۥ سِنَةٌ وَلَا نَوْمٌ",
-   "off": 87.34814814814813
+   "off": 113.94999999999996
   },
   {
    "ayah": 5,
-   "fade": 102.32592592592589,
-   "a0": 102.92592592592588,
-   "swoosh": 102.42592592592588,
+   "fade": 128.92777777777772,
+   "a0": 129.52777777777771,
+   "swoosh": 129.02777777777771,
    "text": "لَّهُۥ مَا فِى ٱلسَّمَٰوَٰتِ وَمَا فِى ٱلْأَرْضِ",
-   "off": 113.55740740740735
+   "off": 144.84259259259255
   },
   {
    "ayah": 6,
-   "fade": 113.55740740740735,
-   "a0": 114.15740740740735,
-   "swoosh": 113.65740740740735,
+   "fade": 153.4518518518518,
+   "a0": 154.0518518518518,
+   "swoosh": 153.5518518518518,
    "text": "مَن ذَا ٱلَّذِى يَشْفَعُ عِندَهُۥٓ إِلَّا بِإِذْنِهِۦ",
-   "off": 124.97407407407401
+   "off": 170.1444444444444
   },
   {
    "ayah": 7,
-   "fade": 133.1018518518518,
-   "a0": 133.70185185185179,
-   "swoosh": 133.20185185185179,
+   "fade": 185.7703703703703,
+   "a0": 186.3703703703703,
+   "swoosh": 185.8703703703703,
    "text": "يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ",
-   "off": 143.8518518518518
+   "off": 202.8703703703703
   },
   {
    "ayah": 8,
-   "fade": 143.8518518518518,
-   "a0": 144.45185185185179,
-   "swoosh": 143.95185185185179,
+   "fade": 212.70185185185176,
+   "a0": 213.30185185185175,
+   "swoosh": 212.80185185185175,
    "text": "وَلَا يُحِيطُونَ بِشَىْءٍ مِّنْ عِلْمِهِۦٓ إِلَّا بِمَا شَآءَ",
-   "off": 156.74999999999994
+   "off": 231.87592592592583
   },
   {
    "ayah": 9,
-   "fade": 164.32222222222217,
-   "a0": 164.92222222222216,
-   "swoosh": 164.42222222222216,
+   "fade": 239.44814814814805,
+   "a0": 240.04814814814804,
+   "swoosh": 239.54814814814804,
    "text": "وَسِعَ كُرْسِيُّهُ ٱلسَّمَٰوَٰتِ وَٱلْأَرْضَ",
-   "off": 173.88703703703698
+   "off": 253.1037037037036
   },
   {
    "ayah": 10,
-   "fade": 198.47592592592585,
-   "a0": 199.07592592592584,
-   "swoosh": 198.57592592592584,
+   "fade": 290.8574074074074,
+   "a0": 291.4574074074074,
+   "swoosh": 290.9574074074074,
    "text": "وَلَا يَـُٔودُهُۥ حِفْظُهُمَا",
-   "off": 209.0777777777777
+   "off": 305.62407407407414
   },
   {
    "ayah": 11,
-   "fade": 209.0777777777777,
-   "a0": 209.6777777777777,
-   "swoosh": 209.1777777777777,
+   "fade": 314.71481481481493,
+   "a0": 315.31481481481495,
+   "swoosh": 314.81481481481495,
    "text": "وَهُوَ ٱلْعَلِىُّ ٱلْعَظِيمُ",
-   "off": 219.23518518518512
+   "off": 328.2962962962965
   }
  ],
  "music": [
@@ -654,14 +923,14 @@
    "track": "Soaring",
    "start": 0.8,
    "fin": 1.5,
-   "end": 45.60185185185185,
+   "end": 51.544444444444444,
    "fout": 1.5
   },
   {
    "track": "River Flute",
-   "start": 44.10185185185185,
+   "start": 50.044444444444444,
    "fin": 2.5,
-   "end": 331.28703703703707,
+   "end": 440.12592592592637,
    "fout": 3.0
   }
  ],
@@ -671,22 +940,22 @@
     "breeze"
    ],
    "start": 0.0,
-   "end": 332.28703703703707
+   "end": 441.12592592592637
   }
  ],
- "end": 332.287,
+ "end": 441.126,
  "fade_at": {
-  "1": 34.648148148148145,
-  "2": 44.10185185185185,
-  "3": 53.18518518518518,
-  "4": 78.59814814814814,
-  "5": 102.32592592592589,
-  "6": 113.55740740740735,
-  "7": 133.1018518518518,
-  "8": 143.8518518518518,
-  "9": 164.32222222222217,
-  "10": 198.47592592592585,
-  "11": 209.0777777777777
+  "1": 40.59074074074074,
+  "2": 50.044444444444444,
+  "3": 72.01296296296297,
+  "4": 100.3685185185185,
+  "5": 128.92777777777772,
+  "6": 153.4518518518518,
+  "7": 185.7703703703703,
+  "8": 212.70185185185176,
+  "9": 239.44814814814805,
+  "10": 290.8574074074074,
+  "11": 314.71481481481493
  },
  "shots": [
   {
@@ -703,7 +972,7 @@
    "img": "02_lamp_on_stone.png",
    "id": "02_lamp_on_stone",
    "start": 6.989,
-   "end": 11.675,
+   "end": 14.646,
    "move": "pan_right",
    "fx": 0.5,
    "fy": 0.5,
@@ -712,8 +981,8 @@
   {
    "img": "02_lamp_on_stone.png",
    "id": "02_lamp_on_stone",
-   "start": 11.675,
-   "end": 16.361,
+   "start": 14.646,
+   "end": 22.304,
    "move": "pull_out",
    "fx": 0.38,
    "fy": 0.5,
@@ -722,8 +991,8 @@
   {
    "img": "03_madina_dawn_houses.png",
    "id": "03_madina_dawn_houses",
-   "start": 16.361,
-   "end": 22.306,
+   "start": 22.304,
+   "end": 28.249,
    "move": "pan_left",
    "fx": 0.5,
    "fy": 0.5,
@@ -732,8 +1001,8 @@
   {
    "img": "03_madina_dawn_houses.png",
    "id": "03_madina_dawn_houses",
-   "start": 22.306,
-   "end": 28.252,
+   "start": 28.249,
+   "end": 34.194,
    "move": "gentle_orbit",
    "fx": 0.38,
    "fy": 0.5,
@@ -742,8 +1011,8 @@
   {
    "img": "04_date_palm_path.png",
    "id": "04_date_palm_path",
-   "start": 28.252,
-   "end": 34.648,
+   "start": 34.194,
+   "end": 40.591,
    "move": "push_in",
    "fx": 0.5,
    "fy": 0.5,
@@ -752,8 +1021,8 @@
   {
    "img": "01_night_stars_dunes.png",
    "id": "01_night_stars_dunes_b",
-   "start": 34.648,
-   "end": 39.375,
+   "start": 40.591,
+   "end": 45.318,
    "move": "pan_left",
    "fx": 0.5,
    "fy": 0.35,
@@ -762,8 +1031,8 @@
   {
    "img": "01_night_stars_dunes.png",
    "id": "01_night_stars_dunes_b",
-   "start": 39.375,
-   "end": 44.102,
+   "start": 45.318,
+   "end": 50.044,
    "move": "pull_out",
    "fx": 0.5,
    "fy": 0.35,
@@ -772,8 +1041,8 @@
   {
    "img": "05_dawn_horizon.png",
    "id": "05_dawn_horizon",
-   "start": 44.102,
-   "end": 48.644,
+   "start": 50.044,
+   "end": 56.582,
    "move": "pan_right",
    "fx": 0.5,
    "fy": 0.5,
@@ -782,29 +1051,9 @@
   {
    "img": "05_dawn_horizon.png",
    "id": "05_dawn_horizon",
-   "start": 48.644,
-   "end": 53.185,
+   "start": 56.582,
+   "end": 63.12,
    "move": "push_in",
-   "fx": 0.38,
-   "fy": 0.5,
-   "zc": 1.15
-  },
-  {
-   "img": "06_oasis_spring.png",
-   "id": "06_oasis_spring",
-   "start": 53.185,
-   "end": 58.178,
-   "move": "pan_right",
-   "fx": 0.5,
-   "fy": 0.5,
-   "zc": 1.0
-  },
-  {
-   "img": "06_oasis_spring.png",
-   "id": "06_oasis_spring",
-   "start": 58.178,
-   "end": 63.17,
-   "move": "pull_out",
    "fx": 0.38,
    "fy": 0.5,
    "zc": 1.15
@@ -812,9 +1061,9 @@
   {
    "img": "05_dawn_horizon.png",
    "id": "05_dawn_horizon_c",
-   "start": 63.17,
-   "end": 70.884,
-   "move": "pan_left",
+   "start": 63.12,
+   "end": 67.566,
+   "move": "pan_right",
    "fx": 0.62,
    "fy": 0.55,
    "zc": 1.25
@@ -822,69 +1071,139 @@
   {
    "img": "05_dawn_horizon.png",
    "id": "05_dawn_horizon_c",
-   "start": 70.884,
-   "end": 78.598,
+   "start": 67.566,
+   "end": 72.013,
+   "move": "pull_out",
+   "fx": 0.62,
+   "fy": 0.55,
+   "zc": 1.25
+  },
+  {
+   "img": "06_oasis_spring.png",
+   "id": "06_oasis_spring",
+   "start": 72.013,
+   "end": 79.102,
+   "move": "pan_left",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "06_oasis_spring.png",
+   "id": "06_oasis_spring",
+   "start": 79.102,
+   "end": 86.191,
+   "move": "gentle_orbit",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "06_oasis_spring.png",
+   "id": "06_oasis_spring",
+   "start": 86.191,
+   "end": 93.28,
+   "move": "push_in",
+   "fx": 0.62,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "06_oasis_spring.png",
+   "id": "06_oasis_spring",
+   "start": 93.28,
+   "end": 100.369,
+   "move": "pan_left",
+   "fx": 0.5,
+   "fy": 0.45,
+   "zc": 1.25
+  },
+  {
+   "img": "07_moonlit_rooftops_lamp.png",
+   "id": "07_moonlit_rooftops_lamp",
+   "start": 100.369,
+   "end": 107.508,
+   "move": "pull_out",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "07_moonlit_rooftops_lamp.png",
+   "id": "07_moonlit_rooftops_lamp",
+   "start": 107.508,
+   "end": 114.648,
+   "move": "pan_right",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "07_moonlit_rooftops_lamp.png",
+   "id": "07_moonlit_rooftops_lamp",
+   "start": 114.648,
+   "end": 121.788,
+   "move": "push_in",
+   "fx": 0.62,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "07_moonlit_rooftops_lamp.png",
+   "id": "07_moonlit_rooftops_lamp",
+   "start": 121.788,
+   "end": 128.928,
+   "move": "pan_right",
+   "fx": 0.5,
+   "fy": 0.45,
+   "zc": 1.25
+  },
+  {
+   "img": "08_vast_panorama.png",
+   "id": "08_vast_panorama",
+   "start": 128.928,
+   "end": 135.059,
+   "move": "pull_out",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "08_vast_panorama.png",
+   "id": "08_vast_panorama",
+   "start": 135.059,
+   "end": 141.19,
+   "move": "pan_left",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "08_vast_panorama.png",
+   "id": "08_vast_panorama",
+   "start": 141.19,
+   "end": 147.321,
    "move": "gentle_orbit",
    "fx": 0.62,
-   "fy": 0.55,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "08_vast_panorama.png",
+   "id": "08_vast_panorama",
+   "start": 147.321,
+   "end": 153.452,
+   "move": "push_in",
+   "fx": 0.5,
+   "fy": 0.45,
    "zc": 1.25
   },
   {
-   "img": "07_moonlit_rooftops_lamp.png",
-   "id": "07_moonlit_rooftops_lamp",
-   "start": 78.598,
-   "end": 86.507,
-   "move": "push_in",
-   "fx": 0.5,
-   "fy": 0.5,
-   "zc": 1.0
-  },
-  {
-   "img": "07_moonlit_rooftops_lamp.png",
-   "id": "07_moonlit_rooftops_lamp",
-   "start": 86.507,
-   "end": 94.417,
+   "img": "09_lit_door.png",
+   "id": "09_lit_door",
+   "start": 153.452,
+   "end": 159.916,
    "move": "pan_left",
-   "fx": 0.38,
-   "fy": 0.5,
-   "zc": 1.15
-  },
-  {
-   "img": "07_moonlit_rooftops_lamp.png",
-   "id": "07_moonlit_rooftops_lamp",
-   "start": 94.417,
-   "end": 102.326,
-   "move": "pull_out",
-   "fx": 0.62,
-   "fy": 0.5,
-   "zc": 1.15
-  },
-  {
-   "img": "08_vast_panorama.png",
-   "id": "08_vast_panorama",
-   "start": 102.326,
-   "end": 107.942,
-   "move": "pan_right",
-   "fx": 0.5,
-   "fy": 0.5,
-   "zc": 1.0
-  },
-  {
-   "img": "08_vast_panorama.png",
-   "id": "08_vast_panorama",
-   "start": 107.942,
-   "end": 113.557,
-   "move": "push_in",
-   "fx": 0.38,
-   "fy": 0.5,
-   "zc": 1.15
-  },
-  {
-   "img": "09_lit_door.png",
-   "id": "09_lit_door",
-   "start": 113.557,
-   "end": 120.072,
-   "move": "pan_right",
    "fx": 0.5,
    "fy": 0.5,
    "zc": 1.0
@@ -892,8 +1211,8 @@
   {
    "img": "09_lit_door.png",
    "id": "09_lit_door",
-   "start": 120.072,
-   "end": 126.587,
+   "start": 159.916,
+   "end": 166.379,
    "move": "pull_out",
    "fx": 0.38,
    "fy": 0.5,
@@ -902,18 +1221,58 @@
   {
    "img": "09_lit_door.png",
    "id": "09_lit_door",
-   "start": 126.587,
-   "end": 133.102,
-   "move": "pan_left",
+   "start": 166.379,
+   "end": 172.843,
+   "move": "pan_right",
    "fx": 0.62,
    "fy": 0.5,
    "zc": 1.15
+  },
+  {
+   "img": "09_lit_door.png",
+   "id": "09_lit_door",
+   "start": 172.843,
+   "end": 179.307,
+   "move": "push_in",
+   "fx": 0.5,
+   "fy": 0.45,
+   "zc": 1.25
+  },
+  {
+   "img": "09_lit_door.png",
+   "id": "09_lit_door",
+   "start": 179.307,
+   "end": 185.77,
+   "move": "pan_right",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
   },
   {
    "img": "04_date_palm_path.png",
    "id": "04_date_palm_path_b",
-   "start": 133.102,
-   "end": 138.477,
+   "start": 185.77,
+   "end": 192.503,
+   "move": "pull_out",
+   "fx": 0.5,
+   "fy": 0.55,
+   "zc": 1.2
+  },
+  {
+   "img": "04_date_palm_path.png",
+   "id": "04_date_palm_path_b",
+   "start": 192.503,
+   "end": 199.236,
+   "move": "pan_left",
+   "fx": 0.5,
+   "fy": 0.55,
+   "zc": 1.2
+  },
+  {
+   "img": "04_date_palm_path.png",
+   "id": "04_date_palm_path_b",
+   "start": 199.236,
+   "end": 205.969,
    "move": "gentle_orbit",
    "fx": 0.5,
    "fy": 0.55,
@@ -922,8 +1281,8 @@
   {
    "img": "04_date_palm_path.png",
    "id": "04_date_palm_path_b",
-   "start": 138.477,
-   "end": 143.852,
+   "start": 205.969,
+   "end": 212.702,
    "move": "push_in",
    "fx": 0.5,
    "fy": 0.55,
@@ -932,8 +1291,8 @@
   {
    "img": "02_lamp_on_stone.png",
    "id": "02_lamp_on_stone_b",
-   "start": 143.852,
-   "end": 150.675,
+   "start": 212.702,
+   "end": 219.388,
    "move": "pan_left",
    "fx": 0.5,
    "fy": 0.6,
@@ -942,8 +1301,8 @@
   {
    "img": "02_lamp_on_stone.png",
    "id": "02_lamp_on_stone_b",
-   "start": 150.675,
-   "end": 157.499,
+   "start": 219.388,
+   "end": 226.075,
    "move": "pull_out",
    "fx": 0.5,
    "fy": 0.6,
@@ -952,9 +1311,19 @@
   {
    "img": "02_lamp_on_stone.png",
    "id": "02_lamp_on_stone_b",
-   "start": 157.499,
-   "end": 164.322,
+   "start": 226.075,
+   "end": 232.762,
    "move": "pan_right",
+   "fx": 0.5,
+   "fy": 0.6,
+   "zc": 1.5
+  },
+  {
+   "img": "02_lamp_on_stone.png",
+   "id": "02_lamp_on_stone_b",
+   "start": 232.762,
+   "end": 239.448,
+   "move": "push_in",
    "fx": 0.5,
    "fy": 0.6,
    "zc": 1.5
@@ -962,9 +1331,9 @@
   {
    "img": "10_ring_in_desert.png",
    "id": "10_ring_in_desert",
-   "start": 164.322,
-   "end": 172.249,
-   "move": "push_in",
+   "start": 239.448,
+   "end": 246.416,
+   "move": "pan_right",
    "fx": 0.5,
    "fy": 0.5,
    "zc": 1.0
@@ -972,9 +1341,9 @@
   {
    "img": "10_ring_in_desert.png",
    "id": "10_ring_in_desert",
-   "start": 172.249,
-   "end": 180.175,
-   "move": "pan_right",
+   "start": 246.416,
+   "end": 253.384,
+   "move": "pull_out",
    "fx": 0.38,
    "fy": 0.5,
    "zc": 1.15
@@ -982,18 +1351,38 @@
   {
    "img": "10_ring_in_desert.png",
    "id": "10_ring_in_desert",
-   "start": 180.175,
-   "end": 188.102,
-   "move": "pull_out",
+   "start": 253.384,
+   "end": 260.351,
+   "move": "pan_left",
    "fx": 0.62,
    "fy": 0.5,
    "zc": 1.15
+  },
+  {
+   "img": "10_ring_in_desert.png",
+   "id": "10_ring_in_desert",
+   "start": 260.351,
+   "end": 267.319,
+   "move": "gentle_orbit",
+   "fx": 0.5,
+   "fy": 0.45,
+   "zc": 1.25
   },
   {
    "img": "10_ring_in_desert.png",
    "id": "10_ring_in_desert_b",
-   "start": 188.102,
-   "end": 193.289,
+   "start": 267.319,
+   "end": 275.165,
+   "move": "push_in",
+   "fx": 0.5,
+   "fy": 0.72,
+   "zc": 1.7
+  },
+  {
+   "img": "10_ring_in_desert.png",
+   "id": "10_ring_in_desert_b",
+   "start": 275.165,
+   "end": 283.011,
    "move": "pan_left",
    "fx": 0.5,
    "fy": 0.72,
@@ -1002,9 +1391,9 @@
   {
    "img": "10_ring_in_desert.png",
    "id": "10_ring_in_desert_b",
-   "start": 193.289,
-   "end": 198.476,
-   "move": "gentle_orbit",
+   "start": 283.011,
+   "end": 290.857,
+   "move": "pull_out",
    "fx": 0.5,
    "fy": 0.72,
    "zc": 1.7
@@ -1012,8 +1401,18 @@
   {
    "img": "08_vast_panorama.png",
    "id": "08_vast_panorama_b",
-   "start": 198.476,
-   "end": 203.777,
+   "start": 290.857,
+   "end": 298.81,
+   "move": "pan_right",
+   "fx": 0.62,
+   "fy": 0.5,
+   "zc": 1.2
+  },
+  {
+   "img": "08_vast_panorama.png",
+   "id": "08_vast_panorama_b",
+   "start": 298.81,
+   "end": 306.762,
    "move": "push_in",
    "fx": 0.62,
    "fy": 0.5,
@@ -1022,9 +1421,9 @@
   {
    "img": "08_vast_panorama.png",
    "id": "08_vast_panorama_b",
-   "start": 203.777,
-   "end": 209.078,
-   "move": "pan_left",
+   "start": 306.762,
+   "end": 314.715,
+   "move": "pan_right",
    "fx": 0.62,
    "fy": 0.5,
    "zc": 1.2
@@ -1032,8 +1431,8 @@
   {
    "img": "11_sunrays_clouds.png",
    "id": "11_sunrays_clouds",
-   "start": 209.078,
-   "end": 216.135,
+   "start": 314.715,
+   "end": 320.864,
    "move": "pull_out",
    "fx": 0.5,
    "fy": 0.5,
@@ -1042,9 +1441,9 @@
   {
    "img": "11_sunrays_clouds.png",
    "id": "11_sunrays_clouds",
-   "start": 216.135,
-   "end": 223.193,
-   "move": "pan_right",
+   "start": 320.864,
+   "end": 327.013,
+   "move": "pan_left",
    "fx": 0.38,
    "fy": 0.5,
    "zc": 1.15
@@ -1052,19 +1451,29 @@
   {
    "img": "11_sunrays_clouds.png",
    "id": "11_sunrays_clouds",
-   "start": 223.193,
-   "end": 230.25,
-   "move": "push_in",
+   "start": 327.013,
+   "end": 333.162,
+   "move": "gentle_orbit",
    "fx": 0.62,
    "fy": 0.5,
    "zc": 1.15
   },
   {
+   "img": "11_sunrays_clouds.png",
+   "id": "11_sunrays_clouds",
+   "start": 333.162,
+   "end": 339.311,
+   "move": "push_in",
+   "fx": 0.5,
+   "fy": 0.45,
+   "zc": 1.25
+  },
+  {
    "img": "03_madina_dawn_houses.png",
    "id": "03_madina_dawn_houses_b",
-   "start": 230.25,
-   "end": 238.039,
-   "move": "pan_right",
+   "start": 339.311,
+   "end": 347.1,
+   "move": "pan_left",
    "fx": 0.4,
    "fy": 0.5,
    "zc": 1.25
@@ -1072,8 +1481,8 @@
   {
    "img": "03_madina_dawn_houses.png",
    "id": "03_madina_dawn_houses_b",
-   "start": 238.039,
-   "end": 245.828,
+   "start": 347.1,
+   "end": 354.889,
    "move": "pull_out",
    "fx": 0.4,
    "fy": 0.5,
@@ -1082,9 +1491,9 @@
   {
    "img": "03_madina_dawn_houses.png",
    "id": "03_madina_dawn_houses_b",
-   "start": 245.828,
-   "end": 253.617,
-   "move": "pan_left",
+   "start": 354.889,
+   "end": 362.678,
+   "move": "pan_right",
    "fx": 0.4,
    "fy": 0.5,
    "zc": 1.25
@@ -1092,49 +1501,69 @@
   {
    "img": "12_bedtime_room_lamp.png",
    "id": "12_bedtime_room_lamp",
-   "start": 253.617,
-   "end": 261.48,
+   "start": 362.678,
+   "end": 370.541,
+   "move": "push_in",
+   "fx": 0.75,
+   "fy": 0.5,
+   "zc": 1.55
+  },
+  {
+   "img": "12_bedtime_room_lamp.png",
+   "id": "12_bedtime_room_lamp",
+   "start": 370.541,
+   "end": 378.404,
+   "move": "pan_right",
+   "fx": 0.75,
+   "fy": 0.5,
+   "zc": 1.55
+  },
+  {
+   "img": "12_bedtime_room_lamp.png",
+   "id": "12_bedtime_room_lamp",
+   "start": 378.404,
+   "end": 386.268,
+   "move": "pull_out",
+   "fx": 0.75,
+   "fy": 0.5,
+   "zc": 1.55
+  },
+  {
+   "img": "12_bedtime_room_lamp.png",
+   "id": "12_bedtime_room_lamp",
+   "start": 386.268,
+   "end": 394.131,
+   "move": "pan_left",
+   "fx": 0.75,
+   "fy": 0.5,
+   "zc": 1.55
+  },
+  {
+   "img": "05_dawn_horizon.png",
+   "id": "05_dawn_horizon_b",
+   "start": 394.131,
+   "end": 401.599,
    "move": "gentle_orbit",
-   "fx": 0.75,
+   "fx": 0.5,
    "fy": 0.5,
-   "zc": 1.55
+   "zc": 1.1
   },
   {
-   "img": "12_bedtime_room_lamp.png",
-   "id": "12_bedtime_room_lamp",
-   "start": 261.48,
-   "end": 269.344,
+   "img": "05_dawn_horizon.png",
+   "id": "05_dawn_horizon_b",
+   "start": 401.599,
+   "end": 409.067,
    "move": "push_in",
-   "fx": 0.75,
+   "fx": 0.5,
    "fy": 0.5,
-   "zc": 1.55
+   "zc": 1.1
   },
   {
-   "img": "12_bedtime_room_lamp.png",
-   "id": "12_bedtime_room_lamp",
-   "start": 269.344,
-   "end": 277.207,
+   "img": "05_dawn_horizon.png",
+   "id": "05_dawn_horizon_b",
+   "start": 409.067,
+   "end": 416.536,
    "move": "pan_left",
-   "fx": 0.75,
-   "fy": 0.5,
-   "zc": 1.55
-  },
-  {
-   "img": "12_bedtime_room_lamp.png",
-   "id": "12_bedtime_room_lamp",
-   "start": 277.207,
-   "end": 285.07,
-   "move": "pull_out",
-   "fx": 0.75,
-   "fy": 0.5,
-   "zc": 1.55
-  },
-  {
-   "img": "05_dawn_horizon.png",
-   "id": "05_dawn_horizon_b",
-   "start": 285.07,
-   "end": 292.538,
-   "move": "pan_right",
    "fx": 0.5,
    "fy": 0.5,
    "zc": 1.1
@@ -1142,28 +1571,8 @@
   {
    "img": "05_dawn_horizon.png",
    "id": "05_dawn_horizon_b",
-   "start": 292.538,
-   "end": 300.006,
-   "move": "push_in",
-   "fx": 0.5,
-   "fy": 0.5,
-   "zc": 1.1
-  },
-  {
-   "img": "05_dawn_horizon.png",
-   "id": "05_dawn_horizon_b",
-   "start": 300.006,
-   "end": 307.475,
-   "move": "pan_right",
-   "fx": 0.5,
-   "fy": 0.5,
-   "zc": 1.1
-  },
-  {
-   "img": "05_dawn_horizon.png",
-   "id": "05_dawn_horizon_b",
-   "start": 307.475,
-   "end": 314.943,
+   "start": 416.536,
+   "end": 424.004,
    "move": "pull_out",
    "fx": 0.5,
    "fy": 0.5,
@@ -1172,9 +1581,9 @@
   {
    "img": "01_night_stars_dunes.png",
    "id": "01_night_stars_dunes_c",
-   "start": 314.943,
-   "end": 320.724,
-   "move": "pan_left",
+   "start": 424.004,
+   "end": 429.711,
+   "move": "pan_right",
    "fx": 0.5,
    "fy": 0.3,
    "zc": 1.1
@@ -1182,9 +1591,9 @@
   {
    "img": "01_night_stars_dunes.png",
    "id": "01_night_stars_dunes_c",
-   "start": 320.724,
-   "end": 326.506,
-   "move": "gentle_orbit",
+   "start": 429.711,
+   "end": 435.419,
+   "move": "push_in",
    "fx": 0.5,
    "fy": 0.3,
    "zc": 1.1
@@ -1192,9 +1601,9 @@
   {
    "img": "01_night_stars_dunes.png",
    "id": "01_night_stars_dunes_c",
-   "start": 326.506,
-   "end": 332.287,
-   "move": "push_in",
+   "start": 435.419,
+   "end": 441.126,
+   "move": "pan_right",
    "fx": 0.5,
    "fy": 0.3,
    "zc": 1.1

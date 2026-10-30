@@ -94,6 +94,8 @@ def tts(story: Path):
                 x16 = np.interp(np.arange(0, len(x), sr / 16000), np.arange(len(x)), x).astype(np.float32)
                 heard = " ".join(s.text.strip() for s in model.transcribe(x16, language="hi", beam_size=5)[0])
                 miss = missing(it["text"], heard)
+                if it["role"] == "ucharan":  # Arabic words in Devanagari: Whisper cannot judge them; first take is kept, Munshi listens
+                    miss = []
                 if not miss:
                     ok.write_text(heard, encoding="utf-8")
                     break

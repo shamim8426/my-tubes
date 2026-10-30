@@ -698,3 +698,26 @@ timestamp,file,model,size,cost_usd,cost_inr,today_total_inr,remaining_inr,channe
 2026-10-29 21:13:42,channels/noor-e-raah/stories/002_ayatul-kursi/images/10_ring_in_desert.png,gemini-nano-banana-2.1,1K,0.04548,4.39,68.50,199.05,noor-e-raah,3.26,4.3890,0.79,141,2676
 2026-10-29 21:13:57,channels/noor-e-raah/stories/002_ayatul-kursi/images/11_sunrays_clouds.png,gemini-nano-banana-2.1,1K,0.04399,4.24,73.51,194.04,noor-e-raah,3.26,4.2446,0.76,119,2481
 2026-10-29 21:14:09,channels/noor-e-raah/stories/002_ayatul-kursi/images/12_bedtime_room_lamp.png,gemini-nano-banana-2.1,1K,0.04039,3.90,78.11,189.44,noor-e-raah,3.26,3.8975,0.70,121,2001
+2026-10-30 05:22:42,channels/noor-e-raah/stories/002_ayatul-kursi/audio/tts/070_ustaad.wav,gemini-3.8-flash-tts,tts 5.8s free,0.00000,0.00,0.00,189.44,noor-e-raah,0.13,0.0000,0.00,18,144
+2026-10-30 05:22:51,channels/noor-e-raah/stories/002_ayatul-kursi/audio/tts/070_ustaad.wav,gemini-3.8-flash-tts,tts 6.4s free,0.00000,0.00,0.00,189.44,noor-e-raah,0.15,0.0000,0.00,18,161
+2026-10-30 05:22:58,channels/noor-e-raah/stories/002_ayatul-kursi/audio/tts/070_ustaad.wav,gemini-3.8-flash-tts,tts 6.0s free,0.00000,0.00,0.00,189.44,noor-e-raah,0.14,0.0000,0.00,18,151
+2026-10-30 05:23:06,channels/noor-e-raah/stories/002_ayatul-kursi/audio/tts/071_ustaad.wav,gemini-3.8-flash-tts,tts 3.9s,0.00088,0.08,0.10,189.34,noor-e-raah,0.09,0.0848,0.02,11,97
+2026-10-30 05:23:13,channels/noor-e-raah/stories/002_ayatul-kursi/audio/tts/081_ustaad.wav,gemini-3.8-flash-tts,tts 9.3s,0.00210,0.20,0.34,189.10,noor-e-raah,0.21,0.2030,0.04,31,232
+2026-10-30 05:23:22,channels/noor-e-raah/stories/002_ayatul-kursi/audio/tts/072_ustaad.wav,gemini-3.8-flash-tts,tts 2.8s,0.00063,0.06,0.41,189.03,noor-e-raah,0.07,0.0612,0.01,9,70
+2026-10-30 05:23:28,channels/noor-e-raah/stories/002_ayatul-kursi/audio/tts/073_ustaad.wav,gemini-3.8-flash-tts,tts 4.8s,0.00110,0.11,0.54,188.90,noor-e-raah,0.11,0.1058,0.02,15,121
+2026-10-30 05:23:35,channels/noor-e-raah/stories/002_ayatul-kursi/audio/tts/074_ustaad.wav,gemini-3.8-flash-tts,tts 4.7s,0.00106,0.10,0.66,188.78,noor-e-raah,0.11,0.1024,0.02,16,117
+2026-10-30 05:23:42,channels/noor-e-raah/stories/002_ayatul-kursi/audio/tts/082_ustaad.wav,gemini-3.8-flash-tts,tts 8.9s,0.00202,0.20,0.89,188.55,noor-e-raah,0.20,0.1952,0.04,32,223
+2026-10-30 05:23:52,channels/noor-e-raah/stories/002_ayatul-kursi/audio/tts/075_ustaad.wav,gemini-3.8-flash-tts,tts 5.3s,0.00121,0.12,1.03,188.41,noor-e-raah,0.12,0.1164,0.02,19,133
+2026-10-30 05:24:01,channels/noor-e-raah/stories/002_ayatul-kursi/audio/tts/083_ustaad.wav,gemini-3.8-flash-tts,tts 7.7s,0.00175,0.17,1.22,188.21,noor-e-raah,0.18,0.1688,0.03,25,193
+2026-10-30 05:24:09,channels/noor-e-raah/stories/002_ayatul-kursi/audio/tts/076_ustaad.wav,gemini-3.8-flash-tts,tts 6.5s,0.00147,0.14,1.39,188.05,noor-e-raah,0.15,0.1415,0.03,17,162
+2026-10-30 05:24:16,channels/noor-e-raah/stories/002_ayatul-kursi/audio/tts/084_ustaad.wav,gemini-3.8-flash-tts,tts 10.2s free,0.00000,0.00,1.39,188.05,noor-e-raah,0.23,0.0000,0.00,30,256
+2026-10-30 05:24:25,channels/noor-e-raah/stories/002_ayatul-kursi/audio/tts/077_ustaad.wav,gemini-3.8-flash-tts,tts 6.4s,0.00145,0.14,1.56,187.88,noor-e-raah,0.15,0.1399,0.03,19,160
+2026-10-30 05:24:32,channels/noor-e-raah/stories/002_ayatul-kursi/audio/tts/078_ustaad.wav,gemini-3.8-flash-tts,tts 4.0s,0.00092,0.09,1.66,187.78,noor-e-raah,0.09,0.0885,0.02,17,101
+2026-10-30 05:24:41,channels/noor-e-raah/stories/002_ayatul-kursi/audio/tts/085_ustaad.wav,gemini-3.8-flash-tts,tts 13.8s,0.00314,0.30,2.02,187.42,noor-e-raah,0.31,0.3025,0.05,42,346
+2026-10-30 05:24:51,channels/noor-e-raah/stories/002_ayatul-kursi/audio/tts/079_ustaad.wav,gemini-3.8-flash-tts,tts 4.1s,0.00093,0.09,2.12,187.31,noor-e-raah,0.10,0.0901,0.02,13,103
+2026-10-30 05:24:58,channels/noor-e-raah/stories/002_ayatul-kursi/audio/tts/086_ustaad.wav,gemini-3.8-flash-tts,tts 10.3s,0.00234,0.23,2.39,187.05,noor-e-raah,0.23,0.2254,0.04,27,258
+2026-10-30 05:25:08,channels/noor-e-raah/stories/002_ayatul-kursi/audio/tts/086_ustaad.wav,gemini-3.8-flash-tts,tts 9.2s,0.00207,0.20,2.63,186.81,noor-e-raah,0.21,0.2002,0.04,27,229
+2026-10-30 05:25:17,channels/noor-e-raah/stories/002_ayatul-kursi/audio/tts/086_ustaad.wav,gemini-3.8-flash-tts,tts 9.4s,0.00214,0.21,2.87,186.57,noor-e-raah,0.21,0.2063,0.04,27,236
+2026-10-30 05:25:25,channels/noor-e-raah/stories/002_ayatul-kursi/audio/tts/080_ustaad.wav,gemini-3.8-flash-tts,tts 3.3s,0.00075,0.07,2.96,186.48,noor-e-raah,0.08,0.0726,0.01,11,83
+2026-10-30 05:25:32,channels/noor-e-raah/stories/002_ayatul-kursi/audio/tts/087_ustaad.wav,gemini-3.8-flash-tts,tts 6.0s,0.00136,0.13,3.11,186.33,noor-e-raah,0.14,0.1315,0.02,26,150
+2026-10-30 05:25:40,channels/noor-e-raah/stories/002_ayatul-kursi/audio/tts/088_sawaal.wav,gemini-3.8-flash-tts,tts 7.2s,0.00163,0.16,3.30,186.14,noor-e-raah,0.16,0.1576,0.03,26,180
