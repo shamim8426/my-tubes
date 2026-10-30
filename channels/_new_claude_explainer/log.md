@@ -1,0 +1,1 @@
+﻿- 2026-10-31 Short 001 (CLAUDE.md) built: 53.4 s, 1080x1920, -14.9 LUFS, TP -1.5 dBFS; voice Gemini TTS ~Rs1; renderer scripts/kinetic_short.py; not uploaded (no channel yet), Munshi review not run.

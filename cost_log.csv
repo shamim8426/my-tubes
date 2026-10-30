@@ -787,3 +787,11 @@ timestamp,file,model,size,cost_usd,cost_inr,today_total_inr,remaining_inr,channe
 2026-10-30 07:08:10,channels/noor-e-raah/stories/003_al-ikhlas/images/thumb_scene_a.png,gemini-nano-banana-2.1,1K,0.04579,4.42,61.66,127.78,noor-e-raah,3.27,4.4192,0.80,170,2712
 2026-10-30 02:33:54,channels/jugnu-stories/brand/_work/v6/banner_gemini_a.png,gemini-nano-banana-2.1,2K,0.07246,6.99,8.25,259.30,jugnu-stories,5.93,6.9920,1.26,7419,3137
 2026-10-30 02:35:17,channels/jugnu-stories/brand/_work/v6/banner_gemini_b.png,gemini-nano-banana-2.1,2K,0.06498,6.27,15.65,251.90,jugnu-stories,5.08,6.2703,1.13,1508,3322
+2026-10-31 03:22:20,channels/_new_claude_explainer/stories/001_claude-md/audio/tts/beat_00.wav,gemini-3.8-flash-tts,tts 6.5s,0.00148,0.14,0.17,111.96,_new_claude_explainer,0.15,0.1429,0.03,28,163
+2026-10-31 03:22:32,channels/_new_claude_explainer/stories/001_claude-md/audio/tts/beat_01.wav,gemini-3.8-flash-tts,tts 6.0s,0.00137,0.13,0.32,111.80,_new_claude_explainer,0.14,0.1324,0.02,27,151
+2026-10-31 03:22:41,channels/_new_claude_explainer/stories/001_claude-md/audio/tts/beat_02.wav,gemini-3.8-flash-tts,tts 6.4s,0.00146,0.14,0.49,111.64,_new_claude_explainer,0.14,0.1404,0.03,30,160
+2026-10-31 03:22:51,channels/_new_claude_explainer/stories/001_claude-md/audio/tts/beat_03.wav,gemini-3.8-flash-tts,tts 6.5s,0.00147,0.14,0.66,111.47,_new_claude_explainer,0.15,0.1420,0.03,28,162
+2026-10-31 03:23:03,channels/_new_claude_explainer/stories/001_claude-md/audio/tts/beat_04.wav,gemini-3.8-flash-tts,tts 6.7s,0.00153,0.15,0.83,111.29,_new_claude_explainer,0.15,0.1475,0.03,32,168
+2026-10-31 03:23:11,channels/_new_claude_explainer/stories/001_claude-md/audio/tts/beat_05.wav,gemini-3.8-flash-tts,tts 7.6s,0.00173,0.17,1.03,111.10,_new_claude_explainer,0.17,0.1667,0.03,34,190
+2026-10-31 03:23:20,channels/_new_claude_explainer/stories/001_claude-md/audio/tts/beat_06.wav,gemini-3.8-flash-tts,tts 5.0s,0.00115,0.11,1.16,110.97,_new_claude_explainer,0.11,0.1106,0.02,25,126
+2026-10-31 03:23:29,channels/_new_claude_explainer/stories/001_claude-md/audio/tts/beat_07.wav,gemini-3.8-flash-tts,tts 4.9s,0.00112,0.11,1.29,110.84,_new_claude_explainer,0.11,0.1080,0.02,25,123
