@@ -1,0 +1,702 @@
+[
+ {
+  "kind": "section",
+  "name": "HEADER"
+ },
+ {
+  "kind": "section",
+  "name": "INTRO (`part: intro`, hook)"
+ },
+ {
+  "kind": "screen",
+  "section": "INTRO (`part: intro`, hook)",
+  "ayah": null,
+  "note": "SCREEN: raat ka khula aasmaan, ek akela chamakta taara, door tak khaali ret; upar Arabic title سُورَةُ ٱلْإِخْلَاصِ (font se) aur neeche chhota caption \"सिर्फ़ 4 आयतें\". Pehla frame bina awaaz ke bhi samajh aaye."
+ },
+ {
+  "kind": "cue",
+  "n": 1,
+  "type": "music",
+  "value": "soft: Soaring — intro + parichay",
+  "section": "INTRO (`part: intro`, hook)",
+  "ayah": null
+ },
+ {
+  "kind": "cue",
+  "n": 2,
+  "type": "ambience",
+  "value": "gentle breeze (Freesound CC0)",
+  "section": "INTRO (`part: intro`, hook)",
+  "ayah": null
+ },
+ {
+  "kind": "line",
+  "n": 3,
+  "speaker": "sawaal",
+  "role": "",
+  "section": "INTRO (`part: intro`, hook)",
+  "ayah": null,
+  "text": "उस्ताद जी, सूरह इख़लास तो बचपन से सुनते आए हैं — पर क्या इसका मतलब जानते हैं?",
+  "tags": []
+ },
+ {
+  "kind": "line",
+  "n": 4,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "INTRO (`part: intro`, hook)",
+  "ayah": null,
+  "text": "सिर्फ़ चार आयतें — और हदीस के मुताबिक़ क़ुरआन के तिहाई के बराबर। आज इन्हें एक-एक करके समझते हैं।",
+  "tags": [
+   "Z1",
+   "Z2"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 5,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "INTRO (`part: intro`, hook)",
+  "ayah": null,
+  "text": "ये पढ़ने की मदद है, तिलावत नहीं — सही तिलावत किसी क़ारी से सुनें।",
+  "tags": [
+   "NOTE"
+  ]
+ },
+ {
+  "kind": "section",
+  "name": "1. SURAH KA PARICHAY"
+ },
+ {
+  "kind": "screen",
+  "section": "1. SURAH KA PARICHAY",
+  "ayah": null,
+  "note": "SCREEN: wahi akela taara, ret ka shaant ufaq; font se do chhote cards: \"सूरह अल-इख़लास · क़ुरआन की 112वीं सूरह\", \"4 आयतें\""
+ },
+ {
+  "kind": "line",
+  "n": 6,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "1. SURAH KA PARICHAY",
+  "ayah": null,
+  "text": "सूरह अल-इख़लास क़ुरआन की एक सौ बारहवीं सूरह है, और 'इख़लास' यानी सच्चाई, ख़ालिसपन।",
+  "tags": [
+   "P1"
+  ]
+ },
+ {
+  "kind": "ayah",
+  "ayah": 1
+ },
+ {
+  "kind": "screen",
+  "section": "1. SURAH KA PARICHAY",
+  "ayah": 1,
+  "note": "SCREEN: taaron bhara shaant aasmaan; poori surah Arabic me (4 ayat) — swoosh ke saath aati hai"
+ },
+ {
+  "kind": "cue",
+  "n": 7,
+  "type": "music",
+  "value": "swoosh — ARABIC ON SCREEN",
+  "section": "1. SURAH KA PARICHAY",
+  "ayah": 1
+ },
+ {
+  "kind": "arabic",
+  "ayah": 1,
+  "text": "قُلْ هُوَ ٱللَّهُ أَحَدٌ ٱللَّهُ ٱلصَّمَدُ لَمْ يَلِدْ وَلَمْ يُولَدْ وَلَمْ يَكُن لَّهُۥ كُفُوًا أَحَدٌۢ"
+ },
+ {
+  "kind": "line",
+  "n": 8,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "1. SURAH KA PARICHAY",
+  "ayah": 1,
+  "text": "ये रही पूरी सूरह — चार छोटी आयतें, और एक ही पैग़ाम: अल्लाह एक है।",
+  "tags": [
+   "P6"
+  ]
+ },
+ {
+  "kind": "cue",
+  "n": 9,
+  "type": "music",
+  "value": "continue: River Flute — matlab",
+  "section": "1. SURAH KA PARICHAY",
+  "ayah": 1
+ },
+ {
+  "kind": "section",
+  "name": "2. SHAN-E-NUZUL"
+ },
+ {
+  "kind": "screen",
+  "section": "2. SHAN-E-NUZUL",
+  "ayah": null,
+  "note": "SCREEN: Makka ki tarah ki sookhi ghaati, kaale-bhoore granite pahaad, raat ki chaandni, khaali raasta; koi insaan nahi, koi gumbad/minar nahi"
+ },
+ {
+  "kind": "line",
+  "n": 10,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "2. SHAN-E-NUZUL",
+  "ayah": null,
+  "text": "ज़्यादातर उलमा के मुताबिक़ ये सूरह मक्की है — कुछ उलमा इसे मदनी भी कहते हैं।",
+  "tags": [
+   "P3"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 11,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "2. SHAN-E-NUZUL",
+  "ayah": null,
+  "text": "इसके उतरने का कोई सहीह-दर्जे का ख़ास वाक़िया नहीं मिलता।",
+  "tags": [
+   "N1",
+   "N2"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 12,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "2. SHAN-E-NUZUL",
+  "ayah": null,
+  "text": "तफ़्सीरों में एक रिवायत आती है कि लोगों ने अल्लाह के बारे में सवाल किए और जवाब में ये सूरह उतरी — पर इस रिवायत की सनद पर उलमा में इख़्तिलाफ़ है।",
+  "tags": [
+   "N1",
+   "N2"
+  ]
+ },
+ {
+  "kind": "section",
+  "name": "3. AAYAT-DAR-AAYAT"
+ },
+ {
+  "kind": "screen",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": null,
+  "note": "SCREEN (har Arabic block): Arabic bade Amiri font me (Tanzil Uthmani, bytes unchanged), uske neeche UCHARAN (Devanagari), upar chhota label \"सरल भावार्थ — माने हुए तर्जुमों के आधार पर\" (sirf BHAAVARTH line par), neeche Hindi caption. Har ayah alag Arabic block."
+ },
+ {
+  "kind": "ayah",
+  "ayah": 2
+ },
+ {
+  "kind": "screen",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 2,
+  "note": "SCREEN: andhere me ek akela diya, ek hi shaant lau — \"ek\" ka ishaara; baaki andhera"
+ },
+ {
+  "kind": "cue",
+  "n": 13,
+  "type": "music",
+  "value": "swoosh — ARABIC ON SCREEN",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 2
+ },
+ {
+  "kind": "arabic",
+  "ayah": 2,
+  "text": "قُلْ هُوَ ٱللَّهُ أَحَدٌ"
+ },
+ {
+  "kind": "line",
+  "n": 14,
+  "speaker": "ustaad",
+  "role": "ucharan",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 2,
+  "text": "क़ुल हुवल्लाहु अहद",
+  "tags": []
+ },
+ {
+  "kind": "line",
+  "n": 15,
+  "speaker": "ustaad",
+  "role": "bhaavarth",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 2,
+  "text": "पहली आयत: कह दो — वो अल्लाह अकेला है, एक है।",
+  "tags": [
+   "T2"
+  ]
+ },
+ {
+  "kind": "cue",
+  "n": 16,
+  "type": "music",
+  "value": "continue: River Flute — matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 2
+ },
+ {
+  "kind": "line",
+  "n": 17,
+  "speaker": "ustaad",
+  "role": "matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 2,
+  "text": "'क़ुल' यानी 'कहो' — नबी सल्लल्लाहु अलैहि वसल्लम को हुक्म कि ये बात लोगों तक पहुँचा दें।",
+  "tags": [
+   "M1"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 18,
+  "speaker": "ustaad",
+  "role": "matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 2,
+  "text": "'अहद' यानी ऐसा एक, जिसका कोई साझी नहीं, कोई जोड़ीदार नहीं — उसके बारे में हिस्सों या जोड़ का ख़याल भी नहीं।",
+  "tags": [
+   "M1"
+  ]
+ },
+ {
+  "kind": "ayah",
+  "ayah": 3
+ },
+ {
+  "kind": "screen",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 3,
+  "note": "SCREEN: रेगिस्तान में कई पगडंडियाँ, सब एक ही हरे चश्मे की तरफ़ जाती हुईं (ऊपर से) — \"सब उसी की तरफ़\"; koi insaan nahi"
+ },
+ {
+  "kind": "cue",
+  "n": 19,
+  "type": "music",
+  "value": "swoosh — ARABIC ON SCREEN",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 3
+ },
+ {
+  "kind": "arabic",
+  "ayah": 3,
+  "text": "ٱللَّهُ ٱلصَّمَدُ"
+ },
+ {
+  "kind": "line",
+  "n": 20,
+  "speaker": "ustaad",
+  "role": "ucharan",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 3,
+  "text": "अल्लाहुस्समद",
+  "tags": []
+ },
+ {
+  "kind": "line",
+  "n": 21,
+  "speaker": "ustaad",
+  "role": "bhaavarth",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 3,
+  "text": "दूसरी आयत: अल्लाह बेनियाज़ है — उसे किसी की ज़रूरत नहीं, और सब उसी के मोहताज हैं।",
+  "tags": [
+   "T2"
+  ]
+ },
+ {
+  "kind": "cue",
+  "n": 22,
+  "type": "music",
+  "value": "continue: River Flute — matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 3
+ },
+ {
+  "kind": "line",
+  "n": 23,
+  "speaker": "sawaal",
+  "role": "misaal",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 3,
+  "text": "जब हर दरवाज़ा बंद लगे और कोई सहारा न दिखे, तो दिल अपने आप किसी बड़े सहारे को पुकारने लगता है।",
+  "tags": [
+   "MISAAL"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 24,
+  "speaker": "ustaad",
+  "role": "matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 3,
+  "text": "'समद' यानी वो, जिसकी तरफ़ सब अपनी ज़रूरतों में लौटते हैं, और जिसे ख़ुद किसी की ज़रूरत नहीं।",
+  "tags": [
+   "M2"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 25,
+  "speaker": "ustaad",
+  "role": "matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 3,
+  "text": "तफ़्सीरों में ये भी आता है कि वो ऐसा सरदार है जिसके ऊपर कोई नहीं।",
+  "tags": [
+   "M2"
+  ]
+ },
+ {
+  "kind": "ayah",
+  "ayah": 4
+ },
+ {
+  "kind": "screen",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 4,
+  "note": "SCREEN: शाम का शांत समंदर, सामने बस एक साफ़ ख़ाली ufaq — kuch bhi nahi, na koi bachcha, na parivaar"
+ },
+ {
+  "kind": "cue",
+  "n": 26,
+  "type": "music",
+  "value": "swoosh — ARABIC ON SCREEN",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 4
+ },
+ {
+  "kind": "arabic",
+  "ayah": 4,
+  "text": "لَمْ يَلِدْ وَلَمْ يُولَدْ"
+ },
+ {
+  "kind": "line",
+  "n": 27,
+  "speaker": "ustaad",
+  "role": "ucharan",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 4,
+  "text": "लम यलिद वलम यूलद",
+  "tags": []
+ },
+ {
+  "kind": "line",
+  "n": 28,
+  "speaker": "ustaad",
+  "role": "bhaavarth",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 4,
+  "text": "तीसरी आयत: न उसकी कोई औलाद है, और न वो किसी की औलाद है।",
+  "tags": [
+   "T2"
+  ]
+ },
+ {
+  "kind": "cue",
+  "n": 29,
+  "type": "music",
+  "value": "continue: River Flute — matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 4
+ },
+ {
+  "kind": "line",
+  "n": 30,
+  "speaker": "ustaad",
+  "role": "matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 4,
+  "text": "यानी न उसकी कोई औलाद, न माँ-बाप, न जीवनसाथी।",
+  "tags": [
+   "M3"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 31,
+  "speaker": "ustaad",
+  "role": "matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 4,
+  "text": "तफ़्सीर में एक दलील आती है: जो पैदा होता है वो मरता है और उसका वारिस होता है — पर अल्लाह न मरता है, न उसका कोई वारिस।",
+  "tags": [
+   "M3"
+  ]
+ },
+ {
+  "kind": "ayah",
+  "ayah": 5
+ },
+ {
+  "kind": "screen",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 5,
+  "note": "SCREEN: bahut chauda taaron bhara aasmaan, khaali registaan ke upar — \"bade se bada bhi uski barabari nahi\""
+ },
+ {
+  "kind": "cue",
+  "n": 32,
+  "type": "music",
+  "value": "swoosh — ARABIC ON SCREEN",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 5
+ },
+ {
+  "kind": "arabic",
+  "ayah": 5,
+  "text": "وَلَمْ يَكُن لَّهُۥ كُفُوًا أَحَدٌۢ"
+ },
+ {
+  "kind": "line",
+  "n": 33,
+  "speaker": "ustaad",
+  "role": "ucharan",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 5,
+  "text": "वलम यकुल लहू कुफ़ुवन अहद",
+  "tags": []
+ },
+ {
+  "kind": "line",
+  "n": 34,
+  "speaker": "ustaad",
+  "role": "bhaavarth",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 5,
+  "text": "चौथी आयत: और कोई भी उसके बराबर, उसके जैसा नहीं।",
+  "tags": [
+   "T2"
+  ]
+ },
+ {
+  "kind": "cue",
+  "n": 35,
+  "type": "music",
+  "value": "continue: River Flute — matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 5
+ },
+ {
+  "kind": "line",
+  "n": 36,
+  "speaker": "ustaad",
+  "role": "matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 5,
+  "text": "'कुफ़ुव' यानी बराबरी का, जोड़ का।",
+  "tags": [
+   "M4"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 37,
+  "speaker": "ustaad",
+  "role": "matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 5,
+  "text": "ज़ात में, सिफ़तों में, काम में, ताक़त में — कहीं भी, कभी भी कोई उसके जैसा नहीं।",
+  "tags": [
+   "M4"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 38,
+  "speaker": "sawaal",
+  "role": "",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 5,
+  "text": "तो यानी — अल्लाह एक है, सब उसके मोहताज हैं, न उसकी औलाद, न वो किसी की औलाद, और कोई उसके बराबर नहीं।",
+  "tags": []
+ },
+ {
+  "kind": "section",
+  "name": "4. HADITH ME SURAH AL-IKHLAS"
+ },
+ {
+  "kind": "screen",
+  "section": "4. HADITH ME SURAH AL-IKHLAS",
+  "ayah": null,
+  "note": "SCREEN: saada mitti ka kamra, chatai, subah ki roshni khidki se; phir khajoor ke beech subah ka raasta, khaali. Hadith ke alfaaz chhote caption me; koi insaan nahi."
+ },
+ {
+  "kind": "cue",
+  "n": 39,
+  "type": "music",
+  "value": "soft: River Flute — hadith + seekh",
+  "section": "4. HADITH ME SURAH AL-IKHLAS",
+  "ayah": null
+ },
+ {
+  "kind": "line",
+  "n": 40,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "4. HADITH ME SURAH AL-IKHLAS",
+  "ayah": null,
+  "text": "बुख़ारी की हदीस में अबू सईद ख़ुदरी रज़ियल्लाहु अन्हु बताते हैं: एक आदमी ने किसी को बार-बार 'क़ुल हुवल्लाहु अहद' पढ़ते सुना। सुबह उसने नबी सल्लल्लाहु अलैहि वसल्लम से इसका ज़िक्र किया, जैसे उसे कम समझ रहा हो।",
+  "tags": [
+   "Z1"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 41,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "4. HADITH ME SURAH AL-IKHLAS",
+  "ayah": null,
+  "text": "नबी सल्लल्लाहु अलैहि वसल्लम ने फ़रमाया: 'उसकी क़सम जिसके हाथ में मेरी जान है, ये ज़रूर क़ुरआन के तिहाई के बराबर है।'",
+  "tags": [
+   "Z1"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 42,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "4. HADITH ME SURAH AL-IKHLAS",
+  "ayah": null,
+  "text": "मुस्लिम की हदीस में अबू हुरैरा रज़ियल्लाहु अन्हु की रिवायत है: नबी सल्लल्लाहु अलैहि वसल्लम ने लोगों को इकट्ठा करके ये सूरह पढ़ी, और फ़रमाया कि ये क़ुरआन के तिहाई के बराबर है।",
+  "tags": [
+   "Z3"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 43,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "4. HADITH ME SURAH AL-IKHLAS",
+  "ayah": null,
+  "text": "'तिहाई' का मतलब क्या है, इस पर उलमा के क़ौल अलग हैं; एक क़ौल ये है कि क़ुरआन की बातें तीन हिस्सों में हैं, और अल्लाह के नामों-सिफ़तों का हिस्सा इस सूरह में है।",
+  "tags": [
+   "Z6"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 44,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "4. HADITH ME SURAH AL-IKHLAS",
+  "ayah": null,
+  "text": "आइशा रज़ियल्लाहु अन्हा बताती हैं, और बुख़ारी व मुस्लिम दोनों में है: एक आदमी, जो एक दस्ते के सरदार थे, नमाज़ में अपनी क़िरात हर बार 'क़ुल हुवल्लाहु अहद' पर ख़त्म करते थे।",
+  "tags": [
+   "Z4"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 45,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "4. HADITH ME SURAH AL-IKHLAS",
+  "ayah": null,
+  "text": "वजह पूछी गई, तो उन्होंने कहा: 'ये रहमान की सिफ़त है, और मुझे इसे पढ़ना पसंद है।' नबी सल्लल्लाहु अलैहि वसल्लम ने फ़रमाया: 'उसे बता दो कि अल्लाह उससे मुहब्बत करता है।'",
+  "tags": [
+   "Z4"
+  ]
+ },
+ {
+  "kind": "section",
+  "name": "5. SEEKH"
+ },
+ {
+  "kind": "screen",
+  "section": "5. SEEKH",
+  "ayah": null,
+  "note": "SCREEN: subah ka sunehra ujala registaan par; seekh ke teen chhote cards font se"
+ },
+ {
+  "kind": "line",
+  "n": 46,
+  "speaker": "sawaal",
+  "role": "",
+  "section": "5. SEEKH",
+  "ayah": null,
+  "text": "उस्ताद जी, इस सूरह से हमें क्या सीख मिलती है?",
+  "tags": []
+ },
+ {
+  "kind": "line",
+  "n": 47,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "5. SEEKH",
+  "ayah": null,
+  "text": "पहली: अल्लाह एक है, अकेला — उसका कोई साझी नहीं। भरोसा और उम्मीद उसी से जुड़ी रहे।",
+  "tags": [
+   "M1"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 48,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "5. SEEKH",
+  "ayah": null,
+  "text": "दूसरी: सब उसके मोहताज हैं, और वो किसी का मोहताज नहीं — तो मदद की उम्मीद उसी से।",
+  "tags": [
+   "M2"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 49,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "5. SEEKH",
+  "ayah": null,
+  "text": "तीसरी: तफ़्सीर के मुताबिक़ ये चार आयतें हर ग़लत ख़याल को एक-एक करके हटाती हैं — इसे मतलब समझ कर पढ़ें।",
+  "tags": [
+   "M5"
+  ]
+ },
+ {
+  "kind": "screen",
+  "section": "5. SEEKH",
+  "ayah": null,
+  "note": "SCREEN (end, aakhri ~15 s end-screen area khaali): tagline card \"क़ुरआन, आसान ज़बान में।\" + chhota card \"Arabic text: Tanzil Project, tanzil.net\" + \"सरल भावार्थ — माने हुए तर्जुमों के आधार पर\""
+ },
+ {
+  "kind": "line",
+  "n": 50,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "5. SEEKH",
+  "ayah": null,
+  "text": "अगली बार, नूर-ए-राह में: सूरह अल-फ़लक़ — सुबह के रब की पनाह।",
+  "tags": [
+   "NEXT"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 51,
+  "speaker": "sawaal",
+  "role": "",
+  "section": "5. SEEKH",
+  "ayah": null,
+  "text": "और आप कमेंट में बताइए — इन चार आयतों में से कौन-सी बात आपके दिल को सबसे ज़्यादा छू गई, और क्यों।",
+  "tags": []
+ },
+ {
+  "kind": "cue",
+  "n": 52,
+  "type": "music",
+  "value": "River Flute dheere fade-out; aakhri ~3 s sirf gentle breeze",
+  "section": "5. SEEKH",
+  "ayah": null
+ }
+]

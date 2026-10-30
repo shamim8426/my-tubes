@@ -68,3 +68,6 @@
 
 - 2026-10-30 Noor 002 v2 (UCHARAN format, 7:21) UPLOADED private: https://youtu.be/rRtM7wFIVcA — Munshi final R3 PASS. Replaces v1 ckcufoYVPH8 (upload_result_v1_ckcufoYVPH8.json kept): user deletes v1 in Studio, schedules v2 for 2026-10-30 19:00 IST (or later), pins first comment (no powershell in cloud). Cost story 002 total Rs81.41 incl. GST. Carry-over: listen lines 72/76/77/78; Tanzil transliteration row for assets_license.csv.
 - 2026-10-30 nigraan: pre-003 fetch; kmYyRGdykjY 214 views/54.5% @30s/AVD 24.3%; Ayatul Kursi rRtM7wFIVcA public 30 Oct 06:24, 0 views; learnings LAGU KARO refreshed (kam data)
+2026-10-30 | 003_al-ikhlas | script+package R1 | PASS-WITH-NOTES | Arabic==Tanzil (re-checked vs snapshot), ucharan 4/4 ok, tags/hadith sahih ok, 2 sawaal, images/thumb/metadata ok; notes: Muslim 811 in sources after PC check, TTS <=6:00
+- 2026-10-30 003 images: free engine tried first, Cloudflare HTTP 429 (daily 10,000 neurons used up) -> paid Gemini for 9 images, Rs43.58 incl GST
+2026-10-30 | noor 003 long | images R1 | PASS | 9 images clean, minor crop note only

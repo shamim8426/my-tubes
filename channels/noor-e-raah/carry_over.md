@@ -30,3 +30,7 @@
 - fixed | 12_bedtime_room_lamp: glass-chimney lamp (STYLE_NOOR 1 "never a modern lantern") -> fixed free by a fixed crop in images.json (rect fx 0.75 fy 0.5 zc 1.55 = x 489-1370, lamp at x~390 out of frame); Munshi final to confirm on the render.
 - open | 04_date_palm_path: tiny metal wall lantern at ~(912,450) (small, mid-ground; accepted). Next prompts: "no lantern, only an old clay oil lamp".
 - open | 06_oasis_spring / 08_vast_panorama / 11_sunrays_clouds are more saturated/illustrated than the matte set; 08 and 11 show snow peaks/pine (not Arabian, used only for "vastness"). Next prompts: keep one matte painted family, Arabian landscapes only.
+
+## 003_al-ikhlas (images R1, 2026-10-30) - open
+- open | 08_empty_room_morning_b: rect fx .7 drops the window; optional fx 0.4 fy 0.6 (free).
+- open | 03_makka_valley_night: tiny warm window glows on far houses; accepted.

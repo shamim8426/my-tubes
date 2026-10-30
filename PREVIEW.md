@@ -1,6 +1,6 @@
 # Preview — Jugnu Stories
 
-**Budget bacha:** ₹189.44  ·  **Last image:** 2026-10-29 21:14:09
+**Budget bacha:** ₹142.56  ·  **Last image:** 2026-10-30 06:51:05
 
 ## Characters
 
@@ -637,3 +637,39 @@
 ### thumb_scene_b — ₹3.81 · 2026-10-29 19:54:21
 
 ![thumb_scene_b](channels/noor-e-raah/stories/002_ayatul-kursi/images/thumb_scene_b.png)
+
+### 01_one_star_night — ₹4.08 · 2026-10-30 06:49:13
+
+![01_one_star_night](channels/noor-e-raah/stories/003_al-ikhlas/images/01_one_star_night.png)
+
+### 02_lamp_single_flame — ₹3.97 · 2026-10-30 06:49:25
+
+![02_lamp_single_flame](channels/noor-e-raah/stories/003_al-ikhlas/images/02_lamp_single_flame.png)
+
+### 03_makka_valley_night — ₹4.22 · 2026-10-30 06:50:09
+
+![03_makka_valley_night](channels/noor-e-raah/stories/003_al-ikhlas/images/03_makka_valley_night.png)
+
+### 04_dawn_sand_ridge — ₹4.03 · 2026-10-30 06:49:39
+
+![04_dawn_sand_ridge](channels/noor-e-raah/stories/003_al-ikhlas/images/04_dawn_sand_ridge.png)
+
+### 05_paths_to_oasis — ₹4.21 · 2026-10-30 06:50:23
+
+![05_paths_to_oasis](channels/noor-e-raah/stories/003_al-ikhlas/images/05_paths_to_oasis.png)
+
+### 06_milkyway_desert — ₹4.10 · 2026-10-30 06:49:55
+
+![06_milkyway_desert](channels/noor-e-raah/stories/003_al-ikhlas/images/06_milkyway_desert.png)
+
+### 07_sea_horizon_dusk — ₹4.24 · 2026-10-30 06:50:38
+
+![07_sea_horizon_dusk](channels/noor-e-raah/stories/003_al-ikhlas/images/07_sea_horizon_dusk.png)
+
+### 08_empty_room_morning — ₹3.71 · 2026-10-30 06:50:48
+
+![08_empty_room_morning](channels/noor-e-raah/stories/003_al-ikhlas/images/08_empty_room_morning.png)
+
+### 09_morning_palm_path — ₹4.37 · 2026-10-30 06:51:05
+
+![09_morning_palm_path](channels/noor-e-raah/stories/003_al-ikhlas/images/09_morning_palm_path.png)

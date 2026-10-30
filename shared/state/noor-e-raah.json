@@ -1,11 +1,11 @@
 {
- "story": "002_ayatul-kursi",
- "stage": "build_long",
- "status": "done",
- "started": "2026-10-30T05:26:01",
- "finished": "2026-10-30T05:58:05",
- "pid": 1371,
- "paid": false,
+ "story": "003_al-ikhlas",
+ "stage": "tts",
+ "status": "running",
+ "started": "2026-10-30T06:51:25",
+ "finished": null,
+ "pid": 2147,
+ "paid": true,
  "cost": null,
  "note": null
 }
