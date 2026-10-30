@@ -57,3 +57,4 @@
 2026-10-29 | 002_ayatul-kursi | images R1 | FIX | 12 images clean (no person/text/domes); BLOCKER 12_bedtime_room_lamp has glass-chimney modern lamp -> crop out lamp or use 02 crop; minors: wall lantern in 04, 06 oversaturated; crops OK; review/images_review.md
 2026-10-30 | 002_ayatul-kursi | images R1 fix (Sanchalak) | BLOCKER 12_bedtime_room_lamp fixed free by crop (images.json rect), 10_ring_in_desert_b fy 0.72; MINOR items in carry_over.md | Rs0
 2026-10-30 | 002_ayatul-kursi | edit | Sampadak plan soft_glow/vignette 0.10/grain 1.5; layout bug (long ayah overlapped subtitles) fixed in noor_render.py ayah_lines | Rs0
+2026-10-29 | 002_ayatul-kursi | final R1 | FIX | Hindi subtitles/cards mis-shaped (i-matra misplaced/lost, visible halant) + overlapping 2-line subtitle boxes; Arabic==Tanzil, -14.2 LUFS, TP -1.6, chapters/credits OK; NOT uploaded | review/final_review.md

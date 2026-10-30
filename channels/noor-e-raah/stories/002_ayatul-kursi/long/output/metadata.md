@@ -45,7 +45,7 @@ MUSIC
   http://creativecommons.org/licenses/by/4.0/
 - Ambience: freesound.org (CC0)
 
-Fonts: Amiri, Mukta (SIL Open Font License). Images and voices: AI-generated.
+Fonts: Amiri, Mukta (SIL Open Font License). Images and voices: AI-generated. इस वीडियो के चित्र और आवाज़ें AI की मदद से बनाए गए हैं।
 
 #आयतुलकुर्सी #क़ुरआन #नूरएराह
 
