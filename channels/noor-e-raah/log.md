@@ -58,3 +58,7 @@
 2026-10-30 | 002_ayatul-kursi | images R1 fix (Sanchalak) | BLOCKER 12_bedtime_room_lamp fixed free by crop (images.json rect), 10_ring_in_desert_b fy 0.72; MINOR items in carry_over.md | Rs0
 2026-10-30 | 002_ayatul-kursi | edit | Sampadak plan soft_glow/vignette 0.10/grain 1.5; layout bug (long ayah overlapped subtitles) fixed in noor_render.py ayah_lines | Rs0
 2026-10-29 | 002_ayatul-kursi | final R1 | FIX | Hindi subtitles/cards mis-shaped (i-matra misplaced/lost, visible halant) + overlapping 2-line subtitle boxes; Arabic==Tanzil, -14.2 LUFS, TP -1.6, chapters/credits OK; NOT uploaded | review/final_review.md
+2026-10-30 | 002_ayatul-kursi | final R2 | PASS | Hindi shaping fixed (Pillow+raqm) in video+thumbnail, no overlap, -14.2 LUFS/TP -1.6, Whisper 5 lines OK, dry-run OK; not uploaded | review/final_review.md
+2026-10-30 | 002_ayatul-kursi_final | studio action | video ckcufoYVPH8 | schedule 2026-10-30T19:00+05:30 | studio_action: pending
+
+- 2026-10-30 Noor 002 Ayatul Kursi UPLOADED (private, studio action pending): https://youtu.be/ckcufoYVPH8 — Munshi final R2 PASS (Hindi via Pillow+raqm after the libass shaping fix). Thumbnail + srt attached. First-comment task NOT created (cloud has no powershell: comment_task_error) -> post/pin the first comment in Studio. Planned slot 2026-10-30 19:00 IST (schedule in Studio). Related/playlist: none yet.
