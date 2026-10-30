@@ -1,0 +1,56 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Pop;src:url("../../../shared/fonts/Poppins-ExtraBold.ttf");font-weight:800}
+@font-face{font-family:Pop;src:url("../../../shared/fonts/Poppins-Bold.ttf");font-weight:700}
+@font-face{font-family:Mono;src:url("../../../shared/fonts/IBMPlexMono-Bold.ttf")}
+*{box-sizing:border-box;margin:0}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#0a3d91}
+#stage{position:relative;width:1080px;height:1920px;font-family:Pop,sans-serif;color:#fff;
+ background:radial-gradient(900px 700px at 90% 15%,rgba(120,255,255,.35),transparent 60%),
+            radial-gradient(800px 800px at 5% 90%,rgba(90,60,255,.45),transparent 60%),
+            linear-gradient(160deg,#0a3d91,#16c6d9)}
+.abs{position:absolute}
+h1{font-weight:800;font-size:124px;letter-spacing:-2px;text-shadow:0 6px 22px rgba(0,0,0,.35)}
+.chip{font-family:Mono;font-size:54px;padding:14px 34px;border-radius:26px;background:rgba(8,10,24,.62);border:3px solid #bdf3ff;color:#bdf3ff;box-shadow:0 14px 40px rgba(0,0,0,.35);white-space:nowrap}
+.node{width:860px;height:178px;left:110px;border-radius:40px;background:rgba(255,255,255,.15);backdrop-filter:blur(14px);
+ border:2px solid rgba(255,255,255,.55);box-shadow:0 26px 60px rgba(0,0,0,.35);display:flex;align-items:center;gap:34px;padding:0 44px}
+.node .n{flex:none;width:96px;height:96px;border-radius:50%;background:#ffda4a;color:#0a2c6b;font-weight:800;font-size:60px;display:flex;align-items:center;justify-content:center}
+.node .t{font-weight:700;font-size:54px;line-height:1.15}
+.node .t b{color:#ffda4a;font-weight:800}
+.link{font-family:Mono;font-size:31px;padding:16px 30px;border-radius:999px;background:#fff;color:#0a2c6b;box-shadow:0 14px 40px rgba(0,0,0,.35);display:flex;gap:16px;align-items:center;white-space:nowrap}
+.link i{width:30px;height:30px;border-radius:50%;background:#16c6d9;display:inline-block}
+.status{font-family:Mono;font-size:44px;padding:14px 38px;border-radius:20px;background:#0b1020;color:#7CFFB2;border:2px solid #2a3a66;white-space:nowrap}
+svg{position:absolute;left:0;top:0;width:1080px;height:1920px;overflow:visible}
+path.c{fill:none;stroke:#ffda4a;stroke-width:9;stroke-linecap:round;filter:drop-shadow(0 4px 8px rgba(0,0,0,.35))}
+</style></head>
+<body><div id="stage">
+ <h1 id="title" class="abs" style="left:0;width:1080px;text-align:center;top:110px">Plan Mode</h1>
+ <div id="key" class="abs chip" style="left:360px;top:285px">Shift + Tab</div>
+ <div id="status" class="abs status" style="left:310px;top:405px">&#9208; plan mode on</div>
+ <div id="n1" class="abs node" style="top:540px"><div class="n">1</div><div class="t">Claude <b>reads your files</b></div></div>
+ <div id="n2" class="abs node" style="top:800px"><div class="n">2</div><div class="t">Claude <b>proposes a plan</b></div></div>
+ <div id="n3" class="abs node" style="top:1060px"><div class="n">3</div><div class="t">You <b>approve</b> it</div></div>
+ <div id="n4" class="abs node" style="top:1320px"><div class="n">4</div><div class="t">Edits start <b>only after</b></div></div>
+ <svg id="svg"><defs><marker id="ah" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" style="fill:#ffda4a;stroke:none;filter:none"/></marker></defs>
+  <path class="c" id="c1" d="M540,718 L540,800" marker-end="url(#ah)"/><path class="c" id="c2" d="M540,978 L540,1060" marker-end="url(#ah)"/><path class="c" id="c3" d="M540,1238 L540,1320" marker-end="url(#ah)"/></svg>
+ <div id="link" class="abs link" style="left:100px;top:1560px"><i></i>code.claude.com/docs/en/common-workflows</div>
+</div>
+<script>
+// seconds in VIDEO time (voice starts 0.3 s in): from Whisper word timestamps of the voice-over
+const TM={title:0.8,key:2.0,status:2.8,n1:4.0,c1:4.6,n2:5.3,c2:5.9,n3:6.6,c3:7.2,n4:7.9,link:9.3};
+window.SFX=[TM.key,TM.n1,TM.n2,TM.n3,TM.n4];
+const E=id=>document.getElementById(id), c=x=>Math.max(0,Math.min(1,x));
+const out=p=>1-Math.pow(1-p,3), back=p=>{const a=1.70158,b=a+1;return 1+b*Math.pow(p-1,3)+a*Math.pow(p-1,2)};
+function pop(el,t0,t,dy=70){const p=c((t-t0)/0.55);el.style.opacity=c(p*1.8);el.style.transform=`translateY(${(1-out(p))*dy}px) scale(${.86+.14*back(p)})`}
+function setT(t){
+  pop(E('title'),TM.title,t,40); pop(E('key'),TM.key,t,40); pop(E('status'),TM.status,t,30);
+  ['n1','n2','n3','n4'].forEach(id=>pop(E(id),TM[id],t));
+  ['c1','c2','c3'].forEach(id=>{const p=E(id);const L=p.getTotalLength();p.style.strokeDasharray=L;p.style.strokeDashoffset=L*(1-out(c((t-TM[id])/0.4)));p.style.opacity=t>=TM[id]?1:0});
+  pop(E('link'),TM.link,t,30);
+  // never fully static: slow scale drift of the whole slide + moving background
+  const k=1+0.012*c(t/10);E('stage').style.transformOrigin='540px 900px';E('stage').style.transform=`scale(${k})`;
+  E('stage').style.backgroundPosition=`${Math.sin(t*0.5)*18}px ${t*6}px`;
+}
+setT(0);
+</script></body></html>
