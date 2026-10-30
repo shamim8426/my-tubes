@@ -239,6 +239,24 @@
    "type": "tafseer",
    "opened": false,
    "note": "not reachable; confirm on PC"
+  },
+  "TRANSLIT_TANZIL": {
+   "url": "https://raw.githubusercontent.com/fawazahmed0/quran-api/1/editions/ara-quran-la/2/255.json",
+   "publisher": "Tanzil English transliteration (edition ara-quran-la, source tanzil.net) via fawazahmed0/quran-api",
+   "published": "unknown",
+   "accessed": "2026-10-30",
+   "type": "transliteration",
+   "opened": true,
+   "note": "used only to check the Devanagari ucharan; not shown or spoken"
+  },
+  "TRANSLIT_Q411": {
+   "url": "https://raw.githubusercontent.com/fawazahmed0/quran-api/1/editions/ara-quran-la1/2/255.json",
+   "publisher": "quran411.com transliteration (edition ara-quran-la1) via fawazahmed0/quran-api",
+   "published": "unknown",
+   "accessed": "2026-10-30",
+   "type": "transliteration",
+   "opened": true,
+   "note": "cross-check of pausal (waqf) forms"
   }
  },
  "facts": [
@@ -271,6 +289,17 @@
    "sources": [
     "TANZIL_CH",
     "IK_AR_21"
+   ]
+  },
+  {
+   "id": "T3",
+   "claim": "UCHARAN: the 10 jumla texts written in Devanagari (own writing), checked word by word against Tanzil Latin transliteration; table in research/ucharan.md; read plainly, not tilawat (user 2026-10-30)",
+   "grade": "decision (2026-10-30)",
+   "confidence": "pakka",
+   "sources": [
+    "TRANSLIT_TANZIL",
+    "TRANSLIT_Q411",
+    "TANZIL_SNAP"
    ]
   },
   {
