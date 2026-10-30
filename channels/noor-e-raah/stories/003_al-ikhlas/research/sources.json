@@ -1,0 +1,481 @@
+{
+ "story": "003_al-ikhlas",
+ "channel": "noor-e-raah",
+ "made_by": "Khoji MODE 3",
+ "date": "2026-10-30",
+ "note": "All accessed 2026-10-30 from a cloud container where tanzil.net, sunnah.com, quran.com, islamqa, altafsir, archive.org were NOT reachable; hadith/tafsir/translit text read from public GitHub datasets (data only, no code run). 'opened': false = not opened; confirm on a PC. IK=Ibn Kathir, MQ=Ma'ariful Qur'an, QT=Qurtubi, TB=Tabari.",
+ "surah": {
+  "number": 112,
+  "name_ar": "الإخلاص",
+  "name_tr": "Al-Ikhlas",
+  "ayat_count": 4,
+  "note_bismillah": "Bismillah is NOT part of 112:1; the Tanzil file stores it as a prefix of 112:1 - stripped (equals Tanzil 1:1 text 'بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ')"
+ },
+ "ayat": [
+  {
+   "ayah": 1,
+   "ref": "112:1",
+   "text": "قُلْ هُوَ ٱللَّهُ أَحَدٌ",
+   "code_points": 24,
+   "words": 4,
+   "sha256_utf8": "5479eee85e42dd3315cb339a95115328f2617f0d23214c832cc38f519d6ccd35",
+   "translit_tanzil": "Qul huwa Allahu ahadun",
+   "translit_q411": "Qul huwal laahu ahad"
+  },
+  {
+   "ayah": 2,
+   "ref": "112:2",
+   "text": "ٱللَّهُ ٱلصَّمَدُ",
+   "code_points": 17,
+   "words": 2,
+   "sha256_utf8": "a30b680c0f56ff9a29c1384eac94f728f9cfd0e8f1d3798a2e4916d91e57f57e",
+   "translit_tanzil": "Allahu alssamadu",
+   "translit_q411": "Allah hus-samad"
+  },
+  {
+   "ayah": 3,
+   "ref": "112:3",
+   "text": "لَمْ يَلِدْ وَلَمْ يُولَدْ",
+   "code_points": 26,
+   "words": 4,
+   "sha256_utf8": "fe38e7c9006a6b6032988cba2fbf80978274b83513edc6338bd33cdf8cda5e30",
+   "translit_tanzil": "Lam yalid walam yooladu",
+   "translit_q411": "Lam yalid wa lam yoolad"
+  },
+  {
+   "ayah": 4,
+   "ref": "112:4",
+   "text": "وَلَمْ يَكُن لَّهُۥ كُفُوًا أَحَدٌۢ",
+   "code_points": 35,
+   "words": 5,
+   "sha256_utf8": "501757e7e551d18bc11deafa6e6fc4e5290fc31931b59ac5d12d89716efe273d",
+   "translit_tanzil": "Walam yakun lahu kufuwan ahadun",
+   "translit_q411": "Wa lam yakul-lahu kufuwan ahad"
+  }
+ ],
+ "ayat_normalisation": "none - never NFC/NFKC",
+ "pc_check": "byte-compare the 4 ayah strings with tanzil.net quran-uthmani 112:1-4 once (strip BOM, remove the Bismillah prefix); render check of the 112:4 final 'ٌۢ' (tanween + small meem, U+06E2) in libass/Amiri",
+ "not_opened": [
+  "tanzil.net",
+  "sunnah.com (dataset text only)",
+  "quran.com",
+  "islamqa / islamweb",
+  "altafsir.com",
+  "archive.org",
+  "Musnad Ahmad 5/133 original",
+  "Fath al-Bari"
+ ],
+ "source_keys": {
+  "TANZIL_LIC": {
+   "url": "https://tanzil.net/docs/text_license",
+   "publisher": "Tanzil Project (CC BY 3.0 terms; as quoted in 001/002 dossiers; page not re-opened - blocked in cloud)",
+   "published": "2007-2021",
+   "accessed": "2026-10-30",
+   "type": "licence",
+   "opened": false
+  },
+  "TANZIL_SNAP": {
+   "url": "https://github.com/risan/quran-json (data/tanzil/uthmani.json; origin https://tanzil.net/pub/download/index.php?quranType=uthmani&outType=txt-2&agree=true)",
+   "publisher": "risan/quran-json snapshot of Tanzil Uthmani",
+   "published": "unknown",
+   "accessed": "2026-10-30",
+   "type": "text_snapshot",
+   "opened": true,
+   "note": "file sha256 adaebb377c60eba1bab6ef652959c7a0b4ccb4d0ca42145945c14ecdbeb4b761 (re-downloaded today and matched with sha256sum; same file as 002). In this file 112:1 is stored with the Bismillah (= Tanzil 1:1 text) prefixed; we strip it - the 112:1 string below is the remainder, verified by code."
+  },
+  "TANZIL_CH": {
+   "url": "https://github.com/risan/quran-json (data/tanzil/chapters.json)",
+   "publisher": "Tanzil chapter metadata via risan/quran-json",
+   "published": "unknown",
+   "accessed": "2026-10-30",
+   "type": "text_metadata",
+   "opened": true,
+   "note": "id 112, name الإخلاص, Al-Ikhlaas, 'Sincerity', type meccan, total_verses 4"
+  },
+  "FAWAZ_INFO": {
+   "url": "https://raw.githubusercontent.com/fawazahmed0/quran-api/1/info.json",
+   "publisher": "fawazahmed0/quran-api info.json (Unlicense repo)",
+   "published": "unknown",
+   "accessed": "2026-10-30",
+   "type": "text_metadata",
+   "opened": true,
+   "note": "chapter 112: revelation 'Mecca', 4 verses, juz 30, page 604; NO revelation-order field"
+  },
+  "KFGQPC_CHECK": {
+   "url": "https://github.com/risan/quran-json (data/quranpedia/qpc-hafs.json)",
+   "publisher": "KFGQPC Hafs via quranpedia dump (independent cross-check only)",
+   "published": "unknown",
+   "accessed": "2026-10-30",
+   "type": "text_crosscheck",
+   "opened": true,
+   "note": "letter skeleton of all 4 ayat identical to Tanzil (4 ayat, 4/2/4/5 words). Only mark/pause-sign differences (sukun style; 112:4 last word أَحَدُۢ vs Tanzil أَحَدٌۢ)."
+  },
+  "QE_OMARI_JSON": {
+   "url": "https://github.com/risan/quran-json (data/quranenc/hindi_omari.json; origin quranenc.com hindi_omari)",
+   "publisher": "QuranEnc al-Umari Hindi (comparison only)",
+   "published": "unknown",
+   "accessed": "2026-10-30",
+   "type": "translation",
+   "opened": true
+  },
+  "FAWAZ_QURAN": {
+   "url": "https://raw.githubusercontent.com/fawazahmed0/quran-api/1/editions/<edition>/112/<n>.json",
+   "publisher": "fawazahmed0/quran-api (Unlicense repo; text origin per edition)",
+   "published": "unknown",
+   "accessed": "2026-10-30",
+   "type": "translation",
+   "opened": true,
+   "note": "editions: urd-mahmoodulhassan, hin-suhelfarooqkhan, hin-muhammadfarooqk, urd-abulaalamaududi, urd-muhammadtaqiusm, eng-ummmuhammad"
+  },
+  "HADITH_API": {
+   "url": "https://raw.githubusercontent.com/fawazahmed0/hadith-api/1/editions/<edition>.json",
+   "publisher": "fawazahmed0/hadith-api (Unlicense repo; texts sunnah.com-derived; grades field from sunnah.com)",
+   "published": "unknown",
+   "accessed": "2026-10-30",
+   "type": "hadith_dataset",
+   "opened": true,
+   "note": "eng-bukhari/ara-bukhari 5013, 5015, 7374, 7375, 5017; eng-muslim/ara-muslim hadithnumber 1886=811a, 1887=811b, 1888=812a, 1889=812b, 1890=813 (arabicnumber field); eng-tirmidhi 3364 etc. Bukhari/Muslim entries carry no grades field (agreed sahih books)."
+  },
+  "IK_EN_112": {
+   "url": "https://raw.githubusercontent.com/spa5k/tafsir_api/main/tafsir/en-tafisr-ibn-kathir/112/1.json",
+   "publisher": "Tafsir Ibn Kathir (abridged EN) Surah 112, via spa5k/tafsir_api (MIT; text from qul.tarteel.ai); whole-surah text is in file 1 (files 2-4 only differ slightly)",
+   "published": "unknown",
+   "accessed": "2026-10-30",
+   "type": "tafseer",
+   "opened": true
+  },
+  "IK_AR_112": {
+   "url": "https://raw.githubusercontent.com/spa5k/tafsir_api/main/tafsir/ar-tafsir-ibn-kathir/112/1.json",
+   "publisher": "Tafsir Ibn Kathir (Arabic) Surah 112 - opens 'تفسير سورة الإخلاص وهي مكية'",
+   "published": "unknown",
+   "accessed": "2026-10-30",
+   "type": "tafseer",
+   "opened": true
+  },
+  "QT_112": {
+   "url": "https://raw.githubusercontent.com/spa5k/tafsir_api/main/tafsir/ar-tafseer-al-qurtubi/112/1.json",
+   "publisher": "Tafsir al-Qurtubi (Arabic) Surah 112, via spa5k/tafsir_api",
+   "published": "unknown",
+   "accessed": "2026-10-30",
+   "type": "tafseer",
+   "opened": true
+  },
+  "TB_112": {
+   "url": "https://raw.githubusercontent.com/spa5k/tafsir_api/main/tafsir/ar-tafsir-al-tabari/112/1.json",
+   "publisher": "Tafsir al-Tabari (Arabic) Surah 112, via spa5k/tafsir_api",
+   "published": "unknown",
+   "accessed": "2026-10-30",
+   "type": "tafseer",
+   "opened": true
+  },
+  "MQ_112": {
+   "url": "https://raw.githubusercontent.com/spa5k/tafsir_api/main/tafsir/en-tafsir-maarif-ul-quran/112/{1,2,3,4}.json",
+   "publisher": "Ma'ariful Qur'an (Mufti Muhammad Shafi, EN) Surah 112, via spa5k/tafsir_api",
+   "published": "unknown",
+   "accessed": "2026-10-30",
+   "type": "tafseer",
+   "opened": true
+  },
+  "SUNNAH_BUKHARI": {
+   "url": "https://sunnah.com/bukhari:5013 (also :5015, :7374, :7375, :5017)",
+   "publisher": "Sahih al-Bukhari (text read from hadith-api dataset; sunnah.com NOT reachable)",
+   "published": "unknown",
+   "accessed": "2026-10-30",
+   "type": "hadith",
+   "opened": false,
+   "note": "dataset text opened; sunnah.com page not opened - confirm on PC"
+  },
+  "SUNNAH_MUSLIM": {
+   "url": "https://sunnah.com/muslim:811a (also 811b, 812a, 812b, 813)",
+   "publisher": "Sahih Muslim (text read from hadith-api dataset; sunnah.com NOT reachable)",
+   "published": "unknown",
+   "accessed": "2026-10-30",
+   "type": "hadith",
+   "opened": false,
+   "note": "dataset text opened (hadithnumber 1886-1890 = arabicnumber 811.01-813); sunnah.com page not opened - confirm on PC"
+  },
+  "SUNNAH_TIRMIDHI3364": {
+   "url": "https://sunnah.com/tirmidhi:3364",
+   "publisher": "Jami at-Tirmidhi 3364 (dataset grades: Shakir hasan, Albani hasan, Zubair Ali Za'i da'if); 3365 da'if (all three)",
+   "published": "unknown",
+   "accessed": "2026-10-30",
+   "type": "hadith",
+   "opened": false
+  },
+  "TRANSLIT_TANZIL": {
+   "url": "https://raw.githubusercontent.com/fawazahmed0/quran-api/1/editions/ara-quran-la/112/<n>.json",
+   "publisher": "Tanzil English transliteration (edition ara-quran-la, source tanzil.net) via fawazahmed0/quran-api",
+   "published": "unknown",
+   "accessed": "2026-10-30",
+   "type": "transliteration",
+   "opened": true,
+   "note": "used only to check the Devanagari ucharan; not shown or spoken",
+   "text_per_ayah": {
+    "1": "Qul huwa Allahu ahadun",
+    "2": "Allahu alssamadu",
+    "3": "Lam yalid walam yooladu",
+    "4": "Walam yakun lahu kufuwan ahadun"
+   }
+  },
+  "TRANSLIT_Q411": {
+   "url": "https://raw.githubusercontent.com/fawazahmed0/quran-api/1/editions/ara-quran-la1/112/<n>.json",
+   "publisher": "quran411.com transliteration (edition ara-quran-la1) via fawazahmed0/quran-api",
+   "published": "unknown",
+   "accessed": "2026-10-30",
+   "type": "transliteration",
+   "opened": true,
+   "note": "cross-check of pausal (waqf) forms: ayah-final vowels dropped (ahad, samad, yoolad, ahad)",
+   "text_per_ayah": {
+    "1": "Qul huwal laahu ahad",
+    "2": "Allah hus-samad",
+    "3": "Lam yalid wa lam yoolad",
+    "4": "Wa lam yakul-lahu kufuwan ahad"
+   }
+  }
+ },
+ "facts": [
+  {
+   "id": "T1",
+   "claim": "Arabic 112:1-4 = Tanzil Uthmani snapshot strings (ayat[]); CC BY 3.0, verbatim only, credit Tanzil Project + link; PC byte-check vs tanzil.net advisable",
+   "grade": "licence ALLOWED",
+   "confidence": "pakka",
+   "sources": [
+    "TANZIL_SNAP",
+    "TANZIL_LIC",
+    "KFGQPC_CHECK"
+   ]
+  },
+  {
+   "id": "T2",
+   "claim": "Hindi = saral bhaavarth from 3 accepted translations (al-Umari, Mahmud Hasan, Tanzil hi.hindi); no translation text copied (see translation_options.md)",
+   "grade": "decision (001)",
+   "confidence": "pakka",
+   "sources": [
+    "QE_OMARI_JSON",
+    "FAWAZ_QURAN"
+   ]
+  },
+  {
+   "id": "T3",
+   "claim": "Latin transliteration per ayah for the Devanagari ucharan (TRANSLIT_TANZIL + TRANSLIT_Q411 text_per_ayah)",
+   "grade": "helper",
+   "confidence": "pakka",
+   "sources": [
+    "TRANSLIT_TANZIL",
+    "TRANSLIT_Q411"
+   ]
+  },
+  {
+   "id": "P1",
+   "claim": "Surah 112 = al-Ikhlas (الإخلاص), meaning 'Sincerity/purity of devotion'; 112th in the mushaf; 4 ayat; juz 30",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "TANZIL_CH",
+    "FAWAZ_INFO",
+    "QT_112"
+   ]
+  },
+  {
+   "id": "P2",
+   "claim": "Reason for the name (Qurtubi): the hadith that it equals a third of the Quran / Allah made it one part of three (Muslim 811b) - 'bi-hadha al-ma'na summiyat Surat al-Ikhlas, wallahu a'lam'. ONE tafseer source only; do not state as certain",
+   "grade": "maana hua (single source)",
+   "confidence": "anumaan",
+   "sources": [
+    "QT_112",
+    "SUNNAH_MUSLIM"
+   ]
+  },
+  {
+   "id": "P3",
+   "claim": "Makki/Madani: IKHTILAAF. Makki: Ibn Kathir ('wa hiya makkiyya'), Qurtubi first view (Ibn Mas'ud, Hasan, 'Ata', 'Ikrima, Jabir), Ma'ariful Qur'an (same names), Tanzil/fawazahmed0 metadata. Madani: one of Ibn 'Abbas' two reports, Qatada, Dahhak, Suddi (Qurtubi; Ma'ariful Qur'an for Qatada, Dahhak)",
+   "grade": "ikhtilaaf (zyadatar Makki)",
+   "confidence": "pakka",
+   "sources": [
+    "IK_AR_112",
+    "QT_112",
+    "MQ_112",
+    "TANZIL_CH"
+   ]
+  },
+  {
+   "id": "P4",
+   "claim": "Order of revelation: NOT found in any source opened today (Tanzil chapters/fawazahmed0 info have no field). Do not say a number in the video until a PC check of an accepted list (e.g. Tanzil quran-data / Cairo list)",
+   "grade": "pata nahi",
+   "confidence": "anumaan",
+   "sources": [
+    "FAWAZ_INFO"
+   ]
+  },
+  {
+   "id": "P5",
+   "claim": "Other names of the surah: none found in IK/Qurtubi/Tabari/MQ text opened today. Do not claim any; PC check (e.g. Qurtubi/Suyuti list) if the script wants one",
+   "grade": "pata nahi",
+   "confidence": "anumaan",
+   "sources": [
+    "QT_112",
+    "IK_EN_112"
+   ]
+  },
+  {
+   "id": "P6",
+   "claim": "Main message: pure tawheed - Allah is One, besought of all, no child, no parent, no equal; refutes every kind of shirk and wrong idea about Allah's nature",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "MQ_112",
+    "IK_EN_112",
+    "QT_112"
+   ]
+  },
+  {
+   "id": "N1",
+   "claim": "SHAN-E-NUZUL: all reports are of disputed grade. Main one: the mushrikin said 'O Muhammad, name your Lord's lineage' (Ubayy ibn Ka'b via Abu al-'Aliya; Ahmad 5/133, Tirmidhi 3364, Tabari). Ibn Kathir: Tirmidhi also gave it as mursal and said 'this (mursal) is more correct'; Qurtubi: same ('hadha asahh'). Tirmidhi 3364 grades: Shakir hasan, Albani hasan, Zubair Ali Za'i da'if. Other reports (Jews asked 'who created Allah', or gold/silver/copper; Tabari, Qurtubi, MQ) are mursal/without isnad. = NO sahih-grade shan-e-nuzul",
+   "grade": "ikhtilaaf (NOT sahih-grade - not for the video as fact)",
+   "confidence": "pakka",
+   "sources": [
+    "IK_EN_112",
+    "IK_AR_112",
+    "QT_112",
+    "TB_112",
+    "MQ_112",
+    "SUNNAH_TIRMIDHI3364"
+   ]
+  },
+  {
+   "id": "N2",
+   "claim": "Safe script line (user decides): 'सूरह के उतरने का कोई सहीह-दर्जे का ख़ास वाक़िया नहीं मिलता। तफ़्सीरों में एक रिवायत आती है कि लोगों ने अल्लाह के बारे में सवाल किए और जवाब में ये सूरह उतरी - पर इस रिवायत की सनद पर उलमा में इख़्तिलाफ़ है।' Makki/Madani line from P3",
+   "grade": "derived from N1+P3",
+   "confidence": "pakka",
+   "sources": [
+    "IK_EN_112",
+    "QT_112",
+    "MQ_112"
+   ]
+  },
+  {
+   "id": "Z1",
+   "claim": "SAHIH: a man heard another repeating 'Qul huwa Allahu ahad'; next morning he told the Prophet SAW as if he thought it little; the Prophet said: by Him in Whose Hand is my life, it equals a third of the Quran. Bukhari 5013 (also 7374); Abu Sa'id al-Khudri. Cited by Ibn Kathir and Qurtubi",
+   "grade": "maana hua (sahih)",
+   "confidence": "pakka",
+   "sources": [
+    "SUNNAH_BUKHARI",
+    "IK_EN_112",
+    "QT_112"
+   ]
+  },
+  {
+   "id": "Z2",
+   "claim": "SAHIH: 'Can any of you not recite a third of the Quran in a night?' - hard for them - 'Who can?' - 'Allah the One, As-Samad is a third of the Quran'. Bukhari 5015 (Abu Sa'id); Muslim 811a (Abu al-Darda': 'Qul huwa Allahu ahad is equal to a third')",
+   "grade": "maana hua (sahih)",
+   "confidence": "pakka",
+   "sources": [
+    "SUNNAH_BUKHARI",
+    "SUNNAH_MUSLIM",
+    "QT_112",
+    "IK_EN_112"
+   ]
+  },
+  {
+   "id": "Z3",
+   "claim": "SAHIH: Abu Hurairah - the Prophet SAW said 'gather, I will recite a third of the Quran', came out, recited the surah, went in; then said 'it is equal to a third of the Quran'. Muslim 812a/812b. (Cited Tirmidhi + Ma'ariful Qur'an + Qurtubi)",
+   "grade": "maana hua (sahih)",
+   "confidence": "pakka",
+   "sources": [
+    "SUNNAH_MUSLIM",
+    "MQ_112",
+    "QT_112"
+   ]
+  },
+  {
+   "id": "Z4",
+   "claim": "SAHIH: 'A'isha - a man commanding an expedition always ended the recitation with Qul huwa Allahu ahad; asked why: 'it is the attribute (sifat) of Ar-Rahman and I love to recite it'; the Prophet SAW: 'tell him Allah loves him'. Bukhari 7375; Muslim 813; Ibn Kathir (Book of Tawhid), Qurtubi",
+   "grade": "maana hua (sahih)",
+   "confidence": "pakka",
+   "sources": [
+    "SUNNAH_BUKHARI",
+    "SUNNAH_MUSLIM",
+    "IK_EN_112",
+    "QT_112"
+   ]
+  },
+  {
+   "id": "Z5",
+   "claim": "SAHIH (optional, a report only - no ruling): 'A'isha - each night at bedtime the Prophet SAW cupped his hands, recited Ikhlas, Falaq, Nas, blew, wiped his body, three times. Bukhari 5017 (also 5748); Tirmidhi 3402 (Zubair: 'Sahih Bukhari'); Ibn Kathir",
+   "grade": "maana hua (sahih)",
+   "confidence": "pakka",
+   "sources": [
+    "SUNNAH_BUKHARI",
+    "IK_EN_112"
+   ]
+  },
+  {
+   "id": "Z6",
+   "claim": "Meaning of 'equal to a third': Qurtubi gives two views (the name As-Samad is unique to this surah; the Quran is thirds - ahkam, wa'd/wa'id, names&attributes - and this surah holds the third part) quoting Muslim 811b 'Allah divided the Quran into three parts, one part is Qul huwa Allahu ahad'. Treat as explanation (ikhtilaaf in reasoning); DO NOT say it replaces reciting the Quran or gives the reward of a full khatm",
+   "grade": "ikhtilaaf (explanation)",
+   "confidence": "vivaadit",
+   "sources": [
+    "QT_112",
+    "SUNNAH_MUSLIM"
+   ]
+  },
+  {
+   "id": "M1",
+   "claim": "112:1 - 'Qul' is a command to the Prophet SAW to convey; 'huwa Allahu ahad': Allah is One - single, no partner, no peer, no equal; 'ahad' is stronger than 'wahid' (beyond composition, plurality, likeness). Ibn Kathir, Qurtubi, Ma'ariful Qur'an, Tabari agree on the core",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "IK_EN_112",
+    "QT_112",
+    "MQ_112",
+    "TB_112"
+   ]
+  },
+  {
+   "id": "M2",
+   "claim": "112:2 - As-Samad: the One to whom all turn for their needs, who needs no one (Ibn 'Abbas via Dahhak in Qurtubi and 'Ikrima via Ibn Kathir; Ma'ariful Qur'an quoting Ibn Kathir/Tabarani; Tabari: the sayyid to whom people turn, none above). Other quoted senses (perfect in every honour/knowledge; ever-lasting) fit the same core",
+   "grade": "maana hua (core)",
+   "confidence": "pakka",
+   "sources": [
+    "IK_EN_112",
+    "QT_112",
+    "MQ_112",
+    "TB_112"
+   ]
+  },
+  {
+   "id": "M3",
+   "claim": "112:3 - He has no child and no parent (Ibn Kathir: no child, parent or spouse; Ma'ariful Qur'an: no child, nor child of anyone; Qurtubi: Ubayy/Ibn 'Abbas - not born and not begetting; nothing born but dies, nothing dies but leaves inheritance, and Allah neither dies nor is inherited from)",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "IK_EN_112",
+    "QT_112",
+    "MQ_112",
+    "TB_112"
+   ]
+  },
+  {
+   "id": "M4",
+   "claim": "112:4 - none is equal/like Him (kufuwan = like, equal in rank/attributes/works). Ibn Kathir (none similar, equal; Mujahid: no spouse), Qurtubi (no like, no equal, 'nothing is like Him'), Ma'ariful Qur'an",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "IK_EN_112",
+    "QT_112",
+    "MQ_112",
+    "TB_112"
+   ]
+  },
+  {
+   "id": "M5",
+   "claim": "Ma'ariful Qur'an: the surah denies every wrong idea in turn (no God at all / not necessary being / no perfect attributes / many gods / helpers besides Him / children). Ibn Kathir (via 'Ikrima): revealed when Jews, Christians, fire/sun-worshippers and idol-worshippers each claimed otherwise - tabi'i statement, NOT for the video as shan-e-nuzul",
+   "grade": "maana hua (MQ); 'Ikrima part chhoda",
+   "confidence": "pakka",
+   "sources": [
+    "MQ_112",
+    "IK_EN_112"
+   ]
+  }
+ ]
+}
