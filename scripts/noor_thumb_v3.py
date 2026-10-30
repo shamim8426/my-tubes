@@ -33,6 +33,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "tools"))
 import cv2  # noqa: E402
 import numpy as np  # noqa: E402
+import text_pil as TP  # noqa: E402
 from PIL import Image, ImageDraw, ImageFilter, ImageFont  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -173,6 +174,80 @@ def arabic_pil(bg, text, box, glow=(240, 160, 48)):
     return np.clip(out, 0, 255).astype(np.uint8)
 
 
+YELLOW_RGB, DARK, GOLD_RGB = (255, 225, 60), (16, 16, 16), (240, 170, 60)
+
+
+def _fit_px(text_lines, font_name, tw, mh):
+    """Largest Mukta/Yatra pixel size whose widest line's ink fits tw x mh (Pillow+raqm, same engine that draws it)."""
+    longest = max(text_lines, key=len)
+    size = 100.0
+    for _ in range(4):
+        f = TP._font(font_name, size)
+        x0, y0, x1, y1 = f.getbbox(longest)
+        k = min(tw / max(1, x1 - x0), mh / max(1, y1 - y0))
+        if abs(k - 1) < 0.02:
+            break
+        size = max(10.0, size * k)
+    return size
+
+
+def hindi_pil(bg, layout, spec, hindi_font):
+    """Hindi name / hook / chip with Pillow+raqm (the cloud's libass cannot shape Devanagari), same look and places as the
+    libass path of build_ass. bg: uint8 BGR; returns it with the text drawn."""
+    hi, chip, hook = spec["hindi"], spec.get("chip", ""), spec["hook"]
+    hfont = hindi_font.replace(" ", "-") if hindi_font != "Yatra One" else "YatraOne-Regular"
+    xb = "Mukta-ExtraBold"
+    hook_lines = hook.replace("\\N", "\n").replace("*", "").split("\n")
+    out = bg.copy()
+
+    def put(text, font, px, anchor, x, y, hl=YELLOW_RGB, **st):
+        style = dict(font=font, size=px * (TP.MUKTA_ASC + TP.MUKTA_DESC), fill=(255, 255, 255))
+        style.update(st)
+        spr = TP.render(text, style, hl=hl)
+        h, w = spr.shape[:2]
+        pad = int(round(style.get("outline", 0) + style.get("shadow", 0) + 6))
+        sx = {"c": x - w // 2, "l": x - pad}[anchor[1]]
+        sy = {"c": y - h // 2, "b": y - h + pad, "t": y - pad}[anchor[0]]
+        TP.blend(out, spr, int(sx), int(sy))
+
+    def multi(text, font, px, anchor, x, y, **st):  # hook may have several lines: one sprite per line, same size
+        lines = text.replace("\\N", "\n").split("\n")
+        lh = px * 1.4  # tighter than the font line height: the two hook lines read as one block
+        if anchor[0] == "b":
+            y0 = y - lh * (len(lines) - 1)
+        elif anchor[0] == "c":
+            y0 = y - lh * (len(lines) - 1) / 2
+        else:
+            y0 = y + lh / 2 - lh / 2
+        shift = {"t": lh / 2, "c": 0, "b": -lh / 2}[anchor[0]]
+        for i, ln in enumerate(lines):
+            put(ln, font, px, "c" + anchor[1], x, int(y0 + i * lh + shift), **st)
+
+    ribbon = dict(box=(8, 12, 20, 0.18), outline=16)
+    chipst = dict(fill=(8, 24, 40), box=(*GOLD_RGB, 1.0), outline=10)
+    hi_st = dict(outline=7, outline_rgba=(*DARK, 1.0), shadow=5, shadow_rgba=(0, 0, 0, 0.56))
+    if layout == "A":
+        multi(hi, hfont, _fit_px([hi], hfont, 560, 120), "cc", 385, 410, **hi_st)
+        ks = min(_fit_px(hook_lines, xb, 680, 70), 64 * 0.6)
+        multi(hook, xb, ks, "bl", 40, 662, **ribbon)
+        if chip:
+            multi(chip, "Mukta-Bold", 40 / 1.662, "tl", 40, 34, **chipst)
+    elif layout == "B":
+        multi(hi, hfont, _fit_px([hi], hfont, 640, 120), "cc", 640, 425, **hi_st)
+        ks = min(_fit_px(hook_lines, xb, 880, 70), 66 / 1.662)
+        multi(hook, xb, ks, "bc", 640, 655, **ribbon)
+        if chip:
+            multi(chip, "Mukta-Bold", 42 / 1.662, "tc", 640, 30, **chipst)
+    else:
+        ks = min(_fit_px(hook_lines, xb, 700, 110), 118 / 1.662)
+        n = len(hook_lines)
+        multi(hook, xb, ks, "tl", 50, 235, outline=8, outline_rgba=(*DARK, 1.0), shadow=5, shadow_rgba=(0, 0, 0, 0.56))
+        multi(hi, hfont, min(_fit_px([hi], hfont, 420, 70), 66 / 1.662), "bl", 40, 676, **ribbon)
+        if chip:
+            multi(chip, "Mukta-Bold", 40 / 1.662, "tl", 40, 520 if n < 3 else 560, **chipst)
+    return out
+
+
 def build_ass(layout, spec, hindi_font, arabic):
     ar, hi, chip, hook = spec["arabic"], spec["hindi"], spec.get("chip", ""), spec["hook"]
     styles = (style("Ar", AR_FONT, 100, bold=-1) + style("Hi", hindi_font, 100, ol=7, sh=5, an=5) +
@@ -245,6 +320,13 @@ def render(spec, image: Path, layout, hindi_font, out: Path, arabic="aref"):
     bg = grade_bg(cv2.imread(str(image)), layout)
     if arabic == "aref":
         bg = arabic_pil(bg, spec["arabic"], ARABIC_BOX[layout])
+    if arabic == "aref" and TP.available() and spec.get("hindi_engine", "auto") != "libass":
+        bg = hindi_pil(bg, layout, spec, hindi_font)  # Pillow+raqm for Hindi too: no ffmpeg/libass in this path
+        Image.fromarray(bg[..., ::-1]).save(out, quality=93)
+        kb = out.stat().st_size // 1024
+        if kb > 2000:
+            sys.exit(f"{out.name} is {kb} KB (> 2 MB YouTube limit)")
+        return kb
     with tempfile.TemporaryDirectory() as td:
         base, a = Path(td) / "bg.png", Path(td) / "t.ass"
         cv2.imwrite(str(base), bg)

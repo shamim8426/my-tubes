@@ -23,6 +23,7 @@ import numpy as np  # noqa: E402
 
 import parallax as PX  # noqa: E402
 import edit_fx as FX  # noqa: E402  (Sampadak look: long/edit_plan.json, optional)
+import text_pil as TP  # noqa: E402  (Hindi text through Pillow+raqm when libass cannot shape Devanagari)
 
 ROOT = Path(__file__).resolve().parent.parent
 FF = next((str(p) for p in (ROOT / "tools/ffmpeg/bin/ffmpeg.exe", ROOT / "tools/ffmpeg/ffmpeg.exe") if p.exists()),
@@ -50,6 +51,17 @@ TEMPO = 1.08  # voices 8 % faster, same pitch (user 2026-10-25); from the same T
 SUB_COLOUR = {"ustaad": "&H00FFFFFF", "sawaal": "&H0080D8F5"}  # white / soft gold (ASS is BGR)
 LABEL = "सरल भावार्थ — माने हुए तर्जुमों के आधार पर"
 SERIES_DEFAULT, TAGLINE_DEFAULT = "नूर-ए-राह", "क़ुरआन, आसान ज़बान में।"
+# Hindi text drawn by Pillow (same look as the libass styles in ass_doc); ASS size / colours converted: ASS alpha 0 = opaque
+PIL_STYLES = {
+    "Sub_ustaad": dict(size=62, fill=(255, 255, 255), box=(0, 0, 0, 0.55), outline=12),
+    "Sub_sawaal": dict(size=62, fill=(245, 216, 128), box=(0, 0, 0, 0.55), outline=12),
+    "Card": dict(size=56, fill=(255, 255, 255), box=(8, 20, 38, 0.61), outline=14),
+    "Label": dict(size=44, fill=(255, 255, 255), opacity=0.92, shadow=2, shadow_rgba=(0, 0, 0, 0.5)),
+    "Big": dict(size=92, fill=(255, 255, 255), outline=3, outline_rgba=(0, 0, 0, 0.44), shadow=2, shadow_rgba=(0, 0, 0, 0.7)),
+    "Gold": dict(size=54, fill=(201, 165, 90), outline=2, outline_rgba=(0, 0, 0, 0.44), shadow=1, shadow_rgba=(0, 0, 0, 0.7)),
+    "Small": dict(size=34, fill=(255, 255, 255), opacity=0.88, outline=2, outline_rgba=(0, 0, 0, 0.44), shadow=1,
+                  shadow_rgba=(0, 0, 0, 0.7)),
+}
 CFG = {}  # per-story screen config, set by load_cfg(story) (long/render.json); see render_cfg_help below
 
 
@@ -295,7 +307,13 @@ def ts(t):
     return f"{int(t // 3600)}:{int(t % 3600 // 60):02d}:{t % 60:05.2f}"
 
 
-def ass_doc(tl):
+def use_pillow() -> bool:
+    """Hindi engine: render.json "hindi_engine" = pillow | libass; auto = Pillow where libraqm exists (the cloud), libass on the PC."""
+    e = CFG.get("hindi_engine", "auto")
+    return e == "pillow" or (e == "auto" and TP.available())
+
+
+def ass_doc(tl, pil=False):
     head = ("[Script Info]\nScriptType: v4.00+\nPlayResX: 1920\nPlayResY: 1080\nWrapStyle: 0\nScaledBorderAndShadow: yes\n\n"
             "[V4+ Styles]\nFormat: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, "
             "Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, "
@@ -311,6 +329,15 @@ def ass_doc(tl):
                "Style: Ayah,Amiri,140,&H00FFFFFF,&H00FFFFFF,&H00000000,&H99000000,0,0,0,0,100,100,0,0,1,0,3,8,0,0,0,0",
                "Style: ArTitle,Amiri,400,&H00B8E3F3,&H00FFFFFF,&H00000000,&H99000000,0,0,0,0,100,100,0,0,1,0,4,8,0,0,0,0"]
     ev = []
+    tl["hindi"] = []
+
+    def H(layer, a, b, style, text, prefix="", pos=None, an=None, fad=None):
+        """One Hindi event: an ASS line (libass mode) or an entry of tl["hindi"] (Pillow mode)."""
+        if pil:
+            tl["hindi"].append({"start": a, "end": b, "style": style, "text": text, "pos": pos, "an": an, "fad": fad})
+        else:
+            ev.append(f"Dialogue: {layer},{ts(a)},{ts(b)},{style},,0,0,0,,{prefix}{text}")
+
     lines = tl["lines"]
     first_end = lines[1]["end"] if len(lines) > 1 else lines[0]["end"]
     end_from = CFG.get("end_from") or (lines[-2]["n"] if len(lines) > 1 else lines[0]["n"])
@@ -324,14 +351,14 @@ def ass_doc(tl):
         for ln, fs, y in parts:
             ev.append(f"Dialogue: 2,{ts(ay['a0'])},{ts(ay['off'])},Ayah,,0,0,0,,"
                       f"{{\\pos(960,{y})\\fs{fs}\\fad(500,{int(ARABIC_FADE * 1000)})}}{ln}")
-    ev.append(f"Dialogue: 1,{ts(0.2)},{ts(first_end)},Big,,0,0,0,,{{\\pos(960,560)\\fad(400,400)}}{CFG['title_hi']}")
-    ev.append(f"Dialogue: 1,{ts(0.2)},{ts(first_end)},Gold,,0,0,0,,{{\\pos(960,690)\\fad(400,400)}}{CFG['series']}")
+    H(1, 0.2, first_end, "Big", CFG["title_hi"], "{\\pos(960,560)\\fad(400,400)}", (960, 560), 8, (400, 400))
+    H(1, 0.2, first_end, "Gold", CFG["series"], "{\\pos(960,690)\\fad(400,400)}", (960, 690), 8, (400, 400))
     for l in lines:
         top = "{\\an8\\pos(960,150)}" if l["n"] >= end_from else ""  # last lines above the end-screen area
-        ev.append(f"Dialogue: 0,{ts(l['start'])},{ts(l['end'])},Sub_{l['speaker']},,0,0,0,,{top}{l['text']}")
+        H(0, l["start"], l["end"], f"Sub_{l['speaker']}", l["text"], top,
+          (960, 150) if l["n"] >= end_from else (960, 1010), 8 if l["n"] >= end_from else 2, None)
         if l["role"] == "bhaavarth":
-            ev.append(f"Dialogue: 1,{ts(l['start'])},{ts(l['end'] + ARABIC_HOLD)},Label,,0,0,0,,"
-                      f"{{\\pos(960,470)\\fad(250,250)}}{LABEL}")
+            H(1, l["start"], l["end"] + ARABIC_HOLD, "Label", LABEL, "{\\pos(960,470)\\fad(250,250)}", (960, 470), 8, (250, 250))
     by_n = {l["n"]: l for l in lines}
     for card in CFG["cards"]:
         n = card["line"]
@@ -341,14 +368,14 @@ def ass_doc(tl):
         end = by_n[card["until"]]["end"] if card.get("until") in by_n else l["end"]
         for i, c in enumerate(card["items"]):
             y = card.get("y", 120) + (i * 110 if card.get("stack") else 0)
-            ev.append(f"Dialogue: 1,{ts(l['start'] + i * 0.7)},{ts(end)},Card,,0,0,0,,{{\\pos(110,{y})\\fad(250,200)}}{c}")
+            H(1, l["start"] + i * 0.7, end, "Card", c, f"{{\\pos(110,{y})\\fad(250,200)}}", (110, y), 7, (250, 200))
     # end card (the last lines + tail)
     if end_from in by_n:
         a = by_n[end_from]["start"]
-        ev.append(f"Dialogue: 1,{ts(a)},{ts(tl['end'])},Big,,0,0,0,,{{\\pos(960,330)\\fad(500,600)}}{CFG['tagline']}")
-        ev.append(f"Dialogue: 1,{ts(a)},{ts(tl['end'])},Gold,,0,0,0,,{{\\pos(960,460)\\fad(500,600)}}{CFG['series']}")
-        ev.append(f"Dialogue: 1,{ts(a)},{ts(tl['end'])},Small,,0,0,0,,{{\\pos(960,560)\\fad(500,600)}}"
-                  f"Arabic text: Tanzil Project, tanzil.net  ·  {LABEL}")
+        H(1, a, tl["end"], "Big", CFG["tagline"], "{\\pos(960,330)\\fad(500,600)}", (960, 330), 8, (500, 600))
+        H(1, a, tl["end"], "Gold", CFG["series"], "{\\pos(960,460)\\fad(500,600)}", (960, 460), 8, (500, 600))
+        H(1, a, tl["end"], "Small", f"Arabic text: Tanzil Project, tanzil.net  ·  {LABEL}",
+          "{\\pos(960,560)\\fad(500,600)}", (960, 560), 8, (500, 600))
     return head + "\n".join(styles) + "\n\n[Events]\nFormat: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, " \
                                       "Effect, Text\n" + "\n".join(ev) + "\n"
 
@@ -409,9 +436,9 @@ def arabic_fs(text: str) -> int:
     return int(52 * AMIRI_ASS_K)
 
 
-def video_filter(tl, out_dir, ass: Path):
+def video_filter(tl, out_dir, ass: Path, pil=False):
     f = []
-    for ay in tl["ayat"]:  # dark band behind the Arabic (the Arabic itself is drawn by libass from the ASS file)
+    for ay in ([] if pil else tl["ayat"]):  # dark band behind the Arabic (the Arabic itself is drawn by libass from the ASS file)
         y0, y1 = ay.get("band") or (None, None)  # a multi-line ayah (ayah_lines) needs a taller dark band
         box = f"y={y0}:h={y1 - y0}" if y0 is not None else "y=ih*0.18:h=ih*0.33"
         f.append(f"drawbox=x=0:{box}:w=iw:color=black@0.30:t=fill:"
@@ -460,6 +487,44 @@ def frames(shots, n_frames):
         yield fr
 
 
+class HindiOverlay:
+    """Pillow mode: dark band behind a multi-line ayah (was ffmpeg drawbox) + Hindi sprites with fades, drawn on the frame
+    before ffmpeg lets libass draw the Arabic on top. Sprites are rendered once per event and dropped after it ends."""
+
+    def __init__(self, tl):
+        self.ev = sorted(tl["hindi"], key=lambda e: (e["start"], e["end"]))
+        self.bands = [(ay["a0"], ay["off"], *(ay.get("band") or (int(H * 0.18), int(H * 0.18) + int(H * 0.33)))) for ay in tl["ayat"]]
+        self.cache = {}
+
+    def sprite(self, k, e):
+        if k not in self.cache:
+            st = PIL_STYLES[e["style"]]
+            sub = e["style"].startswith("Sub_")
+            spr = TP.render(e["text"], st, maxw=1600 if sub else 1700, max_lines=2 if sub else None)
+            h, w = spr.shape[:2]
+            x, y = e["pos"]
+            x = x - w // 2 if e["an"] in (8, 2) else x  # an 8 / 2 = centred on x, an 7 = left edge at x
+            y = y - h if e["an"] == 2 else y  # an 2 = bottom edge at y
+            self.cache[k] = (spr, int(x), int(y))
+        return self.cache[k]
+
+    def apply(self, fr, t):
+        for a, b, y0, y1 in self.bands:
+            if a <= t < b:
+                fr[y0:y1] = (fr[y0:y1] * 0.70).astype(np.uint8)  # black @ 0.30
+        for k, e in enumerate(self.ev):
+            if e["start"] <= t < e["end"]:
+                f = 1.0
+                if e["fad"]:
+                    f = min(1.0, (t - e["start"]) / (e["fad"][0] / 1000) if e["fad"][0] else 1.0,
+                            (e["end"] - t) / (e["fad"][1] / 1000) if e["fad"][1] else 1.0)
+                spr, x, y = self.sprite(k, e)
+                TP.blend(fr, spr, x, y, f)
+            elif t >= e["end"]:
+                self.cache.pop(k, None)
+        return fr
+
+
 # ---------------------------------------------------------------- main
 def srt(tl, path):
     def st(t):
@@ -492,13 +557,16 @@ def main():
     dur = min(tl["end"], seconds)
     audio = build_audio(story, tl, out_dir, dur)
     ass = out_dir / "_text.ass"
-    ass.write_text(ass_doc(tl), encoding="utf-8")
+    pil = use_pillow()
+    ass.write_text(ass_doc(tl, pil), encoding="utf-8")
+    overlay = HindiOverlay(tl) if pil else None
+    print(f"Hindi text engine: {'Pillow+raqm' if pil else 'libass'}")
     srt(tl, out_dir / f"{story.name}.srt")
     out = out_dir / (f"{story.name}_final.mp4" if dur == tl["end"] else f"{story.name}_check_{int(dur)}s.mp4")
     part = out.with_suffix(".part.mp4")
     n = int(round(dur * FPS))
     enc = subprocess.Popen([FF, "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "bgr24", "-s", f"{W}x{H}", "-r", str(FPS),
-                            "-i", "-", "-i", str(audio), "-vf", video_filter(tl, out_dir, ass), "-frames:v", str(n),
+                            "-i", "-", "-i", str(audio), "-vf", video_filter(tl, out_dir, ass, pil), "-frames:v", str(n),
                             "-c:v", "libx264", "-preset", "medium", "-crf", "18", "-pix_fmt", "yuv420p",
                             "-color_range", "tv", "-colorspace", "bt709", "-color_primaries", "bt709", "-color_trc", "bt709",
                             "-c:a", "aac", "-b:a", "192k", "-t", f"{dur:.3f}", "-movflags", "+faststart", str(part)],
@@ -508,7 +576,10 @@ def main():
     if plan:
         print(f"edit_plan: look {plan.get('grade', 'none')}, vignette {plan.get('vignette', 0)}, grain {plan.get('grain', 0)}")
     for i, fr in enumerate(frames(shots, n)):
-        enc.stdin.write((fin.apply(fr, i) if fin else fr).tobytes())
+        fr = fin.apply(fr, i) if fin else fr
+        if overlay:
+            fr = overlay.apply(np.ascontiguousarray(fr).copy() if not fr.flags.writeable else fr, i / FPS)
+        enc.stdin.write(fr.tobytes())
         if i % 900 == 0:
             print(f"  frame {i}/{n}", flush=True)
     enc.stdin.close()
