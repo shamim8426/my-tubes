@@ -56,12 +56,14 @@ PIL_STYLES = {
     "Sub_ustaad": dict(size=62, fill=(255, 255, 255), box=(0, 0, 0, 0.55), outline=12),
     "Sub_sawaal": dict(size=62, fill=(245, 216, 128), box=(0, 0, 0, 0.55), outline=12),
     "Card": dict(size=56, fill=(255, 255, 255), box=(8, 20, 38, 0.61), outline=14),
+    "Translit": dict(size=52, fill=(240, 225, 170), outline=3, outline_rgba=(0, 0, 0, 0.5), shadow=2, shadow_rgba=(0, 0, 0, 0.7)),
     "Label": dict(size=44, fill=(255, 255, 255), opacity=0.92, shadow=2, shadow_rgba=(0, 0, 0, 0.5)),
     "Big": dict(size=92, fill=(255, 255, 255), outline=3, outline_rgba=(0, 0, 0, 0.44), shadow=2, shadow_rgba=(0, 0, 0, 0.7)),
     "Gold": dict(size=54, fill=(201, 165, 90), outline=2, outline_rgba=(0, 0, 0, 0.44), shadow=1, shadow_rgba=(0, 0, 0, 0.7)),
     "Small": dict(size=34, fill=(255, 255, 255), opacity=0.88, outline=2, outline_rgba=(0, 0, 0, 0.44), shadow=1,
                   shadow_rgba=(0, 0, 0, 0.7)),
 }
+TRANSLIT_Y, LABEL_Y_TR, TRANSLIT_BAND_BOTTOM = 480, 640, 700  # layout when a story has "ucharan" lines
 CFG = {}  # per-story screen config, set by load_cfg(story) (long/render.json); see render_cfg_help below
 
 
@@ -328,6 +330,8 @@ def ass_doc(tl, pil=False):
                # Arabic through libass too: ffmpeg drawtext put the harakat off their letters (Munshi final R1 BLOCKER)
                "Style: Ayah,Amiri,140,&H00FFFFFF,&H00FFFFFF,&H00000000,&H99000000,0,0,0,0,100,100,0,0,1,0,3,8,0,0,0,0",
                "Style: ArTitle,Amiri,400,&H00B8E3F3,&H00FFFFFF,&H00000000,&H99000000,0,0,0,0,100,100,0,0,1,0,4,8,0,0,0,0"]
+    if any(l["role"] == "ucharan" for l in tl["lines"]):  # only stories with ucharan lines (001 keeps its exact ASS)
+        styles.append("Style: Translit,Mukta Bold,52,&H00AAE1F0,&H00FFFFFF,&H80000000,&H80000000,0,0,0,0,100,100,0,0,1,3,2,8,0,0,0,1")
     ev = []
     tl["hindi"] = []
 
@@ -346,19 +350,32 @@ def ass_doc(tl, pil=False):
     for ay in tl["ayat"]:  # Tanzil text bytes unchanged (a long ayah is only split at spaces, never edited)
         # the "सरल भावार्थ" label sits at y 470 while a bhaavarth line is spoken: the ayah ink must stay above it then
         with_label = any(l["role"] == "bhaavarth" and l["start"] < ay["off"] and l["end"] + ARABIC_HOLD > ay["a0"] for l in lines)
-        parts, band = ayah_lines(ay["text"], 450 if with_label else 760)
+        # "ucharan" lines (user 2026-10-30): the Arabic words in Devanagari, read plainly by the Ustaad (not tilawat), written
+        # under the Arabic while it is on screen; the bhaavarth label then moves lower (LABEL_Y_TR)
+        ay["translit"] = [l for l in lines if l["role"] == "ucharan" and ay["a0"] <= l["start"] < ay["off"]]
+        parts, band = ayah_lines(ay["text"], 450 if (with_label or ay["translit"]) else 760)
+        if ay["translit"]:
+            band = (band[0] if band else 194, max(band[1] if band else 0, TRANSLIT_BAND_BOTTOM))
         ay["band"] = band
         for ln, fs, y in parts:
             ev.append(f"Dialogue: 2,{ts(ay['a0'])},{ts(ay['off'])},Ayah,,0,0,0,,"
                       f"{{\\pos(960,{y})\\fs{fs}\\fad(500,{int(ARABIC_FADE * 1000)})}}{ln}")
     H(1, 0.2, first_end, "Big", CFG["title_hi"], "{\\pos(960,560)\\fad(400,400)}", (960, 560), 8, (400, 400))
     H(1, 0.2, first_end, "Gold", CFG["series"], "{\\pos(960,690)\\fad(400,400)}", (960, 690), 8, (400, 400))
+    tr_mode = any(l["role"] == "ucharan" for l in lines)
+    for ay in tl["ayat"]:
+        for l in ay["translit"]:
+            H(1, l["start"], ay["off"], "Translit", l["text"], f"{{\\pos(960,{TRANSLIT_Y})\\fad(250,300)}}",
+              (960, TRANSLIT_Y), 8, (250, 300))
     for l in lines:
         top = "{\\an8\\pos(960,150)}" if l["n"] >= end_from else ""  # last lines above the end-screen area
+        if l["role"] == "ucharan":
+            continue  # shown under the Arabic (Translit), not as a bottom subtitle
         H(0, l["start"], l["end"], f"Sub_{l['speaker']}", l["text"], top,
           (960, 150) if l["n"] >= end_from else (960, 1010), 8 if l["n"] >= end_from else 2, None)
         if l["role"] == "bhaavarth":
-            H(1, l["start"], l["end"] + ARABIC_HOLD, "Label", LABEL, "{\\pos(960,470)\\fad(250,250)}", (960, 470), 8, (250, 250))
+            ly = LABEL_Y_TR if tr_mode else 470
+            H(1, l["start"], l["end"] + ARABIC_HOLD, "Label", LABEL, f"{{\\pos(960,{ly})\\fad(250,250)}}", (960, ly), 8, (250, 250))
     by_n = {l["n"]: l for l in lines}
     for card in CFG["cards"]:
         n = card["line"]
