@@ -9,6 +9,18 @@ The Sanchalak (main session) follows this list. Rules live in `shared/RULES.md`,
 `CLAUDE.md`; this file only orders the work. Queue: `channels/noor-e-raah/series_queue.json`
 (`python scripts/noor_daily.py status|next|preflight|mark`).
 
+## Script format for EVERY surah (Kalam brief; user 2026-10-30)
+- Every Arabic block `[AYAH n]` of a jumla/ayah (not the "whole ayah" overview block) gets, right after the `ARABIC:` line and
+  before the BHAAVARTH line, `N. USTAAD — UCHARAN: "<the same Arabic words in Devanagari>"` (clean Devanagari with nuqta, no
+  brackets/tags/meaning; last vowel dropped at the end of the jumla). The Ustaad reads it plainly, NOT tilawat; the renderer shows
+  it under the Arabic. Per-jumla table Arabic -> Devanagari + source (Tanzil transliteration) in `research/ucharan.md`, source
+  recorded in `research/sources.json`.
+- Then BHAAVARTH + MATLAB = fuller meaning, 2-3 short sentences per jumla in plain Hindi; a tafsir/context point only if the
+  dossier has it with a tag [U#]/[K#]; no unsourced claim.
+- ONE honest note once in the intro (Ustaad, tag [NOTE]): "ये पढ़ने की मदद है, तिलावत नहीं — सही तिलावत किसी क़ारी से सुनें।"
+- Length ~7-8 min is accepted. Number lines in file order; the LAST two lines must have the highest numbers (renderer: `n >= end_from`).
+- Munshi checks each UCHARAN line against `ucharan.md` and the Tanzil Arabic, and that no line is read as tilawat.
+
 ## Daily steps (cloud session, auto mode)
 1. `git pull --ff-only origin main`; `python scripts/noor_daily.py preflight` — FAILED = stop, write the reasons to
    `channels/noor-e-raah/log.md`, sync, end (never retry loops, never go below the Rs50 floor).

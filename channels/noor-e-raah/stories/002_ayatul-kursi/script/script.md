@@ -193,27 +193,27 @@ ARABIC: وَهُوَ ٱلْعَلِىُّ ٱلْعَظِيمُ
 |---|---|---|---|
 | P1 | section 2 P1 (2:255, Baqarah doosri surah) | maana hua | 5 |
 | P2 | P2 (Baqarah poori Madani, bila khilaf) | maana hua | 5 |
-| P3 | P3 (naam "Ayat al-Kursi", lafz Kursi se) | maana hua | 6 |
 | P4 | P4 (10 mukammal jumle: IK, MQ) | maana hua | 9, 64 |
+| UCHARAN | research/ucharan.md + sources.json T3 (Tanzil Latin transliteration, own Devanagari; plain reading) | decision 2026-10-30 | 71-80 |
+| NOTE | intro honest note (user 2026-10-30), no deeni claim | decision | 70 |
 | N1/N2 | N1/N2 (koi pakka khaas shan-e-nuzul nahi) | maana hua | 7 |
-| U1-U10 | section 3 table | maana hua | 14, 18-19, 24, 28, 32, 36, 40, 50, 54 |
+| U1-U10 | section 3 table | maana hua | 81 (U1), 18-19, 24, 82 (U4), 32, 83 (U5), 84 (U6), 40, 86 (U9), 54 |
 | K1/K2 | section 4 K1, K2 (ikhtilaaf, "kai qaul", "zyadatar riwayat") | ikhtilaaf, ikhtilaaf ki tarah bola | 44 |
 | K3 | K3 (Abu Dharr, anguthi/chhalla, Ibn Hibban/Bayhaqi sahih) | maana hua | 45 |
-| K5 | K5 (Allah jagah/takht ka mohtaj nahi) + "Video ke liye surakshit line" | maana hua | 46 |
+| K5 | K5 (Allah jagah/takht ka mohtaj nahi) + "Video ke liye surakshit line" | maana hua | 85 |
 | FZ-A | section 5 FZ-A (Sahih Muslim 810) | maana hua | 4, 57-58 |
 | FZ-B | FZ-B (Sahih Bukhari 2311), "bharosa aur dua, natija Allah ke haath" (section 6) | maana hua | 59-60 |
-Line 4 ka "हदीस के मुताबिक़ ... सबसे अज़ीम" = FZ-A ka dossier-surakshit chip-wording. Line 9, 55, 61, 66 bina tag (koi deeni daava nahi).
+Line 4 ka "हदीस के मुताबिक़ ... सबसे अज़ीम" = FZ-A ka dossier-surakshit chip-wording. Line 9, 61, 88 bina tag (koi deeni daava nahi). Line 70 = [NOTE] (padhne ki madad, koi deeni daava nahi).
 Shan-e-nuzul ke bayan sirf ek: line 7 (N1/N2) — sources: Wahidi dataset (2:255 ki entry nahi), Ibn Kathir, Ma'ariful Qur'an, Jalalayn, Baghawi.
 
 ## SAWAAL ke sawaal — ginti (RULES 1b, user: is video me max 2)
 | Line | Time ~ | Text | Sawaal? |
 |---|---|---|---|
 | 3 | 0:00 | hook: "क्या हर लाइन का मतलब जानते हैं?" | haan (1) |
-| 23 | ~2:00 | [MISAAL] insaani ooongh | nahi |
-| 55 | ~4:00 | chhoti pratikriya | nahi |
-| 61 | ~4:46 | "इस आयत से हमें क्या सीख मिलती है?" | haan (2) |
-| 66 | ~5:15 | darshakon se comment ki guzarish ("बताइए"), `?` nahi | nahi (Ustaad se sawaal nahi) |
-Gap pehle-doosre sawaal me ~4:45 (>= 3.5 min). Ustaad ki line 58 ke andar hadith ka sawaal ("कौन-सी आयत ... सबसे अज़ीम है?") hadith ke alfaaz hain, SAWAAL ka sawaal nahi.
+| 23 | ~2:50 | [MISAAL] insaani ooongh | nahi |
+| 61 | ~6:50 | "इस आयत से हमें क्या सीख मिलती है?" | haan (2) |
+| 88 | ~7:20 | darshakon se comment ki guzarish ("बताइए"), `?` nahi | nahi (Ustaad se sawaal nahi) |
+Gap pehle-doosre sawaal me ~6:50 (>= 3.5 min). Ustaad ki line 58 ke andar hadith ka sawaal ("कौन-सी आयत ... सबसे अज़ीम है?") hadith ke alfaaz hain, SAWAAL ka sawaal nahi. Line 55 pehle hi hata di gayi thi.
 
 ## MISAAL — 1 rakhi (max 2)
 - Line 23 (U3): insaani ooongh/thakaan ka rozmarra tajurba; koi deeni daava nahi, Ustaad ka MATLAB (line 24) uske baad "mazhab ki baat" karta hai. Koi doosri misaal nahi (U5/U6 ki misaal firqa/dar ki taraf ja sakti thi).
@@ -223,19 +223,15 @@ Free flux-class prompts (places/sky/light/lamps only). Mapping: 01 stars (line 3
 05 subah ka ufaq (U1; reuse seekh) · 06 chashma (U2) · 07 chaandni chhatein + ek diya (U3) · 08 panorama (U4; reuse U9) · 09 band darwaza + roshni (U5) ·
 10 ret me chhoti angoothi (U8; line 45 par reuse zoom) · 11 badal ki kirnein (U10) · 12 khaali bistar + diya (hadith FZ-B). Pehle ~60 s: 01 (0-7 s) · 02 (7-15) · 03 (15-24) · 04 (24-34, 2 shots) · 01 reuse (34-46, 2 shots) · 05 (46-62).
 
-## LENGTH ESTIMATE (measured Hindi speed ~2.5 shabd/s at TEMPO 1.08; renderer gaps: speaker badle +0.6 s, wahi +0.35 s, section +0.8 s, har Arabic block +0.6 lead +2.0 Arabic akeli +0.8 hold/fade)
-| Section | ~start | ~sec |
+## LENGTH ESTIMATE (measured TTS of this story: USTAAD ~0.48 s/shabd at TEMPO 1.08; renderer gaps: speaker badle +0.6 s, wahi +0.35 s, section +0.8 s, har Arabic block +0.6 lead +2.0 Arabic akeli +0.3 hold)
+| Hissa | Shabd (USTAAD / SAWAAL) | Anuman |
 |---|---|---|
-| Intro (hook) | 0:00 | 15 |
-| 1. Parichay | 0:15 | 14 |
-| 2. Shan-e-nuzul | 0:29 | 5 |
-| 3. Aayat-dar-aayat (poori aayat + 10 units, 11 Arabic blocks = 37 s sirf Arabic-hold) | 0:34 | 210 |
-| 4. Hadith | 4:04 | 42 |
-| 5. Seekh + agli video + comment line | 4:46 | 38 |
-| **Kul** | | **~324 s ≈ 5:23** |
-Shabd: USTAAD 589 · SAWAAL 75 (664 shabd / 2.5 = 266 s + gaps/Arabic ~58 s). Asli TTS se ±20 s (honorific wale lambe shabd dheere). **Target 4:00-5:30: andar, par kinare par.**
-Agar asli TTS 5:30 paar kare to pehle ye trim (kuch deeni nahi jaata): line 55 (SAWAAL pratikriya), line 60 (bharosa-line ke saath), line 6/7 ek me, units 4/9 ka matlab ek vaakya chhota.
-Pehla Arabic ~0:34.6 (vaada ~35 s); pehle jumle ka BHAAVARTH ~0:46.
+| Purana asli render (34 lines, real TTS) | 529 / 64 | 332 s (5:32) |
+| Naye lines 70-86 (note 14 shabd, 10 ucharan = 50 Arabic shabd, 6 matlab ~130 shabd) | +194 | +93 s speech |
+| Ucharan Arabic shabd dheere padhe jaate hain (~0.6 s/shabd) + 17 naye gaps | | +~17 s |
+| **Kul** | **723 / 64** | **~442 s ≈ 7:20** (7:00-7:45) |
+Lines 87/88 (purani 65/66) ka TTS naya banega (chhoti lines). Pehla poora Arabic (AYAH 1) ~0:42 (note +~7 s; RULES ka ~35 s target se ~7 s upar — user ko batao); pehle jumle ka BHAAVARTH ~1:00.
+Agar asli TTS 8:00 paar kare to pehle ye trim: line 82/84/86 ka dusra vaakya, line 83.
 
 ## THUMBNAIL (thumbnail.json, v3 ka dhaancha)
 - Arabic: آيَةُ ٱلْكُرْسِيِّ · Hindi: आयतुल कुर्सी · **chip: "हदीस में: क़ुरआन की सबसे अज़ीम आयत"** (FZ-A ka surakshit shabd, "सबसे बड़ी" nahi) ·
@@ -248,4 +244,4 @@ Pehla Arabic ~0:34.6 (vaada ~35 s); pehle jumle ka BHAAVARTH ~0:46.
 
 ## CONTINUITY / CHECKS
 - Sahaba ka naam sirf bola jaata hai (Ubayy bin Ka'b, line 57), screen par koi aakaar nahi. Dono hadith dossier ke "HAAN" waale (FZ-A, FZ-B); FZ-C/D (daif/ikhtilaaf) nahi.
-- 001 se alag: ek aayat, 10 units, hadith section, 2 sawaal, kam lambai. Agli video: Surah Al-Ikhlas (series_queue order 2).
+- 001 se alag: ek aayat, 10 units (har ek par uccharan + fuller matlab), hadith section, 2 sawaal. Agli video: Surah Al-Ikhlas (series_queue order 2).
