@@ -1,11 +1,11 @@
 {
  "story": "002_ayatul-kursi",
  "stage": "build_long",
- "status": "done",
- "started": "2026-10-29T21:42:33",
- "finished": "2026-10-29T22:22:53",
- "pid": 1631,
+ "status": "running",
+ "started": "2026-10-30T04:11:01",
+ "finished": null,
+ "pid": 529,
  "paid": false,
- "cost": "0",
+ "cost": null,
  "note": null
 }
