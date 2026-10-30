@@ -71,3 +71,4 @@
 2026-10-30 | 003_al-ikhlas | script+package R1 | PASS-WITH-NOTES | Arabic==Tanzil (re-checked vs snapshot), ucharan 4/4 ok, tags/hadith sahih ok, 2 sawaal, images/thumb/metadata ok; notes: Muslim 811 in sources after PC check, TTS <=6:00
 - 2026-10-30 003 images: free engine tried first, Cloudflare HTTP 429 (daily 10,000 neurons used up) -> paid Gemini for 9 images, Rs43.58 incl GST
 2026-10-30 | noor 003 long | images R1 | PASS | 9 images clean, minor crop note only
+2026-10-30 | noor 003_al-ikhlas | TTS audio review | PASS | 38/38 whisper ok (17, 43 verified), no clipping, voices consistent, uccharan plain; minor notes only

@@ -1,0 +1,1204 @@
+{
+ "lines": [
+  {
+   "kind": "line",
+   "n": 3,
+   "speaker": "sawaal",
+   "role": "",
+   "section": "INTRO (`part: intro`, hook)",
+   "ayah": null,
+   "text": "उस्ताद जी, सूरह इख़लास तो बचपन से सुनते आए हैं — पर क्या इसका मतलब जानते हैं?",
+   "tags": [],
+   "audio": "audio/tts/003_sawaal.wav",
+   "seconds": 7.0,
+   "tts_ok": true,
+   "start": 0.8,
+   "end": 7.281
+  },
+  {
+   "kind": "line",
+   "n": 4,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "INTRO (`part: intro`, hook)",
+   "ayah": null,
+   "text": "सिर्फ़ चार आयतें — और हदीस के मुताबिक़ क़ुरआन के तिहाई के बराबर। आज इन्हें एक-एक करके समझते हैं।",
+   "tags": [
+    "Z1",
+    "Z2"
+   ],
+   "audio": "audio/tts/004_ustaad.wav",
+   "seconds": 7.84,
+   "tts_ok": true,
+   "start": 7.881,
+   "end": 15.141
+  },
+  {
+   "kind": "line",
+   "n": 5,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "INTRO (`part: intro`, hook)",
+   "ayah": null,
+   "text": "ये पढ़ने की मदद है, तिलावत नहीं — सही तिलावत किसी क़ारी से सुनें।",
+   "tags": [
+    "NOTE"
+   ],
+   "audio": "audio/tts/005_ustaad.wav",
+   "seconds": 5.92,
+   "tts_ok": true,
+   "start": 15.491,
+   "end": 20.972
+  },
+  {
+   "kind": "line",
+   "n": 6,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "1. SURAH KA PARICHAY",
+   "ayah": null,
+   "text": "सूरह अल-इख़लास क़ुरआन की एक सौ बारहवीं सूरह है, और 'इख़लास' यानी सच्चाई, ख़ालिसपन।",
+   "tags": [
+    "P1"
+   ],
+   "audio": "audio/tts/006_ustaad.wav",
+   "seconds": 8.32,
+   "tts_ok": true,
+   "start": 22.122,
+   "end": 29.826
+  },
+  {
+   "kind": "line",
+   "n": 8,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "1. SURAH KA PARICHAY",
+   "ayah": 1,
+   "text": "ये रही पूरी सूरह — चार छोटी आयतें, और एक ही पैग़ाम: अल्लाह एक है।",
+   "tags": [
+    "P6"
+   ],
+   "audio": "audio/tts/008_ustaad.wav",
+   "seconds": 8.88,
+   "tts_ok": true,
+   "start": 32.776,
+   "end": 40.998
+  },
+  {
+   "kind": "line",
+   "n": 10,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "2. SHAN-E-NUZUL",
+   "ayah": null,
+   "text": "ज़्यादातर उलमा के मुताबिक़ ये सूरह मक्की है — कुछ उलमा इसे मदनी भी कहते हैं।",
+   "tags": [
+    "P3"
+   ],
+   "audio": "audio/tts/010_ustaad.wav",
+   "seconds": 7.16,
+   "tts_ok": true,
+   "start": 42.948,
+   "end": 49.578
+  },
+  {
+   "kind": "line",
+   "n": 11,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "2. SHAN-E-NUZUL",
+   "ayah": null,
+   "text": "इसके उतरने का कोई सहीह-दर्जे का ख़ास वाक़िया नहीं मिलता।",
+   "tags": [
+    "N1",
+    "N2"
+   ],
+   "audio": "audio/tts/011_ustaad.wav",
+   "seconds": 5.68,
+   "tts_ok": true,
+   "start": 49.928,
+   "end": 55.187
+  },
+  {
+   "kind": "line",
+   "n": 12,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "2. SHAN-E-NUZUL",
+   "ayah": null,
+   "text": "तफ़्सीरों में एक रिवायत आती है कि लोगों ने अल्लाह के बारे में सवाल किए और जवाब में ये सूरह उतरी — पर इस रिवायत की सनद पर उलमा में इख़्तिलाफ़ है।",
+   "tags": [
+    "N1",
+    "N2"
+   ],
+   "audio": "audio/tts/012_ustaad.wav",
+   "seconds": 12.8,
+   "tts_ok": true,
+   "start": 55.537,
+   "end": 67.389
+  },
+  {
+   "kind": "line",
+   "n": 14,
+   "speaker": "ustaad",
+   "role": "ucharan",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 2,
+   "text": "क़ुल हुवल्लाहु अहद",
+   "tags": [],
+   "audio": "audio/tts/014_ustaad.wav",
+   "seconds": 2.84,
+   "tts_ok": true,
+   "start": 71.139,
+   "end": 73.769
+  },
+  {
+   "kind": "line",
+   "n": 15,
+   "speaker": "ustaad",
+   "role": "bhaavarth",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 2,
+   "text": "पहली आयत: कह दो — वो अल्लाह अकेला है, एक है।",
+   "tags": [
+    "T2"
+   ],
+   "audio": "audio/tts/015_ustaad.wav",
+   "seconds": 6.36,
+   "tts_ok": true,
+   "start": 74.119,
+   "end": 80.007
+  },
+  {
+   "kind": "line",
+   "n": 17,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 2,
+   "text": "'क़ुल' यानी 'कहो' — नबी सल्लल्लाहु अलैहि वसल्लम को हुक्म कि ये बात लोगों तक पहुँचा दें।",
+   "tags": [
+    "M1"
+   ],
+   "audio": "audio/tts/017_ustaad.wav",
+   "seconds": 7.88,
+   "tts_ok": true,
+   "start": 81.157,
+   "end": 88.454
+  },
+  {
+   "kind": "line",
+   "n": 18,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 2,
+   "text": "'अहद' यानी ऐसा एक, जिसका कोई साझी नहीं, कोई जोड़ीदार नहीं — उसके बारे में हिस्सों या जोड़ का ख़याल भी नहीं।",
+   "tags": [
+    "M1"
+   ],
+   "audio": "audio/tts/018_ustaad.wav",
+   "seconds": 11.36,
+   "tts_ok": true,
+   "start": 88.804,
+   "end": 99.322
+  },
+  {
+   "kind": "line",
+   "n": 20,
+   "speaker": "ustaad",
+   "role": "ucharan",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 3,
+   "text": "अल्लाहुस्समद",
+   "tags": [],
+   "audio": "audio/tts/020_ustaad.wav",
+   "seconds": 2.24,
+   "tts_ok": true,
+   "start": 102.272,
+   "end": 104.346
+  },
+  {
+   "kind": "line",
+   "n": 21,
+   "speaker": "ustaad",
+   "role": "bhaavarth",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 3,
+   "text": "दूसरी आयत: अल्लाह बेनियाज़ है — उसे किसी की ज़रूरत नहीं, और सब उसी के मोहताज हैं।",
+   "tags": [
+    "T2"
+   ],
+   "audio": "audio/tts/021_ustaad.wav",
+   "seconds": 7.88,
+   "tts_ok": true,
+   "start": 104.696,
+   "end": 111.993
+  },
+  {
+   "kind": "line",
+   "n": 23,
+   "speaker": "sawaal",
+   "role": "misaal",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 3,
+   "text": "जब हर दरवाज़ा बंद लगे और कोई सहारा न दिखे, तो दिल अपने आप किसी बड़े सहारे को पुकारने लगता है।",
+   "tags": [
+    "MISAAL"
+   ],
+   "audio": "audio/tts/023_sawaal.wav",
+   "seconds": 8.8,
+   "tts_ok": true,
+   "start": 113.393,
+   "end": 121.541
+  },
+  {
+   "kind": "line",
+   "n": 24,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 3,
+   "text": "'समद' यानी वो, जिसकी तरफ़ सब अपनी ज़रूरतों में लौटते हैं, और जिसे ख़ुद किसी की ज़रूरत नहीं।",
+   "tags": [
+    "M2"
+   ],
+   "audio": "audio/tts/024_ustaad.wav",
+   "seconds": 8.8,
+   "tts_ok": true,
+   "start": 122.141,
+   "end": 130.289
+  },
+  {
+   "kind": "line",
+   "n": 25,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 3,
+   "text": "तफ़्सीरों में ये भी आता है कि वो ऐसा सरदार है जिसके ऊपर कोई नहीं।",
+   "tags": [
+    "M2"
+   ],
+   "audio": "audio/tts/025_ustaad.wav",
+   "seconds": 7.04,
+   "tts_ok": true,
+   "start": 130.639,
+   "end": 137.157
+  },
+  {
+   "kind": "line",
+   "n": 27,
+   "speaker": "ustaad",
+   "role": "ucharan",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 4,
+   "text": "लम यलिद वलम यूलद",
+   "tags": [],
+   "audio": "audio/tts/027_ustaad.wav",
+   "seconds": 4.04,
+   "tts_ok": true,
+   "start": 140.107,
+   "end": 143.848
+  },
+  {
+   "kind": "line",
+   "n": 28,
+   "speaker": "ustaad",
+   "role": "bhaavarth",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 4,
+   "text": "तीसरी आयत: न उसकी कोई औलाद है, और न वो किसी की औलाद है।",
+   "tags": [
+    "T2"
+   ],
+   "audio": "audio/tts/028_ustaad.wav",
+   "seconds": 6.08,
+   "tts_ok": true,
+   "start": 144.198,
+   "end": 149.828
+  },
+  {
+   "kind": "line",
+   "n": 30,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 4,
+   "text": "यानी न उसकी कोई औलाद, न माँ-बाप, न जीवनसाथी।",
+   "tags": [
+    "M3"
+   ],
+   "audio": "audio/tts/030_ustaad.wav",
+   "seconds": 6.2,
+   "tts_ok": true,
+   "start": 150.978,
+   "end": 156.719
+  },
+  {
+   "kind": "line",
+   "n": 31,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 4,
+   "text": "तफ़्सीर में एक दलील आती है: जो पैदा होता है वो मरता है और उसका वारिस होता है — पर अल्लाह न मरता है, न उसका कोई वारिस।",
+   "tags": [
+    "M3"
+   ],
+   "audio": "audio/tts/031_ustaad.wav",
+   "seconds": 11.2,
+   "tts_ok": true,
+   "start": 157.069,
+   "end": 167.439
+  },
+  {
+   "kind": "line",
+   "n": 33,
+   "speaker": "ustaad",
+   "role": "ucharan",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 5,
+   "text": "वलम यकुल लहू कुफ़ुवन अहद",
+   "tags": [],
+   "audio": "audio/tts/033_ustaad.wav",
+   "seconds": 4.56,
+   "tts_ok": true,
+   "start": 170.389,
+   "end": 174.611
+  },
+  {
+   "kind": "line",
+   "n": 34,
+   "speaker": "ustaad",
+   "role": "bhaavarth",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 5,
+   "text": "चौथी आयत: और कोई भी उसके बराबर, उसके जैसा नहीं।",
+   "tags": [
+    "T2"
+   ],
+   "audio": "audio/tts/034_ustaad.wav",
+   "seconds": 6.8,
+   "tts_ok": true,
+   "start": 174.961,
+   "end": 181.257
+  },
+  {
+   "kind": "line",
+   "n": 36,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 5,
+   "text": "'कुफ़ुव' यानी बराबरी का, जोड़ का।",
+   "tags": [
+    "M4"
+   ],
+   "audio": "audio/tts/036_ustaad.wav",
+   "seconds": 4.08,
+   "tts_ok": true,
+   "start": 182.407,
+   "end": 186.185
+  },
+  {
+   "kind": "line",
+   "n": 37,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 5,
+   "text": "ज़ात में, सिफ़तों में, काम में, ताक़त में — कहीं भी, कभी भी कोई उसके जैसा नहीं।",
+   "tags": [
+    "M4"
+   ],
+   "audio": "audio/tts/037_ustaad.wav",
+   "seconds": 9.8,
+   "tts_ok": true,
+   "start": 186.535,
+   "end": 195.609
+  },
+  {
+   "kind": "line",
+   "n": 38,
+   "speaker": "sawaal",
+   "role": "",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 5,
+   "text": "तो यानी — अल्लाह एक है, सब उसके मोहताज हैं, न उसकी औलाद, न वो किसी की औलाद, और कोई उसके बराबर नहीं।",
+   "tags": [],
+   "audio": "audio/tts/038_sawaal.wav",
+   "seconds": 11.88,
+   "tts_ok": true,
+   "start": 196.209,
+   "end": 207.209
+  },
+  {
+   "kind": "line",
+   "n": 40,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "4. HADITH ME SURAH AL-IKHLAS",
+   "ayah": null,
+   "text": "बुख़ारी की हदीस में अबू सईद ख़ुदरी रज़ियल्लाहु अन्हु बताते हैं: एक आदमी ने किसी को बार-बार 'क़ुल हुवल्लाहु अहद' पढ़ते सुना। सुबह उसने नबी सल्लल्लाहु अलैहि वसल्लम से इसका ज़िक्र किया, जैसे उसे कम समझ रहा हो।",
+   "tags": [
+    "Z1"
+   ],
+   "audio": "audio/tts/040_ustaad.wav",
+   "seconds": 16.96,
+   "tts_ok": true,
+   "start": 208.609,
+   "end": 224.313
+  },
+  {
+   "kind": "line",
+   "n": 41,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "4. HADITH ME SURAH AL-IKHLAS",
+   "ayah": null,
+   "text": "नबी सल्लल्लाहु अलैहि वसल्लम ने फ़रमाया: 'उसकी क़सम जिसके हाथ में मेरी जान है, ये ज़रूर क़ुरआन के तिहाई के बराबर है।'",
+   "tags": [
+    "Z1"
+   ],
+   "audio": "audio/tts/041_ustaad.wav",
+   "seconds": 10.88,
+   "tts_ok": true,
+   "start": 224.663,
+   "end": 234.737
+  },
+  {
+   "kind": "line",
+   "n": 42,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "4. HADITH ME SURAH AL-IKHLAS",
+   "ayah": null,
+   "text": "मुस्लिम की हदीस में अबू हुरैरा रज़ियल्लाहु अन्हु की रिवायत है: नबी सल्लल्लाहु अलैहि वसल्लम ने लोगों को इकट्ठा करके ये सूरह पढ़ी, और फ़रमाया कि ये क़ुरआन के तिहाई के बराबर है।",
+   "tags": [
+    "Z3"
+   ],
+   "audio": "audio/tts/042_ustaad.wav",
+   "seconds": 15.12,
+   "tts_ok": true,
+   "start": 235.087,
+   "end": 249.087
+  },
+  {
+   "kind": "line",
+   "n": 43,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "4. HADITH ME SURAH AL-IKHLAS",
+   "ayah": null,
+   "text": "'तिहाई' का मतलब क्या है, इस पर उलमा के क़ौल अलग हैं; एक क़ौल ये है कि क़ुरआन की बातें तीन हिस्सों में हैं, और अल्लाह के नामों-सिफ़तों का हिस्सा इस सूरह में है।",
+   "tags": [
+    "Z6"
+   ],
+   "audio": "audio/tts/043_ustaad.wav",
+   "seconds": 14.4,
+   "tts_ok": true,
+   "start": 249.437,
+   "end": 262.77
+  },
+  {
+   "kind": "line",
+   "n": 44,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "4. HADITH ME SURAH AL-IKHLAS",
+   "ayah": null,
+   "text": "आइशा रज़ियल्लाहु अन्हा बताती हैं, और बुख़ारी व मुस्लिम दोनों में है: एक आदमी, जो एक दस्ते के सरदार थे, नमाज़ में अपनी क़िरात हर बार 'क़ुल हुवल्लाहु अहद' पर ख़त्म करते थे।",
+   "tags": [
+    "Z4"
+   ],
+   "audio": "audio/tts/044_ustaad.wav",
+   "seconds": 14.72,
+   "tts_ok": true,
+   "start": 263.12,
+   "end": 276.75
+  },
+  {
+   "kind": "line",
+   "n": 45,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "4. HADITH ME SURAH AL-IKHLAS",
+   "ayah": null,
+   "text": "वजह पूछी गई, तो उन्होंने कहा: 'ये रहमान की सिफ़त है, और मुझे इसे पढ़ना पसंद है।' नबी सल्लल्लाहु अलैहि वसल्लम ने फ़रमाया: 'उसे बता दो कि अल्लाह उससे मुहब्बत करता है।'",
+   "tags": [
+    "Z4"
+   ],
+   "audio": "audio/tts/045_ustaad.wav",
+   "seconds": 15.08,
+   "tts_ok": true,
+   "start": 277.1,
+   "end": 291.063
+  },
+  {
+   "kind": "line",
+   "n": 46,
+   "speaker": "sawaal",
+   "role": "",
+   "section": "5. SEEKH",
+   "ayah": null,
+   "text": "उस्ताद जी, इस सूरह से हमें क्या सीख मिलती है?",
+   "tags": [],
+   "audio": "audio/tts/046_sawaal.wav",
+   "seconds": 3.96,
+   "tts_ok": true,
+   "start": 292.463,
+   "end": 296.13
+  },
+  {
+   "kind": "line",
+   "n": 47,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "5. SEEKH",
+   "ayah": null,
+   "text": "पहली: अल्लाह एक है, अकेला — उसका कोई साझी नहीं। भरोसा और उम्मीद उसी से जुड़ी रहे।",
+   "tags": [
+    "M1"
+   ],
+   "audio": "audio/tts/047_ustaad.wav",
+   "seconds": 9.08,
+   "tts_ok": true,
+   "start": 296.73,
+   "end": 305.137
+  },
+  {
+   "kind": "line",
+   "n": 48,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "5. SEEKH",
+   "ayah": null,
+   "text": "दूसरी: सब उसके मोहताज हैं, और वो किसी का मोहताज नहीं — तो मदद की उम्मीद उसी से।",
+   "tags": [
+    "M2"
+   ],
+   "audio": "audio/tts/048_ustaad.wav",
+   "seconds": 7.56,
+   "tts_ok": true,
+   "start": 305.487,
+   "end": 312.487
+  },
+  {
+   "kind": "line",
+   "n": 49,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "5. SEEKH",
+   "ayah": null,
+   "text": "तीसरी: तफ़्सीर के मुताबिक़ ये चार आयतें हर ग़लत ख़याल को एक-एक करके हटाती हैं — इसे मतलब समझ कर पढ़ें।",
+   "tags": [
+    "M5"
+   ],
+   "audio": "audio/tts/049_ustaad.wav",
+   "seconds": 11.08,
+   "tts_ok": true,
+   "start": 312.837,
+   "end": 323.096
+  },
+  {
+   "kind": "line",
+   "n": 50,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "5. SEEKH",
+   "ayah": null,
+   "text": "अगली बार, नूर-ए-राह में: सूरह अल-फ़लक़ — सुबह के रब की पनाह।",
+   "tags": [
+    "NEXT"
+   ],
+   "audio": "audio/tts/050_ustaad.wav",
+   "seconds": 6.72,
+   "tts_ok": true,
+   "start": 323.446,
+   "end": 329.669
+  },
+  {
+   "kind": "line",
+   "n": 51,
+   "speaker": "sawaal",
+   "role": "",
+   "section": "5. SEEKH",
+   "ayah": null,
+   "text": "और आप कमेंट में बताइए — इन चार आयतों में से कौन-सी बात आपके दिल को सबसे ज़्यादा छू गई, और क्यों।",
+   "tags": [],
+   "audio": "audio/tts/051_sawaal.wav",
+   "seconds": 7.24,
+   "tts_ok": true,
+   "start": 330.269,
+   "end": 336.972
+  }
+ ],
+ "ayat": [
+  {
+   "ayah": 1,
+   "fade": 29.825925925925926,
+   "a0": 30.425925925925927,
+   "swoosh": 29.925925925925927,
+   "text": "قُلْ هُوَ ٱللَّهُ أَحَدٌ ٱللَّهُ ٱلصَّمَدُ لَمْ يَلِدْ وَلَمْ يُولَدْ وَلَمْ يَكُن لَّهُۥ كُفُوًا أَحَدٌۢ",
+   "off": 41.798148148148144
+  },
+  {
+   "ayah": 2,
+   "fade": 68.18888888888888,
+   "a0": 68.78888888888888,
+   "swoosh": 68.28888888888888,
+   "text": "قُلْ هُوَ ٱللَّهُ أَحَدٌ",
+   "off": 80.80740740740738
+  },
+  {
+   "ayah": 3,
+   "fade": 99.32222222222218,
+   "a0": 99.92222222222217,
+   "swoosh": 99.42222222222217,
+   "text": "ٱللَّهُ ٱلصَّمَدُ",
+   "off": 112.79259259259253
+  },
+  {
+   "ayah": 4,
+   "fade": 137.1574074074073,
+   "a0": 137.7574074074073,
+   "swoosh": 137.2574074074073,
+   "text": "لَمْ يَلِدْ وَلَمْ يُولَدْ",
+   "off": 150.62777777777765
+  },
+  {
+   "ayah": 5,
+   "fade": 167.43888888888875,
+   "a0": 168.03888888888875,
+   "swoosh": 167.53888888888875,
+   "text": "وَلَمْ يَكُن لَّهُۥ كُفُوًا أَحَدٌۢ",
+   "off": 182.05740740740728
+  }
+ ],
+ "music": [
+  {
+   "track": "Soaring",
+   "start": 0.8,
+   "fin": 1.5,
+   "end": 43.298148148148144,
+   "fout": 1.5
+  },
+  {
+   "track": "River Flute",
+   "start": 41.798148148148144,
+   "fin": 2.5,
+   "end": 339.97222222222223,
+   "fout": 3.0
+  }
+ ],
+ "amb": [
+  {
+   "names": [
+    "breeze"
+   ],
+   "start": 0.0,
+   "end": 340.97222222222223
+  }
+ ],
+ "end": 340.972,
+ "fade_at": {
+  "1": 29.825925925925926,
+  "2": 68.18888888888888,
+  "3": 99.32222222222218,
+  "4": 137.1574074074073,
+  "5": 167.43888888888875
+ },
+ "shots": [
+  {
+   "img": "01_one_star_night.png",
+   "id": "01_one_star_night",
+   "start": 0.0,
+   "end": 7.581,
+   "move": "push_in",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "02_lamp_single_flame.png",
+   "id": "02_lamp_single_flame",
+   "start": 7.581,
+   "end": 15.191,
+   "move": "pan_right",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "04_dawn_sand_ridge.png",
+   "id": "04_dawn_sand_ridge",
+   "start": 15.191,
+   "end": 21.822,
+   "move": "pull_out",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "01_one_star_night.png",
+   "id": "01_one_star_night_b",
+   "start": 21.822,
+   "end": 25.824,
+   "move": "pan_left",
+   "fx": 0.5,
+   "fy": 0.35,
+   "zc": 1.3
+  },
+  {
+   "img": "01_one_star_night.png",
+   "id": "01_one_star_night_b",
+   "start": 25.824,
+   "end": 29.826,
+   "move": "gentle_orbit",
+   "fx": 0.5,
+   "fy": 0.35,
+   "zc": 1.3
+  },
+  {
+   "img": "06_milkyway_desert.png",
+   "id": "06_milkyway_desert",
+   "start": 29.826,
+   "end": 36.237,
+   "move": "push_in",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "06_milkyway_desert.png",
+   "id": "06_milkyway_desert",
+   "start": 36.237,
+   "end": 42.648,
+   "move": "pan_left",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "03_makka_valley_night.png",
+   "id": "03_makka_valley_night",
+   "start": 42.648,
+   "end": 48.943,
+   "move": "pull_out",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "03_makka_valley_night.png",
+   "id": "03_makka_valley_night",
+   "start": 48.943,
+   "end": 55.237,
+   "move": "pan_right",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "03_makka_valley_night.png",
+   "id": "03_makka_valley_night_b",
+   "start": 55.237,
+   "end": 61.713,
+   "move": "push_in",
+   "fx": 0.62,
+   "fy": 0.55,
+   "zc": 1.3
+  },
+  {
+   "img": "03_makka_valley_night.png",
+   "id": "03_makka_valley_night_b",
+   "start": 61.713,
+   "end": 68.189,
+   "move": "pan_right",
+   "fx": 0.62,
+   "fy": 0.55,
+   "zc": 1.3
+  },
+  {
+   "img": "02_lamp_single_flame.png",
+   "id": "02_lamp_single_flame_b",
+   "start": 68.189,
+   "end": 75.972,
+   "move": "pull_out",
+   "fx": 0.5,
+   "fy": 0.6,
+   "zc": 1.5
+  },
+  {
+   "img": "02_lamp_single_flame.png",
+   "id": "02_lamp_single_flame_b",
+   "start": 75.972,
+   "end": 83.756,
+   "move": "pan_left",
+   "fx": 0.5,
+   "fy": 0.6,
+   "zc": 1.5
+  },
+  {
+   "img": "02_lamp_single_flame.png",
+   "id": "02_lamp_single_flame_b",
+   "start": 83.756,
+   "end": 91.539,
+   "move": "gentle_orbit",
+   "fx": 0.5,
+   "fy": 0.6,
+   "zc": 1.5
+  },
+  {
+   "img": "02_lamp_single_flame.png",
+   "id": "02_lamp_single_flame_b",
+   "start": 91.539,
+   "end": 99.322,
+   "move": "push_in",
+   "fx": 0.5,
+   "fy": 0.6,
+   "zc": 1.5
+  },
+  {
+   "img": "05_paths_to_oasis.png",
+   "id": "05_paths_to_oasis",
+   "start": 99.322,
+   "end": 106.889,
+   "move": "pan_left",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "05_paths_to_oasis.png",
+   "id": "05_paths_to_oasis",
+   "start": 106.889,
+   "end": 114.456,
+   "move": "pull_out",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "05_paths_to_oasis.png",
+   "id": "05_paths_to_oasis",
+   "start": 114.456,
+   "end": 122.023,
+   "move": "pan_right",
+   "fx": 0.62,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "05_paths_to_oasis.png",
+   "id": "05_paths_to_oasis",
+   "start": 122.023,
+   "end": 129.59,
+   "move": "push_in",
+   "fx": 0.5,
+   "fy": 0.45,
+   "zc": 1.25
+  },
+  {
+   "img": "05_paths_to_oasis.png",
+   "id": "05_paths_to_oasis",
+   "start": 129.59,
+   "end": 137.157,
+   "move": "pan_right",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "07_sea_horizon_dusk.png",
+   "id": "07_sea_horizon_dusk",
+   "start": 137.157,
+   "end": 144.728,
+   "move": "pull_out",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "07_sea_horizon_dusk.png",
+   "id": "07_sea_horizon_dusk",
+   "start": 144.728,
+   "end": 152.298,
+   "move": "pan_left",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "07_sea_horizon_dusk.png",
+   "id": "07_sea_horizon_dusk",
+   "start": 152.298,
+   "end": 159.869,
+   "move": "gentle_orbit",
+   "fx": 0.62,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "07_sea_horizon_dusk.png",
+   "id": "07_sea_horizon_dusk",
+   "start": 159.869,
+   "end": 167.439,
+   "move": "push_in",
+   "fx": 0.5,
+   "fy": 0.45,
+   "zc": 1.25
+  },
+  {
+   "img": "06_milkyway_desert.png",
+   "id": "06_milkyway_desert_b",
+   "start": 167.439,
+   "end": 174.251,
+   "move": "pan_left",
+   "fx": 0.35,
+   "fy": 0.4,
+   "zc": 1.35
+  },
+  {
+   "img": "06_milkyway_desert.png",
+   "id": "06_milkyway_desert_b",
+   "start": 174.251,
+   "end": 181.062,
+   "move": "pull_out",
+   "fx": 0.35,
+   "fy": 0.4,
+   "zc": 1.35
+  },
+  {
+   "img": "06_milkyway_desert.png",
+   "id": "06_milkyway_desert_b",
+   "start": 181.062,
+   "end": 187.874,
+   "move": "pan_right",
+   "fx": 0.35,
+   "fy": 0.4,
+   "zc": 1.35
+  },
+  {
+   "img": "06_milkyway_desert.png",
+   "id": "06_milkyway_desert_b",
+   "start": 187.874,
+   "end": 194.686,
+   "move": "push_in",
+   "fx": 0.35,
+   "fy": 0.4,
+   "zc": 1.35
+  },
+  {
+   "img": "06_milkyway_desert.png",
+   "id": "06_milkyway_desert_b",
+   "start": 194.686,
+   "end": 201.497,
+   "move": "pan_right",
+   "fx": 0.35,
+   "fy": 0.4,
+   "zc": 1.35
+  },
+  {
+   "img": "06_milkyway_desert.png",
+   "id": "06_milkyway_desert_b",
+   "start": 201.497,
+   "end": 208.309,
+   "move": "pull_out",
+   "fx": 0.35,
+   "fy": 0.4,
+   "zc": 1.35
+  },
+  {
+   "img": "08_empty_room_morning.png",
+   "id": "08_empty_room_morning",
+   "start": 208.309,
+   "end": 214.928,
+   "move": "pan_left",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "08_empty_room_morning.png",
+   "id": "08_empty_room_morning",
+   "start": 214.928,
+   "end": 221.548,
+   "move": "gentle_orbit",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "08_empty_room_morning.png",
+   "id": "08_empty_room_morning",
+   "start": 221.548,
+   "end": 228.167,
+   "move": "push_in",
+   "fx": 0.62,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "08_empty_room_morning.png",
+   "id": "08_empty_room_morning",
+   "start": 228.167,
+   "end": 234.787,
+   "move": "pan_left",
+   "fx": 0.5,
+   "fy": 0.45,
+   "zc": 1.25
+  },
+  {
+   "img": "09_morning_palm_path.png",
+   "id": "09_morning_palm_path",
+   "start": 234.787,
+   "end": 241.795,
+   "move": "pull_out",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "09_morning_palm_path.png",
+   "id": "09_morning_palm_path",
+   "start": 241.795,
+   "end": 248.803,
+   "move": "pan_right",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "09_morning_palm_path.png",
+   "id": "09_morning_palm_path",
+   "start": 248.803,
+   "end": 255.812,
+   "move": "push_in",
+   "fx": 0.62,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "09_morning_palm_path.png",
+   "id": "09_morning_palm_path",
+   "start": 255.812,
+   "end": 262.82,
+   "move": "pan_right",
+   "fx": 0.5,
+   "fy": 0.45,
+   "zc": 1.25
+  },
+  {
+   "img": "08_empty_room_morning.png",
+   "id": "08_empty_room_morning_b",
+   "start": 262.82,
+   "end": 270.156,
+   "move": "pull_out",
+   "fx": 0.4,
+   "fy": 0.6,
+   "zc": 1.4
+  },
+  {
+   "img": "08_empty_room_morning.png",
+   "id": "08_empty_room_morning_b",
+   "start": 270.156,
+   "end": 277.491,
+   "move": "pan_left",
+   "fx": 0.4,
+   "fy": 0.6,
+   "zc": 1.4
+  },
+  {
+   "img": "08_empty_room_morning.png",
+   "id": "08_empty_room_morning_b",
+   "start": 277.491,
+   "end": 284.827,
+   "move": "gentle_orbit",
+   "fx": 0.4,
+   "fy": 0.6,
+   "zc": 1.4
+  },
+  {
+   "img": "08_empty_room_morning.png",
+   "id": "08_empty_room_morning_b",
+   "start": 284.827,
+   "end": 292.163,
+   "move": "push_in",
+   "fx": 0.4,
+   "fy": 0.6,
+   "zc": 1.4
+  },
+  {
+   "img": "04_dawn_sand_ridge.png",
+   "id": "04_dawn_sand_ridge_b",
+   "start": 292.163,
+   "end": 299.909,
+   "move": "pan_left",
+   "fx": 0.55,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "04_dawn_sand_ridge.png",
+   "id": "04_dawn_sand_ridge_b",
+   "start": 299.909,
+   "end": 307.654,
+   "move": "pull_out",
+   "fx": 0.55,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "04_dawn_sand_ridge.png",
+   "id": "04_dawn_sand_ridge_b",
+   "start": 307.654,
+   "end": 315.4,
+   "move": "pan_right",
+   "fx": 0.55,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "04_dawn_sand_ridge.png",
+   "id": "04_dawn_sand_ridge_b",
+   "start": 315.4,
+   "end": 323.146,
+   "move": "push_in",
+   "fx": 0.55,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "01_one_star_night.png",
+   "id": "01_one_star_night_c",
+   "start": 323.146,
+   "end": 329.088,
+   "move": "pan_right",
+   "fx": 0.5,
+   "fy": 0.3,
+   "zc": 1.1
+  },
+  {
+   "img": "01_one_star_night.png",
+   "id": "01_one_star_night_c",
+   "start": 329.088,
+   "end": 335.03,
+   "move": "pull_out",
+   "fx": 0.5,
+   "fy": 0.3,
+   "zc": 1.1
+  },
+  {
+   "img": "01_one_star_night.png",
+   "id": "01_one_star_night_c",
+   "start": 335.03,
+   "end": 340.972,
+   "move": "pan_left",
+   "fx": 0.5,
+   "fy": 0.3,
+   "zc": 1.1
+  }
+ ]
+}

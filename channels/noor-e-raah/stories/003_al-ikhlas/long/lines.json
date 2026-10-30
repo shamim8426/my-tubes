@@ -37,7 +37,10 @@
   "section": "INTRO (`part: intro`, hook)",
   "ayah": null,
   "text": "उस्ताद जी, सूरह इख़लास तो बचपन से सुनते आए हैं — पर क्या इसका मतलब जानते हैं?",
-  "tags": []
+  "tags": [],
+  "audio": "audio/tts/003_sawaal.wav",
+  "seconds": 7.0,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -50,7 +53,10 @@
   "tags": [
    "Z1",
    "Z2"
-  ]
+  ],
+  "audio": "audio/tts/004_ustaad.wav",
+  "seconds": 7.84,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -62,7 +68,10 @@
   "text": "ये पढ़ने की मदद है, तिलावत नहीं — सही तिलावत किसी क़ारी से सुनें।",
   "tags": [
    "NOTE"
-  ]
+  ],
+  "audio": "audio/tts/005_ustaad.wav",
+  "seconds": 5.92,
+  "tts_ok": true
  },
  {
   "kind": "section",
@@ -84,7 +93,10 @@
   "text": "सूरह अल-इख़लास क़ुरआन की एक सौ बारहवीं सूरह है, और 'इख़लास' यानी सच्चाई, ख़ालिसपन।",
   "tags": [
    "P1"
-  ]
+  ],
+  "audio": "audio/tts/006_ustaad.wav",
+  "seconds": 8.32,
+  "tts_ok": true
  },
  {
   "kind": "ayah",
@@ -119,7 +131,10 @@
   "text": "ये रही पूरी सूरह — चार छोटी आयतें, और एक ही पैग़ाम: अल्लाह एक है।",
   "tags": [
    "P6"
-  ]
+  ],
+  "audio": "audio/tts/008_ustaad.wav",
+  "seconds": 8.88,
+  "tts_ok": true
  },
  {
   "kind": "cue",
@@ -149,7 +164,10 @@
   "text": "ज़्यादातर उलमा के मुताबिक़ ये सूरह मक्की है — कुछ उलमा इसे मदनी भी कहते हैं।",
   "tags": [
    "P3"
-  ]
+  ],
+  "audio": "audio/tts/010_ustaad.wav",
+  "seconds": 7.16,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -162,7 +180,10 @@
   "tags": [
    "N1",
    "N2"
-  ]
+  ],
+  "audio": "audio/tts/011_ustaad.wav",
+  "seconds": 5.68,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -175,7 +196,10 @@
   "tags": [
    "N1",
    "N2"
-  ]
+  ],
+  "audio": "audio/tts/012_ustaad.wav",
+  "seconds": 12.8,
+  "tts_ok": true
  },
  {
   "kind": "section",
@@ -218,7 +242,10 @@
   "section": "3. AAYAT-DAR-AAYAT",
   "ayah": 2,
   "text": "क़ुल हुवल्लाहु अहद",
-  "tags": []
+  "tags": [],
+  "audio": "audio/tts/014_ustaad.wav",
+  "seconds": 2.84,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -230,7 +257,10 @@
   "text": "पहली आयत: कह दो — वो अल्लाह अकेला है, एक है।",
   "tags": [
    "T2"
-  ]
+  ],
+  "audio": "audio/tts/015_ustaad.wav",
+  "seconds": 6.36,
+  "tts_ok": true
  },
  {
   "kind": "cue",
@@ -250,7 +280,10 @@
   "text": "'क़ुल' यानी 'कहो' — नबी सल्लल्लाहु अलैहि वसल्लम को हुक्म कि ये बात लोगों तक पहुँचा दें।",
   "tags": [
    "M1"
-  ]
+  ],
+  "audio": "audio/tts/017_ustaad.wav",
+  "seconds": 7.88,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -262,7 +295,10 @@
   "text": "'अहद' यानी ऐसा एक, जिसका कोई साझी नहीं, कोई जोड़ीदार नहीं — उसके बारे में हिस्सों या जोड़ का ख़याल भी नहीं।",
   "tags": [
    "M1"
-  ]
+  ],
+  "audio": "audio/tts/018_ustaad.wav",
+  "seconds": 11.36,
+  "tts_ok": true
  },
  {
   "kind": "ayah",
@@ -295,7 +331,10 @@
   "section": "3. AAYAT-DAR-AAYAT",
   "ayah": 3,
   "text": "अल्लाहुस्समद",
-  "tags": []
+  "tags": [],
+  "audio": "audio/tts/020_ustaad.wav",
+  "seconds": 2.24,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -307,7 +346,10 @@
   "text": "दूसरी आयत: अल्लाह बेनियाज़ है — उसे किसी की ज़रूरत नहीं, और सब उसी के मोहताज हैं।",
   "tags": [
    "T2"
-  ]
+  ],
+  "audio": "audio/tts/021_ustaad.wav",
+  "seconds": 7.88,
+  "tts_ok": true
  },
  {
   "kind": "cue",
@@ -327,7 +369,10 @@
   "text": "जब हर दरवाज़ा बंद लगे और कोई सहारा न दिखे, तो दिल अपने आप किसी बड़े सहारे को पुकारने लगता है।",
   "tags": [
    "MISAAL"
-  ]
+  ],
+  "audio": "audio/tts/023_sawaal.wav",
+  "seconds": 8.8,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -339,7 +384,10 @@
   "text": "'समद' यानी वो, जिसकी तरफ़ सब अपनी ज़रूरतों में लौटते हैं, और जिसे ख़ुद किसी की ज़रूरत नहीं।",
   "tags": [
    "M2"
-  ]
+  ],
+  "audio": "audio/tts/024_ustaad.wav",
+  "seconds": 8.8,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -351,7 +399,10 @@
   "text": "तफ़्सीरों में ये भी आता है कि वो ऐसा सरदार है जिसके ऊपर कोई नहीं।",
   "tags": [
    "M2"
-  ]
+  ],
+  "audio": "audio/tts/025_ustaad.wav",
+  "seconds": 7.04,
+  "tts_ok": true
  },
  {
   "kind": "ayah",
@@ -384,7 +435,10 @@
   "section": "3. AAYAT-DAR-AAYAT",
   "ayah": 4,
   "text": "लम यलिद वलम यूलद",
-  "tags": []
+  "tags": [],
+  "audio": "audio/tts/027_ustaad.wav",
+  "seconds": 4.04,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -396,7 +450,10 @@
   "text": "तीसरी आयत: न उसकी कोई औलाद है, और न वो किसी की औलाद है।",
   "tags": [
    "T2"
-  ]
+  ],
+  "audio": "audio/tts/028_ustaad.wav",
+  "seconds": 6.08,
+  "tts_ok": true
  },
  {
   "kind": "cue",
@@ -416,7 +473,10 @@
   "text": "यानी न उसकी कोई औलाद, न माँ-बाप, न जीवनसाथी।",
   "tags": [
    "M3"
-  ]
+  ],
+  "audio": "audio/tts/030_ustaad.wav",
+  "seconds": 6.2,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -428,7 +488,10 @@
   "text": "तफ़्सीर में एक दलील आती है: जो पैदा होता है वो मरता है और उसका वारिस होता है — पर अल्लाह न मरता है, न उसका कोई वारिस।",
   "tags": [
    "M3"
-  ]
+  ],
+  "audio": "audio/tts/031_ustaad.wav",
+  "seconds": 11.2,
+  "tts_ok": true
  },
  {
   "kind": "ayah",
@@ -461,7 +524,10 @@
   "section": "3. AAYAT-DAR-AAYAT",
   "ayah": 5,
   "text": "वलम यकुल लहू कुफ़ुवन अहद",
-  "tags": []
+  "tags": [],
+  "audio": "audio/tts/033_ustaad.wav",
+  "seconds": 4.56,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -473,7 +539,10 @@
   "text": "चौथी आयत: और कोई भी उसके बराबर, उसके जैसा नहीं।",
   "tags": [
    "T2"
-  ]
+  ],
+  "audio": "audio/tts/034_ustaad.wav",
+  "seconds": 6.8,
+  "tts_ok": true
  },
  {
   "kind": "cue",
@@ -493,7 +562,10 @@
   "text": "'कुफ़ुव' यानी बराबरी का, जोड़ का।",
   "tags": [
    "M4"
-  ]
+  ],
+  "audio": "audio/tts/036_ustaad.wav",
+  "seconds": 4.08,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -505,7 +577,10 @@
   "text": "ज़ात में, सिफ़तों में, काम में, ताक़त में — कहीं भी, कभी भी कोई उसके जैसा नहीं।",
   "tags": [
    "M4"
-  ]
+  ],
+  "audio": "audio/tts/037_ustaad.wav",
+  "seconds": 9.8,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -515,7 +590,10 @@
   "section": "3. AAYAT-DAR-AAYAT",
   "ayah": 5,
   "text": "तो यानी — अल्लाह एक है, सब उसके मोहताज हैं, न उसकी औलाद, न वो किसी की औलाद, और कोई उसके बराबर नहीं।",
-  "tags": []
+  "tags": [],
+  "audio": "audio/tts/038_sawaal.wav",
+  "seconds": 11.88,
+  "tts_ok": true
  },
  {
   "kind": "section",
@@ -545,7 +623,10 @@
   "text": "बुख़ारी की हदीस में अबू सईद ख़ुदरी रज़ियल्लाहु अन्हु बताते हैं: एक आदमी ने किसी को बार-बार 'क़ुल हुवल्लाहु अहद' पढ़ते सुना। सुबह उसने नबी सल्लल्लाहु अलैहि वसल्लम से इसका ज़िक्र किया, जैसे उसे कम समझ रहा हो।",
   "tags": [
    "Z1"
-  ]
+  ],
+  "audio": "audio/tts/040_ustaad.wav",
+  "seconds": 16.96,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -557,7 +638,10 @@
   "text": "नबी सल्लल्लाहु अलैहि वसल्लम ने फ़रमाया: 'उसकी क़सम जिसके हाथ में मेरी जान है, ये ज़रूर क़ुरआन के तिहाई के बराबर है।'",
   "tags": [
    "Z1"
-  ]
+  ],
+  "audio": "audio/tts/041_ustaad.wav",
+  "seconds": 10.88,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -569,7 +653,10 @@
   "text": "मुस्लिम की हदीस में अबू हुरैरा रज़ियल्लाहु अन्हु की रिवायत है: नबी सल्लल्लाहु अलैहि वसल्लम ने लोगों को इकट्ठा करके ये सूरह पढ़ी, और फ़रमाया कि ये क़ुरआन के तिहाई के बराबर है।",
   "tags": [
    "Z3"
-  ]
+  ],
+  "audio": "audio/tts/042_ustaad.wav",
+  "seconds": 15.12,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -581,7 +668,10 @@
   "text": "'तिहाई' का मतलब क्या है, इस पर उलमा के क़ौल अलग हैं; एक क़ौल ये है कि क़ुरआन की बातें तीन हिस्सों में हैं, और अल्लाह के नामों-सिफ़तों का हिस्सा इस सूरह में है।",
   "tags": [
    "Z6"
-  ]
+  ],
+  "audio": "audio/tts/043_ustaad.wav",
+  "seconds": 14.4,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -593,7 +683,10 @@
   "text": "आइशा रज़ियल्लाहु अन्हा बताती हैं, और बुख़ारी व मुस्लिम दोनों में है: एक आदमी, जो एक दस्ते के सरदार थे, नमाज़ में अपनी क़िरात हर बार 'क़ुल हुवल्लाहु अहद' पर ख़त्म करते थे।",
   "tags": [
    "Z4"
-  ]
+  ],
+  "audio": "audio/tts/044_ustaad.wav",
+  "seconds": 14.72,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -605,7 +698,10 @@
   "text": "वजह पूछी गई, तो उन्होंने कहा: 'ये रहमान की सिफ़त है, और मुझे इसे पढ़ना पसंद है।' नबी सल्लल्लाहु अलैहि वसल्लम ने फ़रमाया: 'उसे बता दो कि अल्लाह उससे मुहब्बत करता है।'",
   "tags": [
    "Z4"
-  ]
+  ],
+  "audio": "audio/tts/045_ustaad.wav",
+  "seconds": 15.08,
+  "tts_ok": true
  },
  {
   "kind": "section",
@@ -625,7 +721,10 @@
   "section": "5. SEEKH",
   "ayah": null,
   "text": "उस्ताद जी, इस सूरह से हमें क्या सीख मिलती है?",
-  "tags": []
+  "tags": [],
+  "audio": "audio/tts/046_sawaal.wav",
+  "seconds": 3.96,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -637,7 +736,10 @@
   "text": "पहली: अल्लाह एक है, अकेला — उसका कोई साझी नहीं। भरोसा और उम्मीद उसी से जुड़ी रहे।",
   "tags": [
    "M1"
-  ]
+  ],
+  "audio": "audio/tts/047_ustaad.wav",
+  "seconds": 9.08,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -649,7 +751,10 @@
   "text": "दूसरी: सब उसके मोहताज हैं, और वो किसी का मोहताज नहीं — तो मदद की उम्मीद उसी से।",
   "tags": [
    "M2"
-  ]
+  ],
+  "audio": "audio/tts/048_ustaad.wav",
+  "seconds": 7.56,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -661,7 +766,10 @@
   "text": "तीसरी: तफ़्सीर के मुताबिक़ ये चार आयतें हर ग़लत ख़याल को एक-एक करके हटाती हैं — इसे मतलब समझ कर पढ़ें।",
   "tags": [
    "M5"
-  ]
+  ],
+  "audio": "audio/tts/049_ustaad.wav",
+  "seconds": 11.08,
+  "tts_ok": true
  },
  {
   "kind": "screen",
@@ -679,7 +787,10 @@
   "text": "अगली बार, नूर-ए-राह में: सूरह अल-फ़लक़ — सुबह के रब की पनाह।",
   "tags": [
    "NEXT"
-  ]
+  ],
+  "audio": "audio/tts/050_ustaad.wav",
+  "seconds": 6.72,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -689,7 +800,10 @@
   "section": "5. SEEKH",
   "ayah": null,
   "text": "और आप कमेंट में बताइए — इन चार आयतों में से कौन-सी बात आपके दिल को सबसे ज़्यादा छू गई, और क्यों।",
-  "tags": []
+  "tags": [],
+  "audio": "audio/tts/051_sawaal.wav",
+  "seconds": 7.24,
+  "tts_ok": true
  },
  {
   "kind": "cue",

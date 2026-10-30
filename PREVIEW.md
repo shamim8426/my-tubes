@@ -1,6 +1,6 @@
 # Preview — Jugnu Stories
 
-**Budget bacha:** ₹142.56  ·  **Last image:** 2026-10-30 06:51:05
+**Budget bacha:** ₹127.78  ·  **Last image:** 2026-10-30 07:08:10
 
 ## Characters
 
@@ -673,3 +673,7 @@
 ### 09_morning_palm_path — ₹4.37 · 2026-10-30 06:51:05
 
 ![09_morning_palm_path](channels/noor-e-raah/stories/003_al-ikhlas/images/09_morning_palm_path.png)
+
+### thumb_scene_a — ₹4.42 · 2026-10-30 07:08:10
+
+![thumb_scene_a](channels/noor-e-raah/stories/003_al-ikhlas/images/thumb_scene_a.png)
