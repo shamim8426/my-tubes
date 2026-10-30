@@ -1,4 +1,5 @@
 {
+ "text_scale": 1.0,
  "_note": "Al-Fatiha screen config (the values that used to be hard-coded in scripts/noor_render.py).",
  "title_ar": "سُورَةُ ٱلْفَاتِحَةِ",
  "title_hi": "सूरह अल-फ़ातिहा",

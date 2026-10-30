@@ -153,3 +153,8 @@ accepted translations. Revisit only if a translation's own terms say commercial/
 ## Metadata
 - Description: the sources list (tafseer books, Arabic text source, translation source with its attribution).
 - `contains_synthetic_media`: set per channel decision before the first upload (AI narrator voice / AI images).
+
+## Screen text size (user 2026-10-30, after Noor 002 v2; every Noor video from 003)
+Hindi text on screen was too small and the subtitles too plain. Now: `scripts/noor_render.py` scales all Hindi text by `text_scale`
+(default 1.35, render.json can override; story 001 = 1.0), subtitles in a soft rounded dark box, 2 balanced lines (no one-word
+orphan), tighter line pitch, ucharan/label/cards larger (`tools/text_pil.py`). Munshi final checks readability on a phone-size frame.

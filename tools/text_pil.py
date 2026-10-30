@@ -62,7 +62,20 @@ def render(text, style, maxw=None, max_lines=None, hl=HL_DEFAULT):
         if not max_lines or len(lines) <= max_lines or scale <= 0.7:
             break
         scale -= 0.05
-    asc, line_h = MUKTA_ASC * px, (MUKTA_ASC + MUKTA_DESC) * px
+    if len(lines) == 2:  # balance the two lines (no one-word orphan on line 2): narrowest width that still gives 2 lines
+        full = font.getlength(" ".join(w for w, _ in _tokens(text)))
+        lo, hi = full / 2, maxw
+        for _ in range(12):
+            mid = (lo + hi) / 2
+            if len(_wrap(_tokens(text), font, mid)) <= 2:
+                hi = mid
+            else:
+                lo = mid
+        lines = _wrap(_tokens(text), font, hi)
+    asc = MUKTA_ASC * px
+    natural = (MUKTA_ASC + MUKTA_DESC) * px
+    line_h = style.get("pitch", MUKTA_ASC + MUKTA_DESC) * px  # tighter than the font line height reads better
+    asc += (line_h - natural) / 2
     widths = [font.getlength(" ".join(w for w, _ in ln)) for ln in lines]
     ol, sh = float(style.get("outline", 0)), float(style.get("shadow", 0))
     box = style.get("box")
@@ -89,8 +102,12 @@ def render(text, style, maxw=None, max_lines=None, hl=HL_DEFAULT):
     if box:
         x0 = (W - max(widths)) / 2 - ol
         d = ImageDraw.Draw(out)
-        d.rectangle([x0, pad - ol, x0 + max(widths) + 2 * ol, pad + line_h * len(lines) + ol],
-                    fill=(*box[:3], int(round(255 * box[3]))))
+        rect = [x0, pad - ol, x0 + max(widths) + 2 * ol, pad + line_h * len(lines) + ol]
+        fillc = (*box[:3], int(round(255 * box[3])))
+        if style.get("radius"):
+            d.rounded_rectangle(rect, radius=style["radius"], fill=fillc)
+        else:
+            d.rectangle(rect, fill=fillc)
     def layer(mask, rgb, op):
         a = mask.point(lambda v: int(v * op))
         return Image.merge("RGBA", (*[Image.new("L", (W, H), c) for c in rgb], a))

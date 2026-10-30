@@ -53,8 +53,8 @@ LABEL = "सरल भावार्थ — माने हुए तर्ज
 SERIES_DEFAULT, TAGLINE_DEFAULT = "नूर-ए-राह", "क़ुरआन, आसान ज़बान में।"
 # Hindi text drawn by Pillow (same look as the libass styles in ass_doc); ASS size / colours converted: ASS alpha 0 = opaque
 PIL_STYLES = {
-    "Sub_ustaad": dict(size=62, fill=(255, 255, 255), box=(0, 0, 0, 0.55), outline=12),
-    "Sub_sawaal": dict(size=62, fill=(245, 216, 128), box=(0, 0, 0, 0.55), outline=12),
+    "Sub_ustaad": dict(size=62, fill=(255, 255, 255), box=(8, 12, 22, 0.62), outline=14, radius=16, pitch=1.4),
+    "Sub_sawaal": dict(size=62, fill=(246, 214, 120), box=(8, 12, 22, 0.62), outline=14, radius=16, pitch=1.4),
     "Card": dict(size=56, fill=(255, 255, 255), box=(8, 20, 38, 0.61), outline=14),
     "Translit": dict(size=52, fill=(240, 225, 170), outline=3, outline_rgba=(0, 0, 0, 0.5), shadow=2, shadow_rgba=(0, 0, 0, 0.7)),
     "Label": dict(size=44, fill=(255, 255, 255), opacity=0.92, shadow=2, shadow_rgba=(0, 0, 0, 0.5)),
@@ -64,6 +64,7 @@ PIL_STYLES = {
                   shadow_rgba=(0, 0, 0, 0.7)),
 }
 TRANSLIT_Y, LABEL_Y_TR, TRANSLIT_BAND_BOTTOM = 480, 640, 700  # layout when a story has "ucharan" lines
+TEXT_SCALE_DEFAULT = 1.35
 CFG = {}  # per-story screen config, set by load_cfg(story) (long/render.json); see render_cfg_help below
 
 
@@ -309,6 +310,12 @@ def ts(t):
     return f"{int(t // 3600)}:{int(t % 3600 // 60):02d}:{t % 60:05.2f}"
 
 
+def sz(n: int) -> int:
+    """Hindi text size: ASS size n scaled by render.json "text_scale" (default TEXT_SCALE_DEFAULT; story 001 keeps 1.0).
+    User 2026-10-30 (after Noor 002 v2): the Hindi text was too small, subtitles should be bigger and more professional."""
+    return int(round(n * CFG.get("text_scale", TEXT_SCALE_DEFAULT)))
+
+
 def use_pillow() -> bool:
     """Hindi engine: render.json "hindi_engine" = pillow | libass; auto = Pillow where libraqm exists (the cloud), libass on the PC."""
     e = CFG.get("hindi_engine", "auto")
@@ -320,18 +327,18 @@ def ass_doc(tl, pil=False):
             "[V4+ Styles]\nFormat: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, "
             "Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, "
             "MarginL, MarginR, MarginV, Encoding\n")
-    styles = [f"Style: Sub_{who},Mukta Bold,62,{col},&H00FFFFFF,&H73000000,&H73000000,0,0,0,0,100,100,0,0,3,12,0,2,160,160,70,1"
+    styles = [f"Style: Sub_{who},Mukta Bold,{sz(62)},{col},&H00FFFFFF,&H73000000,&H73000000,0,0,0,0,100,100,0,0,3,12,0,2,160,160,70,1"
               for who, col in SUB_COLOUR.items()]
-    styles += ["Style: Card,Mukta Bold,56,&H00FFFFFF,&H00FFFFFF,&H64261408,&H64261408,0,0,0,0,100,100,0,0,3,14,0,7,0,0,0,1",
-               "Style: Label,Mukta Bold,44,&H14FFFFFF,&H00FFFFFF,&H80000000,&H80000000,0,0,0,0,100,100,0,0,1,0,2,8,0,0,0,1",
-               "Style: Big,Mukta Bold,92,&H00FFFFFF,&H00FFFFFF,&H90000000,&H00000000,0,0,0,0,100,100,0,0,1,3,2,8,0,0,0,1",
-               "Style: Gold,Mukta Bold,54,&H005AA5C9,&H00FFFFFF,&H90000000,&H00000000,0,0,0,0,100,100,0,0,1,2,1,8,0,0,0,1",
-               "Style: Small,Mukta Bold,34,&H20FFFFFF,&H00FFFFFF,&H90000000,&H00000000,0,0,0,0,100,100,0,0,1,2,1,8,0,0,0,1",
+    styles += [f"Style: Card,Mukta Bold,{sz(56)},&H00FFFFFF,&H00FFFFFF,&H64261408,&H64261408,0,0,0,0,100,100,0,0,3,14,0,7,0,0,0,1",
+               f"Style: Label,Mukta Bold,{sz(44)},&H14FFFFFF,&H00FFFFFF,&H80000000,&H80000000,0,0,0,0,100,100,0,0,1,0,2,8,0,0,0,1",
+               f"Style: Big,Mukta Bold,{sz(92)},&H00FFFFFF,&H00FFFFFF,&H90000000,&H00000000,0,0,0,0,100,100,0,0,1,3,2,8,0,0,0,1",
+               f"Style: Gold,Mukta Bold,{sz(54)},&H005AA5C9,&H00FFFFFF,&H90000000,&H00000000,0,0,0,0,100,100,0,0,1,2,1,8,0,0,0,1",
+               f"Style: Small,Mukta Bold,{sz(34)},&H20FFFFFF,&H00FFFFFF,&H90000000,&H00000000,0,0,0,0,100,100,0,0,1,2,1,8,0,0,0,1",
                # Arabic through libass too: ffmpeg drawtext put the harakat off their letters (Munshi final R1 BLOCKER)
                "Style: Ayah,Amiri,140,&H00FFFFFF,&H00FFFFFF,&H00000000,&H99000000,0,0,0,0,100,100,0,0,1,0,3,8,0,0,0,0",
                "Style: ArTitle,Amiri,400,&H00B8E3F3,&H00FFFFFF,&H00000000,&H99000000,0,0,0,0,100,100,0,0,1,0,4,8,0,0,0,0"]
     if any(l["role"] == "ucharan" for l in tl["lines"]):  # only stories with ucharan lines (001 keeps its exact ASS)
-        styles.append("Style: Translit,Mukta Bold,52,&H00AAE1F0,&H00FFFFFF,&H80000000,&H80000000,0,0,0,0,100,100,0,0,1,3,2,8,0,0,0,1")
+        styles.append(f"Style: Translit,Mukta Bold,{sz(52)},&H00AAE1F0,&H00FFFFFF,&H80000000,&H80000000,0,0,0,0,100,100,0,0,1,3,2,8,0,0,0,1")
     ev = []
     tl["hindi"] = []
 
@@ -515,9 +522,14 @@ class HindiOverlay:
 
     def sprite(self, k, e):
         if k not in self.cache:
-            st = PIL_STYLES[e["style"]]
+            st = dict(PIL_STYLES[e["style"]])
+            sc = CFG.get("text_scale", TEXT_SCALE_DEFAULT)
+            st["size"] = st["size"] * sc
+            for k in ("outline", "shadow"):
+                if k in st:
+                    st[k] = st[k] * (sc if e["style"].startswith("Sub_") is False else 1.0)
             sub = e["style"].startswith("Sub_")
-            spr = TP.render(e["text"], st, maxw=1600 if sub else 1700, max_lines=2 if sub else None)
+            spr = TP.render(e["text"], st, maxw=1640 if sub else 1760, max_lines=2 if sub else None)
             h, w = spr.shape[:2]
             x, y = e["pos"]
             x = x - w // 2 if e["an"] in (8, 2) else x  # an 8 / 2 = centred on x, an 7 = left edge at x
