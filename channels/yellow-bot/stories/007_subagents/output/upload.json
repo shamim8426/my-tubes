@@ -1,0 +1,27 @@
+{
+  "channel_key": "yellow-bot",
+  "channel_name": "yellow Bot",
+  "channel_id": "UCpElgKdJOgQiyfwdGXz6GmA",
+  "format": "short",
+  "title": "Claude Code Subagents: bada kaam helper ko do #shorts",
+  "description": "Context bhar jaye to? Subagent apne alag context me kaam karta hai aur main chat me sirf summary bhejta hai. Subagent file, use karne ke tareeke, aur kab main chat vs subagent.\n\nSource (official docs): https://code.claude.com/docs/en/sub-agents\n\nUnofficial channel, not affiliated with Anthropic.\n\nMusic: \"Funkorama\" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttp://creativecommons.org/licenses/by/4.0/\n\n#shorts #ClaudeCode #Subagents #AI #Hinglish",
+  "tags": [
+    "Claude Code",
+    "Claude Code subagents",
+    "subagents",
+    "custom subagents",
+    "AI agents",
+    "AI coding",
+    "Hinglish",
+    "Hindi tech",
+    "Claude AI tutorial",
+    "Shorts"
+  ],
+  "video": "short.mp4",
+  "language": "hi",
+  "made_for_kids": false,
+  "contains_synthetic_media": true,
+  "category_id": "28",
+  "privacy": "private",
+  "parent_video_id": null
+}

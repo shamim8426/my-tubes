@@ -10,3 +10,4 @@
 - 2026-10-31 stage scene type (keyframed picture-story layers) added; 006 Hooks opener rebuilt as robot demo (edit -> PostToolUse hook -> Hook helper -> file cleaned); voice s_00 regenerated (free key, Rs0); total 63.5 s. STYLE_GUIDE v2 written (channel theme + 'every video adds one enhancement' rule).
 
 - 2026-10-31 006 Hooks UPLOADED private: https://youtu.be/GpVCvYrwqd4 (63.5 s, yuv420p after range fix in html_video.py; channel.json short_max_seconds 75; contains_synthetic_media true; not Munshi-reviewed, user asked direct upload). Studio: user makes it public.
+- 2026-10-31 007 Subagents UPLOADED private: https://youtu.be/XdC3f07GzXw (50.9 s, -15.0 LUFS, TP -1.4; free TTS 5 lines + paid 2 lines ~Rs0.1; ~35 min incl. setup). Fact-check PASS (review/factcheck.md). New: stage layer 'meter' (context bar).

@@ -28,3 +28,6 @@
 - Subagents (003), MCP (005), Skills (004): redo with Hinglish + robot + music + picture-story opener.
 - Tighten team.png crops (centres ~0.156/0.38/0.61/0.84, width ~0.2).
 - Channel not created yet (user gives channel ID + language); Munshi review and upload not done.
+
+## Enhancements log
+- 007 Subagents: stage layer kind `meter` (yellow progress bar, keyframe `f` 0-1) to show a context window filling. Note: keyframes interpolate from the previous keyframe, so repeat `o:1` to hold opacity.
