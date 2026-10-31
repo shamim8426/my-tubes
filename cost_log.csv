@@ -811,3 +811,21 @@ timestamp,file,model,size,cost_usd,cost_inr,today_total_inr,remaining_inr,channe
 2026-10-31 03:53:02,channels/_new_claude_explainer/stories/002_claude-features/audio/alt/Iapetus.wav,gemini-3.8-flash-tts,tts 9.1s,0.00207,0.20,3.24,108.89,_new_claude_explainer,0.21,0.1997,0.04,35,228
 2026-10-31 03:53:11,channels/_new_claude_explainer/stories/002_claude-features/audio/alt/Sadaltager.wav,gemini-3.8-flash-tts,tts 10.2s,0.00230,0.22,3.50,108.63,_new_claude_explainer,0.23,0.2223,0.04,35,254
 2026-10-31 11:51:44,channels/_new_claude_explainer/stories/003_subagents/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 6.5s free,0.00000,0.00,3.50,108.63,_new_claude_explainer,0.15,0.0000,0.00,27,163
+2026-10-31 12:07:53,channels/_new_claude_explainer/stories/003_subagents/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 8.9s,0.00202,0.19,3.73,108.40,_new_claude_explainer,0.20,0.1949,0.04,26,223
+2026-10-31 12:08:04,channels/_new_claude_explainer/stories/003_subagents/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 9.9s,0.00225,0.22,3.99,108.14,_new_claude_explainer,0.22,0.2175,0.04,43,248
+2026-10-31 12:08:15,channels/_new_claude_explainer/stories/003_subagents/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 7.6s,0.00173,0.17,4.18,107.94,_new_claude_explainer,0.17,0.1673,0.03,29,191
+2026-10-31 12:08:24,channels/_new_claude_explainer/stories/003_subagents/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 7.7s,0.00174,0.17,4.38,107.74,_new_claude_explainer,0.17,0.1680,0.03,26,192
+2026-10-31 12:08:34,channels/_new_claude_explainer/stories/003_subagents/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 9.1s,0.00206,0.20,4.62,107.51,_new_claude_explainer,0.21,0.1990,0.04,38,227
+2026-10-31 12:08:44,channels/_new_claude_explainer/stories/003_subagents/audio/tts/s_06.wav,gemini-3.8-flash-tts,tts 6.4s,0.00147,0.14,4.78,107.34,_new_claude_explainer,0.15,0.1414,0.03,32,161
+2026-10-31 12:11:27,channels/_new_claude_explainer/stories/004_skills/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 5.4s,0.00122,0.12,4.92,107.20,_new_claude_explainer,0.12,0.1182,0.02,20,135
+2026-10-31 12:11:37,channels/_new_claude_explainer/stories/004_skills/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 8.4s,0.00191,0.18,5.14,106.99,_new_claude_explainer,0.19,0.1842,0.03,37,210
+2026-10-31 12:11:47,channels/_new_claude_explainer/stories/004_skills/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 11.9s,0.00270,0.26,5.45,106.68,_new_claude_explainer,0.27,0.2608,0.05,42,298
+2026-10-31 12:11:57,channels/_new_claude_explainer/stories/004_skills/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 6.5s,0.00147,0.14,5.62,106.51,_new_claude_explainer,0.15,0.1419,0.03,25,162
+2026-10-31 12:12:07,channels/_new_claude_explainer/stories/004_skills/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 8.9s,0.00202,0.20,5.85,106.28,_new_claude_explainer,0.20,0.1954,0.04,35,223
+2026-10-31 12:12:15,channels/_new_claude_explainer/stories/004_skills/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 5.2s,0.00118,0.11,5.98,106.15,_new_claude_explainer,0.12,0.1140,0.02,22,130
+2026-10-31 12:14:34,channels/_new_claude_explainer/stories/005_mcp/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 8.5s,0.00192,0.19,6.20,105.93,_new_claude_explainer,0.19,0.1854,0.03,27,212
+2026-10-31 12:14:43,channels/_new_claude_explainer/stories/005_mcp/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 10.1s,0.00229,0.22,6.46,105.67,_new_claude_explainer,0.23,0.2213,0.04,32,253
+2026-10-31 12:14:52,channels/_new_claude_explainer/stories/005_mcp/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 8.9s,0.00202,0.20,6.69,105.44,_new_claude_explainer,0.20,0.1950,0.04,28,223
+2026-10-31 12:15:02,channels/_new_claude_explainer/stories/005_mcp/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 13.2s,0.00298,0.29,7.03,105.10,_new_claude_explainer,0.29,0.2878,0.05,42,329
+2026-10-31 12:15:11,channels/_new_claude_explainer/stories/005_mcp/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 7.6s,0.00172,0.17,7.23,104.90,_new_claude_explainer,0.17,0.1663,0.03,26,190
+2026-10-31 12:15:21,channels/_new_claude_explainer/stories/005_mcp/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 3.3s,0.00075,0.07,7.31,104.81,_new_claude_explainer,0.08,0.0719,0.01,15,82

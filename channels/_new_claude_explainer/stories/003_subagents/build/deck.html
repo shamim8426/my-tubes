@@ -16,6 +16,7 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#fff}
 .w{display:inline-block;margin-right:.26em;white-space:pre}
 .line{display:flex;flex-wrap:wrap;font-weight:800;line-height:1.28;letter-spacing:-.5px}
 .card{position:absolute;border-radius:44px}
+.dk .hl{background:linear-gradient(#FFD60A,#FFD60A) no-repeat 0 50%/var(--w,0%) 100%;color:#111;border-radius:14px;padding:0 .16em}
 .ink{background:#111;color:#FFD60A}
 .yel{background:#FFD60A;color:#111}
 .grey{background:#F2F2F2;color:#111}
@@ -28,7 +29,7 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#fff}
 </style></head>
 <body><div id="stage"><div id="scenes"></div><div id="bar"></div><div id="wipe"></div></div>
 <script>
-const D={"tag": "Claude Code · Subagents", "scenes": [{"id": "hook", "type": "statement", "wipe": "right", "voice": "बड़े कोडबेस को खंगालने में आपकी बातचीत फाइलों से भर जाती है। इसका एक हल है, Subagents।", "lines": ["बड़े कोडबेस में", "बातचीत **भर जाती** है", "हल: **Subagents**"], "cues": [0.2, 2.33, 5.43], "size": 100, "top": 560, "gap": 26, "start": 0.0, "end": 7.632}, {"id": "what", "type": "chips", "wipe": "up", "voice": "Subagent एक खास AI असिस्टेंट है। उसका अपना context window, अपना system prompt, अपने tools और अपनी permissions होती हैं।", "parent": "Main chat · आपकी बातचीत", "title": "Subagent", "chips": ["अपना context window", "अपना system prompt", "अपने tools", "अपनी permissions"], "y0": 300, "cues": [0.2, 1.13, 3.2, 4.87, 6.46, 7.58], "start": 7.632, "end": 17.97}, {"id": "flow", "type": "flow", "wipe": "left", "voice": "आप कहते हैं, इसकी जाँच subagent से कराओ। वो अपनी अलग window में फाइलें पढ़ता है, और सिर्फ़ सारांश वापस भेजता है। इसलिए आपकी मुख्य बातचीत साफ़ रहती है।", "nodes": [{"t": "आप", "s": "काम सौंपते हैं"}, {"t": "Subagent", "s": "अलग window में फाइलें पढ़ता है"}, {"t": "सारांश", "s": "सिर्फ़ summary वापस आती है"}, {"t": "Main chat", "s": "साफ़ और हल्की रहती है"}], "cues": [0.2, 2.01, 6.86, 10.04], "nh": 232, "gap": 96, "start": 17.97, "end": 30.85}, {"id": "docs", "type": "docs", "wipe": "right", "img": "subagents.png", "url": "code.claude.com/docs/en/sub-agents", "voice": "Docs के मुताबिक़, subagents से आप context बचाते हैं, tools सीमित करते हैं, और सस्ते मॉडल पर काम भेज सकते हैं।", "scroll": [900, 1000], "ch": 1180, "callout": "context **बचाओ**, tools **सीमित** करो", "cosize": 70, "cues": [2.88], "hls": [{"x": 60, "y": 1128, "w": 1150, "h": 44, "at": 2.88}, {"x": 60, "y": 1182, "w": 880, "h": 44, "at": 4.4}, {"x": 60, "y": 1344, "w": 1130, "h": 44, "at": 6.38}], "hlcues": ["context बचाते", "tools सीमित", "सस्ते मॉडल"], "start": 30.85, "end": 40.368, "imgUrl": "file:///D:/Story-Channel/channels/_new_claude_explainer/shared_docs/subagents.png"}, {"id": "file", "type": "code", "wipe": "up", "file": ".claude/agents/code-reviewer.md", "size": 46, "voice": "Subagent एक Markdown फाइल होती है। उसमें name और description ज़रूरी हैं, और tools और model चाहें तो चुन सकते हैं।", "lines": ["---", "name: code-reviewer", "description: Reviews my code", "tools: Read, Glob, Grep", "model: sonnet", "---"], "y0": 330, "caption": "सिर्फ़ **name** और **description** ज़रूरी", "cosize": 76, "cues": [1.13, 3.44, 4.08, 6.23, 6.94, 8.13, 5.03], "start": 40.368, "end": 50.214}, {"id": "builtin", "type": "list", "wipe": "right", "voice": "Claude Code में तीन built-in subagents हैं। Explore सिर्फ़ पढ़ता है, Plan, plan mode में रिसर्च करता है, और General-purpose जटिल काम संभालता है।", "items": [{"k": "Explore", "d": "सिर्फ़ पढ़ता है (read-only)"}, {"k": "Plan", "d": "plan mode में रिसर्च"}, {"k": "General-purpose", "d": "जटिल, कई चरणों वाले काम"}], "cues": [3.68, 5.67, 8.77], "rh": 410, "ksize": 84, "dsize": 54, "start": 50.214, "end": 62.602}, {"id": "cta", "type": "cta", "wipe": "left", "voice": "चाहें तो Claude से ही कहिए, मेरे लिए एक subagent लिख दो। आप कौन सा subagent बनाएँगे? कमेंट में बताइए।", "lines": ["Claude से कहिए:", "**\"subagent लिख दो\"**", "आप कौन सा बनाएँगे?"], "sub": "कमेंट में बताइए", "cues": [0.2, 3.12, 4.95, 6.94], "size": 92, "start": 62.602, "end": 71.464}], "total": 71.664, "sfx": [7.632, 17.97, 30.85, 40.368, 50.214, 62.602]};
+const D={"tag": "Claude Code · Subagents", "scenes": [{"id": "hook", "type": "statement", "wipe": "right", "voice": "बड़े कोडबेस को खंगालने में आपकी बातचीत फाइलों से भर जाती है। इसका एक हल है, Subagents।", "lines": ["बड़े कोडबेस में", "बातचीत **भर जाती** है", "हल: **Subagents**"], "cues": [0.2, 2.17, 5.03], "size": 100, "top": 700, "gap": 26, "start": 0.0, "end": 7.1}, {"id": "what", "type": "chips", "wipe": "up", "voice": "Subagent एक खास AI असिस्टेंट है। उसका अपना context window, अपना system prompt, अपने tools और अपनी permissions होती हैं।", "parent": "Main chat · आपकी बातचीत", "title": "Subagent", "chips": ["अपना context window", "अपना system prompt", "अपने tools", "अपनी permissions"], "y0": 350, "cues": [0.2, 1.05, 2.94, 4.47, 5.92, 6.94], "start": 7.1, "end": 16.6}, {"id": "flow", "type": "flow", "wipe": "left", "voice": "आप कहते हैं, इसकी जाँच subagent से कराओ। वो अपनी अलग window में फाइलें पढ़ता है, और सिर्फ़ सारांश वापस भेजता है। इसलिए आपकी मुख्य बातचीत साफ़ रहती है।", "nodes": [{"t": "आप", "s": "काम सौंपते हैं"}, {"t": "Subagent", "s": "अलग window में फाइलें पढ़ता है"}, {"t": "सारांश", "s": "सिर्फ़ summary वापस आती है"}, {"t": "Main chat", "s": "साफ़ और हल्की रहती है"}], "cues": [0.2, 1.66, 5.57, 8.13], "nh": 232, "gap": 96, "start": 16.6, "end": 27.1}, {"id": "docs", "type": "docs", "wipe": "right", "img": "subagents.png", "url": "code.claude.com/docs/en/sub-agents", "voice": "Docs के मुताबिक़, subagents से आप context बचाते हैं, tools सीमित करते हैं, और सस्ते मॉडल पर काम भेज सकते हैं।", "scroll": [900, 1000], "ch": 1180, "callout": "context **बचाओ**, tools **सीमित** करो", "cosize": 66, "cues": [2.49], "hls": [{"x": 60, "y": 1128, "w": 1150, "h": 44, "at": 2.49}, {"x": 60, "y": 1182, "w": 880, "h": 44, "at": 3.78}, {"x": 60, "y": 1344, "w": 1130, "h": 44, "at": 5.48}], "hlcues": ["context बचाते", "tools सीमित", "सस्ते मॉडल"], "start": 27.1, "end": 35.32, "imgUrl": "file:///D:/Story-Channel/channels/_new_claude_explainer/shared_docs/subagents.png"}, {"id": "file", "type": "code", "wipe": "up", "file": ".claude/agents/code-reviewer.md", "size": 46, "voice": "Subagent एक Markdown फाइल होती है। उसमें name और description ज़रूरी हैं, और tools और model चाहें तो चुन सकते हैं।", "lines": ["---", "name: code-reviewer", "description: Reviews my code", "tools: Read, Glob, Grep", "model: sonnet", "---"], "y0": 450, "caption": "सिर्फ़ **name** और **description** ज़रूरी", "cosize": 76, "cues": [0.97, 2.88, 3.41, 5.19, 5.78, 6.77, 4.2], "start": 35.32, "end": 43.58}, {"id": "builtin", "type": "list", "wipe": "right", "voice": "Claude Code में तीन built-in subagents हैं। Explore सिर्फ़ पढ़ता है, Plan, plan mode में रिसर्च करता है, और General-purpose जटिल काम संभालता है।", "items": [{"k": "Explore", "d": "सिर्फ़ पढ़ता है (read-only)"}, {"k": "Plan", "d": "plan mode में रिसर्च"}, {"k": "General-purpose", "d": "जटिल, कई चरणों वाले काम"}], "cues": [2.87, 4.4, 6.79], "rh": 410, "y0": 380, "ksize": 72, "dsize": 54, "start": 43.58, "end": 53.24}, {"id": "cta", "type": "cta", "wipe": "left", "voice": "चाहें तो Claude से ही कहिए, मेरे लिए एक subagent लिख दो। आप कौन सा subagent बनाएँगे? कमेंट में बताइए।", "lines": ["Claude से कहिए:", "**subagent** लिख दो", "आप कौन सा बनाएँगे?"], "sub": "कमेंट में बताइए", "cues": [0.2, 2.47, 3.89, 5.44], "size": 92, "start": 53.24, "end": 60.26}], "total": 60.46, "sfx": [7.1, 16.6, 27.1, 35.32, 43.58, 53.24]};
 const W=1080,H=1920,TAG=D.tag||"";
 const E=id=>document.getElementById(id), c=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
 const eo=p=>1-Math.pow(1-p,4), eio=p=>p<.5?4*p*p*p:1-Math.pow(-2*p+2,3)/2;
@@ -58,7 +59,7 @@ B.statement=(sc,root)=>{
 B.chips=(sc,root)=>{
   tag(root,sc);
   const rh=sc.rowh||132,n=sc.chips.length,y0=sc.y0||280;
-  const par=mk(root,`left:80px;top:${y0}px;width:920px;height:180px;font-size:58px;font-weight:800;display:flex;align-items:center;padding-left:48px`,sc.parent,"card grey");
+  const par=mk(root,`left:80px;top:${y0}px;width:920px;height:180px;font-size:50px;font-weight:800;display:flex;align-items:center;padding-left:44px`,sc.parent,"card grey");
   reg(sc,par,cue(sc,0,.4),'pop',.5);
   const ar=mk(root,`left:524px;top:${y0+186}px;width:32px;height:0;background:#111;border-radius:6px`,'','abs');reg(sc,ar,cue(sc,1,1.0),'grow',.4,{prop:'height',to:70,noFade:1});
   const hd=mk(root,`left:502px;top:${y0+250}px;width:0;height:0;border-left:38px solid transparent;border-right:38px solid transparent;border-top:44px solid #111`,'','abs');reg(sc,hd,cue(sc,1,1.0)+.35,'fade',.2);
@@ -95,8 +96,8 @@ B.docs=(sc,root)=>{
   sc.imgEl=img;
   (sc.hls||[]).forEach((hh,i)=>{const r=mk(img,`left:${hh.x*sc0}px;top:${hh.y*sc0}px;width:${hh.w*sc0}px;height:${hh.h*sc0}px;background:rgba(255,214,10,.5);border:5px solid #FFD60A;border-radius:10px`,'','abs');reg(sc,r,hh.at,'fade',.35)});
   reg(sc,win,.3,'rise',.55,{dy:80});
-  if(sc.callout){const co=mk(root,`left:60px;top:${250+ch*.62}px;width:960px;padding:30px 44px;font-size:${sc.cosize||74}px;line-height:1.2;font-weight:800`,parse(sc.callout),'card ink shadow');
-    co.style.color='#fff';co.querySelectorAll('.hl').forEach(h=>{h.style.color='#111'});reg(sc,co,cue(sc,0,2.0),'pop',.55);co.querySelectorAll('[data-h]').forEach(h=>reg(sc,h,cue(sc,0,2.0)+.4,'wipe',.4))}
+  if(sc.callout){const co=mk(root,`left:60px;top:${250+ch*.62}px;width:960px;padding:30px 44px;font-size:${sc.cosize||74}px;line-height:1.2;font-weight:800`,parse(sc.callout),'card ink dk shadow');
+    co.style.color='#fff';reg(sc,co,cue(sc,0,2.0),'pop',.55);co.querySelectorAll('[data-h]').forEach(h=>reg(sc,h,cue(sc,0,2.0)+.4,'wipe',.4))}
   if(sc.chip){const chp=mk(root,'left:80px;top:'+(250+ch+86+40)+'px;font-size:44px;padding:18px 34px;border-radius:999px','',"abs yel mono");chp.innerHTML=sc.chip;reg(sc,chp,cue(sc,1,3.0),'pop',.5)}
   sc.upd=(lt)=>{const s=sc.scroll||[0,0];const q=eio(c((lt-.5)/(sc.end-sc.start-.9)));img.style.top=(-(s[0]+(s[1]-s[0])*q)*sc0)+'px'};
 };
@@ -116,7 +117,7 @@ B.code=(sc,root)=>{
 };
 B.list=(sc,root)=>{
   tag(root,sc);
-  let y=320;const rh=sc.rh||330;
+  let y=sc.y0||320;const rh=sc.rh||330;
   sc.items.forEach((it,i)=>{
     const row=mk(root,`left:80px;top:${y}px;width:920px;height:${rh-30}px;display:flex;align-items:center;gap:36px`,'','abs');
     row.innerHTML=`<div class="${i%2?'ink':'yel'}" style="flex:none;width:150px;height:150px;border-radius:36px;display:flex;align-items:center;justify-content:center;font-size:96px;font-weight:800">${i+1}</div><div><div style="font-size:${sc.ksize||88}px;font-weight:800;line-height:1.05">${it.k}</div><div style="font-size:${sc.dsize||52}px;font-weight:700;line-height:1.25;color:#333;margin-top:10px">${it.d}</div></div>`;
@@ -131,21 +132,23 @@ B.compare=(sc,root)=>{
     const card=mk(root,`left:${x}px;top:300px;width:${w}px;height:${150+n*150+40}px`,'',`card shadow ${ci?'ink':'grey'}`);
     reg(sc,card,cue(sc,ci,.4+ci*.6),'pop',.55);
     const t=mk(root,`left:${x+34}px;top:330px;width:${w-68}px;font-size:56px;font-weight:800;line-height:1.1;color:${ci?'#FFD60A':'#111'}`,col.title,'abs');reg(sc,t,cue(sc,ci,.4+ci*.6)+.2,'rise',.5);
-    col.rows.forEach((r,i)=>{const e=mk(root,`left:${x+34}px;top:${470+i*150}px;width:${w-68}px;font-size:44px;font-weight:700;line-height:1.2;color:${ci?'#fff':'#111'}`,'<span style="display:inline-block;width:18px;height:18px;border-radius:9px;background:#FFD60A;margin-right:14px"></span>'+r,'abs');
+    col.rows.forEach((r,i)=>{const e=mk(root,`left:${x+34}px;top:${470+i*150}px;width:${w-68}px;font-size:38px;font-weight:700;line-height:1.2;overflow-wrap:anywhere;color:${ci?'#fff':'#111'}`,'<span style="display:inline-block;width:18px;height:18px;border-radius:9px;background:#FFD60A;margin-right:14px"></span>'+r,'abs');
       reg(sc,e,cue(sc,2+ci*col.rows.length+i,1.4+i*.5+ci*1.2),ci?'right':'left',.5,{dx:90})})});
   const vs=mk(root,'left:480px;top:520px;width:120px;height:120px;border-radius:60px;font-size:50px;font-weight:800;display:flex;align-items:center;justify-content:center;border:6px solid #fff','VS','abs yel shadow');reg(sc,vs,cue(sc,0,.4)+.5,'pop',.5);
   if(sc.foot){const f=mk(root,'left:80px;top:'+(300+150+Math.max(sc.left.rows.length,sc.right.rows.length)*150+40+60)+'px;width:920px;font-size:60px;font-weight:800;line-height:1.3',parse(sc.foot),'abs line');const ct=cue(sc,99,5);reg(sc,f,ct,'rise',.5);f.querySelectorAll('[data-h]').forEach(h=>reg(sc,h,ct+.35,'wipe',.45))}
 };
 B.hub=(sc,root)=>{
   tag(root,sc);
-  const cx=540,cy=sc.cy||820,pts=sc.pts||[[540,430],[200,1180],[880,1180],[540,1420]];
-  const center=mk(root,`left:${cx-180}px;top:${cy-180}px;width:360px;height:360px;border-radius:180px;font-size:78px;font-weight:800;display:flex;align-items:center;justify-content:center;text-align:center;line-height:1.05`,sc.center,'ink shadow');
-  center.style.position='absolute';reg(sc,center,cue(sc,0,.3),'pop',.6);
+  const cx=540,cy=sc.cy||840,pts=sc.pts||[[540,430],[270,1190],[810,1190],[540,1440]];
   sc.nodes.forEach((nm,i)=>{const [px,py]=pts[i];const dx=px-cx,dy=py-cy,len=Math.hypot(dx,dy),ang=Math.atan2(dy,dx)*180/Math.PI;
-    const ln=mk(root,`left:${cx}px;top:${cy-6}px;width:0;height:12px;background:#111;border-radius:6px;transform-origin:0 50%;transform:rotate(${ang}deg)`,'','abs');reg(sc,ln,cue(sc,1+i,1.0+i*.9),'grow',.4,{prop:'width',to:len-150,noFade:1,keepT:1,rot:ang});
-    const nd=mk(root,`left:${px-220}px;top:${py-80}px;width:440px;height:160px;border-radius:80px;font-size:50px;font-weight:800;display:flex;align-items:center;justify-content:center;text-align:center;line-height:1.1;padding:0 24px`,nm,'abs yel shadow');
+    const ln=mk(root,`left:${cx}px;top:${cy-6}px;width:0;height:12px;background:#111;border-radius:6px;transform-origin:0 50%;transform:rotate(${ang}deg)`,'','abs');
+    reg(sc,ln,cue(sc,1+i,1.0+i*.9),'grow',.4,{prop:'width',to:len-110,noFade:1,rot:ang})});
+  const center=mk(root,`left:${cx-170}px;top:${cy-170}px;width:340px;height:340px;border-radius:170px;font-size:70px;font-weight:800;display:flex;align-items:center;justify-content:center;text-align:center;line-height:1.05`,sc.center,'abs ink shadow');
+  reg(sc,center,cue(sc,0,.3),'pop',.6);
+  sc.nodes.forEach((nm,i)=>{const [px,py]=pts[i];
+    const nd=mk(root,`left:${px-215}px;top:${py-80}px;width:430px;height:160px;border-radius:80px;font-size:46px;font-weight:800;display:flex;align-items:center;justify-content:center;text-align:center;line-height:1.1;padding:0 22px`,nm,'abs yel shadow');
     reg(sc,nd,cue(sc,1+i,1.0+i*.9)+.35,'pop',.5)});
-  if(sc.foot){const f=mk(root,'left:80px;top:1570px;width:920px;font-size:52px;font-weight:700;color:#444;line-height:1.3',sc.foot,'abs');reg(sc,f,cue(sc,9,5),'rise',.5)}
+  if(sc.foot){const f=mk(root,'left:80px;top:1600px;width:920px;font-size:52px;font-weight:700;color:#444;line-height:1.3',sc.foot,'abs');reg(sc,f,cue(sc,9,5),'rise',.5)}
 };
 B.cta=(sc,root)=>{
   tag(root,sc);

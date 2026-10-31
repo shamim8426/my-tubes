@@ -52,6 +52,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("story")
     ap.add_argument("--tts", action="store_true")
+    ap.add_argument("--paid", action="store_true", help="allow the paid key when the free quota is over (user OK 2026-10-31)")
     ap.add_argument("--still")
     ap.add_argument("--render", action="store_true")
     a = ap.parse_args()
@@ -69,11 +70,11 @@ def main():
             if f.exists():
                 continue
             try:
-                r = gemini_tts.speak(vtext(sc), spec["voice"]["id"], spec["voice"]["style"], f, free_only=True)
+                r = gemini_tts.speak(vtext(sc), spec["voice"]["id"], spec["voice"]["style"], f, free_only=not a.paid)
             except FreeQuotaOver as e:
                 left = [x.name for x in files if not x.exists()]
                 sys.exit(f"STOP (free only): {e}\n  still missing: {left}\n  Free quota resets daily; nothing was spent.")
-            print(f"scene {i} ({sc['id']}): {r['seconds']:.1f}s  Rs0 (free key)")
+            print(f"scene {i} ({sc['id']}): {r['seconds']:.1f}s  cost ~${r['usd']:.4f}" + ("  (FREE key)" if r['usd'] == 0 else "  (paid key)"))
         return
 
     durs = [wav_len(f) if f.exists() else 0.082 * len(vtext(sc)) for sc, f in zip(scenes, files)]

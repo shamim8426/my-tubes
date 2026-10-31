@@ -34,7 +34,7 @@ def build_audio(voice, sfx, lead, total, out):
     err = subprocess.run([FF, "-hide_banner", "-nostats", "-i", raw, "-af", "ebur128=framelog=quiet", "-f", "null", "-"],
                          capture_output=True, text=True).stderr
     lufs = float(re.findall(r"I:\s+(-?[0-9.]+) LUFS", err)[-1])
-    run(["-i", raw, "-af", f"volume={-14.0 - lufs:.2f}dB,alimiter=limit=0.89:level=false", "-ar", 48000, out])
+    run(["-i", raw, "-af", f"volume={-14.0 - lufs:.2f}dB,alimiter=limit=0.86:level=false", "-ar", 48000, out])
     Path(raw).unlink()
 
 
