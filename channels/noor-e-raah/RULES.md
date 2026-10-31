@@ -158,3 +158,9 @@ accepted translations. Revisit only if a translation's own terms say commercial/
 Hindi text on screen was too small and the subtitles too plain. Now: `scripts/noor_render.py` scales all Hindi text by `text_scale`
 (default 1.35, render.json can override; story 001 = 1.0), subtitles in a soft rounded dark box, 2 balanced lines (no one-word
 orphan), tighter line pitch, ucharan/label/cards larger (`tools/text_pil.py`). Munshi final checks readability on a phone-size frame.
+
+## Image reuse first (user 2026-10-31, every Noor video from 004)
+Before planning any new image, check `channels/noor-e-raah/image_library.md` and the earlier stories' `images/` folders. Reuse a fitting image
+(`"reuse"` in long/images.json = Rs0; a different crop/rect gives a fresh look). Generate a NEW image only when no library image can serve the scene,
+and write the reason in log.md. Thumbnail wallpaper stays new per video (free engine first) so thumbnails do not look identical.
+New images that are generic (landscapes, objects) are added to the library after the video.
