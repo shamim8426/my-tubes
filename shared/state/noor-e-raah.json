@@ -1,9 +1,9 @@
 {
  "story": "004_al-falaq",
  "stage": "upload",
- "status": "running",
+ "status": "done",
  "started": "2026-10-31T13:06:05",
- "finished": null,
+ "finished": "2026-10-31T13:06:26",
  "pid": 4336,
  "paid": false,
  "cost": null,

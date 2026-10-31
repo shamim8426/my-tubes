@@ -3,4 +3,4 @@
 | Channel | Story | Stage | Status | Since | Cost ₹ | Last error |
 |---|---|---|---|---|---|---|
 | jugnu-stories | 007_bachchon-ki-adalat | status | done | 2026-10-25T22:55:11 | 0 | - |
-| noor-e-raah | 004_al-falaq | upload | running | 2026-10-31T13:06:05 | - | 2026-10-31T12:37:52 build_long: None |
+| noor-e-raah | 004_al-falaq | upload | done | 2026-10-31T13:06:26 | - | 2026-10-31T12:37:52 build_long: None |

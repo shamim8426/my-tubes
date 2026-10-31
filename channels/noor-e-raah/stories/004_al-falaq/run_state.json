@@ -33,5 +33,15 @@
   "status": "done (skipped, already ok)",
   "at": "2026-10-31 13:06:05",
   "note": "Munshi PASS"
+ },
+ "upload": {
+  "status": "done",
+  "at": "2026-10-31 13:06:26",
+  "note": "https://youtu.be/Je03wdD0EvY"
+ },
+ "all": {
+  "status": "done",
+  "at": "2026-10-31 13:06:26",
+  "note": "pipeline finished"
  }
 }
