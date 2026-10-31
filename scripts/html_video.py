@@ -73,7 +73,10 @@ def main():
     n = int(round(total * FPS))
     enc = None
     with sync_playwright() as p:
-        b = p.chromium.launch(channel="chrome")
+        try:
+            b = p.chromium.launch(channel="chrome")
+        except Exception:  # cloud Linux has no Chrome: use the Chromium that Playwright installs
+            b = p.chromium.launch()
         pg = b.new_page(viewport={"width": 1080, "height": 1920})
         pg.goto(html.as_uri())
         pg.evaluate("document.fonts.ready")

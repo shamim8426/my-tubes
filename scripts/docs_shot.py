@@ -19,7 +19,10 @@ def main():
     find, before, height, width = arg("--find", ""), int(arg("--before", 380)), int(arg("--height", 1900)), int(arg("--width", 1000))
     out.parent.mkdir(parents=True, exist_ok=True)
     with sync_playwright() as p:
-        b = p.chromium.launch(channel="chrome")
+        try:
+            b = p.chromium.launch(channel="chrome")
+        except Exception:  # cloud Linux has no Chrome: use the Chromium that Playwright installs
+            b = p.chromium.launch()
         pg = b.new_page(viewport={"width": width, "height": 1200}, device_scale_factor=1.5, color_scheme="light")
         pg.goto(url, wait_until="domcontentloaded", timeout=60000)
         pg.wait_for_timeout(2500)
