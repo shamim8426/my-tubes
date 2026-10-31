@@ -1,0 +1,602 @@
+{
+ "_note": "Short 007: Subagents. Facts: official docs code.claude.com/docs/en/sub-agents (read 2026-10-31). New enhancement: stage layer kind 'meter' (context bar).",
+ "tag": "Claude Code · Subagents",
+ "music": {
+  "file": "shared/music/presentation/Funkorama.mp3",
+  "start": 6,
+  "rel": 12
+ },
+ "voice": {
+  "id": "Charon",
+  "style": "Speak like a friendly Indian tech YouTuber chatting casually in Hinglish. Natural conversational pace, warm and clear, a little energetic but not theatrical. No sing-song, no exaggerated emphasis."
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "type": "stage",
+   "wipe": "right",
+   "voice": "देखो, बड़ा काम आए, तो Claude एक helper को भेजता है। और main chat में बस summary आती है।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "Bada kaam? **Alag helper** ko do",
+     "x": 80,
+     "y": 1560,
+     "size": 74,
+     "hlAt": 1.2,
+     "k": [
+      [
+       0.3,
+       {
+        "o": 0,
+        "y": 1610
+       }
+      ],
+      [
+       0.8,
+       {
+        "o": 1,
+        "y": 1570
+       }
+      ],
+      [
+       4.0,
+       {
+        "o": 1
+       }
+      ],
+      [
+       4.4,
+       {
+        "o": 0,
+        "y": 1540
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "text",
+     "html": "Main chat me sirf **summary**",
+     "x": 80,
+     "y": 1560,
+     "size": 74,
+     "hlAt": 5.2,
+     "k": [
+      [
+       4.4,
+       {
+        "o": 0,
+        "y": 1610
+       }
+      ],
+      [
+       4.9,
+       {
+        "o": 1,
+        "y": 1570
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "Main context",
+     "cls": "ink",
+     "css": "font-size:34px;font-weight:800;padding:10px 30px;border-radius:999px;white-space:nowrap",
+     "x": 80,
+     "y": 330,
+     "k": [
+      [
+       0.2,
+       {
+        "o": 0,
+        "s": 0.7
+       }
+      ],
+      [
+       0.6,
+       {
+        "o": 1,
+        "s": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "meter",
+     "w": 920,
+     "h": 56,
+     "x": 80,
+     "y": 410,
+     "f": 0.1,
+     "k": [
+      [
+       0.2,
+       {
+        "o": 0,
+        "f": 0.1
+       }
+      ],
+      [
+       0.6,
+       {
+        "o": 1,
+        "f": 0.1
+       }
+      ],
+      [
+       6.0,
+       {
+        "f": 0.14
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "img",
+     "img": "wave",
+     "size": 340,
+     "x": 20,
+     "y": 560,
+     "bob": 1,
+     "k": [
+      [
+       0.1,
+       {
+        "x": -420,
+        "o": 1
+       }
+      ],
+      [
+       0.8,
+       {
+        "x": 20
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "Claude",
+     "cls": "ink",
+     "css": "font-size:40px;font-weight:800;padding:10px 30px;border-radius:999px;white-space:nowrap",
+     "x": 90,
+     "y": 520,
+     "k": [
+      [
+       0.8,
+       {
+        "o": 0,
+        "s": 0.6
+       }
+      ],
+      [
+       1.2,
+       {
+        "o": 1,
+        "s": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "doc",
+     "w": 420,
+     "h": 420,
+     "x": 580,
+     "y": 590,
+     "file": "logs.txt",
+     "lines": 8,
+     "k": [
+      [
+       0.5,
+       {
+        "o": 0,
+        "s": 0.7,
+        "mess": 1
+       }
+      ],
+      [
+       1.1,
+       {
+        "o": 1,
+        "s": 1,
+        "e": "b"
+       }
+      ],
+      [
+       2.3,
+       {
+        "x": 580,
+        "y": 590,
+        "s": 1,
+        "o": 1
+       }
+      ],
+      [
+       3.1,
+       {
+        "x": 120,
+        "y": 960,
+        "s": 0.45,
+        "o": 1
+       }
+      ],
+      [
+       3.5,
+       {
+        "o": 0
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "bhaari logs!",
+     "cls": "yel shadow",
+     "css": "font-size:40px;font-weight:800;padding:10px 30px;border-radius:999px;white-space:nowrap",
+     "x": 640,
+     "y": 520,
+     "k": [
+      [
+       1.5,
+       {
+        "o": 0,
+        "s": 0.4
+       }
+      ],
+      [
+       1.9,
+       {
+        "o": 1,
+        "s": 1,
+        "e": "b"
+       }
+      ],
+      [
+       2.6,
+       {
+        "o": 1
+       }
+      ],
+      [
+       3.0,
+       {
+        "o": 0
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "img",
+     "img": "team",
+     "aspect": 2,
+     "crop": [
+      0.49,
+      0.73
+     ],
+     "size": 440,
+     "x": 30,
+     "y": 1010,
+     "wob": {
+      "from": 3.2,
+      "amp": 2
+     },
+     "k": [
+      [
+       2.0,
+       {
+        "x": -320,
+        "o": 1
+       }
+      ],
+      [
+       2.8,
+       {
+        "x": 0,
+        "e": "b"
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "Subagent",
+     "cls": "yel",
+     "css": "font-size:40px;font-weight:800;padding:10px 30px;border-radius:999px;white-space:nowrap",
+     "x": 40,
+     "y": 1450,
+     "k": [
+      [
+       2.8,
+       {
+        "o": 0,
+        "s": 0.6
+       }
+      ],
+      [
+       3.2,
+       {
+        "o": 1,
+        "s": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "Subagent ka apna context",
+     "cls": "ink",
+     "css": "font-size:30px;font-weight:800;padding:10px 30px;border-radius:999px;white-space:nowrap",
+     "x": 330,
+     "y": 1235,
+     "k": [
+      [
+       3.0,
+       {
+        "o": 0,
+        "s": 0.7
+       }
+      ],
+      [
+       3.4,
+       {
+        "o": 1,
+        "s": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "meter",
+     "w": 680,
+     "h": 56,
+     "x": 330,
+     "y": 1155,
+     "f": 0,
+     "k": [
+      [
+       3.0,
+       {
+        "o": 0,
+        "f": 0
+       }
+      ],
+      [
+       3.4,
+       {
+        "o": 1,
+        "f": 0
+       }
+      ],
+      [
+       4.6,
+       {
+        "f": 0.9
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "summary",
+     "cls": "yel shadow",
+     "css": "font-size:44px;font-weight:800;padding:14px 34px;border-radius:30px;white-space:nowrap",
+     "x": 330,
+     "y": 1060,
+     "k": [
+      [
+       4.7,
+       {
+        "o": 0,
+        "s": 0.5,
+        "x": 330,
+        "y": 1060
+       }
+      ],
+      [
+       5.1,
+       {
+        "o": 1,
+        "s": 1,
+        "e": "b"
+       }
+      ],
+      [
+       6.2,
+       {
+        "x": 330,
+        "y": 800
+       }
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "what",
+   "type": "hub",
+   "wipe": "up",
+   "center": "<span style=\"font-size:54px\">Subagent</span>",
+   "cy": 880,
+   "nodes": [
+    "Apna context window",
+    "Apna system prompt",
+    "Chune hue tools",
+    "Alag permissions"
+   ],
+   "voice": "Subagent एक specialized AI assistant है। उसका अपना context window, system prompt, tools और permissions होते हैं।",
+   "cues": [
+    "Subagent एक",
+    "अपना context window",
+    "system prompt",
+    "tools और",
+    "permissions"
+   ]
+  },
+  {
+   "id": "file",
+   "type": "code",
+   "wipe": "left",
+   "file": ".claude/agents/code-reviewer.md",
+   "size": 34,
+   "y0": 330,
+   "voice": "Subagent बस एक Markdown file है, dot claude slash agents में। Frontmatter में name और description ज़रूरी हैं। नीचे का हिस्सा system prompt बनता है।",
+   "lines": [
+    "---",
+    "name: code-reviewer",
+    "description: Reviews code for quality",
+    "tools: Read, Glob, Grep",
+    "model: sonnet",
+    "---",
+    "You are a code reviewer. ..."
+   ],
+   "caption": "Sirf **name + description** zaroori",
+   "cosize": 64,
+   "cues": [
+    "Markdown file",
+    "Frontmatter",
+    "name और description",
+    "नीचे का हिस्सा"
+   ],
+   "robot": {
+    "img": "work",
+    "x": 610,
+    "y": 1330,
+    "size": 400,
+    "cue": "नीचे का हिस्सा"
+   }
+  },
+  {
+   "id": "call",
+   "type": "list",
+   "wipe": "right",
+   "y0": 320,
+   "rh": 340,
+   "ksize": 66,
+   "dsize": 42,
+   "voice": "बुलाने के तीन तरीके: Prompt में नाम लो, @-mention करो, या agent flag से पूरा session उसी की तरह चलाओ।",
+   "items": [
+    {
+     "k": "Naam lo",
+     "d": "Claude khud decide karta hai"
+    },
+    {
+     "k": "@-mention",
+     "d": "ek task ke liye pakka chalta hai"
+    },
+    {
+     "k": "--agent flag",
+     "d": "poora session us subagent jaisa"
+    }
+   ],
+   "cues": [
+    "तीन तरीके",
+    "Prompt में",
+    "@-mention",
+    "agent flag"
+   ]
+  },
+  {
+   "id": "parallel",
+   "type": "flow",
+   "wipe": "up",
+   "tsize": 50,
+   "nh": 200,
+   "gap": 90,
+   "voice": "Example: Claude auth, database और API पर अलग subagents parallel चलाता है, और आख़िर में findings जोड़ देता है।",
+   "nodes": [
+    {
+     "t": "Subagents parallel chalte hain",
+     "s": "auth, database, API"
+    },
+    {
+     "t": "Har ek alag explore karta hai",
+     "s": "apne hisse ko khud"
+    },
+    {
+     "t": "Claude findings jodta hai",
+     "s": "ek saaf jawab"
+    }
+   ],
+   "cues": [
+    "Claude auth",
+    "अलग subagents",
+    "आख़िर में",
+    "findings जोड़"
+   ],
+   "robot": {
+    "img": "think",
+    "x": 590,
+    "y": 1190,
+    "size": 440,
+    "cue": "आख़िर में"
+   }
+  },
+  {
+   "id": "when",
+   "type": "compare",
+   "wipe": "left",
+   "footcue": 5,
+   "voice": "Quick change या back-and-forth हो, तो main chat। Verbose output हो या बस summary चाहिए, तो subagent।",
+   "left": {
+    "title": "Main chat",
+    "rows": [
+     "Back-and-forth kaam",
+     "Quick chhota change"
+    ]
+   },
+   "right": {
+    "title": "Subagent",
+    "rows": [
+     "Verbose output",
+     "Tools limit karne hain",
+     "Bas summary chahiye"
+    ]
+   },
+   "foot": "Test chalao, **sirf failing** batao",
+   "cues": [
+    "Quick change",
+    "back-and-forth",
+    "main chat",
+    "Verbose output",
+    "बस summary"
+   ],
+   "robot": {
+    "img": "stop",
+    "x": 60,
+    "y": 1280,
+    "size": 420,
+    "cue": "बस summary"
+   }
+  },
+  {
+   "id": "cta",
+   "type": "cta",
+   "wipe": "up",
+   "size": 96,
+   "voice": "तो आप कौन सा subagent बनाओगे? Comment में बताओ।",
+   "lines": [
+    "Aap kaunsa",
+    "subagent **banaoge**?"
+   ],
+   "sub": "Comment me batao",
+   "cues": [
+    "आप कौन सा",
+    "subagent बनाओगे",
+    "Comment में"
+   ],
+   "robot": {
+    "img": "thumbs",
+    "x": 570,
+    "y": 1250,
+    "size": 460,
+    "cue": "Comment में"
+   }
+  }
+ ]
+}
