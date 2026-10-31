@@ -2,7 +2,7 @@
 
     .venv\\Scripts\\python -X utf8 scripts\\gen_robot.py <name> "<pose description>" [<name> "<pose>" ...]
 
-Output: channels/_new_claude_explainer/mascot/<name>.png (1024x1024, pure white background so it blends with `multiply` on the white
+Output: channels/yellow-bot/mascot/<name>.png (1024x1024, pure white background so it blends with `multiply` on the white
 slides). One shared character description keeps the robot recognisable across poses; flux gives no exact consistency, so check them."""
 import sys
 from pathlib import Path
@@ -10,7 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "scripts"))
 sys.path.insert(0, str(ROOT / "tools"))
-OUT = ROOT / "channels/_new_claude_explainer/mascot"
+OUT = ROOT / "channels/yellow-bot/mascot"
 CHARACTER = ("a cute friendly small robot mascot, round head with a dark rounded visor face and two big glowing yellow eyes, tiny antenna "
              "with a yellow ball, chubby rounded white and yellow body with black accents, flat vector sticker illustration, thick clean "
              "black outlines, simple soft shapes, full body, centered, solid pure white background, lots of empty white space around. "

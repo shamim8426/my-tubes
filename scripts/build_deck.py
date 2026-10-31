@@ -6,7 +6,7 @@ nothing: the voice uses ONLY the free Gemini key (stops when its daily quota is 
     .venv\\Scripts\\python -X utf8 scripts\\build_deck.py <story_dir> --render                # voice.wav + deck.html + short.mp4
 
 deck.json: {"tag", "voice": {id, style}, "scenes": [{id, type, voice, cues: [phrase of the voice text, ...], wipe, ...scene fields}]}
-Scene types live in channels/_new_claude_explainer/templates/deck_template.html. A cue is a phrase of the scene's voice text: the item
+Scene types live in channels/yellow-bot/templates/deck_template.html. A cue is a phrase of the scene's voice text: the item
 appears just before that phrase is spoken (position estimated from its place in the sentence).
 """
 import argparse
@@ -19,9 +19,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "scripts"))
-TEMPLATE = ROOT / "channels/_new_claude_explainer/templates/deck_template.html"
-DOCS = ROOT / "channels/_new_claude_explainer/shared_docs"
-MASCOT = ROOT / "channels/_new_claude_explainer/mascot"
+TEMPLATE = ROOT / "channels/yellow-bot/templates/deck_template.html"
+DOCS = ROOT / "channels/yellow-bot/shared_docs"
+MASCOT = ROOT / "channels/yellow-bot/mascot"
 LEAD, AFTER, SR = 0.30, 0.28, 24000
 
 

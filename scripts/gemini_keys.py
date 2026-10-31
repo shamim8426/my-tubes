@@ -18,7 +18,7 @@ from paths import CHANNELS
 ROOT = Path(__file__).resolve().parent.parent
 load_dotenv(ROOT / ".env")
 
-FREE_CHANNELS = {"noor-e-raah", "_new_claude_explainer"}  # 2026-10-31: user wants only free TTS for the Claude explainer videos (shares the Noor free quota)
+FREE_CHANNELS = {"noor-e-raah", "_new_claude_explainer", "yellow-bot"}  # 2026-10-31: user wants only free TTS for the Claude explainer videos (shares the Noor free quota)
 FREE_MODELS = {"gemini-3.8-flash-tts"}
 
 

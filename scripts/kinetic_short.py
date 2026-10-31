@@ -9,7 +9,7 @@ Only the TTS and (fallback) image steps cost money; both log to cost_log.csv.
 Spec <story_dir>/short.json: {"voice": {id, style}, "beats": [{layout, grad: [hex, hex], voice, lines, label, chip, badge, image, sub}]}.
 "*word*" in a line = emphasis (accent colour). Layouts: HOOK_IMG (full-bleed image + title), FEATURE (image card + badge + title + chip +
 lines), CTA (blurred image + question). Output: <story_dir>/short/output/short.mp4 (1080x1920, 30 fps, about -14 LUFS).
-Look follows channels/_new_claude_explainer/STYLE_GUIDE.md; nothing is copied from another creator.
+Look follows channels/yellow-bot/STYLE_GUIDE.md; nothing is copied from another creator.
 """
 import argparse
 import json

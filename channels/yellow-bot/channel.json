@@ -1,0 +1,21 @@
+{
+  "channel_key": "yellow-bot",
+  "display_name": "yellow Bot",
+  "title_suffix": "| Yellow Bot",
+  "brand_label": "Yellow Bot",
+  "channel_id": "UCpElgKdJOgQiyfwdGXz6GmA",
+  "secrets_dir": "secrets/yellow-bot",
+  "_secrets_note": "This channel's own OAuth client_secret.json + token.json (gitignored). Login: python tools/yt_auth.py <channel_key>",
+  "made_for_kids": false,
+  "contains_synthetic_media": false,
+  "category_id": "28",
+  "default_language": "hi",
+  "publish_times_ist": {
+    "long": "19:00",
+    "short": "20:00"
+  },
+  "short_after_long_min": 60,
+  "api_audited": false,
+  "_publish_note": "shared/RULES.md section 8 (2026-10-21): decided right after the upload from the IST clock. Long: 19:00-23:59 -> public now, 00:00-18:59 -> 19:00 same day; one long per day (else next free day). Short of a long: long + 60 min (19:00 -> 20:00; after 23:59 -> public now). api_audited false -> upload private + STUDIO ACTION message; true -> tools/youtube_upload.py sets public/publishAt itself.",
+  "playlists": {}
+}
