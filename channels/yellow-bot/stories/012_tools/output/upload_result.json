@@ -3,5 +3,6 @@
   "url": "https://youtu.be/whEYixIMx0Q",
   "studio_url": "https://studio.youtube.com/video/whEYixIMx0Q/edit",
   "uploaded_at": "2026-10-31T12:09:29.203595+00:00",
-  "publish_at": null
+  "publish_at": null,
+  "thumbnail_error": "<HttpError 403 when requesting https://youtube.googleapis.com/upload/youtube/v3/thumbnails/set?videoId=whEYixIMx0Q&alt=json&uploadType=media returned \"The authenticated user doesn't have permissions to upload and set custom video thumbnails.\". Details: \"[{'message': \"The authenticated user doesn't h"
 }

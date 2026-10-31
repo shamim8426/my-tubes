@@ -24,6 +24,11 @@ From the next video on: read STYLE_GUIDE.md section "v3 FORMAT" and open channel
 Key points: (1) everything the voice says must be shown on screen at the same moment (cards, docs screenshot, terminal example, diagram); (2) no quiz or "guess karo" - explain ONE feature from the docs with a REAL example, professionally; (3) use the new layer kind "svgbot" (2D SVG robot with moving arms/mouth) in about one scene per video, besides the PNG robots; (4) scene order: concept cards -> docs proof -> real example -> docs nuance -> 3-point recap + open question.
 Check each video's stills (`--still`) for text that is cut off or overlapping before upload.
 
+## THUMBNAIL (every video, user 2026-10-31)
+After the render, write <story>/thumb.json (see scripts/make_thumb.py docstring and any 006-012 story for examples: tag, title with one <mark>keyword</mark>, sub with one <b>word</b>, 2-3 chips from the video, robot pose) and run
+`.venv/bin/python -X utf8 scripts/make_thumb.py <story>`; it writes output/thumb_16x9.png (1280x720) and thumb_9x16.png. Look at both once (text not cut, nothing over the robot face).
+In upload.json add "thumbnail": "thumb_16x9.png". If the upload says thumbnail 403 "doesn't have permissions", the channel still needs phone verification in Studio: do not retry, tell the user once in the summary and keep the PNGs (the user sets them manually).
+
 ## Preflight (do first, report in 5 lines, then start)
 1. `git pull` is current (main). Venv works. `playwright install chromium` done (cloud has no Chrome; renderers fall back to Chromium).
 2. secrets/yellow-bot/token.json + client_secret.json exist; GEMINI key in env. `tools/youtube_upload.py --job channels/yellow-bot/stories/006_hooks/output/upload.json --dry-run` prints "Dry run OK" (channel check passes; note: the mp4 is not in git, so the dry run may say video not found - that is fine, the channel/token part must pass).

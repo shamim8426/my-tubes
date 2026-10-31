@@ -1,0 +1,12 @@
+{
+ "title": "Sab <mark>undo</mark> karo",
+ "sub": "<b>Esc Esc</b> se pichhle checkpoint par",
+ "chips": [
+  "Esc + Esc",
+  "/rewind"
+ ],
+ "robot": "stop",
+ "ts_h": 118,
+ "ts_v": 170,
+ "tag": "CLAUDE CODE"
+}

@@ -1,0 +1,11 @@
+{
+ "title": "Claude ke <mark>tools</mark>",
+ "sub": "kaun <b>poochta</b> hai, kaun nahi?",
+ "chips": [
+  "Read",
+  "Edit",
+  "Bash"
+ ],
+ "robot": "work",
+ "tag": "CLAUDE CODE"
+}

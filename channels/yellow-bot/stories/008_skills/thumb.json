@@ -1,0 +1,10 @@
+{
+ "title": "Claude <mark>Skills</mark>",
+ "sub": "ek baar likho, <b>baar-baar</b> chalao",
+ "chips": [
+  "SKILL.md",
+  "/skill-name"
+ ],
+ "robot": "thumbs",
+ "tag": "CLAUDE CODE"
+}
