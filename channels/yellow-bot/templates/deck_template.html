@@ -174,6 +174,16 @@ B.stage=(sc,root)=>{
       for(let i=0;i<n;i++){const b=mk(el,`left:34px;top:${110+i*step}px;height:${Math.max(16,step*.42)}px;border-radius:9px;background:${i%3==2?'#FFD60A':'#111'}`,'','abs');L.bars.push({b,w:[.8,.55,.7,.4,.75,.5,.65,.6][i%8],rnd:((i*37)%11)/11})}}
     else if(k==='hook'){const h=L.h||560;el=mk(root,`left:0;top:0;width:280px;height:${h}px;transform-origin:50% 0`,`<svg width="280" height="${h}" viewBox="0 0 280 ${h}" fill="none"><path d="M90 0 V${h-170} Q90 ${h-60} 180 ${h-60} Q270 ${h-60} 270 ${h-170} V${h-230}" stroke="#111" stroke-width="30" stroke-linecap="round" stroke-linejoin="round"/><circle cx="270" cy="${h-230}" r="22" fill="#FFD60A" stroke="#111" stroke-width="8"/></svg>`,'abs')}
     else if(k==='meter'){el=mk(root,`left:0;top:0;width:${L.w||900}px;height:${L.h||56}px;border:6px solid #111;border-radius:${(L.h||56)}px;background:#fff;overflow:hidden`,'<div style="position:absolute;left:0;top:0;height:100%;width:0;background:#FFD60A;border-right:6px solid #111"></div>','abs shadow');L.fillEl=el.firstChild}
+    else if(k==='svgbot'){el=mk(root,`left:0;top:0;width:${L.size*400/520}px;height:${L.size}px`,`<svg viewBox="0 0 400 520" width="${L.size*400/520}" height="${L.size}" style="overflow:visible;display:block">
+<g><rect x="150" y="395" width="36" height="76" rx="16" fill="#fff" stroke="#111" stroke-width="7"/><ellipse cx="168" cy="478" rx="30" ry="14" fill="#FFD60A" stroke="#111" stroke-width="7"/></g>
+<g><rect x="214" y="395" width="36" height="76" rx="16" fill="#fff" stroke="#111" stroke-width="7"/><ellipse cx="232" cy="478" rx="30" ry="14" fill="#FFD60A" stroke="#111" stroke-width="7"/></g>
+<g transform="translate(105 305)"><g data-p="armL"><rect x="-15" y="-4" width="30" height="86" rx="15" fill="#fff" stroke="#111" stroke-width="7"/><circle cx="0" cy="88" r="17" fill="#FFD60A" stroke="#111" stroke-width="7"/></g></g>
+<g data-p="body"><ellipse cx="200" cy="335" rx="106" ry="92" fill="#fff" stroke="#111" stroke-width="8"/><ellipse cx="200" cy="350" rx="42" ry="30" fill="#FFD60A" stroke="#111" stroke-width="6"/><circle cx="200" cy="350" r="9" fill="#111"/></g>
+<g transform="translate(295 305)"><g data-p="armR"><rect x="-15" y="-4" width="30" height="86" rx="15" fill="#fff" stroke="#111" stroke-width="7"/><circle cx="0" cy="88" r="17" fill="#FFD60A" stroke="#111" stroke-width="7"/></g></g>
+<g data-p="head"><line x1="200" y1="72" x2="200" y2="44" stroke="#111" stroke-width="7" stroke-linecap="round"/><circle data-p="ant" cx="200" cy="32" r="12" fill="#FFD60A" stroke="#111" stroke-width="6"/>
+<ellipse cx="200" cy="162" rx="112" ry="94" fill="#fff" stroke="#111" stroke-width="8"/><circle cx="92" cy="165" r="14" fill="#FFD60A" stroke="#111" stroke-width="6"/><circle cx="308" cy="165" r="14" fill="#FFD60A" stroke="#111" stroke-width="6"/>
+<rect x="118" y="118" width="164" height="84" rx="42" fill="#121212"/><g data-p="eyes"><circle cx="165" cy="152" r="17" fill="#FFD60A"/><circle cx="235" cy="152" r="17" fill="#FFD60A"/><circle cx="160" cy="146" r="5" fill="#fff"/><circle cx="230" cy="146" r="5" fill="#fff"/></g>
+<ellipse data-p="mouth" cx="200" cy="186" rx="14" ry="3" fill="#FFD60A"/></g></svg>`,'abs');L.bot={};el.querySelectorAll('[data-p]').forEach(n=>L.bot[n.dataset.p]=n)}
     else if(k==='text'){el=mk(root,`left:0;top:0;width:${L.w||920}px;font-size:${L.size||80}px`,parse(L.html),'abs line');L.hls=[...el.querySelectorAll('[data-h]')]}
     L.el=el;el.style.opacity=0});
   sc.upd=(lt)=>sc.layers.forEach(L=>applyLayer(L,lt));
@@ -186,8 +196,18 @@ function applyLayer(L,lt){
   const k=L.k||[],x=kfv(k,lt,'x',L.x),y0=kfv(k,lt,'y',L.y),s=kfv(k,lt,'s',1),r0=kfv(k,lt,'r',0),o=c(kfv(k,lt,'o',1));
   const y=y0+(L.bob?Math.sin(lt*2.4)*10:0);
   const r=r0+(L.swing?L.swing.amp*Math.sin((lt-L.swing.from)*L.swing.f)*c((lt-L.swing.from)/.3):0)+(L.wob&&lt>L.wob.from?Math.sin(lt*8)*L.wob.amp:0);
-  L.el.style.opacity=o;L.el.style.transform=`translate(${x}px,${y}px) rotate(${r}deg) scale(${s})`;
+  L.el.style.opacity=o;L.el.style.transform=`translate(${x}px,${y}px) rotate(${r}deg) scale(${s})${L.flip?' scaleX(-1)':''}`;
   if(L.bars){const m=kfv(k,lt,'mess',0);L.bars.forEach(({b,w,rnd})=>{const full=w*(L.w-68),bw=full*(1-m)+full*(.45+rnd*.9)*m;b.style.width=bw+'px';b.style.transform=`translateX(${(rnd-.5)*80*m}px) rotate(${(rnd-.5)*14*m}deg)`})}
+  if(L.bot){const B=L.bot,inW=(w)=>(w||[]).some(r=>lt>=r[0]&&lt<r[1]);
+    const wag=inW(L.wag)?Math.sin(lt*11)*16:0, talk=inW(L.talk);
+    B.armR.setAttribute('transform','rotate('+(kfv(k,lt,'ar',0)+wag)+')');
+    B.armL.setAttribute('transform','rotate('+(kfv(k,lt,'al',0)+Math.sin(lt*2.2)*2)+')');
+    B.body.setAttribute('transform','translate(200 427) scale(1 '+(1+0.012*Math.sin(lt*3))+') translate(-200 -427)');
+    B.head.setAttribute('transform','rotate('+(inW(L.nod)?Math.sin(lt*7)*4:Math.sin(lt*1.3)*1.2)+' 200 250)');
+    B.ant.setAttribute('cy',32+Math.sin(lt*5)*3);
+    const ph=lt%3.1,bs=ph<0.14?0.1+0.9*Math.abs(ph-0.07)/0.07:1;
+    B.eyes.setAttribute('transform','translate(0 152) scale(1 '+bs+') translate(0 -152)');
+    B.mouth.setAttribute('ry',talk?3+10*Math.abs(Math.sin(lt*17)):3);B.mouth.setAttribute('rx',talk?12+4*Math.abs(Math.sin(lt*9)):14)}
   if(L.fillEl){L.fillEl.style.width=(c(kfv(k,lt,'f',L.f||0))*100)+'%'}
   if(L.hls&&L.hlAt!=null){const q=eo(c((lt-L.hlAt)/.45));L.hls.forEach(h=>h.style.setProperty('--w',(q*100)+'%'))}
 }

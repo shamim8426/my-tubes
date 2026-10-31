@@ -35,3 +35,20 @@
 - 009 MCP: stage opener traveling bubble (copy-paste bubble flies to Claude, then MCP badge connects tools; keyframes x/y/r on box layers).
 - 010 Memory: stage opener 'session gap' (two session pills, a CLAUDE.md doc bridges them, '?' bubble then 'yaad hai!').
 - 011 Checkpointing: stage opener 'undo' (doc turns messy, two Esc key caps pop, doc un-messes; reuses doc 'mess' keyframes in reverse). Note: TTS paid key has a 10 req/min limit; wait 20 s and rerun --tts --paid.
+
+## v3 FORMAT (user 2026-10-31, from video 7 on; applies to every video)
+Reference pages (open in a browser): brand/reference_tools_short.html (5-scene storyboard of a full Short) and brand/reference_svg_robot.html (2D SVG robot animation).
+1. WHAT IS SAID MUST BE SEEN. Every term/step/claim the voice says gets its own visual in the same second: a card, icon, docs screenshot, terminal line, diagram or highlighted code line. No scene where the voice talks and the screen only has a title.
+2. Goal of each video: explain ONE feature/tool of Claude Code from the official docs with a REAL example, professionally, so the viewer understands and it looks attractive. NO quiz, NO "guess karo" moments. A single open question in the CTA only.
+3. Default scene order (vary it a little each video): (1) concept as cards/icons -> (2) docs proof (real docs screenshot scrolling) -> (3) real example as terminal/steps with permission/result chips -> (4) the nuance from the docs (what is easy to get wrong) -> (5) 3-point recap + open question.
+4. SVG robot (layer kind `svgbot`, see below) is used SOMETIMES in between (about one scene per video), for explaining/pointing; the PNG robots stay for opener/recap. Do not put a robot in every scene.
+5. Use good HTML technique: design tokens (white/black/yellow only), one type scale (Poppins + IBM Plex Mono), inline SVG icons with equal stroke, easing (ease-out / back), staggered reveal timed to the voice cues, real docs screenshots (scripts/docs_shot.py), no bitmap for anything that can be SVG/CSS. Cost stays Rs0 for visuals.
+6. Nothing is added just for decoration; if a scene does not help understanding, cut it.
+
+### Layer kind `svgbot` (in stage scenes, templates/deck_template.html)
+{"kind":"svgbot","size":720,"x":20,"y":520,"flip":false,
+ "k":[[t,{"x":..,"y":..,"s":..,"o":..,"ar":angle,"al":angle,"e":"b"}], ...],   # ar/al = right/left arm angle in deg (0 hanging, -150 raised up, -86 pointing sideways right; al mirrored: +150 raised, +86 pointing left)
+ "talk":[[t0,t1],..]   # mouth moves in these windows (use the voice cue times)
+ "wag":[[t0,t1],..]    # right arm waves
+ "nod":[[t0,t1],..]}   # head nods
+Eyes blink, body breathes and antenna bobs automatically. The robot box is 400:520 wide:tall; it fills about the middle 230 px of that width.
