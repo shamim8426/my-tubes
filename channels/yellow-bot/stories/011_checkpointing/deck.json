@@ -1,0 +1,479 @@
+{
+ "_note": "Short 011: Checkpointing. Facts: official docs code.claude.com/docs/en/checkpointing (read 2026-10-31). New: stage 'undo' opener (doc goes messy then un-messes via two Esc key caps).",
+ "tag": "Claude Code · Checkpointing",
+ "music": {
+  "file": "shared/music/presentation/Funkorama.mp3",
+  "start": 6,
+  "rel": 12
+ },
+ "voice": {
+  "id": "Charon",
+  "style": "Speak like a friendly Indian tech YouTuber chatting casually in Hinglish. Natural conversational pace, warm and clear, a little energetic but not theatrical. No sing-song, no exaggerated emphasis."
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "type": "stage",
+   "wipe": "right",
+   "voice": "Claude ने code बिगाड़ दिया? कोई बात नहीं। Esc दो बार दबाओ, और सब वापस।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "Claude ne code **bigaad** diya?",
+     "x": 80,
+     "y": 1560,
+     "size": 70,
+     "hlAt": 1.6,
+     "k": [
+      [
+       0.3,
+       {
+        "o": 0,
+        "y": 1610
+       }
+      ],
+      [
+       0.8,
+       {
+        "o": 1,
+        "y": 1570
+       }
+      ],
+      [
+       3.4,
+       {
+        "o": 1
+       }
+      ],
+      [
+       3.8,
+       {
+        "o": 0,
+        "y": 1540
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "text",
+     "html": "**Esc Esc**, sab wapas",
+     "x": 80,
+     "y": 1560,
+     "size": 74,
+     "hlAt": 4.6,
+     "k": [
+      [
+       3.8,
+       {
+        "o": 0,
+        "y": 1610
+       }
+      ],
+      [
+       4.3,
+       {
+        "o": 1,
+        "y": 1570
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "img",
+     "img": "work",
+     "size": 360,
+     "x": 20,
+     "y": 600,
+     "bob": 1,
+     "k": [
+      [
+       0.1,
+       {
+        "x": -420,
+        "o": 1
+       }
+      ],
+      [
+       0.8,
+       {
+        "x": 20
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "doc",
+     "w": 520,
+     "h": 520,
+     "x": 460,
+     "y": 560,
+     "file": "app.js",
+     "lines": 8,
+     "k": [
+      [
+       0.5,
+       {
+        "o": 0,
+        "s": 0.7,
+        "mess": 0
+       }
+      ],
+      [
+       1.1,
+       {
+        "o": 1,
+        "s": 1,
+        "mess": 0,
+        "e": "b"
+       }
+      ],
+      [
+       2.2,
+       {
+        "mess": 1,
+        "o": 1
+       }
+      ],
+      [
+       4.1,
+       {
+        "mess": 1,
+        "o": 1
+       }
+      ],
+      [
+       4.9,
+       {
+        "mess": 0,
+        "o": 1
+       }
+      ],
+      [
+       7.5,
+       {
+        "o": 1
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "bug!",
+     "cls": "yel shadow",
+     "css": "font-size:44px;font-weight:800;padding:12px 32px;border-radius:999px;white-space:nowrap",
+     "x": 760,
+     "y": 500,
+     "k": [
+      [
+       2.3,
+       {
+        "o": 0,
+        "s": 0.4
+       }
+      ],
+      [
+       2.7,
+       {
+        "o": 1,
+        "s": 1,
+        "e": "b"
+       }
+      ],
+      [
+       3.8,
+       {
+        "o": 1
+       }
+      ],
+      [
+       4.1,
+       {
+        "o": 0
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "Esc",
+     "cls": "ink",
+     "css": "font-size:56px;font-weight:800;padding:14px 44px;border-radius:24px;border:6px solid #FFD60A;white-space:nowrap",
+     "x": 420,
+     "y": 1220,
+     "k": [
+      [
+       3.3,
+       {
+        "o": 0,
+        "s": 0.5
+       }
+      ],
+      [
+       3.6,
+       {
+        "o": 1,
+        "s": 1,
+        "e": "b"
+       }
+      ],
+      [
+       7.5,
+       {
+        "o": 1
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "Esc",
+     "cls": "ink",
+     "css": "font-size:56px;font-weight:800;padding:14px 44px;border-radius:24px;border:6px solid #FFD60A;white-space:nowrap",
+     "x": 640,
+     "y": 1220,
+     "k": [
+      [
+       3.8,
+       {
+        "o": 0,
+        "s": 0.5
+       }
+      ],
+      [
+       4.1,
+       {
+        "o": 1,
+        "s": 1,
+        "e": "b"
+       }
+      ],
+      [
+       7.5,
+       {
+        "o": 1
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "&#10003;",
+     "cls": "yel shadow",
+     "css": "width:120px;height:120px;border-radius:60px;font-size:80px;font-weight:800;display:flex;align-items:center;justify-content:center;white-space:nowrap",
+     "x": 880,
+     "y": 520,
+     "k": [
+      [
+       5.3,
+       {
+        "o": 0,
+        "s": 0.4
+       }
+      ],
+      [
+       5.8,
+       {
+        "o": 1,
+        "s": 1,
+        "e": "b"
+       }
+      ],
+      [
+       7.5,
+       {
+        "o": 1
+       }
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "what",
+   "type": "chips",
+   "wipe": "up",
+   "y0": 330,
+   "parent": "Claude Code me",
+   "title": "Checkpoint",
+   "chips": [
+    "Har prompt par snapshot",
+    "Code ki state save",
+    "Resume ke baad /rewind"
+   ],
+   "voice": "Claude Code हर prompt से पहले code की state का checkpoint लेता है, और session resume के बाद भी slash rewind चलता है।",
+   "cues": [
+    "Claude Code",
+    "checkpoint लेता",
+    "हर prompt",
+    "session resume",
+    "slash rewind"
+   ],
+   "robot": {
+    "img": "think",
+    "x": 600,
+    "y": 1340,
+    "size": 400,
+    "cue": "slash rewind"
+   }
+  },
+  {
+   "id": "menu",
+   "type": "list",
+   "wipe": "left",
+   "y0": 320,
+   "rh": 300,
+   "ksize": 56,
+   "dsize": 40,
+   "voice": "Rewind menu के मुख्य options: code और conversation दोनों वापस, सिर्फ़ conversation, सिर्फ़ code, या Summarize from here।",
+   "items": [
+    {
+     "k": "Code + conversation",
+     "d": "dono pichhle point par"
+    },
+    {
+     "k": "Conversation",
+     "d": "chat wapas, code jaisa hai"
+    },
+    {
+     "k": "Code",
+     "d": "files wapas, chat jaisi hai"
+    },
+    {
+     "k": "Summarize from here",
+     "d": "context ki jagah khaali"
+    }
+   ],
+   "cues": [
+    "code और conversation",
+    "सिर्फ़ conversation",
+    "सिर्फ़ code",
+    "Summarize from here"
+   ]
+  },
+  {
+   "id": "open",
+   "type": "code",
+   "wipe": "up",
+   "file": "Claude Code",
+   "size": 40,
+   "y0": 330,
+   "voice": "Menu खोलने के लिए slash rewind लिखो, या जब prompt खाली हो, तब Esc दो बार दबाओ।",
+   "lines": [
+    "/rewind",
+    "",
+    "# ya, prompt khaali ho to",
+    "Esc  Esc"
+   ],
+   "caption": "Prompt me text ho to **Esc Esc** use clear karta hai",
+   "cosize": 54,
+   "cues": [
+    "slash rewind",
+    "prompt खाली",
+    "Esc दो बार"
+   ],
+   "robot": {
+    "img": "work",
+    "x": 610,
+    "y": 1330,
+    "size": 400,
+    "cue": "Esc दो बार"
+   }
+  },
+  {
+   "id": "use",
+   "type": "flow",
+   "wipe": "right",
+   "tsize": 50,
+   "nh": 200,
+   "gap": 90,
+   "voice": "सबसे मज़ेदार use: एक approach try करो, पसंद न आए तो rewind करो, और अपने starting point पर वापस आ जाओ।",
+   "nodes": [
+    {
+     "t": "Ek approach try karo",
+     "s": "bina darr ke experiment"
+    },
+    {
+     "t": "Pasand nahi aaya? /rewind",
+     "s": "checkpoint chuno"
+    },
+    {
+     "t": "Starting point par wapas",
+     "s": "kuch khoya nahi"
+    }
+   ],
+   "cues": [
+    "एक approach",
+    "पसंद न आए",
+    "starting point"
+   ],
+   "robot": {
+    "img": "thumbs",
+    "x": 590,
+    "y": 1190,
+    "size": 440,
+    "cue": "starting point"
+   }
+  },
+  {
+   "id": "limit",
+   "type": "compare",
+   "wipe": "up",
+   "footcue": 5,
+   "voice": "लेकिन checkpoints Git की जगह नहीं हैं। ये quick, session-level recovery के लिए हैं। और जिस file को सिर्फ़ Bash command ने बदला, वो track नहीं होती।",
+   "left": {
+    "title": "Checkpoints",
+    "rows": [
+     "Quick undo",
+     "Session ke liye"
+    ]
+   },
+   "right": {
+    "title": "Git",
+    "rows": [
+     "Commits, branches",
+     "Permanent history"
+    ]
+   },
+   "foot": "**Bash** se badli file track nahi",
+   "cues": [
+    "Git की जगह नहीं",
+    "quick",
+    "session-level",
+    "recovery",
+    "Bash command",
+    "track नहीं"
+   ],
+   "robot": {
+    "img": "stop",
+    "x": 60,
+    "y": 1280,
+    "size": 420,
+    "cue": "Bash command"
+   }
+  },
+  {
+   "id": "cta",
+   "type": "cta",
+   "wipe": "left",
+   "size": 96,
+   "voice": "तो आपने आख़िरी बार कब rewind किया? Comment में बताओ।",
+   "lines": [
+    "Aakhri baar kab",
+    "**rewind** kiya?"
+   ],
+   "sub": "Comment me batao",
+   "cues": [
+    "आपने आख़िरी",
+    "rewind किया",
+    "Comment में"
+   ],
+   "robot": {
+    "img": "thumbs",
+    "x": 570,
+    "y": 1250,
+    "size": 460,
+    "cue": "Comment में"
+   }
+  }
+ ]
+}

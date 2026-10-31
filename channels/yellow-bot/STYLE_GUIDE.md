@@ -34,3 +34,4 @@
 - 008 Skills: stage opener 'paste-stack merge' (3 tilted paste bubbles collapse into one SKILL.md doc; box layers with keyframe r tilt).
 - 009 MCP: stage opener traveling bubble (copy-paste bubble flies to Claude, then MCP badge connects tools; keyframes x/y/r on box layers).
 - 010 Memory: stage opener 'session gap' (two session pills, a CLAUDE.md doc bridges them, '?' bubble then 'yaad hai!').
+- 011 Checkpointing: stage opener 'undo' (doc turns messy, two Esc key caps pop, doc un-messes; reuses doc 'mess' keyframes in reverse). Note: TTS paid key has a 10 req/min limit; wait 20 s and rerun --tts --paid.

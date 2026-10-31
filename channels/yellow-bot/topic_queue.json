@@ -828,8 +828,8 @@
     "title": "Checkpointing",
     "url": "https://code.claude.com/docs/en/checkpointing.md",
     "summary": "Track, rewind, and summarize Claude's edits and conversation to manage session state.",
-    "status": "todo",
-    "story": null
+    "status": "uploaded",
+    "story": "011_checkpointing"
   },
   {
     "id": "hooks",

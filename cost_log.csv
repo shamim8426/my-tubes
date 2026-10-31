@@ -871,3 +871,10 @@ timestamp,file,model,size,cost_usd,cost_inr,today_total_inr,remaining_inr,channe
 2026-10-31 10:34:16,channels/yellow-bot/stories/010_memory/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 7.6s,0.00174,0.17,11.40,100.73,yellow-bot,0.17,0.1677,0.03,37,191
 2026-10-31 10:34:21,channels/yellow-bot/stories/010_memory/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 7.7s,0.00175,0.17,11.59,100.53,yellow-bot,0.17,0.1684,0.03,34,192
 2026-10-31 10:34:25,channels/yellow-bot/stories/010_memory/audio/tts/s_06.wav,gemini-3.8-flash-tts,tts 3.1s,0.00071,0.07,11.68,100.45,yellow-bot,0.07,0.0685,0.01,16,78
+2026-10-31 10:38:25,channels/yellow-bot/stories/011_checkpointing/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 5.4s,0.00124,0.12,11.82,100.31,yellow-bot,0.12,0.1192,0.02,23,136
+2026-10-31 10:38:30,channels/yellow-bot/stories/011_checkpointing/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 6.4s,0.00146,0.14,11.98,100.14,yellow-bot,0.15,0.1411,0.03,26,161
+2026-10-31 10:38:35,channels/yellow-bot/stories/011_checkpointing/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 8.7s,0.00199,0.19,12.21,99.92,yellow-bot,0.20,0.1916,0.03,28,219
+2026-10-31 10:38:40,channels/yellow-bot/stories/011_checkpointing/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 5.3s,0.00120,0.12,12.35,99.78,yellow-bot,0.12,0.1158,0.02,23,132
+2026-10-31 10:38:45,channels/yellow-bot/stories/011_checkpointing/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 6.6s,0.00151,0.15,12.52,99.61,yellow-bot,0.15,0.1455,0.03,28,166
+2026-10-31 10:38:51,channels/yellow-bot/stories/011_checkpointing/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 9.1s,0.00207,0.20,12.75,99.37,yellow-bot,0.21,0.1998,0.04,36,228
+2026-10-31 10:39:26,channels/yellow-bot/stories/011_checkpointing/audio/tts/s_06.wav,gemini-3.8-flash-tts,tts 3.0s,0.00068,0.07,12.83,99.30,yellow-bot,0.07,0.0659,0.01,15,75
