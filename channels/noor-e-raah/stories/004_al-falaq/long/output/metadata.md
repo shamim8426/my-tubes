@@ -1,4 +1,13 @@
-# 004 Al-Falaq — YouTube metadata (DRAFT before render; chapters + CHAPTERS_TODO filled by Munshi from timeline.json)
+# 004 Al-Falaq — YouTube metadata (DRAFT before render; chapters + 0:00 शुरुआत
+0:22 परिचय और पूरी सूरह
+0:46 शान-ए-नुज़ूल
+1:08 आयत 1 (113:1) — क़ुल अऊज़ु बिरब्बिल फ़लक़
+1:54 आयत 2 (113:2) — मिन शर्रि मा ख़लक़
+2:23 आयत 3 (113:3) — वमिन शर्रि ग़ासिक़िन इज़ा वक़ब
+3:10 आयत 4 (113:4) — वमिन शर्रिन नफ़्फ़ासाति फ़िल उक़द
+3:45 आयत 5 (113:5) — वमिन शर्रि हासिदिन, इज़ा हसद
+4:50 हदीस में सूरह फ़लक़
+5:48 सीख filled by Munshi from timeline.json)
 
 ## Title (recommended first; search phrase first, suffix as 001-003)
 1. Surah Al-Falaq ka Matlab Hindi Mein | 5 Ayat, Padhne ki Madad aur Hadith | Noor-e-Raah
@@ -14,7 +23,16 @@
 
 सरल भावार्थ — माने हुए तर्जुमों के आधार पर (शब्दशः तर्जुमा नहीं)। ये सूरह मक्की है या मदनी, इस पर उलमा में इख़्तिलाफ़ है। इसके उतरने का कोई सहीह-दर्जे का ख़ास वाक़िया नहीं मिलता। हदीसें सिर्फ़ रिवायत के तौर पर बताई गई हैं, कोई हुक्म या वादा नहीं।
 
-CHAPTERS_TODO
+0:00 शुरुआत
+0:22 परिचय और पूरी सूरह
+0:46 शान-ए-नुज़ूल
+1:08 आयत 1 (113:1) — क़ुल अऊज़ु बिरब्बिल फ़लक़
+1:54 आयत 2 (113:2) — मिन शर्रि मा ख़लक़
+2:23 आयत 3 (113:3) — वमिन शर्रि ग़ासिक़िन इज़ा वक़ब
+3:10 आयत 4 (113:4) — वमिन शर्रिन नफ़्फ़ासाति फ़िल उक़द
+3:45 आयत 5 (113:5) — वमिन शर्रि हासिदिन, इज़ा हसद
+4:50 हदीस में सूरह फ़लक़
+5:48 सीख
 
 अगली वीडियो: सूरह अन-नास।
 आप बताइए — इन पाँच आयतों में से कौन-सी बात आपके दिल को सबसे ज़्यादा छू गई, और क्यों?
@@ -44,7 +62,16 @@ Fonts: Amiri, Mukta (SIL Open Font License). Images and voices: AI-generated. �
 सूरह फ़लक़, सूरह फ़लक़ का मतलब, सूरह फ़लक़ हिंदी में, सूरह अल फ़लक़, surah falaq, surah falaq ka matlab, surah falaq meaning in hindi, surah al falaq, surah falaq hindi, qul auzu bi rabbil falaq, quran in hindi, क़ुरआन आसान ज़बान में, noor e raah
 
 ## Notes for Munshi (not for YouTube)
-- Replace the `CHAPTERS_TODO` line with real chapters from long/output/timeline.json (expected: शुरुआत · परिचय + पूरी सूरह · शान-ए-नुज़ूल · आयत 1-5 (113:1-5, each with its ucharan) · हदीस में सूरह फ़लक़ · सीख). YouTube needs the first chapter at 0:00 and >= 3 chapters.
+- Replace the `0:00 शुरुआत
+0:22 परिचय और पूरी सूरह
+0:46 शान-ए-नुज़ूल
+1:08 आयत 1 (113:1) — क़ुल अऊज़ु बिरब्बिल फ़लक़
+1:54 आयत 2 (113:2) — मिन शर्रि मा ख़लक़
+2:23 आयत 3 (113:3) — वमिन शर्रि ग़ासिक़िन इज़ा वक़ब
+3:10 आयत 4 (113:4) — वमिन शर्रिन नफ़्फ़ासाति फ़िल उक़द
+3:45 आयत 5 (113:5) — वमिन शर्रि हासिदिन, इज़ा हसद
+4:50 हदीस में सूरह फ़लक़
+5:48 सीख` line with real chapters from long/output/timeline.json (expected: शुरुआत · परिचय + पूरी सूरह · शान-ए-नुज़ूल · आयत 1-5 (113:1-5, each with its ucharan) · हदीस में सूरह फ़लक़ · सीख). YouTube needs the first chapter at 0:00 and >= 3 chapters.
 - Hadith numbers (Muslim 814; Bukhari 5017, 5748) must be confirmed on sunnah.com on the PC (dossier "PC par baaki": eng-muslim dataset number is not the sunnah.com number). Description says "सहीह हदीसें (मुस्लिम और बुख़ारी)" — keep only if the PC check passes.
 - Shan-e-nuzul: the sihr/Labid event is deliberately NOT in the video or description (Sanchalak decision 2026-10-31).
 - Tanzil byte-milaan of 113:1-5 on the PC; Amiri render of 113:4 `ٱلنَّفَّٰثَٰتِ` at 8x zoom.

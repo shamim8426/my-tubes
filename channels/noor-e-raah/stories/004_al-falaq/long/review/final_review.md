@@ -1,0 +1,12 @@
+# Final review - 004 Al-Falaq long (Munshi, 2026-10-31) - NOT uploaded
+Verified: 1920x1080/30fps, 12211 frames, 407.03 s, -14.2 LUFS, TP -1.5; SRT 43 cues == 43 timeline lines (times+text identical).
+CHUNK JOINS 60/120/180/240/300/360 s: frames +-3 around each (diff series + contact sheet): no jump, flash, colour or text flicker; subtitle/ayah not cut at any join; only a ~+25% tiny frame-diff bump exactly at the join frame (motion tick, invisible). Audio: no click (max sample diff at joins <=0.013 except 300 s speech 0.13 = voice, rms continuous), single mix track.
+Frames 45 sampled: title card, 0:30 cards, whole surah, each ayah at ucharan and bhaavarth, cards, hadith, takeaway cards, end card. No overlap Arabic/ucharan/label/subtitle. Hindi shaping/nuqta OK (क़ुल, ग़ासिक़िन, उक़द, नफ़्फ़ासाति).
+Arabic: ASS text == timeline ayat == sources.json (Tanzil) for whole surah + each ayah. 113:4 word codepoints: nun+shadda+fatha, fa+shadda+fatha+dagger alif, tha+fatha+dagger alif, ta+kasra (Tanzil order); marks render stacked/legible, final ta+kasra intact.
+Ucharan on screen == spoken line == research/ucharan.md (line 40 'वमिन शर्रि हासिदिन, इज़ा हसद।'). No Labid story; knots only as tafsir meaning of line 37 (no event, no how-to). Hadith lines 49-52 per script, 'riwayat only, no hukm/wada' note present.
+Music continuous (Soaring -> River Flute crossfade 45 s, ambience whole video); first-60-s pacing 4-7 s per shot, 14 crops. Shots: 74 crops, no duplicate (image,move,fx,fy,zc).
+Thumbnail: C kept (same as 004_al-falaq_thumbnail.jpg): hook biggest, honest, readable; A/B make the Hindi name biggest (weaker hook). 
+FREE FIX done: CHAPTERS_TODO replaced in upload.json + metadata.md (0:00, 0:22, 0:46, 1:08, 1:54, 2:23, 3:10, 3:45, 4:50, 5:48; all >=10 s). Hindi AI line, sources, credits kept. Dry-run OK (schedule 2026-11-01 19:00 IST per RULES 8 at current clock).
+MINOR (carry_over, no regeneration): (1) full-surah first Arabic line at 0:36 spans ~40 px margins both sides (not cut, but tight); (2) 3.7-4.5 min desert-dusk image (10_ring_in_desert) used for ~56 s with 5 similar crops (230-261 s) - looks repeated; 05_paths_to_oasis 4 crops at 1.9 zoom; (3) hadith subtitles lines 49/50 are 3 lines at small size; (4) thumbnail Arabic heavy/slanted, chip small (as 003); (5) contains_synthetic_media=false though images/voices are AI (same as 003; description has the Hindi AI line) - consider true; (6) description "सहीह हदीसें" and hadith numbers still need the PC sunnah.com check (carry_over as 003).
+No STOP condition.
+VERDICT: PASS

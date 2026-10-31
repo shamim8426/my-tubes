@@ -1,0 +1,37 @@
+{
+ "parse": {
+  "status": "done (skipped, already ok)",
+  "at": "2026-10-31 13:06:02",
+  "note": "lines.json is current"
+ },
+ "images": {
+  "status": "done",
+  "at": "2026-10-31 13:06:03",
+  "note": "2026-10-31 | 004_al-falaq | ASLI KUL KHARCHA | ₹12.38 + GST ₹2.23 = ₹14.60 (andaza tha ₹12.77; 63 paid calls, 0 bina usage = andaza) | target ₹100, hard limit ₹"
+ },
+ "tts": {
+  "status": "done",
+  "at": "2026-10-31 13:06:05",
+  "note": "Lines: 43; total voice 390.0s; Whisper OK 43/43"
+ },
+ "gate_tts_review": {
+  "status": "done (skipped, already ok)",
+  "at": "2026-10-31 13:06:05",
+  "note": "Munshi PASS"
+ },
+ "render": {
+  "status": "done (skipped, already ok)",
+  "at": "2026-10-31 13:06:05",
+  "note": "final.mp4 exists"
+ },
+ "thumbnail": {
+  "status": "done (skipped, already ok)",
+  "at": "2026-10-31 13:06:05",
+  "note": "thumbnail exists"
+ },
+ "gate_final_review": {
+  "status": "done (skipped, already ok)",
+  "at": "2026-10-31 13:06:05",
+  "note": "Munshi PASS"
+ }
+}

@@ -80,3 +80,8 @@
 2026-10-31 | 004_al-falaq | script+package R1 | PASS-WITH-NOTES | Arabic mark order fixed to Tanzil bytes (shadda first) in 5 files + sha; line 31 M3 wording; 0 new images, reuse paths ok; no BLOCKER left
 2026-10-31 | 004_al-falaq long | TTS review | FIX | line 40 audio is invented text (17.9 s), rest PASS; see long/review/tts_review.md
 2026-10-31 | 004_al-falaq | tts review R2 | PASS | line 40 retake 5.1 s, words match, total 390.0 s / 43 lines
+2026-10-31 | 004_al-falaq long | final | PASS | joins clean, Arabic==Tanzil, chapters filled, dry-run OK; minors in final_review.md
+2026-10-31 | 004_al-falaq_final | studio action | video Je03wdD0EvY | schedule 2026-11-01T19:00+05:30 | studio_action: pending
+2026-10-31 | 004_al-falaq | ASLI KUL KHARCHA | ₹12.38 + GST ₹2.23 = ₹14.60 (andaza tha ₹12.77; 63 paid calls, 0 bina usage = andaza) | target ₹100, hard limit ₹120
+
+- 2026-10-31 004_al-falaq UPLOADED private by noor_run: https://youtu.be/Je03wdD0EvY - STUDIO ACTION (long): Je03wdD0EvY "Surah Al-Falaq ka Matlab Hindi Mein | 5 Ayat, Padhne ki Madad aur Hadith | Noor-e-Raah" | 2026-10-31 | 004_al-falaq | ASLI KUL KHARCHA | ₹12.38 + GST ₹2.23 = ₹14.60 (andaza tha ₹12.77; 63 paid calls, 0 bina usage = andaza) | target ₹100, hard limit ₹120

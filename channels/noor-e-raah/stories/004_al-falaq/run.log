@@ -1,0 +1,147 @@
+[13:06:02] parse: done (skipped, already ok) lines.json is current
+2026-10-31 | 004_al-falaq | ASLI KUL KHARCHA | ₹12.38 + GST ₹2.23 = ₹14.60 (andaza tha ₹12.77; 63 paid calls, 0 bina usage = andaza) | target ₹100, hard limit ₹120
+[13:06:03] images: done 2026-10-31 | 004_al-falaq | ASLI KUL KHARCHA | ₹12.38 + GST ₹2.23 = ₹14.60 (andaza tha ₹12.77; 63 paid calls, 0 bina usage = andaza) | target ₹100, hard limit ₹
+  3 sawaal   8.0s takes=0 OK
+  4 ustaad   7.1s takes=0 OK
+  5 ustaad   6.6s takes=0 OK
+  6 ustaad   9.4s takes=0 OK
+  8 ustaad  10.5s takes=0 OK
+ 10 ustaad   8.2s takes=0 OK
+ 11 ustaad   9.2s takes=0 OK
+ 12 ustaad   4.8s takes=0 OK
+ 14 ustaad   3.2s takes=0 OK
+ 15 ustaad   8.6s takes=0 OK
+ 17 ustaad   9.9s takes=0 OK
+ 18 ustaad  12.5s takes=0 OK
+ 19 ustaad   9.8s takes=0 OK
+ 21 ustaad   3.1s takes=0 OK
+ 22 ustaad   5.2s takes=0 OK
+ 24 ustaad   8.9s takes=0 OK
+ 25 ustaad   9.8s takes=0 OK
+ 27 ustaad   4.2s takes=0 OK
+ 28 ustaad   7.0s takes=0 OK
+ 30 ustaad  12.0s takes=0 OK
+ 31 ustaad  12.4s takes=0 OK
+ 32 sawaal   8.8s takes=0 OK
+ 34 ustaad   3.6s takes=0 OK
+ 35 ustaad   5.0s takes=0 OK
+ 37 ustaad  14.1s takes=0 OK
+ 38 ustaad   9.2s takes=0 OK
+ 40 ustaad   5.1s takes=0 OK
+ 41 ustaad   7.2s takes=0 OK
+ 43 ustaad  12.0s takes=0 OK
+ 44 ustaad   9.1s takes=0 OK
+ 45 ustaad  10.7s takes=0 OK
+ 46 ustaad  10.4s takes=0 OK
+ 47 sawaal   8.2s takes=0 OK
+ 49 ustaad  20.6s takes=0 OK
+ 50 ustaad  21.0s takes=0 OK
+ 51 ustaad  10.4s takes=0 OK
+ 52 ustaad   8.0s takes=0 OK
+ 53 sawaal   3.6s takes=0 OK
+ 54 ustaad  12.0s takes=0 OK
+ 55 ustaad  13.4s takes=0 OK
+ 56 ustaad  12.5s takes=0 OK
+ 57 ustaad   7.1s takes=0 OK
+ 58 sawaal   7.6s takes=0 OK
+# TTS report — 004_al-falaq
+
+Lines: 43; total voice 390.0s; Whisper OK 43/43
+
+2026-10-31 | 004_al-falaq | ASLI KUL KHARCHA | ₹12.38 + GST ₹2.23 = ₹14.60 (andaza tha ₹12.77; 63 paid calls, 0 bina usage = andaza) | target ₹100, hard limit ₹120
+[13:06:05] tts: done Lines: 43; total voice 390.0s; Whisper OK 43/43
+[13:06:05] gate_tts_review: done (skipped, already ok) Munshi PASS
+[13:06:05] render: done (skipped, already ok) final.mp4 exists
+[13:06:05] thumbnail: done (skipped, already ok) thumbnail exists
+[13:06:05] gate_final_review: done (skipped, already ok) Munshi PASS
+Channel:      नूर-ए-राह | Noor-e-Raah UCmw4fs9jN49GTq7wVSdYm6w
+Title:        Surah Al-Falaq ka Matlab Hindi Mein | 5 Ayat, Padhne ki Madad aur Hadith | Noor-e-Raah
+Video:        /home/user/story-channel/channels/noor-e-raah/stories/004_al-falaq/long/output/004_al-falaq_final.mp4
+Privacy:      auto (RULES 8, after upload)
+Publish at:   auto 
+If done now:  SCHEDULE 2026-11-01 19:00 IST (local list only; the real decision is made after the upload)
+Made for kids: False
+Thumbnail:    004_al-falaq_thumbnail.jpg
+Captions:     004_al-falaq.srt
+Playlist:     -
+Video check:  1920x1080 h264 yuv420p 407.0s
+1st comment:  आप बताइए — इन पाँच आयतों में से कौन-सी बात आपके दिल को सबसे ज़्यादा छू गई, और क्यों? 👇 (scheduled task, real publish time + 5 min)
+Channel OK: नूर-ए-राह | Noor-e-Raah (UCmw4fs9jN49GTq7wVSdYm6w)
+upload 1%
+upload 3%
+upload 5%
+upload 7%
+upload 8%
+upload 10%
+upload 12%
+upload 14%
+upload 15%
+upload 17%
+upload 19%
+upload 21%
+upload 22%
+upload 24%
+upload 26%
+upload 28%
+upload 29%
+upload 31%
+upload 33%
+upload 35%
+upload 36%
+upload 38%
+upload 40%
+upload 42%
+upload 43%
+upload 45%
+upload 47%
+upload 49%
+upload 50%
+upload 52%
+upload 54%
+upload 56%
+upload 57%
+upload 59%
+upload 61%
+upload 63%
+upload 64%
+upload 66%
+upload 68%
+upload 70%
+upload 71%
+upload 73%
+upload 75%
+upload 77%
+upload 78%
+upload 80%
+upload 82%
+upload 84%
+upload 85%
+upload 87%
+upload 89%
+upload 91%
+upload 92%
+upload 94%
+upload 96%
+upload 98%
+upload 99%
+Uploaded: https://youtu.be/Je03wdD0EvY
+{
+  "video_id": "Je03wdD0EvY",
+  "url": "https://youtu.be/Je03wdD0EvY",
+  "studio_url": "https://studio.youtube.com/video/Je03wdD0EvY/edit",
+  "uploaded_at": "2026-10-31T13:06:14.572836+00:00",
+  "publish_at": "auto",
+  "thumbnail_ok": true,
+  "captions_ok": true,
+  "planned_publish_at": "2026-11-01T19:00+05:30",
+  "publish_action": "schedule",
+  "comment_task_error": "[Errno 2] No such file or directory: 'powershell'",
+  "status": "private - studio action pending",
+  "studio_action": "STUDIO ACTION (long): Je03wdD0EvY \"Surah Al-Falaq ka Matlab Hindi Mein | 5 Ayat, Padhne ki Madad aur Hadith | Noor-e-Raah\"\n  -> 2026-11-01 19:00 IST par SCHEDULE karo   (https://studio.youtube.com/video/Je03wdD0EvY/edit)"
+}
+
+STUDIO ACTION (long): Je03wdD0EvY "Surah Al-Falaq ka Matlab Hindi Mein | 5 Ayat, Padhne ki Madad aur Hadith | Noor-e-Raah"
+  -> 2026-11-01 19:00 IST par SCHEDULE karo   (https://studio.youtube.com/video/Je03wdD0EvY/edit)
+004_al-falaq -> uploaded
+2026-10-31 | 004_al-falaq | ASLI KUL KHARCHA | ₹12.38 + GST ₹2.23 = ₹14.60 (andaza tha ₹12.77; 63 paid calls, 0 bina usage = andaza) | target ₹100, hard limit ₹120
+account remaining (ledger, GST samet): ₹83.72
