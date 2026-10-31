@@ -2,11 +2,11 @@
  "story": "004_al-falaq",
  "stage": "build_long",
  "status": "running",
- "started": "2026-10-31T12:04:32",
+ "started": "2026-10-31T12:37:52",
  "finished": null,
- "pid": 192,
+ "pid": 238,
  "paid": false,
  "cost": null,
  "note": null,
- "last_error": "2026-10-31T12:04:32 build_long: None"
+ "last_error": "2026-10-31T12:37:52 build_long: None"
 }

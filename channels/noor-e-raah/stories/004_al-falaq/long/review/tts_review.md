@@ -29,3 +29,15 @@ Checked: 43 wav (24 kHz mono, 402.8 s), .ok files, own Whisper-small (hi) re-run
 
 ## Verdict
 FIX: redo only line 40 (new take per the wording above, accept only if <= 6 s and words match). Everything else PASS. Total voice will drop by ~14 s. No STOP condition; cost of one TTS retake is within the story budget (spent Rs 14.47 of 120), free TTS first per the Free-first rule.
+
+---
+
+## R2 (2026-10-31) - line 40 retake
+
+Checked: 040_ustaad.wav re-run through own Whisper-small (hi); duration, peak/RMS, f0; all 43 wav durations summed.
+- Line 40 now 5.12 s (was 17.92 s). Whisper: "और शर से हासत के, जब वो हासत करे" - हासिद + हसद both present, the "और" lead-in and "जब वो ... करे" are Whisper's usual readback of वमिन / इज़ा (same pattern as lines 27, 34); no invented sentence, no unsourced claim. Script line 40 and research/ucharan.md both carry "वमिन शर्रि हासिदिन, इज़ा हसद।".
+- Peak 0.84, RMS 0.13, no clipping; f0 median 109 Hz (Ustaad range, same voice). Plain reading, no held note.
+- Other lines: 43 wav, total 390.04 s (matches 390.0 s); earlier R1 results for them stand (only 040.wav/.ok changed after the R1 pass).
+- MINOR (carry_over): the length guard should also compare words to the line text, not only duration.
+
+VERDICT: PASS
