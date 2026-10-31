@@ -154,3 +154,9 @@ econcile_balance.py <AI Studio balance ₹>` (pehli baar checkpoint), Long 03 ke
 - Koi bhi kaam shuru karne se PEHLE user ko ek line me batao: kitna samay lagega (jaise "~10 min", "~1 ghanta") aur kharcha (₹), aur user ka koi kaam (login, approve) ho to wo bhi.
 - Lamba kaam (>5 min) background me chalao aur beech me sirf zaroori status do; khatam hone par asli samay batao, taaki agle andaze behtar hon.
 - Andaza pakka na ho to range do ("15-30 min") aur wajah likho; kabhi chhupa ke lamba kaam shuru mat karo.
+
+## Session memory (private repo shamim8426/claude-memory)
+- Sab sessions ka context `shamim8426/claude-memory` me hai: `INDEX.md` (topic ki ek line) + `topics/<topic>.md`. Cloud session me is repo ko attach/clone karo (`add_repo`, push access).
+- Session shuru me `INDEX.md` padho. User kisi topic (jaise Kaggle) ka zikr kare to pehle `topics/<topic>.md` padho, phir kaam karo.
+- Bade kadam ke baad ya jab user "memory update karo" bole: topic file EDIT karo (Current status rewrite, Decisions / Known issues jodo, pure Next steps hatao; session ki diary append mat karo), INDEX ki uski line badlo (max 120 chars), phir commit + push: `memory: <topic> <what changed>` (simple English).
+- Memory me secret/token kabhi nahi, sirf env var ka naam. "memory saaf karo" = duplicates merge, khatam topics `archive/` me, INDEX ~100 lines se kam.
