@@ -16,10 +16,10 @@ Cross-check: Tanzil hi.farooq (Muhammad Farooq Khan) - "कहो, 'मैं �
 | Arabic | tarjumon ka matlab | hamare saral shabd (sujhaav, copy nahi) |
 |---|---|---|
 | أَعُوذُ | panah leta/maangta hoon | "मैं पनाह माँगता हूँ / सहारा लेता हूँ" |
-| بِرَبِّ ٱلْفَلَقِ | subah ke malik / paalanhaar; Farooq: "prakat karne wale rab" | "उस रब की जो अंधेरे को चीरकर सुबह निकालता है" (falaq = chirna/phaadna; tafseer me zyada mashhoor maana subah/dawn) |
-| مِن شَرِّ مَا خَلَقَ | har paida ki hui cheez ki burai | "उसकी बनाई हर चीज़ की बुराई से" |
+| بِرَبِّ ٱلْفَلَقِ | subah ke malik / paalanhaar; Farooq: "prakat karne wale rab" | "उस रब की जो अंधेरे को चीरकर सुबह निकालता है" (falaq = chirna/phaadna; tafseer me zyada mashhoor maana subah/dawn) |
+| مِن شَرِّ مَا خَلَقَ | har paida ki hui cheez ki burai | "उसकी बनाई हर चीज़ की बुराई से" |
 | غَاسِقٍ إِذَا وَقَبَ | andheri raat jab chha jaaye | "अंधेरी रात की बुराई से, जब उसका अंधेरा छा जाए" |
-| ٱلنَّفَّٰثَٰتِ فِى ٱلْعُقَدِ | girahon me phoonkne wali (aurtein/jaanein) | "गिरहों पर फूँकने वालियों की बुराई से" (jaadu ka zikr - sirf itna) |
+| ٱلنَّفَّٰثَٰتِ فِى ٱلْعُقَدِ | girahon me phoonkne wali (aurtein/jaanein) | "गिरहों पर फूँकने वालियों की बुराई से" (jaadu ka zikr - sirf itna) |
 | حَاسِدٍ إِذَا حَسَدَ | jalne wala/hasad karne wala, jab hasad kare | "जलने वाले की बुराई से, जब वह जलकर (नुकसान की) कोशिश करे" - dhyan: Umari "jab wo irshya kare" |
 
 Dhyan: 113:2 me "ma" (jo/jis cheez) - Tabari/Qurtubi: har makhlooq ki burai; Umari ka "उस चीज़" ekvachan hai, Mahmud Hasan "har cheez" - bhaavarth me "har cheez" lo. 113:4 me Umari/Suhel "vaaliyon" (stree-ling), Farooq/Maududi "walon" - Arabic muannas (النفاثات); tafseer (Tabari, Qurtubi, Ibn Kathir) me "jaadugarniyan/girah par phoonkne wali", isliye "फूँकने वालियों" safe. Teeno ka matlab har ayah par ek hai; Munshi side-by-side compare karega.

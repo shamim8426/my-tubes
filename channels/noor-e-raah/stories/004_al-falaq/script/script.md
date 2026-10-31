@@ -23,7 +23,7 @@
 - **Tarjuma = SARAL BHAAVARTH (RULES 1a)** — teen tarjume (al-Umari, Mahmud Hasan PD, Tanzil hi.hindi) ke saanjhe matlab par, apne shabdon me (`research/translation_options.md`); "har cheez" (Umari ka ekvachan nahi),
   "फूँकने वालियों" (stree-ling). Label: **"सरल भावार्थ — माने हुए तर्जुमों के आधार पर"**.
 - **Arabic:** Tanzil Uthmani (CC BY 3.0), `research/sources.json` -> `ayat[].text`, **code se copy** (retype nahi, koi NFC/NFKC); AYAH 1 = paanchon ayat ek space se joda (code se). Bismillah 113:1 ka hissa nahi (nahi lagayi).
-  113:4 `ٱلنَّفَّٰثَٰتِ` ka Amiri render Munshi zoom se dekhega. PC par Tanzil byte-milaan baaki (dossier 1.1).
+  113:4 `ٱلنَّفَّٰثَٰتِ` ka Amiri render Munshi zoom se dekhega. PC par Tanzil byte-milaan baaki (dossier 1.1).
 - **AYAH blocks:** `[AYAH 1]` = poori surah (5 ayat), ~0:32 par (Nigraan LAGU KARO: hook ka vaada 30-40 s); `[AYAH 2..6]` = ayah 1..5 (Arabic -> UCHARAN -> BHAAVARTH -> MATLAB). [AYAH 1] par UCHARAN nahi.
 - **Visuals:** sirf jagah, aasmaan, roshni, diye, ret, kamra. **Koi Nabi, Sahabi, farishta, jaadugar, insaan nahi** — na aakaar, na parchhai, na haath. 113:4 (girah) ke liye koi dora/rassi/haath nahi: sirf prateek (uljhi pagdandiyan).
   Koi likha harf image me nahi. Pehle 60 s me har image/crop <= ~8 s.
@@ -47,7 +47,7 @@
 ### [AYAH 1]
 [SCREEN: taaron bhara aasmaan; poori surah Arabic me (5 ayat) — swoosh ke saath aati hai]
 7. [SWOOSH — ARABIC ON SCREEN]
-ARABIC: قُلْ أَعُوذُ بِرَبِّ ٱلْفَلَقِ مِن شَرِّ مَا خَلَقَ وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ وَمِن شَرِّ ٱلنَّفَّٰثَٰتِ فِى ٱلْعُقَدِ وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ
+ARABIC: قُلْ أَعُوذُ بِرَبِّ ٱلْفَلَقِ مِن شَرِّ مَا خَلَقَ وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ وَمِن شَرِّ ٱلنَّفَّٰثَٰتِ فِى ٱلْعُقَدِ وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ
 8. USTAAD: "ये रही पूरी सूरह — पाँच छोटी आयतें, और एक ही बात: हर बुराई से पनाह सिर्फ़ अल्लाह की।" [P6]
 9. [MUSIC continue: River Flute — matlab]
 ## 2. SHAN-E-NUZUL
@@ -60,7 +60,7 @@ ARABIC: قُلْ أَعُوذُ بِرَبِّ ٱلْفَلَقِ مِن شَر�
 ### [AYAH 2]  (= 113:1)
 [SCREEN: पौ फटने का पहला उजाला, पुराने घरों और खजूरों पर सुनहरी रौशनी; koi insaan nahi]
 13. [SWOOSH — ARABIC ON SCREEN]
-ARABIC: قُلْ أَعُوذُ بِرَبِّ ٱلْفَلَقِ
+ARABIC: قُلْ أَعُوذُ بِرَبِّ ٱلْفَلَقِ
 14. USTAAD — UCHARAN: "क़ुल अऊज़ु बिरब्बिल फ़लक़"
 15. USTAAD — BHAAVARTH: "पहली आयत: कहो — मैं उस रब की पनाह माँगता हूँ, जो अँधेरे को चीरकर सुबह निकालता है।" [T2]
 16. [MUSIC continue: River Flute — matlab]
@@ -70,7 +70,7 @@ ARABIC: قُلْ أَعُوذُ بِرَبِّ ٱلْفَلَقِ
 ### [AYAH 3]  (= 113:2)
 [SCREEN: समंदर, पहाड़, घाटियाँ और तारों भरा आसमान एक साथ — "हर चीज़"; koi insaan nahi]
 20. [SWOOSH — ARABIC ON SCREEN]
-ARABIC: مِن شَرِّ مَا خَلَقَ
+ARABIC: مِن شَرِّ مَا خَلَقَ
 21. USTAAD — UCHARAN: "मिन शर्रि मा ख़लक़"
 22. USTAAD — BHAAVARTH: "दूसरी आयत: उसकी बनाई हर चीज़ की बुराई से।" [T2]
 23. [MUSIC continue: River Flute — matlab]
@@ -79,17 +79,17 @@ ARABIC: مِن شَرِّ مَا خَلَقَ
 ### [AYAH 4]  (= 113:3)
 [SCREEN: बहुत गहरी, तारों भरी रात; phir chandni me soye hue chhat; ek akela diya — "andhera, par sahara"; koi insaan nahi]
 26. [SWOOSH — ARABIC ON SCREEN]
-ARABIC: وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ
+ARABIC: وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ
 27. USTAAD — UCHARAN: "वमिन शर्रि ग़ासिक़िन इज़ा वक़ब"
 28. USTAAD — BHAAVARTH: "तीसरी आयत: और अँधेरी रात की बुराई से, जब उसका अँधेरा छा जाए।" [T2]
 29. [MUSIC continue: River Flute — matlab]
 30. USTAAD — MATLAB: "'ग़ासिक़' यानी छा जाने वाला अँधेरा, और 'वक़ब' यानी जब वो छा जाए। ज़्यादातर मुफ़स्सिरीन के मुताबिक़ यहाँ मतलब अँधेरी रात है।" [M3]
-31. USTAAD — MATLAB: "तफ़्सीर में आता है कि रात में डर, शरारत और नुक़सान की बातें ज़्यादा होती हैं। दूसरे मतलब भी बताए गए हैं, पर आयत आम है।" [M3]
+31. USTAAD — MATLAB: "तफ़्सीर में आता है कि रात में जानवर, ख़राबी और शरारत की बातें ज़्यादा होती हैं। दूसरे मतलब भी बताए गए हैं, पर आयत आम है।" [M3]
 32. SAWAAL — MISAAL: "रात के अँधेरे में जब नींद न आए और दिल घबराए, तो सुबह की पहली रौशनी से कितनी तसल्ली मिलती है।" [MISAAL]
 ### [AYAH 5]  (= 113:4)
 [SCREEN: प्रतीक — रेगिस्तान में कई पगडंडियाँ एक जगह उलझकर मिलती हुईं (ऊपर से, धागों जैसी); koi dora/haath/chehra nahi, koi insaan nahi]
 33. [SWOOSH — ARABIC ON SCREEN]
-ARABIC: وَمِن شَرِّ ٱلنَّفَّٰثَٰتِ فِى ٱلْعُقَدِ
+ARABIC: وَمِن شَرِّ ٱلنَّفَّٰثَٰتِ فِى ٱلْعُقَدِ
 34. USTAAD — UCHARAN: "वमिन शर्रिन नफ़्फ़ासाति फ़िल उक़द"
 35. USTAAD — BHAAVARTH: "चौथी आयत: और गिरहों पर फूँकने वालियों की बुराई से।" [T2]
 36. [MUSIC continue: River Flute — matlab]
@@ -98,7 +98,7 @@ ARABIC: وَمِن شَرِّ ٱلنَّفَّٰثَٰتِ فِى ٱلْعُقَ
 ### [AYAH 6]  (= 113:5)
 [SCREEN: बहुत बड़ा ख़ाली रेगिस्तान, दूर एक छोटा सा छल्ला — अकेलापन/जलन; phir tara-bhara aasmaan; koi insaan nahi]
 39. [SWOOSH — ARABIC ON SCREEN]
-ARABIC: وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ
+ARABIC: وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ
 40. USTAAD — UCHARAN: "वमिन शर्रि हासिदिन इज़ा हसद"
 41. USTAAD — BHAAVARTH: "पाँचवीं आयत: और जलने वाले की बुराई से, जब वो जलन में कुछ कर बैठे।" [T2]
 42. [MUSIC continue: River Flute — matlab]

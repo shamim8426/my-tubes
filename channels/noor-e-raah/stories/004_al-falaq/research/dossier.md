@@ -10,18 +10,18 @@
 ### 1.1 Arabic (Tanzil Uthmani) [T1] - ALLOWED
 - Licence: 001-003 dossier jaisa (CC BY 3.0; verbatim, koi badlav nahi; "Tanzil Project" + link tanzil.net; description me notice).
 - Snapshot: `risan/quran-json data/tanzil/uthmani.json` (003 wali hi file, sha256 `adaebb377c60eba1bab6ef652959c7a0b4ccb4d0ca42145945c14ecdbeb4b761`; aaj file download/sha nahi chalaya - text WebFetch se). Keys: chapter/verse/text.
-- **Dhyan:** 113:1 ke aage Bismillah laga hai (`بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ ` + ayah). Bismillah 113:1 ka hissa **nahi** - hata kar neeche wala string (003 jaisa).
+- **Dhyan:** 113:1 ke aage Bismillah laga hai (`بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ ` + ayah). Bismillah 113:1 ka hissa **nahi** - hata kar neeche wala string (003 jaisa).
 - Ayat (NFC/NFKC KABHI nahi; sha256 = UTF-8 string ka, local gine):
 
 | Ayah | Arabic (Tanzil) | shabd | sha256 |
 |---|---|---|---|
-| 113:1 | قُلْ أَعُوذُ بِرَبِّ ٱلْفَلَقِ | 4 | 75a64035932e6081c4320fdfb0ce915e0e52916bd43529e78de14c6e58018ada |
-| 113:2 | مِن شَرِّ مَا خَلَقَ | 4 | d32e9c709ebc5af1e748de00998b7374522ebec9fe48b907a62c87cd951445d9 |
-| 113:3 | وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ | 5 | 394467f255bf2e28dea9d9eaefcd433b356e6e262199baced055efd9f1b2358c |
-| 113:4 | وَمِن شَرِّ ٱلنَّفَّٰثَٰتِ فِى ٱلْعُقَدِ | 5 | 84dd76ff082d11699ac26e5594a27d6e7fda29666c377ff0452d3ebd4f477efa |
-| 113:5 | وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ | 5 | e5f17e625f6b71834b9763cb904de787efa5e3167b25e58f79cf27c6827c6725 |
+| 113:1 | قُلْ أَعُوذُ بِرَبِّ ٱلْفَلَقِ | 4 | 75a64035932e6081c4320fdfb0ce915e0e52916bd43529e78de14c6e58018ada |
+| 113:2 | مِن شَرِّ مَا خَلَقَ | 4 | d32e9c709ebc5af1e748de00998b7374522ebec9fe48b907a62c87cd951445d9 |
+| 113:3 | وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ | 5 | 394467f255bf2e28dea9d9eaefcd433b356e6e262199baced055efd9f1b2358c |
+| 113:4 | وَمِن شَرِّ ٱلنَّفَّٰثَٰتِ فِى ٱلْعُقَدِ | 5 | 84dd76ff082d11699ac26e5594a27d6e7fda29666c377ff0452d3ebd4f477efa |
+| 113:5 | وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ | 5 | e5f17e625f6b71834b9763cb904de787efa5e3167b25e58f79cf27c6827c6725 |
 
-- **PC par karo:** (a) tanzil.net `quran-uthmani` se in 5 ayat ka byte-milaan (BOM + Bismillah hatao) aur sha dobara chalao - ek bhi harf/harkat ka farq = ye table galat. (b) 113:4 `ٱلنَّفَّٰثَٰتِ` (shadda + khanjari alif) ka libass/Amiri render Munshi zoom se dekho.
+- **PC par karo:** (a) tanzil.net `quran-uthmani` se in 5 ayat ka byte-milaan (BOM + Bismillah hatao) aur sha dobara chalao - ek bhi harf/harkat ka farq = ye table galat. (b) 113:4 `ٱلنَّفَّٰثَٰتِ` (shadda + khanjari alif) ka libass/Amiri render Munshi zoom se dekho.
 ### 1.2 Hindi [T2]
 001 ka faisla: **SARAL BHAAVARTH** (on-screen "सरल भावार्थ - माने हुए तर्जुमों के आधार पर"). Teen tarjume: al-Umari (QuranEnc), Mahmud Hasan (Urdu, PD), Tanzil `hi.hindi`. Cross-check: Farooq, Maududi, Taqi Usmani. Poora comparison + kunji-shabd: `translation_options.md`.
 ### 1.3 Latin transliteration -> Devanagari ucharan [T3]

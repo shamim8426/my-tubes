@@ -1,11 +1,11 @@
 {
- "story": "003_al-ikhlas",
- "stage": "build_long",
- "status": "done",
- "started": "2026-10-30T07:04:12",
- "finished": "2026-10-30T07:37:10",
- "pid": 2701,
- "paid": false,
+ "story": "004_al-falaq",
+ "stage": "tts",
+ "status": "running",
+ "started": "2026-10-31T10:34:01",
+ "finished": null,
+ "pid": 2020,
+ "paid": true,
  "cost": null,
  "note": null,
  "last_error": "2026-10-30T06:57:52 tts: None"
