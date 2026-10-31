@@ -193,3 +193,4 @@
 2026-10-31 13:38:14  pushed: claude explainer: stage scene, hooks opener, style guide v2  (repo pack size 1,267 MB)
 2026-10-31 15:02:40  pushed: yellow-bot: channel pack, move explainer files, rules and bible  (repo pack size 1,267 MB)
 2026-10-31 15:11:46  pushed: yellow-bot: hooks short uploaded private, yuv420p fix  (repo pack size 1,267 MB)
+2026-10-31 15:12:22  pushed: renderers: chromium fallback when Chrome is missing  (repo pack size 1,267 MB)
