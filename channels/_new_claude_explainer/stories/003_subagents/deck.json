@@ -1,0 +1,44 @@
+{
+ "_note": "Short 003: Subagents. Facts: official docs code.claude.com/docs/en/sub-agents and /common-workflows (read 2026-10-31). White background, black + yellow, large text that matches the spoken words, a different presentation style per scene.",
+ "tag": "Claude Code · Subagents",
+ "voice": {"id": "Charon", "style": "Speak naturally as a calm, knowledgeable Indian tech explainer in Hindi with English tech words. Clear, steady, moderate pace, plain and professional. No drama, no jokes, no exaggerated emphasis, no sing-song."},
+ "scenes": [
+  {"id": "hook", "type": "statement", "wipe": "right",
+   "voice": "बड़े कोडबेस को खंगालने में आपकी बातचीत फाइलों से भर जाती है। इसका एक हल है, Subagents।",
+   "lines": ["बड़े कोडबेस में", "बातचीत **भर जाती** है", "हल: **Subagents**"],
+   "cues": ["बड़े कोडबेस", "आपकी बातचीत", "एक हल है"], "size": 100, "top": 700, "gap": 26},
+
+  {"id": "what", "type": "chips", "wipe": "up",
+   "voice": "Subagent एक खास AI असिस्टेंट है। उसका अपना context window, अपना system prompt, अपने tools और अपनी permissions होती हैं।",
+   "parent": "Main chat · आपकी बातचीत", "title": "Subagent", "chips": ["अपना context window", "अपना system prompt", "अपने tools", "अपनी permissions"],
+   "y0": 350, "cues": ["Subagent एक", "खास AI", "अपना context", "अपना system", "अपने tools", "अपनी permissions"]},
+
+  {"id": "flow", "type": "flow", "wipe": "left",
+   "voice": "आप कहते हैं, इसकी जाँच subagent से कराओ। वो अपनी अलग window में फाइलें पढ़ता है, और सिर्फ़ सारांश वापस भेजता है। इसलिए आपकी मुख्य बातचीत साफ़ रहती है।",
+   "nodes": [{"t": "आप", "s": "काम सौंपते हैं"}, {"t": "Subagent", "s": "अलग window में फाइलें पढ़ता है"}, {"t": "सारांश", "s": "सिर्फ़ summary वापस आती है"}, {"t": "Main chat", "s": "साफ़ और हल्की रहती है"}],
+   "cues": ["आप कहते", "subagent से", "सिर्फ़ सारांश", "मुख्य बातचीत"], "nh": 232, "gap": 96},
+
+  {"id": "docs", "type": "docs", "wipe": "right", "img": "subagents.png", "url": "code.claude.com/docs/en/sub-agents",
+   "voice": "Docs के मुताबिक़, subagents से आप context बचाते हैं, tools सीमित करते हैं, और सस्ते मॉडल पर काम भेज सकते हैं।",
+   "scroll": [900, 1000], "ch": 1180, "callout": "context **बचाओ**, tools **सीमित** करो", "cosize": 66,
+   "cues": ["context बचाते"],
+   "hls": [{"x": 60, "y": 1128, "w": 1150, "h": 44}, {"x": 60, "y": 1182, "w": 880, "h": 44}, {"x": 60, "y": 1344, "w": 1130, "h": 44}],
+   "hlcues": ["context बचाते", "tools सीमित", "सस्ते मॉडल"]},
+
+  {"id": "file", "type": "code", "wipe": "up", "file": ".claude/agents/code-reviewer.md", "size": 46,
+   "voice": "Subagent एक Markdown फाइल होती है। उसमें name और description ज़रूरी हैं, और tools और model चाहें तो चुन सकते हैं।",
+   "lines": ["---", "name: code-reviewer", "description: Reviews my code", "tools: Read, Glob, Grep", "model: sonnet", "---"], "y0": 450,
+   "caption": "सिर्फ़ **name** और **description** ज़रूरी", "cosize": 76,
+   "cues": ["Markdown फाइल", "name और", "description ज़रूरी", "tools और model", "model चाहें", "चुन सकते", "ज़रूरी हैं"]},
+
+  {"id": "builtin", "type": "list", "wipe": "right",
+   "voice": "Claude Code में तीन built-in subagents हैं। Explore सिर्फ़ पढ़ता है, Plan, plan mode में रिसर्च करता है, और General-purpose जटिल काम संभालता है।",
+   "items": [{"k": "Explore", "d": "सिर्फ़ पढ़ता है (read-only)"}, {"k": "Plan", "d": "plan mode में रिसर्च"}, {"k": "General-purpose", "d": "जटिल, कई चरणों वाले काम"}],
+   "cues": ["Explore सिर्फ़", "Plan, plan", "General-purpose जटिल"], "rh": 410, "y0": 380, "ksize": 72, "dsize": 54},
+
+  {"id": "cta", "type": "cta", "wipe": "left",
+   "voice": "चाहें तो Claude से ही कहिए, मेरे लिए एक subagent लिख दो। आप कौन सा subagent बनाएँगे? कमेंट में बताइए।",
+   "lines": ["Claude से कहिए:", "**subagent** लिख दो", "आप कौन सा बनाएँगे?"], "sub": "कमेंट में बताइए",
+   "cues": ["चाहें तो Claude", "एक subagent लिख", "कौन सा subagent", "कमेंट में"], "size": 92}
+ ]
+}

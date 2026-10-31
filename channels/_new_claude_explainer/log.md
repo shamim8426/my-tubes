@@ -1,2 +1,3 @@
 ﻿- 2026-10-31 Short 001 (CLAUDE.md) built: 53.4 s, 1080x1920, -14.9 LUFS, TP -1.5 dBFS; voice Gemini TTS ~Rs1; renderer scripts/kinetic_short.py; not uploaded (no channel yet), Munshi review not run.
 - 2026-10-31 Short 002 (5 Claude Code features) built: 69.7 s, 1080x1920, -15.1 LUFS, TP -0.9; 6 HD images free (Cloudflare Rs0), TTS ~Rs1; renderer scripts/kinetic_short.py v1 (gradient + image cards + Poppins); not uploaded, Munshi not run; voice alternates in audio/alt/.
+- 2026-10-31 decks built (not rendered): 003 Subagents (1/7 voice lines done, free key), 004 Skills, 005 MCP. Renderer: scripts/build_deck.py + templates/deck_template.html (white, black+yellow, 9 scene types). BLOCKED: free Gemini TTS quota used up (429); paid key not used (user: free only).
