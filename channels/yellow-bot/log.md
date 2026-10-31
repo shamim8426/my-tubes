@@ -15,3 +15,5 @@
 - 2026-10-31 009 MCP UPLOADED private: https://youtu.be/XjGT3YxVC3Q (64.8 s, -14.9 LUFS, TP -1.3; TTS ~Rs1.4 paid; ~25 min). Fact-check PASS. New: traveling copy-paste bubble then MCP badge in stage opener.
 - 2026-10-31 010 Memory UPLOADED private: https://youtu.be/jQWCNgezK38 (55.3 s, -15.1 LUFS, TP -1.7; TTS ~Rs1.2 paid; ~20 min). Fact-check PASS. New: session-gap opener (CLAUDE.md doc slides between Session 1 and 2).
 - 2026-10-31 011 Checkpointing UPLOADED private: https://youtu.be/z9LEeI0YNKo (49.0 s, -15.4 LUFS, TP -1.2; TTS ~Rs1.2 paid; ~20 min). Fact-check PASS. New: undo opener (doc messy -> two Esc key caps -> clean).
+
+- 2026-10-31 012 Tools UPLOADED private: https://youtu.be/whEYixIMx0Q (51.2 s, -15.0 LUFS, TP -1.8; voice 1 free + 5 paid ~Rs1.2; ~45 min incl. new svgbot layer). Fact-check PASS (review/factcheck.md). First video in FORMAT v3: concept cards opener, docs screenshot proof, terminal example, nuance (compare), svgbot recap, CTA without quiz.
