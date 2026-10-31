@@ -60,8 +60,8 @@
     "title": "How Claude remembers your project",
     "url": "https://code.claude.com/docs/en/memory.md",
     "summary": "Give Claude persistent instructions with CLAUDE.md or AGENTS.md files, and let Claude accumulate learnings automatically with auto memory.",
-    "status": "todo",
-    "story": null
+    "status": "uploaded",
+    "story": "010_memory"
   },
   {
     "id": "sessions",

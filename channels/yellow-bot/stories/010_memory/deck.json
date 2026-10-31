@@ -1,0 +1,471 @@
+{
+ "_note": "Short 010: Memory. Facts: official docs code.claude.com/docs/en/memory (read 2026-10-31). New: stage session-gap opener (fresh session then CLAUDE.md doc slides between sessions).",
+ "tag": "Claude Code · Memory",
+ "music": {
+  "file": "shared/music/presentation/Funkorama.mp3",
+  "start": 6,
+  "rel": 12
+ },
+ "voice": {
+  "id": "Charon",
+  "style": "Speak like a friendly Indian tech YouTuber chatting casually in Hinglish. Natural conversational pace, warm and clear, a little energetic but not theatrical. No sing-song, no exaggerated emphasis."
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "type": "stage",
+   "wipe": "right",
+   "voice": "हर session एक fresh context से शुरू होता है। तो Claude को याद कैसे रहता है? Memory से।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "Naya session = **fresh** start",
+     "x": 80,
+     "y": 1560,
+     "size": 74,
+     "hlAt": 1.4,
+     "k": [
+      [
+       0.3,
+       {
+        "o": 0,
+        "y": 1610
+       }
+      ],
+      [
+       0.8,
+       {
+        "o": 1,
+        "y": 1570
+       }
+      ],
+      [
+       3.6,
+       {
+        "o": 1
+       }
+      ],
+      [
+       4.0,
+       {
+        "o": 0,
+        "y": 1540
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "text",
+     "html": "**Memory** se sab yaad",
+     "x": 80,
+     "y": 1560,
+     "size": 74,
+     "hlAt": 4.8,
+     "k": [
+      [
+       4.0,
+       {
+        "o": 0,
+        "y": 1610
+       }
+      ],
+      [
+       4.5,
+       {
+        "o": 1,
+        "y": 1570
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "img",
+     "img": "think",
+     "size": 360,
+     "x": 20,
+     "y": 700,
+     "bob": 1,
+     "k": [
+      [
+       0.1,
+       {
+        "x": -420,
+        "o": 1
+       }
+      ],
+      [
+       0.8,
+       {
+        "x": 20
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "Session 1",
+     "cls": "yel shadow",
+     "css": "font-size:40px;font-weight:800;padding:10px 30px;border-radius:999px;white-space:nowrap",
+     "x": 560,
+     "y": 500,
+     "k": [
+      [
+       0.8,
+       {
+        "o": 0,
+        "s": 0.6
+       }
+      ],
+      [
+       1.2,
+       {
+        "o": 1,
+        "s": 1,
+        "e": "b"
+       }
+      ],
+      [
+       7.5,
+       {
+        "o": 1
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "Session 2",
+     "cls": "ink",
+     "css": "font-size:40px;font-weight:800;padding:10px 30px;border-radius:999px;white-space:nowrap",
+     "x": 560,
+     "y": 980,
+     "k": [
+      [
+       1.8,
+       {
+        "o": 0,
+        "s": 0.6
+       }
+      ],
+      [
+       2.2,
+       {
+        "o": 1,
+        "s": 1,
+        "e": "b"
+       }
+      ],
+      [
+       7.5,
+       {
+        "o": 1
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "?",
+     "cls": "yel shadow",
+     "css": "width:110px;height:110px;border-radius:55px;font-size:72px;font-weight:800;display:flex;align-items:center;justify-content:center;white-space:nowrap",
+     "x": 880,
+     "y": 960,
+     "k": [
+      [
+       2.5,
+       {
+        "o": 0,
+        "s": 0.4
+       }
+      ],
+      [
+       2.9,
+       {
+        "o": 1,
+        "s": 1,
+        "e": "b"
+       }
+      ],
+      [
+       3.6,
+       {
+        "o": 1
+       }
+      ],
+      [
+       3.9,
+       {
+        "o": 0
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "doc",
+     "w": 440,
+     "h": 300,
+     "x": 560,
+     "y": 600,
+     "file": "CLAUDE.md",
+     "lines": 5,
+     "k": [
+      [
+       3.2,
+       {
+        "o": 0,
+        "s": 0.6
+       }
+      ],
+      [
+       3.7,
+       {
+        "o": 1,
+        "s": 1,
+        "e": "b"
+       }
+      ],
+      [
+       4.3,
+       {
+        "o": 1,
+        "x": 560,
+        "y": 600
+       }
+      ],
+      [
+       5.0,
+       {
+        "o": 1,
+        "x": 560,
+        "y": 660,
+        "s": 0.9
+       }
+      ],
+      [
+       7.5,
+       {
+        "o": 1
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "yaad hai!",
+     "cls": "yel shadow",
+     "css": "font-size:44px;font-weight:800;padding:14px 34px;border-radius:30px;white-space:nowrap",
+     "x": 600,
+     "y": 1130,
+     "k": [
+      [
+       5.4,
+       {
+        "o": 0,
+        "s": 0.5
+       }
+      ],
+      [
+       5.9,
+       {
+        "o": 1,
+        "s": 1,
+        "e": "b"
+       }
+      ],
+      [
+       7.5,
+       {
+        "o": 1
+       }
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "two",
+   "type": "compare",
+   "wipe": "up",
+   "footcue": 6,
+   "voice": "Memory दो तरह की है। CLAUDE.md आप लिखते हो, और auto memory Claude खुद लिखता है। दोनों हर session में load होती हैं।",
+   "left": {
+    "title": "CLAUDE.md",
+    "rows": [
+     "Aap likhte ho",
+     "Instructions, rules"
+    ]
+   },
+   "right": {
+    "title": "Auto memory",
+    "rows": [
+     "Claude likhta hai",
+     "Corrections, preferences"
+    ]
+   },
+   "foot": "Dono **har session** me load",
+   "cues": [
+    "Memory दो",
+    "CLAUDE.md आप",
+    "लिखते हो",
+    "auto memory",
+    "Claude खुद",
+    "खुद लिखता",
+    "दोनों हर session"
+   ],
+   "robot": {
+    "img": "think",
+    "x": 60,
+    "y": 1280,
+    "size": 420,
+    "cue": "दोनों हर session"
+   }
+  },
+  {
+   "id": "write",
+   "type": "code",
+   "wipe": "left",
+   "file": "CLAUDE.md",
+   "size": 34,
+   "y0": 330,
+   "voice": "CLAUDE.md में concrete बातें लिखो: 2-space indentation, commit से पहले npm test, और API handlers कहाँ हैं।",
+   "lines": [
+    "- Use 2-space indentation",
+    "- Run `npm test` before committing",
+    "- API handlers live in",
+    "  `src/api/handlers/`"
+   ],
+   "caption": "**Concrete** likho, jo verify ho sake",
+   "cosize": 64,
+   "cues": [
+    "concrete",
+    "2-space",
+    "npm test",
+    "API handlers"
+   ],
+   "robot": {
+    "img": "work",
+    "x": 610,
+    "y": 1330,
+    "size": 400,
+    "cue": "API handlers"
+   }
+  },
+  {
+   "id": "where",
+   "type": "list",
+   "wipe": "right",
+   "y0": 320,
+   "rh": 340,
+   "ksize": 66,
+   "dsize": 40,
+   "voice": "कहाँ रखें? Project की CLAUDE.md team के साथ share होती है, User वाली आपके सारे projects के लिए, और CLAUDE.local.md सिर्फ़ आपके लिए।",
+   "items": [
+    {
+     "k": "Project",
+     "d": "./CLAUDE.md, team ke saath"
+    },
+    {
+     "k": "User",
+     "d": "~/.claude/CLAUDE.md, sab projects"
+    },
+    {
+     "k": "Local",
+     "d": "CLAUDE.local.md, sirf aap"
+    }
+   ],
+   "cues": [
+    "कहाँ रखें",
+    "Project की",
+    "User वाली",
+    "CLAUDE.local.md"
+   ]
+  },
+  {
+   "id": "auto",
+   "type": "flow",
+   "wipe": "up",
+   "tsize": 50,
+   "nh": 200,
+   "gap": 90,
+   "voice": "Auto memory में आप Claude को correct करते हो, वो MEMORY.md में note लिखता है, और अगले session में उसकी पहली 200 lines load होती हैं।",
+   "nodes": [
+    {
+     "t": "Aap Claude ko correct karte ho",
+     "s": "ya kehte ho: remember this"
+    },
+    {
+     "t": "Claude MEMORY.md me note likhta hai",
+     "s": "khud decide karta hai"
+    },
+    {
+     "t": "Agle session me load",
+     "s": "pehli 200 lines ya 25KB"
+    }
+   ],
+   "cues": [
+    "आप Claude",
+    "MEMORY.md",
+    "अगले session",
+    "200 lines"
+   ],
+   "robot": {
+    "img": "thumbs",
+    "x": 590,
+    "y": 1190,
+    "size": 440,
+    "cue": "200 lines"
+   }
+  },
+  {
+   "id": "tips",
+   "type": "chips",
+   "wipe": "left",
+   "y0": 330,
+   "parent": "Memory tips",
+   "title": "3 kaam ki baatein",
+   "chips": [
+    "/init se CLAUDE.md banao",
+    "/memory se dekho aur edit",
+    "200 lines se chhota rakho"
+   ],
+   "voice": "तीन काम की बातें। Slash init से CLAUDE.md बनाओ, slash memory से files edit करो, और 200 lines से छोटी रखो।",
+   "cues": [
+    "तीन काम",
+    "Slash init",
+    "slash memory",
+    "200 lines"
+   ],
+   "robot": {
+    "img": "work",
+    "x": 600,
+    "y": 1340,
+    "size": 400,
+    "cue": "slash memory"
+   }
+  },
+  {
+   "id": "cta",
+   "type": "cta",
+   "wipe": "up",
+   "size": 96,
+   "voice": "तो आप Claude को क्या याद रखवाओगे? Comment में बताओ।",
+   "lines": [
+    "Claude ko kya",
+    "**yaad** rakhwaoge?"
+   ],
+   "sub": "Comment me batao",
+   "cues": [
+    "आप Claude",
+    "याद रखवाओगे",
+    "Comment में"
+   ],
+   "robot": {
+    "img": "thumbs",
+    "x": 570,
+    "y": 1250,
+    "size": 460,
+    "cue": "Comment में"
+   }
+  }
+ ]
+}
