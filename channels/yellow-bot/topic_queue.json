@@ -316,8 +316,8 @@
     "title": "Connect Claude Code to tools via MCP",
     "url": "https://code.claude.com/docs/en/mcp.md",
     "summary": "Learn how to connect Claude Code to your tools with the Model Context Protocol.",
-    "status": "built",
-    "story": "005_mcp"
+    "status": "uploaded",
+    "story": "009_mcp"
   },
   {
     "id": "skills",
