@@ -1,0 +1,1517 @@
+{
+ "lines": [
+  {
+   "kind": "line",
+   "n": 3,
+   "speaker": "sawaal",
+   "role": "",
+   "section": "INTRO (`part: intro`, hook)",
+   "ayah": null,
+   "text": "उस्ताद जी, रात का अँधेरा और सुबह की पहली किरण — सूरह फ़लक़ में दोनों हैं। पर क्या इसका मतलब जानते हैं?",
+   "tags": [],
+   "audio": "audio/tts/003_sawaal.wav",
+   "seconds": 8.0,
+   "tts_ok": true,
+   "start": 0.8,
+   "end": 8.207
+  },
+  {
+   "kind": "line",
+   "n": 4,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "INTRO (`part: intro`, hook)",
+   "ayah": null,
+   "text": "सिर्फ़ पाँच आयतें — पनाह माँगने की सूरह। आज इन्हें एक-एक करके समझते हैं।",
+   "tags": [
+    "P6"
+   ],
+   "audio": "audio/tts/004_ustaad.wav",
+   "seconds": 7.08,
+   "tts_ok": true,
+   "start": 8.807,
+   "end": 15.363
+  },
+  {
+   "kind": "line",
+   "n": 5,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "INTRO (`part: intro`, hook)",
+   "ayah": null,
+   "text": "ये पढ़ने की मदद है, तिलावत नहीं — सही तिलावत किसी क़ारी से सुनें।",
+   "tags": [
+    "NOTE"
+   ],
+   "audio": "audio/tts/005_ustaad.wav",
+   "seconds": 6.56,
+   "tts_ok": true,
+   "start": 15.713,
+   "end": 21.787
+  },
+  {
+   "kind": "line",
+   "n": 6,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "1. SURAH KA PARICHAY",
+   "ayah": null,
+   "text": "सूरह अल-फ़लक़ क़ुरआन की एक सौ तेरहवीं सूरह है। 'फ़लक़' यानी पौ फटना, सुबह का फूटना।",
+   "tags": [
+    "P1",
+    "M1"
+   ],
+   "audio": "audio/tts/006_ustaad.wav",
+   "seconds": 9.36,
+   "tts_ok": true,
+   "start": 22.937,
+   "end": 31.604
+  },
+  {
+   "kind": "line",
+   "n": 8,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "1. SURAH KA PARICHAY",
+   "ayah": 1,
+   "text": "ये रही पूरी सूरह — पाँच छोटी आयतें, और एक ही बात: हर बुराई से पनाह सिर्फ़ अल्लाह की।",
+   "tags": [
+    "P6"
+   ],
+   "audio": "audio/tts/008_ustaad.wav",
+   "seconds": 10.52,
+   "tts_ok": true,
+   "start": 34.554,
+   "end": 44.294
+  },
+  {
+   "kind": "line",
+   "n": 10,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "2. SHAN-E-NUZUL",
+   "ayah": null,
+   "text": "इस सूरह को 'अन-नास' के साथ 'मुअव्विज़तैन' कहा जाता है — यानी पनाह माँगने वाली दो सूरतें।",
+   "tags": [
+    "P2"
+   ],
+   "audio": "audio/tts/010_ustaad.wav",
+   "seconds": 8.2,
+   "tts_ok": true,
+   "start": 46.244,
+   "end": 53.837
+  },
+  {
+   "kind": "line",
+   "n": 11,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "2. SHAN-E-NUZUL",
+   "ayah": null,
+   "text": "ये सूरह मक्की है या मदनी — इस पर उलमा में इख़्तिलाफ़ है। कुछ इसे मक्की कहते हैं, कुछ मदनी।",
+   "tags": [
+    "P3"
+   ],
+   "audio": "audio/tts/011_ustaad.wav",
+   "seconds": 9.24,
+   "tts_ok": true,
+   "start": 54.187,
+   "end": 62.743
+  },
+  {
+   "kind": "line",
+   "n": 12,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "2. SHAN-E-NUZUL",
+   "ayah": null,
+   "text": "इसके उतरने का कोई सहीह-दर्जे का ख़ास वाक़िया नहीं मिलता।",
+   "tags": [
+    "N1",
+    "N2"
+   ],
+   "audio": "audio/tts/012_ustaad.wav",
+   "seconds": 4.76,
+   "tts_ok": true,
+   "start": 63.093,
+   "end": 67.5
+  },
+  {
+   "kind": "line",
+   "n": 14,
+   "speaker": "ustaad",
+   "role": "ucharan",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 2,
+   "text": "क़ुल अऊज़ु बिरब्बिल फ़लक़",
+   "tags": [],
+   "audio": "audio/tts/014_ustaad.wav",
+   "seconds": 3.2,
+   "tts_ok": true,
+   "start": 71.25,
+   "end": 74.213
+  },
+  {
+   "kind": "line",
+   "n": 15,
+   "speaker": "ustaad",
+   "role": "bhaavarth",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 2,
+   "text": "पहली आयत: कहो — मैं उस रब की पनाह माँगता हूँ, जो अँधेरे को चीरकर सुबह निकालता है।",
+   "tags": [
+    "T2"
+   ],
+   "audio": "audio/tts/015_ustaad.wav",
+   "seconds": 8.6,
+   "tts_ok": true,
+   "start": 74.563,
+   "end": 82.526
+  },
+  {
+   "kind": "line",
+   "n": 17,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 2,
+   "text": "'क़ुल' यानी 'कहो' — पनाह माँगने की ये बात कहने का हुक्म। 'अऊज़ु' यानी मैं पनाह माँगता हूँ, सहारा लेता हूँ।",
+   "tags": [
+    "M1"
+   ],
+   "audio": "audio/tts/017_ustaad.wav",
+   "seconds": 9.88,
+   "tts_ok": true,
+   "start": 83.676,
+   "end": 92.824
+  },
+  {
+   "kind": "line",
+   "n": 18,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 2,
+   "text": "'फ़लक़' का मतलब है चीरना, फाड़ना। ज़्यादातर मुफ़स्सिरीन के मुताबिक़ यहाँ मतलब सुबह है — जब रौशनी रात को चीरकर निकलती है।",
+   "tags": [
+    "M1"
+   ],
+   "audio": "audio/tts/018_ustaad.wav",
+   "seconds": 12.52,
+   "tts_ok": true,
+   "start": 93.174,
+   "end": 104.767
+  },
+  {
+   "kind": "line",
+   "n": 19,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 2,
+   "text": "तफ़्सीर में आता है कि सुबह का नाम इसलिए, क्योंकि रात अक्सर परेशानी लाती है और दिन उसे दूर करता है।",
+   "tags": [
+    "M1"
+   ],
+   "audio": "audio/tts/019_ustaad.wav",
+   "seconds": 9.76,
+   "tts_ok": true,
+   "start": 105.117,
+   "end": 114.154
+  },
+  {
+   "kind": "line",
+   "n": 21,
+   "speaker": "ustaad",
+   "role": "ucharan",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 3,
+   "text": "मिन शर्रि मा ख़लक़",
+   "tags": [],
+   "audio": "audio/tts/021_ustaad.wav",
+   "seconds": 3.12,
+   "tts_ok": true,
+   "start": 117.104,
+   "end": 119.993
+  },
+  {
+   "kind": "line",
+   "n": 22,
+   "speaker": "ustaad",
+   "role": "bhaavarth",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 3,
+   "text": "दूसरी आयत: उसकी बनाई हर चीज़ की बुराई से।",
+   "tags": [
+    "T2"
+   ],
+   "audio": "audio/tts/022_ustaad.wav",
+   "seconds": 5.2,
+   "tts_ok": true,
+   "start": 120.343,
+   "end": 125.157
+  },
+  {
+   "kind": "line",
+   "n": 24,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 3,
+   "text": "यानी उसकी पैदा की हुई हर चीज़ के नुक़सान से — ये बात आम है, किसी एक चीज़ तक सीमित नहीं।",
+   "tags": [
+    "M2"
+   ],
+   "audio": "audio/tts/024_ustaad.wav",
+   "seconds": 8.92,
+   "tts_ok": true,
+   "start": 126.307,
+   "end": 134.567
+  },
+  {
+   "kind": "line",
+   "n": 25,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 3,
+   "text": "तफ़्सीर में आता है कि नफ़ा-नुक़सान का असली मालिक अल्लाह है, इसीलिए पनाह भी उसी की माँगी जाती है।",
+   "tags": [
+    "M2"
+   ],
+   "audio": "audio/tts/025_ustaad.wav",
+   "seconds": 9.76,
+   "tts_ok": true,
+   "start": 134.917,
+   "end": 143.954
+  },
+  {
+   "kind": "line",
+   "n": 27,
+   "speaker": "ustaad",
+   "role": "ucharan",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 4,
+   "text": "वमिन शर्रि ग़ासिक़िन इज़ा वक़ब",
+   "tags": [],
+   "audio": "audio/tts/027_ustaad.wav",
+   "seconds": 4.24,
+   "tts_ok": true,
+   "start": 146.904,
+   "end": 150.83
+  },
+  {
+   "kind": "line",
+   "n": 28,
+   "speaker": "ustaad",
+   "role": "bhaavarth",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 4,
+   "text": "तीसरी आयत: और अँधेरी रात की बुराई से, जब उसका अँधेरा छा जाए।",
+   "tags": [
+    "T2"
+   ],
+   "audio": "audio/tts/028_ustaad.wav",
+   "seconds": 6.96,
+   "tts_ok": true,
+   "start": 151.18,
+   "end": 157.624
+  },
+  {
+   "kind": "line",
+   "n": 30,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 4,
+   "text": "'ग़ासिक़' यानी छा जाने वाला अँधेरा, और 'वक़ब' यानी जब वो छा जाए। ज़्यादातर मुफ़स्सिरीन के मुताबिक़ यहाँ मतलब अँधेरी रात है।",
+   "tags": [
+    "M3"
+   ],
+   "audio": "audio/tts/030_ustaad.wav",
+   "seconds": 12.0,
+   "tts_ok": true,
+   "start": 158.774,
+   "end": 169.885
+  },
+  {
+   "kind": "line",
+   "n": 31,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 4,
+   "text": "तफ़्सीर में आता है कि रात में जानवर, ख़राबी और शरारत की बातें ज़्यादा होती हैं। दूसरे मतलब भी बताए गए हैं, पर आयत आम है।",
+   "tags": [
+    "M3"
+   ],
+   "audio": "audio/tts/031_ustaad.wav",
+   "seconds": 12.44,
+   "tts_ok": true,
+   "start": 170.235,
+   "end": 181.754
+  },
+  {
+   "kind": "line",
+   "n": 32,
+   "speaker": "sawaal",
+   "role": "misaal",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 4,
+   "text": "रात के अँधेरे में जब नींद न आए और दिल घबराए, तो सुबह की पहली रौशनी से कितनी तसल्ली मिलती है।",
+   "tags": [
+    "MISAAL"
+   ],
+   "audio": "audio/tts/032_sawaal.wav",
+   "seconds": 8.8,
+   "tts_ok": true,
+   "start": 182.354,
+   "end": 190.502
+  },
+  {
+   "kind": "line",
+   "n": 34,
+   "speaker": "ustaad",
+   "role": "ucharan",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 5,
+   "text": "वमिन शर्रिन नफ़्फ़ासाति फ़िल उक़द",
+   "tags": [],
+   "audio": "audio/tts/034_ustaad.wav",
+   "seconds": 3.64,
+   "tts_ok": true,
+   "start": 193.702,
+   "end": 197.072
+  },
+  {
+   "kind": "line",
+   "n": 35,
+   "speaker": "ustaad",
+   "role": "bhaavarth",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 5,
+   "text": "चौथी आयत: और गिरहों पर फूँकने वालियों की बुराई से।",
+   "tags": [
+    "T2"
+   ],
+   "audio": "audio/tts/035_ustaad.wav",
+   "seconds": 5.04,
+   "tts_ok": true,
+   "start": 197.422,
+   "end": 202.089
+  },
+  {
+   "kind": "line",
+   "n": 37,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 5,
+   "text": "'नफ़्फ़ासात' यानी फूँकने वालियाँ, और 'उक़द' यानी गिरहें। तफ़्सीर के मुताबिक़ ये वो हैं जो धागे में गिरह लगाकर पढ़ती और फूँकती हैं, यानी जादू करने वाली।",
+   "tags": [
+    "M4"
+   ],
+   "audio": "audio/tts/037_ustaad.wav",
+   "seconds": 14.12,
+   "tts_ok": true,
+   "start": 203.239,
+   "end": 216.313
+  },
+  {
+   "kind": "line",
+   "n": 38,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 5,
+   "text": "यानी इस आयत में जादू के नुक़सान से पनाह माँगी गई है। जादू कैसे होता है, इसकी तफ़सील यहाँ नहीं बताई जा रही।",
+   "tags": [
+    "M4"
+   ],
+   "audio": "audio/tts/038_ustaad.wav",
+   "seconds": 9.24,
+   "tts_ok": true,
+   "start": 216.663,
+   "end": 225.219
+  },
+  {
+   "kind": "line",
+   "n": 40,
+   "speaker": "ustaad",
+   "role": "ucharan",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 6,
+   "text": "वमिन शर्रि हासिदिन इज़ा हसद",
+   "tags": [],
+   "audio": "audio/tts/040_ustaad.wav",
+   "seconds": 17.92,
+   "tts_ok": true,
+   "start": 228.169,
+   "end": 244.761
+  },
+  {
+   "kind": "line",
+   "n": 41,
+   "speaker": "ustaad",
+   "role": "bhaavarth",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 6,
+   "text": "पाँचवीं आयत: और जलने वाले की बुराई से, जब वो जलन में कुछ कर बैठे।",
+   "tags": [
+    "T2"
+   ],
+   "audio": "audio/tts/041_ustaad.wav",
+   "seconds": 7.16,
+   "tts_ok": true,
+   "start": 245.111,
+   "end": 251.741
+  },
+  {
+   "kind": "line",
+   "n": 43,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 6,
+   "text": "'हासिद' यानी जलने वाला — जो चाहता है कि दूसरे से उसकी नेमत छिन जाए। 'इज़ा हसद' यानी जब वो अपनी जलन ज़ाहिर करे, कुछ कर बैठे।",
+   "tags": [
+    "M5"
+   ],
+   "audio": "audio/tts/043_ustaad.wav",
+   "seconds": 12.0,
+   "tts_ok": true,
+   "start": 252.891,
+   "end": 264.002
+  },
+  {
+   "kind": "line",
+   "n": 44,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 6,
+   "text": "इमाम क़ुर्तुबी के मुताबिक़ जो जलन दिल में छुपी रहे और ज़ाहिर न हो, वो नुक़सान नहीं पहुँचाती।",
+   "tags": [
+    "M5"
+   ],
+   "audio": "audio/tts/044_ustaad.wav",
+   "seconds": 9.12,
+   "tts_ok": true,
+   "start": 264.352,
+   "end": 272.796
+  },
+  {
+   "kind": "line",
+   "n": 45,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 6,
+   "text": "हसद और 'ग़िब्ता' अलग हैं: ग़िब्ता में किसी की नेमत देखकर वैसी ही नेमत की चाहत होती है, बिना ये चाहे कि उसकी छिन जाए।",
+   "tags": [
+    "M5"
+   ],
+   "audio": "audio/tts/045_ustaad.wav",
+   "seconds": 10.68,
+   "tts_ok": true,
+   "start": 273.146,
+   "end": 283.035
+  },
+  {
+   "kind": "line",
+   "n": 46,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 6,
+   "text": "ग़ौर करें — आयतें आम से ख़ास की तरफ़ जाती हैं: हर मख़लूक़, फिर रात, फिर जादू, और सबसे आख़िर में हसद।",
+   "tags": [
+    "M6"
+   ],
+   "audio": "audio/tts/046_ustaad.wav",
+   "seconds": 10.36,
+   "tts_ok": true,
+   "start": 283.385,
+   "end": 292.978
+  },
+  {
+   "kind": "line",
+   "n": 47,
+   "speaker": "sawaal",
+   "role": "",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 6,
+   "text": "तो यानी — सुबह के रब की पनाह: हर चीज़ की बुराई से, रात से, जादू से और जलन से।",
+   "tags": [],
+   "audio": "audio/tts/047_sawaal.wav",
+   "seconds": 8.2,
+   "tts_ok": true,
+   "start": 293.578,
+   "end": 301.17
+  },
+  {
+   "kind": "line",
+   "n": 49,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "4. HADITH ME SURAH AL-FALAQ",
+   "ayah": null,
+   "text": "मुस्लिम की हदीस में उक़्बा बिन आमिर रज़ियल्लाहु अन्हु बताते हैं कि नबी सल्लल्लाहु अलैहि वसल्लम ने फ़रमाया: 'क्या तुमने नहीं देखा, आज रात ऐसी आयतें उतारी गईं जैसी पहले कभी नहीं देखी गईं?' और फिर 'क़ुल अऊज़ु बिरब्बिल फ़लक़' और 'क़ुल अऊज़ु बिरब्बिन्नास' का ज़िक्र किया।",
+   "tags": [
+    "Z1"
+   ],
+   "audio": "audio/tts/049_ustaad.wav",
+   "seconds": 20.64,
+   "tts_ok": true,
+   "start": 302.57,
+   "end": 321.681
+  },
+  {
+   "kind": "line",
+   "n": 50,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "4. HADITH ME SURAH AL-FALAQ",
+   "ayah": null,
+   "text": "बुख़ारी की रिवायत में आइशा रज़ियल्लाहु अन्हा बताती हैं: नबी सल्लल्लाहु अलैहि वसल्लम हर रात जब बिस्तर पर जाते, तो दोनों हथेलियाँ जोड़कर उनमें फूँकते, और 'क़ुल हुवल्लाहु अहद', 'क़ुल अऊज़ु बिरब्बिल फ़लक़' और 'क़ुल अऊज़ु बिरब्बिन्नास' पढ़ते।",
+   "tags": [
+    "Z2"
+   ],
+   "audio": "audio/tts/050_ustaad.wav",
+   "seconds": 21.0,
+   "tts_ok": true,
+   "start": 322.031,
+   "end": 341.476
+  },
+  {
+   "kind": "line",
+   "n": 51,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "4. HADITH ME SURAH AL-FALAQ",
+   "ayah": null,
+   "text": "फिर जहाँ तक हाथ पहुँचता, सिर, चेहरे और जिस्म के आगे के हिस्से पर हाथ फेरते। ऐसा वो तीन बार करते थे।",
+   "tags": [
+    "Z2"
+   ],
+   "audio": "audio/tts/051_ustaad.wav",
+   "seconds": 10.44,
+   "tts_ok": true,
+   "start": 341.826,
+   "end": 351.493
+  },
+  {
+   "kind": "line",
+   "n": 52,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "4. HADITH ME SURAH AL-FALAQ",
+   "ayah": null,
+   "text": "हमने ये सिर्फ़ रिवायत के तौर पर बताया है — यहाँ कोई हुक्म या वादा नहीं बताया जा रहा।",
+   "tags": [
+    "NOTE"
+   ],
+   "audio": "audio/tts/052_ustaad.wav",
+   "seconds": 7.96,
+   "tts_ok": true,
+   "start": 351.843,
+   "end": 359.213
+  },
+  {
+   "kind": "line",
+   "n": 53,
+   "speaker": "sawaal",
+   "role": "",
+   "section": "5. SEEKH",
+   "ayah": null,
+   "text": "उस्ताद जी, इस सूरह से हमें क्या सीख मिलती है?",
+   "tags": [],
+   "audio": "audio/tts/053_sawaal.wav",
+   "seconds": 3.56,
+   "tts_ok": true,
+   "start": 360.613,
+   "end": 363.909
+  },
+  {
+   "kind": "line",
+   "n": 54,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "5. SEEKH",
+   "ayah": null,
+   "text": "पहली: डर या परेशानी में पहला सहारा अल्लाह की पनाह है — उसी 'सुबह के रब' की, जो हर अँधेरे को चीरकर उजाला लाता है।",
+   "tags": [
+    "P6",
+    "M1"
+   ],
+   "audio": "audio/tts/054_ustaad.wav",
+   "seconds": 12.04,
+   "tts_ok": true,
+   "start": 364.509,
+   "end": 375.657
+  },
+  {
+   "kind": "line",
+   "n": 55,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "5. SEEKH",
+   "ayah": null,
+   "text": "दूसरी: हसद और ग़िब्ता का फ़र्क़ समझें — किसी की नेमत के छिन जाने की चाहत हसद है, और बिना किसी का नुक़सान चाहे वैसी ही नेमत की चाहत ग़िब्ता।",
+   "tags": [
+    "M5"
+   ],
+   "audio": "audio/tts/055_ustaad.wav",
+   "seconds": 13.44,
+   "tts_ok": true,
+   "start": 376.007,
+   "end": 388.452
+  },
+  {
+   "kind": "line",
+   "n": 56,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "5. SEEKH",
+   "ayah": null,
+   "text": "तीसरी: बुराई चाहे जितनी तरह की हो — रात, जादू या जलन — पनाह उसी एक रब की माँगी गई है, जो नफ़ा-नुक़सान का मालिक है।",
+   "tags": [
+    "M2",
+    "M6"
+   ],
+   "audio": "audio/tts/056_ustaad.wav",
+   "seconds": 12.52,
+   "tts_ok": true,
+   "start": 388.802,
+   "end": 400.394
+  },
+  {
+   "kind": "line",
+   "n": 57,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "5. SEEKH",
+   "ayah": null,
+   "text": "अगली बार, नूर-ए-राह में: सूरह अन-नास — इंसानों के रब की पनाह।",
+   "tags": [
+    "NEXT"
+   ],
+   "audio": "audio/tts/057_ustaad.wav",
+   "seconds": 7.08,
+   "tts_ok": true,
+   "start": 400.744,
+   "end": 407.3
+  },
+  {
+   "kind": "line",
+   "n": 58,
+   "speaker": "sawaal",
+   "role": "",
+   "section": "5. SEEKH",
+   "ayah": null,
+   "text": "और आप कमेंट में बताइए — इन पाँच आयतों में से कौन-सी बात आपके दिल को सबसे ज़्यादा छू गई, और क्यों।",
+   "tags": [],
+   "audio": "audio/tts/058_sawaal.wav",
+   "seconds": 7.56,
+   "tts_ok": true,
+   "start": 407.9,
+   "end": 414.9
+  }
+ ],
+ "ayat": [
+  {
+   "ayah": 1,
+   "fade": 31.6037037037037,
+   "a0": 32.2037037037037,
+   "swoosh": 31.703703703703702,
+   "text": "قُلْ أَعُوذُ بِرَبِّ ٱلْفَلَقِ مِن شَرِّ مَا خَلَقَ وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ وَمِن شَرِّ ٱلنَّفَّٰثَٰتِ فِى ٱلْعُقَدِ وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ",
+   "off": 45.09444444444444
+  },
+  {
+   "ayah": 2,
+   "fade": 68.3,
+   "a0": 68.89999999999999,
+   "swoosh": 68.39999999999999,
+   "text": "قُلْ أَعُوذُ بِرَبِّ ٱلْفَلَقِ",
+   "off": 83.3259259259259
+  },
+  {
+   "ayah": 3,
+   "fade": 114.15370370370367,
+   "a0": 114.75370370370366,
+   "swoosh": 114.25370370370366,
+   "text": "مِن شَرِّ مَا خَلَقَ",
+   "off": 125.95740740740735
+  },
+  {
+   "ayah": 4,
+   "fade": 143.95370370370364,
+   "a0": 144.55370370370363,
+   "swoosh": 144.05370370370363,
+   "text": "وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ",
+   "off": 158.424074074074
+  },
+  {
+   "ayah": 5,
+   "fade": 190.50185185185177,
+   "a0": 191.10185185185176,
+   "swoosh": 190.60185185185176,
+   "text": "وَمِن شَرِّ ٱلنَّفَّٰثَٰتِ فِى ٱلْعُقَدِ",
+   "off": 202.8888888888888
+  },
+  {
+   "ayah": 6,
+   "fade": 225.2185185185184,
+   "a0": 225.8185185185184,
+   "swoosh": 225.3185185185184,
+   "text": "وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ",
+   "off": 252.5407407407406
+  }
+ ],
+ "music": [
+  {
+   "track": "Soaring",
+   "start": 0.8,
+   "fin": 1.5,
+   "end": 46.59444444444444,
+   "fout": 1.5
+  },
+  {
+   "track": "River Flute",
+   "start": 45.09444444444444,
+   "fin": 2.5,
+   "end": 417.9000000000003,
+   "fout": 3.0
+  }
+ ],
+ "amb": [
+  {
+   "names": [
+    "breeze"
+   ],
+   "start": 0.0,
+   "end": 418.9000000000003
+  }
+ ],
+ "end": 418.9,
+ "fade_at": {
+  "1": 31.6037037037037,
+  "2": 68.3,
+  "3": 114.15370370370367,
+  "4": 143.95370370370364,
+  "5": 190.50185185185177,
+  "6": 225.2185185185184
+ },
+ "shots": [
+  {
+   "img": "01_one_star_night.png",
+   "id": "01_one_star_night",
+   "start": 0.0,
+   "end": 4.253,
+   "move": "push_in",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "01_one_star_night.png",
+   "id": "01_one_star_night",
+   "start": 4.253,
+   "end": 8.507,
+   "move": "pan_right",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "01_one_star_night.png",
+   "id": "01_one_star_night_b",
+   "start": 8.507,
+   "end": 15.413,
+   "move": "pull_out",
+   "fx": 0.3,
+   "fy": 0.3,
+   "zc": 1.4
+  },
+  {
+   "img": "04_dawn_sand_ridge.png",
+   "id": "04_dawn_sand_ridge",
+   "start": 15.413,
+   "end": 22.637,
+   "move": "pan_left",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "05_dawn_horizon.png",
+   "id": "05_dawn_horizon",
+   "start": 22.637,
+   "end": 27.12,
+   "move": "gentle_orbit",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "05_dawn_horizon.png",
+   "id": "05_dawn_horizon",
+   "start": 27.12,
+   "end": 31.604,
+   "move": "push_in",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "06_milkyway_desert.png",
+   "id": "06_milkyway_desert",
+   "start": 31.604,
+   "end": 38.774,
+   "move": "pan_left",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "06_milkyway_desert.png",
+   "id": "06_milkyway_desert",
+   "start": 38.774,
+   "end": 45.944,
+   "move": "pull_out",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "03_makka_valley_night.png",
+   "id": "03_makka_valley_night",
+   "start": 45.944,
+   "end": 53.887,
+   "move": "pan_right",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "03_makka_valley_night.png",
+   "id": "03_makka_valley_night_b",
+   "start": 53.887,
+   "end": 58.34,
+   "move": "push_in",
+   "fx": 0.62,
+   "fy": 0.55,
+   "zc": 1.3
+  },
+  {
+   "img": "03_makka_valley_night.png",
+   "id": "03_makka_valley_night_b",
+   "start": 58.34,
+   "end": 62.793,
+   "move": "pan_right",
+   "fx": 0.62,
+   "fy": 0.55,
+   "zc": 1.3
+  },
+  {
+   "img": "03_makka_valley_night.png",
+   "id": "03_makka_valley_night_c",
+   "start": 62.793,
+   "end": 68.3,
+   "move": "pull_out",
+   "fx": 0.3,
+   "fy": 0.5,
+   "zc": 1.5
+  },
+  {
+   "img": "03_madina_dawn_houses.png",
+   "id": "03_madina_dawn_houses",
+   "start": 68.3,
+   "end": 74.444,
+   "move": "pan_left",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "03_madina_dawn_houses.png",
+   "id": "03_madina_dawn_houses",
+   "start": 74.444,
+   "end": 80.587,
+   "move": "gentle_orbit",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "03_madina_dawn_houses.png",
+   "id": "03_madina_dawn_houses",
+   "start": 80.587,
+   "end": 86.731,
+   "move": "push_in",
+   "fx": 0.62,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "03_madina_dawn_houses.png",
+   "id": "03_madina_dawn_houses",
+   "start": 86.731,
+   "end": 92.874,
+   "move": "pan_left",
+   "fx": 0.5,
+   "fy": 0.45,
+   "zc": 1.25
+  },
+  {
+   "img": "11_sunrays_clouds.png",
+   "id": "11_sunrays_clouds",
+   "start": 92.874,
+   "end": 98.846,
+   "move": "pull_out",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "11_sunrays_clouds.png",
+   "id": "11_sunrays_clouds",
+   "start": 98.846,
+   "end": 104.817,
+   "move": "pan_right",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "04_dawn_sand_ridge.png",
+   "id": "04_dawn_sand_ridge_b",
+   "start": 104.817,
+   "end": 109.485,
+   "move": "push_in",
+   "fx": 0.7,
+   "fy": 0.6,
+   "zc": 1.6
+  },
+  {
+   "img": "04_dawn_sand_ridge.png",
+   "id": "04_dawn_sand_ridge_b",
+   "start": 109.485,
+   "end": 114.154,
+   "move": "pan_right",
+   "fx": 0.7,
+   "fy": 0.6,
+   "zc": 1.6
+  },
+  {
+   "img": "08_vast_panorama.png",
+   "id": "08_vast_panorama",
+   "start": 114.154,
+   "end": 120.975,
+   "move": "pull_out",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "08_vast_panorama.png",
+   "id": "08_vast_panorama",
+   "start": 120.975,
+   "end": 127.796,
+   "move": "pan_left",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "08_vast_panorama.png",
+   "id": "08_vast_panorama",
+   "start": 127.796,
+   "end": 134.617,
+   "move": "gentle_orbit",
+   "fx": 0.62,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "08_vast_panorama.png",
+   "id": "08_vast_panorama_b",
+   "start": 134.617,
+   "end": 139.285,
+   "move": "push_in",
+   "fx": 0.3,
+   "fy": 0.45,
+   "zc": 1.4
+  },
+  {
+   "img": "08_vast_panorama.png",
+   "id": "08_vast_panorama_b",
+   "start": 139.285,
+   "end": 143.954,
+   "move": "pan_left",
+   "fx": 0.3,
+   "fy": 0.45,
+   "zc": 1.4
+  },
+  {
+   "img": "01_night_stars_dunes.png",
+   "id": "01_night_stars_dunes",
+   "start": 143.954,
+   "end": 150.449,
+   "move": "pull_out",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "01_night_stars_dunes.png",
+   "id": "01_night_stars_dunes",
+   "start": 150.449,
+   "end": 156.944,
+   "move": "pan_right",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "01_night_stars_dunes.png",
+   "id": "01_night_stars_dunes",
+   "start": 156.944,
+   "end": 163.44,
+   "move": "push_in",
+   "fx": 0.62,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "01_night_stars_dunes.png",
+   "id": "01_night_stars_dunes",
+   "start": 163.44,
+   "end": 169.935,
+   "move": "pan_right",
+   "fx": 0.5,
+   "fy": 0.45,
+   "zc": 1.25
+  },
+  {
+   "img": "07_moonlit_rooftops_lamp.png",
+   "id": "07_moonlit_rooftops_lamp",
+   "start": 169.935,
+   "end": 175.995,
+   "move": "pull_out",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "07_moonlit_rooftops_lamp.png",
+   "id": "07_moonlit_rooftops_lamp",
+   "start": 175.995,
+   "end": 182.054,
+   "move": "pan_left",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "02_lamp_on_stone.png",
+   "id": "02_lamp_on_stone",
+   "start": 182.054,
+   "end": 186.278,
+   "move": "gentle_orbit",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "02_lamp_on_stone.png",
+   "id": "02_lamp_on_stone",
+   "start": 186.278,
+   "end": 190.502,
+   "move": "push_in",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "05_paths_to_oasis.png",
+   "id": "05_paths_to_oasis",
+   "start": 190.502,
+   "end": 196.967,
+   "move": "pan_left",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.9
+  },
+  {
+   "img": "05_paths_to_oasis.png",
+   "id": "05_paths_to_oasis",
+   "start": 196.967,
+   "end": 203.432,
+   "move": "pull_out",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.9
+  },
+  {
+   "img": "05_paths_to_oasis.png",
+   "id": "05_paths_to_oasis",
+   "start": 203.432,
+   "end": 209.898,
+   "move": "pan_right",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.9
+  },
+  {
+   "img": "05_paths_to_oasis.png",
+   "id": "05_paths_to_oasis",
+   "start": 209.898,
+   "end": 216.363,
+   "move": "push_in",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.9
+  },
+  {
+   "img": "05_paths_to_oasis.png",
+   "id": "05_paths_to_oasis_b",
+   "start": 216.363,
+   "end": 220.791,
+   "move": "pan_right",
+   "fx": 0.25,
+   "fy": 0.65,
+   "zc": 1.5
+  },
+  {
+   "img": "05_paths_to_oasis.png",
+   "id": "05_paths_to_oasis_b",
+   "start": 220.791,
+   "end": 225.219,
+   "move": "pull_out",
+   "fx": 0.25,
+   "fy": 0.65,
+   "zc": 1.5
+  },
+  {
+   "img": "10_ring_in_desert.png",
+   "id": "10_ring_in_desert",
+   "start": 225.219,
+   "end": 233.156,
+   "move": "pan_left",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "10_ring_in_desert.png",
+   "id": "10_ring_in_desert",
+   "start": 233.156,
+   "end": 241.094,
+   "move": "gentle_orbit",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "10_ring_in_desert.png",
+   "id": "10_ring_in_desert",
+   "start": 241.094,
+   "end": 249.032,
+   "move": "push_in",
+   "fx": 0.62,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "10_ring_in_desert.png",
+   "id": "10_ring_in_desert",
+   "start": 249.032,
+   "end": 256.97,
+   "move": "pan_left",
+   "fx": 0.5,
+   "fy": 0.45,
+   "zc": 1.25
+  },
+  {
+   "img": "10_ring_in_desert.png",
+   "id": "10_ring_in_desert",
+   "start": 256.97,
+   "end": 264.908,
+   "move": "pull_out",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "10_ring_in_desert.png",
+   "id": "10_ring_in_desert",
+   "start": 264.908,
+   "end": 272.846,
+   "move": "pan_right",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "06_milkyway_desert.png",
+   "id": "06_milkyway_desert_b",
+   "start": 272.846,
+   "end": 277.966,
+   "move": "push_in",
+   "fx": 0.7,
+   "fy": 0.3,
+   "zc": 1.5
+  },
+  {
+   "img": "06_milkyway_desert.png",
+   "id": "06_milkyway_desert_b",
+   "start": 277.966,
+   "end": 283.085,
+   "move": "pan_right",
+   "fx": 0.7,
+   "fy": 0.3,
+   "zc": 1.5
+  },
+  {
+   "img": "10_ring_in_desert.png",
+   "id": "10_ring_in_desert_b",
+   "start": 283.085,
+   "end": 288.181,
+   "move": "pull_out",
+   "fx": 0.5,
+   "fy": 0.72,
+   "zc": 2.0
+  },
+  {
+   "img": "10_ring_in_desert.png",
+   "id": "10_ring_in_desert_b",
+   "start": 288.181,
+   "end": 293.278,
+   "move": "pan_left",
+   "fx": 0.5,
+   "fy": 0.72,
+   "zc": 2.0
+  },
+  {
+   "img": "05_dawn_horizon.png",
+   "id": "05_dawn_horizon_b",
+   "start": 293.278,
+   "end": 297.774,
+   "move": "gentle_orbit",
+   "fx": 0.4,
+   "fy": 0.45,
+   "zc": 1.3
+  },
+  {
+   "img": "05_dawn_horizon.png",
+   "id": "05_dawn_horizon_b",
+   "start": 297.774,
+   "end": 302.27,
+   "move": "push_in",
+   "fx": 0.4,
+   "fy": 0.45,
+   "zc": 1.3
+  },
+  {
+   "img": "02_lamp_single_flame.png",
+   "id": "02_lamp_single_flame",
+   "start": 302.27,
+   "end": 308.757,
+   "move": "pan_left",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "02_lamp_single_flame.png",
+   "id": "02_lamp_single_flame",
+   "start": 308.757,
+   "end": 315.244,
+   "move": "pull_out",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "02_lamp_single_flame.png",
+   "id": "02_lamp_single_flame",
+   "start": 315.244,
+   "end": 321.731,
+   "move": "pan_right",
+   "fx": 0.62,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "12_bedtime_room_lamp.png",
+   "id": "12_bedtime_room_lamp",
+   "start": 321.731,
+   "end": 328.329,
+   "move": "push_in",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "12_bedtime_room_lamp.png",
+   "id": "12_bedtime_room_lamp",
+   "start": 328.329,
+   "end": 334.928,
+   "move": "pan_right",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "12_bedtime_room_lamp.png",
+   "id": "12_bedtime_room_lamp",
+   "start": 334.928,
+   "end": 341.526,
+   "move": "pull_out",
+   "fx": 0.62,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "12_bedtime_room_lamp.png",
+   "id": "12_bedtime_room_lamp_b",
+   "start": 341.526,
+   "end": 346.534,
+   "move": "pan_left",
+   "fx": 0.5,
+   "fy": 0.55,
+   "zc": 1.5
+  },
+  {
+   "img": "12_bedtime_room_lamp.png",
+   "id": "12_bedtime_room_lamp_b",
+   "start": 346.534,
+   "end": 351.543,
+   "move": "gentle_orbit",
+   "fx": 0.5,
+   "fy": 0.55,
+   "zc": 1.5
+  },
+  {
+   "img": "02_lamp_single_flame.png",
+   "id": "02_lamp_single_flame_b",
+   "start": 351.543,
+   "end": 355.928,
+   "move": "push_in",
+   "fx": 0.5,
+   "fy": 0.6,
+   "zc": 1.5
+  },
+  {
+   "img": "02_lamp_single_flame.png",
+   "id": "02_lamp_single_flame_b",
+   "start": 355.928,
+   "end": 360.313,
+   "move": "pan_left",
+   "fx": 0.5,
+   "fy": 0.6,
+   "zc": 1.5
+  },
+  {
+   "img": "08_empty_room_morning.png",
+   "id": "08_empty_room_morning",
+   "start": 360.313,
+   "end": 364.209,
+   "move": "pull_out",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "09_morning_palm_path.png",
+   "id": "09_morning_palm_path",
+   "start": 364.209,
+   "end": 369.958,
+   "move": "pan_right",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "09_morning_palm_path.png",
+   "id": "09_morning_palm_path",
+   "start": 369.958,
+   "end": 375.707,
+   "move": "push_in",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "08_empty_room_morning.png",
+   "id": "08_empty_room_morning_b",
+   "start": 375.707,
+   "end": 382.105,
+   "move": "pan_right",
+   "fx": 0.4,
+   "fy": 0.6,
+   "zc": 1.4
+  },
+  {
+   "img": "08_empty_room_morning.png",
+   "id": "08_empty_room_morning_b",
+   "start": 382.105,
+   "end": 388.502,
+   "move": "pull_out",
+   "fx": 0.4,
+   "fy": 0.6,
+   "zc": 1.4
+  },
+  {
+   "img": "04_dawn_sand_ridge.png",
+   "id": "04_dawn_sand_ridge_c",
+   "start": 388.502,
+   "end": 394.473,
+   "move": "pan_left",
+   "fx": 0.45,
+   "fy": 0.35,
+   "zc": 1.25
+  },
+  {
+   "img": "04_dawn_sand_ridge.png",
+   "id": "04_dawn_sand_ridge_c",
+   "start": 394.473,
+   "end": 400.444,
+   "move": "gentle_orbit",
+   "fx": 0.45,
+   "fy": 0.35,
+   "zc": 1.25
+  },
+  {
+   "img": "04_date_palm_path.png",
+   "id": "04_date_palm_path",
+   "start": 400.444,
+   "end": 407.6,
+   "move": "push_in",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "05_dawn_horizon.png",
+   "id": "05_dawn_horizon_c",
+   "start": 407.6,
+   "end": 413.25,
+   "move": "pan_left",
+   "fx": 0.5,
+   "fy": 0.3,
+   "zc": 1.1
+  },
+  {
+   "img": "05_dawn_horizon.png",
+   "id": "05_dawn_horizon_c",
+   "start": 413.25,
+   "end": 418.9,
+   "move": "pull_out",
+   "fx": 0.5,
+   "fy": 0.3,
+   "zc": 1.1
+  }
+ ]
+}
