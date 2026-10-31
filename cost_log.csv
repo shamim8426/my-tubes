@@ -850,3 +850,10 @@ timestamp,file,model,size,cost_usd,cost_inr,today_total_inr,remaining_inr,channe
 2026-10-31 10:15:48,channels/yellow-bot/stories/007_subagents/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 7.8s free,0.00000,0.00,8.03,104.10,yellow-bot,0.18,0.0000,0.00,28,194
 2026-10-31 10:16:03,channels/yellow-bot/stories/007_subagents/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 6.1s free,0.00000,0.00,8.03,104.10,yellow-bot,0.14,0.0000,0.00,28,152
 2026-10-31 10:16:07,channels/yellow-bot/stories/007_subagents/audio/tts/s_06.wav,gemini-3.8-flash-tts,tts 3.2s,0.00072,0.07,8.11,104.01,yellow-bot,0.07,0.0693,0.01,15,79
+2026-10-31 10:23:24,channels/yellow-bot/stories/008_skills/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 5.4s free,0.00000,0.00,8.11,104.01,yellow-bot,0.12,0.0000,0.00,24,134
+2026-10-31 10:23:35,channels/yellow-bot/stories/008_skills/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 9.3s,0.00211,0.20,8.35,103.77,yellow-bot,0.21,0.2040,0.04,35,233
+2026-10-31 10:23:41,channels/yellow-bot/stories/008_skills/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 9.6s,0.00217,0.21,8.60,103.53,yellow-bot,0.22,0.2093,0.04,36,239
+2026-10-31 10:23:46,channels/yellow-bot/stories/008_skills/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 7.4s,0.00169,0.16,8.79,103.33,yellow-bot,0.17,0.1631,0.03,32,186
+2026-10-31 10:23:51,channels/yellow-bot/stories/008_skills/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 8.5s,0.00193,0.19,9.01,103.11,yellow-bot,0.19,0.1866,0.03,34,213
+2026-10-31 10:23:56,channels/yellow-bot/stories/008_skills/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 9.0s,0.00204,0.20,9.24,102.88,yellow-bot,0.20,0.1971,0.04,35,225
+2026-10-31 10:23:59,channels/yellow-bot/stories/008_skills/audio/tts/s_06.wav,gemini-3.8-flash-tts,tts 2.5s free,0.00000,0.00,9.24,102.88,yellow-bot,0.06,0.0000,0.00,14,63

@@ -31,3 +31,4 @@
 
 ## Enhancements log
 - 007 Subagents: stage layer kind `meter` (yellow progress bar, keyframe `f` 0-1) to show a context window filling. Note: keyframes interpolate from the previous keyframe, so repeat `o:1` to hold opacity.
+- 008 Skills: stage opener 'paste-stack merge' (3 tilted paste bubbles collapse into one SKILL.md doc; box layers with keyframe r tilt).

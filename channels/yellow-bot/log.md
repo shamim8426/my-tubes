@@ -11,3 +11,4 @@
 
 - 2026-10-31 006 Hooks UPLOADED private: https://youtu.be/GpVCvYrwqd4 (63.5 s, yuv420p after range fix in html_video.py; channel.json short_max_seconds 75; contains_synthetic_media true; not Munshi-reviewed, user asked direct upload). Studio: user makes it public.
 - 2026-10-31 007 Subagents UPLOADED private: https://youtu.be/XdC3f07GzXw (50.9 s, -15.0 LUFS, TP -1.4; free TTS 5 lines + paid 2 lines ~Rs0.1; ~35 min incl. setup). Fact-check PASS (review/factcheck.md). New: stage layer 'meter' (context bar).
+- 2026-10-31 008 Skills UPLOADED private: https://youtu.be/yl0Cjc4E_1w (56.0 s, -14.9 LUFS, TP -1.7; TTS ~Rs1.2 paid after free quota; ~20 min). Fact-check PASS. New: paste-stack merge opener (box layers with tilt).

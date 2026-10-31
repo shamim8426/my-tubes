@@ -1,0 +1,552 @@
+{
+ "_note": "Short 008: Skills. Facts: official docs code.claude.com/docs/en/skills (read 2026-10-31). New: stage paste-stack merge opener (box layers with r tilt).",
+ "tag": "Claude Code · Skills",
+ "music": {
+  "file": "shared/music/presentation/Funkorama.mp3",
+  "start": 6,
+  "rel": 12
+ },
+ "voice": {
+  "id": "Charon",
+  "style": "Speak like a friendly Indian tech YouTuber chatting casually in Hinglish. Natural conversational pace, warm and clear, a little energetic but not theatrical. No sing-song, no exaggerated emphasis."
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "type": "stage",
+   "wipe": "right",
+   "voice": "एक ही instructions बार-बार paste करते हो? उसे एक skill बना दो, और बस slash लिखकर चला दो।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "Same checklist **bar-bar** paste?",
+     "x": 80,
+     "y": 1560,
+     "size": 74,
+     "hlAt": 1.0,
+     "k": [
+      [
+       0.3,
+       {
+        "o": 0,
+        "y": 1610
+       }
+      ],
+      [
+       0.8,
+       {
+        "o": 1,
+        "y": 1570
+       }
+      ],
+      [
+       3.5,
+       {
+        "o": 1
+       }
+      ],
+      [
+       3.9,
+       {
+        "o": 0,
+        "y": 1540
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "text",
+     "html": "Ek **skill** bana do",
+     "x": 80,
+     "y": 1560,
+     "size": 74,
+     "hlAt": 4.8,
+     "k": [
+      [
+       3.9,
+       {
+        "o": 0,
+        "y": 1610
+       }
+      ],
+      [
+       4.4,
+       {
+        "o": 1,
+        "y": 1570
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "img",
+     "img": "think",
+     "size": 360,
+     "x": 20,
+     "y": 600,
+     "bob": 1,
+     "k": [
+      [
+       0.1,
+       {
+        "x": -420,
+        "o": 1
+       }
+      ],
+      [
+       0.8,
+       {
+        "x": 20
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "Claude",
+     "cls": "ink",
+     "css": "font-size:40px;font-weight:800;padding:10px 30px;border-radius:999px;white-space:nowrap",
+     "x": 90,
+     "y": 560,
+     "k": [
+      [
+       0.8,
+       {
+        "o": 0,
+        "s": 0.6
+       }
+      ],
+      [
+       1.2,
+       {
+        "o": 1,
+        "s": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "paste: checklist",
+     "cls": "yel shadow",
+     "css": "font-size:38px;font-weight:800;padding:14px 30px;border-radius:28px;white-space:nowrap",
+     "x": 560,
+     "y": 520,
+     "k": [
+      [
+       0.8,
+       {
+        "o": 0,
+        "s": 0.5,
+        "r": -4,
+        "x": 560,
+        "y": 520
+       }
+      ],
+      [
+       1.2000000000000002,
+       {
+        "o": 1,
+        "s": 1,
+        "e": "b"
+       }
+      ],
+      [
+       3.0,
+       {
+        "o": 1,
+        "x": 560,
+        "y": 520,
+        "s": 1
+       }
+      ],
+      [
+       3.5,
+       {
+        "o": 0,
+        "x": 580,
+        "y": 760,
+        "s": 0.4
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "paste: checklist",
+     "cls": "yel shadow",
+     "css": "font-size:38px;font-weight:800;padding:14px 30px;border-radius:28px;white-space:nowrap",
+     "x": 560,
+     "y": 680,
+     "k": [
+      [
+       1.4,
+       {
+        "o": 0,
+        "s": 0.5,
+        "r": 3,
+        "x": 560,
+        "y": 680
+       }
+      ],
+      [
+       1.7999999999999998,
+       {
+        "o": 1,
+        "s": 1,
+        "e": "b"
+       }
+      ],
+      [
+       3.0,
+       {
+        "o": 1,
+        "x": 560,
+        "y": 680,
+        "s": 1
+       }
+      ],
+      [
+       3.5,
+       {
+        "o": 0,
+        "x": 580,
+        "y": 760,
+        "s": 0.4
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "paste: checklist",
+     "cls": "yel shadow",
+     "css": "font-size:38px;font-weight:800;padding:14px 30px;border-radius:28px;white-space:nowrap",
+     "x": 560,
+     "y": 840,
+     "k": [
+      [
+       2.0,
+       {
+        "o": 0,
+        "s": 0.5,
+        "r": -3,
+        "x": 560,
+        "y": 840
+       }
+      ],
+      [
+       2.4,
+       {
+        "o": 1,
+        "s": 1,
+        "e": "b"
+       }
+      ],
+      [
+       3.0,
+       {
+        "o": 1,
+        "x": 560,
+        "y": 840,
+        "s": 1
+       }
+      ],
+      [
+       3.5,
+       {
+        "o": 0,
+        "x": 580,
+        "y": 760,
+        "s": 0.4
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "doc",
+     "w": 460,
+     "h": 460,
+     "x": 560,
+     "y": 640,
+     "file": "SKILL.md",
+     "lines": 7,
+     "k": [
+      [
+       3.5,
+       {
+        "o": 0,
+        "s": 0.6
+       }
+      ],
+      [
+       4.0,
+       {
+        "o": 1,
+        "s": 1,
+        "e": "b"
+       }
+      ],
+      [
+       6.5,
+       {
+        "o": 1
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "/summarize-changes",
+     "cls": "ink mono",
+     "css": "font-size:34px;padding:14px 28px;border-radius:999px;white-space:nowrap",
+     "x": 430,
+     "y": 1210,
+     "k": [
+      [
+       4.8,
+       {
+        "o": 0,
+        "s": 0.6
+       }
+      ],
+      [
+       5.2,
+       {
+        "o": 1,
+        "s": 1,
+        "e": "b"
+       }
+      ],
+      [
+       6.8,
+       {
+        "o": 1
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "&#10003;",
+     "cls": "yel shadow",
+     "css": "width:120px;height:120px;border-radius:60px;font-size:80px;font-weight:800;display:flex;align-items:center;justify-content:center;white-space:nowrap",
+     "x": 880,
+     "y": 1000,
+     "k": [
+      [
+       5.7,
+       {
+        "o": 0,
+        "s": 0.4
+       }
+      ],
+      [
+       6.1,
+       {
+        "o": 1,
+        "s": 1,
+        "e": "b"
+       }
+      ],
+      [
+       7.0,
+       {
+        "o": 1
+       }
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "what",
+   "type": "chips",
+   "wipe": "up",
+   "y0": 330,
+   "parent": "Claude Code me",
+   "title": "Skill",
+   "chips": [
+    "SKILL.md + instructions",
+    "Claude khud use kare",
+    "/skill-name se bulao"
+   ],
+   "voice": "Skill मतलब एक SKILL.md file, जिसमें आपके instructions होते हैं। Claude ज़रूरत पड़ने पर खुद इस्तेमाल करता है, या आप slash skill-name लिखकर बुला लो।",
+   "cues": [
+    "Skill मतलब",
+    "SKILL.md file",
+    "Claude ज़रूरत",
+    "खुद इस्तेमाल",
+    "slash skill-name"
+   ],
+   "robot": {
+    "img": "think",
+    "x": 600,
+    "y": 1340,
+    "size": 400,
+    "cue": "slash skill-name"
+   }
+  },
+  {
+   "id": "file",
+   "type": "code",
+   "wipe": "left",
+   "file": "skills/summarize-changes/SKILL.md",
+   "size": 32,
+   "y0": 330,
+   "voice": "Skill बस एक folder है, जिसमें SKILL.md होती है। ऊपर frontmatter में description लिखो, ताकि Claude जाने कब use करना है। नीचे आते हैं instructions।",
+   "lines": [
+    "---",
+    "description: Summarizes uncommitted changes",
+    "  and flags anything risky.",
+    "---",
+    "## Instructions",
+    "Summarize the changes in two",
+    "or three bullet points."
+   ],
+   "caption": "**description** batata hai kab use karna hai",
+   "cosize": 60,
+   "cues": [
+    "folder है",
+    "frontmatter",
+    "description लिखो",
+    "नीचे आते"
+   ],
+   "robot": {
+    "img": "work",
+    "x": 610,
+    "y": 1380,
+    "size": 380,
+    "cue": "नीचे आते"
+   }
+  },
+  {
+   "id": "load",
+   "type": "flow",
+   "wipe": "up",
+   "tsize": 50,
+   "nh": 200,
+   "gap": 90,
+   "voice": "Skill का सिर्फ़ description हमेशा context में रहता है। जब आप slash से बुलाओ, या Claude को ज़रूरत लगे, तब पूरी skill load होती है।",
+   "nodes": [
+    {
+     "t": "Description hamesha context me",
+     "s": "Claude ko pata rehta hai"
+    },
+    {
+     "t": "Aap bulao ya Claude chune",
+     "s": "/name ya khud"
+    },
+    {
+     "t": "Poori skill tab load hoti hai",
+     "s": "jab invoke ho"
+    }
+   ],
+   "cues": [
+    "सिर्फ़ description",
+    "आप slash",
+    "ज़रूरत लगे",
+    "पूरी skill"
+   ],
+   "robot": {
+    "img": "work",
+    "x": 590,
+    "y": 1190,
+    "size": 440,
+    "cue": "पूरी skill"
+   }
+  },
+  {
+   "id": "who",
+   "type": "compare",
+   "wipe": "left",
+   "footcue": 5,
+   "voice": "Default में आप भी skill बुला सकते हो और Claude भी। Deploy जैसे काम पर disable-model-invocation true लगाओ, तो Claude उसे खुद नहीं चलाएगा।",
+   "left": {
+    "title": "Default",
+    "rows": [
+     "Aap /name se bulao",
+     "Claude bhi bula sakta hai"
+    ]
+   },
+   "right": {
+    "title": "Sirf aap",
+    "rows": [
+     "disable-model-invocation: true",
+     "Claude khud nahi chalata"
+    ]
+   },
+   "foot": "Jaise **/deploy** ke liye",
+   "cues": [
+    "Default में",
+    "आप भी",
+    "Claude भी",
+    "Deploy जैसे",
+    "disable-model-invocation",
+    "खुद नहीं"
+   ],
+   "robot": {
+    "img": "stop",
+    "x": 60,
+    "y": 1280,
+    "size": 420,
+    "cue": "खुद नहीं"
+   }
+  },
+  {
+   "id": "where",
+   "type": "list",
+   "wipe": "right",
+   "y0": 320,
+   "rh": 340,
+   "ksize": 66,
+   "dsize": 40,
+   "voice": "कहाँ रखें? Personal skills सब projects में चलती हैं। Project skills उसी repo में, commit करो तो team को भी। और plugin से भी बाँट सकते हो।",
+   "items": [
+    {
+     "k": "Personal",
+     "d": "~/.claude/skills: sab projects me"
+    },
+    {
+     "k": "Project",
+     "d": ".claude/skills: commit karo, team ko bhi"
+    },
+    {
+     "k": "Plugin",
+     "d": "jahan plugin enable ho"
+    }
+   ],
+   "cues": [
+    "कहाँ रखें",
+    "Personal skills",
+    "Project skills",
+    "plugin से"
+   ]
+  },
+  {
+   "id": "cta",
+   "type": "cta",
+   "wipe": "up",
+   "size": 96,
+   "voice": "तो आप कौन सी skill बनाओगे? Comment में बताओ।",
+   "lines": [
+    "Aap kaunsi",
+    "skill **banaoge**?"
+   ],
+   "sub": "Comment me batao",
+   "cues": [
+    "आप कौन सी",
+    "skill बनाओगे",
+    "Comment में"
+   ],
+   "robot": {
+    "img": "thumbs",
+    "x": 570,
+    "y": 1250,
+    "size": 460,
+    "cue": "Comment में"
+   }
+  }
+ ]
+}
