@@ -1,0 +1,10 @@
+{
+ "title": "Claude <mark>Hooks</mark>",
+ "sub": "file edit ke baad <b>auto</b>-format",
+ "chips": [
+  "PostToolUse",
+  "Prettier"
+ ],
+ "robot": "work",
+ "tag": "CLAUDE CODE"
+}

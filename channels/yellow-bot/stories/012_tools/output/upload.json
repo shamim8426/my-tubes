@@ -22,5 +22,6 @@
   "made_for_kids": false,
   "contains_synthetic_media": true,
   "category_id": "28",
-  "privacy": "private"
+  "privacy": "private",
+  "thumbnail": "thumb_16x9.png"
 }

@@ -1,0 +1,12 @@
+{
+ "title": "Claude + <mark>MCP</mark>",
+ "sub": "tools se seedha <b>connect</b>",
+ "chips": [
+  "claude mcp add",
+  "HTTP"
+ ],
+ "robot": "work",
+ "ts_h": 128,
+ "ts_v": 170,
+ "tag": "CLAUDE CODE"
+}

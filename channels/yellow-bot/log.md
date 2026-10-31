@@ -17,3 +17,5 @@
 - 2026-10-31 011 Checkpointing UPLOADED private: https://youtu.be/z9LEeI0YNKo (49.0 s, -15.4 LUFS, TP -1.2; TTS ~Rs1.2 paid; ~20 min). Fact-check PASS. New: undo opener (doc messy -> two Esc key caps -> clean).
 
 - 2026-10-31 012 Tools UPLOADED private: https://youtu.be/whEYixIMx0Q (51.2 s, -15.0 LUFS, TP -1.8; voice 1 free + 5 paid ~Rs1.2; ~45 min incl. new svgbot layer). Fact-check PASS (review/factcheck.md). First video in FORMAT v3: concept cards opener, docs screenshot proof, terminal example, nuance (compare), svgbot recap, CTA without quiz.
+
+- 2026-10-31 thumbnails: scripts/make_thumb.py + templates/thumb_template.html (HTML -> PNG, 16:9 and 9:16); thumb.json + PNGs made for 006-012. API thumbnails.set returned 403 (channel not phone-verified); user to verify in Studio, then `youtube_upload.py --job <upload.json> --extras-only` per video (upload.json needs "thumbnail").
