@@ -13,3 +13,5 @@
 - 2026-10-31 007 Subagents UPLOADED private: https://youtu.be/XdC3f07GzXw (50.9 s, -15.0 LUFS, TP -1.4; free TTS 5 lines + paid 2 lines ~Rs0.1; ~35 min incl. setup). Fact-check PASS (review/factcheck.md). New: stage layer 'meter' (context bar).
 - 2026-10-31 008 Skills UPLOADED private: https://youtu.be/yl0Cjc4E_1w (56.0 s, -14.9 LUFS, TP -1.7; TTS ~Rs1.2 paid after free quota; ~20 min). Fact-check PASS. New: paste-stack merge opener (box layers with tilt).
 - 2026-10-31 009 MCP UPLOADED private: https://youtu.be/XjGT3YxVC3Q (64.8 s, -14.9 LUFS, TP -1.3; TTS ~Rs1.4 paid; ~25 min). Fact-check PASS. New: traveling copy-paste bubble then MCP badge in stage opener.
+- 2026-10-31 010 Memory UPLOADED private: https://youtu.be/jQWCNgezK38 (55.3 s, -15.1 LUFS, TP -1.7; TTS ~Rs1.2 paid; ~20 min). Fact-check PASS. New: session-gap opener (CLAUDE.md doc slides between Session 1 and 2).
+- 2026-10-31 011 Checkpointing UPLOADED private: https://youtu.be/z9LEeI0YNKo (49.0 s, -15.4 LUFS, TP -1.2; TTS ~Rs1.2 paid; ~20 min). Fact-check PASS. New: undo opener (doc messy -> two Esc key caps -> clean).
