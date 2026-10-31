@@ -101,6 +101,8 @@ def main():
             r["at"] = phrase_time(sc, d, r.get("cue")) or 1.0
         if robs:
             item["robots"] = robs
+        if sc.get("layers"):
+            item["layers"] = [dict(L, url=(MASCOT / (L["img"] + ".png")).as_uri()) if L.get("kind") == "img" else L for L in sc["layers"]]
         data.append(item)
         t = end
     total = round(t + 0.2, 3)

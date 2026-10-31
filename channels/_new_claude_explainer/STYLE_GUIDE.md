@@ -1,23 +1,30 @@
-﻿# Claude explainer Shorts - style guide v0 (temporary folder; moves to the real channel pack once the channel exists)
+# Claude explainer Shorts - style guide v2 (user-approved 2026-10-31; this is the channel theme, ALL videos follow it)
 
-Source of the learning: study of 8 Shorts of one AI-news channel (2026-10-31, files deleted, see research/study_log.md). Pattern only; nothing copied.
+## Look
+- White background, black + yellow (#FFD60A) only. Big text that matches what is spoken (highlighter marker on key words).
+- Fonts: Poppins ExtraBold/Bold/Medium, IBM Plex Mono (code), Mukta (rare Devanagari). Yellow wipe on every cut.
+- Cute robot mascot (mascot/*.png: wave, think, work, stop, thumbs, team.png lineup). More robots allowed when the idea needs a team.
+- Music: Funkorama (Kevin MacLeod, CC BY 4.0) 12 LU under the voice, ducked. Credit line in every description. Loudness -14 LUFS, peak <= -1 dBFS.
 
-## What the reference does (facts measured)
-- Length 78-106 s, 245-325 words, 2.8-3.3 words/s, one male narrator, no visible speaker.
-- Hook = first 2-5 s, one strong claim + a named thing ("X just beat Y", "free", a number).
-- Two shapes: (A) single tool: hook -> name -> why it matters (problem + one analogy) -> 3 bullets -> proof -> result -> CTA;
-  (B) list "Top N": "First is / Second is ..." with a name chip + 3 icon bullets each.
-- Screen: light-grey canvas, 1-2 bold key words, rest light; cards with soft shadow; icon bullets; logos/UI screenshots; a mascot; constant watermark.
-  A new visual or phrase every ~2-3 s; every spoken sentence has its own on-screen phrase.
-- Same last 15 s in every video (comment-keyword lead magnet + follow line). Same look in every video.
+## Language
+- Conversational Hinglish. On screen: Roman script, very few Devanagari words. Voice (Gemini TTS, Charon): casual Indian tech YouTuber, no sing-song.
+- Content = official docs only (code.claude.com), every claim sourced. Never copy another creator's material.
 
-## What we change (so our videos do not look alike, and are not copies)
-1. Facts: every claim from official sources (dossier + source check). No "beats X" / "replaces your stack" claims we cannot show.
-2. No third-party logos or real UI screenshots; abstract cards, our own icons, no mascot copy, no lead-magnet CTA.
-3. Variety system (Sampadak picks a seed per video and records it in edit_plan.json):
-   - Layouts: HOOK_BIG, STAT (big number), STEP (numbered card), COMPARE (A|B split), LIST (icon bullets), PROMPT (typed prompt card), CTA.
-   - Palettes (rotate; never the same palette twice in a row): light paper, dark terminal, warm cream, colour block.
-   - Motion: spring pop, mask slide reveal, word cascade, typewriter; easing only, no linear moves.
-   - Sound: soft whoosh on cuts, tick on bullets, quiet bed music ducked under voice, -14 LUFS.
-4. Length: Shorts 35-60 s (not 90-106 s): tighter, one idea each. Shape A or B, never the same hook sentence pattern twice in a row.
-5. Emphasis by weight (bold on 1-2 key words) - keep; word-by-word reveal timed to the voice - keep.
+## Structure of every Short (35-70 s, one idea)
+1. OPENER (first 6-7 s) = PICTURE STORY, not text: the robot DEMONSTRATES the feature (user 2026-10-31: "robot dikhaye ki asli me kaise use hota hai").
+   Scene type `stage` (layers with keyframes: img, box, doc, hook, text). Reference: 006_hooks scene 0.
+2. What it is -> real example (flow) -> config/code -> options (list) -> the one useful trick (compare) -> CTA.
+3. Docs scenes show the real docs page scrolling (scripts/docs_shot.py). Every scene uses a DIFFERENT layout from the one before.
+4. EVERY NEW VIDEO adds at least one new enhancement (new scene type, animation, robot pose, sound or explanation device); log it in log.md and add it here.
+
+## Tools (all local, free-first)
+- scripts/build_deck.py <story> [--tts [--paid]] [--still t1,t2] [--render]; deck.json -> build/deck.html -> output/short.mp4.
+- NOTE: --tts only fills MISSING s_XX.wav and then exits; to change a line, move its wav away, run --tts, then --render.
+- Scene types: statement, chips, flow, docs, code, list, compare, hub, cta, stage (+ per-scene robot/robots). Template: templates/deck_template.html.
+- html_video.py (Playwright + real Chrome + ffmpeg), remux_music.py, music_preview.py, gen_robot.py (free Cloudflare).
+- Free-first: Cloudflare images, free Gemini TTS key; paid TTS only with user OK (given 2026-10-31, ~Rs1.3/video).
+
+## Open items
+- Subagents (003), MCP (005), Skills (004): redo with Hinglish + robot + music + picture-story opener.
+- Tighten team.png crops (centres ~0.156/0.38/0.61/0.84, width ~0.2).
+- Channel not created yet (user gives channel ID + language); Munshi review and upload not done.

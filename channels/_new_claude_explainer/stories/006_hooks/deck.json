@@ -1,50 +1,544 @@
 {
  "_note": "Short 006: Hooks. Facts: official docs code.claude.com/docs/en/hooks-guide (read 2026-10-31). Style v2 (user 2026-10-31): white + black + yellow, cute robot mascot, on-screen text in conversational Hinglish (Roman), voice = casual Hinglish.",
  "tag": "Claude Code · Hooks",
- "music": {"file": "shared/music/presentation/Funkorama.mp3", "start": 6, "rel": 12},
- "voice": {"id": "Charon", "style": "Speak like a friendly Indian tech YouTuber chatting casually in Hinglish. Natural conversational pace, warm and clear, a little energetic but not theatrical. No sing-song, no exaggerated emphasis."},
+ "music": {
+  "file": "shared/music/presentation/Funkorama.mp3",
+  "start": 6,
+  "rel": 12
+ },
+ "voice": {
+  "id": "Charon",
+  "style": "Speak like a friendly Indian tech YouTuber chatting casually in Hinglish. Natural conversational pace, warm and clear, a little energetic but not theatrical. No sing-song, no exaggerated emphasis."
+ },
  "scenes": [
-  {"id": "hook", "type": "statement", "wipe": "right",
-   "voice": "देखो, हर बार Claude को बोलना पड़े कि file edit के बाद format कर दो, ये थोड़ा बोरिंग है ना? इसका एक पक्का तरीका है, Hooks।",
-   "lines": ["Har baar Claude ko", "yaad dilana padta hai?", "Iska pakka tareeka:", "**Hooks**"],
-   "cues": ["हर बार Claude", "बोरिंग", "पक्का तरीका", "Hooks"], "size": 84, "top": 440, "gap": 20,
-   "robot": {"img": "wave", "x": 580, "y": 1320, "size": 430, "cue": "इसका एक"}},
-
-  {"id": "what", "type": "chips", "wipe": "up", "y0": 330,
+  {
+   "id": "hook",
+   "type": "stage",
+   "wipe": "right",
+   "voice": "देखो, Claude file edit करे, और format अपने आप हो जाए? ये काम Hooks करते हैं।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "Claude file **edit** karta hai",
+     "x": 80,
+     "y": 1560,
+     "size": 78,
+     "hlAt": 1.3,
+     "k": [
+      [
+       0.3,
+       {
+        "o": 0,
+        "y": 1610
+       }
+      ],
+      [
+       0.8,
+       {
+        "o": 1,
+        "y": 1570
+       }
+      ],
+      [
+       3.6,
+       {
+        "o": 1
+       }
+      ],
+      [
+       4.0,
+       {
+        "o": 0,
+        "y": 1540
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "text",
+     "html": "Hook **apne aap** format karta hai",
+     "x": 80,
+     "y": 1560,
+     "size": 78,
+     "hlAt": 4.8,
+     "k": [
+      [
+       4.0,
+       {
+        "o": 0,
+        "y": 1610
+       }
+      ],
+      [
+       4.5,
+       {
+        "o": 1,
+        "y": 1570
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "img",
+     "img": "wave",
+     "size": 360,
+     "x": 20,
+     "y": 570,
+     "bob": 1,
+     "k": [
+      [
+       0.1,
+       {
+        "x": -420,
+        "o": 1
+       }
+      ],
+      [
+       0.9,
+       {
+        "x": 20
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "Claude",
+     "cls": "ink",
+     "css": "font-size:40px;font-weight:800;padding:10px 30px;border-radius:999px;white-space:nowrap",
+     "x": 110,
+     "y": 525,
+     "k": [
+      [
+       0.9,
+       {
+        "o": 0,
+        "s": 0.6
+       }
+      ],
+      [
+       1.3,
+       {
+        "o": 1,
+        "s": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "doc",
+     "w": 560,
+     "h": 560,
+     "x": 460,
+     "y": 700,
+     "file": "app.js",
+     "lines": 8,
+     "k": [
+      [
+       0.5,
+       {
+        "o": 0,
+        "s": 0.7,
+        "mess": 1
+       }
+      ],
+      [
+       1.1,
+       {
+        "o": 1,
+        "s": 1,
+        "e": "b"
+       }
+      ],
+      [
+       3.7,
+       {
+        "mess": 1
+       }
+      ],
+      [
+       4.7,
+       {
+        "mess": 0
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "edit!",
+     "cls": "yel shadow",
+     "css": "font-size:40px;font-weight:800;padding:10px 30px;border-radius:999px;white-space:nowrap",
+     "x": 820,
+     "y": 640,
+     "k": [
+      [
+       1.6,
+       {
+        "o": 0,
+        "s": 0.4
+       }
+      ],
+      [
+       2.0,
+       {
+        "o": 1,
+        "s": 1,
+        "e": "b"
+       }
+      ],
+      [
+       2.7,
+       {
+        "o": 1
+       }
+      ],
+      [
+       3.0,
+       {
+        "o": 0,
+        "s": 0.8
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "hook",
+     "h": 760,
+     "x": 640,
+     "y": -10,
+     "swing": {
+      "from": 2.9,
+      "amp": 5,
+      "f": 5
+     },
+     "k": [
+      [
+       2.1,
+       {
+        "y": -700,
+        "o": 1
+       }
+      ],
+      [
+       2.9,
+       {
+        "y": -10,
+        "e": "b"
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "PostToolUse",
+     "cls": "ink mono",
+     "css": "font-size:34px;padding:14px 28px;border-radius:999px;white-space:nowrap",
+     "x": 600,
+     "y": 740,
+     "k": [
+      [
+       2.0,
+       {
+        "x": 600,
+        "y": 740,
+        "o": 0
+       }
+      ],
+      [
+       2.25,
+       {
+        "o": 1
+       }
+      ],
+      [
+       3.1,
+       {
+        "x": 660,
+        "y": 330,
+        "e": "b"
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "img",
+     "img": "team",
+     "aspect": 2,
+     "crop": [
+      0.49,
+      0.73
+     ],
+     "size": 440,
+     "x": 30,
+     "y": 1010,
+     "wob": {
+      "from": 3.9,
+      "amp": 2
+     },
+     "k": [
+      [
+       3.0,
+       {
+        "x": -320,
+        "o": 1
+       }
+      ],
+      [
+       3.8,
+       {
+        "x": 0,
+        "e": "b"
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "Hook helper",
+     "cls": "yel",
+     "css": "font-size:40px;font-weight:800;padding:10px 30px;border-radius:999px;white-space:nowrap",
+     "x": 40,
+     "y": 1410,
+     "k": [
+      [
+       3.8,
+       {
+        "o": 0,
+        "s": 0.6
+       }
+      ],
+      [
+       4.2,
+       {
+        "o": 1,
+        "s": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "&#10003;",
+     "cls": "yel shadow",
+     "css": "width:120px;height:120px;border-radius:60px;font-size:80px;font-weight:800;display:flex;align-items:center;justify-content:center",
+     "x": 900,
+     "y": 670,
+     "k": [
+      [
+       4.7,
+       {
+        "o": 0,
+        "s": 0.4
+       }
+      ],
+      [
+       5.2,
+       {
+        "o": 1,
+        "s": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "what",
+   "type": "chips",
+   "wipe": "up",
+   "y0": 330,
    "voice": "Hook मतलब आपकी अपनी shell command, जो Claude Code के तय moments पर अपने आप चलती है। यानी काम हर बार पक्का होता है, Claude के मूड पर नहीं।",
-   "parent": "Claude Code chal raha hai", "title": "Hook", "chips": ["Aapki apni shell command", "Tay moment par chalti hai", "Har baar pakka kaam"],
-   "cues": ["Claude Code के", "Hook मतलब", "अपनी shell", "तय moments", "हर बार पक्का"],
-   "robot": {"img": "think", "x": 600, "y": 1340, "size": 400, "cue": "हर बार पक्का"}},
-
-  {"id": "example", "type": "flow", "wipe": "left", "tsize": 50, "nh": 200, "gap": 90,
+   "parent": "Claude Code chal raha hai",
+   "title": "Hook",
+   "chips": [
+    "Aapki apni shell command",
+    "Tay moment par chalti hai",
+    "Har baar pakka kaam"
+   ],
+   "cues": [
+    "Claude Code के",
+    "Hook मतलब",
+    "अपनी shell",
+    "तय moments",
+    "हर बार पक्का"
+   ],
+   "robot": {
+    "img": "think",
+    "x": 600,
+    "y": 1340,
+    "size": 400,
+    "cue": "हर बार पक्का"
+   }
+  },
+  {
+   "id": "example",
+   "type": "flow",
+   "wipe": "left",
+   "tsize": 50,
+   "nh": 200,
+   "gap": 90,
    "voice": "Example लो: Claude कोई file edit करता है, तभी आपका Prettier वाला hook चल जाता है, और file अपने आप format हो जाती है। आपको कुछ करना ही नहीं पड़ता।",
-   "nodes": [{"t": "Claude edit karta hai", "s": "PostToolUse event"}, {"t": "Hook chalta hai", "s": "prettier --write"}, {"t": "File auto-format", "s": "aapko kuch nahi karna"}],
-   "cues": ["Claude कोई file", "आपका Prettier", "अपने आप format"],
-   "robot": {"img": "work", "x": 590, "y": 1190, "size": 440, "cue": "आपको कुछ करना"}},
-
-  {"id": "config", "type": "code", "wipe": "up", "file": "~/.claude/settings.json", "size": 36, "y0": 330,
+   "nodes": [
+    {
+     "t": "Claude edit karta hai",
+     "s": "PostToolUse event"
+    },
+    {
+     "t": "Hook chalta hai",
+     "s": "prettier --write"
+    },
+    {
+     "t": "File auto-format",
+     "s": "aapko kuch nahi karna"
+    }
+   ],
+   "cues": [
+    "Claude कोई file",
+    "आपका Prettier",
+    "अपने आप format"
+   ],
+   "robot": {
+    "img": "work",
+    "x": 590,
+    "y": 1190,
+    "size": 440,
+    "cue": "आपको कुछ करना"
+   }
+  },
+  {
+   "id": "config",
+   "type": "code",
+   "wipe": "up",
+   "file": "~/.claude/settings.json",
+   "size": 36,
+   "y0": 330,
    "voice": "ये सब settings dot json में लिखते हैं। पहले event का नाम, जैसे PostToolUse, फिर matcher, जैसे Edit या Write, और फिर आपकी command।",
-   "lines": ["\"hooks\": {", "  \"PostToolUse\": [{", "    \"matcher\": \"Edit|Write\",", "    \"hooks\": [{ \"type\": \"command\",", "      \"command\": \"prettier --write\" }]", "  }]", "}"],
-   "caption": "**matcher** batata hai kab chalna hai", "cosize": 70,
-   "cues": ["settings dot json", "पहले event", "जैसे PostToolUse", "फिर matcher", "जैसे Edit", "और फिर आपकी", "आपकी command", "Edit या Write"],
-   "robot": {"img": "work", "x": 610, "y": 1330, "size": 400, "cue": "और फिर आपकी"}},
-
-  {"id": "events", "type": "list", "wipe": "right", "y0": 320, "rh": 300, "ksize": 66, "dsize": 42,
+   "lines": [
+    "\"hooks\": {",
+    "  \"PostToolUse\": [{",
+    "    \"matcher\": \"Edit|Write\",",
+    "    \"hooks\": [{ \"type\": \"command\",",
+    "      \"command\": \"prettier --write\" }]",
+    "  }]",
+    "}"
+   ],
+   "caption": "**matcher** batata hai kab chalna hai",
+   "cosize": 70,
+   "cues": [
+    "settings dot json",
+    "पहले event",
+    "जैसे PostToolUse",
+    "फिर matcher",
+    "जैसे Edit",
+    "और फिर आपकी",
+    "आपकी command",
+    "Edit या Write"
+   ],
+   "robot": {
+    "img": "work",
+    "x": 610,
+    "y": 1330,
+    "size": 400,
+    "cue": "और फिर आपकी"
+   }
+  },
+  {
+   "id": "events",
+   "type": "list",
+   "wipe": "right",
+   "y0": 320,
+   "rh": 300,
+   "ksize": 66,
+   "dsize": 42,
    "voice": "कुछ popular events: Notification, जब Claude आपका input माँगे। PreToolUse, tool चलने से पहले। PostToolUse, tool चलने के बाद। और SessionStart, जब session शुरू हो।",
-   "items": [{"k": "Notification", "d": "Claude input maange to alert"}, {"k": "PreToolUse", "d": "tool chalne se pehle, rok bhi sakte ho"}, {"k": "PostToolUse", "d": "tool ke baad, jaise auto-format"}, {"k": "SessionStart", "d": "session shuru ho to context daalo"}],
-   "cues": ["Notification, जब", "PreToolUse, tool", "PostToolUse, tool", "SessionStart, जब"]},
-
-  {"id": "block", "type": "compare", "wipe": "up", "footcue": 5,
+   "items": [
+    {
+     "k": "Notification",
+     "d": "Claude input maange to alert"
+    },
+    {
+     "k": "PreToolUse",
+     "d": "tool chalne se pehle, rok bhi sakte ho"
+    },
+    {
+     "k": "PostToolUse",
+     "d": "tool ke baad, jaise auto-format"
+    },
+    {
+     "k": "SessionStart",
+     "d": "session shuru ho to context daalo"
+    }
+   ],
+   "cues": [
+    "Notification, जब",
+    "PreToolUse, tool",
+    "PostToolUse, tool",
+    "SessionStart, जब"
+   ]
+  },
+  {
+   "id": "block",
+   "type": "compare",
+   "wipe": "up",
+   "footcue": 5,
    "voice": "सबसे काम की चीज़: PreToolUse hook का script अगर exit code 2 दे, तो वो edit block हो जाता है। जैसे .env file को Claude छू भी नहीं पाएगा।",
-   "left": {"title": "exit 0", "rows": ["Edit chalega"]}, "right": {"title": "exit 2", "rows": ["Edit block!", "Claude ko wajah milti hai"]},
+   "left": {
+    "title": "exit 0",
+    "rows": [
+     "Edit chalega"
+    ]
+   },
+   "right": {
+    "title": "exit 2",
+    "rows": [
+     "Edit block!",
+     "Claude ko wajah milti hai"
+    ]
+   },
    "foot": "Jaise **.env** protect karo",
-   "cues": ["सबसे काम", "exit code 2", "script अगर", "तो वो edit", "block हो", "जैसे .env"],
-   "robot": {"img": "stop", "x": 60, "y": 1230, "size": 440, "cue": "जैसे .env"}},
-
-  {"id": "cta", "type": "cta", "wipe": "left", "size": 96,
+   "cues": [
+    "सबसे काम",
+    "exit code 2",
+    "script अगर",
+    "तो वो edit",
+    "block हो",
+    "जैसे .env"
+   ],
+   "robot": {
+    "img": "stop",
+    "x": 60,
+    "y": 1230,
+    "size": 440,
+    "cue": "जैसे .env"
+   }
+  },
+  {
+   "id": "cta",
+   "type": "cta",
+   "wipe": "left",
+   "size": 96,
    "voice": "तो आप कौन सा hook लगाओगे? Comment में बताओ, और अपने hooks देखने के लिए slash hooks लिखो।",
-   "lines": ["Aap kaunsa hook", "**lagaoge**?"], "sub": "Comment me batao  ·  /hooks se dekho",
-   "cues": ["आप कौन सा", "hook लगाओगे", "Comment में"],
-   "robot": {"img": "thumbs", "x": 570, "y": 1250, "size": 460, "cue": "Comment में"}}
+   "lines": [
+    "Aap kaunsa hook",
+    "**lagaoge**?"
+   ],
+   "sub": "Comment me batao  ·  /hooks se dekho",
+   "cues": [
+    "आप कौन सा",
+    "hook लगाओगे",
+    "Comment में"
+   ],
+   "robot": {
+    "img": "thumbs",
+    "x": 570,
+    "y": 1250,
+    "size": 460,
+    "cue": "Comment में"
+   }
+  }
  ]
 }

@@ -161,6 +161,34 @@ B.cta=(sc,root)=>{
   if(sc.sub){const s=mk(box,'font-size:60px;font-weight:700;color:#444;margin-top:30px',sc.sub);reg(sc,s,cue(sc,sc.lines.length,3),'rise',.5)}
 };
 
+B.stage=(sc,root)=>{
+  tag(root,sc);
+  sc.layers.forEach(L=>{
+    const k=L.kind;let el;
+    if(k==='img'){const ar=L.aspect||1,x0=L.crop?L.crop[0]:0,x1=L.crop?L.crop[1]:1,imgW=L.size*ar,wrapW=imgW*(x1-x0);
+      el=mk(root,`left:0;top:0;width:${wrapW}px;height:${L.size}px;overflow:hidden;mix-blend-mode:multiply`,`<img src="${L.url}" style="position:absolute;left:${-x0*imgW}px;top:0;width:${imgW}px;height:${L.size}px">`,'abs')}
+    else if(k==='box'){el=mk(root,`left:0;top:0;${L.css||''}`,L.html||'','abs '+(L.cls||''))}
+    else if(k==='doc'){el=mk(root,`left:0;top:0;width:${L.w}px;height:${L.h}px;background:#fff;border:6px solid #111;border-radius:30px;overflow:hidden`,'','abs shadow');
+      mk(el,'left:0;top:0;width:100%;height:76px;background:#111;color:#FFD60A;font-size:34px;padding:16px 28px','<span class="mono">'+(L.file||'app.js')+'</span>','abs');
+      L.bars=[];const n=L.lines||8,step=(L.h-150)/n;
+      for(let i=0;i<n;i++){const b=mk(el,`left:34px;top:${110+i*step}px;height:${Math.max(16,step*.42)}px;border-radius:9px;background:${i%3==2?'#FFD60A':'#111'}`,'','abs');L.bars.push({b,w:[.8,.55,.7,.4,.75,.5,.65,.6][i%8],rnd:((i*37)%11)/11})}}
+    else if(k==='hook'){const h=L.h||560;el=mk(root,`left:0;top:0;width:280px;height:${h}px;transform-origin:50% 0`,`<svg width="280" height="${h}" viewBox="0 0 280 ${h}" fill="none"><path d="M90 0 V${h-170} Q90 ${h-60} 180 ${h-60} Q270 ${h-60} 270 ${h-170} V${h-230}" stroke="#111" stroke-width="30" stroke-linecap="round" stroke-linejoin="round"/><circle cx="270" cy="${h-230}" r="22" fill="#FFD60A" stroke="#111" stroke-width="8"/></svg>`,'abs')}
+    else if(k==='text'){el=mk(root,`left:0;top:0;width:${L.w||920}px;font-size:${L.size||80}px`,parse(L.html),'abs line');L.hls=[...el.querySelectorAll('[data-h]')]}
+    L.el=el;el.style.opacity=0});
+  sc.upd=(lt)=>sc.layers.forEach(L=>applyLayer(L,lt));
+};
+function kfv(k,lt,name,def){let a=null,b=null;
+  for(const f of k){if(f[1][name]===undefined)continue;if(f[0]<=lt)a=f;else{b=f;break}}
+  if(!a&&!b)return def;if(!a)return name==='o'?0:b[1][name];if(!b)return a[1][name];
+  const p=c((lt-a[0])/(b[0]-a[0])),q=b[1].e==='b'?back(p):eo(p);return a[1][name]+(b[1][name]-a[1][name])*q}
+function applyLayer(L,lt){
+  const k=L.k||[],x=kfv(k,lt,'x',L.x),y0=kfv(k,lt,'y',L.y),s=kfv(k,lt,'s',1),r0=kfv(k,lt,'r',0),o=c(kfv(k,lt,'o',1));
+  const y=y0+(L.bob?Math.sin(lt*2.4)*10:0);
+  const r=r0+(L.swing?L.swing.amp*Math.sin((lt-L.swing.from)*L.swing.f)*c((lt-L.swing.from)/.3):0)+(L.wob&&lt>L.wob.from?Math.sin(lt*8)*L.wob.amp:0);
+  L.el.style.opacity=o;L.el.style.transform=`translate(${x}px,${y}px) rotate(${r}deg) scale(${s})`;
+  if(L.bars){const m=kfv(k,lt,'mess',0);L.bars.forEach(({b,w,rnd})=>{const full=w*(L.w-68),bw=full*(1-m)+full*(.45+rnd*.9)*m;b.style.width=bw+'px';b.style.transform=`translateX(${(rnd-.5)*80*m}px) rotate(${(rnd-.5)*14*m}deg)`})}
+  if(L.hls&&L.hlAt!=null){const q=eo(c((lt-L.hlAt)/.45));L.hls.forEach(h=>h.style.setProperty('--w',(q*100)+'%'))}
+}
 const scenes=D.scenes;
 scenes.forEach((sc,i)=>{sc.anims=[];sc.root=mk(E('scenes'),null,'', 'sc');(B[sc.type]||(()=>{throw new Error('no scene type '+sc.type)}))(sc,sc.root);
   (sc.robots||[]).forEach(r=>{
