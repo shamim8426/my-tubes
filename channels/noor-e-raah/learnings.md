@@ -16,6 +16,13 @@ before every new video; Munshi checks it was followed. Every learning has proof:
   samajh aaye. Saboot: kmYyRGdykjY 214 views, 44 engaged (20.6%), @30 s retention 54.5%, AVD 115 s / 24.3% (fetch 2026-10-30).
   Naapna: 003 ka @30 s > 60% aur AVD% > 30%.
 
+- [2026-10-31, HINT / kam data] **Pre-004 (Al-Falaq) brief** (fetch 2026-10-31; Analytics data sirf 28 Oct tak):
+  (1) Pehle 30-40 s me hook ka vaada + pehli aayat (upar wali LAGU KARO) — abhi bhi ek hi video ka saboot.
+  (2) Title me search shabd pehle + thumbnail <= 3-4 shabd (upar). (3) Thumbnail pehle frame bina awaaz samajh aaye.
+  (4) Naye videos ko shuruat me push chahiye: Al-Fatiha ke 261 views me 259 SUBSCRIBER-source (1 subscriber!), 0 search/browse
+  -> 004 ke baad bhi community/Shorts se traffic lao (user se poochho). (5) Naapna: 004 ke 48 h me >= 500 impressions aaye tab hi seekh pakki.
+  Saboot: rRtM7wFIVcA public counter 3 views, 3fj1U_Q4Ku8 5 views (31 Oct, 1-2 din baad) = bahut kam data.
+
 ## Pakki seekh (proof ke saath)
 (abhi koi nahi: sab video < 500 impressions)
 (empty)
