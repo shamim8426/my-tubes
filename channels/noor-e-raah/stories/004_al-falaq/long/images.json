@@ -1,0 +1,319 @@
+{
+ "_help": "Al-Falaq images (004). Same format as 003. IMAGE REUSE FIRST (user 2026-10-31): ALL scenes use library images (`reuse` = copied from an earlier Noor story, Rs0) or a free crop (`reuse_id` + a different `rect`). 0 NEW images. 113:4 (knots) = symbolic tight crop of converging footpaths (no rope/hands). start = spoken line or 'ayah' (AYAH 1 = whole surah, AYAH 2..6 = ayah 1..5). Pehle ~60 s: nothing longer than ~8 s.",
+ "images": [
+  {
+   "id": "01_one_star_night",
+   "start": {
+    "line": 3
+   },
+   "reuse": "channels/noor-e-raah/stories/003_al-ikhlas/images/01_one_star_night.png"
+  },
+  {
+   "id": "01_one_star_night_b",
+   "start": {
+    "line": 4
+   },
+   "reuse_id": "01_one_star_night",
+   "rect": {
+    "fx": 0.3,
+    "fy": 0.3,
+    "zc": 1.4
+   },
+   "_note": "crop of the night sky; keeps the first minute moving"
+  },
+  {
+   "id": "04_dawn_sand_ridge",
+   "start": {
+    "line": 5
+   },
+   "reuse": "channels/noor-e-raah/stories/003_al-ikhlas/images/04_dawn_sand_ridge.png"
+  },
+  {
+   "id": "05_dawn_horizon",
+   "start": {
+    "line": 6
+   },
+   "reuse": "channels/noor-e-raah/stories/002_ayatul-kursi/images/05_dawn_horizon.png"
+  },
+  {
+   "id": "06_milkyway_desert",
+   "start": {
+    "ayah": 1
+   },
+   "reuse": "channels/noor-e-raah/stories/003_al-ikhlas/images/06_milkyway_desert.png"
+  },
+  {
+   "id": "03_makka_valley_night",
+   "start": {
+    "line": 10
+   },
+   "reuse": "channels/noor-e-raah/stories/003_al-ikhlas/images/03_makka_valley_night.png"
+  },
+  {
+   "id": "03_makka_valley_night_b",
+   "start": {
+    "line": 11
+   },
+   "reuse_id": "03_makka_valley_night",
+   "rect": {
+    "fx": 0.62,
+    "fy": 0.55,
+    "zc": 1.3
+   },
+   "_note": "lane and houses"
+  },
+  {
+   "id": "03_makka_valley_night_c",
+   "start": {
+    "line": 12
+   },
+   "reuse_id": "03_makka_valley_night",
+   "rect": {
+    "fx": 0.3,
+    "fy": 0.5,
+    "zc": 1.5
+   },
+   "_note": "hills, other side"
+  },
+  {
+   "id": "03_madina_dawn_houses",
+   "start": {
+    "ayah": 2
+   },
+   "reuse": "channels/noor-e-raah/stories/002_ayatul-kursi/images/03_madina_dawn_houses.png",
+   "_note": "113:1 first light"
+  },
+  {
+   "id": "11_sunrays_clouds",
+   "start": {
+    "line": 18
+   },
+   "reuse": "channels/noor-e-raah/stories/002_ayatul-kursi/images/11_sunrays_clouds.png",
+   "_note": "'falaq' = light splitting the night"
+  },
+  {
+   "id": "04_dawn_sand_ridge_b",
+   "start": {
+    "line": 19
+   },
+   "reuse_id": "04_dawn_sand_ridge",
+   "rect": {
+    "fx": 0.7,
+    "fy": 0.6,
+    "zc": 1.6
+   },
+   "_note": "day removes the night's trouble; far corner of the ridge"
+  },
+  {
+   "id": "08_vast_panorama",
+   "start": {
+    "ayah": 3
+   },
+   "reuse": "channels/noor-e-raah/stories/002_ayatul-kursi/images/08_vast_panorama.png",
+   "_note": "113:2 every creation"
+  },
+  {
+   "id": "08_vast_panorama_b",
+   "start": {
+    "line": 25
+   },
+   "reuse_id": "08_vast_panorama",
+   "rect": {
+    "fx": 0.3,
+    "fy": 0.45,
+    "zc": 1.4
+   }
+  },
+  {
+   "id": "01_night_stars_dunes",
+   "start": {
+    "ayah": 4
+   },
+   "reuse": "channels/noor-e-raah/stories/002_ayatul-kursi/images/01_night_stars_dunes.png",
+   "_note": "113:3 deep night"
+  },
+  {
+   "id": "07_moonlit_rooftops_lamp",
+   "start": {
+    "line": 31
+   },
+   "reuse": "channels/noor-e-raah/stories/002_ayatul-kursi/images/07_moonlit_rooftops_lamp.png",
+   "_note": "night in a sleeping town; text does not mention the moon"
+  },
+  {
+   "id": "02_lamp_on_stone",
+   "start": {
+    "line": 32
+   },
+   "reuse": "channels/noor-e-raah/stories/002_ayatul-kursi/images/02_lamp_on_stone.png",
+   "_note": "misaal: a small light in the dark"
+  },
+  {
+   "id": "05_paths_to_oasis",
+   "start": {
+    "ayah": 5
+   },
+   "reuse": "channels/noor-e-raah/stories/003_al-ikhlas/images/05_paths_to_oasis.png",
+   "rect": {
+    "fx": 0.5,
+    "fy": 0.5,
+    "zc": 1.9
+   },
+   "_note": "113:4 SYMBOLIC (knots): tight fixed crop on where faint footpaths meet from above, like tangled threads. No rope, no hands, no person. No new image needed (Sanchalak 2026-10-31: prefer symbolic reuse)."
+  },
+  {
+   "id": "05_paths_to_oasis_b",
+   "start": {
+    "line": 38
+   },
+   "reuse_id": "05_paths_to_oasis",
+   "rect": {
+    "fx": 0.25,
+    "fy": 0.65,
+    "zc": 1.5
+   }
+  },
+  {
+   "id": "10_ring_in_desert",
+   "start": {
+    "ayah": 6
+   },
+   "reuse": "channels/noor-e-raah/stories/002_ayatul-kursi/images/10_ring_in_desert.png",
+   "_note": "113:5 emptiness / envy"
+  },
+  {
+   "id": "06_milkyway_desert_b",
+   "start": {
+    "line": 45
+   },
+   "reuse_id": "06_milkyway_desert",
+   "rect": {
+    "fx": 0.7,
+    "fy": 0.3,
+    "zc": 1.5
+   }
+  },
+  {
+   "id": "10_ring_in_desert_b",
+   "start": {
+    "line": 46
+   },
+   "reuse_id": "10_ring_in_desert",
+   "rect": {
+    "fx": 0.5,
+    "fy": 0.72,
+    "zc": 2.0
+   },
+   "_note": "zoom to the tiny ring"
+  },
+  {
+   "id": "05_dawn_horizon_b",
+   "start": {
+    "line": 47
+   },
+   "reuse_id": "05_dawn_horizon",
+   "rect": {
+    "fx": 0.4,
+    "fy": 0.45,
+    "zc": 1.3
+   }
+  },
+  {
+   "id": "02_lamp_single_flame",
+   "start": {
+    "line": 49
+   },
+   "reuse": "channels/noor-e-raah/stories/003_al-ikhlas/images/02_lamp_single_flame.png"
+  },
+  {
+   "id": "12_bedtime_room_lamp",
+   "start": {
+    "line": 50
+   },
+   "reuse": "channels/noor-e-raah/stories/002_ayatul-kursi/images/12_bedtime_room_lamp.png",
+   "_note": "Z2 bedtime - place only, no person"
+  },
+  {
+   "id": "12_bedtime_room_lamp_b",
+   "start": {
+    "line": 51
+   },
+   "reuse_id": "12_bedtime_room_lamp",
+   "rect": {
+    "fx": 0.5,
+    "fy": 0.55,
+    "zc": 1.5
+   }
+  },
+  {
+   "id": "02_lamp_single_flame_b",
+   "start": {
+    "line": 52
+   },
+   "reuse_id": "02_lamp_single_flame",
+   "rect": {
+    "fx": 0.5,
+    "fy": 0.6,
+    "zc": 1.5
+   }
+  },
+  {
+   "id": "08_empty_room_morning",
+   "start": {
+    "line": 53
+   },
+   "reuse": "channels/noor-e-raah/stories/003_al-ikhlas/images/08_empty_room_morning.png"
+  },
+  {
+   "id": "09_morning_palm_path",
+   "start": {
+    "line": 54
+   },
+   "reuse": "channels/noor-e-raah/stories/003_al-ikhlas/images/09_morning_palm_path.png"
+  },
+  {
+   "id": "08_empty_room_morning_b",
+   "start": {
+    "line": 55
+   },
+   "reuse_id": "08_empty_room_morning",
+   "rect": {
+    "fx": 0.4,
+    "fy": 0.6,
+    "zc": 1.4
+   }
+  },
+  {
+   "id": "04_dawn_sand_ridge_c",
+   "start": {
+    "line": 56
+   },
+   "reuse_id": "04_dawn_sand_ridge",
+   "rect": {
+    "fx": 0.45,
+    "fy": 0.35,
+    "zc": 1.25
+   }
+  },
+  {
+   "id": "04_date_palm_path",
+   "start": {
+    "line": 57
+   },
+   "reuse": "channels/noor-e-raah/stories/002_ayatul-kursi/images/04_date_palm_path.png"
+  },
+  {
+   "id": "05_dawn_horizon_c",
+   "start": {
+    "line": 58
+   },
+   "reuse_id": "05_dawn_horizon",
+   "rect": {
+    "fx": 0.5,
+    "fy": 0.3,
+    "zc": 1.1
+   },
+   "_note": "end card area calm"
+  }
+ ]
+}

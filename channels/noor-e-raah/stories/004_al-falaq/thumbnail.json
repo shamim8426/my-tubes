@@ -1,0 +1,10 @@
+{
+ "arabic": "سُورَةُ ٱلْفَلَقِ",
+ "hindi": "सूरह अल-फ़लक़",
+ "chip": "सुबह के रब की पनाह",
+ "hook": "*किस-किस चीज़* से\nपनाह माँगी गई?",
+ "image": "images/thumb_scene_a.png",
+ "scene": "A vast quiet desert at the moment of daybreak: the upper half of the sky still deep indigo with a few last stars, and a thin bright line of gold light splitting the horizon over a distant low sand ridge, one small old clay oil lamp with one warm flame glowing on a flat stone in the lower right foreground. The LEFT 45 percent of the image is darker and calmer with fewer details, kept quiet for large text. Matte painted look, reverent, deep indigo turning to gold. Wide 16:9. No people, no animals, no text, no letters, no writing, no calligraphy.",
+ "title": "Surah Al-Falaq ka Matlab Hindi Mein | 5 Ayat, Padhne ki Madad aur Hadith | Noor-e-Raah",
+ "_note": "free-first: scene via scripts/cf_image.py; paid wallpaper only after a log.md reason. Text rendered by scripts/noor_thumb_v3.py; layout A/B/C chosen by the user. Chip and hook do not repeat the title words; new wallpaper per video (RULES Image reuse first)."
+}

@@ -1,0 +1,44 @@
+{
+  "_note": "Al-Falaq screen config for scripts/noor_render.py (cards from the script's SCREEN notes; title from thumbnail.json; end card = last two spoken lines 57, 58 -> end_from 57 explicit because the last cue is line 59). text_scale default (1.35).",
+  "title_ar": "سُورَةُ ٱلْفَلَقِ",
+  "title_hi": "सूरह अल-फ़लक़",
+  "series": "नूर-ए-राह",
+  "tagline": "क़ुरआन, आसान ज़बान में।",
+  "end_from": 57,
+  "cards": [
+    {
+      "line": 6,
+      "until": 6,
+      "y": 100,
+      "stack": true,
+      "items": [
+        "सूरह अल-फ़लक़ · क़ुरआन की 113वीं सूरह",
+        "5 आयतें"
+      ]
+    },
+    {
+      "line": 54,
+      "until": 56,
+      "y": 100,
+      "items": [
+        "1. डर में पहला सहारा — उसकी पनाह"
+      ]
+    },
+    {
+      "line": 55,
+      "until": 56,
+      "y": 210,
+      "items": [
+        "2. हसद और ग़िब्ता का फ़र्क़ समझें"
+      ]
+    },
+    {
+      "line": 56,
+      "until": 56,
+      "y": 320,
+      "items": [
+        "3. हर बुराई में पनाह उसी रब की"
+      ]
+    }
+  ]
+}
