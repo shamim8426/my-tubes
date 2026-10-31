@@ -698,3 +698,4 @@
 {"timestamp": "2026-10-31 17:31:45", "file": "channels/yellow-bot/stories/012_tools/audio/tts/s_03.wav", "model": "gemini-3.8-flash-tts", "size": "tts 8.4s", "usage": {"input": 33, "output": 211, "thoughts": 0, "output_image": null}}
 {"timestamp": "2026-10-31 17:31:59", "file": "channels/yellow-bot/stories/012_tools/audio/tts/s_04.wav", "model": "gemini-3.8-flash-tts", "size": "tts 8.5s", "usage": {"input": 30, "output": 212, "thoughts": 0, "output_image": null}}
 {"timestamp": "2026-10-31 17:32:12", "file": "channels/yellow-bot/stories/012_tools/audio/tts/s_05.wav", "model": "gemini-3.8-flash-tts", "size": "tts 3.2s", "usage": {"input": 15, "output": 80, "thoughts": 0, "output_image": null}}
+{"timestamp": "2026-10-31 19:42:17", "file": "channels/yellow-bot/stories/_demo_whiteboard/audio/tts/s_00.wav", "model": "gemini-3.8-flash-tts", "size": "tts 11.0s free", "usage": {"input": 40, "output": 274, "thoughts": 0, "output_image": null}}

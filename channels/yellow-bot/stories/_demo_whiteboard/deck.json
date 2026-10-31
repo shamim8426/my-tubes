@@ -1,0 +1,232 @@
+{
+ "tag": "Claude Code · Whiteboard",
+ "music": {
+  "file": "shared/music/presentation/Funkorama.mp3",
+  "start": 6,
+  "rel": 12
+ },
+ "voice": {
+  "id": "Charon",
+  "style": "Speak like a friendly Indian tech YouTuber chatting casually in Hinglish. Natural conversational pace, warm and clear, a little energetic but not theatrical. No sing-song."
+ },
+ "scenes": [
+  {
+   "id": "wb",
+   "type": "stage",
+   "wipe": "right",
+   "voice": "देखो, ये whiteboard की तरह खुद बनता है। पहले Read, फिर Edit, और आख़िर में Bash। Edit और Bash पर Claude पहले पूछता है, ये मैं गोला लगाकर दिखाता हूँ।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "Ek kaam, **teen tool**",
+     "x": 80,
+     "y": 300,
+     "size": 84,
+     "w": 920,
+     "hlAt": 0.9,
+     "k": [
+      [
+       0.2,
+       {
+        "o": 0,
+        "y": 340
+       }
+      ],
+      [
+       0.7,
+       {
+        "o": 1,
+        "y": 300
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "draw",
+     "x": 0,
+     "y": 420,
+     "w": 1080,
+     "h": 1100,
+     "sw": 7,
+     "items": [
+      {
+       "t": "box",
+       "x": 90,
+       "y": 40,
+       "w": 470,
+       "h": 140,
+       "label": "Read",
+       "size": 56,
+       "fill": "#FFD60A",
+       "fo": 0.55,
+       "at": 3.13,
+       "dur": 0.6
+      },
+      {
+       "t": "arrow",
+       "from": [
+        325,
+        190
+       ],
+       "to": [
+        325,
+        310
+       ],
+       "at": 3.6799999999999997,
+       "dur": 0.35
+      },
+      {
+       "t": "box",
+       "x": 90,
+       "y": 320,
+       "w": 470,
+       "h": 140,
+       "label": "Edit",
+       "size": 56,
+       "fill": "#FFD60A",
+       "fo": 0.55,
+       "at": 3.77,
+       "dur": 0.6
+      },
+      {
+       "t": "arrow",
+       "from": [
+        325,
+        470
+       ],
+       "to": [
+        325,
+        590
+       ],
+       "at": 4.32,
+       "dur": 0.35
+      },
+      {
+       "t": "box",
+       "x": 90,
+       "y": 600,
+       "w": 470,
+       "h": 140,
+       "label": "Bash",
+       "size": 56,
+       "fill": "#FFD60A",
+       "fo": 0.55,
+       "at": 5.13,
+       "dur": 0.6
+      },
+      {
+       "t": "text",
+       "x": 650,
+       "y": 120,
+       "text": "bina poochhe",
+       "size": 46,
+       "at": 3.73,
+       "dur": 0.5
+      },
+      {
+       "t": "circle",
+       "cx": 325,
+       "cy": 390,
+       "rx": 262,
+       "ry": 92,
+       "at": 8.62,
+       "dur": 0.8
+      },
+      {
+       "t": "circle",
+       "cx": 325,
+       "cy": 670,
+       "rx": 262,
+       "ry": 92,
+       "at": 9.62,
+       "dur": 0.8
+      },
+      {
+       "t": "text",
+       "x": 650,
+       "y": 395,
+       "text": "poochta hai",
+       "size": 46,
+       "at": 5.97,
+       "dur": 0.5
+      },
+      {
+       "t": "line",
+       "from": [
+        650,
+        420
+       ],
+       "to": [
+        900,
+        418
+       ],
+       "at": 6.17,
+       "dur": 0.4,
+       "color": "#FFD60A"
+      },
+      {
+       "t": "text",
+       "x": 650,
+       "y": 675,
+       "text": "poochta hai",
+       "size": 46,
+       "at": 6.87,
+       "dur": 0.5
+      }
+     ]
+    },
+    {
+     "kind": "svgbot",
+     "size": 520,
+     "x": 610,
+     "y": 1180,
+     "talk": [
+      [
+       0.6,
+       11.16
+      ]
+     ],
+     "k": [
+      [
+       0.0,
+       {
+        "x": 1300
+       }
+      ],
+      [
+       0.8,
+       {
+        "x": 610,
+        "e": "b"
+       }
+      ],
+      [
+       8.42,
+       {
+        "ar": 0
+       }
+      ],
+      [
+       8.72,
+       {
+        "ar": -86
+       }
+      ],
+      [
+       9.66,
+       {
+        "ar": -86
+       }
+      ],
+      [
+       10.16,
+       {
+        "ar": 0
+       }
+      ]
+     ]
+    }
+   ]
+  }
+ ]
+}
