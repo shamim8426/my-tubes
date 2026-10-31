@@ -174,6 +174,28 @@ B.stage=(sc,root)=>{
       for(let i=0;i<n;i++){const b=mk(el,`left:34px;top:${110+i*step}px;height:${Math.max(16,step*.42)}px;border-radius:9px;background:${i%3==2?'#FFD60A':'#111'}`,'','abs');L.bars.push({b,w:[.8,.55,.7,.4,.75,.5,.65,.6][i%8],rnd:((i*37)%11)/11})}}
     else if(k==='hook'){const h=L.h||560;el=mk(root,`left:0;top:0;width:280px;height:${h}px;transform-origin:50% 0`,`<svg width="280" height="${h}" viewBox="0 0 280 ${h}" fill="none"><path d="M90 0 V${h-170} Q90 ${h-60} 180 ${h-60} Q270 ${h-60} 270 ${h-170} V${h-230}" stroke="#111" stroke-width="30" stroke-linecap="round" stroke-linejoin="round"/><circle cx="270" cy="${h-230}" r="22" fill="#FFD60A" stroke="#111" stroke-width="8"/></svg>`,'abs')}
     else if(k==='meter'){el=mk(root,`left:0;top:0;width:${L.w||900}px;height:${L.h||56}px;border:6px solid #111;border-radius:${(L.h||56)}px;background:#fff;overflow:hidden`,'<div style="position:absolute;left:0;top:0;height:100%;width:0;background:#FFD60A;border-right:6px solid #111"></div>','abs shadow');L.fillEl=el.firstChild}
+    else if(k==='draw'){const W_=L.w||1000,H_=L.h||1000,ns='http://www.w3.org/2000/svg';
+      el=mk(root,`left:0;top:0;width:${W_}px;height:${H_}px`,`<svg width="${W_}" height="${H_}" viewBox="0 0 ${W_} ${H_}" style="overflow:visible;display:block"></svg>`,'abs');
+      const svg=el.firstChild;L.dr=[];
+      const R=n=>{const v=Math.sin(n*127.1+311.7)*43758.5453;return v-Math.floor(v)};
+      const NS=(tag,at)=>{const e=document.createElementNS(ns,tag);Object.entries(at||{}).forEach(([a,b])=>e.setAttribute(a,b));svg.appendChild(e);return e};
+      const path=(d,col)=>{const e=NS('path',{d:d,pathLength:1,fill:'none',stroke:col||'#111','stroke-width':L.sw||7,'stroke-linecap':'round','stroke-linejoin':'round'});e.style.strokeDasharray='1 1';e.style.strokeDashoffset='1';return e};
+      const fade=(e,a,du,to)=>{e.setAttribute('opacity',0);L.dr.push({el:e,a:a,du:du,kind:'fade',to:to||1})};
+      (L.items||[]).forEach((it,i)=>{const a=it.at||0,du=it.dur||.7,j=n=>(R(i*13+n)-.5)*9;
+        if(it.t==='box'){const x=it.x,y=it.y,w=it.w,h=it.h;
+          if(it.fill){const f=NS('rect',{x:x+6,y:y+6,width:w-12,height:h-12,rx:14,fill:it.fill});fade(f,a+du*.7,.4,it.fo||1)}
+          const d=`M${x+j(1)} ${y+j(2)} L${x+w+j(3)} ${y+j(4)} L${x+w+j(5)} ${y+h+j(6)} L${x+j(7)} ${y+h+j(8)} L${x+j(9)+3} ${y+j(10)-2}`;
+          const e=path(d);L.dr.push({el:e,a:a,du:du,kind:'path'});
+          if(it.label){const tx=NS('text',{x:x+w/2,y:y+h/2+(it.size||46)*.35,'text-anchor':'middle','font-family':'Poppins,sans-serif','font-weight':800,'font-size':it.size||46,fill:'#111'});tx.textContent=it.label;fade(tx,a+du*.8,.35)}}
+        else if(it.t==='arrow'){const[x0,y0]=it.from,[x1,y1]=it.to,mx=(x0+x1)/2+j(1)*1.5,my=(y0+y1)/2+j(2)*1.5;
+          const e=path(`M${x0} ${y0} Q${mx} ${my} ${x1} ${y1}`);L.dr.push({el:e,a:a,du:du,kind:'path'});
+          const ang=Math.atan2(y1-my,x1-mx),hl=it.head||34,sp=.5;
+          const hd=path(`M${x1-hl*Math.cos(ang-sp)} ${y1-hl*Math.sin(ang-sp)} L${x1} ${y1} L${x1-hl*Math.cos(ang+sp)} ${y1-hl*Math.sin(ang+sp)}`);L.dr.push({el:hd,a:a+du*.8,du:.25,kind:'path'})}
+        else if(it.t==='circle'){const pts=[];for(let q=0;q<=64;q++){const th=q/64*Math.PI*2*1.08-1.2,r=1+(R(i*7+q*.3)-.5)*.018+q/64*.03;pts.push((it.cx+it.rx*r*Math.cos(th)).toFixed(1)+' '+(it.cy+it.ry*r*Math.sin(th)).toFixed(1))}
+          const e=path('M'+pts.join(' L'),it.color);L.dr.push({el:e,a:a,du:du,kind:'path'})}
+        else if(it.t==='line'){const[x0,y0]=it.from,[x1,y1]=it.to;const e=path(`M${x0} ${y0} Q${(x0+x1)/2} ${(y0+y1)/2+j(1)} ${x1} ${y1+j(2)}`,it.color);L.dr.push({el:e,a:a,du:du,kind:'path'})}
+        else if(it.t==='text'){const tx=NS('text',{x:it.x,y:it.y,'text-anchor':it.anchor||'start','font-family':it.mono?"'IBM Plex Mono',monospace":'Poppins,sans-serif','font-weight':it.weight||800,'font-size':it.size||44,fill:it.color||'#111'});tx.textContent=it.text;fade(tx,a,du)}
+      })}
     else if(k==='svgbot'){el=mk(root,`left:0;top:0;width:${L.size*400/520}px;height:${L.size}px`,`<svg viewBox="0 0 400 520" width="${L.size*400/520}" height="${L.size}" style="overflow:visible;display:block">
 <g><rect x="150" y="395" width="36" height="76" rx="16" fill="#fff" stroke="#111" stroke-width="7"/><ellipse cx="168" cy="478" rx="30" ry="14" fill="#FFD60A" stroke="#111" stroke-width="7"/></g>
 <g><rect x="214" y="395" width="36" height="76" rx="16" fill="#fff" stroke="#111" stroke-width="7"/><ellipse cx="232" cy="478" rx="30" ry="14" fill="#FFD60A" stroke="#111" stroke-width="7"/></g>
@@ -208,6 +230,7 @@ function applyLayer(L,lt){
     const ph=lt%3.1,bs=ph<0.14?0.1+0.9*Math.abs(ph-0.07)/0.07:1;
     B.eyes.setAttribute('transform','translate(0 152) scale(1 '+bs+') translate(0 -152)');
     B.mouth.setAttribute('ry',talk?3+10*Math.abs(Math.sin(lt*17)):3);B.mouth.setAttribute('rx',talk?12+4*Math.abs(Math.sin(lt*9)):14)}
+  if(L.dr){L.dr.forEach(d=>{const q=c((lt-d.a)/d.du);if(d.kind==='path'){d.el.style.strokeDashoffset=String(1-eo(q));d.el.setAttribute('stroke-opacity',q>0?1:0)}else d.el.setAttribute('opacity',(d.to||1)*eo(q))})}
   if(L.fillEl){L.fillEl.style.width=(c(kfv(k,lt,'f',L.f||0))*100)+'%'}
   if(L.hls&&L.hlAt!=null){const q=eo(c((lt-L.hlAt)/.45));L.hls.forEach(h=>h.style.setProperty('--w',(q*100)+'%'))}
 }

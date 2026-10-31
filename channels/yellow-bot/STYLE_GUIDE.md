@@ -52,3 +52,13 @@ Reference pages (open in a browser): brand/reference_tools_short.html (5-scene s
  "wag":[[t0,t1],..]    # right arm waves
  "nod":[[t0,t1],..]}   # head nods
 Eyes blink, body breathes and antenna bobs automatically. The robot box is 400:520 wide:tall; it fills about the middle 230 px of that width.
+
+### Layer kind `draw` (whiteboard draw-on, in stage scenes; example: stories/012_tools/deck_whiteboard_demo.json)
+Hand-drawn diagram that draws itself, line by line, in the white/black/yellow look. Use it for flows and relations (A -> B -> C), circling the important part, underlining a note.
+{"kind":"draw","x":0,"y":420,"w":1080,"h":1100,"sw":7,"items":[
+  {"t":"box","x":90,"y":40,"w":470,"h":140,"label":"Read","size":56,"fill":"#FFD60A","fo":.55,"at":1.0,"dur":.9},
+  {"t":"arrow","from":[325,190],"to":[325,310],"at":2.0,"dur":.6},
+  {"t":"circle","cx":325,"cy":390,"rx":262,"ry":92,"at":5.4,"dur":.8},
+  {"t":"line","from":[650,420],"to":[900,418],"color":"#FFD60A","at":6.2,"dur":.4},
+  {"t":"text","x":650,"y":395,"text":"poochta hai","size":46,"at":6.0,"dur":.5}]}
+`at` = seconds after the scene starts (take them from the voice cue times, like the other stage layers); `dur` = how long the stroke takes. Wobble is seeded, so every frame is the same for the same t. Labels fade in after their box is drawn. Keep text >= 40 px; keep side notes at least 40 px away from circles.
