@@ -9,9 +9,11 @@ Output: <story>/long/output/<story>_final.mp4 (+ .srt, timeline.json). --seconds
 """
 import json
 import math
+import os
 import re
 import shutil
 import subprocess
+import time
 import sys
 import wave
 from pathlib import Path
@@ -497,9 +499,10 @@ def shot_frame(s, t):
     return PX._warp(source(s["img"], s["fx"], s["fy"], s["zc"]), 1 + z, dx, dy, W, H)
 
 
-def frames(shots, n_frames):
+def frames(shots, n_frames, start=0):
+    """Frames start..n_frames-1 (a chunk worker starts in the middle; the shot pointer is found from the time)."""
     k = 0
-    for i in range(n_frames):
+    for i in range(start, n_frames):
         t = i / FPS
         while k + 1 < len(shots) and t >= shots[k]["end"] + XF / 2:
             k += 1
@@ -562,6 +565,91 @@ def srt(tl, path):
     path.write_text("\n".join(rows), encoding="utf-8")
 
 
+# ---------------------------------------------------------------- chunked, parallel, resumable video render
+CHUNK_SECONDS, RENDER_V = 60, 2
+_CTX = {}
+
+
+def build_ctx(story: Path) -> dict:
+    """Everything a render worker needs, rebuilt from files (so it also works with spawn on Windows)."""
+    key = str(story)
+    if key not in _CTX:
+        items = json.loads((story / "long/lines.json").read_text(encoding="utf-8"))
+        CFG.clear()
+        CFG.update(load_cfg(story))
+        tl = timeline(items)
+        shots = shots_for(story, tl)
+        pil = use_pillow()
+        ass_text = ass_doc(tl, pil)  # also fills tl["hindi"] and the ayah bands
+        plan = None if "--no-edit" in sys.argv else FX.load(story / "long/edit_plan.json")
+        _CTX[key] = {"tl": tl, "shots": shots, "pil": pil, "ass": ass_text, "plan": plan}
+    return _CTX[key]
+
+
+def signature(story: Path, ctx: dict, n: int) -> str:
+    """Chunks are reused only if EVERY input of the picture is unchanged (timeline, shots, text, look, images, code version)."""
+    import hashlib
+    imgs = sorted({str(s["img"]) for s in ctx["shots"]})
+    blob = json.dumps({"v": RENDER_V, "n": n, "tl": {k: ctx["tl"][k] for k in ("lines", "ayat", "end")}, "hindi": ctx["tl"].get("hindi"),
+                       "shots": [{**s, "img": str(s["img"])} for s in ctx["shots"]], "ass": ctx["ass"], "plan": ctx["plan"],
+                       "scale": CFG.get("text_scale"), "img_sizes": [Path(i).stat().st_size for i in imgs if Path(i).exists()]},
+                      ensure_ascii=False, sort_keys=True, default=str)
+    return hashlib.sha256(blob.encode("utf-8")).hexdigest()
+
+
+def render_chunk(args):
+    """Worker: frames a..b of the picture (no audio) -> chunk_NNNN.mp4. Idempotent: a finished chunk (.ok) is skipped."""
+    story, idx, a, b, ass_path = args
+    story = Path(story)
+    cdir = story / "long/output/_chunks"
+    out, part, ok = cdir / f"chunk_{idx:04d}.mp4", cdir / f"chunk_{idx:04d}.part.mp4", cdir / f"chunk_{idx:04d}.ok"
+    if ok.exists() and out.exists():
+        return idx, "cached"
+    cv2.setNumThreads(1)  # several workers run at once: one thread each
+    ctx = build_ctx(story)
+    fin = FX.Finisher(FX.look_only(ctx["plan"]), W, H, FPS) if ctx["plan"] else None
+    overlay = HindiOverlay(ctx["tl"]) if ctx["pil"] else None
+    vf = f"setpts=PTS+{a / FPS:.6f}/TB," + video_filter(ctx["tl"], story / "long/output", Path(ass_path), ctx["pil"]) + ",setpts=PTS-STARTPTS"
+    enc = subprocess.Popen([FF, "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "bgr24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-",
+                            "-vf", vf, "-frames:v", str(b - a), "-c:v", "libx264", "-preset", "medium", "-crf", "18", "-pix_fmt", "yuv420p",
+                            "-color_range", "tv", "-colorspace", "bt709", "-color_primaries", "bt709", "-color_trc", "bt709", "-an",
+                            str(part)], stdin=subprocess.PIPE)
+    for i, fr in zip(range(a, b), frames(ctx["shots"], b, a)):
+        fr = fin.apply(fr, i) if fin else fr
+        if overlay:
+            fr = overlay.apply(np.ascontiguousarray(fr).copy() if not fr.flags.writeable else fr, i / FPS)
+        enc.stdin.write(fr.tobytes())
+    enc.stdin.close()
+    if enc.wait():
+        raise RuntimeError(f"ffmpeg failed on chunk {idx}")
+    part.replace(out)
+    ok.write_text("ok")
+    return idx, "rendered"
+
+
+def render_video(story: Path, ctx: dict, ass: Path, n: int, workers: int):
+    """Split frames 0..n into CHUNK_SECONDS chunks, render them in parallel (resumable), return the sorted chunk files."""
+    from concurrent.futures import ProcessPoolExecutor, as_completed
+    cdir = story / "long/output/_chunks"
+    cdir.mkdir(parents=True, exist_ok=True)
+    sig, sigf = signature(story, ctx, n), cdir / "signature.txt"
+    if not sigf.exists() or sigf.read_text() != sig:
+        for f in cdir.iterdir():
+            f.unlink()
+        sigf.write_text(sig)
+    size = CHUNK_SECONDS * FPS
+    jobs = [(str(story), i, a, min(a + size, n), str(ass)) for i, a in enumerate(range(0, n, size))]
+    done = sum(1 for j in jobs if (cdir / f"chunk_{j[1]:04d}.ok").exists())
+    print(f"video: {len(jobs)} chunks of {CHUNK_SECONDS}s, {done} already done, {workers} parallel workers", flush=True)
+    t0 = time.time()
+    with ProcessPoolExecutor(max_workers=workers) as ex:
+        futs = [ex.submit(render_chunk, j) for j in jobs]
+        for f in as_completed(futs):
+            idx, how = f.result()  # a failed chunk raises here; finished chunks stay on disk for the next run
+            print(f"  chunk {idx + 1}/{len(jobs)} {how} ({time.time() - t0:.0f}s)", flush=True)
+    return [cdir / f"chunk_{j[1]:04d}.mp4" for j in jobs]
+
+
 def main():
     story = Path(sys.argv[1]) if Path(sys.argv[1]).is_absolute() else (ROOT / sys.argv[1]).resolve()
     seconds = float(sys.argv[sys.argv.index("--seconds") + 1]) if "--seconds" in sys.argv else 1e9
@@ -585,36 +673,27 @@ def main():
         return
     dur = min(tl["end"], seconds)
     audio = build_audio(story, tl, out_dir, dur)
+    ctx = build_ctx(story)
+    tl, shots = ctx["tl"], ctx["shots"]
     ass = out_dir / "_text.ass"
-    pil = use_pillow()
-    ass.write_text(ass_doc(tl, pil), encoding="utf-8")
-    overlay = HindiOverlay(tl) if pil else None
-    print(f"Hindi text engine: {'Pillow+raqm' if pil else 'libass'}")
+    ass.write_text(ctx["ass"], encoding="utf-8")
+    print(f"Hindi text engine: {'Pillow+raqm' if ctx['pil'] else 'libass'}")
     srt(tl, out_dir / f"{story.name}.srt")
     out = out_dir / (f"{story.name}_final.mp4" if dur == tl["end"] else f"{story.name}_check_{int(dur)}s.mp4")
     part = out.with_suffix(".part.mp4")
     n = int(round(dur * FPS))
-    enc = subprocess.Popen([FF, "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "bgr24", "-s", f"{W}x{H}", "-r", str(FPS),
-                            "-i", "-", "-i", str(audio), "-vf", video_filter(tl, out_dir, ass, pil), "-frames:v", str(n),
-                            "-c:v", "libx264", "-preset", "medium", "-crf", "18", "-pix_fmt", "yuv420p",
-                            "-color_range", "tv", "-colorspace", "bt709", "-color_primaries", "bt709", "-color_trc", "bt709",
-                            "-c:a", "aac", "-b:a", "192k", "-t", f"{dur:.3f}", "-movflags", "+faststart", str(part)],
-                           stdin=subprocess.PIPE)
-    plan = None if "--no-edit" in sys.argv else FX.load(story / "long/edit_plan.json")
-    fin = FX.Finisher(FX.look_only(plan), W, H, FPS) if plan else None  # colour look only; before libass draws the text
+    plan = ctx["plan"]
     if plan:
         print(f"edit_plan: look {plan.get('grade', 'none')}, vignette {plan.get('vignette', 0)}, grain {plan.get('grain', 0)}")
-    for i, fr in enumerate(frames(shots, n)):
-        fr = fin.apply(fr, i) if fin else fr
-        if overlay:
-            fr = overlay.apply(np.ascontiguousarray(fr).copy() if not fr.flags.writeable else fr, i / FPS)
-        enc.stdin.write(fr.tobytes())
-        if i % 900 == 0:
-            print(f"  frame {i}/{n}", flush=True)
-    enc.stdin.close()
-    if enc.wait():
-        sys.exit("ffmpeg failed")
+    workers = int(sys.argv[sys.argv.index("--workers") + 1]) if "--workers" in sys.argv else max(1, min(4, (os.cpu_count() or 2)))
+    chunks = render_video(story, ctx, ass, n, workers)
+    lst = out_dir / "_chunks/list.txt"
+    lst.write_text("".join(f"file '{c.resolve().as_posix()}'\n" for c in chunks), encoding="utf-8")
+    run(["-f", "concat", "-safe", "0", "-i", str(lst), "-i", str(audio), "-map", "0:v", "-map", "1:a", "-c:v", "copy", "-c:a", "aac",
+         "-b:a", "192k", "-t", f"{dur:.3f}", "-movflags", "+faststart", str(part)])
     part.replace(out)  # the final name appears only when the file is complete and playable
+    if "--keep-chunks" not in sys.argv:
+        shutil.rmtree(out_dir / "_chunks", ignore_errors=True)
     print(f"OK {out.relative_to(ROOT).as_posix()}  {dur:.1f}s  {lufs_file(out):.1f} LUFS")
 
 

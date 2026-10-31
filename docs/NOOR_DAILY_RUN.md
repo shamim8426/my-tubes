@@ -49,3 +49,14 @@ delete the old one on YouTube yourself; tell the user which video to delete), lo
 ## Scheduling
 A cloud scheduled task (fires once a day, new session, prompt: "Noor daily run: follow docs/NOOR_DAILY_RUN.md")
 is created only after: the first scripts are Munshi-PASSed, the user topped up, and the user said go.
+
+## Unattended + restart-safe run (2026-10-31)
+Container restarts kill background processes. Everything mechanical is now resumable:
+- `scripts/noor_render.py` renders the picture in 60 s chunks, in parallel (workers = min(4, CPUs); `--workers N`), into
+  `long/output/_chunks/` (signature-checked: any change of script/images/text/look invalidates old chunks). A restart redoes only the
+  unfinished chunk; `--keep-chunks` keeps them. Quality is identical to the old single pass (PSNR 138 dB inside a chunk).
+- `scripts/noor_run.py <story> [--detach] [--status] [--until STAGE]` runs parse -> images -> tts (rate-limit retries, 75 s waits)
+  -> [gate Munshi tts_review PASS] -> render -> thumbnail -> [gate Munshi final_review PASS] -> upload -> queue mark + budget log + log.md + sync.
+  Every stage skips what already exists; exit 0 done / 3 waiting for a Munshi review / 1 failed. Upload is never retried automatically.
+- After a container restart or any stop: the Sanchalak runs `noor_run.py <story> --detach` (then `--status`), and calls Munshi whenever
+  the driver says WAITING (Munshi writes `VERDICT: PASS|FIX|ASK` in the review file named).
