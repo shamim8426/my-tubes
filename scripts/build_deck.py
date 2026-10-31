@@ -21,6 +21,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "scripts"))
 TEMPLATE = ROOT / "channels/_new_claude_explainer/templates/deck_template.html"
 DOCS = ROOT / "channels/_new_claude_explainer/shared_docs"
+MASCOT = ROOT / "channels/_new_claude_explainer/mascot"
 LEAD, AFTER, SR = 0.30, 0.28, 24000
 
 
@@ -46,6 +47,13 @@ def phrase_time(sc, dur, ph):
 
 def resolve_cues(sc, dur):
     return [phrase_time(sc, dur, ph) for ph in sc.get("cues", [])]
+
+
+def music_args(spec):
+    m = spec.get("music")
+    if not m:
+        return []
+    return ["--music", str(ROOT / m["file"]), "--music-start", str(m.get("start", 0)), "--music-rel", str(m.get("rel", 14))]
 
 
 def main():
@@ -86,6 +94,11 @@ def main():
         if sc["type"] == "docs":
             item["imgUrl"] = (DOCS / sc["img"]).as_uri()
             item["hls"] = [dict(h, at=phrase_time(sc, d, (sc.get("hlcues") or [None] * 9)[k]) or h.get("at", 1.0)) for k, h in enumerate(sc.get("hls", []))]
+        if sc.get("robot"):
+            r = dict(sc["robot"])
+            r["url"] = (MASCOT / (r["img"] + ".png")).as_uri()
+            r["at"] = phrase_time(sc, d, r.get("cue")) or 1.0
+            item["robot"] = r
         data.append(item)
         t = end
     total = round(t + 0.2, 3)
@@ -115,7 +128,7 @@ def main():
                     w.writeframes(b"\x00\x00" * int(SR * LEAD) + r.readframes(r.getnframes()) + b"\x00\x00" * int(SR * AFTER))
         out = story / "output" / "short.mp4"
         out.parent.mkdir(exist_ok=True)
-        subprocess.run([sys.executable, "-X", "utf8", str(ROOT / "scripts/html_video.py"), str(deck), str(voice), str(out), "--lead", "0", "--tail", "0.3"], check=True)
+        subprocess.run([sys.executable, "-X", "utf8", str(ROOT / "scripts/html_video.py"), str(deck), str(voice), str(out), "--lead", "0", "--tail", "0.3"] + music_args(spec), check=True)
 
 
 if __name__ == "__main__":
