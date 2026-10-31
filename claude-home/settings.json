@@ -1,3 +1,21 @@
 {
-  "theme": "dark"
+  "model": "opus",
+  "extraKnownMarketplaces": {
+    "chatcut-inc": {
+      "source": {
+        "source": "git",
+        "url": "https://github.com/ChatCut-Inc/agent-plugin.git",
+        "ref": "main"
+      }
+    }
+  },
+  "modelSettings": {
+    "claude-opus-5-5": {
+      "effortLevel": "high"
+    }
+  },
+  "theme": "dark",
+  "enabledPlugins": {
+    "chatcut@chatcut-inc": true
+  }
 }

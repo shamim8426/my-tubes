@@ -785,3 +785,61 @@ timestamp,file,model,size,cost_usd,cost_inr,today_total_inr,remaining_inr,channe
 2026-10-30 07:03:32,channels/noor-e-raah/stories/003_al-ikhlas/audio/tts/050_ustaad.wav,gemini-3.8-flash-tts,tts 6.7s,0.00153,0.15,56.45,132.99,noor-e-raah,0.15,0.1473,0.03,28,168
 2026-10-30 07:03:40,channels/noor-e-raah/stories/003_al-ikhlas/audio/tts/051_sawaal.wav,gemini-3.8-flash-tts,tts 7.2s free,0.00000,0.00,56.45,132.99,noor-e-raah,0.16,0.0000,0.00,28,181
 2026-10-30 07:08:10,channels/noor-e-raah/stories/003_al-ikhlas/images/thumb_scene_a.png,gemini-nano-banana-2.1,1K,0.04579,4.42,61.66,127.78,noor-e-raah,3.27,4.4192,0.80,170,2712
+2026-10-30 02:33:54,channels/jugnu-stories/brand/_work/v6/banner_gemini_a.png,gemini-nano-banana-2.1,2K,0.07246,6.99,8.25,259.30,jugnu-stories,5.93,6.9920,1.26,7419,3137
+2026-10-30 02:35:17,channels/jugnu-stories/brand/_work/v6/banner_gemini_b.png,gemini-nano-banana-2.1,2K,0.06498,6.27,15.65,251.90,jugnu-stories,5.08,6.2703,1.13,1508,3322
+2026-10-31 03:22:20,channels/_new_claude_explainer/stories/001_claude-md/audio/tts/beat_00.wav,gemini-3.8-flash-tts,tts 6.5s,0.00148,0.14,0.17,111.96,_new_claude_explainer,0.15,0.1429,0.03,28,163
+2026-10-31 03:22:32,channels/_new_claude_explainer/stories/001_claude-md/audio/tts/beat_01.wav,gemini-3.8-flash-tts,tts 6.0s,0.00137,0.13,0.32,111.80,_new_claude_explainer,0.14,0.1324,0.02,27,151
+2026-10-31 03:22:41,channels/_new_claude_explainer/stories/001_claude-md/audio/tts/beat_02.wav,gemini-3.8-flash-tts,tts 6.4s,0.00146,0.14,0.49,111.64,_new_claude_explainer,0.14,0.1404,0.03,30,160
+2026-10-31 03:22:51,channels/_new_claude_explainer/stories/001_claude-md/audio/tts/beat_03.wav,gemini-3.8-flash-tts,tts 6.5s,0.00147,0.14,0.66,111.47,_new_claude_explainer,0.15,0.1420,0.03,28,162
+2026-10-31 03:23:03,channels/_new_claude_explainer/stories/001_claude-md/audio/tts/beat_04.wav,gemini-3.8-flash-tts,tts 6.7s,0.00153,0.15,0.83,111.29,_new_claude_explainer,0.15,0.1475,0.03,32,168
+2026-10-31 03:23:11,channels/_new_claude_explainer/stories/001_claude-md/audio/tts/beat_05.wav,gemini-3.8-flash-tts,tts 7.6s,0.00173,0.17,1.03,111.10,_new_claude_explainer,0.17,0.1667,0.03,34,190
+2026-10-31 03:23:20,channels/_new_claude_explainer/stories/001_claude-md/audio/tts/beat_06.wav,gemini-3.8-flash-tts,tts 5.0s,0.00115,0.11,1.16,110.97,_new_claude_explainer,0.11,0.1106,0.02,25,126
+2026-10-31 03:23:29,channels/_new_claude_explainer/stories/001_claude-md/audio/tts/beat_07.wav,gemini-3.8-flash-tts,tts 4.9s,0.00112,0.11,1.29,110.84,_new_claude_explainer,0.11,0.1080,0.02,25,123
+2026-10-31 03:48:07,channels/_new_claude_explainer/stories/002_claude-features/images/01_hook.png,cf-flux-2-klein-4b,1024x1792 free,0.00000,0.00,1.29,110.84,_new_claude_explainer,0.00,0.0000,0.00,,
+2026-10-31 03:48:16,channels/_new_claude_explainer/stories/002_claude-features/images/02_plan.png,cf-flux-2-klein-4b,1024x1792 free,0.00000,0.00,1.29,110.84,_new_claude_explainer,0.00,0.0000,0.00,,
+2026-10-31 03:48:27,channels/_new_claude_explainer/stories/002_claude-features/images/03_subagents.png,cf-flux-2-klein-4b,1024x1792 free,0.00000,0.00,1.29,110.84,_new_claude_explainer,0.00,0.0000,0.00,,
+2026-10-31 03:48:38,channels/_new_claude_explainer/stories/002_claude-features/images/04_skills.png,cf-flux-2-klein-4b,1024x1792 free,0.00000,0.00,1.29,110.84,_new_claude_explainer,0.00,0.0000,0.00,,
+2026-10-31 03:48:50,channels/_new_claude_explainer/stories/002_claude-features/images/05_hooks.png,cf-flux-2-klein-4b,1024x1792 free,0.00000,0.00,1.29,110.84,_new_claude_explainer,0.00,0.0000,0.00,,
+2026-10-31 03:49:01,channels/_new_claude_explainer/stories/002_claude-features/images/06_mcp.png,cf-flux-2-klein-4b,1024x1792 free,0.00000,0.00,1.29,110.84,_new_claude_explainer,0.00,0.0000,0.00,,
+2026-10-31 03:51:48,channels/_new_claude_explainer/stories/002_claude-features/audio/tts/beat_00.wav,gemini-3.8-flash-tts,tts 4.2s,0.00095,0.09,1.40,110.73,_new_claude_explainer,0.10,0.0920,0.02,16,105
+2026-10-31 03:51:58,channels/_new_claude_explainer/stories/002_claude-features/audio/tts/beat_01.wav,gemini-3.8-flash-tts,tts 9.4s,0.00212,0.20,1.64,110.49,_new_claude_explainer,0.21,0.2049,0.04,35,234
+2026-10-31 03:52:08,channels/_new_claude_explainer/stories/002_claude-features/audio/tts/beat_02.wav,gemini-3.8-flash-tts,tts 11.6s,0.00263,0.25,1.94,110.19,_new_claude_explainer,0.26,0.2540,0.05,45,290
+2026-10-31 03:52:18,channels/_new_claude_explainer/stories/002_claude-features/audio/tts/beat_03.wav,gemini-3.8-flash-tts,tts 11.3s,0.00257,0.25,2.23,109.90,_new_claude_explainer,0.25,0.2477,0.04,39,283
+2026-10-31 03:52:29,channels/_new_claude_explainer/stories/002_claude-features/audio/tts/beat_04.wav,gemini-3.8-flash-tts,tts 11.8s,0.00267,0.26,2.53,109.59,_new_claude_explainer,0.26,0.2576,0.05,47,294
+2026-10-31 03:52:40,channels/_new_claude_explainer/stories/002_claude-features/audio/tts/beat_05.wav,gemini-3.8-flash-tts,tts 13.5s,0.00306,0.30,2.88,109.25,_new_claude_explainer,0.30,0.2950,0.05,48,337
+2026-10-31 03:52:49,channels/_new_claude_explainer/stories/002_claude-features/audio/tts/beat_06.wav,gemini-3.8-flash-tts,tts 4.7s,0.00106,0.10,3.00,109.12,_new_claude_explainer,0.11,0.1026,0.02,20,117
+2026-10-31 03:53:02,channels/_new_claude_explainer/stories/002_claude-features/audio/alt/Iapetus.wav,gemini-3.8-flash-tts,tts 9.1s,0.00207,0.20,3.24,108.89,_new_claude_explainer,0.21,0.1997,0.04,35,228
+2026-10-31 03:53:11,channels/_new_claude_explainer/stories/002_claude-features/audio/alt/Sadaltager.wav,gemini-3.8-flash-tts,tts 10.2s,0.00230,0.22,3.50,108.63,_new_claude_explainer,0.23,0.2223,0.04,35,254
+2026-10-31 11:51:44,channels/_new_claude_explainer/stories/003_subagents/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 6.5s free,0.00000,0.00,3.50,108.63,_new_claude_explainer,0.15,0.0000,0.00,27,163
+2026-10-31 12:07:53,channels/_new_claude_explainer/stories/003_subagents/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 8.9s,0.00202,0.19,3.73,108.40,_new_claude_explainer,0.20,0.1949,0.04,26,223
+2026-10-31 12:08:04,channels/_new_claude_explainer/stories/003_subagents/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 9.9s,0.00225,0.22,3.99,108.14,_new_claude_explainer,0.22,0.2175,0.04,43,248
+2026-10-31 12:08:15,channels/_new_claude_explainer/stories/003_subagents/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 7.6s,0.00173,0.17,4.18,107.94,_new_claude_explainer,0.17,0.1673,0.03,29,191
+2026-10-31 12:08:24,channels/_new_claude_explainer/stories/003_subagents/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 7.7s,0.00174,0.17,4.38,107.74,_new_claude_explainer,0.17,0.1680,0.03,26,192
+2026-10-31 12:08:34,channels/_new_claude_explainer/stories/003_subagents/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 9.1s,0.00206,0.20,4.62,107.51,_new_claude_explainer,0.21,0.1990,0.04,38,227
+2026-10-31 12:08:44,channels/_new_claude_explainer/stories/003_subagents/audio/tts/s_06.wav,gemini-3.8-flash-tts,tts 6.4s,0.00147,0.14,4.78,107.34,_new_claude_explainer,0.15,0.1414,0.03,32,161
+2026-10-31 12:11:27,channels/_new_claude_explainer/stories/004_skills/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 5.4s,0.00122,0.12,4.92,107.20,_new_claude_explainer,0.12,0.1182,0.02,20,135
+2026-10-31 12:11:37,channels/_new_claude_explainer/stories/004_skills/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 8.4s,0.00191,0.18,5.14,106.99,_new_claude_explainer,0.19,0.1842,0.03,37,210
+2026-10-31 12:11:47,channels/_new_claude_explainer/stories/004_skills/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 11.9s,0.00270,0.26,5.45,106.68,_new_claude_explainer,0.27,0.2608,0.05,42,298
+2026-10-31 12:11:57,channels/_new_claude_explainer/stories/004_skills/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 6.5s,0.00147,0.14,5.62,106.51,_new_claude_explainer,0.15,0.1419,0.03,25,162
+2026-10-31 12:12:07,channels/_new_claude_explainer/stories/004_skills/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 8.9s,0.00202,0.20,5.85,106.28,_new_claude_explainer,0.20,0.1954,0.04,35,223
+2026-10-31 12:12:15,channels/_new_claude_explainer/stories/004_skills/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 5.2s,0.00118,0.11,5.98,106.15,_new_claude_explainer,0.12,0.1140,0.02,22,130
+2026-10-31 12:14:34,channels/_new_claude_explainer/stories/005_mcp/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 8.5s,0.00192,0.19,6.20,105.93,_new_claude_explainer,0.19,0.1854,0.03,27,212
+2026-10-31 12:14:43,channels/_new_claude_explainer/stories/005_mcp/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 10.1s,0.00229,0.22,6.46,105.67,_new_claude_explainer,0.23,0.2213,0.04,32,253
+2026-10-31 12:14:52,channels/_new_claude_explainer/stories/005_mcp/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 8.9s,0.00202,0.20,6.69,105.44,_new_claude_explainer,0.20,0.1950,0.04,28,223
+2026-10-31 12:15:02,channels/_new_claude_explainer/stories/005_mcp/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 13.2s,0.00298,0.29,7.03,105.10,_new_claude_explainer,0.29,0.2878,0.05,42,329
+2026-10-31 12:15:11,channels/_new_claude_explainer/stories/005_mcp/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 7.6s,0.00172,0.17,7.23,104.90,_new_claude_explainer,0.17,0.1663,0.03,26,190
+2026-10-31 12:15:21,channels/_new_claude_explainer/stories/005_mcp/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 3.3s,0.00075,0.07,7.31,104.81,_new_claude_explainer,0.08,0.0719,0.01,15,82
+2026-10-31 12:30:38,channels/_new_claude_explainer/mascot/wave.png,cf-flux-2-klein-4b,1024x1024 free,0.00000,0.00,7.31,104.81,_new_claude_explainer,0.00,0.0000,0.00,,
+2026-10-31 12:30:53,channels/_new_claude_explainer/mascot/think.png,cf-flux-2-klein-4b,1024x1024 free,0.00000,0.00,7.31,104.81,_new_claude_explainer,0.00,0.0000,0.00,,
+2026-10-31 12:31:07,channels/_new_claude_explainer/mascot/work.png,cf-flux-2-klein-4b,1024x1024 free,0.00000,0.00,7.31,104.81,_new_claude_explainer,0.00,0.0000,0.00,,
+2026-10-31 12:31:23,channels/_new_claude_explainer/mascot/stop.png,cf-flux-2-klein-4b,1024x1024 free,0.00000,0.00,7.31,104.81,_new_claude_explainer,0.00,0.0000,0.00,,
+2026-10-31 12:31:36,channels/_new_claude_explainer/mascot/thumbs.png,cf-flux-2-klein-4b,1024x1024 free,0.00000,0.00,7.31,104.81,_new_claude_explainer,0.00,0.0000,0.00,,
+2026-10-31 12:33:21,channels/_new_claude_explainer/stories/006_hooks/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 8.6s free,0.00000,0.00,7.31,104.81,_new_claude_explainer,0.20,0.0000,0.00,34,216
+2026-10-31 12:33:32,channels/_new_claude_explainer/stories/006_hooks/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 8.6s free,0.00000,0.00,7.31,104.81,_new_claude_explainer,0.19,0.0000,0.00,35,215
+2026-10-31 12:33:40,channels/_new_claude_explainer/stories/006_hooks/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 8.5s free,0.00000,0.00,7.31,104.81,_new_claude_explainer,0.19,0.0000,0.00,37,212
+2026-10-31 12:33:49,channels/_new_claude_explainer/stories/006_hooks/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 9.2s free,0.00000,0.00,7.31,104.81,_new_claude_explainer,0.21,0.0000,0.00,33,230
+2026-10-31 12:34:00,channels/_new_claude_explainer/stories/006_hooks/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 12.1s,0.00274,0.26,7.62,104.50,_new_claude_explainer,0.27,0.2643,0.05,41,302
+2026-10-31 12:34:10,channels/_new_claude_explainer/stories/006_hooks/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 9.8s,0.00221,0.21,7.88,104.25,_new_claude_explainer,0.22,0.2137,0.04,38,244
+2026-10-31 12:34:20,channels/_new_claude_explainer/stories/006_hooks/audio/tts/s_06.wav,gemini-3.8-flash-tts,tts 6.0s,0.00135,0.13,8.03,104.10,_new_claude_explainer,0.14,0.1306,0.02,25,149
+2026-10-31 13:04:24,channels/_new_claude_explainer/mascot/team.png,cf-flux-2-klein-4b,1536x768 free,0.00000,0.00,8.03,104.10,_new_claude_explainer,0.00,0.0000,0.00,,
+2026-10-31 13:13:59,channels/_new_claude_explainer/stories/006_hooks/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 5.1s free,0.00000,0.00,8.03,104.10,_new_claude_explainer,0.12,0.0000,0.00,21,127

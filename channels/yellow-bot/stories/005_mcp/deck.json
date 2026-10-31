@@ -1,0 +1,37 @@
+{
+ "_note": "Short 005: MCP. Facts: official docs code.claude.com/docs/en/mcp (read 2026-10-31).",
+ "tag": "Claude Code · MCP",
+ "voice": {"id": "Charon", "style": "Speak naturally as a calm, knowledgeable Indian tech explainer in Hindi with English tech words. Clear, steady, moderate pace, plain and professional. No drama, no jokes, no exaggerated emphasis, no sing-song."},
+ "scenes": [
+  {"id": "hook", "type": "statement", "wipe": "right",
+   "voice": "क्या आप किसी issue tracker या monitoring dashboard से डेटा बार-बार copy करके चैट में डालते हैं? तब MCP काम आता है।",
+   "lines": ["डेटा बार-बार", "**copy** करके चैट में?", "तब काम आता है **MCP**"],
+   "cues": ["issue tracker", "copy करके", "तब MCP"], "size": 100, "top": 700, "gap": 26},
+
+  {"id": "hub", "type": "hub", "wipe": "up", "center": "Claude Code", "nodes": ["Issue trackers", "Monitoring data", "Databases", "Designs"],
+   "voice": "MCP यानी Model Context Protocol, AI और tools को जोड़ने का एक open source standard है। इससे Claude Code सैकड़ों बाहरी tools और डेटा से जुड़ सकता है।",
+   "cues": ["MCP यानी", "AI और tools", "open source", "सैकड़ों बाहरी", "डेटा से जुड़"], "cy": 840},
+
+  {"id": "add", "type": "code", "wipe": "left", "file": "terminal", "size": 46, "y0": 420,
+   "voice": "एक remote server जोड़ने के लिए लिखिए, claude mcp add, फिर transport http, और उसके बाद server का नाम और URL।",
+   "lines": ["$ claude mcp add \\", "    --transport http \\", "    <name> <url>"],
+   "caption": "**HTTP** server recommended", "cosize": 76,
+   "cues": ["claude mcp add", "transport http", "server का नाम", "URL।"]},
+
+  {"id": "scopes", "type": "list", "wipe": "right", "y0": 380,
+   "voice": "Server कहाँ सेव हो, ये scope तय करता है। local सिर्फ़ आपके लिए, इस project में। project पूरी टीम के लिए, dot mcp dot json में। और user आपके सभी projects में।",
+   "items": [{"k": "local", "d": "सिर्फ़ आप, इस project में (default)"}, {"k": "project", "d": ".mcp.json में, पूरी टीम के लिए"}, {"k": "user", "d": "आपके सभी projects में"}],
+   "cues": ["local सिर्फ़", "project पूरी", "user आपके"], "rh": 410, "ksize": 80, "dsize": 50},
+
+  {"id": "warn", "type": "docs", "wipe": "up", "img": "mcp.png", "url": "code.claude.com/docs/en/mcp",
+   "voice": "Docs की चेतावनी ज़रूर पढ़िए। हर server पर भरोसा जाँचिए, क्योंकि बाहरी content से prompt injection का जोखिम हो सकता है।",
+   "scroll": [250, 420], "ch": 1180, "callout": "हर server पर **भरोसा** जाँचिए", "cosize": 70,
+   "cues": ["हर server"],
+   "hls": [{"x": 40, "y": 1558, "w": 1430, "h": 82}], "hlcues": ["हर server"]},
+
+  {"id": "cta", "type": "cta", "wipe": "left",
+   "voice": "आप Claude को कौन सा tool जोड़ना चाहेंगे? कमेंट में बताइए।",
+   "lines": ["Claude को कौन सा", "**tool** जोड़ेंगे?"], "sub": "कमेंट में बताइए",
+   "cues": ["आप Claude", "कौन सा tool", "कमेंट में"], "size": 90}
+ ]
+}

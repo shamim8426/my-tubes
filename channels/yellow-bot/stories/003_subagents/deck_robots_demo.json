@@ -1,0 +1,77 @@
+{
+ "_note": "Short 003: Subagents. Facts: official docs code.claude.com/docs/en/sub-agents and /common-workflows (read 2026-10-31). White background, black + yellow, large text that matches the spoken words, a different presentation style per scene.",
+ "tag": "Claude Code · Subagents",
+ "voice": {
+  "id": "Charon",
+  "style": "Speak naturally as a calm, knowledgeable Indian tech explainer in Hindi with English tech words. Clear, steady, moderate pace, plain and professional. No drama, no jokes, no exaggerated emphasis, no sing-song."
+ },
+ "scenes": [
+  {
+   "id": "builtin",
+   "type": "list",
+   "wipe": "right",
+   "voice": "Claude Code में तीन built-in subagents हैं। Explore सिर्फ़ पढ़ता है, Plan, plan mode में रिसर्च करता है, और General-purpose जटिल काम संभालता है।",
+   "items": [
+    {
+     "k": "Explore",
+     "d": "sirf padhta hai"
+    },
+    {
+     "k": "Plan",
+     "d": "plan mode me research"
+    },
+    {
+     "k": "General",
+     "d": "mushkil, multi-step kaam"
+    }
+   ],
+   "cues": [
+    "Explore सिर्फ़",
+    "Plan, plan",
+    "General-purpose जटिल"
+   ],
+   "rh": 380,
+   "y0": 330,
+   "ksize": 70,
+   "dsize": 46,
+   "robots": [
+    {
+     "img": "team",
+     "aspect": 2,
+     "crop": [
+      0.0,
+      0.25
+     ],
+     "x": 800,
+     "y": 340,
+     "size": 340,
+     "cue": "Explore"
+    },
+    {
+     "img": "team",
+     "aspect": 2,
+     "crop": [
+      0.25,
+      0.5
+     ],
+     "x": 800,
+     "y": 720,
+     "size": 340,
+     "cue": "Plan"
+    },
+    {
+     "img": "team",
+     "aspect": 2,
+     "crop": [
+      0.5,
+      0.75
+     ],
+     "x": 800,
+     "y": 1100,
+     "size": 340,
+     "cue": "General"
+    }
+   ]
+  }
+ ]
+}

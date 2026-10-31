@@ -141,8 +141,9 @@ def validate(job: dict, job_path: Path) -> list:
                     errs.append(f"pixel format is {pix}, expected yuv420p")
                 if secs < 5:
                     errs.append(f"video is only {secs:.1f}s long")
-                if want["max_seconds"] and secs > want["max_seconds"]:
-                    errs.append(f"short is {secs:.1f}s, max {want['max_seconds']}s")
+                limit = cfg.get("short_max_seconds", want["max_seconds"]) if fmt == "short" else want["max_seconds"]
+                if limit and secs > limit:
+                    errs.append(f"short is {secs:.1f}s, max {limit}s")
                 job["_probe"] = f"{w}x{h} {codec} {pix} {secs:.1f}s"
             except Exception as e:
                 errs.append(f"ffprobe failed: {e}")

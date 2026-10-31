@@ -1,0 +1,93 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Pop;src:url("../../../shared/fonts/Poppins-ExtraBold.ttf");font-weight:800}
+@font-face{font-family:Pop;src:url("../../../shared/fonts/Poppins-Bold.ttf");font-weight:700}
+@font-face{font-family:Mono;src:url("../../../shared/fonts/IBMPlexMono-Bold.ttf")}
+*{box-sizing:border-box;margin:0}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#0a1240}
+#stage{position:relative;width:1080px;height:1920px;font-family:Pop,sans-serif;color:#fff;overflow:hidden;background:#0a1240}
+.abs{position:absolute}
+#bg{position:absolute;left:0;top:0;width:1080px;height:1920px;object-fit:cover}
+#scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,18,64,.72),rgba(24,10,70,.62))}
+#fx{position:absolute;inset:0}
+#world{position:absolute;inset:0;transform-origin:540px 900px}
+#title{left:0;top:100px;width:1080px;text-align:center;font-weight:800;font-size:128px;text-shadow:0 0 50px rgba(255,218,74,.33),0 6px 22px rgba(0,0,0,.45)}
+#title span{display:inline-block;white-space:pre}
+#bar{left:260px;top:270px;height:10px;border-radius:5px;background:linear-gradient(90deg,#ffda4a,#ff7ad9);box-shadow:0 0 24px rgba(255,218,74,.6)}
+#keys{left:0;top:310px;width:1080px;display:flex;justify-content:center;align-items:center;gap:24px}
+.cap{font-family:Mono;font-weight:700;font-size:48px;color:#14204d;padding:14px 34px;border-radius:20px;background:linear-gradient(180deg,#f6f9ff,#cdd8f6);white-space:nowrap}
+.plus{font-weight:800;font-size:52px}
+#status{left:300px;top:455px;display:flex;align-items:center;gap:20px;font-family:Mono;font-weight:700;font-size:42px;padding:14px 40px;border-radius:22px;background:#0b1020;color:#7CFFB2;border:2px solid #2f4a86;white-space:nowrap;box-shadow:0 12px 34px rgba(0,0,0,.4)}
+#led{width:20px;height:20px;border-radius:10px;background:#4dff9a}
+.card{left:100px;width:880px;height:170px;border-radius:42px;overflow:hidden;background:linear-gradient(135deg,rgba(255,255,255,.24),rgba(255,255,255,.07));border:2px solid rgba(255,255,255,.4);display:flex;align-items:center;gap:34px;padding-left:52px}
+.strip{position:absolute;left:0;top:0;width:14px;height:170px}
+.badge{flex:none;width:104px;height:104px;border-radius:52px;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+.txt{font-weight:700;font-size:50px;line-height:1.15;text-shadow:0 3px 12px rgba(0,0,0,.4)}
+.txt b{font-weight:800}
+.sweep{position:absolute;left:0;top:-40px;width:130px;height:260px;background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.42),rgba(255,255,255,0))}
+.line{width:10px;border-radius:5px}
+.head{width:0;height:0;border-left:22px solid transparent;border-right:22px solid transparent;border-top:28px solid #fff}
+.dot{width:20px;height:20px;border-radius:10px;background:#fff}
+#link{left:96px;top:1600px;display:flex;align-items:center;gap:16px;font-family:Mono;font-weight:700;font-size:31px;padding:16px 32px;border-radius:999px;background:#fff;color:#0a2c6b;white-space:nowrap;box-shadow:0 14px 40px rgba(0,0,0,.4),0 0 40px rgba(78,225,255,.35)}
+svg{display:block}
+</style></head>
+<body><div id="stage">
+ <img id="bg" src="../stories/002_claude-features/images/02_plan.png">
+ <div id="scrim"></div>
+ <canvas id="fx" width="1080" height="1920"></canvas>
+ <div id="world">
+  <div id="title" class="abs"></div>
+  <div id="bar" class="abs"></div>
+  <div id="keys" class="abs"><div class="cap" id="k1">Shift</div><div class="plus">+</div><div class="cap" id="k2">Tab</div></div>
+  <div id="status" class="abs"><div id="led"></div><span>plan mode on</span></div>
+  <div id="cards"></div>
+  <div id="conns"></div>
+  <div id="link" class="abs"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#0a2c6b" stroke-width="2.6" stroke-linecap="round"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg><span>code.claude.com/docs/en/common-workflows</span></div>
+ </div>
+</div>
+<script>
+const COL=["#4ee1ff","#b69cff","#ffd34a","#6dffb0"], TOP=[590,830,1070,1310], ST=[4.0,5.3,6.6,7.9];
+const LAB=[["Claude ","reads your files"],["Claude ","proposes a plan"],["You ","approve it"],["Edits start ","only after"]];
+const ICON=[
+ '<circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/>',
+ '<rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4M12 16h4M8 11h.01M8 16h.01"/>',
+ '<path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/>',
+ '<polygon points="6 3 20 12 6 21 6 3"/>'];
+const E=id=>document.getElementById(id), c=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const eo=p=>1-Math.pow(1-p,4), back=p=>{const a=1.8,b=a+1;return 1+b*Math.pow(p-1,3)+a*Math.pow(p-1,2)};
+const prog=(t,t0,d)=>eo(c((t-t0)/d)), pop=(t,t0,d)=>back(c((t-t0)/d));
+function popSt(el,t,t0,dy){const q=prog(t,t0,.55),s=.82+.18*pop(t,t0,.6);el.style.opacity=Math.min(1,q*2);el.style.transform=`translateY(${(1-q)*dy}px) scale(${s})`}
+// build
+const T='Plan Mode';E('title').innerHTML=[...T].map(ch=>`<span>${ch}</span>`).join('');
+E('cards').innerHTML=LAB.map((l,i)=>`<div class="abs card" id="card${i}" style="top:${TOP[i]}px;box-shadow:0 26px 60px rgba(0,0,0,.4),0 0 44px ${COL[i]}40"><div class="strip" style="background:${COL[i]}"></div><div class="badge" style="background:linear-gradient(145deg,${COL[i]},#fff);box-shadow:0 8px 24px rgba(0,0,0,.35),0 0 30px ${COL[i]}88"><svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#0b1030" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">${ICON[i]}</svg></div><div class="txt">${l[0]}<b style="color:${COL[i]}">${l[1]}</b></div><div class="sweep" id="sw${i}"></div></div>`).join('');
+E('conns').innerHTML=[0,1,2].map(i=>`<div id="cn${i}"><div class="abs line" id="ln${i}" style="left:535px;background:linear-gradient(180deg,${COL[i]},${COL[i+1]});box-shadow:0 0 18px ${COL[i]}99"></div><div class="abs head" id="hd${i}" style="left:518px;border-top-color:${COL[i+1]}"></div><div class="abs dot" id="dt${i}" style="left:530px;box-shadow:0 0 16px #fff,0 0 30px ${COL[i+1]}"></div></div>`).join('');
+const CT=[4.6,5.9,7.2];
+window.SFX=[2.0,3.0,4.0,5.3,6.6,7.9];
+const ctx=E('fx').getContext('2d');
+function nz(i,x){return Math.sin(x*1.3+i*12.9898)*Math.cos(x*.7+i*78.233)}
+function setT(t){
+  E('bg').style.transform=`scale(${1.04+.12*c(t/10.7)})`;
+  const z=1+.015*c(t/10);E('world').style.transform=`scale(${z})`;
+  [...E('title').children].forEach((s,i)=>{const q=pop(t,.8+i*.05,.5),o=c(q*2);s.style.opacity=o;s.style.transform=`translateY(${(1-Math.min(1,q))*60}px) scale(${.6+.4*Math.min(1.15,q)})`});
+  E('bar').style.width=(560*prog(t,1.5,.5))+'px';
+  popSt(E('keys'),t,2.0,40);
+  const press=t<2.75?0:t<2.88?(t-2.75)/.13:t<3.2?1-(t-2.88)/.32:0;
+  ['k1','k2'].forEach(id=>{const k=E(id);k.style.transform=`translateY(${press*7}px)`;k.style.boxShadow=`0 ${9-press*7}px 0 #6f82c4,0 20px 34px rgba(0,0,0,.4)`});
+  popSt(E('status'),t,3.0,30);
+  const g=10+10*(.5+.5*Math.sin(t*5));E('led').style.boxShadow=`0 0 ${g}px #4dff9a`;
+  for(let i=0;i<4;i++){const q=prog(t,ST[i],.55),s=.84+.16*pop(t,ST[i],.6),fl=q>.99?Math.sin(t*1.3+i*1.7)*3:0,cd=E('card'+i);
+    cd.style.opacity=Math.min(1,q*2);cd.style.transform=`translateY(${(1-q)*80+fl}px) scale(${s})`;
+    const sx=-220+1220*c((t-ST[i]-.15)/.7);E('sw'+i).style.transform=`translateX(${sx}px) skewX(-20deg)`;}
+  for(let i=0;i<3;i++){const q=prog(t,CT[i],.4),len=44*q,top=TOP[i]+178;
+    E('cn'+i).style.opacity=t>=CT[i]?1:0;
+    E('ln'+i).style.cssText+=`;top:${top}px;height:${len}px`;
+    E('hd'+i).style.cssText+=`;top:${top+len-4}px;opacity:${q>.7?1:0}`;
+    const ph=(((t-CT[i]-.45)*1.5)%1+1)%1;E('dt'+i).style.cssText+=`;top:${top+40*ph}px;opacity:${t>CT[i]+.45?1:0}`;}
+  popSt(E('link'),t,9.3,30);
+  ctx.clearRect(0,0,1080,1920);
+  for(let i=0;i<70;i++){const sp=14+(i%6)*7,raw=((i*331)%1920)-t*sp,y=((raw%1920)+1920)%1920,x=((i*197)%1080)+nz(i,t*.25)*45,r=2+(i%4),a=.16+.22*(.5+.5*Math.sin(t*1.6+i));
+    ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fillStyle=`rgba(190,225,255,${a})`;ctx.fill();}
+}
+setT(0);
+</script></body></html>

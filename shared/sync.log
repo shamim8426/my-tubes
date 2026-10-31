@@ -173,3 +173,25 @@
 2026-10-30 10:10:12  pushed: noor 002: uploaded private (branch main)
 2026-10-30 11:35:27  pushed: noor 002: v2 with ucharan uploaded private (branch main)
 2026-10-30 13:10:53  pushed: noor 003: uploaded private (branch main)
+2026-10-29 23:30:32  pushed: nightly sync  (repo pack size 337 MB)
+2026-10-30 03:57:12  ERROR: pull/rebase conflict. Commit is saved locally; ask Claude Code to resolve.
+2026-10-30 23:38:20  ERROR: pull/rebase conflict. Commit is saved locally; ask Claude Code to resolve.
+2026-10-31 01:44:24  ERROR: pull/rebase conflict. Commit is saved locally; ask Claude Code to resolve.
+2026-10-31 02:45:19  ERROR: pull/rebase conflict. Commit is saved locally; ask Claude Code to resolve.
+2026-10-31 02:47:50  pushed: claude explainer: study notes and style guide v0  (repo pack size 1,267 MB)
+2026-10-31 03:31:35  pushed: claude explainer: short 001 built, renderer v0  (repo pack size 1,267 MB)
+2026-10-31 04:01:46  pushed: claude explainer: short 002 features, renderer v1  (repo pack size 1,267 MB)
+2026-10-31 04:15:53  pushed: claude explainer: motion study notes  (repo pack size 1,267 MB)
+2026-10-31 04:22:30  pushed: claude explainer: html slide scene proof  (repo pack size 1,267 MB)
+2026-10-31 04:30:59  pushed: auto: session end  (repo pack size 1,267 MB)
+2026-10-31 04:37:51  pushed: claude explainer: html video renderer and plan mode test scene  (repo pack size 1,267 MB)
+2026-10-31 04:47:07  pushed: auto: session end  (repo pack size 1,267 MB)
+2026-10-31 11:56:36  pushed: claude explainer: presentation deck builder and 3 decks  (repo pack size 1,267 MB)
+2026-10-31 12:21:01  pushed: claude explainer: 3 deck shorts rendered (subagents, skills, mcp)  (repo pack size 1,267 MB)
+2026-10-31 12:58:29  pushed: claude explainer: robot mascot, hinglish hooks short, music bed (funkorama)  (repo pack size 1,267 MB)
+2026-10-31 13:05:50  pushed: claude explainer: multi-robot team support  (repo pack size 1,267 MB)
+2026-10-31 13:38:14  pushed: claude explainer: stage scene, hooks opener, style guide v2  (repo pack size 1,267 MB)
+2026-10-31 15:02:40  pushed: yellow-bot: channel pack, move explainer files, rules and bible  (repo pack size 1,267 MB)
+2026-10-31 15:11:46  pushed: yellow-bot: hooks short uploaded private, yuv420p fix  (repo pack size 1,267 MB)
+2026-10-31 15:12:22  pushed: renderers: chromium fallback when Chrome is missing  (repo pack size 1,267 MB)
+2026-10-31 15:19:40  pushed: yellow-bot: cloud start brief  (repo pack size 1,267 MB)

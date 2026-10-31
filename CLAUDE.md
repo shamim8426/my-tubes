@@ -149,3 +149,8 @@ econcile_balance.py <AI Studio balance ₹>` (pehli baar checkpoint), Long 03 ke
 - Secrets (.env, secrets/) kabhi repo me nahi jaate; sync.ps1 aisa hone par ruk jaata hai.
 - Commit message (user 2026-10-29, PC + cloud): hamesha simple English, chhota, `<area>: <what changed>` (jaise `nigraan: analytics fetch`, `jugnu 006: scene images done`); Hinglish nahi.
 - Cloud ke baad PC par sync + jaanch: `docs/PC_SYNC_AFTER_CLOUD.md`.
+
+## Kaam se pehle samay ka andaza (user 2026-10-31, SAB channels)
+- Koi bhi kaam shuru karne se PEHLE user ko ek line me batao: kitna samay lagega (jaise "~10 min", "~1 ghanta") aur kharcha (₹), aur user ka koi kaam (login, approve) ho to wo bhi.
+- Lamba kaam (>5 min) background me chalao aur beech me sirf zaroori status do; khatam hone par asli samay batao, taaki agle andaze behtar hon.
+- Andaza pakka na ho to range do ("15-30 min") aur wajah likho; kabhi chhupa ke lamba kaam shuru mat karo.
