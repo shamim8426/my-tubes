@@ -163,7 +163,10 @@ B.cta=(sc,root)=>{
 
 const scenes=D.scenes;
 scenes.forEach((sc,i)=>{sc.anims=[];sc.root=mk(E('scenes'),null,'', 'sc');(B[sc.type]||(()=>{throw new Error('no scene type '+sc.type)}))(sc,sc.root);
-  if(sc.robot){const r=sc.robot;const im=mk(sc.root,`left:${r.x}px;top:${r.y}px;width:${r.size}px;height:${r.size}px`,`<img src="${r.url}" style="width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply">`,'abs');reg(sc,im,r.at||1.0,'robot',.6)}});
+  (sc.robots||[]).forEach(r=>{
+    const ar=r.aspect||1,x0=r.crop?r.crop[0]:0,x1=r.crop?r.crop[1]:1,imgW=r.size*ar,wrapW=imgW*(x1-x0);
+    const im=mk(sc.root,`left:${r.x}px;top:${r.y}px;width:${wrapW}px;height:${r.size}px;overflow:hidden;mix-blend-mode:multiply`,`<img src="${r.url}" style="position:absolute;left:${-x0*imgW}px;top:0;width:${imgW}px;height:${r.size}px">`,'abs');
+    reg(sc,im,r.at||1.0,'robot',.6)});});
 window.SFX=D.sfx||scenes.map(s=>s.start);
 
 function applyItem(it,lt){

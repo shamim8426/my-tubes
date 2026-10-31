@@ -3,3 +3,4 @@
 - 2026-10-31 decks built (not rendered): 003 Subagents (1/7 voice lines done, free key), 004 Skills, 005 MCP. Renderer: scripts/build_deck.py + templates/deck_template.html (white, black+yellow, 9 scene types). BLOCKED: free Gemini TTS quota used up (429); paid key not used (user: free only).
 - 2026-10-31 003 Subagents (60.6 s), 004 Skills (50.1 s), 005 MCP (55.3 s) RENDERED: output/short.mp4 each, -15 LUFS, TP -0.9; paid TTS key used (user OK 'option 3'); not reviewed by Munshi, not uploaded (channel not created).
 - 2026-10-31 006 Hooks + music Funkorama (Kevin MacLeod CC BY 4.0, rel 12 LU); 004 Skills music version short_music.mp4 (remux). Scripts: music_preview.py, remux_music.py. Credit line required in description.
+- 2026-10-31 multi-robot support: mascot/team.png (4 robots in one image, free Cloudflare) + 'robots' with crop in deck_template/build_deck; demo stills only (deck_robots_demo.json, --deck flag). Crops need tightening before real use.

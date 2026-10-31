@@ -59,13 +59,14 @@ def music_args(spec):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("story")
+    ap.add_argument("--deck", default="deck.json", help="spec file name inside the story folder")
     ap.add_argument("--tts", action="store_true")
     ap.add_argument("--paid", action="store_true", help="allow the paid key when the free quota is over (user OK 2026-10-31)")
     ap.add_argument("--still")
     ap.add_argument("--render", action="store_true")
     a = ap.parse_args()
     story = Path(a.story).resolve()
-    spec = json.loads((story / "deck.json").read_text(encoding="utf-8-sig"))
+    spec = json.loads((story / a.deck).read_text(encoding="utf-8-sig"))
     scenes = spec["scenes"]
     tts_dir = story / "audio" / "tts"
     files = [tts_dir / f"s_{i:02d}.wav" for i in range(len(scenes))]
@@ -94,11 +95,12 @@ def main():
         if sc["type"] == "docs":
             item["imgUrl"] = (DOCS / sc["img"]).as_uri()
             item["hls"] = [dict(h, at=phrase_time(sc, d, (sc.get("hlcues") or [None] * 9)[k]) or h.get("at", 1.0)) for k, h in enumerate(sc.get("hls", []))]
-        if sc.get("robot"):
-            r = dict(sc["robot"])
+        robs = [dict(r) for r in (sc.get("robots") or ([sc["robot"]] if sc.get("robot") else []))]
+        for r in robs:
             r["url"] = (MASCOT / (r["img"] + ".png")).as_uri()
             r["at"] = phrase_time(sc, d, r.get("cue")) or 1.0
-            item["robot"] = r
+        if robs:
+            item["robots"] = robs
         data.append(item)
         t = end
     total = round(t + 0.2, 3)
