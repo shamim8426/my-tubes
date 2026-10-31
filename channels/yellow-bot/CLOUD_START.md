@@ -13,7 +13,10 @@ Read in this order: channels/yellow-bot/RULES.md, channel_bible.md, STYLE_GUIDE.
 
 ## Your job
 Make new Shorts, one topic at a time from topic_queue.json (status "todo"), and upload each as PRIVATE. The user reviews in Studio and makes them public.
-Targets: first day 3-4 videos, then up to 6/day (YouTube API quota: ~1,600 units per upload of 10,000/day). Long-term goal 10 made/day (extra ones wait for the next day).
+Targets (user wants 10 Shorts/day): DAILY GOAL = 10 videos made AND uploaded. Today the YouTube API quota of project yellow-bot-devrobo allows only 6 uploads/day (~1,600 of 10,000 units each).
+So: day 1 = 3-4 videos; from day 2 = up to 6/day; go to 10/day ONLY when the user says the quota was raised (extension form). Never make more videos than can be uploaded in the same session
+(mp4 files are git-ignored and vanish when a cloud session ends, so no backlog). NEVER create another Google Cloud project/OAuth client to get more quota (against YouTube API terms).
+Keep going topic after topic in the same session until the day's count is reached or a STOP condition happens. If quota error 403 appears, stop uploading for the day and say so.
 Budget: paid Gemini TTS ~Rs1.6/video is allowed; hard cap Rs20/day; stop if Google balance < Rs50. Everything else (images, music, render) is free.
 
 ## Preflight (do first, report in 5 lines, then start)
