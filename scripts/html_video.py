@@ -81,7 +81,7 @@ def main():
         audio = out.with_suffix(".audio.wav")
         build_audio(voice, sfx, lead, total, audio, music=MUSIC_FILE, music_start=MUSIC_START, music_rel=MUSIC_REL)
         enc = subprocess.Popen([FF, "-v", "error", "-y", "-f", "image2pipe", "-c:v", "mjpeg", "-r", str(FPS), "-i", "-", "-i", str(audio),
-                                "-c:v", "libx264", "-preset", "medium", "-crf", "17", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "192k",
+                                "-vf", "scale=in_range=full:out_range=tv,format=yuv420p", "-c:v", "libx264", "-preset", "medium", "-crf", "17", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "192k",
                                 "-frames:v", str(n), "-movflags", "+faststart", str(out)], stdin=subprocess.PIPE)
         for i in range(n):
             pg.evaluate(f"setT({i / FPS})")

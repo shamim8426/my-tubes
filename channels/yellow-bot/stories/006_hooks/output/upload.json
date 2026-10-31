@@ -1,0 +1,28 @@
+{
+  "channel_key": "yellow-bot",
+  "channel_name": "yellow Bot",
+  "channel_id": "UCpElgKdJOgQiyfwdGXz6GmA",
+  "format": "short",
+  "title": "Claude Code Hooks: file edit ke baad auto-format #shorts",
+  "description": "Claude har baar file edit kare aur aapko format yaad dilana pade? Hooks se ye apne aap ho jata hai: PostToolUse hook, Prettier, aur PreToolUse me exit code 2 se edit block karna.\n\nSource (official docs): https://code.claude.com/docs/en/hooks-guide\n\nUnofficial channel, not affiliated with Anthropic.\n\nMusic: \"Funkorama\" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttp://creativecommons.org/licenses/by/4.0/\n\n#shorts #ClaudeCode #Hooks #AI #Hinglish",
+  "tags": [
+    "Claude Code",
+    "Claude Code hooks",
+    "hooks",
+    "PostToolUse",
+    "PreToolUse",
+    "Prettier",
+    "AI coding",
+    "Hinglish",
+    "Hindi tech",
+    "Claude AI tutorial",
+    "Shorts"
+  ],
+  "video": "short.mp4",
+  "language": "hi",
+  "made_for_kids": false,
+  "contains_synthetic_media": true,
+  "category_id": "28",
+  "privacy": "private",
+  "parent_video_id": null
+}

@@ -260,8 +260,8 @@
   "title": "Create custom subagents",
   "url": "https://code.claude.com/docs/en/sub-agents.md",
   "summary": "Create and use specialized AI subagents in Claude Code for task-specific workflows and improved context management.",
-  "status": "todo",
-  "story": null
+  "status": "built",
+  "story": "003_subagents"
  },
  {
   "id": "agent-view",
@@ -316,16 +316,16 @@
   "title": "Connect Claude Code to tools via MCP",
   "url": "https://code.claude.com/docs/en/mcp.md",
   "summary": "Learn how to connect Claude Code to your tools with the Model Context Protocol.",
-  "status": "todo",
-  "story": null
+  "status": "built",
+  "story": "005_mcp"
  },
  {
   "id": "skills",
   "title": "Extend Claude with skills",
   "url": "https://code.claude.com/docs/en/skills.md",
   "summary": "Create, manage, and share skills to extend Claude's capabilities in Claude Code. Includes custom commands and bundled skills.",
-  "status": "todo",
-  "story": null
+  "status": "built",
+  "story": "004_skills"
  },
  {
   "id": "artifacts",
@@ -340,8 +340,8 @@
   "title": "Automate actions with hooks",
   "url": "https://code.claude.com/docs/en/hooks-guide.md",
   "summary": "Run shell commands automatically when Claude Code edits files, finishes tasks, or needs input. Format code, send notifications, validate commands, and enforce project rules.",
-  "status": "todo",
-  "story": null
+  "status": "uploaded",
+  "story": "006_hooks"
  },
  {
   "id": "channels",
