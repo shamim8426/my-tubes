@@ -441,13 +441,13 @@
    "role": "ucharan",
    "section": "3. AAYAT-DAR-AAYAT",
    "ayah": 6,
-   "text": "वमिन शर्रि हासिदिन इज़ा हसद",
+   "text": "वमिन शर्रि हासिदिन, इज़ा हसद।",
    "tags": [],
    "audio": "audio/tts/040_ustaad.wav",
-   "seconds": 17.92,
+   "seconds": 5.12,
    "tts_ok": true,
    "start": 228.169,
-   "end": 244.761
+   "end": 232.909
   },
   {
    "kind": "line",
@@ -463,8 +463,8 @@
    "audio": "audio/tts/041_ustaad.wav",
    "seconds": 7.16,
    "tts_ok": true,
-   "start": 245.111,
-   "end": 251.741
+   "start": 233.259,
+   "end": 239.889
   },
   {
    "kind": "line",
@@ -480,8 +480,8 @@
    "audio": "audio/tts/043_ustaad.wav",
    "seconds": 12.0,
    "tts_ok": true,
-   "start": 252.891,
-   "end": 264.002
+   "start": 241.039,
+   "end": 252.15
   },
   {
    "kind": "line",
@@ -497,8 +497,8 @@
    "audio": "audio/tts/044_ustaad.wav",
    "seconds": 9.12,
    "tts_ok": true,
-   "start": 264.352,
-   "end": 272.796
+   "start": 252.5,
+   "end": 260.944
   },
   {
    "kind": "line",
@@ -514,8 +514,8 @@
    "audio": "audio/tts/045_ustaad.wav",
    "seconds": 10.68,
    "tts_ok": true,
-   "start": 273.146,
-   "end": 283.035
+   "start": 261.294,
+   "end": 271.183
   },
   {
    "kind": "line",
@@ -531,8 +531,8 @@
    "audio": "audio/tts/046_ustaad.wav",
    "seconds": 10.36,
    "tts_ok": true,
-   "start": 283.385,
-   "end": 292.978
+   "start": 271.533,
+   "end": 281.126
   },
   {
    "kind": "line",
@@ -546,8 +546,8 @@
    "audio": "audio/tts/047_sawaal.wav",
    "seconds": 8.2,
    "tts_ok": true,
-   "start": 293.578,
-   "end": 301.17
+   "start": 281.726,
+   "end": 289.319
   },
   {
    "kind": "line",
@@ -563,8 +563,8 @@
    "audio": "audio/tts/049_ustaad.wav",
    "seconds": 20.64,
    "tts_ok": true,
-   "start": 302.57,
-   "end": 321.681
+   "start": 290.719,
+   "end": 309.83
   },
   {
    "kind": "line",
@@ -580,8 +580,8 @@
    "audio": "audio/tts/050_ustaad.wav",
    "seconds": 21.0,
    "tts_ok": true,
-   "start": 322.031,
-   "end": 341.476
+   "start": 310.18,
+   "end": 329.624
   },
   {
    "kind": "line",
@@ -597,8 +597,8 @@
    "audio": "audio/tts/051_ustaad.wav",
    "seconds": 10.44,
    "tts_ok": true,
-   "start": 341.826,
-   "end": 351.493
+   "start": 329.974,
+   "end": 339.641
   },
   {
    "kind": "line",
@@ -614,8 +614,8 @@
    "audio": "audio/tts/052_ustaad.wav",
    "seconds": 7.96,
    "tts_ok": true,
-   "start": 351.843,
-   "end": 359.213
+   "start": 339.991,
+   "end": 347.361
   },
   {
    "kind": "line",
@@ -629,8 +629,8 @@
    "audio": "audio/tts/053_sawaal.wav",
    "seconds": 3.56,
    "tts_ok": true,
-   "start": 360.613,
-   "end": 363.909
+   "start": 348.761,
+   "end": 352.057
   },
   {
    "kind": "line",
@@ -647,8 +647,8 @@
    "audio": "audio/tts/054_ustaad.wav",
    "seconds": 12.04,
    "tts_ok": true,
-   "start": 364.509,
-   "end": 375.657
+   "start": 352.657,
+   "end": 363.806
   },
   {
    "kind": "line",
@@ -664,8 +664,8 @@
    "audio": "audio/tts/055_ustaad.wav",
    "seconds": 13.44,
    "tts_ok": true,
-   "start": 376.007,
-   "end": 388.452
+   "start": 364.156,
+   "end": 376.6
   },
   {
    "kind": "line",
@@ -682,8 +682,8 @@
    "audio": "audio/tts/056_ustaad.wav",
    "seconds": 12.52,
    "tts_ok": true,
-   "start": 388.802,
-   "end": 400.394
+   "start": 376.95,
+   "end": 388.543
   },
   {
    "kind": "line",
@@ -699,8 +699,8 @@
    "audio": "audio/tts/057_ustaad.wav",
    "seconds": 7.08,
    "tts_ok": true,
-   "start": 400.744,
-   "end": 407.3
+   "start": 388.893,
+   "end": 395.448
   },
   {
    "kind": "line",
@@ -714,8 +714,8 @@
    "audio": "audio/tts/058_sawaal.wav",
    "seconds": 7.56,
    "tts_ok": true,
-   "start": 407.9,
-   "end": 414.9
+   "start": 396.048,
+   "end": 403.048
   }
  ],
  "ayat": [
@@ -765,7 +765,7 @@
    "a0": 225.8185185185184,
    "swoosh": 225.3185185185184,
    "text": "وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ",
-   "off": 252.5407407407406
+   "off": 240.68888888888875
   }
  ],
  "music": [
@@ -780,7 +780,7 @@
    "track": "River Flute",
    "start": 45.09444444444444,
    "fin": 2.5,
-   "end": 417.9000000000003,
+   "end": 406.0481481481484,
    "fout": 3.0
   }
  ],
@@ -790,10 +790,10 @@
     "breeze"
    ],
    "start": 0.0,
-   "end": 418.9000000000003
+   "end": 407.0481481481484
   }
  ],
- "end": 418.9,
+ "end": 407.048,
  "fade_at": {
   "1": 31.6037037037037,
   "2": 68.3,
@@ -1197,7 +1197,7 @@
    "img": "10_ring_in_desert.png",
    "id": "10_ring_in_desert",
    "start": 225.219,
-   "end": 233.156,
+   "end": 232.374,
    "move": "pan_left",
    "fx": 0.5,
    "fy": 0.5,
@@ -1206,8 +1206,8 @@
   {
    "img": "10_ring_in_desert.png",
    "id": "10_ring_in_desert",
-   "start": 233.156,
-   "end": 241.094,
+   "start": 232.374,
+   "end": 239.529,
    "move": "gentle_orbit",
    "fx": 0.38,
    "fy": 0.5,
@@ -1216,8 +1216,8 @@
   {
    "img": "10_ring_in_desert.png",
    "id": "10_ring_in_desert",
-   "start": 241.094,
-   "end": 249.032,
+   "start": 239.529,
+   "end": 246.684,
    "move": "push_in",
    "fx": 0.62,
    "fy": 0.5,
@@ -1226,8 +1226,8 @@
   {
    "img": "10_ring_in_desert.png",
    "id": "10_ring_in_desert",
-   "start": 249.032,
-   "end": 256.97,
+   "start": 246.684,
+   "end": 253.839,
    "move": "pan_left",
    "fx": 0.5,
    "fy": 0.45,
@@ -1236,29 +1236,19 @@
   {
    "img": "10_ring_in_desert.png",
    "id": "10_ring_in_desert",
-   "start": 256.97,
-   "end": 264.908,
+   "start": 253.839,
+   "end": 260.994,
    "move": "pull_out",
    "fx": 0.5,
    "fy": 0.5,
    "zc": 1.0
   },
   {
-   "img": "10_ring_in_desert.png",
-   "id": "10_ring_in_desert",
-   "start": 264.908,
-   "end": 272.846,
-   "move": "pan_right",
-   "fx": 0.38,
-   "fy": 0.5,
-   "zc": 1.15
-  },
-  {
    "img": "06_milkyway_desert.png",
    "id": "06_milkyway_desert_b",
-   "start": 272.846,
-   "end": 277.966,
-   "move": "push_in",
+   "start": 260.994,
+   "end": 266.113,
+   "move": "pan_right",
    "fx": 0.7,
    "fy": 0.3,
    "zc": 1.5
@@ -1266,9 +1256,9 @@
   {
    "img": "06_milkyway_desert.png",
    "id": "06_milkyway_desert_b",
-   "start": 277.966,
-   "end": 283.085,
-   "move": "pan_right",
+   "start": 266.113,
+   "end": 271.233,
+   "move": "push_in",
    "fx": 0.7,
    "fy": 0.3,
    "zc": 1.5
@@ -1276,9 +1266,9 @@
   {
    "img": "10_ring_in_desert.png",
    "id": "10_ring_in_desert_b",
-   "start": 283.085,
-   "end": 288.181,
-   "move": "pull_out",
+   "start": 271.233,
+   "end": 276.329,
+   "move": "pan_right",
    "fx": 0.5,
    "fy": 0.72,
    "zc": 2.0
@@ -1286,9 +1276,9 @@
   {
    "img": "10_ring_in_desert.png",
    "id": "10_ring_in_desert_b",
-   "start": 288.181,
-   "end": 293.278,
-   "move": "pan_left",
+   "start": 276.329,
+   "end": 281.426,
+   "move": "pull_out",
    "fx": 0.5,
    "fy": 0.72,
    "zc": 2.0
@@ -1296,29 +1286,29 @@
   {
    "img": "05_dawn_horizon.png",
    "id": "05_dawn_horizon_b",
-   "start": 293.278,
-   "end": 297.774,
+   "start": 281.426,
+   "end": 285.923,
+   "move": "pan_left",
+   "fx": 0.4,
+   "fy": 0.45,
+   "zc": 1.3
+  },
+  {
+   "img": "05_dawn_horizon.png",
+   "id": "05_dawn_horizon_b",
+   "start": 285.923,
+   "end": 290.419,
    "move": "gentle_orbit",
    "fx": 0.4,
    "fy": 0.45,
    "zc": 1.3
   },
   {
-   "img": "05_dawn_horizon.png",
-   "id": "05_dawn_horizon_b",
-   "start": 297.774,
-   "end": 302.27,
-   "move": "push_in",
-   "fx": 0.4,
-   "fy": 0.45,
-   "zc": 1.3
-  },
-  {
    "img": "02_lamp_single_flame.png",
    "id": "02_lamp_single_flame",
-   "start": 302.27,
-   "end": 308.757,
-   "move": "pan_left",
+   "start": 290.419,
+   "end": 296.906,
+   "move": "push_in",
    "fx": 0.5,
    "fy": 0.5,
    "zc": 1.0
@@ -1326,9 +1316,9 @@
   {
    "img": "02_lamp_single_flame.png",
    "id": "02_lamp_single_flame",
-   "start": 308.757,
-   "end": 315.244,
-   "move": "pull_out",
+   "start": 296.906,
+   "end": 303.393,
+   "move": "pan_left",
    "fx": 0.38,
    "fy": 0.5,
    "zc": 1.15
@@ -1336,9 +1326,9 @@
   {
    "img": "02_lamp_single_flame.png",
    "id": "02_lamp_single_flame",
-   "start": 315.244,
-   "end": 321.731,
-   "move": "pan_right",
+   "start": 303.393,
+   "end": 309.88,
+   "move": "pull_out",
    "fx": 0.62,
    "fy": 0.5,
    "zc": 1.15
@@ -1346,9 +1336,9 @@
   {
    "img": "12_bedtime_room_lamp.png",
    "id": "12_bedtime_room_lamp",
-   "start": 321.731,
-   "end": 328.329,
-   "move": "push_in",
+   "start": 309.88,
+   "end": 316.478,
+   "move": "pan_right",
    "fx": 0.5,
    "fy": 0.5,
    "zc": 1.0
@@ -1356,9 +1346,9 @@
   {
    "img": "12_bedtime_room_lamp.png",
    "id": "12_bedtime_room_lamp",
-   "start": 328.329,
-   "end": 334.928,
-   "move": "pan_right",
+   "start": 316.478,
+   "end": 323.076,
+   "move": "push_in",
    "fx": 0.38,
    "fy": 0.5,
    "zc": 1.15
@@ -1366,9 +1356,9 @@
   {
    "img": "12_bedtime_room_lamp.png",
    "id": "12_bedtime_room_lamp",
-   "start": 334.928,
-   "end": 341.526,
-   "move": "pull_out",
+   "start": 323.076,
+   "end": 329.674,
+   "move": "pan_right",
    "fx": 0.62,
    "fy": 0.5,
    "zc": 1.15
@@ -1376,9 +1366,9 @@
   {
    "img": "12_bedtime_room_lamp.png",
    "id": "12_bedtime_room_lamp_b",
-   "start": 341.526,
-   "end": 346.534,
-   "move": "pan_left",
+   "start": 329.674,
+   "end": 334.683,
+   "move": "pull_out",
    "fx": 0.5,
    "fy": 0.55,
    "zc": 1.5
@@ -1386,9 +1376,9 @@
   {
    "img": "12_bedtime_room_lamp.png",
    "id": "12_bedtime_room_lamp_b",
-   "start": 346.534,
-   "end": 351.543,
-   "move": "gentle_orbit",
+   "start": 334.683,
+   "end": 339.691,
+   "move": "pan_left",
    "fx": 0.5,
    "fy": 0.55,
    "zc": 1.5
@@ -1396,9 +1386,9 @@
   {
    "img": "02_lamp_single_flame.png",
    "id": "02_lamp_single_flame_b",
-   "start": 351.543,
-   "end": 355.928,
-   "move": "push_in",
+   "start": 339.691,
+   "end": 344.076,
+   "move": "gentle_orbit",
    "fx": 0.5,
    "fy": 0.6,
    "zc": 1.5
@@ -1406,9 +1396,9 @@
   {
    "img": "02_lamp_single_flame.png",
    "id": "02_lamp_single_flame_b",
-   "start": 355.928,
-   "end": 360.313,
-   "move": "pan_left",
+   "start": 344.076,
+   "end": 348.461,
+   "move": "push_in",
    "fx": 0.5,
    "fy": 0.6,
    "zc": 1.5
@@ -1416,8 +1406,18 @@
   {
    "img": "08_empty_room_morning.png",
    "id": "08_empty_room_morning",
-   "start": 360.313,
-   "end": 364.209,
+   "start": 348.461,
+   "end": 352.357,
+   "move": "pan_left",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "09_morning_palm_path.png",
+   "id": "09_morning_palm_path",
+   "start": 352.357,
+   "end": 358.106,
    "move": "pull_out",
    "fx": 0.5,
    "fy": 0.5,
@@ -1426,19 +1426,9 @@
   {
    "img": "09_morning_palm_path.png",
    "id": "09_morning_palm_path",
-   "start": 364.209,
-   "end": 369.958,
+   "start": 358.106,
+   "end": 363.856,
    "move": "pan_right",
-   "fx": 0.5,
-   "fy": 0.5,
-   "zc": 1.0
-  },
-  {
-   "img": "09_morning_palm_path.png",
-   "id": "09_morning_palm_path",
-   "start": 369.958,
-   "end": 375.707,
-   "move": "push_in",
    "fx": 0.38,
    "fy": 0.5,
    "zc": 1.15
@@ -1446,9 +1436,9 @@
   {
    "img": "08_empty_room_morning.png",
    "id": "08_empty_room_morning_b",
-   "start": 375.707,
-   "end": 382.105,
-   "move": "pan_right",
+   "start": 363.856,
+   "end": 370.253,
+   "move": "push_in",
    "fx": 0.4,
    "fy": 0.6,
    "zc": 1.4
@@ -1456,9 +1446,9 @@
   {
    "img": "08_empty_room_morning.png",
    "id": "08_empty_room_morning_b",
-   "start": 382.105,
-   "end": 388.502,
-   "move": "pull_out",
+   "start": 370.253,
+   "end": 376.65,
+   "move": "pan_right",
    "fx": 0.4,
    "fy": 0.6,
    "zc": 1.4
@@ -1466,9 +1456,9 @@
   {
    "img": "04_dawn_sand_ridge.png",
    "id": "04_dawn_sand_ridge_c",
-   "start": 388.502,
-   "end": 394.473,
-   "move": "pan_left",
+   "start": 376.65,
+   "end": 382.621,
+   "move": "pull_out",
    "fx": 0.45,
    "fy": 0.35,
    "zc": 1.25
@@ -1476,9 +1466,9 @@
   {
    "img": "04_dawn_sand_ridge.png",
    "id": "04_dawn_sand_ridge_c",
-   "start": 394.473,
-   "end": 400.444,
-   "move": "gentle_orbit",
+   "start": 382.621,
+   "end": 388.593,
+   "move": "pan_left",
    "fx": 0.45,
    "fy": 0.35,
    "zc": 1.25
@@ -1486,9 +1476,9 @@
   {
    "img": "04_date_palm_path.png",
    "id": "04_date_palm_path",
-   "start": 400.444,
-   "end": 407.6,
-   "move": "push_in",
+   "start": 388.593,
+   "end": 395.748,
+   "move": "gentle_orbit",
    "fx": 0.5,
    "fy": 0.5,
    "zc": 1.0
@@ -1496,9 +1486,9 @@
   {
    "img": "05_dawn_horizon.png",
    "id": "05_dawn_horizon_c",
-   "start": 407.6,
-   "end": 413.25,
-   "move": "pan_left",
+   "start": 395.748,
+   "end": 401.398,
+   "move": "push_in",
    "fx": 0.5,
    "fy": 0.3,
    "zc": 1.1
@@ -1506,9 +1496,9 @@
   {
    "img": "05_dawn_horizon.png",
    "id": "05_dawn_horizon_c",
-   "start": 413.25,
-   "end": 418.9,
-   "move": "pull_out",
+   "start": 401.398,
+   "end": 407.048,
+   "move": "pan_left",
    "fx": 0.5,
    "fy": 0.3,
    "zc": 1.1

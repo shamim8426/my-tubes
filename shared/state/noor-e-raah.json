@@ -1,12 +1,12 @@
 {
  "story": "004_al-falaq",
- "stage": "tts",
- "status": "done",
- "started": "2026-10-31T10:34:01",
- "finished": "2026-10-31T10:58:34",
- "pid": 2020,
- "paid": true,
+ "stage": "build_long",
+ "status": "running",
+ "started": "2026-10-31T11:06:49",
+ "finished": null,
+ "pid": 2021,
+ "paid": false,
  "cost": null,
  "note": null,
- "last_error": "2026-10-30T06:57:52 tts: None"
+ "last_error": "2026-10-31T11:04:47 build_long: None"
 }

@@ -691,3 +691,4 @@
 {"timestamp": "2026-10-31 10:38:45", "file": "channels/yellow-bot/stories/011_checkpointing/audio/tts/s_04.wav", "model": "gemini-3.8-flash-tts", "size": "tts 6.6s", "usage": {"input": 28, "output": 166, "thoughts": 0, "output_image": null}}
 {"timestamp": "2026-10-31 10:38:51", "file": "channels/yellow-bot/stories/011_checkpointing/audio/tts/s_05.wav", "model": "gemini-3.8-flash-tts", "size": "tts 9.1s", "usage": {"input": 36, "output": 228, "thoughts": 0, "output_image": null}}
 {"timestamp": "2026-10-31 10:39:26", "file": "channels/yellow-bot/stories/011_checkpointing/audio/tts/s_06.wav", "model": "gemini-3.8-flash-tts", "size": "tts 3.0s", "usage": {"input": 15, "output": 75, "thoughts": 0, "output_image": null}}
+{"timestamp": "2026-10-31 11:05:01", "file": "channels/noor-e-raah/stories/004_al-falaq/audio/tts/040_ustaad.wav", "model": "gemini-3.8-flash-tts", "size": "tts 5.1s", "usage": {"input": 15, "output": 128, "thoughts": 0, "output_image": null}}

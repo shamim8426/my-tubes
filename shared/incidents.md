@@ -6,3 +6,4 @@ hand. One line per incident; the Sanchalak sets status to `closed` with the fix.
 | Time | Channel | Story | Stage | What happened | Status |
 |---|---|---|---|---|---|
 | 2026-10-30T06:57:52 | noor-e-raah | 003_al-ikhlas | tts | None | open |
+| 2026-10-31T11:04:47 | noor-e-raah | 004_al-falaq | build_long | None | open |

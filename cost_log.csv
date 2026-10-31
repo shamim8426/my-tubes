@@ -939,3 +939,5 @@ timestamp,file,model,size,cost_usd,cost_inr,today_total_inr,remaining_inr,channe
 2026-10-31 10:38:45,channels/yellow-bot/stories/011_checkpointing/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 6.6s,0.00151,0.15,12.52,99.61,yellow-bot,0.15,0.1455,0.03,28,166
 2026-10-31 10:38:51,channels/yellow-bot/stories/011_checkpointing/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 9.1s,0.00207,0.20,12.75,99.37,yellow-bot,0.21,0.1998,0.04,36,228
 2026-10-31 10:39:26,channels/yellow-bot/stories/011_checkpointing/audio/tts/s_06.wav,gemini-3.8-flash-tts,tts 3.0s,0.00068,0.07,12.83,99.30,yellow-bot,0.07,0.0659,0.01,15,75
+2026-10-31 10:59:21,channels/noor-e-raah/stories/004_al-falaq/images/thumb_scene_a.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,27.30,84.82,noor-e-raah,0.00,0.0000,0.00,,
+2026-10-31 11:05:01,channels/noor-e-raah/stories/004_al-falaq/audio/tts/040_ustaad.wav,gemini-3.8-flash-tts,tts 5.1s,0.00116,0.11,27.43,84.69,noor-e-raah,0.12,0.1119,0.02,15,128

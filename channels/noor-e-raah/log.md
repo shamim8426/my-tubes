@@ -78,3 +78,4 @@
 
 - 2026-10-30 Noor 003 Al-Ikhlas UPLOADED private: https://youtu.be/3fj1U_Q4Ku8 — Munshi final R1 PASS, thumbnail layout C. STUDIO ACTION: schedule 2026-10-31 19:00 IST (002 is already public today), pin first comment (no powershell in cloud). New format (ucharan + bigger text) applied. Carry-over: PC checks (Tanzil bytes, sunnah.com), listen to ucharan lines 14/20/27/33.
 2026-10-31 | 004_al-falaq | script+package R1 | PASS-WITH-NOTES | Arabic mark order fixed to Tanzil bytes (shadda first) in 5 files + sha; line 31 M3 wording; 0 new images, reuse paths ok; no BLOCKER left
+2026-10-31 | 004_al-falaq long | TTS review | FIX | line 40 audio is invented text (17.9 s), rest PASS; see long/review/tts_review.md
