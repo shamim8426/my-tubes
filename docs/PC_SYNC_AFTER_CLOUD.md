@@ -13,7 +13,7 @@ Read only, no paid calls (no Gemini image/TTS, no upload).
 - `requirements.txt`: `opencv-python-headless==5.0.0.*` (no reinstall needed on the PC).
 - Fresh analytics + reach reports in `channels/*/analytics/`.
 
-## Steps (PowerShell, in `D:\Story-Channel`)
+## Steps (PowerShell, in `D:\my-tubes`)
 1. `git status` and `git branch --show-current`. Must be on `main`.
 2. Sync (commits PC changes, pulls the cloud work, pushes):
    `powershell -NoProfile -ExecutionPolicy Bypass -File tools\sync.ps1 -Message "<simple English message>"`

@@ -1,13 +1,13 @@
-# Story-Channel: set up a NEW Windows system from GitHub in one go.
+# my-tubes: set up a NEW Windows system from GitHub in one go.
 #
 # On a new PC (PowerShell, normal user, not Administrator):
 #   1. Get this file (from your GitHub repo page, or your backup copy) and run:
-#        powershell -ExecutionPolicy Bypass -File deploy.ps1 -Repo yourname/story-channel
+#        powershell -ExecutionPolicy Bypass -File deploy.ps1 -Repo yourname/my-tubes
 #   2. Follow the prompts (GitHub login in browser, API keys once).
 # Running it again later is safe: it only fills in what is missing.
 param(
     [string]$Repo = "",
-    [string]$Path = "D:\Story-Channel"
+    [string]$Path = "D:\my-tubes"
 )
 
 $ErrorActionPreference = "Stop"
@@ -58,12 +58,12 @@ gh auth setup-git
 Step "4/10 Project download"
 $drive = Split-Path -Qualifier $Path
 if (-not (Test-Path $drive)) {
-    $Path = Read-Host "Drive $drive is not on this PC. Full folder path for the project (e.g. C:\Story-Channel)"
+    $Path = Read-Host "Drive $drive is not on this PC. Full folder path for the project (e.g. C:\my-tubes)"
 }
 if (Test-Path (Join-Path $Path ".git")) {
     git -C $Path pull --rebase --autostash
 } else {
-    if (-not $Repo) { $Repo = Read-Host "GitHub repo (e.g. yourname/story-channel)" }
+    if (-not $Repo) { $Repo = Read-Host "GitHub repo (e.g. yourname/my-tubes)" }
     gh repo clone $Repo $Path
 }
 Set-Location $Path
