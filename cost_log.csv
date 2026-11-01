@@ -993,3 +993,11 @@ timestamp,file,model,size,cost_usd,cost_inr,today_total_inr,remaining_inr,channe
 2026-11-01 23:43:39,channels/jugnu-stories/tests/rocket_short/audio/tts_cache/lon_chacha_e0dc14e0e635d96c.wav,gemini-3.8-flash-tts,tts 3.4s,0.00078,0.08,3.10,80.62,jugnu-stories,0.08,0.0755,0.01,17,86
 2026-11-01 23:44:01,channels/jugnu-stories/tests/rocket_short/audio/tts_cache/bholu_5c516fd11cd94937.wav,gemini-3.8-flash-tts,tts 3.4s,0.00077,0.07,3.19,80.53,jugnu-stories,0.08,0.0744,0.01,11,85
 2026-11-01 23:44:27,channels/jugnu-stories/tests/rocket_short/audio/tts_cache/ira_d375b5a4eff881f5.wav,gemini-3.8-flash-tts,tts 3.7s,0.00084,0.08,3.29,80.43,jugnu-stories,0.08,0.0808,0.01,18,92
+2026-11-01 23:44:52,channels/jugnu-stories/tests/rocket_short/audio/tts_cache/daroga_singh_831c2fa4c128312a.wav,gemini-3.8-flash-tts,tts 3.7s,0.00084,0.08,3.38,80.34,jugnu-stories,0.08,0.0814,0.01,13,93
+2026-11-01 23:45:16,channels/jugnu-stories/tests/rocket_short/audio/tts_cache/kesar_dadi_16dd83562c27b502.wav,gemini-3.8-flash-tts,tts 6.6s,0.00150,0.14,3.55,80.17,jugnu-stories,0.15,0.1450,0.03,17,166
+2026-11-01 23:45:37,channels/jugnu-stories/tests/rocket_short/audio/tts_cache/tinku_mummy_6c32c92abbf3e3be.wav,gemini-3.8-flash-tts,tts 3.5s,0.00079,0.08,3.64,80.08,jugnu-stories,0.08,0.0761,0.01,11,87
+2026-11-01 23:45:57,channels/jugnu-stories/tests/rocket_short/audio/tts_cache/tinku_39c1c9ee744e7af9.wav,gemini-3.8-flash-tts,tts 4.0s,0.00092,0.09,3.75,79.97,jugnu-stories,0.09,0.0884,0.02,15,101
+2026-11-01 23:46:14,channels/jugnu-stories/tests/rocket_short/audio/tts_cache/jugnu_23e5cdf53749a1a6.wav,gemini-3.8-flash-tts,tts 3.9s,0.00088,0.08,3.85,79.87,jugnu-stories,0.09,0.0848,0.02,12,97
+2026-11-01 23:46:32,channels/jugnu-stories/tests/rocket_short/audio/tts_cache/lon_chacha_0dcc572735dfafa8.wav,gemini-3.8-flash-tts,tts 3.4s,0.00078,0.08,3.94,79.78,jugnu-stories,0.08,0.0755,0.01,17,86
+2026-11-01 23:46:51,channels/jugnu-stories/tests/rocket_short/audio/tts_cache/titli_c7e675a043cb045c.wav,gemini-3.8-flash-tts,tts 3.2s,0.00073,0.07,4.02,79.70,jugnu-stories,0.07,0.0707,0.01,8,81
+2026-11-01 23:47:08,channels/jugnu-stories/tests/rocket_short/audio/tts_cache/tinku_a683a23e26c534ed.wav,gemini-3.8-flash-tts,tts 3.6s,0.00082,0.08,4.11,79.61,jugnu-stories,0.08,0.0788,0.01,14,90

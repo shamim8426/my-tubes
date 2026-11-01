@@ -66,3 +66,6 @@ channels/jugnu-stories/new-characters/
 
 # cast drawing code deps (characters/_source: npm install)
 node_modules/
+
+# test videos: build work files (stills, stems, voice mix)
+channels/*/tests/*/_work/
