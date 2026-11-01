@@ -60,3 +60,6 @@ desktop.ini
 
 # cost_log write lock (scripts/cost_log.py)
 cost_log.csv.lock
+
+# cast v3 handoff zip from the cloud (44 MB, kept locally only)
+channels/jugnu-stories/new-characters/
