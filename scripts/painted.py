@@ -7,7 +7,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from gen_scenes import CHAR_NOTES, MITTHU_NOTE, PAINTED_FROM  # noqa: E402
+from gen_scenes import CHAR_NOTES, CUTOUT_FROM, MITTHU_NOTE, PAINTED_FROM  # noqa: E402
 from paths import ROOT  # noqa: E402
 
 sys.path.insert(0, str(ROOT / "tools"))
@@ -17,7 +17,10 @@ from name_guard import find_names  # noqa: E402
 def is_painted(story_dir: Path, chan: Path) -> bool:
     cfg = json.loads((chan / "channel.json").read_text(encoding="utf-8"))
     num = int("".join(c for c in story_dir.name.split("_")[0] if c.isdigit()) or 0)
-    return cfg.get("image_style") == "jugnu_painted" and num >= PAINTED_FROM
+    style = cfg.get("image_style")
+    if style == "cutout_v3" and num >= CUTOUT_FROM:
+        sys.exit(f"{story_dir.name}: cast v3 is cut-out only (tools/compose_scene.py), no AI-painted characters")
+    return style in ("jugnu_painted", "cutout_v3") and num >= PAINTED_FROM
 
 
 def style_block(chan: Path) -> str:
@@ -27,6 +30,8 @@ def style_block(chan: Path) -> str:
 
 def sheet(chan: Path, name: str) -> Path:
     p = chan / "characters" / name / "sheet_painted.png"
+    if not p.exists():  # stories before cast v3: old sheets live in characters/_old_cast/
+        p = chan / "characters" / "_old_cast" / name / "sheet_painted.png"
     if not p.exists():
         sys.exit(f"painted sheet missing: {p} (make it first, ~₹6 from the story budget)")
     return p

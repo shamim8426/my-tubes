@@ -26,6 +26,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 from name_guard import find_names  # noqa: E402
 
 PAINTED_FROM = 5  # first story number in Jugnu Painted
+CUTOUT_FROM = 8  # cast v3 (image_style "cutout_v3"): characters are cut-out PNGs (tools/compose_scene.py), never AI
 CHAR_NOTES = {  # added to every painted prompt that has this character (channel_bible 2a)
     "tinku": ("Tinku is very thin with skinny arms and legs and a little taller than Golu; his shirt stripes are always "
               "orange and cream; no cap, scarf, robe, forehead mark or wand."),
@@ -42,11 +43,15 @@ def load(arg):
     spec = json.loads(path.read_text(encoding="utf-8"))
     out_dir = ROOT / spec["out_dir"] if "out_dir" in spec else path.parent / "images"
     chan = channel_dir(channel_of(path))
-    spec["_chars"] = chan / "characters"
     cfg = json.loads((chan / "channel.json").read_text(encoding="utf-8"))
     num = int("".join(c for c in out_dir.parent.name.split("_")[0] if c.isdigit()) or 0)
-    spec["_painted"] = (cfg.get("image_style") == "jugnu_painted" and num >= PAINTED_FROM
-                        and spec.get("style") != "flat")
+    style = cfg.get("image_style")
+    spec["_cutout"] = style == "cutout_v3" and num >= CUTOUT_FROM
+    # stories before cast v3 keep their old sheets in characters/_old_cast/
+    old = (chan / "characters" / "_old_cast") if (chan / "characters" / "_old_cast").exists() and not spec["_cutout"] else None
+    spec["_chars"] = old or chan / "characters"
+    spec["_painted"] = (num >= PAINTED_FROM and spec.get("style") != "flat"
+                        and (style == "jugnu_painted" or (style == "cutout_v3" and num < CUTOUT_FROM)))
     if spec["_painted"]:
         guide = (chan / "brand" / "STYLE_PAINTED.md").read_text(encoding="utf-8")
         spec["_style_block"] = re.search(r"## 1\..*?```\n(.*?)\n```", guide, re.S).group(1).strip()
@@ -69,6 +74,13 @@ def main(arg: str, only: list[int]):
     for scene in spec["scenes"]:
         if only and scene["id"] not in only:
             continue
+        if spec.get("_cutout"):
+            cast = [r for r in scene["refs"] if not r.startswith("scene:") and r not in spec.get("ref_files", {})]
+            if cast:
+                print(f"BLOCKED scene {scene['id']}: cast v3 is never drawn by AI ({', '.join(cast)}); make a "
+                      f"background-only image and place the cut-outs with tools/compose_scene.py; nothing spent",
+                      flush=True)
+                continue
         refs = [ref_path(r, spec, out_dir) for r in scene["refs"]]
         missing = [r for r in refs if not r.exists()]
         if missing:
@@ -79,6 +91,9 @@ def main(arg: str, only: list[int]):
             prompt += ("\n\nThe attached images are approved references. Keep every character's face, body, "
                        "outfit and colours EXACTLY as in the references, keep places consistent with any location "
                        "reference, and match their art style. Draw only the characters this prompt asks for.")
+        elif spec.get("_cutout"):
+            prompt += ("\n\nBackground only: no people, children, animals or insects anywhere; leave open ground in "
+                       "the lower half for characters added later. No text, letters or numbers.")
         else:
             refs = [spec["_chars"] / ("dadi/sheet_painted.png" if spec.get("_painted") else "dadi_sheet.png")]
             prompt += ("\n\nThe attached image is a STYLE reference only: match its art style, outline thickness "

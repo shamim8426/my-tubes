@@ -32,7 +32,8 @@ User sirf "resume karo" likhe to yahi karo: pehle sirf padho, kuch mat badlo, ko
 Title suffix aur thumbnail label `channels/jugnu-stories/channel.json` (`title_suffix`, `brand_label`) se lo.
 Har script, case file aur image prompt se pehle [channels/jugnu-stories/channel_bible.md](channels/jugnu-stories/channel_bible.md) padho aur uske rules exactly follow karo:
 - Permanent characters ka look kabhi mat badlo — bible ke exact descriptions use karo.
-- Script: 110–140 words, 2-sec hook, Golu ka ek galat guess, Dadi ka ek clue observation, end me "बताओ, दोषी कौन?". Answer alag file me.
+- **Cast v3 (user 2026-11-01):** nayi videos me SIRF naya cast (Tinku, Jugnu, Bholu, Ira, Titli, Daroga Singh, Kesar Dadi, Tinku ki mummy), purana cast kabhi nahi (`channel_bible_old_cast.md`, `characters/_old_cast/`).
+- Script: bible section 7 (2-sec hook, Tinku + Jugnu, paheli me ek galat andaza + ek suraag, sawaal; answer alag file me).
 - Naye suspects ka look case file me likho; dobara aayein to wahi look use karo.
 - Har paid image ke baad user ko batao: is image ka cost (₹), aaj ka total, aur ₹500 budget me se kitna bacha. `scripts/gemini_image.py` ye apne aap `cost_log.csv` me likhta aur print karta hai.
 - Paisa lagne wala koi bhi naya kaam user se pooch kar hi karo — sivaay auto mode ke (script approval ke baad koi paid call poochhni nahi; RULES 1/15). User se Hinglish me baat karo.
@@ -115,7 +116,7 @@ econcile_balance.py <AI Studio balance ₹>` (pehli baar checkpoint), Long 03 ke
 
 - Motion: default 2.5D parallax (`tools/parallax.py`, Depth Anything V2 Small, CPU, free; model `models/` me, deploy.ps1 download karta hai). `--motion zoom` = wahi eased camera moves bina depth ke (zoompan ab kahin nahi: wo pixel-pixel kaanpta tha). Motion default (2026-10-25, dono builder): sub-pixel cubic warp, zoom 1.00→1.07 / pan ~4% (pan ke saath halka 1.03→1.06 zoom), ease-in-out, har shot alag move, ek move max 8 s; jaanch `tools/motion_check.py` (jerk ~0.03-0.06 vs zoompan 1.78). Guard artifact par motion aadha ya zoom fallback karta hai (`shared/parallax_log.jsonl`). Shorts: `shots.json` me `"subjects": {"<scene>": [x0,y0,x1,y1]}` (bolne wale ka chehra/haath/ishara) - builder crop 3-85% me rakhta hai, warna centre khiskata/zoom-out karta hai. Overlays: meta.json `"overlays": {"<scene>": [["fireflies", 0.22]], ...}` (fireflies/dust/rain/diya, opacity 0.15-0.35).
 
-- Image style: story 005 se **Jugnu Painted** (`channels/jugnu-stories/brand/STYLE_PAINTED.md`; channel.json `image_style`). `gen_scenes.py` style block + `characters/<naam>/sheet_painted.png` refs apne aap lagata hai (nayi painted sheet ~₹6, story budget se). Kisi studio/film/anime/artist ka naam KAHIN nahi (RULES 12a); `tools/name_guard.py` prompts aur upload metadata check karta hai (naam mila = BLOCK).
+- Image style: story 008 se **cut-out** (`image_style: cutout_v3`): kirdaar = `characters/<id>/<id>_<pose>.png` hu-ba-hu, background-only image (free pehle) par `tools/compose_scene.py` (story ka `cutout_scenes.json`) se; AI kirdaar KABHI nahi banata (gen_scenes / painted.py rok dete hain). Stories 005-007: **Jugnu Painted** (`channels/jugnu-stories/brand/STYLE_PAINTED.md`; channel.json `image_style`). `gen_scenes.py` style block + `characters/<naam>/sheet_painted.png` refs apne aap lagata hai (nayi painted sheet ~₹6, story budget se). Kisi studio/film/anime/artist ka naam KAHIN nahi (RULES 12a); `tools/name_guard.py` prompts aur upload metadata check karta hai (naam mila = BLOCK).
 
 ## Study download (shared/RULES.md 12c)
 - Jab user link de kar kahe "isse seekho". yt-dlp bina login/cookies, sirf `study/` (git-ignored, kabhi sync nahi); koi bhi

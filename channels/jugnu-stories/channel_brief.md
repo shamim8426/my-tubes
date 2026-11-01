@@ -8,16 +8,15 @@ Hindi family stories — mohalla mystery-comedy and moral stories for children a
 Dadi's clues). Goal now: VIEWS (impressions, CTR, watch time, Shorts retention) — Nigraan, `learnings.md`.
 
 ## Look
-Jugnu Painted from story 005 (`brand/STYLE_PAINTED.md`, block verbatim; painted sheets as refs; `gen_scenes.py`).
-Stories up to 004 keep the flat look. No studio/film/artist names anywhere (shared RULES 12a, `tools/name_guard.py`).
+Story 008+: CUT-OUT cast v3 (user 2026-11-01): exact PNGs `characters/<id>/<id>_<pose>.png` on background-only images
+(free first) via `tools/compose_scene.py`; AI never draws a character. 005-007 Jugnu Painted, up to 004 flat. No studio/film/artist names anywhere (shared RULES 12a, `tools/name_guard.py`).
 
 ## Awaazein + roles
-Narrator Charon; characters per `scripts/voices.py` and channel.json "voices" (Golu Leda 0.95, Tara Pulcherrima,
-Tinku Achernar). Way of speaking: `channel_bible.md` 2b.
+Narrator Charon. Cast v3 voices NOT chosen yet (free samples pending). Way of speaking: `channel_bible.md` 2b (draft).
 
 ## Kirdaar
-Permanent: Dadi, Golu, Mitthu, Inspector Pandey + Golu ki toli (Tara, Tinku) — looks NEVER change (`channel_bible.md`
-2, 2a). Side characters: bible 3; new ones per case file, same look when they return.
+Cast v3 only (bible 2): Tinku, Jugnu (firefly), Bholu, Ira, Titli, Daroga Singh, Kesar Dadi, Tinku ki mummy; 8 poses each.
+Old cast retired (`channel_bible_old_cast.md`, `characters/_old_cast/`). New side characters: same drawing style (bible 3).
 
 ## Music
 Mood music from `shared/music/<mood>/` (all in `shared/assets_license.csv`); Shorts music level shared RULES 3 /

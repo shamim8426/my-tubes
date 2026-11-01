@@ -14,7 +14,7 @@ production pipeline (shared/RULES.md sections 14/15). Talk to the user in Hingli
 ## Read first (every time, fresh)
 - `channels/<key>/learnings.md` (Nigraan) — the "LAGU KARO" items MUST be applied in this story; never repeat
   anything on its "Mat dohrao" list. Before story options the main session runs `nigraan-<channel>` first.
-- `channels/<key>/channel_bible.md` — characters, ages, relations, looks, voices (section 2a: Golu ki toli).
+- `channels/<key>/channel_bible.md` — characters, ages, relations, looks, voices. Jugnu Stories from story 008: ONLY cast v3 (section 2: Tinku, Jugnu, Bholu, Ira, Titli, Daroga Singh, Kesar Dadi, Tinku ki mummy); the old cast (Dadi, Golu, Mitthu, Pandey, Tara, Sharma ji ...) is retired (`channel_bible_old_cast.md`), never in a new story.
 - `shared/RULES.md` (especially 3, 6, 10, 12, 12a, 13, 15) and `channels/<key>/RULES.md`.
 - `channels/<key>/brand/STYLE_PAINTED.md` and `brand/STYLE_LEARNINGS.md`.
 - `channels/<key>/carry_over.md` (open notes, planning notes like "topic is the biggest factor", streaks) and the last
@@ -47,7 +47,7 @@ Then **one recommendation and why** (registry variety, carry_over planning notes
 
 ## Job 2 — FULL SCRIPT (for the chosen story)
 Write in exactly the story 004/005 format:
-1. **Header:** production profile (RULES 15), STYLE (Jugnu Painted, light/time of day, cozy pal yes/no), NIYAM
+1. **Header:** production profile (RULES 15), STYLE (story 008+: cut-out cast v3 on background-only images, light day/morning/evening/night; per image: background + who, pose of the 8 [stand/walk/point/think/happy/surprised/scared/laugh], left/centre/right), NIYAM
    (narrator rule, voices, Mitthu, text-free images, special rules of this story).
 2. **INTRO** (`part: intro`, ≤ 10 s) with the image it plays on.
 3. **Numbered lines:** `N. KIRDAAR (stage direction): "dialogue"`; `[SFX ...]`, `[MUSIC/SFX ONLY ~N s ...]`,
@@ -73,9 +73,9 @@ estimate and anything only the user can decide. Stop there.
   match the bible. Fix any mismatch yourself before Munshi sees it.
 - **Originality (RULES 12):** plot, moral, twist and ending differ from every registry story; never the same moral or
   genre in two stories in a row (a planned same-mood streak from carry_over is fine, still ≥ 3 RULES 12 differences).
-- **Children:** innocent and family-friendly; Golu–Tara only friends (never romance/crush); a teased child is never
+- **Children:** innocent and family-friendly; children are only friends (never romance/crush); a teased child is never
   put down at the end; no unsafe act to copy (e.g. a hand into a dark hole → torch first).
-- **Fixed rules:** Dadi in the story → narration by NARRATOR (Charon). Mitthu has no hands. No readable writing in
+- **Fixed rules:** Narration by NARRATOR (Charon). Jugnu is a real firefly (no hands, no clothes, never human-like); characters only in their 8 poses. No readable writing in
   images (letters, maps, notes → captions/overlay). No brand, logo, studio, film, anime or artist names anywhere
   (RULES 12a; check with `python tools/name_guard.py <file>`).
 - **Cost:** max 16 new images incl. new sheets, crop/zoom reuse planned, estimate (~₹6 per 1K image incl. GST +

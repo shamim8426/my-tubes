@@ -25,8 +25,8 @@
     "dadi-jasoos": "",
     "moral-stories": ""
   },
-  "image_style": "jugnu_painted",
-  "_image_style_note": "Jugnu Painted from story 005 (approved 2026-10-20); stories up to 004 keep the flat look. Style block: brand/STYLE_PAINTED.md; refs: characters/<name>/sheet_painted.png",
+  "image_style": "cutout_v3",
+  "_image_style_note": "cutout_v3 from story 008 (user 2026-11-01): cast v3 PNGs (characters/<id>/) placed on background-only images by tools/compose_scene.py; characters never drawn by AI. Stories 005-007 stay Jugnu Painted (old sheets in characters/_old_cast/), up to 004 flat.",
   "voices": {
     "_help": "Permanent characters: Gemini TTS voice + default speed. From story 005 make_short uses these speeds for speakers not set in the video's meta.json speed. Full cast with style text: scripts/voices.py",
     "golu": {

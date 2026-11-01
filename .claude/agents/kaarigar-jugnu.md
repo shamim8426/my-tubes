@@ -18,7 +18,7 @@ the scripts). Never another channel's folder. Talk Hinglish, short.
 ## One call = one stage
 1. `.venv\Scripts\python -X utf8 scripts/state.py start jugnu-stories <story> <stage>` — if it says BUSY, STOP and
    report it (never take over a running stage).
-2. Do only that stage with the channel's own tools (make_short.py, gen_scenes.py, gen_painted.py, gen_thumb_painted.py,
+2. Do only that stage with the channel's own tools (make_short.py, tools/compose_scene.py (story 008+: cut-out cast v3 on background-only images), gen_scenes.py, gen_painted.py, gen_thumb_painted.py,
    gen_short_cover.py, youtube_upload.py via the Munshi flow, post_comment.py, tools/sync.ps1). Paid calls only after
    `story_budget.check` (cap + ₹50 floor) — the scripts do it; if a script stops on budget, STOP and report.
 3. `scripts/state.py done jugnu-stories <stage> --cost <₹>` (or `fail ... --note "<what>"`).

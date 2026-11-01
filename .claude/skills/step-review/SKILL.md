@@ -46,6 +46,7 @@ Use this after every production step of a video in the Story-Channel project. Al
 
 ### 3. Character sheets
 - Look at each sheet with Read. Face, clothes, colours, age look match `channel_bible.md` or the approved spec.
+- Jugnu Stories story 008+: characters are cut-outs (cast v3 PNGs, `tools/compose_scene.py`): only cast v3 / same-style side characters (any old-cast character or an AI-drawn character = BLOCKER); background has no people/animals of its own; feet on the ground, sizes consistent, light matches, nobody cut by the frame edge.
 - Props are period/setting correct (mitti ka chulha, not gas stove).
 
 ### 4. Scene images
