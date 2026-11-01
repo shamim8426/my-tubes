@@ -1,0 +1,470 @@
+{
+ "_note": "Short 012: Permission modes. Facts: official docs code.claude.com/docs/en/permission-modes (read 2026-11-01). New: stage status-bar cycle (mode pill swaps in place on Shift+Tab).",
+ "tag": "Claude Code · Permission modes",
+ "music": {
+  "file": "shared/music/presentation/Funkorama.mp3",
+  "start": 6,
+  "rel": 12
+ },
+ "voice": {
+  "id": "Charon",
+  "style": "Speak like a friendly Indian tech YouTuber chatting casually in Hinglish. Natural conversational pace, warm and clear, a little energetic but not theatrical. No sing-song, no exaggerated emphasis."
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "type": "stage",
+   "wipe": "right",
+   "voice": "Claude हर बार पूछे, या खुद काम करे? ये आप तय करते हो, permission modes से।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "Claude **poochhe** ya khud kare?",
+     "x": 80,
+     "y": 1560,
+     "size": 70,
+     "hlAt": 1.6,
+     "k": [
+      [
+       0.3,
+       {
+        "o": 0,
+        "y": 1610
+       }
+      ],
+      [
+       0.8,
+       {
+        "o": 1,
+        "y": 1570
+       }
+      ],
+      [
+       3.4,
+       {
+        "o": 1
+       }
+      ],
+      [
+       3.8,
+       {
+        "o": 0,
+        "y": 1540
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "text",
+     "html": "**Shift+Tab** se mode badlo",
+     "x": 80,
+     "y": 1560,
+     "size": 70,
+     "hlAt": 4.6,
+     "k": [
+      [
+       3.8,
+       {
+        "o": 0,
+        "y": 1610
+       }
+      ],
+      [
+       4.3,
+       {
+        "o": 1,
+        "y": 1570
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "img",
+     "img": "think",
+     "size": 360,
+     "x": 20,
+     "y": 560,
+     "bob": 1,
+     "k": [
+      [
+       0.1,
+       {
+        "x": -420,
+        "o": 1
+       }
+      ],
+      [
+       0.8,
+       {
+        "x": 20
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "Allow edit?",
+     "cls": "yel shadow",
+     "css": "font-size:44px;font-weight:800;padding:14px 34px;border-radius:30px;white-space:nowrap",
+     "x": 480,
+     "y": 560,
+     "k": [
+      [
+       0.9,
+       {
+        "o": 0,
+        "s": 0.5
+       }
+      ],
+      [
+       1.3,
+       {
+        "o": 1,
+        "s": 1,
+        "e": "b"
+       }
+      ],
+      [
+       3.2,
+       {
+        "o": 1
+       }
+      ],
+      [
+       3.5,
+       {
+        "o": 0
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "Shift+Tab",
+     "cls": "ink",
+     "css": "font-size:52px;font-weight:800;padding:12px 40px;border-radius:24px;border:6px solid #FFD60A;white-space:nowrap",
+     "x": 420,
+     "y": 780,
+     "k": [
+      [
+       2.6,
+       {
+        "o": 0,
+        "s": 0.6
+       }
+      ],
+      [
+       3.0,
+       {
+        "o": 1,
+        "s": 1,
+        "e": "b"
+       }
+      ],
+      [
+       7.5,
+       {
+        "o": 1
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "manual mode on",
+     "cls": "ink mono",
+     "css": "font-size:46px;font-weight:800;padding:20px 44px;border-radius:24px;white-space:nowrap",
+     "x": 200,
+     "y": 1040,
+     "k": [
+      [
+       0.6,
+       {
+        "o": 0,
+        "s": 0.9
+       }
+      ],
+      [
+       0.8999999999999999,
+       {
+        "o": 1,
+        "s": 1,
+        "e": "b"
+       }
+      ],
+      [
+       3.3,
+       {
+        "o": 1
+       }
+      ],
+      [
+       3.5999999999999996,
+       {
+        "o": 0
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "accept edits on",
+     "cls": "yel shadow mono",
+     "css": "font-size:46px;font-weight:800;padding:20px 44px;border-radius:24px;white-space:nowrap",
+     "x": 200,
+     "y": 1040,
+     "k": [
+      [
+       3.4,
+       {
+        "o": 0,
+        "s": 0.9
+       }
+      ],
+      [
+       3.6999999999999997,
+       {
+        "o": 1,
+        "s": 1,
+        "e": "b"
+       }
+      ],
+      [
+       5.2,
+       {
+        "o": 1
+       }
+      ],
+      [
+       5.5,
+       {
+        "o": 0
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "plan mode on",
+     "cls": "ink mono",
+     "css": "font-size:46px;font-weight:800;padding:20px 44px;border-radius:24px;white-space:nowrap",
+     "x": 200,
+     "y": 1040,
+     "k": [
+      [
+       5.3,
+       {
+        "o": 0,
+        "s": 0.9
+       }
+      ],
+      [
+       5.6,
+       {
+        "o": 1,
+        "s": 1,
+        "e": "b"
+       }
+      ],
+      [
+       7.5,
+       {
+        "o": 1
+       }
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "modes",
+   "type": "list",
+   "wipe": "up",
+   "y0": 320,
+   "rh": 300,
+   "ksize": 60,
+   "dsize": 38,
+   "voice": "Manual में सिर्फ़ reads बिना पूछे। acceptEdits में file edits भी। Plan में सिर्फ़ research। Auto में classifier check करता है।",
+   "items": [
+    {
+     "k": "Manual",
+     "d": "sirf reads bina pooche"
+    },
+    {
+     "k": "acceptEdits",
+     "d": "reads + file edits"
+    },
+    {
+     "k": "plan",
+     "d": "research + plan, edits nahi"
+    },
+    {
+     "k": "auto",
+     "d": "classifier actions check karta hai"
+    }
+   ],
+   "cues": [
+    "Manual में",
+    "acceptEdits में",
+    "Plan में",
+    "Auto में"
+   ]
+  },
+  {
+   "id": "cli",
+   "type": "code",
+   "wipe": "left",
+   "file": "terminal",
+   "size": 36,
+   "y0": 330,
+   "voice": "Plan mode के लिए permission-mode plan flag लगाओ। Session में Shift+Tab से mode बदलो, या prompt के आगे slash plan।",
+   "lines": [
+    "claude --permission-mode plan",
+    "",
+    "# session ke andar",
+    "Shift+Tab   # mode badlo",
+    "/plan <prompt>   # ek prompt ke liye"
+   ],
+   "caption": "**Shift+Tab** = mode cycle",
+   "cosize": 64,
+   "cues": [
+    "permission-mode plan",
+    "Shift+Tab",
+    "slash plan"
+   ],
+   "robot": {
+    "img": "work",
+    "x": 610,
+    "y": 1330,
+    "size": 400,
+    "cue": "slash plan"
+   }
+  },
+  {
+   "id": "plan",
+   "type": "flow",
+   "wipe": "up",
+   "tsize": 50,
+   "nh": 200,
+   "gap": 90,
+   "voice": "Plan mode में Claude पहले research करके plan दिखाता है। आप approve करो, तभी edits शुरू होते हैं।",
+   "nodes": [
+    {
+     "t": "Claude research karta hai",
+     "s": "plan mode me"
+    },
+    {
+     "t": "Plan aapke saamne",
+     "s": "aap approve karte ho"
+    },
+    {
+     "t": "Tab edits shuru",
+     "s": "approve se pehle block"
+    }
+   ],
+   "cues": [
+    "Claude पहले",
+    "plan दिखाता",
+    "approve करो",
+    "edits शुरू"
+   ],
+   "robot": {
+    "img": "think",
+    "x": 590,
+    "y": 1190,
+    "size": 440,
+    "cue": "edits शुरू"
+   }
+  },
+  {
+   "id": "extreme",
+   "type": "compare",
+   "wipe": "right",
+   "footcue": 6,
+   "voice": "dontAsk में सिर्फ़ pre-approved tools चलते हैं, CI के लिए। bypassPermissions में सब चलता है, सिर्फ़ container या VM में।",
+   "left": {
+    "title": "dontAsk",
+    "rows": [
+     "Pre-approved tools hi",
+     "Locked-down CI"
+    ]
+   },
+   "right": {
+    "title": "bypass",
+    "rows": [
+     "Sab kuch chalta hai",
+     "Sirf container / VM"
+    ]
+   },
+   "foot": "Bypass **sirf isolated** jagah par",
+   "cues": [
+    "dontAsk",
+    "bypassPermissions",
+    "pre-approved",
+    "CI के लिए",
+    "सब चलता है",
+    "container",
+    "VM में"
+   ],
+   "robot": {
+    "img": "stop",
+    "x": 60,
+    "y": 1280,
+    "size": 420,
+    "cue": "container"
+   }
+  },
+  {
+   "id": "rules",
+   "type": "chips",
+   "wipe": "up",
+   "y0": 330,
+   "parent": "Yaad rakho",
+   "title": "Rules aur safety",
+   "chips": [
+    "Deny rule har mode me",
+    "Protected paths: no auto",
+    "Modes + rules saath"
+   ],
+   "voice": "Deny rules हर mode में block करते हैं, bypass में भी। Protected paths auto-approve नहीं होते। और modes के ऊपर rules लगा सकते हो।",
+   "cues": [
+    "Deny rules",
+    "हर mode",
+    "bypass में",
+    "Protected paths",
+    "modes के ऊपर"
+   ],
+   "robot": {
+    "img": "work",
+    "x": 600,
+    "y": 1340,
+    "size": 400,
+    "cue": "modes के ऊपर"
+   }
+  },
+  {
+   "id": "cta",
+   "type": "cta",
+   "wipe": "left",
+   "size": 96,
+   "voice": "तो आप कौन सा mode use करते हो? Comment में बताओ।",
+   "lines": [
+    "Aap kaunsa",
+    "**mode** use karte ho?"
+   ],
+   "sub": "Comment me batao",
+   "cues": [
+    "आप कौन सा",
+    "mode use",
+    "Comment में"
+   ],
+   "robot": {
+    "img": "thumbs",
+    "x": 570,
+    "y": 1250,
+    "size": 460,
+    "cue": "Comment में"
+   }
+  }
+ ]
+}

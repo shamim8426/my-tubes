@@ -62,3 +62,4 @@ Hand-drawn diagram that draws itself, line by line, in the white/black/yellow lo
   {"t":"line","from":[650,420],"to":[900,418],"color":"#FFD60A","at":6.2,"dur":.4},
   {"t":"text","x":650,"y":395,"text":"poochta hai","size":46,"at":6.0,"dur":.5}]}
 `at` = seconds after the scene starts (take them from the voice cue times, like the other stage layers); `dur` = how long the stroke takes. Wobble is seeded, so every frame is the same for the same t. Labels fade in after their box is drawn. Keep text >= 40 px; keep side notes at least 40 px away from circles.
+- 012 Permission modes: stage opener 'status-bar cycle' (mode pill swaps in place as Shift+Tab key cap pops: manual -> accept edits -> plan).

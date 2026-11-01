@@ -1,850 +1,850 @@
 [
- {
-  "id": "overview",
-  "title": "Overview",
-  "url": "https://code.claude.com/docs/en/overview.md",
-  "summary": "Claude Code is an agentic coding tool that reads your codebase, edits files, runs commands, and integrates with your development tools. Available in your terminal, IDE, desktop app, and browser.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "quickstart",
-  "title": "Quickstart",
-  "url": "https://code.claude.com/docs/en/quickstart.md",
-  "summary": "Install Claude Code in your terminal, sign in, and use the CLI to explore your codebase and make your first code change.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "how-claude-code-works",
-  "title": "How Claude Code works",
-  "url": "https://code.claude.com/docs/en/how-claude-code-works.md",
-  "summary": "Understand the agentic loop, built-in tools, and how Claude Code interacts with your project.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "features-overview",
-  "title": "Extend Claude Code",
-  "url": "https://code.claude.com/docs/en/features-overview.md",
-  "summary": "Understand when to use CLAUDE.md, Skills, subagents, hooks, MCP, and plugins.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "claude-directory",
-  "title": "Explore the .claude directory",
-  "url": "https://code.claude.com/docs/en/claude-directory.md",
-  "summary": "Where Claude Code reads CLAUDE.md, settings.json, hooks, skills, commands, subagents, workflows, rules, and auto memory. Explore the .claude directory in your project and ~/.claude in your home directory.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "context-window",
-  "title": "Explore the context window",
-  "url": "https://code.claude.com/docs/en/context-window.md",
-  "summary": "An interactive simulation of how Claude Code's context window fills during a session. See what loads automatically, what each file read costs, and when rules and hooks fire.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "prompt-caching",
-  "title": "How Claude Code uses prompt caching",
-  "url": "https://code.claude.com/docs/en/prompt-caching.md",
-  "summary": "Claude Code manages prompt caching automatically. See why a model switch triggers a slow uncached turn, what `/compact` costs, why CLAUDE.md edits don't apply mid-session, and how to check your cache hit rate.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "memory",
-  "title": "How Claude remembers your project",
-  "url": "https://code.claude.com/docs/en/memory.md",
-  "summary": "Give Claude persistent instructions with CLAUDE.md or AGENTS.md files, and let Claude accumulate learnings automatically with auto memory.",
-  "status": "uploaded",
-  "story": "010_memory"
- },
- {
-  "id": "sessions",
-  "title": "Manage sessions",
-  "url": "https://code.claude.com/docs/en/sessions.md",
-  "summary": "Name, resume, branch, and switch between Claude Code conversations. Covers `--continue`, `--resume`, `--from-pr`, the `/resume` picker, session naming, exporting transcripts, and where transcripts are stored.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "common-workflows",
-  "title": "Common workflows",
-  "url": "https://code.claude.com/docs/en/common-workflows.md",
-  "summary": "Step-by-step guides for exploring codebases, fixing bugs, refactoring, testing, and other everyday tasks with Claude Code.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "prompt-library",
-  "title": "Prompt library",
-  "url": "https://code.claude.com/docs/en/prompt-library.md",
-  "summary": "Copy-paste prompts for Claude Code, tagged by task and role.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "best-practices",
-  "title": "Best practices for Claude Code",
-  "url": "https://code.claude.com/docs/en/best-practices.md",
-  "summary": "Get more out of Claude Code: tell Claude what it can't see, give it a check to run, and enforce the rules that can't have exceptions.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "platforms",
-  "title": "Platforms and integrations",
-  "url": "https://code.claude.com/docs/en/platforms.md",
-  "summary": "Choose where to run Claude Code and what to connect it to. Compare the CLI, Desktop, VS Code, JetBrains, web, mobile, and integrations like Chrome, Slack, and CI/CD.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "remote-control",
-  "title": "Continue local sessions from any device with Remote Control",
-  "url": "https://code.claude.com/docs/en/remote-control.md",
-  "summary": "Continue a local Claude Code session from your phone, tablet, or any browser using Remote Control. Works with claude.ai/code and the Claude mobile app.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "claude-projects",
-  "title": "Let Claude coordinate ongoing work with Projects",
-  "url": "https://code.claude.com/docs/en/claude-projects.md",
-  "summary": "Hand Claude a stream of related tasks in one conversation and let it run them as parallel cloud sessions that share repositories, instructions, and memory.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "mobile",
-  "title": "Claude Code on mobile",
-  "url": "https://code.claude.com/docs/en/mobile.md",
-  "summary": "Start, monitor, and steer Claude Code tasks from your phone with the Claude app for iOS and Android.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "chrome",
-  "title": "Use Claude Code with Chrome",
-  "url": "https://code.claude.com/docs/en/chrome.md",
-  "summary": "Connect Claude Code to your Chrome browser to test web apps, debug with console logs, automate form filling, and extract data from web pages.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "computer-use",
-  "title": "Let Claude use your computer from the CLI",
-  "url": "https://code.claude.com/docs/en/computer-use.md",
-  "summary": "Enable computer use in the Claude Code CLI so Claude can open apps, click, type, and see your screen on macOS. Test native apps, debug visual issues, and automate GUI-only tools without leaving your terminal.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "vs-code",
-  "title": "Use Claude Code in VS Code",
-  "url": "https://code.claude.com/docs/en/vs-code.md",
-  "summary": "Install and configure the Claude Code extension for VS Code. Get AI coding assistance with inline diffs, @-mentions, plan review, and keyboard shortcuts.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "web-quickstart",
-  "title": "Get started with Claude Code in the cloud",
-  "url": "https://code.claude.com/docs/en/web-quickstart.md",
-  "summary": "Run Claude Code in the cloud from your browser or phone. Connect a GitHub repository, submit a task, and review the PR without local setup.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "claude-code-on-the-web",
-  "title": "Use Claude Code in the cloud",
-  "url": "https://code.claude.com/docs/en/claude-code-on-the-web.md",
-  "summary": "Run Claude Code sessions in the cloud from your browser, phone, Desktop app, or terminal, move them with `--cloud` and `--teleport`, and auto-fix pull requests.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "routines",
-  "title": "Automate work with scheduled tasks",
-  "url": "https://code.claude.com/docs/en/routines.md",
-  "summary": "Put Claude Code on autopilot. Create scheduled tasks, formerly routines, that run in the cloud on a schedule, on API calls, or on GitHub events.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "desktop-quickstart",
-  "title": "Get started with the desktop app",
-  "url": "https://code.claude.com/docs/en/desktop-quickstart.md",
-  "summary": "Install the Claude desktop app, open the Code tab, and start your first Claude Code session on a project folder on your computer.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "desktop",
-  "title": "Desktop application",
-  "url": "https://code.claude.com/docs/en/desktop.md",
-  "summary": "Get more out of Claude Code Desktop: parallel sessions with Git isolation, drag-and-drop pane layout, integrated terminal and file editor, side chats, computer use, Dispatch sessions from your phone, visual diff review, app previews, PR monitoring, connectors, and enterprise configuration.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "desktop-scheduled-tasks",
-  "title": "Schedule recurring tasks in Claude Code Desktop",
-  "url": "https://code.claude.com/docs/en/desktop-scheduled-tasks.md",
-  "summary": "Set up scheduled tasks in Claude Code Desktop to run Claude automatically on a recurring basis for daily code reviews, dependency audits, or morning briefings.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "code-review-local",
-  "title": "Review locally with /code-review",
-  "url": "https://code.claude.com/docs/en/code-review-local.md",
-  "summary": "Run `/code-review` in a Claude Code session to find bugs in your branch's changes, point the review at a pull request or path, and have Claude apply the fixes.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "ultrareview",
-  "title": "Find bugs with ultrareview",
-  "url": "https://code.claude.com/docs/en/ultrareview.md",
-  "summary": "Run a deep, multi-agent code review in the cloud with /code-review ultra to find and verify bugs before you merge.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "code-review",
-  "title": "Code Review",
-  "url": "https://code.claude.com/docs/en/code-review.md",
-  "summary": "Catch bugs in GitHub pull requests with Code Review: Claude reviews each change, verifies its findings, and comments inline. For Team and Enterprise plans",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "github-actions",
-  "title": "Claude Code GitHub Actions",
-  "url": "https://code.claude.com/docs/en/github-actions.md",
-  "summary": "Run Claude Code in GitHub Actions workflows to respond to @claude mentions, automate tasks, and turn issues into pull requests",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "github-actions-cloud-providers",
-  "title": "Use Claude Code GitHub Actions with cloud providers",
-  "url": "https://code.claude.com/docs/en/github-actions-cloud-providers.md",
-  "summary": "Run Claude Code GitHub Actions through Amazon Bedrock, Google Cloud's Agent Platform, or Microsoft Foundry instead of the Claude API",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "gitlab-ci-cd",
-  "title": "Claude Code GitLab CI/CD",
-  "url": "https://code.claude.com/docs/en/gitlab-ci-cd.md",
-  "summary": "Learn about integrating Claude Code into your development workflow with GitLab CI/CD",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "agents",
-  "title": "Run agents in parallel",
-  "url": "https://code.claude.com/docs/en/agents.md",
-  "summary": "Compare the ways Claude Code can take on multiple tasks at once: subagents, agent view, agent teams, dynamic workflows, and projects.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "sub-agents",
-  "title": "Create custom subagents",
-  "url": "https://code.claude.com/docs/en/sub-agents.md",
-  "summary": "Create and use specialized AI subagents in Claude Code for task-specific workflows and improved context management.",
-  "status": "uploaded",
-  "story": "007_subagents"
- },
- {
-  "id": "agent-view",
-  "title": "Manage multiple agents with agent view",
-  "url": "https://code.claude.com/docs/en/agent-view.md",
-  "summary": "Dispatch and manage many Claude Code sessions from one screen. Agent view shows what every session is doing and which ones need your input.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "agent-teams",
-  "title": "Orchestrate teams of Claude Code sessions",
-  "url": "https://code.claude.com/docs/en/agent-teams.md",
-  "summary": "Coordinate multiple Claude Code instances working together as a team, with shared tasks, inter-agent messaging, and centralized management.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "cross-session-messaging",
-  "title": "Message your other Claude Code sessions",
-  "url": "https://code.claude.com/docs/en/cross-session-messaging.md",
-  "summary": "Let Claude list and message your other Claude Code sessions on this machine, and reach your sessions on other machines or in the cloud.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "workflows",
-  "title": "Orchestrate subagents at scale with dynamic workflows",
-  "url": "https://code.claude.com/docs/en/workflows.md",
-  "summary": "Dynamic workflows orchestrate many subagents from a script Claude writes and you can rerun. Use them for codebase audits, large migrations, and cross-checked research.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "worktrees",
-  "title": "Run parallel sessions with worktrees",
-  "url": "https://code.claude.com/docs/en/worktrees.md",
-  "summary": "Isolate parallel Claude Code sessions in separate git worktrees so changes don't collide. Covers the `--worktree` flag, subagent isolation, `.worktreeinclude`, cleanup, and non-git VCS hooks.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "mcp-quickstart",
-  "title": "Connect to MCP servers",
-  "url": "https://code.claude.com/docs/en/mcp-quickstart.md",
-  "summary": "Add an MCP server to Claude Code, verify the connection, and find the configuration on disk.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "mcp",
-  "title": "Connect Claude Code to tools via MCP",
-  "url": "https://code.claude.com/docs/en/mcp.md",
-  "summary": "Learn how to connect Claude Code to your tools with the Model Context Protocol.",
-  "status": "uploaded",
-  "story": "009_mcp"
- },
- {
-  "id": "skills",
-  "title": "Extend Claude with skills",
-  "url": "https://code.claude.com/docs/en/skills.md",
-  "summary": "Create, manage, and share skills to extend Claude's capabilities in Claude Code. Includes custom commands and bundled skills.",
-  "status": "uploaded",
-  "story": "008_skills"
- },
- {
-  "id": "artifacts",
-  "title": "Share session output as artifacts",
-  "url": "https://code.claude.com/docs/en/artifacts.md",
-  "summary": "Artifacts turn Claude Code's work into live, interactive pages on claude.ai that you can keep private, share with your organization, or publish to a public link.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "hooks-guide",
-  "title": "Automate actions with hooks",
-  "url": "https://code.claude.com/docs/en/hooks-guide.md",
-  "summary": "Run shell commands automatically when Claude Code edits files, finishes tasks, or needs input. Format code, send notifications, validate commands, and enforce project rules.",
-  "status": "uploaded",
-  "story": "006_hooks"
- },
- {
-  "id": "channels",
-  "title": "Push events into a running session with channels",
-  "url": "https://code.claude.com/docs/en/channels.md",
-  "summary": "Use channels to push messages, alerts, and webhooks into your Claude Code session from an MCP server. Forward CI results, chat messages, and monitoring events so Claude can react while you're away.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "scheduled-tasks",
-  "title": "Run prompts on a schedule",
-  "url": "https://code.claude.com/docs/en/scheduled-tasks.md",
-  "summary": "Use /loop and the cron scheduling tools to run prompts repeatedly, poll for status, or set one-time reminders within a Claude Code session.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "goal",
-  "title": "Keep Claude working toward a goal",
-  "url": "https://code.claude.com/docs/en/goal.md",
-  "summary": "Set a completion condition with /goal and Claude keeps working until it's met, a model judges it impossible, or an error you have to fix clears the goal.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "headless",
-  "title": "Run Claude Code programmatically",
-  "url": "https://code.claude.com/docs/en/headless.md",
-  "summary": "Use the Agent SDK to run Claude Code programmatically from the CLI, Python, or TypeScript.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "deep-links",
-  "title": "Launch sessions from links",
-  "url": "https://code.claude.com/docs/en/deep-links.md",
-  "summary": "Open a Claude Code terminal session from a URL. Embed `claude-cli://` links in runbooks, alerts, and dashboards so a click opens Claude Code in the right repo with the right prompt.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "large-codebases",
-  "title": "Set up Claude Code in a monorepo or large codebase",
-  "url": "https://code.claude.com/docs/en/large-codebases.md",
-  "summary": "Configure Claude Code for monorepos and large single-tree codebases with nested CLAUDE.md files, sparse worktrees, code intelligence, and per-package skills so Claude stays focused on the code you're working in.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "debug-your-config",
-  "title": "Debug your configuration",
-  "url": "https://code.claude.com/docs/en/debug-your-config.md",
-  "summary": "Diagnose why CLAUDE.md, settings, hooks, MCP servers, or skills aren't taking effect. Use /context, /doctor, /hooks, and /mcp to see what actually loaded.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "errors",
-  "title": "Error reference",
-  "url": "https://code.claude.com/docs/en/errors.md",
-  "summary": "Look up Claude Code runtime error messages with what each one means and how to fix it.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "plugins-overview",
-  "title": "Plugins overview",
-  "url": "https://code.claude.com/docs/en/plugins/overview.md",
-  "summary": "Understand what a Claude Code plugin is, when you need one instead of a standalone skill or MCP server, and which page to read to install or create one.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "plugins-install",
-  "title": "Install and manage plugins",
-  "url": "https://code.claude.com/docs/en/plugins/install.md",
-  "summary": "Install Claude Code plugins from a marketplace on any surface you use, choose an install scope, and update or remove them later.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "plugins-anthropic-marketplaces",
-  "title": "Anthropic's marketplaces",
-  "url": "https://code.claude.com/docs/en/plugins/anthropic-marketplaces.md",
-  "summary": "Anthropic's official and community plugin marketplaces for Claude Code: their names, repositories, how you add each, and where to browse their plugins.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "plugins-code-intelligence",
-  "title": "Code intelligence plugins",
-  "url": "https://code.claude.com/docs/en/plugins/code-intelligence.md",
-  "summary": "Install a language server plugin so Claude sees type errors after edits and navigates code by symbol, and answer the LSP plugin recommendation dialog.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "plugins-security",
-  "title": "Plugin security and trust",
-  "url": "https://code.claude.com/docs/en/plugins/security.md",
-  "summary": "Decide whether to trust a plugin before you install it, from what a plugin can do on your machine to how to review one and remove it.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "plugins-create",
-  "title": "Create a Claude Code plugin",
-  "url": "https://code.claude.com/docs/en/plugins/create.md",
-  "summary": "Build your first Claude Code plugin from an empty directory, test it without a marketplace, and convert an existing .claude/ setup.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "plugins-components",
-  "title": "Add components to a plugin",
-  "url": "https://code.claude.com/docs/en/plugins/components.md",
-  "summary": "Add skills, hooks, MCP servers, and every other component type to a Claude Code plugin, with an example that validates for each.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "plugins-dependencies",
-  "title": "Plugin dependencies",
-  "url": "https://code.claude.com/docs/en/plugins/dependencies.md",
-  "summary": "Declare the plugins your plugin depends on, with version ranges such as ^1.2, and see how Claude Code installs, resolves, and prunes them.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "plugin-evals",
-  "title": "Test plugins with evals",
-  "url": "https://code.claude.com/docs/en/plugin-evals.md",
-  "summary": "Write eval cases for your Claude Code plugin, run them with claude plugin eval, grade the results, compare against a no-plugin baseline, and gate CI on the score.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "plugins-publish",
-  "title": "Publish and distribute a plugin",
-  "url": "https://code.claude.com/docs/en/plugins/publish.md",
-  "summary": "Publish a Claude Code plugin through your own marketplace or Anthropic's directory, with a pre-release checklist and how users get updates.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "plugins-measure",
-  "title": "Measure plugin cost and usage",
-  "url": "https://code.claude.com/docs/en/plugins/measure.md",
-  "summary": "Measure a Claude Code plugin's token cost, find out whether people still use it, and pick the telemetry events for organization-wide plugin questions.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "plugins-cli-hints",
-  "title": "Recommend your plugin from your CLI",
-  "url": "https://code.claude.com/docs/en/plugins/cli-hints.md",
-  "summary": "Prompt Claude Code users to install your official-marketplace plugin by emitting a claude-code-hint tag from your CLI or SDK.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "plugins-mods-overview",
-  "title": "Mods overview",
-  "url": "https://code.claude.com/docs/en/plugins/mods/overview.md",
-  "summary": "Add panes, commands, and tool call rules to Claude Code with a mod. See what a mod can do, how to make or install one, and where mods run.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "plugins-mods-create",
-  "title": "Create a mod",
-  "url": "https://code.claude.com/docs/en/plugins/mods/create.md",
-  "summary": "Have Claude write a Claude Code mod from a description, or write one yourself that counts tool calls and adds a command. Learn the reload and validate loop.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "plugins-mods-reference",
-  "title": "Mods reference",
-  "url": "https://code.claude.com/docs/en/plugins/mods/reference.md",
-  "summary": "Complete reference for Claude Code mods: hooks module layout, events, mods API methods, render sites, elements by surface, limits, and settings.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "plugins-mods-interface",
-  "title": "Draw in the interface with a mod",
-  "url": "https://code.claude.com/docs/en/plugins/mods/interface.md",
-  "summary": "Draw panes, a band above the prompt, buttons, and text fields from a Claude Code mod, handle presses and input, and keep state between redraws and sessions.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "plugins-mods-gallery",
-  "title": "Interface gallery for mods",
-  "url": "https://code.claude.com/docs/en/plugins/mods/gallery.md",
-  "summary": "See the interface elements a Claude Code mod can draw, such as text, buttons, fields, Markdown, code, and diffs, with sample code and terminal screenshots.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "plugins-mods-events",
-  "title": "React to events with a mod",
-  "url": "https://code.claude.com/docs/en/plugins/mods/events.md",
-  "summary": "Handle Claude Code events from a mod: observe, rewrite, or answer tool calls, prompts, and turns, filter which events a hook handles, and plan for other mods.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "plugins-mods-api",
-  "title": "Use the mods API",
-  "url": "https://code.claude.com/docs/en/plugins/mods/api.md",
-  "summary": "Call the mods API from a Claude Code mod to add commands and tools, call a model, run work on a timer, message other sessions, and reach files and the network.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "plugins-mods-test",
-  "title": "Test a mod",
-  "url": "https://code.claude.com/docs/en/plugins/mods/test.md",
-  "summary": "Write automated tests for a Claude Code mod that fire events, stub Claude Code's answers, and press buttons, with no session, sign-in, or network.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "plugins-create-marketplace",
-  "title": "Create a marketplace",
-  "url": "https://code.claude.com/docs/en/plugins/create-marketplace.md",
-  "summary": "Build a plugin marketplace from a marketplace.json file and test it locally before you host it.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "plugins-host-marketplace",
-  "title": "Host and maintain a marketplace",
-  "url": "https://code.claude.com/docs/en/plugins/host-marketplace.md",
-  "summary": "Publish a plugin marketplace where users can reach it, grant access to a private one, and release updates and renames without breaking installs.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "plugins-relevance",
-  "title": "Recommend plugins for your org",
-  "url": "https://code.claude.com/docs/en/plugins/relevance.md",
-  "summary": "Add a relevance block to marketplace plugin entries so Claude Code suggests them when a user's work matches, and allowlist the marketplace in managed settings.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "plugins-org",
-  "title": "Manage Claude Code plugins for your organization",
-  "url": "https://code.claude.com/docs/en/plugins/org.md",
-  "summary": "Control which plugins Claude Code installs and allows across your organization through managed settings.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "plugins-loading",
-  "title": "Plugin loading reference",
-  "url": "https://code.claude.com/docs/en/plugins/loading.md",
-  "summary": "Trace where Claude Code loads each plugin from, which settings file decides whether it loads, and why an update changed nothing.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "plugins-manifest-reference",
-  "title": "Plugin manifest reference",
-  "url": "https://code.claude.com/docs/en/plugins/manifest-reference.md",
-  "summary": "Complete reference for plugin.json: every field with its type and default, accepted path forms, and the userConfig and environment variable schemas.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "plugins-marketplace-reference",
-  "title": "Marketplace reference",
-  "url": "https://code.claude.com/docs/en/plugins/marketplace-reference.md",
-  "summary": "Complete reference for marketplace.json fields, plugin entries, and the plugin and marketplace source objects, with where each is valid.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "plugins-cli-reference",
-  "title": "Plugin commands reference",
-  "url": "https://code.claude.com/docs/en/plugins/cli-reference.md",
-  "summary": "Reference for the claude plugin shell commands, /plugin and /reload-plugins in a session, and the flags that load a plugin for one session.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "setup",
-  "title": "Advanced setup",
-  "url": "https://code.claude.com/docs/en/setup.md",
-  "summary": "System requirements, platform-specific installation, version management, and uninstallation for Claude Code.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "authentication",
-  "title": "Authentication",
-  "url": "https://code.claude.com/docs/en/authentication.md",
-  "summary": "Log in to Claude Code and configure authentication for individuals, teams, and organizations.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "auto-mode-config",
-  "title": "Configure auto mode",
-  "url": "https://code.claude.com/docs/en/auto-mode-config.md",
-  "summary": "Tell the auto mode classifier which repos, buckets, and domains your organization trusts. Set environment context, override the default block and allow rules, and inspect your effective config with the auto-mode CLI subcommands.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "feature-availability",
-  "title": "Feature availability",
-  "url": "https://code.claude.com/docs/en/feature-availability.md",
-  "summary": "Compare which Claude Code features are available across Anthropic subscription plans, the Anthropic Console, Amazon Bedrock, Claude Platform on AWS, Google Cloud's Agent Platform, and Microsoft Foundry.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "security",
-  "title": "Security",
-  "url": "https://code.claude.com/docs/en/security.md",
-  "summary": "Learn about Claude Code's security safeguards and best practices for safe usage.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "settings",
-  "title": "Settings files and precedence",
-  "url": "https://code.claude.com/docs/en/settings.md",
-  "summary": "Change Claude Code settings, pick the scope a key belongs in, verify the change, and learn which value Claude Code uses when a key is set in several places.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "settings-example",
-  "title": "Example settings files",
-  "url": "https://code.claude.com/docs/en/settings-example.md",
-  "summary": "Realistic settings.json files for a developer, a team, and an organization: copy one, keep the keys you want, and change the values.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "permissions",
-  "title": "Configure permissions",
-  "url": "https://code.claude.com/docs/en/permissions.md",
-  "summary": "Control what Claude Code can access and do with fine-grained permission rules, modes, and managed policies.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "permission-modes",
-  "title": "Choose a permission mode",
-  "url": "https://code.claude.com/docs/en/permission-modes.md",
-  "summary": "Control whether Claude asks before acting. Switch permission modes with Shift+Tab in the CLI, the mode indicator in VS Code, or the mode selector in Desktop.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "sandboxing",
-  "title": "Configure the sandboxed Bash tool",
-  "url": "https://code.claude.com/docs/en/sandboxing.md",
-  "summary": "Restrict the files and network hosts Claude Code's shell commands can reach with the built-in sandbox. Turn it on, set the boundary, and fix what it breaks.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "sandbox-environments",
-  "title": "Choose a sandbox environment",
-  "url": "https://code.claude.com/docs/en/sandbox-environments.md",
-  "summary": "Compare Claude Code sandbox options: the built-in sandboxed Bash tool, sandbox runtime, dev containers, Docker, and VMs. Choose the right isolation for your threat model.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "model-config",
-  "title": "Model configuration",
-  "url": "https://code.claude.com/docs/en/model-config.md",
-  "summary": "Configure which model Claude Code uses, effort levels, extended context, and the auto-compact window",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "fast-mode",
-  "title": "Speed up responses with fast mode",
-  "url": "https://code.claude.com/docs/en/fast-mode.md",
-  "summary": "Get faster Opus responses in Claude Code by toggling fast mode.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "advisor",
-  "title": "Escalate hard decisions with the advisor tool",
-  "url": "https://code.claude.com/docs/en/advisor.md",
-  "summary": "Pair your main model with a stronger advisor model that Claude consults at key moments during a task.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "output-styles",
-  "title": "Output styles",
-  "url": "https://code.claude.com/docs/en/output-styles.md",
-  "summary": "Change Claude Code's role, tone, and response format with a built-in output style such as Concise or Explanatory, or write a custom style.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "fullscreen",
-  "title": "Fullscreen rendering",
-  "url": "https://code.claude.com/docs/en/fullscreen.md",
-  "summary": "Enable a smoother, flicker-free rendering mode with mouse support and stable memory usage in long conversations.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "accessibility",
-  "title": "Use Claude Code with a screen reader",
-  "url": "https://code.claude.com/docs/en/accessibility.md",
-  "summary": "Set up Claude Code for screen readers such as VoiceOver and NVDA, plus settings for screen magnifiers, reduced motion, and colorblind-friendly themes.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "voice-dictation",
-  "title": "Voice dictation",
-  "url": "https://code.claude.com/docs/en/voice-dictation.md",
-  "summary": "Speak your prompts in the Claude Code CLI with hold-to-record or tap-to-record voice dictation.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "statusline",
-  "title": "Customize your status line",
-  "url": "https://code.claude.com/docs/en/statusline.md",
-  "summary": "Configure a custom status bar to monitor context window usage, costs, and git status in Claude Code",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "keybindings",
-  "title": "Customize keyboard shortcuts",
-  "url": "https://code.claude.com/docs/en/keybindings.md",
-  "summary": "Customize keyboard shortcuts in Claude Code with a keybindings configuration file.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "cli-reference",
-  "title": "CLI reference",
-  "url": "https://code.claude.com/docs/en/cli-reference.md",
-  "summary": "Complete reference for Claude Code command-line interface, including commands and flags.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "commands",
-  "title": "Commands",
-  "url": "https://code.claude.com/docs/en/commands.md",
-  "summary": "Complete reference for commands available in Claude Code, including built-in commands and bundled skills.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "tools-reference",
-  "title": "Tools reference",
-  "url": "https://code.claude.com/docs/en/tools-reference.md",
-  "summary": "Complete reference for the tools Claude Code can use, including permission requirements and per-tool behavior.",
-  "status": "uploaded",
-  "story": "012_tools"
- },
- {
-  "id": "interactive-mode",
-  "title": "Interactive mode",
-  "url": "https://code.claude.com/docs/en/interactive-mode.md",
-  "summary": "Complete reference for keyboard shortcuts, input modes, and interactive features in Claude Code sessions.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "checkpointing",
-  "title": "Checkpointing",
-  "url": "https://code.claude.com/docs/en/checkpointing.md",
-  "summary": "Track, rewind, and summarize Claude's edits and conversation to manage session state.",
-  "status": "uploaded",
-  "story": "011_checkpointing"
- },
- {
-  "id": "hooks",
-  "title": "Hooks reference",
-  "url": "https://code.claude.com/docs/en/hooks.md",
-  "summary": "Reference for Claude Code hook events, configuration schema, JSON input/output formats, exit codes, async hooks, HTTP hooks, prompt hooks, and MCP tool hooks.",
-  "status": "todo",
-  "story": null
- },
- {
-  "id": "channels-reference",
-  "title": "Channels reference",
-  "url": "https://code.claude.com/docs/en/channels-reference.md",
-  "summary": "Build an MCP server that pushes webhooks, alerts, and chat messages into a Claude Code session. Reference for the channel contract: capability declaration, notification events, reply tools, sender gating, and permission relay.",
-  "status": "todo",
-  "story": null
- }
+  {
+    "id": "overview",
+    "title": "Overview",
+    "url": "https://code.claude.com/docs/en/overview.md",
+    "summary": "Claude Code is an agentic coding tool that reads your codebase, edits files, runs commands, and integrates with your development tools. Available in your terminal, IDE, desktop app, and browser.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "quickstart",
+    "title": "Quickstart",
+    "url": "https://code.claude.com/docs/en/quickstart.md",
+    "summary": "Install Claude Code in your terminal, sign in, and use the CLI to explore your codebase and make your first code change.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "how-claude-code-works",
+    "title": "How Claude Code works",
+    "url": "https://code.claude.com/docs/en/how-claude-code-works.md",
+    "summary": "Understand the agentic loop, built-in tools, and how Claude Code interacts with your project.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "features-overview",
+    "title": "Extend Claude Code",
+    "url": "https://code.claude.com/docs/en/features-overview.md",
+    "summary": "Understand when to use CLAUDE.md, Skills, subagents, hooks, MCP, and plugins.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "claude-directory",
+    "title": "Explore the .claude directory",
+    "url": "https://code.claude.com/docs/en/claude-directory.md",
+    "summary": "Where Claude Code reads CLAUDE.md, settings.json, hooks, skills, commands, subagents, workflows, rules, and auto memory. Explore the .claude directory in your project and ~/.claude in your home directory.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "context-window",
+    "title": "Explore the context window",
+    "url": "https://code.claude.com/docs/en/context-window.md",
+    "summary": "An interactive simulation of how Claude Code's context window fills during a session. See what loads automatically, what each file read costs, and when rules and hooks fire.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "prompt-caching",
+    "title": "How Claude Code uses prompt caching",
+    "url": "https://code.claude.com/docs/en/prompt-caching.md",
+    "summary": "Claude Code manages prompt caching automatically. See why a model switch triggers a slow uncached turn, what `/compact` costs, why CLAUDE.md edits don't apply mid-session, and how to check your cache hit rate.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "memory",
+    "title": "How Claude remembers your project",
+    "url": "https://code.claude.com/docs/en/memory.md",
+    "summary": "Give Claude persistent instructions with CLAUDE.md or AGENTS.md files, and let Claude accumulate learnings automatically with auto memory.",
+    "status": "uploaded",
+    "story": "010_memory"
+  },
+  {
+    "id": "sessions",
+    "title": "Manage sessions",
+    "url": "https://code.claude.com/docs/en/sessions.md",
+    "summary": "Name, resume, branch, and switch between Claude Code conversations. Covers `--continue`, `--resume`, `--from-pr`, the `/resume` picker, session naming, exporting transcripts, and where transcripts are stored.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "common-workflows",
+    "title": "Common workflows",
+    "url": "https://code.claude.com/docs/en/common-workflows.md",
+    "summary": "Step-by-step guides for exploring codebases, fixing bugs, refactoring, testing, and other everyday tasks with Claude Code.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "prompt-library",
+    "title": "Prompt library",
+    "url": "https://code.claude.com/docs/en/prompt-library.md",
+    "summary": "Copy-paste prompts for Claude Code, tagged by task and role.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "best-practices",
+    "title": "Best practices for Claude Code",
+    "url": "https://code.claude.com/docs/en/best-practices.md",
+    "summary": "Get more out of Claude Code: tell Claude what it can't see, give it a check to run, and enforce the rules that can't have exceptions.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "platforms",
+    "title": "Platforms and integrations",
+    "url": "https://code.claude.com/docs/en/platforms.md",
+    "summary": "Choose where to run Claude Code and what to connect it to. Compare the CLI, Desktop, VS Code, JetBrains, web, mobile, and integrations like Chrome, Slack, and CI/CD.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "remote-control",
+    "title": "Continue local sessions from any device with Remote Control",
+    "url": "https://code.claude.com/docs/en/remote-control.md",
+    "summary": "Continue a local Claude Code session from your phone, tablet, or any browser using Remote Control. Works with claude.ai/code and the Claude mobile app.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "claude-projects",
+    "title": "Let Claude coordinate ongoing work with Projects",
+    "url": "https://code.claude.com/docs/en/claude-projects.md",
+    "summary": "Hand Claude a stream of related tasks in one conversation and let it run them as parallel cloud sessions that share repositories, instructions, and memory.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "mobile",
+    "title": "Claude Code on mobile",
+    "url": "https://code.claude.com/docs/en/mobile.md",
+    "summary": "Start, monitor, and steer Claude Code tasks from your phone with the Claude app for iOS and Android.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "chrome",
+    "title": "Use Claude Code with Chrome",
+    "url": "https://code.claude.com/docs/en/chrome.md",
+    "summary": "Connect Claude Code to your Chrome browser to test web apps, debug with console logs, automate form filling, and extract data from web pages.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "computer-use",
+    "title": "Let Claude use your computer from the CLI",
+    "url": "https://code.claude.com/docs/en/computer-use.md",
+    "summary": "Enable computer use in the Claude Code CLI so Claude can open apps, click, type, and see your screen on macOS. Test native apps, debug visual issues, and automate GUI-only tools without leaving your terminal.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "vs-code",
+    "title": "Use Claude Code in VS Code",
+    "url": "https://code.claude.com/docs/en/vs-code.md",
+    "summary": "Install and configure the Claude Code extension for VS Code. Get AI coding assistance with inline diffs, @-mentions, plan review, and keyboard shortcuts.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "web-quickstart",
+    "title": "Get started with Claude Code in the cloud",
+    "url": "https://code.claude.com/docs/en/web-quickstart.md",
+    "summary": "Run Claude Code in the cloud from your browser or phone. Connect a GitHub repository, submit a task, and review the PR without local setup.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "claude-code-on-the-web",
+    "title": "Use Claude Code in the cloud",
+    "url": "https://code.claude.com/docs/en/claude-code-on-the-web.md",
+    "summary": "Run Claude Code sessions in the cloud from your browser, phone, Desktop app, or terminal, move them with `--cloud` and `--teleport`, and auto-fix pull requests.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "routines",
+    "title": "Automate work with scheduled tasks",
+    "url": "https://code.claude.com/docs/en/routines.md",
+    "summary": "Put Claude Code on autopilot. Create scheduled tasks, formerly routines, that run in the cloud on a schedule, on API calls, or on GitHub events.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "desktop-quickstart",
+    "title": "Get started with the desktop app",
+    "url": "https://code.claude.com/docs/en/desktop-quickstart.md",
+    "summary": "Install the Claude desktop app, open the Code tab, and start your first Claude Code session on a project folder on your computer.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "desktop",
+    "title": "Desktop application",
+    "url": "https://code.claude.com/docs/en/desktop.md",
+    "summary": "Get more out of Claude Code Desktop: parallel sessions with Git isolation, drag-and-drop pane layout, integrated terminal and file editor, side chats, computer use, Dispatch sessions from your phone, visual diff review, app previews, PR monitoring, connectors, and enterprise configuration.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "desktop-scheduled-tasks",
+    "title": "Schedule recurring tasks in Claude Code Desktop",
+    "url": "https://code.claude.com/docs/en/desktop-scheduled-tasks.md",
+    "summary": "Set up scheduled tasks in Claude Code Desktop to run Claude automatically on a recurring basis for daily code reviews, dependency audits, or morning briefings.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "code-review-local",
+    "title": "Review locally with /code-review",
+    "url": "https://code.claude.com/docs/en/code-review-local.md",
+    "summary": "Run `/code-review` in a Claude Code session to find bugs in your branch's changes, point the review at a pull request or path, and have Claude apply the fixes.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "ultrareview",
+    "title": "Find bugs with ultrareview",
+    "url": "https://code.claude.com/docs/en/ultrareview.md",
+    "summary": "Run a deep, multi-agent code review in the cloud with /code-review ultra to find and verify bugs before you merge.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "code-review",
+    "title": "Code Review",
+    "url": "https://code.claude.com/docs/en/code-review.md",
+    "summary": "Catch bugs in GitHub pull requests with Code Review: Claude reviews each change, verifies its findings, and comments inline. For Team and Enterprise plans",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "github-actions",
+    "title": "Claude Code GitHub Actions",
+    "url": "https://code.claude.com/docs/en/github-actions.md",
+    "summary": "Run Claude Code in GitHub Actions workflows to respond to @claude mentions, automate tasks, and turn issues into pull requests",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "github-actions-cloud-providers",
+    "title": "Use Claude Code GitHub Actions with cloud providers",
+    "url": "https://code.claude.com/docs/en/github-actions-cloud-providers.md",
+    "summary": "Run Claude Code GitHub Actions through Amazon Bedrock, Google Cloud's Agent Platform, or Microsoft Foundry instead of the Claude API",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "gitlab-ci-cd",
+    "title": "Claude Code GitLab CI/CD",
+    "url": "https://code.claude.com/docs/en/gitlab-ci-cd.md",
+    "summary": "Learn about integrating Claude Code into your development workflow with GitLab CI/CD",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "agents",
+    "title": "Run agents in parallel",
+    "url": "https://code.claude.com/docs/en/agents.md",
+    "summary": "Compare the ways Claude Code can take on multiple tasks at once: subagents, agent view, agent teams, dynamic workflows, and projects.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "sub-agents",
+    "title": "Create custom subagents",
+    "url": "https://code.claude.com/docs/en/sub-agents.md",
+    "summary": "Create and use specialized AI subagents in Claude Code for task-specific workflows and improved context management.",
+    "status": "uploaded",
+    "story": "007_subagents"
+  },
+  {
+    "id": "agent-view",
+    "title": "Manage multiple agents with agent view",
+    "url": "https://code.claude.com/docs/en/agent-view.md",
+    "summary": "Dispatch and manage many Claude Code sessions from one screen. Agent view shows what every session is doing and which ones need your input.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "agent-teams",
+    "title": "Orchestrate teams of Claude Code sessions",
+    "url": "https://code.claude.com/docs/en/agent-teams.md",
+    "summary": "Coordinate multiple Claude Code instances working together as a team, with shared tasks, inter-agent messaging, and centralized management.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "cross-session-messaging",
+    "title": "Message your other Claude Code sessions",
+    "url": "https://code.claude.com/docs/en/cross-session-messaging.md",
+    "summary": "Let Claude list and message your other Claude Code sessions on this machine, and reach your sessions on other machines or in the cloud.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "workflows",
+    "title": "Orchestrate subagents at scale with dynamic workflows",
+    "url": "https://code.claude.com/docs/en/workflows.md",
+    "summary": "Dynamic workflows orchestrate many subagents from a script Claude writes and you can rerun. Use them for codebase audits, large migrations, and cross-checked research.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "worktrees",
+    "title": "Run parallel sessions with worktrees",
+    "url": "https://code.claude.com/docs/en/worktrees.md",
+    "summary": "Isolate parallel Claude Code sessions in separate git worktrees so changes don't collide. Covers the `--worktree` flag, subagent isolation, `.worktreeinclude`, cleanup, and non-git VCS hooks.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "mcp-quickstart",
+    "title": "Connect to MCP servers",
+    "url": "https://code.claude.com/docs/en/mcp-quickstart.md",
+    "summary": "Add an MCP server to Claude Code, verify the connection, and find the configuration on disk.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "mcp",
+    "title": "Connect Claude Code to tools via MCP",
+    "url": "https://code.claude.com/docs/en/mcp.md",
+    "summary": "Learn how to connect Claude Code to your tools with the Model Context Protocol.",
+    "status": "uploaded",
+    "story": "009_mcp"
+  },
+  {
+    "id": "skills",
+    "title": "Extend Claude with skills",
+    "url": "https://code.claude.com/docs/en/skills.md",
+    "summary": "Create, manage, and share skills to extend Claude's capabilities in Claude Code. Includes custom commands and bundled skills.",
+    "status": "uploaded",
+    "story": "008_skills"
+  },
+  {
+    "id": "artifacts",
+    "title": "Share session output as artifacts",
+    "url": "https://code.claude.com/docs/en/artifacts.md",
+    "summary": "Artifacts turn Claude Code's work into live, interactive pages on claude.ai that you can keep private, share with your organization, or publish to a public link.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "hooks-guide",
+    "title": "Automate actions with hooks",
+    "url": "https://code.claude.com/docs/en/hooks-guide.md",
+    "summary": "Run shell commands automatically when Claude Code edits files, finishes tasks, or needs input. Format code, send notifications, validate commands, and enforce project rules.",
+    "status": "uploaded",
+    "story": "006_hooks"
+  },
+  {
+    "id": "channels",
+    "title": "Push events into a running session with channels",
+    "url": "https://code.claude.com/docs/en/channels.md",
+    "summary": "Use channels to push messages, alerts, and webhooks into your Claude Code session from an MCP server. Forward CI results, chat messages, and monitoring events so Claude can react while you're away.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "scheduled-tasks",
+    "title": "Run prompts on a schedule",
+    "url": "https://code.claude.com/docs/en/scheduled-tasks.md",
+    "summary": "Use /loop and the cron scheduling tools to run prompts repeatedly, poll for status, or set one-time reminders within a Claude Code session.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "goal",
+    "title": "Keep Claude working toward a goal",
+    "url": "https://code.claude.com/docs/en/goal.md",
+    "summary": "Set a completion condition with /goal and Claude keeps working until it's met, a model judges it impossible, or an error you have to fix clears the goal.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "headless",
+    "title": "Run Claude Code programmatically",
+    "url": "https://code.claude.com/docs/en/headless.md",
+    "summary": "Use the Agent SDK to run Claude Code programmatically from the CLI, Python, or TypeScript.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "deep-links",
+    "title": "Launch sessions from links",
+    "url": "https://code.claude.com/docs/en/deep-links.md",
+    "summary": "Open a Claude Code terminal session from a URL. Embed `claude-cli://` links in runbooks, alerts, and dashboards so a click opens Claude Code in the right repo with the right prompt.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "large-codebases",
+    "title": "Set up Claude Code in a monorepo or large codebase",
+    "url": "https://code.claude.com/docs/en/large-codebases.md",
+    "summary": "Configure Claude Code for monorepos and large single-tree codebases with nested CLAUDE.md files, sparse worktrees, code intelligence, and per-package skills so Claude stays focused on the code you're working in.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "debug-your-config",
+    "title": "Debug your configuration",
+    "url": "https://code.claude.com/docs/en/debug-your-config.md",
+    "summary": "Diagnose why CLAUDE.md, settings, hooks, MCP servers, or skills aren't taking effect. Use /context, /doctor, /hooks, and /mcp to see what actually loaded.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "errors",
+    "title": "Error reference",
+    "url": "https://code.claude.com/docs/en/errors.md",
+    "summary": "Look up Claude Code runtime error messages with what each one means and how to fix it.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "plugins-overview",
+    "title": "Plugins overview",
+    "url": "https://code.claude.com/docs/en/plugins/overview.md",
+    "summary": "Understand what a Claude Code plugin is, when you need one instead of a standalone skill or MCP server, and which page to read to install or create one.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "plugins-install",
+    "title": "Install and manage plugins",
+    "url": "https://code.claude.com/docs/en/plugins/install.md",
+    "summary": "Install Claude Code plugins from a marketplace on any surface you use, choose an install scope, and update or remove them later.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "plugins-anthropic-marketplaces",
+    "title": "Anthropic's marketplaces",
+    "url": "https://code.claude.com/docs/en/plugins/anthropic-marketplaces.md",
+    "summary": "Anthropic's official and community plugin marketplaces for Claude Code: their names, repositories, how you add each, and where to browse their plugins.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "plugins-code-intelligence",
+    "title": "Code intelligence plugins",
+    "url": "https://code.claude.com/docs/en/plugins/code-intelligence.md",
+    "summary": "Install a language server plugin so Claude sees type errors after edits and navigates code by symbol, and answer the LSP plugin recommendation dialog.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "plugins-security",
+    "title": "Plugin security and trust",
+    "url": "https://code.claude.com/docs/en/plugins/security.md",
+    "summary": "Decide whether to trust a plugin before you install it, from what a plugin can do on your machine to how to review one and remove it.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "plugins-create",
+    "title": "Create a Claude Code plugin",
+    "url": "https://code.claude.com/docs/en/plugins/create.md",
+    "summary": "Build your first Claude Code plugin from an empty directory, test it without a marketplace, and convert an existing .claude/ setup.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "plugins-components",
+    "title": "Add components to a plugin",
+    "url": "https://code.claude.com/docs/en/plugins/components.md",
+    "summary": "Add skills, hooks, MCP servers, and every other component type to a Claude Code plugin, with an example that validates for each.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "plugins-dependencies",
+    "title": "Plugin dependencies",
+    "url": "https://code.claude.com/docs/en/plugins/dependencies.md",
+    "summary": "Declare the plugins your plugin depends on, with version ranges such as ^1.2, and see how Claude Code installs, resolves, and prunes them.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "plugin-evals",
+    "title": "Test plugins with evals",
+    "url": "https://code.claude.com/docs/en/plugin-evals.md",
+    "summary": "Write eval cases for your Claude Code plugin, run them with claude plugin eval, grade the results, compare against a no-plugin baseline, and gate CI on the score.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "plugins-publish",
+    "title": "Publish and distribute a plugin",
+    "url": "https://code.claude.com/docs/en/plugins/publish.md",
+    "summary": "Publish a Claude Code plugin through your own marketplace or Anthropic's directory, with a pre-release checklist and how users get updates.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "plugins-measure",
+    "title": "Measure plugin cost and usage",
+    "url": "https://code.claude.com/docs/en/plugins/measure.md",
+    "summary": "Measure a Claude Code plugin's token cost, find out whether people still use it, and pick the telemetry events for organization-wide plugin questions.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "plugins-cli-hints",
+    "title": "Recommend your plugin from your CLI",
+    "url": "https://code.claude.com/docs/en/plugins/cli-hints.md",
+    "summary": "Prompt Claude Code users to install your official-marketplace plugin by emitting a claude-code-hint tag from your CLI or SDK.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "plugins-mods-overview",
+    "title": "Mods overview",
+    "url": "https://code.claude.com/docs/en/plugins/mods/overview.md",
+    "summary": "Add panes, commands, and tool call rules to Claude Code with a mod. See what a mod can do, how to make or install one, and where mods run.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "plugins-mods-create",
+    "title": "Create a mod",
+    "url": "https://code.claude.com/docs/en/plugins/mods/create.md",
+    "summary": "Have Claude write a Claude Code mod from a description, or write one yourself that counts tool calls and adds a command. Learn the reload and validate loop.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "plugins-mods-reference",
+    "title": "Mods reference",
+    "url": "https://code.claude.com/docs/en/plugins/mods/reference.md",
+    "summary": "Complete reference for Claude Code mods: hooks module layout, events, mods API methods, render sites, elements by surface, limits, and settings.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "plugins-mods-interface",
+    "title": "Draw in the interface with a mod",
+    "url": "https://code.claude.com/docs/en/plugins/mods/interface.md",
+    "summary": "Draw panes, a band above the prompt, buttons, and text fields from a Claude Code mod, handle presses and input, and keep state between redraws and sessions.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "plugins-mods-gallery",
+    "title": "Interface gallery for mods",
+    "url": "https://code.claude.com/docs/en/plugins/mods/gallery.md",
+    "summary": "See the interface elements a Claude Code mod can draw, such as text, buttons, fields, Markdown, code, and diffs, with sample code and terminal screenshots.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "plugins-mods-events",
+    "title": "React to events with a mod",
+    "url": "https://code.claude.com/docs/en/plugins/mods/events.md",
+    "summary": "Handle Claude Code events from a mod: observe, rewrite, or answer tool calls, prompts, and turns, filter which events a hook handles, and plan for other mods.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "plugins-mods-api",
+    "title": "Use the mods API",
+    "url": "https://code.claude.com/docs/en/plugins/mods/api.md",
+    "summary": "Call the mods API from a Claude Code mod to add commands and tools, call a model, run work on a timer, message other sessions, and reach files and the network.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "plugins-mods-test",
+    "title": "Test a mod",
+    "url": "https://code.claude.com/docs/en/plugins/mods/test.md",
+    "summary": "Write automated tests for a Claude Code mod that fire events, stub Claude Code's answers, and press buttons, with no session, sign-in, or network.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "plugins-create-marketplace",
+    "title": "Create a marketplace",
+    "url": "https://code.claude.com/docs/en/plugins/create-marketplace.md",
+    "summary": "Build a plugin marketplace from a marketplace.json file and test it locally before you host it.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "plugins-host-marketplace",
+    "title": "Host and maintain a marketplace",
+    "url": "https://code.claude.com/docs/en/plugins/host-marketplace.md",
+    "summary": "Publish a plugin marketplace where users can reach it, grant access to a private one, and release updates and renames without breaking installs.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "plugins-relevance",
+    "title": "Recommend plugins for your org",
+    "url": "https://code.claude.com/docs/en/plugins/relevance.md",
+    "summary": "Add a relevance block to marketplace plugin entries so Claude Code suggests them when a user's work matches, and allowlist the marketplace in managed settings.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "plugins-org",
+    "title": "Manage Claude Code plugins for your organization",
+    "url": "https://code.claude.com/docs/en/plugins/org.md",
+    "summary": "Control which plugins Claude Code installs and allows across your organization through managed settings.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "plugins-loading",
+    "title": "Plugin loading reference",
+    "url": "https://code.claude.com/docs/en/plugins/loading.md",
+    "summary": "Trace where Claude Code loads each plugin from, which settings file decides whether it loads, and why an update changed nothing.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "plugins-manifest-reference",
+    "title": "Plugin manifest reference",
+    "url": "https://code.claude.com/docs/en/plugins/manifest-reference.md",
+    "summary": "Complete reference for plugin.json: every field with its type and default, accepted path forms, and the userConfig and environment variable schemas.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "plugins-marketplace-reference",
+    "title": "Marketplace reference",
+    "url": "https://code.claude.com/docs/en/plugins/marketplace-reference.md",
+    "summary": "Complete reference for marketplace.json fields, plugin entries, and the plugin and marketplace source objects, with where each is valid.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "plugins-cli-reference",
+    "title": "Plugin commands reference",
+    "url": "https://code.claude.com/docs/en/plugins/cli-reference.md",
+    "summary": "Reference for the claude plugin shell commands, /plugin and /reload-plugins in a session, and the flags that load a plugin for one session.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "setup",
+    "title": "Advanced setup",
+    "url": "https://code.claude.com/docs/en/setup.md",
+    "summary": "System requirements, platform-specific installation, version management, and uninstallation for Claude Code.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "authentication",
+    "title": "Authentication",
+    "url": "https://code.claude.com/docs/en/authentication.md",
+    "summary": "Log in to Claude Code and configure authentication for individuals, teams, and organizations.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "auto-mode-config",
+    "title": "Configure auto mode",
+    "url": "https://code.claude.com/docs/en/auto-mode-config.md",
+    "summary": "Tell the auto mode classifier which repos, buckets, and domains your organization trusts. Set environment context, override the default block and allow rules, and inspect your effective config with the auto-mode CLI subcommands.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "feature-availability",
+    "title": "Feature availability",
+    "url": "https://code.claude.com/docs/en/feature-availability.md",
+    "summary": "Compare which Claude Code features are available across Anthropic subscription plans, the Anthropic Console, Amazon Bedrock, Claude Platform on AWS, Google Cloud's Agent Platform, and Microsoft Foundry.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "security",
+    "title": "Security",
+    "url": "https://code.claude.com/docs/en/security.md",
+    "summary": "Learn about Claude Code's security safeguards and best practices for safe usage.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "settings",
+    "title": "Settings files and precedence",
+    "url": "https://code.claude.com/docs/en/settings.md",
+    "summary": "Change Claude Code settings, pick the scope a key belongs in, verify the change, and learn which value Claude Code uses when a key is set in several places.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "settings-example",
+    "title": "Example settings files",
+    "url": "https://code.claude.com/docs/en/settings-example.md",
+    "summary": "Realistic settings.json files for a developer, a team, and an organization: copy one, keep the keys you want, and change the values.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "permissions",
+    "title": "Configure permissions",
+    "url": "https://code.claude.com/docs/en/permissions.md",
+    "summary": "Control what Claude Code can access and do with fine-grained permission rules, modes, and managed policies.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "permission-modes",
+    "title": "Choose a permission mode",
+    "url": "https://code.claude.com/docs/en/permission-modes.md",
+    "summary": "Control whether Claude asks before acting. Switch permission modes with Shift+Tab in the CLI, the mode indicator in VS Code, or the mode selector in Desktop.",
+    "status": "uploaded",
+    "story": "012_permission-modes"
+  },
+  {
+    "id": "sandboxing",
+    "title": "Configure the sandboxed Bash tool",
+    "url": "https://code.claude.com/docs/en/sandboxing.md",
+    "summary": "Restrict the files and network hosts Claude Code's shell commands can reach with the built-in sandbox. Turn it on, set the boundary, and fix what it breaks.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "sandbox-environments",
+    "title": "Choose a sandbox environment",
+    "url": "https://code.claude.com/docs/en/sandbox-environments.md",
+    "summary": "Compare Claude Code sandbox options: the built-in sandboxed Bash tool, sandbox runtime, dev containers, Docker, and VMs. Choose the right isolation for your threat model.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "model-config",
+    "title": "Model configuration",
+    "url": "https://code.claude.com/docs/en/model-config.md",
+    "summary": "Configure which model Claude Code uses, effort levels, extended context, and the auto-compact window",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "fast-mode",
+    "title": "Speed up responses with fast mode",
+    "url": "https://code.claude.com/docs/en/fast-mode.md",
+    "summary": "Get faster Opus responses in Claude Code by toggling fast mode.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "advisor",
+    "title": "Escalate hard decisions with the advisor tool",
+    "url": "https://code.claude.com/docs/en/advisor.md",
+    "summary": "Pair your main model with a stronger advisor model that Claude consults at key moments during a task.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "output-styles",
+    "title": "Output styles",
+    "url": "https://code.claude.com/docs/en/output-styles.md",
+    "summary": "Change Claude Code's role, tone, and response format with a built-in output style such as Concise or Explanatory, or write a custom style.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "fullscreen",
+    "title": "Fullscreen rendering",
+    "url": "https://code.claude.com/docs/en/fullscreen.md",
+    "summary": "Enable a smoother, flicker-free rendering mode with mouse support and stable memory usage in long conversations.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "accessibility",
+    "title": "Use Claude Code with a screen reader",
+    "url": "https://code.claude.com/docs/en/accessibility.md",
+    "summary": "Set up Claude Code for screen readers such as VoiceOver and NVDA, plus settings for screen magnifiers, reduced motion, and colorblind-friendly themes.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "voice-dictation",
+    "title": "Voice dictation",
+    "url": "https://code.claude.com/docs/en/voice-dictation.md",
+    "summary": "Speak your prompts in the Claude Code CLI with hold-to-record or tap-to-record voice dictation.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "statusline",
+    "title": "Customize your status line",
+    "url": "https://code.claude.com/docs/en/statusline.md",
+    "summary": "Configure a custom status bar to monitor context window usage, costs, and git status in Claude Code",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "keybindings",
+    "title": "Customize keyboard shortcuts",
+    "url": "https://code.claude.com/docs/en/keybindings.md",
+    "summary": "Customize keyboard shortcuts in Claude Code with a keybindings configuration file.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "cli-reference",
+    "title": "CLI reference",
+    "url": "https://code.claude.com/docs/en/cli-reference.md",
+    "summary": "Complete reference for Claude Code command-line interface, including commands and flags.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "commands",
+    "title": "Commands",
+    "url": "https://code.claude.com/docs/en/commands.md",
+    "summary": "Complete reference for commands available in Claude Code, including built-in commands and bundled skills.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "tools-reference",
+    "title": "Tools reference",
+    "url": "https://code.claude.com/docs/en/tools-reference.md",
+    "summary": "Complete reference for the tools Claude Code can use, including permission requirements and per-tool behavior.",
+    "status": "uploaded",
+    "story": "012_tools"
+  },
+  {
+    "id": "interactive-mode",
+    "title": "Interactive mode",
+    "url": "https://code.claude.com/docs/en/interactive-mode.md",
+    "summary": "Complete reference for keyboard shortcuts, input modes, and interactive features in Claude Code sessions.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "checkpointing",
+    "title": "Checkpointing",
+    "url": "https://code.claude.com/docs/en/checkpointing.md",
+    "summary": "Track, rewind, and summarize Claude's edits and conversation to manage session state.",
+    "status": "uploaded",
+    "story": "011_checkpointing"
+  },
+  {
+    "id": "hooks",
+    "title": "Hooks reference",
+    "url": "https://code.claude.com/docs/en/hooks.md",
+    "summary": "Reference for Claude Code hook events, configuration schema, JSON input/output formats, exit codes, async hooks, HTTP hooks, prompt hooks, and MCP tool hooks.",
+    "status": "todo",
+    "story": null
+  },
+  {
+    "id": "channels-reference",
+    "title": "Channels reference",
+    "url": "https://code.claude.com/docs/en/channels-reference.md",
+    "summary": "Build an MCP server that pushes webhooks, alerts, and chat messages into a Claude Code session. Reference for the channel contract: capability declaration, notification events, reply tools, sender gating, and permission relay.",
+    "status": "todo",
+    "story": null
+  }
 ]

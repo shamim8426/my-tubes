@@ -20,3 +20,4 @@
 
 - 2026-10-31 thumbnails: scripts/make_thumb.py + templates/thumb_template.html (HTML -> PNG, 16:9 and 9:16); thumb.json + PNGs made for 006-012. API thumbnails.set returned 403 (channel not phone-verified); user to verify in Studio, then `youtube_upload.py --job <upload.json> --extras-only` per video (upload.json needs "thumbnail").
 - 2026-11-01 nigraan-yellow agent added (.claude/agents/nigraan-yellow.md). Analytics token missing: user must run 'python tools/yt_analytics.py yellow-bot login' on PC. Videos 007-011 still private.
+- 2026-11-01 012 Permission modes UPLOADED private: https://youtu.be/s5jjwxwXVQg (50.6 s, -15.1 LUFS, TP -1.7; TTS ~Rs0.7 paid after free quota; ~20 min). Fact-check PASS. Channel title is now 'Yellow Bot' (capital Y): set youtube_title in channel.json; ID unchanged. New: status-bar mode cycle opener.
