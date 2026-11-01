@@ -28,7 +28,7 @@
   "image_style": "cutout_v3",
   "_image_style_note": "cutout_v3 from story 008 (user 2026-11-01): cast v3 PNGs (characters/<id>/) placed on background-only images by tools/compose_scene.py; characters never drawn by AI. Stories 005-007 stay Jugnu Painted (old sheets in characters/_old_cast/), up to 004 flat.",
   "voices": {
-    "_help": "Permanent characters: Gemini TTS voice + default speed. From story 005 make_short uses these speeds for speakers not set in the video's meta.json speed. Full cast with style text: scripts/voices.py",
+    "_help": "Permanent characters: Gemini TTS voice + default speed. From story 005 make_short uses these speeds for speakers not set in the video's meta.json speed. Full cast with style text: scripts/voices.py Cast v3 (story 008+, user 2026-11-01): style + pitch in scripts/voices.py; old 'tinku' voice (Achernar) kept for stories 001-007 by voices.OLD_CAST.",
     "golu": {
       "voice": "Leda",
       "speed": 0.95
@@ -38,8 +38,56 @@
       "speed": 1.0
     },
     "tinku": {
+      "voice": "Puck",
+      "speed": 1.0,
+      "pitch": 4,
+      "sample": "characters/voices/cast_v3/"
+    },
+    "tinku_old": {
       "voice": "Achernar",
       "speed": 1.0
+    },
+    "jugnu": {
+      "voice": "Zephyr",
+      "speed": 1.0,
+      "pitch": 0,
+      "sample": "characters/voices/cast_v3/"
+    },
+    "bholu": {
+      "voice": "Fenrir",
+      "speed": 1.0,
+      "pitch": 3,
+      "sample": "characters/voices/cast_v3/"
+    },
+    "ira": {
+      "voice": "Pulcherrima",
+      "speed": 1.0,
+      "pitch": 3,
+      "sample": "characters/voices/cast_v3/"
+    },
+    "titli": {
+      "voice": "Autonoe",
+      "speed": 1.0,
+      "pitch": 4,
+      "sample": "characters/voices/cast_v3/"
+    },
+    "daroga_singh": {
+      "voice": "Algenib",
+      "speed": 1.0,
+      "pitch": -1,
+      "sample": "characters/voices/cast_v3/"
+    },
+    "kesar_dadi": {
+      "voice": "Vindemiatrix",
+      "speed": 1.0,
+      "pitch": 0,
+      "sample": "characters/voices/cast_v3/"
+    },
+    "tinku_mummy": {
+      "voice": "Aoede",
+      "speed": 1.0,
+      "pitch": 0,
+      "sample": "characters/voices/cast_v3/"
     }
   }
 }

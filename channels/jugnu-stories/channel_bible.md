@@ -47,20 +47,22 @@ sab ek saath: `characters/cast_lineup.png`. Naya pose/expression chahiye to draw
 
 ---
 
-## 2b. Bolne ka andaaz (DRAFT 2026-11-01 — user ki manzoori baaki)
+## 2b. Bolne ka andaaz (swabhaav DRAFT — user ki manzoori baaki; awaazein PAKKI, user 2026-11-01)
+
+Awaaz ka style + pitch: `scripts/voices.py` (speaker id = upar ki table ka id); samples `characters/voices/cast_v3/`.
 
 Saral Hindi, bachche aur bade dono samjhein. Pakki line ek kahani me max 1–2 baar.
 
 | Kirdaar | Kaise bolta/bolti hai | Awaaz (Gemini TTS) |
 |---|---|---|
-| **Tinku** | shaant, hoshiyar, dhyan se dekhta hai; sawaal poochh kar sach tak pahunchta hai | baaki (samples) |
-| **Jugnu** | chhota, chamakta, thoda shararati; Tinku ko ishaara/suraag deta hai, kabhi poora hal nahi batata | baaki |
-| **Bholu** | khushmizaaj, khaane ka shauqeen, jaldbaaz; ek galat andaza aksar usi ka | baaki |
-| **Ira** | sab kuch notebook me likhti hai, tathya yaad rakhti hai, saaf aur tez | baaki |
-| **Titli** | natkhat, chanchal, sawaal par sawaal; uski shararat kabhi-kabhi suraag ban jaati hai | baaki |
-| **Daroga Singh** | rob jhaadne wale, zor se bolte, phir jhenp; dil ke naram, biscuit ke shauqeen | baaki |
-| **Kesar Dadi** | kisson wali, meethi, muhavare; seekh kahani ke ant me pyaar se | baaki |
-| **Tinku ki mummy** | pyaar bhari par sakht, ghar ki baat | baaki |
+| **Tinku** | shaant, hoshiyar, dhyan se dekhta hai; sawaal poochh kar sach tak pahunchta hai | **Puck**, pitch +4 (bachcha) |
+| **Jugnu** | chhota, chamakta, thoda shararati; Tinku ko ishaara/suraag deta hai, kabhi poora hal nahi batata | **Zephyr** |
+| **Bholu** | khushmizaaj, khaane ka shauqeen, jaldbaaz; ek galat andaza aksar usi ka | **Fenrir**, pitch +3 (bachcha) |
+| **Ira** | sab kuch notebook me likhti hai, tathya yaad rakhti hai, saaf aur tez | **Pulcherrima**, pitch +3 (bachchi) |
+| **Titli** | natkhat, chanchal, sawaal par sawaal; uski shararat kabhi-kabhi suraag ban jaati hai | **Autonoe**, pitch +4 (chhoti bachchi) |
+| **Daroga Singh** | rob jhaadne wale, zor se bolte, phir jhenp; dil ke naram, biscuit ke shauqeen | **Algenib**, pitch -1 (bhaari) |
+| **Kesar Dadi** | kisson wali, meethi, muhavare; seekh kahani ke ant me pyaar se | **Vindemiatrix** (boodhi) |
+| **Tinku ki mummy** | pyaar bhari par sakht, ghar ki baat | **Aoede** |
 | **Narrator** | kahani sunane wala, saaf aur garam (Charon) | Charon |
 
 ---

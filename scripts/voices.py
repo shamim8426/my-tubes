@@ -34,13 +34,40 @@ CAST = {
     "mishra": ("Enceladus", "gentle, soft-spoken 70-year-old Indian man, polite, a little lonely and shy, slow and warm", 0),
     # --- Golu ki toli (permanent, 2026-10-20) ---
     "tara": ("Pulcherrima", "clever, cheerful 9-year-old Indian girl: clear, quick, bright and confident, a little bossy but warm", 0),
-    "tinku": ("Achernar", "thin, innocent 9-year-old Indian boy: slightly thin, light voice, sweet and funny, a little shaky when scared", 0),
     # --- long_06 (story 007): बच्चों की अदालत (new keys only; the old pandey/sharma styles stay for cache keys) ---
     "pandey_soft": ("Algenib", "the same pompous Indian police inspector now whispering softly, amused, trying not to "
                                "laugh", 0),
     "sharma_fond": ("Sadachbia", "forgetful, flustered 55-year-old Indian neighbour, then laughing warmly at himself, "
                                  "friendly", 0),
+    # --- cast v3 (story 008+, chosen by the user 2026-11-01 from characters/voices/cast_v3/) ---
+    "tinku": ("Puck", "Speak like a real 10-year-old Indian boy: a small child's light, thin, high voice, never an adult; "
+                      "clever and curious, calm, thinks before speaking, wears glasses", 4),
+    "jugnu": ("Zephyr", "a tiny glowing firefly who talks: small, bright, playful and a little cheeky, quick", 0),
+    "bholu": ("Fenrir", "Speak like a real 10-year-old Indian boy: a small child's light, thin, high voice, never an adult; "
+                        "chubby, jolly, hasty, loves food, laughs easily", 3),
+    "ira": ("Pulcherrima", "Speak like a real 10-year-old Indian girl: a small child's light, thin, high voice, never an "
+                           "adult; sharp, notes everything in her notebook, clear and quick", 3),
+    "titli": ("Autonoe", "Speak like a real 8-year-old Indian girl: a small child's light, thin, high voice, never an adult; "
+                         "naughty, bubbly, giggly, asks question after question", 4),
+    "daroga_singh": ("Algenib", "heavy, deep, booming voice of a plump 45-year-old Indian police daroga: loud and bossy, "
+                                "then comically embarrassed", -1),
+    "kesar_dadi": ("Vindemiatrix", "a very old 75-year-old Indian grandmother: aged, slightly shaky and breathy old-lady "
+                                   "voice, slow, warm, sweet and wise, telling a story", 0),
+    "tinku_mummy": ("Aoede", "loving but firm 35-year-old Indian mother at home: warm, a little strict", 0),
 }
+
+# Stories before cast v3 (001-007) spoke with these voices under the same speaker names; make_short swaps them in
+# for those stories so old TTS caches stay valid (use_old_cast).
+OLD_CAST = {
+    "tinku": ("Achernar", "thin, innocent 9-year-old Indian boy: slightly thin, light voice, sweet and funny, a little shaky when scared", 0),
+}
+CAST_V3_FROM = 8
+
+
+def use_old_cast(story_num: int) -> None:
+    """Old stories get their old voices back (CAST is changed in place, so every importer sees it)."""
+    if story_num and story_num < CAST_V3_FROM:
+        CAST.update(OLD_CAST)
 
 
 def pitch_filter(semitones: float, sr: int = 24000) -> str | None:

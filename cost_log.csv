@@ -948,3 +948,32 @@ timestamp,file,model,size,cost_usd,cost_inr,today_total_inr,remaining_inr,channe
 2026-10-31 17:31:59,channels/yellow-bot/stories/012_tools/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 8.5s,0.00192,0.19,28.32,83.80,yellow-bot,0.19,0.1856,0.03,30,212
 2026-10-31 17:32:12,channels/yellow-bot/stories/012_tools/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 3.2s,0.00073,0.07,28.41,83.72,yellow-bot,0.08,0.0702,0.01,15,80
 2026-10-31 19:42:17,channels/yellow-bot/stories/_demo_whiteboard/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 11.0s free,0.00000,0.00,28.41,83.72,yellow-bot,0.25,0.0000,0.00,40,274
+2026-11-01 20:25:13,channels/jugnu-stories/characters/voices/cast_v3/tinku_1_Puck.wav,gemini-3.8-flash-tts,tts 8.2s free,0.00000,0.00,0.00,83.72,jugnu-stories,0.18,0.0000,0.00,24,204
+2026-11-01 20:25:24,channels/jugnu-stories/characters/voices/cast_v3/tinku_2_Achird.wav,gemini-3.8-flash-tts,tts 6.7s free,0.00000,0.00,0.00,83.72,jugnu-stories,0.15,0.0000,0.00,24,168
+2026-11-01 20:25:35,channels/jugnu-stories/characters/voices/cast_v3/tinku_3_Iapetus.wav,gemini-3.8-flash-tts,tts 7.6s free,0.00000,0.00,0.00,83.72,jugnu-stories,0.17,0.0000,0.00,24,190
+2026-11-01 20:25:46,channels/jugnu-stories/characters/voices/cast_v3/jugnu_1_Zephyr.wav,gemini-3.8-flash-tts,tts 4.3s free,0.00000,0.00,0.00,83.72,jugnu-stories,0.10,0.0000,0.00,18,107
+2026-11-01 20:26:13,channels/jugnu-stories/characters/voices/cast_v3/ira_3_Callirrhoe.wav,gemini-3.8-flash-tts,tts 4.9s free,0.00000,0.00,0.00,83.72,jugnu-stories,0.11,0.0000,0.00,21,123
+2026-11-01 20:26:24,channels/jugnu-stories/characters/voices/cast_v3/titli_1_Autonoe.wav,gemini-3.8-flash-tts,tts 5.2s free,0.00000,0.00,0.00,83.72,jugnu-stories,0.12,0.0000,0.00,16,130
+2026-11-01 20:26:36,channels/jugnu-stories/characters/voices/cast_v3/titli_2_Laomedeia.wav,gemini-3.8-flash-tts,tts 5.2s free,0.00000,0.00,0.00,83.72,jugnu-stories,0.12,0.0000,0.00,16,131
+2026-11-01 20:26:46,channels/jugnu-stories/characters/voices/cast_v3/titli_3_Leda.wav,gemini-3.8-flash-tts,tts 4.6s free,0.00000,0.00,0.00,83.72,jugnu-stories,0.10,0.0000,0.00,16,115
+2026-11-01 20:27:17,channels/jugnu-stories/characters/voices/cast_v3/tinku_mummy_3_Aoede.wav,gemini-3.8-flash-tts,tts 5.4s free,0.00000,0.00,0.00,83.72,jugnu-stories,0.12,0.0000,0.00,25,136
+2026-11-01 20:27:46,channels/jugnu-stories/characters/voices/cast_v3/jugnu_2_Achernar.wav,gemini-3.8-flash-tts,tts 4.2s free,0.00000,0.00,0.00,83.72,jugnu-stories,0.09,0.0000,0.00,18,105
+2026-11-01 20:28:16,channels/jugnu-stories/characters/voices/cast_v3/jugnu_3_Orus.wav,gemini-3.8-flash-tts,tts 4.2s free,0.00000,0.00,0.00,83.72,jugnu-stories,0.10,0.0000,0.00,18,106
+2026-11-01 20:57:44,channels/jugnu-stories/characters/voices/cast_v3/_raw/tinku_1_Achernar.wav,gemini-3.8-flash-tts,tts 7.9s,0.00178,0.17,0.20,83.52,jugnu-stories,0.18,0.1723,0.03,24,197
+2026-11-01 20:57:58,channels/jugnu-stories/characters/voices/cast_v3/_raw/tinku_2_Puck.wav,gemini-3.8-flash-tts,tts 7.0s,0.00158,0.15,0.38,83.34,jugnu-stories,0.16,0.1523,0.03,24,174
+2026-11-01 20:58:10,channels/jugnu-stories/characters/voices/cast_v3/_raw/tinku_3_Achird.wav,gemini-3.8-flash-tts,tts 6.9s,0.00157,0.15,0.56,83.16,jugnu-stories,0.16,0.1514,0.03,24,173
+2026-11-01 20:58:23,channels/jugnu-stories/characters/voices/cast_v3/_raw/bholu_1_Fenrir.wav,gemini-3.8-flash-tts,tts 5.5s,0.00125,0.12,0.70,83.02,jugnu-stories,0.12,0.1201,0.02,24,137
+2026-11-01 20:58:39,channels/jugnu-stories/characters/voices/cast_v3/_raw/bholu_2_Umbriel.wav,gemini-3.8-flash-tts,tts 5.7s,0.00129,0.12,0.85,82.87,jugnu-stories,0.13,0.1245,0.02,24,142
+2026-11-01 20:58:54,channels/jugnu-stories/characters/voices/cast_v3/_raw/bholu_3_Orus.wav,gemini-3.8-flash-tts,tts 5.5s,0.00125,0.12,0.99,82.73,jugnu-stories,0.12,0.1201,0.02,24,137
+2026-11-01 20:59:06,channels/jugnu-stories/characters/voices/cast_v3/_raw/ira_1_Kore.wav,gemini-3.8-flash-tts,tts 6.3s,0.00142,0.14,1.15,82.57,jugnu-stories,0.14,0.1374,0.02,21,157
+2026-11-01 20:59:19,channels/jugnu-stories/characters/voices/cast_v3/_raw/ira_2_Pulcherrima.wav,gemini-3.8-flash-tts,tts 5.4s,0.00123,0.12,1.29,82.43,jugnu-stories,0.12,0.1183,0.02,21,135
+2026-11-01 20:59:32,channels/jugnu-stories/characters/voices/cast_v3/_raw/ira_3_Callirrhoe.wav,gemini-3.8-flash-tts,tts 6.0s,0.00136,0.13,1.45,82.27,jugnu-stories,0.14,0.1313,0.02,21,150
+2026-11-01 20:59:44,channels/jugnu-stories/characters/voices/cast_v3/_raw/titli_1_Autonoe.wav,gemini-3.8-flash-tts,tts 4.4s,0.00102,0.10,1.56,82.16,jugnu-stories,0.10,0.0980,0.02,16,112
+2026-11-01 20:59:57,channels/jugnu-stories/characters/voices/cast_v3/_raw/titli_2_Laomedeia.wav,gemini-3.8-flash-tts,tts 3.9s,0.00088,0.09,1.66,82.06,jugnu-stories,0.09,0.0850,0.02,16,97
+2026-11-01 21:00:10,channels/jugnu-stories/characters/voices/cast_v3/_raw/titli_3_Leda.wav,gemini-3.8-flash-tts,tts 4.2s,0.00096,0.09,1.77,81.95,jugnu-stories,0.10,0.0928,0.02,16,106
+2026-11-01 21:00:25,channels/jugnu-stories/characters/voices/cast_v3/_raw/daroga_singh_1_Algenib.wav,gemini-3.8-flash-tts,tts 6.5s,0.00148,0.14,1.94,81.78,jugnu-stories,0.15,0.1428,0.03,25,163
+2026-11-01 21:00:39,channels/jugnu-stories/characters/voices/cast_v3/_raw/daroga_singh_2_Rasalgethi.wav,gemini-3.8-flash-tts,tts 7.4s,0.00168,0.16,2.13,81.59,jugnu-stories,0.17,0.1619,0.03,25,185
+2026-11-01 21:00:54,channels/jugnu-stories/characters/voices/cast_v3/_raw/daroga_singh_3_Alnilam.wav,gemini-3.8-flash-tts,tts 6.6s,0.00149,0.14,2.30,81.42,jugnu-stories,0.15,0.1436,0.03,25,164
+2026-11-01 21:01:11,channels/jugnu-stories/characters/voices/cast_v3/_raw/kesar_dadi_1_Gacrux.wav,gemini-3.8-flash-tts,tts 9.1s,0.00205,0.20,2.54,81.18,jugnu-stories,0.20,0.1983,0.04,24,227
+2026-11-01 21:01:25,channels/jugnu-stories/characters/voices/cast_v3/_raw/kesar_dadi_2_Vindemiatrix.wav,gemini-3.8-flash-tts,tts 8.8s,0.00198,0.19,2.76,80.96,jugnu-stories,0.20,0.1914,0.03,24,219
+2026-11-01 21:01:37,channels/jugnu-stories/characters/voices/cast_v3/_raw/kesar_dadi_3_Sulafat.wav,gemini-3.8-flash-tts,tts 9.8s,0.00221,0.21,3.01,80.71,jugnu-stories,0.22,0.2131,0.04,24,244

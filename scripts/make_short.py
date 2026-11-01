@@ -34,7 +34,7 @@ from PIL import Image, ImageDraw, ImageFont
 sys.path.insert(0, str(Path(__file__).parent))
 import cost_log  # noqa: E402
 import gemini_tts  # noqa: E402
-from voices import CAST, pitch_filter  # noqa: E402
+from voices import CAST, pitch_filter, use_old_cast  # noqa: E402
 from paths import FONTS_DIR, MUSIC_DIR, REGISTER, ROOT, SFX_DIR, channel_of, story_of  # noqa: E402
 
 sys.path.insert(0, str(ROOT / "tools"))
@@ -801,7 +801,11 @@ def load_project(name):
     kind = proj["kind"]
     story = story_of(pdir)
     channel = channel_of(pdir)
-    covers = {c: s["id"] for s in json.loads((story / "scene_prompts.json").read_text(encoding="utf-8"))["scenes"]
+    use_old_cast(int("".join(ch for ch in story.name.split("_")[0] if ch.isdigit()) or 0))
+    scenes = story / "scene_prompts.json"
+    if not scenes.exists():  # cast v3 cut-out stories (tools/compose_scene.py)
+        scenes = story / "cutout_scenes.json"
+    covers = {c: s["id"] for s in json.loads(scenes.read_text(encoding="utf-8"))["scenes"]
               for c in s.get("covers", [s["id"]])}
     img_dir = story / "images"
     return {"kind": kind, "name": proj.get("name", pdir.name), "dir": pdir, "story": story, "channel": channel,

@@ -12,7 +12,7 @@ Story 008+: CUT-OUT cast v3 (user 2026-11-01): exact PNGs `characters/<id>/<id>_
 (free first) via `tools/compose_scene.py`; AI never draws a character. 005-007 Jugnu Painted, up to 004 flat. No studio/film/artist names anywhere (shared RULES 12a, `tools/name_guard.py`).
 
 ## Awaazein + roles
-Narrator Charon. Cast v3 voices NOT chosen yet (free samples pending). Way of speaking: `channel_bible.md` 2b (draft).
+Narrator Charon. Cast v3 (user 2026-11-01): Tinku Puck +4, Jugnu Zephyr, Bholu Fenrir +3, Ira Pulcherrima +3, Titli Autonoe +4, Daroga Singh Algenib -1, Kesar Dadi Vindemiatrix, Tinku ki mummy Aoede (scripts/voices.py). Way of speaking: `channel_bible.md` 2b (draft).
 
 ## Kirdaar
 Cast v3 only (bible 2): Tinku, Jugnu (firefly), Bholu, Ira, Titli, Daroga Singh, Kesar Dadi, Tinku ki mummy; 8 poses each.
