@@ -1001,3 +1001,4 @@ timestamp,file,model,size,cost_usd,cost_inr,today_total_inr,remaining_inr,channe
 2026-11-01 23:46:32,channels/jugnu-stories/tests/rocket_short/audio/tts_cache/lon_chacha_0dcc572735dfafa8.wav,gemini-3.8-flash-tts,tts 3.4s,0.00078,0.08,3.94,79.78,jugnu-stories,0.08,0.0755,0.01,17,86
 2026-11-01 23:46:51,channels/jugnu-stories/tests/rocket_short/audio/tts_cache/titli_c7e675a043cb045c.wav,gemini-3.8-flash-tts,tts 3.2s,0.00073,0.07,4.02,79.70,jugnu-stories,0.07,0.0707,0.01,8,81
 2026-11-01 23:47:08,channels/jugnu-stories/tests/rocket_short/audio/tts_cache/tinku_a683a23e26c534ed.wav,gemini-3.8-flash-tts,tts 3.6s,0.00082,0.08,4.11,79.61,jugnu-stories,0.08,0.0788,0.01,14,90
+2026-11-02 00:56:01,study/girl/girl_v.png,cf-flux-2-klein-4b,896x1536 free,0.00000,0.00,0.00,80.27,jugnu-stories,0.00,0.0000,0.00,,
