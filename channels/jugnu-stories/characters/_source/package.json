@@ -1,0 +1,7 @@
+{
+  "name": "jugnu-cast-draw",
+  "private": true,
+  "type": "module",
+  "description": "Cast v3 drawing code (from the cloud pilot): npx tsx render-cast.ts [ids] -> characters/<id>/<id>_<pose>.png",
+  "devDependencies": { "@napi-rs/canvas": "^1.1.0", "tsx": "^4.19.0" }
+}

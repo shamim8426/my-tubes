@@ -54,6 +54,8 @@ CAST = {
     "kesar_dadi": ("Vindemiatrix", "a very old 75-year-old Indian grandmother: aged, slightly shaky and breathy old-lady "
                                    "voice, slow, warm, sweet and wise, telling a story", 0),
     "tinku_mummy": ("Aoede", "loving but firm 35-year-old Indian mother at home: warm, a little strict", 0),
+    "lon_chacha": ("Orus", "enthusiastic, quirky 50-year-old Indian inventor uncle: cheerful, a little dramatic, proud of his "
+                           "home-made rocket, quick and warm (test voice 2026-11-01, not chosen by the user yet)", 0),
 }
 
 # Stories before cast v3 (001-007) spoke with these voices under the same speaker names; make_short swaps them in

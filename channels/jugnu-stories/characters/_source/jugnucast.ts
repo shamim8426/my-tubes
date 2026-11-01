@@ -21,7 +21,7 @@ const SH_SKIN: [number, number, number] = [0.96, 0.86, 0.84], SH_CLOTH: [number,
 const LIGHT = rad(-120);
 
 export type Pose = "stand" | "walk" | "point" | "think" | "happy" | "surprised" | "scared" | "laugh";
-export type CharId = "tinku" | "bholu" | "ira" | "titli" | "daroga" | "dadi" | "mummy" | "jugnu";
+export type CharId = "tinku" | "bholu" | "ira" | "titli" | "daroga" | "dadi" | "mummy" | "chacha" | "jugnu";
 export const POSES: Pose[] = ["stand", "walk", "point", "think", "happy", "surprised", "scared", "laugh"];
 type Expr = "smile" | "happy" | "surprised" | "scared" | "laugh" | "think";
 type Layer = "back" | "mid" | "top";
@@ -43,11 +43,11 @@ const BASE: Record<Pose, PoseSpec> = {
 // ---------------- character sheet data ----------------
 type HairK = { kind: "neat" | "spiky" | "smooth" | "grey" | "sides" | "none"; color: string; hi?: string; tuft: number; period: number; fringe: number; slope: number; jag: number; grow?: number; part?: boolean };
 type BackHair = { kind: "bob" | "pigtails" | "bun" | "long"; color: string; clips?: [string, string] };
-type PropK = { kind: "guava" | "notebook" | "pinwheel" | "magnifier" | "biscuit" | "cane" | "plate"; hand?: "L" | "R"; poses: Pose[] };
+type PropK = { kind: "guava" | "notebook" | "pinwheel" | "magnifier" | "biscuit" | "cane" | "plate" | "wrench"; hand?: "L" | "R"; poses: Pose[] };
 type Spec = {
   A: number; skin: string; torsoK: number; legK: number; tw: number; egg: number; limb: number; legW: number; armK: number;
   hair: HairK; back?: BackHair; glasses?: boolean; moustache?: boolean; cap?: boolean; bindi?: boolean; lashes?: boolean; wrinkles?: boolean;
-  earrings?: string; necklace?: boolean; braid?: boolean; bag?: boolean; smileDefault?: Expr;
+  earrings?: string; necklace?: boolean; braid?: boolean; bag?: boolean; smileDefault?: Expr; goggles?: boolean; beard?: boolean;
   top: { kind: "polo" | "tee" | "tunic" | "saree" | "uniform"; color: string; trim?: string; trim2?: string; sleeve: number; cuff?: string; hem?: number };
   bottom: { kind: "shorts" | "pants" | "none"; color: string; len?: number; hem?: string };
   shoe: "sandal" | "croc" | "shoe" | "bare" | "chappal"; shoeColor: string; props: PropK[]; over?: Partial<Record<Pose, Partial<PoseSpec>>>; hang?: number;
@@ -86,6 +86,11 @@ const SPECS: Record<Exclude<CharId, "jugnu">, Spec> = {
     over: { stand: { armL: { abs: [0, 0], layer: "mid", elbow: "down" }, armR: { abs: [0, 0], layer: "mid", elbow: "down" } },
       walk: { armL: { abs: [0, 0], layer: "mid", elbow: "down" }, armR: { abs: [0, 0], layer: "mid", elbow: "down" } },
       happy: { armL: { abs: [0, 0], layer: "mid", elbow: "down" }, armR: { abs: [0, 0], layer: "mid", elbow: "down" } } } },
+  // Lon Chacha (added 2026-11-01, rocket Short): tall thin tinkerer, welding goggles on the head, blue boiler suit, goatee, wrench
+  chacha: { A: 98, skin: "#e8b48c", torsoK: 1.12, legK: 1.62, tw: 0.29, egg: 0.04, limb: 8, legW: 10, armK: 0.53, goggles: true, beard: true,
+    hair: { kind: "spiky", color: "#4a4450", hi: "#8a8490", tuft: 0.1, period: 6, fringe: 22, slope: 3, jag: 6, grow: 1.06 },
+    top: { kind: "uniform", color: "#3d6fa8", trim: "#2c5486", trim2: "#2c5486", sleeve: 1.0 }, bottom: { kind: "pants", color: "#3d6fa8" },
+    shoe: "shoe", shoeColor: "#3a2a22", props: [{ kind: "wrench", hand: "R", poses: ["stand", "walk", "happy", "surprised", "scared", "laugh"] }] },
 };
 const SKIN_DEEP = (c: string) => mul(c, SH_SKIN);
 
@@ -256,6 +261,11 @@ export const drawChar = (g: CanvasRenderingContext2D, id: CharId, pose: Pose) =>
       }
       case "biscuit": p.ell(x + 2 * u, y - 8 * u, 9.5 * u, 9 * u, "#b88a50", 2.2 * u); for (const [dx, dy] of [[-3, -10], [3, -6], [0, -3]]) p.dot(x + dx * u, y + dy * u, 1 * u, "#7a5a30"); break;
       case "cane": p.line([[x, y + 2 * u], [x + 3 * u, sole - 2 * u]], "#6a4a2a", 4.2 * u); break;
+      case "wrench": {
+        p.line([[x - 2 * u, y + 12 * u], [x + 4 * u, y - 30 * u]], "#9aa2ae", 6 * u);
+        p.ell(x + 5 * u, y - 36 * u, 10 * u, 10 * u, "#9aa2ae", 2.2 * u);
+        p.poly([[x + 1 * u, y - 48 * u], [x + 9 * u, y - 48 * u], [x + 7 * u, y - 36 * u], [x + 3 * u, y - 36 * u]], "#f4f1ea", 0); break;
+      }
     }
     void E;
   };
@@ -376,6 +386,15 @@ export const drawChar = (g: CanvasRenderingContext2D, id: CharId, pose: Pose) =>
     p.poly([[300 - 0.84 * A, yb - 0.26 * H.b], [300 + 0.84 * A, yb - 0.26 * H.b], [300 + 0.82 * A, yb], [300 - 0.82 * A, yb]], band, 2 * u);
     p.ell(300, yb + 1 * u, 0.62 * A, 0.12 * H.b, band, ow * 0.7, 0, 180);
     p.ell(300, yb - 0.13 * H.b, 6 * u, 6 * u, "#d9b84a", 1.6 * u);
+  }
+  if (sp.goggles) { // welding goggles pushed up on the forehead: strap round the head + two round amber lenses
+    const gy = hc - 0.62 * H.b;
+    p.stroke([[300 - 1.0 * A, gy + 6 * u], [300 + 1.0 * A, gy + 6 * u]], 6 * u, "#5a3a22");
+    for (const s of [-1, 1]) { p.ell(300 + s * 17 * u, gy, 13 * u, 11 * u, "#7a6a5a", 2.6 * u); p.ell(300 + s * 17 * u, gy, 8.5 * u, 7 * u, "#f0a640", 1.6 * u); p.arc(300 + s * 17 * u, gy, 5.5 * u, 4.5 * u, 200, 260, 1.6 * u, "rgba(255,255,255,0.85)"); }
+  }
+  if (sp.beard) { // short pointed goatee under the mouth
+    const fx = 300 + 5 * u * facing, by = hc + 0.97 * H.b;
+    p.poly([[fx - 10 * u, by - 5 * u], [fx + 10 * u, by - 5 * u], [fx + 5 * u, by + 5 * u], [fx, by + 14 * u], [fx - 5 * u, by + 5 * u]], "#4a4450", 1.8 * u);
   }
   face(p, 300, hc, u, F, facing, A * 0.97, sp, skin);
   if (sp.necklace) p.arc(300, chin + 0.02 * HH, 0.2 * W, 0.2 * HH, 25, 155, 2.8 * u, "#14101a");
