@@ -1,5 +1,8 @@
 {
   "model": "sonnet",
+  "enabledPlugins": {
+    "chatcut@chatcut-inc": true
+  },
   "extraKnownMarketplaces": {
     "chatcut-inc": {
       "source": {
@@ -15,7 +18,5 @@
     }
   },
   "theme": "dark",
-  "enabledPlugins": {
-    "chatcut@chatcut-inc": true
-  }
+  "autoUpdatesChannel": "latest"
 }
