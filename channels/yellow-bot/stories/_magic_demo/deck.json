@@ -1,0 +1,503 @@
+{
+ "_note": "Yellow Bot MAGIC effects reel (no voice, Rs 0). Effects are pure functions of time (seeded PRNG).",
+ "tag": "Magic · effects reel",
+ "voice": {
+  "id": "Charon",
+  "style": "-"
+ },
+ "scenes": [
+  {
+   "id": "s1",
+   "type": "stage",
+   "wipe": "right",
+   "voice": ".",
+   "layers": [
+    {
+     "kind": "icon",
+     "name": "sparkle",
+     "x": 390,
+     "y": 620,
+     "size": 300,
+     "in": 0.3,
+     "spring": true,
+     "float": 8,
+     "out": 1.35
+    },
+    {
+     "kind": "dust",
+     "at": 0.38,
+     "n": 80,
+     "speed": 700,
+     "life": 1.1,
+     "size": 18,
+     "mode": "burst",
+     "from": [
+      540,
+      770
+     ]
+    },
+    {
+     "kind": "dust",
+     "at": 0.55,
+     "dur": 0.6,
+     "n": 40,
+     "speed": 620,
+     "life": 1.0,
+     "size": 14,
+     "mode": "fountain",
+     "spread": 1.3,
+     "grav": 900,
+     "from": [
+      540,
+      1080
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"display:flex;align-items:center;gap:22px\"><span>dust</span><span style=\"font-size:30px;font-weight:700;color:#FFD60A\">burst + fountain</span></div>",
+     "x": 80,
+     "y": 1660,
+     "css": "background:#111;color:#fff;font-size:58px;font-weight:800;padding:16px 44px;border-radius:999px;white-space:nowrap;box-shadow:0 14px 30px rgba(0,0,0,.2)",
+     "in": 0.2,
+     "out": 1.35,
+     "spring": true
+    },
+    {
+     "kind": "text",
+     "html": "**Magic**",
+     "x": 80,
+     "y": 520,
+     "size": 230,
+     "w": 920,
+     "out": 2.45,
+     "in": 1.45,
+     "spring": true
+    },
+    {
+     "kind": "wand",
+     "shape": "underline",
+     "pts": [
+      [
+       150,
+       880
+      ],
+      [
+       930,
+       880
+      ]
+     ],
+     "at": 1.55,
+     "dur": 0.85,
+     "sw": 26,
+     "fadeAt": 2.4
+    },
+    {
+     "kind": "wand",
+     "shape": "circle",
+     "cx": 540,
+     "cy": 700,
+     "rx": 470,
+     "ry": 210,
+     "at": 1.9,
+     "dur": 0.5,
+     "sw": 12,
+     "fadeAt": 2.4,
+     "ss": 16
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"display:flex;align-items:center;gap:22px\"><span>wand</span><span style=\"font-size:30px;font-weight:700;color:#FFD60A\">comet trail draws the line</span></div>",
+     "x": 80,
+     "y": 1660,
+     "css": "background:#111;color:#fff;font-size:58px;font-weight:800;padding:16px 44px;border-radius:999px;white-space:nowrap;box-shadow:0 14px 30px rgba(0,0,0,.2)",
+     "in": 1.3,
+     "out": 2.45,
+     "spring": true
+    },
+    {
+     "kind": "assemble",
+     "text": "MAGIC",
+     "cx": 540,
+     "cy": 760,
+     "size": 250,
+     "at": 2.5,
+     "dur": 0.9,
+     "gap": 8
+    },
+    {
+     "kind": "assemble",
+     "text": "Yellow Bot",
+     "cx": 540,
+     "cy": 1030,
+     "size": 120,
+     "at": 2.7,
+     "dur": 0.8,
+     "gap": 6,
+     "dot": 3
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"display:flex;align-items:center;gap:22px\"><span>assemble</span><span style=\"font-size:30px;font-weight:700;color:#FFD60A\">particles converge to text</span></div>",
+     "x": 80,
+     "y": 1660,
+     "css": "background:#111;color:#fff;font-size:58px;font-weight:800;padding:16px 44px;border-radius:999px;white-space:nowrap;box-shadow:0 14px 30px rgba(0,0,0,.2)",
+     "in": 2.4,
+     "out": 3.6,
+     "spring": true
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "type": "stage",
+   "wipe": "portal",
+   "trd": 0.7,
+   "voice": ".",
+   "layers": [
+    {
+     "kind": "box",
+     "html": "",
+     "x": 90,
+     "y": 560,
+     "css": "width:900px;height:360px;border-radius:50px;background:#FFD60A;border:8px solid #111;box-shadow:0 24px 50px rgba(0,0,0,.2)",
+     "out": 1.4,
+     "in": 0.6,
+     "spring": true
+    },
+    {
+     "kind": "glinttext",
+     "html": "TA-DA!",
+     "x": 90,
+     "y": 640,
+     "w": 900,
+     "size": 190,
+     "glint": [
+      0.95,
+      0.7
+     ],
+     "out": 1.4
+    },
+    {
+     "kind": "shock",
+     "at": 0.7,
+     "dur": 0.9,
+     "r": 900,
+     "rings": 2,
+     "from": [
+      540,
+      740
+     ]
+    },
+    {
+     "kind": "icon",
+     "name": "check",
+     "x": 400,
+     "y": 1010,
+     "size": 280,
+     "in": 1.0,
+     "spring": true,
+     "wig": 1.25,
+     "drawon": [
+      1.0,
+      0.5
+     ],
+     "out": 1.4
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"display:flex;align-items:center;gap:22px\"><span>portal + shock + glint</span><span style=\"font-size:30px;font-weight:700;color:#FFD60A\">ta-da</span></div>",
+     "x": 80,
+     "y": 1660,
+     "css": "background:#111;color:#fff;font-size:58px;font-weight:800;padding:16px 44px;border-radius:999px;white-space:nowrap;box-shadow:0 14px 30px rgba(0,0,0,.2)",
+     "in": 0.35,
+     "out": 1.5,
+     "spring": true
+    },
+    {
+     "kind": "aura",
+     "at": 1.5,
+     "dur": 1.2,
+     "r": 330,
+     "from": [
+      540,
+      930
+     ]
+    },
+    {
+     "kind": "svgbot",
+     "size": 760,
+     "x": 160,
+     "y": 520,
+     "talk": [
+      [
+       1.5,
+       2.6
+      ]
+     ],
+     "out": 2.5,
+     "k": [
+      [
+       0,
+       {
+        "x": 160,
+        "ar": -150,
+        "al": 0
+       }
+      ],
+      [
+       1.5,
+       {
+        "al": 150
+       }
+      ]
+     ],
+     "in": 1.45,
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"display:flex;align-items:center;gap:22px\"><span>aura</span><span style=\"font-size:30px;font-weight:700;color:#FFD60A\">glow + light rays while casting</span></div>",
+     "x": 80,
+     "y": 1660,
+     "css": "background:#111;color:#fff;font-size:58px;font-weight:800;padding:16px 44px;border-radius:999px;white-space:nowrap;box-shadow:0 14px 30px rgba(0,0,0,.2)",
+     "in": 1.45,
+     "out": 2.55,
+     "spring": true
+    },
+    {
+     "kind": "poof",
+     "at": 2.6,
+     "dur": 0.7,
+     "size": 260,
+     "from": [
+      540,
+      900
+     ]
+    },
+    {
+     "kind": "icon",
+     "name": "rocket",
+     "x": 390,
+     "y": 740,
+     "size": 300,
+     "in": 2.8,
+     "spring": true,
+     "float": 6,
+     "out": 3.4
+    },
+    {
+     "kind": "poof",
+     "at": 3.4,
+     "dur": 0.7,
+     "size": 260,
+     "from": [
+      540,
+      900
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"display:flex;align-items:center;gap:22px\"><span>poof</span><span style=\"font-size:30px;font-weight:700;color:#FFD60A\">smoke puff in / out</span></div>",
+     "x": 80,
+     "y": 1660,
+     "css": "background:#111;color:#fff;font-size:58px;font-weight:800;padding:16px 44px;border-radius:999px;white-space:nowrap;box-shadow:0 14px 30px rgba(0,0,0,.2)",
+     "in": 2.55,
+     "out": 3.6,
+     "spring": true
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "type": "stage",
+   "wipe": "up",
+   "voice": ".",
+   "layers": [
+    {
+     "kind": "morph",
+     "icons": [
+      "terminal",
+      "chat",
+      "check"
+     ],
+     "size": 420,
+     "x": 330,
+     "y": 620,
+     "ts": [
+      0.5,
+      0.9
+     ],
+     "md": 0.4,
+     "out": 1.3,
+     "in": 0.25,
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"display:flex;align-items:center;gap:22px\"><span>morph</span><span style=\"font-size:30px;font-weight:700;color:#FFD60A\">terminal > chat > check</span></div>",
+     "x": 80,
+     "y": 1660,
+     "css": "background:#111;color:#fff;font-size:58px;font-weight:800;padding:16px 44px;border-radius:999px;white-space:nowrap;box-shadow:0 14px 30px rgba(0,0,0,.2)",
+     "in": 0.2,
+     "out": 1.3,
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "",
+     "x": 60,
+     "y": 480,
+     "css": "width:520px;height:520px;border-radius:260px;background:#FFD60A;opacity:.35",
+     "z": -1.2,
+     "in": 1.3,
+     "out": 2.45
+    },
+    {
+     "kind": "icon",
+     "name": "bolt",
+     "x": 780,
+     "y": 560,
+     "size": 170,
+     "in": 1.4,
+     "spring": true,
+     "z": 2.2,
+     "out": 2.45,
+     "float": 6
+    },
+    {
+     "kind": "icon",
+     "name": "gear",
+     "x": 120,
+     "y": 1040,
+     "size": 150,
+     "in": 1.5,
+     "spring": true,
+     "z": 1.8,
+     "out": 2.45,
+     "spin": 60,
+     "spinAt": 1.5
+    },
+    {
+     "kind": "card3d",
+     "w": 720,
+     "h": 420,
+     "x": 180,
+     "y": 620,
+     "front": "<div style=\"width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:84px;font-weight:700;color:#FFD60A\" class=\"mono\">&gt; claude</div>",
+     "back": "<div style=\"width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:96px;font-weight:800;color:#111\">Done!</div>",
+     "fcss": "border-radius:44px;background:#111;border:8px solid #111;box-shadow:0 30px 60px rgba(0,0,0,.28)",
+     "bcss": "border-radius:44px;background:#FFD60A;border:8px solid #111;box-shadow:0 30px 60px rgba(0,0,0,.28)",
+     "tilt": 6,
+     "z": 0.4,
+     "k": [
+      [
+       0,
+       {
+        "ry": 0
+       }
+      ],
+      [
+       1.45,
+       {
+        "ry": 0
+       }
+      ],
+      [
+       2.05,
+       {
+        "ry": 180
+       }
+      ]
+     ],
+     "out": 2.45,
+     "in": 1.3,
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"display:flex;align-items:center;gap:22px\"><span>tilt + parallax</span><span style=\"font-size:30px;font-weight:700;color:#FFD60A\">3D flip, 3 depth layers</span></div>",
+     "x": 80,
+     "y": 1660,
+     "css": "background:#111;color:#fff;font-size:58px;font-weight:800;padding:16px 44px;border-radius:999px;white-space:nowrap;box-shadow:0 14px 30px rgba(0,0,0,.2)",
+     "in": 1.3,
+     "out": 2.45,
+     "spring": true
+    },
+    {
+     "kind": "img",
+     "img": "think",
+     "size": 420,
+     "x": 330,
+     "y": 900,
+     "bob": 1,
+     "k": [
+      [
+       2.4,
+       {
+        "o": 0
+       }
+      ],
+      [
+       2.55,
+       {
+        "o": 1
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "magnet",
+     "to": [
+      540,
+      1100
+     ],
+     "at": 2.5,
+     "dur": 0.8,
+     "stag": 0.16,
+     "size": 120,
+     "arc": 280,
+     "items": [
+      {
+       "name": "file",
+       "from": [
+        110,
+        380
+       ]
+      },
+      {
+       "name": "folder",
+       "from": [
+        980,
+        420
+       ]
+      },
+      {
+       "name": "code",
+       "from": [
+        90,
+        1420
+       ]
+      },
+      {
+       "name": "terminal",
+       "from": [
+        990,
+        1400
+       ]
+      }
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"display:flex;align-items:center;gap:22px\"><span>magnet</span><span style=\"font-size:30px;font-weight:700;color:#FFD60A\">items fly in arcs with trails</span></div>",
+     "x": 80,
+     "y": 1660,
+     "css": "background:#111;color:#fff;font-size:58px;font-weight:800;padding:16px 44px;border-radius:999px;white-space:nowrap;box-shadow:0 14px 30px rgba(0,0,0,.2)",
+     "in": 2.4,
+     "out": 3.6,
+     "spring": true
+    }
+   ]
+  }
+ ]
+}

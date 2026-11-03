@@ -11,3 +11,8 @@
   - 8 Free Claude Code Commands That Turn Your Agent's Technical Output Into Plain English - https://www.youtube.com/shorts/OGrLbo3dskw
 - Learnt: (1) text streams word by word in step with speech (grey to black, key word bolder), 3-6 words per line, about 5% frame height; (2) every 2-4 s one dominant moving mock-up/icon/hub diagram replaces the last on a clean background, with drawn connector lines and soft shadows; (3) claim as text from 0.3 s, tool-name card, analogy visual, comment-keyword CTA, voice about 190 wpm. Details: channels/yellow-bot/brand/STYLE_LEARNINGS.md
 - Status: deleted on 2026-11-04 (study/insiderforce and study/tr.py removed; study/ is empty). The learnings were committed and pushed first (STYLE_LEARNINGS.md, LEARNING_PROCESS.md, STYLE_GUIDE.md v4, memory repo topic yellow-bot). Process for future studies: brand/LEARNING_PROCESS.md.
+
+## 2026-11-04 - same channel, ONE Short, endings only (user asked)
+- Video: https://www.youtube.com/shorts/irXFtcohTco (downloaded with no login/cookies into study/, last ~20 s frames + transcript read, then deleted)
+- Learnt: 3-beat ending (payoff, value-exchange ask with a big keyword + resource mock-up, gated follow ask with brand-mark hero moment); details in brand/STYLE_LEARNINGS.md 'Endings'. No lines of theirs were recorded.
+- Status: deleted on 2026-11-04 (study/ins_end removed).
