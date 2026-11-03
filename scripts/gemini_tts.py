@@ -1,5 +1,6 @@
 """Gemini TTS helper. Key from .env (never printed). Every call is logged to cost_log.csv."""
 import base64
+import os
 import wave
 from pathlib import Path
 
@@ -13,7 +14,7 @@ ROOT = Path(__file__).resolve().parent.parent
 load_dotenv(ROOT / ".env")
 
 ENDPOINT = "https://generativelanguage.googleapis.com/v1beta/interactions"
-MODEL = "gemini-3.8-flash-tts"
+MODEL = os.environ.get("GEMINI_TTS_MODEL", "gemini-3.8-flash-tts")  # opt-in override (own daily quota per model); default unchanged
 # prices: shared/pricing.json (scripts/pricing.py); kept as names for older callers
 PRICE_IN = pricing.rates(MODEL)["input_per_1m"]
 PRICE_OUT = pricing.rates(MODEL)["output_audio_per_1m"]

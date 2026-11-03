@@ -19,7 +19,8 @@ def config() -> dict:
 
 def rates(model: str, on: date | None = None) -> dict:
     """The model's rates, with any "from_YYYY-MM-DD" price change that is already in force."""
-    m = dict(config()["models"][model])
+    models = config()["models"]
+    m = dict(models[model] if model in models else models["gemini-3.8-flash-tts"])  # unknown model: estimate with the default TTS model rates
     today = (on or date.today()).isoformat()
     for k in sorted(k for k in m if k.startswith("from_")):
         if today >= k[5:]:

@@ -12,8 +12,8 @@
     "title": "Quickstart",
     "url": "https://code.claude.com/docs/en/quickstart.md",
     "summary": "Install Claude Code in your terminal, sign in, and use the CLI to explore your codebase and make your first code change.",
-    "status": "todo",
-    "story": null
+    "status": "uploaded",
+    "story": "020_quickstart"
   },
   {
     "id": "how-claude-code-works",
