@@ -44,8 +44,8 @@
     "title": "Explore the context window",
     "url": "https://code.claude.com/docs/en/context-window.md",
     "summary": "An interactive simulation of how Claude Code's context window fills during a session. See what loads automatically, what each file read costs, and when rules and hooks fire.",
-    "status": "todo",
-    "story": null
+    "status": "uploaded",
+    "story": "013_context-window"
   },
   {
     "id": "prompt-caching",
@@ -68,8 +68,8 @@
     "title": "Manage sessions",
     "url": "https://code.claude.com/docs/en/sessions.md",
     "summary": "Name, resume, branch, and switch between Claude Code conversations. Covers `--continue`, `--resume`, `--from-pr`, the `/resume` picker, session naming, exporting transcripts, and where transcripts are stored.",
-    "status": "todo",
-    "story": null
+    "status": "uploaded",
+    "story": "014_sessions"
   },
   {
     "id": "common-workflows",
@@ -300,8 +300,8 @@
     "title": "Run parallel sessions with worktrees",
     "url": "https://code.claude.com/docs/en/worktrees.md",
     "summary": "Isolate parallel Claude Code sessions in separate git worktrees so changes don't collide. Covers the `--worktree` flag, subagent isolation, `.worktreeinclude`, cleanup, and non-git VCS hooks.",
-    "status": "todo",
-    "story": null
+    "status": "uploaded",
+    "story": "015_worktrees"
   },
   {
     "id": "mcp-quickstart",
@@ -372,8 +372,8 @@
     "title": "Run Claude Code programmatically",
     "url": "https://code.claude.com/docs/en/headless.md",
     "summary": "Use the Agent SDK to run Claude Code programmatically from the CLI, Python, or TypeScript.",
-    "status": "todo",
-    "story": null
+    "status": "uploaded",
+    "story": "018_headless"
   },
   {
     "id": "deep-links",
@@ -412,8 +412,8 @@
     "title": "Plugins overview",
     "url": "https://code.claude.com/docs/en/plugins/overview.md",
     "summary": "Understand what a Claude Code plugin is, when you need one instead of a standalone skill or MCP server, and which page to read to install or create one.",
-    "status": "todo",
-    "story": null
+    "status": "uploaded",
+    "story": "016_plugins-overview"
   },
   {
     "id": "plugins-install",
@@ -780,8 +780,8 @@
     "title": "Customize your status line",
     "url": "https://code.claude.com/docs/en/statusline.md",
     "summary": "Configure a custom status bar to monitor context window usage, costs, and git status in Claude Code",
-    "status": "todo",
-    "story": null
+    "status": "uploaded",
+    "story": "017_statusline"
   },
   {
     "id": "keybindings",

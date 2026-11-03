@@ -1,0 +1,17 @@
+{
+  "channel_key": "yellow-bot",
+  "channel_name": "yellow Bot",
+  "channel_id": "UCpElgKdJOgQiyfwdGXz6GmA",
+  "format": "short",
+  "parent_video_id": null,
+  "title": "Claude Code status line: context aur cost hamesha dikhao #shorts",
+  "description": "Claude Code ki status line: ek shell script jo JSON leti hai aur context, cost, git dikhati hai. Docs se, setup example ke saath.\n\nSource (official docs): https://code.claude.com/docs/en/statusline\n\nUnofficial channel, not affiliated with Anthropic.\n\nMusic: \"Funkorama\" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttp://creativecommons.org/licenses/by/4.0/\n\n#shorts #ClaudeCode #AI #Hinglish #StatusLine",
+  "tags": ["Claude Code", "Claude Code status line", "statusline", "context window", "AI coding", "Hinglish", "Hindi tech", "Claude AI tutorial", "Shorts"],
+  "video": "short.mp4",
+  "language": "hi",
+  "made_for_kids": false,
+  "contains_synthetic_media": true,
+  "category_id": "28",
+  "privacy": "private",
+  "thumbnail": "thumb_16x9.png"
+}

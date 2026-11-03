@@ -1,0 +1,17 @@
+{
+  "channel_key": "yellow-bot",
+  "channel_name": "yellow Bot",
+  "channel_id": "UCpElgKdJOgQiyfwdGXz6GmA",
+  "format": "short",
+  "parent_video_id": null,
+  "title": "claude -p: Claude Code ko script me chalao #shorts",
+  "description": "Claude Code ko bina chat ke chalao: claude -p, --allowedTools, --output-format aur --bare. Docs se, ek asli example ke saath.\n\nSource (official docs): https://code.claude.com/docs/en/headless\n\nUnofficial channel, not affiliated with Anthropic.\n\nMusic: \"Funkorama\" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttp://creativecommons.org/licenses/by/4.0/\n\n#shorts #ClaudeCode #AI #Hinglish #Headless",
+  "tags": ["Claude Code", "claude -p", "headless", "non-interactive", "CI", "AI coding", "Hinglish", "Hindi tech", "Shorts"],
+  "video": "short.mp4",
+  "language": "hi",
+  "made_for_kids": false,
+  "contains_synthetic_media": true,
+  "category_id": "28",
+  "privacy": "private",
+  "thumbnail": "thumb_16x9.png"
+}

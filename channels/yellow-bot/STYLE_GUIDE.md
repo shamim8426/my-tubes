@@ -63,3 +63,9 @@ Hand-drawn diagram that draws itself, line by line, in the white/black/yellow lo
   {"t":"text","x":650,"y":395,"text":"poochta hai","size":46,"at":6.0,"dur":.5}]}
 `at` = seconds after the scene starts (take them from the voice cue times, like the other stage layers); `dur` = how long the stroke takes. Wobble is seeded, so every frame is the same for the same t. Labels fade in after their box is drawn. Keep text >= 40 px; keep side notes at least 40 px away from circles.
 - 012 Permission modes: stage opener 'status-bar cycle' (mode pill swaps in place as Shift+Tab key cap pops: manual -> accept edits -> plan).
+- 013 Context window: stage scene where the `meter` collapses 0.95 -> 0.25 on the 'structured summary' cue and hand-drawn check ticks (two `draw` line items) draw on each 'survives compaction' row.
+- 014 Sessions: session-picker mock in a stage scene; a yellow selection bar slides between rows on the 'arrow keys' / 'Enter' cues, key-cap chips pop in for arrows, Enter and Space.
+- 015 Worktrees: first real use of the `draw` layer (one arrow splits into two hand-drawn 'worktree A/B' boxes with 'alag branch' labels); opener doc visibly messes up when two session pills collide.
+- 016 Plugins overview: 'gather-and-pack' opener (four chips Skill/Agent/Hooks/MCP fly into a my-plugin/ box, box pulses via scale keyframe, 'ek install, ek unit' pill pops).
+- 017 Statusline: 'stdin pipe' opener (JSON packet card slides into a 'your script' card, output appears as a dark status-bar line with a yellow `meter` filling to 42%); svgbot raises both arms in the recap.
+- 018 Headless: 'command-line assembly' opener (dark terminal card gets `$`, `claude`, then yellow `-p` and `"prompt"` chips in sequence, then a 'jawab print + exit code 0' result card).

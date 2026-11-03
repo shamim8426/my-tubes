@@ -1,0 +1,748 @@
+{
+ "_note": "Short 013: Context window. Source: https://code.claude.com/docs/en/context-window (read 2026-11-03). Format v3.",
+ "tag": "Claude Code · Context window",
+ "music": {
+  "file": "shared/music/presentation/Funkorama.mp3",
+  "start": 6,
+  "rel": 12
+ },
+ "voice": {
+  "id": "Charon",
+  "style": "Speak like a friendly Indian tech YouTuber chatting casually in Hinglish. Natural conversational pace, warm and clear, a little energetic but not theatrical. No sing-song, no exaggerated emphasis."
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "type": "stage",
+   "wipe": "right",
+   "voice": "देखो, Claude Code की context window में सब कुछ आता है: तुम्हारी instructions, वो files जो वो पढ़ता है, और उसके अपने जवाब। Session चलता है तो ये भरती जाती है।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "Claude ki **memory**",
+     "x": 80,
+     "y": 300,
+     "size": 88,
+     "hlAt": 0.9,
+     "w": 920,
+     "k": [
+      [
+       0.2,
+       {
+        "o": 0,
+        "y": 340
+       }
+      ],
+      [
+       0.7,
+       {
+        "o": 1,
+        "y": 300
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "meter",
+     "x": 90,
+     "y": 520,
+     "w": 900,
+     "h": 70,
+     "f": 0,
+     "k": [
+      [
+       0.0,
+       {
+        "o": 0,
+        "f": 0
+       }
+      ],
+      [
+       0.4,
+       {
+        "o": 1,
+        "f": 0.02
+       }
+      ],
+      [
+       4.04,
+       {
+        "f": 0.05
+       }
+      ],
+      [
+       4.84,
+       {
+        "f": 0.3
+       }
+      ],
+      [
+       5.06,
+       {
+        "f": 0.3
+       }
+      ],
+      [
+       5.86,
+       {
+        "f": 0.6
+       }
+      ],
+      [
+       7.17,
+       {
+        "f": 0.6
+       }
+      ],
+      [
+       7.97,
+       {
+        "f": 0.85
+       }
+      ],
+      [
+       8.86,
+       {
+        "f": 0.85
+       }
+      ],
+      [
+       10.06,
+       {
+        "f": 0.97
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "text",
+     "html": "context **window**",
+     "x": 90,
+     "y": 620,
+     "size": 54,
+     "w": 900,
+     "hlAt": 0.9,
+     "k": [
+      [
+       0.4,
+       {
+        "o": 0,
+        "y": 650
+       }
+      ],
+      [
+       0.9,
+       {
+        "o": 1,
+        "y": 620
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "instructions",
+     "x": 90,
+     "y": 790,
+     "css": "font-size:36px;font-weight:800;padding:8px 26px;border:5px solid #111;border-radius:999px;white-space:nowrap;background:#FFD60A",
+     "k": [
+      [
+       4.04,
+       {
+        "o": 0,
+        "s": 0.6
+       }
+      ],
+      [
+       4.44,
+       {
+        "o": 1,
+        "s": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "files jo wo padhta hai",
+     "x": 90,
+     "y": 900,
+     "css": "font-size:36px;font-weight:800;padding:8px 26px;border:5px solid #111;border-radius:999px;white-space:nowrap;background:#FFD60A",
+     "k": [
+      [
+       5.06,
+       {
+        "o": 0,
+        "s": 0.6
+       }
+      ],
+      [
+       5.46,
+       {
+        "o": 1,
+        "s": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "uske apne jawab",
+     "x": 90,
+     "y": 1010,
+     "css": "font-size:36px;font-weight:800;padding:8px 26px;border:5px solid #111;border-radius:999px;white-space:nowrap;background:#FFD60A",
+     "k": [
+      [
+       7.17,
+       {
+        "o": 0,
+        "s": 0.6
+       }
+      ],
+      [
+       7.57,
+       {
+        "o": 1,
+        "s": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "text",
+     "html": "Session ke saath **bharti** jaati hai",
+     "x": 80,
+     "y": 1190,
+     "size": 64,
+     "w": 560,
+     "hlAt": 9.06,
+     "k": [
+      [
+       8.86,
+       {
+        "o": 0,
+        "y": 1230
+       }
+      ],
+      [
+       9.36,
+       {
+        "o": 1,
+        "y": 1190
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "img",
+     "img": "work",
+     "size": 380,
+     "x": 650,
+     "y": 1250,
+     "bob": 1,
+     "k": [
+      [
+       0.1,
+       {
+        "x": 1200,
+        "o": 1
+       }
+      ],
+      [
+       0.9,
+       {
+        "x": 650
+       }
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "docs",
+   "type": "docs",
+   "wipe": "up",
+   "img": "../stories/013_context-window/docs.png",
+   "url": "code.claude.com/docs/en/context-window",
+   "voice": "अब docs की table देखो: compaction के बाद project-root CLAUDE.md और auto memory, दोनों disk से दोबारा inject होती हैं।",
+   "scroll": [
+    0,
+    60
+   ],
+   "ch": 1180,
+   "callout": "**CLAUDE.md** + **Auto memory**: disk se wapas",
+   "cosize": 62,
+   "cues": [
+    "compaction के बाद"
+   ],
+   "hls": [
+    {
+     "x": 30,
+     "y": 545,
+     "w": 1440,
+     "h": 52
+    },
+    {
+     "x": 30,
+     "y": 600,
+     "w": 1440,
+     "h": 52
+    }
+   ],
+   "hlcues": [
+    "project-root",
+    "auto memory"
+   ]
+  },
+  {
+   "id": "survives",
+   "type": "stage",
+   "wipe": "left",
+   "voice": "/compact एक structured summary बनाता है। System prompt और output style still apply रहते हैं, और CLAUDE.md व auto memory disk से आती हैं।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "Compact ke **baad**",
+     "x": 80,
+     "y": 300,
+     "size": 88,
+     "hlAt": 0.9,
+     "w": 920,
+     "k": [
+      [
+       0.2,
+       {
+        "o": 0,
+        "y": 340
+       }
+      ],
+      [
+       0.7,
+       {
+        "o": 1,
+        "y": 300
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:100px;height:100px;border-radius:50%;background:#FFD60A;border:5px solid #111;flex:none\"></div><div><div style=\"font-size:46px;font-weight:800;line-height:1.1\">System prompt + output style</div><div style=\"font-size:32px;color:#6b6b66;font-weight:500;margin-top:6px\">dono still apply</div></div>",
+     "x": 80,
+     "y": 460,
+     "css": "width:920px;height:190px;display:flex;align-items:center;gap:36px;padding:0 40px;border:6px solid #111;border-radius:32px;background:#fff;box-sizing:border-box;box-shadow:0 14px 34px rgba(0,0,0,.14)",
+     "k": [
+      [
+       3.27,
+       {
+        "x": -320,
+        "o": 0
+       }
+      ],
+      [
+       3.72,
+       {
+        "x": 80,
+        "o": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:100px;height:100px;border-radius:50%;background:#FFD60A;border:5px solid #111;flex:none\"></div><div><div style=\"font-size:46px;font-weight:800;line-height:1.1\">CLAUDE.md + auto memory</div><div style=\"font-size:32px;color:#6b6b66;font-weight:500;margin-top:6px\">disk se wapas</div></div>",
+     "x": 80,
+     "y": 690,
+     "css": "width:920px;height:190px;display:flex;align-items:center;gap:36px;padding:0 40px;border:6px solid #111;border-radius:32px;background:#fff;box-sizing:border-box;box-shadow:0 14px 34px rgba(0,0,0,.14)",
+     "k": [
+      [
+       7.41,
+       {
+        "x": -320,
+        "o": 0
+       }
+      ],
+      [
+       7.86,
+       {
+        "x": 80,
+        "o": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "draw",
+     "x": 0,
+     "y": 0,
+     "w": 1080,
+     "h": 1100,
+     "sw": 12,
+     "items": [
+      {
+       "t": "line",
+       "from": [
+        150,
+        559
+       ],
+       "to": [
+        172,
+        583
+       ],
+       "at": 3.77,
+       "dur": 0.2
+      },
+      {
+       "t": "line",
+       "from": [
+        172,
+        583
+       ],
+       "to": [
+        214,
+        529
+       ],
+       "at": 3.97,
+       "dur": 0.25
+      },
+      {
+       "t": "line",
+       "from": [
+        150,
+        789
+       ],
+       "to": [
+        172,
+        813
+       ],
+       "at": 7.91,
+       "dur": 0.2
+      },
+      {
+       "t": "line",
+       "from": [
+        172,
+        813
+       ],
+       "to": [
+        214,
+        759
+       ],
+       "at": 8.11,
+       "dur": 0.25
+      }
+     ]
+    },
+    {
+     "kind": "meter",
+     "x": 90,
+     "y": 1000,
+     "w": 900,
+     "h": 70,
+     "f": 0.95,
+     "k": [
+      [
+       0.0,
+       {
+        "o": 0,
+        "f": 0.95
+       }
+      ],
+      [
+       0.4,
+       {
+        "o": 1
+       }
+      ],
+      [
+       1.08,
+       {
+        "f": 0.95
+       }
+      ],
+      [
+       2.08,
+       {
+        "f": 0.25
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "text",
+     "html": "/compact = **summary**",
+     "x": 90,
+     "y": 1100,
+     "size": 60,
+     "w": 900,
+     "hlAt": 1.48,
+     "k": [
+      [
+       1.08,
+       {
+        "o": 0,
+        "y": 1130
+       }
+      ],
+      [
+       1.58,
+       {
+        "o": 1,
+        "y": 1100
+       }
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "example",
+   "type": "code",
+   "wipe": "right",
+   "file": "terminal · DOCS EXAMPLES",
+   "size": 38,
+   "y0": 330,
+   "voice": "देखो, /compact के साथ focus लिखो, जैसे auth bug fix, तो summary में वही रहता है जो तुम चुनो। /context से live breakdown दिखता है।",
+   "lines": [
+    "> /compact focus on the auth bug fix",
+    "# summary me wahi, jo tum chuno",
+    "> /context",
+    "# live breakdown by category"
+   ],
+   "caption": "Summary me wahi, jo **tum** chuno",
+   "cosize": 62,
+   "cues": [
+    "/compact के साथ",
+    "तो summary में",
+    "/context से",
+    "live breakdown",
+    "दिखता है"
+   ]
+  },
+  {
+   "id": "nuance",
+   "type": "compare",
+   "wipe": "up",
+   "voice": "लेकिन एक बारीकी: path-scoped rules compaction में summarize हो जाते हैं। अगर rule हमेशा चाहिए, तो paths: frontmatter हटाओ, या उसे project-root CLAUDE.md में रखो।",
+   "left": {
+    "title": "Summarize",
+    "rows": [
+     "paths: wala rule"
+    ]
+   },
+   "right": {
+    "title": "Disk se wapas",
+    "rows": [
+     "project-root CLAUDE.md"
+    ]
+   },
+   "foot": "Rule **zaroori** hai? Root me rakho",
+   "footcue": 4,
+   "cues": [
+    "बारीकी",
+    "अगर rule",
+    "path-scoped",
+    "project-root",
+    "में रखो"
+   ]
+  },
+  {
+   "id": "recap",
+   "type": "stage",
+   "wipe": "right",
+   "voice": "तो याद रखो: /context से देखो क्या भरा है, /compact में focus लिखो, और जो rule ज़रूरी हो उसे project-root CLAUDE.md में रखो।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "Yaad **rakho**",
+     "x": 80,
+     "y": 300,
+     "size": 88,
+     "hlAt": 0.9,
+     "w": 920,
+     "k": [
+      [
+       0.2,
+       {
+        "o": 0,
+        "y": 340
+       }
+      ],
+      [
+       0.7,
+       {
+        "o": 1,
+        "y": 300
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "svgbot",
+     "size": 800,
+     "x": -70,
+     "y": 560,
+     "talk": [
+      [
+       0.5,
+       11.21
+      ]
+     ],
+     "nod": [
+      [
+       6.16,
+       7.56
+      ]
+     ],
+     "k": [
+      [
+       0.0,
+       {
+        "x": -600,
+        "ar": 0
+       }
+      ],
+      [
+       0.7,
+       {
+        "x": -70,
+        "e": "b"
+       }
+      ],
+      [
+       0.76,
+       {
+        "ar": 0
+       }
+      ],
+      [
+       1.21,
+       {
+        "ar": -86
+       }
+      ],
+      [
+       3.77,
+       {
+        "ar": -80
+       }
+      ],
+      [
+       6.16,
+       {
+        "ar": -92
+       }
+      ],
+      [
+       11.51,
+       {
+        "ar": 0
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "x": 440,
+     "y": 560,
+     "css": "width:600px;display:flex;gap:24px;align-items:center",
+     "html": "<div style=\"width:78px;height:78px;border-radius:50%;background:#FFD60A;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:44px;flex:none\">1</div><div><div style=\"font-size:42px;font-weight:800;line-height:1.1\">/context</div><div style=\"font-size:30px;color:#6b6b66;font-weight:500;margin-top:4px\">dekho kya bhara hai</div></div>",
+     "k": [
+      [
+       1.21,
+       {
+        "x": 520,
+        "o": 0
+       }
+      ],
+      [
+       1.66,
+       {
+        "x": 440,
+        "o": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "x": 440,
+     "y": 850,
+     "css": "width:600px;display:flex;gap:24px;align-items:center",
+     "html": "<div style=\"width:78px;height:78px;border-radius:50%;background:#FFD60A;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:44px;flex:none\">2</div><div><div style=\"font-size:42px;font-weight:800;line-height:1.1\">/compact focus</div><div style=\"font-size:30px;color:#6b6b66;font-weight:500;margin-top:4px\">summary me tumhara focus</div></div>",
+     "k": [
+      [
+       3.77,
+       {
+        "x": 520,
+        "o": 0
+       }
+      ],
+      [
+       4.22,
+       {
+        "x": 440,
+        "o": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "x": 440,
+     "y": 1140,
+     "css": "width:600px;display:flex;gap:24px;align-items:center",
+     "html": "<div style=\"width:78px;height:78px;border-radius:50%;background:#FFD60A;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:44px;flex:none\">3</div><div><div style=\"font-size:42px;font-weight:800;line-height:1.1\">Zaroori rule</div><div style=\"font-size:30px;color:#6b6b66;font-weight:500;margin-top:4px\">project-root CLAUDE.md me</div></div>",
+     "k": [
+      [
+       6.16,
+       {
+        "x": 520,
+        "o": 0
+       }
+      ],
+      [
+       6.61,
+       {
+        "x": 440,
+        "o": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cta",
+   "type": "cta",
+   "wipe": "left",
+   "size": 92,
+   "voice": "आप अपने session में /compact कब चलाते हो? Comment में बताओ।",
+   "lines": [
+    "Aap **/compact**",
+    "kab chalate ho?"
+   ],
+   "sub": "Comment me batao",
+   "cues": [
+    "आप अपने",
+    "/compact कब",
+    "Comment में"
+   ],
+   "robot": {
+    "img": "thumbs",
+    "x": 570,
+    "y": 1250,
+    "size": 460,
+    "cue": "Comment में"
+   }
+  }
+ ]
+}

@@ -1,0 +1,404 @@
+{
+ "story": "005_an-nas",
+ "channel": "noor-e-raah",
+ "made_by": "Khoji MODE 3",
+ "date": "2026-11-03",
+ "note": "Accessed 2026-11-03 via WebFetch of GitHub datasets/AlQuran Cloud (summarising fetch tool); tanzil.net licence page OPENED; sunnah.com HTTP 403. Strings and hadith wording NOT byte-verified - see pc_check. Same pipeline/sources as 004_al-falaq.",
+ "surah": {
+  "number": 114,
+  "name_ar": "الناس",
+  "name_tr": "An-Nas",
+  "ayat_count": 6,
+  "note_bismillah": "Tanzil/AlQuran Cloud store the Bismillah as a prefix of 114:1; stripped"
+ },
+ "ayat": [
+  {
+   "ayah": 1,
+   "ref": "114:1",
+   "text": "قُلْ أَعُوذُ بِرَبِّ ٱلنَّاسِ",
+   "code_points": 29,
+   "words": 4,
+   "sha256_utf8": "25f9b2e45068f55fca746c4629406d83837c55fdd3b3dd0061446867bb5e1df4",
+   "translit_tanzil": "Qul aAAoothu birabbi alnnasi",
+   "translit_q411": "Qul a'uzu birabbin naas"
+  },
+  {
+   "ayah": 2,
+   "ref": "114:2",
+   "text": "مَلِكِ ٱلنَّاسِ",
+   "code_points": 15,
+   "words": 2,
+   "sha256_utf8": "ee43221a2d70da314a28481e2858b355b84ea76cc5505a17b6d6d8f592ce3dce",
+   "translit_tanzil": "Maliki alnnasi",
+   "translit_q411": "Malikin naas"
+  },
+  {
+   "ayah": 3,
+   "ref": "114:3",
+   "text": "إِلَٰهِ ٱلنَّاسِ",
+   "code_points": 16,
+   "words": 2,
+   "sha256_utf8": "83ea524a3332531b96d8b06c387410ac2371c0e79d79602356646d7c1b8151f1",
+   "translit_tanzil": "Ilahi alnnasi",
+   "translit_q411": "Ilaahin naas"
+  },
+  {
+   "ayah": 4,
+   "ref": "114:4",
+   "text": "مِن شَرِّ ٱلْوَسْوَاسِ ٱلْخَنَّاسِ",
+   "code_points": 34,
+   "words": 4,
+   "sha256_utf8": "cdb6f393a56ccaa9a72aae865781f619f99768ac74efb2931761b968a3d60d82",
+   "translit_tanzil": "Min sharri alwaswasi alkhannasi",
+   "translit_q411": "Min sharril was waasil khannaas"
+  },
+  {
+   "ayah": 5,
+   "ref": "114:5",
+   "text": "ٱلَّذِى يُوَسْوِسُ فِى صُدُورِ ٱلنَّاسِ",
+   "code_points": 39,
+   "words": 5,
+   "sha256_utf8": "f8578dc798a33711fa495cb49159b90a9267111f19f5aaa3189c3c184bcd14dd",
+   "translit_tanzil": "Allathee yuwaswisu fee sudoori alnnasi",
+   "translit_q411": "Al lazee yuwas wisu fee sudoorin naas"
+  },
+  {
+   "ayah": 6,
+   "ref": "114:6",
+   "text": "مِنَ ٱلْجِنَّةِ وَٱلنَّاسِ",
+   "code_points": 26,
+   "words": 3,
+   "sha256_utf8": "afe439d2346201551930d0c231ab3a35f2c90f1a5ebb09fc797707059732d756",
+   "translit_tanzil": "Mina aljinnati wa alnnasi",
+   "translit_q411": "Minal jinnati wan naas"
+  }
+ ],
+ "ayat_normalisation": "none - never NFC/NFKC",
+ "pc_check": "(1) byte-compare the 6 ayah strings with tanzil.net quran-uthmani 114:1-6 (strip BOM+Bismillah), re-run sha256 - mark order (shadda before vowel) was machine-checked but characters were relayed by a fetch tool. (2) render check in libass/Amiri of 114:1/4/5 (shadda marks, dagger alif in 114:3 إِلَٰهِ). (3) open sunnah.com Muslim 814, Bukhari 5016/5017/5748 on PC. (4) order-of-revelation number from an accepted list.",
+ "source_keys": {
+  "TANZIL_API": {
+   "url": "https://api.alquran.cloud/v1/surah/114/quran-uthmani",
+   "publisher": "AlQuran Cloud API, edition quran-uthmani (Tanzil Uthmani text); 114:1 came with Bismillah prefix, stripped",
+   "published": "unknown",
+   "accessed": "2026-11-03",
+   "type": "text_snapshot",
+   "opened": true,
+   "note": "relayed by a summarising fetch tool: NOT byte-verified; the 004 risan/Tanzil file was too big to read (1.1M chars, ch.114 beyond offset). PC byte-check vs tanzil.net required"
+  },
+  "TANZIL_LIC": {
+   "url": "https://tanzil.net/docs/text_license",
+   "publisher": "Tanzil Project - CC BY 3.0; OPENED 2026-11-03: 'Permission is granted to copy and distribute verbatim copies of this text, but CHANGING IT IS NOT ALLOWED'; source (Tanzil Project) clearly indicated + link to tanzil.net; copyright notice 'Tanzil Quran Text Copyright (C) 2007-2021 Tanzil Project' kept",
+   "published": "unknown",
+   "accessed": "2026-11-03",
+   "type": "licence",
+   "opened": true
+  },
+  "TANZIL_CH": {
+   "url": "https://raw.githubusercontent.com/risan/quran-json/main/data/tanzil/chapters.json",
+   "publisher": "Tanzil chapter metadata via risan/quran-json (114 type meccan, 6 verses) - read in 004 for 113, NOT re-opened for 114 today",
+   "published": "unknown",
+   "accessed": "2026-11-03",
+   "type": "text_metadata",
+   "opened": false
+  },
+  "TR_FAROOQKHAN": {
+   "url": "https://raw.githubusercontent.com/fawazahmed0/quran-api/1/editions/hin-suhelfarooqkhan/114.json",
+   "publisher": "Tanzil hi.hindi (Suhel Farooq Khan) via fawazahmed0/quran-api",
+   "published": "unknown",
+   "accessed": "2026-11-03",
+   "type": "translation",
+   "opened": true
+  },
+  "TR_FAROOQ": {
+   "url": "https://raw.githubusercontent.com/fawazahmed0/quran-api/1/editions/hin-muhammadfarooqk/114.json",
+   "publisher": "Muhammad Farooq Khan Hindi via fawazahmed0/quran-api",
+   "published": "unknown",
+   "accessed": "2026-11-03",
+   "type": "translation",
+   "opened": true
+  },
+  "TR_MAHMUD": {
+   "url": "https://raw.githubusercontent.com/fawazahmed0/quran-api/1/editions/urd-mahmoodulhassan/114.json",
+   "publisher": "Mahmud al-Hasan Urdu (PD) via fawazahmed0/quran-api",
+   "published": "unknown",
+   "accessed": "2026-11-03",
+   "type": "translation",
+   "opened": true
+  },
+  "IK_EN_114": {
+   "url": "https://raw.githubusercontent.com/spa5k/tafsir_api/main/tafsir/en-tafisr-ibn-kathir/114/1.json",
+   "publisher": "Tafsir Ibn Kathir (EN, abridged) 114 via spa5k/tafsir_api: no Makki/Madani, no shan-e-nuzul; Rabb/Malik/Ilah; waswas/khannas (Ibn Abbas, Mujahid, Qatada); jinn+nas (Ibn Jarir, 6:112); Ahmad/Abu Dawud/Nasai whisper hadith; Two Sahihs 'Shaytan runs like blood'",
+   "published": "unknown",
+   "accessed": "2026-11-03",
+   "type": "tafseer",
+   "opened": true
+  },
+  "IK_AR_113": {
+   "url": "https://raw.githubusercontent.com/spa5k/tafsir_api/main/tafsir/ar-tafsir-ibn-kathir/113/1.json",
+   "publisher": "Ibn Kathir (AR) 113-114 together; opens 'wa huma madaniyyatan' (read in 004 - not re-opened today)",
+   "published": "unknown",
+   "accessed": "2026-11-03",
+   "type": "tafseer",
+   "opened": false
+  },
+  "QT_114": {
+   "url": "https://raw.githubusercontent.com/spa5k/tafsir_api/main/tafsir/ar-tafseer-al-qurtubi/114/1.json",
+   "publisher": "Tafsir al-Qurtubi (AR) 114 via spa5k/tafsir_api: Mu'awwidhatayn; Rabb/Malik/Ilah order; Uqba hadith (Tirmidhi hasan sahih, also Muslim). This page has no Makki/Madani verdict or ayah count (Qurtubi 113 page, read in 004, has the two views)",
+   "published": "unknown",
+   "accessed": "2026-11-03",
+   "type": "tafseer",
+   "opened": true
+  },
+  "QT_113": {
+   "url": "https://raw.githubusercontent.com/spa5k/tafsir_api/main/tafsir/ar-tafseer-al-qurtubi/113/1.json",
+   "publisher": "Qurtubi 113 page (Makki: al-Hasan, Ikrima, Ata, Jabir; Madani: Ibn Abbas one view, Qatada; covers both mu'awwidhatayn) - read in 004, not re-opened today",
+   "published": "unknown",
+   "accessed": "2026-11-03",
+   "type": "tafseer",
+   "opened": false
+  },
+  "TB_114": {
+   "url": "https://raw.githubusercontent.com/spa5k/tafsir_api/main/tafsir/ar-tafsir-al-tabari/114/1.json",
+   "publisher": "Tafsir al-Tabari (AR) 114: no Makki/Madani, no shan-e-nuzul; Ibn Abbas, Mujahid, Qatada, Ibn Zayd on waswas/khannas; jinn and mankind",
+   "published": "unknown",
+   "accessed": "2026-11-03",
+   "type": "tafseer",
+   "opened": true
+  },
+  "MQ_114": {
+   "url": "https://raw.githubusercontent.com/spa5k/tafsir_api/main/tafsir/en-tafsir-maarif-ul-quran/114/1.json",
+   "publisher": "Ma'ariful Qur'an (EN) 114 via spa5k/tafsir_api: second of the Mu'awwidhatayn; Falaq = worldly hardships, Nas = trials of the hereafter; only ayah 1 in this dataset page",
+   "published": "unknown",
+   "accessed": "2026-11-03",
+   "type": "tafseer",
+   "opened": true
+  },
+  "SUNNAH_MUSLIM_814": {
+   "url": "https://sunnah.com/muslim:814",
+   "publisher": "Sahih Muslim 814 ('Uqba bin 'Amir) - sunnah.com returned HTTP 403 today; wording read in 004 from hadith-api; Qurtubi and Ibn Kathir independently cite Muslim 814 / Tirmidhi hasan sahih",
+   "published": "unknown",
+   "accessed": "2026-11-03",
+   "type": "hadith",
+   "opened": false,
+   "note": "confirm on PC"
+  },
+  "SUNNAH_BUKHARI": {
+   "url": "https://sunnah.com/bukhari:5017 (also :5016, :5748)",
+   "publisher": "Sahih al-Bukhari - sunnah.com 403 today; text read in 004 from hadith-api",
+   "published": "unknown",
+   "accessed": "2026-11-03",
+   "type": "hadith",
+   "opened": false,
+   "note": "confirm on PC"
+  }
+ },
+ "facts": [
+  {
+   "id": "T1",
+   "claim": "Arabic 114:1-6 = Tanzil Uthmani strings (ayat[]); CC BY 3.0, verbatim, credit Tanzil Project + link; byte-check vs tanzil.net on PC required",
+   "grade": "licence ALLOWED",
+   "confidence": "pakka",
+   "sources": [
+    "TANZIL_API",
+    "TANZIL_LIC"
+   ]
+  },
+  {
+   "id": "T2",
+   "claim": "Hindi = saral bhaavarth from accepted translations (Tanzil hi.hindi/Suhel Farooq Khan, Muhammad Farooq Khan, Mahmud al-Hasan PD); nothing copied",
+   "grade": "decision (001)",
+   "confidence": "pakka",
+   "sources": [
+    "TR_FAROOQKHAN",
+    "TR_FAROOQ",
+    "TR_MAHMUD"
+   ]
+  },
+  {
+   "id": "T3",
+   "claim": "Latin transliteration per ayah for the Devanagari ucharan (Tanzil ara-quran-la + quran411 ara-quran-la1)",
+   "grade": "helper",
+   "confidence": "pakka",
+   "sources": [
+    "TANZIL_API"
+   ]
+  },
+  {
+   "id": "P1",
+   "claim": "Surah 114 = An-Nas (الناس), 'Mankind / The People'; last (114th) surah of the mushaf; 6 ayat; juz 30",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "TANZIL_API",
+    "TANZIL_CH"
+   ]
+  },
+  {
+   "id": "P2",
+   "claim": "An-Nas and al-Falaq together = 'Mu'awwidhatayn' (surahs of seeking refuge); An-Nas is the second",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "IK_EN_114",
+    "QT_114",
+    "MQ_114"
+   ]
+  },
+  {
+   "id": "P3",
+   "claim": "Makki/Madani: IKHTILAAF, no majority claimed. Makki: Qurtubi first view, Tanzil metadata 'meccan'. Madani: Ibn Kathir (AR 'wa huma madaniyyatan'), Qurtubi second view (Ibn Abbas one report, Qatada). Tabari, Ma'ariful, Ibn Kathir EN/Qurtubi 114 pages: no verdict",
+   "grade": "ikhtilaaf",
+   "confidence": "pakka",
+   "sources": [
+    "QT_113",
+    "IK_AR_113",
+    "TANZIL_CH",
+    "TB_114",
+    "MQ_114"
+   ]
+  },
+  {
+   "id": "P4",
+   "claim": "Order of revelation number: not in any opened source",
+   "grade": "pata nahi",
+   "confidence": "anumaan",
+   "sources": [
+    "TANZIL_CH"
+   ]
+  },
+  {
+   "id": "P5",
+   "claim": "Other name: only 'Mu'awwidhatayn' (shared). No separate name for 114 alone",
+   "grade": "pata nahi (Mu'awwidhatayn = maana hua)",
+   "confidence": "anumaan",
+   "sources": [
+    "IK_EN_114",
+    "QT_114"
+   ]
+  },
+  {
+   "id": "P6",
+   "claim": "Main message: seek refuge in Allah - Rabb, Malik and Ilah of mankind - from the evil of the whisperer who withdraws (whispers in people's hearts, from jinn and men). Ma'ariful: Nas = inner/hereafter side vs Falaq = worldly",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "IK_EN_114",
+    "QT_114",
+    "TB_114",
+    "MQ_114"
+   ]
+  },
+  {
+   "id": "N1",
+   "claim": "SHAN-E-NUZUL: none of the opened 114 pages (Ibn Kathir EN, Qurtubi, Tabari, Ma'ariful) states a sahih-grade occasion for An-Nas. The sihr (Labid) report (Bukhari 5763) is an event; it does not say the surahs came down for it; 11-knots/11-ayat link unsound (Ibn Kathir nakarah, see 004). = NO sahih shan-e-nuzul. Only sahih context: Muslim 814 - verses sent down 'tonight' unlike any seen (Z1)",
+   "grade": "ikhtilaaf / pata nahi - not as fact",
+   "confidence": "pakka",
+   "sources": [
+    "IK_EN_114",
+    "QT_114",
+    "TB_114",
+    "MQ_114",
+    "SUNNAH_BUKHARI"
+   ]
+  },
+  {
+   "id": "N2",
+   "claim": "Safe script line: 'इस सूरह के उतरने की कोई सहीह-दर्जे की ख़ास वजह नहीं मिलती' + P3 makki/madani ikhtilaaf line; optionally Z1 as the only sahih context. No sihr story, no scene",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "N1",
+    "P3",
+    "SUNNAH_MUSLIM_814"
+   ]
+  },
+  {
+   "id": "Z1",
+   "claim": "SAHIH: 'Uqba bin 'Amir - the Prophet SAW said (in wonder) verses were sent down tonight the like of which was never seen: Qul a'udhu bi rabbil-falaq and Qul a'udhu bi rabbin-nas. Muslim 814 (Tirmidhi: hasan sahih, per Qurtubi). Report only, no ruling",
+   "grade": "maana hua (sahih)",
+   "confidence": "pakka",
+   "sources": [
+    "SUNNAH_MUSLIM_814",
+    "QT_114",
+    "IK_EN_114"
+   ]
+  },
+  {
+   "id": "Z2",
+   "claim": "SAHIH (report only): 'A'isha - every night at bed the Prophet SAW joined palms, blew, recited Ikhlas, Falaq, Nas and wiped his body, 3 times. Bukhari 5017 (also 5748)",
+   "grade": "maana hua (sahih)",
+   "confidence": "pakka",
+   "sources": [
+    "SUNNAH_BUKHARI",
+    "IK_EN_114",
+    "QT_114"
+   ]
+  },
+  {
+   "id": "Z3",
+   "claim": "SAHIH (report only): 'A'isha - in illness the Prophet SAW recited the Mu'awwidhat over himself; in his last illness she recited and wiped his hands over him. Bukhari 5016 (optional)",
+   "grade": "maana hua (sahih)",
+   "confidence": "pakka",
+   "sources": [
+    "SUNNAH_BUKHARI",
+    "IK_EN_114",
+    "QT_114"
+   ]
+  },
+  {
+   "id": "M1",
+   "claim": "114:1-3 - Qul a'udhu: say / I seek refuge; Rabb = owner, nurturer of everything; Malik = King, sovereign over everything (some people are kings and claim rule); Ilah = the one worshipped (some people worship others). Three attributes: refuge is sought only in Him, not in kings or the powerful (Qurtubi; Ibn Kathir: 'Lord of everything, King of everything, God of everything'; Tabari; Ma'ariful on Rabb)",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "IK_EN_114",
+    "QT_114",
+    "TB_114",
+    "MQ_114"
+   ]
+  },
+  {
+   "id": "M2",
+   "claim": "114:4 - al-waswas = the whisperer (Shaytan; whisper = suggestion to the heart); al-khannas = the one who withdraws when Allah is remembered (Ibn Abbas, Mujahid, Qatada; Ibn Kathir, Tabari). Ibn Abbas: whispers when the person is heedless, withdraws when he remembers Allah. Tabari: not limited to one form (urges sin / discourages obedience)",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "IK_EN_114",
+    "TB_114",
+    "QT_114"
+   ]
+  },
+  {
+   "id": "M3",
+   "claim": "114:5 - yuwaswisu fi suduri an-nas: whispers into people's hearts/chests (Tabari: Ibn Abbas, Mujahid, Qatada; Ibn Kathir)",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "IK_EN_114",
+    "TB_114"
+   ]
+  },
+  {
+   "id": "M4",
+   "claim": "114:6 - min al-jinnati wa an-nas: the whisperers are of jinn and of men - core agreed (Ibn Kathir citing Ibn Jarir and 6:112; Tabari: Ibn Zayd; Qurtubi). Detail ikhtilaaf (whether 'nas' includes jinn; Ibn Zayd: human whisperers worse because visible) - video keeps only the core",
+   "grade": "maana hua (core); detail ikhtilaaf",
+   "confidence": "pakka",
+   "sources": [
+    "IK_EN_114",
+    "TB_114",
+    "QT_114"
+   ]
+  },
+  {
+   "id": "M5",
+   "claim": "Whole surah order: Rabb -> Malik -> Ilah (general to specific, Qurtubi) then the evil of the whisperer; Ma'ariful: Falaq seeks refuge from worldly hardships, Nas from trials of the hereafter; Ibn Kathir: 'The only person who is safe is He Whom Allah protects'",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "QT_114",
+    "MQ_114",
+    "IK_EN_114"
+   ]
+  }
+ ]
+}

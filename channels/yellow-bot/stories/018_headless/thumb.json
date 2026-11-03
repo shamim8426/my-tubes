@@ -1,0 +1,7 @@
+{
+ "title": "Claude <mark>claude -p</mark>",
+ "sub": "bina chat, scripts me <b>chalao</b>",
+ "chips": ["--allowedTools", "--bare"],
+ "robot": "wave",
+ "tag": "CLAUDE CODE"
+}

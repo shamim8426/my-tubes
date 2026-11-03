@@ -1,0 +1,796 @@
+{
+ "_note": "Short 014: Sessions. Source: https://code.claude.com/docs/en/sessions (read 2026-11-03). Format v3.",
+ "tag": "Claude Code · Sessions",
+ "music": {
+  "file": "shared/music/presentation/Funkorama.mp3",
+  "start": 6,
+  "rel": 12
+ },
+ "voice": {
+  "id": "Charon",
+  "style": "Speak like a friendly Indian tech YouTuber chatting casually in Hinglish. Natural conversational pace, warm and clear, a little energetic but not theatrical. No sing-song, no exaggerated emphasis."
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "type": "stage",
+   "wipe": "right",
+   "voice": "Claude Code की हर conversation एक session होती है, जो local save होती है। Exit करो या /clear चलाओ, फिर भी वापस आ सकते हो।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "Claude ke **sessions**",
+     "x": 80,
+     "y": 300,
+     "size": 88,
+     "hlAt": 0.9,
+     "w": 920,
+     "k": [
+      [
+       0.2,
+       {
+        "o": 0,
+        "y": 340
+       }
+      ],
+      [
+       0.7,
+       {
+        "o": 1,
+        "y": 300
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "<span class=\"mono\">session: auth-refactor</span>",
+     "x": 90,
+     "y": 520,
+     "css": "font-size:46px;font-weight:700;padding:30px 40px;border:6px solid #111;border-radius:32px;background:#fff;box-sizing:border-box;box-shadow:0 14px 34px rgba(0,0,0,.14)",
+     "k": [
+      [
+       2.34,
+       {
+        "o": 0,
+        "s": 0.6
+       }
+      ],
+      [
+       2.74,
+       {
+        "o": 1,
+        "s": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "local file me save",
+     "x": 90,
+     "y": 690,
+     "css": "font-size:36px;font-weight:800;padding:8px 26px;border:5px solid #111;border-radius:999px;white-space:nowrap;background:#FFD60A",
+     "k": [
+      [
+       3.61,
+       {
+        "o": 0,
+        "s": 0.6
+       }
+      ],
+      [
+       4.01,
+       {
+        "o": 1,
+        "s": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "exit",
+     "x": 90,
+     "y": 840,
+     "css": "font-size:36px;font-weight:800;padding:8px 26px;border:5px solid #111;border-radius:999px;white-space:nowrap;background:#fff",
+     "k": [
+      [
+       4.88,
+       {
+        "o": 0,
+        "s": 0.6
+       }
+      ],
+      [
+       5.28,
+       {
+        "o": 1,
+        "s": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "<span class=\"mono\">/clear</span>",
+     "x": 330,
+     "y": 840,
+     "css": "font-size:36px;font-weight:800;padding:8px 26px;border:5px solid #111;border-radius:999px;white-space:nowrap;background:#fff",
+     "k": [
+      [
+       5.38,
+       {
+        "o": 0,
+        "s": 0.6
+       }
+      ],
+      [
+       5.78,
+       {
+        "o": 1,
+        "s": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "<span class=\"mono\">claude --resume auth-refactor</span>",
+     "x": 90,
+     "y": 1000,
+     "css": "font-size:36px;font-weight:700;padding:22px 34px;background:#FFD60A;border:5px solid #111;border-radius:30px;white-space:nowrap",
+     "k": [
+      [
+       6.91,
+       {
+        "o": 0,
+        "s": 0.6
+       }
+      ],
+      [
+       7.31,
+       {
+        "o": 1,
+        "s": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "text",
+     "html": "Wahin se **shuru**",
+     "x": 80,
+     "y": 1190,
+     "size": 70,
+     "w": 560,
+     "hlAt": 7.41,
+     "k": [
+      [
+       7.31,
+       {
+        "o": 0,
+        "y": 1230
+       }
+      ],
+      [
+       7.81,
+       {
+        "o": 1,
+        "y": 1190
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "img",
+     "img": "wave",
+     "size": 380,
+     "x": 650,
+     "y": 1250,
+     "bob": 1,
+     "k": [
+      [
+       0.1,
+       {
+        "x": 1200,
+        "o": 1
+       }
+      ],
+      [
+       0.9,
+       {
+        "x": 650
+       }
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "docs",
+   "type": "docs",
+   "wipe": "up",
+   "img": "../stories/014_sessions/docs.png",
+   "url": "code.claude.com/docs/en/sessions",
+   "voice": "Docs की table में entry points हैं: claude --continue सबसे recent session खोलता है, claude --resume picker खोलता है, और /resume अंदर से दूसरे session पर ले जाता है।",
+   "scroll": [
+    0,
+    40
+   ],
+   "ch": 1180,
+   "callout": "**--continue**, **--resume**, **/resume**",
+   "cosize": 62,
+   "cues": [
+    "Docs की table"
+   ],
+   "hls": [
+    {
+     "x": 30,
+     "y": 365,
+     "w": 1440,
+     "h": 52
+    },
+    {
+     "x": 30,
+     "y": 420,
+     "w": 1440,
+     "h": 52
+    },
+    {
+     "x": 30,
+     "y": 640,
+     "w": 1440,
+     "h": 52
+    }
+   ],
+   "hlcues": [
+    "claude --continue",
+    "claude --resume picker",
+    "/resume अंदर"
+   ]
+  },
+  {
+   "id": "picker",
+   "type": "stage",
+   "wipe": "left",
+   "voice": "Session को नाम दो: claude -n auth-refactor से, या अंदर /rename से। फिर picker में arrow keys से चुनो, Enter से resume करो, और Space से preview देखो।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "Session ka **naam**",
+     "x": 80,
+     "y": 300,
+     "size": 88,
+     "hlAt": 0.9,
+     "w": 920,
+     "k": [
+      [
+       0.2,
+       {
+        "o": 0,
+        "y": 340
+       }
+      ],
+      [
+       0.7,
+       {
+        "o": 1,
+        "y": 300
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "<span class=\"mono\">claude -n auth-refactor</span>",
+     "x": 90,
+     "y": 470,
+     "css": "font-size:40px;font-weight:700;padding:22px 34px;background:#FFD60A;border:5px solid #111;border-radius:30px;white-space:nowrap",
+     "k": [
+      [
+       1.71,
+       {
+        "o": 0,
+        "s": 0.6
+       }
+      ],
+      [
+       2.11,
+       {
+        "o": 1,
+        "s": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "<span class=\"mono\">/rename auth-refactor</span>",
+     "x": 90,
+     "y": 600,
+     "css": "font-size:40px;font-weight:700;padding:22px 34px;background:#fff;border:5px solid #111;border-radius:30px;white-space:nowrap",
+     "k": [
+      [
+       4.62,
+       {
+        "o": 0,
+        "s": 0.6
+       }
+      ],
+      [
+       5.02,
+       {
+        "o": 1,
+        "s": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "<div class=\"mono\" style=\"font-size:30px;color:#FFD60A;background:#111;padding:14px 28px;border-radius:26px 26px 0 0\">/resume  (picker · example)</div>",
+     "x": 90,
+     "y": 760,
+     "css": "width:900px;overflow:hidden;border:6px solid #111;border-radius:32px;background:#fff;height:430px",
+     "k": [
+      [
+       5.91,
+       {
+        "o": 0,
+        "s": 0.6
+       }
+      ],
+      [
+       6.31,
+       {
+        "o": 1,
+        "s": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "",
+     "x": 100,
+     "y": 860,
+     "css": "width:880px;height:90px;background:#FFD60A;border-radius:20px;border:4px solid #111",
+     "k": [
+      [
+       5.91,
+       {
+        "o": 0,
+        "y": 860
+       }
+      ],
+      [
+       6.21,
+       {
+        "o": 1,
+        "y": 860
+       }
+      ],
+      [
+       6.8,
+       {
+        "y": 860
+       }
+      ],
+      [
+       7.3,
+       {
+        "y": 970
+       }
+      ],
+      [
+       8.0,
+       {
+        "y": 1070
+       }
+      ],
+      [
+       8.42,
+       {
+        "y": 1070
+       }
+      ],
+      [
+       8.92,
+       {
+        "y": 970
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "<span class=\"mono\">auth-refactor</span>",
+     "x": 130,
+     "y": 886,
+     "css": "font-size:40px;font-weight:700",
+     "k": [
+      [
+       5.91,
+       {
+        "o": 0
+       }
+      ],
+      [
+       6.21,
+       {
+        "o": 1
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "<span class=\"mono\">fix-login</span>",
+     "x": 130,
+     "y": 991,
+     "css": "font-size:40px;font-weight:700",
+     "k": [
+      [
+       5.91,
+       {
+        "o": 0
+       }
+      ],
+      [
+       6.21,
+       {
+        "o": 1
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "<span class=\"mono\">try-streaming</span>",
+     "x": 130,
+     "y": 1096,
+     "css": "font-size:40px;font-weight:700",
+     "k": [
+      [
+       5.91,
+       {
+        "o": 0
+       }
+      ],
+      [
+       6.21,
+       {
+        "o": 1
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "↑ ↓",
+     "x": 90,
+     "y": 1250,
+     "css": "font-size:38px;font-weight:800;padding:12px 28px;background:#111;color:#FFD60A;border-radius:16px;white-space:nowrap;box-shadow:0 8px 0 #555",
+     "k": [
+      [
+       6.8,
+       {
+        "o": 0,
+        "s": 0.6
+       }
+      ],
+      [
+       7.2,
+       {
+        "o": 1,
+        "s": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "Enter = resume",
+     "x": 290,
+     "y": 1250,
+     "css": "font-size:38px;font-weight:800;padding:12px 28px;background:#111;color:#FFD60A;border-radius:16px;white-space:nowrap;box-shadow:0 8px 0 #555",
+     "k": [
+      [
+       8.42,
+       {
+        "o": 0,
+        "s": 0.6
+       }
+      ],
+      [
+       8.82,
+       {
+        "o": 1,
+        "s": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "Space = preview",
+     "x": 90,
+     "y": 1380,
+     "css": "font-size:38px;font-weight:800;padding:12px 28px;background:#111;color:#FFD60A;border-radius:16px;white-space:nowrap;box-shadow:0 8px 0 #555",
+     "k": [
+      [
+       10.35,
+       {
+        "o": 0,
+        "s": 0.6
+       }
+      ],
+      [
+       10.75,
+       {
+        "o": 1,
+        "s": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "example",
+   "type": "code",
+   "wipe": "right",
+   "file": "terminal · DOCS EXAMPLE",
+   "size": 38,
+   "y0": 330,
+   "voice": "दूसरा approach try करना है? /branch चलाओ, नाम भी दे सकते हो। Conversation की copy बन जाती है, और original session वैसा ही रहता है।",
+   "lines": [
+    "> /branch try-streaming-approach",
+    "# conversation ki copy",
+    "$ claude --continue --fork-session",
+    "# command line se bhi"
+   ],
+   "caption": "Original **waisa ka waisa**",
+   "cosize": 66,
+   "cues": [
+    "/branch चलाओ",
+    "Conversation की copy",
+    "original session",
+    "वैसा ही",
+    "रहता है"
+   ]
+  },
+  {
+   "id": "nuance",
+   "type": "compare",
+   "wipe": "up",
+   "voice": "एक बारीकी: बिना नाम वाले session का default name, जैसे my-app-3f, resume के लिए काम नहीं करता। Generated title या तुम्हारा दिया नाम काम करता है।",
+   "left": {
+    "title": "Nahi chalta",
+    "rows": [
+     "default name my-app-3f"
+    ]
+   },
+   "right": {
+    "title": "Chalta hai",
+    "rows": [
+     "tumhara naam ya generated title"
+    ]
+   },
+   "foot": "Default name **handle nahi** hai",
+   "footcue": 4,
+   "cues": [
+    "बारीकी",
+    "Generated title",
+    "my-app-3f",
+    "या तुम्हारा",
+    "काम करता है"
+   ]
+  },
+  {
+   "id": "recap",
+   "type": "stage",
+   "wipe": "right",
+   "voice": "तो याद रखो: --continue या --resume से वापस आओ, नाम दो ताकि ढूँढना आसान हो, और /branch से नया रास्ता try करो।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "Yaad **rakho**",
+     "x": 80,
+     "y": 300,
+     "size": 88,
+     "hlAt": 0.9,
+     "w": 920,
+     "k": [
+      [
+       0.2,
+       {
+        "o": 0,
+        "y": 340
+       }
+      ],
+      [
+       0.7,
+       {
+        "o": 1,
+        "y": 300
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "svgbot",
+     "size": 800,
+     "x": -70,
+     "y": 560,
+     "talk": [
+      [
+       0.5,
+       8.61
+      ]
+     ],
+     "nod": [
+      [
+       6.51,
+       7.91
+      ]
+     ],
+     "k": [
+      [
+       0.0,
+       {
+        "x": -600,
+        "ar": 0
+       }
+      ],
+      [
+       0.7,
+       {
+        "x": -70,
+        "e": "b"
+       }
+      ],
+      [
+       0.76,
+       {
+        "ar": 0
+       }
+      ],
+      [
+       1.15,
+       {
+        "ar": -86
+       }
+      ],
+      [
+       4.0,
+       {
+        "ar": -80
+       }
+      ],
+      [
+       6.51,
+       {
+        "ar": -92
+       }
+      ],
+      [
+       8.91,
+       {
+        "ar": 0
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "x": 440,
+     "y": 560,
+     "css": "width:600px;display:flex;gap:24px;align-items:center",
+     "html": "<div style=\"width:78px;height:78px;border-radius:50%;background:#FFD60A;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:44px;flex:none\">1</div><div><div style=\"font-size:42px;font-weight:800;line-height:1.1\">Wapas aao</div><div style=\"font-size:30px;color:#6b6b66;font-weight:500;margin-top:4px\">--continue ya --resume</div></div>",
+     "k": [
+      [
+       1.15,
+       {
+        "x": 520,
+        "o": 0
+       }
+      ],
+      [
+       1.6,
+       {
+        "x": 440,
+        "o": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "x": 440,
+     "y": 850,
+     "css": "width:600px;display:flex;gap:24px;align-items:center",
+     "html": "<div style=\"width:78px;height:78px;border-radius:50%;background:#FFD60A;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:44px;flex:none\">2</div><div><div style=\"font-size:42px;font-weight:800;line-height:1.1\">Naam do</div><div style=\"font-size:30px;color:#6b6b66;font-weight:500;margin-top:4px\">-n ya /rename</div></div>",
+     "k": [
+      [
+       4.0,
+       {
+        "x": 520,
+        "o": 0
+       }
+      ],
+      [
+       4.45,
+       {
+        "x": 440,
+        "o": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "x": 440,
+     "y": 1140,
+     "css": "width:600px;display:flex;gap:24px;align-items:center",
+     "html": "<div style=\"width:78px;height:78px;border-radius:50%;background:#FFD60A;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:44px;flex:none\">3</div><div><div style=\"font-size:42px;font-weight:800;line-height:1.1\">Naya raasta</div><div style=\"font-size:30px;color:#6b6b66;font-weight:500;margin-top:4px\">/branch</div></div>",
+     "k": [
+      [
+       6.51,
+       {
+        "x": 520,
+        "o": 0
+       }
+      ],
+      [
+       6.96,
+       {
+        "x": 440,
+        "o": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cta",
+   "type": "cta",
+   "wipe": "left",
+   "size": 92,
+   "voice": "आप कितने sessions एक साथ चलाते हो? Comment में बताओ।",
+   "lines": [
+    "Aap kitne **sessions**",
+    "ek saath?"
+   ],
+   "sub": "Comment me batao",
+   "cues": [
+    "आप कितने",
+    "एक साथ",
+    "Comment में"
+   ],
+   "robot": {
+    "img": "thumbs",
+    "x": 570,
+    "y": 1250,
+    "size": 460,
+    "cue": "Comment में"
+   }
+  }
+ ]
+}

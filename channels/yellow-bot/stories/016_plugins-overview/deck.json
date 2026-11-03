@@ -1,0 +1,616 @@
+{
+ "tag": "Claude Code · Plugins",
+ "music": {
+  "file": "shared/music/presentation/Funkorama.mp3",
+  "start": 6,
+  "rel": 12
+ },
+ "voice": {
+  "id": "Charon",
+  "style": "Speak like a friendly Indian tech YouTuber chatting casually in Hinglish. Natural conversational pace, warm and clear, a little energetic but not theatrical. No sing-song, no exaggerated emphasis."
+ },
+ "_note": "Short 016: plugins overview. Source: https://code.claude.com/docs/en/plugins/overview (read 2026-11-03). Format v3.",
+ "scenes": [
+  {
+   "id": "hook",
+   "type": "stage",
+   "wipe": "right",
+   "voice": "Skills, agents, hooks और MCP servers, सब अलग-अलग फैले हैं? Plugin इन सबको एक unit में pack कर देता है।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "Plugin = **ek unit**",
+     "x": 80,
+     "y": 300,
+     "size": 88,
+     "hlAt": 0.9,
+     "w": 920,
+     "k": [
+      [
+       0.2,
+       {
+        "o": 0,
+        "y": 340
+       }
+      ],
+      [
+       0.7,
+       {
+        "o": 1,
+        "y": 300
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "<div class=\"mono\" style=\"font-size:40px;font-weight:700;margin:24px 0 0 36px\">my-plugin/</div>",
+     "x": 190,
+     "y": 800,
+     "css": "width:700px;height:520px;border:6px solid #111;border-radius:36px;background:#fff;box-shadow:0 14px 34px rgba(0,0,0,.14)",
+     "k": [
+      [
+       0.3,
+       {
+        "o": 0,
+        "y": 840,
+        "s": 1
+       }
+      ],
+      [
+       0.9,
+       {
+        "o": 1,
+        "y": 800,
+        "s": 1
+       }
+      ],
+      [
+       6.130000000000001,
+       {
+        "o": 1,
+        "s": 1
+       }
+      ],
+      [
+       6.43,
+       {
+        "o": 1,
+        "s": 1.05
+       }
+      ],
+      [
+       6.83,
+       {
+        "o": 1,
+        "s": 1
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "Skill",
+     "x": -330,
+     "y": 640,
+     "css": "font-size:46px;font-weight:800;padding:10px 30px;border:5px solid #111;border-radius:999px;white-space:nowrap;background:#FFD60A",
+     "k": [
+      [
+       0.9,
+       {
+        "x": -330,
+        "y": 640,
+        "o": 0
+       }
+      ],
+      [
+       1.3,
+       {
+        "x": 40,
+        "y": 640,
+        "o": 1,
+        "e": "b"
+       }
+      ],
+      [
+       4.53,
+       {
+        "x": 40,
+        "y": 640,
+        "o": 1
+       }
+      ],
+      [
+       5.13,
+       {
+        "x": 230,
+        "y": 900,
+        "o": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "Agent",
+     "x": 1120,
+     "y": 600,
+     "css": "font-size:46px;font-weight:800;padding:10px 30px;border:5px solid #111;border-radius:999px;white-space:nowrap;background:#fff",
+     "k": [
+      [
+       1.4,
+       {
+        "x": 1120,
+        "y": 600,
+        "o": 0
+       }
+      ],
+      [
+       1.7999999999999998,
+       {
+        "x": 700,
+        "y": 600,
+        "o": 1,
+        "e": "b"
+       }
+      ],
+      [
+       4.78,
+       {
+        "x": 700,
+        "y": 600,
+        "o": 1
+       }
+      ],
+      [
+       5.38,
+       {
+        "x": 560,
+        "y": 900,
+        "o": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "Hooks",
+     "x": -330,
+     "y": 1380,
+     "css": "font-size:46px;font-weight:800;padding:10px 30px;border:5px solid #111;border-radius:999px;white-space:nowrap;background:#FFD60A",
+     "k": [
+      [
+       1.9,
+       {
+        "x": -330,
+        "y": 1380,
+        "o": 0
+       }
+      ],
+      [
+       2.3,
+       {
+        "x": 40,
+        "y": 1380,
+        "o": 1,
+        "e": "b"
+       }
+      ],
+      [
+       5.03,
+       {
+        "x": 40,
+        "y": 1380,
+        "o": 1
+       }
+      ],
+      [
+       5.63,
+       {
+        "x": 230,
+        "y": 1070,
+        "o": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "MCP",
+     "x": 1120,
+     "y": 1350,
+     "css": "font-size:46px;font-weight:800;padding:10px 30px;border:5px solid #111;border-radius:999px;white-space:nowrap;background:#fff",
+     "k": [
+      [
+       2.4,
+       {
+        "x": 1120,
+        "y": 1350,
+        "o": 0
+       }
+      ],
+      [
+       2.8,
+       {
+        "x": 700,
+        "y": 1350,
+        "o": 1,
+        "e": "b"
+       }
+      ],
+      [
+       5.28,
+       {
+        "x": 700,
+        "y": 1350,
+        "o": 1
+       }
+      ],
+      [
+       5.88,
+       {
+        "x": 560,
+        "y": 1070,
+        "o": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "ek install, ek unit",
+     "x": 300,
+     "y": 1230,
+     "css": "font-size:40px;font-weight:800;padding:10px 30px;border:5px solid #111;border-radius:999px;white-space:nowrap;background:#FFD60A",
+     "k": [
+      [
+       6.43,
+       {
+        "o": 0,
+        "s": 0.6
+       }
+      ],
+      [
+       6.93,
+       {
+        "o": 1,
+        "s": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "img",
+     "img": "thumbs",
+     "size": 330,
+     "x": 650,
+     "y": 1400,
+     "bob": 1,
+     "k": [
+      [
+       0.1,
+       {
+        "x": 1200,
+        "o": 1
+       }
+      ],
+      [
+       5.53,
+       {
+        "x": 1200
+       }
+      ],
+      [
+       6.33,
+       {
+        "x": 700
+       }
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "parts",
+   "type": "hub",
+   "wipe": "up",
+   "voice": "Plugin के अंदर skills होते हैं, agents होते हैं, hooks होते हैं, और MCP servers भी। इन सबको Claude Code एक साथ load करता है।",
+   "center": "Plugin",
+   "nodes": [
+    "Skills",
+    "Agents",
+    "Hooks",
+    "MCP servers"
+   ],
+   "cues": [
+    "Plugin के अंदर",
+    "skills होते",
+    "agents होते",
+    "hooks होते",
+    "MCP servers भी",
+    "load करता",
+    "load करता",
+    "load करता"
+   ]
+  },
+  {
+   "id": "docs",
+   "type": "docs",
+   "wipe": "left",
+   "img": "plugins-overview.png",
+   "url": "code.claude.com/docs/en/plugins/overview",
+   "voice": "Docs में देखो: plugin एक directory है। Manifest उसका नाम देती है, और components में skills, agents, hooks और MCP servers आते हैं।",
+   "scroll": [
+    1200,
+    1300
+   ],
+   "ch": 1180,
+   "callout": "**Plugin** = directory of **components**",
+   "cosize": 62,
+   "cues": [
+    "Docs में देखो"
+   ],
+   "hls": [
+    {
+     "x": 30,
+     "y": 1322,
+     "w": 1440,
+     "h": 126
+    },
+    {
+     "x": 30,
+     "y": 1466,
+     "w": 1440,
+     "h": 312
+    }
+   ],
+   "hlcues": [
+    "plugin एक directory",
+    "skills, agents, hooks"
+   ]
+  },
+  {
+   "id": "example",
+   "type": "code",
+   "wipe": "right",
+   "file": "terminal · /plugin",
+   "size": 36,
+   "y0": 330,
+   "voice": "Try करने के लिए terminal में /plugin चलाओ। Discover tab में marketplaces के plugins दिखते हैं। Marketplaces tab में official plugins का Context cost दिखता है। और Installed tab में Not used recently वाले plugins मिल जाते हैं।",
+   "lines": [
+    "> /plugin",
+    "Discover       -> plugins list",
+    "Marketplaces   -> Context cost",
+    "Installed      -> Not used recently"
+   ],
+   "caption": "**/plugin** = browse + check",
+   "cosize": 66,
+   "cues": [
+    "/plugin चलाओ",
+    "Discover tab",
+    "Marketplaces tab",
+    "Installed tab",
+    "Not used recently"
+   ]
+  },
+  {
+   "id": "nuance",
+   "type": "chips",
+   "wipe": "up",
+   "y0": 330,
+   "parent": "Dhyan rakho",
+   "title": "Har session me",
+   "voice": "एक बात ध्यान रखो: enabled plugin हर session का हिस्सा है। जो skills और agents Claude खुद invoke कर सकता है, उनके name और description हर turn context में रहते हैं। MCP servers और hooks भी चलते हैं। और plugin जो चलाता है, वो आपकी तरह चलता है।",
+   "chips": [
+    "Naam+detail context me",
+    "MCP + hooks chalte hain",
+    "Jo chale, tum jaise"
+   ],
+   "cues": [
+    "एक बात",
+    "हर session का हिस्सा",
+    "name और description",
+    "MCP servers और hooks",
+    "वो आपकी तरह"
+   ]
+  },
+  {
+   "id": "recap",
+   "type": "stage",
+   "wipe": "up",
+   "voice": "तो याद रखो: plugin कई components को एक unit में pack करता है। /plugin से Discover tab में install करो। और enabled plugin का context cost देखना मत भूलना।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "Yaad **rakho**",
+     "x": 80,
+     "y": 300,
+     "size": 88,
+     "hlAt": 0.9,
+     "w": 920,
+     "k": [
+      [
+       0.2,
+       {
+        "o": 0,
+        "y": 340
+       }
+      ],
+      [
+       0.7,
+       {
+        "o": 1,
+        "y": 300
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "svgbot",
+     "size": 800,
+     "x": -70,
+     "y": 560,
+     "talk": [
+      [
+       0.5,
+       11.02
+      ]
+     ],
+     "nod": [
+      [
+       8.82,
+       10.22
+      ]
+     ],
+     "k": [
+      [
+       0.0,
+       {
+        "x": -600,
+        "ar": 0
+       }
+      ],
+      [
+       0.7,
+       {
+        "x": -70,
+        "e": "b"
+       }
+      ],
+      [
+       0.76,
+       {
+        "ar": 0
+       }
+      ],
+      [
+       1.02,
+       {
+        "ar": -86
+       }
+      ],
+      [
+       4.5,
+       {
+        "ar": -80
+       }
+      ],
+      [
+       8.82,
+       {
+        "ar": -92
+       }
+      ],
+      [
+       11.22,
+       {
+        "ar": 0
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:78px;height:78px;border-radius:50%;background:#FFD60A;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:44px;flex:none\">1</div><div><div style=\"font-size:46px;font-weight:800;line-height:1.1\">Plugin = ek unit</div><div style=\"font-size:32px;color:#6b6b66;font-weight:500;margin-top:4px\">skills, agents, hooks, MCP</div></div>",
+     "x": 440,
+     "y": 560,
+     "css": "width:600px;display:flex;gap:24px;align-items:center",
+     "k": [
+      [
+       1.02,
+       {
+        "x": 520,
+        "o": 0
+       }
+      ],
+      [
+       1.47,
+       {
+        "x": 440,
+        "o": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:78px;height:78px;border-radius:50%;background:#FFD60A;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:44px;flex:none\">2</div><div><div style=\"font-size:46px;font-weight:800;line-height:1.1\">/plugin</div><div style=\"font-size:32px;color:#6b6b66;font-weight:500;margin-top:4px\">Discover se install karo</div></div>",
+     "x": 440,
+     "y": 850,
+     "css": "width:600px;display:flex;gap:24px;align-items:center",
+     "k": [
+      [
+       4.5,
+       {
+        "x": 520,
+        "o": 0
+       }
+      ],
+      [
+       4.95,
+       {
+        "x": 440,
+        "o": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:78px;height:78px;border-radius:50%;background:#FFD60A;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:44px;flex:none\">3</div><div><div style=\"font-size:46px;font-weight:800;line-height:1.1\">Context cost</div><div style=\"font-size:32px;color:#6b6b66;font-weight:500;margin-top:4px\">install se pehle dekho</div></div>",
+     "x": 440,
+     "y": 1140,
+     "css": "width:600px;display:flex;gap:24px;align-items:center",
+     "k": [
+      [
+       8.82,
+       {
+        "x": 520,
+        "o": 0
+       }
+      ],
+      [
+       9.27,
+       {
+        "x": 440,
+        "o": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cta",
+   "type": "cta",
+   "wipe": "left",
+   "size": 92,
+   "voice": "आप कौन सा plugin सबसे पहले try करोगे? Comment में बताओ।",
+   "lines": [
+    "Pehle kaunsa",
+    "**plugin** try karoge?"
+   ],
+   "sub": "Comment me batao",
+   "cues": [
+    "आप कौन सा",
+    "plugin सबसे",
+    "Comment में"
+   ],
+   "robot": {
+    "img": "thumbs",
+    "x": 570,
+    "y": 1250,
+    "size": 460,
+    "cue": "Comment में"
+   }
+  }
+ ]
+}

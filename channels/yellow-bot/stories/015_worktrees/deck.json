@@ -1,0 +1,635 @@
+{
+ "tag": "Claude Code · Worktrees",
+ "music": {
+  "file": "shared/music/presentation/Funkorama.mp3",
+  "start": 6,
+  "rel": 12
+ },
+ "voice": {
+  "id": "Charon",
+  "style": "Speak like a friendly Indian tech YouTuber chatting casually in Hinglish. Natural conversational pace, warm and clear, a little energetic but not theatrical. No sing-song, no exaggerated emphasis."
+ },
+ "_note": "Short 015: worktrees. Source: https://code.claude.com/docs/en/worktrees (read 2026-11-03). Format v3.",
+ "scenes": [
+  {
+   "id": "hook",
+   "type": "stage",
+   "wipe": "right",
+   "voice": "सोचो दो sessions एक ही folder में काम करें, तो files टकराती हैं। Worktree हर session को अपना अलग folder और branch देता है।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "Parallel **sessions**",
+     "x": 80,
+     "y": 300,
+     "size": 88,
+     "hlAt": 0.9,
+     "w": 920,
+     "k": [
+      [
+       0.2,
+       {
+        "o": 0,
+        "y": 340
+       }
+      ],
+      [
+       0.7,
+       {
+        "o": 1,
+        "y": 300
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "doc",
+     "w": 560,
+     "h": 380,
+     "file": "app.js",
+     "lines": 7,
+     "x": 260,
+     "y": 520,
+     "k": [
+      [
+       0.2,
+       {
+        "o": 0,
+        "y": 560,
+        "mess": 0
+       }
+      ],
+      [
+       0.8,
+       {
+        "o": 1,
+        "y": 520,
+        "mess": 0
+       }
+      ],
+      [
+       3.29,
+       {
+        "o": 1,
+        "mess": 0
+       }
+      ],
+      [
+       4.09,
+       {
+        "o": 1,
+        "mess": 1
+       }
+      ],
+      [
+       4.3999999999999995,
+       {
+        "o": 1,
+        "mess": 1
+       }
+      ],
+      [
+       4.8999999999999995,
+       {
+        "o": 0,
+        "mess": 1
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "Session A",
+     "x": 60,
+     "y": 1000,
+     "css": "font-size:44px;font-weight:800;padding:10px 30px;border:5px solid #111;border-radius:999px;white-space:nowrap;background:#fff",
+     "k": [
+      [
+       0.9,
+       {
+        "x": -240,
+        "y": 1000,
+        "o": 0
+       }
+      ],
+      [
+       1.35,
+       {
+        "x": 60,
+        "y": 1000,
+        "o": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "Session B",
+     "x": 700,
+     "y": 1000,
+     "css": "font-size:44px;font-weight:800;padding:10px 30px;border:5px solid #111;border-radius:999px;white-space:nowrap;background:#FFD60A",
+     "k": [
+      [
+       1.5,
+       {
+        "x": 1000,
+        "y": 1000,
+        "o": 0
+       }
+      ],
+      [
+       1.95,
+       {
+        "x": 700,
+        "y": 1000,
+        "o": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "collision!",
+     "x": 340,
+     "y": 940,
+     "css": "font-size:48px;font-weight:800;padding:10px 30px;border:5px solid #111;border-radius:999px;white-space:nowrap;background:#FFD60A",
+     "k": [
+      [
+       3.79,
+       {
+        "o": 0,
+        "s": 0.6
+       }
+      ],
+      [
+       4.19,
+       {
+        "o": 1,
+        "s": 1,
+        "e": "b"
+       }
+      ],
+      [
+       4.3999999999999995,
+       {
+        "o": 1
+       }
+      ],
+      [
+       4.8999999999999995,
+       {
+        "o": 0
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "draw",
+     "x": 0,
+     "y": 560,
+     "w": 1080,
+     "h": 420,
+     "sw": 7,
+     "items": [
+      {
+       "t": "arrow",
+       "from": [
+        540,
+        10
+       ],
+       "to": [
+        300,
+        90
+       ],
+       "at": 4.8,
+       "dur": 0.5
+      },
+      {
+       "t": "arrow",
+       "from": [
+        540,
+        10
+       ],
+       "to": [
+        780,
+        90
+       ],
+       "at": 4.8,
+       "dur": 0.5
+      },
+      {
+       "t": "box",
+       "x": 60,
+       "y": 110,
+       "w": 460,
+       "h": 170,
+       "label": "worktree A",
+       "size": 48,
+       "fill": "#FFD60A",
+       "fo": 0.55,
+       "at": 5.3,
+       "dur": 0.8
+      },
+      {
+       "t": "box",
+       "x": 560,
+       "y": 110,
+       "w": 460,
+       "h": 170,
+       "label": "worktree B",
+       "size": 48,
+       "fill": "#FFD60A",
+       "fo": 0.55,
+       "at": 5.8,
+       "dur": 0.8
+      },
+      {
+       "t": "text",
+       "x": 290,
+       "y": 350,
+       "text": "alag branch",
+       "size": 42,
+       "anchor": "middle",
+       "at": 6.17,
+       "dur": 0.4
+      },
+      {
+       "t": "text",
+       "x": 790,
+       "y": 350,
+       "text": "alag branch",
+       "size": 42,
+       "anchor": "middle",
+       "at": 6.47,
+       "dur": 0.4
+      }
+     ]
+    },
+    {
+     "kind": "text",
+     "html": "Har session ka **apna folder**",
+     "x": 80,
+     "y": 1240,
+     "size": 62,
+     "w": 560,
+     "hlAt": 6.47,
+     "k": [
+      [
+       6.17,
+       {
+        "o": 0,
+        "y": 1280
+       }
+      ],
+      [
+       6.67,
+       {
+        "o": 1,
+        "y": 1240
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "img",
+     "img": "work",
+     "size": 380,
+     "x": 650,
+     "y": 1300,
+     "bob": 1,
+     "k": [
+      [
+       0.1,
+       {
+        "x": 1200,
+        "o": 1
+       }
+      ],
+      [
+       0.9,
+       {
+        "x": 650
+       }
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "docs",
+   "type": "docs",
+   "wipe": "up",
+   "img": "worktrees.png",
+   "url": "code.claude.com/docs/en/worktrees",
+   "voice": "Docs में देखो: --worktree flag के साथ नाम दो, तो .claude/worktrees/ में नया worktree बनता है, और नई branch भी।",
+   "scroll": [
+    950,
+    1050
+   ],
+   "ch": 1180,
+   "callout": "**--worktree** = alag folder + **nayi branch**",
+   "cosize": 62,
+   "cues": [
+    "--worktree flag"
+   ],
+   "hls": [
+    {
+     "x": 30,
+     "y": 1342,
+     "w": 1440,
+     "h": 82
+    },
+    {
+     "x": 30,
+     "y": 1236,
+     "w": 1440,
+     "h": 86
+    }
+   ],
+   "hlcues": [
+    "--worktree flag",
+    ".claude/worktrees/"
+   ]
+  },
+  {
+   "id": "example",
+   "type": "code",
+   "wipe": "left",
+   "file": "terminal · EXAMPLE",
+   "size": 38,
+   "y0": 330,
+   "voice": "दो terminal खोलो। पहले में claude --worktree feature-auth चलाओ, दूसरे में claude --worktree bugfix। अब दोनों sessions अलग-अलग worktree में हैं।",
+   "lines": [
+    "# terminal 1",
+    "claude --worktree feature-auth",
+    "# terminal 2",
+    "claude --worktree bugfix"
+   ],
+   "caption": "**2 terminals** = 2 worktrees",
+   "cosize": 66,
+   "cues": [
+    "दो terminal",
+    "पहले में",
+    "दूसरे में",
+    "claude --worktree bugfix",
+    "अलग-अलग worktree"
+   ]
+  },
+  {
+   "id": "cleanup",
+   "type": "flow",
+   "wipe": "right",
+   "tsize": 50,
+   "nh": 200,
+   "gap": 90,
+   "voice": "Session से exit करो, तो Claude worktree check करता है। Clean और unnamed हो, तो वो अपने-आप हट जाता है। काम बचा हो, तो Claude पूछता है, keep या remove। Remove किया तो folder और branch दोनों जाते हैं।",
+   "nodes": [
+    {
+     "t": "Exit karte ho",
+     "s": "Claude worktree check karta hai"
+    },
+    {
+     "t": "Clean + unnamed",
+     "s": "apne-aap remove"
+    },
+    {
+     "t": "Kaam bacha hai",
+     "s": "keep ya remove poochta hai"
+    }
+   ],
+   "foot": "Remove = folder **aur branch** dono delete",
+   "cues": [
+    "exit करो",
+    "Clean और unnamed",
+    "काम बचा",
+    "Remove किया"
+   ]
+  },
+  {
+   "id": "nuance",
+   "type": "compare",
+   "wipe": "up",
+   "voice": "एक बारीकी: worktree fresh checkout होता है, इसलिए .env जैसी gitignored files साथ नहीं आतीं। .worktreeinclude में पैटर्न लिखो, और जो files gitignored भी हैं और match भी करती हैं, वो copy हो जाती हैं।",
+   "footcue": 6,
+   "left": {
+    "title": "Default",
+    "rows": [
+     ".env nahi aati",
+     "fresh checkout hai"
+    ]
+   },
+   "right": {
+    "title": "Include file",
+    "rows": [
+     ".worktreeinclude me likho",
+     "gitignored + match = copy"
+    ]
+   },
+   "foot": "Sirf **gitignored** files copy hoti hain",
+   "cues": [
+    "एक बारीकी",
+    ".worktreeinclude में",
+    "fresh checkout",
+    "साथ नहीं आतीं",
+    "पैटर्न लिखो",
+    "match भी करती",
+    "copy हो जाती"
+   ]
+  },
+  {
+   "id": "recap",
+   "type": "stage",
+   "wipe": "up",
+   "voice": "तो याद रखो: --worktree से हर session को अलग folder और branch मिलता है। Exit पर clean worktree अपने-आप हटता है। और .env जैसी files के लिए .worktreeinclude लिखो।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "Yaad **rakho**",
+     "x": 80,
+     "y": 300,
+     "size": 88,
+     "hlAt": 0.9,
+     "w": 920,
+     "k": [
+      [
+       0.2,
+       {
+        "o": 0,
+        "y": 340
+       }
+      ],
+      [
+       0.7,
+       {
+        "o": 1,
+        "y": 300
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "svgbot",
+     "size": 800,
+     "x": -70,
+     "y": 560,
+     "talk": [
+      [
+       0.5,
+       11.62
+      ]
+     ],
+     "nod": [
+      [
+       9.81,
+       11.21
+      ]
+     ],
+     "k": [
+      [
+       0.0,
+       {
+        "x": -600,
+        "ar": 0
+       }
+      ],
+      [
+       0.7,
+       {
+        "x": -70,
+        "e": "b"
+       }
+      ],
+      [
+       0.76,
+       {
+        "ar": 0
+       }
+      ],
+      [
+       1.02,
+       {
+        "ar": -86
+       }
+      ],
+      [
+       5.17,
+       {
+        "ar": -80
+       }
+      ],
+      [
+       9.81,
+       {
+        "ar": -92
+       }
+      ],
+      [
+       11.82,
+       {
+        "ar": 0
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:78px;height:78px;border-radius:50%;background:#FFD60A;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:44px;flex:none\">1</div><div><div style=\"font-size:46px;font-weight:800;line-height:1.1\">--worktree</div><div style=\"font-size:32px;color:#6b6b66;font-weight:500;margin-top:4px\">har session ka alag folder</div></div>",
+     "x": 440,
+     "y": 560,
+     "css": "width:600px;display:flex;gap:24px;align-items:center",
+     "k": [
+      [
+       1.02,
+       {
+        "x": 520,
+        "o": 0
+       }
+      ],
+      [
+       1.47,
+       {
+        "x": 440,
+        "o": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:78px;height:78px;border-radius:50%;background:#FFD60A;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:44px;flex:none\">2</div><div><div style=\"font-size:46px;font-weight:800;line-height:1.1\">Clean exit</div><div style=\"font-size:32px;color:#6b6b66;font-weight:500;margin-top:4px\">worktree apne-aap hat jaata</div></div>",
+     "x": 440,
+     "y": 850,
+     "css": "width:600px;display:flex;gap:24px;align-items:center",
+     "k": [
+      [
+       5.17,
+       {
+        "x": 520,
+        "o": 0
+       }
+      ],
+      [
+       5.62,
+       {
+        "x": 440,
+        "o": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:78px;height:78px;border-radius:50%;background:#FFD60A;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:44px;flex:none\">3</div><div><div style=\"font-size:46px;font-weight:800;line-height:1.1\">.worktreeinclude</div><div style=\"font-size:32px;color:#6b6b66;font-weight:500;margin-top:4px\">gitignored files copy</div></div>",
+     "x": 440,
+     "y": 1140,
+     "css": "width:600px;display:flex;gap:24px;align-items:center",
+     "k": [
+      [
+       9.81,
+       {
+        "x": 520,
+        "o": 0
+       }
+      ],
+      [
+       10.26,
+       {
+        "x": 440,
+        "o": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cta",
+   "type": "cta",
+   "wipe": "left",
+   "size": 92,
+   "voice": "आप worktree में सबसे पहले कौन सा काम चलाओगे? Comment में बताओ।",
+   "lines": [
+    "Pehle kaunsa kaam",
+    "**worktree** me?"
+   ],
+   "sub": "Comment me batao",
+   "cues": [
+    "आप worktree",
+    "कौन सा काम",
+    "Comment में"
+   ],
+   "robot": {
+    "img": "thumbs",
+    "x": 570,
+    "y": 1250,
+    "size": 460,
+    "cue": "Comment में"
+   }
+  }
+ ]
+}
