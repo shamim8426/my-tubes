@@ -45,6 +45,32 @@ def phrase_time(sc, dur, ph):
     return round(max(0.2, LEAD + dur * (i / max(1, len(text))) * 0.97 - 0.12), 2)
 
 
+def rt(sc, dur, v):
+    """New (019): a time may be a phrase of the scene voice text ('phrase' or 'phrase|0.3' = plus 0.3 s); numbers pass through."""
+    if not isinstance(v, str):
+        return v
+    ph, *offs = v.split("|")
+    t = phrase_time(sc, dur, ph)
+    return None if t is None else round(t + sum(float(o) for o in offs if o), 2)
+
+
+def resolve_layer(sc, dur, L):
+    L = dict(L)
+    for f in ("sat", "in", "out", "hlAt", "at", "wig", "spinAt", "until"):
+        if isinstance(L.get(f), str):
+            L[f] = rt(sc, dur, L[f])
+    if isinstance(L.get("drawon"), list) and isinstance(L["drawon"][0], str):
+        L["drawon"] = [rt(sc, dur, L["drawon"][0])] + L["drawon"][1:]
+    if L.get("k"):
+        L["k"] = [[rt(sc, dur, f[0]), f[1]] for f in L["k"]]
+    for f in ("talk", "wag", "nod"):
+        if L.get(f):
+            L[f] = [[rt(sc, dur, a), rt(sc, dur, b)] for a, b in L[f]]
+    if L.get("items"):
+        L["items"] = [dict(i, at=rt(sc, dur, i["at"])) if isinstance(i.get("at"), str) else i for i in L["items"]]
+    return L
+
+
 def resolve_cues(sc, dur):
     return [phrase_time(sc, dur, ph) for ph in sc.get("cues", [])]
 
@@ -102,14 +128,16 @@ def main():
         if robs:
             item["robots"] = robs
         if sc.get("layers"):
-            item["layers"] = [dict(L, url=(MASCOT / (L["img"] + ".png")).as_uri()) if L.get("kind") == "img" else L for L in sc["layers"]]
+            item["layers"] = [resolve_layer(sc, d, dict(L, url=(MASCOT / (L["img"] + ".png")).as_uri()) if L.get("kind") == "img" else L) for L in sc["layers"]]
         data.append(item)
         t = end
     total = round(t + 0.2, 3)
     build = story / "build"
     build.mkdir(exist_ok=True)
     html = TEMPLATE.read_text(encoding="utf-8")
-    payload = {"tag": spec.get("tag", ""), "scenes": data, "total": total, "sfx": [s["start"] for s in data[1:]]}
+    payload = {"tag": spec.get("tag", ""), "scenes": data, "total": total, "sfx": [s["start"] for s in data[1:] if s.get("wipe") != "fade"]}
+    if spec.get("rail"):
+        payload["rail"] = spec["rail"]
     html = html.replace("/*DATA*/null", json.dumps(payload, ensure_ascii=False)).replace("{{FONTS}}", (ROOT / "shared/fonts").as_uri())
     deck = build / "deck.html"
     deck.write_text(html, encoding="utf-8")

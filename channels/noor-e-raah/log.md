@@ -85,3 +85,12 @@
 2026-10-31 | 004_al-falaq | ASLI KUL KHARCHA | ₹12.38 + GST ₹2.23 = ₹14.60 (andaza tha ₹12.77; 63 paid calls, 0 bina usage = andaza) | target ₹100, hard limit ₹120
 
 - 2026-10-31 004_al-falaq UPLOADED private by noor_run: https://youtu.be/Je03wdD0EvY - STUDIO ACTION (long): Je03wdD0EvY "Surah Al-Falaq ka Matlab Hindi Mein | 5 Ayat, Padhne ki Madad aur Hadith | Noor-e-Raah" | 2026-10-31 | 004_al-falaq | ASLI KUL KHARCHA | ₹12.38 + GST ₹2.23 = ₹14.60 (andaza tha ₹12.77; 63 paid calls, 0 bina usage = andaza) | target ₹100, hard limit ₹120
+2026-11-03 | 005_an-nas | script R1 (SURAH CHECK) | FIX | 2 MAJOR (lines 40/18 unsourced 'andar ka khatra' vs line 45; line 53 Ma'ariful attribution != M5), 8 MINOR; Arabic/UCHARAN byte-exact OK; Z1/Z2 PC check open
+2026-11-03 | 005_an-nas | script R2 | PASS | R1 items 1-9 fixed, Arabic/UCHARAN/numbering verified
+2026-11-03 | 005_an-nas | images R1 | PASS | 0 BLOCKER; 5 MINOR (line 4 ~10 s clip in first minute, new-image style nits); P/P_b rects hide chimney lamp; 2 new free CF images logged Rs0
+2026-11-04 | 005_an-nas | TTS audio R1 | PASS | 38/38 lines match script, 5 flagged lines fine per transcripts, no retake, MINOR only
+2026-11-04 | 005_an-nas | edit R1 | PASS | soft_glow vignette 0.10 grain 1.5 (same as 004), look only, Rs0; no per-clip grade possible
+2026-11-04 | 005_an-nas_final | studio action | video 5EjERhAwqRI | schedule 2026-11-04T19:00+05:30 | studio_action: pending
+2026-11-04 | 005_an-nas | final R1 | PASS | 0 BLOCKER; Arabic == Tanzil, -14.1 LUFS/TP -1.4; uploaded PRIVATE 5EjERhAwqRI, thumbnail ok, comment task 19:05 IST
+2026-11-04 | 005_an-nas | studio_action | pending | 5EjERhAwqRI: 2026-11-04 19:00 IST par SCHEDULE karo (user), video ek baar dekhna, comment pin 19:05
+2026-11-04 | 005_an-nas | ASLI KUL KHARCHA | ₹13.12 + GST ₹2.36 = ₹15.48 (andaza tha ₹13.48; 64 paid calls, 0 bina usage = andaza) | target ₹100, hard limit ₹120

@@ -39,3 +39,13 @@
 - open | PC: Tanzil byte compare 112:1-4; sunnah.com Bukhari 5013/7375, Muslim 812/813 (+811 for Z2 line 4); keep "सहीह हदीसें" only if passes.
 - open | thumbnail chip text small at phone size; Arabic title heavy/slanted; description English "Images and voices: AI-generated." duplicate; ucharan Hindi letter-spacing tight (2:25).
 - open | listen once to ucharan lines 14/20/27/33.
+
+## 005_an-nas (images R1, 2026-11-03) - open
+- open | line 4 (~10 s) is one clip in the first minute (~8 s rule); no free split by line start. Accepted.
+- open | 11_shuttered_window_night shutters half open, sill lamp reads as vase; 12_dawn_hijaz_valley_lamp flatter style, faint red tint on rocks. Accepted. Next prompts: "spouted Arabian clay oil lamp", "shutters closed".
+
+- 005_an-nas TTS: listen to lines 21/23 (बादशाह) in final build; line 3 tail 0.01 s - ensure pause before next line; Soaring credit in description.
+
+## 005_an-nas (FINAL R1, 2026-11-04) - open
+- open | contains_synthetic_media=false though images/voice are AI (as 003/004); consider true.
+- open | listen once to TTS lines 23/47/48/53 (Whisper garbled, text present); thumbnail Arabic glow/slant heavy; first voice at 1.06 s.

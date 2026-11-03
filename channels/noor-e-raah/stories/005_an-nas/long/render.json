@@ -1,0 +1,44 @@
+{
+  "_note": "An-Nas screen config for scripts/noor_render.py (cards from the script's SCREEN notes; title from surah_titles.json ref 114; end card = last two spoken lines 54, 55 -> end_from 54 explicit because the last cue is line 56). text_scale default (1.35).",
+  "title_ar": "سُورَةُ ٱلنَّاسِ",
+  "title_hi": "सूरह अन-नास",
+  "series": "नूर-ए-राह",
+  "tagline": "क़ुरआन, आसान ज़बान में।",
+  "end_from": 54,
+  "cards": [
+    {
+      "line": 6,
+      "until": 6,
+      "y": 100,
+      "stack": true,
+      "items": [
+        "सूरह अन-नास · क़ुरआन की 114वीं सूरह",
+        "6 आयतें"
+      ]
+    },
+    {
+      "line": 51,
+      "until": 53,
+      "y": 100,
+      "items": [
+        "1. वसवसे में पहला सहारा — अल्लाह की पनाह"
+      ]
+    },
+    {
+      "line": 52,
+      "until": 53,
+      "y": 210,
+      "items": [
+        "2. वसवसा आए तो अल्लाह को याद करें"
+      ]
+    },
+    {
+      "line": 53,
+      "until": 53,
+      "y": 320,
+      "items": [
+        "3. दुनिया और आख़िरत, दोनों में उसी रब की पनाह"
+      ]
+    }
+  ]
+}

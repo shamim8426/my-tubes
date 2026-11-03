@@ -1,0 +1,785 @@
+{
+ "_note": "Short 019 Overview. Source: https://code.claude.com/docs/en/overview.md (read 2026-11-04). New style: marker word-stream, count layer, rail, tick list, sticky notes.",
+ "tag": "Claude Code · Overview",
+ "rail": true,
+ "music": {
+  "file": "shared/music/presentation/Funkorama.mp3",
+  "start": 6,
+  "rel": 12
+ },
+ "voice": {
+  "id": "Charon",
+  "style": "Speak like a friendly Indian tech YouTuber chatting casually in Hinglish. Natural conversational pace, warm and clear, a little energetic but not theatrical. No sing-song, no exaggerated emphasis."
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "type": "stage",
+   "wipe": "right",
+   "voice": "Claude Code पाँच जगह चलता है! ये एक AI helper है, जो files पढ़ता है, code लिखता है और commands चलाता है। जैसे कोई समझदार assistant, तुम्हारे साथ बैठा हो।",
+   "layers": [
+    {
+     "kind": "count",
+     "to": 5,
+     "size": 440,
+     "x": 60,
+     "y": 240,
+     "css": "width:340px;text-align:center",
+     "k": [
+      [
+       0.0,
+       {
+        "o": 1,
+        "f": 1
+       }
+      ]
+     ],
+     "in": 0.02,
+     "ind": 0.4,
+     "spring": true
+    },
+    {
+     "kind": "text",
+     "html": "**jagah** chalta hai",
+     "x": 400,
+     "y": 380,
+     "size": 104,
+     "w": 600,
+     "stream": true,
+     "step": 0.2,
+     "sat": 0.3
+    },
+    {
+     "kind": "img",
+     "img": "work",
+     "size": 430,
+     "x": 690,
+     "y": 800,
+     "bob": 1,
+     "k": [
+      [
+       "AI helper|-0.2",
+       {
+        "x": 1200,
+        "o": 1
+       }
+      ],
+      [
+       "AI helper|0.5",
+       {
+        "x": 690
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "<svg width=\"84\" height=\"84\" viewBox=\"0 0 150 150\" style=\"flex:none\"><circle cx=\"75\" cy=\"75\" r=\"68\" fill=\"#FFD60A\" stroke=\"#111\" stroke-width=\"8\"/><path d=\"M42 78L65 101L110 52\" fill=\"none\" stroke=\"#111\" stroke-width=\"16\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg><div><div style=\"font-size:48px;font-weight:800;line-height:1.1\">Files padhta</div></div>",
+     "x": 70,
+     "y": 800,
+     "css": "width:640px;height:130px;border:6px solid #111;border-radius:34px;background:#fff;display:flex;align-items:center;gap:28px;padding:0 30px;box-sizing:border-box",
+     "in": "files पढ़ता|-0.1",
+     "spring": true,
+     "sh": true
+    },
+    {
+     "kind": "box",
+     "html": "<svg width=\"84\" height=\"84\" viewBox=\"0 0 150 150\" style=\"flex:none\"><circle cx=\"75\" cy=\"75\" r=\"68\" fill=\"#FFD60A\" stroke=\"#111\" stroke-width=\"8\"/><path d=\"M42 78L65 101L110 52\" fill=\"none\" stroke=\"#111\" stroke-width=\"16\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg><div><div style=\"font-size:48px;font-weight:800;line-height:1.1\">Code likhta</div></div>",
+     "x": 70,
+     "y": 960,
+     "css": "width:640px;height:130px;border:6px solid #111;border-radius:34px;background:#fff;display:flex;align-items:center;gap:28px;padding:0 30px;box-sizing:border-box",
+     "in": "code लिखता|-0.1",
+     "spring": true,
+     "sh": true
+    },
+    {
+     "kind": "box",
+     "html": "<svg width=\"84\" height=\"84\" viewBox=\"0 0 150 150\" style=\"flex:none\"><circle cx=\"75\" cy=\"75\" r=\"68\" fill=\"#FFD60A\" stroke=\"#111\" stroke-width=\"8\"/><path d=\"M42 78L65 101L110 52\" fill=\"none\" stroke=\"#111\" stroke-width=\"16\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg><div><div style=\"font-size:48px;font-weight:800;line-height:1.1\">Commands chalata</div></div>",
+     "x": 70,
+     "y": 1120,
+     "css": "width:640px;height:130px;border:6px solid #111;border-radius:34px;background:#fff;display:flex;align-items:center;gap:28px;padding:0 30px;box-sizing:border-box",
+     "in": "commands चलाता|-0.1",
+     "spring": true,
+     "sh": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:34px;font-weight:700;margin-bottom:6px\">jaise ek...</div><div style=\"font-size:66px;font-weight:800;line-height:1.1\">smart assistant</div>",
+     "x": 110,
+     "y": 1340,
+     "css": "width:700px;padding:30px 44px;box-sizing:border-box",
+     "cls": "sticky",
+     "k": [
+      [
+       0,
+       {
+        "r": -3
+       }
+      ]
+     ],
+     "in": "जैसे कोई|-0.1",
+     "spring": true
+    }
+   ]
+  },
+  {
+   "id": "agentic",
+   "type": "stage",
+   "wipe": "up",
+   "voice": "इसे बोलते हैं agentic, यानी जो खुद काम करे। तुम बोलो, login bug ठीक करो। ये पूरा project देखता है, कई files बदलता है, और चेक करता है कि सब चल रहा है।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "**Agentic** = khud kaam karne wala",
+     "x": 80,
+     "y": 250,
+     "size": 92,
+     "w": 920,
+     "stream": true,
+     "step": 0.15,
+     "sat": 0.4
+    },
+    {
+     "kind": "box",
+     "html": "<span style=\"color:#FFD60A;margin-right:24px\">&gt;</span> login bug theek karo",
+     "x": 80,
+     "y": 700,
+     "css": "width:920px;height:150px;border-radius:34px;padding:0 44px;display:flex;align-items:center;font-size:56px;font-weight:700;font-family:Mono,monospace;box-sizing:border-box",
+     "cls": "ink",
+     "sh": true,
+     "in": "तुम बोलो|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "draw",
+     "x": 0,
+     "y": 0,
+     "w": 1080,
+     "h": 1920,
+     "sw": 9,
+     "items": [
+      {
+       "t": "arrow",
+       "from": [
+        540,
+        868
+       ],
+       "to": [
+        540,
+        960
+       ],
+       "at": "ये पूरा|-0.2",
+       "dur": 0.5
+      }
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "<svg width=\"84\" height=\"84\" viewBox=\"0 0 150 150\" style=\"flex:none\"><circle cx=\"75\" cy=\"75\" r=\"68\" fill=\"#FFD60A\" stroke=\"#111\" stroke-width=\"8\"/><path d=\"M42 78L65 101L110 52\" fill=\"none\" stroke=\"#111\" stroke-width=\"16\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg><div><div style=\"font-size:54px;font-weight:800;line-height:1.1\">Pura project dekhta hai</div></div>",
+     "x": 80,
+     "y": 990,
+     "css": "width:920px;height:128px;border:6px solid #111;border-radius:34px;background:#fff;display:flex;align-items:center;gap:28px;padding:0 30px;box-sizing:border-box",
+     "in": "पूरा project|-0.1",
+     "spring": true,
+     "sh": true
+    },
+    {
+     "kind": "box",
+     "html": "<svg width=\"84\" height=\"84\" viewBox=\"0 0 150 150\" style=\"flex:none\"><circle cx=\"75\" cy=\"75\" r=\"68\" fill=\"#FFD60A\" stroke=\"#111\" stroke-width=\"8\"/><path d=\"M42 78L65 101L110 52\" fill=\"none\" stroke=\"#111\" stroke-width=\"16\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg><div><div style=\"font-size:54px;font-weight:800;line-height:1.1\">Kai files badalta hai</div></div>",
+     "x": 80,
+     "y": 1140,
+     "css": "width:920px;height:128px;border:6px solid #111;border-radius:34px;background:#fff;display:flex;align-items:center;gap:28px;padding:0 30px;box-sizing:border-box",
+     "in": "कई files|-0.1",
+     "spring": true,
+     "sh": true
+    },
+    {
+     "kind": "box",
+     "html": "<svg width=\"84\" height=\"84\" viewBox=\"0 0 150 150\" style=\"flex:none\"><circle cx=\"75\" cy=\"75\" r=\"68\" fill=\"#FFD60A\" stroke=\"#111\" stroke-width=\"8\"/><path d=\"M42 78L65 101L110 52\" fill=\"none\" stroke=\"#111\" stroke-width=\"16\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg><div><div style=\"font-size:54px;font-weight:800;line-height:1.1\">Check bhi karta hai</div></div>",
+     "x": 80,
+     "y": 1290,
+     "css": "width:920px;height:128px;border:6px solid #111;border-radius:34px;background:#fff;display:flex;align-items:center;gap:28px;padding:0 30px;box-sizing:border-box",
+     "in": "चेक करता|-0.1",
+     "spring": true,
+     "sh": true
+    }
+   ]
+  },
+  {
+   "id": "surfaces",
+   "type": "stage",
+   "wipe": "right",
+   "voice": "वो पाँच जगहें: एक, Terminal, यानी text वाली window। दो, VS Code। तीन, JetBrains। ये दोनों code लिखने के editor हैं, जिन्हें IDE कहते हैं। चार, Desktop app। पाँच, Web, यानी browser में, बिना install के।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "**5 jagah** ek ek karke",
+     "x": 80,
+     "y": 520,
+     "size": 110,
+     "w": 900,
+     "stream": true,
+     "step": 0.15,
+     "sat": 0.25,
+     "out": "एक, Terminal|-0.25"
+    },
+    {
+     "kind": "count",
+     "to": 5,
+     "suf": "/5",
+     "size": 250,
+     "x": 80,
+     "y": 1320,
+     "css": "width:520px",
+     "k": [
+      [
+       0.1,
+       {
+        "f": 0,
+        "o": 0
+       }
+      ],
+      [
+       0.3,
+       {
+        "o": 1
+       }
+      ],
+      [
+       "एक, Terminal|-0.02",
+       {
+        "f": 0.0
+       }
+      ],
+      [
+       "एक, Terminal|0.3",
+       {
+        "f": 0.2
+       }
+      ],
+      [
+       "दो, VS Code|-0.02",
+       {
+        "f": 0.2
+       }
+      ],
+      [
+       "दो, VS Code|0.3",
+       {
+        "f": 0.4
+       }
+      ],
+      [
+       "तीन, JetBrains|-0.02",
+       {
+        "f": 0.4
+       }
+      ],
+      [
+       "तीन, JetBrains|0.3",
+       {
+        "f": 0.6
+       }
+      ],
+      [
+       "चार, Desktop|-0.02",
+       {
+        "f": 0.6
+       }
+      ],
+      [
+       "चार, Desktop|0.3",
+       {
+        "f": 0.8
+       }
+      ],
+      [
+       "पाँच, Web|-0.02",
+       {
+        "f": 0.8
+       }
+      ],
+      [
+       "पाँच, Web|0.3",
+       {
+        "f": 1.0
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:860px;height:640px;border:6px solid #111;border-radius:36px;background:#111;color:#fff;overflow:hidden;position:relative\"><div style=\"height:84px;background:#2a2a2a;display:flex;align-items:center;gap:22px;padding-left:28px\"><div class=\"dot3\"><i style=\"background:#FFD60A\"></i><i style=\"background:#888\"></i><i style=\"background:#888\"></i></div><div class=\"mono\" style=\"font-size:34px;color:#FFD60A\">Terminal</div></div><div style=\"padding:30px 36px\"><div class=\"mono\" style=\"font-size:52px;line-height:1.5;color:#FFD60A;\">$ claude</div><div class=\"mono\" style=\"font-size:44px;line-height:1.5;color:#fff;\">● login bug theek kiya</div><div class=\"mono\" style=\"font-size:44px;line-height:1.5;color:#fff;\">● file badli, test pass</div><div class=\"mono\" style=\"font-size:44px;line-height:1.5;color:#FFD60A;\">█</div></div></div>",
+     "x": 100,
+     "y": 300,
+     "css": "",
+     "in": "एक, Terminal|-0.1",
+     "ind": 0.38,
+     "spring": true,
+     "sh": true,
+     "push": 4,
+     "out": "दो, VS Code|-0.2"
+    },
+    {
+     "kind": "text",
+     "html": "text wali **window**",
+     "x": 80,
+     "y": 1000,
+     "size": 92,
+     "w": 900,
+     "stream": true,
+     "step": 0.15,
+     "sat": "एक, Terminal|0.25",
+     "out": "दो, VS Code|-0.2"
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:860px;height:640px;border:6px solid #111;border-radius:36px;background:#fff;color:#111;overflow:hidden;position:relative\"><div style=\"height:84px;background:#111;display:flex;align-items:center;gap:22px;padding-left:28px\"><div class=\"dot3\"><i style=\"background:#FFD60A\"></i><i style=\"background:#888\"></i><i style=\"background:#888\"></i></div><div class=\"mono\" style=\"font-size:34px;color:#FFD60A\">VS Code</div></div><div style=\"padding:30px 36px\"><div class=\"mono\" style=\"font-size:40px;line-height:1.5;color:#111;text-decoration:line-through;opacity:.6\">- if (user = null)</div><div class=\"mono\" style=\"font-size:40px;line-height:1.5;color:#111;background:#FFD60A;border-radius:10px;padding:0 12px\">+ if (user == null)</div><div style=\"height:22px;border-radius:11px;margin:14px 0;width:60%;background:#111\"></div><div style=\"height:22px;border-radius:11px;margin:14px 0;width:62%;background:#111\"></div><div style=\"height:22px;border-radius:11px;margin:14px 0;width:64%;background:#111\"></div><div class=\"yel\" style=\"display:inline-block;margin-top:26px;font-size:46px;font-weight:800;padding:10px 32px;border-radius:999px;border:5px solid #111\">inline diffs</div></div></div>",
+     "x": 100,
+     "y": 300,
+     "css": "",
+     "in": "दो, VS Code|-0.1",
+     "ind": 0.38,
+     "spring": true,
+     "sh": true,
+     "push": 4,
+     "out": "तीन, JetBrains|-0.2"
+    },
+    {
+     "kind": "text",
+     "html": "code ka **editor** (IDE)",
+     "x": 80,
+     "y": 1000,
+     "size": 92,
+     "w": 900,
+     "stream": true,
+     "step": 0.15,
+     "sat": "दो, VS Code|0.25",
+     "out": "तीन, JetBrains|-0.2"
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:860px;height:640px;border:6px solid #111;border-radius:36px;background:#fff;color:#111;overflow:hidden;position:relative\"><div style=\"height:84px;background:#111;display:flex;align-items:center;gap:22px;padding-left:28px\"><div class=\"dot3\"><i style=\"background:#FFD60A\"></i><i style=\"background:#888\"></i><i style=\"background:#888\"></i></div><div class=\"mono\" style=\"font-size:34px;color:#FFD60A\">IntelliJ · PyCharm · WebStorm</div></div><div style=\"padding:30px 36px\"><div style=\"display:flex;gap:30px\"><div style=\"width:34%\"><div style=\"height:22px;border-radius:11px;margin:14px 0;width:60%;background:#111\"></div><div style=\"height:22px;border-radius:11px;margin:14px 0;width:62%;background:#111\"></div><div style=\"height:22px;border-radius:11px;margin:14px 0;width:64%;background:#FFD60A\"></div><div style=\"height:22px;border-radius:11px;margin:14px 0;width:66%;background:#111\"></div><div style=\"height:22px;border-radius:11px;margin:14px 0;width:68%;background:#111\"></div><div style=\"height:22px;border-radius:11px;margin:14px 0;width:70%;background:#111\"></div></div><div style=\"width:60%\"><div class=\"mono\" style=\"font-size:40px;line-height:1.5;color:#111;background:#FFD60A;border-radius:10px;padding:0 12px\">+ naya code</div><div style=\"height:22px;border-radius:11px;margin:14px 0;width:60%;background:#111\"></div><div style=\"height:22px;border-radius:11px;margin:14px 0;width:62%;background:#111\"></div><div style=\"height:22px;border-radius:11px;margin:14px 0;width:64%;background:#111\"></div><div style=\"height:22px;border-radius:11px;margin:14px 0;width:66%;background:#111\"></div></div></div><div class=\"yel\" style=\"display:inline-block;margin-top:26px;font-size:46px;font-weight:800;padding:10px 32px;border-radius:999px;border:5px solid #111\">interactive diff</div></div></div>",
+     "x": 100,
+     "y": 300,
+     "css": "",
+     "in": "तीन, JetBrains|-0.1",
+     "ind": 0.38,
+     "spring": true,
+     "sh": true,
+     "push": 4,
+     "out": "चार, Desktop|-0.2"
+    },
+    {
+     "kind": "text",
+     "html": "ye bhi code ka **editor**",
+     "x": 80,
+     "y": 1000,
+     "size": 92,
+     "w": 900,
+     "stream": true,
+     "step": 0.15,
+     "sat": "तीन, JetBrains|0.25",
+     "out": "चार, Desktop|-0.2"
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:860px;height:640px;border:6px solid #111;border-radius:36px;background:#fff;color:#111;overflow:hidden;position:relative\"><div style=\"height:84px;background:#111;display:flex;align-items:center;gap:22px;padding-left:28px\"><div class=\"dot3\"><i style=\"background:#FFD60A\"></i><i style=\"background:#888\"></i><i style=\"background:#888\"></i></div><div class=\"mono\" style=\"font-size:34px;color:#FFD60A\">Desktop app</div></div><div style=\"padding:30px 36px\"><div style=\"display:flex;gap:26px\"><div style=\"width:50%;border:5px solid #111;border-radius:22px;padding:14px 22px;background:#fff\"><div class=\"mono\" style=\"font-size:36px;line-height:1.5;color:#111;\">session 1</div><div style=\"height:22px;border-radius:11px;margin:14px 0;width:60%;background:#111\"></div><div style=\"height:22px;border-radius:11px;margin:14px 0;width:62%;background:#FFD60A\"></div><div style=\"height:22px;border-radius:11px;margin:14px 0;width:64%;background:#111\"></div><div style=\"height:22px;border-radius:11px;margin:14px 0;width:66%;background:#111\"></div></div><div style=\"width:50%;border:5px solid #111;border-radius:22px;padding:14px 22px;background:#FFD60A\"><div class=\"mono\" style=\"font-size:36px;line-height:1.5;color:#111;\">session 2</div><div style=\"height:22px;border-radius:11px;margin:14px 0;width:60%;background:#FFD60A\"></div><div style=\"height:22px;border-radius:11px;margin:14px 0;width:62%;background:#111\"></div><div style=\"height:22px;border-radius:11px;margin:14px 0;width:64%;background:#111\"></div><div style=\"height:22px;border-radius:11px;margin:14px 0;width:66%;background:#111\"></div></div></div><div class=\"yel\" style=\"display:inline-block;margin-top:26px;font-size:46px;font-weight:800;padding:10px 32px;border-radius:999px;border:5px solid #111\">side by side</div></div></div>",
+     "x": 100,
+     "y": 300,
+     "css": "",
+     "in": "चार, Desktop|-0.1",
+     "ind": 0.38,
+     "spring": true,
+     "sh": true,
+     "push": 4,
+     "out": "पाँच, Web|-0.2"
+    },
+    {
+     "kind": "text",
+     "html": "alag **app** me kai sessions saath",
+     "x": 80,
+     "y": 1000,
+     "size": 92,
+     "w": 900,
+     "stream": true,
+     "step": 0.15,
+     "sat": "चार, Desktop|0.25",
+     "out": "पाँच, Web|-0.2"
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:860px;height:640px;border:6px solid #111;border-radius:36px;background:#fff;color:#111;overflow:hidden;position:relative\"><div style=\"height:84px;background:#111;display:flex;align-items:center;gap:22px;padding-left:28px\"><div class=\"dot3\"><i style=\"background:#FFD60A\"></i><i style=\"background:#888\"></i><i style=\"background:#888\"></i></div><div class=\"mono\" style=\"font-size:34px;color:#FFD60A\">claude.ai/code</div></div><div style=\"padding:30px 36px\"><div class=\"mono\" style=\"font-size:42px;line-height:1.5;color:#111;border:5px solid #111;border-radius:20px;padding:10px 22px;margin:14px 0\">task 1 · chal raha hai</div><div class=\"mono\" style=\"font-size:42px;line-height:1.5;color:#111;border:5px solid #111;border-radius:20px;padding:10px 22px;margin:14px 0;background:#FFD60A\">task 2 · chal raha hai</div><div class=\"yel\" style=\"display:inline-block;margin-top:26px;font-size:46px;font-weight:800;padding:10px 32px;border-radius:999px;border:5px solid #111\">bina setup</div></div></div>",
+     "x": 100,
+     "y": 300,
+     "css": "",
+     "in": "पाँच, Web|-0.1",
+     "ind": 0.38,
+     "spring": true,
+     "sh": true,
+     "push": 4
+    },
+    {
+     "kind": "text",
+     "html": "**browser** me, bina install",
+     "x": 80,
+     "y": 1000,
+     "size": 92,
+     "w": 900,
+     "stream": true,
+     "step": 0.15,
+     "sat": "पाँच, Web|0.25"
+    }
+   ]
+  },
+  {
+   "id": "usecases",
+   "type": "list",
+   "wipe": "fade",
+   "icons": true,
+   "head": "Fayda: wo **boring** kaam",
+   "hy": 230,
+   "y0": 500,
+   "rh": 320,
+   "ksize": 84,
+   "dsize": 46,
+   "voice": "तुम्हें फ़ायदा? वो boring काम जो तुम टालते हो: tests लिखना, bug ठीक करना, और git commit या pull request बनाना। समय बचता है।",
+   "items": [
+    {
+     "k": "Tests likhna",
+     "d": "jo tum taalte rehte ho"
+    },
+    {
+     "k": "Bug theek karna",
+     "d": "error batao, fix wo kare"
+    },
+    {
+     "k": "Commit + pull request",
+     "d": "git ka kaam bhi wahi karta hai"
+    }
+   ],
+   "foot": "Tumhara **time bachta** hai",
+   "cues": [
+    "tests लिखना",
+    "bug ठीक",
+    "git commit",
+    "समय बचता"
+   ]
+  },
+  {
+   "id": "engine",
+   "type": "stage",
+   "wipe": "up",
+   "voice": "और इंजन एक ही है। इसलिए CLAUDE.md, यानी project के नियमों की पर्ची, settings और MCP, यानी बाहर के tools जोड़ने का तरीका, हर जगह चलते हैं। जैसे एक दिमाग, कई दरवाज़े।",
+   "layers": [
+    {
+     "kind": "draw",
+     "x": 0,
+     "y": 0,
+     "w": 1080,
+     "h": 1920,
+     "sw": 8,
+     "items": [
+      {
+       "t": "box",
+       "x": 80,
+       "y": 250,
+       "w": 210,
+       "h": 110,
+       "label": "Terminal",
+       "size": 38,
+       "at": "इंजन|0.1",
+       "dur": 0.5
+      },
+      {
+       "t": "box",
+       "x": 310,
+       "y": 250,
+       "w": 210,
+       "h": 110,
+       "label": "IDE",
+       "size": 38,
+       "at": "इंजन|0.25",
+       "dur": 0.5
+      },
+      {
+       "t": "box",
+       "x": 540,
+       "y": 250,
+       "w": 210,
+       "h": 110,
+       "label": "Desktop",
+       "size": 38,
+       "at": "इंजन|0.4",
+       "dur": 0.5
+      },
+      {
+       "t": "box",
+       "x": 770,
+       "y": 250,
+       "w": 210,
+       "h": 110,
+       "label": "Web",
+       "size": 38,
+       "at": "इंजन|0.5499999999999999",
+       "dur": 0.5
+      },
+      {
+       "t": "arrow",
+       "from": [
+        185,
+        370
+       ],
+       "to": [
+        309.25,
+        470
+       ],
+       "at": "एक ही|0.1",
+       "dur": 0.45
+      },
+      {
+       "t": "arrow",
+       "from": [
+        415,
+        370
+       ],
+       "to": [
+        458.75,
+        470
+       ],
+       "at": "एक ही|0.22",
+       "dur": 0.45
+      },
+      {
+       "t": "arrow",
+       "from": [
+        645,
+        370
+       ],
+       "to": [
+        608.25,
+        470
+       ],
+       "at": "एक ही|0.33999999999999997",
+       "dur": 0.45
+      },
+      {
+       "t": "arrow",
+       "from": [
+        875,
+        370
+       ],
+       "to": [
+        757.75,
+        470
+       ],
+       "at": "एक ही|0.45999999999999996",
+       "dur": 0.45
+      },
+      {
+       "t": "box",
+       "x": 80,
+       "y": 480,
+       "w": 900,
+       "h": 170,
+       "label": "ek hi ENGINE",
+       "size": 76,
+       "fill": "#FFD60A",
+       "fo": 0.85,
+       "at": "एक ही|0.2",
+       "dur": 0.8
+      }
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:30px;font-weight:700;margin-bottom:2px\">project ke rules ki parchi</div><div class=\"mono\" style=\"font-size:50px;font-weight:700;line-height:1.1\">CLAUDE.md</div>",
+     "x": 400,
+     "y": 740,
+     "css": "width:600px;padding:26px 36px;box-sizing:border-box",
+     "cls": "sticky",
+     "k": [
+      [
+       0,
+       {
+        "r": -2.5
+       }
+      ]
+     ],
+     "in": "CLAUDE.md|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:30px;font-weight:700;margin-bottom:2px\">wahi settings sab jagah</div><div class=\"mono\" style=\"font-size:50px;font-weight:700;line-height:1.1\">settings</div>",
+     "x": 400,
+     "y": 940,
+     "css": "width:600px;padding:26px 36px;box-sizing:border-box",
+     "cls": "sticky",
+     "k": [
+      [
+       0,
+       {
+        "r": 2
+       }
+      ]
+     ],
+     "in": "settings|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:30px;font-weight:700;margin-bottom:2px\">bahar ke tools jodna</div><div class=\"mono\" style=\"font-size:50px;font-weight:700;line-height:1.1\">MCP</div>",
+     "x": 400,
+     "y": 1140,
+     "css": "width:600px;padding:26px 36px;box-sizing:border-box",
+     "cls": "sticky",
+     "k": [
+      [
+       0,
+       {
+        "r": -1.5
+       }
+      ]
+     ],
+     "in": "MCP|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "svgbot",
+     "size": 640,
+     "x": -90,
+     "y": 760,
+     "talk": [
+      [
+       0.5,
+       12
+      ]
+     ],
+     "k": [
+      [
+       0,
+       {
+        "x": -600,
+        "ar": 0
+       }
+      ],
+      [
+       0.6,
+       {
+        "x": -90,
+        "e": "b"
+       }
+      ],
+      [
+       "CLAUDE.md|-0.2",
+       {
+        "ar": -80
+       }
+      ],
+      [
+       "settings|0",
+       {
+        "ar": -86
+       }
+      ],
+      [
+       "MCP|0",
+       {
+        "ar": -92
+       }
+      ],
+      [
+       "जैसे एक|0",
+       {
+        "ar": 0
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "text",
+     "html": "Ek **dimaag** - kai darwaze",
+     "x": 80,
+     "y": 1400,
+     "size": 88,
+     "w": 920,
+     "stream": true,
+     "step": 0.15,
+     "sat": "जैसे एक|0"
+    }
+   ]
+  },
+  {
+   "id": "cta",
+   "type": "stage",
+   "wipe": "left",
+   "voice": "याद रखो: Claude Code एक helper है, खुद काम करता है, पाँच जगह चलता है। तुम कहाँ से शुरू करोगे, terminal, IDE या web? Comment में बताओ।",
+   "layers": [
+    {
+     "kind": "box",
+     "html": "<svg width=\"84\" height=\"84\" viewBox=\"0 0 150 150\" style=\"flex:none\"><circle cx=\"75\" cy=\"75\" r=\"68\" fill=\"#FFD60A\" stroke=\"#111\" stroke-width=\"8\"/><path d=\"M42 78L65 101L110 52\" fill=\"none\" stroke=\"#111\" stroke-width=\"16\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg><div><div style=\"font-size:54px;font-weight:800;line-height:1.1\">Khud kaam karta helper</div></div>",
+     "x": 80,
+     "y": 260,
+     "css": "width:920px;height:128px;border:6px solid #111;border-radius:34px;background:#fff;display:flex;align-items:center;gap:28px;padding:0 30px;box-sizing:border-box",
+     "in": "helper है|-0.4",
+     "spring": true,
+     "sh": true
+    },
+    {
+     "kind": "box",
+     "html": "<svg width=\"84\" height=\"84\" viewBox=\"0 0 150 150\" style=\"flex:none\"><circle cx=\"75\" cy=\"75\" r=\"68\" fill=\"#FFD60A\" stroke=\"#111\" stroke-width=\"8\"/><path d=\"M42 78L65 101L110 52\" fill=\"none\" stroke=\"#111\" stroke-width=\"16\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg><div><div style=\"font-size:54px;font-weight:800;line-height:1.1\">5 jagah chalta hai</div></div>",
+     "x": 80,
+     "y": 410,
+     "css": "width:920px;height:128px;border:6px solid #111;border-radius:34px;background:#fff;display:flex;align-items:center;gap:28px;padding:0 30px;box-sizing:border-box",
+     "in": "पाँच जगह|-0.1",
+     "spring": true,
+     "sh": true
+    },
+    {
+     "kind": "text",
+     "html": "Tum kahan se **shuru** karoge?",
+     "x": 80,
+     "y": 640,
+     "size": 100,
+     "w": 920,
+     "stream": true,
+     "step": 0.16,
+     "sat": "तुम कहाँ|-0.1"
+    },
+    {
+     "kind": "box",
+     "html": "<div class=\"keycap\">Terminal</div><div class=\"keycap\">IDE</div><div class=\"keycap\">Web</div>",
+     "x": 80,
+     "y": 1110,
+     "css": "display:flex;gap:22px;font-size:44px",
+     "in": "terminal|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "img",
+     "img": "thumbs",
+     "size": 520,
+     "x": 560,
+     "y": 1250,
+     "bob": 1,
+     "k": [
+      [
+       "Comment|-0.3",
+       {
+        "x": 1200,
+        "o": 1
+       }
+      ],
+      [
+       "Comment|0.3",
+       {
+        "x": 560
+       }
+      ]
+     ]
+    }
+   ]
+  }
+ ]
+}

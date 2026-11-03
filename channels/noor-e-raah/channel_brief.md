@@ -39,6 +39,8 @@ Empty — first post-mortem of Al-Fatiha 48 h after it went live.
 001 Al-Fatiha uploaded private (kmYyRGdykjY), STUDIO ACTION: schedule 2026-10-25 19:00, thumbnail by hand (v2A/v2B to
 choose), pin comment. Next: 4 Shorts of Al-Fatiha (needs a 9:16 renderer), then 002 Al-Baqarah 1-5.
 
+2026-11-04: 002-005 uploaded private (series queue: ayatul-kursi, al-ikhlas, al-falaq, an-nas done; next 006 al-kausar needs a Khoji dossier). 005 An-Nas: https://youtu.be/5EjERhAwqRI (5:31.9, -14.1 LUFS, 14 reused base images + 2 new free Cloudflare images, story cost Rs 15.48; STUDIO ACTION pending: watch, schedule 2026-11-04 19:00 IST, pin first comment ~19:05). Lesson: never run noor_run.py with --until after TTS is done (its tts stage retakes flagged lines = paid); Gemini paid key has a 100 requests/day cap shared by all channels.
+
 ## Bade faisle
 - 2026-10-30 (user) Free first for AI images: wallpapers via Cloudflare flux (scripts/cf_image.py, Rs0), Gemini paid only as fallback.
 - 2026-10-30 (user) Daily series: 10 short, most-searched surahs BEFORE Al-Baqarah, one video a day, auto edit + PRIVATE upload; the user

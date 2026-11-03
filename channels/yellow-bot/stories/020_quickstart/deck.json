@@ -1,0 +1,2053 @@
+{
+ "_note": "Short 020 Quickstart (PLANNED, not voiced/rendered). Source: https://code.claude.com/docs/en/quickstart.md (read 2026-11-04).",
+ "tag": "Claude Code · Quickstart",
+ "rail": true,
+ "music": {
+  "file": "shared/music/presentation/Funkorama.mp3",
+  "start": 6,
+  "rel": 12
+ },
+ "voice": {
+  "id": "Charon",
+  "style": "Speak like a friendly Indian tech YouTuber chatting casually in Hinglish. Natural conversational pace, warm and clear, a little energetic but not theatrical. No sing-song, no exaggerated emphasis."
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "type": "stage",
+   "wipe": "right",
+   "voice": "Claude Code चार steps में शुरू होता है: install, login, पहला सवाल, और पहला code change। चलो, एक एक करके देखते हैं।",
+   "layers": [
+    {
+     "kind": "count",
+     "to": 4,
+     "size": 440,
+     "x": 60,
+     "y": 230,
+     "css": "width:340px;text-align:center",
+     "k": [
+      [
+       0.0,
+       {
+        "o": 1,
+        "f": 1
+       }
+      ]
+     ],
+     "in": 0.02,
+     "ind": 0.4,
+     "spring": true
+    },
+    {
+     "kind": "text",
+     "html": "**steps** mein shuru",
+     "x": 400,
+     "y": 360,
+     "size": 100,
+     "w": 600,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.3
+    },
+    {
+     "kind": "spark",
+     "pts": [
+      [
+       360,
+       250,
+       26,
+       0
+      ],
+      [
+       90,
+       640,
+       22,
+       2
+      ],
+      [
+       400,
+       650,
+       20,
+       4
+      ]
+     ],
+     "sp": 4
+    },
+    {
+     "kind": "icon",
+     "name": "terminal",
+     "x": 90,
+     "y": 830,
+     "size": 170,
+     "in": "install,|-0.1",
+     "spring": true,
+     "label": "Install",
+     "ls": 32,
+     "lw": 170,
+     "float": {
+      "a": 8,
+      "f": 1.8,
+      "ph": 0.0
+     }
+    },
+    {
+     "kind": "flow",
+     "from": [
+      270,
+      915
+     ],
+     "to": [
+      310,
+      915
+     ],
+     "at": "login,|-0.3",
+     "dur": 0.35,
+     "sw": 7,
+     "n": 1,
+     "per": 1.2,
+     "r": 11
+    },
+    {
+     "kind": "icon",
+     "name": "key",
+     "x": 320,
+     "y": 830,
+     "size": 170,
+     "in": "login,|-0.1",
+     "spring": true,
+     "label": "Login",
+     "ls": 32,
+     "lw": 170,
+     "float": {
+      "a": 8,
+      "f": 1.8,
+      "ph": 1.3
+     }
+    },
+    {
+     "kind": "flow",
+     "from": [
+      500,
+      915
+     ],
+     "to": [
+      540,
+      915
+     ],
+     "at": "पहला सवाल|-0.3",
+     "dur": 0.35,
+     "sw": 7,
+     "n": 1,
+     "per": 1.2,
+     "r": 11
+    },
+    {
+     "kind": "icon",
+     "name": "chat",
+     "x": 550,
+     "y": 830,
+     "size": 170,
+     "in": "पहला सवाल|-0.1",
+     "spring": true,
+     "label": "Sawal",
+     "ls": 32,
+     "lw": 170,
+     "float": {
+      "a": 8,
+      "f": 1.8,
+      "ph": 2.6
+     }
+    },
+    {
+     "kind": "flow",
+     "from": [
+      730,
+      915
+     ],
+     "to": [
+      770,
+      915
+     ],
+     "at": "पहला code change|-0.3",
+     "dur": 0.35,
+     "sw": 7,
+     "n": 1,
+     "per": 1.2,
+     "r": 11
+    },
+    {
+     "kind": "icon",
+     "name": "code",
+     "x": 780,
+     "y": 830,
+     "size": 170,
+     "in": "पहला code change|-0.1",
+     "spring": true,
+     "label": "Code change",
+     "ls": 32,
+     "lw": 170,
+     "float": {
+      "a": 8,
+      "f": 1.8,
+      "ph": 3.9000000000000004
+     }
+    },
+    {
+     "kind": "ring",
+     "size": 330,
+     "x": 80,
+     "y": 1130,
+     "sw": 28,
+     "mul": 4,
+     "unit": "/4",
+     "k": [
+      [
+       0.0,
+       {
+        "f": 0
+       }
+      ],
+      [
+       "install,|-0.1",
+       {
+        "f": 0.0
+       }
+      ],
+      [
+       "install,|0.4",
+       {
+        "f": 0.25
+       }
+      ],
+      [
+       "login,|-0.1",
+       {
+        "f": 0.25
+       }
+      ],
+      [
+       "login,|0.4",
+       {
+        "f": 0.5
+       }
+      ],
+      [
+       "पहला सवाल|-0.1",
+       {
+        "f": 0.5
+       }
+      ],
+      [
+       "पहला सवाल|0.4",
+       {
+        "f": 0.75
+       }
+      ],
+      [
+       "पहला code change|-0.1",
+       {
+        "f": 0.75
+       }
+      ],
+      [
+       "पहला code change|0.4",
+       {
+        "f": 1.0
+       }
+      ]
+     ],
+     "in": 0.3,
+     "spring": true
+    },
+    {
+     "kind": "text",
+     "html": "Chalo, **ek ek** karke",
+     "x": 450,
+     "y": 1190,
+     "size": 92,
+     "w": 560,
+     "stream": true,
+     "step": 0.14,
+     "sat": "चलो|0"
+    },
+    {
+     "kind": "img",
+     "img": "wave",
+     "size": 420,
+     "x": 600,
+     "y": 1500,
+     "bob": 1,
+     "k": [
+      [
+       "चलो|-0.2",
+       {
+        "x": 1200,
+        "o": 1
+       }
+      ],
+      [
+       "चलो|0.5",
+       {
+        "x": 600
+       }
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "hideN": true,
+   "id": "install",
+   "type": "stage",
+   "wipe": "zoom",
+   "voice": "Step एक, install। Terminal खोलो, यानी text वाली window, और install command चलाओ। फिर claude --version लिखो। Version number आए, तो install सही है।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "**Step 1** Install",
+     "x": 80,
+     "y": 230,
+     "size": 96,
+     "w": 720,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.12
+    },
+    {
+     "kind": "ring",
+     "size": 180,
+     "x": 830,
+     "y": 200,
+     "sw": 20,
+     "mul": 4,
+     "unit": "/4",
+     "k": [
+      [
+       0.0,
+       {
+        "f": 0.0
+       }
+      ],
+      [
+       "Step एक|0",
+       {
+        "f": 0.0
+       }
+      ],
+      [
+       "Step एक|0.6",
+       {
+        "f": 0.25
+       }
+      ]
+     ],
+     "in": 0.1,
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:920px;height:400px;border:6px solid #111;border-radius:36px;background:#111;color:#fff;overflow:hidden;position:relative;box-sizing:border-box\"><div style=\"height:80px;background:#2a2a2a;display:flex;align-items:center;gap:22px;padding-left:28px\"><div class=\"dot3\"><i style=\"background:#FFD60A\"></i><i style=\"background:#888\"></i><i style=\"background:#888\"></i></div><div class=\"mono\" style=\"font-size:32px;color:#FFD60A\">terminal</div></div></div>",
+     "x": 80,
+     "y": 400,
+     "css": "",
+     "sh": true,
+     "in": "Terminal खोलो|-0.2",
+     "spring": true
+    },
+    {
+     "kind": "typed",
+     "text": "$ curl -fsSL https://claude.ai/install.sh | bash",
+     "x": 112,
+     "y": 510,
+     "size": 29,
+     "w": 860,
+     "sat": "install command|-0.1",
+     "color": "#fff",
+     "cps": 24,
+     "mono": true
+    },
+    {
+     "kind": "typed",
+     "text": "$ claude --version",
+     "x": 112,
+     "y": 585,
+     "size": 44,
+     "w": 880,
+     "sat": "claude --version|-0.2",
+     "color": "#fff",
+     "cps": 14,
+     "mono": true
+    },
+    {
+     "kind": "typed",
+     "text": "<version number> (Claude Code)",
+     "x": 112,
+     "y": 665,
+     "size": 36,
+     "w": 880,
+     "sat": "Version number आए|0",
+     "color": "#FFD60A",
+     "cps": 24,
+     "mono": true,
+     "cursor": false
+    },
+    {
+     "kind": "icon",
+     "name": "box",
+     "x": 100,
+     "y": 940,
+     "size": 180,
+     "in": "install command|0.3|-0.1",
+     "spring": true,
+     "label": "install",
+     "ls": 36,
+     "lw": 180,
+     "float": 8
+    },
+    {
+     "kind": "flow",
+     "from": [
+      300,
+      1030
+     ],
+     "to": [
+      390,
+      1030
+     ],
+     "at": "claude --version|-0.5",
+     "dur": 0.4,
+     "sw": 8,
+     "n": 2,
+     "per": 1.3
+    },
+    {
+     "kind": "icon",
+     "name": "terminal",
+     "x": 410,
+     "y": 940,
+     "size": 180,
+     "in": "claude --version|-0.2|-0.1",
+     "spring": true,
+     "label": "--version",
+     "ls": 36,
+     "lw": 180,
+     "float": {
+      "a": 8,
+      "ph": 1
+     }
+    },
+    {
+     "kind": "flow",
+     "from": [
+      610,
+      1030
+     ],
+     "to": [
+      700,
+      1030
+     ],
+     "at": "Version number आए|-0.3",
+     "dur": 0.4,
+     "sw": 8,
+     "n": 2,
+     "per": 1.3
+    },
+    {
+     "kind": "icon",
+     "name": "check",
+     "x": 720,
+     "y": 940,
+     "size": 180,
+     "in": "Version number आए|0.2|-0.1",
+     "spring": true,
+     "label": "sahi!",
+     "ls": 36,
+     "lw": 180,
+     "wig": "Version number आए|0.5",
+     "drawon": [
+      "Version number आए|0.1",
+      0.6
+     ]
+    },
+    {
+     "kind": "text",
+     "html": "Version **aaya** = install **sahi**",
+     "x": 80,
+     "y": 1330,
+     "size": 100,
+     "w": 920,
+     "stream": true,
+     "step": 0.14,
+     "sat": "install सही|-0.8"
+    },
+    {
+     "kind": "spark",
+     "pts": [
+      [
+       930,
+       940,
+       28,
+       0
+      ],
+      [
+       960,
+       1040,
+       20,
+       2.4
+      ]
+     ],
+     "sp": 4
+    }
+   ]
+  },
+  {
+   "hideN": true,
+   "id": "login",
+   "type": "stage",
+   "wipe": "push",
+   "voice": "Step दो, अपने project folder में claude लिखो। पहली बार login माँगेगा: Claude account या Console account से, browser में prompts follow करो। एक बार login, फिर दोबारा नहीं।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "**Step 2** Login",
+     "x": 80,
+     "y": 230,
+     "size": 96,
+     "w": 720,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.12
+    },
+    {
+     "kind": "ring",
+     "size": 180,
+     "x": 830,
+     "y": 200,
+     "sw": 20,
+     "mul": 4,
+     "unit": "/4",
+     "k": [
+      [
+       0.0,
+       {
+        "f": 0.25
+       }
+      ],
+      [
+       "Step दो|0",
+       {
+        "f": 0.25
+       }
+      ],
+      [
+       "Step दो|0.6",
+       {
+        "f": 0.5
+       }
+      ]
+     ],
+     "in": 0.1,
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:920px;height:300px;border:6px solid #111;border-radius:36px;background:#111;color:#fff;overflow:hidden;position:relative;box-sizing:border-box\"><div style=\"height:80px;background:#2a2a2a;display:flex;align-items:center;gap:22px;padding-left:28px\"><div class=\"dot3\"><i style=\"background:#FFD60A\"></i><i style=\"background:#888\"></i><i style=\"background:#888\"></i></div><div class=\"mono\" style=\"font-size:32px;color:#FFD60A\">terminal</div></div></div>",
+     "x": 80,
+     "y": 400,
+     "css": "",
+     "sh": true,
+     "in": "project folder|-0.3",
+     "spring": true
+    },
+    {
+     "kind": "typed",
+     "text": "$ cd /path/to/your/project",
+     "x": 112,
+     "y": 505,
+     "size": 36,
+     "w": 880,
+     "sat": "project folder|0",
+     "color": "#fff",
+     "cps": 20,
+     "mono": true
+    },
+    {
+     "kind": "typed",
+     "text": "$ claude",
+     "x": 112,
+     "y": 580,
+     "size": 52,
+     "w": 880,
+     "sat": "claude लिखो|-0.2",
+     "color": "#FFD60A",
+     "cps": 12,
+     "mono": true
+    },
+    {
+     "kind": "icon",
+     "name": "key",
+     "x": 90,
+     "y": 780,
+     "size": 170,
+     "in": "login माँगेगा|-0.2|-0.1",
+     "spring": true,
+     "label": "login",
+     "ls": 34,
+     "lw": 170,
+     "float": 9,
+     "wig": "login माँगेगा|0.3"
+    },
+    {
+     "kind": "flow",
+     "from": [
+      280,
+      860
+     ],
+     "to": [
+      400,
+      860
+     ],
+     "at": "browser में|-0.9",
+     "dur": 0.4,
+     "sw": 8,
+     "n": 2,
+     "per": 1.2
+    },
+    {
+     "kind": "icon",
+     "name": "globe",
+     "x": 420,
+     "y": 780,
+     "size": 170,
+     "in": "browser में|-0.5|-0.1",
+     "spring": true,
+     "label": "browser",
+     "ls": 34,
+     "lw": 170,
+     "float": {
+      "a": 8,
+      "ph": 2
+     },
+     "spin": 0
+    },
+    {
+     "kind": "flow",
+     "from": [
+      610,
+      860
+     ],
+     "to": [
+      730,
+      860
+     ],
+     "at": "browser में|0.2",
+     "dur": 0.4,
+     "sw": 8,
+     "n": 2,
+     "per": 1.2
+    },
+    {
+     "kind": "icon",
+     "name": "check",
+     "x": 750,
+     "y": 780,
+     "size": 170,
+     "in": "prompts follow|0|-0.1",
+     "spring": true,
+     "label": "ho gaya",
+     "ls": 34,
+     "lw": 170,
+     "drawon": [
+      "prompts follow|0",
+      0.6
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "<div class=\"keycap\" style=\"font-size:40px\">Pro</div>",
+     "x": 80,
+     "y": 1040,
+     "css": "",
+     "float": {
+      "a": 6,
+      "ph": 0.0
+     },
+     "in": "Claude account|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div class=\"keycap\" style=\"font-size:40px\">Max</div>",
+     "x": 240,
+     "y": 1040,
+     "css": "",
+     "float": {
+      "a": 6,
+      "ph": 1.1
+     },
+     "in": "Claude account|0.06",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div class=\"keycap\" style=\"font-size:40px\">Ultra</div>",
+     "x": 410,
+     "y": 1040,
+     "css": "",
+     "float": {
+      "a": 6,
+      "ph": 2.2
+     },
+     "in": "Claude account|0.22",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div class=\"keycap\" style=\"font-size:40px\">Team</div>",
+     "x": 610,
+     "y": 1040,
+     "css": "",
+     "float": {
+      "a": 6,
+      "ph": 3.3000000000000003
+     },
+     "in": "Claude account|0.38",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div class=\"keycap\" style=\"font-size:40px\">Enterprise</div>",
+     "x": 80,
+     "y": 1160,
+     "css": "",
+     "float": {
+      "a": 6,
+      "ph": 4.4
+     },
+     "in": "Claude account|0.54",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div class=\"keycap\" style=\"font-size:40px\">Console</div>",
+     "x": 380,
+     "y": 1160,
+     "css": "",
+     "float": {
+      "a": 6,
+      "ph": 5.5
+     },
+     "in": "Console account|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:920px;height:250px;border:6px solid #111;border-radius:36px;background:#fff;color:#111;overflow:hidden;position:relative;box-sizing:border-box\"><div style=\"height:80px;background:#111;display:flex;align-items:center;gap:22px;padding-left:28px\"><div class=\"dot3\"><i style=\"background:#FFD60A\"></i><i style=\"background:#888\"></i><i style=\"background:#888\"></i></div><div class=\"mono\" style=\"font-size:32px;color:#FFD60A\">browser</div></div></div>",
+     "x": 80,
+     "y": 1310,
+     "css": "",
+     "sh": true,
+     "in": "browser में|0.5",
+     "spring": true
+    },
+    {
+     "kind": "icon",
+     "name": "user",
+     "x": 130,
+     "y": 1420,
+     "size": 110,
+     "in": "browser में|0.8",
+     "spring": true,
+     "float": 5
+    },
+    {
+     "kind": "flow",
+     "from": [
+      260,
+      1475
+     ],
+     "to": [
+      400,
+      1475
+     ],
+     "at": "prompts follow|-0.6",
+     "dur": 0.4,
+     "sw": 7,
+     "n": 2,
+     "per": 1.1
+    },
+    {
+     "kind": "icon",
+     "name": "lock",
+     "x": 420,
+     "y": 1415,
+     "size": 120,
+     "in": "prompts follow|-0.3",
+     "spring": true,
+     "wig": "prompts follow|0.4"
+    },
+    {
+     "kind": "icon",
+     "name": "check",
+     "x": 600,
+     "y": 1415,
+     "size": 120,
+     "in": "prompts follow|0.5",
+     "spring": true,
+     "drawon": [
+      "prompts follow|0.5",
+      0.5
+     ]
+    },
+    {
+     "kind": "icon",
+     "name": "lock",
+     "x": 80,
+     "y": 1640,
+     "size": 130,
+     "in": "एक बार login|-0.1",
+     "spring": true,
+     "label": null,
+     "wig": "एक बार login|0.4",
+     "float": 6
+    },
+    {
+     "kind": "text",
+     "html": "**Ek baar** login, dobara nahi",
+     "x": 250,
+     "y": 1650,
+     "size": 76,
+     "w": 760,
+     "stream": true,
+     "step": 0.14,
+     "sat": "एक बार login|0"
+    }
+   ]
+  },
+  {
+   "hideN": true,
+   "id": "question",
+   "type": "stage",
+   "wipe": "iris",
+   "voice": "Step तीन, पहला सवाल: what does this project do? Claude तुम्हारी files खुद पढ़ लेता है, तुम्हें context जोड़ना नहीं पड़ता।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "**Step 3** Pehla sawal",
+     "x": 80,
+     "y": 230,
+     "size": 96,
+     "w": 720,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.12
+    },
+    {
+     "kind": "ring",
+     "size": 180,
+     "x": 830,
+     "y": 200,
+     "sw": 20,
+     "mul": 4,
+     "unit": "/4",
+     "k": [
+      [
+       0.0,
+       {
+        "f": 0.5
+       }
+      ],
+      [
+       "Step तीन|0",
+       {
+        "f": 0.5
+       }
+      ],
+      [
+       "Step तीन|0.6",
+       {
+        "f": 0.75
+       }
+      ]
+     ],
+     "in": 0.1,
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"padding:34px 44px;font-size:54px;font-weight:800;line-height:1.15\">what does this project do?</div>",
+     "x": 80,
+     "y": 520,
+     "css": "width:920px;box-sizing:border-box",
+     "cls": "bubble",
+     "in": "what does this project|-0.4",
+     "spring": true
+    },
+    {
+     "kind": "img",
+     "img": "think",
+     "size": 500,
+     "x": 290,
+     "y": 850,
+     "bob": 1,
+     "k": [
+      [
+       "files खुद|-0.6",
+       {
+        "o": 0
+       }
+      ],
+      [
+       "files खुद|-0.1",
+       {
+        "o": 1
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "flow",
+     "from": {
+      "orbit": {
+       "cx": 540,
+       "cy": 1140,
+       "rx": 340,
+       "ry": 290,
+       "a0": 270,
+       "w": 14
+      }
+     },
+     "to": [
+      540,
+      1140
+     ],
+     "at": "files खुद|0.2",
+     "dur": 0.4,
+     "sw": 6,
+     "n": 1,
+     "per": 1.3,
+     "r": 13,
+     "head": false
+    },
+    {
+     "kind": "icon",
+     "name": "folder",
+     "x": 0,
+     "y": 0,
+     "size": 140,
+     "in": "files खुद|0.0",
+     "spring": true,
+     "orbit": {
+      "cx": 540,
+      "cy": 1140,
+      "rx": 340,
+      "ry": 290,
+      "a0": 270,
+      "w": 14
+     },
+     "label": null
+    },
+    {
+     "kind": "flow",
+     "from": {
+      "orbit": {
+       "cx": 540,
+       "cy": 1140,
+       "rx": 340,
+       "ry": 290,
+       "a0": 360,
+       "w": 14
+      }
+     },
+     "to": [
+      540,
+      1140
+     ],
+     "at": "files खुद|0.55",
+     "dur": 0.4,
+     "sw": 6,
+     "n": 1,
+     "per": 1.3,
+     "r": 13,
+     "head": false
+    },
+    {
+     "kind": "icon",
+     "name": "file",
+     "x": 0,
+     "y": 0,
+     "size": 140,
+     "in": "files खुद|0.3",
+     "spring": true,
+     "orbit": {
+      "cx": 540,
+      "cy": 1140,
+      "rx": 340,
+      "ry": 290,
+      "a0": 360,
+      "w": 14
+     },
+     "label": null
+    },
+    {
+     "kind": "flow",
+     "from": {
+      "orbit": {
+       "cx": 540,
+       "cy": 1140,
+       "rx": 340,
+       "ry": 290,
+       "a0": 450,
+       "w": 14
+      }
+     },
+     "to": [
+      540,
+      1140
+     ],
+     "at": "files खुद|0.8999999999999999",
+     "dur": 0.4,
+     "sw": 6,
+     "n": 1,
+     "per": 1.3,
+     "r": 13,
+     "head": false
+    },
+    {
+     "kind": "icon",
+     "name": "code",
+     "x": 0,
+     "y": 0,
+     "size": 140,
+     "in": "files खुद|0.6",
+     "spring": true,
+     "orbit": {
+      "cx": 540,
+      "cy": 1140,
+      "rx": 340,
+      "ry": 290,
+      "a0": 450,
+      "w": 14
+     },
+     "label": null
+    },
+    {
+     "kind": "flow",
+     "from": {
+      "orbit": {
+       "cx": 540,
+       "cy": 1140,
+       "rx": 340,
+       "ry": 290,
+       "a0": 540,
+       "w": 14
+      }
+     },
+     "to": [
+      540,
+      1140
+     ],
+     "at": "files खुद|1.2499999999999998",
+     "dur": 0.4,
+     "sw": 6,
+     "n": 1,
+     "per": 1.3,
+     "r": 13,
+     "head": false
+    },
+    {
+     "kind": "icon",
+     "name": "file",
+     "x": 0,
+     "y": 0,
+     "size": 140,
+     "in": "files खुद|0.8999999999999999",
+     "spring": true,
+     "orbit": {
+      "cx": 540,
+      "cy": 1140,
+      "rx": 340,
+      "ry": 290,
+      "a0": 540,
+      "w": 14
+     },
+     "label": null
+    },
+    {
+     "kind": "flow",
+     "from": {
+      "orbit": {
+       "cx": 540,
+       "cy": 1140,
+       "rx": 190,
+       "ry": 150,
+       "a0": 90,
+       "w": -20
+      }
+     },
+     "to": [
+      540,
+      1140
+     ],
+     "at": "files खुद|1.2",
+     "dur": 0.4,
+     "sw": 6,
+     "n": 1,
+     "per": 1.1,
+     "r": 12,
+     "head": false
+    },
+    {
+     "kind": "icon",
+     "name": "file",
+     "x": 0,
+     "y": 0,
+     "size": 100,
+     "in": "files खुद|1.0",
+     "spring": true,
+     "orbit": {
+      "cx": 540,
+      "cy": 1140,
+      "rx": 190,
+      "ry": 150,
+      "a0": 90,
+      "w": -20
+     },
+     "label": null
+    },
+    {
+     "kind": "flow",
+     "from": {
+      "orbit": {
+       "cx": 540,
+       "cy": 1140,
+       "rx": 190,
+       "ry": 150,
+       "a0": 270,
+       "w": -20
+      }
+     },
+     "to": [
+      540,
+      1140
+     ],
+     "at": "files खुद|1.5499999999999998",
+     "dur": 0.4,
+     "sw": 6,
+     "n": 1,
+     "per": 1.1,
+     "r": 12,
+     "head": false
+    },
+    {
+     "kind": "icon",
+     "name": "code",
+     "x": 0,
+     "y": 0,
+     "size": 100,
+     "in": "files खुद|1.3",
+     "spring": true,
+     "orbit": {
+      "cx": 540,
+      "cy": 1140,
+      "rx": 190,
+      "ry": 150,
+      "a0": 270,
+      "w": -20
+     },
+     "label": null
+    },
+    {
+     "kind": "text",
+     "html": "**Context** khud, jodna nahi",
+     "x": 80,
+     "y": 1530,
+     "size": 80,
+     "w": 900,
+     "stream": true,
+     "step": 0.14,
+     "sat": "context|-0.3"
+    },
+    {
+     "kind": "spark",
+     "pts": [
+      [
+       170,
+       760,
+       24,
+       0
+      ],
+      [
+       900,
+       780,
+       24,
+       2
+      ],
+      [
+       860,
+       1360,
+       22,
+       4
+      ]
+     ],
+     "sp": 4
+    }
+   ],
+   "cam": [
+    [
+     0,
+     {
+      "s": 1.0
+     }
+    ],
+    [
+     9,
+     {
+      "s": 1.06
+     }
+    ]
+   ]
+  },
+  {
+   "hideN": true,
+   "id": "change",
+   "type": "stage",
+   "wipe": "up",
+   "voice": "Step चार, पहला code change। बोलो, add a hello world function to the main file। Claude सही file ढूँढकर बदलाव दिखाता है, और पूछे तो Yes चुनो।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "**Step 4** Pehla code change",
+     "x": 80,
+     "y": 230,
+     "size": 88,
+     "w": 740,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.12
+    },
+    {
+     "kind": "ring",
+     "size": 180,
+     "x": 830,
+     "y": 200,
+     "sw": 20,
+     "mul": 4,
+     "unit": "/4",
+     "k": [
+      [
+       0.0,
+       {
+        "f": 0.75
+       }
+      ],
+      [
+       "Step चार|0",
+       {
+        "f": 0.75
+       }
+      ],
+      [
+       "Step चार|0.6",
+       {
+        "f": 1.0
+       }
+      ]
+     ],
+     "in": 0.1,
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"padding:26px 40px;font-size:46px;font-weight:800;line-height:1.2\">add a hello world function to the main file</div>",
+     "x": 80,
+     "y": 560,
+     "css": "width:920px;box-sizing:border-box",
+     "cls": "bubble y",
+     "in": "add a hello world|-0.3",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:440px;height:360px;border:6px solid #111;border-radius:30px;background:#fff;overflow:hidden;box-sizing:border-box\"><div style=\"height:70px;background:#111;color:#FFD60A;display:flex;align-items:center;padding-left:24px;font-size:30px\" class=\"mono\">main.js · BEFORE</div><div style=\"padding:14px 28px\"><div style=\"height:20px;border-radius:10px;margin:14px 0;width:80%;background:#111\"></div><div style=\"height:20px;border-radius:10px;margin:14px 0;width:55%;background:#111\"></div><div style=\"height:20px;border-radius:10px;margin:14px 0;width:70%;background:#111\"></div><div style=\"height:20px;border-radius:10px;margin:14px 0;width:40%;background:#ddd\"></div></div></div>",
+     "x": 80,
+     "y": 820,
+     "css": "",
+     "sh": true,
+     "in": "add a hello world|0.4",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:440px;height:360px;border:6px solid #111;border-radius:30px;background:#fff;overflow:hidden;box-sizing:border-box\"><div style=\"height:70px;background:#111;color:#FFD60A;display:flex;align-items:center;padding-left:24px;font-size:30px\" class=\"mono\">main.js · AFTER</div><div style=\"padding:14px 28px\"><div style=\"height:20px;border-radius:10px;margin:14px 0;width:80%;background:#111\"></div><div style=\"height:20px;border-radius:10px;margin:14px 0;width:55%;background:#111\"></div><div style=\"height:20px;border-radius:10px;margin:14px 0;width:70%;background:#111\"></div><div class=\"mono\" style=\"margin:14px 0;font-size:34px;font-weight:700;background:#FFD60A;border-radius:10px;padding:2px 10px\">+ function hello()</div></div></div>",
+     "x": 560,
+     "y": 820,
+     "css": "",
+     "sh": true,
+     "in": "बदलाव दिखाता|-0.2",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:30px;font-weight:800\">pehle</div>",
+     "x": 80,
+     "y": 1200,
+     "css": "",
+     "in": "add a hello world|0.6",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:30px;font-weight:800\">baad me</div>",
+     "x": 560,
+     "y": 1200,
+     "css": "",
+     "in": "बदलाव दिखाता|0.0",
+     "spring": true
+    },
+    {
+     "kind": "icon",
+     "name": "arrow",
+     "x": 478,
+     "y": 960,
+     "size": 84,
+     "in": "बदलाव दिखाता|-0.3",
+     "spring": true,
+     "float": {
+      "a": 5,
+      "f": 3
+     }
+    },
+    {
+     "kind": "box",
+     "html": "<div class=\"keycap\" style=\"font-size:56px;padding:8px 44px\">Yes</div>",
+     "x": 120,
+     "y": 1330,
+     "css": "",
+     "wig": "Yes चुनो|0.5",
+     "in": "Yes चुनो|-0.3",
+     "spring": true
+    },
+    {
+     "kind": "icon",
+     "name": "cursor",
+     "x": 0,
+     "y": 0,
+     "size": 100,
+     "k": [
+      [
+       "Yes चुनो|-0.4",
+       {
+        "x": 520,
+        "y": 1500,
+        "o": 0
+       }
+      ],
+      [
+       "Yes चुनो|0.0",
+       {
+        "x": 520,
+        "y": 1500,
+        "o": 1
+       }
+      ],
+      [
+       "Yes चुनो|0.5",
+       {
+        "x": 300,
+        "y": 1390
+       }
+      ]
+     ],
+     "wig": "Yes चुनो|0.5"
+    },
+    {
+     "kind": "icon",
+     "name": "check",
+     "x": 420,
+     "y": 1330,
+     "size": 110,
+     "in": "Yes चुनो|0.6",
+     "spring": true,
+     "drawon": [
+      "Yes चुनो|0.6",
+      0.5
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:250px;height:250px;border-radius:125px;border:7px solid #111;background:#FFD60A;box-shadow:0 18px 40px rgba(0,0,0,.2)\"></div>",
+     "x": 730,
+     "y": 1290,
+     "css": "",
+     "in": "Claude सही file|0.0",
+     "spring": true
+    },
+    {
+     "kind": "img",
+     "img": "thumbs",
+     "size": 290,
+     "x": 710,
+     "y": 1290,
+     "crop": [
+      0.0,
+      1.0
+     ],
+     "k": [
+      [
+       "Claude सही file|0.2",
+       {
+        "o": 0
+       }
+      ],
+      [
+       "Claude सही file|0.5",
+       {
+        "o": 1
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "icon",
+     "name": "magnifier",
+     "x": 90,
+     "y": 1640,
+     "size": 150,
+     "in": "Claude सही file|-0.2",
+     "spring": true,
+     "label": "sahi file",
+     "ls": 32,
+     "lw": 150,
+     "float": 7
+    },
+    {
+     "kind": "flow",
+     "from": [
+      260,
+      1715
+     ],
+     "to": [
+      380,
+      1715
+     ],
+     "at": "Claude सही file|0.3",
+     "dur": 0.4,
+     "sw": 8,
+     "n": 2,
+     "per": 1.1
+    },
+    {
+     "kind": "icon",
+     "name": "file",
+     "x": 400,
+     "y": 1640,
+     "size": 150,
+     "in": "Claude सही file|0.5",
+     "spring": true,
+     "label": "main file",
+     "ls": 32,
+     "lw": 150,
+     "float": {
+      "a": 7,
+      "ph": 1
+     }
+    },
+    {
+     "kind": "flow",
+     "from": [
+      570,
+      1715
+     ],
+     "to": [
+      690,
+      1715
+     ],
+     "at": "बदलाव दिखाता|0.3",
+     "dur": 0.4,
+     "sw": 8,
+     "n": 2,
+     "per": 1.1
+    },
+    {
+     "kind": "icon",
+     "name": "code",
+     "x": 710,
+     "y": 1640,
+     "size": 150,
+     "in": "बदलाव दिखाता|0.4",
+     "spring": true,
+     "label": "badlav",
+     "ls": 32,
+     "lw": 150,
+     "wig": "बदलाव दिखाता|0.9"
+    }
+   ]
+  },
+  {
+   "id": "git",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "Git भी बातों से: बोलो, commit my changes with a descriptive message। Shortcuts: slash help, slash clear, और Shift Tab से permission mode बदलता है।",
+   "layers": [
+    {
+     "kind": "box",
+     "html": "<div style=\"padding:28px 40px;font-size:46px;font-weight:800;line-height:1.2\">commit my changes with a descriptive message</div>",
+     "x": 80,
+     "y": 240,
+     "css": "width:920px;box-sizing:border-box",
+     "cls": "bubble",
+     "in": "commit my changes|-0.4",
+     "spring": true
+    },
+    {
+     "kind": "icon",
+     "name": "branch",
+     "x": 100,
+     "y": 540,
+     "size": 150,
+     "in": "Git भी|0.2",
+     "spring": true,
+     "label": "git",
+     "ls": 34,
+     "lw": 150,
+     "float": 7
+    },
+    {
+     "kind": "flow",
+     "from": [
+      270,
+      615
+     ],
+     "to": [
+      420,
+      615
+     ],
+     "at": "commit my changes|0.5",
+     "dur": 0.4,
+     "sw": 8,
+     "n": 2,
+     "per": 1.2
+    },
+    {
+     "kind": "icon",
+     "name": "check",
+     "x": 440,
+     "y": 540,
+     "size": 150,
+     "in": "commit my changes|0.9",
+     "spring": true,
+     "label": "commit",
+     "ls": 34,
+     "lw": 150,
+     "drawon": [
+      "commit my changes|1.0",
+      0.6
+     ]
+    },
+    {
+     "kind": "svgbot",
+     "size": 640,
+     "x": -130,
+     "y": 980,
+     "talk": [
+      [
+       0.5,
+       9
+      ]
+     ],
+     "k": [
+      [
+       0,
+       {
+        "x": -600,
+        "ar": 0
+       }
+      ],
+      [
+       0.8,
+       {
+        "x": -110,
+        "e": "b"
+       }
+      ],
+      [
+       "slash help|-0.3",
+       {
+        "ar": -80
+       }
+      ],
+      [
+       "slash clear|0",
+       {
+        "ar": -88
+       }
+      ],
+      [
+       "Shift Tab|0",
+       {
+        "ar": -96
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "flow",
+     "from": [
+      330,
+      1250
+     ],
+     "to": [
+      450,
+      995
+     ],
+     "at": "slash help|-0.5",
+     "dur": 0.4,
+     "sw": 6,
+     "n": 2,
+     "per": 1.1,
+     "r": 13,
+     "head": false
+    },
+    {
+     "kind": "icon",
+     "name": "bulb",
+     "x": 460,
+     "y": 940,
+     "size": 110,
+     "in": "slash help|-0.2",
+     "spring": true,
+     "float": {
+      "a": 5,
+      "ph": 0.0
+     }
+    },
+    {
+     "kind": "box",
+     "html": "<div class=\"keycap\" style=\"font-size:44px\">/help</div><div style=\"font-size:34px;font-weight:700;margin-top:6px\">commands dikhata</div>",
+     "x": 600,
+     "y": 934,
+     "css": "width:400px",
+     "in": "slash help|0.0",
+     "spring": true
+    },
+    {
+     "kind": "flow",
+     "from": [
+      330,
+      1250
+     ],
+     "to": [
+      450,
+      1215
+     ],
+     "at": "slash clear|-0.5",
+     "dur": 0.4,
+     "sw": 6,
+     "n": 2,
+     "per": 1.1,
+     "r": 13,
+     "head": false
+    },
+    {
+     "kind": "icon",
+     "name": "cross",
+     "x": 460,
+     "y": 1160,
+     "size": 110,
+     "in": "slash clear|-0.2",
+     "spring": true,
+     "float": {
+      "a": 5,
+      "ph": 1.5
+     }
+    },
+    {
+     "kind": "box",
+     "html": "<div class=\"keycap\" style=\"font-size:44px\">/clear</div><div style=\"font-size:34px;font-weight:700;margin-top:6px\">history saaf</div>",
+     "x": 600,
+     "y": 1154,
+     "css": "width:400px",
+     "in": "slash clear|0.0",
+     "spring": true
+    },
+    {
+     "kind": "flow",
+     "from": [
+      330,
+      1250
+     ],
+     "to": [
+      450,
+      1435
+     ],
+     "at": "Shift Tab|-0.5",
+     "dur": 0.4,
+     "sw": 6,
+     "n": 2,
+     "per": 1.1,
+     "r": 13,
+     "head": false
+    },
+    {
+     "kind": "icon",
+     "name": "shield",
+     "x": 460,
+     "y": 1380,
+     "size": 110,
+     "in": "Shift Tab|-0.2",
+     "spring": true,
+     "float": {
+      "a": 5,
+      "ph": 3.0
+     }
+    },
+    {
+     "kind": "box",
+     "html": "<div class=\"keycap\" style=\"font-size:44px\">Shift+Tab</div><div style=\"font-size:34px;font-weight:700;margin-top:6px\">permission mode</div>",
+     "x": 600,
+     "y": 1374,
+     "css": "width:400px",
+     "in": "Shift Tab|0.0",
+     "spring": true
+    },
+    {
+     "kind": "text",
+     "html": "Git bhi **baaton** se",
+     "x": 80,
+     "y": 1650,
+     "size": 92,
+     "w": 920,
+     "stream": true,
+     "step": 0.14,
+     "sat": "Git भी|0.1"
+    }
+   ]
+  },
+  {
+   "id": "cta",
+   "type": "stage",
+   "wipe": "right",
+   "voice": "तो याद रखो: install, login, सवाल, और code change। तुम पहले कौन सा सवाल पूछोगे? Comment में बताओ।",
+   "layers": [
+    {
+     "kind": "count",
+     "to": 4,
+     "suf": "/4",
+     "size": 170,
+     "x": 80,
+     "y": 560,
+     "css": "width:360px",
+     "k": [
+      [
+       0.0,
+       {
+        "f": 0,
+        "o": 1
+       }
+      ],
+      [
+       "install,|-0.05",
+       {
+        "f": 0.0
+       }
+      ],
+      [
+       "install,|0.3",
+       {
+        "f": 0.25
+       }
+      ],
+      [
+       "login,|-0.05",
+       {
+        "f": 0.25
+       }
+      ],
+      [
+       "login,|0.3",
+       {
+        "f": 0.5
+       }
+      ],
+      [
+       "सवाल,|-0.05",
+       {
+        "f": 0.5
+       }
+      ],
+      [
+       "सवाल,|0.3",
+       {
+        "f": 0.75
+       }
+      ],
+      [
+       "code change|-0.05",
+       {
+        "f": 0.75
+       }
+      ],
+      [
+       "code change|0.3",
+       {
+        "f": 1.0
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "icon",
+     "name": "terminal",
+     "x": 0,
+     "y": 0,
+     "size": 150,
+     "label": "Install",
+     "ls": 32,
+     "lw": 150,
+     "k": [
+      [
+       0.0,
+       {
+        "x": -300,
+        "y": 100,
+        "o": 0
+       }
+      ],
+      [
+       "install,|-0.5",
+       {
+        "x": -300,
+        "y": 100,
+        "o": 1
+       }
+      ],
+      [
+       "install,|0.2",
+       {
+        "x": 100,
+        "y": 280,
+        "e": "b"
+       }
+      ]
+     ],
+     "float": {
+      "a": 6,
+      "ph": 0.0
+     }
+    },
+    {
+     "kind": "icon",
+     "name": "check",
+     "x": 195,
+     "y": 215,
+     "size": 70,
+     "in": "install,|0.35",
+     "spring": true
+    },
+    {
+     "kind": "icon",
+     "name": "key",
+     "x": 0,
+     "y": 0,
+     "size": 150,
+     "label": "Login",
+     "ls": 32,
+     "lw": 150,
+     "k": [
+      [
+       0.0,
+       {
+        "x": 1300,
+        "y": 80,
+        "o": 0
+       }
+      ],
+      [
+       "login,|-0.5",
+       {
+        "x": 1300,
+        "y": 80,
+        "o": 1
+       }
+      ],
+      [
+       "login,|0.2",
+       {
+        "x": 330,
+        "y": 280,
+        "e": "b"
+       }
+      ]
+     ],
+     "float": {
+      "a": 6,
+      "ph": 1.4
+     }
+    },
+    {
+     "kind": "icon",
+     "name": "check",
+     "x": 425,
+     "y": 215,
+     "size": 70,
+     "in": "login,|0.35",
+     "spring": true
+    },
+    {
+     "kind": "icon",
+     "name": "chat",
+     "x": 0,
+     "y": 0,
+     "size": 150,
+     "label": "Sawal",
+     "ls": 32,
+     "lw": 150,
+     "k": [
+      [
+       0.0,
+       {
+        "x": -300,
+        "y": 900,
+        "o": 0
+       }
+      ],
+      [
+       "सवाल,|-0.5",
+       {
+        "x": -300,
+        "y": 900,
+        "o": 1
+       }
+      ],
+      [
+       "सवाल,|0.2",
+       {
+        "x": 560,
+        "y": 280,
+        "e": "b"
+       }
+      ]
+     ],
+     "float": {
+      "a": 6,
+      "ph": 2.8
+     }
+    },
+    {
+     "kind": "icon",
+     "name": "check",
+     "x": 655,
+     "y": 215,
+     "size": 70,
+     "in": "सवाल,|0.35",
+     "spring": true
+    },
+    {
+     "kind": "icon",
+     "name": "code",
+     "x": 0,
+     "y": 0,
+     "size": 150,
+     "label": "Code",
+     "ls": 32,
+     "lw": 150,
+     "k": [
+      [
+       0.0,
+       {
+        "x": 1300,
+        "y": 900,
+        "o": 0
+       }
+      ],
+      [
+       "code change|-0.5",
+       {
+        "x": 1300,
+        "y": 900,
+        "o": 1
+       }
+      ],
+      [
+       "code change|0.2",
+       {
+        "x": 790,
+        "y": 280,
+        "e": "b"
+       }
+      ]
+     ],
+     "float": {
+      "a": 6,
+      "ph": 4.199999999999999
+     }
+    },
+    {
+     "kind": "icon",
+     "name": "check",
+     "x": 885,
+     "y": 215,
+     "size": 70,
+     "in": "code change|0.35",
+     "spring": true
+    },
+    {
+     "kind": "text",
+     "html": "Tum pehle **kaunsa sawal** puchoge?",
+     "x": 80,
+     "y": 740,
+     "size": 96,
+     "w": 920,
+     "stream": true,
+     "step": 0.14,
+     "sat": "कौन सा सवाल|-0.3"
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:300px;height:300px;border-radius:150px;border:7px solid #111;background:#FFD60A;box-shadow:0 18px 40px rgba(0,0,0,.2)\"></div>",
+     "x": 640,
+     "y": 1230,
+     "css": "",
+     "in": "Comment में|-0.4",
+     "spring": true
+    },
+    {
+     "kind": "img",
+     "img": "thumbs",
+     "size": 350,
+     "x": 615,
+     "y": 1235,
+     "k": [
+      [
+       "Comment में|-0.1",
+       {
+        "o": 0
+       }
+      ],
+      [
+       "Comment में|0.3",
+       {
+        "o": 1
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "icon",
+     "name": "chat",
+     "x": 150,
+     "y": 1250,
+     "size": 190,
+     "in": "Comment में|-0.2",
+     "spring": true,
+     "float": 8,
+     "wig": "Comment में|0.6",
+     "label": "comment!",
+     "ls": 36,
+     "lw": 190
+    }
+   ]
+  }
+ ]
+}

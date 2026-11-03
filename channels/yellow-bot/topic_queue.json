@@ -4,8 +4,8 @@
     "title": "Overview",
     "url": "https://code.claude.com/docs/en/overview.md",
     "summary": "Claude Code is an agentic coding tool that reads your codebase, edits files, runs commands, and integrates with your development tools. Available in your terminal, IDE, desktop app, and browser.",
-    "status": "todo",
-    "story": null
+    "status": "uploaded",
+    "story": "019_overview"
   },
   {
     "id": "quickstart",

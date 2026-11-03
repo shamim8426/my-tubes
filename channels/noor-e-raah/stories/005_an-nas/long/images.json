@@ -1,0 +1,267 @@
+{
+ "_help": "An-Nas images (005). 0 NEW; all reuse/reuse_id+rect, Rs0. AYAH 1 = whole surah, AYAH 2..7 = 114:1..114:6. P (12_bedtime_room_lamp) only with rects that crop out the chimney lamp.",
+ "images": [
+  {
+   "id": "01_one_star_night",
+   "start": {
+    "line": 3
+   },
+   "reuse": "channels/noor-e-raah/stories/003_al-ikhlas/images/01_one_star_night.png"
+  },
+  {
+   "id": "11_shuttered_window_night",
+   "start": {
+    "ayah": 5
+   },
+   "prompt": "Interior of a bare old mud-brick room at deep night, seen straight on: a small opening in a thick rough wall closed by two solid old wooden plank shutters, no glass, shutters tightly shut with only a thin gap of dark night sky and a few faint stars showing between them. Beyond the gap, far away in the open dark desert, one tiny faint warm glow of a spouted Arabian clay oil lamp, nothing else out there: no buildings, no towers, no minarets, no domes, no mosque, no skyline. Empty room, no people, no figures, no hands, no text, no letters, no glass window, no glass lantern. Quiet, still, mysterious mood."
+  },
+  {
+   "id": "01_one_star_night_b",
+   "start": {
+    "line": 4
+   },
+   "reuse_id": "01_one_star_night",
+   "rect": {
+    "fx": 0.28,
+    "fy": 0.7,
+    "zc": 1.4
+   }
+  },
+  {
+   "id": "09_single_lamp_dark",
+   "start": {
+    "line": 5
+   },
+   "reuse": "channels/noor-e-raah/stories/001_al-fatiha/images/09_single_lamp_dark.png"
+  },
+  {
+   "id": "05_night_lamp_path",
+   "start": {
+    "line": 6
+   },
+   "reuse": "channels/noor-e-raah/stories/001_al-fatiha/images/05_night_lamp_path.png"
+  },
+  {
+   "id": "06_milkyway_desert",
+   "start": {
+    "ayah": 1
+   },
+   "reuse": "channels/noor-e-raah/stories/003_al-ikhlas/images/06_milkyway_desert.png"
+  },
+  {
+   "id": "06_milkyway_desert_b",
+   "start": {
+    "line": 8
+   },
+   "reuse_id": "06_milkyway_desert",
+   "rect": {
+    "fx": 0.5,
+    "fy": 0.4,
+    "zc": 1.6
+   }
+  },
+  {
+   "id": "07_rocky_valley_moon",
+   "start": {
+    "line": 10
+   },
+   "reuse": "channels/noor-e-raah/stories/001_al-fatiha/images/07_rocky_valley_moon.png"
+  },
+  {
+   "id": "07_rocky_valley_moon_b",
+   "start": {
+    "line": 11
+   },
+   "reuse_id": "07_rocky_valley_moon",
+   "rect": {
+    "fx": 0.5,
+    "fy": 0.65,
+    "zc": 1.4
+   }
+  },
+  {
+   "id": "06_makka_night_houses",
+   "start": {
+    "line": 12
+   },
+   "reuse": "channels/noor-e-raah/stories/001_al-fatiha/images/06_makka_night_houses.png"
+  },
+  {
+   "id": "18_lamp_toward_light",
+   "start": {
+    "ayah": 2
+   },
+   "reuse": "channels/noor-e-raah/stories/001_al-fatiha/images/18_lamp_toward_light.png"
+  },
+  {
+   "id": "18_lamp_toward_light_b",
+   "start": {
+    "line": 17
+   },
+   "reuse_id": "18_lamp_toward_light",
+   "rect": {
+    "fx": 0.5,
+    "fy": 0.6,
+    "zc": 1.6
+   }
+  },
+  {
+   "id": "09_lit_door",
+   "start": {
+    "ayah": 3
+   },
+   "reuse": "channels/noor-e-raah/stories/002_ayatul-kursi/images/09_lit_door.png"
+  },
+  {
+   "id": "09_lit_door_b",
+   "start": {
+    "line": 23
+   },
+   "reuse_id": "09_lit_door",
+   "rect": {
+    "fx": 0.5,
+    "fy": 0.55,
+    "zc": 1.7
+   }
+  },
+  {
+   "id": "02_lamp_on_stone",
+   "start": {
+    "ayah": 4
+   },
+   "reuse": "channels/noor-e-raah/stories/002_ayatul-kursi/images/02_lamp_on_stone.png"
+  },
+  {
+   "id": "02_lamp_on_stone_b",
+   "start": {
+    "line": 28
+   },
+   "reuse_id": "02_lamp_on_stone",
+   "rect": {
+    "fx": 0.5,
+    "fy": 0.6,
+    "zc": 1.8
+   }
+  },
+  {
+   "id": "09_single_lamp_dark_b",
+   "start": {
+    "line": 35
+   },
+   "reuse_id": "09_single_lamp_dark",
+   "rect": {
+    "fx": 0.65,
+    "fy": 0.6,
+    "zc": 1.5
+   }
+  },
+  {
+   "id": "22_path_fading_tracks",
+   "start": {
+    "ayah": 6
+   },
+   "reuse": "channels/noor-e-raah/stories/001_al-fatiha/images/22_path_fading_tracks.png"
+  },
+  {
+   "id": "22_path_fading_tracks_b",
+   "start": {
+    "line": 40
+   },
+   "reuse_id": "22_path_fading_tracks",
+   "rect": {
+    "fx": 0.5,
+    "fy": 0.6,
+    "zc": 1.6
+   }
+  },
+  {
+   "id": "04_dawn_sand_ridge",
+   "start": {
+    "ayah": 7
+   },
+   "reuse": "channels/noor-e-raah/stories/003_al-ikhlas/images/04_dawn_sand_ridge.png"
+  },
+  {
+   "id": "04_dawn_sand_ridge_b",
+   "start": {
+    "line": 45
+   },
+   "reuse_id": "04_dawn_sand_ridge",
+   "rect": {
+    "fx": 0.3,
+    "fy": 0.5,
+    "zc": 1.5
+   }
+  },
+  {
+   "id": "12_bedtime_room_lamp",
+   "start": {
+    "line": 47
+   },
+   "reuse": "channels/noor-e-raah/stories/002_ayatul-kursi/images/12_bedtime_room_lamp.png",
+   "rect": {
+    "fx": 0.75,
+    "fy": 0.5,
+    "zc": 1.55
+   },
+   "_note": "rect keeps glass-chimney lamp out (carry_over 002)"
+  },
+  {
+   "id": "12_bedtime_room_lamp_b",
+   "start": {
+    "line": 49
+   },
+   "reuse_id": "12_bedtime_room_lamp",
+   "rect": {
+    "fx": 0.65,
+    "fy": 0.25,
+    "zc": 1.8
+   }
+  },
+  {
+   "id": "08_empty_room_morning",
+   "start": {
+    "line": 50
+   },
+   "reuse": "channels/noor-e-raah/stories/003_al-ikhlas/images/08_empty_room_morning.png"
+  },
+  {
+   "id": "08_empty_room_morning_b",
+   "start": {
+    "line": 52
+   },
+   "reuse_id": "08_empty_room_morning",
+   "rect": {
+    "fx": 0.4,
+    "fy": 0.6,
+    "zc": 1.4
+   }
+  },
+  {
+   "id": "23_golden_valley_full_light",
+   "start": {
+    "line": 53
+   },
+   "reuse": "channels/noor-e-raah/stories/001_al-fatiha/images/23_golden_valley_full_light.png"
+  },
+  {
+   "id": "12_dawn_hijaz_valley_lamp",
+   "start": {
+    "line": 54
+   },
+   "prompt": "Quiet dawn over a narrow footpath winding through a black-brown granite Hijaz valley with rocky dark hills, soft golden light on the horizon; in the foreground a small spouted Arabian clay oil lamp with a tiny flame resting on a flat stone ledge. Only the place and the lamp, no people, no figures, no hands, no text, no letters, no domes, no minarets, no glass lantern, no red sandstone, no snow, no pine trees. Warm calm hopeful mood."
+  },
+  {
+   "id": "23_golden_valley_full_light_b",
+   "start": {
+    "line": 55
+   },
+   "reuse_id": "23_golden_valley_full_light",
+   "rect": {
+    "fx": 0.35,
+    "fy": 0.5,
+    "zc": 1.5
+   }
+  }
+ ]
+}

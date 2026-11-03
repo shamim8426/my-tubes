@@ -1,0 +1,193 @@
+{'line': 38, 'cue': 18, 'arabic': 7, 'screen': 14, 'ayah': 7, 'section': 7} | ustaad 34 sawaal 4
+[23:19:42] parse: done 
+[23:23:02] parse: done (skipped, already ok) lines.json is current
+[23:23:04] images: done 2026-11-03 | 005_an-nas | ASLI KUL KHARCHA | ₹0.00 + GST ₹0.00 = ₹0.00 (andaza tha ₹0.00; 3 paid calls, 0 bina usage = andaza) | target ₹100, hard limit ₹120
+[23:38:09] tts: done Lines: 38; total voice 309.4s; Whisper OK 33/38
+26-11-03 | 005_an-nas | ASLI KUL KHARCHA | ₹0.00 + GST ₹0.00 = ₹0.00 (andaza tha ₹0.00; 3 paid calls, 0 bina usage = andaza) | target ₹100, hard limit ₹120
+Gemini TTS: free key quota (429) -> same request on the paid key
+  3 sawaal   8.0s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+  4 ustaad   9.7s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+  5 ustaad   7.0s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+  6 ustaad   8.5s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+  8 ustaad   9.3s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 10 ustaad   8.1s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 11 ustaad   9.3s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 12 ustaad   5.0s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 14 ustaad   3.6s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 15 ustaad   5.6s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 17 ustaad  10.7s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 18 ustaad   8.1s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 20 ustaad   2.1s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+Gemini TTS: free key quota (429) -> same request on the paid key
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 21 ustaad   4.4s takes=3 MISSING ['बादशाह']
+Gemini TTS: free key quota (429) -> same request on the paid key
+Gemini TTS: free key quota (429) -> same request on the paid key
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 23 ustaad  10.2s takes=3 MISSING ['बादशाह']
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 25 ustaad   2.5s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 26 ustaad   8.4s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 28 ustaad  10.3s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 30 ustaad   4.6s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 31 ustaad   7.1s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 33 ustaad  10.2s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 34 ustaad   9.0s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 35 sawaal   9.4s takes=2 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 37 ustaad   4.5s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 38 ustaad   7.2s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 40 ustaad   6.7s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 42 ustaad   4.3s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 43 ustaad   5.4s takes=2 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 45 ustaad  13.1s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+Gemini TTS: free key quota (429) -> same request on the paid key
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 47 ustaad  19.7s takes=3 MISSING ['सल्लल्लाहु', 'अलैहि', 'ऐसी']
+Gemini TTS: free key quota (429) -> same request on the paid key
+Gemini TTS: free key quota (429) -> same request on the paid key
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 48 ustaad  20.9s takes=3 MISSING ['रज़ियल्लाहु']
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 49 ustaad   6.1s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 50 sawaal   4.2s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 51 ustaad   7.6s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 52 ustaad   8.2s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+Gemini TTS: free key quota (429) -> same request on the paid key
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 53 ustaad  13.8s takes=3 MISSING ['माआरिफ़ुल', 'दोनों']
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 54 ustaad   7.6s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 55 sawaal   8.9s takes=2 OK
+# TTS report — 005_an-nas
+
+Lines: 38; total voice 309.4s; Whisper OK 33/38
+
+2026-11-03 | 005_an-nas | ASLI KUL KHARCHA | ₹10.23 + GST ₹1.84 = ₹12.07 (andaza tha ₹10.53; 54 paid calls, 0 bina usage = andaza) | target ₹100, hard limit ₹120
+[23:38:09] tts: done Lines: 38; total voice 309.4s; Whisper OK 33/38
+[00:37:11] parse: done (skipped, already ok) lines.json is current
+[00:37:13] images: done 2026-11-04 | 005_an-nas | ASLI KUL KHARCHA | ₹10.23 + GST ₹1.84 = ₹12.07 (andaza tha ₹10.53; 54 paid calls, 0 bina usage = andaza) | target ₹100, hard limit ₹12
+[00:41:44] tts: done Lines: 38; total voice 307.7s; Whisper OK 34/38
+[00:41:44] gate_tts_review: done (skipped, already ok) Munshi PASS
+[00:42:23] render: failed render failed (chunks stay on disk, re-run resumes): "D:\my-tubes\scripts\noor_render.py", line 583, in build_ctx
+    ass_text = ass_doc(tl, pil)  # also fills tl["hindi"] and the ayah bands
+  File "D:\my-tubes\scripts\noor_render.py", line 357, in ass_doc
+    ar_fs = title_fs(CFG["title_ar"])
+                     ~~~^^^^^^^^^^^^
+KeyError: 'title_ar'
+
+ 5.6s takes=0 OK
+ 17 ustaad  10.7s takes=0 OK
+ 18 ustaad   8.1s takes=0 OK
+ 20 ustaad   2.1s takes=0 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 21 ustaad   4.7s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 23 ustaad  10.2s takes=2 MISSING ['बादशाह।', 'बादशाह']
+ 25 ustaad   2.5s takes=0 OK
+ 26 ustaad   8.4s takes=0 OK
+ 28 ustaad  10.3s takes=0 OK
+ 30 ustaad   4.6s takes=0 OK
+ 31 ustaad   7.1s takes=0 OK
+ 33 ustaad  10.2s takes=0 OK
+ 34 ustaad   9.0s takes=0 OK
+ 35 sawaal   9.4s takes=0 OK
+ 37 ustaad   4.5s takes=0 OK
+ 38 ustaad   7.2s takes=0 OK
+ 40 ustaad   6.7s takes=0 OK
+ 42 ustaad   4.3s takes=0 OK
+ 43 ustaad   5.4s takes=0 OK
+ 45 ustaad  13.1s takes=0 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 47 ustaad  18.8s takes=2 MISSING ['हदीस', 'रज़ियल्लाहु', 'ऐसी']
+Gemini TTS: free key quota (429) -> same request on the paid key
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 48 ustaad  20.0s takes=2 MISSING ['दोनों']
+ 49 ustaad   6.1s takes=0 OK
+ 50 sawaal   4.2s takes=0 OK
+ 51 ustaad   7.6s takes=0 OK
+ 52 ustaad   8.2s takes=0 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 53 ustaad  13.6s takes=2 MISSING ['माआरिफ़ुल', 'दोनों']
+ 54 ustaad   7.6s takes=0 OK
+ 55 sawaal   8.9s takes=0 OK
+# TTS report — 005_an-nas
+
+Lines: 38; total voice 307.7s; Whisper OK 34/38
+
+2026-11-04 | 005_an-nas | ASLI KUL KHARCHA | ₹13.12 + GST ₹2.36 = ₹15.48 (andaza tha ₹13.48; 63 paid calls, 0 bina usage = andaza) | target ₹100, hard limit ₹120
+[00:41:44] tts: done Lines: 38; total voice 307.7s; Whisper OK 34/38
+[00:41:44] gate_tts_review: done (skipped, already ok) Munshi PASS
+learnings.md (Nigraan) LAGU KARO:
+  - [2026-10-29, HINT / kam data, test karo] **Hook ka vaada 30-40 s ke andar poora karo**: hook ke turant baad pehli
+    aayat (Arabic + bhaavarth); parichay/naam/ginti/shan-e-nuzul ki raayein max 30-40 s ya aayaton ke beech chhote tukde.
+    Saboot: kmYyRGdykjY (Al-Fatiha), 18 engaged viewers: 14-19 s par 100%->72% (hook ke baad "पहले नाम..."),
+    33-38 s par ->50% (ginti wali line), pehli aayat 2:20 par tab tak 33% bache; AVD 2:38 / 33.4%.
+    Naapna: agli video ka retention @30 s aur @2:00 is se upar ho.
+  - [2026-10-30, HINT / kam data] **Title/hook/thumbnail (003 Al-Ikhlas)**: title me search shabd pehle ("Surah Al-Ikhlas ka
+    Matlab Hindi Mein"); thumbnail <= 3-4 bade shabd + ek chehra-rahit emotion/diya, high contrast; pehle frame bina awaaz
+    samajh aaye. Saboot: kmYyRGdykjY 214 views, 44 engaged (20.6%), @30 s retention 54.5%, AVD 115 s / 24.3% (fetch 2026-10-30).
+    Naapna: 003 ka @30 s > 60% aur AVD% > 30%.
+  - [2026-10-31, HINT / kam data] **Pre-004 (Al-Falaq) brief** (fetch 2026-10-31; Analytics data sirf 28 Oct tak):
+    (1) Pehle 30-40 s me hook ka vaada + pehli aayat (upar wali LAGU KARO) — abhi bhi ek hi video ka saboot.
+    (2) Title me search shabd pehle + thumbnail <= 3-4 shabd (upar). (3) Thumbnail pehle frame bina awaaz samajh aaye.
+    (4) Naye videos ko shuruat me push chahiye: Al-Fatiha ke 261 views me 259 SUBSCRIBER-source (1 subscriber!), 0 search/browse
+    -> 004 ke baad bhi community/Shorts se traffic lao (user se poochho). (5) Naapna: 004 ke 48 h me >= 500 impressions aaye tab hi seekh pakki.
+    Saboot: rRtM7wFIVcA public counter 3 views, 3fj1U_Q4Ku8 5 views (31 Oct, 1-2 din baad) = bahut kam data.
+length 331.9s (5:31.9), lines 38, ayat 7, shots 55 (2.7-7.9s), music segments 2, ambience 1
+Traceback (most recent call last):
+  File "D:\my-tubes\scripts\noor_render.py", line 701, in <module>
+    main()
+    ~~~~^^
+  File "D:\my-tubes\scripts\noor_render.py", line 676, in main
+    ctx = build_ctx(story)
+  File "D:\my-tubes\scripts\noor_render.py", line 583, in build_ctx
+    ass_text = ass_doc(tl, pil)  # also fills tl["hindi"] and the ayah bands
+  File "D:\my-tubes\scripts\noor_render.py", line 357, in ass_doc
+    ar_fs = title_fs(CFG["title_ar"])
+                     ~~~^^^^^^^^^^^^
+KeyError: 'title_ar'
+[00:42:23] render: failed render failed (chunks stay on disk, re-run resumes): "D:\my-tubes\scripts\noor_render.py", line 583, in build_ctx
+    ass_text = ass_doc(tl, pil)  # also fills tl["hindi"] and the ayah bands
+  File "D:\my-tubes\scripts\noor_render.py", line 357, in ass_doc
+    ar_fs = title_fs(CFG["title_ar"])
+                     ~~~^^^^^^^^^^^^
+KeyError: 'title_ar'
+

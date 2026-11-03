@@ -1,0 +1,522 @@
+{
+ "_note": "Short 018 headless. Source https://code.claude.com/docs/en/headless (read 2026-11-03). Format v3.",
+ "tag": "Claude Code · claude -p",
+ "music": {
+  "file": "shared/music/presentation/Funkorama.mp3",
+  "start": 6,
+  "rel": 12
+ },
+ "voice": {
+  "id": "Charon",
+  "style": "Speak like a friendly Indian tech YouTuber chatting casually in Hinglish. Natural conversational pace, warm and clear, a little energetic but not theatrical. No sing-song, no exaggerated emphasis."
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "type": "stage",
+   "wipe": "right",
+   "voice": "देखो, Claude Code को बिना chat खोले भी चला सकते हो: terminal में claude -p लिखो, अपना prompt दो, और जवाब सीधे print हो जाता है।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "**claude -p**",
+     "x": 80,
+     "y": 300,
+     "size": 88,
+     "hlAt": 0.9,
+     "w": 920,
+     "k": [
+      [
+       0.2,
+       {
+        "o": 0,
+        "y": 340
+       }
+      ],
+      [
+       0.7,
+       {
+        "o": 1,
+        "y": 300
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "",
+     "x": 80,
+     "y": 520,
+     "css": "border:6px solid #111;border-radius:28px;background:#111;color:#fff;box-sizing:border-box;box-shadow:0 14px 34px rgba(0,0,0,.18);width:920px;height:400px",
+     "k": [
+      [
+       0.3,
+       {
+        "o": 0,
+        "s": 0.9
+       }
+      ],
+      [
+       0.7,
+       {
+        "o": 1,
+        "s": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "$",
+     "x": 120,
+     "y": 560,
+     "css": "font-size:60px;font-family:'IBM Plex Mono',monospace;color:#FFD60A;font-weight:700",
+     "k": [
+      [
+       0.8,
+       {
+        "o": 0,
+        "s": 0.6
+       }
+      ],
+      [
+       1.2,
+       {
+        "o": 1,
+        "s": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "claude",
+     "x": 190,
+     "y": 555,
+     "css": "font-size:56px;font-family:'IBM Plex Mono',monospace;font-weight:700;padding:10px 26px;border-radius:18px;white-space:nowrap;color:#fff;border:4px solid #fff",
+     "k": [
+      [
+       3.6100000000000003,
+       {
+        "o": 0,
+        "s": 0.6
+       }
+      ],
+      [
+       4.01,
+       {
+        "o": 1,
+        "s": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "-p",
+     "x": 440,
+     "y": 555,
+     "css": "font-size:56px;font-family:'IBM Plex Mono',monospace;font-weight:700;padding:10px 26px;border-radius:18px;white-space:nowrap;background:#FFD60A;color:#111;border:4px solid #FFD60A",
+     "k": [
+      [
+       4.11,
+       {
+        "o": 0,
+        "s": 0.6
+       }
+      ],
+      [
+       4.51,
+       {
+        "o": 1,
+        "s": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "\"prompt\"",
+     "x": 120,
+     "y": 710,
+     "css": "font-size:56px;font-family:'IBM Plex Mono',monospace;font-weight:700;padding:10px 26px;border-radius:18px;white-space:nowrap;color:#111;background:#fff;border:4px solid #fff",
+     "k": [
+      [
+       5.08,
+       {
+        "o": 0,
+        "s": 0.6
+       }
+      ],
+      [
+       5.48,
+       {
+        "o": 1,
+        "s": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "jawab print + exit code 0",
+     "x": 80,
+     "y": 1000,
+     "css": "font-size:44px;font-weight:800;padding:26px 36px;border:6px solid #111;border-radius:28px;background:#fff;white-space:nowrap;box-shadow:0 14px 34px rgba(0,0,0,.14)",
+     "k": [
+      [
+       6.23,
+       {
+        "o": 0,
+        "s": 0.6
+       }
+      ],
+      [
+       6.63,
+       {
+        "o": 1,
+        "s": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "img",
+     "img": "wave",
+     "size": 340,
+     "x": 690,
+     "y": 1260,
+     "bob": 1,
+     "k": [
+      [
+       0.1,
+       {
+        "x": 1200,
+        "o": 1
+       }
+      ],
+      [
+       0.9,
+       {
+        "x": 690
+       }
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "example",
+   "type": "code",
+   "wipe": "up",
+   "file": "terminal · EXAMPLE",
+   "size": 34,
+   "y0": 330,
+   "voice": "एक example: claude -p के साथ --allowedTools लगाओ, तो Read, Edit और Bash बिना पूछे चलते हैं। और result JSON में चाहिए, तो --output-format json लगाओ।",
+   "lines": [
+    "$ claude -p \"Fix bug in auth.py\" \\",
+    "    --allowedTools \"Read,Edit,Bash\"",
+    "# result JSON me chahiye?",
+    "$ claude -p \"Summarize this project\" \\",
+    "    --output-format json"
+   ],
+   "caption": "**-p** + flags = script me Claude",
+   "cosize": 66,
+   "cues": [
+    0.2,
+    2.74,
+    8.29,
+    8.89,
+    10.85,
+    12.25
+   ]
+  },
+  {
+   "id": "docs",
+   "type": "docs",
+   "wipe": "left",
+   "img": "headless.png",
+   "url": "code.claude.com/docs/en/headless",
+   "voice": "Docs में देखो: -p flag से Claude non-interactive चलता है, और --continue, --allowedTools, --output-format जैसे options साथ चलते हैं।",
+   "scroll": [
+    0,
+    150
+   ],
+   "ch": 1180,
+   "callout": "**-p** = non-interactive mode",
+   "cosize": 66,
+   "hls": [
+    {
+     "x": 30,
+     "y": 253,
+     "w": 1440,
+     "h": 88
+    },
+    {
+     "x": 30,
+     "y": 745,
+     "w": 1440,
+     "h": 150
+    }
+   ],
+   "hlcues": [
+    "non-interactive",
+    "--continue"
+   ],
+   "cues": [
+    7.41
+   ]
+  },
+  {
+   "id": "flags",
+   "type": "list",
+   "wipe": "right",
+   "voice": "तीन flags याद रखो: --continue पिछली बातचीत आगे बढ़ाता है, --allowedTools tools को बिना पूछे चलने देता है, और --output-format से text, json या stream-json मिलता है।",
+   "items": [
+    {
+     "k": "--continue",
+     "d": "pichli baat aage"
+    },
+    {
+     "k": "--allowedTools",
+     "d": "bina poochhe tools"
+    },
+    {
+     "k": "--output-format",
+     "d": "text, json, stream-json"
+    }
+   ],
+   "rh": 330,
+   "y0": 300,
+   "ksize": 64,
+   "dsize": 48,
+   "cues": [
+    1.7,
+    4.82,
+    8.9
+   ]
+  },
+  {
+   "id": "nuance",
+   "type": "compare",
+   "wipe": "up",
+   "voice": "एक बारीकी: --bare के बिना claude -p तुम्हारे hooks, MCP servers और CLAUDE.md भी load करता है। --bare इन्हें छोड़ देता है, इसलिए CI में हर machine पर same नतीजा मिलता है।",
+   "left": {
+    "title": "Bina --bare",
+    "rows": [
+     "Hooks, MCP load hote"
+    ]
+   },
+   "right": {
+    "title": "--bare",
+    "rows": [
+     "Sab skip, same result"
+    ]
+   },
+   "foot": "CI me **--bare** lagao",
+   "cues": [
+    1.38,
+    6.44,
+    3.18,
+    7.37,
+    8.7
+   ],
+   "footcue": 4
+  },
+  {
+   "id": "recap",
+   "type": "stage",
+   "wipe": "left",
+   "voice": "तो याद रखो: -p से Claude script में चलता है, --allowedTools से tools बिना पूछे चलते हैं, और CI के लिए --bare लगाओ।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "Yaad **rakho**",
+     "x": 80,
+     "y": 300,
+     "size": 88,
+     "hlAt": 0.9,
+     "w": 920,
+     "k": [
+      [
+       0.2,
+       {
+        "o": 0,
+        "y": 340
+       }
+      ],
+      [
+       0.7,
+       {
+        "o": 1,
+        "y": 300
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "svgbot",
+     "size": 800,
+     "x": -70,
+     "y": 560,
+     "talk": [
+      [
+       0.5,
+       9.12
+      ]
+     ],
+     "nod": [
+      [
+       7.16,
+       8.56
+      ]
+     ],
+     "k": [
+      [
+       0,
+       {
+        "x": -600,
+        "ar": 0
+       }
+      ],
+      [
+       0.7,
+       {
+        "x": -70,
+        "e": "b"
+       }
+      ],
+      [
+       0.74,
+       {
+        "ar": -86
+       }
+      ],
+      [
+       3.6,
+       {
+        "ar": -80
+       }
+      ],
+      [
+       7.16,
+       {
+        "ar": -150,
+        "al": 150
+       }
+      ],
+      [
+       9.12,
+       {
+        "ar": 0,
+        "al": 0
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:78px;height:78px;border-radius:50%;background:#FFD60A;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:44px;flex:none\">1</div><div><div style=\"font-size:44px;font-weight:800;line-height:1.1\">-p</div><div style=\"font-size:32px;color:#6b6b66;font-weight:500;margin-top:4px\">script me chalao</div></div>",
+     "x": 440,
+     "y": 560,
+     "css": "width:600px;display:flex;gap:24px;align-items:center",
+     "k": [
+      [
+       1.09,
+       {
+        "x": 520,
+        "o": 0
+       }
+      ],
+      [
+       1.54,
+       {
+        "x": 440,
+        "o": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:78px;height:78px;border-radius:50%;background:#FFD60A;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:44px;flex:none\">2</div><div><div style=\"font-size:44px;font-weight:800;line-height:1.1\">--allowedTools</div><div style=\"font-size:32px;color:#6b6b66;font-weight:500;margin-top:4px\">bina poochhe tools</div></div>",
+     "x": 440,
+     "y": 850,
+     "css": "width:600px;display:flex;gap:24px;align-items:center",
+     "k": [
+      [
+       3.6,
+       {
+        "x": 520,
+        "o": 0
+       }
+      ],
+      [
+       4.05,
+       {
+        "x": 440,
+        "o": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:78px;height:78px;border-radius:50%;background:#FFD60A;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:44px;flex:none\">3</div><div><div style=\"font-size:44px;font-weight:800;line-height:1.1\">--bare</div><div style=\"font-size:32px;color:#6b6b66;font-weight:500;margin-top:4px\">CI me same result</div></div>",
+     "x": 440,
+     "y": 1140,
+     "css": "width:600px;display:flex;gap:24px;align-items:center",
+     "k": [
+      [
+       7.16,
+       {
+        "x": 520,
+        "o": 0
+       }
+      ],
+      [
+       7.61,
+       {
+        "x": 440,
+        "o": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cta",
+   "type": "cta",
+   "wipe": "right",
+   "size": 92,
+   "voice": "आप claude -p को किस script में लगाओगे? Comment में बताओ।",
+   "lines": [
+    "Aap **claude -p**",
+    "kahan lagaoge?"
+   ],
+   "sub": "Comment me batao",
+   "cues": [
+    0.2,
+    1.13,
+    2.5
+   ],
+   "robot": {
+    "img": "thumbs",
+    "x": 570,
+    "y": 1250,
+    "size": 460,
+    "cue": "Comment में"
+   }
+  }
+ ]
+}

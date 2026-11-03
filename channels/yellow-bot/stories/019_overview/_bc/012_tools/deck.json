@@ -1,0 +1,531 @@
+{
+ "_note": "Short 012: Claude Code tools. Source: https://code.claude.com/docs/en/tools-reference (read 2026-10-31). Format v3.",
+ "tag": "Claude Code · Tools",
+ "music": {
+  "file": "shared/music/presentation/Funkorama.mp3",
+  "start": 6,
+  "rel": 12
+ },
+ "voice": {
+  "id": "Charon",
+  "style": "Speak like a friendly Indian tech YouTuber chatting casually in Hinglish. Natural conversational pace, warm and clear, a little energetic but not theatrical. No sing-song, no exaggerated emphasis."
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "type": "stage",
+   "wipe": "right",
+   "voice": "देखो, Claude Code के पास tools होते हैं: file पढ़ने का, बदलने का, और command चलाने का। और हर tool के लिए एक rule है, पूछना है या नहीं।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "Claude ke **tools**",
+     "x": 80,
+     "y": 300,
+     "size": 88,
+     "hlAt": 0.9,
+     "w": 920,
+     "k": [
+      [
+       0.2,
+       {
+        "o": 0,
+        "y": 340
+       }
+      ],
+      [
+       0.7,
+       {
+        "o": 1,
+        "y": 300
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "<svg width=\"84\" height=\"84\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#111\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M6 3h8l4 4v14H6z\"/><path d=\"M9 12h6M9 16h6\"/></svg><div><div class=\"mono\" style=\"font-size:54px;font-weight:700;line-height:1.1\">Read</div><div style=\"font-size:34px;color:#6b6b66;font-weight:500\">file padhta hai</div></div>",
+     "x": 80,
+     "y": 500,
+     "css": "width:920px;height:170px;border:6px solid #111;border-radius:32px;background:#fff;display:flex;align-items:center;gap:30px;padding:0 36px;box-sizing:border-box;box-shadow:0 14px 34px rgba(0,0,0,.14)",
+     "k": [
+      [
+       2.9,
+       {
+        "x": -400,
+        "o": 0
+       }
+      ],
+      [
+       3.35,
+       {
+        "x": 80,
+        "o": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "<svg width=\"84\" height=\"84\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#111\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 20l1-5L16 4l4 4L9 19z\"/></svg><div><div class=\"mono\" style=\"font-size:54px;font-weight:700;line-height:1.1\">Edit</div><div style=\"font-size:34px;color:#6b6b66;font-weight:500\">file badalta hai</div></div>",
+     "x": 80,
+     "y": 700,
+     "css": "width:920px;height:170px;border:6px solid #111;border-radius:32px;background:#fff;display:flex;align-items:center;gap:30px;padding:0 36px;box-sizing:border-box;box-shadow:0 14px 34px rgba(0,0,0,.14)",
+     "k": [
+      [
+       3.9699999999999998,
+       {
+        "x": -400,
+        "o": 0
+       }
+      ],
+      [
+       4.42,
+       {
+        "x": 80,
+        "o": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "<svg width=\"84\" height=\"84\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#111\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"4\" width=\"18\" height=\"16\" rx=\"2\"/><path d=\"M7 10l3 2-3 2M12 15h4\"/></svg><div><div class=\"mono\" style=\"font-size:54px;font-weight:700;line-height:1.1\">Bash</div><div style=\"font-size:34px;color:#6b6b66;font-weight:500\">command chalata hai</div></div>",
+     "x": 80,
+     "y": 900,
+     "css": "width:920px;height:170px;border:6px solid #111;border-radius:32px;background:#fff;display:flex;align-items:center;gap:30px;padding:0 36px;box-sizing:border-box;box-shadow:0 14px 34px rgba(0,0,0,.14)",
+     "k": [
+      [
+       4.89,
+       {
+        "x": -400,
+        "o": 0
+       }
+      ],
+      [
+       5.34,
+       {
+        "x": 80,
+        "o": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "bina poochhe",
+     "x": 650,
+     "y": 552,
+     "css": "font-size:34px;font-weight:800;padding:8px 26px;border:5px solid #111;border-radius:999px;white-space:nowrap;background:#fff",
+     "k": [
+      [
+       8.51,
+       {
+        "o": 0,
+        "s": 0.6
+       }
+      ],
+      [
+       8.91,
+       {
+        "o": 1,
+        "s": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "poochta hai",
+     "x": 650,
+     "y": 752,
+     "css": "font-size:34px;font-weight:800;padding:8px 26px;border:5px solid #111;border-radius:999px;white-space:nowrap;background:#FFD60A",
+     "k": [
+      [
+       8.76,
+       {
+        "o": 0,
+        "s": 0.6
+       }
+      ],
+      [
+       9.16,
+       {
+        "o": 1,
+        "s": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "poochta hai",
+     "x": 650,
+     "y": 952,
+     "css": "font-size:34px;font-weight:800;padding:8px 26px;border:5px solid #111;border-radius:999px;white-space:nowrap;background:#FFD60A",
+     "k": [
+      [
+       9.01,
+       {
+        "o": 0,
+        "s": 0.6
+       }
+      ],
+      [
+       9.41,
+       {
+        "o": 1,
+        "s": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "text",
+     "html": "Har tool ka ek **rule**",
+     "x": 80,
+     "y": 1190,
+     "size": 66,
+     "w": 560,
+     "hlAt": 8.709999999999999,
+     "k": [
+      [
+       8.51,
+       {
+        "o": 0,
+        "y": 1230
+       }
+      ],
+      [
+       9.01,
+       {
+        "o": 1,
+        "y": 1190
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "img",
+     "img": "work",
+     "size": 380,
+     "x": 650,
+     "y": 1230,
+     "bob": 1,
+     "k": [
+      [
+       0.1,
+       {
+        "x": 1200,
+        "o": 1
+       }
+      ],
+      [
+       0.9,
+       {
+        "x": 650
+       }
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "docs",
+   "type": "docs",
+   "wipe": "up",
+   "img": "tools.png",
+   "url": "code.claude.com/docs/en/tools-reference",
+   "voice": "Docs का table देखो: Edit और Bash पर Permission required, Yes लिखा है, और Agent पर No।",
+   "scroll": [
+    0,
+    40
+   ],
+   "ch": 1180,
+   "callout": "**Edit** aur **Bash**: Permission **Yes**",
+   "cosize": 66,
+   "cues": [
+    "Permission required"
+   ],
+   "hls": [
+    {
+     "x": 30,
+     "y": 985,
+     "w": 1440,
+     "h": 66
+    },
+    {
+     "x": 30,
+     "y": 733,
+     "w": 1440,
+     "h": 66
+    },
+    {
+     "x": 30,
+     "y": 415,
+     "w": 1440,
+     "h": 96
+    }
+   ],
+   "hlcues": [
+    "Edit",
+    "Bash",
+    "Agent"
+   ]
+  },
+  {
+   "id": "example",
+   "type": "code",
+   "wipe": "left",
+   "file": "terminal · EXAMPLE",
+   "size": 40,
+   "y0": 330,
+   "voice": "एक example लो: तुम बोलते हो, login bug fix करो। Claude पहले file Read करता है, फिर Edit से पहले तुमसे पूछता है, और आख़िर में npm test चलाता है, इसके लिए भी permission लगती है।",
+   "lines": [
+    "> login bug fix karo",
+    "● Read(auth.js)",
+    "● Edit(auth.js)",
+    "  Allow edit?  [ Yes ]  No",
+    "● Bash(npm test)",
+    "✓ tests pass ho gaye"
+   ],
+   "caption": "**Edit** aur **Bash** pehle poochte hain",
+   "cosize": 66,
+   "cues": [
+    "login bug",
+    "Read करता",
+    "Edit से पहले",
+    "पूछता है",
+    "npm test",
+    "इसके लिए भी",
+    "permission लगती"
+   ]
+  },
+  {
+   "id": "nuance",
+   "type": "compare",
+   "wipe": "right",
+   "voice": "लेकिन एक बारीकी है: Bash के कुछ read-only commands बिना पूछे चलते हैं। और Read भी, working directory के बाहर वाले path पर पूछता है।",
+   "left": {
+    "title": "Bina poochhe",
+    "rows": [
+     "Bash ke read-only commands"
+    ]
+   },
+   "right": {
+    "title": "Poochta hai",
+    "rows": [
+     "Read: working directory ke bahar ka path"
+    ]
+   },
+   "foot": "Docs ki **bareeki** yaad rakho",
+   "footcue": 4,
+   "cues": [
+    "बिना पूछे चलते",
+    "और Read भी",
+    "read-only commands",
+    "बाहर वाले path",
+    "बारीकी"
+   ]
+  },
+  {
+   "id": "recap",
+   "type": "stage",
+   "wipe": "up",
+   "voice": "तो याद रखो: Read बिना पूछे चलता है, Edit और Bash पूछकर, और नया tool चाहिए तो MCP जोड़ो या skill लिखो।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "Yaad **rakho**",
+     "x": 80,
+     "y": 300,
+     "size": 88,
+     "hlAt": 0.9,
+     "w": 920,
+     "k": [
+      [
+       0.2,
+       {
+        "o": 0,
+        "y": 340
+       }
+      ],
+      [
+       0.7,
+       {
+        "o": 1,
+        "y": 300
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "svgbot",
+     "size": 800,
+     "x": -70,
+     "y": 560,
+     "talk": [
+      [
+       0.5,
+       8.38
+      ]
+     ],
+     "nod": [
+      [
+       6.45,
+       7.85
+      ]
+     ],
+     "k": [
+      [
+       0.0,
+       {
+        "x": -600,
+        "ar": 0
+       }
+      ],
+      [
+       0.7,
+       {
+        "x": -70,
+        "e": "b"
+       }
+      ],
+      [
+       0.7599999999999999,
+       {
+        "ar": 0
+       }
+      ],
+      [
+       1.16,
+       {
+        "ar": -86
+       }
+      ],
+      [
+       3.11,
+       {
+        "ar": -80
+       }
+      ],
+      [
+       6.45,
+       {
+        "ar": -92
+       }
+      ],
+      [
+       8.48,
+       {
+        "ar": 0
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:78px;height:78px;border-radius:50%;background:#FFD60A;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:44px;flex:none\">1</div><div><div style=\"font-size:46px;font-weight:800;line-height:1.1\">Read</div><div style=\"font-size:32px;color:#6b6b66;font-weight:500;margin-top:4px\">bina poochhe chalta hai</div></div>",
+     "x": 440,
+     "y": 560,
+     "css": "width:600px;display:flex;gap:24px;align-items:center",
+     "k": [
+      [
+       1.16,
+       {
+        "x": 520,
+        "o": 0
+       }
+      ],
+      [
+       1.6099999999999999,
+       {
+        "x": 440,
+        "o": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:78px;height:78px;border-radius:50%;background:#FFD60A;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:44px;flex:none\">2</div><div><div style=\"font-size:46px;font-weight:800;line-height:1.1\">Edit + Bash</div><div style=\"font-size:32px;color:#6b6b66;font-weight:500;margin-top:4px\">pehle poochte hain</div></div>",
+     "x": 440,
+     "y": 850,
+     "css": "width:600px;display:flex;gap:24px;align-items:center",
+     "k": [
+      [
+       3.11,
+       {
+        "x": 520,
+        "o": 0
+       }
+      ],
+      [
+       3.56,
+       {
+        "x": 440,
+        "o": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:78px;height:78px;border-radius:50%;background:#FFD60A;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:44px;flex:none\">3</div><div><div style=\"font-size:46px;font-weight:800;line-height:1.1\">Naya tool?</div><div style=\"font-size:32px;color:#6b6b66;font-weight:500;margin-top:4px\">MCP jodo ya Skill likho</div></div>",
+     "x": 440,
+     "y": 1140,
+     "css": "width:600px;display:flex;gap:24px;align-items:center",
+     "k": [
+      [
+       6.45,
+       {
+        "x": 520,
+        "o": 0
+       }
+      ],
+      [
+       6.9,
+       {
+        "x": 440,
+        "o": 1,
+        "e": "b"
+       }
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cta",
+   "type": "cta",
+   "wipe": "left",
+   "size": 92,
+   "voice": "आप कौन सा tool सबसे ज़्यादा use करते हो? Comment में बताओ।",
+   "lines": [
+    "Aap kaunsa tool",
+    "**sabse zyada**?"
+   ],
+   "sub": "Comment me batao",
+   "cues": [
+    "आप कौन सा",
+    "सबसे ज़्यादा",
+    "Comment में"
+   ],
+   "robot": {
+    "img": "thumbs",
+    "x": 570,
+    "y": 1250,
+    "size": 460,
+    "cue": "Comment में"
+   }
+  }
+ ]
+}

@@ -1,0 +1,27 @@
+{
+ "parse": {
+  "status": "done (skipped, already ok)",
+  "at": "2026-11-04 00:37:11",
+  "note": "lines.json is current"
+ },
+ "images": {
+  "status": "done",
+  "at": "2026-11-04 00:37:13",
+  "note": "2026-11-04 | 005_an-nas | ASLI KUL KHARCHA | ₹10.23 + GST ₹1.84 = ₹12.07 (andaza tha ₹10.53; 54 paid calls, 0 bina usage = andaza) | target ₹100, hard limit ₹12"
+ },
+ "tts": {
+  "status": "done",
+  "at": "2026-11-04 00:41:44",
+  "note": "Lines: 38; total voice 307.7s; Whisper OK 34/38"
+ },
+ "gate_tts_review": {
+  "status": "done (skipped, already ok)",
+  "at": "2026-11-04 00:41:44",
+  "note": "Munshi PASS"
+ },
+ "render": {
+  "status": "failed",
+  "at": "2026-11-04 00:42:23",
+  "note": "render failed (chunks stay on disk, re-run resumes): \"D:\\my-tubes\\scripts\\noor_render.py\", line 583, in build_ctx\n    ass_text = ass_doc(tl, pil)  # also fills tl[\"hindi\"] and the ayah bands\n  File \"D:\\my-tubes\\scripts\\noor_render.py\", line 357, in ass_doc\n    ar_fs = title_fs(CFG[\"title_ar\"])\n                     ~~~^^^^^^^^^^^^\nKeyError: 'title_ar'\n"
+ }
+}

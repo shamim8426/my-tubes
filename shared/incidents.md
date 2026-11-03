@@ -9,3 +9,4 @@ hand. One line per incident; the Sanchalak sets status to `closed` with the fix.
 | 2026-10-31T11:04:47 | noor-e-raah | 004_al-falaq | build_long | None | open |
 | 2026-10-31T12:04:32 | noor-e-raah | 004_al-falaq | build_long | None | open |
 | 2026-10-31T12:37:52 | noor-e-raah | 004_al-falaq | build_long | None | open |
+| 2026-11-04T00:42:23 | noor-e-raah | 005_an-nas | render | None | open |
