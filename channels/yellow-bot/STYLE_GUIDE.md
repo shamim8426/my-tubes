@@ -69,3 +69,30 @@ Hand-drawn diagram that draws itself, line by line, in the white/black/yellow lo
 - 016 Plugins overview: 'gather-and-pack' opener (four chips Skill/Agent/Hooks/MCP fly into a my-plugin/ box, box pulses via scale keyframe, 'ek install, ek unit' pill pops).
 - 017 Statusline: 'stdin pipe' opener (JSON packet card slides into a 'your script' card, output appears as a dark status-bar line with a yellow `meter` filling to 42%); svgbot raises both arms in the recap.
 - 018 Headless: 'command-line assembly' opener (dark terminal card gets `$`, `claude`, then yellow `-p` and `"prompt"` chips in sequence, then a 'jawab print + exit code 0' result card).
+
+## v4 FORMAT: motion + symbols + layman (user OK 2026-11-04, from the study of one AI-tools Shorts channel and videos 019/020)
+Rules (binding from the next video; v2/v3 stay valid underneath):
+1. OUR OWN LOOK, NEVER A COPY. Learnings from other channels are principles only (clear pacing, readable large type, several moving explanatory elements, text in step with the voice). Our signature stays: white canvas, black + yellow #FFD60A, heavy Poppins + Plex Mono, yellow highlighter marker, our robot + svgbot, hand-drawn `draw` strokes, key-caps, terminal cards, sticky notes. Never adopt another channel's palette, hero device, rank cards or CTA pattern. How we learn: LEARNING_PROCESS.md.
+2. LAYMAN FIRST. Define each new term in plain words the first time (spoken AND shown), one everyday analogy per key idea ('jaise ...', labelled as analogy, never a new fact), one tiny 'you say X -> it does Y' example, one 'why it matters to me' sentence. Short sentences, no unexplained jargon. Claims stay docs-only. Give each key point time to be read; large type stays.
+3. SYMBOLS WITH MEANING. Every icon/symbol must mean something the voice says (no decoration). 3-6 moving symbols per beat, a new visual event every ~1.5-2.5 s (15-35 changes/min), clean white canvas, one dominant subject per beat.
+4. HOOK RULE: claim as text within 0.3 s of the first spoken word, with a number; first moving visual within 3 s. No half-empty lower half: fill build-up moments with supporting symbols (known rough spots in 020: 0-3 s, 10 s, 22 s, 42 s).
+5. Length 45-75 s (hard cap 75, drop lower-value content rather than speed up). Mix to about -14 LUFS with a limiter pass, true peak <= -1 dBFS (a +1.3 dB gain + limiter 0.83 worked on 020).
+6. Look at stills across the WHOLE final render before upload (text wrap, overlaps, empty halves).
+7. Voice: gemini-3.8-flash-tts (Charon) is the default. It has a per-model daily request cap (100/day on Tier 1, shared by ALL channels): if it returns 429 'requests per day', set GEMINI_TTS_MODEL=gemini-3.8-flash-lite-tts (worked on 020; 3.1-flash-tts-preview and 2.5-flash-preview-tts return 400). Use ONE model per video. Costs ~Rs 1.2-1.8 per video.
+
+Engine fields (all opt-in; old decks render unchanged, verified by pixel-diff on 34 stills; template: templates/deck_template.html, times in scripts/build_deck.py):
+- Word-by-word text: "stream": true (yellow marker sweeps under each spoken word, words drop in with a small spring; **key** keeps the full highlighter) or "grey" (grey -> black variant); `step` (stagger, default 0.16 s), `sat` (start time, stage text layers). Works on statement scenes and stage `text` layers.
+- list scene: "icons": true (round check/cross rows on the spoken item; item "ok": false = cross; "d" optional), "head" (+ hy, hsize).
+- Icon layer: {"kind":"icon","name":..,"size":..,"label":..,"fill":false}; 28 names: terminal, code, desktop, globe, phone, file, folder, gear, bolt, lock, plug, sparkle, magnifier, check, cross, arrow, clock, branch, chat, key, bulb, box, shield, rocket, cursor, play, user, bug. Inside a box html: <i data-ic="file" data-s="84"></i>.
+- Motions on any layer: float (number or {a,f,ph}), pulse, spin (+ spinAt), orbit {cx,cy,rx,ry,a0,w}, wig (wiggle start time), drawon [t,dur] (icons), in + ind + spring (pop-in 0.6 -> 1 with overshoot) and out, push (slow 1.0 -> 1.06 zoom, seconds), sh (soft shadow), stream, grey.
+- Layer kinds: flow (connector with travelling dots: from, to | pts, at, dur, n, per, r, head, until; an endpoint may be {"orbit":{...}} to follow an orbiting icon), spark (twinkling stars: pts), typed (typing + blinking cursor: text, sat, cps, mono), ring (progress ring: size, sw, keyframe f, mul, unit), count (bouncing counter: to, pre, suf, size, css, keyframe f); meter with "pct": true (+ mul, unit) shows a percent label.
+- Scene options: "wipe": "fade" | "push" | "iris" | "zoom" (trd = duration; the yellow wipe stays our brand signature, use the others sparingly), cam: [[t,{x,y,s}],...] (camera push/pan), hideN (hide the n/N scene counter when a step ring is on screen). Deck-level "rail": true (yellow progress rail with dots and n/N). CSS classes: bubble (and 'bubble y'), keycap, sticky, torn.
+- Times: any layer time may be a voice phrase with offsets, e.g. "phrase|0.3|-0.1" (stagger = offsets).
+- No new field needed for: before/after split, picture-in-picture robot, highlighter circle/underline (use boxes, images, the `draw` layer).
+Reference decks: stories/019_overview (first v4 video, https://youtu.be/BHwc7iL1ujk, public), stories/020_quickstart (max-motion demo, https://youtu.be/R5eSmgK_xrM). Generators: gen_deck.py inside those folders (edit it and re-run instead of editing deck.json).
+Learnings behind these rules: brand/STYLE_LEARNINGS.md (numeric, abstract) and research/study_log.md.
+
+### Enhancements log (v4)
+- 019 Overview: stream word reveal (marker), icons list, count + pct meter, sticky/torn/keycap cards, sh + in/spring, wipe fade, rail, phrase times, layman explanations.
+- 020 Quickstart: 28-icon SVG set, float/pulse/spin/orbit/wig/drawon, flow (travelling dots), spark, typed (cursor), ring (step 1/4..4/4), count, cam push, wipes push/iris/zoom, hideN, before/after split, PiP robot; voice via gemini-3.8-flash-lite-tts (per-model daily cap).
+- Keep adding here: every new video logs its new device; every new study/learning goes to STYLE_LEARNINGS.md first, then (after it proves itself) a rule above.
