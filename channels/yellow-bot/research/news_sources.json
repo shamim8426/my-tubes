@@ -1,0 +1,22 @@
+{
+ "_help": "AI-field sources for scripts/yb_news_check.py (read by the twice-daily news watch). type: rss | html_prefix (new links under base+prefix) | hn (Hacker News via Algolia, high-point AI stories of the last 36 h). Add a source = add a line; its first run only builds a baseline. Official lab blogs first, trade press only to cover labs that block us (xAI, Microsoft, Runway returned 403/410/308 on 2026-11-04).",
+ "sources": [
+  {"id": "openai", "org": "OpenAI", "type": "rss", "url": "https://openai.com/news/rss.xml", "limit": 30},
+  {"id": "google-ai", "org": "Google (Gemini, AI)", "type": "rss", "url": "https://blog.google/technology/ai/rss/", "limit": 20},
+  {"id": "deepmind", "org": "Google DeepMind", "type": "rss", "url": "https://deepmind.google/blog/rss.xml", "limit": 20},
+  {"id": "google-dev", "org": "Google Developers (Gemini API/CLI)", "type": "rss", "url": "https://developers.googleblog.com/feeds/posts/default", "limit": 20},
+  {"id": "qwen", "org": "Alibaba Qwen", "type": "rss", "url": "https://qwenlm.github.io/blog/index.xml", "limit": 15},
+  {"id": "huggingface", "org": "Hugging Face (open models)", "type": "rss", "url": "https://huggingface.co/blog/feed.xml", "limit": 20},
+  {"id": "github-changelog", "org": "GitHub (Copilot and dev tools)", "type": "rss", "url": "https://github.blog/changelog/feed/", "limit": 20},
+  {"id": "nvidia", "org": "NVIDIA", "type": "rss", "url": "https://blogs.nvidia.com/feed/", "limit": 15},
+  {"id": "techcrunch-ai", "org": "TechCrunch AI (press)", "type": "rss", "url": "https://techcrunch.com/category/artificial-intelligence/feed/", "limit": 20},
+  {"id": "verge-ai", "org": "The Verge AI (press)", "type": "rss", "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml", "limit": 15},
+  {"id": "meta-ai", "org": "Meta AI (Llama)", "type": "html_prefix", "base": "https://ai.meta.com", "prefix": "/blog/", "limit": 15},
+  {"id": "mistral", "org": "Mistral AI", "type": "html_prefix", "base": "https://mistral.ai", "prefix": "/news/", "limit": 15},
+  {"id": "cursor", "org": "Cursor (AI code editor)", "type": "html_prefix", "base": "https://cursor.com", "prefix": "/changelog/", "limit": 12},
+  {"id": "ollama", "org": "Ollama (local models)", "type": "html_prefix", "base": "https://ollama.com", "prefix": "/blog/", "limit": 12},
+  {"id": "stability", "org": "Stability AI (image/video)", "type": "html_prefix", "base": "https://stability.ai", "prefix": "/news-updates/", "limit": 12},
+  {"id": "elevenlabs", "org": "ElevenLabs (voice)", "type": "html_prefix", "base": "https://elevenlabs.io", "prefix": "/blog/", "limit": 12},
+  {"id": "hn-ai", "org": "Hacker News (AI stories)", "type": "hn", "queries": ["AI", "LLM", "OpenAI", "Gemini", "Claude", "model release", "DeepSeek", "agent"], "min_points": 150, "hours": 36, "limit": 15}
+ ]
+}

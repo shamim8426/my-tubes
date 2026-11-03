@@ -77,7 +77,122 @@ def rel_dates(html):
     return seen[:12]
 
 
+SOURCES = ROOT / "channels/yellow-bot/research/news_sources.json"
+
+
+def _local(tag):
+    return tag.split("}")[-1]
+
+
+def parse_feed(text):
+    """RSS/Atom -> [{title, link, date}] in feed order (newest first on the feeds we use)."""
+    import xml.etree.ElementTree as ET
+    items = []
+    try:
+        root = ET.fromstring(text.encode("utf-8"))
+    except Exception:
+        root = None
+    if root is not None:
+        for el in root.iter():
+            if _local(el.tag) in ("item", "entry"):
+                d = {"title": "", "link": "", "date": ""}
+                for ch in el:
+                    t = _local(ch.tag)
+                    if t == "title":
+                        d["title"] = (ch.text or "").strip()
+                    elif t == "link":
+                        d["link"] = (ch.get("href") or (ch.text or "")).strip() or d["link"]
+                    elif t in ("pubDate", "published", "updated") and not d["date"]:
+                        d["date"] = (ch.text or "").strip()
+                if d["link"]:
+                    items.append(d)
+    if not items:  # malformed XML: regex fallback
+        for blk in re.findall(r"<(?:item|entry)[ >].*?</(?:item|entry)>", text, re.S):
+            t = re.search(r"<title[^>]*>(?:<!\[CDATA\[)?(.*?)(?:\]\]>)?</title>", blk, re.S)
+            l = re.search(r"<link[^>]*>(?:<!\[CDATA\[)?\s*(https?://[^<\s\]]+)", blk) or re.search(r'<link[^>]*href="([^"]+)"', blk)
+            dt = re.search(r"<(?:pubDate|published|updated)[^>]*>(.*?)</", blk, re.S)
+            if l:
+                items.append({"title": (t.group(1).strip() if t else ""), "link": l.group(1).strip(), "date": (dt.group(1).strip() if dt else "")})
+    return items
+
+
+def html_links(html, base, prefix):
+    out, seen = [], set()
+    for p in re.findall(r'href="(%s[a-z0-9][a-z0-9\-_/]*)"' % re.escape(prefix), html):
+        p = p.rstrip("/")
+        if p in seen or p == prefix.rstrip("/") or "/category/" in p or p.endswith(("/rss", "/feed", "/tag")):
+            continue
+        seen.add(p)
+        out.append({"title": p.rsplit("/", 1)[-1].replace("-", " "), "link": base + p, "date": ""})
+    for p in re.findall(r'href="(%s%s[a-z0-9][a-z0-9\-_/]*)"' % (re.escape(base), re.escape(prefix)), html):
+        p = p.rstrip("/")
+        if p not in {x["link"] for x in out}:
+            out.append({"title": p.rsplit("/", 1)[-1].replace("-", " "), "link": p, "date": ""})
+    return out
+
+
+def hn_items(src):
+    import urllib.parse
+    since = int(time.time()) - int(src.get("hours", 36)) * 3600
+    found = {}
+    for q in src.get("queries", ["AI"]):
+        flt = f"points>{src.get('min_points', 150)},created_at_i>{since}"
+        url = ("https://hn.algolia.com/api/v1/search_by_date?query=" + urllib.parse.quote(q) +
+               "&tags=story&hitsPerPage=20&numericFilters=" + urllib.parse.quote(flt))
+        for h in json.loads(get(url)).get("hits", []):
+            if h.get("objectID") and h["objectID"] not in found:
+                found[h["objectID"]] = {"title": f"{h.get('title', '')} ({h.get('points', 0)} pts)",
+                                         "link": h.get("url") or f"https://news.ycombinator.com/item?id={h['objectID']}",
+                                         "date": h.get("created_at", ""), "points": h.get("points", 0), "id": h["objectID"]}
+    return sorted(found.values(), key=lambda x: -x["points"])
+
+
+def ai_sources(state, recent=0):
+    """Whole-AI-field watch. Returns (report_list, new_state_part). First run of a source = baseline only."""
+    cfg = json.loads(SOURCES.read_text(encoding="utf-8"))["sources"]
+    seen_all = dict(state.get("ai_seen", {}))
+    report = []
+    for src in cfg:
+        entry = {"id": src["id"], "org": src["org"], "new": [], "recent": [], "error": None, "baseline": False}
+        try:
+            if src["type"] == "rss":
+                items = parse_feed(get(src["url"], 60))
+                if not items:  # some feeds answer empty now and then: one retry
+                    time.sleep(4)
+                    items = parse_feed(get(src["url"], 60))
+            elif src["type"] == "html_prefix":
+                items = html_links(get(src["base"] + src["prefix"].rstrip("/"), 60), src["base"], src["prefix"])
+            elif src["type"] == "hn":
+                items = hn_items(src)
+            else:
+                items = []
+            items = items[: src.get("limit", 20)]
+            key = lambda it: it.get("id") or it["link"]
+            known = set(seen_all.get(src["id"], []))
+            if recent:
+                entry["recent"] = items[:recent]
+            if src["id"] not in seen_all:
+                entry["baseline"] = True
+            else:
+                entry["new"] = [it for it in items if key(it) not in known]
+            if items or src["id"] in seen_all:  # an empty first fetch must not become a 'baseline' (it would flood next run)
+                seen_all[src["id"]] = ([key(it) for it in items] + list(known))[:200]
+            else:
+                entry["baseline"] = False
+                entry["error"] = "empty first fetch (baseline postponed)"
+        except Exception as e:
+            entry["error"] = str(e)[:140]
+        report.append(entry)
+    return report, seen_all
+
+
 def main():
+    recent = 0
+    if "--recent" in sys.argv:
+        try:
+            recent = int(sys.argv[sys.argv.index("--recent") + 1])
+        except Exception:
+            recent = 3
     commit = "--commit" in sys.argv
     as_json = "--json" in sys.argv
     state = json.loads(STATE.read_text(encoding="utf-8")) if STATE.exists() else {}
@@ -137,8 +252,16 @@ def main():
     except Exception as e:
         rep["errors"].append(f"release notes: {e}")
 
+    # 5. whole AI field (labs, open models, dev tools, voice/image/video, press, HN)
+    try:
+        ai_rep, ai_seen = ai_sources(state, recent)
+        rep["ai_field"] = ai_rep
+        new_state["ai_seen"] = ai_seen
+    except Exception as e:
+        rep["errors"].append(f"ai sources: {e}")
+
     new_state["last_run"] = rep["checked_at"]
-    if commit and not rep["errors"]:
+    if commit and not [e for e in rep["errors"] if not e.startswith("ai sources")]:
         STATE.parent.mkdir(parents=True, exist_ok=True)
         STATE.write_text(json.dumps(new_state, indent=1, ensure_ascii=False), encoding="utf-8")
         rep["state_saved"] = True
@@ -162,6 +285,15 @@ def main():
         print("NEW ANTHROPIC NEWS: https://www.anthropic.com/news/" + s)
     for d in rep.get("new_relnote_dates", []):
         print("NEW API RELEASE NOTE DATE:", d)
+    for a in rep.get("ai_field", []):
+        if a["error"]:
+            print(f"AI SOURCE ERROR {a['org']}: {a['error']}")
+        elif a["baseline"]:
+            print(f"AI BASELINE {a['org']} (first run, nothing reported)")
+        for it in a["new"][:8]:
+            print(f"NEW AI [{a['org']}] {it['title'][:120]} | {it['link']} | {it['date']}")
+        for it in a["recent"]:
+            print(f"RECENT [{a['org']}] {it['title'][:110]} | {it['link']} | {it['date']}")
     if rep.get("doc_pages_not_in_queue"):
         print(f"Docs pages not in our topic queue: {len(rep['doc_pages_not_in_queue'])} (first 5: {rep['doc_pages_not_in_queue'][:5]})")
     return 0

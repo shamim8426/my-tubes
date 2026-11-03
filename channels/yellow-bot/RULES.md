@@ -5,6 +5,7 @@ Only the rules special to this channel. Read `shared/RULES.md` first; everything
 
 ## Content
 - Topic: Claude Code / Claude features explained as Shorts. Source ONLY the official docs (https://code.claude.com/docs, index llms.txt). No blogs, no other creators' material.
+- Scope widened by the user 2026-11-04: also AI NEWS from the whole field (new models, features, enhancements, free/open tools from any AI organisation) to keep viewers updated. Source = the organisation's OWN official page/docs/blog/changelog for that item (never press or other creators as the only source; press/HN only to discover). Every claim traceable to that page; price/limit/date/benchmark only if the page states it. Description: the source URL + 'Unofficial channel, not affiliated with <organisation>.' Never use another organisation's logos/branding or a product's official voice; describe, do not imitate. Item selection and daily suggestions: NEWS_WATCH.md.
 - Every claim must be traceable to the docs page of that topic; the source URL goes in the video description. `yb-jaanchak` (fact-check) must PASS before any upload.
 - Unofficial channel: description always says "Unofficial channel, not affiliated with Anthropic." Never use Anthropic/Claude logos or official branding; no "Claude" in the channel name.
 - No claims about prices, limits or availability unless the page states them; say "docs ke hisaab se" when unsure.
