@@ -1,6 +1,6 @@
 # Yellow Bot - style learnings from a study of one AI-tools explainer Shorts channel (2026-11-03)
 
-Source: 6 Shorts of one channel, 92-113 s each, studied under RULES 12c; downloads are to be deleted (cleanup pending user OK, see research/study_log.md). Only abstract,
+Source: 6 Shorts of one channel, 92-113 s each, studied under RULES 12c; all downloads deleted on 2026-11-04 (see research/study_log.md). Only abstract,
 numeric style findings are kept here. No frames, lines, titles or names are reused. Measured on 360x640 sources.
 
 ## Text
