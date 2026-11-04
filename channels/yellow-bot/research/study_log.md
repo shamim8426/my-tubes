@@ -16,3 +16,12 @@
 - Video: https://www.youtube.com/shorts/irXFtcohTco (downloaded with no login/cookies into study/, last ~20 s frames + transcript read, then deleted)
 - Learnt: 3-beat ending (payoff, value-exchange ask with a big keyword + resource mock-up, gated follow ask with brand-mark hero moment); details in brand/STYLE_LEARNINGS.md 'Endings'. No lines of theirs were recorded.
 - Status: deleted on 2026-11-04 (study/ins_end removed).
+
+## 2026-11-05 - Hinglish AI/money explainer creator, 3 LONG videos (user asked: learn the whole long-form style)
+- Channel: https://www.youtube.com/channel/UCVzgTh8i9W-UtengLs-xytA (downloaded at 480p with no login and no cookies into study/longform)
+- Videos studied (title - link):
+  - Al Will Make Your Salary Worthless. Here's What to Do Now - https://youtu.be/oKfn7ucAUxo
+  - I Let AI Call My Leads, Run My Ads and Build My Site (1-Person Business) - https://youtu.be/JQyMqMqKeiU
+  - You're Using Claude Wrong. Anthropic Just Showed the Right Way - https://youtu.be/1wT7qk7i6W8
+- Learnt: (1) hook = scene + concrete number gap + on-screen 3-item "in this video" list by ~60 s, one running two-person example carries 16 min; (2) every claim becomes a big-number glass card within 1-2 s, analogies built as step-by-step diagrams, compare cards with cross/tick, dissolves only, 12-21 visual changes/min, 185 wpm, flat -14 LUFS; (3) ending stack: action list, core line, A/B comment question, sources table, 15-20 s end-screen area. Details: channels/yellow-bot/brand/LONG_FORM_LEARNINGS.md. Only video 1 had a full Whisper transcript (videos 2-3 read from contact sheets).
+- Status: deleted on 2026-11-05 (study/longform removed).

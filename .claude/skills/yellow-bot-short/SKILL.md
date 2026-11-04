@@ -5,7 +5,7 @@ description: Make, upload (private) and log one Yellow Bot Short (channel key ye
 
 # Yellow Bot Short (thin checklist; the rules live in the files named here, never copy them into this skill)
 
-Read first, in order: `channels/yellow-bot/RULES.md`, `channels/yellow-bot/STYLE_GUIDE.md` (v4, ending rule, enhancements log), `channels/yellow-bot/brand/STYLE_LEARNINGS.md` (what we learnt from studying other channels, incl. Endings; principles only), `channels/yellow-bot/learnings.md` (Nigraan's lessons from our own analytics), `shared/RULES.md` (sections 1, 3, 6-8, 10-16), `channels/yellow-bot/topic_queue.json`. These override this skill.
+Read first, in order: `channels/yellow-bot/RULES.md`, `channels/yellow-bot/STYLE_GUIDE.md` (v4, ending rule, enhancements log), `channels/yellow-bot/brand/STYLE_LEARNINGS.md` (what we learnt from studying other channels, incl. Endings; principles only), `channels/yellow-bot/brand/LONG_FORM_LEARNINGS.md` (for LONG 16:9 videos: hook, structure, number cards, ending stack; principles only), `channels/yellow-bot/learnings.md` (Nigraan's lessons from our own analytics), `shared/RULES.md` (sections 1, 3, 6-8, 10-16), `channels/yellow-bot/topic_queue.json`. These override this skill.
 
 ## 0. Before starting
 - Tell the user time and cost in one line (CLAUDE.md). Balance floor Rs 50 (shared by all channels): below it, stop and ask.

@@ -128,3 +128,12 @@ Learnings behind these rules: brand/STYLE_LEARNINGS.md (numeric, abstract) and r
 - Style 'news bulletin': calm #F3F5F9 page, ticker pill top-left ('AI NEWS DIGEST . date') and 'n / 5' pill top-right, dark lower-third with item title + yellow 'Source: <org>' tag on every item, white cards with simple symbols, robot as brand mark (hook, recap, follow).
 - Structure: hook 0-10 s (what you learn today), 4-5 items of 30-40 s (what happened in one sentence, why a normal person should care, one concrete example or what to do, source), 20 s recap, closing line A (CTA_VOICE/CTA_SCREEN/CTA_PILL). Layman first; say what the page does NOT state ('page me nahi likha'); non-Claude items carry 'Unofficial channel, not affiliated with <org>.' in the description with every source URL and a chapter list.
 - Cost: voice about Rs 1.5 per minute incl. GST (gemini-3.8-flash-tts, one model per video); a 3.5 min digest is about Rs 5. Images, music and render are free. Generator pattern: stories/025_ai-news-digest-2026-11-05/gen_deck.py.
+
+## Long-form framework v2 (user 2026-11-05; from the long-form study, details in brand/LONG_FORM_LEARNINGS.md)
+- Apply to the next long digest/explainer (landscape deck). Principles only; our look stays white/black/yellow marker + robot.
+- Hook (0-15 s): one concrete scene or number contrast from the best item, then an on-screen 'today you will know' list of 3 rows (text >= 60 px); no robot intro line; first payoff by about 60-90 s.
+- Structure: one running everyday example (one named person/object) across items where the format allows; each item = label pill, what happened, one big-number card, why it matters, one rule line; a short breath (0.5-1 s) between items.
+- Rhythm: a visual change every 3-5 s (target 12-20 per minute), no still longer than 8 s, a pattern interrupt (new visual type) every 60-90 s, dissolves only, no shake or speed ramps; analogy diagrams built in steps (new node every 2-3 s) and reused in the recap.
+- Visuals: big-number card (figure 7-9% of height), two-card compare with cross/tick, check-list card, quoted source screenshot with yellow highlight and a source line; minimum text 2.5-3% of height.
+- Ending stack: 2-3 'do today' actions, one core sentence, closing line A (CTA_VOICE/CTA_SCREEN/CTA_PILL), an A-or-B comment question, a sources card, then 10-15 s with no essential picture in the end-screen area. Voice about -14 LUFS, music very low.
+- Not copied from the studied creator: look, characters, numbers, plugs, wording (see 'Do not copy' in LONG_FORM_LEARNINGS.md).
