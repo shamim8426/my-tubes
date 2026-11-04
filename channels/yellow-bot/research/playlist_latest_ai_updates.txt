@@ -1,0 +1,4 @@
+Latest AI Updates (created 2026-11-05 via API, public playlist)
+playlist_id=PLTCArDe2LLAo
+https://www.youtube.com/playlist?list=PLTCArDe2LLAo
+Use "playlist_id" in upload.json of every news digest (tools/youtube_upload.py adds the video after upload).

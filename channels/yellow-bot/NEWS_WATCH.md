@@ -18,7 +18,9 @@ Why: Yellow Bot keeps people updated about AI. Any new model, feature, enhanceme
 ## Never
 - No upload, no paid call (Gemini/TTS/images), no video build, no git commit/push (the nightly sync does it), no secrets, no deleting files, no edits to STYLE_GUIDE or RULES.
 - No claim beyond what the primary source says; never invent a price, limit, date, benchmark or availability. Unsure = 'page me nahi likha'.
-- Never copy another organisation's wording, images or logos into a video; explain in our own words and our own look.
+- Never copy another organisation's WORDING into a video; explain in our own words and our own look.
+- Brand visuals (user decision 2026-11-05, replaces the old 'no logos or images' line): ALLOWED: the company's logo, small and unmodified, to identify it (next to its name, never recoloured, never merged with our robot or look); images from that company's own official press/media kit or newsroom page when the page allows media/editorial use; a short crop of the company's OWN announcement page as a screenshot with the source named. NOT allowed: photos or screenshots taken from news sites (TechCrunch, Verge, Getty etc.), another creator's video, clip, thumbnail or channel content, fan art, anything whose licence is unclear. Every brand asset used is logged in shared/assets_license.csv (company, URL it came from, what the page says about use, date). Every digest keeps the line 'Unofficial channel, not affiliated with <organisation>.' Not legal advice: when a company page forbids use, do not use it.
+
 
 ## When the user approves a suggestion
 The Sanchalak builds it like any Yellow Bot Short (STYLE_GUIDE v4, layman first, own look, never a copy), private upload, then sync. For a non-Claude topic the description carries 'Unofficial channel, not affiliated with <organisation>.'

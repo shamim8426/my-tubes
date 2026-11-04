@@ -1,0 +1,3566 @@
+{
+ "_note": "025 long AI news digest 2026-11-05 (landscape 16:9, news-bulletin style)",
+ "format": "landscape",
+ "tag": "AI News",
+ "bg": "#F3F5F9",
+ "bgGrid": false,
+ "music": {
+  "file": "shared/music/presentation/Funkorama.mp3",
+  "start": 6,
+  "rel": 13
+ },
+ "voice": {
+  "id": "Charon",
+  "style": "Speak like a friendly Indian tech YouTuber chatting casually in Hinglish. Natural conversational pace, warm and clear, a little energetic but not theatrical. No sing-song, no exaggerated emphasis."
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "आज की पाँच AI खबरें, सीधी भाषा में: Google का नया model, Mistral का open model, Mac पर text to speech, ElevenLabs का v4, और Claude Code की एक काम की update।",
+   "layers": [
+    {
+     "kind": "box",
+     "html": "<img src=\"file:///D:/my-tubes/channels/yellow-bot/stories/025_ai-news-digest-2026-11-05/img/hook.png\" style=\"width:500px;height:300px;object-fit:cover;border-radius:34px;display:block\">",
+     "x": 560,
+     "y": 640,
+     "css": "border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "0.4|0.0",
+     "spring": true
+    },
+    {
+     "kind": "text",
+     "html": "**5 AI khabrein**",
+     "x": 100,
+     "y": 150,
+     "size": 150,
+     "w": 1000,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "text",
+     "html": "aaj ki, seedhi bhasha me",
+     "x": 100,
+     "y": 560,
+     "size": 70,
+     "w": 1000,
+     "stream": true,
+     "step": 0.14,
+     "sat": "सीधी भाषा|-0.2"
+    },
+    {
+     "kind": "box",
+     "html": "<span>AI NEWS DIGEST</span><span style=\"color:#778\"> &nbsp;·&nbsp; 5 Nov 2026</span>",
+     "x": 100,
+     "y": 670,
+     "css": "background:#fff;border:2px solid #E3E7EE;border-radius:999px;padding:14px 34px;font-size:34px;font-weight:800;white-space:nowrap;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "0.6|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "img",
+     "img": "wave",
+     "size": 300,
+     "x": 130,
+     "y": 730,
+     "bob": 1,
+     "k": [
+      [
+       0.3,
+       {
+        "x": -500,
+        "o": 1
+       }
+      ],
+      [
+       1.0,
+       {
+        "x": 130
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:700px;padding:26px 38px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"sparkle\" data-s=\"84\"></i><div><div style=\"font-size:50px;font-weight:800;line-height:1.1;color:#111\">Gemini 4 Carbon</div></div></div></div>",
+     "x": 1120,
+     "y": 170,
+     "css": "",
+     "in": "Google|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:700px;padding:26px 38px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"box\" data-s=\"84\"></i><div><div style=\"font-size:50px;font-weight:800;line-height:1.1;color:#111\">Mistral Large 4</div></div></div></div>",
+     "x": 1120,
+     "y": 312,
+     "css": "",
+     "in": "Mistral|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:700px;padding:26px 38px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"terminal\" data-s=\"84\"></i><div><div style=\"font-size:50px;font-weight:800;line-height:1.1;color:#111\">Ollama + Mac</div></div></div></div>",
+     "x": 1120,
+     "y": 454,
+     "css": "",
+     "in": "Mac|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:700px;padding:26px 38px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"bolt\" data-s=\"84\"></i><div><div style=\"font-size:50px;font-weight:800;line-height:1.1;color:#111\">ElevenLabs v4</div></div></div></div>",
+     "x": 1120,
+     "y": 596,
+     "css": "",
+     "in": "ElevenLabs|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:700px;padding:26px 38px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"code\" data-s=\"84\"></i><div><div style=\"font-size:50px;font-weight:800;line-height:1.1;color:#111\">Claude Code</div></div></div></div>",
+     "x": 1120,
+     "y": 738,
+     "css": "",
+     "in": "Claude Code|-0.1",
+     "spring": true
+    }
+   ],
+   "wt": [
+    [
+     0,
+     0.0
+    ],
+    [
+     3,
+     0.8
+    ],
+    [
+     6,
+     1.24
+    ],
+    [
+     11,
+     1.34
+    ],
+    [
+     14,
+     1.5
+    ],
+    [
+     21,
+     2.02
+    ],
+    [
+     26,
+     2.58
+    ],
+    [
+     31,
+     3.26
+    ],
+    [
+     36,
+     3.64
+    ],
+    [
+     43,
+     3.82
+    ],
+    [
+     46,
+     3.96
+    ],
+    [
+     50,
+     4.62
+    ],
+    [
+     57,
+     5.06
+    ],
+    [
+     65,
+     5.22
+    ],
+    [
+     68,
+     5.52
+    ],
+    [
+     73,
+     6.26
+    ],
+    [
+     80,
+     6.26
+    ],
+    [
+     84,
+     6.5
+    ],
+    [
+     87,
+     6.68
+    ],
+    [
+     92,
+     7.08
+    ],
+    [
+     95,
+     7.86
+    ],
+    [
+     103,
+     8.22
+    ],
+    [
+     114,
+     8.64
+    ],
+    [
+     117,
+     8.78
+    ],
+    [
+     121,
+     8.94
+    ],
+    [
+     124,
+     9.7
+    ],
+    [
+     131,
+     9.88
+    ],
+    [
+     136,
+     10.22
+    ],
+    [
+     139,
+     10.44
+    ],
+    [
+     142,
+     10.58
+    ],
+    [
+     146,
+     10.72
+    ],
+    [
+     149,
+     11.02
+    ],
+    [
+     156,
+     11.88
+    ]
+   ]
+  },
+  {
+   "id": "g1",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "पहली खबर: Google DeepMind ने Gemini 4 Carbon announce किया है। Google इसे अपना अब तक का सबसे strong model बताता है।",
+   "layers": [
+    {
+     "kind": "box",
+     "html": "<span>AI NEWS DIGEST</span><span style=\"color:#778\"> &nbsp;·&nbsp; 5 Nov 2026</span>",
+     "x": 100,
+     "y": 44,
+     "css": "background:#fff;border:2px solid #E3E7EE;border-radius:999px;padding:14px 34px;font-size:34px;font-weight:800;white-space:nowrap;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)"
+    },
+    {
+     "kind": "box",
+     "html": "1 / 5",
+     "x": 1640,
+     "y": 44,
+     "css": "background:#FFD60A;border-radius:999px;padding:14px 38px;font-size:34px;font-weight:800;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)"
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:1720px;height:150px;background:#14171C;border-radius:28px;display:flex;align-items:center;overflow:hidden;color:#fff;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)\"><div style=\"width:18px;height:100%;background:#FFD60A;flex:none\"></div><div style=\"font-size:66px;font-weight:800;margin-left:34px;flex:1;white-space:nowrap\">Gemini 4 Carbon</div><div style=\"background:#FFD60A;color:#111;border-radius:999px;padding:12px 32px;font-size:38px;font-weight:800;margin-right:44px;white-space:nowrap\">Source: Google DeepMind</div></div>",
+     "x": 100,
+     "y": 880,
+     "css": "",
+     "in": 0.9,
+     "spring": true
+    },
+    {
+     "kind": "text",
+     "html": "**Gemini 4 Carbon**",
+     "x": 100,
+     "y": 170,
+     "size": 112,
+     "w": 1300,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "text",
+     "html": "Google ka naya **sabse strong** model",
+     "x": 100,
+     "y": 330,
+     "size": 74,
+     "w": 1150,
+     "stream": true,
+     "step": 0.14,
+     "sat": "सबसे strong|-0.4"
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:840px;padding:26px 38px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"globe\" data-s=\"120\"></i><div><div style=\"font-size:68px;font-weight:800;line-height:1.1;color:#111\">Google DeepMind ne bataya</div><div style=\"font-size:45px;font-weight:700;color:#444;margin-top:6px;line-height:1.2\">28 Oct 2026</div></div></div></div>",
+     "x": 100,
+     "y": 540,
+     "css": "",
+     "in": "announce|-0.2",
+     "spring": true
+    },
+    {
+     "kind": "icon",
+     "name": "sparkle",
+     "x": 1380,
+     "y": 230,
+     "size": 340,
+     "in": "Gemini 4|0.0",
+     "spring": true,
+     "float": 9,
+     "wig": "सबसे strong|0.3"
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:44px;font-weight:800\">NEW</div>",
+     "x": 1450,
+     "y": 640,
+     "css": "background:#FFD60A;border-radius:999px;padding:14px 40px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "wig": "सबसे strong|0.6",
+     "in": "सबसे strong|0.2",
+     "spring": true
+    }
+   ],
+   "wt": [
+    [
+     0,
+     0.0
+    ],
+    [
+     5,
+     0.56
+    ],
+    [
+     10,
+     1.36
+    ],
+    [
+     17,
+     1.82
+    ],
+    [
+     26,
+     2.06
+    ],
+    [
+     29,
+     2.32
+    ],
+    [
+     36,
+     3.1
+    ],
+    [
+     38,
+     3.32
+    ],
+    [
+     45,
+     3.78
+    ],
+    [
+     54,
+     4.14
+    ],
+    [
+     59,
+     4.3
+    ],
+    [
+     63,
+     4.74
+    ],
+    [
+     70,
+     5.26
+    ],
+    [
+     74,
+     5.38
+    ],
+    [
+     79,
+     5.48
+    ],
+    [
+     82,
+     5.74
+    ],
+    [
+     85,
+     6.04
+    ],
+    [
+     88,
+     6.26
+    ],
+    [
+     93,
+     6.72
+    ],
+    [
+     100,
+     7.1
+    ],
+    [
+     106,
+     7.32
+    ],
+    [
+     112,
+     7.7
+    ],
+    [
+     115,
+     8.04
+    ]
+   ]
+  },
+  {
+   "id": "g2",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "आम लोगों के लिए अभी नहीं। पेज के हिसाब से अभी सिर्फ कुछ cyber defenders को मिल रहा है, फिर trusted partners को। आम users की तारीख पेज में नहीं लिखी।",
+   "layers": [
+    {
+     "kind": "box",
+     "html": "<span>AI NEWS DIGEST</span><span style=\"color:#778\"> &nbsp;·&nbsp; 5 Nov 2026</span>",
+     "x": 100,
+     "y": 44,
+     "css": "background:#fff;border:2px solid #E3E7EE;border-radius:999px;padding:14px 34px;font-size:34px;font-weight:800;white-space:nowrap;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)"
+    },
+    {
+     "kind": "box",
+     "html": "1 / 5",
+     "x": 1640,
+     "y": 44,
+     "css": "background:#FFD60A;border-radius:999px;padding:14px 38px;font-size:34px;font-weight:800;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)"
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:1720px;height:150px;background:#14171C;border-radius:28px;display:flex;align-items:center;overflow:hidden;color:#fff;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)\"><div style=\"width:18px;height:100%;background:#FFD60A;flex:none\"></div><div style=\"font-size:66px;font-weight:800;margin-left:34px;flex:1;white-space:nowrap\">Gemini 4 Carbon</div><div style=\"background:#FFD60A;color:#111;border-radius:999px;padding:12px 32px;font-size:38px;font-weight:800;margin-right:44px;white-space:nowrap\">Source: Google DeepMind</div></div>",
+     "x": 100,
+     "y": 880,
+     "css": ""
+    },
+    {
+     "kind": "text",
+     "html": "**Abhi sabke liye nahi**",
+     "x": 100,
+     "y": 170,
+     "size": 100,
+     "w": 1500,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:540px;padding:26px 38px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"shield\" data-s=\"96\"></i><div><div style=\"font-size:44px;font-weight:800;line-height:1.1;color:#111\">Cyber defenders</div><div style=\"font-size:32px;font-weight:700;color:#444;margin-top:6px;line-height:1.2\">abhi, kuch logon ko</div></div></div></div>",
+     "x": 100,
+     "y": 460,
+     "css": "",
+     "in": 0.9,
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:540px;padding:26px 38px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"user\" data-s=\"96\"></i><div><div style=\"font-size:44px;font-weight:800;line-height:1.1;color:#111\">Trusted partners</div><div style=\"font-size:32px;font-weight:700;color:#444;margin-top:6px;line-height:1.2\">dheere dheere</div></div></div></div>",
+     "x": 690,
+     "y": 460,
+     "css": "",
+     "in": "trusted partners|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:540px;padding:26px 38px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"phone\" data-s=\"96\"></i><div><div style=\"font-size:44px;font-weight:800;line-height:1.1;color:#111\">Aam users</div><div style=\"font-size:32px;font-weight:700;color:#444;margin-top:6px;line-height:1.2\">tarikh: page me nahi likha</div></div></div></div>",
+     "x": 1280,
+     "y": 460,
+     "css": "",
+     "in": "आम users|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "flow",
+     "at": "trusted partners|-0.3",
+     "pts": [
+      [
+       650,
+       560
+      ],
+      [
+       680,
+       560
+      ]
+     ],
+     "dur": 0.4,
+     "sw": 8,
+     "n": 1,
+     "per": 1.0,
+     "r": 11
+    },
+    {
+     "kind": "flow",
+     "at": "आम users|-0.3",
+     "pts": [
+      [
+       1240,
+       560
+      ],
+      [
+       1270,
+       560
+      ]
+     ],
+     "dur": 0.4,
+     "sw": 8,
+     "n": 1,
+     "per": 1.0,
+     "r": 11
+    },
+    {
+     "kind": "icon",
+     "name": "cross",
+     "x": 1560,
+     "y": 650,
+     "size": 110,
+     "in": "नहीं लिखी|-0.6",
+     "spring": true,
+     "wig": "नहीं लिखी|0.0"
+    }
+   ],
+   "wt": [
+    [
+     0,
+     0.0
+    ],
+    [
+     3,
+     0.58
+    ],
+    [
+     9,
+     0.84
+    ],
+    [
+     12,
+     1.02
+    ],
+    [
+     16,
+     1.28
+    ],
+    [
+     20,
+     1.28
+    ],
+    [
+     26,
+     1.9
+    ],
+    [
+     30,
+     2.32
+    ],
+    [
+     33,
+     2.48
+    ],
+    [
+     39,
+     2.78
+    ],
+    [
+     42,
+     2.96
+    ],
+    [
+     46,
+     3.18
+    ],
+    [
+     52,
+     3.42
+    ],
+    [
+     56,
+     3.76
+    ],
+    [
+     62,
+     4.4
+    ],
+    [
+     72,
+     4.86
+    ],
+    [
+     75,
+     4.86
+    ],
+    [
+     79,
+     4.98
+    ],
+    [
+     83,
+     5.08
+    ],
+    [
+     87,
+     5.48
+    ],
+    [
+     91,
+     5.72
+    ],
+    [
+     99,
+     6.24
+    ],
+    [
+     108,
+     6.66
+    ],
+    [
+     112,
+     7.26
+    ],
+    [
+     115,
+     7.6
+    ],
+    [
+     121,
+     7.6
+    ],
+    [
+     124,
+     7.92
+    ],
+    [
+     130,
+     8.02
+    ],
+    [
+     134,
+     8.3
+    ],
+    [
+     138,
+     8.48
+    ],
+    [
+     143,
+     8.66
+    ],
+    [
+     148,
+     9.24
+    ]
+   ]
+  },
+  {
+   "id": "g3",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "ये बड़े codebase में bug ढूँढने और patch करने जैसे लंबे काम के लिए बना है। शुरुआती दाम: दो डॉलर input, दस डॉलर output, हर दस लाख tokens पर।",
+   "layers": [
+    {
+     "kind": "box",
+     "html": "<span>AI NEWS DIGEST</span><span style=\"color:#778\"> &nbsp;·&nbsp; 5 Nov 2026</span>",
+     "x": 100,
+     "y": 44,
+     "css": "background:#fff;border:2px solid #E3E7EE;border-radius:999px;padding:14px 34px;font-size:34px;font-weight:800;white-space:nowrap;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)"
+    },
+    {
+     "kind": "box",
+     "html": "1 / 5",
+     "x": 1640,
+     "y": 44,
+     "css": "background:#FFD60A;border-radius:999px;padding:14px 38px;font-size:34px;font-weight:800;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)"
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:1720px;height:150px;background:#14171C;border-radius:28px;display:flex;align-items:center;overflow:hidden;color:#fff;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)\"><div style=\"width:18px;height:100%;background:#FFD60A;flex:none\"></div><div style=\"font-size:66px;font-weight:800;margin-left:34px;flex:1;white-space:nowrap\">Gemini 4 Carbon</div><div style=\"background:#FFD60A;color:#111;border-radius:999px;padding:12px 32px;font-size:38px;font-weight:800;margin-right:44px;white-space:nowrap\">Source: Google DeepMind</div></div>",
+     "x": 100,
+     "y": 880,
+     "css": ""
+    },
+    {
+     "kind": "text",
+     "html": "**Lambe kaam** ke liye",
+     "x": 100,
+     "y": 170,
+     "size": 100,
+     "w": 1500,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:820px;padding:26px 38px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"bug\" data-s=\"120\"></i><div><div style=\"font-size:65px;font-weight:800;line-height:1.1;color:#111\">Bade codebase me bug</div><div style=\"font-size:45px;font-weight:700;color:#444;margin-top:6px;line-height:1.2\">dhoondo aur patch karo</div></div></div></div>",
+     "x": 100,
+     "y": 460,
+     "css": "",
+     "in": 0.9,
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:34px;font-weight:700;color:#C9CFDA\">shuruaati daam, har 10 lakh tokens par</div><div style=\"font-size:84px;font-weight:800;color:#FFD60A;margin-top:12px;line-height:1.1\">$2 <span style=\"font-size:40px;color:#fff\">input</span></div><div style=\"font-size:84px;font-weight:800;color:#FFD60A;line-height:1.1\">$10 <span style=\"font-size:40px;color:#fff\">output</span></div>",
+     "x": 1020,
+     "y": 440,
+     "css": "background:#14171C;border-radius:34px;padding:30px 44px;width:800px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "शुरुआती दाम|-0.2",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:40px;font-weight:800\">token = text ka chhota tukda</div>",
+     "x": 100,
+     "y": 750,
+     "css": "background:#FFD60A;border-radius:999px;padding:14px 40px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "tokens|-0.1",
+     "spring": true
+    }
+   ],
+   "wt": [
+    [
+     0,
+     0.0
+    ],
+    [
+     3,
+     0.42
+    ],
+    [
+     8,
+     0.78
+    ],
+    [
+     17,
+     1.06
+    ],
+    [
+     21,
+     1.28
+    ],
+    [
+     25,
+     1.5
+    ],
+    [
+     32,
+     1.7
+    ],
+    [
+     35,
+     1.7
+    ],
+    [
+     41,
+     2.12
+    ],
+    [
+     46,
+     2.32
+    ],
+    [
+     51,
+     2.58
+    ],
+    [
+     56,
+     2.86
+    ],
+    [
+     60,
+     3.1
+    ],
+    [
+     63,
+     3.56
+    ],
+    [
+     67,
+     3.82
+    ],
+    [
+     71,
+     4.0
+    ],
+    [
+     75,
+     4.46
+    ],
+    [
+     83,
+     5.5
+    ],
+    [
+     88,
+     6.12
+    ],
+    [
+     91,
+     6.4
+    ],
+    [
+     96,
+     6.9
+    ],
+    [
+     103,
+     7.2
+    ],
+    [
+     106,
+     7.2
+    ],
+    [
+     111,
+     7.46
+    ],
+    [
+     119,
+     7.92
+    ],
+    [
+     122,
+     8.1
+    ],
+    [
+     125,
+     8.36
+    ],
+    [
+     129,
+     8.58
+    ],
+    [
+     136,
+     8.9
+    ],
+    [
+     139,
+     9.32
+    ]
+   ]
+  },
+  {
+   "id": "m1",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "दूसरी खबर: Mistral AI ने Mistral Large 4 के open weights जारी किए हैं। Open weights यानी model की file download करके खुद चला सकते हो।",
+   "layers": [
+    {
+     "kind": "box",
+     "html": "<span>AI NEWS DIGEST</span><span style=\"color:#778\"> &nbsp;·&nbsp; 5 Nov 2026</span>",
+     "x": 100,
+     "y": 44,
+     "css": "background:#fff;border:2px solid #E3E7EE;border-radius:999px;padding:14px 34px;font-size:34px;font-weight:800;white-space:nowrap;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)"
+    },
+    {
+     "kind": "box",
+     "html": "2 / 5",
+     "x": 1640,
+     "y": 44,
+     "css": "background:#FFD60A;border-radius:999px;padding:14px 38px;font-size:34px;font-weight:800;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)"
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:1720px;height:150px;background:#14171C;border-radius:28px;display:flex;align-items:center;overflow:hidden;color:#fff;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)\"><div style=\"width:18px;height:100%;background:#FFD60A;flex:none\"></div><div style=\"font-size:66px;font-weight:800;margin-left:34px;flex:1;white-space:nowrap\">Mistral Large 4 (open weights)</div><div style=\"background:#FFD60A;color:#111;border-radius:999px;padding:12px 32px;font-size:38px;font-weight:800;margin-right:44px;white-space:nowrap\">Source: Mistral AI</div></div>",
+     "x": 100,
+     "y": 880,
+     "css": "",
+     "in": 0.9,
+     "spring": true
+    },
+    {
+     "kind": "text",
+     "html": "**Open weights** jaari",
+     "x": 100,
+     "y": 170,
+     "size": 112,
+     "w": 1500,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<img src=\"file:///D:/my-tubes/channels/yellow-bot/stories/025_ai-news-digest-2026-11-05/img/open.png\" style=\"width:590px;height:300px;object-fit:cover;border-radius:34px;display:block\">",
+     "x": 1230,
+     "y": 120,
+     "css": "border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "0.6|0.0",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:900px;padding:26px 38px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"box\" data-s=\"120\"></i><div><div style=\"font-size:70px;font-weight:800;line-height:1.1;color:#111\">Open weights</div><div style=\"font-size:45px;font-weight:700;color:#444;margin-top:6px;line-height:1.2\">= model ki file, download karo</div></div></div></div>",
+     "x": 100,
+     "y": 460,
+     "css": "",
+     "in": "Open weights यानी|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "icon",
+     "name": "arrow",
+     "x": 1060,
+     "y": 470,
+     "size": 120,
+     "in": "download|-0.5",
+     "spring": true,
+     "drawon": [
+      "download|-0.5",
+      0.5
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:590px;padding:26px 38px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"desktop\" data-s=\"100\"></i><div><div style=\"font-size:55px;font-weight:800;line-height:1.1;color:#111\">Khud ke computer par</div><div style=\"font-size:40px;font-weight:700;color:#444;margin-top:6px;line-height:1.2\">page: vLLM ya SGLang se self-host</div></div></div></div>",
+     "x": 1230,
+     "y": 460,
+     "css": "",
+     "in": "खुद चला|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:46px;font-weight:800\">Hugging Face par</div>",
+     "x": 100,
+     "y": 750,
+     "css": "background:#FFD60A;border-radius:999px;padding:14px 40px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "download|0.2",
+     "spring": true
+    }
+   ],
+   "wt": [
+    [
+     0,
+     0.0
+    ],
+    [
+     6,
+     0.64
+    ],
+    [
+     11,
+     1.38
+    ],
+    [
+     19,
+     1.82
+    ],
+    [
+     22,
+     2.26
+    ],
+    [
+     25,
+     2.8
+    ],
+    [
+     33,
+     3.1
+    ],
+    [
+     39,
+     3.44
+    ],
+    [
+     41,
+     3.82
+    ],
+    [
+     44,
+     4.16
+    ],
+    [
+     49,
+     4.42
+    ],
+    [
+     57,
+     4.66
+    ],
+    [
+     62,
+     4.86
+    ],
+    [
+     66,
+     5.4
+    ],
+    [
+     71,
+     5.82
+    ],
+    [
+     76,
+     6.08
+    ],
+    [
+     84,
+     6.44
+    ],
+    [
+     89,
+     6.82
+    ],
+    [
+     95,
+     7.02
+    ],
+    [
+     98,
+     7.26
+    ],
+    [
+     103,
+     7.7
+    ],
+    [
+     112,
+     7.86
+    ],
+    [
+     117,
+     8.0
+    ],
+    [
+     121,
+     8.2
+    ],
+    [
+     125,
+     8.4
+    ],
+    [
+     130,
+     8.68
+    ],
+    [
+     133,
+     9.0
+    ]
+   ]
+  },
+  {
+   "id": "m2",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "License modified MIT है: use, बदलाव और commercial इस्तेमाल की इजाज़त है। पर अगर आप दूसरों को model service बेचते हो, तो Mistral से अलग commercial license चाहिए।",
+   "layers": [
+    {
+     "kind": "box",
+     "html": "<span>AI NEWS DIGEST</span><span style=\"color:#778\"> &nbsp;·&nbsp; 5 Nov 2026</span>",
+     "x": 100,
+     "y": 44,
+     "css": "background:#fff;border:2px solid #E3E7EE;border-radius:999px;padding:14px 34px;font-size:34px;font-weight:800;white-space:nowrap;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)"
+    },
+    {
+     "kind": "box",
+     "html": "2 / 5",
+     "x": 1640,
+     "y": 44,
+     "css": "background:#FFD60A;border-radius:999px;padding:14px 38px;font-size:34px;font-weight:800;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)"
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:1720px;height:150px;background:#14171C;border-radius:28px;display:flex;align-items:center;overflow:hidden;color:#fff;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)\"><div style=\"width:18px;height:100%;background:#FFD60A;flex:none\"></div><div style=\"font-size:66px;font-weight:800;margin-left:34px;flex:1;white-space:nowrap\">Mistral Large 4 (open weights)</div><div style=\"background:#FFD60A;color:#111;border-radius:999px;padding:12px 32px;font-size:38px;font-weight:800;margin-right:44px;white-space:nowrap\">Source: Mistral AI</div></div>",
+     "x": 100,
+     "y": 880,
+     "css": ""
+    },
+    {
+     "kind": "text",
+     "html": "**License** kya kehta hai?",
+     "x": 100,
+     "y": 170,
+     "size": 100,
+     "w": 1500,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:820px;padding:26px 38px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"check\" data-s=\"120\"></i><div><div style=\"font-size:60px;font-weight:800;line-height:1.1;color:#111\">Use, badlav, commercial</div><div style=\"font-size:45px;font-weight:700;color:#444;margin-top:6px;line-height:1.2\">modified MIT license</div></div></div></div>",
+     "x": 100,
+     "y": 460,
+     "css": "",
+     "in": 0.9,
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:820px;padding:26px 38px;background:#14171C;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"lock\" data-s=\"120\"></i><div><div style=\"font-size:60px;font-weight:800;line-height:1.1;color:#fff\">Model service bechni hai?</div><div style=\"font-size:42px;font-weight:700;color:#C9CFDA;margin-top:6px;line-height:1.2\">Mistral se alag commercial license</div></div></div></div>",
+     "x": 1000,
+     "y": 460,
+     "css": "",
+     "in": "service बेचते|-0.2",
+     "spring": true
+    },
+    {
+     "kind": "text",
+     "html": "Apne kaam ke liye **theek**, service bechne ke liye **alag license**",
+     "x": 100,
+     "y": 750,
+     "size": 52,
+     "w": 1700,
+     "stream": true,
+     "step": 0.14,
+     "sat": "पर अगर|0.0"
+    }
+   ],
+   "wt": [
+    [
+     0,
+     0.0
+    ],
+    [
+     8,
+     0.82
+    ],
+    [
+     17,
+     1.3
+    ],
+    [
+     21,
+     1.72
+    ],
+    [
+     25,
+     2.18
+    ],
+    [
+     30,
+     2.92
+    ],
+    [
+     36,
+     3.4
+    ],
+    [
+     39,
+     3.58
+    ],
+    [
+     50,
+     4.04
+    ],
+    [
+     59,
+     4.44
+    ],
+    [
+     62,
+     4.58
+    ],
+    [
+     69,
+     4.96
+    ],
+    [
+     73,
+     5.5
+    ],
+    [
+     76,
+     5.7
+    ],
+    [
+     80,
+     6.26
+    ],
+    [
+     83,
+     6.6
+    ],
+    [
+     90,
+     6.8
+    ],
+    [
+     93,
+     7.06
+    ],
+    [
+     99,
+     7.28
+    ],
+    [
+     107,
+     7.6
+    ],
+    [
+     113,
+     7.8
+    ],
+    [
+     117,
+     8.28
+    ],
+    [
+     120,
+     8.38
+    ],
+    [
+     128,
+     8.82
+    ],
+    [
+     131,
+     9.02
+    ],
+    [
+     135,
+     9.36
+    ],
+    [
+     146,
+     9.82
+    ],
+    [
+     154,
+     10.18
+    ],
+    [
+     160,
+     10.76
+    ]
+   ]
+  },
+  {
+   "id": "m3",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "Weights Hugging Face पर हैं। API का दाम भी लिखा है: सत्तर cent input, दो डॉलर दस cent output, हर दस लाख tokens पर। इसे चलाने के लिए कितना बड़ा computer चाहिए, पेज में नहीं लिखा।",
+   "layers": [
+    {
+     "kind": "box",
+     "html": "<span>AI NEWS DIGEST</span><span style=\"color:#778\"> &nbsp;·&nbsp; 5 Nov 2026</span>",
+     "x": 100,
+     "y": 44,
+     "css": "background:#fff;border:2px solid #E3E7EE;border-radius:999px;padding:14px 34px;font-size:34px;font-weight:800;white-space:nowrap;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)"
+    },
+    {
+     "kind": "box",
+     "html": "2 / 5",
+     "x": 1640,
+     "y": 44,
+     "css": "background:#FFD60A;border-radius:999px;padding:14px 38px;font-size:34px;font-weight:800;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)"
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:1720px;height:150px;background:#14171C;border-radius:28px;display:flex;align-items:center;overflow:hidden;color:#fff;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)\"><div style=\"width:18px;height:100%;background:#FFD60A;flex:none\"></div><div style=\"font-size:66px;font-weight:800;margin-left:34px;flex:1;white-space:nowrap\">Mistral Large 4 (open weights)</div><div style=\"background:#FFD60A;color:#111;border-radius:999px;padding:12px 32px;font-size:38px;font-weight:800;margin-right:44px;white-space:nowrap\">Source: Mistral AI</div></div>",
+     "x": 100,
+     "y": 880,
+     "css": ""
+    },
+    {
+     "kind": "text",
+     "html": "**API** ka daam",
+     "x": 100,
+     "y": 170,
+     "size": 100,
+     "w": 1500,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:34px;font-weight:700;color:#C9CFDA\">har 10 lakh tokens par</div><div style=\"font-size:84px;font-weight:800;color:#FFD60A;margin-top:12px;line-height:1.1\">$0.70 <span style=\"font-size:40px;color:#fff\">input</span></div><div style=\"font-size:84px;font-weight:800;color:#FFD60A;line-height:1.1\">$2.10 <span style=\"font-size:40px;color:#fff\">output</span></div>",
+     "x": 100,
+     "y": 440,
+     "css": "background:#14171C;border-radius:34px;padding:30px 44px;width:800px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": 0.9,
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:820px;padding:26px 38px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"desktop\" data-s=\"120\"></i><div><div style=\"font-size:55px;font-weight:800;line-height:1.1;color:#111\">Kitna bada computer chahiye?</div><div style=\"font-size:48px;font-weight:700;color:#444;margin-top:6px;line-height:1.2\">page me nahi likha</div></div></div></div>",
+     "x": 1000,
+     "y": 480,
+     "css": "",
+     "in": "कितना बड़ा|-0.2",
+     "spring": true
+    },
+    {
+     "kind": "icon",
+     "name": "magnifier",
+     "x": 1480,
+     "y": 640,
+     "size": 130,
+     "in": "नहीं लिखा|-0.5",
+     "spring": true,
+     "float": 6,
+     "wig": "नहीं लिखा|0.0"
+    }
+   ],
+   "wt": [
+    [
+     0,
+     0.0
+    ],
+    [
+     8,
+     0.64
+    ],
+    [
+     16,
+     0.98
+    ],
+    [
+     21,
+     1.16
+    ],
+    [
+     24,
+     1.3
+    ],
+    [
+     29,
+     1.82
+    ],
+    [
+     33,
+     2.22
+    ],
+    [
+     36,
+     2.46
+    ],
+    [
+     40,
+     2.68
+    ],
+    [
+     43,
+     2.82
+    ],
+    [
+     48,
+     3.06
+    ],
+    [
+     52,
+     3.42
+    ],
+    [
+     58,
+     3.88
+    ],
+    [
+     63,
+     4.24
+    ],
+    [
+     70,
+     5.02
+    ],
+    [
+     73,
+     5.44
+    ],
+    [
+     78,
+     5.76
+    ],
+    [
+     81,
+     6.12
+    ],
+    [
+     86,
+     6.52
+    ],
+    [
+     94,
+     7.44
+    ],
+    [
+     97,
+     7.78
+    ],
+    [
+     100,
+     8.02
+    ],
+    [
+     104,
+     8.22
+    ],
+    [
+     111,
+     8.54
+    ],
+    [
+     115,
+     9.56
+    ],
+    [
+     119,
+     9.9
+    ],
+    [
+     125,
+     10.3
+    ],
+    [
+     128,
+     10.48
+    ],
+    [
+     132,
+     10.7
+    ],
+    [
+     138,
+     11.24
+    ],
+    [
+     143,
+     11.44
+    ],
+    [
+     152,
+     11.78
+    ],
+    [
+     159,
+     12.38
+    ],
+    [
+     163,
+     12.62
+    ],
+    [
+     167,
+     12.76
+    ],
+    [
+     172,
+     13.12
+    ],
+    [
+     177,
+     13.52
+    ]
+   ]
+  },
+  {
+   "id": "o1",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "तीसरी खबर: Ollama अब text को आवाज़ में बदल सकता है। पहला speech model है Phonon, जो Gradium का बनाया छोटा text to speech model है।",
+   "layers": [
+    {
+     "kind": "box",
+     "html": "<span>AI NEWS DIGEST</span><span style=\"color:#778\"> &nbsp;·&nbsp; 5 Nov 2026</span>",
+     "x": 100,
+     "y": 44,
+     "css": "background:#fff;border:2px solid #E3E7EE;border-radius:999px;padding:14px 34px;font-size:34px;font-weight:800;white-space:nowrap;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)"
+    },
+    {
+     "kind": "box",
+     "html": "3 / 5",
+     "x": 1640,
+     "y": 44,
+     "css": "background:#FFD60A;border-radius:999px;padding:14px 38px;font-size:34px;font-weight:800;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)"
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:1720px;height:150px;background:#14171C;border-radius:28px;display:flex;align-items:center;overflow:hidden;color:#fff;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)\"><div style=\"width:18px;height:100%;background:#FFD60A;flex:none\"></div><div style=\"font-size:66px;font-weight:800;margin-left:34px;flex:1;white-space:nowrap\">Ollama: text se awaaz</div><div style=\"background:#FFD60A;color:#111;border-radius:999px;padding:12px 32px;font-size:38px;font-weight:800;margin-right:44px;white-space:nowrap\">Source: Ollama</div></div>",
+     "x": 100,
+     "y": 880,
+     "css": "",
+     "in": 0.9,
+     "spring": true
+    },
+    {
+     "kind": "text",
+     "html": "**Text** se **awaaz**",
+     "x": 100,
+     "y": 170,
+     "size": 112,
+     "w": 1500,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<img src=\"file:///D:/my-tubes/channels/yellow-bot/stories/025_ai-news-digest-2026-11-05/img/wave.png\" style=\"width:590px;height:300px;object-fit:cover;border-radius:34px;display:block\">",
+     "x": 1230,
+     "y": 120,
+     "css": "border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "0.6|0.0",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:780px;padding:26px 38px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"file\" data-s=\"120\"></i><div><div style=\"font-size:58px;font-weight:800;line-height:1.1;color:#111\">\"Hello from Ollama.\"</div><div style=\"font-size:45px;font-weight:700;color:#444;margin-top:6px;line-height:1.2\">likha hua text</div></div></div></div>",
+     "x": 100,
+     "y": 460,
+     "css": "",
+     "in": "text को|-0.2",
+     "spring": true
+    },
+    {
+     "kind": "flow",
+     "at": "आवाज़ में|-0.3",
+     "pts": [
+      [
+       890,
+       500
+      ],
+      [
+       1020,
+       500
+      ]
+     ],
+     "dur": 0.5,
+     "sw": 9,
+     "n": 2,
+     "per": 1.0,
+     "r": 12
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:780px;padding:26px 38px;background:#14171C;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"play\" data-s=\"120\"></i><div><div style=\"font-size:75px;font-weight:800;line-height:1.1;color:#FFD60A\">Phonon</div><div style=\"font-size:42px;font-weight:700;color:#C9CFDA;margin-top:6px;line-height:1.2\">Gradium ka chhota model</div></div></div></div>",
+     "x": 1040,
+     "y": 460,
+     "css": "",
+     "in": "Phonon|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:42px;font-weight:800\">Ollama ka pehla speech model</div>",
+     "x": 100,
+     "y": 750,
+     "css": "background:#FFD60A;border-radius:999px;padding:14px 40px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "पहला speech|0.0",
+     "spring": true
+    }
+   ],
+   "wt": [
+    [
+     0,
+     0.0
+    ],
+    [
+     6,
+     0.64
+    ],
+    [
+     11,
+     1.36
+    ],
+    [
+     18,
+     1.64
+    ],
+    [
+     21,
+     1.94
+    ],
+    [
+     26,
+     2.14
+    ],
+    [
+     29,
+     2.5
+    ],
+    [
+     35,
+     2.64
+    ],
+    [
+     39,
+     3.1
+    ],
+    [
+     43,
+     3.24
+    ],
+    [
+     48,
+     3.44
+    ],
+    [
+     52,
+     3.72
+    ],
+    [
+     57,
+     4.32
+    ],
+    [
+     64,
+     4.96
+    ],
+    [
+     70,
+     5.24
+    ],
+    [
+     73,
+     5.38
+    ],
+    [
+     81,
+     5.62
+    ],
+    [
+     84,
+     6.1
+    ],
+    [
+     92,
+     6.3
+    ],
+    [
+     95,
+     6.72
+    ],
+    [
+     101,
+     6.9
+    ],
+    [
+     106,
+     7.32
+    ],
+    [
+     111,
+     7.78
+    ],
+    [
+     114,
+     8.06
+    ],
+    [
+     121,
+     8.3
+    ],
+    [
+     127,
+     8.6
+    ],
+    [
+     130,
+     8.92
+    ]
+   ]
+  },
+  {
+   "id": "o2",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "अभी ये सिर्फ Apple Silicon वाले Mac पर चलता है। Windows और Linux के लिए पेज में लिखा है, जल्द आ रहा है, तारीख नहीं।",
+   "layers": [
+    {
+     "kind": "box",
+     "html": "<span>AI NEWS DIGEST</span><span style=\"color:#778\"> &nbsp;·&nbsp; 5 Nov 2026</span>",
+     "x": 100,
+     "y": 44,
+     "css": "background:#fff;border:2px solid #E3E7EE;border-radius:999px;padding:14px 34px;font-size:34px;font-weight:800;white-space:nowrap;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)"
+    },
+    {
+     "kind": "box",
+     "html": "3 / 5",
+     "x": 1640,
+     "y": 44,
+     "css": "background:#FFD60A;border-radius:999px;padding:14px 38px;font-size:34px;font-weight:800;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)"
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:1720px;height:150px;background:#14171C;border-radius:28px;display:flex;align-items:center;overflow:hidden;color:#fff;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)\"><div style=\"width:18px;height:100%;background:#FFD60A;flex:none\"></div><div style=\"font-size:66px;font-weight:800;margin-left:34px;flex:1;white-space:nowrap\">Ollama: text se awaaz</div><div style=\"background:#FFD60A;color:#111;border-radius:999px;padding:12px 32px;font-size:38px;font-weight:800;margin-right:44px;white-space:nowrap\">Source: Ollama</div></div>",
+     "x": 100,
+     "y": 880,
+     "css": ""
+    },
+    {
+     "kind": "text",
+     "html": "**Abhi sirf Mac**",
+     "x": 100,
+     "y": 170,
+     "size": 112,
+     "w": 1500,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:780px;padding:26px 38px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"check\" data-s=\"120\"></i><div><div style=\"font-size:62px;font-weight:800;line-height:1.1;color:#111\">Apple Silicon Mac</div><div style=\"font-size:45px;font-weight:700;color:#444;margin-top:6px;line-height:1.2\">Ollama 0.40.11 ya naya</div></div></div></div>",
+     "x": 100,
+     "y": 460,
+     "css": "",
+     "in": 0.9,
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:820px;padding:26px 38px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"clock\" data-s=\"120\"></i><div><div style=\"font-size:62px;font-weight:800;line-height:1.1;color:#111\">Windows aur Linux</div><div style=\"font-size:42px;font-weight:700;color:#444;margin-top:6px;line-height:1.2\">jald aa raha hai, tarikh nahi</div></div></div></div>",
+     "x": 1000,
+     "y": 460,
+     "css": "",
+     "in": "Windows और Linux|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "icon",
+     "name": "cross",
+     "x": 1640,
+     "y": 640,
+     "size": 100,
+     "in": "तारीख नहीं|-0.6",
+     "spring": true,
+     "wig": "तारीख नहीं|0.0"
+    }
+   ],
+   "wt": [
+    [
+     0,
+     0.0
+    ],
+    [
+     4,
+     0.34
+    ],
+    [
+     7,
+     0.44
+    ],
+    [
+     13,
+     0.74
+    ],
+    [
+     19,
+     1.14
+    ],
+    [
+     27,
+     1.58
+    ],
+    [
+     32,
+     1.82
+    ],
+    [
+     36,
+     2.02
+    ],
+    [
+     39,
+     2.16
+    ],
+    [
+     44,
+     2.44
+    ],
+    [
+     48,
+     2.82
+    ],
+    [
+     56,
+     3.26
+    ],
+    [
+     59,
+     3.4
+    ],
+    [
+     65,
+     3.4
+    ],
+    [
+     68,
+     3.74
+    ],
+    [
+     72,
+     3.88
+    ],
+    [
+     76,
+     3.98
+    ],
+    [
+     80,
+     4.24
+    ],
+    [
+     85,
+     4.4
+    ],
+    [
+     89,
+     4.52
+    ],
+    [
+     94,
+     4.94
+    ],
+    [
+     96,
+     5.16
+    ],
+    [
+     100,
+     5.4
+    ],
+    [
+     104,
+     5.72
+    ],
+    [
+     110,
+     6.1
+    ],
+    [
+     115,
+     6.56
+    ]
+   ]
+  },
+  {
+   "id": "o3",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "Terminal में लिखो: ollama run phonon, फिर quotes में अपना text। भाषाएँ: English, French, German, Spanish और Portuguese। Hindi का ज़िक्र पेज में नहीं है।",
+   "layers": [
+    {
+     "kind": "box",
+     "html": "<span>AI NEWS DIGEST</span><span style=\"color:#778\"> &nbsp;·&nbsp; 5 Nov 2026</span>",
+     "x": 100,
+     "y": 44,
+     "css": "background:#fff;border:2px solid #E3E7EE;border-radius:999px;padding:14px 34px;font-size:34px;font-weight:800;white-space:nowrap;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)"
+    },
+    {
+     "kind": "box",
+     "html": "3 / 5",
+     "x": 1640,
+     "y": 44,
+     "css": "background:#FFD60A;border-radius:999px;padding:14px 38px;font-size:34px;font-weight:800;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)"
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:1720px;height:150px;background:#14171C;border-radius:28px;display:flex;align-items:center;overflow:hidden;color:#fff;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)\"><div style=\"width:18px;height:100%;background:#FFD60A;flex:none\"></div><div style=\"font-size:66px;font-weight:800;margin-left:34px;flex:1;white-space:nowrap\">Ollama: text se awaaz</div><div style=\"background:#FFD60A;color:#111;border-radius:999px;padding:12px 32px;font-size:38px;font-weight:800;margin-right:44px;white-space:nowrap\">Source: Ollama</div></div>",
+     "x": 100,
+     "y": 880,
+     "css": ""
+    },
+    {
+     "kind": "text",
+     "html": "**Ek command** me",
+     "x": 100,
+     "y": 170,
+     "size": 100,
+     "w": 1500,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:1000px;height:330px;border:2px solid #14171C;border-radius:34px;background:#14171C;color:#fff;overflow:hidden;position:relative;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)\"><div style=\"height:78px;background:#262B33;display:flex;align-items:center;gap:22px;padding-left:28px\"><div class=\"dot3\"><i style=\"background:#FFD60A\"></i><i style=\"background:#9AA3B2\"></i><i style=\"background:#9AA3B2\"></i></div><div class=\"mono\" style=\"font-size:30px;color:#FFD60A\">terminal</div></div></div>",
+     "x": 100,
+     "y": 330,
+     "css": "",
+     "in": 0.9,
+     "spring": true
+    },
+    {
+     "kind": "typed",
+     "text": "$ ollama run phonon \"Hello\"",
+     "x": 140,
+     "y": 440,
+     "size": 46,
+     "w": 940,
+     "sat": "ollama run|-0.4",
+     "color": "#fff",
+     "cps": 18,
+     "mono": true
+    },
+    {
+     "kind": "box",
+     "html": "<div class=\"mono\" style=\"font-size:50px;color:#fff;white-space:nowrap\"><span style=\"color:#FFD60A\">EN FR DE ES PT</span></div>",
+     "x": 140,
+     "y": 570,
+     "css": "background:#2B3038;border-radius:18px;padding:18px 28px",
+     "in": "भाषाएँ|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:640px;padding:26px 38px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"cross\" data-s=\"120\"></i><div><div style=\"font-size:70px;font-weight:800;line-height:1.1;color:#111\">Hindi</div><div style=\"font-size:42px;font-weight:700;color:#444;margin-top:6px;line-height:1.2\">page me nahi likha</div></div></div></div>",
+     "x": 1180,
+     "y": 460,
+     "css": "",
+     "in": "Hindi|-0.2",
+     "spring": true
+    }
+   ],
+   "wt": [
+    [
+     0,
+     0.0
+    ],
+    [
+     9,
+     0.6
+    ],
+    [
+     13,
+     0.72
+    ],
+    [
+     19,
+     0.96
+    ],
+    [
+     26,
+     1.78
+    ],
+    [
+     30,
+     2.1
+    ],
+    [
+     38,
+     2.66
+    ],
+    [
+     42,
+     3.28
+    ],
+    [
+     49,
+     3.66
+    ],
+    [
+     53,
+     3.76
+    ],
+    [
+     58,
+     3.98
+    ],
+    [
+     64,
+     5.12
+    ],
+    [
+     72,
+     5.64
+    ],
+    [
+     81,
+     6.36
+    ],
+    [
+     89,
+     7.06
+    ],
+    [
+     97,
+     7.72
+    ],
+    [
+     105,
+     8.34
+    ],
+    [
+     108,
+     8.46
+    ],
+    [
+     120,
+     8.98
+    ],
+    [
+     126,
+     9.76
+    ],
+    [
+     129,
+     9.92
+    ],
+    [
+     136,
+     10.12
+    ],
+    [
+     140,
+     10.34
+    ],
+    [
+     144,
+     10.48
+    ],
+    [
+     149,
+     10.62
+    ],
+    [
+     152,
+     11.04
+    ]
+   ]
+  },
+  {
+   "id": "e1",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "चौथी खबर: ElevenLabs का Eleven v4, एक text to speech model, जिसे वो अपना सबसे emotive model बताते हैं। साथ में एक तेज़ version, Eleven v4 Turbo भी है।",
+   "layers": [
+    {
+     "kind": "box",
+     "html": "<span>AI NEWS DIGEST</span><span style=\"color:#778\"> &nbsp;·&nbsp; 5 Nov 2026</span>",
+     "x": 100,
+     "y": 44,
+     "css": "background:#fff;border:2px solid #E3E7EE;border-radius:999px;padding:14px 34px;font-size:34px;font-weight:800;white-space:nowrap;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)"
+    },
+    {
+     "kind": "box",
+     "html": "4 / 5",
+     "x": 1640,
+     "y": 44,
+     "css": "background:#FFD60A;border-radius:999px;padding:14px 38px;font-size:34px;font-weight:800;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)"
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:1720px;height:150px;background:#14171C;border-radius:28px;display:flex;align-items:center;overflow:hidden;color:#fff;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)\"><div style=\"width:18px;height:100%;background:#FFD60A;flex:none\"></div><div style=\"font-size:66px;font-weight:800;margin-left:34px;flex:1;white-space:nowrap\">ElevenLabs Eleven v4</div><div style=\"background:#FFD60A;color:#111;border-radius:999px;padding:12px 32px;font-size:38px;font-weight:800;margin-right:44px;white-space:nowrap\">Source: ElevenLabs</div></div>",
+     "x": 100,
+     "y": 880,
+     "css": "",
+     "in": 0.9,
+     "spring": true
+    },
+    {
+     "kind": "text",
+     "html": "**Emotion** wali awaaz",
+     "x": 100,
+     "y": 170,
+     "size": 112,
+     "w": 1500,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:850px;padding:26px 38px;background:#14171C;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"play\" data-s=\"120\"></i><div><div style=\"font-size:78px;font-weight:800;line-height:1.1;color:#FFD60A\">Eleven v4</div><div style=\"font-size:45px;font-weight:700;color:#C9CFDA;margin-top:6px;line-height:1.2\">text to speech, sabse emotive</div></div></div></div>",
+     "x": 100,
+     "y": 460,
+     "css": "",
+     "in": "Eleven v4|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:790px;padding:26px 38px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"bolt\" data-s=\"120\"></i><div><div style=\"font-size:70px;font-weight:800;line-height:1.1;color:#111\">Eleven v4 Turbo</div><div style=\"font-size:45px;font-weight:700;color:#444;margin-top:6px;line-height:1.2\">tez wala version</div></div></div></div>",
+     "x": 1030,
+     "y": 460,
+     "css": "",
+     "in": "Turbo|-0.2",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:42px;font-weight:800\">text likho, awaaz suno</div>",
+     "x": 100,
+     "y": 750,
+     "css": "background:#FFD60A;border-radius:999px;padding:14px 40px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "text to speech|0.0",
+     "spring": true
+    }
+   ],
+   "wt": [
+    [
+     0,
+     0.0
+    ],
+    [
+     5,
+     0.86
+    ],
+    [
+     10,
+     1.46
+    ],
+    [
+     21,
+     1.84
+    ],
+    [
+     24,
+     2.1
+    ],
+    [
+     31,
+     3.28
+    ],
+    [
+     35,
+     3.56
+    ],
+    [
+     38,
+     3.56
+    ],
+    [
+     43,
+     3.88
+    ],
+    [
+     46,
+     4.0
+    ],
+    [
+     53,
+     4.26
+    ],
+    [
+     60,
+     4.94
+    ],
+    [
+     65,
+     5.16
+    ],
+    [
+     68,
+     5.52
+    ],
+    [
+     73,
+     5.8
+    ],
+    [
+     78,
+     5.9
+    ],
+    [
+     86,
+     6.06
+    ],
+    [
+     92,
+     6.64
+    ],
+    [
+     98,
+     6.92
+    ],
+    [
+     103,
+     7.7
+    ],
+    [
+     107,
+     8.06
+    ],
+    [
+     111,
+     8.38
+    ],
+    [
+     114,
+     8.38
+    ],
+    [
+     119,
+     8.56
+    ],
+    [
+     128,
+     8.84
+    ],
+    [
+     135,
+     9.18
+    ],
+    [
+     138,
+     10.16
+    ],
+    [
+     144,
+     10.54
+    ],
+    [
+     147,
+     10.68
+    ],
+    [
+     150,
+     11.0
+    ]
+   ]
+  },
+  {
+   "id": "e2",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "ये नब्बे से ज़्यादा भाषाओं में बोलता है, और आप लिखकर बता सकते हो कि लाइन किस emotion में बोलनी है। Hindi अलग से पेज में नहीं लिखा। Free account बनाकर try कर सकते हो।",
+   "layers": [
+    {
+     "kind": "box",
+     "html": "<span>AI NEWS DIGEST</span><span style=\"color:#778\"> &nbsp;·&nbsp; 5 Nov 2026</span>",
+     "x": 100,
+     "y": 44,
+     "css": "background:#fff;border:2px solid #E3E7EE;border-radius:999px;padding:14px 34px;font-size:34px;font-weight:800;white-space:nowrap;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)"
+    },
+    {
+     "kind": "box",
+     "html": "4 / 5",
+     "x": 1640,
+     "y": 44,
+     "css": "background:#FFD60A;border-radius:999px;padding:14px 38px;font-size:34px;font-weight:800;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)"
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:1720px;height:150px;background:#14171C;border-radius:28px;display:flex;align-items:center;overflow:hidden;color:#fff;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)\"><div style=\"width:18px;height:100%;background:#FFD60A;flex:none\"></div><div style=\"font-size:66px;font-weight:800;margin-left:34px;flex:1;white-space:nowrap\">ElevenLabs Eleven v4</div><div style=\"background:#FFD60A;color:#111;border-radius:999px;padding:12px 32px;font-size:38px;font-weight:800;margin-right:44px;white-space:nowrap\">Source: ElevenLabs</div></div>",
+     "x": 100,
+     "y": 880,
+     "css": ""
+    },
+    {
+     "kind": "text",
+     "html": "**90+** bhashayein",
+     "x": 100,
+     "y": 170,
+     "size": 112,
+     "w": 1500,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:850px;padding:26px 38px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"globe\" data-s=\"120\"></i><div><div style=\"font-size:62px;font-weight:800;line-height:1.1;color:#111\">90 se zyada bhashayein</div><div style=\"font-size:42px;font-weight:700;color:#444;margin-top:6px;line-height:1.2\">page me Hindi alag se nahi likha</div></div></div></div>",
+     "x": 100,
+     "y": 460,
+     "css": "",
+     "in": 0.9,
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:790px;padding:26px 38px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"chat\" data-s=\"120\"></i><div><div style=\"font-size:60px;font-weight:800;line-height:1.1;color:#111\">Likh kar batao</div><div style=\"font-size:42px;font-weight:700;color:#444;margin-top:6px;line-height:1.2\">line kis emotion me boli jaye</div></div></div></div>",
+     "x": 1030,
+     "y": 460,
+     "css": "",
+     "in": "लिखकर बता|-0.2",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:850px;padding:26px 38px;background:#FFD60A;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"user\" data-s=\"120\"></i><div><div style=\"font-size:60px;font-weight:800;line-height:1.1;color:#111\">Free account</div><div style=\"font-size:42px;font-weight:700;color:#444;margin-top:6px;line-height:1.2\">bana kar try kar sakte ho</div></div></div></div>",
+     "x": 100,
+     "y": 690,
+     "css": "",
+     "in": "Free account|-0.1",
+     "spring": true
+    }
+   ],
+   "wt": [
+    [
+     0,
+     0.0
+    ],
+    [
+     3,
+     0.48
+    ],
+    [
+     9,
+     0.94
+    ],
+    [
+     12,
+     1.12
+    ],
+    [
+     20,
+     1.48
+    ],
+    [
+     27,
+     1.92
+    ],
+    [
+     31,
+     2.04
+    ],
+    [
+     37,
+     2.34
+    ],
+    [
+     41,
+     2.74
+    ],
+    [
+     44,
+     3.06
+    ],
+    [
+     47,
+     3.14
+    ],
+    [
+     53,
+     3.48
+    ],
+    [
+     57,
+     3.7
+    ],
+    [
+     62,
+     3.98
+    ],
+    [
+     65,
+     4.06
+    ],
+    [
+     68,
+     4.16
+    ],
+    [
+     73,
+     4.48
+    ],
+    [
+     77,
+     4.66
+    ],
+    [
+     85,
+     4.84
+    ],
+    [
+     89,
+     5.12
+    ],
+    [
+     95,
+     5.22
+    ],
+    [
+     99,
+     5.6
+    ],
+    [
+     105,
+     6.2
+    ],
+    [
+     109,
+     6.68
+    ],
+    [
+     112,
+     7.08
+    ],
+    [
+     116,
+     7.24
+    ],
+    [
+     120,
+     7.38
+    ],
+    [
+     125,
+     7.56
+    ],
+    [
+     131,
+     8.3
+    ],
+    [
+     136,
+     8.68
+    ],
+    [
+     144,
+     8.96
+    ],
+    [
+     150,
+     9.24
+    ],
+    [
+     154,
+     9.46
+    ],
+    [
+     157,
+     9.58
+    ],
+    [
+     162,
+     9.86
+    ],
+    [
+     165,
+     10.16
+    ]
+   ]
+  },
+  {
+   "id": "e3",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "Voice clone के लिए दस second की audio चाहिए, ये पेज में लिखा है। दाम पेज में नहीं लिखा। और किसी की आवाज़ बिना इजाज़त clone मत करना।",
+   "layers": [
+    {
+     "kind": "box",
+     "html": "<span>AI NEWS DIGEST</span><span style=\"color:#778\"> &nbsp;·&nbsp; 5 Nov 2026</span>",
+     "x": 100,
+     "y": 44,
+     "css": "background:#fff;border:2px solid #E3E7EE;border-radius:999px;padding:14px 34px;font-size:34px;font-weight:800;white-space:nowrap;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)"
+    },
+    {
+     "kind": "box",
+     "html": "4 / 5",
+     "x": 1640,
+     "y": 44,
+     "css": "background:#FFD60A;border-radius:999px;padding:14px 38px;font-size:34px;font-weight:800;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)"
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:1720px;height:150px;background:#14171C;border-radius:28px;display:flex;align-items:center;overflow:hidden;color:#fff;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)\"><div style=\"width:18px;height:100%;background:#FFD60A;flex:none\"></div><div style=\"font-size:66px;font-weight:800;margin-left:34px;flex:1;white-space:nowrap\">ElevenLabs Eleven v4</div><div style=\"background:#FFD60A;color:#111;border-radius:999px;padding:12px 32px;font-size:38px;font-weight:800;margin-right:44px;white-space:nowrap\">Source: ElevenLabs</div></div>",
+     "x": 100,
+     "y": 880,
+     "css": ""
+    },
+    {
+     "kind": "text",
+     "html": "**Voice clone**",
+     "x": 100,
+     "y": 170,
+     "size": 112,
+     "w": 1500,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:150px;font-weight:800;line-height:1\">10 <span style=\"font-size:60px\">sec</span></div><div style=\"font-size:38px;font-weight:700;color:#444\">audio chahiye (page ke hisaab se)</div>",
+     "x": 100,
+     "y": 380,
+     "css": "background:#fff;border:2px solid #E3E7EE;border-radius:34px;padding:34px 50px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": 0.9,
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:560px;padding:26px 38px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"magnifier\" data-s=\"120\"></i><div><div style=\"font-size:70px;font-weight:800;line-height:1.1;color:#111\">Daam?</div><div style=\"font-size:45px;font-weight:700;color:#444;margin-top:6px;line-height:1.2\">page me nahi likha</div></div></div></div>",
+     "x": 900,
+     "y": 460,
+     "css": "",
+     "in": "दाम|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:920px;padding:26px 38px;background:#14171C;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"shield\" data-s=\"120\"></i><div><div style=\"font-size:58px;font-weight:800;line-height:1.1;color:#FFD60A\">Sirf apni awaaz</div><div style=\"font-size:42px;font-weight:700;color:#C9CFDA;margin-top:6px;line-height:1.2\">bina ijazat kisi aur ki nahi</div></div></div></div>",
+     "x": 900,
+     "y": 620,
+     "css": "",
+     "in": "इजाज़त|-0.5",
+     "spring": true
+    }
+   ],
+   "wt": [
+    [
+     0,
+     0.0
+    ],
+    [
+     6,
+     0.42
+    ],
+    [
+     12,
+     0.68
+    ],
+    [
+     15,
+     0.9
+    ],
+    [
+     19,
+     1.08
+    ],
+    [
+     22,
+     1.5
+    ],
+    [
+     29,
+     2.02
+    ],
+    [
+     32,
+     2.02
+    ],
+    [
+     38,
+     2.32
+    ],
+    [
+     45,
+     2.66
+    ],
+    [
+     48,
+     2.88
+    ],
+    [
+     52,
+     3.16
+    ],
+    [
+     56,
+     3.28
+    ],
+    [
+     61,
+     3.46
+    ],
+    [
+     65,
+     4.0
+    ],
+    [
+     69,
+     4.38
+    ],
+    [
+     73,
+     4.64
+    ],
+    [
+     77,
+     4.82
+    ],
+    [
+     82,
+     5.44
+    ],
+    [
+     88,
+     5.8
+    ],
+    [
+     91,
+     6.08
+    ],
+    [
+     96,
+     6.08
+    ],
+    [
+     99,
+     6.2
+    ],
+    [
+     105,
+     6.5
+    ],
+    [
+     110,
+     6.84
+    ],
+    [
+     117,
+     7.14
+    ],
+    [
+     123,
+     7.46
+    ],
+    [
+     126,
+     7.58
+    ],
+    [
+     131,
+     8.08
+    ]
+   ]
+  },
+  {
+   "id": "c1",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "पाँचवीं खबर Claude Code से। नए version में अब पता चलता है कि आपका claude.ai sign-in कब खत्म होगा।",
+   "layers": [
+    {
+     "kind": "box",
+     "html": "<span>AI NEWS DIGEST</span><span style=\"color:#778\"> &nbsp;·&nbsp; 5 Nov 2026</span>",
+     "x": 100,
+     "y": 44,
+     "css": "background:#fff;border:2px solid #E3E7EE;border-radius:999px;padding:14px 34px;font-size:34px;font-weight:800;white-space:nowrap;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)"
+    },
+    {
+     "kind": "box",
+     "html": "5 / 5",
+     "x": 1640,
+     "y": 44,
+     "css": "background:#FFD60A;border-radius:999px;padding:14px 38px;font-size:34px;font-weight:800;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)"
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:1720px;height:150px;background:#14171C;border-radius:28px;display:flex;align-items:center;overflow:hidden;color:#fff;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)\"><div style=\"width:18px;height:100%;background:#FFD60A;flex:none\"></div><div style=\"font-size:66px;font-weight:800;margin-left:34px;flex:1;white-space:nowrap\">Claude Code: login ki tarikh</div><div style=\"background:#FFD60A;color:#111;border-radius:999px;padding:12px 32px;font-size:38px;font-weight:800;margin-right:44px;white-space:nowrap\">Source: Claude Docs</div></div>",
+     "x": 100,
+     "y": 880,
+     "css": "",
+     "in": 0.9,
+     "spring": true
+    },
+    {
+     "kind": "text",
+     "html": "**Login** kab khatam?",
+     "x": 100,
+     "y": 170,
+     "size": 112,
+     "w": 1500,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:900px;padding:26px 38px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"lock\" data-s=\"120\"></i><div><div style=\"font-size:68px;font-weight:800;line-height:1.1;color:#111\">claude.ai sign-in</div><div style=\"font-size:45px;font-weight:700;color:#444;margin-top:6px;line-height:1.2\">ab uski aakhri tarikh dikhti hai</div></div></div></div>",
+     "x": 100,
+     "y": 460,
+     "css": "",
+     "in": "sign-in|-0.2",
+     "spring": true
+    },
+    {
+     "kind": "icon",
+     "name": "clock",
+     "x": 1240,
+     "y": 340,
+     "size": 300,
+     "in": "कब खत्म|-0.2",
+     "spring": true,
+     "float": 8,
+     "wig": "कब खत्म|0.2"
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:34px;font-weight:700\">Claude Code 2.1.318 · 4 Nov 2026</div>",
+     "x": 100,
+     "y": 750,
+     "css": "background:#fff;border:2px solid #E3E7EE;border-radius:999px;padding:14px 34px;font-size:34px;font-weight:800;white-space:nowrap;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "नए version|0.0",
+     "spring": true
+    }
+   ],
+   "wt": [
+    [
+     0,
+     0.0
+    ],
+    [
+     8,
+     0.54
+    ],
+    [
+     12,
+     0.98
+    ],
+    [
+     19,
+     1.28
+    ],
+    [
+     24,
+     1.5
+    ],
+    [
+     28,
+     2.06
+    ],
+    [
+     31,
+     2.58
+    ],
+    [
+     39,
+     2.92
+    ],
+    [
+     43,
+     3.14
+    ],
+    [
+     46,
+     3.44
+    ],
+    [
+     50,
+     3.76
+    ],
+    [
+     55,
+     3.82
+    ],
+    [
+     58,
+     3.92
+    ],
+    [
+     61,
+     4.18
+    ],
+    [
+     66,
+     4.56
+    ],
+    [
+     76,
+     4.9
+    ],
+    [
+     84,
+     5.42
+    ],
+    [
+     87,
+     5.7
+    ],
+    [
+     92,
+     5.92
+    ],
+    [
+     97,
+     6.44
+    ]
+   ]
+  },
+  {
+   "id": "c2",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "Terminal में claude auth status चलाओ। उसमें loginExpiresAt नाम से वो तारीख दिखती है।",
+   "layers": [
+    {
+     "kind": "box",
+     "html": "<span>AI NEWS DIGEST</span><span style=\"color:#778\"> &nbsp;·&nbsp; 5 Nov 2026</span>",
+     "x": 100,
+     "y": 44,
+     "css": "background:#fff;border:2px solid #E3E7EE;border-radius:999px;padding:14px 34px;font-size:34px;font-weight:800;white-space:nowrap;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)"
+    },
+    {
+     "kind": "box",
+     "html": "5 / 5",
+     "x": 1640,
+     "y": 44,
+     "css": "background:#FFD60A;border-radius:999px;padding:14px 38px;font-size:34px;font-weight:800;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)"
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:1720px;height:150px;background:#14171C;border-radius:28px;display:flex;align-items:center;overflow:hidden;color:#fff;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)\"><div style=\"width:18px;height:100%;background:#FFD60A;flex:none\"></div><div style=\"font-size:66px;font-weight:800;margin-left:34px;flex:1;white-space:nowrap\">Claude Code: login ki tarikh</div><div style=\"background:#FFD60A;color:#111;border-radius:999px;padding:12px 32px;font-size:38px;font-weight:800;margin-right:44px;white-space:nowrap\">Source: Claude Docs</div></div>",
+     "x": 100,
+     "y": 880,
+     "css": ""
+    },
+    {
+     "kind": "text",
+     "html": "**Step 1:** auth status",
+     "x": 100,
+     "y": 170,
+     "size": 100,
+     "w": 1500,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:1100px;height:400px;border:2px solid #14171C;border-radius:34px;background:#14171C;color:#fff;overflow:hidden;position:relative;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)\"><div style=\"height:78px;background:#262B33;display:flex;align-items:center;gap:22px;padding-left:28px\"><div class=\"dot3\"><i style=\"background:#FFD60A\"></i><i style=\"background:#9AA3B2\"></i><i style=\"background:#9AA3B2\"></i></div><div class=\"mono\" style=\"font-size:30px;color:#FFD60A\">terminal</div></div></div>",
+     "x": 100,
+     "y": 330,
+     "css": "",
+     "in": 0.9,
+     "spring": true
+    },
+    {
+     "kind": "typed",
+     "text": "$ claude auth status",
+     "x": 140,
+     "y": 450,
+     "size": 48,
+     "w": 1000,
+     "sat": "claude auth status|-0.5",
+     "color": "#fff",
+     "cps": 20,
+     "mono": true
+    },
+    {
+     "kind": "box",
+     "html": "<div class=\"mono\" style=\"font-size:48px;color:#fff;white-space:nowrap\"><span style=\"color:#FFD60A\">loginExpiresAt</span>: &lt;date&gt;</div>",
+     "x": 140,
+     "y": 580,
+     "css": "background:#2B3038;border-radius:18px;padding:22px 28px;border:3px solid #FFD60A",
+     "in": "loginExpiresAt|-0.9",
+     "spring": true
+    },
+    {
+     "kind": "icon",
+     "name": "check",
+     "x": 1400,
+     "y": 480,
+     "size": 170,
+     "in": "तारीख दिखती|-0.3",
+     "spring": true,
+     "drawon": [
+      "तारीख दिखती|-0.3",
+      0.6
+     ]
+    }
+   ],
+   "wt": [
+    [
+     0,
+     0.0
+    ],
+    [
+     9,
+     0.66
+    ],
+    [
+     13,
+     0.86
+    ],
+    [
+     20,
+     1.36
+    ],
+    [
+     25,
+     1.76
+    ],
+    [
+     32,
+     2.36
+    ],
+    [
+     38,
+     2.52
+    ],
+    [
+     44,
+     3.0
+    ],
+    [
+     59,
+     3.48
+    ],
+    [
+     63,
+     3.68
+    ],
+    [
+     66,
+     3.9
+    ],
+    [
+     69,
+     4.16
+    ],
+    [
+     75,
+     4.46
+    ],
+    [
+     81,
+     4.78
+    ],
+    [
+     84,
+     5.12
+    ]
+   ]
+  },
+  {
+   "id": "c3",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "claude -p चलाने वालों को JSON result में credential_expires_at मिलता है, और sign-in खत्म होने से दस दिन पहले एक लाइन की warning भी।",
+   "layers": [
+    {
+     "kind": "box",
+     "html": "<span>AI NEWS DIGEST</span><span style=\"color:#778\"> &nbsp;·&nbsp; 5 Nov 2026</span>",
+     "x": 100,
+     "y": 44,
+     "css": "background:#fff;border:2px solid #E3E7EE;border-radius:999px;padding:14px 34px;font-size:34px;font-weight:800;white-space:nowrap;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)"
+    },
+    {
+     "kind": "box",
+     "html": "5 / 5",
+     "x": 1640,
+     "y": 44,
+     "css": "background:#FFD60A;border-radius:999px;padding:14px 38px;font-size:34px;font-weight:800;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)"
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:1720px;height:150px;background:#14171C;border-radius:28px;display:flex;align-items:center;overflow:hidden;color:#fff;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)\"><div style=\"width:18px;height:100%;background:#FFD60A;flex:none\"></div><div style=\"font-size:66px;font-weight:800;margin-left:34px;flex:1;white-space:nowrap\">Claude Code: login ki tarikh</div><div style=\"background:#FFD60A;color:#111;border-radius:999px;padding:12px 32px;font-size:38px;font-weight:800;margin-right:44px;white-space:nowrap\">Source: Claude Docs</div></div>",
+     "x": 100,
+     "y": 880,
+     "css": ""
+    },
+    {
+     "kind": "text",
+     "html": "**claude -p** me bhi",
+     "x": 100,
+     "y": 170,
+     "size": 100,
+     "w": 1500,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:850px;padding:26px 38px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"code\" data-s=\"120\"></i><div><div style=\"font-size:60px;font-weight:800;line-height:1.1;color:#111\">JSON result me</div><div style=\"font-size:50px;font-weight:700;color:#444;margin-top:6px;line-height:1.2\">credential_expires_at</div></div></div></div>",
+     "x": 100,
+     "y": 460,
+     "css": "",
+     "in": 0.9,
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:790px;padding:26px 38px;background:#FFD60A;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"bell\" data-s=\"120\"></i><div><div style=\"font-size:60px;font-weight:800;line-height:1.1;color:#111\">10 din pehle warning</div><div style=\"font-size:42px;font-weight:700;color:#444;margin-top:6px;line-height:1.2\">text output me, ek line</div></div></div></div>",
+     "x": 1030,
+     "y": 460,
+     "css": "",
+     "in": "दस दिन|-0.2",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:42px;font-weight:800\">scripts me bhi tarikh padh sakte ho</div>",
+     "x": 100,
+     "y": 750,
+     "css": "background:#fff;border:2px solid #E3E7EE;border-radius:999px;padding:14px 34px;font-size:34px;font-weight:800;white-space:nowrap;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "warning|0.3",
+     "spring": true
+    }
+   ],
+   "wt": [
+    [
+     0,
+     0.0
+    ],
+    [
+     7,
+     0.54
+    ],
+    [
+     10,
+     0.84
+    ],
+    [
+     16,
+     1.44
+    ],
+    [
+     22,
+     2.14
+    ],
+    [
+     25,
+     2.5
+    ],
+    [
+     30,
+     2.74
+    ],
+    [
+     37,
+     2.78
+    ],
+    [
+     41,
+     3.3
+    ],
+    [
+     63,
+     3.78
+    ],
+    [
+     69,
+     4.32
+    ],
+    [
+     73,
+     4.46
+    ],
+    [
+     76,
+     5.18
+    ],
+    [
+     84,
+     5.46
+    ],
+    [
+     89,
+     5.74
+    ],
+    [
+     94,
+     5.84
+    ],
+    [
+     97,
+     6.22
+    ],
+    [
+     100,
+     6.36
+    ],
+    [
+     104,
+     6.66
+    ],
+    [
+     109,
+     6.86
+    ],
+    [
+     112,
+     7.5
+    ],
+    [
+     117,
+     7.64
+    ],
+    [
+     120,
+     7.8
+    ],
+    [
+     128,
+     8.16
+    ],
+    [
+     131,
+     8.64
+    ]
+   ]
+  },
+  {
+   "id": "recap",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "तो आज की पाँच खबरें: Gemini 4 Carbon अभी सिर्फ चुने हुए लोगों के लिए है। Mistral Large 4 के weights download हो सकते हैं। Ollama पर Mac में text to speech आ गया। ElevenLabs का v4 ज़्यादा emotion के साथ बोलता है। और Claude Code में login की तारीख दिखती है।",
+   "layers": [
+    {
+     "kind": "box",
+     "html": "<span>AI NEWS DIGEST</span><span style=\"color:#778\"> &nbsp;·&nbsp; 5 Nov 2026</span>",
+     "x": 100,
+     "y": 44,
+     "css": "background:#fff;border:2px solid #E3E7EE;border-radius:999px;padding:14px 34px;font-size:34px;font-weight:800;white-space:nowrap;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)"
+    },
+    {
+     "kind": "text",
+     "html": "**Aaj ka recap**",
+     "x": 100,
+     "y": 130,
+     "size": 96,
+     "w": 1200,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:880px;padding:26px 38px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"sparkle\" data-s=\"80\"></i><div><div style=\"font-size:46px;font-weight:800;line-height:1.1;color:#111\">Gemini 4 Carbon</div><div style=\"font-size:34px;font-weight:700;color:#444;margin-top:6px;line-height:1.2\">abhi chune hue logon ke liye</div></div></div></div>",
+     "x": 100,
+     "y": 300,
+     "css": "",
+     "in": "Gemini 4 Carbon|-0.2",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:880px;padding:26px 38px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"box\" data-s=\"80\"></i><div><div style=\"font-size:46px;font-weight:800;line-height:1.1;color:#111\">Mistral Large 4</div><div style=\"font-size:34px;font-weight:700;color:#444;margin-top:6px;line-height:1.2\">weights download ho sakte hain</div></div></div></div>",
+     "x": 100,
+     "y": 490,
+     "css": "",
+     "in": "Mistral Large 4|-0.2",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:880px;padding:26px 38px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"terminal\" data-s=\"80\"></i><div><div style=\"font-size:46px;font-weight:800;line-height:1.1;color:#111\">Ollama on Mac</div><div style=\"font-size:34px;font-weight:700;color:#444;margin-top:6px;line-height:1.2\">text to speech aa gaya</div></div></div></div>",
+     "x": 100,
+     "y": 680,
+     "css": "",
+     "in": "Ollama पर|-0.2",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:880px;padding:26px 38px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"bolt\" data-s=\"80\"></i><div><div style=\"font-size:46px;font-weight:800;line-height:1.1;color:#111\">ElevenLabs v4</div><div style=\"font-size:34px;font-weight:700;color:#444;margin-top:6px;line-height:1.2\">zyada emotion ke saath</div></div></div></div>",
+     "x": 1000,
+     "y": 300,
+     "css": "",
+     "in": "ElevenLabs का|-0.2",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:880px;padding:26px 38px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"code\" data-s=\"80\"></i><div><div style=\"font-size:46px;font-weight:800;line-height:1.1;color:#111\">Claude Code</div><div style=\"font-size:34px;font-weight:700;color:#444;margin-top:6px;line-height:1.2\">login ki tarikh dikhti hai</div></div></div></div>",
+     "x": 1000,
+     "y": 490,
+     "css": "",
+     "in": "Claude Code में|-0.2",
+     "spring": true
+    },
+    {
+     "kind": "img",
+     "img": "think",
+     "size": 330,
+     "x": 1480,
+     "y": 640,
+     "bob": 1,
+     "k": [
+      [
+       "Gemini 4 Carbon|0.0",
+       {
+        "o": 0
+       }
+      ],
+      [
+       "Gemini 4 Carbon|0.5",
+       {
+        "o": 1
+       }
+      ]
+     ]
+    }
+   ],
+   "wt": [
+    [
+     0,
+     0.0
+    ],
+    [
+     3,
+     0.44
+    ],
+    [
+     6,
+     0.74
+    ],
+    [
+     9,
+     0.9
+    ],
+    [
+     14,
+     1.22
+    ],
+    [
+     21,
+     1.96
+    ],
+    [
+     28,
+     2.6
+    ],
+    [
+     30,
+     2.92
+    ],
+    [
+     37,
+     3.4
+    ],
+    [
+     41,
+     3.7
+    ],
+    [
+     47,
+     3.92
+    ],
+    [
+     52,
+     4.34
+    ],
+    [
+     56,
+     4.62
+    ],
+    [
+     62,
+     4.76
+    ],
+    [
+     65,
+     4.9
+    ],
+    [
+     69,
+     5.54
+    ],
+    [
+     73,
+     6.18
+    ],
+    [
+     81,
+     6.54
+    ],
+    [
+     87,
+     6.86
+    ],
+    [
+     89,
+     7.04
+    ],
+    [
+     92,
+     7.46
+    ],
+    [
+     100,
+     7.84
+    ],
+    [
+     109,
+     7.98
+    ],
+    [
+     112,
+     8.26
+    ],
+    [
+     117,
+     8.96
+    ],
+    [
+     122,
+     9.3
+    ],
+    [
+     129,
+     9.3
+    ],
+    [
+     132,
+     9.52
+    ],
+    [
+     136,
+     9.82
+    ],
+    [
+     140,
+     10.32
+    ],
+    [
+     145,
+     10.68
+    ],
+    [
+     148,
+     11.08
+    ],
+    [
+     155,
+     11.18
+    ],
+    [
+     157,
+     11.46
+    ],
+    [
+     162,
+     12.3
+    ],
+    [
+     173,
+     12.66
+    ],
+    [
+     176,
+     13.0
+    ],
+    [
+     179,
+     13.16
+    ],
+    [
+     187,
+     13.4
+    ],
+    [
+     195,
+     13.84
+    ],
+    [
+     198,
+     14.28
+    ],
+    [
+     202,
+     14.7
+    ],
+    [
+     208,
+     14.88
+    ],
+    [
+     212,
+     15.04
+    ],
+    [
+     215,
+     15.32
+    ],
+    [
+     222,
+     15.46
+    ],
+    [
+     227,
+     16.08
+    ],
+    [
+     231,
+     16.78
+    ],
+    [
+     237,
+     17.56
+    ],
+    [
+     240,
+     17.74
+    ],
+    [
+     246,
+     18.04
+    ],
+    [
+     252,
+     18.34
+    ],
+    [
+     255,
+     18.68
+    ]
+   ]
+  },
+  {
+   "id": "follow",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "AI के ऐसे काम के features चाहिए? Yellow Bot को follow करो।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "**Yellow Bot** ko follow karo",
+     "x": 100,
+     "y": 120,
+     "size": 130,
+     "w": 1200,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.15
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:130px;font-weight:800;line-height:1\">Follow</div>",
+     "x": 160,
+     "y": 640,
+     "css": "background:#FFD60A;border:0;border-radius:999px;padding:30px 120px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "wig": 4.35,
+     "float": 5,
+     "in": "0.5|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "icon",
+     "name": "cursor",
+     "x": 0,
+     "y": 0,
+     "size": 140,
+     "k": [
+      [
+       3.4,
+       {
+        "x": 900,
+        "y": 880,
+        "o": 0
+       }
+      ],
+      [
+       3.5,
+       {
+        "x": 900,
+        "y": 880,
+        "o": 1
+       }
+      ],
+      [
+       4.2,
+       {
+        "x": 520,
+        "y": 780
+       }
+      ]
+     ],
+     "wig": 4.3
+    },
+    {
+     "kind": "icon",
+     "name": "bell",
+     "x": 930,
+     "y": 640,
+     "size": 200,
+     "wig": 4.7,
+     "float": 6,
+     "in": 4.5,
+     "spring": true
+    },
+    {
+     "kind": "img",
+     "img": "thumbs",
+     "size": 560,
+     "x": 1180,
+     "y": 330,
+     "bob": 1,
+     "k": [
+      [
+       0.2,
+       {
+        "x": 2200,
+        "o": 1
+       }
+      ],
+      [
+       0.9,
+       {
+        "x": 1180
+       }
+      ]
+     ]
+    }
+   ],
+   "wt": [
+    [
+     0,
+     2.22
+    ],
+    [
+     3,
+     2.22
+    ],
+    [
+     6,
+     2.62
+    ],
+    [
+     10,
+     2.62
+    ],
+    [
+     14,
+     2.62
+    ],
+    [
+     17,
+     2.62
+    ],
+    [
+     26,
+     2.74
+    ],
+    [
+     33,
+     2.74
+    ],
+    [
+     40,
+     2.74
+    ],
+    [
+     44,
+     2.74
+    ],
+    [
+     47,
+     3.0
+    ],
+    [
+     54,
+     3.0
+    ],
+    [
+     58,
+     3.6
+    ]
+   ]
+  }
+ ]
+}

@@ -7,9 +7,9 @@
 @font-face{font-family:Mukta;src:url("{{FONTS}}/Mukta-Bold.ttf");font-weight:700}
 @font-face{font-family:Mono;src:url("{{FONTS}}/IBMPlexMono-Bold.ttf")}
 *{box-sizing:border-box;margin:0}
-html,body{width:1080px;height:1920px;overflow:hidden;background:#fff}
-#stage{position:relative;width:1080px;height:1920px;overflow:hidden;background:#fff;font-family:Pop,Mukta,sans-serif;color:#111}
-.sc{position:absolute;left:0;top:0;width:1080px;height:1920px;display:none}
+html,body{width:var(--W,1080px);height:var(--H,1920px);overflow:hidden;background:#fff}
+#stage{position:relative;width:var(--W,1080px);height:var(--H,1920px);overflow:hidden;background:#fff;font-family:Pop,Mukta,sans-serif;color:#111}
+.sc{position:absolute;left:0;top:0;width:var(--W,1080px);height:var(--H,1920px);display:none}
 .abs{position:absolute}
 .tag{position:absolute;left:80px;top:110px;background:#FFD60A;color:#111;font-weight:700;font-size:38px;line-height:1;padding:16px 30px;border-radius:999px;white-space:nowrap}
 .hl{background:linear-gradient(#FFD60A,#FFD60A) no-repeat 0 92%/var(--w,0%) 52%;padding:0 .07em;margin:0 -.03em}
@@ -22,14 +22,14 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#fff}
 .grey{background:#F2F2F2;color:#111}
 .mono{font-family:Mono,monospace}
 .shadow{box-shadow:0 22px 50px rgba(0,0,0,.16)}
-#wipe{position:absolute;left:0;top:0;width:1080px;height:1920px;background:#FFD60A;display:none}
+#wipe{position:absolute;left:0;top:0;width:var(--W,1080px);height:var(--H,1920px);background:#FFD60A;display:none}
 #bar{position:absolute;left:0;top:0;height:10px;background:#111;width:0}
 .code{font-family:Mono,monospace;font-weight:700;white-space:pre}
 .mk .w{background:linear-gradient(#FFD60A,#FFD60A) no-repeat 0 97%/var(--mw,0%) 20%}
 .sticky{background:#FFD60A;color:#111;border-radius:8px 8px 8px 46px;box-shadow:0 20px 34px rgba(0,0,0,.2)}
 .torn{background:#fff;border:5px solid #111;border-bottom:0;box-shadow:0 18px 30px rgba(0,0,0,.14);clip-path:polygon(0 0,100% 0,100% 95%,95% 100%,90% 95%,85% 100%,80% 95%,75% 100%,70% 95%,65% 100%,60% 95%,55% 100%,50% 95%,45% 100%,40% 95%,35% 100%,30% 95%,25% 100%,20% 95%,15% 100%,10% 95%,5% 100%,0 95%)}
 .keycap{display:inline-flex;align-items:center;justify-content:center;border:5px solid #111;border-bottom-width:13px;border-radius:22px;background:#fff;font-family:Mono,monospace;font-weight:700;padding:4px 26px;line-height:1.1}
-#rail{position:absolute;left:0;top:0;width:1080px;height:1920px;pointer-events:none;display:none}
+#rail{position:absolute;left:0;top:0;width:var(--W,1080px);height:var(--H,1920px);pointer-events:none;display:none}
 .ic .f{fill:var(--fc,#FFD60A)}
 .gl{background:linear-gradient(100deg,#111 0%,#111 calc(var(--g,-30%) - 14%),#FFD60A calc(var(--g,-30%) - 4%),#fff var(--g,-30%),#FFD60A calc(var(--g,-30%) + 4%),#111 calc(var(--g,-30%) + 14%),#111 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
 #portal{position:absolute;border-radius:50%;border:38px solid #FFD60A;box-shadow:0 0 0 8px #111,inset 0 0 0 8px #111,0 0 90px 30px rgba(255,214,10,.55);display:none;box-sizing:border-box;pointer-events:none}
@@ -41,7 +41,8 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#fff}
 <body><div id="stage"><div id="scenes"></div><div id="bar"></div><div id="rail"></div><div id="portal"></div><svg width="0" height="0" style="position:absolute"><filter id="goo" x="-25%" y="-25%" width="150%" height="150%"><feGaussianBlur in="SourceGraphic" stdDeviation="7" result="b"/><feColorMatrix in="b" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 24 -10"/></filter></svg><div id="wipe"></div></div>
 <script>
 const D=/*DATA*/null;
-const W=1080,H=1920,TAG=D.tag||"";
+const W=D.w||1080,H=D.h||1920,TAG=D.tag||"";
+document.documentElement.style.setProperty('--W',W+'px');document.documentElement.style.setProperty('--H',H+'px'); // landscape decks: deck.json "format":"landscape" -> w 1920 / h 1080
 const E=id=>document.getElementById(id), c=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
 const eo=p=>1-Math.pow(1-p,4), eio=p=>p<.5?4*p*p*p:1-Math.pow(-2*p+2,3)/2;
 const back=p=>{const a=1.8,b=a+1;return 1+b*Math.pow(p-1,3)+a*Math.pow(p-1,2)};
@@ -97,14 +98,14 @@ function ptOf(v,lt){return Array.isArray(v)?v:orbPos(v.orbit,lt)}
 function polyAt(P,u){let tot=0;const seg=[];for(let i=1;i<P.length;i++){const d=Math.hypot(P[i][0]-P[i-1][0],P[i][1]-P[i-1][1]);seg.push(d);tot+=d}
   let t=c(u)*tot;for(let i=0;i<seg.length;i++){if(t<=seg[i]||i===seg.length-1){const q=seg[i]?t/seg[i]:0;return [P[i][0]+(P[i+1][0]-P[i][0])*q,P[i][1]+(P[i+1][1]-P[i][1])*q]}t-=seg[i]}return P[P.length-1]}
 const rn=(i,k)=>{const v=Math.sin(i*127.1+k*311.7+7.3)*43758.5453;return v-Math.floor(v)};
-function cv(root){const e=document.createElement('canvas');e.width=1080;e.height=1920;e.style.cssText='position:absolute;left:0;top:0;width:1080px;height:1920px';root.appendChild(e);return {el:e,g:e.getContext('2d')}}
+function cv(root){const e=document.createElement('canvas');e.width=W;e.height=H;e.style.cssText='position:absolute;left:0;top:0;width:'+W+'px;height:'+H+'px';root.appendChild(e);return {el:e,g:e.getContext('2d')}}
 function star(g,x,y,r,rot,fill,stroke,lw){g.save();g.translate(x,y);g.rotate(rot||0);g.beginPath();for(let i=0;i<8;i++){const a=i*Math.PI/4-Math.PI/2,rr=i%2?r*.28:r;g.lineTo(Math.cos(a)*rr,Math.sin(a)*rr)}g.closePath();if(fill){g.fillStyle=fill;g.fill()}if(stroke){g.lineWidth=lw||2.5;g.strokeStyle=stroke;g.lineJoin='round';g.stroke()}g.restore()}
 function glow(g,x,y,r,a){const gr=g.createRadialGradient(x,y,0,x,y,r);gr.addColorStop(0,'rgba(255,214,10,'+a+')');gr.addColorStop(1,'rgba(255,214,10,0)');g.fillStyle=gr;g.beginPath();g.arc(x,y,r,0,7);g.fill()}
 function wandPath(L){const S=L.shape||'poly',P=[],M=110;
   if(S==='circle'){for(let i=0;i<=M;i++){const th=-1.2+i/M*Math.PI*2*1.04;P.push([L.cx+L.rx*Math.cos(th),L.cy+L.ry*Math.sin(th)])}}
   else{const pts=L.pts||[L.from,L.to];for(let i=0;i<=M;i++){const p=polyAt(pts,i/M);P.push(S==='underline'?[p[0],p[1]+Math.sin(i/M*Math.PI*4)*6]:p)}}
   return P}
-function tag(p,sc,txt){const t=mk(p,null,txt||TAG,'tag');reg(sc,t,.05,'rise',.5,{dy:30});return t}
+function tag(p,sc,txt){if(D.notag)return null;const t=mk(p,null,txt||TAG,'tag');reg(sc,t,.05,'rise',.5,{dy:30});return t}
 
 const B={}; // scene builders
 B.statement=(sc,root)=>{
@@ -276,7 +277,7 @@ B.stage=(sc,root)=>{
       el=mk(root,`left:0;top:0;width:${L.lw||sz}px;display:flex;flex-direction:column;align-items:center`,icSvg(L.name,sz,L.sw,L.fill===false?'#fff':(L.fc||'#FFD60A'))+(L.label?`<div style="font-size:${L.ls||34}px;font-weight:800;line-height:1.1;margin-top:8px;text-align:center;white-space:nowrap">${L.label}</div>`:''),'abs');
       L.ic=[...el.querySelectorAll('svg *')];L.ic.forEach(n=>n.setAttribute('pathLength',1))}
     else if(k==='flow'){const ns='http://www.w3.org/2000/svg';L.x=0;L.y=0;
-      el=mk(root,'left:0;top:0;width:1080px;height:1920px','<svg width="1080" height="1920" style="overflow:visible;display:block"></svg>','abs');const svg=el.firstChild;
+      el=mk(root,'left:0;top:0;width:'+W+'px;height:'+H+'px','<svg width="'+W+'" height="'+H+'" style="overflow:visible;display:block"></svg>','abs');const svg=el.firstChild;
       const NS=(t,a)=>{const e=document.createElementNS(ns,t);Object.entries(a||{}).forEach(([n,v])=>e.setAttribute(n,v));svg.appendChild(e);return e};
       const col=L.color||'#111';
       L.pl=NS('path',{fill:'none',stroke:col,'stroke-width':L.sw||7,'stroke-linecap':'round','stroke-linejoin':'round',pathLength:1});L.pl.style.strokeDasharray='1 1';
@@ -292,7 +293,7 @@ B.stage=(sc,root)=>{
       const rb=el.querySelector('.rb'),ry=el.querySelector('.ry'),lb=el.lastChild;
       L.fx=(lt)=>{const f=c(kfv(L.k||[],lt,'f',L.f||0));const d=f*C;rb.setAttribute('stroke-dasharray',f<=0?'0 '+C:Math.max(.1,d)+' '+C);ry.setAttribute('stroke-dasharray',f<=0?'0 '+C:Math.max(.1,d)+' '+C);rb.setAttribute('opacity',f<=0?0:1);ry.setAttribute('opacity',f<=0?0:1);lb.textContent=Math.round(f*(L.mul||100))+(L.unit||'%')}}
     else if(k==='spark'){const ns='http://www.w3.org/2000/svg';L.x=0;L.y=0;
-      el=mk(root,'left:0;top:0;width:1080px;height:1920px','<svg width="1080" height="1920" style="overflow:visible;display:block"></svg>','abs');const svg=el.firstChild;
+      el=mk(root,'left:0;top:0;width:'+W+'px;height:'+H+'px','<svg width="'+W+'" height="'+H+'" style="overflow:visible;display:block"></svg>','abs');const svg=el.firstChild;
       L.st=(L.pts||[]).map((p,i)=>{const e=document.createElementNS(ns,'path');e.setAttribute('d','M0 -1 L.26 -.26 1 0 .26 .26 0 1 -.26 .26 -1 0 -.26 -.26Z');e.setAttribute('fill','#FFD60A');e.setAttribute('stroke','#111');e.setAttribute('stroke-width',3.5);e.setAttribute('vector-effect','non-scaling-stroke');e.setAttribute('stroke-linejoin','round');svg.appendChild(e);return {e,x:p[0],y:p[1],s:p[2]||24,ph:p[3]!=null?p[3]:i*1.7}});
       L.fx=(lt)=>{L.st.forEach(S=>{const q=Math.max(0,Math.sin(lt*(L.sp||4)+S.ph));const sc=S.s*(.15+.85*q);S.e.setAttribute('transform',`translate(${S.x} ${S.y}) rotate(${q*40}) scale(${sc})`);S.e.setAttribute('opacity',q>.02?1:0)})}}
     else if(k==='typed'){el=mk(root,`left:0;top:0;width:${L.w||900}px;font-size:${L.size||56}px;font-weight:700;white-space:pre;color:${L.color||'#111'};${L.css||''}`,'','abs'+(L.mono?' mono':''));
@@ -447,7 +448,7 @@ function setT(t){
     const cc=camOf(sc,lt);
     if(sc.wipe==='push'){pv.root.style.transform=`translateX(${-q*W}px)`;sc.root.style.transform=`translateX(${(1-q)*W}px) ${cc}`}
     else if(sc.wipe==='iris'){sc.root.style.background='#fff';sc.root.style.clipPath=`circle(${q*1300}px at 50% 52%)`}
-    else if(sc.wipe==='portal'){[sc,pv].forEach(z=>{const tg=z.root.querySelector('.tag');if(tg)tg.style.visibility='hidden'});sc.root.style.background='#fff';const R=q*1350,P2=E('portal');sc.root.style.clipPath=`circle(${Math.max(0,R-36)}px at 50% 50%)`;P2.style.display='block';P2.style.width=P2.style.height=(2*R)+'px';P2.style.left=(540-R)+'px';P2.style.top=(960-R)+'px';P2.style.opacity=1-c((q-.78)/.22)}
+    else if(sc.wipe==='portal'){[sc,pv].forEach(z=>{const tg=z.root.querySelector('.tag');if(tg)tg.style.visibility='hidden'});sc.root.style.background='#fff';const R=q*1350,P2=E('portal');sc.root.style.clipPath=`circle(${Math.max(0,R-36)}px at 50% 50%)`;P2.style.display='block';P2.style.width=P2.style.height=(2*R)+'px';P2.style.left=(W/2-R)+'px';P2.style.top=(H/2-R)+'px';P2.style.opacity=1-c((q-.78)/.22)}
     else{pv.root.style.transform=`scale(${1+q*.7})`;pv.root.style.opacity=1-q;sc.root.style.transform=`scale(${.75+.25*q}) ${cc}`;sc.root.style.opacity=q}}
   // yellow wipe at the start of every scene except the first
   const w=E('wipe');const wd=.42;

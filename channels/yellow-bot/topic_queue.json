@@ -945,5 +945,15 @@
     "story": "022_claude-code-login-expiry",
     "priority": "news",
     "org": "Anthropic"
+  },
+  {
+    "id": "ai-news-digest-2026-11-05",
+    "title": "AI news digest 2026-11-05 (long, 16:9): Gemini 4 Carbon, Mistral Large 4, Ollama Phonon, Eleven v4, Claude Code login date",
+    "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
+    "summary": "First long landscape news digest, 5 items, 3:00; sources in research/news/2026-11-05_digest.md.",
+    "status": "uploaded",
+    "story": "025_ai-news-digest-2026-11-05",
+    "priority": "news",
+    "org": "multiple"
   }
 ]

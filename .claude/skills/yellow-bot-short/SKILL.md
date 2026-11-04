@@ -27,6 +27,9 @@ Read first, in order: `channels/yellow-bot/RULES.md`, `channels/yellow-bot/STYLE
 - Always PRIVATE (`api_audited` false). Dry run first, then `python tools\youtube_upload.py --job <story>\output\upload.json`. Thumbnail API returns 403 (phone verification): the user sets it in Studio.
 - After the upload: topic_queue (`status` uploaded, `story` set; keep JSON format), `log.md` line (URL, length, LUFS, rough spots), STYLE_GUIDE note if the engine or style changed, then sync: `powershell -NoProfile -ExecutionPolicy Bypass -File tools\sync.ps1 -Message "yellow-bot <NNN>: <what>"` (simple English; with `$ErrorActionPreference="Continue"`; check `.git\sync.lock` afterwards).
 
+## 3b. Long news digest (16:9)
+- A 3-4 minute landscape digest of 4-5 AI items (whole field) follows STYLE_GUIDE 'Long news digest (16:9)': deck.json `"format": "landscape"`, copy `stories/025_*/gen_deck.py`, upload.json `"format": "long"` with the Latest AI Updates `playlist_id`, private only.
+
 ## 4. Other jobs
 - News watch: `channels/yellow-bot/NEWS_WATCH.md` (twice a day, whole AI field).
 - Study another channel: `channels/yellow-bot/brand/LEARNING_PROCESS.md` (RULES 12c; downloads only in git-ignored `study/`, never reuse their frames, audio, script or exact titles; delete after recording learnings).

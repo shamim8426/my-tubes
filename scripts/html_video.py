@@ -79,6 +79,8 @@ def main():
             b = p.chromium.launch()
         pg = b.new_page(viewport={"width": 1080, "height": 1920})
         pg.goto(html.as_uri())
+        wh = pg.evaluate("typeof W==='number'?[W,H]:[1080,1920]")
+        pg.set_viewport_size({"width": wh[0], "height": wh[1]})  # landscape decks: 1920x1080
         pg.evaluate("document.fonts.ready")
         sfx = pg.evaluate("window.SFX || []")
         audio = out.with_suffix(".audio.wav")

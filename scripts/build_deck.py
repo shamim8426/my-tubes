@@ -153,6 +153,9 @@ def main():
     payload = {"tag": spec.get("tag", ""), "scenes": data, "total": total, "sfx": [s["start"] for s in data[1:] if s.get("wipe") != "fade"]}
     if spec.get("rail"):
         payload["rail"] = spec["rail"]
+    if spec.get("format") == "landscape":  # opt-in 16:9 long video (2026-11-05): 1920x1080, no per-scene tag unless asked
+        payload["w"], payload["h"] = 1920, 1080
+        payload["notag"] = not spec.get("tag_on")
     for k in ("bg", "bgGrid"):  # opt-in page background (Day 1 product-page style, 2026-11-04)
         if spec.get(k):
             payload[k] = spec[k]
@@ -176,7 +179,7 @@ def main():
                 with wave.open(str(f)) as r:
                     assert r.getframerate() == SR and r.getnchannels() == 1
                     w.writeframes(b"\x00\x00" * int(SR * LEAD) + r.readframes(r.getnframes()) + b"\x00\x00" * int(SR * AFTER))
-        out = story / "output" / "short.mp4"
+        out = story / "output" / ("video.mp4" if spec.get("format") == "landscape" else "short.mp4")
         out.parent.mkdir(exist_ok=True)
         subprocess.run([sys.executable, "-X", "utf8", str(ROOT / "scripts/html_video.py"), str(deck), str(voice), str(out), "--lead", "0", "--tail", "0.3"] + music_args(spec), check=True)
 
