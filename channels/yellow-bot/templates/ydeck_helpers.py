@@ -1,4 +1,4 @@
-"""Shared helpers for Yellow Bot gen_deck.py files (Day 1 'clean product-page' style, 2026-11-04). Import:
+"""Shared helpers for DevRoboLab gen_deck.py files (Day 1 'clean product-page' style, 2026-11-04). Import:
     sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "templates")); from ydeck_helpers import *"""
 import json
 import re

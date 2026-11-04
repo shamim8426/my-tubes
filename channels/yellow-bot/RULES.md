@@ -1,4 +1,4 @@
-# Channel RULES - yellow Bot (yellow-bot)
+# Channel RULES - DevRoboLab (yellow-bot)
 
 Only the rules special to this channel. Read `shared/RULES.md` first; everything there applies here too.
 - Channel RULES can be stricter than shared RULES, never looser. Copyright, channel ID, secrets and upload safety can never be relaxed by a channel.
@@ -24,5 +24,5 @@ Only the rules special to this channel. Read `shared/RULES.md` first; everything
 - OAuth app is in Testing mode: token expires after 7 days (renew `tools/yt_auth.py yellow-bot`, due ~2026-11-07).
 
 ## Metadata
-- Title: topic + hook in Hinglish, max 70 chars, suffix `| yellow Bot` is optional (Shorts). Tags in Hinglish + English (claude code, ai, hooks, mcp ...).
+- Title: topic + hook in Hinglish, max 70 chars, suffix `| DevRoboLab` is optional (Shorts). Tags in Hinglish + English (claude code, ai, hooks, mcp ...).
 - category_id 28 (Science & Technology), made_for_kids false, default_language hi.

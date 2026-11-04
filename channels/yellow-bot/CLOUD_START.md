@@ -1,6 +1,6 @@
-# yellow Bot - START HERE (brief for a fresh session, cloud or PC)
+# DevRoboLab - START HERE (brief for a fresh session, cloud or PC)
 
-You are working ONLY on the YouTube channel "yellow Bot" (key `yellow-bot`, ID UCpElgKdJOgQiyfwdGXz6GmA). Talk to the user in Hinglish.
+You are working ONLY on the YouTube channel "DevRoboLab" (key `yellow-bot`, ID UCpElgKdJOgQiyfwdGXz6GmA). Talk to the user in Hinglish.
 IGNORE all Jugnu Stories / Noor-e-Raah rules in CLAUDE.md (Sanchalak, Kaarigar, Munshi, Kalam, auto mode, stories). They do not apply here.
 Only these apply from CLAUDE.md: Hinglish replies, simple-English commit messages `<area>: <what changed>`, sync after milestones (`bash tools/sync.sh "yellow-bot: ..."` in cloud),
 "time + cost estimate in one line before any task", cloud notes (secrets via env, one place at a time).

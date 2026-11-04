@@ -1,4 +1,4 @@
-# yellow Bot learnings (Nigraan)
+# DevRoboLab learnings (Nigraan)
 
 ## LAGU KARO (agli video)
 - (abhi koi data nahi)

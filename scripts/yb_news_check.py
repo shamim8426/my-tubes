@@ -1,4 +1,4 @@
-"""Claude news watcher for the Yellow Bot channel: what is NEW since the last run (read-only network, free).
+"""Claude news watcher for the DevRoboLab channel: what is NEW since the last run (read-only network, free).
 
     .venv/Scripts/python -X utf8 scripts/yb_news_check.py [--commit] [--json]
 

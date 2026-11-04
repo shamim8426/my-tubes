@@ -1,4 +1,4 @@
-# Channel bible - yellow Bot (yellow-bot)
+# Channel bible - DevRoboLab (yellow-bot)
 
 ## Idea
 Short Hinglish explainers of Claude Code features from the official docs, in a white/black/yellow presentation style with a cute robot mascot.

@@ -1,4 +1,4 @@
-# Yellow Bot - style learnings from a study of one AI-tools explainer Shorts channel (2026-11-03)
+# DevRoboLab - style learnings from a study of one AI-tools explainer Shorts channel (2026-11-03)
 
 Source: 6 Shorts of one channel, 92-113 s each, studied under RULES 12c; all downloads deleted on 2026-11-04 (see research/study_log.md). Only abstract,
 numeric style findings are kept here. No frames, lines, titles or names are reused. Measured on 360x640 sources.
@@ -43,7 +43,7 @@ numeric style findings are kept here. No frames, lines, titles or names are reus
 - Constant micro-motion (floating shadows, drawing lines, bobbing) keeps still frames alive.
 - Do NOT copy: pale grey palette and smaller type. Our white/black/yellow marker look with larger bold type is stronger on a phone.
 
-## Map to Yellow Bot (ranked by impact on clarity vs effort)
+## Map to DevRoboLab (ranked by impact on clarity vs effort)
 Our system: scenes statement/chips/flow/docs/code/list/compare/hub/cta/stage; stage layers img/box/doc/hook/text/meter/svgbot/draw; keyframes x/y/s/o/r; row-level "rise" plus highlighter "wipe"; parse() already splits text into .w word spans.
 
 1. Word-by-word reveal in sync with speech (impact high, effort S-M). Partial support: words exist as spans but anims are per row. Needs a new anim kind 'words' (stagger 0.12-0.2 s per word from a cue, fade + rise 10 px, upcoming word grey -> #111) for statement and stage text; optional deck field "stream":true. Highlighter wipe stays on key words.

@@ -110,7 +110,7 @@ Learnings behind these rules: brand/STYLE_LEARNINGS.md (numeric, abstract) and r
 - Length rule: stay under 75 s; a re-voiced line must not be longer.
 
 ## Channel direction and daily style rule (user 2026-11-04)
-- Yellow Bot is a whole-AI channel (any organisation, model, feature, free tool), not only Claude. Claude docs Shorts are the base set for now; the topic scope will widen as the channel grows (target: 1,000+ subscribers).
+- DevRoboLab is a whole-AI channel (any organisation, model, feature, free tool), not only Claude. Claude docs Shorts are the base set for now; the topic scope will widen as the channel grows (target: 1,000+ subscribers).
 - Goal now: build a strong BASE first (content quality, editing, visuals, technical ideas in simple language any ordinary person understands), improve it from analytics, then apply it to the planned daily Shorts. Main aim: keep improving and give good-quality content, always inside YouTube's guidelines (original value, honest title and thumbnail, accurate facts from the primary source, no spam tags, no misleading claims).
 - DAILY STYLE RULE: one style per DAY. All Shorts of one day share one style (a minimum of 3-4 videos per style); the next day changes the style and adds one small improvement or something new, learnt from the earlier videos and from analytics. Not a different look for every video within a day.
 - Every style change is logged here (what is new, why) and judged by analytics after 2-3 days (data lags; under 1,000 views is only a signal).

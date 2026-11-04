@@ -1,4 +1,4 @@
-"""yellow Bot channel art (free): profile picture 800x800 and banner 2048x1152 from the mascot PNGs + Poppins.
+"""DevRoboLab channel art (free): profile picture 800x800 and banner 2048x1152 from the mascot PNGs + Poppins.
     .venv\Scripts\python -X utf8 channels\yellow-bot\brand\make_art.py
 Outputs: brand/dp.png, brand/banner.png. Banner safe area for all devices = centre 1235x338 (x 406-1641, y 407-745)."""
 from pathlib import Path

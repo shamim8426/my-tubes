@@ -1,4 +1,4 @@
-r"""Thumbnails for the yellow Bot channel, made from HTML (free, real Chrome via Playwright).
+r"""Thumbnails for the DevRoboLab channel, made from HTML (free, real Chrome via Playwright).
 
     .venv\Scripts\python -X utf8 scripts\make_thumb.py <story folder> [--all]
 

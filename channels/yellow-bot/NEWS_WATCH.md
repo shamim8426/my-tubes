@@ -1,6 +1,6 @@
 # AI news watch (user rule 2026-11-04): whole AI field, at least twice a day, notify, suggest videos
 
-Why: Yellow Bot keeps people updated about AI. Any new model, feature, enhancement or free/open tool, from ANY AI organisation (Anthropic, OpenAI, Google, Meta, Mistral, DeepSeek, Alibaba Qwen, xAI, Microsoft, NVIDIA, Hugging Face, GitHub Copilot, Cursor, Ollama, Stability, ElevenLabs, ...), can be a Short, and being early matters. The user wants to KNOW twice a day and get a video suggestion for every real update.
+Why: DevRoboLab keeps people updated about AI. Any new model, feature, enhancement or free/open tool, from ANY AI organisation (Anthropic, OpenAI, Google, Meta, Mistral, DeepSeek, Alibaba Qwen, xAI, Microsoft, NVIDIA, Hugging Face, GitHub Copilot, Cursor, Ollama, Stability, ElevenLabs, ...), can be a Short, and being early matters. The user wants to KNOW twice a day and get a video suggestion for every real update.
 
 ## How it runs
 - CHANGED 2026-11-05 (user): the separate 09:00/18:00 task `claude-news-watch` is switched OFF. The news check now runs ONCE a day, as the first step of the 08:00 morning production task `devrobolab-daily-videos`, immediately before the news video is built. No news check in the evening. On demand the user can still say 'news check'.
@@ -23,4 +23,4 @@ Why: Yellow Bot keeps people updated about AI. Any new model, feature, enhanceme
 
 
 ## When the user approves a suggestion
-The Sanchalak builds it like any Yellow Bot Short (STYLE_GUIDE v4, layman first, own look, never a copy), private upload, then sync. For a non-Claude topic the description carries 'Unofficial channel, not affiliated with <organisation>.'
+The Sanchalak builds it like any DevRoboLab Short (STYLE_GUIDE v4, layman first, own look, never a copy), private upload, then sync. For a non-Claude topic the description carries 'Unofficial channel, not affiliated with <organisation>.'

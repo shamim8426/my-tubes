@@ -1,4 +1,4 @@
-r"""Measure real word times of a Yellow Bot deck voice with Whisper (local, free) and write <story>/wt.json.
+r"""Measure real word times of a DevRoboLab deck voice with Whisper (local, free) and write <story>/wt.json.
 
     .venv\Scripts\python -X utf8 scripts\yb_wordtimes.py <story_dir>
 

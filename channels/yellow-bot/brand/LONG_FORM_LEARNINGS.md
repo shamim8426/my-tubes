@@ -1,4 +1,4 @@
-# Yellow Bot - long-form learnings from one Hinglish AI/money explainer creator (studied 2026-11-05)
+# DevRoboLab - long-form learnings from one Hinglish AI/money explainer creator (studied 2026-11-05)
 
 Source: 3 LONG videos (16:19, 17:23, 19:03; 480p, 16:9) of one creator who explains AI and money topics in Hinglish, studied under RULES 12c and
 brand/LEARNING_PROCESS.md. All downloads, frames and transcripts were deleted on 2026-11-05 (see research/study_log.md). Only abstract principles and
@@ -66,7 +66,7 @@ the transcripts of videos 2-3 did not finish in time, so their structure is read
 - 16-19 min runtime with a paid-workshop plug: wrong for a 3-8 min news digest; do not copy the sales plug.
 - Heavy dark, dim and glass look is theirs; ours is white/black/yellow marker with the robot.
 
-## Map to Yellow Bot (ranked by impact / effort)
+## Map to DevRoboLab (ranked by impact / effort)
 1. HOOK = scene + number gap (high / low): open the digest with ONE concrete before/after or number contrast from item 1 (0-8 s), then the 3-item "today you will know" list on screen (2.5% x 3 rows) by 15 s, no robot intro line. Engine: existing statement + list layers; effort: script only.
 2. Running example person/object (high / medium): for explainers, carry ONE named everyday character (for example a shopkeeper or a student) through all items; each item adds one number or step to their story. Script pattern only; effort: low.
 3. Big-number card per claim (high / low): a white card with one big figure (7-9% height), tiny label, yellow border; two-card compare with cross and tick. Engine: HTML/SVG card layer already possible in landscape decks; add a reusable 'numcard' and 'compare' template, effort: medium.

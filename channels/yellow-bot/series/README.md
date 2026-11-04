@@ -1,4 +1,4 @@
-# Yellow Bot / DevRoboLab - long-video series (user 2026-11-05)
+# DevRoboLab - long-video series (user 2026-11-05)
 
 Each series has its own folder and its own YouTube playlist. Story folders stay under stories/ (numbered); a series folder holds the plan, queue and notes for that series only.
 
