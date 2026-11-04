@@ -843,27 +843,27 @@ timestamp,file,model,size,cost_usd,cost_inr,today_total_inr,remaining_inr,channe
 2026-10-31 12:34:20,channels/_new_claude_explainer/stories/006_hooks/audio/tts/s_06.wav,gemini-3.8-flash-tts,tts 6.0s,0.00135,0.13,8.03,104.10,_new_claude_explainer,0.14,0.1306,0.02,25,149
 2026-10-31 13:04:24,channels/_new_claude_explainer/mascot/team.png,cf-flux-2-klein-4b,1536x768 free,0.00000,0.00,8.03,104.10,_new_claude_explainer,0.00,0.0000,0.00,,
 2026-10-31 13:13:59,channels/_new_claude_explainer/stories/006_hooks/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 5.1s free,0.00000,0.00,8.03,104.10,_new_claude_explainer,0.12,0.0000,0.00,21,127
-2026-10-31 10:15:30,channels/yellow-bot/stories/007_subagents/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 5.6s free,0.00000,0.00,8.03,104.10,yellow-bot,0.13,0.0000,0.00,25,139
-2026-10-31 10:15:34,channels/yellow-bot/stories/007_subagents/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 7.1s free,0.00000,0.00,8.03,104.10,yellow-bot,0.16,0.0000,0.00,23,178
-2026-10-31 10:15:39,channels/yellow-bot/stories/007_subagents/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 9.2s free,0.00000,0.00,8.03,104.10,yellow-bot,0.21,0.0000,0.00,33,229
-2026-10-31 10:15:44,channels/yellow-bot/stories/007_subagents/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 7.7s free,0.00000,0.00,8.03,104.10,yellow-bot,0.17,0.0000,0.00,30,192
-2026-10-31 10:15:48,channels/yellow-bot/stories/007_subagents/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 7.8s free,0.00000,0.00,8.03,104.10,yellow-bot,0.18,0.0000,0.00,28,194
-2026-10-31 10:16:03,channels/yellow-bot/stories/007_subagents/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 6.1s free,0.00000,0.00,8.03,104.10,yellow-bot,0.14,0.0000,0.00,28,152
-2026-10-31 10:16:07,channels/yellow-bot/stories/007_subagents/audio/tts/s_06.wav,gemini-3.8-flash-tts,tts 3.2s,0.00072,0.07,8.11,104.01,yellow-bot,0.07,0.0693,0.01,15,79
-2026-10-31 10:23:24,channels/yellow-bot/stories/008_skills/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 5.4s free,0.00000,0.00,8.11,104.01,yellow-bot,0.12,0.0000,0.00,24,134
-2026-10-31 10:23:35,channels/yellow-bot/stories/008_skills/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 9.3s,0.00211,0.20,8.35,103.77,yellow-bot,0.21,0.2040,0.04,35,233
-2026-10-31 10:23:41,channels/yellow-bot/stories/008_skills/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 9.6s,0.00217,0.21,8.60,103.53,yellow-bot,0.22,0.2093,0.04,36,239
-2026-10-31 10:23:46,channels/yellow-bot/stories/008_skills/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 7.4s,0.00169,0.16,8.79,103.33,yellow-bot,0.17,0.1631,0.03,32,186
-2026-10-31 10:23:51,channels/yellow-bot/stories/008_skills/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 8.5s,0.00193,0.19,9.01,103.11,yellow-bot,0.19,0.1866,0.03,34,213
-2026-10-31 10:23:56,channels/yellow-bot/stories/008_skills/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 9.0s,0.00204,0.20,9.24,102.88,yellow-bot,0.20,0.1971,0.04,35,225
-2026-10-31 10:23:59,channels/yellow-bot/stories/008_skills/audio/tts/s_06.wav,gemini-3.8-flash-tts,tts 2.5s free,0.00000,0.00,9.24,102.88,yellow-bot,0.06,0.0000,0.00,14,63
-2026-10-31 10:28:37,channels/yellow-bot/stories/009_mcp/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 5.7s,0.00129,0.12,9.39,102.74,yellow-bot,0.13,0.1244,0.02,22,142
-2026-10-31 10:28:43,channels/yellow-bot/stories/009_mcp/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 12.2s,0.00275,0.27,9.71,102.42,yellow-bot,0.27,0.2656,0.05,33,304
-2026-10-31 10:28:48,channels/yellow-bot/stories/009_mcp/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 8.4s free,0.00000,0.00,9.71,102.42,yellow-bot,0.19,0.0000,0.00,32,210
-2026-10-31 10:28:54,channels/yellow-bot/stories/009_mcp/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 12.7s,0.00288,0.28,10.03,102.09,yellow-bot,0.28,0.2781,0.05,39,318
-2026-10-31 10:29:00,channels/yellow-bot/stories/009_mcp/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 10.4s,0.00235,0.23,10.30,101.83,yellow-bot,0.23,0.2266,0.04,35,259
-2026-10-31 10:29:05,channels/yellow-bot/stories/009_mcp/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 7.9s,0.00180,0.17,10.51,101.62,yellow-bot,0.18,0.1733,0.03,28,198
-2026-10-31 10:29:09,channels/yellow-bot/stories/009_mcp/audio/tts/s_06.wav,gemini-3.8-flash-tts,tts 3.2s,0.00074,0.07,10.59,101.54,yellow-bot,0.08,0.0711,0.01,15,81
+2026-10-31 10:15:30,channels/devrobolab/stories/007_subagents/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 5.6s free,0.00000,0.00,8.03,104.10,devrobolab,0.13,0.0000,0.00,25,139
+2026-10-31 10:15:34,channels/devrobolab/stories/007_subagents/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 7.1s free,0.00000,0.00,8.03,104.10,devrobolab,0.16,0.0000,0.00,23,178
+2026-10-31 10:15:39,channels/devrobolab/stories/007_subagents/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 9.2s free,0.00000,0.00,8.03,104.10,devrobolab,0.21,0.0000,0.00,33,229
+2026-10-31 10:15:44,channels/devrobolab/stories/007_subagents/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 7.7s free,0.00000,0.00,8.03,104.10,devrobolab,0.17,0.0000,0.00,30,192
+2026-10-31 10:15:48,channels/devrobolab/stories/007_subagents/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 7.8s free,0.00000,0.00,8.03,104.10,devrobolab,0.18,0.0000,0.00,28,194
+2026-10-31 10:16:03,channels/devrobolab/stories/007_subagents/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 6.1s free,0.00000,0.00,8.03,104.10,devrobolab,0.14,0.0000,0.00,28,152
+2026-10-31 10:16:07,channels/devrobolab/stories/007_subagents/audio/tts/s_06.wav,gemini-3.8-flash-tts,tts 3.2s,0.00072,0.07,8.11,104.01,devrobolab,0.07,0.0693,0.01,15,79
+2026-10-31 10:23:24,channels/devrobolab/stories/008_skills/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 5.4s free,0.00000,0.00,8.11,104.01,devrobolab,0.12,0.0000,0.00,24,134
+2026-10-31 10:23:35,channels/devrobolab/stories/008_skills/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 9.3s,0.00211,0.20,8.35,103.77,devrobolab,0.21,0.2040,0.04,35,233
+2026-10-31 10:23:41,channels/devrobolab/stories/008_skills/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 9.6s,0.00217,0.21,8.60,103.53,devrobolab,0.22,0.2093,0.04,36,239
+2026-10-31 10:23:46,channels/devrobolab/stories/008_skills/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 7.4s,0.00169,0.16,8.79,103.33,devrobolab,0.17,0.1631,0.03,32,186
+2026-10-31 10:23:51,channels/devrobolab/stories/008_skills/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 8.5s,0.00193,0.19,9.01,103.11,devrobolab,0.19,0.1866,0.03,34,213
+2026-10-31 10:23:56,channels/devrobolab/stories/008_skills/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 9.0s,0.00204,0.20,9.24,102.88,devrobolab,0.20,0.1971,0.04,35,225
+2026-10-31 10:23:59,channels/devrobolab/stories/008_skills/audio/tts/s_06.wav,gemini-3.8-flash-tts,tts 2.5s free,0.00000,0.00,9.24,102.88,devrobolab,0.06,0.0000,0.00,14,63
+2026-10-31 10:28:37,channels/devrobolab/stories/009_mcp/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 5.7s,0.00129,0.12,9.39,102.74,devrobolab,0.13,0.1244,0.02,22,142
+2026-10-31 10:28:43,channels/devrobolab/stories/009_mcp/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 12.2s,0.00275,0.27,9.71,102.42,devrobolab,0.27,0.2656,0.05,33,304
+2026-10-31 10:28:48,channels/devrobolab/stories/009_mcp/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 8.4s free,0.00000,0.00,9.71,102.42,devrobolab,0.19,0.0000,0.00,32,210
+2026-10-31 10:28:54,channels/devrobolab/stories/009_mcp/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 12.7s,0.00288,0.28,10.03,102.09,devrobolab,0.28,0.2781,0.05,39,318
+2026-10-31 10:29:00,channels/devrobolab/stories/009_mcp/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 10.4s,0.00235,0.23,10.30,101.83,devrobolab,0.23,0.2266,0.04,35,259
+2026-10-31 10:29:05,channels/devrobolab/stories/009_mcp/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 7.9s,0.00180,0.17,10.51,101.62,devrobolab,0.18,0.1733,0.03,28,198
+2026-10-31 10:29:09,channels/devrobolab/stories/009_mcp/audio/tts/s_06.wav,gemini-3.8-flash-tts,tts 3.2s,0.00074,0.07,10.59,101.54,devrobolab,0.08,0.0711,0.01,15,81
 2026-10-31 10:34:56,channels/noor-e-raah/stories/004_al-falaq/audio/tts/003_sawaal.wav,gemini-3.8-flash-tts,tts 8.0s,0.00182,0.18,10.80,101.33,noor-e-raah,0.18,0.1753,0.03,33,200
 2026-10-31 10:35:07,channels/noor-e-raah/stories/004_al-falaq/audio/tts/004_ustaad.wav,gemini-3.8-flash-tts,tts 6.6s,0.00149,0.14,10.97,101.16,noor-e-raah,0.15,0.1437,0.03,26,164
 2026-10-31 10:35:16,channels/noor-e-raah/stories/004_al-falaq/audio/tts/004_ustaad.wav,gemini-3.8-flash-tts,tts 6.3s,0.00143,0.14,11.13,101.00,noor-e-raah,0.14,0.1385,0.02,26,158
@@ -925,29 +925,29 @@ timestamp,file,model,size,cost_usd,cost_inr,today_total_inr,remaining_inr,channe
 2026-10-31 10:57:38,channels/noor-e-raah/stories/004_al-falaq/audio/tts/058_sawaal.wav,gemini-3.8-flash-tts,tts 8.5s,0.00192,0.19,24.65,87.47,noor-e-raah,0.19,0.1855,0.03,28,212
 2026-10-31 10:57:58,channels/noor-e-raah/stories/004_al-falaq/audio/tts/058_sawaal.wav,gemini-3.8-flash-tts,tts 8.2s,0.00186,0.18,24.87,87.26,noor-e-raah,0.19,0.1794,0.03,28,205
 2026-10-31 10:58:08,channels/noor-e-raah/stories/004_al-falaq/audio/tts/058_sawaal.wav,gemini-3.8-flash-tts,tts 7.6s,0.00171,0.17,25.06,87.07,noor-e-raah,0.17,0.1655,0.03,28,189
-2026-10-31 10:33:55,channels/yellow-bot/stories/010_memory/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 5.5s,0.00124,0.12,10.73,101.40,yellow-bot,0.13,0.1200,0.02,22,137
-2026-10-31 10:34:00,channels/yellow-bot/stories/010_memory/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 8.0s,0.00181,0.17,10.94,101.19,yellow-bot,0.18,0.1744,0.03,33,199
-2026-10-31 10:34:05,channels/yellow-bot/stories/010_memory/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 8.9s free,0.00000,0.00,10.94,101.19,yellow-bot,0.20,0.0000,0.00,30,223
-2026-10-31 10:34:11,channels/yellow-bot/stories/010_memory/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 10.1s,0.00230,0.22,11.20,100.93,yellow-bot,0.23,0.2217,0.04,40,253
-2026-10-31 10:34:16,channels/yellow-bot/stories/010_memory/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 7.6s,0.00174,0.17,11.40,100.73,yellow-bot,0.17,0.1677,0.03,37,191
-2026-10-31 10:34:21,channels/yellow-bot/stories/010_memory/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 7.7s,0.00175,0.17,11.59,100.53,yellow-bot,0.17,0.1684,0.03,34,192
-2026-10-31 10:34:25,channels/yellow-bot/stories/010_memory/audio/tts/s_06.wav,gemini-3.8-flash-tts,tts 3.1s,0.00071,0.07,11.68,100.45,yellow-bot,0.07,0.0685,0.01,16,78
-2026-10-31 10:38:25,channels/yellow-bot/stories/011_checkpointing/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 5.4s,0.00124,0.12,11.82,100.31,yellow-bot,0.12,0.1192,0.02,23,136
-2026-10-31 10:38:30,channels/yellow-bot/stories/011_checkpointing/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 6.4s,0.00146,0.14,11.98,100.14,yellow-bot,0.15,0.1411,0.03,26,161
-2026-10-31 10:38:35,channels/yellow-bot/stories/011_checkpointing/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 8.7s,0.00199,0.19,12.21,99.92,yellow-bot,0.20,0.1916,0.03,28,219
-2026-10-31 10:38:40,channels/yellow-bot/stories/011_checkpointing/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 5.3s,0.00120,0.12,12.35,99.78,yellow-bot,0.12,0.1158,0.02,23,132
-2026-10-31 10:38:45,channels/yellow-bot/stories/011_checkpointing/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 6.6s,0.00151,0.15,12.52,99.61,yellow-bot,0.15,0.1455,0.03,28,166
-2026-10-31 10:38:51,channels/yellow-bot/stories/011_checkpointing/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 9.1s,0.00207,0.20,12.75,99.37,yellow-bot,0.21,0.1998,0.04,36,228
-2026-10-31 10:39:26,channels/yellow-bot/stories/011_checkpointing/audio/tts/s_06.wav,gemini-3.8-flash-tts,tts 3.0s,0.00068,0.07,12.83,99.30,yellow-bot,0.07,0.0659,0.01,15,75
+2026-10-31 10:33:55,channels/devrobolab/stories/010_memory/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 5.5s,0.00124,0.12,10.73,101.40,devrobolab,0.13,0.1200,0.02,22,137
+2026-10-31 10:34:00,channels/devrobolab/stories/010_memory/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 8.0s,0.00181,0.17,10.94,101.19,devrobolab,0.18,0.1744,0.03,33,199
+2026-10-31 10:34:05,channels/devrobolab/stories/010_memory/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 8.9s free,0.00000,0.00,10.94,101.19,devrobolab,0.20,0.0000,0.00,30,223
+2026-10-31 10:34:11,channels/devrobolab/stories/010_memory/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 10.1s,0.00230,0.22,11.20,100.93,devrobolab,0.23,0.2217,0.04,40,253
+2026-10-31 10:34:16,channels/devrobolab/stories/010_memory/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 7.6s,0.00174,0.17,11.40,100.73,devrobolab,0.17,0.1677,0.03,37,191
+2026-10-31 10:34:21,channels/devrobolab/stories/010_memory/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 7.7s,0.00175,0.17,11.59,100.53,devrobolab,0.17,0.1684,0.03,34,192
+2026-10-31 10:34:25,channels/devrobolab/stories/010_memory/audio/tts/s_06.wav,gemini-3.8-flash-tts,tts 3.1s,0.00071,0.07,11.68,100.45,devrobolab,0.07,0.0685,0.01,16,78
+2026-10-31 10:38:25,channels/devrobolab/stories/011_checkpointing/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 5.4s,0.00124,0.12,11.82,100.31,devrobolab,0.12,0.1192,0.02,23,136
+2026-10-31 10:38:30,channels/devrobolab/stories/011_checkpointing/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 6.4s,0.00146,0.14,11.98,100.14,devrobolab,0.15,0.1411,0.03,26,161
+2026-10-31 10:38:35,channels/devrobolab/stories/011_checkpointing/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 8.7s,0.00199,0.19,12.21,99.92,devrobolab,0.20,0.1916,0.03,28,219
+2026-10-31 10:38:40,channels/devrobolab/stories/011_checkpointing/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 5.3s,0.00120,0.12,12.35,99.78,devrobolab,0.12,0.1158,0.02,23,132
+2026-10-31 10:38:45,channels/devrobolab/stories/011_checkpointing/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 6.6s,0.00151,0.15,12.52,99.61,devrobolab,0.15,0.1455,0.03,28,166
+2026-10-31 10:38:51,channels/devrobolab/stories/011_checkpointing/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 9.1s,0.00207,0.20,12.75,99.37,devrobolab,0.21,0.1998,0.04,36,228
+2026-10-31 10:39:26,channels/devrobolab/stories/011_checkpointing/audio/tts/s_06.wav,gemini-3.8-flash-tts,tts 3.0s,0.00068,0.07,12.83,99.30,devrobolab,0.07,0.0659,0.01,15,75
 2026-10-31 10:59:21,channels/noor-e-raah/stories/004_al-falaq/images/thumb_scene_a.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,27.30,84.82,noor-e-raah,0.00,0.0000,0.00,,
 2026-10-31 11:05:01,channels/noor-e-raah/stories/004_al-falaq/audio/tts/040_ustaad.wav,gemini-3.8-flash-tts,tts 5.1s,0.00116,0.11,27.43,84.69,noor-e-raah,0.12,0.1119,0.02,15,128
-2026-10-31 17:30:47,channels/yellow-bot/stories/012_tools/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 9.8s free,0.00000,0.00,27.43,84.69,yellow-bot,0.22,0.0000,0.00,38,246
-2026-10-31 17:31:10,channels/yellow-bot/stories/012_tools/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 5.9s,0.00133,0.13,27.59,84.54,yellow-bot,0.13,0.1287,0.02,22,147
-2026-10-31 17:31:31,channels/yellow-bot/stories/012_tools/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 11.6s,0.00262,0.25,27.89,84.24,yellow-bot,0.26,0.2533,0.05,47,289
-2026-10-31 17:31:45,channels/yellow-bot/stories/012_tools/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 8.4s,0.00192,0.18,28.10,84.02,yellow-bot,0.19,0.1848,0.03,33,211
-2026-10-31 17:31:59,channels/yellow-bot/stories/012_tools/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 8.5s,0.00192,0.19,28.32,83.80,yellow-bot,0.19,0.1856,0.03,30,212
-2026-10-31 17:32:12,channels/yellow-bot/stories/012_tools/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 3.2s,0.00073,0.07,28.41,83.72,yellow-bot,0.08,0.0702,0.01,15,80
-2026-10-31 19:42:17,channels/yellow-bot/stories/_demo_whiteboard/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 11.0s free,0.00000,0.00,28.41,83.72,yellow-bot,0.25,0.0000,0.00,40,274
+2026-10-31 17:30:47,channels/devrobolab/stories/012_tools/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 9.8s free,0.00000,0.00,27.43,84.69,devrobolab,0.22,0.0000,0.00,38,246
+2026-10-31 17:31:10,channels/devrobolab/stories/012_tools/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 5.9s,0.00133,0.13,27.59,84.54,devrobolab,0.13,0.1287,0.02,22,147
+2026-10-31 17:31:31,channels/devrobolab/stories/012_tools/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 11.6s,0.00262,0.25,27.89,84.24,devrobolab,0.26,0.2533,0.05,47,289
+2026-10-31 17:31:45,channels/devrobolab/stories/012_tools/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 8.4s,0.00192,0.18,28.10,84.02,devrobolab,0.19,0.1848,0.03,33,211
+2026-10-31 17:31:59,channels/devrobolab/stories/012_tools/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 8.5s,0.00192,0.19,28.32,83.80,devrobolab,0.19,0.1856,0.03,30,212
+2026-10-31 17:32:12,channels/devrobolab/stories/012_tools/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 3.2s,0.00073,0.07,28.41,83.72,devrobolab,0.08,0.0702,0.01,15,80
+2026-10-31 19:42:17,channels/devrobolab/stories/_demo_whiteboard/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 11.0s free,0.00000,0.00,28.41,83.72,devrobolab,0.25,0.0000,0.00,40,274
 2026-11-01 20:25:13,channels/jugnu-stories/characters/voices/cast_v3/tinku_1_Puck.wav,gemini-3.8-flash-tts,tts 8.2s free,0.00000,0.00,0.00,83.72,jugnu-stories,0.18,0.0000,0.00,24,204
 2026-11-01 20:25:24,channels/jugnu-stories/characters/voices/cast_v3/tinku_2_Achird.wav,gemini-3.8-flash-tts,tts 6.7s free,0.00000,0.00,0.00,83.72,jugnu-stories,0.15,0.0000,0.00,24,168
 2026-11-01 20:25:35,channels/jugnu-stories/characters/voices/cast_v3/tinku_3_Iapetus.wav,gemini-3.8-flash-tts,tts 7.6s free,0.00000,0.00,0.00,83.72,jugnu-stories,0.17,0.0000,0.00,24,190
@@ -977,13 +977,13 @@ timestamp,file,model,size,cost_usd,cost_inr,today_total_inr,remaining_inr,channe
 2026-11-01 21:01:11,channels/jugnu-stories/characters/voices/cast_v3/_raw/kesar_dadi_1_Gacrux.wav,gemini-3.8-flash-tts,tts 9.1s,0.00205,0.20,2.54,81.18,jugnu-stories,0.20,0.1983,0.04,24,227
 2026-11-01 21:01:25,channels/jugnu-stories/characters/voices/cast_v3/_raw/kesar_dadi_2_Vindemiatrix.wav,gemini-3.8-flash-tts,tts 8.8s,0.00198,0.19,2.76,80.96,jugnu-stories,0.20,0.1914,0.03,24,219
 2026-11-01 21:01:37,channels/jugnu-stories/characters/voices/cast_v3/_raw/kesar_dadi_3_Sulafat.wav,gemini-3.8-flash-tts,tts 9.8s,0.00221,0.21,3.01,80.71,jugnu-stories,0.22,0.2131,0.04,24,244
-2026-11-01 23:40:05,channels/yellow-bot/stories/012_permission-modes/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 5.0s free,0.00000,0.00,3.01,80.71,yellow-bot,0.12,0.0000,0.00,21,125
-2026-11-01 23:40:09,channels/yellow-bot/stories/012_permission-modes/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 8.2s free,0.00000,0.00,3.01,80.71,yellow-bot,0.18,0.0000,0.00,30,204
-2026-11-01 23:40:21,channels/yellow-bot/stories/012_permission-modes/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 8.7s,0.00199,0.19,3.24,80.48,yellow-bot,0.20,0.1916,0.03,30,219
-2026-11-01 23:40:25,channels/yellow-bot/stories/012_permission-modes/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 6.0s free,0.00000,0.00,3.24,80.48,yellow-bot,0.14,0.0000,0.00,22,149
-2026-11-01 23:40:30,channels/yellow-bot/stories/012_permission-modes/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 7.3s free,0.00000,0.00,3.24,80.48,yellow-bot,0.17,0.0000,0.00,31,183
-2026-11-01 23:40:35,channels/yellow-bot/stories/012_permission-modes/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 8.2s,0.00185,0.18,3.45,80.27,yellow-bot,0.18,0.1787,0.03,32,204
-2026-11-01 23:40:40,channels/yellow-bot/stories/012_permission-modes/audio/tts/s_06.wav,gemini-3.8-flash-tts,tts 2.9s free,0.00000,0.00,3.45,80.27,yellow-bot,0.07,0.0000,0.00,14,72
+2026-11-01 23:40:05,channels/devrobolab/stories/012_permission-modes/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 5.0s free,0.00000,0.00,3.01,80.71,devrobolab,0.12,0.0000,0.00,21,125
+2026-11-01 23:40:09,channels/devrobolab/stories/012_permission-modes/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 8.2s free,0.00000,0.00,3.01,80.71,devrobolab,0.18,0.0000,0.00,30,204
+2026-11-01 23:40:21,channels/devrobolab/stories/012_permission-modes/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 8.7s,0.00199,0.19,3.24,80.48,devrobolab,0.20,0.1916,0.03,30,219
+2026-11-01 23:40:25,channels/devrobolab/stories/012_permission-modes/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 6.0s free,0.00000,0.00,3.24,80.48,devrobolab,0.14,0.0000,0.00,22,149
+2026-11-01 23:40:30,channels/devrobolab/stories/012_permission-modes/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 7.3s free,0.00000,0.00,3.24,80.48,devrobolab,0.17,0.0000,0.00,31,183
+2026-11-01 23:40:35,channels/devrobolab/stories/012_permission-modes/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 8.2s,0.00185,0.18,3.45,80.27,devrobolab,0.18,0.1787,0.03,32,204
+2026-11-01 23:40:40,channels/devrobolab/stories/012_permission-modes/audio/tts/s_06.wav,gemini-3.8-flash-tts,tts 2.9s free,0.00000,0.00,3.45,80.27,devrobolab,0.07,0.0000,0.00,14,72
 2026-11-01 23:39:41,channels/jugnu-stories/tests/rocket_short/images/bg_aangan.png,cf-flux-2-klein-4b,1088x1920 free,0.00000,0.00,3.01,80.71,jugnu-stories,0.00,0.0000,0.00,,
 2026-11-01 23:39:57,channels/jugnu-stories/tests/rocket_short/images/bg_cabin.png,cf-flux-2-klein-4b,1088x1920 free,0.00000,0.00,3.01,80.71,jugnu-stories,0.00,0.0000,0.00,,
 2026-11-01 23:40:12,channels/jugnu-stories/tests/rocket_short/images/bg_earth.png,cf-flux-2-klein-4b,1088x1920 free,0.00000,0.00,3.01,80.71,jugnu-stories,0.00,0.0000,0.00,,
@@ -1002,52 +1002,52 @@ timestamp,file,model,size,cost_usd,cost_inr,today_total_inr,remaining_inr,channe
 2026-11-01 23:46:51,channels/jugnu-stories/tests/rocket_short/audio/tts_cache/titli_c7e675a043cb045c.wav,gemini-3.8-flash-tts,tts 3.2s,0.00073,0.07,4.02,79.70,jugnu-stories,0.07,0.0707,0.01,8,81
 2026-11-01 23:47:08,channels/jugnu-stories/tests/rocket_short/audio/tts_cache/tinku_a683a23e26c534ed.wav,gemini-3.8-flash-tts,tts 3.6s,0.00082,0.08,4.11,79.61,jugnu-stories,0.08,0.0788,0.01,14,90
 2026-11-02 00:56:01,study/girl/girl_v.png,cf-flux-2-klein-4b,896x1536 free,0.00000,0.00,0.00,80.27,jugnu-stories,0.00,0.0000,0.00,,
-2026-11-03 22:34:30,channels/yellow-bot/stories/017_statusline/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 7.1s free,0.00000,0.00,0.00,79.17,yellow-bot,0.16,0.0000,0.00,31,177
-2026-11-03 22:34:39,channels/yellow-bot/stories/017_statusline/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 7.0s free,0.00000,0.00,0.00,79.17,yellow-bot,0.16,0.0000,0.00,26,174
-2026-11-03 22:34:46,channels/yellow-bot/stories/017_statusline/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 9.0s free,0.00000,0.00,0.00,79.17,yellow-bot,0.20,0.0000,0.00,34,225
-2026-11-03 22:34:55,channels/yellow-bot/stories/017_statusline/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 12.1s free,0.00000,0.00,0.00,79.17,yellow-bot,0.27,0.0000,0.00,42,302
-2026-11-03 22:35:10,channels/yellow-bot/stories/017_statusline/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 9.2s,0.00209,0.20,0.24,78.93,yellow-bot,0.21,0.2014,0.04,35,230
-2026-11-03 22:35:15,channels/yellow-bot/stories/013_context-window/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 9.8s,0.00222,0.21,0.49,78.68,yellow-bot,0.22,0.2138,0.04,40,244
-2026-11-03 22:35:18,channels/yellow-bot/stories/017_statusline/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 7.1s,0.00161,0.16,0.67,78.50,yellow-bot,0.16,0.1551,0.03,29,177
-2026-11-03 22:35:21,channels/yellow-bot/stories/015_worktrees/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 8.6s,0.00194,0.19,0.89,78.28,yellow-bot,0.19,0.1874,0.03,32,214
-2026-11-03 22:35:23,channels/yellow-bot/stories/013_context-window/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 7.9s,0.00179,0.17,1.10,78.07,yellow-bot,0.18,0.1725,0.03,30,197
-2026-11-03 22:35:25,channels/yellow-bot/stories/017_statusline/audio/tts/s_06.wav,gemini-3.8-flash-tts,tts 3.8s,0.00085,0.08,1.19,77.98,yellow-bot,0.09,0.0825,0.01,17,94
-2026-11-03 22:35:29,channels/yellow-bot/stories/015_worktrees/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 8.8s,0.00201,0.19,1.42,77.75,yellow-bot,0.20,0.1936,0.03,34,221
-2026-11-03 22:35:33,channels/yellow-bot/stories/013_context-window/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 12.2s free,0.00000,0.00,1.42,77.75,yellow-bot,0.27,0.0000,0.00,42,305
-2026-11-03 22:35:38,channels/yellow-bot/stories/015_worktrees/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 9.7s free,0.00000,0.00,1.42,77.75,yellow-bot,0.22,0.0000,0.00,40,242
-2026-11-03 22:35:39,channels/yellow-bot/stories/018_headless/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 7.9s free,0.00000,0.00,1.42,77.75,yellow-bot,0.18,0.0000,0.00,35,198
-2026-11-03 22:35:44,channels/yellow-bot/stories/013_context-window/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 14.3s free,0.00000,0.00,1.42,77.75,yellow-bot,0.32,0.0000,0.00,56,357
-2026-11-03 22:35:47,channels/yellow-bot/stories/015_worktrees/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 12.8s,0.00290,0.28,1.75,77.42,yellow-bot,0.29,0.2795,0.05,51,319
-2026-11-03 22:35:48,channels/yellow-bot/stories/018_headless/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 13.4s,0.00303,0.29,2.10,77.07,yellow-bot,0.30,0.2921,0.05,42,334
-2026-11-03 22:35:54,channels/yellow-bot/stories/013_context-window/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 12.6s,0.00287,0.28,2.42,76.75,yellow-bot,0.28,0.2765,0.05,43,316
-2026-11-03 22:35:56,channels/yellow-bot/stories/015_worktrees/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 13.4s,0.00303,0.29,2.77,76.40,yellow-bot,0.30,0.2926,0.05,52,334
-2026-11-03 22:36:14,channels/yellow-bot/stories/015_worktrees/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 11.5s,0.00261,0.25,3.07,76.10,yellow-bot,0.26,0.2523,0.05,45,288
-2026-11-03 22:36:21,channels/yellow-bot/stories/015_worktrees/audio/tts/s_06.wav,gemini-3.8-flash-tts,tts 3.7s,0.00084,0.08,3.16,76.01,yellow-bot,0.09,0.0808,0.01,18,92
-2026-11-03 22:36:36,channels/yellow-bot/stories/013_context-window/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 10.8s free,0.00000,0.00,3.16,76.01,yellow-bot,0.24,0.0000,0.00,37,271
-2026-11-03 22:36:43,channels/yellow-bot/stories/013_context-window/audio/tts/s_06.wav,gemini-3.8-flash-tts,tts 3.5s free,0.00000,0.00,3.16,76.01,yellow-bot,0.08,0.0000,0.00,15,88
-2026-11-03 22:36:43,channels/yellow-bot/stories/018_headless/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 8.9s free,0.00000,0.00,3.16,76.01,yellow-bot,0.20,0.0000,0.00,34,223
-2026-11-03 22:36:52,channels/yellow-bot/stories/014_sessions/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 7.9s,0.00180,0.17,3.37,75.80,yellow-bot,0.18,0.1735,0.03,32,198
-2026-11-03 22:36:53,channels/yellow-bot/stories/018_headless/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 13.4s,0.00304,0.29,3.71,75.46,yellow-bot,0.30,0.2938,0.05,41,336
-2026-11-03 22:37:01,channels/yellow-bot/stories/014_sessions/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 12.8s,0.00289,0.28,4.04,75.13,yellow-bot,0.29,0.2790,0.05,41,319
-2026-11-03 22:37:02,channels/yellow-bot/stories/018_headless/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 11.6s,0.00263,0.25,4.34,74.83,yellow-bot,0.26,0.2541,0.05,47,290
-2026-11-03 22:37:10,channels/yellow-bot/stories/014_sessions/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 12.3s,0.00279,0.27,4.66,74.51,yellow-bot,0.28,0.2695,0.05,42,308
-2026-11-03 22:37:12,channels/yellow-bot/stories/018_headless/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 8.9s,0.00202,0.20,4.89,74.28,yellow-bot,0.20,0.1953,0.04,33,223
-2026-11-03 22:37:18,channels/yellow-bot/stories/014_sessions/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 7.3s,0.00166,0.16,5.08,74.09,yellow-bot,0.17,0.1606,0.03,34,183
-2026-11-03 22:37:18,channels/yellow-bot/stories/018_headless/audio/tts/s_06.wav,gemini-3.8-flash-tts,tts 3.4s,0.00078,0.08,5.17,74.00,yellow-bot,0.08,0.0756,0.01,18,86
-2026-11-03 22:37:27,channels/yellow-bot/stories/014_sessions/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 11.0s,0.00250,0.24,5.46,73.72,yellow-bot,0.25,0.2415,0.04,38,276
-2026-11-03 22:37:35,channels/yellow-bot/stories/014_sessions/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 9.0s,0.00205,0.20,5.69,73.48,yellow-bot,0.20,0.1979,0.04,33,226
-2026-11-03 22:37:43,channels/yellow-bot/stories/014_sessions/audio/tts/s_06.wav,gemini-3.8-flash-tts,tts 3.1s,0.00070,0.07,5.77,73.40,yellow-bot,0.07,0.0675,0.01,13,77
-2026-11-03 22:38:41,channels/yellow-bot/stories/013_context-window/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 10.6s,0.00240,0.23,6.04,73.13,yellow-bot,0.24,0.2313,0.04,42,264
-2026-11-03 22:38:50,channels/yellow-bot/stories/013_context-window/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 14.6s,0.00330,0.32,6.42,72.75,yellow-bot,0.33,0.3188,0.06,56,364
-2026-11-03 22:39:22,channels/yellow-bot/stories/013_context-window/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 10.3s,0.00233,0.23,6.68,72.49,yellow-bot,0.23,0.2251,0.04,39,257
-2026-11-03 22:40:26,channels/yellow-bot/stories/016_plugins-overview/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 7.8s,0.00176,0.17,6.88,72.29,yellow-bot,0.18,0.1699,0.03,29,194
-2026-11-03 22:40:37,channels/yellow-bot/stories/016_plugins-overview/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 13.2s,0.00300,0.29,7.23,71.95,yellow-bot,0.30,0.2897,0.05,47,331
-2026-11-03 22:40:45,channels/yellow-bot/stories/016_plugins-overview/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 9.5s,0.00215,0.21,7.47,71.70,yellow-bot,0.21,0.2073,0.04,30,237
-2026-11-03 22:40:56,channels/yellow-bot/stories/016_plugins-overview/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 12.8s,0.00289,0.28,7.80,71.37,yellow-bot,0.29,0.2793,0.05,47,319
-2026-11-03 22:41:10,channels/yellow-bot/stories/016_plugins-overview/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 15.1s,0.00342,0.33,8.19,70.98,yellow-bot,0.34,0.3302,0.06,57,377
-2026-11-03 22:41:23,channels/yellow-bot/stories/016_plugins-overview/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 10.9s,0.00247,0.24,8.47,70.70,yellow-bot,0.25,0.2388,0.04,36,273
-2026-11-03 22:41:32,channels/yellow-bot/stories/016_plugins-overview/audio/tts/s_06.wav,gemini-3.8-flash-tts,tts 3.0s,0.00067,0.06,8.55,70.62,yellow-bot,0.07,0.0649,0.01,14,74
-2026-11-03 22:43:40,channels/yellow-bot/stories/016_plugins-overview/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 8.7s,0.00197,0.19,8.77,70.40,yellow-bot,0.20,0.1900,0.03,31,217
+2026-11-03 22:34:30,channels/devrobolab/stories/017_statusline/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 7.1s free,0.00000,0.00,0.00,79.17,devrobolab,0.16,0.0000,0.00,31,177
+2026-11-03 22:34:39,channels/devrobolab/stories/017_statusline/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 7.0s free,0.00000,0.00,0.00,79.17,devrobolab,0.16,0.0000,0.00,26,174
+2026-11-03 22:34:46,channels/devrobolab/stories/017_statusline/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 9.0s free,0.00000,0.00,0.00,79.17,devrobolab,0.20,0.0000,0.00,34,225
+2026-11-03 22:34:55,channels/devrobolab/stories/017_statusline/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 12.1s free,0.00000,0.00,0.00,79.17,devrobolab,0.27,0.0000,0.00,42,302
+2026-11-03 22:35:10,channels/devrobolab/stories/017_statusline/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 9.2s,0.00209,0.20,0.24,78.93,devrobolab,0.21,0.2014,0.04,35,230
+2026-11-03 22:35:15,channels/devrobolab/stories/013_context-window/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 9.8s,0.00222,0.21,0.49,78.68,devrobolab,0.22,0.2138,0.04,40,244
+2026-11-03 22:35:18,channels/devrobolab/stories/017_statusline/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 7.1s,0.00161,0.16,0.67,78.50,devrobolab,0.16,0.1551,0.03,29,177
+2026-11-03 22:35:21,channels/devrobolab/stories/015_worktrees/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 8.6s,0.00194,0.19,0.89,78.28,devrobolab,0.19,0.1874,0.03,32,214
+2026-11-03 22:35:23,channels/devrobolab/stories/013_context-window/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 7.9s,0.00179,0.17,1.10,78.07,devrobolab,0.18,0.1725,0.03,30,197
+2026-11-03 22:35:25,channels/devrobolab/stories/017_statusline/audio/tts/s_06.wav,gemini-3.8-flash-tts,tts 3.8s,0.00085,0.08,1.19,77.98,devrobolab,0.09,0.0825,0.01,17,94
+2026-11-03 22:35:29,channels/devrobolab/stories/015_worktrees/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 8.8s,0.00201,0.19,1.42,77.75,devrobolab,0.20,0.1936,0.03,34,221
+2026-11-03 22:35:33,channels/devrobolab/stories/013_context-window/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 12.2s free,0.00000,0.00,1.42,77.75,devrobolab,0.27,0.0000,0.00,42,305
+2026-11-03 22:35:38,channels/devrobolab/stories/015_worktrees/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 9.7s free,0.00000,0.00,1.42,77.75,devrobolab,0.22,0.0000,0.00,40,242
+2026-11-03 22:35:39,channels/devrobolab/stories/018_headless/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 7.9s free,0.00000,0.00,1.42,77.75,devrobolab,0.18,0.0000,0.00,35,198
+2026-11-03 22:35:44,channels/devrobolab/stories/013_context-window/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 14.3s free,0.00000,0.00,1.42,77.75,devrobolab,0.32,0.0000,0.00,56,357
+2026-11-03 22:35:47,channels/devrobolab/stories/015_worktrees/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 12.8s,0.00290,0.28,1.75,77.42,devrobolab,0.29,0.2795,0.05,51,319
+2026-11-03 22:35:48,channels/devrobolab/stories/018_headless/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 13.4s,0.00303,0.29,2.10,77.07,devrobolab,0.30,0.2921,0.05,42,334
+2026-11-03 22:35:54,channels/devrobolab/stories/013_context-window/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 12.6s,0.00287,0.28,2.42,76.75,devrobolab,0.28,0.2765,0.05,43,316
+2026-11-03 22:35:56,channels/devrobolab/stories/015_worktrees/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 13.4s,0.00303,0.29,2.77,76.40,devrobolab,0.30,0.2926,0.05,52,334
+2026-11-03 22:36:14,channels/devrobolab/stories/015_worktrees/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 11.5s,0.00261,0.25,3.07,76.10,devrobolab,0.26,0.2523,0.05,45,288
+2026-11-03 22:36:21,channels/devrobolab/stories/015_worktrees/audio/tts/s_06.wav,gemini-3.8-flash-tts,tts 3.7s,0.00084,0.08,3.16,76.01,devrobolab,0.09,0.0808,0.01,18,92
+2026-11-03 22:36:36,channels/devrobolab/stories/013_context-window/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 10.8s free,0.00000,0.00,3.16,76.01,devrobolab,0.24,0.0000,0.00,37,271
+2026-11-03 22:36:43,channels/devrobolab/stories/013_context-window/audio/tts/s_06.wav,gemini-3.8-flash-tts,tts 3.5s free,0.00000,0.00,3.16,76.01,devrobolab,0.08,0.0000,0.00,15,88
+2026-11-03 22:36:43,channels/devrobolab/stories/018_headless/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 8.9s free,0.00000,0.00,3.16,76.01,devrobolab,0.20,0.0000,0.00,34,223
+2026-11-03 22:36:52,channels/devrobolab/stories/014_sessions/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 7.9s,0.00180,0.17,3.37,75.80,devrobolab,0.18,0.1735,0.03,32,198
+2026-11-03 22:36:53,channels/devrobolab/stories/018_headless/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 13.4s,0.00304,0.29,3.71,75.46,devrobolab,0.30,0.2938,0.05,41,336
+2026-11-03 22:37:01,channels/devrobolab/stories/014_sessions/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 12.8s,0.00289,0.28,4.04,75.13,devrobolab,0.29,0.2790,0.05,41,319
+2026-11-03 22:37:02,channels/devrobolab/stories/018_headless/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 11.6s,0.00263,0.25,4.34,74.83,devrobolab,0.26,0.2541,0.05,47,290
+2026-11-03 22:37:10,channels/devrobolab/stories/014_sessions/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 12.3s,0.00279,0.27,4.66,74.51,devrobolab,0.28,0.2695,0.05,42,308
+2026-11-03 22:37:12,channels/devrobolab/stories/018_headless/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 8.9s,0.00202,0.20,4.89,74.28,devrobolab,0.20,0.1953,0.04,33,223
+2026-11-03 22:37:18,channels/devrobolab/stories/014_sessions/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 7.3s,0.00166,0.16,5.08,74.09,devrobolab,0.17,0.1606,0.03,34,183
+2026-11-03 22:37:18,channels/devrobolab/stories/018_headless/audio/tts/s_06.wav,gemini-3.8-flash-tts,tts 3.4s,0.00078,0.08,5.17,74.00,devrobolab,0.08,0.0756,0.01,18,86
+2026-11-03 22:37:27,channels/devrobolab/stories/014_sessions/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 11.0s,0.00250,0.24,5.46,73.72,devrobolab,0.25,0.2415,0.04,38,276
+2026-11-03 22:37:35,channels/devrobolab/stories/014_sessions/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 9.0s,0.00205,0.20,5.69,73.48,devrobolab,0.20,0.1979,0.04,33,226
+2026-11-03 22:37:43,channels/devrobolab/stories/014_sessions/audio/tts/s_06.wav,gemini-3.8-flash-tts,tts 3.1s,0.00070,0.07,5.77,73.40,devrobolab,0.07,0.0675,0.01,13,77
+2026-11-03 22:38:41,channels/devrobolab/stories/013_context-window/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 10.6s,0.00240,0.23,6.04,73.13,devrobolab,0.24,0.2313,0.04,42,264
+2026-11-03 22:38:50,channels/devrobolab/stories/013_context-window/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 14.6s,0.00330,0.32,6.42,72.75,devrobolab,0.33,0.3188,0.06,56,364
+2026-11-03 22:39:22,channels/devrobolab/stories/013_context-window/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 10.3s,0.00233,0.23,6.68,72.49,devrobolab,0.23,0.2251,0.04,39,257
+2026-11-03 22:40:26,channels/devrobolab/stories/016_plugins-overview/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 7.8s,0.00176,0.17,6.88,72.29,devrobolab,0.18,0.1699,0.03,29,194
+2026-11-03 22:40:37,channels/devrobolab/stories/016_plugins-overview/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 13.2s,0.00300,0.29,7.23,71.95,devrobolab,0.30,0.2897,0.05,47,331
+2026-11-03 22:40:45,channels/devrobolab/stories/016_plugins-overview/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 9.5s,0.00215,0.21,7.47,71.70,devrobolab,0.21,0.2073,0.04,30,237
+2026-11-03 22:40:56,channels/devrobolab/stories/016_plugins-overview/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 12.8s,0.00289,0.28,7.80,71.37,devrobolab,0.29,0.2793,0.05,47,319
+2026-11-03 22:41:10,channels/devrobolab/stories/016_plugins-overview/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 15.1s,0.00342,0.33,8.19,70.98,devrobolab,0.34,0.3302,0.06,57,377
+2026-11-03 22:41:23,channels/devrobolab/stories/016_plugins-overview/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 10.9s,0.00247,0.24,8.47,70.70,devrobolab,0.25,0.2388,0.04,36,273
+2026-11-03 22:41:32,channels/devrobolab/stories/016_plugins-overview/audio/tts/s_06.wav,gemini-3.8-flash-tts,tts 3.0s,0.00067,0.06,8.55,70.62,devrobolab,0.07,0.0649,0.01,14,74
+2026-11-03 22:43:40,channels/devrobolab/stories/016_plugins-overview/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 8.7s,0.00197,0.19,8.77,70.40,devrobolab,0.20,0.1900,0.03,31,217
 2026-11-03 23:21:48,channels/noor-e-raah/stories/005_an-nas/images/11_shuttered_window_night.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,8.77,70.40,noor-e-raah,0.00,0.0000,0.00,,
 2026-11-03 23:21:57,channels/noor-e-raah/stories/005_an-nas/images/12_dawn_hijaz_valley_lamp.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,8.77,70.40,noor-e-raah,0.00,0.0000,0.00,,
 2026-11-03 23:22:23,channels/noor-e-raah/stories/005_an-nas/images/11_shuttered_window_night.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,8.77,70.40,noor-e-raah,0.00,0.0000,0.00,,
@@ -1102,12 +1102,12 @@ timestamp,file,model,size,cost_usd,cost_inr,today_total_inr,remaining_inr,channe
 2026-11-03 23:37:32,channels/noor-e-raah/stories/005_an-nas/audio/tts/054_ustaad.wav,gemini-3.8-flash-tts,tts 7.6s,0.00172,0.17,20.39,58.78,noor-e-raah,0.17,0.1664,0.03,29,190
 2026-11-03 23:37:46,channels/noor-e-raah/stories/005_an-nas/audio/tts/055_sawaal.wav,gemini-3.8-flash-tts,tts 8.2s,0.00187,0.18,20.61,58.56,noor-e-raah,0.19,0.1803,0.03,28,206
 2026-11-03 23:38:02,channels/noor-e-raah/stories/005_an-nas/audio/tts/055_sawaal.wav,gemini-3.8-flash-tts,tts 8.9s,0.00202,0.20,20.84,58.33,noor-e-raah,0.20,0.1950,0.04,28,223
-2026-11-04 00:24:09,channels/yellow-bot/stories/019_overview/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 9.4s,0.00214,0.21,0.24,58.09,yellow-bot,0.21,0.2061,0.04,41,235
-2026-11-04 00:24:19,channels/yellow-bot/stories/019_overview/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 10.8s,0.00244,0.24,0.52,57.81,yellow-bot,0.24,0.2357,0.04,43,269
-2026-11-04 00:24:30,channels/yellow-bot/stories/019_overview/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 16.6s,0.00377,0.36,0.95,57.38,yellow-bot,0.37,0.3639,0.07,55,416
-2026-11-04 00:24:38,channels/yellow-bot/stories/019_overview/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 9.5s,0.00216,0.21,1.20,57.14,yellow-bot,0.21,0.2085,0.04,38,238
-2026-11-04 00:24:48,channels/yellow-bot/stories/019_overview/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 10.9s,0.00247,0.24,1.48,56.86,yellow-bot,0.24,0.2385,0.04,48,272
-2026-11-04 00:24:57,channels/yellow-bot/stories/019_overview/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 10.2s,0.00231,0.22,1.74,56.59,yellow-bot,0.23,0.2233,0.04,37,255
+2026-11-04 00:24:09,channels/devrobolab/stories/019_overview/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 9.4s,0.00214,0.21,0.24,58.09,devrobolab,0.21,0.2061,0.04,41,235
+2026-11-04 00:24:19,channels/devrobolab/stories/019_overview/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 10.8s,0.00244,0.24,0.52,57.81,devrobolab,0.24,0.2357,0.04,43,269
+2026-11-04 00:24:30,channels/devrobolab/stories/019_overview/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 16.6s,0.00377,0.36,0.95,57.38,devrobolab,0.37,0.3639,0.07,55,416
+2026-11-04 00:24:38,channels/devrobolab/stories/019_overview/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 9.5s,0.00216,0.21,1.20,57.14,devrobolab,0.21,0.2085,0.04,38,238
+2026-11-04 00:24:48,channels/devrobolab/stories/019_overview/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 10.9s,0.00247,0.24,1.48,56.86,devrobolab,0.24,0.2385,0.04,48,272
+2026-11-04 00:24:57,channels/devrobolab/stories/019_overview/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 10.2s,0.00231,0.22,1.74,56.59,devrobolab,0.23,0.2233,0.04,37,255
 2026-11-04 00:37:29,channels/noor-e-raah/stories/005_an-nas/audio/tts/021_ustaad.wav,gemini-3.8-flash-tts,tts 4.7s,0.00107,0.10,1.86,56.47,noor-e-raah,0.11,0.1031,0.02,13,118
 2026-11-04 00:37:52,channels/noor-e-raah/stories/005_an-nas/audio/tts/023_ustaad.wav,gemini-3.8-flash-tts,tts 10.9s,0.00247,0.24,2.15,56.19,noor-e-raah,0.25,0.2387,0.04,33,273
 2026-11-04 00:38:09,channels/noor-e-raah/stories/005_an-nas/audio/tts/023_ustaad.wav,gemini-3.8-flash-tts,tts 10.2s,0.00232,0.22,2.41,55.92,noor-e-raah,0.23,0.2239,0.04,33,256
@@ -1118,66 +1118,66 @@ timestamp,file,model,size,cost_usd,cost_inr,today_total_inr,remaining_inr,channe
 2026-11-04 00:41:15,channels/noor-e-raah/stories/005_an-nas/audio/tts/053_ustaad.wav,gemini-3.8-flash-tts,tts 14.3s,0.00324,0.31,4.80,53.53,noor-e-raah,0.32,0.3128,0.06,57,357
 2026-11-04 00:41:34,channels/noor-e-raah/stories/005_an-nas/audio/tts/053_ustaad.wav,gemini-3.8-flash-tts,tts 13.6s,0.00309,0.30,5.15,53.18,noor-e-raah,0.30,0.2980,0.05,57,340
 2026-11-04 01:34:37,channels/noor-e-raah/stories/005_an-nas/images/thumb_scene_a.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,5.15,53.18,noor-e-raah,0.00,0.0000,0.00,,
-2026-11-04 01:46:49,channels/yellow-bot/stories/020_quickstart/_ttstest/3.8_flash_lite_tts.wav,gemini-3.8-flash-lite-tts,tts 7.2s,0.00164,0.16,5.34,52.99,yellow-bot,0.16,0.1585,0.03,28,181
-2026-11-04 01:48:25,channels/yellow-bot/stories/020_quickstart/audio/tts/s_00.wav,gemini-3.8-flash-lite-tts,tts 8.4s,0.00191,0.18,5.56,52.78,yellow-bot,0.19,0.1838,0.03,30,210
-2026-11-04 01:48:33,channels/yellow-bot/stories/020_quickstart/audio/tts/s_01.wav,gemini-3.8-flash-lite-tts,tts 10.0s,0.00227,0.22,5.82,52.52,yellow-bot,0.22,0.2190,0.04,38,250
-2026-11-04 01:48:40,channels/yellow-bot/stories/020_quickstart/audio/tts/s_02.wav,gemini-3.8-flash-lite-tts,tts 11.3s,0.00257,0.25,6.11,52.23,yellow-bot,0.25,0.2478,0.04,41,283
-2026-11-04 01:48:48,channels/yellow-bot/stories/020_quickstart/audio/tts/s_03.wav,gemini-3.8-flash-lite-tts,tts 7.1s,0.00161,0.16,6.29,52.04,yellow-bot,0.16,0.1551,0.03,28,177
-2026-11-04 01:48:55,channels/yellow-bot/stories/020_quickstart/audio/tts/s_04.wav,gemini-3.8-flash-lite-tts,tts 10.1s,0.00229,0.22,6.55,51.78,yellow-bot,0.23,0.2207,0.04,38,252
-2026-11-04 01:49:03,channels/yellow-bot/stories/020_quickstart/audio/tts/s_05.wav,gemini-3.8-flash-lite-tts,tts 9.4s,0.00214,0.21,6.79,51.54,yellow-bot,0.21,0.2066,0.04,34,236
-2026-11-04 01:49:10,channels/yellow-bot/stories/020_quickstart/audio/tts/s_06.wav,gemini-3.8-flash-lite-tts,tts 7.7s,0.00174,0.17,6.99,51.34,yellow-bot,0.17,0.1681,0.03,27,192
-2026-11-04 03:05:47,channels/yellow-bot/stories/021_how-claude-code-works/_to_delete/free_lite_test.wav,gemini-3.8-flash-lite-tts,tts 1.0s free,0.00000,0.00,6.99,51.34,yellow-bot,0.02,0.0000,0.00,4,24
-2026-11-04 03:06:11,channels/yellow-bot/stories/021_how-claude-code-works/audio/tts/s_00.wav,gemini-3.8-flash-lite-tts,tts 6.4s free,0.00000,0.00,6.99,51.34,yellow-bot,0.15,0.0000,0.00,28,159
-2026-11-04 03:06:19,channels/yellow-bot/stories/021_how-claude-code-works/audio/tts/s_01.wav,gemini-3.8-flash-lite-tts,tts 9.4s free,0.00000,0.00,6.99,51.34,yellow-bot,0.21,0.0000,0.00,35,236
-2026-11-04 03:06:26,channels/yellow-bot/stories/021_how-claude-code-works/audio/tts/s_02.wav,gemini-3.8-flash-lite-tts,tts 4.6s free,0.00000,0.00,6.99,51.34,yellow-bot,0.11,0.0000,0.00,20,114
-2026-11-04 03:07:56,channels/yellow-bot/stories/021_how-claude-code-works/audio/tts/s_03.wav,gemini-3.8-flash-lite-tts,tts 16.2s free,0.00000,0.00,6.99,51.34,yellow-bot,0.36,0.0000,0.00,52,405
-2026-11-04 03:08:04,channels/yellow-bot/stories/021_how-claude-code-works/audio/tts/s_04.wav,gemini-3.8-flash-lite-tts,tts 13.7s free,0.00000,0.00,6.99,51.34,yellow-bot,0.31,0.0000,0.00,56,343
-2026-11-04 03:08:13,channels/yellow-bot/stories/021_how-claude-code-works/audio/tts/s_05.wav,gemini-3.8-flash-lite-tts,tts 8.4s free,0.00000,0.00,6.99,51.34,yellow-bot,0.19,0.0000,0.00,34,210
-2026-11-04 03:08:20,channels/yellow-bot/stories/021_how-claude-code-works/audio/tts/s_06.wav,gemini-3.8-flash-lite-tts,tts 6.3s free,0.00000,0.00,6.99,51.34,yellow-bot,0.14,0.0000,0.00,21,157
-2026-11-04 03:09:38,channels/yellow-bot/stories/021_how-claude-code-works/audio/tts/s_07.wav,gemini-3.8-flash-lite-tts,tts 4.8s free,0.00000,0.00,6.99,51.34,yellow-bot,0.11,0.0000,0.00,19,120
-2026-11-04 22:57:23,channels/yellow-bot/stories/022_claude-code-login-expiry/audio/tts/s_00.wav,gemini-3.8-flash-lite-tts,tts 4.8s free,0.00000,0.00,6.99,51.34,yellow-bot,0.11,0.0000,0.00,21,119
-2026-11-04 22:57:30,channels/yellow-bot/stories/022_claude-code-login-expiry/audio/tts/s_01.wav,gemini-3.8-flash-lite-tts,tts 8.8s free,0.00000,0.00,6.99,51.34,yellow-bot,0.20,0.0000,0.00,37,221
-2026-11-04 22:57:38,channels/yellow-bot/stories/022_claude-code-login-expiry/audio/tts/s_02.wav,gemini-3.8-flash-lite-tts,tts 10.5s free,0.00000,0.00,6.99,51.34,yellow-bot,0.24,0.0000,0.00,40,262
-2026-11-04 22:57:44,channels/yellow-bot/stories/022_claude-code-login-expiry/audio/tts/s_03.wav,gemini-3.8-flash-lite-tts,tts 10.9s free,0.00000,0.00,6.99,51.34,yellow-bot,0.24,0.0000,0.00,41,272
-2026-11-04 22:59:03,channels/yellow-bot/stories/022_claude-code-login-expiry/audio/tts/s_04.wav,gemini-3.8-flash-lite-tts,tts 9.9s free,0.00000,0.00,6.99,51.34,yellow-bot,0.22,0.0000,0.00,44,248
-2026-11-04 22:59:10,channels/yellow-bot/stories/022_claude-code-login-expiry/audio/tts/s_05.wav,gemini-3.8-flash-lite-tts,tts 6.9s free,0.00000,0.00,6.99,51.34,yellow-bot,0.16,0.0000,0.00,23,173
-2026-11-04 22:59:16,channels/yellow-bot/stories/022_claude-code-login-expiry/audio/tts/s_06.wav,gemini-3.8-flash-lite-tts,tts 4.0s free,0.00000,0.00,6.99,51.34,yellow-bot,0.09,0.0000,0.00,15,101
-2026-11-04 22:59:23,channels/yellow-bot/stories/023_features-overview/audio/tts/s_00.wav,gemini-3.8-flash-lite-tts,tts 6.2s free,0.00000,0.00,6.99,51.34,yellow-bot,0.14,0.0000,0.00,24,154
-2026-11-04 22:59:31,channels/yellow-bot/stories/023_features-overview/audio/tts/s_01.wav,gemini-3.8-flash-lite-tts,tts 10.6s free,0.00000,0.00,6.99,51.34,yellow-bot,0.24,0.0000,0.00,41,266
-2026-11-04 22:59:39,channels/yellow-bot/stories/023_features-overview/audio/tts/s_02.wav,gemini-3.8-flash-lite-tts,tts 10.1s free,0.00000,0.00,6.99,51.34,yellow-bot,0.23,0.0000,0.00,39,253
-2026-11-04 22:59:47,channels/yellow-bot/stories/023_features-overview/audio/tts/s_03.wav,gemini-3.8-flash-lite-tts,tts 7.8s free,0.00000,0.00,6.99,51.34,yellow-bot,0.18,0.0000,0.00,31,196
-2026-11-04 23:10:23,channels/yellow-bot/stories/023_features-overview/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 5.4s free,0.00000,0.00,6.99,51.34,yellow-bot,0.12,0.0000,0.00,24,136
-2026-11-04 23:10:31,channels/yellow-bot/stories/023_features-overview/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 11.0s free,0.00000,0.00,6.99,51.34,yellow-bot,0.25,0.0000,0.00,41,274
-2026-11-04 23:10:40,channels/yellow-bot/stories/023_features-overview/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 10.2s free,0.00000,0.00,6.99,51.34,yellow-bot,0.23,0.0000,0.00,39,255
-2026-11-04 23:12:00,channels/yellow-bot/stories/023_features-overview/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 7.9s free,0.00000,0.00,6.99,51.34,yellow-bot,0.18,0.0000,0.00,31,197
-2026-11-04 23:12:08,channels/yellow-bot/stories/023_features-overview/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 11.6s free,0.00000,0.00,6.99,51.34,yellow-bot,0.26,0.0000,0.00,40,290
-2026-11-04 23:12:16,channels/yellow-bot/stories/023_features-overview/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 7.8s free,0.00000,0.00,6.99,51.34,yellow-bot,0.18,0.0000,0.00,34,196
-2026-11-04 23:12:23,channels/yellow-bot/stories/023_features-overview/audio/tts/s_06.wav,gemini-3.8-flash-tts,tts 3.6s free,0.00000,0.00,6.99,51.34,yellow-bot,0.08,0.0000,0.00,15,89
-2026-11-04 23:13:45,channels/yellow-bot/stories/024_common-workflows-bugfix/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 5.4s free,0.00000,0.00,6.99,51.34,yellow-bot,0.12,0.0000,0.00,23,135
-2026-11-04 23:13:53,channels/yellow-bot/stories/024_common-workflows-bugfix/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 7.2s free,0.00000,0.00,6.99,51.34,yellow-bot,0.16,0.0000,0.00,29,180
-2026-11-04 23:14:02,channels/yellow-bot/stories/024_common-workflows-bugfix/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 9.6s free,0.00000,0.00,6.99,51.34,yellow-bot,0.21,0.0000,0.00,33,239
-2026-11-05 00:18:53,channels/yellow-bot/stories/024_common-workflows-bugfix/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 7.9s,0.00179,0.17,0.20,551.14,yellow-bot,0.18,0.1724,0.03,28,197
-2026-11-05 00:19:01,channels/yellow-bot/stories/024_common-workflows-bugfix/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 8.0s,0.00181,0.17,0.41,550.93,yellow-bot,0.18,0.1745,0.03,35,199
-2026-11-05 00:19:08,channels/yellow-bot/stories/024_common-workflows-bugfix/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 5.0s,0.00112,0.11,0.54,550.80,yellow-bot,0.11,0.1085,0.02,17,124
-2026-11-05 00:19:14,channels/yellow-bot/stories/024_common-workflows-bugfix/audio/tts/s_06.wav,gemini-3.8-flash-tts,tts 3.9s,0.00088,0.08,0.64,550.70,yellow-bot,0.09,0.0850,0.02,15,97
-2026-11-05 01:00:03,channels/yellow-bot/stories/025_ai-news-digest-2026-11-05/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 11.9s,0.00269,0.26,0.94,554.09,yellow-bot,0.27,0.2600,0.05,43,297
-2026-11-05 01:00:10,channels/yellow-bot/stories/025_ai-news-digest-2026-11-05/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 8.0s,0.00182,0.18,1.15,553.89,yellow-bot,0.18,0.1759,0.03,28,201
-2026-11-05 01:00:18,channels/yellow-bot/stories/025_ai-news-digest-2026-11-05/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 9.2s,0.00210,0.20,1.39,553.65,yellow-bot,0.21,0.2024,0.04,36,231
-2026-11-05 01:00:27,channels/yellow-bot/stories/025_ai-news-digest-2026-11-05/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 9.3s,0.00212,0.20,1.63,553.41,yellow-bot,0.21,0.2042,0.04,38,233
-2026-11-05 01:00:36,channels/yellow-bot/stories/025_ai-news-digest-2026-11-05/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 9.0s,0.00204,0.20,1.86,553.17,yellow-bot,0.20,0.1970,0.04,33,225
-2026-11-05 01:00:44,channels/yellow-bot/stories/025_ai-news-digest-2026-11-05/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 10.8s,0.00244,0.24,2.14,552.90,yellow-bot,0.24,0.2355,0.04,38,269
-2026-11-05 01:00:53,channels/yellow-bot/stories/025_ai-news-digest-2026-11-05/audio/tts/s_06.wav,gemini-3.8-flash-tts,tts 13.5s,0.00306,0.30,2.49,552.55,yellow-bot,0.30,0.2958,0.05,46,338
-2026-11-05 01:01:01,channels/yellow-bot/stories/025_ai-news-digest-2026-11-05/audio/tts/s_07.wav,gemini-3.8-flash-tts,tts 8.9s,0.00202,0.20,2.72,552.32,yellow-bot,0.20,0.1954,0.04,36,223
-2026-11-05 01:01:08,channels/yellow-bot/stories/025_ai-news-digest-2026-11-05/audio/tts/s_08.wav,gemini-3.8-flash-tts,tts 6.6s,0.00149,0.14,2.89,552.15,yellow-bot,0.15,0.1439,0.03,30,164
-2026-11-05 01:01:17,channels/yellow-bot/stories/025_ai-news-digest-2026-11-05/audio/tts/s_09.wav,gemini-3.8-flash-tts,tts 11.0s,0.00250,0.24,3.18,551.86,yellow-bot,0.25,0.2416,0.04,39,276
-2026-11-05 01:01:25,channels/yellow-bot/stories/025_ai-news-digest-2026-11-05/audio/tts/s_10.wav,gemini-3.8-flash-tts,tts 11.0s,0.00250,0.24,3.46,551.58,yellow-bot,0.25,0.2408,0.04,40,275
-2026-11-05 01:01:34,channels/yellow-bot/stories/025_ai-news-digest-2026-11-05/audio/tts/s_11.wav,gemini-3.8-flash-tts,tts 10.2s,0.00231,0.22,3.72,551.31,yellow-bot,0.23,0.2227,0.04,43,254
-2026-11-05 01:01:41,channels/yellow-bot/stories/025_ai-news-digest-2026-11-05/audio/tts/s_12.wav,gemini-3.8-flash-tts,tts 8.1s,0.00184,0.18,3.93,551.10,yellow-bot,0.18,0.1772,0.03,36,202
-2026-11-05 01:01:48,channels/yellow-bot/stories/025_ai-news-digest-2026-11-05/audio/tts/s_13.wav,gemini-3.8-flash-tts,tts 6.4s,0.00146,0.14,4.10,550.94,yellow-bot,0.15,0.1412,0.03,29,161
-2026-11-05 01:01:55,channels/yellow-bot/stories/025_ai-news-digest-2026-11-05/audio/tts/s_14.wav,gemini-3.8-flash-tts,tts 5.1s,0.00116,0.11,4.23,550.81,yellow-bot,0.12,0.1122,0.02,22,128
-2026-11-05 01:02:04,channels/yellow-bot/stories/025_ai-news-digest-2026-11-05/audio/tts/s_15.wav,gemini-3.8-flash-tts,tts 8.6s,0.00196,0.19,4.46,550.58,yellow-bot,0.20,0.1893,0.03,35,216
-2026-11-05 01:02:14,channels/yellow-bot/stories/025_ai-news-digest-2026-11-05/audio/tts/s_16.wav,gemini-3.8-flash-tts,tts 18.7s,0.00424,0.41,4.94,550.10,yellow-bot,0.42,0.4088,0.07,67,467
-2026-11-05 01:02:21,channels/yellow-bot/stories/025_ai-news-digest-2026-11-05/audio/tts/s_17.wav,gemini-3.8-flash-tts,tts 3.6s,0.00082,0.08,5.03,550.01,yellow-bot,0.08,0.0789,0.01,15,90
-2026-11-05 01:18:16,channels/yellow-bot/stories/025_ai-news-digest-2026-11-05/img/hook.png,cf-flux-2-klein-4b,1024x608 free,0.00000,0.00,5.03,550.01,yellow-bot,0.00,0.0000,0.00,,
-2026-11-05 01:18:29,channels/yellow-bot/stories/025_ai-news-digest-2026-11-05/img/open.png,cf-flux-2-klein-4b,1024x608 free,0.00000,0.00,5.03,550.01,yellow-bot,0.00,0.0000,0.00,,
-2026-11-05 01:18:34,channels/yellow-bot/stories/025_ai-news-digest-2026-11-05/img/wave.png,cf-flux-2-klein-4b,1024x608 free,0.00000,0.00,5.03,550.01,yellow-bot,0.00,0.0000,0.00,,
+2026-11-04 01:46:49,channels/devrobolab/stories/020_quickstart/_ttstest/3.8_flash_lite_tts.wav,gemini-3.8-flash-lite-tts,tts 7.2s,0.00164,0.16,5.34,52.99,devrobolab,0.16,0.1585,0.03,28,181
+2026-11-04 01:48:25,channels/devrobolab/stories/020_quickstart/audio/tts/s_00.wav,gemini-3.8-flash-lite-tts,tts 8.4s,0.00191,0.18,5.56,52.78,devrobolab,0.19,0.1838,0.03,30,210
+2026-11-04 01:48:33,channels/devrobolab/stories/020_quickstart/audio/tts/s_01.wav,gemini-3.8-flash-lite-tts,tts 10.0s,0.00227,0.22,5.82,52.52,devrobolab,0.22,0.2190,0.04,38,250
+2026-11-04 01:48:40,channels/devrobolab/stories/020_quickstart/audio/tts/s_02.wav,gemini-3.8-flash-lite-tts,tts 11.3s,0.00257,0.25,6.11,52.23,devrobolab,0.25,0.2478,0.04,41,283
+2026-11-04 01:48:48,channels/devrobolab/stories/020_quickstart/audio/tts/s_03.wav,gemini-3.8-flash-lite-tts,tts 7.1s,0.00161,0.16,6.29,52.04,devrobolab,0.16,0.1551,0.03,28,177
+2026-11-04 01:48:55,channels/devrobolab/stories/020_quickstart/audio/tts/s_04.wav,gemini-3.8-flash-lite-tts,tts 10.1s,0.00229,0.22,6.55,51.78,devrobolab,0.23,0.2207,0.04,38,252
+2026-11-04 01:49:03,channels/devrobolab/stories/020_quickstart/audio/tts/s_05.wav,gemini-3.8-flash-lite-tts,tts 9.4s,0.00214,0.21,6.79,51.54,devrobolab,0.21,0.2066,0.04,34,236
+2026-11-04 01:49:10,channels/devrobolab/stories/020_quickstart/audio/tts/s_06.wav,gemini-3.8-flash-lite-tts,tts 7.7s,0.00174,0.17,6.99,51.34,devrobolab,0.17,0.1681,0.03,27,192
+2026-11-04 03:05:47,channels/devrobolab/stories/021_how-claude-code-works/_to_delete/free_lite_test.wav,gemini-3.8-flash-lite-tts,tts 1.0s free,0.00000,0.00,6.99,51.34,devrobolab,0.02,0.0000,0.00,4,24
+2026-11-04 03:06:11,channels/devrobolab/stories/021_how-claude-code-works/audio/tts/s_00.wav,gemini-3.8-flash-lite-tts,tts 6.4s free,0.00000,0.00,6.99,51.34,devrobolab,0.15,0.0000,0.00,28,159
+2026-11-04 03:06:19,channels/devrobolab/stories/021_how-claude-code-works/audio/tts/s_01.wav,gemini-3.8-flash-lite-tts,tts 9.4s free,0.00000,0.00,6.99,51.34,devrobolab,0.21,0.0000,0.00,35,236
+2026-11-04 03:06:26,channels/devrobolab/stories/021_how-claude-code-works/audio/tts/s_02.wav,gemini-3.8-flash-lite-tts,tts 4.6s free,0.00000,0.00,6.99,51.34,devrobolab,0.11,0.0000,0.00,20,114
+2026-11-04 03:07:56,channels/devrobolab/stories/021_how-claude-code-works/audio/tts/s_03.wav,gemini-3.8-flash-lite-tts,tts 16.2s free,0.00000,0.00,6.99,51.34,devrobolab,0.36,0.0000,0.00,52,405
+2026-11-04 03:08:04,channels/devrobolab/stories/021_how-claude-code-works/audio/tts/s_04.wav,gemini-3.8-flash-lite-tts,tts 13.7s free,0.00000,0.00,6.99,51.34,devrobolab,0.31,0.0000,0.00,56,343
+2026-11-04 03:08:13,channels/devrobolab/stories/021_how-claude-code-works/audio/tts/s_05.wav,gemini-3.8-flash-lite-tts,tts 8.4s free,0.00000,0.00,6.99,51.34,devrobolab,0.19,0.0000,0.00,34,210
+2026-11-04 03:08:20,channels/devrobolab/stories/021_how-claude-code-works/audio/tts/s_06.wav,gemini-3.8-flash-lite-tts,tts 6.3s free,0.00000,0.00,6.99,51.34,devrobolab,0.14,0.0000,0.00,21,157
+2026-11-04 03:09:38,channels/devrobolab/stories/021_how-claude-code-works/audio/tts/s_07.wav,gemini-3.8-flash-lite-tts,tts 4.8s free,0.00000,0.00,6.99,51.34,devrobolab,0.11,0.0000,0.00,19,120
+2026-11-04 22:57:23,channels/devrobolab/stories/022_claude-code-login-expiry/audio/tts/s_00.wav,gemini-3.8-flash-lite-tts,tts 4.8s free,0.00000,0.00,6.99,51.34,devrobolab,0.11,0.0000,0.00,21,119
+2026-11-04 22:57:30,channels/devrobolab/stories/022_claude-code-login-expiry/audio/tts/s_01.wav,gemini-3.8-flash-lite-tts,tts 8.8s free,0.00000,0.00,6.99,51.34,devrobolab,0.20,0.0000,0.00,37,221
+2026-11-04 22:57:38,channels/devrobolab/stories/022_claude-code-login-expiry/audio/tts/s_02.wav,gemini-3.8-flash-lite-tts,tts 10.5s free,0.00000,0.00,6.99,51.34,devrobolab,0.24,0.0000,0.00,40,262
+2026-11-04 22:57:44,channels/devrobolab/stories/022_claude-code-login-expiry/audio/tts/s_03.wav,gemini-3.8-flash-lite-tts,tts 10.9s free,0.00000,0.00,6.99,51.34,devrobolab,0.24,0.0000,0.00,41,272
+2026-11-04 22:59:03,channels/devrobolab/stories/022_claude-code-login-expiry/audio/tts/s_04.wav,gemini-3.8-flash-lite-tts,tts 9.9s free,0.00000,0.00,6.99,51.34,devrobolab,0.22,0.0000,0.00,44,248
+2026-11-04 22:59:10,channels/devrobolab/stories/022_claude-code-login-expiry/audio/tts/s_05.wav,gemini-3.8-flash-lite-tts,tts 6.9s free,0.00000,0.00,6.99,51.34,devrobolab,0.16,0.0000,0.00,23,173
+2026-11-04 22:59:16,channels/devrobolab/stories/022_claude-code-login-expiry/audio/tts/s_06.wav,gemini-3.8-flash-lite-tts,tts 4.0s free,0.00000,0.00,6.99,51.34,devrobolab,0.09,0.0000,0.00,15,101
+2026-11-04 22:59:23,channels/devrobolab/stories/023_features-overview/audio/tts/s_00.wav,gemini-3.8-flash-lite-tts,tts 6.2s free,0.00000,0.00,6.99,51.34,devrobolab,0.14,0.0000,0.00,24,154
+2026-11-04 22:59:31,channels/devrobolab/stories/023_features-overview/audio/tts/s_01.wav,gemini-3.8-flash-lite-tts,tts 10.6s free,0.00000,0.00,6.99,51.34,devrobolab,0.24,0.0000,0.00,41,266
+2026-11-04 22:59:39,channels/devrobolab/stories/023_features-overview/audio/tts/s_02.wav,gemini-3.8-flash-lite-tts,tts 10.1s free,0.00000,0.00,6.99,51.34,devrobolab,0.23,0.0000,0.00,39,253
+2026-11-04 22:59:47,channels/devrobolab/stories/023_features-overview/audio/tts/s_03.wav,gemini-3.8-flash-lite-tts,tts 7.8s free,0.00000,0.00,6.99,51.34,devrobolab,0.18,0.0000,0.00,31,196
+2026-11-04 23:10:23,channels/devrobolab/stories/023_features-overview/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 5.4s free,0.00000,0.00,6.99,51.34,devrobolab,0.12,0.0000,0.00,24,136
+2026-11-04 23:10:31,channels/devrobolab/stories/023_features-overview/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 11.0s free,0.00000,0.00,6.99,51.34,devrobolab,0.25,0.0000,0.00,41,274
+2026-11-04 23:10:40,channels/devrobolab/stories/023_features-overview/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 10.2s free,0.00000,0.00,6.99,51.34,devrobolab,0.23,0.0000,0.00,39,255
+2026-11-04 23:12:00,channels/devrobolab/stories/023_features-overview/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 7.9s free,0.00000,0.00,6.99,51.34,devrobolab,0.18,0.0000,0.00,31,197
+2026-11-04 23:12:08,channels/devrobolab/stories/023_features-overview/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 11.6s free,0.00000,0.00,6.99,51.34,devrobolab,0.26,0.0000,0.00,40,290
+2026-11-04 23:12:16,channels/devrobolab/stories/023_features-overview/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 7.8s free,0.00000,0.00,6.99,51.34,devrobolab,0.18,0.0000,0.00,34,196
+2026-11-04 23:12:23,channels/devrobolab/stories/023_features-overview/audio/tts/s_06.wav,gemini-3.8-flash-tts,tts 3.6s free,0.00000,0.00,6.99,51.34,devrobolab,0.08,0.0000,0.00,15,89
+2026-11-04 23:13:45,channels/devrobolab/stories/024_common-workflows-bugfix/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 5.4s free,0.00000,0.00,6.99,51.34,devrobolab,0.12,0.0000,0.00,23,135
+2026-11-04 23:13:53,channels/devrobolab/stories/024_common-workflows-bugfix/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 7.2s free,0.00000,0.00,6.99,51.34,devrobolab,0.16,0.0000,0.00,29,180
+2026-11-04 23:14:02,channels/devrobolab/stories/024_common-workflows-bugfix/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 9.6s free,0.00000,0.00,6.99,51.34,devrobolab,0.21,0.0000,0.00,33,239
+2026-11-05 00:18:53,channels/devrobolab/stories/024_common-workflows-bugfix/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 7.9s,0.00179,0.17,0.20,551.14,devrobolab,0.18,0.1724,0.03,28,197
+2026-11-05 00:19:01,channels/devrobolab/stories/024_common-workflows-bugfix/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 8.0s,0.00181,0.17,0.41,550.93,devrobolab,0.18,0.1745,0.03,35,199
+2026-11-05 00:19:08,channels/devrobolab/stories/024_common-workflows-bugfix/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 5.0s,0.00112,0.11,0.54,550.80,devrobolab,0.11,0.1085,0.02,17,124
+2026-11-05 00:19:14,channels/devrobolab/stories/024_common-workflows-bugfix/audio/tts/s_06.wav,gemini-3.8-flash-tts,tts 3.9s,0.00088,0.08,0.64,550.70,devrobolab,0.09,0.0850,0.02,15,97
+2026-11-05 01:00:03,channels/devrobolab/stories/025_ai-news-digest-2026-11-05/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 11.9s,0.00269,0.26,0.94,554.09,devrobolab,0.27,0.2600,0.05,43,297
+2026-11-05 01:00:10,channels/devrobolab/stories/025_ai-news-digest-2026-11-05/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 8.0s,0.00182,0.18,1.15,553.89,devrobolab,0.18,0.1759,0.03,28,201
+2026-11-05 01:00:18,channels/devrobolab/stories/025_ai-news-digest-2026-11-05/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 9.2s,0.00210,0.20,1.39,553.65,devrobolab,0.21,0.2024,0.04,36,231
+2026-11-05 01:00:27,channels/devrobolab/stories/025_ai-news-digest-2026-11-05/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 9.3s,0.00212,0.20,1.63,553.41,devrobolab,0.21,0.2042,0.04,38,233
+2026-11-05 01:00:36,channels/devrobolab/stories/025_ai-news-digest-2026-11-05/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 9.0s,0.00204,0.20,1.86,553.17,devrobolab,0.20,0.1970,0.04,33,225
+2026-11-05 01:00:44,channels/devrobolab/stories/025_ai-news-digest-2026-11-05/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 10.8s,0.00244,0.24,2.14,552.90,devrobolab,0.24,0.2355,0.04,38,269
+2026-11-05 01:00:53,channels/devrobolab/stories/025_ai-news-digest-2026-11-05/audio/tts/s_06.wav,gemini-3.8-flash-tts,tts 13.5s,0.00306,0.30,2.49,552.55,devrobolab,0.30,0.2958,0.05,46,338
+2026-11-05 01:01:01,channels/devrobolab/stories/025_ai-news-digest-2026-11-05/audio/tts/s_07.wav,gemini-3.8-flash-tts,tts 8.9s,0.00202,0.20,2.72,552.32,devrobolab,0.20,0.1954,0.04,36,223
+2026-11-05 01:01:08,channels/devrobolab/stories/025_ai-news-digest-2026-11-05/audio/tts/s_08.wav,gemini-3.8-flash-tts,tts 6.6s,0.00149,0.14,2.89,552.15,devrobolab,0.15,0.1439,0.03,30,164
+2026-11-05 01:01:17,channels/devrobolab/stories/025_ai-news-digest-2026-11-05/audio/tts/s_09.wav,gemini-3.8-flash-tts,tts 11.0s,0.00250,0.24,3.18,551.86,devrobolab,0.25,0.2416,0.04,39,276
+2026-11-05 01:01:25,channels/devrobolab/stories/025_ai-news-digest-2026-11-05/audio/tts/s_10.wav,gemini-3.8-flash-tts,tts 11.0s,0.00250,0.24,3.46,551.58,devrobolab,0.25,0.2408,0.04,40,275
+2026-11-05 01:01:34,channels/devrobolab/stories/025_ai-news-digest-2026-11-05/audio/tts/s_11.wav,gemini-3.8-flash-tts,tts 10.2s,0.00231,0.22,3.72,551.31,devrobolab,0.23,0.2227,0.04,43,254
+2026-11-05 01:01:41,channels/devrobolab/stories/025_ai-news-digest-2026-11-05/audio/tts/s_12.wav,gemini-3.8-flash-tts,tts 8.1s,0.00184,0.18,3.93,551.10,devrobolab,0.18,0.1772,0.03,36,202
+2026-11-05 01:01:48,channels/devrobolab/stories/025_ai-news-digest-2026-11-05/audio/tts/s_13.wav,gemini-3.8-flash-tts,tts 6.4s,0.00146,0.14,4.10,550.94,devrobolab,0.15,0.1412,0.03,29,161
+2026-11-05 01:01:55,channels/devrobolab/stories/025_ai-news-digest-2026-11-05/audio/tts/s_14.wav,gemini-3.8-flash-tts,tts 5.1s,0.00116,0.11,4.23,550.81,devrobolab,0.12,0.1122,0.02,22,128
+2026-11-05 01:02:04,channels/devrobolab/stories/025_ai-news-digest-2026-11-05/audio/tts/s_15.wav,gemini-3.8-flash-tts,tts 8.6s,0.00196,0.19,4.46,550.58,devrobolab,0.20,0.1893,0.03,35,216
+2026-11-05 01:02:14,channels/devrobolab/stories/025_ai-news-digest-2026-11-05/audio/tts/s_16.wav,gemini-3.8-flash-tts,tts 18.7s,0.00424,0.41,4.94,550.10,devrobolab,0.42,0.4088,0.07,67,467
+2026-11-05 01:02:21,channels/devrobolab/stories/025_ai-news-digest-2026-11-05/audio/tts/s_17.wav,gemini-3.8-flash-tts,tts 3.6s,0.00082,0.08,5.03,550.01,devrobolab,0.08,0.0789,0.01,15,90
+2026-11-05 01:18:16,channels/devrobolab/stories/025_ai-news-digest-2026-11-05/img/hook.png,cf-flux-2-klein-4b,1024x608 free,0.00000,0.00,5.03,550.01,devrobolab,0.00,0.0000,0.00,,
+2026-11-05 01:18:29,channels/devrobolab/stories/025_ai-news-digest-2026-11-05/img/open.png,cf-flux-2-klein-4b,1024x608 free,0.00000,0.00,5.03,550.01,devrobolab,0.00,0.0000,0.00,,
+2026-11-05 01:18:34,channels/devrobolab/stories/025_ai-news-digest-2026-11-05/img/wave.png,cf-flux-2-klein-4b,1024x608 free,0.00000,0.00,5.03,550.01,devrobolab,0.00,0.0000,0.00,,

@@ -7,7 +7,7 @@ Sources (all public, official):
   2. Claude Code docs index  https://code.claude.com/docs/llms.txt          (a NEW page = a new feature/topic)
   3. Anthropic news          https://www.anthropic.com/news                 (models, products, announcements)
   4. API release notes       https://docs.claude.com/en/release-notes/overview (new dated entries)
-State: channels/yellow-bot/research/news_state.json. Without --commit nothing is written (dry check); with --commit the
+State: channels/devrobolab/research/news_state.json. Without --commit nothing is written (dry check); with --commit the
 state is updated so the next run only reports what is newer. The FIRST run only builds the baseline (reports the latest
 version and nothing else) so it does not flood. Output: a plain-text report, or JSON with --json.
 Nothing here uploads, spends money or edits the topic queue (the daily task / Sanchalak decides what to suggest)."""
@@ -19,8 +19,8 @@ import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-STATE = ROOT / "channels/yellow-bot/research/news_state.json"
-QUEUE = ROOT / "channels/yellow-bot/topic_queue.json"
+STATE = ROOT / "channels/devrobolab/research/news_state.json"
+QUEUE = ROOT / "channels/devrobolab/topic_queue.json"
 UA = {"User-Agent": "Mozilla/5.0 (YellowBot news check; contact: channel owner)"}
 CHANGELOG = "https://code.claude.com/docs/en/changelog.md"
 LLMS = "https://code.claude.com/docs/llms.txt"
@@ -77,7 +77,7 @@ def rel_dates(html):
     return seen[:12]
 
 
-SOURCES = ROOT / "channels/yellow-bot/research/news_sources.json"
+SOURCES = ROOT / "channels/devrobolab/research/news_sources.json"
 
 
 def _local(tag):

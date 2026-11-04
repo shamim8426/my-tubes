@@ -1,5 +1,5 @@
 import json,sys
-p="channels/yellow-bot/topic_queue.json"
+p="channels/devrobolab/topic_queue.json"
 raw=open(p,encoding="utf-8",newline="").read()
 crlf="\r\n" in raw
 q=json.loads(raw)

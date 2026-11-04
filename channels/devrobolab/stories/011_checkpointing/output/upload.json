@@ -1,0 +1,27 @@
+{
+  "channel_key": "devrobolab",
+  "channel_name": "DevRoboLab",
+  "channel_id": "UCpElgKdJOgQiyfwdGXz6GmA",
+  "format": "short",
+  "title": "Claude Code Checkpoints: Esc Esc se sab undo #shorts",
+  "description": "Claude ne code bigaad diya? /rewind ya Esc Esc se pichhle checkpoint par wapas jao. Rewind menu ke options aur limits (Git ki jagah nahi).\n\nSource (official docs): https://code.claude.com/docs/en/checkpointing\n\nUnofficial channel, not affiliated with Anthropic.\n\nMusic: \"Funkorama\" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttp://creativecommons.org/licenses/by/4.0/\n\n#shorts #ClaudeCode #Checkpoints #AI #Hinglish",
+  "tags": [
+    "Claude Code",
+    "Claude Code checkpoints",
+    "checkpointing",
+    "rewind",
+    "/rewind",
+    "AI coding",
+    "Hinglish",
+    "Hindi tech",
+    "Claude AI tutorial",
+    "Shorts"
+  ],
+  "video": "short.mp4",
+  "language": "hi",
+  "made_for_kids": false,
+  "contains_synthetic_media": true,
+  "category_id": "28",
+  "privacy": "private",
+  "parent_video_id": null
+}

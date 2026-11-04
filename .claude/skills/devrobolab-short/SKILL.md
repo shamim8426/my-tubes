@@ -1,11 +1,11 @@
 ---
 name: devrobolab-short
-description: Make, upload (private) and log one DevRoboLab Short (channel key yellow-bot, AI explainer Shorts in Hinglish) from an official source page. Use when the user says "DevRoboLab short", "next DevRoboLab video", "news check" for DevRoboLab, or "DevRoboLab analytics".
+description: Make, upload (private) and log one DevRoboLab Short (channel key devrobolab, AI explainer Shorts in Hinglish) from an official source page. Use when the user says "DevRoboLab short", "next DevRoboLab video", "news check" for DevRoboLab, or "DevRoboLab analytics".
 ---
 
 # DevRoboLab Short (thin checklist; the rules live in the files named here, never copy them into this skill)
 
-Read first, in order: `channels/yellow-bot/RULES.md`, `channels/yellow-bot/STYLE_GUIDE.md` (v4, ending rule, enhancements log), `channels/yellow-bot/brand/STYLE_LEARNINGS.md` (what we learnt from studying other channels, incl. Endings; principles only), `channels/yellow-bot/brand/LONG_FORM_LEARNINGS.md` (for LONG 16:9 videos: hook, structure, number cards, ending stack; principles only), `channels/yellow-bot/learnings.md` (Nigraan's lessons from our own analytics), `shared/RULES.md` (sections 1, 3, 6-8, 10-16), `channels/yellow-bot/topic_queue.json`. These override this skill.
+Read first, in order: `channels/devrobolab/RULES.md`, `channels/devrobolab/STYLE_GUIDE.md` (v4, ending rule, enhancements log), `channels/devrobolab/brand/STYLE_LEARNINGS.md` (what we learnt from studying other channels, incl. Endings; principles only), `channels/devrobolab/brand/LONG_FORM_LEARNINGS.md` (for LONG 16:9 videos: hook, structure, number cards, ending stack; principles only), `channels/devrobolab/learnings.md` (Nigraan's lessons from our own analytics), `shared/RULES.md` (sections 1, 3, 6-8, 10-16), `channels/devrobolab/topic_queue.json`. These override this skill.
 
 ## 0. Before starting
 - Tell the user time and cost in one line (CLAUDE.md). Balance floor Rs 50 (shared by all channels): below it, stop and ask.
@@ -25,16 +25,16 @@ Read first, in order: `channels/yellow-bot/RULES.md`, `channels/yellow-bot/STYLE
 
 ## 3. Upload (only on the user's word)
 - Always PRIVATE (`api_audited` false). Dry run first, then `python tools\youtube_upload.py --job <story>\output\upload.json`. Thumbnail API returns 403 (phone verification): the user sets it in Studio.
-- After the upload: topic_queue (`status` uploaded, `story` set; keep JSON format), `log.md` line (URL, length, LUFS, rough spots), STYLE_GUIDE note if the engine or style changed, then sync: `powershell -NoProfile -ExecutionPolicy Bypass -File tools\sync.ps1 -Message "yellow-bot <NNN>: <what>"` (simple English; with `$ErrorActionPreference="Continue"`; check `.git\sync.lock` afterwards).
+- After the upload: topic_queue (`status` uploaded, `story` set; keep JSON format), `log.md` line (URL, length, LUFS, rough spots), STYLE_GUIDE note if the engine or style changed, then sync: `powershell -NoProfile -ExecutionPolicy Bypass -File tools\sync.ps1 -Message "devrobolab <NNN>: <what>"` (simple English; with `$ErrorActionPreference="Continue"`; check `.git\sync.lock` afterwards).
 
 ## 3b. Long news digest (16:9)
 - A 3-4 minute landscape digest of 4-5 AI items (whole field) follows STYLE_GUIDE 'Long news digest (16:9)': deck.json `"format": "landscape"`, copy `stories/025_*/gen_deck.py`, upload.json `"format": "long"` with the Latest AI Updates `playlist_id`, private only.
 
 ## 4. Other jobs
-- News watch: `channels/yellow-bot/NEWS_WATCH.md` (twice a day, whole AI field).
-- Study another channel: `channels/yellow-bot/brand/LEARNING_PROCESS.md` (RULES 12c; downloads only in git-ignored `study/`, never reuse their frames, audio, script or exact titles; delete after recording learnings).
-- Analytics: `.venv\Scripts\python.exe -X utf8 tools\yt_analytics.py yellow-bot fetch` writes `channels/yellow-bot/analytics/`. YouTube data lags 2-3 days; small counts (under 1,000 views) are signals only. Studio numbers can be higher than the API for the newest days.
-- Manual items for the user: thumbnails in Studio; OAuth token renewal (`tools/yt_auth.py yellow-bot`); making a video public.
+- News watch: `channels/devrobolab/NEWS_WATCH.md` (twice a day, whole AI field).
+- Study another channel: `channels/devrobolab/brand/LEARNING_PROCESS.md` (RULES 12c; downloads only in git-ignored `study/`, never reuse their frames, audio, script or exact titles; delete after recording learnings).
+- Analytics: `.venv\Scripts\python.exe -X utf8 tools\yt_analytics.py devrobolab fetch` writes `channels/devrobolab/analytics/`. YouTube data lags 2-3 days; small counts (under 1,000 views) are signals only. Studio numbers can be higher than the API for the newest days.
+- Manual items for the user: thumbnails in Studio; OAuth token renewal (`tools/yt_auth.py devrobolab`); making a video public.
 
 ## Never
 - No public upload, no secrets in the repo, no deleting project files (move to `_to_delete`), no copying another channel's look.

@@ -12,7 +12,7 @@ import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-Q = ROOT / "channels/yellow-bot/topic_queue.json"
+Q = ROOT / "channels/devrobolab/topic_queue.json"
 INDEX = "https://code.claude.com/docs/llms.txt"
 # pages that make poor 40-60 s feature Shorts (admin / enterprise / platform setup / reference dumps)
 SKIP = re.compile(r"enterprise|admin|managed|sso|bedrock|vertex|foundry|proxy|gateway|network|llm-gateway|legal|security-guidance|"

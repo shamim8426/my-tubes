@@ -1,0 +1,1352 @@
+{
+ "_note": "Short 023 Extend Claude Code: CLAUDE.md vs Skill vs Hook. Source https://code.claude.com/docs/en/features-overview.md (read 2026-11-04). Day 1 product-page style.",
+ "tag": "Claude Code · Extend",
+ "bg": "#F3F5F9",
+ "bgGrid": true,
+ "music": {
+  "file": "shared/music/presentation/Funkorama.mp3",
+  "start": 6,
+  "rel": 12
+ },
+ "voice": {
+  "id": "Charon",
+  "style": "Speak like a friendly Indian tech YouTuber chatting casually in Hinglish. Natural conversational pace, warm and clear, a little energetic but not theatrical. No sing-song, no exaggerated emphasis."
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "Claude Code को अपने हिसाब से चलाना है? तीन चीज़ें हैं, और हर एक का अपना अलग काम है।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "Claude Code ko **apne hisaab** se",
+     "x": 80,
+     "y": 230,
+     "size": 96,
+     "w": 920,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:70px;font-weight:800\">CLAUDE.md</div>",
+     "x": 140,
+     "y": 760,
+     "css": "background:#fff;border:2px solid #E3E7EE;border-radius:30px;padding:22px 38px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "तीन चीज़ें|0.0",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:70px;font-weight:800\">Skill</div>",
+     "x": 140,
+     "y": 980,
+     "css": "background:#fff;border:2px solid #E3E7EE;border-radius:30px;padding:22px 38px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "तीन चीज़ें|0.5",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:70px;font-weight:800\">Hook</div>",
+     "x": 140,
+     "y": 1200,
+     "css": "background:#fff;border:2px solid #E3E7EE;border-radius:30px;padding:22px 38px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "तीन चीज़ें|1.0",
+     "spring": true
+    },
+    {
+     "kind": "icon",
+     "name": "file",
+     "x": 640,
+     "y": 770,
+     "size": 120,
+     "in": "तीन चीज़ें|0.0",
+     "spring": true,
+     "float": 6
+    },
+    {
+     "kind": "icon",
+     "name": "sparkle",
+     "x": 640,
+     "y": 990,
+     "size": 120,
+     "in": "तीन चीज़ें|0.5",
+     "spring": true,
+     "float": 6
+    },
+    {
+     "kind": "icon",
+     "name": "bolt",
+     "x": 640,
+     "y": 1210,
+     "size": 120,
+     "in": "तीन चीज़ें|1.0",
+     "spring": true,
+     "float": 6
+    },
+    {
+     "kind": "text",
+     "html": "har ek ka **alag** kaam",
+     "x": 80,
+     "y": 1500,
+     "size": 96,
+     "w": 640,
+     "stream": true,
+     "step": 0.14,
+     "sat": "अलग काम|-0.4"
+    },
+    {
+     "kind": "img",
+     "img": "wave",
+     "size": 330,
+     "x": 720,
+     "y": 1500,
+     "bob": 1,
+     "k": [
+      [
+       "Claude Code|0.2",
+       {
+        "x": 1200,
+        "o": 1
+       }
+      ],
+      [
+       "Claude Code|1.0",
+       {
+        "x": 720
+       }
+      ]
+     ]
+    }
+   ],
+   "wt": [
+    [
+     0,
+     0.0
+    ],
+    [
+     7,
+     0.62
+    ],
+    [
+     12,
+     1.0
+    ],
+    [
+     15,
+     1.0
+    ],
+    [
+     20,
+     1.56
+    ],
+    [
+     26,
+     1.86
+    ],
+    [
+     29,
+     2.0
+    ],
+    [
+     35,
+     2.34
+    ],
+    [
+     39,
+     2.68
+    ],
+    [
+     43,
+     3.1
+    ],
+    [
+     50,
+     3.1
+    ],
+    [
+     55,
+     3.48
+    ],
+    [
+     58,
+     3.82
+    ],
+    [
+     61,
+     4.28
+    ],
+    [
+     64,
+     4.42
+    ],
+    [
+     67,
+     4.42
+    ],
+    [
+     72,
+     4.66
+    ],
+    [
+     76,
+     4.8
+    ],
+    [
+     80,
+     5.08
+    ],
+    [
+     83,
+     5.44
+    ]
+   ]
+  },
+  {
+   "id": "claudemd",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "पहली है CLAUDE.md. ये हर session में अपने आप load होने वाले नियम हैं, जैसे फ्रिज पर चिपकी घर के नियमों की list। जैसे: use pnpm, not npm।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "**1.** CLAUDE.md",
+     "x": 80,
+     "y": 230,
+     "size": 110,
+     "w": 920,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:30px;font-weight:700;margin-bottom:14px\">jaise ek... fridge note</div><div class=\"mono\" style=\"font-size:40px;font-weight:700;line-height:1.5\">Use pnpm, not npm.<br>Run tests before committing.</div>",
+     "x": 100,
+     "y": 640,
+     "css": "width:880px;padding:40px 44px;box-sizing:border-box",
+     "cls": "sticky",
+     "k": [
+      [
+       0,
+       {
+        "r": -2
+       }
+      ]
+     ],
+     "in": "फ्रिज|-0.4",
+     "spring": true
+    },
+    {
+     "kind": "icon",
+     "name": "file",
+     "x": 100,
+     "y": 1130,
+     "size": 190,
+     "in": "load होने|-0.2",
+     "spring": true,
+     "float": 7
+    },
+    {
+     "kind": "text",
+     "html": "har session me **apne aap**",
+     "x": 330,
+     "y": 1160,
+     "size": 84,
+     "w": 700,
+     "stream": true,
+     "step": 0.14,
+     "sat": "हर session|-0.1"
+    },
+    {
+     "kind": "icon",
+     "name": "check",
+     "x": 140,
+     "y": 1450,
+     "size": 130,
+     "in": "जैसे: use|0.0",
+     "spring": true,
+     "drawon": [
+      "जैसे: use|0.2",
+      0.6
+     ]
+    },
+    {
+     "kind": "text",
+     "html": "**hamesha** wale niyam",
+     "x": 330,
+     "y": 1460,
+     "size": 84,
+     "w": 700,
+     "stream": true,
+     "step": 0.14,
+     "sat": "नियम|0.0"
+    }
+   ],
+   "wt": [
+    [
+     0,
+     0.0
+    ],
+    [
+     5,
+     0.72
+    ],
+    [
+     8,
+     1.2
+    ],
+    [
+     19,
+     1.44
+    ],
+    [
+     22,
+     1.8
+    ],
+    [
+     25,
+     2.02
+    ],
+    [
+     33,
+     2.88
+    ],
+    [
+     37,
+     3.04
+    ],
+    [
+     42,
+     3.34
+    ],
+    [
+     45,
+     3.68
+    ],
+    [
+     50,
+     3.82
+    ],
+    [
+     55,
+     4.02
+    ],
+    [
+     60,
+     4.14
+    ],
+    [
+     65,
+     4.34
+    ],
+    [
+     70,
+     4.94
+    ],
+    [
+     75,
+     5.36
+    ],
+    [
+     81,
+     5.8
+    ],
+    [
+     84,
+     6.68
+    ],
+    [
+     90,
+     6.82
+    ],
+    [
+     93,
+     7.0
+    ],
+    [
+     96,
+     7.18
+    ],
+    [
+     103,
+     7.44
+    ],
+    [
+     106,
+     7.56
+    ],
+    [
+     112,
+     8.08
+    ],
+    [
+     118,
+     8.48
+    ],
+    [
+     122,
+     9.22
+    ],
+    [
+     128,
+     9.88
+    ],
+    [
+     132,
+     10.32
+    ],
+    [
+     136,
+     10.96
+    ]
+   ]
+  },
+  {
+   "id": "skill",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "दूसरी है Skill। ये एक recipe card है, जो ज़रूरत पड़ने पर ही load होती है। जब एक ही prompt बार बार टाइप करते हो, उसे skill बना दो, जैसे slash deploy।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "**2.** Skill",
+     "x": 80,
+     "y": 230,
+     "size": 110,
+     "w": 920,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:860px;padding:34px 44px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"font-size:30px;font-weight:700;color:#667\">jaise ek... recipe card</div><div style=\"font-size:60px;font-weight:800;margin-top:12px\">/deploy</div><div style=\"font-size:38px;margin-top:6px;color:#445\">deployment checklist</div></div>",
+     "x": 110,
+     "y": 640,
+     "css": "",
+     "k": [
+      [
+       0,
+       {
+        "r": 2
+       }
+      ]
+     ],
+     "in": "recipe card|-0.3",
+     "spring": true
+    },
+    {
+     "kind": "icon",
+     "name": "sparkle",
+     "x": 780,
+     "y": 680,
+     "size": 130,
+     "in": "recipe card|0.2",
+     "spring": true,
+     "float": 7
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:860px;height:330px;border:2px solid #14171C;border-radius:34px;background:#14171C;color:#fff;overflow:hidden;position:relative;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)\"><div style=\"height:78px;background:#262B33;display:flex;align-items:center;gap:22px;padding-left:28px\"><div class=\"dot3\"><i style=\"background:#FFD60A\"></i><i style=\"background:#9AA3B2\"></i><i style=\"background:#9AA3B2\"></i></div><div class=\"mono\" style=\"font-size:30px;color:#FFD60A\">same prompt, again and again</div></div></div>",
+     "x": 110,
+     "y": 1080,
+     "css": "",
+     "in": "बार बार|-0.5",
+     "spring": true
+    },
+    {
+     "kind": "typed",
+     "text": "> deploy checklist chalao...",
+     "x": 150,
+     "y": 1200,
+     "size": 40,
+     "w": 800,
+     "sat": "बार बार|0.0",
+     "color": "#fff",
+     "cps": 16,
+     "mono": true
+    },
+    {
+     "kind": "typed",
+     "text": "> /deploy",
+     "x": 150,
+     "y": 1290,
+     "size": 46,
+     "w": 800,
+     "sat": "slash deploy|-0.9",
+     "color": "#FFD60A",
+     "cps": 14,
+     "mono": true
+    },
+    {
+     "kind": "text",
+     "html": "**ek baar** likho, baar baar use",
+     "x": 80,
+     "y": 1510,
+     "size": 84,
+     "w": 920,
+     "stream": true,
+     "step": 0.14,
+     "sat": "skill बना दो|0.0"
+    }
+   ],
+   "wt": [
+    [
+     0,
+     0.0
+    ],
+    [
+     6,
+     0.64
+    ],
+    [
+     9,
+     0.78
+    ],
+    [
+     16,
+     1.66
+    ],
+    [
+     19,
+     1.94
+    ],
+    [
+     22,
+     2.14
+    ],
+    [
+     29,
+     2.7
+    ],
+    [
+     34,
+     2.94
+    ],
+    [
+     38,
+     2.94
+    ],
+    [
+     41,
+     3.28
+    ],
+    [
+     48,
+     3.42
+    ],
+    [
+     54,
+     3.72
+    ],
+    [
+     57,
+     4.0
+    ],
+    [
+     60,
+     4.2
+    ],
+    [
+     65,
+     4.46
+    ],
+    [
+     70,
+     4.66
+    ],
+    [
+     74,
+     5.3
+    ],
+    [
+     77,
+     5.6
+    ],
+    [
+     80,
+     5.98
+    ],
+    [
+     83,
+     6.32
+    ],
+    [
+     90,
+     6.52
+    ],
+    [
+     94,
+     6.66
+    ],
+    [
+     98,
+     6.88
+    ],
+    [
+     103,
+     7.14
+    ],
+    [
+     108,
+     7.14
+    ],
+    [
+     112,
+     7.48
+    ],
+    [
+     116,
+     7.56
+    ],
+    [
+     122,
+     7.66
+    ],
+    [
+     126,
+     7.92
+    ],
+    [
+     130,
+     8.56
+    ],
+    [
+     135,
+     9.02
+    ],
+    [
+     141,
+     9.48
+    ],
+    [
+     148,
+     10.2
+    ]
+   ]
+  },
+  {
+   "id": "hook2",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "तीसरा है Hook। ये हर बार अपने आप चलता है, Claude के सोचने पर निर्भर नहीं। जैसे हर file edit के बाद ESLint चलाना।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "**3.** Hook",
+     "x": 80,
+     "y": 230,
+     "size": 110,
+     "w": 920,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:880px;height:560px;border:2px solid #E3E7EE;border-radius:34px;background:#fff;color:#111;overflow:hidden;position:relative;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)\"><div style=\"height:78px;background:#EDF0F5;display:flex;align-items:center;gap:22px;padding-left:28px\"><div class=\"dot3\"><i style=\"background:#FFD60A\"></i><i style=\"background:#9AA3B2\"></i><i style=\"background:#9AA3B2\"></i></div><div class=\"mono\" style=\"font-size:30px;color:#566\">every file edit</div></div></div>",
+     "x": 100,
+     "y": 640,
+     "css": "",
+     "in": "हर बार|-0.4",
+     "spring": true
+    },
+    {
+     "kind": "icon",
+     "name": "file",
+     "x": 160,
+     "y": 810,
+     "size": 170,
+     "in": "file edit|-0.3",
+     "spring": true,
+     "wig": "file edit|0.3"
+    },
+    {
+     "kind": "flow",
+     "at": "ESLint|-0.8",
+     "pts": [
+      [
+       340,
+       895
+      ],
+      [
+       560,
+       895
+      ]
+     ],
+     "dur": 0.5,
+     "sw": 8,
+     "n": 2,
+     "per": 1.2,
+     "r": 12
+    },
+    {
+     "kind": "icon",
+     "name": "gear",
+     "x": 580,
+     "y": 800,
+     "size": 190,
+     "in": "ESLint|-0.4",
+     "spring": true,
+     "spin": 60,
+     "spinAt": "ESLint|-0.2"
+    },
+    {
+     "kind": "icon",
+     "name": "check",
+     "x": 810,
+     "y": 810,
+     "size": 160,
+     "in": "ESLint|0.5",
+     "spring": true,
+     "drawon": [
+      "ESLint|0.5",
+      0.6
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "<div class=\"mono\" style=\"font-size:38px;font-weight:700\">ESLint</div>",
+     "x": 560,
+     "y": 1020,
+     "css": "",
+     "in": "ESLint|-0.2",
+     "spring": true
+    },
+    {
+     "kind": "text",
+     "html": "**automatic**, har baar",
+     "x": 80,
+     "y": 1350,
+     "size": 80,
+     "w": 920,
+     "stream": true,
+     "step": 0.14,
+     "sat": "अपने आप|-0.1"
+    },
+    {
+     "kind": "text",
+     "html": "Claude ke **sochne** par nirbhar nahi",
+     "x": 80,
+     "y": 1600,
+     "size": 60,
+     "w": 920,
+     "stream": true,
+     "step": 0.14,
+     "sat": "सोचने|-0.3",
+     "color": "#445"
+    }
+   ],
+   "wt": [
+    [
+     0,
+     0.0
+    ],
+    [
+     6,
+     0.86
+    ],
+    [
+     9,
+     1.78
+    ],
+    [
+     15,
+     1.92
+    ],
+    [
+     18,
+     2.24
+    ],
+    [
+     21,
+     2.48
+    ],
+    [
+     25,
+     2.7
+    ],
+    [
+     30,
+     2.84
+    ],
+    [
+     33,
+     3.14
+    ],
+    [
+     38,
+     3.54
+    ],
+    [
+     42,
+     3.84
+    ],
+    [
+     49,
+     4.0
+    ],
+    [
+     52,
+     4.0
+    ],
+    [
+     58,
+     4.28
+    ],
+    [
+     61,
+     4.44
+    ],
+    [
+     68,
+     4.72
+    ],
+    [
+     74,
+     5.32
+    ],
+    [
+     79,
+     5.6
+    ],
+    [
+     82,
+     5.94
+    ],
+    [
+     87,
+     6.28
+    ],
+    [
+     92,
+     6.46
+    ],
+    [
+     95,
+     6.62
+    ],
+    [
+     99,
+     6.84
+    ],
+    [
+     106,
+     7.32
+    ],
+    [
+     112,
+     7.88
+    ]
+   ]
+  },
+  {
+   "id": "caution",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "गलती मत करना: CLAUDE.md में never edit dot env लिखना सिर्फ़ एक request है, guarantee नहीं। जो नियम हर बार टिकना ज़रूरी है, उसे hook बनाओ।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "**Request** ya **guarantee**?",
+     "x": 80,
+     "y": 230,
+     "size": 96,
+     "w": 920,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:860px;padding:34px 44px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"font-size:30px;font-weight:700;color:#667\">CLAUDE.md</div><div class=\"mono\" style=\"font-size:40px;font-weight:700;margin-top:10px\">never edit .env</div><div style=\"font-size:46px;font-weight:800;margin-top:14px\">= sirf request</div></div>",
+     "x": 110,
+     "y": 640,
+     "css": "",
+     "in": "CLAUDE.md में|-0.3",
+     "spring": true
+    },
+    {
+     "kind": "icon",
+     "name": "cross",
+     "x": 790,
+     "y": 900,
+     "size": 120,
+     "in": "request|-0.2",
+     "spring": true,
+     "wig": "request|0.3"
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:860px;padding:34px 44px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"font-size:30px;font-weight:700;color:#667\">Hook (PreToolUse)</div><div class=\"mono\" style=\"font-size:40px;font-weight:700;margin-top:10px\">blocks the edit</div><div style=\"font-size:46px;font-weight:800;margin-top:14px\">= <span style=\"background:#FFD60A;padding:0 12px;border-radius:12px\">enforcement</span></div></div>",
+     "x": 110,
+     "y": 1080,
+     "css": "",
+     "in": "hook बनाओ|-0.6",
+     "spring": true
+    },
+    {
+     "kind": "icon",
+     "name": "shield",
+     "x": 790,
+     "y": 1350,
+     "size": 130,
+     "in": "hook बनाओ|0.0",
+     "spring": true,
+     "float": 6
+    },
+    {
+     "kind": "text",
+     "html": "har baar **tikna** ho = hook",
+     "x": 80,
+     "y": 1570,
+     "size": 84,
+     "w": 920,
+     "stream": true,
+     "step": 0.14,
+     "sat": "हर बार टिकना|0.0"
+    }
+   ],
+   "wt": [
+    [
+     0,
+     0.0
+    ],
+    [
+     5,
+     0.66
+    ],
+    [
+     8,
+     0.82
+    ],
+    [
+     14,
+     1.22
+    ],
+    [
+     24,
+     2.12
+    ],
+    [
+     28,
+     2.62
+    ],
+    [
+     34,
+     3.08
+    ],
+    [
+     39,
+     3.56
+    ],
+    [
+     43,
+     3.9
+    ],
+    [
+     47,
+     4.18
+    ],
+    [
+     53,
+     4.58
+    ],
+    [
+     60,
+     5.02
+    ],
+    [
+     63,
+     5.34
+    ],
+    [
+     71,
+     6.26
+    ],
+    [
+     75,
+     6.46
+    ],
+    [
+     85,
+     7.26
+    ],
+    [
+     91,
+     7.96
+    ],
+    [
+     94,
+     8.32
+    ],
+    [
+     99,
+     8.6
+    ],
+    [
+     102,
+     9.02
+    ],
+    [
+     106,
+     9.28
+    ],
+    [
+     112,
+     9.86
+    ],
+    [
+     119,
+     10.0
+    ],
+    [
+     123,
+     10.56
+    ],
+    [
+     127,
+     10.92
+    ],
+    [
+     132,
+     11.2
+    ],
+    [
+     137,
+     11.6
+    ]
+   ]
+  },
+  {
+   "id": "recap",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "याद रखो: हमेशा का नियम CLAUDE.md में, दोहराया हुआ काम skill में, और जो हर बार अपने आप चले, वो hook में।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "**Yaad** rakho",
+     "x": 80,
+     "y": 230,
+     "size": 110,
+     "w": 920,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:900px;padding:30px 40px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><span style=\"font-size:50px;font-weight:800\">CLAUDE.md</span><span style=\"font-size:42px;font-weight:700;color:#445\"> = hamesha ka niyam</span></div>",
+     "x": 90,
+     "y": 640,
+     "css": "",
+     "in": "CLAUDE.md में|-0.2",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:900px;padding:30px 40px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><span style=\"font-size:50px;font-weight:800\">Skill</span><span style=\"font-size:42px;font-weight:700;color:#445\"> = dohraya kaam</span></div>",
+     "x": 90,
+     "y": 880,
+     "css": "",
+     "in": "skill में|-0.2",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:900px;padding:30px 40px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><span style=\"font-size:50px;font-weight:800\">Hook</span><span style=\"font-size:42px;font-weight:700;color:#445\"> = har baar apne aap</span></div>",
+     "x": 90,
+     "y": 1120,
+     "css": "",
+     "in": "hook में|-0.2",
+     "spring": true
+    },
+    {
+     "kind": "icon",
+     "name": "check",
+     "x": 880,
+     "y": 1380,
+     "size": 120,
+     "in": "hook में|0.4",
+     "spring": true,
+     "drawon": [
+      "hook में|0.5",
+      0.6
+     ]
+    },
+    {
+     "kind": "img",
+     "img": "thumbs",
+     "size": 400,
+     "x": 90,
+     "y": 1250,
+     "bob": 1,
+     "k": [
+      [
+       "हर बार अपने|-0.3",
+       {
+        "o": 0
+       }
+      ],
+      [
+       "हर बार अपने|0.0",
+       {
+        "o": 1
+       }
+      ]
+     ]
+    }
+   ],
+   "wt": [
+    [
+     0,
+     0.0
+    ],
+    [
+     4,
+     0.64
+    ],
+    [
+     9,
+     0.82
+    ],
+    [
+     15,
+     1.22
+    ],
+    [
+     18,
+     1.68
+    ],
+    [
+     23,
+     1.94
+    ],
+    [
+     33,
+     2.46
+    ],
+    [
+     38,
+     2.7
+    ],
+    [
+     46,
+     2.96
+    ],
+    [
+     50,
+     3.44
+    ],
+    [
+     54,
+     4.04
+    ],
+    [
+     60,
+     4.44
+    ],
+    [
+     65,
+     4.76
+    ],
+    [
+     68,
+     5.28
+    ],
+    [
+     71,
+     5.54
+    ],
+    [
+     74,
+     5.68
+    ],
+    [
+     78,
+     5.9
+    ],
+    [
+     83,
+     6.14
+    ],
+    [
+     86,
+     6.54
+    ],
+    [
+     91,
+     6.86
+    ],
+    [
+     94,
+     7.24
+    ],
+    [
+     99,
+     7.44
+    ],
+    [
+     103,
+     7.84
+    ]
+   ]
+  },
+  {
+   "id": "follow",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "AI के ऐसे काम के features चाहिए? DevRoboLab को follow करो।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "**DevRoboLab** ko follow karo",
+     "x": 80,
+     "y": 260,
+     "size": 120,
+     "w": 920,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.15
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:120px;font-weight:800;line-height:1\">Follow</div>",
+     "x": 190,
+     "y": 800,
+     "css": "background:#FFD60A;border:0;border-radius:999px;padding:30px 110px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "wig": 4.35,
+     "float": 5,
+     "in": "0.5|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "icon",
+     "name": "cursor",
+     "x": 0,
+     "y": 0,
+     "size": 140,
+     "k": [
+      [
+       3.4,
+       {
+        "x": 820,
+        "y": 1060,
+        "o": 0
+       }
+      ],
+      [
+       3.5,
+       {
+        "x": 820,
+        "y": 1060,
+        "o": 1
+       }
+      ],
+      [
+       4.2,
+       {
+        "x": 520,
+        "y": 880
+       }
+      ]
+     ],
+     "wig": 4.3
+    },
+    {
+     "kind": "icon",
+     "name": "bell",
+     "x": 430,
+     "y": 1080,
+     "size": 200,
+     "wig": 4.7,
+     "float": 6,
+     "in": 4.5,
+     "spring": true
+    },
+    {
+     "kind": "img",
+     "img": "thumbs",
+     "size": 520,
+     "x": 260,
+     "y": 1300,
+     "bob": 1,
+     "k": [
+      [
+       0.2,
+       {
+        "x": -700,
+        "o": 1
+       }
+      ],
+      [
+       0.9,
+       {
+        "x": 260
+       }
+      ]
+     ]
+    }
+   ],
+   "wt": [
+    [
+     0,
+     2.46
+    ],
+    [
+     3,
+     2.46
+    ],
+    [
+     6,
+     2.86
+    ],
+    [
+     10,
+     2.86
+    ],
+    [
+     14,
+     2.86
+    ],
+    [
+     17,
+     2.86
+    ],
+    [
+     26,
+     2.96
+    ],
+    [
+     33,
+     2.96
+    ],
+    [
+     40,
+     2.96
+    ],
+    [
+     44,
+     2.96
+    ],
+    [
+     47,
+     3.22
+    ],
+    [
+     54,
+     3.22
+    ],
+    [
+     58,
+     3.56
+    ]
+   ]
+  }
+ ]
+}

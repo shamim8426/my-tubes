@@ -1,0 +1,28 @@
+{
+  "channel_key": "devrobolab",
+  "channel_name": "DevRoboLab",
+  "channel_id": "UCpElgKdJOgQiyfwdGXz6GmA",
+  "format": "long",
+  "parent_video_id": null,
+  "title": "5 AI khabrein: Gemini 4, Mistral, Ollama, ElevenLabs",
+  "description": "Aaj ki 5 AI khabrein seedhi Hinglish me: kya hua, aapke kaam ka kya hai, aur jo baat page me nahi likhi wo bhi saaf bataya.\n\nChapters\n0:00 Aaj ki 5 khabrein\n0:12 Gemini 4 Carbon (Google DeepMind)\n0:41 Mistral Large 4 open weights (Mistral AI)\n1:16 Ollama text to speech, Phonon (Ollama)\n1:44 Eleven v4 (ElevenLabs)\n2:15 Claude Code login ki tarikh (Anthropic docs)\n2:37 Recap\n2:56 Follow DevRoboLab\n\nSources (official pages, read 2026-11-05)\n1. Gemini 4 Carbon: https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/\n2. Mistral Large 4: https://mistral.ai/news/mistral-large-4-oss\n3. Ollama speech models: https://ollama.com/blog/speech-models\n4. Eleven v4: https://elevenlabs.io/blog/eleven-v4\n5. Claude Code changelog 2.1.318: https://code.claude.com/docs/en/changelog.md\n\nUnofficial channel, not affiliated with Google, Mistral AI, Ollama, ElevenLabs or Anthropic. Voice is AI generated. Prices and availability are as stated on those pages on 2026-11-05 and can change.\n\nMusic: \"Funkorama\" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttp://creativecommons.org/licenses/by/4.0/\n\n#AI #AINews #Hinglish",
+  "tags": [
+    "AI news",
+    "AI khabrein",
+    "Gemini 4 Carbon",
+    "Mistral Large 4",
+    "Ollama",
+    "ElevenLabs",
+    "Claude Code",
+    "Hinglish",
+    "Hindi tech"
+  ],
+  "video": "video.mp4",
+  "language": "hi",
+  "made_for_kids": false,
+  "contains_synthetic_media": true,
+  "category_id": "28",
+  "privacy": "private",
+  "thumbnail": "thumb_16x9.png",
+  "playlist_id": "PLTCArDe2LLAo"
+}

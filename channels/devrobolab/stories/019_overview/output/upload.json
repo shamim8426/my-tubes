@@ -1,0 +1,27 @@
+{
+  "channel_key": "devrobolab",
+  "channel_name": "DevRoboLab",
+  "channel_id": "UCpElgKdJOgQiyfwdGXz6GmA",
+  "format": "short",
+  "parent_video_id": null,
+  "title": "Claude Code kya hai? 5 jagah chalne wala helper #shorts",
+  "description": "Claude Code ek AI helper hai jo files padhta, code likhta aur commands chalata hai, aur 5 jagah chalta hai: terminal, IDE, desktop app aur web. Simple Hinglish me, docs ke hisaab se.\n\nSource (official docs): https://code.claude.com/docs/en/overview\n\nUnofficial channel, not affiliated with Anthropic.\n\nMusic: \"Funkorama\" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttp://creativecommons.org/licenses/by/4.0/\n\n#shorts #ClaudeCode #AI #Hinglish #Overview",
+  "tags": [
+    "Claude Code",
+    "Claude Code kya hai",
+    "Claude Code overview",
+    "terminal IDE desktop web",
+    "AI coding",
+    "Hinglish",
+    "Hindi tech",
+    "Claude AI tutorial",
+    "Shorts"
+  ],
+  "video": "short.mp4",
+  "language": "hi",
+  "made_for_kids": false,
+  "contains_synthetic_media": true,
+  "category_id": "28",
+  "privacy": "private",
+  "thumbnail": "thumb_16x9.png"
+}

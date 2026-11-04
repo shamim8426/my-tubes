@@ -1,0 +1,27 @@
+{
+  "channel_key": "devrobolab",
+  "channel_name": "DevRoboLab",
+  "channel_id": "UCpElgKdJOgQiyfwdGXz6GmA",
+  "format": "short",
+  "parent_video_id": null,
+  "title": "Claude Code context window: compact ke baad kya bachta hai #shorts",
+  "description": "Claude Code ki context window me kya aata hai, /compact ke baad kya wapas aata hai, aur summary ko focus kaise do. Docs ke table se.\n\nSource (official docs): https://code.claude.com/docs/en/context-window\n\nUnofficial channel, not affiliated with Anthropic.\n\nMusic: \"Funkorama\" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttp://creativecommons.org/licenses/by/4.0/\n\n#shorts #ClaudeCode #AI #Hinglish #ContextWindow",
+  "tags": [
+    "Claude Code",
+    "context window",
+    "compact",
+    "CLAUDE.md",
+    "AI coding",
+    "Hinglish",
+    "Hindi tech",
+    "Claude AI tutorial",
+    "Shorts"
+  ],
+  "video": "short.mp4",
+  "language": "hi",
+  "made_for_kids": false,
+  "contains_synthetic_media": true,
+  "category_id": "28",
+  "privacy": "private",
+  "thumbnail": "thumb_16x9.png"
+}

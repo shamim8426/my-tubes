@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="hi"><head><meta charset="utf-8">
+<style>
+/* DevRoboLab thumbnail. Two layouts from one spec: .h = 1280x720 (16:9), .v = 1080x1920 (9:16 Shorts cover). White + black + yellow only. */
+@font-face{font-family:Poppins;font-weight:800;src:url(file:///D:/Story-Channel/shared/fonts/Poppins-ExtraBold.ttf)}
+@font-face{font-family:Poppins;font-weight:700;src:url(file:///D:/Story-Channel/shared/fonts/Poppins-Bold.ttf)}
+@font-face{font-family:Plex;font-weight:700;src:url(file:///D:/Story-Channel/shared/fonts/IBMPlexMono-Bold.ttf)}
+*{box-sizing:border-box;margin:0}
+html,body{background:#fff}
+body{font-family:Poppins,sans-serif;color:#111;overflow:hidden}
+.cv{position:relative;overflow:hidden;background:#fff}
+.h{width:1280px;height:720px}
+.v{width:1080px;height:1920px}
+.yl{position:absolute;background:#FFD60A}
+.h .yl{right:0;top:0;width:600px;height:720px;clip-path:polygon(24% 0,100% 0,100% 100%,0 100%)}
+.v .yl{left:-140px;right:-140px;top:660px;height:820px;border-radius:50%}
+.dots{position:absolute;background-image:radial-gradient(#111 3.5px,transparent 4px);background-size:34px 34px;opacity:.16}
+.h .dots{left:40px;bottom:30px;width:340px;height:170px}
+.v .dots{right:60px;top:300px;width:300px;height:300px}
+.rob{position:absolute;filter:drop-shadow(0 14px 0 rgba(0,0,0,.14)) drop-shadow(0 0 0 #111);transform:rotate(-4deg)}
+.h .rob{right:40px;bottom:-8px;height:700px}
+.v .rob{left:50%;transform:translateX(-50%) rotate(-3deg);top:650px;height:820px}
+.tag{position:absolute;background:#111;color:#FFD60A;font-weight:800;border-radius:999px;letter-spacing:.04em}
+.h .tag{left:60px;top:44px;font-size:28px;padding:10px 28px}
+.v .tag{left:70px;top:150px;font-size:40px;padding:14px 40px}
+.ttl{position:absolute;font-weight:800;line-height:1.02;letter-spacing:-.01em}
+.h .ttl{left:60px;top:124px;width:720px;font-size:var(--ts,118px)}
+.v .ttl{left:70px;top:250px;width:940px;font-size:var(--ts,160px)}
+.ttl mark{background:linear-gradient(#FFD60A,#FFD60A) no-repeat 0 90%/100% 52%;color:inherit;padding:0 .04em}
+.sub{position:absolute;background:#111;color:#fff;font-weight:700;border-radius:18px;line-height:1.2}
+.sub b{color:#FFD60A;font-weight:800}
+.h .sub{left:60px;top:var(--sy,470px);font-size:38px;padding:14px 26px;max-width:640px}
+.v .sub{left:70px;top:var(--sy,1510px);font-size:54px;padding:20px 34px;max-width:880px}
+.chips{position:absolute;display:flex;gap:14px;flex-wrap:wrap}
+.h .chips{left:60px;bottom:46px;width:640px}
+.v .chips{left:70px;top:1700px;width:940px;gap:20px}
+.chip{font-family:Plex,monospace;font-weight:700;border:5px solid #111;border-radius:999px;background:#fff}
+.h .chip{font-size:28px;padding:6px 22px}
+.v .chip{font-size:40px;padding:10px 32px;border-width:6px}
+.brand{position:absolute;font-weight:800;font-size:26px;color:#111;display:flex;align-items:center;gap:10px}
+.brand i{display:inline-block;width:22px;height:22px;border-radius:50%;background:#111}
+.h .brand{right:46px;top:44px}
+.v .brand{right:70px;top:165px;font-size:40px}
+.v .brand i{width:30px;height:30px}
+</style></head>
+<body class="v"><div class="cv v" id="cv">
+  <div class="yl"></div><div class="dots"></div>
+  <img class="rob" src="file:///D:/Story-Channel/channels/devrobolab/mascot/cut/think.png" alt="">
+  <div class="tag">CLAUDE CODE</div>
+  <div class="ttl" style="--ts:122px">Claude ko <mark>yaad</mark> kaise rehta hai?</div>
+  <div class="sub" style="">CLAUDE.md aur <b>auto memory</b></div>
+  <div class="chips"><span class="chip">CLAUDE.md</span><span class="chip">MEMORY.md</span></div>
+  <div class="brand"><i></i>DevRoboLab</div>
+</div></body></html>

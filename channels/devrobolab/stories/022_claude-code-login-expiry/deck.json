@@ -1,0 +1,1333 @@
+{
+ "_note": "Short 022 NEWS Claude Code 2.1.318 login expiry. Source https://code.claude.com/docs/en/changelog.md (read 2026-11-04). Day 1 product-page style.",
+ "tag": "Claude Code · News",
+ "bg": "#F3F5F9",
+ "bgGrid": true,
+ "music": {
+  "file": "shared/music/presentation/Funkorama.mp3",
+  "start": 6,
+  "rel": 12
+ },
+ "voice": {
+  "id": "Charon",
+  "style": "Speak like a friendly Indian tech YouTuber chatting casually in Hinglish. Natural conversational pace, warm and clear, a little energetic but not theatrical. No sing-song, no exaggerated emphasis."
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "Claude Code का login कब खत्म होगा, अब पहले से पता चलेगा। ये आज की update है।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "**Login** kab khatam hoga?",
+     "x": 80,
+     "y": 230,
+     "size": 108,
+     "w": 920,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:800px;padding:44px 50px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"font-size:40px;font-weight:700;color:#667\">claude.ai sign-in</div><div style=\"font-size:110px;font-weight:800;margin-top:26px;line-height:1.1\">ends: ?</div></div>",
+     "x": 140,
+     "y": 770,
+     "css": "",
+     "in": "0.5|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "icon",
+     "name": "clock",
+     "x": 640,
+     "y": 1020,
+     "size": 240,
+     "in": "कब खत्म|0.0",
+     "spring": true,
+     "float": 7,
+     "wig": "कब खत्म|0.4"
+    },
+    {
+     "kind": "icon",
+     "name": "lock",
+     "x": 170,
+     "y": 1030,
+     "size": 170,
+     "in": "login|0.1",
+     "spring": true,
+     "float": {
+      "a": 6,
+      "ph": 1
+     }
+    },
+    {
+     "kind": "text",
+     "html": "**pehle se** pata chalega",
+     "x": 80,
+     "y": 1400,
+     "size": 96,
+     "w": 920,
+     "stream": true,
+     "step": 0.14,
+     "sat": "पहले से|-0.2"
+    },
+    {
+     "kind": "box",
+     "html": "<div class=\"mono\" style=\"font-size:34px;font-weight:700\">Claude Code 2.1.318 · 4 Nov 2026</div>",
+     "x": 80,
+     "y": 590,
+     "css": "background:#fff;border:2px solid #E3E7EE;border-radius:999px;padding:14px 32px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "update|-0.4",
+     "spring": true
+    },
+    {
+     "kind": "img",
+     "img": "wave",
+     "size": 330,
+     "x": 640,
+     "y": 1560,
+     "bob": 1,
+     "k": [
+      [
+       "Claude Code|0.2",
+       {
+        "x": 1200,
+        "o": 1
+       }
+      ],
+      [
+       "Claude Code|1.0",
+       {
+        "x": 640
+       }
+      ]
+     ]
+    }
+   ],
+   "wt": [
+    [
+     0,
+     0.0
+    ],
+    [
+     7,
+     0.74
+    ],
+    [
+     12,
+     0.84
+    ],
+    [
+     15,
+     1.18
+    ],
+    [
+     21,
+     1.46
+    ],
+    [
+     24,
+     1.46
+    ],
+    [
+     29,
+     1.72
+    ],
+    [
+     35,
+     1.98
+    ],
+    [
+     38,
+     2.34
+    ],
+    [
+     43,
+     2.68
+    ],
+    [
+     46,
+     2.82
+    ],
+    [
+     50,
+     3.0
+    ],
+    [
+     57,
+     3.0
+    ],
+    [
+     60,
+     3.34
+    ],
+    [
+     63,
+     3.86
+    ],
+    [
+     66,
+     4.12
+    ],
+    [
+     73,
+     4.42
+    ],
+    [
+     76,
+     4.76
+    ]
+   ]
+  },
+  {
+   "id": "analogy",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "ये वही claude.ai sign-in है जो आपके computer पर save रहता है। जैसे metro card पर लिखी expiry date, अब Claude Code भी अपनी date खुद दिखाता है।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "Login = **sign-in** jo save rehta hai",
+     "x": 80,
+     "y": 230,
+     "size": 90,
+     "w": 920,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:440px;height:400px;border:2px solid #E3E7EE;border-radius:34px;background:#fff;color:#111;overflow:hidden;position:relative;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)\"><div style=\"height:78px;background:#EDF0F5;display:flex;align-items:center;gap:22px;padding-left:28px\"><div class=\"dot3\"><i style=\"background:#FFD60A\"></i><i style=\"background:#9AA3B2\"></i><i style=\"background:#9AA3B2\"></i></div><div class=\"mono\" style=\"font-size:30px;color:#566\">your computer</div></div></div>",
+     "x": 80,
+     "y": 740,
+     "css": "",
+     "in": "computer|-0.4",
+     "spring": true
+    },
+    {
+     "kind": "icon",
+     "name": "desktop",
+     "x": 170,
+     "y": 860,
+     "size": 250,
+     "in": "computer|0.0",
+     "spring": true,
+     "float": 6
+    },
+    {
+     "kind": "icon",
+     "name": "key",
+     "x": 300,
+     "y": 1080,
+     "size": 110,
+     "in": "save रहता|-0.2",
+     "spring": true,
+     "wig": "save रहता|0.3"
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:440px;padding:34px 38px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"font-size:34px;font-weight:700;color:#667\">METRO CARD</div><div style=\"font-size:60px;font-weight:800;line-height:1.1;margin-top:20px\">valid till</div><div style=\"font-size:60px;font-weight:800;margin-top:6px;background:#FFD60A;display:inline-block;padding:0 16px;border-radius:14px\">expiry date</div></div>",
+     "x": 560,
+     "y": 770,
+     "css": "",
+     "k": [
+      [
+       0,
+       {
+        "r": 3
+       }
+      ]
+     ],
+     "in": "metro card|-0.2",
+     "spring": true
+    },
+    {
+     "kind": "text",
+     "html": "Claude Code ab **date** dikhata hai",
+     "x": 80,
+     "y": 1300,
+     "size": 92,
+     "w": 920,
+     "stream": true,
+     "step": 0.14,
+     "sat": "Claude Code भी|-0.1"
+    },
+    {
+     "kind": "icon",
+     "name": "sparkle",
+     "x": 800,
+     "y": 1620,
+     "size": 150,
+     "in": "खुद दिखाता|0.0",
+     "spring": true,
+     "float": 7
+    }
+   ],
+   "wt": [
+    [
+     0,
+     0.0
+    ],
+    [
+     3,
+     0.36
+    ],
+    [
+     7,
+     0.74
+    ],
+    [
+     17,
+     1.22
+    ],
+    [
+     25,
+     1.3
+    ],
+    [
+     28,
+     1.56
+    ],
+    [
+     31,
+     1.92
+    ],
+    [
+     36,
+     2.04
+    ],
+    [
+     45,
+     2.14
+    ],
+    [
+     48,
+     2.36
+    ],
+    [
+     53,
+     2.74
+    ],
+    [
+     58,
+     2.88
+    ],
+    [
+     62,
+     3.22
+    ],
+    [
+     67,
+     3.46
+    ],
+    [
+     73,
+     4.28
+    ],
+    [
+     78,
+     4.64
+    ],
+    [
+     81,
+     4.9
+    ],
+    [
+     86,
+     5.22
+    ],
+    [
+     93,
+     5.8
+    ],
+    [
+     99,
+     6.06
+    ],
+    [
+     102,
+     6.56
+    ],
+    [
+     109,
+     7.0
+    ],
+    [
+     114,
+     7.22
+    ],
+    [
+     117,
+     7.3
+    ],
+    [
+     122,
+     7.54
+    ],
+    [
+     127,
+     7.72
+    ],
+    [
+     131,
+     8.08
+    ],
+    [
+     138,
+     8.44
+    ],
+    [
+     141,
+     8.8
+    ]
+   ]
+  },
+  {
+   "id": "status",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "पहला काम: terminal में claude auth status चलाओ। इसमें अब वो date दिखती है, जब तक आपका claude.ai sign-in चलेगा। नाम है loginExpiresAt।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "**Step 1:** auth status",
+     "x": 80,
+     "y": 230,
+     "size": 104,
+     "w": 920,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:920px;height:640px;border:2px solid #14171C;border-radius:34px;background:#14171C;color:#fff;overflow:hidden;position:relative;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)\"><div style=\"height:78px;background:#262B33;display:flex;align-items:center;gap:22px;padding-left:28px\"><div class=\"dot3\"><i style=\"background:#FFD60A\"></i><i style=\"background:#9AA3B2\"></i><i style=\"background:#9AA3B2\"></i></div><div class=\"mono\" style=\"font-size:30px;color:#FFD60A\">terminal</div></div></div>",
+     "x": 80,
+     "y": 640,
+     "css": "",
+     "in": "0.5|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "typed",
+     "text": "$ claude auth status",
+     "x": 120,
+     "y": 770,
+     "size": 44,
+     "w": 840,
+     "sat": "claude auth status|-0.5",
+     "color": "#fff",
+     "cps": 20,
+     "mono": true
+    },
+    {
+     "kind": "box",
+     "html": "<div class=\"mono\" style=\"font-size:44px;color:#fff;white-space:nowrap\"><span style=\"color:#FFD60A\">loginExpiresAt</span>: &lt;date&gt;</div>",
+     "x": 120,
+     "y": 920,
+     "css": "background:#2B3038;border-radius:18px;padding:22px 28px;border:3px solid #FFD60A",
+     "in": "loginExpiresAt|-0.9",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div class=\"mono\" style=\"font-size:32px;color:#9AA3B2;white-space:nowrap\"># claude.ai sign-in ends on this date</div>",
+     "x": 120,
+     "y": 1080,
+     "css": "",
+     "in": "वो date|-0.3",
+     "spring": true
+    },
+    {
+     "kind": "icon",
+     "name": "clock",
+     "x": 120,
+     "y": 1370,
+     "size": 190,
+     "in": "वो date|0.0",
+     "spring": true,
+     "float": 7
+    },
+    {
+     "kind": "text",
+     "html": "Yahan **date** dikhegi",
+     "x": 350,
+     "y": 1410,
+     "size": 90,
+     "w": 650,
+     "stream": true,
+     "step": 0.14,
+     "sat": "वो date|0.0"
+    },
+    {
+     "kind": "icon",
+     "name": "check",
+     "x": 780,
+     "y": 1620,
+     "size": 160,
+     "in": "loginExpiresAt|0.2",
+     "spring": true,
+     "drawon": [
+      "loginExpiresAt|0.2",
+      0.6
+     ]
+    }
+   ],
+   "wt": [
+    [
+     0,
+     0.0
+    ],
+    [
+     5,
+     0.56
+    ],
+    [
+     10,
+     1.44
+    ],
+    [
+     19,
+     1.66
+    ],
+    [
+     23,
+     2.0
+    ],
+    [
+     30,
+     2.38
+    ],
+    [
+     35,
+     3.62
+    ],
+    [
+     42,
+     3.88
+    ],
+    [
+     48,
+     4.04
+    ],
+    [
+     54,
+     4.2
+    ],
+    [
+     57,
+     4.72
+    ],
+    [
+     60,
+     5.06
+    ],
+    [
+     65,
+     5.24
+    ],
+    [
+     71,
+     5.62
+    ],
+    [
+     75,
+     5.88
+    ],
+    [
+     78,
+     5.94
+    ],
+    [
+     81,
+     6.32
+    ],
+    [
+     86,
+     6.5
+    ],
+    [
+     96,
+     7.12
+    ],
+    [
+     104,
+     8.02
+    ],
+    [
+     111,
+     8.34
+    ],
+    [
+     115,
+     9.12
+    ],
+    [
+     118,
+     9.8
+    ],
+    [
+     133,
+     10.48
+    ]
+   ]
+  },
+  {
+   "id": "claudep",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "दूसरा: claude -p की JSON report में credential_expires_at आता है। और तीसरा: text output में, खत्म होने से दस दिन पहले, एक line की warning मिलती है।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "**Step 2 + 3:** claude -p",
+     "x": 80,
+     "y": 230,
+     "size": 78,
+     "w": 920,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:920px;height:330px;border:2px solid #14171C;border-radius:34px;background:#14171C;color:#fff;overflow:hidden;position:relative;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)\"><div style=\"height:78px;background:#262B33;display:flex;align-items:center;gap:22px;padding-left:28px\"><div class=\"dot3\"><i style=\"background:#FFD60A\"></i><i style=\"background:#9AA3B2\"></i><i style=\"background:#9AA3B2\"></i></div><div class=\"mono\" style=\"font-size:30px;color:#FFD60A\">claude -p  (JSON result)</div></div></div>",
+     "x": 80,
+     "y": 570,
+     "css": "",
+     "in": "0.5|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div class=\"mono\" style=\"font-size:33px;color:#fff;white-space:nowrap\">{ ..., <span style=\"color:#FFD60A\">\"credential_expires_at\"</span>: \"&lt;date&gt;\" }</div>",
+     "x": 110,
+     "y": 680,
+     "css": "",
+     "in": "credential_expires_at|-0.8",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:920px;height:330px;border:2px solid #14171C;border-radius:34px;background:#14171C;color:#fff;overflow:hidden;position:relative;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)\"><div style=\"height:78px;background:#262B33;display:flex;align-items:center;gap:22px;padding-left:28px\"><div class=\"dot3\"><i style=\"background:#FFD60A\"></i><i style=\"background:#9AA3B2\"></i><i style=\"background:#9AA3B2\"></i></div><div class=\"mono\" style=\"font-size:30px;color:#FFD60A\">claude -p  (text output)</div></div></div>",
+     "x": 80,
+     "y": 1050,
+     "css": "",
+     "in": "तीसरा|-0.3",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div class=\"mono\" style=\"font-size:40px;color:#fff;white-space:nowrap\"><span style=\"color:#FFD60A\">warning:</span> 1 line on stderr</div>",
+     "x": 110,
+     "y": 1160,
+     "css": "",
+     "in": "एक line|-0.5",
+     "spring": true
+    },
+    {
+     "kind": "count",
+     "to": 10,
+     "size": 200,
+     "x": 80,
+     "y": 1450,
+     "css": "width:260px;text-align:center",
+     "k": [
+      [
+       "दस दिन|-0.2",
+       {
+        "o": 1,
+        "f": 0
+       }
+      ],
+      [
+       "दस दिन|0.5",
+       {
+        "f": 1
+       }
+      ]
+     ],
+     "in": "दस दिन|-0.3",
+     "ind": 0.3,
+     "spring": true
+    },
+    {
+     "kind": "text",
+     "html": "**din pehle** se warning",
+     "x": 350,
+     "y": 1520,
+     "size": 84,
+     "w": 650,
+     "stream": true,
+     "step": 0.14,
+     "sat": "दस दिन|0.4"
+    },
+    {
+     "kind": "icon",
+     "name": "bulb",
+     "x": 880,
+     "y": 1340,
+     "size": 120,
+     "in": "warning|0.0",
+     "spring": true,
+     "float": 7
+    }
+   ],
+   "wt": [
+    [
+     0,
+     0.0
+    ],
+    [
+     7,
+     0.86
+    ],
+    [
+     14,
+     1.42
+    ],
+    [
+     17,
+     1.76
+    ],
+    [
+     20,
+     2.1
+    ],
+    [
+     25,
+     2.58
+    ],
+    [
+     32,
+     2.94
+    ],
+    [
+     36,
+     3.3
+    ],
+    [
+     58,
+     3.82
+    ],
+    [
+     62,
+     4.88
+    ],
+    [
+     66,
+     5.18
+    ],
+    [
+     69,
+     6.0
+    ],
+    [
+     76,
+     6.6
+    ],
+    [
+     81,
+     6.6
+    ],
+    [
+     88,
+     7.1
+    ],
+    [
+     93,
+     7.46
+    ],
+    [
+     98,
+     7.82
+    ],
+    [
+     103,
+     8.34
+    ],
+    [
+     106,
+     8.5
+    ],
+    [
+     109,
+     8.76
+    ],
+    [
+     113,
+     8.92
+    ],
+    [
+     119,
+     9.34
+    ],
+    [
+     122,
+     9.68
+    ],
+    [
+     127,
+     9.84
+    ],
+    [
+     130,
+     9.96
+    ],
+    [
+     138,
+     10.26
+    ],
+    [
+     144,
+     10.54
+    ],
+    [
+     147,
+     10.88
+    ]
+   ]
+  },
+  {
+   "id": "caution",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "ध्यान रखो: date निकलने के बाद sign-in fail होता है। तब error साफ़ बताता है, और claude -p में claude auth login और claude setup-token का नाम भी बताता है।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "**Dhyan** rakho",
+     "x": 80,
+     "y": 230,
+     "size": 110,
+     "w": 920,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:130px;height:130px;border-radius:65px;background:#FFD60A;display:flex;align-items:center;justify-content:center;font-size:90px;font-weight:800\">!</div>",
+     "x": 880,
+     "y": 215,
+     "css": "",
+     "wig": "date निकलने|0.6",
+     "in": "ध्यान|0.0",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:860px;padding:34px 44px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"font-size:50px;font-weight:800\">date nikli</div><div style=\"font-size:44px;margin-top:10px;color:#667\">sign-in fail</div></div>",
+     "x": 110,
+     "y": 640,
+     "css": "",
+     "in": "date निकलने|-0.2",
+     "spring": true
+    },
+    {
+     "kind": "icon",
+     "name": "cross",
+     "x": 760,
+     "y": 680,
+     "size": 130,
+     "in": "fail होता|-0.2",
+     "spring": true,
+     "wig": "fail होता|0.3"
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:860px;padding:26px 44px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"font-size:34px;font-weight:700;color:#667\">error ab saaf batata hai</div></div>",
+     "x": 110,
+     "y": 900,
+     "css": "",
+     "in": "error साफ़|-0.3",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:860px;height:250px;border:2px solid #14171C;border-radius:34px;background:#14171C;color:#fff;overflow:hidden;position:relative;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)\"><div style=\"height:78px;background:#262B33;display:flex;align-items:center;gap:22px;padding-left:28px\"><div class=\"dot3\"><i style=\"background:#FFD60A\"></i><i style=\"background:#9AA3B2\"></i><i style=\"background:#9AA3B2\"></i></div><div class=\"mono\" style=\"font-size:30px;color:#FFD60A\">terminal</div></div></div>",
+     "x": 110,
+     "y": 1120,
+     "css": "",
+     "in": "claude -p में|-0.3",
+     "spring": true
+    },
+    {
+     "kind": "typed",
+     "text": "$ claude auth login",
+     "x": 150,
+     "y": 1230,
+     "size": 42,
+     "w": 800,
+     "sat": "claude auth login|-0.6",
+     "color": "#fff",
+     "cps": 20,
+     "mono": true
+    },
+    {
+     "kind": "typed",
+     "text": "$ claude setup-token",
+     "x": 150,
+     "y": 1310,
+     "size": 42,
+     "w": 800,
+     "sat": "setup-token|-0.8",
+     "color": "#fff",
+     "cps": 20,
+     "mono": true
+    },
+    {
+     "kind": "text",
+     "html": "**error** rasta bhi dikhata hai",
+     "x": 80,
+     "y": 1490,
+     "size": 84,
+     "w": 920,
+     "stream": true,
+     "step": 0.14,
+     "sat": "का नाम भी|-0.2"
+    }
+   ],
+   "wt": [
+    [
+     0,
+     1.0
+    ],
+    [
+     6,
+     1.52
+    ],
+    [
+     11,
+     2.02
+    ],
+    [
+     16,
+     2.14
+    ],
+    [
+     23,
+     2.4
+    ],
+    [
+     26,
+     2.88
+    ],
+    [
+     30,
+     3.28
+    ],
+    [
+     38,
+     3.54
+    ],
+    [
+     43,
+     4.02
+    ],
+    [
+     48,
+     4.22
+    ],
+    [
+     52,
+     4.5
+    ],
+    [
+     55,
+     4.82
+    ],
+    [
+     61,
+     5.18
+    ],
+    [
+     66,
+     5.64
+    ],
+    [
+     72,
+     5.8
+    ],
+    [
+     76,
+     5.8
+    ],
+    [
+     79,
+     6.08
+    ],
+    [
+     86,
+     6.3
+    ],
+    [
+     89,
+     6.78
+    ],
+    [
+     93,
+     7.04
+    ],
+    [
+     100,
+     7.22
+    ],
+    [
+     105,
+     7.74
+    ],
+    [
+     111,
+     7.9
+    ],
+    [
+     114,
+     8.18
+    ],
+    [
+     121,
+     8.48
+    ],
+    [
+     133,
+     8.76
+    ],
+    [
+     136,
+     8.92
+    ],
+    [
+     140,
+     9.14
+    ],
+    [
+     143,
+     9.24
+    ],
+    [
+     149,
+     9.56
+    ],
+    [
+     152,
+     9.88
+    ]
+   ]
+  },
+  {
+   "id": "recap",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "तो याद रखो: auth status में date देखो, और claude -p में दस दिन पहले warning मिलेगी।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "**Yaad** rakho",
+     "x": 80,
+     "y": 230,
+     "size": 110,
+     "w": 920,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:860px;padding:34px 44px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div class=\"mono\" style=\"font-size:44px;font-weight:700\">claude auth status</div><div style=\"font-size:46px;font-weight:800;margin-top:12px\">= <span style=\"background:#FFD60A;padding:0 12px;border-radius:12px\">date</span> dekho</div></div>",
+     "x": 110,
+     "y": 640,
+     "css": "",
+     "in": "auth status|-0.2",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:860px;padding:34px 44px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div class=\"mono\" style=\"font-size:44px;font-weight:700\">claude -p</div><div style=\"font-size:46px;font-weight:800;margin-top:12px\">= <span style=\"background:#FFD60A;padding:0 12px;border-radius:12px\">10 din</span> pehle warning</div></div>",
+     "x": 110,
+     "y": 950,
+     "css": "",
+     "in": "claude -p|-0.2",
+     "spring": true
+    },
+    {
+     "kind": "icon",
+     "name": "check",
+     "x": 120,
+     "y": 1300,
+     "size": 150,
+     "in": "date देखो|0.1",
+     "spring": true,
+     "drawon": [
+      "date देखो|0.2",
+      0.6
+     ]
+    },
+    {
+     "kind": "icon",
+     "name": "check",
+     "x": 330,
+     "y": 1300,
+     "size": 150,
+     "in": "दस दिन|0.1",
+     "spring": true,
+     "drawon": [
+      "दस दिन|0.2",
+      0.6
+     ]
+    },
+    {
+     "kind": "img",
+     "img": "thumbs",
+     "size": 420,
+     "x": 600,
+     "y": 1230,
+     "bob": 1,
+     "k": [
+      [
+       "warning|-0.3",
+       {
+        "o": 0
+       }
+      ],
+      [
+       "warning|0.0",
+       {
+        "o": 1
+       }
+      ]
+     ]
+    }
+   ],
+   "wt": [
+    [
+     0,
+     0.0
+    ],
+    [
+     3,
+     0.46
+    ],
+    [
+     7,
+     1.04
+    ],
+    [
+     12,
+     1.64
+    ],
+    [
+     17,
+     1.94
+    ],
+    [
+     24,
+     2.38
+    ],
+    [
+     28,
+     2.82
+    ],
+    [
+     33,
+     3.04
+    ],
+    [
+     39,
+     3.44
+    ],
+    [
+     42,
+     3.74
+    ],
+    [
+     49,
+     4.22
+    ],
+    [
+     52,
+     4.88
+    ],
+    [
+     56,
+     5.32
+    ],
+    [
+     59,
+     5.54
+    ],
+    [
+     63,
+     6.06
+    ],
+    [
+     68,
+     6.38
+    ],
+    [
+     76,
+     6.5
+    ],
+    [
+     83,
+     6.92
+    ]
+   ]
+  },
+  {
+   "id": "follow",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "AI के ऐसे काम के features चाहिए? DevRoboLab को follow करो।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "**DevRoboLab** ko follow karo",
+     "x": 80,
+     "y": 260,
+     "size": 120,
+     "w": 920,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.15
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:120px;font-weight:800;line-height:1\">Follow</div>",
+     "x": 190,
+     "y": 800,
+     "css": "background:#FFD60A;border:0;border-radius:999px;padding:30px 110px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "wig": 4.35,
+     "float": 5,
+     "in": "0.5|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "icon",
+     "name": "cursor",
+     "x": 0,
+     "y": 0,
+     "size": 140,
+     "k": [
+      [
+       3.4,
+       {
+        "x": 820,
+        "y": 1060,
+        "o": 0
+       }
+      ],
+      [
+       3.5,
+       {
+        "x": 820,
+        "y": 1060,
+        "o": 1
+       }
+      ],
+      [
+       4.2,
+       {
+        "x": 520,
+        "y": 880
+       }
+      ]
+     ],
+     "wig": 4.3
+    },
+    {
+     "kind": "icon",
+     "name": "bell",
+     "x": 430,
+     "y": 1080,
+     "size": 200,
+     "wig": 4.7,
+     "float": 6,
+     "in": 4.5,
+     "spring": true
+    },
+    {
+     "kind": "img",
+     "img": "thumbs",
+     "size": 520,
+     "x": 260,
+     "y": 1300,
+     "bob": 1,
+     "k": [
+      [
+       0.2,
+       {
+        "x": -700,
+        "o": 1
+       }
+      ],
+      [
+       0.9,
+       {
+        "x": 260
+       }
+      ]
+     ]
+    }
+   ],
+   "wt": [
+    [
+     0,
+     2.64
+    ],
+    [
+     3,
+     2.64
+    ],
+    [
+     6,
+     2.98
+    ],
+    [
+     10,
+     2.98
+    ],
+    [
+     14,
+     3.06
+    ],
+    [
+     17,
+     3.06
+    ],
+    [
+     26,
+     3.22
+    ],
+    [
+     33,
+     3.22
+    ],
+    [
+     40,
+     3.34
+    ],
+    [
+     44,
+     3.34
+    ],
+    [
+     47,
+     3.62
+    ],
+    [
+     54,
+     3.62
+    ],
+    [
+     58,
+     4.04
+    ]
+   ]
+  }
+ ]
+}

@@ -5,7 +5,7 @@ r"""Thumbnails for the DevRoboLab channel, made from HTML (free, real Chrome via
 Reads <story>/thumb.json, writes <story>/output/thumb_16x9.png (1280x720) and thumb_9x16.png (1080x1920).
 thumb.json: {"tag": "CLAUDE CODE", "title": "Claude ke <mark>tools</mark>", "sub": "kaun <b>poochta</b> hai?", "chips": ["Read","Edit","Bash"],
              "robot": "work", "ts_h": 118, "ts_v": 160}
-robot = one of mascot/<name>.png (wave, think, work, stop, thumbs). --all: every story under channels/yellow-bot/stories that has a thumb.json."""
+robot = one of mascot/<name>.png (wave, think, work, stop, thumbs). --all: every story under channels/devrobolab/stories that has a thumb.json."""
 import html
 import sys
 from pathlib import Path
@@ -15,7 +15,7 @@ from PIL import Image, ImageDraw, ImageFilter
 from playwright.sync_api import sync_playwright
 
 ROOT = Path(__file__).resolve().parent.parent
-CH = ROOT / "channels/yellow-bot"
+CH = ROOT / "channels/devrobolab"
 TEMPLATE = CH / "templates/thumb_template.html"
 CUT = CH / "mascot/cut"
 
