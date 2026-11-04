@@ -79,8 +79,8 @@
     "title": "Common workflows",
     "url": "https://code.claude.com/docs/en/common-workflows.md",
     "summary": "Step-by-step guides for exploring codebases, fixing bugs, refactoring, testing, and other everyday tasks with Claude Code.",
-    "status": "todo",
-    "story": null,
+    "status": "uploaded",
+    "story": "024_common-workflows-bugfix",
     "audience": "A"
   },
   {

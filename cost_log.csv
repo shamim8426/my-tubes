@@ -1156,3 +1156,7 @@ timestamp,file,model,size,cost_usd,cost_inr,today_total_inr,remaining_inr,channe
 2026-11-04 23:13:45,channels/yellow-bot/stories/024_common-workflows-bugfix/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 5.4s free,0.00000,0.00,6.99,51.34,yellow-bot,0.12,0.0000,0.00,23,135
 2026-11-04 23:13:53,channels/yellow-bot/stories/024_common-workflows-bugfix/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 7.2s free,0.00000,0.00,6.99,51.34,yellow-bot,0.16,0.0000,0.00,29,180
 2026-11-04 23:14:02,channels/yellow-bot/stories/024_common-workflows-bugfix/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 9.6s free,0.00000,0.00,6.99,51.34,yellow-bot,0.21,0.0000,0.00,33,239
+2026-11-05 00:18:53,channels/yellow-bot/stories/024_common-workflows-bugfix/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 7.9s,0.00179,0.17,0.20,551.14,yellow-bot,0.18,0.1724,0.03,28,197
+2026-11-05 00:19:01,channels/yellow-bot/stories/024_common-workflows-bugfix/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 8.0s,0.00181,0.17,0.41,550.93,yellow-bot,0.18,0.1745,0.03,35,199
+2026-11-05 00:19:08,channels/yellow-bot/stories/024_common-workflows-bugfix/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 5.0s,0.00112,0.11,0.54,550.80,yellow-bot,0.11,0.1085,0.02,17,124
+2026-11-05 00:19:14,channels/yellow-bot/stories/024_common-workflows-bugfix/audio/tts/s_06.wav,gemini-3.8-flash-tts,tts 3.9s,0.00088,0.08,0.64,550.70,yellow-bot,0.09,0.0850,0.02,15,97
