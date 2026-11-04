@@ -99,7 +99,7 @@ Learnings behind these rules: brand/STYLE_LEARNINGS.md (numeric, abstract) and r
 
 ### Ending / CTA rule (user 2026-11-04; replaces the 'one open question' ending of v3 for new Shorts)
 - The LAST spoken line is a short FOLLOW call for Yellow Bot, not a 'comment me batao' question. Say the channel name and show it on screen at the same moment, give the brand mark (our robot) one clean hero moment, keep it to one sentence of about 8-14 words (~3-4 s), stop on the last word (no loop, no reveal). Only promise what we really deliver (new AI tricks, plain-language explanations); never promise a gift, ebook or resource we do not have.
-- TWO lines in rotation (user choice): (A) normal Shorts: 'AI की बात seedhi bhasha me chahiye? Yellow Bot को follow करो।' (B) magic-trick Shorts: 'एक follow, और AI का अगला जादू आपकी screen पर। Yellow Bot को follow करो।' More lines may be added only after the user approves them.
+- TWO lines in rotation (user choice): (A) normal Shorts (user chose 2026-11-04, replaces the earlier 'AI की बात seedhi bhasha me chahiye?' line): 'AI के ऐसे काम के features चाहिए? Yellow Bot को follow करो।' (B) magic-trick Shorts: 'एक follow, और AI का अगला जादू आपकी screen पर। Yellow Bot को follow करो।' More lines may be added only after the user approves them.
 - Visual (our own look): robot waves/thumbs-up, a big yellow 'Follow' pill clicked by a cursor with a small dust burst, a wiggling bell, 'Yellow Bot' in heavy Poppins, white canvas. In gen_deck.py the ending lives in three variables at the top: CTA_VOICE, CTA_SCREEN, CTA_PILL (last scene). Already published videos keep their old ending.
 - Basis: brand/STYLE_LEARNINGS.md 'Endings' (principles only; no wording of another channel is used).
 

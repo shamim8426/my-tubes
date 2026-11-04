@@ -1,0 +1,52 @@
+{
+ "id": "whEYixIMx0Q",
+ "title": "Claude Code tools: kaun poochta hai, kaun nahi #shorts",
+ "published": "2026-10-31T12:12:23Z",
+ "privacy": "public",
+ "seconds": 52,
+ "statistics": {
+  "viewCount": "2",
+  "likeCount": "0",
+  "dislikeCount": "0",
+  "favoriteCount": "0",
+  "commentCount": "0"
+ },
+ "is_short": true,
+ "totals": {
+  "views": 2,
+  "engagedViews": 2,
+  "estimatedMinutesWatched": 1,
+  "averageViewDuration": 31,
+  "averageViewPercentage": 61.42999999999999,
+  "subscribersGained": 0,
+  "likes": 0,
+  "comments": 0,
+  "shares": 0
+ },
+ "traffic": [
+  {
+   "insightTrafficSourceType": "NO_LINK_OTHER",
+   "views": 1,
+   "estimatedMinutesWatched": 0
+  },
+  {
+   "insightTrafficSourceType": "YT_CHANNEL",
+   "views": 1,
+   "estimatedMinutesWatched": 0
+  }
+ ],
+ "retention": [],
+ "daily": [
+  {
+   "day": "2026-10-31",
+   "views": 2,
+   "estimatedMinutesWatched": 1
+  },
+  {
+   "day": "2026-11-01",
+   "views": 0,
+   "estimatedMinutesWatched": 0
+  }
+ ],
+ "fetched": "2026-11-04T21:43:52"
+}
