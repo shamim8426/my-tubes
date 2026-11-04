@@ -9,9 +9,10 @@ Read first, in order: `channels/yellow-bot/RULES.md`, `channels/yellow-bot/STYLE
 
 ## 0. Before starting
 - Tell the user time and cost in one line (CLAUDE.md). Balance floor Rs 50 (shared by all channels): below it, stop and ask.
-- Topic: next `todo` in `topic_queue.json` (news items have `"priority": "news"`), or the topic the user names. Primary source = the official page only; non-Claude topics say 'Unofficial channel, not affiliated with <org>.'
+- Topic (user 2026-11-04: Shorts must look useful to ordinary people; one Short a day on the latest AI update): 1) a `"priority": "news"` item from the newest news digest, 2) else the first `todo` with `"audience": "A"` (everyday use), then B, then C (technical/reference, last); or the topic the user names. Title = the benefit for the viewer. Primary source = the official page only; non-Claude topics say 'Unofficial channel, not affiliated with <org>.'
 
 ## 1. Build
+- Daily style rule (STYLE_GUIDE 'Channel direction'): one style per day for all that day's Shorts, a new style or one new improvement the next day. Whole-AI channel, always inside YouTube's guidelines.
 - Copy the newest story's `gen_deck.py` (e.g. `stories/021_how-claude-code-works/`) into `stories/<NNN>_<slug>/`; write script and `deck.json` via `scripts/build_deck.py` and `templates/deck_template.html`.
 - Style: own look, layman first, symbols with meaning, hook with a claim by 0.3 s, 45-75 s (hard cap 75 s; a re-voiced line must never be longer). Engine fields are listed in STYLE_GUIDE.
 - Voice: Gemini TTS. Free key first; if `gemini-3.8-flash-tts` hits its 100/day cap use `GEMINI_TTS_MODEL=gemini-3.8-flash-lite-tts` (free key, about 3 requests per minute, wait ~70 s on 429). Never use `noor_run.py` for this.
