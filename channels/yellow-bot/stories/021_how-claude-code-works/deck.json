@@ -102,8 +102,8 @@
      "x": 110,
      "y": 1180,
      "ts": [
-      "तीन phases|1.3",
-      "तीन phases|2.6"
+      "तीन phases|1.2",
+      "तीन phases|2.2"
      ],
      "md": 0.45,
      "float": 8,
@@ -116,8 +116,8 @@
      "x": 110,
      "y": 1520,
      "css": "background:#FFD60A;border:6px solid #111;border-radius:999px;padding:6px 34px",
-     "in": "तीन phases|0.5",
-     "out": "तीन phases|1.4",
+     "in": "तीन phases|0.2",
+     "out": "तीन phases|1.3",
      "spring": true
     },
     {
@@ -126,8 +126,8 @@
      "x": 110,
      "y": 1520,
      "css": "background:#FFD60A;border:6px solid #111;border-radius:999px;padding:6px 34px",
-     "in": "तीन phases|1.4",
-     "out": "तीन phases|2.7",
+     "in": "तीन phases|1.3",
+     "out": "तीन phases|2.3",
      "spring": true
     },
     {
@@ -136,7 +136,7 @@
      "x": 110,
      "y": 1520,
      "css": "background:#FFD60A;border:6px solid #111;border-radius:999px;padding:6px 34px",
-     "in": "तीन phases|2.7",
+     "in": "तीन phases|2.3",
      "spring": true
     },
     {
@@ -162,7 +162,11 @@
       ]
      ]
     }
-   ]
+   ],
+   "anchors": {
+    "Magic देखना": 0.3,
+    "तीन phases": 3.1
+   }
   },
   {
    "id": "cast",
@@ -205,7 +209,7 @@
     },
     {
      "kind": "aura",
-     "at": 3.0,
+     "at": "जादूगर|-0.5",
      "dur": 3.8,
      "r": 330,
      "from": [
@@ -256,7 +260,7 @@
     },
     {
      "kind": "dust",
-     "at": 3.2,
+     "at": "जादूगर|0.1",
      "n": 60,
      "speed": 600,
      "life": 1.0,
@@ -331,7 +335,13 @@
      "step": 0.14,
      "sat": "बताने की ज़रूरत|0"
     }
-   ]
+   ],
+   "anchors": {
+    "fix the failing tests": 1.5,
+    "जादूगर": 4.4,
+    "files या commands": 7.4,
+    "बताने की ज़रूरत": 8.8
+   }
   },
   {
    "id": "tada",
@@ -359,7 +369,9 @@
      "glint": [
       1.05,
       0.7
-     ]
+     ],
+     "in": 0.75,
+     "spring": true
     },
     {
      "kind": "shock",
@@ -440,7 +452,12 @@
       ]
      ]
     }
-   ]
+   ],
+   "anchors": {
+    "tests दोबारा": 2.3,
+    "चेक कर लिया": 3.4,
+    "सब ठीक": 4.1
+   }
   },
   {
    "id": "loop",
@@ -525,6 +542,143 @@
      "step": 0.14,
      "sat": "agentic loop|0.6",
      "color": "#555"
+    },
+    {
+     "kind": "icon",
+     "name": "bulb",
+     "x": 390,
+     "y": 700,
+     "size": 300,
+     "in": "trick क्या|0.3",
+     "spring": true,
+     "float": 8,
+     "out": "agentic loop|-0.2"
+    },
+    {
+     "kind": "flow",
+     "at": "agentic loop|0.0",
+     "pts": [
+      [
+       540,
+       760
+      ],
+      [
+       605,
+       769
+      ],
+      [
+       665,
+       793
+      ],
+      [
+       717,
+       833
+      ],
+      [
+       757,
+       885
+      ],
+      [
+       781,
+       945
+      ],
+      [
+       790,
+       1010
+      ],
+      [
+       781,
+       1075
+      ],
+      [
+       757,
+       1135
+      ],
+      [
+       717,
+       1187
+      ],
+      [
+       665,
+       1227
+      ],
+      [
+       605,
+       1251
+      ],
+      [
+       540,
+       1260
+      ],
+      [
+       475,
+       1251
+      ],
+      [
+       415,
+       1227
+      ],
+      [
+       363,
+       1187
+      ],
+      [
+       323,
+       1135
+      ],
+      [
+       299,
+       1075
+      ],
+      [
+       290,
+       1010
+      ],
+      [
+       299,
+       945
+      ],
+      [
+       323,
+       885
+      ],
+      [
+       363,
+       833
+      ],
+      [
+       415,
+       793
+      ],
+      [
+       475,
+       769
+      ],
+      [
+       540,
+       760
+      ]
+     ],
+     "dur": 1.0,
+     "sw": 10,
+     "n": 3,
+     "per": 2.2,
+     "r": 17,
+     "head": false,
+     "until": "gather context|-0.3",
+     "out": "gather context|-0.2"
+    },
+    {
+     "kind": "text",
+     "html": "**loop** = chakkar",
+     "x": 330,
+     "y": 960,
+     "size": 76,
+     "w": 440,
+     "stream": true,
+     "step": 0.14,
+     "sat": "agentic loop|1.0",
+     "out": "gather context|-0.3"
     },
     {
      "kind": "icon",
@@ -631,7 +785,7 @@
       540,
       830
      ],
-     "at": 3.6,
+     "at": "gather context|-0.2",
      "dur": 0.8,
      "stag": 0.18,
      "size": 100,
@@ -672,7 +826,14 @@
      "sat": "verify results|1.4"
     }
    ],
-   "hideN": true
+   "hideN": true,
+   "anchors": {
+    "trick क्या": 0.3,
+    "agentic loop": 2.4,
+    "gather context": 6.5,
+    "take action": 10.2,
+    "verify results": 13.2
+   }
   },
   {
    "id": "tools",
@@ -692,21 +853,45 @@
      "sat": 0.1
     },
     {
+     "kind": "icon",
+     "name": "gear",
+     "x": 330,
+     "y": 620,
+     "size": 380,
+     "in": "tools से|0.0",
+     "spring": true,
+     "float": 8,
+     "spin": 40,
+     "spinAt": 0.8,
+     "out": "tools के बिना|-0.1"
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"padding:30px 44px;font-size:60px;font-weight:800;line-height:1.15\">sirf text, kaam nahi...</div>",
+     "x": 80,
+     "y": 520,
+     "css": "width:920px;box-sizing:border-box",
+     "cls": "bubble",
+     "out": "tools के साथ|-0.1",
+     "in": "tools के बिना|0.0",
+     "spring": true
+    },
+    {
      "kind": "img",
      "img": "think",
      "size": 480,
      "x": 300,
-     "y": 750,
+     "y": 830,
      "bob": 1,
      "k": [
       [
-       "tools से|-0.3",
+       "tools के बिना|-0.1",
        {
         "o": 0
        }
       ],
       [
-       "tools से|0.2",
+       "tools के बिना|0.3",
        {
         "o": 1
        }
@@ -714,12 +899,120 @@
      ]
     },
     {
+     "kind": "icon",
+     "name": "file",
+     "x": 150,
+     "y": 1440,
+     "size": 150,
+     "k": [
+      [
+       "tools के बिना|0.4",
+       {
+        "o": 0
+       }
+      ],
+      [
+       "tools के बिना|0.7",
+       {
+        "o": 0.4
+       }
+      ]
+     ],
+     "out": "tools के साथ|-0.1",
+     "float": {
+      "a": 5,
+      "ph": 0
+     }
+    },
+    {
+     "kind": "icon",
+     "name": "cross",
+     "x": 190,
+     "y": 1400,
+     "size": 80,
+     "in": "tools के बिना|0.7",
+     "spring": true,
+     "out": "tools के साथ|-0.1"
+    },
+    {
+     "kind": "icon",
+     "name": "terminal",
+     "x": 450,
+     "y": 1440,
+     "size": 150,
+     "k": [
+      [
+       "tools के बिना|0.4",
+       {
+        "o": 0
+       }
+      ],
+      [
+       "tools के बिना|0.7",
+       {
+        "o": 0.4
+       }
+      ]
+     ],
+     "out": "tools के साथ|-0.1",
+     "float": {
+      "a": 5,
+      "ph": 1
+     }
+    },
+    {
+     "kind": "icon",
+     "name": "cross",
+     "x": 490,
+     "y": 1400,
+     "size": 80,
+     "in": "tools के बिना|0.7",
+     "spring": true,
+     "out": "tools के साथ|-0.1"
+    },
+    {
+     "kind": "icon",
+     "name": "globe",
+     "x": 750,
+     "y": 1440,
+     "size": 150,
+     "k": [
+      [
+       "tools के बिना|0.4",
+       {
+        "o": 0
+       }
+      ],
+      [
+       "tools के बिना|0.7",
+       {
+        "o": 0.4
+       }
+      ]
+     ],
+     "out": "tools के साथ|-0.1",
+     "float": {
+      "a": 5,
+      "ph": 2
+     }
+    },
+    {
+     "kind": "icon",
+     "name": "cross",
+     "x": 790,
+     "y": 1400,
+     "size": 80,
+     "in": "tools के बिना|0.7",
+     "spring": true,
+     "out": "tools के साथ|-0.1"
+    },
+    {
      "kind": "flow",
      "at": "file पढ़ता|0.0",
      "from": {
       "orbit": {
        "cx": 540,
-       "cy": 1010,
+       "cy": 1080,
        "rx": 345,
        "ry": 300,
        "a0": 270,
@@ -728,7 +1021,7 @@
      },
      "to": [
       540,
-      1010
+      1080
      ],
      "dur": 0.4,
      "sw": 6,
@@ -747,7 +1040,7 @@
      "spring": true,
      "orbit": {
       "cx": 540,
-      "cy": 1010,
+      "cy": 1080,
       "rx": 345,
       "ry": 300,
       "a0": 270,
@@ -763,7 +1056,7 @@
      "from": {
       "orbit": {
        "cx": 540,
-       "cy": 1010,
+       "cy": 1080,
        "rx": 345,
        "ry": 300,
        "a0": 342,
@@ -772,7 +1065,7 @@
      },
      "to": [
       540,
-      1010
+      1080
      ],
      "dur": 0.4,
      "sw": 6,
@@ -791,7 +1084,7 @@
      "spring": true,
      "orbit": {
       "cx": 540,
-      "cy": 1010,
+      "cy": 1080,
       "rx": 345,
       "ry": 300,
       "a0": 342,
@@ -807,7 +1100,7 @@
      "from": {
       "orbit": {
        "cx": 540,
-       "cy": 1010,
+       "cy": 1080,
        "rx": 345,
        "ry": 300,
        "a0": 414,
@@ -816,7 +1109,7 @@
      },
      "to": [
       540,
-      1010
+      1080
      ],
      "dur": 0.4,
      "sw": 6,
@@ -835,7 +1128,7 @@
      "spring": true,
      "orbit": {
       "cx": 540,
-      "cy": 1010,
+      "cy": 1080,
       "rx": 345,
       "ry": 300,
       "a0": 414,
@@ -851,7 +1144,7 @@
      "from": {
       "orbit": {
        "cx": 540,
-       "cy": 1010,
+       "cy": 1080,
        "rx": 345,
        "ry": 300,
        "a0": 486,
@@ -860,7 +1153,7 @@
      },
      "to": [
       540,
-      1010
+      1080
      ],
      "dur": 0.4,
      "sw": 6,
@@ -879,7 +1172,7 @@
      "spring": true,
      "orbit": {
       "cx": 540,
-      "cy": 1010,
+      "cy": 1080,
       "rx": 345,
       "ry": 300,
       "a0": 486,
@@ -895,7 +1188,7 @@
      "from": {
       "orbit": {
        "cx": 540,
-       "cy": 1010,
+       "cy": 1080,
        "rx": 345,
        "ry": 300,
        "a0": 558,
@@ -904,7 +1197,7 @@
      },
      "to": [
       540,
-      1010
+      1080
      ],
      "dur": 0.4,
      "sw": 6,
@@ -923,7 +1216,7 @@
      "spring": true,
      "orbit": {
       "cx": 540,
-      "cy": 1010,
+      "cy": 1080,
       "rx": 345,
       "ry": 300,
       "a0": 558,
@@ -937,7 +1230,7 @@
      "kind": "box",
      "html": "<div style=\"font-size:30px;font-weight:700\">jaise ek...</div><div style=\"font-size:62px;font-weight:800;line-height:1.1\">toolbox</div>",
      "x": 80,
-     "y": 1480,
+     "y": 1600,
      "css": "width:520px;padding:26px 36px;box-sizing:border-box",
      "cls": "sticky",
      "k": [
@@ -955,23 +1248,25 @@
      "kind": "icon",
      "name": "box",
      "x": 700,
-     "y": 1470,
+     "y": 1590,
      "size": 180,
      "in": "औज़ारों का डिब्बा|0.0",
      "spring": true,
      "float": 7,
      "wig": "औज़ारों का डिब्बा|0.4"
-    },
-    {
-     "kind": "box",
-     "html": "<div style=\"font-size:46px;font-weight:800;line-height:1.15\">tools ke bina:<br><span style=\"color:#999\">sirf text</span></div>",
-     "x": 80,
-     "y": 1700,
-     "css": "",
-     "in": "सिर्फ़ text|-0.2",
-     "spring": true
     }
-   ]
+   ],
+   "anchors": {
+    "tools से": 0.9,
+    "tools के बिना": 2.6,
+    "tools के साथ": 4.8,
+    "file पढ़ता": 6.4,
+    "search करता": 7.3,
+    "commands चलाता": 8.3,
+    "web खोलता": 9.2,
+    "code intelligence": 10.2,
+    "औज़ारों का डिब्बा": 12.4
+   }
   },
   {
    "id": "steer",
@@ -1079,7 +1374,7 @@
      "w": 860,
      "sat": "सुधार लिखकर|0.3",
      "color": "#fff",
-     "cps": 20,
+     "cps": 30,
      "mono": true
     },
     {
@@ -1088,7 +1383,7 @@
      "x": 120,
      "y": 1500,
      "css": "",
-     "wig": "Enter दबाओ|0.6",
+     "wig": "Enter दबाओ|0.8",
      "in": "Enter दबाओ|-0.3",
      "spring": true
     },
@@ -1100,7 +1395,7 @@
      "size": 110,
      "k": [
       [
-       "Enter दबाओ|-0.5",
+       "Enter दबाओ|-0.4",
        {
         "x": 560,
         "y": 1700,
@@ -1116,14 +1411,14 @@
        }
       ],
       [
-       "Enter दबाओ|0.5",
+       "Enter दबाओ|0.7",
        {
         "x": 300,
         "y": 1570
        }
       ]
      ],
-     "wig": "Enter दबाओ|0.6"
+     "wig": "Enter दबाओ|0.8"
     },
     {
      "kind": "text",
@@ -1136,7 +1431,14 @@
      "step": 0.14,
      "sat": "रास्ता बदल|0.3"
     }
-   ]
+   ],
+   "anchors": {
+    "Esc दबाओ": 2.1,
+    "तुरंत रुक": 4.2,
+    "सुधार लिखकर": 5.7,
+    "Enter दबाओ": 6.5,
+    "रास्ता बदल": 7.4
+   }
   },
   {
    "id": "recap",
@@ -1343,13 +1645,21 @@
      "float": 8,
      "label": null
     }
-   ]
+   ],
+   "anchors": {
+    "gather": 1.3,
+    "act": 2.3,
+    "verify": 2.9,
+    "दोहराओ": 3.9,
+    "Delegate": 4.2,
+    "dictate": 5.3
+   }
   },
   {
    "id": "follow",
    "type": "stage",
    "wipe": "right",
-   "voice": "ऐसे ही मज़ेदार Claude Code tricks के लिए Yellow Bot को follow करो।",
+   "voice": "एक follow, और AI का अगला जादू आपकी screen पर। Yellow Bot को follow करो।",
    "layers": [
     {
      "kind": "text",
@@ -1368,7 +1678,8 @@
      "x": 190,
      "y": 800,
      "css": "background:#FFD60A;border:9px solid #111;border-radius:999px;padding:30px 110px;box-shadow:0 24px 50px rgba(0,0,0,.22)",
-     "wig": 1.5,
+     "wig": 4.35,
+     "float": 5,
      "in": "0.5|-0.1",
      "spring": true
     },
@@ -1380,7 +1691,7 @@
      "size": 140,
      "k": [
       [
-       0.9,
+       3.4,
        {
         "x": 820,
         "y": 1060,
@@ -1388,7 +1699,7 @@
        }
       ],
       [
-       1.0,
+       3.5,
        {
         "x": 820,
         "y": 1060,
@@ -1396,18 +1707,18 @@
        }
       ],
       [
-       1.5,
+       4.2,
        {
         "x": 520,
         "y": 880
        }
       ]
      ],
-     "wig": 1.55
+     "wig": 4.3
     },
     {
      "kind": "dust",
-     "at": 1.5,
+     "at": 4.3,
      "n": 50,
      "speed": 620,
      "life": 1.0,
@@ -1424,10 +1735,34 @@
      "x": 430,
      "y": 1080,
      "size": 200,
-     "wig": 1.9,
+     "wig": 4.7,
      "float": 6,
-     "in": 1.7,
+     "in": 4.5,
      "spring": true
+    },
+    {
+     "kind": "spark",
+     "pts": [
+      [
+       170,
+       830,
+       26,
+       0
+      ],
+      [
+       920,
+       790,
+       22,
+       2
+      ],
+      [
+       860,
+       1010,
+       20,
+       4
+      ]
+     ],
+     "sp": 4
     },
     {
      "kind": "img",

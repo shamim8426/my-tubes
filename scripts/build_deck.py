@@ -37,6 +37,8 @@ def wav_len(p):
 def phrase_time(sc, dur, ph):
     if isinstance(ph, (int, float)) or ph is None:
         return ph
+    if ph in (sc.get("anchors") or {}):
+        return sc["anchors"][ph]  # measured time (seconds from scene start), overrides the position estimate
     text = vtext(sc)
     i = text.find(ph)
     if i < 0:
@@ -50,7 +52,10 @@ def rt(sc, dur, v):
     if not isinstance(v, str):
         return v
     ph, *offs = v.split("|")
-    t = phrase_time(sc, dur, ph)
+    try:
+        t = float(ph)  # "0.75|-0.1": a plain number plus offsets
+    except ValueError:
+        t = phrase_time(sc, dur, ph)
     return None if t is None else round(t + sum(float(o) for o in offs if o), 2)
 
 
@@ -59,6 +64,8 @@ def resolve_layer(sc, dur, L):
     for f in ("sat", "in", "out", "hlAt", "at", "wig", "spinAt", "until"):
         if isinstance(L.get(f), str):
             L[f] = rt(sc, dur, L[f])
+    if isinstance(L.get("ts"), list):
+        L["ts"] = [rt(sc, dur, x) for x in L["ts"]]
     if isinstance(L.get("drawon"), list) and isinstance(L["drawon"][0], str):
         L["drawon"] = [rt(sc, dur, L["drawon"][0])] + L["drawon"][1:]
     if L.get("k"):

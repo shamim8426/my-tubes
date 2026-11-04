@@ -20,8 +20,8 @@
     "title": "How Claude Code works",
     "url": "https://code.claude.com/docs/en/how-claude-code-works.md",
     "summary": "Understand the agentic loop, built-in tools, and how Claude Code interacts with your project.",
-    "status": "todo",
-    "story": null
+    "status": "uploaded",
+    "story": "021_how-claude-code-works"
   },
   {
     "id": "features-overview",

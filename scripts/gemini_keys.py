@@ -19,7 +19,7 @@ ROOT = Path(__file__).resolve().parent.parent
 load_dotenv(ROOT / ".env")
 
 FREE_CHANNELS = {"noor-e-raah", "_new_claude_explainer", "yellow-bot", "jugnu-stories"}  # 2026-11-01: jugnu-stories added per the user's free-first rule for ALL channels (2026-10-30, CLAUDE.md); 2026-10-31: user wants only free TTS for the Claude explainer videos (shares the Noor free quota)
-FREE_MODELS = {"gemini-3.8-flash-tts"}
+FREE_MODELS = {"gemini-3.8-flash-tts", "gemini-3.8-flash-lite-tts"}  # lite verified on the free key 2026-11-04 (Rs0, own quota)
 
 
 def channel_for(out) -> str | None:

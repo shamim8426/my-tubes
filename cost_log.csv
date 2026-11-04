@@ -1126,3 +1126,12 @@ timestamp,file,model,size,cost_usd,cost_inr,today_total_inr,remaining_inr,channe
 2026-11-04 01:48:55,channels/yellow-bot/stories/020_quickstart/audio/tts/s_04.wav,gemini-3.8-flash-lite-tts,tts 10.1s,0.00229,0.22,6.55,51.78,yellow-bot,0.23,0.2207,0.04,38,252
 2026-11-04 01:49:03,channels/yellow-bot/stories/020_quickstart/audio/tts/s_05.wav,gemini-3.8-flash-lite-tts,tts 9.4s,0.00214,0.21,6.79,51.54,yellow-bot,0.21,0.2066,0.04,34,236
 2026-11-04 01:49:10,channels/yellow-bot/stories/020_quickstart/audio/tts/s_06.wav,gemini-3.8-flash-lite-tts,tts 7.7s,0.00174,0.17,6.99,51.34,yellow-bot,0.17,0.1681,0.03,27,192
+2026-11-04 03:05:47,channels/yellow-bot/stories/021_how-claude-code-works/_to_delete/free_lite_test.wav,gemini-3.8-flash-lite-tts,tts 1.0s free,0.00000,0.00,6.99,51.34,yellow-bot,0.02,0.0000,0.00,4,24
+2026-11-04 03:06:11,channels/yellow-bot/stories/021_how-claude-code-works/audio/tts/s_00.wav,gemini-3.8-flash-lite-tts,tts 6.4s free,0.00000,0.00,6.99,51.34,yellow-bot,0.15,0.0000,0.00,28,159
+2026-11-04 03:06:19,channels/yellow-bot/stories/021_how-claude-code-works/audio/tts/s_01.wav,gemini-3.8-flash-lite-tts,tts 9.4s free,0.00000,0.00,6.99,51.34,yellow-bot,0.21,0.0000,0.00,35,236
+2026-11-04 03:06:26,channels/yellow-bot/stories/021_how-claude-code-works/audio/tts/s_02.wav,gemini-3.8-flash-lite-tts,tts 4.6s free,0.00000,0.00,6.99,51.34,yellow-bot,0.11,0.0000,0.00,20,114
+2026-11-04 03:07:56,channels/yellow-bot/stories/021_how-claude-code-works/audio/tts/s_03.wav,gemini-3.8-flash-lite-tts,tts 16.2s free,0.00000,0.00,6.99,51.34,yellow-bot,0.36,0.0000,0.00,52,405
+2026-11-04 03:08:04,channels/yellow-bot/stories/021_how-claude-code-works/audio/tts/s_04.wav,gemini-3.8-flash-lite-tts,tts 13.7s free,0.00000,0.00,6.99,51.34,yellow-bot,0.31,0.0000,0.00,56,343
+2026-11-04 03:08:13,channels/yellow-bot/stories/021_how-claude-code-works/audio/tts/s_05.wav,gemini-3.8-flash-lite-tts,tts 8.4s free,0.00000,0.00,6.99,51.34,yellow-bot,0.19,0.0000,0.00,34,210
+2026-11-04 03:08:20,channels/yellow-bot/stories/021_how-claude-code-works/audio/tts/s_06.wav,gemini-3.8-flash-lite-tts,tts 6.3s free,0.00000,0.00,6.99,51.34,yellow-bot,0.14,0.0000,0.00,21,157
+2026-11-04 03:09:38,channels/yellow-bot/stories/021_how-claude-code-works/audio/tts/s_07.wav,gemini-3.8-flash-lite-tts,tts 4.8s free,0.00000,0.00,6.99,51.34,yellow-bot,0.11,0.0000,0.00,19,120

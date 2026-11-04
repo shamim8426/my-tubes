@@ -10,7 +10,7 @@ from pathlib import Path
 HERE = Path(__file__).parent
 
 # ---- FINAL CTA (the user chooses the wording; change ONLY these 3 lines, then: move audio\tts\s_07.wav to _to_delete, run build_deck.py --tts, --render)
-CTA_VOICE = "ऐसे ही मज़ेदार Claude Code tricks के लिए Yellow Bot को follow करो।"   # placeholder wording
+CTA_VOICE = "एक follow, और AI का अगला जादू आपकी screen पर। Yellow Bot को follow करो।"   # magic-video line (user 2026-11-04)
 CTA_SCREEN = "**Yellow Bot** ko follow karo"     # big on-screen line (words between ** get the yellow marker)
 CTA_PILL = "Follow"                               # label on the yellow pill that gets clicked
 
@@ -70,10 +70,10 @@ L = [tx("**Magic** dekhna hai?", 80, 230, 124, 920, 0.1),
      dict(kind="count", to=3, size=420, x=50, y=640, css="width:340px;text-align:center", k=[[0.0, {"o": 1, "f": 1}]], **{"in": 0.2, "ind": 0.4, "spring": True}),
      tx("**phases** ka trick", 400, 760, 100, 600, 0.45),
      dict(kind="dust", from_=[220, 830], at=0.3, n=70, speed=650, life=1.1, size=18, mode="burst"),
-     dict(kind="morph", icons=["magnifier", "code", "check"], size=300, x=110, y=1180, ts=["तीन phases|1.3", "तीन phases|2.6"], md=0.45, float=8, **pop("तीन phases", 0.2)),
-     box('<div style="font-size:60px;font-weight:800">gather</div>', 110, 1520, "background:#FFD60A;border:6px solid #111;border-radius:999px;padding:6px 34px", **{"in": "तीन phases|0.5", "out": "तीन phases|1.4", "spring": True}),
-     box('<div style="font-size:60px;font-weight:800">act</div>', 110, 1520, "background:#FFD60A;border:6px solid #111;border-radius:999px;padding:6px 34px", **{"in": "तीन phases|1.4", "out": "तीन phases|2.7", "spring": True}),
-     box('<div style="font-size:60px;font-weight:800">verify</div>', 110, 1520, "background:#FFD60A;border:6px solid #111;border-radius:999px;padding:6px 34px", **{"in": "तीन phases|2.7", "spring": True}),
+     dict(kind="morph", icons=["magnifier", "code", "check"], size=300, x=110, y=1180, ts=["तीन phases|1.2", "तीन phases|2.2"], md=0.45, float=8, **pop("तीन phases", 0.2)),
+     box('<div style="font-size:60px;font-weight:800">gather</div>', 110, 1520, "background:#FFD60A;border:6px solid #111;border-radius:999px;padding:6px 34px", **{"in": "तीन phases|0.2", "out": "तीन phases|1.3", "spring": True}),
+     box('<div style="font-size:60px;font-weight:800">act</div>', 110, 1520, "background:#FFD60A;border:6px solid #111;border-radius:999px;padding:6px 34px", **{"in": "तीन phases|1.3", "out": "तीन phases|2.3", "spring": True}),
+     box('<div style="font-size:60px;font-weight:800">verify</div>', 110, 1520, "background:#FFD60A;border:6px solid #111;border-radius:999px;padding:6px 34px", **{"in": "तीन phases|2.3", "spring": True}),
      dict(kind="img", img="wave", size=480, x=540, y=1380, bob=1, k=[["Magic देखना|0.2", {"x": 1200, "o": 1}], ["Magic देखना|0.9", {"x": 540}]])]
 scenes.append(dict(id="hook", type="stage", wipe="right", voice=V0, layers=L))
 
@@ -82,9 +82,9 @@ V1 = "तुम बस बोलो: fix the failing tests। फिर Claude, 
 L = [tx("Tum bas **bolo**", 80, 230, 110, 920, 0.1),
      box(win("terminal", 920, 240), 80, 430, "", sh=True, **pop("fix the failing tests", -0.6)),
      typed("> fix the failing tests", 112, 548, 50, "fix the failing tests|-0.2", cps=17),
-     dict(kind="aura", from_=[330, 1180], at=3.0, dur=3.8, r=330),
+     dict(kind="aura", from_=[330, 1180], at="जादूगर|-0.5", dur=3.8, r=330),
      dict(kind="svgbot", size=760, x=-60, y=800, talk=[[0.6, 12]], k=[[0, {"x": -700, "ar": 0}], [0.8, {"x": -60, "e": "b"}], ["जादूगर|-0.4", {"ar": -150, "al": 0}], ["जादूगर|0.2", {"al": 150}]]),
-     dict(kind="dust", from_=[430, 930], at=3.2, n=60, speed=600, life=1.0, size=16, mode="burst"),
+     dict(kind="dust", from_=[430, 930], at="जादूगर|0.1", n=60, speed=600, life=1.0, size=16, mode="burst"),
      box('<div style="font-size:30px;font-weight:700;margin-bottom:4px">jaise ek...</div><div style="font-size:60px;font-weight:800;line-height:1.1">jaadugar</div>', 610, 830, "width:380px;padding:26px 34px;box-sizing:border-box",
          cls="sticky", k=[[0, {"r": 3}]], **pop("जादूगर", -0.3)),
      ic("file", 600, 1200, 150, cue="files या commands", off=-0.1, label=None, float=6),
@@ -96,7 +96,7 @@ scenes.append(dict(id="cast", type="stage", wipe="up", voice=V1, layers=L))
 # ============ S2 TA-DA: portal + shock + glint + dust, PiP robot
 V2 = "और ta-da! Claude ने tests दोबारा चलाकर चेक कर लिया कि सब ठीक है।"
 L = [box("", 90, 400, "width:900px;height:360px;border-radius:50px;background:#FFD60A;border:8px solid #111;box-shadow:0 24px 50px rgba(0,0,0,.2)", **pop(0.75)),
-     dict(kind="glinttext", html="TA-DA!", x=90, y=480, w=900, size=190, glint=[1.05, 0.7]),
+     dict(kind="glinttext", html="TA-DA!", x=90, y=480, w=900, size=190, glint=[1.05, 0.7], **{"in": 0.75, "spring": True}),
      dict(kind="shock", from_=[540, 580], at=0.75, dur=0.9, r=900, rings=2),
      dict(kind="dust", from_=[540, 580], at=1.0, n=60, speed=640, life=1.1, size=16, mode="burst"),
      ic("check", 330, 860, 340, cue="चेक कर लिया", off=-0.6, wig="चेक कर लिया|0.3", drawon=["चेक कर लिया|-0.5", 0.6]),
@@ -107,35 +107,44 @@ scenes.append(dict(id="tada", type="stage", wipe="portal", trd=0.7, voice=V2, la
 
 # ============ S3 TRICK: agentic loop, morph, magnet, flow loop, ring 1/3..3/3
 V3 = "अब trick क्या है? इसे कहते हैं agentic loop, यानी बार बार घूमने वाला चक्कर। पहला phase, gather context, यानी files पढ़कर समझना। दूसरा, take action, यानी code बदलना। तीसरा, verify results, यानी tests चलाकर चेक करना।"
+LOOPPTS = [[540, 760], [605, 769], [665, 793], [717, 833], [757, 885], [781, 945], [790, 1010], [781, 1075], [757, 1135], [717, 1187], [665, 1227], [605, 1251], [540, 1260], [475, 1251], [415, 1227], [363, 1187], [323, 1135], [299, 1075], [290, 1010], [299, 945], [323, 885], [363, 833], [415, 793], [475, 769], [540, 760]]
 N1, N2, N3 = (540, 830), (850, 1250), (230, 1250)
 rg = dict(kind="ring", size=180, x=830, y=200, sw=20, mul=3, unit="/3", **{"in": 0.1, "spring": True},
           k=[[0.0, {"f": 0}], ["gather context|0", {"f": 0}], ["gather context|0.6", {"f": 1 / 3}], ["take action|0", {"f": 1 / 3}], ["take action|0.6", {"f": 2 / 3}], ["verify results|0", {"f": 2 / 3}], ["verify results|0.6", {"f": 1}]])
 L = [tx("**Agentic** loop", 80, 230, 100, 720, 0.1), rg,
      tx("= baar baar ka chakkar", 80, 360, 54, 740, "agentic loop|0.6", color="#555"),
+     ic("bulb", 390, 700, 300, cue="trick क्या", off=0.3, float=8, out="agentic loop|-0.2"),
+     flow(LOOPPTS, None, "agentic loop|0.0", dur=1.0, sw=10, n=3, per=2.2, r=17, head=False, until="gather context|-0.3", out="gather context|-0.2"),
+     tx("**loop** = chakkar", 330, 960, 76, 440, "agentic loop|1.0", out="gather context|-0.3"),
      ic("magnifier", N1[0] - 90, N1[1] - 90, 180, cue="gather context", off=-0.1, label="gather context", ls=36, lw=300, float=7),
      ic("code", N2[0] - 90, N2[1] - 90, 180, cue="take action", off=-0.1, label="take action", ls=36, lw=300, float={"a": 7, "ph": 1.5}),
      ic("check", N3[0] - 90, N3[1] - 90, 180, cue="verify results", off=-0.1, label="verify results", ls=36, lw=300, float={"a": 7, "ph": 3}),
      flow([[665, 880], [815, 1125]], None, "take action|-0.7", dur=0.4, sw=8, n=2, per=1.4),
      flow([[750, 1250], [330, 1250]], None, "verify results|-0.7", dur=0.4, sw=8, n=2, per=1.4),
      flow([[200, 1130], [430, 880]], None, "verify results|0.9", dur=0.4, sw=8, n=2, per=1.4),
-     dict(kind="magnet", to=[N1[0], N1[1]], at=3.6, dur=0.8, stag=0.18, size=100, arc=240, items=[{"name": "file", "from": [90, 560]}, {"name": "folder", "from": [990, 640]}, {"name": "code", "from": [60, 1000]}]),
+     dict(kind="magnet", to=[N1[0], N1[1]], at="gather context|-0.2", dur=0.8, stag=0.18, size=100, arc=240, items=[{"name": "file", "from": [90, 560]}, {"name": "folder", "from": [990, 640]}, {"name": "code", "from": [60, 1000]}]),
      tx("**repeat** jab tak kaam ho", 80, 1560, 84, 920, "verify results|1.4")]
 scenes.append(dict(id="loop", type="stage", wipe="zoom", voice=V3, layers=L, hideN=True))
 
 # ============ S4 TOOLS: icon hub with orbit + flows, toolbox analogy
 V4 = "ये सब काम tools से होते हैं। Tools के बिना Claude सिर्फ़ text बोल सकता है। Tools के साथ वो file पढ़ता, search करता, commands चलाता, web खोलता है, और code intelligence भी, plugins से। जैसे औज़ारों का डिब्बा।"
-CX, CY = 540, 1010
+CX, CY = 540, 1080
 cats = [("file", "files"), ("magnifier", "search"), ("terminal", "run"), ("globe", "web"), ("bulb", "code intel")]
 cues = ["file पढ़ता", "search करता", "commands चलाता", "web खोलता", "code intelligence"]
+OFFK = "tools के साथ|-0.1"
 L = [tx("**Tools** = Claude ke haath", 80, 230, 96, 920, 0.1),
-     dict(kind="img", img="think", size=480, x=CX - 240, y=CY - 260, bob=1, k=[["tools से|-0.3", {"o": 0}], ["tools से|0.2", {"o": 1}]])]
+     ic("gear", 330, 620, 380, cue="tools से", off=0.0, float=8, spin=40, spinAt=0.8, out="tools के बिना|-0.1"),
+     box('<div style="padding:30px 44px;font-size:60px;font-weight:800;line-height:1.15">sirf text, kaam nahi...</div>', 80, 520, "width:920px;box-sizing:border-box", cls="bubble", out=OFFK, **pop("tools के बिना", 0.0)),
+     dict(kind="img", img="think", size=480, x=CX - 240, y=CY - 250, bob=1, k=[["tools के बिना|-0.1", {"o": 0}], ["tools के बिना|0.3", {"o": 1}]])]
+for i, n in enumerate(["file", "terminal", "globe"]):
+    L.append(ic(n, 150 + i * 300, 1440, 150, k=[["tools के बिना|0.4", {"o": 0}], ["tools के बिना|0.7", {"o": 0.4}]], out=OFFK, float={"a": 5, "ph": i}))
+    L.append(ic("cross", 150 + i * 300 + 40, 1400, 80, cue="tools के बिना", off=0.7, out=OFFK))
 for i, ((n, lab), cue) in enumerate(zip(cats, cues)):
     orb = {"cx": CX, "cy": CY, "rx": 345, "ry": 300, "a0": 270 + i * 72, "w": 11}
     L.append(flow({"orbit": orb}, [CX, CY], f"{cue}|0.0", dur=0.4, sw=6, n=1, per=1.3, r=13, head=False))
     L.append(ic(n, 0, 0, 130, cue=cue, off=-0.2, orbit=orb, label=lab, ls=30, lw=130))
-L += [box('<div style="font-size:30px;font-weight:700">jaise ek...</div><div style="font-size:62px;font-weight:800;line-height:1.1">toolbox</div>', 80, 1480, "width:520px;padding:26px 36px;box-sizing:border-box", cls="sticky", k=[[0, {"r": -2.5}]], **pop("औज़ारों का डिब्बा", -0.3)),
-      ic("box", 700, 1470, 180, cue="औज़ारों का डिब्बा", off=0.0, float=7, wig="औज़ारों का डिब्बा|0.4"),
-      box('<div style="font-size:46px;font-weight:800;line-height:1.15">tools ke bina:<br><span style="color:#999">sirf text</span></div>', 80, 1700, "", **pop("सिर्फ़ text", -0.2))]
+L += [box('<div style="font-size:30px;font-weight:700">jaise ek...</div><div style="font-size:62px;font-weight:800;line-height:1.1">toolbox</div>', 80, 1600, "width:520px;padding:26px 36px;box-sizing:border-box", cls="sticky", k=[[0, {"r": -2.5}]], **pop("औज़ारों का डिब्बा", -0.3)),
+      ic("box", 700, 1590, 180, cue="औज़ारों का डिब्बा", off=0.0, float=7, wig="औज़ारों का डिब्बा|0.4")]
 scenes.append(dict(id="tools", type="stage", wipe="push", voice=V4, layers=L))
 
 # ============ S5 YOU STEER: Esc, before/after, typed correction, Enter
@@ -157,9 +166,9 @@ L = [tx("**Tum** bhi loop me", 80, 230, 100, 920, 0.1),
      ic("cross", 190, 880, 130, cue="सुधार लिखकर", off=-0.3),
      ic("check", 670, 880, 130, cue="रास्ता बदल", off=-0.1, wig="रास्ता बदल|0.3"),
      box(win("terminal", 920, 250), 80, 1180, "", sh=True, **pop("सुधार लिखकर", 0.0)),
-     typed("The issue is in the session handling", 112, 1300, 38, "सुधार लिखकर|0.3", w=860, cps=20),
-     box('<div class="keycap" style="font-size:60px;padding:8px 44px">Enter</div>', 120, 1500, "", wig="Enter दबाओ|0.6", **pop("Enter दबाओ", -0.3)),
-     ic("cursor", 0, 0, 110, k=[["Enter दबाओ|-0.5", {"x": 560, "y": 1700, "o": 0}], ["Enter दबाओ|-0.1", {"x": 560, "y": 1700, "o": 1}], ["Enter दबाओ|0.5", {"x": 300, "y": 1570}]], wig="Enter दबाओ|0.6"),
+     typed("The issue is in the session handling", 112, 1300, 38, "सुधार लिखकर|0.3", w=860, cps=30),
+     box('<div class="keycap" style="font-size:60px;padding:8px 44px">Enter</div>', 120, 1500, "", wig="Enter दबाओ|0.8", **pop("Enter दबाओ", -0.3)),
+     ic("cursor", 0, 0, 110, k=[["Enter दबाओ|-0.4", {"x": 560, "y": 1700, "o": 0}], ["Enter दबाओ|-0.1", {"x": 560, "y": 1700, "o": 1}], ["Enter दबाओ|0.7", {"x": 300, "y": 1570}]], wig="Enter दबाओ|0.8"),
      tx("rasta **badal** leta hai", 80, 1680, 80, 920, "रास्ता बदल|0.3")]
 scenes.append(dict(id="steer", type="stage", wipe="iris", voice=V5, layers=L))
 
@@ -182,14 +191,27 @@ scenes.append(dict(id="recap", type="stage", wipe="fade", voice=V6, layers=L))
 
 # ============ S7 FOLLOW CTA (~3-4 s): robot thumbs-up, big Follow pill + cursor click + dust, bell wiggle
 L = [tx(CTA_SCREEN, 80, 260, 120, 920, 0.15),
-     box(f'<div style="font-size:120px;font-weight:800;line-height:1">{CTA_PILL}</div>', 190, 800, "background:#FFD60A;border:9px solid #111;border-radius:999px;padding:30px 110px;box-shadow:0 24px 50px rgba(0,0,0,.22)", wig=1.5, **pop(0.5)),
-     dict(kind="icon", name="cursor", x=0, y=0, size=140, k=[[0.9, {"x": 820, "y": 1060, "o": 0}], [1.0, {"x": 820, "y": 1060, "o": 1}], [1.5, {"x": 520, "y": 880}]], wig=1.55),
-     dict(kind="dust", from_=[540, 860], at=1.5, n=50, speed=620, life=1.0, size=16, mode="burst"),
-     ic("bell", 430, 1080, 200, cue=None, wig=1.9, float=6, **{"in": 1.7, "spring": True}),
+     box(f'<div style="font-size:120px;font-weight:800;line-height:1">{CTA_PILL}</div>', 190, 800, "background:#FFD60A;border:9px solid #111;border-radius:999px;padding:30px 110px;box-shadow:0 24px 50px rgba(0,0,0,.22)", wig=4.35, float=5, **pop(0.5)),
+     dict(kind="icon", name="cursor", x=0, y=0, size=140, k=[[3.4, {"x": 820, "y": 1060, "o": 0}], [3.5, {"x": 820, "y": 1060, "o": 1}], [4.2, {"x": 520, "y": 880}]], wig=4.3),
+     dict(kind="dust", from_=[540, 860], at=4.3, n=50, speed=620, life=1.0, size=16, mode="burst"),
+     ic("bell", 430, 1080, 200, cue=None, wig=4.7, float=6, **{"in": 4.5, "spring": True}),
+     dict(kind="spark", pts=[[170, 830, 26, 0], [920, 790, 22, 2], [860, 1010, 20, 4]], sp=4),
      dict(kind="img", img="thumbs", size=520, x=260, y=1300, bob=1, k=[[0.2, {"x": -700, "o": 1}], [0.9, {"x": 260}]])]
 scenes.append(dict(id="follow", type="stage", wipe="right", voice=CTA_VOICE, layers=L))
 
+ANCH = {
+    "hook": {"Magic देखना": 0.3, "तीन phases": 3.1},
+    "cast": {"fix the failing tests": 1.5, "जादूगर": 4.4, "files या commands": 7.4, "बताने की ज़रूरत": 8.8},
+    "tada": {"tests दोबारा": 2.3, "चेक कर लिया": 3.4, "सब ठीक": 4.1},
+    "loop": {"trick क्या": 0.3, "agentic loop": 2.4, "gather context": 6.5, "take action": 10.2, "verify results": 13.2},
+    "tools": {"tools से": 0.9, "tools के बिना": 2.6, "tools के साथ": 4.8, "file पढ़ता": 6.4, "search करता": 7.3, "commands चलाता": 8.3,
+              "web खोलता": 9.2, "code intelligence": 10.2, "औज़ारों का डिब्बा": 12.4},
+    "steer": {"Esc दबाओ": 2.1, "तुरंत रुक": 4.2, "सुधार लिखकर": 5.7, "Enter दबाओ": 6.5, "रास्ता बदल": 7.4},
+    "recap": {"gather": 1.3, "act": 2.3, "verify": 2.9, "दोहराओ": 3.9, "Delegate": 4.2, "dictate": 5.3},
+}
 for sc in scenes:
+    if sc["id"] in ANCH:
+        sc["anchors"] = ANCH[sc["id"]]
     for L in sc["layers"]:
         if "from_" in L:
             L["from"] = L.pop("from_")
