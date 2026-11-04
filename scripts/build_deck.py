@@ -41,6 +41,14 @@ def phrase_time(sc, dur, ph):
         return sc["anchors"][ph]  # measured time (seconds from scene start), overrides the position estimate
     text = vtext(sc)
     i = text.find(ph)
+    if i >= 0 and sc.get("wt"):  # measured word times (scripts/yb_wordtimes.py): [[char_index, seconds_in_voice], ...], linear between points
+        pts = sc["wt"]
+        if i <= pts[0][0]:
+            return round(LEAD + pts[0][1], 2)
+        for (c0, t0), (c1, t1) in zip(pts, pts[1:]):
+            if c0 <= i <= c1:
+                return round(LEAD + t0 + (t1 - t0) * (i - c0) / max(1, c1 - c0), 2)
+        return round(LEAD + pts[-1][1], 2)
     if i < 0:
         print(f"  warn: cue {ph!r} not found in the voice text of scene {sc.get('id')}")
         return None
@@ -145,6 +153,9 @@ def main():
     payload = {"tag": spec.get("tag", ""), "scenes": data, "total": total, "sfx": [s["start"] for s in data[1:] if s.get("wipe") != "fade"]}
     if spec.get("rail"):
         payload["rail"] = spec["rail"]
+    for k in ("bg", "bgGrid"):  # opt-in page background (Day 1 product-page style, 2026-11-04)
+        if spec.get(k):
+            payload[k] = spec[k]
     html = html.replace("/*DATA*/null", json.dumps(payload, ensure_ascii=False)).replace("{{FONTS}}", (ROOT / "shared/fonts").as_uri())
     deck = build / "deck.html"
     deck.write_text(html, encoding="utf-8")

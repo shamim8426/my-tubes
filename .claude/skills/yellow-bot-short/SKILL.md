@@ -9,7 +9,7 @@ Read first, in order: `channels/yellow-bot/RULES.md`, `channels/yellow-bot/STYLE
 
 ## 0. Before starting
 - Tell the user time and cost in one line (CLAUDE.md). Balance floor Rs 50 (shared by all channels): below it, stop and ask.
-- Topic (user 2026-11-04: Shorts must look useful to ordinary people; one Short a day on the latest AI update): 1) a `"priority": "news"` item from the newest news digest, 2) else the first `todo` with `"audience": "A"` (everyday use), then B, then C (technical/reference, last); or the topic the user names. Title = the benefit for the viewer. Primary source = the official page only; non-Claude topics say 'Unofficial channel, not affiliated with <org>.'
+- Topic (user 2026-11-04: Shorts must look useful to ordinary people; one Short a day on the latest AI update): 1) a `"priority": "news"` item from the newest news digest, 2) else the first `todo` with `"audience": "A"` (everyday use), then B, then C (technical/reference, last); or the topic the user names. Order confirmed by the user 2026-11-04. Not mechanical: a B/C topic may move up if today's news ties to it, or if analytics show that kind of topic (direct, everyday benefit) performs better. Title = the benefit for the viewer. Primary source = the official page only; non-Claude topics say 'Unofficial channel, not affiliated with <org>.'
 
 ## 1. Build
 - Daily style rule (STYLE_GUIDE 'Channel direction'): one style per day for all that day's Shorts, a new style or one new improvement the next day. Whole-AI channel, always inside YouTube's guidelines.

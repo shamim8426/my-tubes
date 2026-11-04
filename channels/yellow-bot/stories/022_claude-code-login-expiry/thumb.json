@@ -1,0 +1,11 @@
+{
+ "title": "Login <mark>kab</mark> khatam?",
+ "sub": "Claude Code <b>2.1.318</b>",
+ "chips": [
+  "auth status",
+  "claude -p",
+  "10 din"
+ ],
+ "robot": "think",
+ "tag": "AI NEWS"
+}

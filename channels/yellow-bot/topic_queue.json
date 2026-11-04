@@ -28,8 +28,8 @@
     "title": "Extend Claude Code",
     "url": "https://code.claude.com/docs/en/features-overview.md",
     "summary": "Understand when to use CLAUDE.md, Skills, subagents, hooks, MCP, and plugins.",
-    "status": "todo",
-    "story": null,
+    "status": "uploaded",
+    "story": "023_features-overview",
     "audience": "A"
   },
   {
@@ -935,5 +935,15 @@
     "status": "todo",
     "story": null,
     "audience": "C"
+  },
+  {
+    "id": "claude-code-2-1-318-login-expiry",
+    "title": "Claude Code 2.1.318: login expiry date",
+    "url": "https://code.claude.com/docs/en/changelog.md",
+    "summary": "2.1.318 (2026-11-04) shows when a stored claude.ai sign-in ends in claude auth status and claude -p JSON, and warns 10 days before in claude -p text output.",
+    "status": "uploaded",
+    "story": "022_claude-code-login-expiry",
+    "priority": "news",
+    "org": "Anthropic"
   }
 ]

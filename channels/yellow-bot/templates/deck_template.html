@@ -407,6 +407,7 @@ if(D.rail){const R=E('rail');R.style.display='block';const n=scenes.length,y0=33
   scenes.forEach((s,i)=>{mk(R,'left:1033px;top:'+(y0+(y1-y0)*i/(n-1)-14)+'px;width:28px;height:28px;border-radius:14px;background:#fff;border:5px solid #111','','abs')});
   mk(R,'left:880px;top:110px;font-size:44px;font-weight:800;width:150px;text-align:right;line-height:1.55','','abs').id='railn'}
 window.SFX=D.sfx||scenes.map(s=>s.start);
+if(D.bg){const st=document.getElementById('stage');st.style.background=D.bg;if(D.bgGrid)st.style.backgroundImage='radial-gradient(rgba(17,17,17,.10) 2.5px,transparent 3px)',st.style.backgroundSize='54px 54px'}
 
 function applyItem(it,lt){
   if(it.kind==='words'){const el=it.el;if(lt<it.t0){el.style.opacity=0;return}el.style.opacity=1;applyWords(it.ws,lt,it.t0,it.step,it.mode);return}

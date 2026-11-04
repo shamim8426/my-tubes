@@ -114,3 +114,10 @@ Learnings behind these rules: brand/STYLE_LEARNINGS.md (numeric, abstract) and r
 - Goal now: build a strong BASE first (content quality, editing, visuals, technical ideas in simple language any ordinary person understands), improve it from analytics, then apply it to the planned daily Shorts. Main aim: keep improving and give good-quality content, always inside YouTube's guidelines (original value, honest title and thumbnail, accurate facts from the primary source, no spam tags, no misleading claims).
 - DAILY STYLE RULE: one style per DAY. All Shorts of one day share one style (a minimum of 3-4 videos per style); the next day changes the style and adds one small improvement or something new, learnt from the earlier videos and from analytics. Not a different look for every video within a day.
 - Every style change is logged here (what is new, why) and judged by analytics after 2-3 days (data lags; under 1,000 views is only a signal).
+
+## Enhancements log 2026-11-04 (Day 1 pack, 022-024)
+- Day 1 style 'clean product-page' (contrast to the 'magic' look of 019-021): deck fields `bg` + `bgGrid` (calm #F3F5F9 dotted page), light/dark product windows with soft shadow, white cards, yellow highlighter + robot kept as brand mark, `wipe: fade` only, no dust/wand/portal effects. Helpers: templates/ydeck_helpers.py (window, card, line, cta_scene, finish; content shifted down 120 px so the lower half is used).
+- Measured word times: scripts/yb_wordtimes.py (Whisper small, local) writes wt.json; gen_deck attaches `wt` to scenes and build_deck.phrase_time interpolates it, so any cue phrase is timed to the real voice (replaces hand-made anchors).
+- Teaching structure used: hook with the problem -> one labelled analogy -> demo/3 steps with a real command mock-up -> one caution -> recap -> ending line A.
+- Free TTS limits (2026-11-04): each free model has its own 10 requests/day cap; one 7-scene Short needs 7. Plan 1 Short per model per day, or keep scenes few.
+- Mix: html_video output is about -15.6 LUFS; extra `volume=1.6dB,alimiter=limit=0.85` gives -14.2..-14.7 LUFS, TP about -1.2.

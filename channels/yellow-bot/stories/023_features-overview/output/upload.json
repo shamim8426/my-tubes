@@ -1,0 +1,27 @@
+{
+  "channel_key": "yellow-bot",
+  "channel_name": "yellow Bot",
+  "channel_id": "UCpElgKdJOgQiyfwdGXz6GmA",
+  "format": "short",
+  "parent_video_id": null,
+  "title": "CLAUDE.md, Skill ya Hook? Kaunsa kab use karein #shorts",
+  "description": "Claude Code ko apne hisaab se chalane ke 3 tareeke: CLAUDE.md (hamesha ka niyam), Skill (dohraya kaam), Hook (har baar apne aap). Docs ke hisaab se, simple Hinglish me.\n\nSource (official docs): https://code.claude.com/docs/en/features-overview\n\nUnofficial channel, not affiliated with Anthropic.\n\nMusic: \"Funkorama\" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttp://creativecommons.org/licenses/by/4.0/\n\n#shorts #ClaudeCode #AI #Hinglish #CLAUDEmd",
+  "tags": [
+    "Claude Code",
+    "CLAUDE.md",
+    "Claude skills",
+    "Claude hooks",
+    "Claude Code tutorial",
+    "AI coding",
+    "Hinglish",
+    "Hindi tech",
+    "Shorts"
+  ],
+  "video": "short.mp4",
+  "language": "hi",
+  "made_for_kids": false,
+  "contains_synthetic_media": true,
+  "category_id": "28",
+  "privacy": "private",
+  "thumbnail": "thumb_16x9.png"
+}
