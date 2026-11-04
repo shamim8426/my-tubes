@@ -1,0 +1,4 @@
+Feature Comparisons (created 2026-11-05 via API, public playlist)
+playlist_id=PLCqOgh2MnZ8I
+https://www.youtube.com/playlist?list=PLCqOgh2MnZ8I
+Not used yet: comparison videos will be planned later (series/feature-comparisons).
