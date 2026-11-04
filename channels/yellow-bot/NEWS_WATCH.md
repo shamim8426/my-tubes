@@ -3,7 +3,7 @@
 Why: Yellow Bot keeps people updated about AI. Any new model, feature, enhancement or free/open tool, from ANY AI organisation (Anthropic, OpenAI, Google, Meta, Mistral, DeepSeek, Alibaba Qwen, xAI, Microsoft, NVIDIA, Hugging Face, GitHub Copilot, Cursor, Ollama, Stability, ElevenLabs, ...), can be a Short, and being early matters. The user wants to KNOW twice a day and get a video suggestion for every real update.
 
 ## How it runs
-- Local scheduled task `claude-news-watch` (09:00 and 18:00 local time; runs while the Claude app is open, otherwise on next launch). On demand the user can say 'news check'.
+- CHANGED 2026-11-05 (user): the separate 09:00/18:00 task `claude-news-watch` is switched OFF. The news check now runs ONCE a day, as the first step of the 08:00 morning production task `devrobolab-daily-videos`, immediately before the news video is built. No news check in the evening. On demand the user can still say 'news check'.
 - Step 1: `D:\my-tubes\.venv\Scripts\python.exe -X utf8 D:\my-tubes\scripts\yb_news_check.py` (dry check; prints what is NEW since the last saved state). Add `--recent 3` to also list the latest items per source (for a first look or a quiet day).
   - Claude: Claude Code changelog (new versions + 'Added'), docs index llms.txt (new page = new feature/topic), Anthropic news, API release notes.
   - Rest of the field: `channels/yellow-bot/research/news_sources.json` (RSS feeds, blog-link watchers, Hacker News high-point AI stories, and trade press only to cover labs that block us). Add a source = add a line (its first run only builds a baseline). Known gaps: xAI, Microsoft AI blog, Runway, Perplexity block or moved; HN + press cover them.
