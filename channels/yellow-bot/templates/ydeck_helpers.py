@@ -5,8 +5,8 @@ import re
 from pathlib import Path
 
 BG = "#F3F5F9"   # calm light background (deck field "bg"), faint dot grid (deck field "bgGrid")
-CTA_VOICE = "AI के ऐसे काम के features चाहिए? Yellow Bot को follow करो।"   # line A (STYLE_GUIDE ending rule)
-CTA_SCREEN = "**Yellow Bot** ko follow karo"
+CTA_VOICE = "AI के ऐसे काम के features चाहिए? DevRoboLab को follow करो।"   # line A (STYLE_GUIDE ending rule)
+CTA_SCREEN = "**DevRoboLab** ko follow karo"
 CTA_PILL = "Follow"
 SHIFT = 120
 SHADOW = "box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)"
