@@ -1,0 +1,48 @@
+{
+ "workspace": [
+  {
+   "file": "raw/workspace_0.jpg",
+   "title": "Office Work",
+   "creator": "energepic.com",
+   "license": "cc0",
+   "source": "stocksnap",
+   "landing": "https://stocksnap.io/photo/office-work-42H3JH8QI5",
+   "w": 2765,
+   "h": 2074
+  },
+  {
+   "file": "raw/workspace_1.jpg",
+   "title": "Office Work",
+   "creator": "Negative Space",
+   "license": "cc0",
+   "source": "stocksnap",
+   "landing": "https://stocksnap.io/photo/office-work-8P6GFHP0LU",
+   "w": 5472,
+   "h": 3648
+  },
+  {
+   "file": "raw/workspace_2.jpg",
+   "title": "Office Work",
+   "creator": "Negative Space",
+   "license": "cc0",
+   "source": "stocksnap",
+   "landing": "https://stocksnap.io/photo/office-work-VHXFNKMU96",
+   "w": 3888,
+   "h": 2592
+  }
+ ],
+ "documents": [],
+ "checklist": [
+  {
+   "file": "raw/checklist_0.jpg",
+   "title": "Clipboard Hand",
+   "creator": "Kristin Hardwick",
+   "license": "cc0",
+   "source": "stocksnap",
+   "landing": "https://stocksnap.io/photo/clipboard-hand-TRKNLIGFAJ",
+   "w": 5760,
+   "h": 3840
+  }
+ ],
+ "library2": []
+}
