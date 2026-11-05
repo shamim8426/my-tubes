@@ -1,5 +1,5 @@
 """Short 030: Claude Code output styles. REAL-IMAGE paper-cut style (user 2026-11-06): real docs screenshots (shoot.py), real CC0 photos
-(Wikimedia Commons: Adidas SL 72 OG.jpg CC0, Magnifying-glass diamonds.jpg CC0), AI character stickers (labelled), craft-paper background.
+AI character stickers (labelled), craft-paper background.
 Source: https://code.claude.com/docs/en/output-styles (read 2026-11-06). Learnings applied: brand/LONG_FORM_LEARNINGS.md + STYLE_LEARNINGS.md."""
 import sys
 from pathlib import Path
@@ -14,10 +14,6 @@ CUT, SH, RAW = HERE / "cut", HERE / "shots", HERE / "assets_raw"
 
 
 def make_assets():
-    if not (CUT / "shoe.png").exists():
-        im = Image.open(RAW / "shoe_0.jpg").convert("RGB")
-        rect = (int(im.width * .03), int(im.height * .12), int(im.width * .94), int(im.height * .78))
-        sticker(cutout_grabcut(im, rect), border=22, seed=3).save(CUT / "shoe.png")
     for n in ["cmd", "concise", "explain", "intro", "learn"]:
         if not (CUT / f"shot_{n}.png").exists():
             paper_rect(Image.open(SH / f"{n}.png").convert("RGB"), border=26, seed=hash(n) % 97).save(CUT / f"shot_{n}.png")
@@ -48,11 +44,11 @@ S = []
 # 0 hook: real intro page crop + four real/stickers with their style names
 a, h = pic("shot_intro", 960, 60, 400, "Output", -0.6)
 L = [bg(), tx("**Claude** ka andaaz badlo", 60, 170, 84, 980, 0.1), a]
-s, _ = pic("shoe", 420, 40, 800, "Proactive", -0.3); L += [s, pill("Proactive", 80, 1160, "Proactive", -0.1)]
+s, _ = pic("char_0", 300, 80, 790, "Proactive", -0.3); L += [s, pill("Proactive", 80, 1160, "Proactive", -0.1)]
 s, _ = pic("char_1", 300, 520, 790, "Concise", -0.3); L += [s, pill("Concise", 540, 1160, "Concise", -0.1, True)]
 s, _ = pic("char_2", 300, 80, 1290, "Explanatory", -0.3); L += [s, pill("Explanatory", 80, 1620, "Explanatory", -0.1)]
 s, _ = pic("char_4", 300, 560, 1290, "Learning", -0.3); L += [s, pill("Learning", 560, 1620, "Learning", -0.1, True)]
-L.append(pill("Real: docs page + sneaker photo (CC0) · characters AI-drawn", 60, 1760, "Output", 0.2, True, 26))
+L.append(pill("Real: docs page screenshots · characters AI-drawn", 60, 1760, "Output", 0.2, True, 26))
 S.append(dict(id="hook", type="stage", wipe="fade", voice=V[0], layers=L))
 # 1 concise
 a, h = pic("shot_concise", 960, 60, 420, "पहला", -0.5)
@@ -70,9 +66,9 @@ s, _ = pic("char_4", 560, 480, 420 + h + 40, "TODO", -0.3)
 S.append(dict(id="learn", type="stage", wipe="fade", voice=V[3], layers=[bg(), tx("**Learning**: aap bhi likho", 60, 170, 84, 980, 0.1), a, s,
           pill("TODO(human)", 60, 420 + h + 160, "TODO", -0.2), pill("Khud likho, seekho", 60, 420 + h + 300, "सीखो", -0.2, True)]))
 # 4 proactive: running shoe = starts right away
-s, h = pic("shoe", 960, 60, 480, "तुरंत", -0.5)
+s, h = pic("char_5", 760, 160, 480, "तुरंत", -0.5)
 S.append(dict(id="proactive", type="stage", wipe="fade", voice=V[4], layers=[bg(), tx("**Proactive**: seedha kaam shuru", 60, 170, 84, 980, 0.1), s,
-          pill("Routine decisions par sawaal nahi", 60, 480 + h + 80, "छोटे", -0.2, False, 38), pill("Real photo: sneaker (CC0)", 60, 480 + h + 200, "तुरंत", 0.3, True, 30)]))
+          pill("Routine decisions par sawaal nahi", 60, 480 + h + 80, "छोटे", -0.2, False, 38), pill("AI-drawn character", 60, 480 + h + 200, "तुरंत", 0.3, True, 30)]))
 # 5 switch + caution
 a, h = pic("shot_cmd", 960, 60, 420, "slash", -0.5)
 S.append(dict(id="switch", type="stage", wipe="fade", voice=V[5], layers=[bg(), tx("**/output-style** concise", 60, 170, 84, 980, 0.1), a,
