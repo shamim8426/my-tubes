@@ -1,0 +1,450 @@
+{
+ "_note": "Claude Feature 01 (Claude for Everyone): upload photos and files. Source https://support.claude.com/en/articles/8241126-upload-files-to-claude (read 2026-11-06).",
+ "tag": "Claude Feature 01 · Photo upload",
+ "bg": "#F3F5F9",
+ "bgGrid": true,
+ "music": {
+  "file": "shared/music/presentation/Funkorama.mp3",
+  "start": 6,
+  "rel": 12
+ },
+ "voice": {
+  "id": "Charon",
+  "style": "Speak like a friendly Indian tech YouTuber chatting casually in Hinglish. Natural conversational pace, warm and clear, a little energetic but not theatrical. No sing-song, no exaggerated emphasis."
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "फोटो खींची और Claude को दिखानी है? Claude documents और images, दोनों upload करके आपके साथ काम कर सकता है। चलो देखते हैं कैसे।",
+   "layers": [
+    {
+     "kind": "box",
+     "html": "<img src=\"file:///home/user/story-channel/channels/devrobolab/stories/031_cfe01-image-input/cut/paper_bg.jpg\" style=\"width:1080px;height:1920px;display:block\">",
+     "x": 0,
+     "y": 0,
+     "css": ""
+    },
+    {
+     "kind": "text",
+     "html": "**Photo** dikhao, Claude ko",
+     "x": 60,
+     "y": 170,
+     "size": 84,
+     "w": 980,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<img src=\"file:///home/user/story-channel/channels/devrobolab/stories/031_cfe01-image-input/cut/shot_intro.png\" style=\"width:960px;height:299px;display:block\">",
+     "x": 60,
+     "y": 540,
+     "css": "",
+     "in": "upload|-0.7",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<img src=\"file:///home/user/story-channel/channels/devrobolab/stories/031_cfe01-image-input/cut/shoe.png\" style=\"width:760px;height:541px;display:block\">",
+     "x": 160,
+     "y": 909,
+     "css": "",
+     "in": "फोटो|-0.4",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:30px;font-weight:800;white-space:nowrap\">Real photo: sneaker (CC0)</div>",
+     "x": 60,
+     "y": 1490,
+     "css": "background:#14171C;color:#fff;border-radius:999px;padding:12px 34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "फोटो|0.3",
+     "spring": true
+    }
+   ]
+  },
+  {
+   "id": "how",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "Chat box के बाएँ नीचे plus button दबाओ, Add files or photos चुनो, और फोटो चुनो। या फोटो को सीधे chat में drag and drop करो, या clipboard से paste करो।",
+   "layers": [
+    {
+     "kind": "box",
+     "html": "<img src=\"file:///home/user/story-channel/channels/devrobolab/stories/031_cfe01-image-input/cut/paper_bg.jpg\" style=\"width:1080px;height:1920px;display:block\">",
+     "x": 0,
+     "y": 0,
+     "css": ""
+    },
+    {
+     "kind": "text",
+     "html": "Photo kaise **daalo**",
+     "x": 60,
+     "y": 170,
+     "size": 84,
+     "w": 980,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<img src=\"file:///home/user/story-channel/channels/devrobolab/stories/031_cfe01-image-input/cut/shot_how.png\" style=\"width:960px;height:683px;display:block\">",
+     "x": 60,
+     "y": 540,
+     "css": "",
+     "in": "plus|-0.6",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:40px;font-weight:800;white-space:nowrap\">+ button</div>",
+     "x": 60,
+     "y": 1273,
+     "css": "background:#FFD60A;color:#111;border-radius:999px;padding:12px 34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "plus|-0.2",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:40px;font-weight:800;white-space:nowrap\">Drag & drop</div>",
+     "x": 380,
+     "y": 1273,
+     "css": "background:#14171C;color:#fff;border-radius:999px;padding:12px 34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "drag|-0.2",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:40px;font-weight:800;white-space:nowrap\">Clipboard se paste</div>",
+     "x": 60,
+     "y": 1383,
+     "css": "background:#FFD60A;color:#111;border-radius:999px;padding:12px 34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "clipboard|-0.2",
+     "spring": true
+    }
+   ]
+  },
+  {
+   "id": "formats",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "Images में JPEG, PNG, GIF और WebP चलते हैं।",
+   "layers": [
+    {
+     "kind": "box",
+     "html": "<img src=\"file:///home/user/story-channel/channels/devrobolab/stories/031_cfe01-image-input/cut/paper_bg.jpg\" style=\"width:1080px;height:1920px;display:block\">",
+     "x": 0,
+     "y": 0,
+     "css": ""
+    },
+    {
+     "kind": "text",
+     "html": "Kaunse **formats** chalte hain",
+     "x": 60,
+     "y": 170,
+     "size": 84,
+     "w": 980,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<img src=\"file:///home/user/story-channel/channels/devrobolab/stories/031_cfe01-image-input/cut/shot_formats.png\" style=\"width:960px;height:477px;display:block\">",
+     "x": 60,
+     "y": 540,
+     "css": "",
+     "in": "JPEG|-0.7",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<img src=\"file:///home/user/story-channel/channels/devrobolab/stories/031_cfe01-image-input/cut/shoe.png\" style=\"width:640px;height:456px;display:block\">",
+     "x": 220,
+     "y": 1067,
+     "css": "",
+     "in": "WebP|0.0",
+     "spring": true
+    }
+   ]
+  },
+  {
+   "id": "limits",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "एक chat में बीस files तक, और image आठ हज़ार गुणा आठ हज़ार pixels तक।",
+   "layers": [
+    {
+     "kind": "box",
+     "html": "<img src=\"file:///home/user/story-channel/channels/devrobolab/stories/031_cfe01-image-input/cut/paper_bg.jpg\" style=\"width:1080px;height:1920px;display:block\">",
+     "x": 0,
+     "y": 0,
+     "css": ""
+    },
+    {
+     "kind": "text",
+     "html": "**Limits** yaad rakho",
+     "x": 60,
+     "y": 170,
+     "size": 84,
+     "w": 980,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<img src=\"file:///home/user/story-channel/channels/devrobolab/stories/031_cfe01-image-input/cut/shot_limits.png\" style=\"width:960px;height:410px;display:block\">",
+     "x": 60,
+     "y": 540,
+     "css": "",
+     "in": "बीस|-0.6",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:66px;font-weight:800;white-space:nowrap\">20 files / chat</div>",
+     "x": 60,
+     "y": 1020,
+     "css": "background:#FFD60A;color:#111;border-radius:999px;padding:12px 34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "बीस|-0.2",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:66px;font-weight:800;white-space:nowrap\">8000 x 8000 px</div>",
+     "x": 60,
+     "y": 1170,
+     "css": "background:#14171C;color:#fff;border-radius:999px;padding:12px 34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "हज़ार|-0.2",
+     "spring": true
+    }
+   ]
+  },
+  {
+   "id": "tips",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "बेहतर नतीजे के लिए हज़ार गुणा हज़ार pixels या उससे बड़ी image लो। छोटी और low-resolution image से बचो।",
+   "layers": [
+    {
+     "kind": "box",
+     "html": "<img src=\"file:///home/user/story-channel/channels/devrobolab/stories/031_cfe01-image-input/cut/paper_bg.jpg\" style=\"width:1080px;height:1920px;display:block\">",
+     "x": 0,
+     "y": 0,
+     "css": ""
+    },
+    {
+     "kind": "text",
+     "html": "Behtar **nateeja** kaise",
+     "x": 60,
+     "y": 170,
+     "size": 84,
+     "w": 980,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<img src=\"file:///home/user/story-channel/channels/devrobolab/stories/031_cfe01-image-input/cut/shot_tips.png\" style=\"width:960px;height:298px;display:block\">",
+     "x": 60,
+     "y": 540,
+     "css": "",
+     "in": "बेहतर|-0.6",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<img src=\"file:///home/user/story-channel/channels/devrobolab/stories/031_cfe01-image-input/cut/shoe.png\" style=\"width:470px;height:335px;display:block\">",
+     "x": 40,
+     "y": 898,
+     "css": "",
+     "in": "हज़ार|-0.3",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<img src=\"file:///home/user/story-channel/channels/devrobolab/stories/031_cfe01-image-input/cut/shoe_lowres.png\" style=\"width:470px;height:335px;display:block\">",
+     "x": 560,
+     "y": 898,
+     "css": "",
+     "in": "low|-0.3",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:40px;font-weight:800;white-space:nowrap\">1000 x 1000+</div>",
+     "x": 70,
+     "y": 1273,
+     "css": "background:#FFD60A;color:#111;border-radius:999px;padding:12px 34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "हज़ार|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:40px;font-weight:800;white-space:nowrap\">Chhoti, blurry</div>",
+     "x": 590,
+     "y": 1273,
+     "css": "background:#14171C;color:#fff;border-radius:999px;padding:12px 34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "low|-0.1",
+     "spring": true
+    }
+   ]
+  },
+  {
+   "id": "project",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "फ़ाइल को Project के Files section में भी रख सकते हो, ताकि हर बातचीत में उसका reference रहे।",
+   "layers": [
+    {
+     "kind": "box",
+     "html": "<img src=\"file:///home/user/story-channel/channels/devrobolab/stories/031_cfe01-image-input/cut/paper_bg.jpg\" style=\"width:1080px;height:1920px;display:block\">",
+     "x": 0,
+     "y": 0,
+     "css": ""
+    },
+    {
+     "kind": "text",
+     "html": "**Project** me bhi rakho",
+     "x": 60,
+     "y": 170,
+     "size": 84,
+     "w": 980,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<img src=\"file:///home/user/story-channel/channels/devrobolab/stories/031_cfe01-image-input/cut/shot_project.png\" style=\"width:960px;height:299px;display:block\">",
+     "x": 60,
+     "y": 540,
+     "css": "",
+     "in": "Project|-0.6",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<img src=\"file:///home/user/story-channel/channels/devrobolab/stories/031_cfe01-image-input/cut/char_3.png\" style=\"width:520px;height:647px;display:block\">",
+     "x": 280,
+     "y": 899,
+     "css": "",
+     "in": "reference|-0.3",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:40px;font-weight:800;white-space:nowrap\">Project > Files section</div>",
+     "x": 60,
+     "y": 1586,
+     "css": "background:#FFD60A;color:#111;border-radius:999px;padding:12px 34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "reference|-0.2",
+     "spring": true
+    }
+   ]
+  },
+  {
+   "id": "follow",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "AI के ऐसे काम के features चाहिए? DevRoboLab को follow करो।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "**DevRoboLab** ko follow karo",
+     "x": 80,
+     "y": 260,
+     "size": 120,
+     "w": 920,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.15
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:120px;font-weight:800;line-height:1\">Follow</div>",
+     "x": 190,
+     "y": 800,
+     "css": "background:#FFD60A;border:0;border-radius:999px;padding:30px 110px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "wig": 4.35,
+     "float": 5,
+     "in": "0.5|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "icon",
+     "name": "cursor",
+     "x": 0,
+     "y": 0,
+     "size": 140,
+     "k": [
+      [
+       3.4,
+       {
+        "x": 820,
+        "y": 1060,
+        "o": 0
+       }
+      ],
+      [
+       3.5,
+       {
+        "x": 820,
+        "y": 1060,
+        "o": 1
+       }
+      ],
+      [
+       4.2,
+       {
+        "x": 520,
+        "y": 880
+       }
+      ]
+     ],
+     "wig": 4.3
+    },
+    {
+     "kind": "icon",
+     "name": "bell",
+     "x": 430,
+     "y": 1080,
+     "size": 200,
+     "wig": 4.7,
+     "float": 6,
+     "in": 4.5,
+     "spring": true
+    },
+    {
+     "kind": "img",
+     "img": "thumbs",
+     "size": 520,
+     "x": 260,
+     "y": 1300,
+     "bob": 1,
+     "k": [
+      [
+       0.2,
+       {
+        "x": -700,
+        "o": 1
+       }
+      ],
+      [
+       0.9,
+       {
+        "x": 260
+       }
+      ]
+     ]
+    }
+   ]
+  }
+ ]
+}

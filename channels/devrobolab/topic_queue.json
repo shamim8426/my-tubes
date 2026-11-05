@@ -829,7 +829,8 @@
     "summary": "Change Claude Code's role, tone, and response format with a built-in output style such as Concise or Explanatory, or write a custom style.",
     "status": "built",
     "story": "030_output-styles",
-    "audience": "B"
+    "audience": "B",
+    "series_index": 1
   },
   {
     "id": "fullscreen",
@@ -997,9 +998,11 @@
     "title": "Photo dikha kar sawaal poochna",
     "url": "https://support.claude.com/en/",
     "summary": "Claude (non-Code) feature for ordinary people; find the exact official page first.",
-    "status": "todo",
+    "status": "built",
     "audience": "A",
-    "series": "claude-for-everyone"
+    "series": "claude-for-everyone",
+    "story": "031_cfe01-image-input",
+    "series_index": 1
   },
   {
     "id": "cfe-memory",
