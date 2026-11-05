@@ -57,12 +57,12 @@ L = [tx("**Dhyan** rakho", 80, 230, 110, 920, 0.1),
      qcard("openai.com · Images 2.6 · Pricing and availability", f'{MK}across all subscription tiers</mark> on desktop, mobile, and web.', 46, "सभी", 800)]
 S.append(dict(id="caution", type="stage", wipe="fade", voice=V, layers=L))
 
-V = "तो याद रखो: Images 2.6 में GIFs हैं, images पचास percent तेज़ हैं। बाकी तीन AI खबरें पूरे video में हैं। पूरा video channel पर है।"
+V = "तो याद रखो: Images 2.6 में अपनी image को GIF बना सकते हो, और images पचास percent तेज़ बनती हैं। ये सब subscription tiers पर मिल रहा है।"
 L = [tx("**Yaad** rakho", 80, 230, 110, 920, 0.1),
-     box(card('<div style="font-size:50px;font-weight:800">GIFs <span style="background:#FFD60A;padding:0 12px;border-radius:12px">+ 50% tez</span></div>', 860, "34px 44px"), 110, 540, "", **pop("GIFs", -0.2)),
-     box(card('<div style="font-size:50px;font-weight:800">Baaki <span style="background:#FFD60A;padding:0 12px;border-radius:12px">3 khabrein</span></div><div style="font-size:36px;font-weight:700;color:#444;margin-top:8px">Mistral, Xcode, Dharma</div>', 860, "34px 44px"), 110, 800, "", **pop("बाकी", -0.2)),
-     box('<div style="font-size:64px;font-weight:800">Poora video channel par hai</div>', 110, 1180, f"background:#FFD60A;border-radius:999px;padding:24px 52px;{SHADOW}", wig="channel|0.2", **pop("पूरा video", -0.3)),
-     dict(kind="img", img="thumbs", size=420, x=600, y=1400, bob=1, k=[["बाकी|-0.3", {"o": 0}], ["बाकी|0.0", {"o": 1}]])]
+     box(card('<div style="font-size:50px;font-weight:800">Image <span style="background:#FFD60A;padding:0 12px;border-radius:12px">&rarr; GIF</span></div>', 860, "34px 44px"), 110, 540, "", **pop("GIF", -0.2)),
+     box(card('<div style="font-size:50px;font-weight:800">Images <span style="background:#FFD60A;padding:0 12px;border-radius:12px">50% tez</span></div>', 860, "34px 44px"), 110, 800, "", **pop("पचास", -0.2)),
+     box(card('<div style="font-size:44px;font-weight:800">Sabhi subscription tiers</div><div style="font-size:34px;font-weight:700;color:#444;margin-top:8px">ChatGPT aur Codex (page ke hisaab se)</div>', 860, "30px 44px"), 110, 1060, "", **pop("subscription", -0.2)),
+     dict(kind="img", img="thumbs", size=420, x=600, y=1400, bob=1, k=[["subscription|-0.3", {"o": 0}], ["subscription|0.0", {"o": 1}]])]
 S.append(dict(id="recap", type="stage", wipe="fade", voice=V, layers=L))
 S.append(cta_scene())
 

@@ -877,7 +877,7 @@
    "id": "recap",
    "type": "stage",
    "wipe": "fade",
-   "voice": "तो याद रखो: Images 2.6 में GIFs हैं, images पचास percent तेज़ हैं। बाकी तीन AI खबरें पूरे video में हैं। पूरा video channel पर है।",
+   "voice": "तो याद रखो: Images 2.6 में अपनी image को GIF बना सकते हो, और images पचास percent तेज़ बनती हैं। ये सब subscription tiers पर मिल रहा है।",
    "layers": [
     {
      "kind": "text",
@@ -892,30 +892,29 @@
     },
     {
      "kind": "box",
-     "html": "<div style=\"width:860px;padding:34px 44px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"font-size:50px;font-weight:800\">GIFs <span style=\"background:#FFD60A;padding:0 12px;border-radius:12px\">+ 50% tez</span></div></div>",
+     "html": "<div style=\"width:860px;padding:34px 44px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"font-size:50px;font-weight:800\">Image <span style=\"background:#FFD60A;padding:0 12px;border-radius:12px\">&rarr; GIF</span></div></div>",
      "x": 110,
      "y": 660,
      "css": "",
-     "in": "GIFs|-0.2",
+     "in": "GIF|-0.2",
      "spring": true
     },
     {
      "kind": "box",
-     "html": "<div style=\"width:860px;padding:34px 44px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"font-size:50px;font-weight:800\">Baaki <span style=\"background:#FFD60A;padding:0 12px;border-radius:12px\">3 khabrein</span></div><div style=\"font-size:36px;font-weight:700;color:#444;margin-top:8px\">Mistral, Xcode, Dharma</div></div>",
+     "html": "<div style=\"width:860px;padding:34px 44px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"font-size:50px;font-weight:800\">Images <span style=\"background:#FFD60A;padding:0 12px;border-radius:12px\">50% tez</span></div></div>",
      "x": 110,
      "y": 920,
      "css": "",
-     "in": "बाकी|-0.2",
+     "in": "पचास|-0.2",
      "spring": true
     },
     {
      "kind": "box",
-     "html": "<div style=\"font-size:64px;font-weight:800\">Poora video channel par hai</div>",
+     "html": "<div style=\"width:860px;padding:30px 44px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"font-size:44px;font-weight:800\">Sabhi subscription tiers</div><div style=\"font-size:34px;font-weight:700;color:#444;margin-top:8px\">ChatGPT aur Codex (page ke hisaab se)</div></div>",
      "x": 110,
-     "y": 1300,
-     "css": "background:#FFD60A;border-radius:999px;padding:24px 52px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
-     "wig": "channel|0.2",
-     "in": "पूरा video|-0.3",
+     "y": 1180,
+     "css": "",
+     "in": "subscription|-0.2",
      "spring": true
     },
     {
@@ -927,13 +926,13 @@
      "bob": 1,
      "k": [
       [
-       "बाकी|-0.3",
+       "subscription|-0.3",
        {
         "o": 0
        }
       ],
       [
-       "बाकी|0.0",
+       "subscription|0.0",
        {
         "o": 1
        }
