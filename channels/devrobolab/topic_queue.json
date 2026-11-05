@@ -973,9 +973,11 @@
     "title": "Artifacts: baat-cheet se chhota tool ya page banana",
     "url": "https://support.claude.com/en/",
     "summary": "Claude (non-Code) feature for ordinary people; find the exact official page first.",
-    "status": "todo",
+    "status": "built",
     "audience": "A",
-    "series": "claude-for-everyone"
+    "series": "claude-for-everyone",
+    "story": "040_cfe03-artifacts",
+    "series_index": 3
   },
   {
     "id": "cfe-research",

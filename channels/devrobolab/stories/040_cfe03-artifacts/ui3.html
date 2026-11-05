@@ -1,0 +1,48 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+*{box-sizing:border-box;margin:0;font-family:'Poppins','Inter',system-ui,sans-serif}
+body{width:1500px;height:1100px;background:#000;overflow:hidden;position:relative}
+.win{position:absolute;left:30px;top:30px;width:1440px;height:1040px;background:#121212;border-radius:26px;border:1px solid #2A2A2A;box-shadow:0 30px 90px rgba(217,119,87,.10);overflow:hidden}
+.side{position:absolute;left:0;top:0;width:300px;height:100%;background:#0C0C0C;border-right:1px solid #262626}
+.brand{position:absolute;left:30px;top:30px;font-family:Georgia,serif;font-size:30px;color:#D97757}
+.item{position:absolute;left:18px;width:264px;height:56px;border-radius:12px;font-size:21px;color:#B9B6AE;display:flex;gap:12px;align-items:center;padding-left:16px}
+.item.hl{background:#D97757;color:#111;font-weight:700}.item.on{background:#1E1E1E;color:#fff;font-weight:600}
+.dot{width:18px;height:18px;border-radius:5px;background:#3A3A3A}
+.abs{position:absolute}
+h1{font-family:Georgia,serif;font-weight:500;font-size:40px;color:#F2F2F2}
+.msgs{position:absolute;left:330px;top:70px;width:500px;height:840px;display:flex;flex-direction:column;gap:14px;overflow:hidden}
+.m{max-width:430px;padding:14px 18px;border-radius:16px;font-size:20px;line-height:1.35;color:#EEE}.m.u{align-self:flex-end;background:#262626}.m.a{align-self:flex-start;background:#1A1A1A;border:1px solid #2E2E2E}
+.inp{position:absolute;left:330px;top:900px;width:500px;height:64px;border:2px solid #333;border-radius:16px;padding:0 18px;font-size:20px;color:#F2F2F2;background:#161616;display:flex;justify-content:space-between;align-items:center}.inp.act{border-color:#D97757}
+.send{background:#D97757;color:#111;border-radius:10px;padding:8px 16px;font-weight:700;font-size:18px}.send.hl{background:#FFB59B;box-shadow:0 0 0 4px rgba(217,119,87,.4)}
+.art{position:absolute;top:0;width:590px;height:100%;background:#0E0E0E;border-left:1px solid #262626}
+.arthead{position:absolute;left:30px;top:44px;font-size:24px;font-weight:700;color:#F2F2F2}
+.exp{position:absolute;right:30px;top:30px;padding:12px 24px;border-radius:12px;background:#1E1E1E;border:1.5px solid #D97757;color:#F4C9B8;font-size:20px;font-weight:600}.exp.hl{background:#D97757;color:#111}
+.line{position:absolute;left:30px;width:530px;height:52px;font-size:25px;color:#E8E8E8;padding:8px 10px;border-radius:8px}.line.h{font-family:Georgia,serif;font-size:33px;color:#fff}
+.sel{background:rgba(217,119,87,.45);}
+.ebtn{position:absolute;padding:9px 18px;border-radius:10px;background:#D97757;color:#111;font-weight:700;font-size:18px;box-shadow:0 8px 24px rgba(0,0,0,.5)}
+.einp{position:absolute;width:500px;padding:14px 18px;border-radius:14px;background:#1B1B1B;border:2px solid #D97757;color:#F2F2F2;font-size:20px;box-shadow:0 14px 40px rgba(0,0,0,.6)}
+.dd{position:absolute;right:30px;top:96px;width:230px;background:#1B1B1B;border:1px solid #3A3A3A;border-radius:14px;padding:8px;box-shadow:0 20px 50px rgba(0,0,0,.7)}.dd div{padding:12px 16px;border-radius:10px;font-size:21px;color:#DDD}.dd div.hl{background:#D97757;color:#111;font-weight:700}
+.modal{position:absolute;z-index:20;left:420px;top:150px;width:960px;height:640px;background:#1B1B1B;border-radius:22px;border:1px solid #333;box-shadow:0 30px 90px rgba(0,0,0,.7);color:#EEE}
+.mnav{position:absolute;left:0;top:0;width:260px;height:100%;border-right:1px solid #2E2E2E;padding:70px 14px}.mnav div{padding:13px 16px;border-radius:10px;font-size:21px;color:#AAA}.mnav div.on{background:#262626;color:#fff;font-weight:600}
+.mrow{position:absolute;left:300px;top:120px;width:620px;font-size:23px;font-weight:600}.mrow small{display:block;font-size:16px;color:#888;font-weight:400;margin-top:6px}
+.tog{position:absolute;left:810px;top:128px;width:90px;height:46px;border-radius:23px;background:#3A3A3A}.tog i{position:absolute;top:5px;left:5px;width:36px;height:36px;border-radius:50%;background:#fff}.tog.on{background:#D97757}.tog.on i{left:49px}.tog.hl{box-shadow:0 0 0 5px rgba(217,119,87,.4)}
+.mtitle{position:absolute;left:300px;top:40px;font-family:Georgia,serif;font-size:32px}
+.cards{position:absolute;left:330px;top:150px;display:flex;gap:22px;flex-wrap:wrap;width:1000px}.card{width:300px;height:170px;border:1px solid #2E2E2E;border-radius:18px;padding:20px;background:#181818}.card b{font-size:22px;color:#F2F2F2}.card p{font-size:16px;color:#8A8A8A;margin-top:8px}.card.new{border-color:#D97757;box-shadow:0 0 0 3px rgba(217,119,87,.25)}
+.chip{position:absolute;left:380px;width:880px;padding:34px 40px;border-radius:22px;background:#181818;border:2px solid #333;font-size:34px;color:#F2F2F2;font-weight:600}.chip.on{border-color:#D97757;box-shadow:0 0 0 4px rgba(217,119,87,.25)}.chip span{color:#D97757;font-weight:800;margin-right:16px}
+.cursor{position:absolute;width:34px;height:34px;z-index:30;transform:translate(-4px,-2px)}.ripple{position:absolute;border-radius:50%;border:4px solid #D97757;z-index:29;transform:translate(-50%,-50%)}
+.tag{position:absolute;left:60px;bottom:44px;z-index:40;font-size:17px;color:#9A9A9A;background:rgba(30,30,30,.9);padding:8px 16px;border-radius:999px}
+</style></head><body><div class="win" id="w"></div>
+<svg class="cursor" id="cur" viewBox="0 0 24 24"><path d="M3 2l16 9-7 2-3 7z" fill="#fff" stroke="#000" stroke-width="1.5"/></svg><div class="ripple" id="rip" style="opacity:0"></div>
+<div class="tag">Illustration built from the official help steps, not a screen recording</div>
+<script>
+const W=document.getElementById('w'),C=document.getElementById('cur'),R=document.getElementById('rip');
+const ITEMS=[['new','New chat',120],['chats','Chats',183],['projects','Projects',243],['artifacts','Artifacts',306]];
+function ui(st){let h='<div class="side"><div class="brand">Assistant</div>'+ITEMS.map(([k,l,y])=>`<div class="item${st.side===k?' hl':''}${st.sideOn===k?' on':''}" style="top:${y}px"><span class="dot"></span>${l}</div>`).join('')+`<div class="item${st.side==='settings'?' hl':''}" style="top:930px"><span class="dot"></span>Settings</div></div>`;
+ if(st.page==='chat'){h+=`<div class="msgs">${(st.msgs||[]).map(m=>`<div class="m ${m.r}">${m.t}</div>`).join('')}</div><div class="inp${st.inpAct?' act':''}"><span>${st.inp||'<span style="color:#666">Message…</span>'}</span><span class="send${st.sendHl?' hl':''}">Send</span></div>`;
+  if(st.art){const a=st.art,left=1440-590*(a.slide==null?1:a.slide);h+=`<div class="art" style="left:${left}px"><div class="arthead">${a.title}</div><div class="exp${a.expHl?' hl':''}">Export</div>${a.lines.map((t,i)=>`<div class="line${i===0?' h':''}${a.sel===i?' sel':''}" style="top:${150+i*70}px">${t}</div>`).join('')}${a.ebtn?`<div class="ebtn" style="left:${a.ebx||200}px;top:${a.eby||190}px">Edit with Claude</div>`:''}${a.einp!=null?`<div class="einp" style="left:40px;top:${a.eiy||330}px">${a.einp||'<span style="color:#777">What should change?</span>'}</div>`:''}${a.dd?`<div class="dd">${['Word','PDF','Markdown','Google Docs'].map((x,i)=>`<div class="${a.ddHl===i?'hl':''}">${x}</div>`).join('')}</div>`:''}</div>`;}}
+ if(st.page==='artifacts'){h+=`<div class="abs" style="left:330px;top:44px"><h1>Artifacts</h1></div><div class="cards">${(st.cards||[]).map(c=>`<div class="card${c.n?' new':''}"><b>${c.t}</b><p>${c.d}</p></div>`).join('')}</div>`;}
+ if(st.page==='plans'){h+=(st.plans||[]).map((t,i)=>`<div class="chip on" style="top:${240+i*220}px"><span>✓</span>${t}</div>`).join('');}
+ if(st.modal){const m=st.modal;h+=`<div class="modal"><div class="mnav"><div>General</div><div>Privacy</div><div class="on">Capabilities</div><div>Billing</div></div><div class="mtitle">Capabilities</div><div class="mrow">Create and edit files<small>Let the assistant create docs, slides and more</small></div><div class="tog${m.on?' on':''}${m.hl?' hl':''}"><i></i></div></div>`;}
+ W.innerHTML=h;C.style.left=(st.cx||0)+'px';C.style.top=(st.cy||0)+'px';C.style.opacity=st.cx==null?0:1;
+ if(st.rip!=null){R.style.left=st.cx+'px';R.style.top=st.cy+'px';const r=st.rip;R.style.width=(20+r*80)+'px';R.style.height=(20+r*80)+'px';R.style.opacity=(1-r)*0.9}else R.style.opacity=0;}
+window.ui=ui;
+</script></body></html>

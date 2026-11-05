@@ -1248,3 +1248,11 @@ timestamp,file,model,size,cost_usd,cost_inr,today_total_inr,remaining_inr,channe
 2026-11-05 22:44:58,channels/devrobolab/stories/039_cfe02-demo/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 8.5s free,0.00000,0.00,13.50,541.54,devrobolab,0.19,0.0000,0.00,36,212
 2026-11-05 22:45:03,channels/devrobolab/stories/039_cfe02-demo/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 5.0s,0.00113,0.11,13.63,541.41,devrobolab,0.12,0.1095,0.02,19,125
 2026-11-05 22:45:08,channels/devrobolab/stories/039_cfe02-demo/audio/tts/s_06.wav,gemini-3.8-flash-tts,tts 4.0s,0.00090,0.09,13.73,541.31,devrobolab,0.09,0.0868,0.02,17,99
+2026-11-05 23:32:58,channels/devrobolab/stories/040_cfe03-artifacts/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 8.2s,0.00185,0.18,13.94,541.09,devrobolab,0.18,0.1785,0.03,27,204
+2026-11-05 23:33:03,channels/devrobolab/stories/040_cfe03-artifacts/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 7.6s,0.00172,0.17,14.14,540.90,devrobolab,0.17,0.1663,0.03,26,190
+2026-11-05 23:33:08,channels/devrobolab/stories/040_cfe03-artifacts/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 8.0s,0.00181,0.17,14.34,540.69,devrobolab,0.18,0.1742,0.03,29,199
+2026-11-05 23:33:14,channels/devrobolab/stories/040_cfe03-artifacts/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 7.9s,0.00180,0.17,14.55,540.49,devrobolab,0.18,0.1736,0.03,33,198
+2026-11-05 23:33:19,channels/devrobolab/stories/040_cfe03-artifacts/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 6.6s,0.00151,0.15,14.72,540.32,devrobolab,0.15,0.1453,0.03,23,166
+2026-11-05 23:33:24,channels/devrobolab/stories/040_cfe03-artifacts/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 6.9s,0.00156,0.15,14.90,540.14,devrobolab,0.16,0.1506,0.03,25,172
+2026-11-05 23:33:29,channels/devrobolab/stories/040_cfe03-artifacts/audio/tts/s_06.wav,gemini-3.8-flash-tts,tts 7.4s,0.00168,0.16,15.09,539.95,devrobolab,0.17,0.1618,0.03,24,185
+2026-11-05 23:33:34,channels/devrobolab/stories/040_cfe03-artifacts/audio/tts/s_07.wav,gemini-3.8-flash-tts,tts 4.4s,0.00101,0.10,15.20,539.83,devrobolab,0.10,0.0972,0.02,17,111

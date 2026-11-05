@@ -1,0 +1,62 @@
+{
+ "tag": "Claude Feature 03",
+ "music": {
+  "file": "shared/music/presentation/Funkorama.mp3",
+  "start": 6,
+  "rel": 12
+ },
+ "voice": {
+  "id": "Charon",
+  "style": "Speak like a friendly Indian tech YouTuber chatting casually in Hinglish. Natural conversational pace, warm and clear, a little energetic but not theatrical. No sing-song, no exaggerated emphasis."
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "type": "stage",
+   "voice": "Claude से document, slides या छोटा tool बनवाना है? इसके लिए Artifacts feature है। चलो step by step देखते हैं।",
+   "layers": []
+  },
+  {
+   "id": "settings",
+   "type": "stage",
+   "voice": "Step एक। Settings में Capabilities खोलो, और Create and edit files चालू करो। Artifacts के लिए ये ज़रूरी है।",
+   "layers": []
+  },
+  {
+   "id": "create",
+   "type": "stage",
+   "voice": "Step दो। Chat में अपनी ज़रूरत लिखो, जैसे, एक study planner बनाओ। Artifact तुम्हारी बातचीत के बगल में खुल जाता है।",
+   "layers": []
+  },
+  {
+   "id": "edit",
+   "type": "stage",
+   "voice": "Step तीन। बदलाव करना है? Text चुनो, Edit with Claude दबाओ, और लिखो कि क्या बदलना है। Claude वहीं edit कर देता है।",
+   "layers": []
+  },
+  {
+   "id": "export",
+   "type": "stage",
+   "voice": "Step चार। Export दबाओ। Docs Word, PDF, Markdown या Google Docs में export हो जाते हैं।",
+   "layers": []
+  },
+  {
+   "id": "find",
+   "type": "stage",
+   "voice": "Step पाँच। बनाए हुए सारे artifacts sidebar के Artifacts tab में मिलते हैं, तो बाद में दोबारा खोल सकते हो।",
+   "layers": []
+  },
+  {
+   "id": "plans",
+   "type": "stage",
+   "voice": "Chat में artifact बनाना free accounts पर भी मिलता है। और Docs, Slides और Design templates सभी plans पर हैं।",
+   "layers": []
+  },
+  {
+   "id": "follow",
+   "type": "stage",
+   "voice": "AI के ऐसे काम के features चाहिए? DevRoboLab को follow करो।",
+   "layers": []
+  }
+ ]
+}
