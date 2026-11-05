@@ -955,5 +955,230 @@
     "story": "025_ai-news-digest-2026-11-05",
     "priority": "news",
     "org": "multiple"
+  },
+  {
+    "id": "cfe-projects",
+    "title": "Projects: ek jagah apni files aur instructions rakhna",
+    "url": "https://support.claude.com/en/",
+    "summary": "Claude (non-Code) feature for ordinary people; find the exact official page first.",
+    "status": "todo",
+    "audience": "A",
+    "series": "claude-for-everyone"
+  },
+  {
+    "id": "cfe-artifacts",
+    "title": "Artifacts: baat-cheet se chhota tool ya page banana",
+    "url": "https://support.claude.com/en/",
+    "summary": "Claude (non-Code) feature for ordinary people; find the exact official page first.",
+    "status": "todo",
+    "audience": "A",
+    "series": "claude-for-everyone"
+  },
+  {
+    "id": "cfe-research",
+    "title": "Research: kisi vishay ki gehri khoj",
+    "url": "https://support.claude.com/en/",
+    "summary": "Claude (non-Code) feature for ordinary people; find the exact official page first.",
+    "status": "todo",
+    "audience": "A",
+    "series": "claude-for-everyone"
+  },
+  {
+    "id": "cfe-file-upload",
+    "title": "PDF aur files upload karke sawaal poochna",
+    "url": "https://support.claude.com/en/",
+    "summary": "Claude (non-Code) feature for ordinary people; find the exact official page first.",
+    "status": "todo",
+    "audience": "A",
+    "series": "claude-for-everyone"
+  },
+  {
+    "id": "cfe-image-input",
+    "title": "Photo dikha kar sawaal poochna",
+    "url": "https://support.claude.com/en/",
+    "summary": "Claude (non-Code) feature for ordinary people; find the exact official page first.",
+    "status": "todo",
+    "audience": "A",
+    "series": "claude-for-everyone"
+  },
+  {
+    "id": "cfe-memory",
+    "title": "Memory: Claude ko aapki baatein yaad rakhna",
+    "url": "https://support.claude.com/en/",
+    "summary": "Claude (non-Code) feature for ordinary people; find the exact official page first.",
+    "status": "todo",
+    "audience": "A",
+    "series": "claude-for-everyone"
+  },
+  {
+    "id": "cfe-styles",
+    "title": "Styles: Claude ko apne likhne ke tareeke me jawab dena sikhana",
+    "url": "https://support.claude.com/en/",
+    "summary": "Claude (non-Code) feature for ordinary people; find the exact official page first.",
+    "status": "todo",
+    "audience": "A",
+    "series": "claude-for-everyone"
+  },
+  {
+    "id": "cfe-resume-job",
+    "title": "Resume aur naukri ki taiyari me Claude",
+    "url": "https://support.claude.com/en/",
+    "summary": "Claude (non-Code) feature for ordinary people; find the exact official page first.",
+    "status": "todo",
+    "audience": "A",
+    "series": "claude-for-everyone"
+  },
+  {
+    "id": "cfe-study-help",
+    "title": "Padhai me Claude: samajhna, notes, quiz",
+    "url": "https://support.claude.com/en/",
+    "summary": "Claude (non-Code) feature for ordinary people; find the exact official page first.",
+    "status": "todo",
+    "audience": "A",
+    "series": "claude-for-everyone"
+  },
+  {
+    "id": "cfe-email-writing",
+    "title": "Email aur messages likhwana",
+    "url": "https://support.claude.com/en/",
+    "summary": "Claude (non-Code) feature for ordinary people; find the exact official page first.",
+    "status": "todo",
+    "audience": "A",
+    "series": "claude-for-everyone"
+  },
+  {
+    "id": "cfe-voice-mode",
+    "title": "Voice mode: bol kar baat karna",
+    "url": "https://support.claude.com/en/",
+    "summary": "Claude (non-Code) feature for ordinary people; find the exact official page first.",
+    "status": "todo",
+    "audience": "B",
+    "series": "claude-for-everyone"
+  },
+  {
+    "id": "cfe-mobile-app",
+    "title": "Claude mobile app ke kaam ke tareeke",
+    "url": "https://support.claude.com/en/",
+    "summary": "Claude (non-Code) feature for ordinary people; find the exact official page first.",
+    "status": "todo",
+    "audience": "B",
+    "series": "claude-for-everyone"
+  },
+  {
+    "id": "cfe-connectors",
+    "title": "Connectors: Gmail, Drive jaise apps jodna",
+    "url": "https://support.claude.com/en/",
+    "summary": "Claude (non-Code) feature for ordinary people; find the exact official page first.",
+    "status": "todo",
+    "audience": "B",
+    "series": "claude-for-everyone"
+  },
+  {
+    "id": "cfe-web-search",
+    "title": "Web search: taaza jaankari ke saath jawab",
+    "url": "https://support.claude.com/en/",
+    "summary": "Claude (non-Code) feature for ordinary people; find the exact official page first.",
+    "status": "todo",
+    "audience": "B",
+    "series": "claude-for-everyone"
+  },
+  {
+    "id": "cfe-extended-thinking",
+    "title": "Extended thinking: mushkil sawal par gehra sochna",
+    "url": "https://support.claude.com/en/",
+    "summary": "Claude (non-Code) feature for ordinary people; find the exact official page first.",
+    "status": "todo",
+    "audience": "B",
+    "series": "claude-for-everyone"
+  },
+  {
+    "id": "cfe-chat-search-history",
+    "title": "Purani chats dhoondhna aur dobara use karna",
+    "url": "https://support.claude.com/en/",
+    "summary": "Claude (non-Code) feature for ordinary people; find the exact official page first.",
+    "status": "todo",
+    "audience": "B",
+    "series": "claude-for-everyone"
+  },
+  {
+    "id": "cfe-privacy-settings",
+    "title": "Privacy: aapka data aur settings",
+    "url": "https://support.claude.com/en/",
+    "summary": "Claude (non-Code) feature for ordinary people; find the exact official page first.",
+    "status": "todo",
+    "audience": "A",
+    "series": "claude-for-everyone"
+  },
+  {
+    "id": "cfe-wrong-answers",
+    "title": "Galat jawab se kaise bachein: jaanchne ke tareeke",
+    "url": "https://support.claude.com/en/",
+    "summary": "Claude (non-Code) feature for ordinary people; find the exact official page first.",
+    "status": "todo",
+    "audience": "A",
+    "series": "claude-for-everyone"
+  },
+  {
+    "id": "cfe-prompt-basics",
+    "title": "Achha sawaal kaise poochein: 5 aasan niyam",
+    "url": "https://support.claude.com/en/",
+    "summary": "Claude (non-Code) feature for ordinary people; find the exact official page first.",
+    "status": "todo",
+    "audience": "A",
+    "series": "claude-for-everyone"
+  },
+  {
+    "id": "cfe-spreadsheet-data",
+    "title": "Excel/CSV data samajhna aur analysis",
+    "url": "https://support.claude.com/en/",
+    "summary": "Claude (non-Code) feature for ordinary people; find the exact official page first.",
+    "status": "todo",
+    "audience": "B",
+    "series": "claude-for-everyone"
+  },
+  {
+    "id": "cfe-planning-travel",
+    "title": "Yatra, budget aur ghar ka plan banana",
+    "url": "https://support.claude.com/en/",
+    "summary": "Claude (non-Code) feature for ordinary people; find the exact official page first.",
+    "status": "todo",
+    "audience": "B",
+    "series": "claude-for-everyone"
+  },
+  {
+    "id": "cfe-translation",
+    "title": "Anuvaad aur Hindi-English likhna",
+    "url": "https://support.claude.com/en/",
+    "summary": "Claude (non-Code) feature for ordinary people; find the exact official page first.",
+    "status": "todo",
+    "audience": "B",
+    "series": "claude-for-everyone"
+  },
+  {
+    "id": "cfe-skills",
+    "title": "Skills: Claude ko ek kaam ka tareeka sikhana",
+    "url": "https://support.claude.com/en/",
+    "summary": "Claude (non-Code) feature for ordinary people; find the exact official page first.",
+    "status": "todo",
+    "audience": "B",
+    "series": "claude-for-everyone"
+  },
+  {
+    "id": "cfe-share-chats",
+    "title": "Chat ya Artifact dusron ko share karna",
+    "url": "https://support.claude.com/en/",
+    "summary": "Claude (non-Code) feature for ordinary people; find the exact official page first.",
+    "status": "todo",
+    "audience": "B",
+    "series": "claude-for-everyone"
+  },
+  {
+    "id": "cfe-usage-limits",
+    "title": "Usage limits samajhna: kab kitna milta hai",
+    "url": "https://support.claude.com/en/",
+    "summary": "Claude (non-Code) feature for ordinary people; find the exact official page first.",
+    "status": "todo",
+    "audience": "A",
+    "series": "claude-for-everyone"
   }
 ]
