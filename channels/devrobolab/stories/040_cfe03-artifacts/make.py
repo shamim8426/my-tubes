@@ -65,8 +65,8 @@ def art(lines=None, **kw): return dict(title="Study planner", lines=lines or LIN
 def state(t):
     st = dict(page="chat", cx=None, cy=None); step = None; cam = (900, 540, 1.4); clicks = []
     if t < SC["settings"]:   # hook: stock cutaway, then the cursor heads for the Artifacts tab and the chat box
-        px, py = path([(0, 900, 500), (hk, 900, 500), (hk + 0.9, 180, 364), (hk + 2.2, 560, 962), (SC["settings"], 560, 962)], t)
-        st.update(page="chat", cx=px, cy=py, msgs=[], inp=None, side="artifacts" if hk + 0.8 < t < hk + 1.6 else None); cam = (700, 560, 1.45) if t < hk + 0.3 else ((420, 420, 1.7) if t < hk + 1.7 else (600, 800, 1.5))
+        px, py = path([(0, 900, 500), (hk, 900, 500), (hk + 0.9, 180, 364), (hk + 1.8, 560, 962), (hk + 3.0, 180, 988), (SC["settings"], 180, 988)], t)
+        st.update(page="chat", cx=px, cy=py, msgs=[], inp=None, side="artifacts" if hk + 0.8 < t < hk + 1.6 else None); cam = (700, 560, 1.45) if t < hk + 0.3 else ((420, 420, 1.7) if t < hk + 1.5 else ((600, 800, 1.5) if t < hk + 2.6 else (330, 760, 1.8)))
     elif t < SC["create"]:     # step 1: settings > capabilities > Create and edit files
         px, py = path([(SC["settings"], 900, 500), (s_set, 900, 500), (s_cap - 0.15, 180, 988), (s_cap + 0.5, 180, 988), (s_tog - 0.2, 1305, 331)], t)
         st.update(cx=px, cy=py, msgs=[]); step = (1, "Settings > Capabilities > *Create and edit files*"); cam = (330, 760, 1.8); clicks = [s_cap - 0.05, s_tog]
