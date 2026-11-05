@@ -25,3 +25,9 @@
   - You're Using Claude Wrong. Anthropic Just Showed the Right Way - https://youtu.be/1wT7qk7i6W8
 - Learnt: (1) hook = scene + concrete number gap + on-screen 3-item "in this video" list by ~60 s, one running two-person example carries 16 min; (2) every claim becomes a big-number glass card within 1-2 s, analogies built as step-by-step diagrams, compare cards with cross/tick, dissolves only, 12-21 visual changes/min, 185 wpm, flat -14 LUFS; (3) ending stack: action list, core line, A/B comment question, sources table, 15-20 s end-screen area. Details: channels/devrobolab/brand/LONG_FORM_LEARNINGS.md. Only video 1 had a full Whisper transcript (videos 2-3 read from contact sheets).
 - Status: deleted on 2026-11-05 (study/longform removed).
+
+## 2026-11-06 - Short style study (RULES 12c)
+- Video: https://youtube.com/shorts/_mBfaLoMyOI (38.6 s, Hinglish AI-news Short). Downloaded with tools/yt-dlp.exe, no cookies/login, into study/s2 (git-ignored).
+- Method: 4 fps contact sheets, 1 fps frames, Whisper small (Hindi) transcript.
+- Learnt: face-cam <-> real UI card rotation every 2.5-3 s, blur-push transitions, opaque caption chips (2-3 words), money-rain overlay on the "free" claim, 3D-tilt card entry, stacked "Comment KEYWORD for link" CTA twice spoken. Written to channels/devrobolab/brand/STYLE_V5.md (abstract only).
+- Status: deleted on 2026-11-06 (study/s2 removed).
