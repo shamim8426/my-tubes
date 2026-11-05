@@ -962,9 +962,11 @@
     "title": "Projects: ek jagah apni files aur instructions rakhna",
     "url": "https://support.claude.com/en/",
     "summary": "Claude (non-Code) feature for ordinary people; find the exact official page first.",
-    "status": "todo",
+    "status": "built",
     "audience": "A",
-    "series": "claude-for-everyone"
+    "series": "claude-for-everyone",
+    "story": "034_cfe02-projects",
+    "series_index": 2
   },
   {
     "id": "cfe-artifacts",

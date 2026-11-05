@@ -1,0 +1,56 @@
+{
+ "tag": "Claude Feature 02",
+ "music": {
+  "file": "shared/music/presentation/Funkorama.mp3",
+  "start": 6,
+  "rel": 12
+ },
+ "voice": {
+  "id": "Charon",
+  "style": "Speak like a friendly Indian tech YouTuber chatting casually in Hinglish. Natural conversational pace, warm and clear, a little energetic but not theatrical. No sing-song, no exaggerated emphasis."
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "type": "stage",
+   "voice": "हर बार वही files और instructions दोबारा देते हो? Claude में Projects बनाओ। हर project एक अलग workspace है, जिसमें अपनी chats और अपना knowledge base होता है।",
+   "layers": []
+  },
+  {
+   "id": "create",
+   "type": "stage",
+   "voice": "Projects पर जाओ, plus New Project दबाओ, और नाम और description दो। ध्यान रखो, Claude को ये नाम और description दिखते नहीं।",
+   "layers": []
+  },
+  {
+   "id": "knowledge",
+   "type": "stage",
+   "voice": "फिर project knowledge में documents, text या code डालो। जो भी डालोगे, वो उस project की सारी chats में काम आएगा।",
+   "layers": []
+  },
+  {
+   "id": "instr",
+   "type": "stage",
+   "voice": "Set project instructions दबाकर बताओ कि Claude कैसे जवाब दे, और save करो। ये instructions उस project की सारी chats पर लगती हैं।",
+   "layers": []
+  },
+  {
+   "id": "ctx",
+   "type": "stage",
+   "voice": "एक बात याद रखो: project की अलग-अलग chats में context अपने आप share नहीं होता। जो चाहिए, उसे knowledge में डालो।",
+   "layers": []
+  },
+  {
+   "id": "free",
+   "type": "stage",
+   "voice": "Projects free accounts पर भी मिलते हैं, पर free users पाँच projects तक बना सकते हैं।",
+   "layers": []
+  },
+  {
+   "id": "follow",
+   "type": "stage",
+   "voice": "AI के ऐसे काम के features चाहिए? DevRoboLab को follow करो।",
+   "layers": []
+  }
+ ]
+}
