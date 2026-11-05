@@ -13,3 +13,6 @@ Daily plan (user 2026-11-05, final): 08:00 AI news Short only (no long); 14:00 C
 
 ## Numbering (user 2026-11-06)
 Every series has its OWN index starting at 01: "Claude Feature 01, 02, ..." (this series, Claude for Everyone) and "Claude Code 01, 02, ..." (series claude-code-features). Put the index in the title (e.g. "Claude Feature 01: ...") and upload into that series' playlist (Claude for Everyone PLEklr-qY9V3U, Claude Code Features PLGTgifZfJLow) via playlist_id in upload.json. Story folder numbers (NNN_) stay global. Claude Feature 01 = story 031 (cfe-image-input); Claude Code 01 = story 030 (output-styles, built, not uploaded yet). Earlier Claude Code Shorts (013-025) keep their old titles. The 'series_index' field in topic_queue.json holds the number.
+
+## Numbering update (2026-11-06)
+The first two Claude for Everyone videos in the final UI-walkthrough format are numbered: Claude Feature 01 = Projects (story 039), Claude Feature 02 = Artifacts (story 040). Earlier test versions (034-037 Projects, 031/032 photo upload) are NOT uploaded; cfe-image-input is back to todo and becomes the next number (03) when it is remade in the UI-walkthrough format.

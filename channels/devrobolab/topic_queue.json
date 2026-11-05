@@ -966,7 +966,7 @@
     "audience": "A",
     "series": "claude-for-everyone",
     "story": "039_cfe02-demo",
-    "series_index": 2
+    "series_index": 1
   },
   {
     "id": "cfe-artifacts",
@@ -977,7 +977,7 @@
     "audience": "A",
     "series": "claude-for-everyone",
     "story": "040_cfe03-artifacts",
-    "series_index": 3
+    "series_index": 2
   },
   {
     "id": "cfe-research",
@@ -1002,11 +1002,10 @@
     "title": "Photo dikha kar sawaal poochna",
     "url": "https://support.claude.com/en/",
     "summary": "Claude (non-Code) feature for ordinary people; find the exact official page first.",
-    "status": "built",
+    "status": "todo",
     "audience": "A",
     "series": "claude-for-everyone",
-    "story": "031_cfe01-image-input",
-    "series_index": 1
+    "story": null
   },
   {
     "id": "cfe-memory",
