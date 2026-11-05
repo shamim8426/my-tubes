@@ -31,6 +31,7 @@
   }
  ],
  "retention": [],
+ "retention_note": "<HttpError 500 when requesting https://youtubeanalytics.googleapis.com/v2/reports?ids=channel%3D%3DUCpElgKdJOgQiyfwdGXz6GmA&startDate=2026-10-31&endDate=2026-11-05&metrics=audienceWatchRatio%2Crelativ",
  "daily": [
   {
    "day": "2026-10-31",
@@ -41,7 +42,12 @@
    "day": "2026-11-01",
    "views": 0,
    "estimatedMinutesWatched": 0
+  },
+  {
+   "day": "2026-11-02",
+   "views": 0,
+   "estimatedMinutesWatched": 0
   }
  ],
- "fetched": "2026-11-04T21:43:58"
+ "fetched": "2026-11-05T11:27:17"
 }

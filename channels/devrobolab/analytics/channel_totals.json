@@ -1,16 +1,16 @@
 {
  "channel": "DevRoboLab",
  "statistics": {
-  "viewCount": "119",
+  "viewCount": "585",
   "subscriberCount": "6",
   "hiddenSubscriberCount": false,
-  "videoCount": "17"
+  "videoCount": "21"
  },
  "totals": [
   {
-   "views": 114,
-   "estimatedMinutesWatched": 18,
-   "subscribersGained": 2,
+   "views": 117,
+   "estimatedMinutesWatched": 19,
+   "subscribersGained": 3,
    "subscribersLost": 0
   }
  ]

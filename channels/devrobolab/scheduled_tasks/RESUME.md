@@ -13,3 +13,6 @@ Rules: DAILY_COMMON.md (all runs), series/*/README.md, STYLE_GUIDE.md, NEWS_WATC
 4. Work out which of today's runs already happened (research/daily, stories folders, upload results, topic_queue) and run only what is missing. Never publish; never run two runs in parallel; stop paid work below Rs 50.
 5. Tell the user in Hinglish: which tasks exist, what ran, what is left.
 Keep these backups in sync when a task prompt changes (copy from C:\Users\<user>\.claude\scheduled-tasks\<taskId>\SKILL.md).
+
+## Stall rule (user 2026-11-05)
+Whenever a daily run is found stalled (status running but its transcript/last_activity has not moved for more than 10 minutes, or the task time passed with no run), do NOT ask: find the cause (often a pending permission prompt or a hung tool call), fix it if it is inside the project (not security settings), stop the stalled session (stop_session) and re-run the task ONCE (run_scheduled_task). If it stalls again, tell the user plainly with the cause and what he must do. Never change permission/security settings myself; never kill OS processes without his approval. No background watchdog task exists (user decided not to add one): stalls are only noticed when the user or a session checks, so on every user message in a DevRoboLab session first check list_task_runs for today's runs.
