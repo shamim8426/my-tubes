@@ -1,0 +1,513 @@
+{
+ "_note": "Short 030 Output styles, real-image paper-cut style. Source https://code.claude.com/docs/en/output-styles (read 2026-11-06).",
+ "tag": "Claude Code · Output styles",
+ "bg": "#F3F5F9",
+ "bgGrid": true,
+ "music": {
+  "file": "shared/music/presentation/Funkorama.mp3",
+  "start": 6,
+  "rel": 12
+ },
+ "voice": {
+  "id": "Charon",
+  "style": "Speak like a friendly Indian tech YouTuber chatting casually in Hinglish. Natural conversational pace, warm and clear, a little energetic but not theatrical. No sing-song, no exaggerated emphasis."
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "Claude का जवाब बहुत लंबा लगता है? Output style से उसका अंदाज़ बदलो। Default के अलावा चार styles हैं: Proactive, Concise, Explanatory और Learning।",
+   "layers": [
+    {
+     "kind": "box",
+     "html": "<img src=\"file:///home/user/story-channel/channels/devrobolab/stories/030_output-styles/cut/paper_bg.jpg\" style=\"width:1080px;height:1920px;display:block\">",
+     "x": 0,
+     "y": 0,
+     "css": ""
+    },
+    {
+     "kind": "text",
+     "html": "**Claude** ka andaaz badlo",
+     "x": 60,
+     "y": 170,
+     "size": 84,
+     "w": 980,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<img src=\"file:///home/user/story-channel/channels/devrobolab/stories/030_output-styles/cut/shot_intro.png\" style=\"width:960px;height:482px;display:block\">",
+     "x": 60,
+     "y": 400,
+     "css": "",
+     "in": "Output|-0.6",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<img src=\"file:///home/user/story-channel/channels/devrobolab/stories/030_output-styles/cut/shoe.png\" style=\"width:420px;height:299px;display:block\">",
+     "x": 40,
+     "y": 920,
+     "css": "",
+     "in": "Proactive|-0.3",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:40px;font-weight:800;white-space:nowrap\">Proactive</div>",
+     "x": 80,
+     "y": 1280,
+     "css": "background:#FFD60A;color:#111;border-radius:999px;padding:12px 34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "Proactive|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<img src=\"file:///home/user/story-channel/channels/devrobolab/stories/030_output-styles/cut/char_1.png\" style=\"width:300px;height:408px;display:block\">",
+     "x": 520,
+     "y": 910,
+     "css": "",
+     "in": "Concise|-0.3",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:40px;font-weight:800;white-space:nowrap\">Concise</div>",
+     "x": 540,
+     "y": 1280,
+     "css": "background:#14171C;color:#fff;border-radius:999px;padding:12px 34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "Concise|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<img src=\"file:///home/user/story-channel/channels/devrobolab/stories/030_output-styles/cut/char_2.png\" style=\"width:300px;height:401px;display:block\">",
+     "x": 80,
+     "y": 1410,
+     "css": "",
+     "in": "Explanatory|-0.3",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:40px;font-weight:800;white-space:nowrap\">Explanatory</div>",
+     "x": 80,
+     "y": 1740,
+     "css": "background:#FFD60A;color:#111;border-radius:999px;padding:12px 34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "Explanatory|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<img src=\"file:///home/user/story-channel/channels/devrobolab/stories/030_output-styles/cut/char_4.png\" style=\"width:300px;height:392px;display:block\">",
+     "x": 560,
+     "y": 1410,
+     "css": "",
+     "in": "Learning|-0.3",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:40px;font-weight:800;white-space:nowrap\">Learning</div>",
+     "x": 560,
+     "y": 1740,
+     "css": "background:#14171C;color:#fff;border-radius:999px;padding:12px 34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "Learning|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:26px;font-weight:800;white-space:nowrap\">Real: docs page + sneaker photo (CC0) · characters AI-drawn</div>",
+     "x": 60,
+     "y": 1880,
+     "css": "background:#14171C;color:#fff;border-radius:999px;padding:12px 34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "Output|0.2",
+     "spring": true
+    }
+   ]
+  },
+  {
+   "id": "concise",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "Concise में जवाब का पहला वाक्य ही नतीजा बताता है। Lead-in और recap नहीं होते।",
+   "layers": [
+    {
+     "kind": "box",
+     "html": "<img src=\"file:///home/user/story-channel/channels/devrobolab/stories/030_output-styles/cut/paper_bg.jpg\" style=\"width:1080px;height:1920px;display:block\">",
+     "x": 0,
+     "y": 0,
+     "css": ""
+    },
+    {
+     "kind": "text",
+     "html": "**Concise**: seedha result",
+     "x": 60,
+     "y": 170,
+     "size": 84,
+     "w": 980,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<img src=\"file:///home/user/story-channel/channels/devrobolab/stories/030_output-styles/cut/shot_concise.png\" style=\"width:960px;height:684px;display:block\">",
+     "x": 60,
+     "y": 540,
+     "css": "",
+     "in": "पहला|-0.5",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<img src=\"file:///home/user/story-channel/channels/devrobolab/stories/030_output-styles/cut/char_1.png\" style=\"width:560px;height:762px;display:block\">",
+     "x": 480,
+     "y": 1264,
+     "css": "",
+     "in": "नतीजा|-0.3",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:40px;font-weight:800;white-space:nowrap\">Pehla vakya = jawab</div>",
+     "x": 60,
+     "y": 1384,
+     "css": "background:#FFD60A;color:#111;border-radius:999px;padding:12px 34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "नतीजा|-0.2",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:40px;font-weight:800;white-space:nowrap\">Lead-in, recap nahi</div>",
+     "x": 60,
+     "y": 1524,
+     "css": "background:#14171C;color:#fff;border-radius:999px;padding:12px 34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "Lead-in|-0.2",
+     "spring": true
+    }
+   ]
+  },
+  {
+   "id": "explain",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "Explanatory में Claude Insight blocks जोड़ता है, जो बताते हैं कि उसने code में ये choices क्यों कीं।",
+   "layers": [
+    {
+     "kind": "box",
+     "html": "<img src=\"file:///home/user/story-channel/channels/devrobolab/stories/030_output-styles/cut/paper_bg.jpg\" style=\"width:1080px;height:1920px;display:block\">",
+     "x": 0,
+     "y": 0,
+     "css": ""
+    },
+    {
+     "kind": "text",
+     "html": "**Explanatory**: Insight block",
+     "x": 60,
+     "y": 170,
+     "size": 84,
+     "w": 980,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<img src=\"file:///home/user/story-channel/channels/devrobolab/stories/030_output-styles/cut/shot_explain.png\" style=\"width:960px;height:412px;display:block\">",
+     "x": 60,
+     "y": 540,
+     "css": "",
+     "in": "Insight|-0.5",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<img src=\"file:///home/user/story-channel/channels/devrobolab/stories/030_output-styles/cut/char_2.png\" style=\"width:640px;height:856px;display:block\">",
+     "x": 220,
+     "y": 1012,
+     "css": "",
+     "in": "choices|-0.4",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:34px;font-weight:800;white-space:nowrap\">Conversation me dikhta hai, file me nahi</div>",
+     "x": 60,
+     "y": 1652,
+     "css": "background:#14171C;color:#fff;border-radius:999px;padding:12px 34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "choices|0.2",
+     "spring": true
+    }
+   ]
+  },
+  {
+   "id": "learn",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "Learning में Claude कुछ code आपके लिए छोड़ देता है, TODO human लिखकर, ताकि आप खुद लिखकर सीखो।",
+   "layers": [
+    {
+     "kind": "box",
+     "html": "<img src=\"file:///home/user/story-channel/channels/devrobolab/stories/030_output-styles/cut/paper_bg.jpg\" style=\"width:1080px;height:1920px;display:block\">",
+     "x": 0,
+     "y": 0,
+     "css": ""
+    },
+    {
+     "kind": "text",
+     "html": "**Learning**: aap bhi likho",
+     "x": 60,
+     "y": 170,
+     "size": 84,
+     "w": 980,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<img src=\"file:///home/user/story-channel/channels/devrobolab/stories/030_output-styles/cut/shot_learn.png\" style=\"width:960px;height:601px;display:block\">",
+     "x": 60,
+     "y": 540,
+     "css": "",
+     "in": "Learning|-0.5",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<img src=\"file:///home/user/story-channel/channels/devrobolab/stories/030_output-styles/cut/char_4.png\" style=\"width:560px;height:733px;display:block\">",
+     "x": 480,
+     "y": 1181,
+     "css": "",
+     "in": "TODO|-0.3",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:40px;font-weight:800;white-space:nowrap\">TODO(human)</div>",
+     "x": 60,
+     "y": 1301,
+     "css": "background:#FFD60A;color:#111;border-radius:999px;padding:12px 34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "TODO|-0.2",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:40px;font-weight:800;white-space:nowrap\">Khud likho, seekho</div>",
+     "x": 60,
+     "y": 1441,
+     "css": "background:#14171C;color:#fff;border-radius:999px;padding:12px 34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "सीखो|-0.2",
+     "spring": true
+    }
+   ]
+  },
+  {
+   "id": "proactive",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "Proactive में Claude तुरंत काम शुरू कर देता है, और छोटे फ़ैसलों पर पूछता नहीं।",
+   "layers": [
+    {
+     "kind": "box",
+     "html": "<img src=\"file:///home/user/story-channel/channels/devrobolab/stories/030_output-styles/cut/paper_bg.jpg\" style=\"width:1080px;height:1920px;display:block\">",
+     "x": 0,
+     "y": 0,
+     "css": ""
+    },
+    {
+     "kind": "text",
+     "html": "**Proactive**: seedha kaam shuru",
+     "x": 60,
+     "y": 170,
+     "size": 84,
+     "w": 980,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<img src=\"file:///home/user/story-channel/channels/devrobolab/stories/030_output-styles/cut/shoe.png\" style=\"width:960px;height:684px;display:block\">",
+     "x": 60,
+     "y": 600,
+     "css": "",
+     "in": "तुरंत|-0.5",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:38px;font-weight:800;white-space:nowrap\">Routine decisions par sawaal nahi</div>",
+     "x": 60,
+     "y": 1364,
+     "css": "background:#FFD60A;color:#111;border-radius:999px;padding:12px 34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "छोटे|-0.2",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:30px;font-weight:800;white-space:nowrap\">Real photo: sneaker (CC0)</div>",
+     "x": 60,
+     "y": 1484,
+     "css": "background:#14171C;color:#fff;border-radius:999px;padding:12px 34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "तुरंत|0.3",
+     "spring": true
+    }
+   ]
+  },
+  {
+   "id": "switch",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "Style बदलने के लिए slash output-style लिखो, जैसे slash output-style concise। ध्यान रखो, ये सिर्फ़ instructions हैं, गारंटी नहीं। जो हर बार होना चाहिए, उसके लिए hook।",
+   "layers": [
+    {
+     "kind": "box",
+     "html": "<img src=\"file:///home/user/story-channel/channels/devrobolab/stories/030_output-styles/cut/paper_bg.jpg\" style=\"width:1080px;height:1920px;display:block\">",
+     "x": 0,
+     "y": 0,
+     "css": ""
+    },
+    {
+     "kind": "text",
+     "html": "**/output-style** concise",
+     "x": 60,
+     "y": 170,
+     "size": 84,
+     "w": 980,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<img src=\"file:///home/user/story-channel/channels/devrobolab/stories/030_output-styles/cut/shot_cmd.png\" style=\"width:960px;height:982px;display:block\">",
+     "x": 60,
+     "y": 540,
+     "css": "",
+     "in": "slash|-0.5",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:38px;font-weight:800;white-space:nowrap\">Sirf instructions, guarantee nahi</div>",
+     "x": 60,
+     "y": 1622,
+     "css": "background:#FFD60A;color:#111;border-radius:999px;padding:12px 34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "गारंटी|-0.3",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:38px;font-weight:800;white-space:nowrap\">Har baar chahiye? Hook</div>",
+     "x": 60,
+     "y": 1762,
+     "css": "background:#14171C;color:#fff;border-radius:999px;padding:12px 34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "hook|-0.3",
+     "spring": true
+    }
+   ]
+  },
+  {
+   "id": "follow",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "AI के ऐसे काम के features चाहिए? DevRoboLab को follow करो।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "**DevRoboLab** ko follow karo",
+     "x": 80,
+     "y": 260,
+     "size": 120,
+     "w": 920,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.15
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:120px;font-weight:800;line-height:1\">Follow</div>",
+     "x": 190,
+     "y": 800,
+     "css": "background:#FFD60A;border:0;border-radius:999px;padding:30px 110px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "wig": 4.35,
+     "float": 5,
+     "in": "0.5|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "icon",
+     "name": "cursor",
+     "x": 0,
+     "y": 0,
+     "size": 140,
+     "k": [
+      [
+       3.4,
+       {
+        "x": 820,
+        "y": 1060,
+        "o": 0
+       }
+      ],
+      [
+       3.5,
+       {
+        "x": 820,
+        "y": 1060,
+        "o": 1
+       }
+      ],
+      [
+       4.2,
+       {
+        "x": 520,
+        "y": 880
+       }
+      ]
+     ],
+     "wig": 4.3
+    },
+    {
+     "kind": "icon",
+     "name": "bell",
+     "x": 430,
+     "y": 1080,
+     "size": 200,
+     "wig": 4.7,
+     "float": 6,
+     "in": 4.5,
+     "spring": true
+    },
+    {
+     "kind": "img",
+     "img": "thumbs",
+     "size": 520,
+     "x": 260,
+     "y": 1300,
+     "bob": 1,
+     "k": [
+      [
+       0.2,
+       {
+        "x": -700,
+        "o": 1
+       }
+      ],
+      [
+       0.9,
+       {
+        "x": 260
+       }
+      ]
+     ]
+    }
+   ]
+  }
+ ]
+}

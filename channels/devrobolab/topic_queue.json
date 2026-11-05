@@ -827,8 +827,8 @@
     "title": "Output styles",
     "url": "https://code.claude.com/docs/en/output-styles.md",
     "summary": "Change Claude Code's role, tone, and response format with a built-in output style such as Concise or Explanatory, or write a custom style.",
-    "status": "todo",
-    "story": null,
+    "status": "built",
+    "story": "030_output-styles",
     "audience": "B"
   },
   {
