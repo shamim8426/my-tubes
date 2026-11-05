@@ -115,7 +115,7 @@ def beat_frame(n, t):
         img = kb(PH[src], t, dur, 1080, 1.0, 1.30, (0.6, -0.4), rot=1.6, shake=0.4 if kind == "photo" else 0.0)
         paste(fr, img, 0, 560)
         if kind == "five":
-            a = ease_back((t - 0.25) / 0.45); s5 = text_sprite("5", 520, YEL); paste_rgba(fr, s5, (W - s5.shape[1]) // 2, 330, alpha=min(1, a), scale=max(0.01, a))
+            a = ease_back((t - 0.25) / 0.45); s5 = text_sprite("5", 460, YEL); paste_rgba(fr, s5, (W - s5.shape[1]) // 2, 700, alpha=min(1, a), scale=max(0.01, a))
     elif kind == "shot":
         fr[:] = BL["workspace_1"]; spr = SPR["create"]; zoom = 1.0 + 0.55 * ease_out(t / max(dur, 0.2))
         base = cv2.resize(spr, (940, round(spr.shape[0] * 940 / spr.shape[1])), interpolation=cv2.INTER_AREA)
@@ -138,10 +138,14 @@ def caption(fr, n, t):
     toks = cap.split(" "); T0, T1 = 0.08, min(1.1, (BE[n] - BS[n]) * 0.55); k = len(toks)
     shown = [j for j in range(k) if t >= T0 + (T1 - T0) * j / max(1, k)]
     if not shown: return
-    ln = " ".join(toks[:len(shown)]); hl = set(re.sub(r"[*]", "", x) for x in toks if x.startswith("*") or x.endswith("*") or "*" in x)
-    plain = ln.replace("*", ""); sp = text_sprite(plain, 78, hl=hl)
+    hl = set(re.sub(r"[*]", "", x) for x in toks if "*" in x)
+    plain_all = cap.replace("*", ""); brk = (k + 1) // 2 if len(plain_all) > 20 else k   # wrap long captions on two lines, break fixed so words do not jump
+    parts = [x.replace("*", "") for x in toks[:len(shown)]]
+    ln = " ".join(parts[:brk]) + (("\n" + " ".join(parts[brk:])) if len(parts) > brk else "")
+    sp = text_sprite(ln, 78, hl=hl)
+    if sp.shape[1] > 1000: sp = cv2.resize(sp, (1000, round(sp.shape[0] * 1000 / sp.shape[1])), interpolation=cv2.INTER_AREA)
     last_t = T0 + (T1 - T0) * (len(shown) - 1) / max(1, k); pop = 1.0 + 0.12 * max(0, 1 - (t - last_t) / 0.18)
-    paste_rgba(fr, sp, (W - sp.shape[1]) // 2, 1560, alpha=1.0, scale=pop)
+    paste_rgba(fr, sp, (W - sp.shape[1]) // 2, 1560 - (sp.shape[0] - 120 if "\n" in ln else 0), alpha=1.0, scale=pop)
 
 
 def callout(fr, n, t):

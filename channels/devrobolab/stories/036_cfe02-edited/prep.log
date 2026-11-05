@@ -1,2 +1,140 @@
 beats [0, 3.8, 4.8, 10.4, 13.1, 14.4, 19.1, 21.5, 22.6, 26.4, 30.9, 34.6, 39.3, 42.4, 45.7, 48.2] total 52.9
 parallax 0 messy 4.5
+Loading weights:   0%|          | 0/287 [00:00<?, ?it/s]Loading weights:   1%|          | 2/287 [00:00<00:31,  9.15it/s]Loading weights:   3%|▎         | 10/287 [00:00<00:07, 35.44it/s]Loading weights:   5%|▌         | 15/287 [00:00<00:07, 35.14it/s]Loading weights:   7%|▋         | 20/287 [00:00<00:08, 30.17it/s]Loading weights:   9%|▉         | 26/287 [00:01<00:11, 23.20it/s]Loading weights:  13%|█▎        | 37/287 [00:01<00:06, 38.51it/s]Loading weights:  15%|█▍        | 43/287 [00:01<00:08, 30.45it/s]Loading weights:  17%|█▋        | 48/287 [00:01<00:07, 31.79it/s]Loading weights:  19%|█▉        | 54/287 [00:01<00:09, 25.53it/s]Loading weights:  21%|██▏       | 61/287 [00:02<00:08, 27.67it/s]Loading weights:  25%|██▌       | 73/287 [00:02<00:05, 39.94it/s]Loading weights:  27%|██▋       | 78/287 [00:02<00:05, 41.38it/s]Loading weights:  30%|███       | 87/287 [00:02<00:04, 42.50it/s]Loading weights:  33%|███▎      | 96/287 [00:02<00:04, 44.31it/s]Loading weights:  36%|███▌      | 102/287 [00:02<00:04, 45.57it/s]Loading weights:  37%|███▋      | 107/287 [00:03<00:04, 39.18it/s]Loading weights:  39%|███▉      | 112/287 [00:03<00:04, 35.24it/s]Loading weights:  43%|████▎     | 122/287 [00:03<00:03, 44.31it/s]Loading weights:  45%|████▍     | 129/287 [00:03<00:04, 35.15it/s]Loading weights:  47%|████▋     | 136/287 [00:03<00:03, 39.45it/s]Loading weights:  49%|████▉     | 142/287 [00:04<00:05, 26.07it/s]Loading weights:  51%|█████     | 146/287 [00:04<00:05, 26.00it/s]Loading weights:  53%|█████▎    | 153/287 [00:04<00:04, 31.97it/s]Loading weights:  58%|█████▊    | 167/287 [00:04<00:02, 42.43it/s]Loading weights:  61%|██████    | 175/287 [00:04<00:02, 47.05it/s]Loading weights:  64%|██████▍   | 185/287 [00:05<00:01, 53.83it/s]Loading weights:  70%|██████▉   | 200/287 [00:05<00:01, 67.13it/s]Loading weights:  80%|███████▉  | 229/287 [00:05<00:00, 80.79it/s]Loading weights: 100%|██████████| 287/287 [00:05<00:00, 52.58it/s]
+{
+ "image": "/home/user/story-channel/channels/devrobolab/stories/036_cfe02-edited/ai/messy.png",
+ "out": "/home/user/story-channel/channels/devrobolab/stories/036_cfe02-edited/clips/b00.mp4",
+ "format": "short",
+ "seconds": 4.5,
+ "preset": "push_in",
+ "mode": "parallax",
+ "amp": 0.04,
+ "reason": "ok",
+ "fg_share": 0.623,
+ "ragged": 1.25,
+ "thin": 0.001,
+ "jump": 0.02,
+ "fg_parts": 1,
+ "overlays": [],
+ "cpu_s": 35.3,
+ "wall_s": 80.8
+}
+parallax 2 rooms 6.36
+Loading weights:   0%|          | 0/287 [00:00<?, ?it/s]Loading weights: 100%|██████████| 287/287 [00:00<00:00, 2890.84it/s]
+{
+ "image": "/home/user/story-channel/channels/devrobolab/stories/036_cfe02-edited/ai/rooms.png",
+ "out": "/home/user/story-channel/channels/devrobolab/stories/036_cfe02-edited/clips/b02.mp4",
+ "format": "short",
+ "seconds": 6.37,
+ "preset": "pan_right",
+ "mode": "parallax",
+ "amp": 0.02,
+ "reason": "depth jump 0.19: motion halved",
+ "fg_share": 0.265,
+ "ragged": 1.66,
+ "thin": 0.0,
+ "jump": 0.19,
+ "fg_parts": 1,
+ "overlays": [],
+ "cpu_s": 36.2,
+ "wall_s": 24.0
+}
+parallax 7 tofolder 1.8
+Loading weights:   0%|          | 0/287 [00:00<?, ?it/s]Loading weights: 100%|██████████| 287/287 [00:00<00:00, 3264.48it/s]
+{
+ "image": "/home/user/story-channel/channels/devrobolab/stories/036_cfe02-edited/ai/tofolder.png",
+ "out": "/home/user/story-channel/channels/devrobolab/stories/036_cfe02-edited/clips/b07.mp4",
+ "format": "short",
+ "seconds": 1.8,
+ "preset": "push_in",
+ "mode": "parallax",
+ "amp": 0.04,
+ "reason": "ok",
+ "fg_share": 0.554,
+ "ragged": 1.16,
+ "thin": 0.0,
+ "jump": 0.0,
+ "fg_parts": 1,
+ "overlays": [],
+ "cpu_s": 17.4,
+ "wall_s": 13.6
+}
+parallax 8 book 4.46
+Loading weights:   0%|          | 0/287 [00:00<?, ?it/s]Loading weights: 100%|██████████| 287/287 [00:00<00:00, 3192.01it/s]
+{
+ "image": "/home/user/story-channel/channels/devrobolab/stories/036_cfe02-edited/ai/book.png",
+ "out": "/home/user/story-channel/channels/devrobolab/stories/036_cfe02-edited/clips/b08.mp4",
+ "format": "short",
+ "seconds": 4.47,
+ "preset": "pull_out",
+ "mode": "parallax",
+ "amp": 0.04,
+ "reason": "ok",
+ "fg_share": 0.565,
+ "ragged": 1.19,
+ "thin": 0.0,
+ "jump": 0.01,
+ "fg_parts": 1,
+ "overlays": [],
+ "cpu_s": 27.9,
+ "wall_s": 18.6
+}
+parallax 10 rooms 4.38
+{
+ "image": "/home/user/story-channel/channels/devrobolab/stories/036_cfe02-edited/ai/rooms.png",
+ "out": "/home/user/story-channel/channels/devrobolab/stories/036_cfe02-edited/clips/b10.mp4",
+ "format": "short",
+ "seconds": 4.37,
+ "preset": "pull_out",
+ "mode": "parallax",
+ "amp": 0.02,
+ "reason": "depth jump 0.19: motion halved",
+ "fg_share": 0.265,
+ "ragged": 1.66,
+ "thin": 0.0,
+ "jump": 0.19,
+ "fg_parts": 1,
+ "overlays": [],
+ "cpu_s": 18.0,
+ "wall_s": 11.6
+}
+parallax 11 sealed 5.42
+Loading weights:   0%|          | 0/287 [00:00<?, ?it/s]Loading weights:  63%|██████▎   | 181/287 [00:00<00:00, 1804.83it/s]Loading weights: 100%|██████████| 287/287 [00:00<00:00, 2469.92it/s]
+{
+ "image": "/home/user/story-channel/channels/devrobolab/stories/036_cfe02-edited/ai/sealed.png",
+ "out": "/home/user/story-channel/channels/devrobolab/stories/036_cfe02-edited/clips/b11.mp4",
+ "format": "short",
+ "seconds": 5.43,
+ "preset": "gentle_orbit",
+ "mode": "parallax",
+ "amp": 0.04,
+ "reason": "ok",
+ "fg_share": 0.659,
+ "ragged": 1.56,
+ "thin": 0.0,
+ "jump": 0.05,
+ "fg_parts": 1,
+ "overlays": [],
+ "cpu_s": 31.7,
+ "wall_s": 22.3
+}
+parallax 12 drop 3.8
+Loading weights:   0%|          | 0/287 [00:00<?, ?it/s]Loading weights: 100%|██████████| 287/287 [00:00<00:00, 3012.86it/s]
+{
+ "image": "/home/user/story-channel/channels/devrobolab/stories/036_cfe02-edited/ai/drop.png",
+ "out": "/home/user/story-channel/channels/devrobolab/stories/036_cfe02-edited/clips/b12.mp4",
+ "format": "short",
+ "seconds": 3.8,
+ "preset": "push_in",
+ "mode": "parallax",
+ "amp": 0.04,
+ "reason": "ok",
+ "fg_share": 0.432,
+ "ragged": 1.17,
+ "thin": 0.0,
+ "jump": 0.0,
+ "fg_parts": 1,
+ "overlays": [],
+ "cpu_s": 23.7,
+ "wall_s": 17.4
+}
