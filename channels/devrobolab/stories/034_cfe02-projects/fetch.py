@@ -1,6 +1,6 @@
 import json,subprocess,time,urllib.parse
 UA="devrobolab-research/1.0 (video asset search)"
-OUT="/home/user/story-channel/channels/devrobolab/stories/034_cfe02-projects/raw/"
+OUT=str(__import__("pathlib").Path(__file__).resolve().parent / "raw") + "/"
 def api(params):
     out=subprocess.run(["curl","-s","--max-time","30","-A",UA,"https://commons.wikimedia.org/w/api.php?"+params+"&format=json"],capture_output=True,text=True).stdout
     try:return json.loads(out)

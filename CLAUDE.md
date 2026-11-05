@@ -142,6 +142,8 @@ econcile_balance.py <AI Studio balance ₹>` (pehli baar checkpoint), Long 03 ke
 - Cloud me banayi files session ke saath mit jaati hain: har milestone par sync zaroori.
 - Study download / trend research (RULES 12c): hook `yt-dlp` + `deno` lagata hai, `tools/yt-dlp.exe` cloud me bhi chalta hai; network me `www.youtube.com`, `youtube.com`, `*.googlevideo.com`, `i.ytimg.com` chahiye. YouTube sign-in / bot check maange to cloud me RUKO (cookies/login kabhi nahi) aur study PC par karo.
 
+- Paths (user 2026-11-06): repo root is `D:\my-tubes` (PC) / `/home/user/story-channel` (cloud); no absolute paths in tracked files, use `{ROOT}` / `__file__` / relative (`docs/PATHS.md`).
+
 ## GitHub sync
 - Har milestone ke baad sync chalao: `powershell -NoProfile -ExecutionPolicy Bypass -File tools\sync.ps1 -Message "<project>: <milestone>"`.
   Milestones: script approved, scene images done, TTS done, final build done, thumbnail done, uploaded (Munshi PUBLISHED ke baad).

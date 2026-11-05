@@ -107,7 +107,10 @@ def main():
     ap.add_argument("--render", action="store_true")
     a = ap.parse_args()
     story = Path(a.story).resolve()
-    spec = json.loads((story / a.deck).read_text(encoding="utf-8-sig"))
+    raw = (story / a.deck).read_text(encoding="utf-8-sig")
+    # one path rule for PC + cloud: {ROOT} = repo root; old hardcoded roots are mapped to it too (2026-11-06)
+    raw = re.sub(r"file:///(?:home/user/(?:story-channel|my-tubes)|[A-Za-z]:/(?:my-tubes|Story-Channel))", lambda m: ROOT.as_uri(), raw, flags=re.I)
+    spec = json.loads(raw.replace("{ROOT}", ROOT.as_uri()))
     scenes = spec["scenes"]
     tts_dir = story / "audio" / "tts"
     files = [tts_dir / f"s_{i:02d}.wav" for i in range(len(scenes))]

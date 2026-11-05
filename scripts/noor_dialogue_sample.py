@@ -3,7 +3,7 @@ takes over (budget "noor_samples" checked before each call). Each line: TTS (cac
 max 2 retries. Then mix: lines with 0.6 s gaps, voice -16 LUFS + light warm reverb, River Flute 22 LU below with light
 ducking, gentle breeze -46 LUFS. Output: channels/noor-e-raah/music_samples/dialogue_sample.wav
 
-    .venv\\Scripts\\python -X utf8 scripts\\noor_dialogue_sample.py D:/my-tubes
+    .venv\\Scripts\\python -X utf8 scripts\\noor_dialogue_sample.py <repo root>
 """
 import json
 import re

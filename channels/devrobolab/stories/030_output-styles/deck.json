@@ -21,7 +21,7 @@
    "layers": [
     {
      "kind": "box",
-     "html": "<img src=\"file:///home/user/story-channel/channels/devrobolab/stories/030_output-styles/cut/paper_bg.jpg\" style=\"width:1080px;height:1920px;display:block\">",
+     "html": "<img src=\"{ROOT}/channels/devrobolab/stories/030_output-styles/cut/paper_bg.jpg\" style=\"width:1080px;height:1920px;display:block\">",
      "x": 0,
      "y": 0,
      "css": ""
@@ -39,7 +39,7 @@
     },
     {
      "kind": "box",
-     "html": "<img src=\"file:///home/user/story-channel/channels/devrobolab/stories/030_output-styles/cut/shot_intro.png\" style=\"width:960px;height:482px;display:block\">",
+     "html": "<img src=\"{ROOT}/channels/devrobolab/stories/030_output-styles/cut/shot_intro.png\" style=\"width:960px;height:482px;display:block\">",
      "x": 60,
      "y": 400,
      "css": "",
@@ -48,7 +48,7 @@
     },
     {
      "kind": "box",
-     "html": "<img src=\"file:///home/user/story-channel/channels/devrobolab/stories/030_output-styles/cut/shoe.png\" style=\"width:420px;height:299px;display:block\">",
+     "html": "<img src=\"{ROOT}/channels/devrobolab/stories/030_output-styles/cut/shoe.png\" style=\"width:420px;height:299px;display:block\">",
      "x": 40,
      "y": 920,
      "css": "",
@@ -66,7 +66,7 @@
     },
     {
      "kind": "box",
-     "html": "<img src=\"file:///home/user/story-channel/channels/devrobolab/stories/030_output-styles/cut/char_1.png\" style=\"width:300px;height:408px;display:block\">",
+     "html": "<img src=\"{ROOT}/channels/devrobolab/stories/030_output-styles/cut/char_1.png\" style=\"width:300px;height:408px;display:block\">",
      "x": 520,
      "y": 910,
      "css": "",
@@ -84,7 +84,7 @@
     },
     {
      "kind": "box",
-     "html": "<img src=\"file:///home/user/story-channel/channels/devrobolab/stories/030_output-styles/cut/char_2.png\" style=\"width:300px;height:401px;display:block\">",
+     "html": "<img src=\"{ROOT}/channels/devrobolab/stories/030_output-styles/cut/char_2.png\" style=\"width:300px;height:401px;display:block\">",
      "x": 80,
      "y": 1410,
      "css": "",
@@ -102,7 +102,7 @@
     },
     {
      "kind": "box",
-     "html": "<img src=\"file:///home/user/story-channel/channels/devrobolab/stories/030_output-styles/cut/char_4.png\" style=\"width:300px;height:392px;display:block\">",
+     "html": "<img src=\"{ROOT}/channels/devrobolab/stories/030_output-styles/cut/char_4.png\" style=\"width:300px;height:392px;display:block\">",
      "x": 560,
      "y": 1410,
      "css": "",
@@ -137,7 +137,7 @@
    "layers": [
     {
      "kind": "box",
-     "html": "<img src=\"file:///home/user/story-channel/channels/devrobolab/stories/030_output-styles/cut/paper_bg.jpg\" style=\"width:1080px;height:1920px;display:block\">",
+     "html": "<img src=\"{ROOT}/channels/devrobolab/stories/030_output-styles/cut/paper_bg.jpg\" style=\"width:1080px;height:1920px;display:block\">",
      "x": 0,
      "y": 0,
      "css": ""
@@ -155,7 +155,7 @@
     },
     {
      "kind": "box",
-     "html": "<img src=\"file:///home/user/story-channel/channels/devrobolab/stories/030_output-styles/cut/shot_concise.png\" style=\"width:960px;height:684px;display:block\">",
+     "html": "<img src=\"{ROOT}/channels/devrobolab/stories/030_output-styles/cut/shot_concise.png\" style=\"width:960px;height:684px;display:block\">",
      "x": 60,
      "y": 540,
      "css": "",
@@ -164,7 +164,7 @@
     },
     {
      "kind": "box",
-     "html": "<img src=\"file:///home/user/story-channel/channels/devrobolab/stories/030_output-styles/cut/char_1.png\" style=\"width:560px;height:762px;display:block\">",
+     "html": "<img src=\"{ROOT}/channels/devrobolab/stories/030_output-styles/cut/char_1.png\" style=\"width:560px;height:762px;display:block\">",
      "x": 480,
      "y": 1264,
      "css": "",
@@ -199,7 +199,7 @@
    "layers": [
     {
      "kind": "box",
-     "html": "<img src=\"file:///home/user/story-channel/channels/devrobolab/stories/030_output-styles/cut/paper_bg.jpg\" style=\"width:1080px;height:1920px;display:block\">",
+     "html": "<img src=\"{ROOT}/channels/devrobolab/stories/030_output-styles/cut/paper_bg.jpg\" style=\"width:1080px;height:1920px;display:block\">",
      "x": 0,
      "y": 0,
      "css": ""
@@ -217,7 +217,7 @@
     },
     {
      "kind": "box",
-     "html": "<img src=\"file:///home/user/story-channel/channels/devrobolab/stories/030_output-styles/cut/shot_explain.png\" style=\"width:960px;height:412px;display:block\">",
+     "html": "<img src=\"{ROOT}/channels/devrobolab/stories/030_output-styles/cut/shot_explain.png\" style=\"width:960px;height:412px;display:block\">",
      "x": 60,
      "y": 540,
      "css": "",
@@ -226,7 +226,7 @@
     },
     {
      "kind": "box",
-     "html": "<img src=\"file:///home/user/story-channel/channels/devrobolab/stories/030_output-styles/cut/char_2.png\" style=\"width:640px;height:856px;display:block\">",
+     "html": "<img src=\"{ROOT}/channels/devrobolab/stories/030_output-styles/cut/char_2.png\" style=\"width:640px;height:856px;display:block\">",
      "x": 220,
      "y": 1012,
      "css": "",
@@ -252,7 +252,7 @@
    "layers": [
     {
      "kind": "box",
-     "html": "<img src=\"file:///home/user/story-channel/channels/devrobolab/stories/030_output-styles/cut/paper_bg.jpg\" style=\"width:1080px;height:1920px;display:block\">",
+     "html": "<img src=\"{ROOT}/channels/devrobolab/stories/030_output-styles/cut/paper_bg.jpg\" style=\"width:1080px;height:1920px;display:block\">",
      "x": 0,
      "y": 0,
      "css": ""
@@ -270,7 +270,7 @@
     },
     {
      "kind": "box",
-     "html": "<img src=\"file:///home/user/story-channel/channels/devrobolab/stories/030_output-styles/cut/shot_learn.png\" style=\"width:960px;height:601px;display:block\">",
+     "html": "<img src=\"{ROOT}/channels/devrobolab/stories/030_output-styles/cut/shot_learn.png\" style=\"width:960px;height:601px;display:block\">",
      "x": 60,
      "y": 540,
      "css": "",
@@ -279,7 +279,7 @@
     },
     {
      "kind": "box",
-     "html": "<img src=\"file:///home/user/story-channel/channels/devrobolab/stories/030_output-styles/cut/char_4.png\" style=\"width:560px;height:733px;display:block\">",
+     "html": "<img src=\"{ROOT}/channels/devrobolab/stories/030_output-styles/cut/char_4.png\" style=\"width:560px;height:733px;display:block\">",
      "x": 480,
      "y": 1181,
      "css": "",
@@ -314,7 +314,7 @@
    "layers": [
     {
      "kind": "box",
-     "html": "<img src=\"file:///home/user/story-channel/channels/devrobolab/stories/030_output-styles/cut/paper_bg.jpg\" style=\"width:1080px;height:1920px;display:block\">",
+     "html": "<img src=\"{ROOT}/channels/devrobolab/stories/030_output-styles/cut/paper_bg.jpg\" style=\"width:1080px;height:1920px;display:block\">",
      "x": 0,
      "y": 0,
      "css": ""
@@ -332,7 +332,7 @@
     },
     {
      "kind": "box",
-     "html": "<img src=\"file:///home/user/story-channel/channels/devrobolab/stories/030_output-styles/cut/shoe.png\" style=\"width:960px;height:684px;display:block\">",
+     "html": "<img src=\"{ROOT}/channels/devrobolab/stories/030_output-styles/cut/shoe.png\" style=\"width:960px;height:684px;display:block\">",
      "x": 60,
      "y": 600,
      "css": "",
@@ -367,7 +367,7 @@
    "layers": [
     {
      "kind": "box",
-     "html": "<img src=\"file:///home/user/story-channel/channels/devrobolab/stories/030_output-styles/cut/paper_bg.jpg\" style=\"width:1080px;height:1920px;display:block\">",
+     "html": "<img src=\"{ROOT}/channels/devrobolab/stories/030_output-styles/cut/paper_bg.jpg\" style=\"width:1080px;height:1920px;display:block\">",
      "x": 0,
      "y": 0,
      "css": ""
@@ -385,7 +385,7 @@
     },
     {
      "kind": "box",
-     "html": "<img src=\"file:///home/user/story-channel/channels/devrobolab/stories/030_output-styles/cut/shot_cmd.png\" style=\"width:960px;height:982px;display:block\">",
+     "html": "<img src=\"{ROOT}/channels/devrobolab/stories/030_output-styles/cut/shot_cmd.png\" style=\"width:960px;height:982px;display:block\">",
      "x": 60,
      "y": 540,
      "css": "",

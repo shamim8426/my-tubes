@@ -32,7 +32,7 @@
     },
     {
      "kind": "box",
-     "html": "<div style=\"width:1000px;height:912px;border-radius:26px;overflow:hidden;border:2px solid #E3E7EE;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);background:#000;position:relative\"><img src=\"file:///home/user/story-channel/channels/devrobolab/stories/028_images-2-6-gif-v3/proof/oai_speed_full.jpg\" style=\"position:absolute;left:-475.0px;top:-950.0px;width:2000.0px;height:2442.5px\"></div>",
+     "html": "<div style=\"width:1000px;height:912px;border-radius:26px;overflow:hidden;border:2px solid #E3E7EE;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);background:#000;position:relative\"><img src=\"{ROOT}/channels/devrobolab/stories/028_images-2-6-gif-v3/proof/oai_speed_full.jpg\" style=\"position:absolute;left:-475.0px;top:-950.0px;width:2000.0px;height:2442.5px\"></div>",
      "x": 40,
      "y": 560,
      "css": "",
@@ -216,7 +216,7 @@
     },
     {
      "kind": "box",
-     "html": "<div style=\"width:1000px;height:730px;border-radius:26px;overflow:hidden;border:2px solid #E3E7EE;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);background:#000;position:relative\"><img src=\"file:///home/user/story-channel/channels/devrobolab/stories/028_images-2-6-gif-v3/img/ai_flipbook.png\" style=\"position:absolute;left:-66.4px;top:-221.2px;width:1132.7px;height:1132.7px\"></div>",
+     "html": "<div style=\"width:1000px;height:730px;border-radius:26px;overflow:hidden;border:2px solid #E3E7EE;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);background:#000;position:relative\"><img src=\"{ROOT}/channels/devrobolab/stories/028_images-2-6-gif-v3/img/ai_flipbook.png\" style=\"position:absolute;left:-66.4px;top:-221.2px;width:1132.7px;height:1132.7px\"></div>",
      "x": 40,
      "y": 560,
      "css": "",
@@ -357,7 +357,7 @@
     },
     {
      "kind": "box",
-     "html": "<div style=\"width:1000px;height:701px;border-radius:26px;overflow:hidden;border:2px solid #E3E7EE;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);background:#000;position:relative\"><img src=\"file:///home/user/story-channel/channels/devrobolab/stories/028_images-2-6-gif-v3/img/ai_filmstrip.png\" style=\"position:absolute;left:-20.3px;top:-193.1px;width:1040.7px;height:1040.7px\"></div>",
+     "html": "<div style=\"width:1000px;height:701px;border-radius:26px;overflow:hidden;border:2px solid #E3E7EE;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);background:#000;position:relative\"><img src=\"{ROOT}/channels/devrobolab/stories/028_images-2-6-gif-v3/img/ai_filmstrip.png\" style=\"position:absolute;left:-20.3px;top:-193.1px;width:1040.7px;height:1040.7px\"></div>",
      "x": 40,
      "y": 560,
      "css": "",
@@ -530,7 +530,7 @@
     },
     {
      "kind": "box",
-     "html": "<div style=\"width:800px;height:800px;border-radius:26px;overflow:hidden;border:2px solid #E3E7EE;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);background:#000;position:relative\"><img src=\"file:///home/user/story-channel/channels/devrobolab/stories/028_images-2-6-gif-v3/img/ai_sprites.png\" style=\"position:absolute;left:0.0px;top:0.0px;width:800.0px;height:800.0px\"></div>",
+     "html": "<div style=\"width:800px;height:800px;border-radius:26px;overflow:hidden;border:2px solid #E3E7EE;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);background:#000;position:relative\"><img src=\"{ROOT}/channels/devrobolab/stories/028_images-2-6-gif-v3/img/ai_sprites.png\" style=\"position:absolute;left:0.0px;top:0.0px;width:800.0px;height:800.0px\"></div>",
      "x": 140,
      "y": 400,
      "css": "",
@@ -716,7 +716,7 @@
     },
     {
      "kind": "box",
-     "html": "<div style=\"width:1000px;height:700px;border-radius:26px;overflow:hidden;border:2px solid #E3E7EE;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);background:#000;position:relative\"><img src=\"file:///home/user/story-channel/channels/devrobolab/stories/028_images-2-6-gif-v3/proof/oai_avail_full.jpg\" style=\"position:absolute;left:-475.0px;top:-962.5px;width:2000.0px;height:2442.5px\"></div>",
+     "html": "<div style=\"width:1000px;height:700px;border-radius:26px;overflow:hidden;border:2px solid #E3E7EE;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);background:#000;position:relative\"><img src=\"{ROOT}/channels/devrobolab/stories/028_images-2-6-gif-v3/proof/oai_avail_full.jpg\" style=\"position:absolute;left:-475.0px;top:-962.5px;width:2000.0px;height:2442.5px\"></div>",
      "x": 40,
      "y": 560,
      "css": "",
@@ -890,7 +890,7 @@
     },
     {
      "kind": "box",
-     "html": "<div style=\"width:1000px;height:385px;border-radius:26px;overflow:hidden;border:2px solid #E3E7EE;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);background:#000;position:relative\"><img src=\"file:///home/user/story-channel/channels/devrobolab/stories/028_images-2-6-gif-v3/img/oai_0.png\" style=\"position:absolute;left:0.0px;top:0.0px;width:1000.0px;height:384.6px\"></div>",
+     "html": "<div style=\"width:1000px;height:385px;border-radius:26px;overflow:hidden;border:2px solid #E3E7EE;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);background:#000;position:relative\"><img src=\"{ROOT}/channels/devrobolab/stories/028_images-2-6-gif-v3/img/oai_0.png\" style=\"position:absolute;left:0.0px;top:0.0px;width:1000.0px;height:384.6px\"></div>",
      "x": 40,
      "y": 400,
      "css": "",
@@ -909,7 +909,7 @@
     },
     {
      "kind": "box",
-     "html": "<div style=\"width:1000px;height:269px;border-radius:26px;overflow:hidden;border:2px solid #E3E7EE;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);background:#000;position:relative\"><img src=\"file:///home/user/story-channel/channels/devrobolab/stories/028_images-2-6-gif-v3/img/oai_1.png\" style=\"position:absolute;left:0.0px;top:0.0px;width:1000.0px;height:269.2px\"></div>",
+     "html": "<div style=\"width:1000px;height:269px;border-radius:26px;overflow:hidden;border:2px solid #E3E7EE;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);background:#000;position:relative\"><img src=\"{ROOT}/channels/devrobolab/stories/028_images-2-6-gif-v3/img/oai_1.png\" style=\"position:absolute;left:0.0px;top:0.0px;width:1000.0px;height:269.2px\"></div>",
      "x": 40,
      "y": 1025,
      "css": "",

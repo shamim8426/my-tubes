@@ -22,7 +22,7 @@
    "layers": [
     {
      "kind": "box",
-     "html": "<img src=\"file:///D:/my-tubes/channels/devrobolab/stories/025_ai-news-digest-2026-11-05/img/hook.png\" style=\"width:500px;height:300px;object-fit:cover;border-radius:34px;display:block\">",
+     "html": "<img src=\"{ROOT}/channels/devrobolab/stories/025_ai-news-digest-2026-11-05/img/hook.png\" style=\"width:500px;height:300px;object-fit:cover;border-radius:34px;display:block\">",
      "x": 560,
      "y": 640,
      "css": "border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
@@ -917,7 +917,7 @@
     },
     {
      "kind": "box",
-     "html": "<img src=\"file:///D:/my-tubes/channels/devrobolab/stories/025_ai-news-digest-2026-11-05/img/open.png\" style=\"width:590px;height:300px;object-fit:cover;border-radius:34px;display:block\">",
+     "html": "<img src=\"{ROOT}/channels/devrobolab/stories/025_ai-news-digest-2026-11-05/img/open.png\" style=\"width:590px;height:300px;object-fit:cover;border-radius:34px;display:block\">",
      "x": 1230,
      "y": 120,
      "css": "border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
@@ -1524,7 +1524,7 @@
     },
     {
      "kind": "box",
-     "html": "<img src=\"file:///D:/my-tubes/channels/devrobolab/stories/025_ai-news-digest-2026-11-05/img/wave.png\" style=\"width:590px;height:300px;object-fit:cover;border-radius:34px;display:block\">",
+     "html": "<img src=\"{ROOT}/channels/devrobolab/stories/025_ai-news-digest-2026-11-05/img/wave.png\" style=\"width:590px;height:300px;object-fit:cover;border-radius:34px;display:block\">",
      "x": 1230,
      "y": 120,
      "css": "border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
