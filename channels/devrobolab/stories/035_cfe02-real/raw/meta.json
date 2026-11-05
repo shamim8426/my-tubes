@@ -31,7 +31,18 @@
    "h": 2592
   }
  ],
- "documents": [],
+ "documents": [
+  {
+   "file": "raw/documents_0.jpg",
+   "title": "Lack of paper documents",
+   "creator": "Ірина Бучнєва",
+   "license": "cc0",
+   "source": "wikimedia",
+   "landing": "https://commons.wikimedia.org/w/index.php?curid=160900789",
+   "w": 3072,
+   "h": 4080
+  }
+ ],
  "checklist": [
   {
    "file": "raw/checklist_0.jpg",
@@ -44,5 +55,71 @@
    "h": 3840
   }
  ],
- "library2": []
+ "library2": [],
+ "doors": [
+  {
+   "file": "raw/doors_0.jpg",
+   "title": "President MPLA, heer Neto door Den Uyl ontvangen premier Den Uyl en A Neto (r), Bestanddeelnr 927-8518 (cropped)",
+   "creator": "Rob Mieremet / Anefo",
+   "license": "cc0",
+   "source": "wikimedia",
+   "landing": "https://commons.wikimedia.org/w/index.php?curid=73513655",
+   "w": 1276,
+   "h": 1702
+  },
+  {
+   "file": "raw/doors_1.jpg",
+   "title": "Persconferentie in het Carltonhotel door filmactrice Haya Harareet, Bestanddeelnr 911-6572",
+   "creator": "Harry Pot / Anefo",
+   "license": "cc0",
+   "source": "wikimedia",
+   "landing": "https://commons.wikimedia.org/w/index.php?curid=68086583",
+   "w": 2466,
+   "h": 3606
+  }
+ ],
+ "pencils": [
+  {
+   "file": "raw/pencils_0.jpg",
+   "title": "Colored Pencils",
+   "creator": "Jess Watters",
+   "license": "cc0",
+   "source": "stocksnap",
+   "landing": "https://stocksnap.io/photo/colored-pencils-SWKBAF0RNQ",
+   "w": 4608,
+   "h": 3456
+  },
+  {
+   "file": "raw/pencils_1.jpg",
+   "title": "Equus ovodovi colored-pencil-sketch",
+   "creator": "Dynamoterror1011",
+   "license": "cc0",
+   "source": "wikimedia",
+   "landing": "https://commons.wikimedia.org/w/index.php?curid=151877279",
+   "w": 2696,
+   "h": 1943
+  },
+  {
+   "file": "raw/pencils_2.jpg",
+   "title": "Colorful Pencils",
+   "creator": "Artsy Crafty",
+   "license": "cc0",
+   "source": "stocksnap",
+   "landing": "https://stocksnap.io/photo/colorful-pencils-Z8EF7IZ8OR",
+   "w": 4928,
+   "h": 3264
+  }
+ ],
+ "binders": [
+  {
+   "file": "raw/binders_0.jpg",
+   "title": "Free office file",
+   "creator": null,
+   "license": "cc0",
+   "source": "rawpixel",
+   "landing": "https://www.rawpixel.com/image/5921402/free-office-file-public-domain-cc0-photo",
+   "w": 4232,
+   "h": 2817
+  }
+ ]
 }
