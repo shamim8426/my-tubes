@@ -9,4 +9,4 @@ Each series has its own folder and its own YouTube playlist. Story folders stay 
 | Claude for Everyone (Claude app features for ordinary people, long) | series/claude-for-everyone | PLEklr-qY9V3U | running from 2026-11-05 evening |
 | Feature Comparisons (Claude vs other AI models, long) | series/feature-comparisons | PLCqOgh2MnZ8I | playlist only; videos planned LATER |
 
-Daily plan (user 2026-11-05, final): 08:00 AI news long + Short; 14:00 Claude Code feature long + Short; 20:00 Claude for Everyone long + Short. Each Short is the most interesting part of its long video and points back to it. Common rules: DAILY_COMMON.md. Feature comparison videos are NOT built yet.
+Daily plan (user 2026-11-05, final): 08:00 AI news Short only (no long); 14:00 Claude Code feature long + Short; 20:00 Claude for Everyone long + Short. Each Short is the most interesting part of its long video and points back to it. Common rules: DAILY_COMMON.md. Feature comparison videos are NOT built yet.

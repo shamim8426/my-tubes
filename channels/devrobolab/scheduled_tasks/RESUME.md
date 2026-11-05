@@ -1,7 +1,7 @@
 # DevRoboLab: resume on another Claude account or PC (keyword: "devrobolab resume karo")
 
-Plan (user 2026-11-05, final): 3 long + 3 Shorts a day, all uploaded PRIVATE.
-- 08:00 `devrobolab-daily-videos`: AI news long (real assets) + Short
+Plan (user 2026-11-05, final): 2 long + 3 Shorts a day, all uploaded PRIVATE.
+- 08:00 `devrobolab-daily-videos`: AI news SHORT only (real assets, no long video)
 - 14:00 `devrobolab-afternoon-videos`: Claude Code feature long + Short
 - 20:00 `devrobolab-evening-videos`: Claude for Everyone long + Short
 Rules: DAILY_COMMON.md (all runs), series/*/README.md, STYLE_GUIDE.md, NEWS_WATCH.md.

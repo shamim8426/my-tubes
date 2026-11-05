@@ -1204,3 +1204,9 @@ timestamp,file,model,size,cost_usd,cost_inr,today_total_inr,remaining_inr,channe
 2026-11-05 11:40:48,channels/devrobolab/stories/027_images-2-6-gif-short/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 7.4s,0.00169,0.16,10.23,544.81,devrobolab,0.17,0.1630,0.03,31,186
 2026-11-05 11:40:55,channels/devrobolab/stories/027_images-2-6-gif-short/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 9.4s,0.00212,0.21,10.47,544.57,devrobolab,0.21,0.2051,0.04,38,234
 2026-11-05 11:40:56,channels/devrobolab/stories/027_images-2-6-gif-short/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 8.9s,0.00203,0.20,10.70,544.34,devrobolab,0.20,0.1955,0.04,38,223
+2026-11-05 11:41:02,channels/devrobolab/stories/027_images-2-6-gif-short/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 9.2s,0.00208,0.20,10.94,544.10,devrobolab,0.21,0.2004,0.04,32,229
+2026-11-05 11:41:05,channels/devrobolab/stories/027_images-2-6-gif-short/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 9.1s,0.00207,0.20,11.17,543.86,devrobolab,0.21,0.1996,0.04,32,228
+2026-11-05 11:41:10,channels/devrobolab/stories/027_images-2-6-gif-short/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 9.1s,0.00207,0.20,11.41,543.63,devrobolab,0.21,0.1997,0.04,35,228
+2026-11-05 11:41:14,channels/devrobolab/stories/027_images-2-6-gif-short/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 8.9s,0.00202,0.20,11.64,543.40,devrobolab,0.20,0.1954,0.04,35,223
+2026-11-05 11:41:18,channels/devrobolab/stories/027_images-2-6-gif-short/audio/tts/s_06.wav,gemini-3.8-flash-tts,tts 4.4s,0.00101,0.10,11.75,543.28,devrobolab,0.10,0.0972,0.02,17,111
+2026-11-05 11:41:21,channels/devrobolab/stories/027_images-2-6-gif-short/audio/tts/s_06.wav,gemini-3.8-flash-tts,tts 4.0s,0.00092,0.09,11.86,543.18,devrobolab,0.09,0.0885,0.02,17,101
