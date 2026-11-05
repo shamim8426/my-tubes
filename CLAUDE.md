@@ -161,3 +161,6 @@ econcile_balance.py <AI Studio balance ₹>` (pehli baar checkpoint), Long 03 ke
 - Session shuru me `INDEX.md` padho. User kisi topic (jaise Kaggle) ka zikr kare to pehle `topics/<topic>.md` padho, phir kaam karo.
 - Bade kadam ke baad ya jab user "memory update karo" bole: topic file EDIT karo (Current status rewrite, Decisions / Known issues jodo, pure Next steps hatao; session ki diary append mat karo), INDEX ki uski line badlo (max 120 chars), phir commit + push: `memory: <topic> <what changed>` (simple English).
 - Memory me secret/token kabhi nahi, sirf env var ka naam. "memory saaf karo" = duplicates merge, khatam topics `archive/` me, INDEX ~100 lines se kam.
+
+## DevRoboLab daily runs (user 2026-11-05)
+- Keyword "devrobolab resume karo" (any Claude account or PC): read `channels/devrobolab/scheduled_tasks/RESUME.md` and follow it (recreates the 08:00 / 14:00 / 20:00 tasks from the backups in that folder, checks keys and balance, runs only what is missing). Common run rules: `channels/devrobolab/DAILY_COMMON.md`.
