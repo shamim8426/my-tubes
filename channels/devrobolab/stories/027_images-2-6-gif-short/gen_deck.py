@@ -34,7 +34,7 @@ L = [tx("**Image** ab **GIF** banegi", 80, 230, 104, 920, 0.1),
      box('<div style="font-size:190px;font-weight:800;line-height:1">50%</div><div style="font-size:42px;font-weight:700;color:#444">tez (page ke hisaab se)</div>', 130, 700, f"background:#FFD60A;border-radius:40px;padding:30px 70px;{SHADOW}", wig="पचास|0.2", **pop("पचास", -0.3)),
      ic("sparkle", 760, 900, 190, cue="GIF", off=0.0, float=8, wig="GIF|0.3"),
      dict(kind="img", img="wave", size=330, x=640, y=1560, bob=1, k=[["ChatGPT|0.2", {"x": 1200, "o": 1}], ["ChatGPT|1.0", {"x": 640}]])]
-L = L + proof_win("oai_0", 880, 338, "Official page", CREDIT, "पेज", 100, 1060)
+L = L + proof_win("oai_0", 880, 338, "Official page", CREDIT, "पेज", 100, 1140)
 S.append(dict(id="hook", type="stage", wipe="fade", voice=V, layers=L))
 
 V = "GIF यानी एक छोटा loop वाला animation। जैसे flipbook, जिसके पन्ने तेज़ी से पलटो तो तस्वीर चलती दिखती है।"

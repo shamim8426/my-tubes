@@ -6,3 +6,4 @@
 - API price: page only says "See pricing details here" (a link), so the video says "page me nahi likha".
 - Our own wording (not page text): the flipbook analogy; "Kya chala sakte ho?" cards (mascot/character, product photo are from the page); numbers 1-6 grid is an illustration.
 No claims beyond the page. Short is not affiliated with OpenAI (description says so).
+- Proof windows (v2): two real screenshots of the official page taken 2026-11-05 in the in-app browser, key sentences marked yellow by us (img/oai_0.png, img/oai_1.png; originals in proof/). Minor: the robot's antenna touches the credit line for about 1 s in scene 1.
