@@ -1211,3 +1211,6 @@ timestamp,file,model,size,cost_usd,cost_inr,today_total_inr,remaining_inr,channe
 2026-11-05 11:41:18,channels/devrobolab/stories/027_images-2-6-gif-short/audio/tts/s_06.wav,gemini-3.8-flash-tts,tts 4.4s,0.00101,0.10,11.75,543.28,devrobolab,0.10,0.0972,0.02,17,111
 2026-11-05 11:41:21,channels/devrobolab/stories/027_images-2-6-gif-short/audio/tts/s_06.wav,gemini-3.8-flash-tts,tts 4.0s,0.00092,0.09,11.86,543.18,devrobolab,0.09,0.0885,0.02,17,101
 2026-11-05 12:54:15,channels/devrobolab/stories/027_images-2-6-gif-short/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 9.6s,0.00217,0.21,12.11,542.93,devrobolab,0.22,0.2093,0.04,36,239
+2026-11-05 15:24:11,channels/devrobolab/stories/028_images-2-6-gif-v3/img/ai_flipbook.png,cf-flux-2-klein-4b,1024x1024 free,0.00000,0.00,12.11,542.93,devrobolab,0.00,0.0000,0.00,,
+2026-11-05 15:24:17,channels/devrobolab/stories/028_images-2-6-gif-v3/img/ai_filmstrip.png,cf-flux-2-klein-4b,1024x1024 free,0.00000,0.00,12.11,542.93,devrobolab,0.00,0.0000,0.00,,
+2026-11-05 15:24:24,channels/devrobolab/stories/028_images-2-6-gif-v3/img/ai_sprites.png,cf-flux-2-klein-4b,1024x1024 free,0.00000,0.00,12.11,542.93,devrobolab,0.00,0.0000,0.00,,

@@ -1,0 +1,1220 @@
+{
+ "_note": "Short 028 = 027 rebuilt in Visual Standard v2: big real official-page screenshots + free AI illustrations (labelled). Source https://openai.com/index/introducing-images-2-6",
+ "tag": "AI News",
+ "bg": "#F3F5F9",
+ "bgGrid": true,
+ "music": {
+  "file": "shared/music/presentation/Funkorama.mp3",
+  "start": 6,
+  "rel": 12
+ },
+ "voice": {
+  "id": "Charon",
+  "style": "Speak like a friendly Indian tech YouTuber chatting casually in Hinglish. Natural conversational pace, warm and clear, a little energetic but not theatrical. No sing-song, no exaggerated emphasis."
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "ChatGPT अब आपकी image को GIF बना सकता है। OpenAI ने Images 2.6 launch किया है, और पेज के हिसाब से images पचास percent तेज़ बनती हैं।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "**Image** ab **GIF** banegi",
+     "x": 60,
+     "y": 170,
+     "size": 84,
+     "w": 980,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:1000px;height:912px;border-radius:26px;overflow:hidden;border:2px solid #E3E7EE;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);background:#000;position:relative\"><img src=\"file:///home/user/story-channel/channels/devrobolab/stories/028_images-2-6-gif-v3/proof/oai_speed_full.jpg\" style=\"position:absolute;left:-475.0px;top:-950.0px;width:2000.0px;height:2442.5px\"></div>",
+     "x": 40,
+     "y": 560,
+     "css": "",
+     "push": 9,
+     "in": "पेज|-0.5",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:32px;font-weight:800\">Official website · openai.com</div>",
+     "x": 40,
+     "y": 366,
+     "css": "background:#FFD60A;border-radius:999px;padding:8px 30px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "पेज|-0.3",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:28px;font-weight:700;color:#445\">Source: openai.com/index/introducing-images-2-6 · 4 Nov 2026</div>",
+     "x": 40,
+     "y": 1488,
+     "css": "",
+     "in": "पेज|-0.09999999999999998",
+     "spring": true
+    },
+    {
+     "kind": "img",
+     "img": "wave",
+     "size": 330,
+     "x": 640,
+     "y": 1580,
+     "bob": 1,
+     "k": [
+      [
+       "ChatGPT|0.2",
+       {
+        "x": 1200,
+        "o": 1
+       }
+      ],
+      [
+       "ChatGPT|1.0",
+       {
+        "x": 640
+       }
+      ]
+     ]
+    }
+   ],
+   "wt": [
+    [
+     0,
+     0.0
+    ],
+    [
+     8,
+     0.56
+    ],
+    [
+     11,
+     0.88
+    ],
+    [
+     16,
+     1.26
+    ],
+    [
+     22,
+     1.52
+    ],
+    [
+     25,
+     1.68
+    ],
+    [
+     29,
+     1.96
+    ],
+    [
+     33,
+     2.16
+    ],
+    [
+     38,
+     3.14
+    ],
+    [
+     42,
+     3.56
+    ],
+    [
+     49,
+     3.82
+    ],
+    [
+     52,
+     4.14
+    ],
+    [
+     59,
+     4.32
+    ],
+    [
+     63,
+     5.02
+    ],
+    [
+     70,
+     5.16
+    ],
+    [
+     75,
+     5.54
+    ],
+    [
+     79,
+     5.84
+    ],
+    [
+     82,
+     6.18
+    ],
+    [
+     86,
+     6.32
+    ],
+    [
+     89,
+     6.76
+    ],
+    [
+     95,
+     6.98
+    ],
+    [
+     98,
+     7.14
+    ],
+    [
+     105,
+     7.2
+    ],
+    [
+     110,
+     7.48
+    ],
+    [
+     118,
+     7.9
+    ],
+    [
+     123,
+     8.14
+    ],
+    [
+     128,
+     8.42
+    ],
+    [
+     132,
+     8.8
+    ]
+   ]
+  },
+  {
+   "id": "analogy",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "GIF यानी एक छोटा loop वाला animation। जैसे flipbook, जिसके पन्ने तेज़ी से पलटो तो तस्वीर चलती दिखती है।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "**GIF** = chhota loop",
+     "x": 60,
+     "y": 170,
+     "size": 84,
+     "w": 980,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:1000px;height:730px;border-radius:26px;overflow:hidden;border:2px solid #E3E7EE;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);background:#000;position:relative\"><img src=\"file:///home/user/story-channel/channels/devrobolab/stories/028_images-2-6-gif-v3/img/ai_flipbook.png\" style=\"position:absolute;left:-66.4px;top:-221.2px;width:1132.7px;height:1132.7px\"></div>",
+     "x": 40,
+     "y": 560,
+     "css": "",
+     "push": 9,
+     "in": "flipbook|-0.4",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:32px;font-weight:800\">AI illustration (flipbook)</div>",
+     "x": 40,
+     "y": 366,
+     "css": "background:#FFD60A;border-radius:999px;padding:8px 30px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "flipbook|-0.2",
+     "spring": true
+    },
+    {
+     "kind": "text",
+     "html": "page ke hisaab se: **loop** wali image",
+     "x": 80,
+     "y": 1370,
+     "size": 76,
+     "w": 920,
+     "stream": true,
+     "step": 0.14,
+     "sat": "छोटा|0.0"
+    },
+    {
+     "kind": "icon",
+     "name": "play",
+     "x": 780,
+     "y": 1650,
+     "size": 170,
+     "in": "चलती|0.0",
+     "spring": true,
+     "pulse": 1.0
+    }
+   ],
+   "wt": [
+    [
+     0,
+     0.0
+    ],
+    [
+     4,
+     0.78
+    ],
+    [
+     9,
+     0.86
+    ],
+    [
+     12,
+     1.04
+    ],
+    [
+     17,
+     1.32
+    ],
+    [
+     22,
+     1.76
+    ],
+    [
+     27,
+     2.2
+    ],
+    [
+     38,
+     2.76
+    ],
+    [
+     43,
+     3.28
+    ],
+    [
+     53,
+     4.02
+    ],
+    [
+     59,
+     4.42
+    ],
+    [
+     65,
+     4.64
+    ],
+    [
+     71,
+     5.66
+    ],
+    [
+     74,
+     6.16
+    ],
+    [
+     79,
+     6.32
+    ],
+    [
+     82,
+     6.66
+    ],
+    [
+     89,
+     7.4
+    ],
+    [
+     94,
+     7.74
+    ],
+    [
+     100,
+     8.02
+    ],
+    [
+     103,
+     8.4
+    ]
+   ]
+  },
+  {
+   "id": "what",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "पेज के हिसाब से आप अपने mascot या character को चला सकते हो, या product की फोटो को एक eye-catching loop में बदल सकते हो।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "**Kya** chala sakte ho?",
+     "x": 60,
+     "y": 170,
+     "size": 84,
+     "w": 980,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:1000px;height:701px;border-radius:26px;overflow:hidden;border:2px solid #E3E7EE;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);background:#000;position:relative\"><img src=\"file:///home/user/story-channel/channels/devrobolab/stories/028_images-2-6-gif-v3/img/ai_filmstrip.png\" style=\"position:absolute;left:-20.3px;top:-193.1px;width:1040.7px;height:1040.7px\"></div>",
+     "x": 40,
+     "y": 560,
+     "css": "",
+     "push": 9,
+     "in": "product|-0.6",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:32px;font-weight:800\">AI illustration (film strip)</div>",
+     "x": 40,
+     "y": 366,
+     "css": "background:#FFD60A;border-radius:999px;padding:8px 30px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "product|-0.39999999999999997",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:52px;font-weight:800\">Mascot ya character</div>",
+     "x": 60,
+     "y": 1300,
+     "css": "background:#fff;border:2px solid #E3E7EE;border-radius:999px;padding:16px 40px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "mascot|-0.2",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:52px;font-weight:800\">Product ki photo</div>",
+     "x": 60,
+     "y": 1440,
+     "css": "background:#14171C;color:#fff;border-radius:999px;padding:16px 40px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "product|-0.2",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:90px;font-weight:800;line-height:1\">&rarr; GIF</div>",
+     "x": 620,
+     "y": 1600,
+     "css": "background:#FFD60A;border-radius:34px;padding:22px 50px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "wig": "loop|0.0",
+     "float": 6,
+     "in": "loop|-0.3",
+     "spring": true
+    }
+   ],
+   "wt": [
+    [
+     0,
+     0.0
+    ],
+    [
+     4,
+     0.64
+    ],
+    [
+     7,
+     0.8
+    ],
+    [
+     13,
+     1.12
+    ],
+    [
+     16,
+     1.32
+    ],
+    [
+     19,
+     1.46
+    ],
+    [
+     24,
+     1.54
+    ],
+    [
+     31,
+     1.6
+    ],
+    [
+     34,
+     1.72
+    ],
+    [
+     44,
+     2.38
+    ],
+    [
+     47,
+     2.96
+    ],
+    [
+     51,
+     3.06
+    ],
+    [
+     56,
+     3.28
+    ],
+    [
+     60,
+     3.62
+    ],
+    [
+     63,
+     3.76
+    ],
+    [
+     71,
+     4.78
+    ],
+    [
+     74,
+     4.96
+    ],
+    [
+     79,
+     5.26
+    ],
+    [
+     82,
+     5.4
+    ],
+    [
+     85,
+     5.58
+    ],
+    [
+     98,
+     5.88
+    ],
+    [
+     103,
+     6.26
+    ],
+    [
+     107,
+     6.56
+    ],
+    [
+     111,
+     6.8
+    ],
+    [
+     116,
+     7.08
+    ],
+    [
+     119,
+     7.44
+    ]
+   ]
+  },
+  {
+   "id": "example",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "पेज पर एक example prompt है। उसमें छह frames वाली sprite sheet माँगी गई है, तीन columns और दो rows में, ताकि आख़िरी frame घूमकर पहले पर लौटे।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "**6 frames**, 3 x 2",
+     "x": 60,
+     "y": 170,
+     "size": 84,
+     "w": 980,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:800px;height:800px;border-radius:26px;overflow:hidden;border:2px solid #E3E7EE;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);background:#000;position:relative\"><img src=\"file:///home/user/story-channel/channels/devrobolab/stories/028_images-2-6-gif-v3/img/ai_sprites.png\" style=\"position:absolute;left:0.0px;top:0.0px;width:800.0px;height:800.0px\"></div>",
+     "x": 140,
+     "y": 400,
+     "css": "",
+     "push": 9,
+     "in": "sprite|-0.4",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:32px;font-weight:800\">AI illustration (sprite sheet idea)</div>",
+     "x": 140,
+     "y": 326,
+     "css": "background:#FFD60A;border-radius:999px;padding:8px 30px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "sprite|-0.2",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div class=\"mono\" style=\"font-size:36px;font-weight:700;line-height:1.35;color:#fff\">sprite sheet, seamless looping GIF,<br><span style=\"color:#FFD60A\">exactly 6 frames</span>, 3 columns x 2 rows</div>",
+     "x": 80,
+     "y": 1410,
+     "css": "background:#14171C;border-radius:26px;padding:26px 36px;width:880px;box-sizing:border-box",
+     "in": "छह|-0.4",
+     "spring": true
+    },
+    {
+     "kind": "text",
+     "html": "last frame **pehle par** lautta hai",
+     "x": 80,
+     "y": 1680,
+     "size": 70,
+     "w": 920,
+     "stream": true,
+     "step": 0.14,
+     "sat": "आख़िरी|0.0"
+    }
+   ],
+   "wt": [
+    [
+     0,
+     0.0
+    ],
+    [
+     4,
+     0.62
+    ],
+    [
+     7,
+     0.74
+    ],
+    [
+     10,
+     0.82
+    ],
+    [
+     18,
+     1.92
+    ],
+    [
+     25,
+     2.1
+    ],
+    [
+     29,
+     2.3
+    ],
+    [
+     35,
+     2.3
+    ],
+    [
+     38,
+     2.54
+    ],
+    [
+     45,
+     2.96
+    ],
+    [
+     50,
+     3.18
+    ],
+    [
+     57,
+     3.56
+    ],
+    [
+     63,
+     3.76
+    ],
+    [
+     69,
+     4.06
+    ],
+    [
+     72,
+     4.58
+    ],
+    [
+     76,
+     5.0
+    ],
+    [
+     80,
+     5.38
+    ],
+    [
+     88,
+     5.5
+    ],
+    [
+     91,
+     5.66
+    ],
+    [
+     94,
+     5.94
+    ],
+    [
+     99,
+     6.28
+    ],
+    [
+     104,
+     6.28
+    ],
+    [
+     109,
+     6.56
+    ],
+    [
+     116,
+     7.02
+    ],
+    [
+     122,
+     7.28
+    ],
+    [
+     128,
+     7.7
+    ],
+    [
+     133,
+     8.12
+    ],
+    [
+     136,
+     8.28
+    ],
+    [
+     141,
+     8.88
+    ]
+   ]
+  },
+  {
+   "id": "caution",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "ध्यान रखो: API का दाम इस पेज पर नहीं लिखा। पेज सिर्फ इतना कहता है कि ChatGPT और Codex में ये सभी subscription tiers पर मिल रहा है।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "**Dhyan** rakho",
+     "x": 60,
+     "y": 170,
+     "size": 84,
+     "w": 780,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:120px;height:120px;border-radius:60px;background:#FFD60A;display:flex;align-items:center;justify-content:center;font-size:84px;font-weight:800\">!</div>",
+     "x": 880,
+     "y": 175,
+     "css": "",
+     "wig": "दाम|0.4",
+     "in": "ध्यान|0.0",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:1000px;height:700px;border-radius:26px;overflow:hidden;border:2px solid #E3E7EE;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);background:#000;position:relative\"><img src=\"file:///home/user/story-channel/channels/devrobolab/stories/028_images-2-6-gif-v3/proof/oai_avail_full.jpg\" style=\"position:absolute;left:-475.0px;top:-962.5px;width:2000.0px;height:2442.5px\"></div>",
+     "x": 40,
+     "y": 560,
+     "css": "",
+     "push": 9,
+     "in": "सभी|-0.6",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:32px;font-weight:800\">Official website · openai.com</div>",
+     "x": 40,
+     "y": 366,
+     "css": "background:#FFD60A;border-radius:999px;padding:8px 30px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "सभी|-0.39999999999999997",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:28px;font-weight:700;color:#445\">Source: openai.com/index/introducing-images-2-6 · 4 Nov 2026</div>",
+     "x": 40,
+     "y": 1276,
+     "css": "",
+     "in": "सभी|-0.19999999999999996",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:900px;padding:34px 44px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"font-size:50px;font-weight:800\">API ka daam</div><div style=\"font-size:42px;font-weight:700;color:#444;margin-top:8px\">page me nahi likha</div></div>",
+     "x": 90,
+     "y": 1380,
+     "css": "",
+     "in": "दाम|-0.3",
+     "spring": true
+    }
+   ],
+   "wt": [
+    [
+     0,
+     0.0
+    ],
+    [
+     6,
+     0.72
+    ],
+    [
+     11,
+     1.34
+    ],
+    [
+     15,
+     1.8
+    ],
+    [
+     18,
+     2.1
+    ],
+    [
+     22,
+     2.36
+    ],
+    [
+     25,
+     2.62
+    ],
+    [
+     29,
+     2.62
+    ],
+    [
+     32,
+     2.82
+    ],
+    [
+     37,
+     2.96
+    ],
+    [
+     43,
+     3.8
+    ],
+    [
+     47,
+     4.22
+    ],
+    [
+     53,
+     4.44
+    ],
+    [
+     58,
+     4.78
+    ],
+    [
+     63,
+     5.14
+    ],
+    [
+     66,
+     5.36
+    ],
+    [
+     69,
+     5.5
+    ],
+    [
+     77,
+     5.8
+    ],
+    [
+     80,
+     6.26
+    ],
+    [
+     86,
+     6.48
+    ],
+    [
+     90,
+     6.94
+    ],
+    [
+     93,
+     6.94
+    ],
+    [
+     97,
+     7.08
+    ],
+    [
+     110,
+     7.18
+    ],
+    [
+     116,
+     7.62
+    ],
+    [
+     119,
+     8.42
+    ],
+    [
+     123,
+     8.54
+    ],
+    [
+     127,
+     8.68
+    ],
+    [
+     130,
+     9.12
+    ]
+   ]
+  },
+  {
+   "id": "recap",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "तो याद रखो: Images 2.6 में अपनी image को GIF बना सकते हो, और images पचास percent तेज़ बनती हैं। ये सब subscription tiers पर मिल रहा है।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "**Yaad** rakho",
+     "x": 60,
+     "y": 170,
+     "size": 84,
+     "w": 980,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:1000px;height:385px;border-radius:26px;overflow:hidden;border:2px solid #E3E7EE;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);background:#000;position:relative\"><img src=\"file:///home/user/story-channel/channels/devrobolab/stories/028_images-2-6-gif-v3/img/oai_0.png\" style=\"position:absolute;left:0.0px;top:0.0px;width:1000.0px;height:384.6px\"></div>",
+     "x": 40,
+     "y": 400,
+     "css": "",
+     "push": 9,
+     "in": "GIF|-0.4",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:32px;font-weight:800\">Images 2.6: 50% faster</div>",
+     "x": 40,
+     "y": 326,
+     "css": "background:#FFD60A;border-radius:999px;padding:8px 30px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "GIF|-0.2",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:1000px;height:269px;border-radius:26px;overflow:hidden;border:2px solid #E3E7EE;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);background:#000;position:relative\"><img src=\"file:///home/user/story-channel/channels/devrobolab/stories/028_images-2-6-gif-v3/img/oai_1.png\" style=\"position:absolute;left:0.0px;top:0.0px;width:1000.0px;height:269.2px\"></div>",
+     "x": 40,
+     "y": 1025,
+     "css": "",
+     "push": 9,
+     "in": "subscription|-0.4",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:32px;font-weight:800\">Available on all tiers</div>",
+     "x": 40,
+     "y": 951,
+     "css": "background:#FFD60A;border-radius:999px;padding:8px 30px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "subscription|-0.2",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:72px;font-weight:800\">Image <span style=\"background:#FFD60A;padding:0 12px;border-radius:12px\">&rarr; GIF</span></div>",
+     "x": 60,
+     "y": 1660,
+     "css": "",
+     "in": "GIF|-0.2",
+     "spring": true
+    },
+    {
+     "kind": "img",
+     "img": "thumbs",
+     "size": 330,
+     "x": 680,
+     "y": 1540,
+     "bob": 1,
+     "k": [
+      [
+       "subscription|-0.3",
+       {
+        "o": 0
+       }
+      ],
+      [
+       "subscription|0.0",
+       {
+        "o": 1
+       }
+      ]
+     ]
+    }
+   ],
+   "wt": [
+    [
+     0,
+     0.0
+    ],
+    [
+     3,
+     0.46
+    ],
+    [
+     7,
+     0.7
+    ],
+    [
+     12,
+     1.24
+    ],
+    [
+     19,
+     1.78
+    ],
+    [
+     23,
+     1.92
+    ],
+    [
+     27,
+     2.34
+    ],
+    [
+     32,
+     2.52
+    ],
+    [
+     37,
+     3.0
+    ],
+    [
+     44,
+     3.38
+    ],
+    [
+     49,
+     3.88
+    ],
+    [
+     57,
+     4.32
+    ],
+    [
+     62,
+     4.76
+    ],
+    [
+     67,
+     5.0
+    ],
+    [
+     72,
+     5.54
+    ],
+    [
+     76,
+     5.86
+    ],
+    [
+     79,
+     6.1
+    ],
+    [
+     85,
+     6.36
+    ],
+    [
+     90,
+     6.62
+    ],
+    [
+     96,
+     6.94
+    ],
+    [
+     100,
+     7.28
+    ],
+    [
+     105,
+     7.66
+    ],
+    [
+     110,
+     7.92
+    ],
+    [
+     116,
+     8.16
+    ],
+    [
+     124,
+     8.38
+    ],
+    [
+     127,
+     8.58
+    ],
+    [
+     130,
+     8.88
+    ]
+   ]
+  },
+  {
+   "id": "follow",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "AI के ऐसे काम के features चाहिए? DevRoboLab को follow करो।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "**DevRoboLab** ko follow karo",
+     "x": 80,
+     "y": 260,
+     "size": 120,
+     "w": 920,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.15
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:120px;font-weight:800;line-height:1\">Follow</div>",
+     "x": 190,
+     "y": 800,
+     "css": "background:#FFD60A;border:0;border-radius:999px;padding:30px 110px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "wig": 4.35,
+     "float": 5,
+     "in": "0.5|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "icon",
+     "name": "cursor",
+     "x": 0,
+     "y": 0,
+     "size": 140,
+     "k": [
+      [
+       3.4,
+       {
+        "x": 820,
+        "y": 1060,
+        "o": 0
+       }
+      ],
+      [
+       3.5,
+       {
+        "x": 820,
+        "y": 1060,
+        "o": 1
+       }
+      ],
+      [
+       4.2,
+       {
+        "x": 520,
+        "y": 880
+       }
+      ]
+     ],
+     "wig": 4.3
+    },
+    {
+     "kind": "icon",
+     "name": "bell",
+     "x": 430,
+     "y": 1080,
+     "size": 200,
+     "wig": 4.7,
+     "float": 6,
+     "in": 4.5,
+     "spring": true
+    },
+    {
+     "kind": "img",
+     "img": "thumbs",
+     "size": 520,
+     "x": 260,
+     "y": 1300,
+     "bob": 1,
+     "k": [
+      [
+       0.2,
+       {
+        "x": -700,
+        "o": 1
+       }
+      ],
+      [
+       0.9,
+       {
+        "x": 260
+       }
+      ]
+     ]
+    }
+   ],
+   "wt": [
+    [
+     0,
+     0.0
+    ],
+    [
+     3,
+     0.48
+    ],
+    [
+     6,
+     0.54
+    ],
+    [
+     10,
+     0.88
+    ],
+    [
+     14,
+     1.24
+    ],
+    [
+     17,
+     1.42
+    ],
+    [
+     26,
+     1.74
+    ],
+    [
+     33,
+     1.94
+    ],
+    [
+     44,
+     2.96
+    ],
+    [
+     47,
+     3.1
+    ],
+    [
+     54,
+     3.24
+    ],
+    [
+     58,
+     4.04
+    ]
+   ]
+  }
+ ]
+}
