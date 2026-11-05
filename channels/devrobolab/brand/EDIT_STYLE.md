@@ -37,3 +37,9 @@ Fast, clear, real-feel explainer. One visual idea per phrase, always what is bei
 
 ## 7. Renderer
 scripts/photo_video.py (helpers) + stories/036_cfe02-edited/make.py (beats table, whip/flash, SFX, kinetic captions). Reuse make.py as the template for new videos.
+
+## 8. Template for Claude app features: UI walkthrough (user 2026-11-06 "ye bahut badhiya hai")
+- stories/039_cfe02-demo/ui2.html (dark #121212 + Claude-Code orange #D97757, sidebar, projects page, modal, project page with knowledge panel, CHAT with typing, tabs) + make.py (events anchored to spoken words via wt.json, cursor path + click ripple, typing, virtual camera with smoothing and click punch-in, STEP n banner / NOTE pill, kinetic captions, short stock cutaway at the hook, progress bar, vignette, no SFX).
+- Build only the options the official help page documents; label every frame "Illustration built from the official help steps, not a screen recording"; chat examples are made up and must not be presented as real model output; if a real screen recording exists, use it instead.
+- Info that is not a UI option (a rule, a limit) is shown as a chat example or a counter, never as a text card.
+- Gotchas: render takes ~12 min (1810 Playwright frames); keep the shell alive with setsid nohup; modal needs z-index above side panels; type plain text (not HTML) into chat bubbles.
