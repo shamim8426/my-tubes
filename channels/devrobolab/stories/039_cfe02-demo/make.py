@@ -67,8 +67,9 @@ S_create, S_know, S_instr, S_ctx, S_free = START[1], START[2], START[3], START[4
 def state(t):
     """UI state at absolute time t (dict for ui2.html) + step banner (n, label) + camera (cx, cy, zoom) + click time."""
     st = dict(page="projects", cards=CARDS, cx=None, cy=None); step = None; cam = (700, 560, 1.25); clicks = []
-    if t < S_create:   # hook: Projects page idle
-        st.update(page="projects", cx=900, cy=500); cam = (700, 560, 1.25)
+    if t < S_create:   # hook: stock cutaway, then the cursor heads for the sidebar (preview of step 1)
+        px, py = path([(0, 900, 500), (hk, 900, 500), (hk + 0.9, 150, 273), (S_create, 150, 273)], t)
+        st.update(page="projects", cx=px, cy=py, sideHl=t > hk + 0.8, cards=CARDS[:1 + (t > hk + 0.4) + (t > hk + 0.8)]); cam = (700, 560, 1.45) if t < hk + 0.3 else (420, 380, 1.7)
     elif t < S_know:   # create: steps 1-3
         st.update(page="projects", cards=CARDS)
         px, py = path([(S_create, 900, 500), (sd + 0.2, 900, 500), (c1 - 0.05, 150, 273), (bt, 150, 273), (bt + 0.5, 1302, 93), (c2 + 0.1, 1302, 93)], t)
@@ -214,6 +215,10 @@ def frame(R, k):
         paste_rgba(fr, np.array(btn), 280, 900, alpha=min(1, a), scale=max(0.01, a))
     else:
         st, step, cam, clicks = state(t)
+        if step:
+            k2 = (scene, step[0], step[1]); STEP_T.setdefault(k2, t); cam = (cam[0], cam[1], cam[2] * (1 + 0.10 * ease_out(min(1, (t - STEP_T[k2]) / 3.5))))
+        elif scene == 0:
+            cam = (cam[0], cam[1], cam[2] * (1 + 0.12 * ease_out(min(1, max(0, t - hk) / 3.0))))
         if st.get('cx') is not None: st['cx'] += 5 * math.sin(t * 2.7); st['cy'] += 4 * math.cos(t * 2.1)
         st['pulse'] = 0.5 + 0.5 * math.sin(t * 5.2); st['blink'] = int(t * 2.5) % 2 == 0
         if scene == 0 and t < hk:   # hook: stock cutaway first
@@ -221,7 +226,6 @@ def frame(R, k):
             fr = (fr.astype(np.float32) * 0.8).astype(np.uint8)
             words_reveal("har chat me *wahi files*?".replace("*", ""), 78, t, 0.3, 1.2, 1560, fr, hl={"wahi", "files?"})
         else:
-            if scene == 0: st.update(cx=900 - 60 * min(1, (t - hk) / 1.0), cy=500)
             img = R.shot(st)
             punch = max([0.08 * max(0, 1 - abs(t - c) / 0.18) for c in clicks] + [0.0])
             if R.cam is None: R.cam = list(cam)

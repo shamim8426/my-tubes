@@ -64,8 +64,9 @@ def art(lines=None, **kw): return dict(title="Study planner", lines=lines or LIN
 
 def state(t):
     st = dict(page="chat", cx=None, cy=None); step = None; cam = (900, 540, 1.4); clicks = []
-    if t < SC["settings"]:
-        st.update(page="chat", cx=900, cy=500, msgs=[], inp=None)
+    if t < SC["settings"]:   # hook: stock cutaway, then the cursor heads for the Artifacts tab and the chat box
+        px, py = path([(0, 900, 500), (hk, 900, 500), (hk + 0.9, 180, 364), (hk + 2.2, 560, 962), (SC["settings"], 560, 962)], t)
+        st.update(page="chat", cx=px, cy=py, msgs=[], inp=None, side="artifacts" if hk + 0.8 < t < hk + 1.6 else None); cam = (700, 560, 1.45) if t < hk + 0.3 else ((420, 420, 1.7) if t < hk + 1.7 else (600, 800, 1.5))
     elif t < SC["create"]:     # step 1: settings > capabilities > Create and edit files
         px, py = path([(SC["settings"], 900, 500), (s_set, 900, 500), (s_cap - 0.15, 180, 988), (s_cap + 0.5, 180, 988), (s_tog - 0.2, 1305, 331)], t)
         st.update(cx=px, cy=py, msgs=[]); step = (1, "Settings > Capabilities > *Create and edit files*"); cam = (330, 760, 1.8); clicks = [s_cap - 0.05, s_tog]
@@ -196,6 +197,10 @@ def frame(R, k):
         paste_rgba(fr, np.array(btn), 280, 900, alpha=min(1, a), scale=max(0.01, a))
     else:
         st, step, cam, clicks = state(t)
+        if step:
+            k2 = (scene, step[0], step[1]); STEP_T.setdefault(k2, t); cam = (cam[0], cam[1], cam[2] * (1 + 0.10 * ease_out(min(1, (t - STEP_T[k2]) / 3.5))))
+        elif scene == 0:
+            cam = (cam[0], cam[1], cam[2] * (1 + 0.12 * ease_out(min(1, max(0, t - hk) / 3.0))))
         if st.get('cx') is not None: st['cx'] += 5 * math.sin(t * 2.7); st['cy'] += 4 * math.cos(t * 2.1)
         st['pulse'] = 0.5 + 0.5 * math.sin(t * 5.2); st['blink'] = int(t * 2.5) % 2 == 0
         if scene == 0 and t < hk:   # hook: stock cutaway first
@@ -203,7 +208,6 @@ def frame(R, k):
             fr = (fr.astype(np.float32) * 0.8).astype(np.uint8)
             words_reveal("doc, slides ya *tool* banwana hai?".replace("*", ""), 78, t, 0.3, 1.2, 1560, fr, hl={"tool"})
         else:
-            if scene == 0: st.update(cx=900 - 60 * min(1, (t - hk) / 1.0), cy=500)
             img = R.shot(st)
             punch = max([0.08 * max(0, 1 - abs(t - c) / 0.18) for c in clicks] + [0.0])
             if R.cam is None: R.cam = list(cam)
