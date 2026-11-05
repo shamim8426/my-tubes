@@ -1181,3 +1181,26 @@ timestamp,file,model,size,cost_usd,cost_inr,today_total_inr,remaining_inr,channe
 2026-11-05 01:18:16,channels/devrobolab/stories/025_ai-news-digest-2026-11-05/img/hook.png,cf-flux-2-klein-4b,1024x608 free,0.00000,0.00,5.03,550.01,devrobolab,0.00,0.0000,0.00,,
 2026-11-05 01:18:29,channels/devrobolab/stories/025_ai-news-digest-2026-11-05/img/open.png,cf-flux-2-klein-4b,1024x608 free,0.00000,0.00,5.03,550.01,devrobolab,0.00,0.0000,0.00,,
 2026-11-05 01:18:34,channels/devrobolab/stories/025_ai-news-digest-2026-11-05/img/wave.png,cf-flux-2-klein-4b,1024x608 free,0.00000,0.00,5.03,550.01,devrobolab,0.00,0.0000,0.00,,
+2026-11-05 11:32:36,channels/devrobolab/stories/026_ai-news-digest-2026-11-05b/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 17.4s free,0.00000,0.00,5.03,550.01,devrobolab,0.39,0.0000,0.00,63,437
+2026-11-05 11:32:45,channels/devrobolab/stories/026_ai-news-digest-2026-11-05b/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 10.7s,0.00243,0.23,5.31,549.73,devrobolab,0.24,0.2345,0.04,36,268
+2026-11-05 11:32:53,channels/devrobolab/stories/026_ai-news-digest-2026-11-05b/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 9.0s,0.00204,0.20,5.54,549.50,devrobolab,0.20,0.1970,0.04,33,225
+2026-11-05 11:33:02,channels/devrobolab/stories/026_ai-news-digest-2026-11-05b/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 12.7s,0.00288,0.28,5.87,549.17,devrobolab,0.28,0.2778,0.05,52,317
+2026-11-05 11:33:12,channels/devrobolab/stories/026_ai-news-digest-2026-11-05b/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 10.7s,0.00242,0.23,6.14,548.89,devrobolab,0.24,0.2338,0.04,39,267
+2026-11-05 11:33:20,channels/devrobolab/stories/026_ai-news-digest-2026-11-05b/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 13.4s,0.00305,0.29,6.49,548.55,devrobolab,0.30,0.2944,0.05,53,336
+2026-11-05 11:33:31,channels/devrobolab/stories/026_ai-news-digest-2026-11-05b/audio/tts/s_06.wav,gemini-3.8-flash-tts,tts 14.8s,0.00337,0.33,6.87,548.16,devrobolab,0.33,0.3251,0.06,60,371
+2026-11-05 11:33:41,channels/devrobolab/stories/026_ai-news-digest-2026-11-05b/audio/tts/s_07.wav,gemini-3.8-flash-tts,tts 10.1s,0.00229,0.22,7.13,547.90,devrobolab,0.23,0.2208,0.04,41,252
+2026-11-05 11:33:50,channels/devrobolab/stories/026_ai-news-digest-2026-11-05b/audio/tts/s_08.wav,gemini-3.8-flash-tts,tts 10.4s,0.00236,0.23,7.40,547.63,devrobolab,0.23,0.2275,0.04,36,260
+2026-11-05 11:33:58,channels/devrobolab/stories/026_ai-news-digest-2026-11-05b/audio/tts/s_09.wav,gemini-3.8-flash-tts,tts 9.5s,0.00216,0.21,7.65,547.39,devrobolab,0.22,0.2084,0.04,36,238
+2026-11-05 11:34:08,channels/devrobolab/stories/026_ai-news-digest-2026-11-05b/audio/tts/s_10.wav,gemini-3.8-flash-tts,tts 9.4s,0.00213,0.21,7.89,547.15,devrobolab,0.21,0.2058,0.04,36,235
+2026-11-05 11:34:16,channels/devrobolab/stories/026_ai-news-digest-2026-11-05b/audio/tts/s_11.wav,gemini-3.8-flash-tts,tts 12.2s,0.00277,0.27,8.21,546.83,devrobolab,0.27,0.2670,0.05,43,305
+2026-11-05 11:34:24,channels/devrobolab/stories/026_ai-news-digest-2026-11-05b/audio/tts/s_12.wav,gemini-3.8-flash-tts,tts 10.1s,0.00230,0.22,8.47,546.57,devrobolab,0.23,0.2217,0.04,40,253
+2026-11-05 11:34:36,channels/devrobolab/stories/026_ai-news-digest-2026-11-05b/audio/tts/s_13.wav,gemini-3.8-flash-tts,tts 21.7s,0.00492,0.47,9.03,546.01,devrobolab,0.48,0.4749,0.09,86,542
+2026-11-05 11:34:42,channels/devrobolab/stories/026_ai-news-digest-2026-11-05b/audio/tts/s_14.wav,gemini-3.8-flash-tts,tts 3.4s,0.00076,0.07,9.12,545.92,devrobolab,0.08,0.0736,0.01,13,84
+2026-11-05 11:34:50,channels/devrobolab/stories/026_ai-news-digest-2026-11-05b/audio/tts/s_15.wav,gemini-3.8-flash-tts,tts 4.0s,0.00092,0.09,9.22,545.82,devrobolab,0.09,0.0885,0.02,17,101
+2026-11-05 11:40:30,channels/devrobolab/stories/027_images-2-6-gif-short/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 8.8s,0.00201,0.19,9.45,545.59,devrobolab,0.20,0.1936,0.03,34,221
+2026-11-05 11:40:38,channels/devrobolab/stories/027_images-2-6-gif-short/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 7.6s,0.00173,0.17,9.65,545.39,devrobolab,0.17,0.1672,0.03,28,191
+2026-11-05 11:40:40,channels/devrobolab/stories/027_images-2-6-gif-short/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 8.4s,0.00190,0.18,9.86,545.17,devrobolab,0.19,0.1837,0.03,28,210
+2026-11-05 11:40:45,channels/devrobolab/stories/027_images-2-6-gif-short/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 6.7s,0.00153,0.15,10.04,545.00,devrobolab,0.15,0.1474,0.03,31,168
+2026-11-05 11:40:48,channels/devrobolab/stories/027_images-2-6-gif-short/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 7.4s,0.00169,0.16,10.23,544.81,devrobolab,0.17,0.1630,0.03,31,186
+2026-11-05 11:40:55,channels/devrobolab/stories/027_images-2-6-gif-short/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 9.4s,0.00212,0.21,10.47,544.57,devrobolab,0.21,0.2051,0.04,38,234
+2026-11-05 11:40:56,channels/devrobolab/stories/027_images-2-6-gif-short/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 8.9s,0.00203,0.20,10.70,544.34,devrobolab,0.20,0.1955,0.04,38,223

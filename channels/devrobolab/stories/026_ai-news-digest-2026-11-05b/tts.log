@@ -1,0 +1,31 @@
+scene 0 (hook): 17.4s  cost ~$0.0000  (FREE key)
+Gemini TTS: free key quota (429) -> same request on the paid key
+scene 1 (a1): 10.7s  cost ~$0.0024  (paid key)
+Gemini TTS: free key quota (429) -> same request on the paid key
+scene 2 (a2): 9.0s  cost ~$0.0020  (paid key)
+Gemini TTS: free key quota (429) -> same request on the paid key
+scene 3 (a3): 12.7s  cost ~$0.0029  (paid key)
+Gemini TTS: free key quota (429) -> same request on the paid key
+scene 4 (b1): 10.7s  cost ~$0.0024  (paid key)
+Gemini TTS: free key quota (429) -> same request on the paid key
+scene 5 (b2): 13.4s  cost ~$0.0031  (paid key)
+Gemini TTS: free key quota (429) -> same request on the paid key
+scene 6 (b3): 14.8s  cost ~$0.0034  (paid key)
+Gemini TTS: free key quota (429) -> same request on the paid key
+scene 7 (x1): 10.1s  cost ~$0.0023  (paid key)
+Gemini TTS: free key quota (429) -> same request on the paid key
+scene 8 (x2): 10.4s  cost ~$0.0024  (paid key)
+Gemini TTS: free key quota (429) -> same request on the paid key
+scene 9 (x3): 9.5s  cost ~$0.0022  (paid key)
+Gemini TTS: free key quota (429) -> same request on the paid key
+scene 10 (d1): 9.4s  cost ~$0.0021  (paid key)
+Gemini TTS: free key quota (429) -> same request on the paid key
+scene 11 (d2): 12.2s  cost ~$0.0028  (paid key)
+Gemini TTS: free key quota (429) -> same request on the paid key
+scene 12 (d3): 10.1s  cost ~$0.0023  (paid key)
+Gemini TTS: free key quota (429) -> same request on the paid key
+scene 13 (recap): 21.7s  cost ~$0.0049  (paid key)
+Gemini TTS: free key quota (429) -> same request on the paid key
+scene 14 (src): 3.4s  cost ~$0.0008  (paid key)
+Gemini TTS: free key quota (429) -> same request on the paid key
+scene 15 (follow): 4.0s  cost ~$0.0009  (paid key)

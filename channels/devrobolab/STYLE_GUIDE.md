@@ -137,3 +137,6 @@ Learnings behind these rules: brand/STYLE_LEARNINGS.md (numeric, abstract) and r
 - Visuals: big-number card (figure 7-9% of height), two-card compare with cross/tick, check-list card, quoted source screenshot with yellow highlight and a source line; minimum text 2.5-3% of height.
 - Ending stack: 2-3 'do today' actions, one core sentence, closing line A (CTA_VOICE/CTA_SCREEN/CTA_PILL), an A-or-B comment question, a sources card, then 10-15 s with no essential picture in the end-screen area. Voice about -14 LUFS, music very low.
 - Not copied from the studied creator: look, characters, numbers, plugs, wording (see 'Do not copy' in LONG_FORM_LEARNINGS.md).
+
+## Enhancements log 2026-11-05 (Day 2 style, 026)
+- STYLE OF THE DAY 'news bulletin + proof window' (details: research/daily/2026-11-05.md): 025 look plus a real official-page proof window (screenshot crop, key sentence in yellow marker, source line) on every claim, quote card where a page blocks automated browsers (no bot-check bypass), first card by 0.5 s, recap rows from 0.3 s. Helpers in stories/026_*/gen_deck.py (proof, quote); screenshots via stories/026_*/shots.py.

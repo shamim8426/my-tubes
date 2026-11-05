@@ -1,0 +1,505 @@
+{
+ "_note": "Short 027 from long 026: ChatGPT Images 2.6 GIFs. Source https://openai.com/index/introducing-images-2-6 (read 2026-11-05). Style of the day: news bulletin + proof window.",
+ "tag": "AI News",
+ "bg": "#F3F5F9",
+ "bgGrid": true,
+ "music": {
+  "file": "shared/music/presentation/Funkorama.mp3",
+  "start": 6,
+  "rel": 12
+ },
+ "voice": {
+  "id": "Charon",
+  "style": "Speak like a friendly Indian tech YouTuber chatting casually in Hinglish. Natural conversational pace, warm and clear, a little energetic but not theatrical. No sing-song, no exaggerated emphasis."
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "ChatGPT अब आपकी image को GIF बना सकता है। OpenAI ने Images 2.6 launch किया है, और पेज के हिसाब से images पचास percent तेज़ बनती हैं।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "**Image** ab **GIF** banegi",
+     "x": 80,
+     "y": 230,
+     "size": 104,
+     "w": 920,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:34px;font-weight:700\">ChatGPT Images 2.6 · 4 Nov 2026</div>",
+     "x": 80,
+     "y": 680,
+     "css": "background:#fff;border:2px solid #E3E7EE;border-radius:999px;padding:14px 32px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "0.4|0.0",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:190px;font-weight:800;line-height:1\">50%</div><div style=\"font-size:42px;font-weight:700;color:#444\">tez (page ke hisaab se)</div>",
+     "x": 130,
+     "y": 820,
+     "css": "background:#FFD60A;border-radius:40px;padding:30px 70px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "wig": "पचास|0.2",
+     "in": "पचास|-0.3",
+     "spring": true
+    },
+    {
+     "kind": "icon",
+     "name": "sparkle",
+     "x": 760,
+     "y": 1020,
+     "size": 190,
+     "in": "GIF|0.0",
+     "spring": true,
+     "float": 8,
+     "wig": "GIF|0.3"
+    },
+    {
+     "kind": "img",
+     "img": "wave",
+     "size": 330,
+     "x": 640,
+     "y": 1560,
+     "bob": 1,
+     "k": [
+      [
+       "ChatGPT|0.2",
+       {
+        "x": 1200,
+        "o": 1
+       }
+      ],
+      [
+       "ChatGPT|1.0",
+       {
+        "x": 640
+       }
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "analogy",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "GIF यानी एक छोटा loop वाला animation। जैसे flipbook, जिसके पन्ने तेज़ी से पलटो तो तस्वीर चलती दिखती है।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "**GIF** = chhota loop",
+     "x": 80,
+     "y": 230,
+     "size": 108,
+     "w": 920,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:860px;padding:36px 46px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"font-size:34px;font-weight:700;color:#667\">ANALOGY</div><div style=\"font-size:64px;font-weight:800;line-height:1.15;margin-top:12px\">Flipbook</div><div style=\"font-size:42px;font-weight:700;color:#444;margin-top:10px\">pannen palto, tasveer chale</div></div>",
+     "x": 110,
+     "y": 680,
+     "css": "",
+     "in": "flipbook|-0.3",
+     "spring": true
+    },
+    {
+     "kind": "icon",
+     "name": "play",
+     "x": 150,
+     "y": 1170,
+     "size": 230,
+     "in": "loop|0.0",
+     "spring": true,
+     "pulse": 1.0
+    },
+    {
+     "kind": "icon",
+     "name": "arrow",
+     "x": 450,
+     "y": 1210,
+     "size": 150,
+     "in": "पलटो|-0.3",
+     "spring": true,
+     "drawon": [
+      "पलटो|-0.3",
+      0.5
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:110px;font-weight:800;line-height:1\">GIF</div>",
+     "x": 640,
+     "y": 1160,
+     "css": "background:#FFD60A;border-radius:34px;padding:24px 56px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "wig": "चलती|0.0",
+     "in": "तस्वीर|-0.2",
+     "spring": true
+    },
+    {
+     "kind": "text",
+     "html": "page ke hisaab se: **loop** wali image",
+     "x": 80,
+     "y": 1500,
+     "size": 76,
+     "w": 920,
+     "stream": true,
+     "step": 0.14,
+     "sat": "छोटा|0.0"
+    }
+   ]
+  },
+  {
+   "id": "what",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "पेज के हिसाब से आप अपने mascot या character को चला सकते हो, या product की फोटो को एक eye-catching loop में बदल सकते हो।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "**Kya** chala sakte ho?",
+     "x": 80,
+     "y": 230,
+     "size": 104,
+     "w": 920,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:860px;padding:30px 42px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"user\" data-s=\"110\"></i><div><div style=\"font-size:54px;font-weight:800\">Mascot ya character</div><div style=\"font-size:36px;font-weight:700;color:#444\">ko chalao</div></div></div></div>",
+     "x": 110,
+     "y": 660,
+     "css": "",
+     "in": "mascot|-0.2",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:860px;padding:30px 42px;background:#14171C;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px;color:#fff\"><i data-ic=\"box\" data-s=\"110\"></i><div><div style=\"font-size:54px;font-weight:800\">Product ki photo</div><div style=\"font-size:36px;font-weight:700;color:#C9CFDA\">eye-catching loop</div></div></div></div>",
+     "x": 110,
+     "y": 960,
+     "css": "",
+     "in": "product|-0.2",
+     "spring": true
+    },
+    {
+     "kind": "icon",
+     "name": "arrow",
+     "x": 470,
+     "y": 1250,
+     "size": 130,
+     "in": "बदल सकते|-0.4",
+     "spring": true,
+     "drawon": [
+      "बदल सकते|-0.4",
+      0.5
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:90px;font-weight:800;line-height:1\">GIF</div>",
+     "x": 330,
+     "y": 1420,
+     "css": "background:#FFD60A;border-radius:34px;padding:22px 60px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "wig": "loop|0.0",
+     "float": 6,
+     "in": "loop|-0.3",
+     "spring": true
+    }
+   ]
+  },
+  {
+   "id": "example",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "पेज पर एक example prompt है। उसमें छह frames वाली sprite sheet माँगी गई है, तीन columns और दो rows में, ताकि आख़िरी frame घूमकर पहले पर लौटे।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "**6 frames**, 3 x 2",
+     "x": 80,
+     "y": 230,
+     "size": 104,
+     "w": 920,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:30px;font-weight:700;color:#556\">OpenAI page ka example prompt (OpenArt ne banaya), chhota hissa:</div>",
+     "x": 80,
+     "y": 560,
+     "css": "",
+     "in": "0.4|0.0",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div class=\"mono\" style=\"font-size:36px;font-weight:700;line-height:1.35;color:#fff\">sprite sheet, seamless looping GIF,<br><span style=\"color:#FFD60A\">exactly 6 frames</span>, 3 columns x 2 rows</div>",
+     "x": 80,
+     "y": 650,
+     "css": "background:#14171C;border-radius:26px;padding:26px 36px;width:880px;box-sizing:border-box",
+     "in": "छह|-0.4",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"display:grid;grid-template-columns:repeat(3,250px);gap:20px\"><div style=\"width:250px;height:190px;border-radius:22px;background:#fff;border:2px solid #E3E7EE;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);display:flex;align-items:center;justify-content:center;font-size:90px;font-weight:800\">1</div><div style=\"width:250px;height:190px;border-radius:22px;background:#fff;border:2px solid #E3E7EE;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);display:flex;align-items:center;justify-content:center;font-size:90px;font-weight:800\">2</div><div style=\"width:250px;height:190px;border-radius:22px;background:#fff;border:2px solid #E3E7EE;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);display:flex;align-items:center;justify-content:center;font-size:90px;font-weight:800\">3</div><div style=\"width:250px;height:190px;border-radius:22px;background:#fff;border:2px solid #E3E7EE;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);display:flex;align-items:center;justify-content:center;font-size:90px;font-weight:800\">4</div><div style=\"width:250px;height:190px;border-radius:22px;background:#fff;border:2px solid #E3E7EE;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);display:flex;align-items:center;justify-content:center;font-size:90px;font-weight:800\">5</div><div style=\"width:250px;height:190px;border-radius:22px;background:#fff;border:2px solid #E3E7EE;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);display:flex;align-items:center;justify-content:center;font-size:90px;font-weight:800\">6</div></div>",
+     "x": 100,
+     "y": 920,
+     "css": "",
+     "in": "तीन columns|-0.3",
+     "spring": true
+    },
+    {
+     "kind": "icon",
+     "name": "check",
+     "x": 800,
+     "y": 1380,
+     "size": 150,
+     "in": "पहले पर|-0.2",
+     "spring": true,
+     "drawon": [
+      "पहले पर|-0.2",
+      0.6
+     ]
+    },
+    {
+     "kind": "text",
+     "html": "last frame **pehle par** lautta hai",
+     "x": 80,
+     "y": 1620,
+     "size": 70,
+     "w": 920,
+     "stream": true,
+     "step": 0.14,
+     "sat": "आख़िरी|0.0"
+    }
+   ]
+  },
+  {
+   "id": "caution",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "ध्यान रखो: API का दाम इस पेज पर नहीं लिखा। पेज सिर्फ इतना कहता है कि ChatGPT और Codex में ये सभी subscription tiers पर मिल रहा है।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "**Dhyan** rakho",
+     "x": 80,
+     "y": 230,
+     "size": 110,
+     "w": 920,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:130px;height:130px;border-radius:65px;background:#FFD60A;display:flex;align-items:center;justify-content:center;font-size:90px;font-weight:800\">!</div>",
+     "x": 880,
+     "y": 215,
+     "css": "",
+     "wig": "दाम|0.4",
+     "in": "ध्यान|0.0",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:860px;padding:34px 44px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"font-size:48px;font-weight:800\">API ka daam</div><div style=\"font-size:40px;font-weight:700;color:#444;margin-top:8px\">page me nahi likha</div></div>",
+     "x": 110,
+     "y": 640,
+     "css": "",
+     "in": "दाम|-0.3",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:920px;box-sizing:border-box;padding:36px 44px;border-radius:30px;border:2px solid #E3E7EE;background:#fff;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)\"><div style=\"font-size:26px;font-weight:700;color:#778;margin-bottom:20px\">openai.com · Images 2.6 · Pricing and availability</div><div style=\"font-size:46px;font-weight:700;line-height:1.35\"><mark style=\"background:#FFD60A;color:#111;padding:2px 8px;border-radius:6px\">across all subscription tiers</mark> on desktop, mobile, and web.</div></div>",
+     "x": 80,
+     "y": 920,
+     "css": "",
+     "in": "सभी|-0.2",
+     "spring": true
+    }
+   ]
+  },
+  {
+   "id": "recap",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "तो याद रखो: Images 2.6 में GIFs हैं, images पचास percent तेज़ हैं। बाकी तीन AI खबरें पूरे video में हैं। पूरा video channel पर है।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "**Yaad** rakho",
+     "x": 80,
+     "y": 230,
+     "size": 110,
+     "w": 920,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:860px;padding:34px 44px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"font-size:50px;font-weight:800\">GIFs <span style=\"background:#FFD60A;padding:0 12px;border-radius:12px\">+ 50% tez</span></div></div>",
+     "x": 110,
+     "y": 660,
+     "css": "",
+     "in": "GIFs|-0.2",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:860px;padding:34px 44px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"font-size:50px;font-weight:800\">Baaki <span style=\"background:#FFD60A;padding:0 12px;border-radius:12px\">3 khabrein</span></div><div style=\"font-size:36px;font-weight:700;color:#444;margin-top:8px\">Mistral, Xcode, Dharma</div></div>",
+     "x": 110,
+     "y": 920,
+     "css": "",
+     "in": "बाकी|-0.2",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:64px;font-weight:800\">Poora video channel par hai</div>",
+     "x": 110,
+     "y": 1300,
+     "css": "background:#FFD60A;border-radius:999px;padding:24px 52px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "wig": "channel|0.2",
+     "in": "पूरा video|-0.3",
+     "spring": true
+    },
+    {
+     "kind": "img",
+     "img": "thumbs",
+     "size": 420,
+     "x": 600,
+     "y": 1400,
+     "bob": 1,
+     "k": [
+      [
+       "बाकी|-0.3",
+       {
+        "o": 0
+       }
+      ],
+      [
+       "बाकी|0.0",
+       {
+        "o": 1
+       }
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "follow",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "AI के ऐसे काम के features चाहिए? DevRoboLab को follow करो।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "**DevRoboLab** ko follow karo",
+     "x": 80,
+     "y": 260,
+     "size": 120,
+     "w": 920,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.15
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:120px;font-weight:800;line-height:1\">Follow</div>",
+     "x": 190,
+     "y": 800,
+     "css": "background:#FFD60A;border:0;border-radius:999px;padding:30px 110px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "wig": 4.35,
+     "float": 5,
+     "in": "0.5|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "icon",
+     "name": "cursor",
+     "x": 0,
+     "y": 0,
+     "size": 140,
+     "k": [
+      [
+       3.4,
+       {
+        "x": 820,
+        "y": 1060,
+        "o": 0
+       }
+      ],
+      [
+       3.5,
+       {
+        "x": 820,
+        "y": 1060,
+        "o": 1
+       }
+      ],
+      [
+       4.2,
+       {
+        "x": 520,
+        "y": 880
+       }
+      ]
+     ],
+     "wig": 4.3
+    },
+    {
+     "kind": "icon",
+     "name": "bell",
+     "x": 430,
+     "y": 1080,
+     "size": 200,
+     "wig": 4.7,
+     "float": 6,
+     "in": 4.5,
+     "spring": true
+    },
+    {
+     "kind": "img",
+     "img": "thumbs",
+     "size": 520,
+     "x": 260,
+     "y": 1300,
+     "bob": 1,
+     "k": [
+      [
+       0.2,
+       {
+        "x": -700,
+        "o": 1
+       }
+      ],
+      [
+       0.9,
+       {
+        "x": 260
+       }
+      ]
+     ]
+    }
+   ]
+  }
+ ]
+}

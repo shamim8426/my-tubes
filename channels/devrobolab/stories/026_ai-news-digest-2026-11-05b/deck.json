@@ -1,0 +1,3589 @@
+{
+ "_note": "026 long AI news digest 2026-11-05 (landscape 16:9, news bulletin + proof window)",
+ "format": "landscape",
+ "tag": "AI News",
+ "bg": "#F3F5F9",
+ "bgGrid": false,
+ "music": {
+  "file": "shared/music/presentation/Funkorama.mp3",
+  "start": 6,
+  "rel": 13
+ },
+ "voice": {
+  "id": "Charon",
+  "style": "Speak like a friendly Indian tech YouTuber chatting casually in Hinglish. Natural conversational pace, warm and clear, a little energetic but not theatrical. No sing-song, no exaggerated emphasis."
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "सोचो, आपकी बनाई image अब ChatGPT में चलने लगे, यानी GIF बन जाए। आज की चार AI खबरें सीधी भाषा में: ChatGPT का Images 2.6, Mistral का Voxtral 3 voice model, Xcode में GitHub Copilot, और documents से data निकालने वाला एक छोटा model।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "**4 AI khabrein**",
+     "x": 100,
+     "y": 150,
+     "size": 150,
+     "w": 1000,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "text",
+     "html": "aaj ki, seedhi bhasha me",
+     "x": 100,
+     "y": 330,
+     "size": 70,
+     "w": 1000,
+     "stream": true,
+     "step": 0.14,
+     "sat": "सीधी भाषा|-0.2"
+    },
+    {
+     "kind": "box",
+     "html": "<span>AI NEWS DIGEST</span><span style=\"color:#778\"> &nbsp;·&nbsp; 5 Nov 2026</span>",
+     "x": 100,
+     "y": 450,
+     "css": "background:#fff;border:2px solid #E3E7EE;border-radius:999px;padding:14px 34px;font-size:34px;font-weight:800;white-space:nowrap;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "0.5|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:150px;font-weight:800;line-height:1;letter-spacing:2px\">GIF</div><div style=\"font-size:40px;font-weight:700;color:#444;margin-top:8px\">image jo chalne lage</div>",
+     "x": 100,
+     "y": 580,
+     "css": "background:#fff;border:2px solid #E3E7EE;border-radius:34px;padding:30px 60px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "wig": "GIF|0.1",
+     "in": "0.4|0.0",
+     "spring": true
+    },
+    {
+     "kind": "img",
+     "img": "wave",
+     "size": 300,
+     "x": 660,
+     "y": 640,
+     "bob": 1,
+     "k": [
+      [
+       0.3,
+       {
+        "x": -500,
+        "o": 1
+       }
+      ],
+      [
+       1.0,
+       {
+        "x": 660
+       }
+      ]
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:760px;padding:26px 38px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"sparkle\" data-s=\"84\"></i><div><div style=\"font-size:52px;font-weight:800;line-height:1.1;color:#111\">Images 2.6</div><div style=\"font-size:34px;font-weight:700;color:#444;margin-top:6px;line-height:1.2\">ChatGPT me GIF</div></div></div></div>",
+     "x": 1060,
+     "y": 170,
+     "css": "",
+     "in": "Images|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:760px;padding:26px 38px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"play\" data-s=\"84\"></i><div><div style=\"font-size:52px;font-weight:800;line-height:1.1;color:#111\">Voxtral 3</div><div style=\"font-size:34px;font-weight:700;color:#444;margin-top:6px;line-height:1.2\">Mistral ki awaaz</div></div></div></div>",
+     "x": 1060,
+     "y": 345,
+     "css": "",
+     "in": "Voxtral|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:760px;padding:26px 38px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"code\" data-s=\"84\"></i><div><div style=\"font-size:52px;font-weight:800;line-height:1.1;color:#111\">Copilot in Xcode</div><div style=\"font-size:34px;font-weight:700;color:#444;margin-top:6px;line-height:1.2\">Mac par coding</div></div></div></div>",
+     "x": 1060,
+     "y": 520,
+     "css": "",
+     "in": "Xcode|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:760px;padding:26px 38px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"file\" data-s=\"84\"></i><div><div style=\"font-size:52px;font-weight:800;line-height:1.1;color:#111\">Field Extractor</div><div style=\"font-size:34px;font-weight:700;color:#444;margin-top:6px;line-height:1.2\">document se data</div></div></div></div>",
+     "x": 1060,
+     "y": 695,
+     "css": "",
+     "in": "documents|-0.1",
+     "spring": true
+    }
+   ],
+   "wt": [
+    [
+     0,
+     0.0
+    ],
+    [
+     6,
+     0.52
+    ],
+    [
+     11,
+     0.88
+    ],
+    [
+     16,
+     1.18
+    ],
+    [
+     22,
+     1.6
+    ],
+    [
+     25,
+     1.94
+    ],
+    [
+     33,
+     2.28
+    ],
+    [
+     37,
+     2.66
+    ],
+    [
+     42,
+     3.14
+    ],
+    [
+     47,
+     3.36
+    ],
+    [
+     52,
+     3.88
+    ],
+    [
+     56,
+     4.38
+    ],
+    [
+     59,
+     4.54
+    ],
+    [
+     64,
+     5.18
+    ],
+    [
+     67,
+     5.6
+    ],
+    [
+     70,
+     5.88
+    ],
+    [
+     74,
+     6.06
+    ],
+    [
+     77,
+     6.44
+    ],
+    [
+     83,
+     6.88
+    ],
+    [
+     88,
+     7.14
+    ],
+    [
+     93,
+     7.74
+    ],
+    [
+     98,
+     8.1
+    ],
+    [
+     106,
+     8.58
+    ],
+    [
+     109,
+     8.98
+    ],
+    [
+     116,
+     9.38
+    ],
+    [
+     121,
+     9.98
+    ],
+    [
+     129,
+     10.54
+    ],
+    [
+     132,
+     10.7
+    ],
+    [
+     140,
+     11.28
+    ],
+    [
+     142,
+     11.46
+    ],
+    [
+     148,
+     11.82
+    ],
+    [
+     155,
+     12.12
+    ],
+    [
+     161,
+     12.88
+    ],
+    [
+     165,
+     13.08
+    ],
+    [
+     172,
+     13.38
+    ],
+    [
+     181,
+     13.54
+    ],
+    [
+     184,
+     14.48
+    ],
+    [
+     194,
+     14.86
+    ],
+    [
+     197,
+     15.04
+    ],
+    [
+     202,
+     15.3
+    ],
+    [
+     210,
+     15.66
+    ],
+    [
+     215,
+     15.82
+    ],
+    [
+     218,
+     16.0
+    ],
+    [
+     223,
+     16.44
+    ],
+    [
+     229,
+     17.44
+    ]
+   ]
+  },
+  {
+   "id": "a1",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "पहली खबर: OpenAI ने Images 2.6 launch किया है, ChatGPT, Codex और API में। पेज के हिसाब से images अब पहले से पचास percent तेज़ बनती हैं।",
+   "layers": [
+    {
+     "kind": "box",
+     "html": "<span>AI NEWS DIGEST</span><span style=\"color:#778\"> &nbsp;·&nbsp; 5 Nov 2026</span>",
+     "x": 100,
+     "y": 44,
+     "css": "background:#fff;border:2px solid #E3E7EE;border-radius:999px;padding:14px 34px;font-size:34px;font-weight:800;white-space:nowrap;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)"
+    },
+    {
+     "kind": "box",
+     "html": "1 / 4",
+     "x": 1640,
+     "y": 44,
+     "css": "background:#FFD60A;border-radius:999px;padding:14px 38px;font-size:34px;font-weight:800;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)"
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:1720px;height:150px;background:#14171C;border-radius:28px;display:flex;align-items:center;overflow:hidden;color:#fff;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)\"><div style=\"width:18px;height:100%;background:#FFD60A;flex:none\"></div><div style=\"font-size:66px;font-weight:800;margin-left:34px;flex:1;white-space:nowrap\">ChatGPT Images 2.6</div><div style=\"background:#FFD60A;color:#111;border-radius:999px;padding:12px 32px;font-size:38px;font-weight:800;margin-right:44px;white-space:nowrap\">Source: OpenAI</div></div>",
+     "x": 100,
+     "y": 880,
+     "css": "",
+     "in": 0.5,
+     "spring": true
+    },
+    {
+     "kind": "text",
+     "html": "**Images** pehle se **tez**",
+     "x": 100,
+     "y": 170,
+     "size": 96,
+     "w": 780,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:720px;padding:26px 38px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"sparkle\" data-s=\"96\"></i><div><div style=\"font-size:52px;font-weight:800;line-height:1.1;color:#111\">Images 2.6</div><div style=\"font-size:36px;font-weight:700;color:#444;margin-top:6px;line-height:1.2\">ChatGPT, Codex aur API me</div></div></div></div>",
+     "x": 100,
+     "y": 480,
+     "css": "",
+     "in": "Images 2.6|-0.2",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:120px;font-weight:800;line-height:1\">50%</div><div style=\"font-size:36px;font-weight:700;color:#444\">tez (page ke hisaab se)</div>",
+     "x": 100,
+     "y": 680,
+     "css": "background:#FFD60A;border-radius:34px;padding:20px 50px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "पचास|-0.2",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:920px;height:518px;border-radius:30px;border:2px solid #E3E7EE;background:#fff;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box;padding:44px 52px\"><div style=\"font-size:28px;font-weight:700;color:#778;margin-bottom:26px\">openai.com · Introducing Images 2.6 · Nov 4, 2026</div><div style=\"font-size:50px;font-weight:700;line-height:1.35;color:#111\"><mark style=\"background:#FFD60A;color:#111;padding:2px 8px;border-radius:6px\">Images 2.6 generates images 50% faster than before.</mark></div></div>",
+     "x": 900,
+     "y": 235,
+     "css": "",
+     "in": "0.4|-0.3",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:30px;font-weight:800\">Official page text</div>",
+     "x": 900,
+     "y": 163,
+     "css": "background:#FFD60A;border-radius:999px;padding:8px 30px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "0.4|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:26px;font-weight:700;color:#556\">Source: openai.com/index/introducing-images-2-6 (sentence quoted from the page)</div>",
+     "x": 900,
+     "y": 767,
+     "css": "",
+     "in": "0.4|0.1",
+     "spring": true
+    }
+   ],
+   "wt": [
+    [
+     0,
+     0.0
+    ],
+    [
+     5,
+     0.64
+    ],
+    [
+     10,
+     0.98
+    ],
+    [
+     17,
+     1.98
+    ],
+    [
+     20,
+     2.94
+    ],
+    [
+     27,
+     3.12
+    ],
+    [
+     31,
+     3.54
+    ],
+    [
+     38,
+     3.9
+    ],
+    [
+     43,
+     4.04
+    ],
+    [
+     47,
+     4.26
+    ],
+    [
+     56,
+     5.12
+    ],
+    [
+     62,
+     5.36
+    ],
+    [
+     65,
+     5.76
+    ],
+    [
+     69,
+     5.9
+    ],
+    [
+     74,
+     6.24
+    ],
+    [
+     78,
+     6.48
+    ],
+    [
+     81,
+     6.48
+    ],
+    [
+     87,
+     7.48
+    ],
+    [
+     90,
+     7.64
+    ],
+    [
+     97,
+     7.78
+    ],
+    [
+     100,
+     8.08
+    ],
+    [
+     105,
+     8.28
+    ],
+    [
+     108,
+     8.64
+    ],
+    [
+     113,
+     9.48
+    ],
+    [
+     121,
+     9.8
+    ],
+    [
+     126,
+     10.06
+    ],
+    [
+     131,
+     10.4
+    ],
+    [
+     135,
+     10.72
+    ]
+   ]
+  },
+  {
+   "id": "a2",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "सबसे मज़ेदार चीज़: GIFs। पेज के हिसाब से आप अपने mascot, character या product की फोटो को एक छोटे loop वाले animation में बदल सकते हो।",
+   "layers": [
+    {
+     "kind": "box",
+     "html": "<span>AI NEWS DIGEST</span><span style=\"color:#778\"> &nbsp;·&nbsp; 5 Nov 2026</span>",
+     "x": 100,
+     "y": 44,
+     "css": "background:#fff;border:2px solid #E3E7EE;border-radius:999px;padding:14px 34px;font-size:34px;font-weight:800;white-space:nowrap;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)"
+    },
+    {
+     "kind": "box",
+     "html": "1 / 4",
+     "x": 1640,
+     "y": 44,
+     "css": "background:#FFD60A;border-radius:999px;padding:14px 38px;font-size:34px;font-weight:800;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)"
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:1720px;height:150px;background:#14171C;border-radius:28px;display:flex;align-items:center;overflow:hidden;color:#fff;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)\"><div style=\"width:18px;height:100%;background:#FFD60A;flex:none\"></div><div style=\"font-size:66px;font-weight:800;margin-left:34px;flex:1;white-space:nowrap\">ChatGPT Images 2.6</div><div style=\"background:#FFD60A;color:#111;border-radius:999px;padding:12px 32px;font-size:38px;font-weight:800;margin-right:44px;white-space:nowrap\">Source: OpenAI</div></div>",
+     "x": 100,
+     "y": 880,
+     "css": ""
+    },
+    {
+     "kind": "text",
+     "html": "**GIF** banao",
+     "x": 100,
+     "y": 170,
+     "size": 112,
+     "w": 1500,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:560px;padding:26px 38px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"user\" data-s=\"96\"></i><div><div style=\"font-size:48px;font-weight:800;line-height:1.1;color:#111\">Mascot ya character</div><div style=\"font-size:34px;font-weight:700;color:#444;margin-top:6px;line-height:1.2\">ko chalao</div></div></div></div>",
+     "x": 100,
+     "y": 420,
+     "css": "",
+     "in": 0.5,
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:560px;padding:26px 38px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"box\" data-s=\"96\"></i><div><div style=\"font-size:48px;font-weight:800;line-height:1.1;color:#111\">Product ki photo</div><div style=\"font-size:34px;font-weight:700;color:#444;margin-top:6px;line-height:1.2\">ko loop me badlo</div></div></div></div>",
+     "x": 100,
+     "y": 640,
+     "css": "",
+     "in": "product|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "icon",
+     "name": "arrow",
+     "x": 720,
+     "y": 520,
+     "size": 150,
+     "in": "बदल सकते|-0.6",
+     "spring": true,
+     "drawon": [
+      "बदल सकते|-0.6",
+      0.5
+     ]
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:130px;font-weight:800;line-height:1\">GIF</div><div style=\"font-size:38px;font-weight:700;color:#444\">chhota animated loop</div>",
+     "x": 940,
+     "y": 430,
+     "css": "background:#fff;border:2px solid #E3E7EE;border-radius:34px;padding:34px 70px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "wig": "loop|0.0",
+     "float": 6,
+     "in": "GIFs|0.0",
+     "spring": true
+    },
+    {
+     "kind": "icon",
+     "name": "play",
+     "x": 1560,
+     "y": 470,
+     "size": 180,
+     "in": "loop|-0.2",
+     "spring": true,
+     "pulse": 1.0
+    }
+   ],
+   "wt": [
+    [
+     0,
+     0.0
+    ],
+    [
+     5,
+     0.72
+    ],
+    [
+     13,
+     1.16
+    ],
+    [
+     19,
+     1.74
+    ],
+    [
+     25,
+     2.7
+    ],
+    [
+     29,
+     3.02
+    ],
+    [
+     32,
+     3.14
+    ],
+    [
+     38,
+     3.46
+    ],
+    [
+     41,
+     3.7
+    ],
+    [
+     44,
+     3.9
+    ],
+    [
+     49,
+     4.14
+    ],
+    [
+     57,
+     4.92
+    ],
+    [
+     67,
+     5.3
+    ],
+    [
+     70,
+     5.46
+    ],
+    [
+     78,
+     5.76
+    ],
+    [
+     81,
+     5.88
+    ],
+    [
+     86,
+     6.18
+    ],
+    [
+     89,
+     6.6
+    ],
+    [
+     92,
+     6.82
+    ],
+    [
+     97,
+     7.28
+    ],
+    [
+     102,
+     7.56
+    ],
+    [
+     107,
+     7.78
+    ],
+    [
+     117,
+     8.16
+    ],
+    [
+     121,
+     8.28
+    ],
+    [
+     125,
+     8.46
+    ],
+    [
+     130,
+     8.72
+    ],
+    [
+     133,
+     9.0
+    ]
+   ]
+  },
+  {
+   "id": "a3",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "ये आज से ChatGPT और Codex में सभी subscription tiers पर मिल रहा है, desktop, mobile और web तीनों पर। Developers के लिए API में दो model हैं, Flare और Sunburst। API का दाम इस पेज पर नहीं, एक अलग link पर है।",
+   "layers": [
+    {
+     "kind": "box",
+     "html": "<span>AI NEWS DIGEST</span><span style=\"color:#778\"> &nbsp;·&nbsp; 5 Nov 2026</span>",
+     "x": 100,
+     "y": 44,
+     "css": "background:#fff;border:2px solid #E3E7EE;border-radius:999px;padding:14px 34px;font-size:34px;font-weight:800;white-space:nowrap;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)"
+    },
+    {
+     "kind": "box",
+     "html": "1 / 4",
+     "x": 1640,
+     "y": 44,
+     "css": "background:#FFD60A;border-radius:999px;padding:14px 38px;font-size:34px;font-weight:800;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)"
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:1720px;height:150px;background:#14171C;border-radius:28px;display:flex;align-items:center;overflow:hidden;color:#fff;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)\"><div style=\"width:18px;height:100%;background:#FFD60A;flex:none\"></div><div style=\"font-size:66px;font-weight:800;margin-left:34px;flex:1;white-space:nowrap\">ChatGPT Images 2.6</div><div style=\"background:#FFD60A;color:#111;border-radius:999px;padding:12px 32px;font-size:38px;font-weight:800;margin-right:44px;white-space:nowrap\">Source: OpenAI</div></div>",
+     "x": 100,
+     "y": 880,
+     "css": ""
+    },
+    {
+     "kind": "text",
+     "html": "**Kahan** milega?",
+     "x": 100,
+     "y": 170,
+     "size": 100,
+     "w": 780,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:720px;padding:26px 38px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"check\" data-s=\"96\"></i><div><div style=\"font-size:46px;font-weight:800;line-height:1.1;color:#111\">Sab subscription tiers</div><div style=\"font-size:34px;font-weight:700;color:#444;margin-top:6px;line-height:1.2\">ChatGPT aur Codex me</div></div></div></div>",
+     "x": 100,
+     "y": 450,
+     "css": "",
+     "in": 0.5,
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:720px;padding:26px 38px;background:#14171C;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"code\" data-s=\"96\"></i><div><div style=\"font-size:48px;font-weight:800;line-height:1.1;color:#FFD60A\">API me do model</div><div style=\"font-size:34px;font-weight:700;color:#C9CFDA;margin-top:6px;line-height:1.2\">Flare aur Sunburst</div></div></div></div>",
+     "x": 100,
+     "y": 650,
+     "css": "",
+     "in": "Flare|-0.2",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:920px;height:518px;border-radius:30px;border:2px solid #E3E7EE;background:#fff;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box;padding:44px 52px\"><div style=\"font-size:28px;font-weight:700;color:#778;margin-bottom:26px\">openai.com · Introducing Images 2.6 · Pricing and availability</div><div style=\"font-size:50px;font-weight:700;line-height:1.35;color:#111\"><mark style=\"background:#FFD60A;color:#111;padding:2px 8px;border-radius:6px\">available globally today in ChatGPT and Codex across all subscription tiers</mark> on desktop, mobile, and web.</div></div>",
+     "x": 900,
+     "y": 235,
+     "css": "",
+     "in": "subscription|-0.3",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:30px;font-weight:800\">Official page text</div>",
+     "x": 900,
+     "y": 163,
+     "css": "background:#FFD60A;border-radius:999px;padding:8px 30px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "subscription|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:26px;font-weight:700;color:#556\">Source: openai.com/index/introducing-images-2-6 (sentence quoted from the page)</div>",
+     "x": 900,
+     "y": 767,
+     "css": "",
+     "in": "subscription|0.1",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:36px;font-weight:800\">API daam: page me nahi, alag link par</div>",
+     "x": 900,
+     "y": 750,
+     "css": "background:#fff;border:2px solid #E3E7EE;border-radius:999px;padding:14px 34px;font-size:34px;font-weight:800;white-space:nowrap;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "दाम|-0.2",
+     "spring": true
+    }
+   ],
+   "wt": [
+    [
+     0,
+     0.0
+    ],
+    [
+     3,
+     0.48
+    ],
+    [
+     6,
+     0.66
+    ],
+    [
+     9,
+     0.96
+    ],
+    [
+     17,
+     1.34
+    ],
+    [
+     20,
+     1.44
+    ],
+    [
+     26,
+     1.84
+    ],
+    [
+     30,
+     2.08
+    ],
+    [
+     34,
+     2.36
+    ],
+    [
+     47,
+     2.9
+    ],
+    [
+     53,
+     3.18
+    ],
+    [
+     56,
+     3.3
+    ],
+    [
+     60,
+     3.44
+    ],
+    [
+     64,
+     3.72
+    ],
+    [
+     68,
+     4.6
+    ],
+    [
+     77,
+     4.92
+    ],
+    [
+     84,
+     5.02
+    ],
+    [
+     87,
+     5.22
+    ],
+    [
+     91,
+     5.54
+    ],
+    [
+     97,
+     6.36
+    ],
+    [
+     101,
+     6.8
+    ],
+    [
+     112,
+     6.92
+    ],
+    [
+     115,
+     7.04
+    ],
+    [
+     119,
+     7.4
+    ],
+    [
+     123,
+     7.58
+    ],
+    [
+     127,
+     7.72
+    ],
+    [
+     130,
+     8.04
+    ],
+    [
+     136,
+     8.44
+    ],
+    [
+     141,
+     8.84
+    ],
+    [
+     147,
+     9.08
+    ],
+    [
+     150,
+     9.64
+    ],
+    [
+     160,
+     10.42
+    ],
+    [
+     164,
+     10.54
+    ],
+    [
+     167,
+     10.72
+    ],
+    [
+     171,
+     10.88
+    ],
+    [
+     174,
+     11.04
+    ],
+    [
+     178,
+     11.16
+    ],
+    [
+     181,
+     11.5
+    ],
+    [
+     187,
+     11.6
+    ],
+    [
+     190,
+     11.8
+    ],
+    [
+     194,
+     12.04
+    ],
+    [
+     199,
+     12.18
+    ],
+    [
+     202,
+     12.38
+    ],
+    [
+     205,
+     12.68
+    ]
+   ]
+  },
+  {
+   "id": "b1",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "दूसरी खबर: Mistral का Voxtral 3, बोलने और सुनने वाले models का नया family। इसमें speech to text, text to speech, और voice agent बनाने का SDK है।",
+   "layers": [
+    {
+     "kind": "box",
+     "html": "<span>AI NEWS DIGEST</span><span style=\"color:#778\"> &nbsp;·&nbsp; 5 Nov 2026</span>",
+     "x": 100,
+     "y": 44,
+     "css": "background:#fff;border:2px solid #E3E7EE;border-radius:999px;padding:14px 34px;font-size:34px;font-weight:800;white-space:nowrap;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)"
+    },
+    {
+     "kind": "box",
+     "html": "2 / 4",
+     "x": 1640,
+     "y": 44,
+     "css": "background:#FFD60A;border-radius:999px;padding:14px 38px;font-size:34px;font-weight:800;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)"
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:1720px;height:150px;background:#14171C;border-radius:28px;display:flex;align-items:center;overflow:hidden;color:#fff;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)\"><div style=\"width:18px;height:100%;background:#FFD60A;flex:none\"></div><div style=\"font-size:66px;font-weight:800;margin-left:34px;flex:1;white-space:nowrap\">Mistral Voxtral 3</div><div style=\"background:#FFD60A;color:#111;border-radius:999px;padding:12px 32px;font-size:38px;font-weight:800;margin-right:44px;white-space:nowrap\">Source: Mistral AI</div></div>",
+     "x": 100,
+     "y": 880,
+     "css": "",
+     "in": 0.5,
+     "spring": true
+    },
+    {
+     "kind": "text",
+     "html": "**Voxtral 3**",
+     "x": 100,
+     "y": 170,
+     "size": 120,
+     "w": 780,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "text",
+     "html": "sunna aur bolna",
+     "x": 100,
+     "y": 310,
+     "size": 64,
+     "w": 780,
+     "stream": true,
+     "step": 0.14,
+     "sat": "बोलने और|-0.2"
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:720px;padding:26px 38px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"play\" data-s=\"96\"></i><div><div style=\"font-size:48px;font-weight:800;line-height:1.1;color:#111\">Speech to text</div><div style=\"font-size:34px;font-weight:700;color:#444;margin-top:6px;line-height:1.2\">bolna sunkar text</div></div></div></div>",
+     "x": 100,
+     "y": 440,
+     "css": "",
+     "in": "speech to text|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:720px;padding:26px 38px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"chat\" data-s=\"96\"></i><div><div style=\"font-size:48px;font-weight:800;line-height:1.1;color:#111\">Text to speech</div><div style=\"font-size:34px;font-weight:700;color:#444;margin-top:6px;line-height:1.2\">text ko awaaz</div></div></div></div>",
+     "x": 100,
+     "y": 620,
+     "css": "",
+     "in": "text to speech|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:720px;padding:26px 38px;background:#14171C;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"plug\" data-s=\"72\"></i><div><div style=\"font-size:44px;font-weight:800;line-height:1.1;color:#FFD60A\">Voice agent SDK</div><div style=\"font-size:30px;font-weight:700;color:#C9CFDA;margin-top:6px;line-height:1.2\">baat karne wala agent</div></div></div></div>",
+     "x": 100,
+     "y": 790,
+     "css": "",
+     "in": "SDK|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:920px;height:518px;border-radius:30px;overflow:hidden;border:2px solid #E3E7EE;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);background:#fff\"><img src=\"file:///D:/my-tubes/channels/devrobolab/stories/026_ai-news-digest-2026-11-05b/img/voxtral_0.png\" style=\"width:920px;height:518px;object-fit:cover;display:block\"></div>",
+     "x": 900,
+     "y": 235,
+     "css": "",
+     "push": 9,
+     "in": "0.5|-0.3",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:30px;font-weight:800\">Official page</div>",
+     "x": 900,
+     "y": 163,
+     "css": "background:#FFD60A;border-radius:999px;padding:8px 30px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "0.5|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:26px;font-weight:700;color:#556\">Source: mistral.ai/news/voxtral-3 · 22 Oct 2026</div>",
+     "x": 900,
+     "y": 767,
+     "css": "",
+     "in": "0.5|0.1",
+     "spring": true
+    }
+   ],
+   "wt": [
+    [
+     0,
+     0.0
+    ],
+    [
+     6,
+     0.66
+    ],
+    [
+     11,
+     1.24
+    ],
+    [
+     19,
+     1.8
+    ],
+    [
+     22,
+     1.96
+    ],
+    [
+     30,
+     2.16
+    ],
+    [
+     33,
+     2.44
+    ],
+    [
+     39,
+     2.44
+    ],
+    [
+     42,
+     3.04
+    ],
+    [
+     48,
+     3.68
+    ],
+    [
+     53,
+     3.88
+    ],
+    [
+     60,
+     4.4
+    ],
+    [
+     63,
+     4.7
+    ],
+    [
+     67,
+     4.96
+    ],
+    [
+     75,
+     5.22
+    ],
+    [
+     81,
+     6.04
+    ],
+    [
+     88,
+     6.3
+    ],
+    [
+     91,
+     6.66
+    ],
+    [
+     97,
+     6.96
+    ],
+    [
+     102,
+     7.08
+    ],
+    [
+     105,
+     7.6
+    ],
+    [
+     113,
+     7.6
+    ],
+    [
+     116,
+     7.98
+    ],
+    [
+     122,
+     8.4
+    ],
+    [
+     128,
+     8.84
+    ],
+    [
+     134,
+     9.42
+    ],
+    [
+     137,
+     9.82
+    ],
+    [
+     141,
+     10.4
+    ],
+    [
+     144,
+     10.68
+    ]
+   ]
+  },
+  {
+   "id": "b2",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "बोली को text में बदलने वाला model पचास से ज़्यादा भाषाएँ समझता है, और पेज की language list में Hindi भी है। Mini version का दाम पेज के हिसाब से ज़ीरो पॉइंट ज़ीरो ज़ीरो तीन पाँच dollar प्रति minute है।",
+   "layers": [
+    {
+     "kind": "box",
+     "html": "<span>AI NEWS DIGEST</span><span style=\"color:#778\"> &nbsp;·&nbsp; 5 Nov 2026</span>",
+     "x": 100,
+     "y": 44,
+     "css": "background:#fff;border:2px solid #E3E7EE;border-radius:999px;padding:14px 34px;font-size:34px;font-weight:800;white-space:nowrap;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)"
+    },
+    {
+     "kind": "box",
+     "html": "2 / 4",
+     "x": 1640,
+     "y": 44,
+     "css": "background:#FFD60A;border-radius:999px;padding:14px 38px;font-size:34px;font-weight:800;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)"
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:1720px;height:150px;background:#14171C;border-radius:28px;display:flex;align-items:center;overflow:hidden;color:#fff;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)\"><div style=\"width:18px;height:100%;background:#FFD60A;flex:none\"></div><div style=\"font-size:66px;font-weight:800;margin-left:34px;flex:1;white-space:nowrap\">Mistral Voxtral 3</div><div style=\"background:#FFD60A;color:#111;border-radius:999px;padding:12px 32px;font-size:38px;font-weight:800;margin-right:44px;white-space:nowrap\">Source: Mistral AI</div></div>",
+     "x": 100,
+     "y": 880,
+     "css": ""
+    },
+    {
+     "kind": "text",
+     "html": "**50+** bhashayein",
+     "x": 100,
+     "y": 170,
+     "size": 112,
+     "w": 1500,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:850px;padding:26px 38px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"globe\" data-s=\"96\"></i><div><div style=\"font-size:50px;font-weight:800;line-height:1.1;color:#111\">50 se zyada bhashayein</div><div style=\"font-size:34px;font-weight:700;color:#444;margin-top:6px;line-height:1.2\">list me Hindi bhi hai</div></div></div></div>",
+     "x": 100,
+     "y": 420,
+     "css": "",
+     "in": 0.5,
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:34px;font-weight:700;color:#444\">Mini version, page ke hisaab se</div><div style=\"font-size:120px;font-weight:800;line-height:1.05\">$0.0035</div><div style=\"font-size:40px;font-weight:700;color:#444\">per minute</div>",
+     "x": 1030,
+     "y": 400,
+     "css": "background:#fff;border:2px solid #E3E7EE;border-radius:34px;padding:30px 50px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "ज़ीरो पॉइंट|-0.2",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:850px;padding:26px 38px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"user\" data-s=\"96\"></i><div><div style=\"font-size:44px;font-weight:800;line-height:1.1;color:#111\">Kaun kya bola</div><div style=\"font-size:34px;font-weight:700;color:#444;margin-top:6px;line-height:1.2\">model alag-alag speaker pehchanta hai</div></div></div></div>",
+     "x": 100,
+     "y": 660,
+     "css": "",
+     "in": "Mini|0.0",
+     "spring": true
+    }
+   ],
+   "wt": [
+    [
+     0,
+     0.0
+    ],
+    [
+     5,
+     0.76
+    ],
+    [
+     8,
+     0.94
+    ],
+    [
+     13,
+     1.28
+    ],
+    [
+     17,
+     1.28
+    ],
+    [
+     23,
+     1.4
+    ],
+    [
+     28,
+     1.72
+    ],
+    [
+     34,
+     1.92
+    ],
+    [
+     39,
+     2.28
+    ],
+    [
+     42,
+     2.92
+    ],
+    [
+     50,
+     3.06
+    ],
+    [
+     57,
+     3.36
+    ],
+    [
+     63,
+     3.36
+    ],
+    [
+     67,
+     3.68
+    ],
+    [
+     70,
+     4.14
+    ],
+    [
+     74,
+     4.56
+    ],
+    [
+     77,
+     4.84
+    ],
+    [
+     86,
+     5.14
+    ],
+    [
+     91,
+     5.32
+    ],
+    [
+     95,
+     5.6
+    ],
+    [
+     101,
+     5.6
+    ],
+    [
+     104,
+     5.88
+    ],
+    [
+     108,
+     6.02
+    ],
+    [
+     113,
+     6.22
+    ],
+    [
+     121,
+     6.36
+    ],
+    [
+     124,
+     6.68
+    ],
+    [
+     128,
+     7.5
+    ],
+    [
+     132,
+     7.82
+    ],
+    [
+     135,
+     7.82
+    ],
+    [
+     141,
+     8.28
+    ],
+    [
+     144,
+     8.72
+    ],
+    [
+     150,
+     8.84
+    ],
+    [
+     156,
+     9.18
+    ],
+    [
+     162,
+     9.56
+    ],
+    [
+     168,
+     10.46
+    ],
+    [
+     172,
+     12.08
+    ],
+    [
+     177,
+     12.08
+    ],
+    [
+     184,
+     12.52
+    ],
+    [
+     190,
+     12.8
+    ],
+    [
+     197,
+     13.06
+    ],
+    [
+     200,
+     13.44
+    ]
+   ]
+  },
+  {
+   "id": "b3",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "Text to speech वाला model, Voxtral Mini TTS 3, पैंतीस से ज़्यादा भाषाओं में emotion के साथ बोलता है। आप Mistral के EU-hosted API से चला सकते हो, या अपने infrastructure पर। Whisper से बेहतर होने की बात Mistral का अपना दावा है।",
+   "layers": [
+    {
+     "kind": "box",
+     "html": "<span>AI NEWS DIGEST</span><span style=\"color:#778\"> &nbsp;·&nbsp; 5 Nov 2026</span>",
+     "x": 100,
+     "y": 44,
+     "css": "background:#fff;border:2px solid #E3E7EE;border-radius:999px;padding:14px 34px;font-size:34px;font-weight:800;white-space:nowrap;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)"
+    },
+    {
+     "kind": "box",
+     "html": "2 / 4",
+     "x": 1640,
+     "y": 44,
+     "css": "background:#FFD60A;border-radius:999px;padding:14px 38px;font-size:34px;font-weight:800;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)"
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:1720px;height:150px;background:#14171C;border-radius:28px;display:flex;align-items:center;overflow:hidden;color:#fff;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)\"><div style=\"width:18px;height:100%;background:#FFD60A;flex:none\"></div><div style=\"font-size:66px;font-weight:800;margin-left:34px;flex:1;white-space:nowrap\">Mistral Voxtral 3</div><div style=\"background:#FFD60A;color:#111;border-radius:999px;padding:12px 32px;font-size:38px;font-weight:800;margin-right:44px;white-space:nowrap\">Source: Mistral AI</div></div>",
+     "x": 100,
+     "y": 880,
+     "css": ""
+    },
+    {
+     "kind": "text",
+     "html": "**Emotion** wali awaaz",
+     "x": 100,
+     "y": 170,
+     "size": 100,
+     "w": 780,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:720px;padding:26px 38px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"play\" data-s=\"96\"></i><div><div style=\"font-size:48px;font-weight:800;line-height:1.1;color:#111\">Voxtral Mini TTS 3</div><div style=\"font-size:34px;font-weight:700;color:#444;margin-top:6px;line-height:1.2\">35+ bhashayein</div></div></div></div>",
+     "x": 100,
+     "y": 450,
+     "css": "",
+     "in": 0.5,
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:720px;padding:26px 38px;background:#14171C;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"lock\" data-s=\"80\"></i><div><div style=\"font-size:42px;font-weight:800;line-height:1.1;color:#FFD60A\">EU API ya apna server</div><div style=\"font-size:32px;font-weight:700;color:#C9CFDA;margin-top:6px;line-height:1.2\">audio kahan jaye, aap tay karo</div></div></div></div>",
+     "x": 100,
+     "y": 650,
+     "css": "",
+     "in": "infrastructure|-0.6",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:920px;height:518px;border-radius:30px;overflow:hidden;border:2px solid #E3E7EE;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);background:#fff\"><img src=\"file:///D:/my-tubes/channels/devrobolab/stories/026_ai-news-digest-2026-11-05b/img/voxtral_1.png\" style=\"width:920px;height:518px;object-fit:cover;display:block\"></div>",
+     "x": 900,
+     "y": 235,
+     "css": "",
+     "push": 9,
+     "in": "0.5|-0.3",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:30px;font-weight:800\">Official page</div>",
+     "x": 900,
+     "y": 163,
+     "css": "background:#FFD60A;border-radius:999px;padding:8px 30px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "0.5|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:26px;font-weight:700;color:#556\">Source: mistral.ai/news/voxtral-3 · 22 Oct 2026</div>",
+     "x": 900,
+     "y": 767,
+     "css": "",
+     "in": "0.5|0.1",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:34px;font-weight:800\">Whisper se behtar = Mistral ka dava</div>",
+     "x": 900,
+     "y": 750,
+     "css": "background:#fff;border:2px solid #E3E7EE;border-radius:999px;padding:14px 34px;font-size:34px;font-weight:800;white-space:nowrap;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "दावा|-0.5",
+     "spring": true
+    }
+   ],
+   "wt": [
+    [
+     0,
+     0.0
+    ],
+    [
+     5,
+     0.64
+    ],
+    [
+     8,
+     1.1
+    ],
+    [
+     15,
+     1.42
+    ],
+    [
+     20,
+     2.08
+    ],
+    [
+     27,
+     2.4
+    ],
+    [
+     35,
+     2.56
+    ],
+    [
+     40,
+     2.78
+    ],
+    [
+     44,
+     4.0
+    ],
+    [
+     47,
+     4.22
+    ],
+    [
+     54,
+     4.64
+    ],
+    [
+     57,
+     5.04
+    ],
+    [
+     65,
+     5.26
+    ],
+    [
+     72,
+     5.6
+    ],
+    [
+     76,
+     5.78
+    ],
+    [
+     84,
+     5.92
+    ],
+    [
+     87,
+     6.22
+    ],
+    [
+     91,
+     6.84
+    ],
+    [
+     97,
+     7.38
+    ],
+    [
+     101,
+     7.92
+    ],
+    [
+     104,
+     8.12
+    ],
+    [
+     112,
+     8.62
+    ],
+    [
+     115,
+     8.78
+    ],
+    [
+     125,
+     8.8
+    ],
+    [
+     129,
+     9.04
+    ],
+    [
+     132,
+     9.22
+    ],
+    [
+     136,
+     9.54
+    ],
+    [
+     141,
+     9.64
+    ],
+    [
+     145,
+     9.98
+    ],
+    [
+     148,
+     10.12
+    ],
+    [
+     153,
+     11.0
+    ],
+    [
+     168,
+     11.14
+    ],
+    [
+     172,
+     11.14
+    ],
+    [
+     180,
+     11.14
+    ],
+    [
+     183,
+     12.1
+    ],
+    [
+     189,
+     12.28
+    ],
+    [
+     194,
+     12.62
+    ],
+    [
+     197,
+     12.84
+    ],
+    [
+     201,
+     13.0
+    ],
+    [
+     209,
+     13.28
+    ],
+    [
+     212,
+     13.92
+    ],
+    [
+     217,
+     14.04
+    ],
+    [
+     222,
+     14.22
+    ],
+    [
+     225,
+     14.84
+    ]
+   ]
+  },
+  {
+   "id": "x1",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "तीसरी खबर: GitHub Copilot अब Xcode के अपने built-in coding assistant में चलता है। ये अभी public preview में है, और Xcode 27.3 beta से शुरू होता है।",
+   "layers": [
+    {
+     "kind": "box",
+     "html": "<span>AI NEWS DIGEST</span><span style=\"color:#778\"> &nbsp;·&nbsp; 5 Nov 2026</span>",
+     "x": 100,
+     "y": 44,
+     "css": "background:#fff;border:2px solid #E3E7EE;border-radius:999px;padding:14px 34px;font-size:34px;font-weight:800;white-space:nowrap;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)"
+    },
+    {
+     "kind": "box",
+     "html": "3 / 4",
+     "x": 1640,
+     "y": 44,
+     "css": "background:#FFD60A;border-radius:999px;padding:14px 38px;font-size:34px;font-weight:800;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)"
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:1720px;height:150px;background:#14171C;border-radius:28px;display:flex;align-items:center;overflow:hidden;color:#fff;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)\"><div style=\"width:18px;height:100%;background:#FFD60A;flex:none\"></div><div style=\"font-size:66px;font-weight:800;margin-left:34px;flex:1;white-space:nowrap\">GitHub Copilot in Xcode</div><div style=\"background:#FFD60A;color:#111;border-radius:999px;padding:12px 32px;font-size:38px;font-weight:800;margin-right:44px;white-space:nowrap\">Source: GitHub</div></div>",
+     "x": 100,
+     "y": 880,
+     "css": "",
+     "in": 0.5,
+     "spring": true
+    },
+    {
+     "kind": "text",
+     "html": "**Copilot** ab Xcode me",
+     "x": 100,
+     "y": 170,
+     "size": 96,
+     "w": 780,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:720px;padding:26px 38px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"code\" data-s=\"96\"></i><div><div style=\"font-size:44px;font-weight:800;line-height:1.1;color:#111\">Xcode ka coding assistant</div><div style=\"font-size:34px;font-weight:700;color:#444;margin-top:6px;line-height:1.2\">ke andar Copilot</div></div></div></div>",
+     "x": 100,
+     "y": 440,
+     "css": "",
+     "in": "built-in|-0.4",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:720px;padding:26px 38px;background:#FFD60A;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"clock\" data-s=\"96\"></i><div><div style=\"font-size:48px;font-weight:800;line-height:1.1;color:#111\">Public preview</div><div style=\"font-size:34px;font-weight:700;color:#444;margin-top:6px;line-height:1.2\">Xcode 27.3 beta se</div></div></div></div>",
+     "x": 100,
+     "y": 650,
+     "css": "",
+     "in": "public preview|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:920px;height:518px;border-radius:30px;overflow:hidden;border:2px solid #E3E7EE;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);background:#fff\"><img src=\"file:///D:/my-tubes/channels/devrobolab/stories/026_ai-news-digest-2026-11-05b/img/xcode_0.png\" style=\"width:920px;height:518px;object-fit:cover;display:block\"></div>",
+     "x": 900,
+     "y": 235,
+     "css": "",
+     "push": 9,
+     "in": "0.5|-0.3",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:30px;font-weight:800\">Official page</div>",
+     "x": 900,
+     "y": 163,
+     "css": "background:#FFD60A;border-radius:999px;padding:8px 30px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "0.5|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:26px;font-weight:700;color:#556\">Source: github.blog changelog · 4 Nov 2026</div>",
+     "x": 900,
+     "y": 767,
+     "css": "",
+     "in": "0.5|0.1",
+     "spring": true
+    }
+   ],
+   "wt": [
+    [
+     0,
+     0.0
+    ],
+    [
+     6,
+     0.68
+    ],
+    [
+     11,
+     0.94
+    ],
+    [
+     18,
+     1.64
+    ],
+    [
+     26,
+     1.84
+    ],
+    [
+     29,
+     2.26
+    ],
+    [
+     35,
+     2.58
+    ],
+    [
+     38,
+     3.1
+    ],
+    [
+     43,
+     3.36
+    ],
+    [
+     52,
+     3.74
+    ],
+    [
+     59,
+     4.14
+    ],
+    [
+     69,
+     4.48
+    ],
+    [
+     73,
+     4.84
+    ],
+    [
+     78,
+     4.96
+    ],
+    [
+     82,
+     5.22
+    ],
+    [
+     85,
+     5.32
+    ],
+    [
+     89,
+     5.78
+    ],
+    [
+     96,
+     5.88
+    ],
+    [
+     104,
+     6.24
+    ],
+    [
+     108,
+     6.54
+    ],
+    [
+     112,
+     6.84
+    ],
+    [
+     115,
+     7.0
+    ],
+    [
+     121,
+     7.32
+    ],
+    [
+     126,
+     7.72
+    ],
+    [
+     131,
+     8.12
+    ],
+    [
+     134,
+     9.16
+    ],
+    [
+     139,
+     9.3
+    ],
+    [
+     144,
+     9.68
+    ],
+    [
+     147,
+     10.08
+    ]
+   ]
+  },
+  {
+   "id": "x2",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "इस्तेमाल के लिए Mac पर macOS Tahoe छब्बीस पॉइंट छह या नया चाहिए। Xcode में Settings खोलो, फिर Intelligence, और वहाँ Copilot set up करो।",
+   "layers": [
+    {
+     "kind": "box",
+     "html": "<span>AI NEWS DIGEST</span><span style=\"color:#778\"> &nbsp;·&nbsp; 5 Nov 2026</span>",
+     "x": 100,
+     "y": 44,
+     "css": "background:#fff;border:2px solid #E3E7EE;border-radius:999px;padding:14px 34px;font-size:34px;font-weight:800;white-space:nowrap;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)"
+    },
+    {
+     "kind": "box",
+     "html": "3 / 4",
+     "x": 1640,
+     "y": 44,
+     "css": "background:#FFD60A;border-radius:999px;padding:14px 38px;font-size:34px;font-weight:800;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)"
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:1720px;height:150px;background:#14171C;border-radius:28px;display:flex;align-items:center;overflow:hidden;color:#fff;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)\"><div style=\"width:18px;height:100%;background:#FFD60A;flex:none\"></div><div style=\"font-size:66px;font-weight:800;margin-left:34px;flex:1;white-space:nowrap\">GitHub Copilot in Xcode</div><div style=\"background:#FFD60A;color:#111;border-radius:999px;padding:12px 32px;font-size:38px;font-weight:800;margin-right:44px;white-space:nowrap\">Source: GitHub</div></div>",
+     "x": 100,
+     "y": 880,
+     "css": ""
+    },
+    {
+     "kind": "text",
+     "html": "**3 steps** me set up",
+     "x": 100,
+     "y": 170,
+     "size": 100,
+     "w": 1500,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:800px;padding:26px 38px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"desktop\" data-s=\"96\"></i><div><div style=\"font-size:46px;font-weight:800;line-height:1.1;color:#111\">macOS Tahoe 26.6 ya naya</div><div style=\"font-size:34px;font-weight:700;color:#444;margin-top:6px;line-height:1.2\">Mac chahiye</div></div></div></div>",
+     "x": 100,
+     "y": 420,
+     "css": "",
+     "in": 0.5,
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:820px;height:330px;border:2px solid #14171C;border-radius:34px;background:#14171C;color:#fff;overflow:hidden;position:relative;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)\"><div style=\"height:78px;background:#262B33;display:flex;align-items:center;gap:22px;padding-left:28px\"><div class=\"dot3\"><i style=\"background:#FFD60A\"></i><i style=\"background:#9AA3B2\"></i><i style=\"background:#9AA3B2\"></i></div><div class=\"mono\" style=\"font-size:30px;color:#FFD60A\">terminal</div></div></div>",
+     "x": 1000,
+     "y": 400,
+     "css": "",
+     "in": "Settings|-0.6",
+     "spring": true
+    },
+    {
+     "kind": "typed",
+     "text": "Xcode > Settings > Intelligence",
+     "x": 1040,
+     "y": 520,
+     "size": 38,
+     "w": 760,
+     "sat": "Settings|-0.4",
+     "color": "#fff",
+     "cps": 18,
+     "mono": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:800px;padding:26px 38px;background:#14171C;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"check\" data-s=\"96\"></i><div><div style=\"font-size:46px;font-weight:800;line-height:1.1;color:#FFD60A\">Phir Copilot set up</div><div style=\"font-size:34px;font-weight:700;color:#C9CFDA;margin-top:6px;line-height:1.2\">assistant me</div></div></div></div>",
+     "x": 100,
+     "y": 640,
+     "css": "",
+     "in": "set up|-0.1",
+     "spring": true
+    }
+   ],
+   "wt": [
+    [
+     0,
+     0.0
+    ],
+    [
+     9,
+     0.7
+    ],
+    [
+     12,
+     0.84
+    ],
+    [
+     16,
+     0.96
+    ],
+    [
+     20,
+     1.34
+    ],
+    [
+     23,
+     1.58
+    ],
+    [
+     29,
+     1.96
+    ],
+    [
+     35,
+     2.34
+    ],
+    [
+     42,
+     2.58
+    ],
+    [
+     48,
+     3.3
+    ],
+    [
+     51,
+     3.46
+    ],
+    [
+     54,
+     3.64
+    ],
+    [
+     58,
+     3.86
+    ],
+    [
+     65,
+     4.08
+    ],
+    [
+     71,
+     4.58
+    ],
+    [
+     75,
+     5.42
+    ],
+    [
+     84,
+     5.9
+    ],
+    [
+     90,
+     6.06
+    ],
+    [
+     94,
+     6.72
+    ],
+    [
+     108,
+     7.46
+    ],
+    [
+     111,
+     8.0
+    ],
+    [
+     116,
+     9.2
+    ],
+    [
+     124,
+     9.3
+    ],
+    [
+     128,
+     9.58
+    ],
+    [
+     131,
+     9.8
+    ],
+    [
+     135,
+     10.4
+    ]
+   ]
+  },
+  {
+   "id": "x3",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "पेज के हिसाब से सभी Copilot plans supported हैं। पुराना GitHub Copilot for Xcode extension भी अलग option बना रहता है। दाम की बात इस पेज में नहीं लिखी।",
+   "layers": [
+    {
+     "kind": "box",
+     "html": "<span>AI NEWS DIGEST</span><span style=\"color:#778\"> &nbsp;·&nbsp; 5 Nov 2026</span>",
+     "x": 100,
+     "y": 44,
+     "css": "background:#fff;border:2px solid #E3E7EE;border-radius:999px;padding:14px 34px;font-size:34px;font-weight:800;white-space:nowrap;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)"
+    },
+    {
+     "kind": "box",
+     "html": "3 / 4",
+     "x": 1640,
+     "y": 44,
+     "css": "background:#FFD60A;border-radius:999px;padding:14px 38px;font-size:34px;font-weight:800;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)"
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:1720px;height:150px;background:#14171C;border-radius:28px;display:flex;align-items:center;overflow:hidden;color:#fff;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)\"><div style=\"width:18px;height:100%;background:#FFD60A;flex:none\"></div><div style=\"font-size:66px;font-weight:800;margin-left:34px;flex:1;white-space:nowrap\">GitHub Copilot in Xcode</div><div style=\"background:#FFD60A;color:#111;border-radius:999px;padding:12px 32px;font-size:38px;font-weight:800;margin-right:44px;white-space:nowrap\">Source: GitHub</div></div>",
+     "x": 100,
+     "y": 880,
+     "css": ""
+    },
+    {
+     "kind": "text",
+     "html": "**Kaun** use kar sakta?",
+     "x": 100,
+     "y": 170,
+     "size": 100,
+     "w": 780,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:720px;padding:26px 38px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"check\" data-s=\"96\"></i><div><div style=\"font-size:48px;font-weight:800;line-height:1.1;color:#111\">Sab Copilot plans</div><div style=\"font-size:34px;font-weight:700;color:#444;margin-top:6px;line-height:1.2\">page ke hisaab se</div></div></div></div>",
+     "x": 100,
+     "y": 450,
+     "css": "",
+     "in": 0.5,
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:720px;padding:26px 38px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"box\" data-s=\"96\"></i><div><div style=\"font-size:46px;font-weight:800;line-height:1.1;color:#111\">Purana extension bhi</div><div style=\"font-size:34px;font-weight:700;color:#444;margin-top:6px;line-height:1.2\">alag option, chalta rahega</div></div></div></div>",
+     "x": 100,
+     "y": 650,
+     "css": "",
+     "in": "extension|-0.2",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:920px;height:518px;border-radius:30px;overflow:hidden;border:2px solid #E3E7EE;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);background:#fff\"><img src=\"file:///D:/my-tubes/channels/devrobolab/stories/026_ai-news-digest-2026-11-05b/img/xcode_1.png\" style=\"width:920px;height:518px;object-fit:cover;display:block\"></div>",
+     "x": 900,
+     "y": 235,
+     "css": "",
+     "push": 9,
+     "in": "0.5|-0.3",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:30px;font-weight:800\">Official page</div>",
+     "x": 900,
+     "y": 163,
+     "css": "background:#FFD60A;border-radius:999px;padding:8px 30px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "0.5|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:26px;font-weight:700;color:#556\">Source: github.blog changelog · 4 Nov 2026</div>",
+     "x": 900,
+     "y": 767,
+     "css": "",
+     "in": "0.5|0.1",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:34px;font-weight:800\">Daam: page me nahi likha</div>",
+     "x": 900,
+     "y": 750,
+     "css": "background:#fff;border:2px solid #E3E7EE;border-radius:999px;padding:14px 34px;font-size:34px;font-weight:800;white-space:nowrap;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "दाम|-0.3",
+     "spring": true
+    }
+   ],
+   "wt": [
+    [
+     0,
+     0.0
+    ],
+    [
+     4,
+     0.58
+    ],
+    [
+     7,
+     0.74
+    ],
+    [
+     13,
+     1.08
+    ],
+    [
+     16,
+     1.38
+    ],
+    [
+     20,
+     1.76
+    ],
+    [
+     28,
+     1.86
+    ],
+    [
+     34,
+     1.86
+    ],
+    [
+     44,
+     2.38
+    ],
+    [
+     49,
+     2.64
+    ],
+    [
+     56,
+     2.98
+    ],
+    [
+     63,
+     3.18
+    ],
+    [
+     71,
+     3.96
+    ],
+    [
+     75,
+     4.4
+    ],
+    [
+     81,
+     4.92
+    ],
+    [
+     91,
+     5.06
+    ],
+    [
+     94,
+     5.46
+    ],
+    [
+     98,
+     5.9
+    ],
+    [
+     105,
+     6.12
+    ],
+    [
+     109,
+     6.48
+    ],
+    [
+     114,
+     6.74
+    ],
+    [
+     118,
+     7.56
+    ],
+    [
+     122,
+     7.56
+    ],
+    [
+     125,
+     8.08
+    ],
+    [
+     129,
+     8.26
+    ],
+    [
+     132,
+     8.44
+    ],
+    [
+     136,
+     8.56
+    ],
+    [
+     140,
+     8.76
+    ],
+    [
+     145,
+     8.9
+    ],
+    [
+     150,
+     9.52
+    ]
+   ]
+  },
+  {
+   "id": "d1",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "चौथी खबर: Dharma AI ने Field Extractor बनाया है। सिर्फ दो billion parameters का model, जो document की image से वही fields निकालता है जो आप माँगो।",
+   "layers": [
+    {
+     "kind": "box",
+     "html": "<span>AI NEWS DIGEST</span><span style=\"color:#778\"> &nbsp;·&nbsp; 5 Nov 2026</span>",
+     "x": 100,
+     "y": 44,
+     "css": "background:#fff;border:2px solid #E3E7EE;border-radius:999px;padding:14px 34px;font-size:34px;font-weight:800;white-space:nowrap;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)"
+    },
+    {
+     "kind": "box",
+     "html": "4 / 4",
+     "x": 1640,
+     "y": 44,
+     "css": "background:#FFD60A;border-radius:999px;padding:14px 38px;font-size:34px;font-weight:800;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)"
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:1720px;height:150px;background:#14171C;border-radius:28px;display:flex;align-items:center;overflow:hidden;color:#fff;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)\"><div style=\"width:18px;height:100%;background:#FFD60A;flex:none\"></div><div style=\"font-size:66px;font-weight:800;margin-left:34px;flex:1;white-space:nowrap\">Dharma Field Extractor</div><div style=\"background:#FFD60A;color:#111;border-radius:999px;padding:12px 32px;font-size:38px;font-weight:800;margin-right:44px;white-space:nowrap\">Source: Dharma AI</div></div>",
+     "x": 100,
+     "y": 880,
+     "css": "",
+     "in": 0.5,
+     "spring": true
+    },
+    {
+     "kind": "text",
+     "html": "**Document** se **data**",
+     "x": 100,
+     "y": 170,
+     "size": 100,
+     "w": 780,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:720px;padding:26px 38px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"file\" data-s=\"96\"></i><div><div style=\"font-size:48px;font-weight:800;line-height:1.1;color:#111\">Document ki image</div><div style=\"font-size:34px;font-weight:700;color:#444;margin-top:6px;line-height:1.2\">invoice, ID, form</div></div></div></div>",
+     "x": 100,
+     "y": 450,
+     "css": "",
+     "in": "document|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:720px;padding:26px 38px;background:#FFD60A;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"box\" data-s=\"96\"></i><div><div style=\"font-size:46px;font-weight:800;line-height:1.1;color:#111\">2 billion parameters</div><div style=\"font-size:34px;font-weight:700;color:#444;margin-top:6px;line-height:1.2\">chhota model</div></div></div></div>",
+     "x": 100,
+     "y": 650,
+     "css": "",
+     "in": "दो billion|-0.2",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:920px;height:518px;border-radius:30px;overflow:hidden;border:2px solid #E3E7EE;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);background:#fff\"><img src=\"file:///D:/my-tubes/channels/devrobolab/stories/026_ai-news-digest-2026-11-05b/img/dharma_0.png\" style=\"width:920px;height:518px;object-fit:cover;display:block\"></div>",
+     "x": 900,
+     "y": 235,
+     "css": "",
+     "push": 9,
+     "in": "0.5|-0.3",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:30px;font-weight:800\">Official page</div>",
+     "x": 900,
+     "y": 163,
+     "css": "background:#FFD60A;border-radius:999px;padding:8px 30px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "0.5|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:26px;font-weight:700;color:#556\">Source: huggingface.co/blog/Dharma-AI · 4 Nov 2026</div>",
+     "x": 900,
+     "y": 767,
+     "css": "",
+     "in": "0.5|0.1",
+     "spring": true
+    }
+   ],
+   "wt": [
+    [
+     0,
+     0.0
+    ],
+    [
+     5,
+     1.08
+    ],
+    [
+     10,
+     1.66
+    ],
+    [
+     17,
+     1.9
+    ],
+    [
+     20,
+     2.18
+    ],
+    [
+     23,
+     2.74
+    ],
+    [
+     29,
+     3.22
+    ],
+    [
+     39,
+     3.22
+    ],
+    [
+     45,
+     3.58
+    ],
+    [
+     49,
+     3.96
+    ],
+    [
+     55,
+     4.82
+    ],
+    [
+     58,
+     5.06
+    ],
+    [
+     66,
+     5.56
+    ],
+    [
+     77,
+     5.7
+    ],
+    [
+     80,
+     6.28
+    ],
+    [
+     87,
+     6.44
+    ],
+    [
+     90,
+     7.04
+    ],
+    [
+     99,
+     7.14
+    ],
+    [
+     102,
+     7.36
+    ],
+    [
+     108,
+     7.54
+    ],
+    [
+     111,
+     7.54
+    ],
+    [
+     115,
+     7.82
+    ],
+    [
+     122,
+     8.12
+    ],
+    [
+     130,
+     8.5
+    ],
+    [
+     133,
+     8.58
+    ],
+    [
+     136,
+     8.68
+    ],
+    [
+     139,
+     8.76
+    ],
+    [
+     145,
+     9.4
+    ]
+   ]
+  },
+  {
+   "id": "d2",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "जैसे invoice से supplier, invoice number, due date और total। Output JSON में आता है, field by field। आप schema दे सकते हो, या model खुद ढूँढ ले कि कौन से fields हैं।",
+   "layers": [
+    {
+     "kind": "box",
+     "html": "<span>AI NEWS DIGEST</span><span style=\"color:#778\"> &nbsp;·&nbsp; 5 Nov 2026</span>",
+     "x": 100,
+     "y": 44,
+     "css": "background:#fff;border:2px solid #E3E7EE;border-radius:999px;padding:14px 34px;font-size:34px;font-weight:800;white-space:nowrap;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)"
+    },
+    {
+     "kind": "box",
+     "html": "4 / 4",
+     "x": 1640,
+     "y": 44,
+     "css": "background:#FFD60A;border-radius:999px;padding:14px 38px;font-size:34px;font-weight:800;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)"
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:1720px;height:150px;background:#14171C;border-radius:28px;display:flex;align-items:center;overflow:hidden;color:#fff;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)\"><div style=\"width:18px;height:100%;background:#FFD60A;flex:none\"></div><div style=\"font-size:66px;font-weight:800;margin-left:34px;flex:1;white-space:nowrap\">Dharma Field Extractor</div><div style=\"background:#FFD60A;color:#111;border-radius:999px;padding:12px 32px;font-size:38px;font-weight:800;margin-right:44px;white-space:nowrap\">Source: Dharma AI</div></div>",
+     "x": 100,
+     "y": 880,
+     "css": ""
+    },
+    {
+     "kind": "text",
+     "html": "**Invoice** se **4 cheezein**",
+     "x": 100,
+     "y": 170,
+     "size": 100,
+     "w": 1500,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:520px;padding:26px 40px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"font-size:40px;font-weight:700;line-height:1.7\">supplier<br>invoice number<br>due date<br>total</div></div>",
+     "x": 100,
+     "y": 400,
+     "css": "",
+     "in": 0.5,
+     "spring": true
+    },
+    {
+     "kind": "flow",
+     "at": "JSON|-0.6",
+     "pts": [
+      [
+       660,
+       560
+      ],
+      [
+       800,
+       560
+      ]
+     ],
+     "dur": 0.5,
+     "sw": 9,
+     "n": 2,
+     "per": 1.0,
+     "r": 12
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:900px;height:400px;border:2px solid #14171C;border-radius:34px;background:#14171C;color:#fff;overflow:hidden;position:relative;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)\"><div style=\"height:78px;background:#262B33;display:flex;align-items:center;gap:22px;padding-left:28px\"><div class=\"dot3\"><i style=\"background:#FFD60A\"></i><i style=\"background:#9AA3B2\"></i><i style=\"background:#9AA3B2\"></i></div><div class=\"mono\" style=\"font-size:30px;color:#FFD60A\">terminal</div></div></div>",
+     "x": 860,
+     "y": 380,
+     "css": "",
+     "in": "JSON|-0.4",
+     "spring": true
+    },
+    {
+     "kind": "typed",
+     "text": "{ \"supplier\": \"...\",\n  \"total\": \"...\" }",
+     "x": 900,
+     "y": 480,
+     "size": 40,
+     "w": 800,
+     "sat": "field by field|-0.2",
+     "color": "#fff",
+     "cps": 18,
+     "mono": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:800px;padding:26px 38px;background:#14171C;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"check\" data-s=\"72\"></i><div><div style=\"font-size:40px;font-weight:800;line-height:1.1;color:#FFD60A\">Schema do ya model khud dhoondhe</div><div style=\"font-size:30px;font-weight:700;color:#C9CFDA;margin-top:6px;line-height:1.2\">do tareeke</div></div></div></div>",
+     "x": 100,
+     "y": 720,
+     "css": "",
+     "in": "schema|-0.1",
+     "spring": true
+    }
+   ],
+   "wt": [
+    [
+     0,
+     0.0
+    ],
+    [
+     5,
+     0.6
+    ],
+    [
+     13,
+     1.46
+    ],
+    [
+     16,
+     2.42
+    ],
+    [
+     26,
+     2.86
+    ],
+    [
+     34,
+     3.6
+    ],
+    [
+     42,
+     3.6
+    ],
+    [
+     46,
+     4.1
+    ],
+    [
+     51,
+     4.36
+    ],
+    [
+     54,
+     5.24
+    ],
+    [
+     61,
+     5.62
+    ],
+    [
+     68,
+     6.02
+    ],
+    [
+     73,
+     6.12
+    ],
+    [
+     77,
+     6.3
+    ],
+    [
+     81,
+     6.7
+    ],
+    [
+     85,
+     6.98
+    ],
+    [
+     91,
+     6.98
+    ],
+    [
+     94,
+     7.22
+    ],
+    [
+     101,
+     7.96
+    ],
+    [
+     104,
+     8.28
+    ],
+    [
+     111,
+     8.9
+    ],
+    [
+     114,
+     9.02
+    ],
+    [
+     119,
+     9.32
+    ],
+    [
+     123,
+     9.66
+    ],
+    [
+     126,
+     9.82
+    ],
+    [
+     132,
+     10.18
+    ],
+    [
+     136,
+     10.44
+    ],
+    [
+     141,
+     10.44
+    ],
+    [
+     144,
+     10.74
+    ],
+    [
+     147,
+     10.84
+    ],
+    [
+     151,
+     11.04
+    ],
+    [
+     154,
+     11.5
+    ],
+    [
+     161,
+     11.8
+    ],
+    [
+     165,
+     12.2
+    ]
+   ]
+  },
+  {
+   "id": "d3",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "Dharma का कहना है कि ये उनके test किए frontier models से बेहतर है और सस्ता भी। ये उनका अपना दावा है। इस model का license और download link इस पेज में साफ नहीं लिखा।",
+   "layers": [
+    {
+     "kind": "box",
+     "html": "<span>AI NEWS DIGEST</span><span style=\"color:#778\"> &nbsp;·&nbsp; 5 Nov 2026</span>",
+     "x": 100,
+     "y": 44,
+     "css": "background:#fff;border:2px solid #E3E7EE;border-radius:999px;padding:14px 34px;font-size:34px;font-weight:800;white-space:nowrap;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)"
+    },
+    {
+     "kind": "box",
+     "html": "4 / 4",
+     "x": 1640,
+     "y": 44,
+     "css": "background:#FFD60A;border-radius:999px;padding:14px 38px;font-size:34px;font-weight:800;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)"
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:1720px;height:150px;background:#14171C;border-radius:28px;display:flex;align-items:center;overflow:hidden;color:#fff;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)\"><div style=\"width:18px;height:100%;background:#FFD60A;flex:none\"></div><div style=\"font-size:66px;font-weight:800;margin-left:34px;flex:1;white-space:nowrap\">Dharma Field Extractor</div><div style=\"background:#FFD60A;color:#111;border-radius:999px;padding:12px 32px;font-size:38px;font-weight:800;margin-right:44px;white-space:nowrap\">Source: Dharma AI</div></div>",
+     "x": 100,
+     "y": 880,
+     "css": ""
+    },
+    {
+     "kind": "text",
+     "html": "**Dava** ya **saboot**?",
+     "x": 100,
+     "y": 170,
+     "size": 100,
+     "w": 780,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:720px;padding:26px 38px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"bulb\" data-s=\"96\"></i><div><div style=\"font-size:46px;font-weight:800;line-height:1.1;color:#111\">Dharma ka dava</div><div style=\"font-size:34px;font-weight:700;color:#444;margin-top:6px;line-height:1.2\">frontier models se behtar, sasta</div></div></div></div>",
+     "x": 100,
+     "y": 450,
+     "css": "",
+     "in": 0.5,
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:720px;padding:26px 38px;background:#14171C;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"magnifier\" data-s=\"96\"></i><div><div style=\"font-size:44px;font-weight:800;line-height:1.1;color:#FFD60A\">License, download link</div><div style=\"font-size:34px;font-weight:700;color:#C9CFDA;margin-top:6px;line-height:1.2\">page me saaf nahi likha</div></div></div></div>",
+     "x": 100,
+     "y": 650,
+     "css": "",
+     "in": "license|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:920px;height:518px;border-radius:30px;overflow:hidden;border:2px solid #E3E7EE;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);background:#fff\"><img src=\"file:///D:/my-tubes/channels/devrobolab/stories/026_ai-news-digest-2026-11-05b/img/dharma_1.png\" style=\"width:920px;height:518px;object-fit:cover;display:block\"></div>",
+     "x": 900,
+     "y": 235,
+     "css": "",
+     "push": 9,
+     "in": "0.5|-0.3",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:30px;font-weight:800\">Official page</div>",
+     "x": 900,
+     "y": 163,
+     "css": "background:#FFD60A;border-radius:999px;padding:8px 30px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "0.5|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:26px;font-weight:700;color:#556\">Source: huggingface.co/blog/Dharma-AI · 4 Nov 2026</div>",
+     "x": 900,
+     "y": 767,
+     "css": "",
+     "in": "0.5|0.1",
+     "spring": true
+    }
+   ],
+   "wt": [
+    [
+     0,
+     0.0
+    ],
+    [
+     7,
+     0.72
+    ],
+    [
+     10,
+     0.9
+    ],
+    [
+     15,
+     1.14
+    ],
+    [
+     18,
+     1.2
+    ],
+    [
+     21,
+     1.38
+    ],
+    [
+     24,
+     1.52
+    ],
+    [
+     29,
+     1.8
+    ],
+    [
+     34,
+     2.16
+    ],
+    [
+     38,
+     2.28
+    ],
+    [
+     47,
+     2.44
+    ],
+    [
+     54,
+     2.82
+    ],
+    [
+     57,
+     3.08
+    ],
+    [
+     63,
+     3.26
+    ],
+    [
+     66,
+     3.66
+    ],
+    [
+     69,
+     3.74
+    ],
+    [
+     75,
+     4.12
+    ],
+    [
+     79,
+     4.6
+    ],
+    [
+     82,
+     5.1
+    ],
+    [
+     87,
+     5.32
+    ],
+    [
+     92,
+     5.56
+    ],
+    [
+     97,
+     5.82
+    ],
+    [
+     101,
+     6.06
+    ],
+    [
+     104,
+     6.74
+    ],
+    [
+     110,
+     7.2
+    ],
+    [
+     113,
+     7.4
+    ],
+    [
+     121,
+     7.96
+    ],
+    [
+     124,
+     8.1
+    ],
+    [
+     133,
+     8.38
+    ],
+    [
+     138,
+     8.64
+    ],
+    [
+     141,
+     8.86
+    ],
+    [
+     145,
+     9.08
+    ],
+    [
+     149,
+     9.22
+    ],
+    [
+     153,
+     9.42
+    ],
+    [
+     158,
+     9.56
+    ],
+    [
+     163,
+     10.12
+    ]
+   ]
+  },
+  {
+   "id": "recap",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "तो आज की चार खबरें: ChatGPT के Images 2.6 में GIFs और तेज़ images। Mistral के Voxtral 3 में सुनने और बोलने वाले models। Xcode में GitHub Copilot, public preview में। और Dharma का Field Extractor, documents से data निकालने के लिए। आज क्या करें: पेज खोलकर तारीख और plan खुद check करो। आपको कौन सी खबर सबसे काम की लगी? Comment में बताओ।",
+   "layers": [
+    {
+     "kind": "box",
+     "html": "<span>AI NEWS DIGEST</span><span style=\"color:#778\"> &nbsp;·&nbsp; 5 Nov 2026</span>",
+     "x": 100,
+     "y": 44,
+     "css": "background:#fff;border:2px solid #E3E7EE;border-radius:999px;padding:14px 34px;font-size:34px;font-weight:800;white-space:nowrap;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "0.2|0.0",
+     "spring": true
+    },
+    {
+     "kind": "text",
+     "html": "**Aaj ka recap**",
+     "x": 100,
+     "y": 130,
+     "size": 96,
+     "w": 1200,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:880px;padding:26px 38px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"sparkle\" data-s=\"80\"></i><div><div style=\"font-size:46px;font-weight:800;line-height:1.1;color:#111\">Images 2.6</div><div style=\"font-size:34px;font-weight:700;color:#444;margin-top:6px;line-height:1.2\">GIFs aur tez images</div></div></div></div>",
+     "x": 100,
+     "y": 300,
+     "css": "",
+     "in": "Images|-0.2",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:880px;padding:26px 38px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"play\" data-s=\"80\"></i><div><div style=\"font-size:46px;font-weight:800;line-height:1.1;color:#111\">Voxtral 3</div><div style=\"font-size:34px;font-weight:700;color:#444;margin-top:6px;line-height:1.2\">sunna aur bolna</div></div></div></div>",
+     "x": 100,
+     "y": 490,
+     "css": "",
+     "in": "Voxtral|-0.2",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:880px;padding:26px 38px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"code\" data-s=\"80\"></i><div><div style=\"font-size:46px;font-weight:800;line-height:1.1;color:#111\">Copilot in Xcode</div><div style=\"font-size:34px;font-weight:700;color:#444;margin-top:6px;line-height:1.2\">public preview</div></div></div></div>",
+     "x": 1000,
+     "y": 300,
+     "css": "",
+     "in": "Xcode|-0.2",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:880px;padding:26px 38px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"display:flex;align-items:center;gap:28px\"><i data-ic=\"file\" data-s=\"80\"></i><div><div style=\"font-size:46px;font-weight:800;line-height:1.1;color:#111\">Field Extractor</div><div style=\"font-size:34px;font-weight:700;color:#444;margin-top:6px;line-height:1.2\">document se data</div></div></div></div>",
+     "x": 1000,
+     "y": 490,
+     "css": "",
+     "in": "Dharma|-0.2",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:44px;font-weight:800\">Aaj karo: page khol kar tarikh aur plan khud check karo</div>",
+     "x": 100,
+     "y": 720,
+     "css": "background:#FFD60A;border-radius:999px;padding:14px 40px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "आज क्या|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:44px;font-weight:800\">Kaun si khabar sabse kaam ki? Comment karo</div>",
+     "x": 100,
+     "y": 820,
+     "css": "background:#fff;border:2px solid #E3E7EE;border-radius:999px;padding:14px 34px;font-size:34px;font-weight:800;white-space:nowrap;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "आपको कौन|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "img",
+     "img": "think",
+     "size": 330,
+     "x": 1480,
+     "y": 640,
+     "bob": 1,
+     "k": [
+      [
+       0.2,
+       {
+        "o": 0
+       }
+      ],
+      [
+       0.5,
+       {
+        "o": 1
+       }
+      ]
+     ]
+    }
+   ],
+   "wt": [
+    [
+     0,
+     0.0
+    ],
+    [
+     3,
+     0.42
+    ],
+    [
+     6,
+     0.42
+    ],
+    [
+     9,
+     0.74
+    ],
+    [
+     13,
+     0.96
+    ],
+    [
+     20,
+     0.96
+    ],
+    [
+     28,
+     1.3
+    ],
+    [
+     31,
+     2.02
+    ],
+    [
+     38,
+     2.02
+    ],
+    [
+     42,
+     2.4
+    ],
+    [
+     46,
+     2.52
+    ],
+    [
+     51,
+     2.86
+    ],
+    [
+     54,
+     2.86
+    ],
+    [
+     59,
+     3.04
+    ],
+    [
+     67,
+     3.42
+    ],
+    [
+     75,
+     3.42
+    ],
+    [
+     78,
+     3.7
+    ],
+    [
+     86,
+     4.12
+    ],
+    [
+     88,
+     4.12
+    ],
+    [
+     92,
+     4.34
+    ],
+    [
+     98,
+     4.72
+    ],
+    [
+     101,
+     4.72
+    ],
+    [
+     107,
+     5.14
+    ],
+    [
+     112,
+     6.12
+    ],
+    [
+     120,
+     6.12
+    ],
+    [
+     126,
+     6.22
+    ],
+    [
+     130,
+     6.62
+    ],
+    [
+     137,
+     6.62
+    ],
+    [
+     146,
+     6.82
+    ],
+    [
+     153,
+     7.04
+    ],
+    [
+     161,
+     7.04
+    ],
+    [
+     166,
+     7.5
+    ],
+    [
+     169,
+     7.68
+    ],
+    [
+     176,
+     7.98
+    ],
+    [
+     179,
+     7.98
+    ],
+    [
+     185,
+     8.18
+    ],
+    [
+     196,
+     8.7
+    ],
+    [
+     206,
+     8.7
+    ],
+    [
+     209,
+     9.44
+    ],
+    [
+     214,
+     9.64
+    ],
+    [
+     222,
+     9.64
+    ],
+    [
+     225,
+     9.78
+    ],
+    [
+     230,
+     10.1
+    ],
+    [
+     233,
+     10.1
+    ],
+    [
+     238,
+     10.24
+    ],
+    [
+     244,
+     10.58
+    ],
+    [
+     248,
+     10.58
+    ],
+    [
+     254,
+     11.06
+    ],
+    [
+     260,
+     11.36
+    ],
+    [
+     263,
+     11.36
+    ],
+    [
+     268,
+     18.87
+    ],
+    [
+     272,
+     19.37
+    ],
+    [
+     278,
+     19.37
+    ],
+    [
+     283,
+     19.65
+    ],
+    [
+     288,
+     19.85
+    ],
+    [
+     292,
+     20.11
+    ],
+    [
+     295,
+     20.11
+    ],
+    [
+     299,
+     20.29
+    ],
+    [
+     304,
+     20.43
+    ],
+    [
+     308,
+     20.43
+    ],
+    [
+     311,
+     20.67
+    ],
+    [
+     316,
+     21.13
+    ],
+    [
+     324,
+     21.13
+    ],
+    [
+     328,
+     21.25
+    ],
+    [
+     333,
+     21.68
+    ]
+   ]
+  },
+  {
+   "id": "src",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "सारे sources और licence की जानकारी description में दी है।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "**SOURCES & LICENCES**",
+     "x": 100,
+     "y": 130,
+     "size": 96,
+     "w": 1700,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.1
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:1500px;padding:34px 48px;background:#fff;border:2px solid #E3E7EE;border-radius:34px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);box-sizing:border-box\"><div style=\"font-size:38px;font-weight:700;margin:12px 0\">OpenAI: openai.com/index/introducing-images-2-6</div><div style=\"font-size:38px;font-weight:700;margin:12px 0\">Mistral: mistral.ai/news/voxtral-3</div><div style=\"font-size:38px;font-weight:700;margin:12px 0\">GitHub: github.blog/changelog (Copilot in Xcode)</div><div style=\"font-size:38px;font-weight:700;margin:12px 0\">Hugging Face: Dharma Field Extractor blog</div><div style=\"font-size:32px;font-weight:700;color:#556;margin-top:22px\">Screenshots: short crops of each company's own page, key line marked, source named.<br>OpenAI: sentence quoted as text (page blocks automated screenshots).<br>Music: Funkorama, Kevin MacLeod (incompetech.com), CC BY 4.0.</div></div>",
+     "x": 100,
+     "y": 300,
+     "css": "",
+     "in": "0.3|0.0",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:34px;font-weight:800\">Unofficial channel, not affiliated with these companies.</div>",
+     "x": 100,
+     "y": 770,
+     "css": "background:#FFD60A;border-radius:999px;padding:14px 40px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "1.0|0.0",
+     "spring": true
+    }
+   ],
+   "wt": [
+    [
+     0,
+     0.0
+    ],
+    [
+     5,
+     0.76
+    ],
+    [
+     13,
+     1.26
+    ],
+    [
+     16,
+     1.26
+    ],
+    [
+     24,
+     1.74
+    ],
+    [
+     27,
+     1.84
+    ],
+    [
+     35,
+     2.26
+    ],
+    [
+     47,
+     2.26
+    ],
+    [
+     51,
+     2.7
+    ],
+    [
+     54,
+     2.8
+    ],
+    [
+     57,
+     3.36
+    ]
+   ]
+  },
+  {
+   "id": "follow",
+   "type": "stage",
+   "wipe": "fade",
+   "voice": "AI के ऐसे काम के features चाहिए? DevRoboLab को follow करो।",
+   "layers": [
+    {
+     "kind": "text",
+     "html": "**DevRoboLab** ko follow karo",
+     "x": 100,
+     "y": 120,
+     "size": 130,
+     "w": 1200,
+     "stream": true,
+     "step": 0.14,
+     "sat": 0.15
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:130px;font-weight:800;line-height:1\">Follow</div>",
+     "x": 160,
+     "y": 640,
+     "css": "background:#FFD60A;border:0;border-radius:999px;padding:30px 120px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "wig": 4.35,
+     "float": 5,
+     "in": "0.5|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "icon",
+     "name": "cursor",
+     "x": 0,
+     "y": 0,
+     "size": 140,
+     "k": [
+      [
+       3.4,
+       {
+        "x": 900,
+        "y": 880,
+        "o": 0
+       }
+      ],
+      [
+       3.5,
+       {
+        "x": 900,
+        "y": 880,
+        "o": 1
+       }
+      ],
+      [
+       4.2,
+       {
+        "x": 520,
+        "y": 780
+       }
+      ]
+     ],
+     "wig": 4.3
+    },
+    {
+     "kind": "icon",
+     "name": "bell",
+     "x": 930,
+     "y": 640,
+     "size": 200,
+     "wig": 4.7,
+     "float": 6,
+     "in": 4.5,
+     "spring": true
+    },
+    {
+     "kind": "img",
+     "img": "thumbs",
+     "size": 560,
+     "x": 1180,
+     "y": 330,
+     "bob": 1,
+     "k": [
+      [
+       0.2,
+       {
+        "x": 2200,
+        "o": 1
+       }
+      ],
+      [
+       0.9,
+       {
+        "x": 1180
+       }
+      ]
+     ]
+    }
+   ],
+   "wt": [
+    [
+     0,
+     0.0
+    ],
+    [
+     3,
+     0.4
+    ],
+    [
+     6,
+     0.76
+    ],
+    [
+     10,
+     1.0
+    ],
+    [
+     14,
+     1.28
+    ],
+    [
+     17,
+     1.46
+    ],
+    [
+     26,
+     1.94
+    ],
+    [
+     33,
+     2.08
+    ],
+    [
+     44,
+     2.94
+    ],
+    [
+     47,
+     3.2
+    ],
+    [
+     54,
+     3.54
+    ],
+    [
+     58,
+     4.04
+    ]
+   ]
+  }
+ ]
+}
