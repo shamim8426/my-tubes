@@ -6,6 +6,19 @@ HERE = Path(__file__).parent
 sys.path.insert(0, str(HERE.parents[1] / "templates"))
 from ydeck_helpers import *
 
+IMG = HERE / "img"
+
+
+def proof_win(name, w, h, label, credit, cue, x=100, y=1000):
+    """Rounded inset window with a real screenshot of the official OpenAI page (key sentence in yellow marker), label pill above, credit below."""
+    win = (f'<div style="width:{w}px;height:{h}px;border-radius:30px;overflow:hidden;border:2px solid #E3E7EE;{SHADOW};background:#000">'
+           f'<img src="{(IMG / (name + ".png")).as_uri()}" style="width:{w}px;height:{h}px;object-fit:cover;display:block"></div>')
+    return [box(win, x, y, "", push=9, **pop(cue, -0.3)),
+            box(f'<div style="font-size:30px;font-weight:800">{label}</div>', x, y - 72, f"background:#FFD60A;border-radius:999px;padding:8px 30px;{SHADOW}", **pop(cue, -0.1)),
+            box(f'<div style="font-size:26px;font-weight:700;color:#556">{credit}</div>', x, y + h + 14, "", **pop(cue, 0.1))]
+
+
+CREDIT = "Source: openai.com/index/introducing-images-2-6 · 4 Nov 2026"
 MK = '<mark style="background:#FFD60A;color:#111;padding:2px 8px;border-radius:6px">'
 S = []
 
@@ -21,6 +34,7 @@ L = [tx("**Image** ab **GIF** banegi", 80, 230, 104, 920, 0.1),
      box('<div style="font-size:190px;font-weight:800;line-height:1">50%</div><div style="font-size:42px;font-weight:700;color:#444">tez (page ke hisaab se)</div>', 130, 700, f"background:#FFD60A;border-radius:40px;padding:30px 70px;{SHADOW}", wig="पचास|0.2", **pop("पचास", -0.3)),
      ic("sparkle", 760, 900, 190, cue="GIF", off=0.0, float=8, wig="GIF|0.3"),
      dict(kind="img", img="wave", size=330, x=640, y=1560, bob=1, k=[["ChatGPT|0.2", {"x": 1200, "o": 1}], ["ChatGPT|1.0", {"x": 640}]])]
+L = L + proof_win("oai_0", 880, 338, "Official page", CREDIT, "पेज", 100, 1060)
 S.append(dict(id="hook", type="stage", wipe="fade", voice=V, layers=L))
 
 V = "GIF यानी एक छोटा loop वाला animation। जैसे flipbook, जिसके पन्ने तेज़ी से पलटो तो तस्वीर चलती दिखती है।"
@@ -54,7 +68,8 @@ V = "ध्यान रखो: API का दाम इस पेज पर न
 L = [tx("**Dhyan** rakho", 80, 230, 110, 920, 0.1),
      box('<div style="width:130px;height:130px;border-radius:65px;background:#FFD60A;display:flex;align-items:center;justify-content:center;font-size:90px;font-weight:800">!</div>', 880, 215, "", wig="दाम|0.4", **pop("ध्यान", 0.0)),
      box(card('<div style="font-size:48px;font-weight:800">API ka daam</div><div style="font-size:40px;font-weight:700;color:#444;margin-top:8px">page me nahi likha</div>', 860, "34px 44px"), 110, 520, "", **pop("दाम", -0.3)),
-     qcard("openai.com · Images 2.6 · Pricing and availability", f'{MK}across all subscription tiers</mark> on desktop, mobile, and web.', 46, "सभी", 800)]
+     ]
+L = L + proof_win("oai_1", 880, 238, "Official page", CREDIT, "सभी", 100, 800)
 S.append(dict(id="caution", type="stage", wipe="fade", voice=V, layers=L))
 
 V = "तो याद रखो: Images 2.6 में अपनी image को GIF बना सकते हो, और images पचास percent तेज़ बनती हैं। ये सब subscription tiers पर मिल रहा है।"

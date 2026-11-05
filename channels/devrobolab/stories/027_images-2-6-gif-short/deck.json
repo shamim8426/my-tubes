@@ -82,6 +82,34 @@
        }
       ]
      ]
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"width:880px;height:338px;border-radius:30px;overflow:hidden;border:2px solid #E3E7EE;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);background:#000\"><img src=\"file:///D:/my-tubes/channels/devrobolab/stories/027_images-2-6-gif-short/img/oai_0.png\" style=\"width:880px;height:338px;object-fit:cover;display:block\"></div>",
+     "x": 100,
+     "y": 1180,
+     "css": "",
+     "push": 9,
+     "in": "पेज|-0.3",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:30px;font-weight:800\">Official page</div>",
+     "x": 100,
+     "y": 1108,
+     "css": "background:#FFD60A;border-radius:999px;padding:8px 30px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "पेज|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:26px;font-weight:700;color:#556\">Source: openai.com/index/introducing-images-2-6 · 4 Nov 2026</div>",
+     "x": 100,
+     "y": 1532,
+     "css": "",
+     "in": "पेज|0.1",
+     "spring": true
     }
    ],
    "wt": [
@@ -746,11 +774,30 @@
     },
     {
      "kind": "box",
-     "html": "<div style=\"width:920px;box-sizing:border-box;padding:36px 44px;border-radius:30px;border:2px solid #E3E7EE;background:#fff;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)\"><div style=\"font-size:26px;font-weight:700;color:#778;margin-bottom:20px\">openai.com · Images 2.6 · Pricing and availability</div><div style=\"font-size:46px;font-weight:700;line-height:1.35\"><mark style=\"background:#FFD60A;color:#111;padding:2px 8px;border-radius:6px\">across all subscription tiers</mark> on desktop, mobile, and web.</div></div>",
-     "x": 80,
+     "html": "<div style=\"width:880px;height:238px;border-radius:30px;overflow:hidden;border:2px solid #E3E7EE;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08);background:#000\"><img src=\"file:///D:/my-tubes/channels/devrobolab/stories/027_images-2-6-gif-short/img/oai_1.png\" style=\"width:880px;height:238px;object-fit:cover;display:block\"></div>",
+     "x": 100,
      "y": 920,
      "css": "",
-     "in": "सभी|-0.2",
+     "push": 9,
+     "in": "सभी|-0.3",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:30px;font-weight:800\">Official page</div>",
+     "x": 100,
+     "y": 848,
+     "css": "background:#FFD60A;border-radius:999px;padding:8px 30px;box-shadow:0 26px 60px rgba(25,35,60,.13),0 3px 8px rgba(25,35,60,.08)",
+     "in": "सभी|-0.1",
+     "spring": true
+    },
+    {
+     "kind": "box",
+     "html": "<div style=\"font-size:26px;font-weight:700;color:#556\">Source: openai.com/index/introducing-images-2-6 · 4 Nov 2026</div>",
+     "x": 100,
+     "y": 1172,
+     "css": "",
+     "in": "सभी|0.1",
      "spring": true
     }
    ],
