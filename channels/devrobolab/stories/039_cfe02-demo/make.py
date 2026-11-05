@@ -124,8 +124,8 @@ def state(t):
             if t > cx2 + 1.6: msgs.append(dict(r="a", t=typ("Mujhe is chat me exam ki date nahi dikh rahi. Use project knowledge me daal do.", t, cx2 + 1.6, cx2 + 3.4)))
         st.update(page="project", title="Class 12 notes", panel=dict(files=files), tabs=["Chat 1", "Chat 2"], tabOn=tab, msgs=msgs, inp=None)
         px, py = path([(S_ctx, 700, 700), (cx2 - 0.3, 700, 700), (cx2 + 0.3, 520, 175), (cx2 + 1.0, 560, 1005), (cx3, 560, 1005), (cx4 + 0.3, 1389, 78)], t)
-        st.update(cx=px, cy=py); step = (6, "Ek chat ka context *dusri me nahi*"); cam = (740, 620, 1.35); clicks = [cx2 + 0.3]
-        if t > cx3: step = (6, "Jo har chat me chahiye: *knowledge* me daalo"); cam = (1000, 380, 1.4)
+        st.update(cx=px, cy=py); step = ("NOTE", "Ek chat ka context *dusri me nahi*"); cam = (740, 620, 1.35); clicks = [cx2 + 0.3]
+        if t > cx3: step = ("NOTE", "Jo har chat me chahiye: *knowledge* me daalo"); cam = (1000, 380, 1.4)
     else:              # free
         cards = [dict(t=n, d=d) for n, d in [("Class 12 notes", "Physics"), ("Home budget", "Monthly"), ("Trip plan", "Goa"), ("Resume", "Job"), ("Side project", "Ideas")]]
         n_show = 1 + int(min(4, max(0, (t - S_free - 0.2) / 0.55)))
@@ -162,7 +162,7 @@ def banner(fr, step, t, t_start):
     hl = set(re.sub(r"\*", "", w) for w in label.split(" ") if "*" in w)
     if n:
         pill = Image.new("RGBA", (260, 96), (0, 0, 0, 0)); d = ImageDraw.Draw(pill); d.rounded_rectangle((0, 0, 259, 95), 48, fill=ORG + (255,)); f = ImageFont.truetype(FONT, 52)
-        txt = f"STEP {n}"; d.text((130 - f.getlength(txt) / 2, 14), txt, font=f, fill=(20, 20, 20, 255))
+        txt = f"STEP {n}" if isinstance(n, int) else str(n); d.text((130 - f.getlength(txt) / 2, 14), txt, font=f, fill=(20, 20, 20, 255))
         paste_rgba(fr, np.array(pill), 60, 90, alpha=a)
     sp = text_sprite(label.replace("*", ""), 56, hl=hl, color=(255, 255, 255)); sp = cv2.resize(sp, (min(sp.shape[1], 960), round(sp.shape[0] * min(sp.shape[1], 960) / sp.shape[1])), interpolation=cv2.INTER_AREA) if sp.shape[1] > 960 else sp
     paste_rgba(fr, sp, 40, 205 + int((1 - a) * 20), alpha=a)
