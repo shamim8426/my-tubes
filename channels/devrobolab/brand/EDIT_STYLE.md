@@ -5,6 +5,12 @@ User said: "kuch match hi nahi kar raha jo bol rahe ho vo dikh nahi raha, audio-
 ## 1. Mood
 Fast, clear, real-feel explainer. One visual idea per phrase, always what is being said, never a decoration.
 
+## 1b. Teaching rule (user 2026-11-06, binding): DEMO FIRST
+- For ANY Claude feature: first show the feature working (a demo), THEN explain it with movement (cursor, zoom, highlight, arrows). Never explain over unrelated stock footage.
+- For a Claude APP feature (claude.ai, desktop, mobile): show the REAL Claude application on screen with the same buttons/options the viewer will see (real screen recording or real UI captures), so the viewer can follow click by click. Stock b-roll is only a short cutaway, never the teaching visual.
+- For Claude Code: show a real terminal run (real command, real output).
+- If the real app cannot be captured in the session (login needed), say so and ask the user for a screen recording; do not fake the UI.
+
 ## 2. Match + sync (hard rule)
 - Cut the script into BEATS (a phrase of 2-4 s). Each beat gets ONE visual that depicts that phrase (object, action, real UI crop). No generic stock that only "looks related".
 - Visual change happens exactly on the first spoken word of the beat: measure real word times with Whisper (stories/036_cfe02-edited/wordtimes.py -> wt.json), never estimate from text length. If Whisper drops words (n_whisper < 85% of tokens) fall back to character position inside the measured voice duration.
