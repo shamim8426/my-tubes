@@ -30,6 +30,8 @@ label{font-size:17px;color:#9A9A9A;display:block;margin:14px 0 6px}
 .cursor{position:absolute;width:34px;height:34px;z-index:9;transform:translate(-4px,-2px)}
 .ripple{position:absolute;width:20px;height:20px;border-radius:50%;border:4px solid #D97757;z-index:8;transform:translate(-50%,-50%)}
 .tag{position:absolute;left:60px;bottom:44px;font-size:17px;color:#9A9A9A;background:rgba(30,30,30,.9);padding:8px 16px;border-radius:999px}
+
+.item.hl,.btn.hl,.plus.hl,.link.hl,.b3.hl,.tog.hl,.exp.hl,.send.hl,.dd .hl,.field.act,.inp.act,.einp{box-shadow:0 0 calc(8px + 26px*var(--p,0)) rgba(217,119,87,calc(.20 + .45*var(--p,0)))!important}
 </style></head><body><div class="win"><div class="side"><div class="brand">Assistant</div><div class="item"><span class="dot"></span>New chat</div><div class="item"><span class="dot"></span>Chats</div><div class="item" id="s_proj"><span class="dot"></span>Projects</div><div class="item"><span class="dot"></span>Artifacts</div></div><div class="main" id="main"></div></div>
 <svg class="cursor" id="cur" viewBox="0 0 24 24"><path d="M3 2l16 9-7 2-3 7z" fill="#fff" stroke="#000" stroke-width="1.5"/></svg><div class="ripple" id="rip" style="opacity:0"></div>
 <div class="tag">Illustration built from the official help steps, not a screen recording</div>
@@ -41,5 +43,5 @@ function ui(st){S.className='item'+(st.sideHl?' hl':'')+(st.sideOn?' on':'');let
  if(st.page==='project'){const p=st.panel||{};h+=`<h1>${st.title||'My project'}</h1><div class="chatcol">${st.tabs?`<div class="tabs">${st.tabs.map((t,i)=>`<div class="tab${i===st.tabOn?' on':''}">${t}</div>`).join('')}</div>`:''}<div class="msgs">${(st.msgs||[]).map(m=>`<div class="m ${m.r}">${m.t}</div>`).join('')}</div><div class="inp${st.inpAct?' act':''}"><span>${st.inp||'<span style="color:#666">Start a chat in this project…</span>'}</span><span class="send${st.sendHl?' hl':''}">Send</span></div></div><div class="panel"><h3>Project knowledge</h3><div class="sub">Used in all chats of this project</div><div class="plus${p.plusHl?' hl':''}">+</div>${(p.files||[]).map(f=>`<div class="file">📄 ${f}</div>`).join('')}<div class="link${p.insHl?' hl':''}">Set project instructions</div>${p.saved?`<div class="saved">${p.saved}</div>`:''}</div>`;}
  M.innerHTML=h;C.style.left=(st.cx||0)+'px';C.style.top=(st.cy||0)+'px';C.style.opacity=st.cx==null?0:1;
  if(st.rip!=null){R.style.left=st.cx+'px';R.style.top=st.cy+'px';const r=st.rip;R.style.width=(20+r*80)+'px';R.style.height=(20+r*80)+'px';R.style.opacity=(1-r)*0.9}else R.style.opacity=0;}
-window.ui=ui;
+const _ui=ui;window.ui=function(st){document.documentElement.style.setProperty('--p',st.pulse==null?0:st.pulse);const cr=st.blink?'▍':'';if(st.inp)st.inp=st.inp+cr;if(st.modal&&st.modal.fields)st.modal.fields.forEach(f=>{if(f.act&&f.v!=null)f.v=f.v+cr});if(st.art&&st.art.einp)st.art.einp=st.art.einp+cr;return _ui(st)};
 </script></body></html>

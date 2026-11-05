@@ -30,6 +30,8 @@ h1{font-family:Georgia,serif;font-weight:500;font-size:40px;color:#F2F2F2}
 .chip{position:absolute;left:380px;width:880px;padding:34px 40px;border-radius:22px;background:#181818;border:2px solid #333;font-size:34px;color:#F2F2F2;font-weight:600}.chip.on{border-color:#D97757;box-shadow:0 0 0 4px rgba(217,119,87,.25)}.chip span{color:#D97757;font-weight:800;margin-right:16px}
 .cursor{position:absolute;width:34px;height:34px;z-index:30;transform:translate(-4px,-2px)}.ripple{position:absolute;border-radius:50%;border:4px solid #D97757;z-index:29;transform:translate(-50%,-50%)}
 .tag{position:absolute;left:60px;bottom:44px;z-index:40;font-size:17px;color:#9A9A9A;background:rgba(30,30,30,.9);padding:8px 16px;border-radius:999px}
+
+.item.hl,.btn.hl,.plus.hl,.link.hl,.b3.hl,.tog.hl,.exp.hl,.send.hl,.dd .hl,.field.act,.inp.act,.einp{box-shadow:0 0 calc(8px + 26px*var(--p,0)) rgba(217,119,87,calc(.20 + .45*var(--p,0)))!important}
 </style></head><body><div class="win" id="w"></div>
 <svg class="cursor" id="cur" viewBox="0 0 24 24"><path d="M3 2l16 9-7 2-3 7z" fill="#fff" stroke="#000" stroke-width="1.5"/></svg><div class="ripple" id="rip" style="opacity:0"></div>
 <div class="tag">Illustration built from the official help steps, not a screen recording</div>
@@ -44,5 +46,5 @@ function ui(st){let h='<div class="side"><div class="brand">Assistant</div>'+ITE
  if(st.modal){const m=st.modal;h+=`<div class="modal"><div class="mnav"><div>General</div><div>Privacy</div><div class="on">Capabilities</div><div>Billing</div></div><div class="mtitle">Capabilities</div><div class="mrow">Create and edit files<small>Let the assistant create docs, slides and more</small></div><div class="tog${m.on?' on':''}${m.hl?' hl':''}"><i></i></div></div>`;}
  W.innerHTML=h;C.style.left=(st.cx||0)+'px';C.style.top=(st.cy||0)+'px';C.style.opacity=st.cx==null?0:1;
  if(st.rip!=null){R.style.left=st.cx+'px';R.style.top=st.cy+'px';const r=st.rip;R.style.width=(20+r*80)+'px';R.style.height=(20+r*80)+'px';R.style.opacity=(1-r)*0.9}else R.style.opacity=0;}
-window.ui=ui;
+const _ui=ui;window.ui=function(st){document.documentElement.style.setProperty('--p',st.pulse==null?0:st.pulse);const cr=st.blink?'▍':'';if(st.inp)st.inp=st.inp+cr;if(st.modal&&st.modal.fields)st.modal.fields.forEach(f=>{if(f.act&&f.v!=null)f.v=f.v+cr});if(st.art&&st.art.einp)st.art.einp=st.art.einp+cr;return _ui(st)};
 </script></body></html>

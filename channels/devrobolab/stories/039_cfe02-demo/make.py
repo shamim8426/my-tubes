@@ -3,7 +3,7 @@ ui2.html = illustration of the app built ONLY from the official help steps (labe
 a virtual camera zooms/pans to the active area, cursor/typing/chat are driven by spoken-word times (Whisper wt.json). Dark theme + Claude-Code orange.
 Editing: kinetic captions, step banner, click punch-in, cross-dissolves, progress bar, vignette + grain, no sound effects (voice + music only).
 Run: python make.py render"""
-import json, re, subprocess, sys, wave
+import json, math, re, subprocess, sys, wave
 from pathlib import Path
 import cv2, numpy as np
 from PIL import Image, ImageDraw, ImageFont
@@ -123,7 +123,7 @@ def state(t):
             msgs = [dict(r="u", t="Mera exam kab hai?")] if t > cx2 + 0.8 else []
             if t > cx2 + 1.6: msgs.append(dict(r="a", t=typ("Mujhe is chat me exam ki date nahi dikh rahi. Use project knowledge me daal do.", t, cx2 + 1.6, cx2 + 3.4)))
         st.update(page="project", title="Class 12 notes", panel=dict(files=files), tabs=["Chat 1", "Chat 2"], tabOn=tab, msgs=msgs, inp=None)
-        px, py = path([(S_ctx, 700, 700), (cx2 - 0.3, 700, 700), (cx2 + 0.3, 520, 175), (cx2 + 1.0, 560, 1005), (cx3, 560, 1005), (cx4 + 0.3, 1389, 78)], t)
+        px, py = path([(S_ctx, 700, 700), (cx1 - 0.1, 560, 1005), (cx2 - 0.3, 560, 1005), (cx2 + 0.3, 520, 175), (cx2 + 1.0, 560, 1005), (cx3, 560, 1005), (cx4 + 0.3, 1389, 78)], t)
         st.update(cx=px, cy=py); step = ("NOTE", "Ek chat ka context *dusri me nahi*"); cam = (740, 620, 1.35); clicks = [cx2 + 0.3]
         if t > cx3: step = ("NOTE", "Jo har chat me chahiye: *knowledge* me daalo"); cam = (1000, 380, 1.4)
     else:              # free
@@ -142,7 +142,7 @@ def cam_at(t):
 class Renderer:
     def __init__(self):
         self.pw = sync_playwright().start(); self.b = self.pw.chromium.launch(); self.pg = self.b.new_page(viewport={"width": 1500, "height": 1100}, device_scale_factor=1.5)
-        self.pg.goto((HERE / "ui2.html").as_uri()); self.cam = None; self.stock = None
+        self.pg.goto((HERE / "ui2.html").as_uri()); self.cam = None; self.stock = None; self.scene = -1; self.last = None; self.xf = None
     def shot(self, st):
         self.pg.evaluate("(s)=>ui(s)", st)
         return cv2.cvtColor(cv2.imdecode(np.frombuffer(self.pg.screenshot(type="jpeg", quality=90), np.uint8), cv2.IMREAD_COLOR), cv2.COLOR_BGR2RGB)
@@ -212,6 +212,8 @@ def frame(R, k):
         paste_rgba(fr, np.array(btn), 280, 900, alpha=min(1, a), scale=max(0.01, a))
     else:
         st, step, cam, clicks = state(t)
+        if st.get('cx') is not None: st['cx'] += 5 * math.sin(t * 2.7); st['cy'] += 4 * math.cos(t * 2.1)
+        st['pulse'] = 0.5 + 0.5 * math.sin(t * 5.2); st['blink'] = int(t * 2.5) % 2 == 0
         if scene == 0 and t < hk:   # hook: stock cutaway first
             fr = stock_frame(t)
             fr = (fr.astype(np.float32) * 0.8).astype(np.uint8)
@@ -221,16 +223,18 @@ def frame(R, k):
             img = R.shot(st)
             punch = max([0.07 * max(0, 1 - abs(t - c) / 0.25) for c in clicks] + [0.0])
             if R.cam is None: R.cam = list(cam)
-            R.cam = [R.cam[i] + (cam[i] - R.cam[i]) * 0.10 for i in range(3)]; c = tuple(R.cam)
+            R.cam = [R.cam[i] + (cam[i] - R.cam[i]) * 0.10 for i in range(3)]; c = (R.cam[0] + 16 * math.sin(t * 1.5), R.cam[1] + 11 * math.cos(t * 1.2), R.cam[2] * (1 + 0.035 * math.sin(t * 1.05)))
             view = camera(img, c, punch)
             fr = np.zeros((H, W, 3), np.uint8); fr[:] = (0, 0, 0); fr[330:1430] = view
             if step:
                 key2 = (scene, step[0], step[1]); STEP_T.setdefault(key2, t); banner(fr, step, t, STEP_T[key2])
             caption_at(fr, t)
-    if scene > 0 and t - START[scene] < TR * 0.5:   # soft dip at scene change
-        a = 1 - ease_io((t - START[scene]) / (TR * 0.5)); fr = (fr.astype(np.float32) * (1 - 0.6 * a)).astype(np.uint8)
     fr = (fr.astype(np.float32) * VIG[..., None]).astype(np.uint8)
     cv2.rectangle(fr, (0, 0), (int(W * t / TOTAL), 10), ORG[::-1][::-1], -1)
+    if R.scene != scene: R.xf = R.last; R.scene = scene
+    if R.xf is not None and scene > 0 and t - START[scene] < TR:
+        a = ease_io((t - START[scene]) / TR); fr = (R.xf.astype(np.float32) * (1 - a) + fr.astype(np.float32) * a).astype(np.uint8)
+    R.last = fr
     return fr
 
 
