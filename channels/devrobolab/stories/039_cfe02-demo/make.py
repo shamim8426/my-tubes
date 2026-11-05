@@ -71,7 +71,7 @@ def state(t):
         st.update(page="projects", cx=900, cy=500); cam = (700, 560, 1.25)
     elif t < S_know:   # create: steps 1-3
         st.update(page="projects", cards=CARDS)
-        px, py = path([(S_create, 900, 500), (sd + 0.2, 900, 500), (c1 - 0.05, 150, 273), (bt, 150, 273), (bt + 0.9, 1302, 93), (c2 + 0.1, 1302, 93)], t)
+        px, py = path([(S_create, 900, 500), (sd + 0.2, 900, 500), (c1 - 0.05, 150, 273), (bt, 150, 273), (bt + 0.5, 1302, 93), (c2 + 0.1, 1302, 93)], t)
         st.update(cx=px, cy=py); step = (1, "Sidebar me *Projects* par click"); cam = (420, 330, 1.9)
         if t > c1 - 0.05: st.update(sideHl=True)
         if t >= c1 + 0.1 and t < bt: step = (1, "Sidebar me *Projects* par click"); cam = (420, 330, 1.9)
@@ -79,10 +79,10 @@ def state(t):
         if t > c2 - 0.05 and t < nm - 0.2: st.update(btnHl=True)
         clicks = [c1, c2]
         if t >= c2 + 0.15:   # modal opens (step 3)
-            n_txt = typ("Class 12 notes", t, nm + 0.1, nm + 1.2); d_txt = typ("Physics and maths chapters", t, ds - 1.0, ds + 0.7)
+            n_txt = typ("Class 12 notes", t, nm + 0.05, nm + 0.8); d_txt = typ("Physics and maths chapters", t, ds - 0.8, ds + 0.4)
             fa = "d" if t > ds - 1.1 else "n"
             st.update(btnHl=False, sideHl=False, sideOn=True, modal=dict(title="Create a project", btn="Create project", fields=[dict(l="Project name", v=n_txt, act=fa == "n"), dict(l="Description", v=d_txt, act=fa == "d")]))
-            px, py = path([(c2 + 0.15, 1302, 93), (nm, 990, 318), (ds - 1.1, 990, 318), (ds - 0.9, 990, 426)], t); st.update(cx=px, cy=py)
+            px, py = path([(c2 + 0.15, 1302, 93), (c2 + 0.55, 990, 318), (ds - 0.95, 990, 318), (ds - 0.8, 990, 426)], t); st.update(cx=px, cy=py)
             step = (3, "*Naam + description* likho"); cam = (990, 390, 1.55)
             if t > nt: step = (3, "Claude ko ye *nahi dikhta*")
     elif t < S_instr:  # knowledge: step 4
@@ -100,18 +100,18 @@ def state(t):
         st.update(page="project", title="Class 12 notes", panel=p, cx=px, cy=py); step = (5, "*Set project instructions* dabao"); cam = (1150, 330, 1.7); clicks = [ic, isv]
         if t > ic - 0.1: p["insHl"] = True
         if t >= ic + 0.25 and t < isv + 0.6:
-            st.update(modal=dict(title="Project instructions", btn="Save instructions", hl=t > isv - 0.1, fields=[dict(l="How should the assistant respond?", v=typ(INS, t, iw, isv - 0.3), tall=True, act=True)]))
+            st.update(modal=dict(title="Project instructions", btn="Save instructions", hl=t > isv - 0.1, fields=[dict(l="How should the assistant respond?", v=typ(INS, t, iw, iw + 1.3), tall=True, act=True)]))
             px, py = path([(ic + 0.25, 1185, 318), (iw, 990, 330), (isv - 0.5, 990, 330), (isv - 0.1, 1260, 560)], t); st.update(cx=px, cy=py); step = (5, "Likho aur *Save* karo"); cam = (990, 420, 1.5)
         if t >= isv + 0.6:
             p["saved"] = "Instructions: " + INS; p["insHl"] = False
-            q = "Photosynthesis kya hai?"; qt = typ(q, t, ich + 0.1, ich + 1.5)
+            q = "Photosynthesis kya hai?"; qt = typ(q, t, ich + 0.1, ich + 0.9)
             msgs = []; inp = qt; send = False
-            if t > ich + 1.6: msgs = [dict(r="u", t=q)]; inp = None
-            if t > ich + 1.6 and t < ich + 1.9: send = True
-            if t > ich + 2.0: msgs.append(dict(r="a", t=typ(REPLY, t, ich + 2.0, ians + 1.5)))
+            if t > ich + 1.0: msgs = [dict(r="u", t=q)]; inp = None
+            if t > ich + 0.9 and t < ich + 1.2: send = True
+            if t > ich + 1.3: msgs.append(dict(r="a", t=typ(REPLY, t, ich + 1.3, ich + 4.3)))
             st.update(msgs=msgs, inp=inp or None, inpAct=True, sendHl=send)
-            px, py = path([(isv + 0.6, 1260, 560), (ich + 0.1, 560, 1005), (ich + 1.5, 560, 1005), (ich + 1.65, 1050, 1005), (ich + 2.2, 800, 700)], t); st.update(cx=px, cy=py)
-            step = (5, "Chat me sawal: jawab *instructions* ke hisaab se"); cam = (740, 640, 1.35); clicks = [ich + 1.62]
+            px, py = path([(isv + 0.6, 1260, 560), (ich + 0.1, 560, 1005), (ich + 0.8, 560, 1005), (ich + 0.95, 1050, 1005), (ich + 1.5, 800, 700)], t); st.update(cx=px, cy=py)
+            step = (5, "Chat me sawal: jawab *instructions* ke hisaab se"); cam = (740, 640, 1.35); clicks = [ich + 0.98]
     elif t < S_free:   # ctx
         files = FILES + (["exam_date.txt"] if t > cx4 + 0.8 else [])
         tab = 0 if t < cx2 + 0.4 else 1
@@ -152,8 +152,10 @@ def camera(img, cam, punch=0.0):
     cx, cy, z = cam; z = max(1.4, z) * (1 + punch); S = img.shape[1] / 1500
     cw = 1500 / z; ch = cw * 1100 / 1080
     cx = min(max(cx, cw / 2), 1500 - cw / 2); cy = min(max(cy, ch / 2), 1100 - ch / 2)
-    x0, y0 = int((cx - cw / 2) * S), int((cy - ch / 2) * S); x1, y1 = int((cx + cw / 2) * S), int((cy + ch / 2) * S)
-    return cv2.resize(img[max(0, y0):y1, max(0, x0):x1], (1080, 1100), interpolation=cv2.INTER_AREA)
+    # sub-pixel centre (getRectSubPix) + a fixed-size window, so slow moves never step by whole pixels
+    wp, hp = int(round(cw * S)), int(round(ch * S))
+    crop = cv2.getRectSubPix(img, (wp, hp), (cx * S, cy * S))
+    return cv2.resize(crop, (1080, 1100), interpolation=cv2.INTER_AREA)
 
 
 def banner(fr, step, t, t_start):
@@ -221,9 +223,9 @@ def frame(R, k):
         else:
             if scene == 0: st.update(cx=900 - 60 * min(1, (t - hk) / 1.0), cy=500)
             img = R.shot(st)
-            punch = max([0.07 * max(0, 1 - abs(t - c) / 0.25) for c in clicks] + [0.0])
+            punch = max([0.08 * max(0, 1 - abs(t - c) / 0.18) for c in clicks] + [0.0])
             if R.cam is None: R.cam = list(cam)
-            R.cam = [R.cam[i] + (cam[i] - R.cam[i]) * 0.10 for i in range(3)]; c = (R.cam[0] + 16 * math.sin(t * 1.5), R.cam[1] + 11 * math.cos(t * 1.2), R.cam[2] * (1 + 0.035 * math.sin(t * 1.05)))
+            R.cam = [R.cam[i] + (cam[i] - R.cam[i]) * 0.24 for i in range(3)]; c = (R.cam[0] + 8 * math.sin(t * 1.5), R.cam[1] + 6 * math.cos(t * 1.2), R.cam[2] * (1 + 0.02 * math.sin(t * 1.05)))
             view = camera(img, c, punch)
             fr = np.zeros((H, W, 3), np.uint8); fr[:] = (0, 0, 0); fr[330:1430] = view
             if step:

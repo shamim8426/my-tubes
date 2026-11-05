@@ -73,20 +73,20 @@ def state(t):
         if t > s_tog + 0.1 and t < s_tog + 0.6: st["modal"]["hl"] = True
     elif t < SC["edit"]:       # step 2: ask in chat, artifact opens beside it
         px, py = path([(SC["create"], 900, 500), (c_type - 0.4, 560, 962), (c_send + 0.1, 807, 962), (c_open + 0.6, 1100, 600)], t)
-        txt = typ(USER_MSG, t, c_type, c_send - 0.1); msgs = []
+        txt = typ(USER_MSG, t, c_type, c_type + 1.4); msgs = []
         if t > c_send + 0.3: msgs = [dict(r="u", t=USER_MSG)]; txt = None
         if t > c_send + 0.9: msgs.append(dict(r="a", t=BOT_MSG))
         st.update(cx=px, cy=py, msgs=msgs, inp=txt or None, inpAct=t < c_send + 0.3, sendHl=c_send - 0.05 < t < c_send + 0.3)
-        if t > c_open - 0.35: st.update(art=art(slide=ease_out((t - (c_open - 0.35)) / 0.6)))
+        if t > c_open - 0.35: st.update(art=art(slide=ease_out((t - (c_open - 0.35)) / 0.4)))
         step = (2, "Chat me likho: *study planner banao*"); cam = (560, 900, 1.5); clicks = [c_send + 0.05]
         if t > c_open - 0.4: step = (2, "Artifact *bagal me* khulta hai"); cam = (1100, 480, 1.35)
     elif t < SC["export"]:     # step 3: select text > Edit with Claude
         lines = list(LINES); a = dict(); done = t > e_done
-        px, py = path([(SC["edit"], 1100, 600), (e_sel - 0.1, 1000, 346), (e_sel + 0.7, 1230, 346), (e_btn - 0.3, 1230, 346), (e_btn + 0.1, 1115, 282), (e_wr - 0.1, 1115, 282), (e_wr + 0.2, 1150, 420)], t)
+        px, py = path([(SC["edit"], 1100, 600), (e_sel - 0.1, 1000, 346), (e_sel + 0.7, 1230, 346), (e_btn - 0.3, 1230, 346), (e_btn + 0.1, 1115, 282), (e_wr - 0.1, 1115, 282), (e_wr + 0.1, 1150, 420)], t)
         sel = None
         if t > e_sel + 0.1: sel = 2
         if t > e_sel + 0.9 and not done: a["ebtn"] = True; a["ebx"] = 150; a["eby"] = 230
-        if t > e_btn + 0.2 and not done: a["einp"] = typ("Isko Hinglish me likho", t, e_wr, e_wr + 1.4); a["eiy"] = 360; a["ebtn"] = False
+        if t > e_btn + 0.2 and not done: a["einp"] = typ("Isko Hinglish me likho", t, e_wr, e_wr + 1.0); a["eiy"] = 360; a["ebtn"] = False
         if done: lines[2] = "Mangal: Maths ke formulas (Hinglish)"; sel = None
         msgs = [dict(r="u", t=USER_MSG), dict(r="a", t=BOT_MSG)]
         st.update(cx=px, cy=py, msgs=msgs, art=art(lines, sel=sel, **a)); step = (3, "Text chuno > *Edit with Claude*"); cam = (1130, 380, 1.8); clicks = [e_btn + 0.1]
@@ -134,8 +134,10 @@ def camera(img, cam, punch=0.0):
     cx, cy, z = cam; z = max(1.4, z) * (1 + punch); S = img.shape[1] / 1500
     cw = 1500 / z; ch = cw * 1100 / 1080
     cx = min(max(cx, cw / 2), 1500 - cw / 2); cy = min(max(cy, ch / 2), 1100 - ch / 2)
-    x0, y0 = int((cx - cw / 2) * S), int((cy - ch / 2) * S); x1, y1 = int((cx + cw / 2) * S), int((cy + ch / 2) * S)
-    return cv2.resize(img[max(0, y0):y1, max(0, x0):x1], (1080, 1100), interpolation=cv2.INTER_AREA)
+    # sub-pixel centre (getRectSubPix) + a fixed-size window, so slow moves never step by whole pixels
+    wp, hp = int(round(cw * S)), int(round(ch * S))
+    crop = cv2.getRectSubPix(img, (wp, hp), (cx * S, cy * S))
+    return cv2.resize(crop, (1080, 1100), interpolation=cv2.INTER_AREA)
 
 
 def banner(fr, step, t, t_start):
@@ -203,9 +205,9 @@ def frame(R, k):
         else:
             if scene == 0: st.update(cx=900 - 60 * min(1, (t - hk) / 1.0), cy=500)
             img = R.shot(st)
-            punch = max([0.07 * max(0, 1 - abs(t - c) / 0.25) for c in clicks] + [0.0])
+            punch = max([0.08 * max(0, 1 - abs(t - c) / 0.18) for c in clicks] + [0.0])
             if R.cam is None: R.cam = list(cam)
-            R.cam = [R.cam[i] + (cam[i] - R.cam[i]) * 0.10 for i in range(3)]; c = (R.cam[0] + 16 * math.sin(t * 1.5), R.cam[1] + 11 * math.cos(t * 1.2), R.cam[2] * (1 + 0.035 * math.sin(t * 1.05)))
+            R.cam = [R.cam[i] + (cam[i] - R.cam[i]) * 0.24 for i in range(3)]; c = (R.cam[0] + 8 * math.sin(t * 1.5), R.cam[1] + 6 * math.cos(t * 1.2), R.cam[2] * (1 + 0.02 * math.sin(t * 1.05)))
             view = camera(img, c, punch)
             fr = np.zeros((H, W, 3), np.uint8); fr[:] = (0, 0, 0); fr[330:1430] = view
             if step:
