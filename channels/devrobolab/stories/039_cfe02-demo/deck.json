@@ -1,0 +1,56 @@
+{
+ "tag": "Claude Feature 02",
+ "music": {
+  "file": "shared/music/presentation/Funkorama.mp3",
+  "start": 6,
+  "rel": 12
+ },
+ "voice": {
+  "id": "Charon",
+  "style": "Speak like a friendly Indian tech YouTuber chatting casually in Hinglish. Natural conversational pace, warm and clear, a little energetic but not theatrical. No sing-song, no exaggerated emphasis."
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "type": "stage",
+   "voice": "हर chat में वही files और instructions दोबारा देते हो? Claude में Projects feature इसी के लिए है। चलो step by step देखते हैं।",
+   "layers": []
+  },
+  {
+   "id": "create",
+   "type": "stage",
+   "voice": "Step एक। Sidebar में Projects पर click करो। Step दो। ऊपर दाईं तरफ plus New Project दबाओ। Step तीन। Project का नाम और description लिखो। ध्यान रखो, Claude को ये नाम और description दिखते नहीं।",
+   "layers": []
+  },
+  {
+   "id": "knowledge",
+   "type": "stage",
+   "voice": "Step चार। Project knowledge में plus button दबाओ, और अपनी files डालो। ये files उस project की सारी chats में काम आती हैं।",
+   "layers": []
+  },
+  {
+   "id": "instr",
+   "type": "stage",
+   "voice": "Step पाँच। Set project instructions दबाओ, लिखो कि Claude कैसे जवाब दे, और save करो। फिर chat में सवाल पूछो, तो जवाब इन्हीं instructions के हिसाब से आता है।",
+   "layers": []
+  },
+  {
+   "id": "ctx",
+   "type": "stage",
+   "voice": "एक बात याद रखो। एक chat में जो बताओगे, वो दूसरी chat को अपने आप पता नहीं चलता। जो हर chat में चाहिए, उसे project knowledge में डालो।",
+   "layers": []
+  },
+  {
+   "id": "free",
+   "type": "stage",
+   "voice": "Projects free accounts पर भी मिलते हैं, पर free users पाँच projects तक बना सकते हैं।",
+   "layers": []
+  },
+  {
+   "id": "follow",
+   "type": "stage",
+   "voice": "AI के ऐसे काम के features चाहिए? DevRoboLab को follow करो।",
+   "layers": []
+  }
+ ]
+}

@@ -1,0 +1,45 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+*{box-sizing:border-box;margin:0;font-family:'Poppins','Inter',system-ui,sans-serif}
+body{width:1500px;height:1100px;background:#000;overflow:hidden}
+.win{position:absolute;left:30px;top:30px;width:1440px;height:1040px;background:#121212;border-radius:26px;border:1px solid #2A2A2A;box-shadow:0 30px 90px rgba(217,119,87,.10);overflow:hidden;display:flex}
+.side{width:300px;background:#0C0C0C;border-right:1px solid #262626;padding:26px 18px;display:flex;flex-direction:column;gap:6px}
+.brand{font-family:Georgia,serif;font-size:30px;color:#D97757;padding:6px 12px 22px}
+.item{padding:13px 16px;border-radius:12px;font-size:21px;color:#B9B6AE;display:flex;gap:12px;align-items:center}
+.item.on{background:#1E1E1E;color:#fff;font-weight:600}.item.hl{background:#D97757;color:#111;font-weight:700}
+.dot{width:18px;height:18px;border-radius:5px;background:#3A3A3A}
+.main{flex:1;position:relative;padding:34px 44px}
+h1{font-family:Georgia,serif;font-weight:500;font-size:40px;color:#F2F2F2}
+.btn{position:absolute;right:44px;top:34px;background:#1E1E1E;border:1.5px solid #D97757;color:#F4C9B8;padding:14px 26px;border-radius:12px;font-size:21px;font-weight:600}.btn.hl{background:#D97757;color:#111}
+.cards{display:flex;gap:22px;margin-top:40px;flex-wrap:wrap}.card{width:300px;height:150px;border:1px solid #2E2E2E;border-radius:18px;padding:20px;background:#181818;color:#EEE}.card b{font-size:22px;color:#F2F2F2}.card p{font-size:16px;color:#8A8A8A;margin-top:8px}.card.new{border-color:#D97757;box-shadow:0 0 0 3px rgba(217,119,87,.25)}
+.counter{position:absolute;left:44px;bottom:90px;font-size:22px;color:#D97757;font-weight:700}
+.modal{position:absolute;left:300px;top:140px;width:760px;background:#1B1B1B;border-radius:22px;box-shadow:0 30px 90px rgba(0,0,0,.7);padding:34px;border:1px solid #333;color:#EEE}
+.modal h2{font-family:Georgia,serif;font-weight:500;font-size:30px;margin-bottom:22px}
+label{font-size:17px;color:#9A9A9A;display:block;margin:14px 0 6px}
+.field{border:2px solid #333;border-radius:12px;padding:14px 16px;font-size:21px;min-height:54px;color:#F2F2F2;background:#121212}.field.tall{min-height:150px}.field.act{border-color:#D97757;box-shadow:0 0 0 4px rgba(217,119,87,.30)}
+.row{display:flex;justify-content:flex-end;gap:14px;margin-top:26px}.b2{padding:13px 26px;border-radius:12px;font-size:20px;border:2px solid #3A3A3A;color:#BBB}.b3{padding:13px 26px;border-radius:12px;font-size:20px;background:#D97757;color:#111;font-weight:700}.b3.hl{background:#FFB59B;box-shadow:0 0 0 5px rgba(217,119,87,.4)}
+.chatcol{position:absolute;left:44px;top:100px;width:620px;bottom:30px;display:flex;flex-direction:column}
+.tabs{display:flex;gap:10px;margin-bottom:14px}.tab{padding:9px 20px;border-radius:999px;font-size:18px;border:1.5px solid #333;color:#9A9A9A}.tab.on{border-color:#D97757;color:#F4C9B8;background:#1E1512}
+.msgs{flex:1;display:flex;flex-direction:column;gap:14px;overflow:hidden}
+.m{max-width:540px;padding:14px 18px;border-radius:16px;font-size:20px;line-height:1.35;color:#EEE}.m.u{align-self:flex-end;background:#262626}.m.a{align-self:flex-start;background:#1A1A1A;border:1px solid #2E2E2E}.m b{color:#D97757}
+.inp{margin-top:12px;border:2px solid #333;border-radius:16px;padding:14px 18px;font-size:20px;color:#F2F2F2;min-height:58px;background:#161616;display:flex;justify-content:space-between;align-items:center}.inp.act{border-color:#D97757}.send{background:#D97757;color:#111;border-radius:10px;padding:8px 16px;font-weight:700;font-size:18px}.send.hl{background:#FFB59B;box-shadow:0 0 0 4px rgba(217,119,87,.4)}
+.panel{position:absolute;right:0;top:0;bottom:0;width:430px;background:#0E0E0E;border-left:1px solid #262626;padding:30px}.panel h3{font-size:24px;font-weight:700;color:#F2F2F2}.sub{font-size:16px;color:#8A8A8A;margin-top:6px}
+.plus{position:absolute;right:30px;top:28px;width:46px;height:46px;border-radius:12px;background:#1E1E1E;border:1.5px solid #D97757;color:#F4C9B8;font-size:34px;text-align:center;line-height:40px}.plus.hl{background:#D97757;color:#111}
+.file{margin-top:14px;background:#181818;border:1px solid #2E2E2E;border-radius:12px;padding:13px;font-size:18px;color:#EEE}
+.link{margin-top:24px;font-size:20px;font-weight:600;color:#D97757;padding:12px 16px;border-radius:12px;border:2px dashed #7A4636;display:inline-block}.link.hl{background:#D97757;color:#111;border-style:solid}
+.saved{margin-top:14px;border:1px solid #D97757;background:#181818;border-radius:12px;padding:13px;font-size:17px;color:#EEE}
+.cursor{position:absolute;width:34px;height:34px;z-index:9;transform:translate(-4px,-2px)}
+.ripple{position:absolute;width:20px;height:20px;border-radius:50%;border:4px solid #D97757;z-index:8;transform:translate(-50%,-50%)}
+.tag{position:absolute;left:60px;bottom:44px;font-size:17px;color:#9A9A9A;background:rgba(30,30,30,.9);padding:8px 16px;border-radius:999px}
+</style></head><body><div class="win"><div class="side"><div class="brand">Assistant</div><div class="item"><span class="dot"></span>New chat</div><div class="item"><span class="dot"></span>Chats</div><div class="item" id="s_proj"><span class="dot"></span>Projects</div><div class="item"><span class="dot"></span>Artifacts</div></div><div class="main" id="main"></div></div>
+<svg class="cursor" id="cur" viewBox="0 0 24 24"><path d="M3 2l16 9-7 2-3 7z" fill="#fff" stroke="#000" stroke-width="1.5"/></svg><div class="ripple" id="rip" style="opacity:0"></div>
+<div class="tag">Illustration built from the official help steps, not a screen recording</div>
+<script>
+const M=document.getElementById('main'),S=document.getElementById('s_proj'),C=document.getElementById('cur'),R=document.getElementById('rip');
+function ui(st){S.className='item'+(st.sideHl?' hl':'')+(st.sideOn?' on':'');let h='';
+ if(st.page==='projects'){h+=`<h1>Projects</h1><div class="btn${st.btnHl?' hl':''}">+ New Project</div><div class="cards">${(st.cards||[]).map((c,i)=>`<div class="card${c.n?' new':''}"><b>${c.t}</b><p>${c.d}</p></div>`).join('')}</div>${st.counter?`<div class="counter">${st.counter}</div>`:''}`;}
+ if(st.modal){const m=st.modal;h+=`<div class="modal"><h2>${m.title}</h2>${m.fields.map(f=>`<label>${f.l}</label><div class="field${f.tall?' tall':''}${f.act?' act':''}">${f.v||''}</div>`).join('')}<div class="row"><div class="b2">Cancel</div><div class="b3${m.hl?' hl':''}">${m.btn}</div></div></div>`;}
+ if(st.page==='project'){const p=st.panel||{};h+=`<h1>${st.title||'My project'}</h1><div class="chatcol">${st.tabs?`<div class="tabs">${st.tabs.map((t,i)=>`<div class="tab${i===st.tabOn?' on':''}">${t}</div>`).join('')}</div>`:''}<div class="msgs">${(st.msgs||[]).map(m=>`<div class="m ${m.r}">${m.t}</div>`).join('')}</div><div class="inp${st.inpAct?' act':''}"><span>${st.inp||'<span style="color:#666">Start a chat in this project…</span>'}</span><span class="send${st.sendHl?' hl':''}">Send</span></div></div><div class="panel"><h3>Project knowledge</h3><div class="sub">Used in all chats of this project</div><div class="plus${p.plusHl?' hl':''}">+</div>${(p.files||[]).map(f=>`<div class="file">📄 ${f}</div>`).join('')}<div class="link${p.insHl?' hl':''}">Set project instructions</div>${p.saved?`<div class="saved">${p.saved}</div>`:''}</div>`;}
+ M.innerHTML=h;C.style.left=(st.cx||0)+'px';C.style.top=(st.cy||0)+'px';C.style.opacity=st.cx==null?0:1;
+ if(st.rip!=null){R.style.left=st.cx+'px';R.style.top=st.cy+'px';const r=st.rip;R.style.width=(20+r*80)+'px';R.style.height=(20+r*80)+'px';R.style.opacity=(1-r)*0.9}else R.style.opacity=0;}
+window.ui=ui;
+</script></body></html>
