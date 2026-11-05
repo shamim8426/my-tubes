@@ -23,11 +23,14 @@ with wave.open(str(voice), "wb") as o:
         with wave.open(str(w)) as r:
             o.writeframes(b"\x00\x00" * int(SR * LEAD) + r.readframes(r.getnframes()) + b"\x00\x00" * int(SR * AFTER))
 
-shoe = load(HERE / "assets_raw/shoe_0.jpg")
-blur = blurred_fill(shoe, 0.5)
-low = cv2.resize(cv2.resize(shoe, (54, 37), interpolation=cv2.INTER_AREA), (shoe.shape[1], shoe.shape[0]), interpolation=cv2.INTER_NEAREST)
+book = load(HERE / "assets_raw/photo_manuscript.jpg")      # Wikimedia Commons, public domain: Book of Hours (Use of Metz) Fol. 27r
+PH0 = book[:1850]                                           # hook photo (1080 x ~1040 on screen)
+PH1 = book[250:1565]                                        # before/after photo (1080 x 740 on screen)
+blur = blurred_fill(PH0, 0.5)
+low = cv2.resize(cv2.resize(PH1, (54, round(54 * PH1.shape[0] / PH1.shape[1])), interpolation=cv2.INTER_AREA), (PH1.shape[1], PH1.shape[0]), interpolation=cv2.INTER_NEAREST)
 SP = {n: sprite_w(CUT / f"shot_{n}.png", 940) for n in ["intro", "how", "formats", "limits", "tips", "project"]}
 CH = sprite_w(CUT / "char_3.png", 460)
+SPF = sprite_w(CUT / "shot_formats.png", 940)
 paper = cover(load(CUT / "paper_bg.jpg"))
 
 
@@ -39,7 +42,7 @@ def stamp(txt, rot):
     return np.array(im.rotate(rot, expand=True, resample=Image.BICUBIC))
 
 
-STAMPS = [(stamp("JPEG", 4), 80, 1380), (stamp("PNG", -5), 560, 1400), (stamp("GIF", -4), 100, 1560), (stamp("WebP", 5), 520, 1580)]
+STAMPS = [(stamp("JPEG", 4), 80, 1100), (stamp("PNG", -5), 560, 1120), (stamp("GIF", -4), 100, 1300), (stamp("WebP", 5), 520, 1320)]
 title = lambda fr, t, txt, t1=1.4: words_reveal(txt, 92, t, 0.3, t1, 250, fr)
 P = lambda fr, s, x, y, t, t0, a=1.0: paste_rgba(fr, s, x, y, alpha=min(1, max(0, (t - t0) / 0.18)) * a, scale=0.6 + 0.4 * ease_back((t - t0) / 0.45))
 
@@ -47,7 +50,7 @@ P = lambda fr, s, x, y, t, t0, a=1.0: paste_rgba(fr, s, x, y, alpha=min(1, max(0
 def scene(i, t, dur):
     fr = np.zeros((H, W, 3), np.uint8)
     if i == 0:
-        fr[:] = blur; paste(fr, kenburns(shoe, t, dur, 1080, 1.0, 1.10, (0.3, 0)), 0, 560)
+        fr[:] = blur; paste(fr, kenburns(PH0, t, dur, 1080, 1.0, 1.10, (0.0, -0.3)), 0, 420)
         title(fr, t, "Photo dikhao,\nClaude ko", 1.6)
         t0 = dur * 0.42; p = ease_out((t - t0) / 0.6)
         paste_rgba(fr, SP["intro"], 70, int(H + 20 - p * (H - 1300)), alpha=1.0)
@@ -60,8 +63,8 @@ def scene(i, t, dur):
                 s = text_sprite(ln, 84, YEL if k != 1 else (255, 255, 255)); a = ease_out((t - t0) / 0.3)
                 paste_rgba(fr, s, (W - s.shape[1]) // 2, 1100 + k * 150 + int((1 - a) * 30), alpha=a)
     elif i == 2:
-        fr[:] = blur; paste(fr, kenburns(shoe, t, dur, 1080, 1.0, 1.06, (-0.3, 0)), 0, 560)
-        title(fr, t, "Kaunse formats\nchalte hain", 1.5)
+        fr[:] = paper; title(fr, t, "Kaunse formats\nchalte hain", 1.5)
+        P(fr, SPF, 70, 420, t, 0.3)
         for k, (s, x, y) in enumerate(STAMPS):
             t0 = dur * 0.30 + k * 0.42
             P(fr, s, x, y, t, t0)
@@ -79,8 +82,8 @@ def scene(i, t, dur):
     elif i == 4:
         fr[:] = blur; title(fr, t, "Behtar nateeja", 1.0)
         P(fr, SP["tips"], 70, 340, t, 0.3)
-        y0, h = 760, round(shoe.shape[0] * 1080 / shoe.shape[1])
-        a_ = cv2.resize(low, (1080, h), interpolation=cv2.INTER_NEAREST); b_ = cv2.resize(shoe, (1080, h), interpolation=cv2.INTER_CUBIC)
+        y0, h = 760, round(PH1.shape[0] * 1080 / PH1.shape[1])
+        a_ = cv2.resize(low, (1080, h), interpolation=cv2.INTER_NEAREST); b_ = cv2.resize(PH1, (1080, h), interpolation=cv2.INTER_CUBIC)
         div = int(1080 * ease_io((t - dur * 0.28) / (dur * 0.45)))
         img = a_.copy(); img[:, :div] = b_[:, :div]; paste(fr, img, 0, y0)
         cv2.rectangle(fr, (div - 4, y0), (div + 4, y0 + h), YEL[::-1][::-1], -1)
