@@ -21,7 +21,7 @@ Only the rules special to this channel. Read `shared/RULES.md` first; everything
 - Own Google Cloud project `yellow-bot-devrobo` (own YouTube quota 10,000 units/day = 6 uploads/day). Queue the rest for the next day.
 - Start at 3-6 uploads/day; raise only after the user OKs (repetitive-content risk).
 - Cost: voice paid Gemini TTS ~Rs1.6 per video allowed (user 2026-10-31); daily cap Rs20; stop if Google balance < Rs50. Images/music/slides are free (Cloudflare, local HTML render).
-- OAuth app is in Testing mode: token expires after 7 days (renew `tools/yt_auth.py devrobolab`, due ~2026-11-07).
+- OAuth app is in Testing mode: token expires after 7 days (renew `tools/yt_auth.py devrobolab`, renewed 2026-11-06, next due ~2026-11-13).
 
 ## Metadata
 - Title: topic + hook in Hinglish, max 70 chars, suffix `| DevRoboLab` is optional (Shorts). Tags in Hinglish + English (claude code, ai, hooks, mcp ...).
