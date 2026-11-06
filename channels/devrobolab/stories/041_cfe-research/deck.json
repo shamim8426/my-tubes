@@ -1,0 +1,13 @@
+{
+ "tag": "Claude Feature 03",
+ "music": {"file": "shared/music/presentation/Funkorama.mp3", "start": 6, "rel": 12},
+ "voice": {"id": "Charon", "style": "Speak like a friendly Indian tech YouTuber chatting casually in Hinglish. Natural conversational pace, warm and clear, a little energetic but not theatrical. No sing-song, no exaggerated emphasis."},
+ "scenes": [
+  {"id": "hook", "voice": "Claude अब खुद रिसर्च करता है! एक सवाल पूछो, और वो कई searches करके पूरी जाँच कर देता है।"},
+  {"id": "avail", "voice": "ये Research feature Pro, Max और Team जैसे paid plans पर मिलता है। web, Desktop और Mobile, तीनों पर।"},
+  {"id": "enable", "voice": "पहले web search चालू रखो। फिर chat में plus बटन दबाओ, और Research चुनो। नीचे नीला indicator दिखेगा।"},
+  {"id": "use", "voice": "अब सवाल पूछो, जैसे team offsite का plan। Claude web के साथ आपके Gmail, Calendar और Docs भी देखता है।"},
+  {"id": "caution", "voice": "ध्यान रखो! Mobile पर Research सिर्फ web देखता है, connectors नहीं। और ये आपकी usage limit जल्दी खर्च कर सकता है।"},
+  {"id": "cta", "voice": "Research का link चाहिए? Comment में RESEARCH लिखो। DevRoboLab को follow करो, और comment में RESEARCH लिखो।"}
+ ]
+}

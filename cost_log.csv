@@ -1256,3 +1256,9 @@ timestamp,file,model,size,cost_usd,cost_inr,today_total_inr,remaining_inr,channe
 2026-11-05 23:33:24,channels/devrobolab/stories/040_cfe03-artifacts/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 6.9s,0.00156,0.15,14.90,540.14,devrobolab,0.16,0.1506,0.03,25,172
 2026-11-05 23:33:29,channels/devrobolab/stories/040_cfe03-artifacts/audio/tts/s_06.wav,gemini-3.8-flash-tts,tts 7.4s,0.00168,0.16,15.09,539.95,devrobolab,0.17,0.1618,0.03,24,185
 2026-11-05 23:33:34,channels/devrobolab/stories/040_cfe03-artifacts/audio/tts/s_07.wav,gemini-3.8-flash-tts,tts 4.4s,0.00101,0.10,15.20,539.83,devrobolab,0.10,0.0972,0.02,17,111
+2026-11-06 21:28:12,channels/devrobolab/stories/041_cfe-research/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 6.1s free,0.00000,0.00,0.00,539.83,devrobolab,0.14,0.0000,0.00,24,152
+2026-11-06 21:28:17,channels/devrobolab/stories/041_cfe-research/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 7.1s free,0.00000,0.00,0.00,539.83,devrobolab,0.16,0.0000,0.00,25,178
+2026-11-06 21:28:22,channels/devrobolab/stories/041_cfe-research/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 7.5s free,0.00000,0.00,0.00,539.83,devrobolab,0.17,0.0000,0.00,26,188
+2026-11-06 21:28:26,channels/devrobolab/stories/041_cfe-research/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 6.8s free,0.00000,0.00,0.00,539.83,devrobolab,0.15,0.0000,0.00,27,170
+2026-11-06 21:28:31,channels/devrobolab/stories/041_cfe-research/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 6.8s free,0.00000,0.00,0.00,539.83,devrobolab,0.16,0.0000,0.00,26,171
+2026-11-06 21:29:24,channels/devrobolab/stories/041_cfe-research/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 6.4s free,0.00000,0.00,0.00,539.83,devrobolab,0.15,0.0000,0.00,27,161
