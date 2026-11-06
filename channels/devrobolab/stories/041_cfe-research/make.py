@@ -138,14 +138,14 @@ def ui_beat(base, t, b):
 QUERIES = ["offsite venues", "travel prices", "hotel reviews", "team calendar"]
 B = [
     dict(k="robot", t0=0.0, t1=T("hook", 6) - 0.1, pose="think", claim="CLAUDE KHUD\nKARTA HAI\nRESEARCH", hl={"RESEARCH"}),
-    dict(k="ui", t0=T("hook", 6) - 0.1, t1=T("hook", 15), key="intro", dev="tv", over="queries"),
+    dict(k="ui", t0=T("hook", 6) - 0.1, t1=T("hook", 15), key="intro", dev="tv", over="queries", hl=(T("hook", 6), T("hook", 15))),
     dict(k="num", t0=T("hook", 15), t1=T("avail", 3) - 0.1),
-    dict(k="ui", t0=T("avail", 3) - 0.1, t1=T("avail", 13) - 0.15, key="avail", dev="phone", pill=("PAID PLANS", T("avail", 8))),
+    dict(k="ui", t0=T("avail", 3) - 0.1, t1=T("avail", 13) - 0.15, key="avail", dev="phone", hl=(T("avail", 3), T("avail", 12)), pill=("PAID PLANS", T("avail", 8))),
     dict(k="robot", t0=T("avail", 13) - 0.15, t1=T("enable", 0), pose="work", chips=[("WEB", T("avail", 13)), ("DESKTOP", T("avail", 14)), ("MOBILE", T("avail", 16))]),
-    dict(k="ui", t0=T("enable", 0), t1=T("use", 0), key="needweb", dev="phone", keys=[(0, "needweb"), (T("enable", 5) - 0.05, "plus"), (T("enable", 12) - 0.1, "indicator")], pill2=("Research", T("enable", 14))),
+    dict(k="ui", t0=T("enable", 0), t1=T("use", 0), key="needweb", dev="phone", keys=[(0, "needweb"), (T("enable", 5) - 0.05, "plus"), (T("enable", 12) - 0.1, "indicator")], hls={"needweb": (T("enable", 0) + 0.2, T("enable", 4)), "plus": (T("enable", 5), T("enable", 11)), "indicator": (T("enable", 12), T("enable", 17))}, pill2=("Research", T("enable", 14))),
     dict(k="robot", t0=T("use", 0), t1=T("use", 8) - 0.1, pose="work", prompt=("Plan a team offsite", T("use", 3), T("use", 7))),
-    dict(k="ui", t0=T("use", 8) - 0.1, t1=T("caution", 0), key="connectors", dev="paper", stamp="CONNECTORS", chips2=[("Gmail", T("use", 13)), ("Calendar", T("use", 14)), ("Docs", T("use", 16))]),
-    dict(k="ui", t0=T("caution", 0), t1=T("caution", 9), key="mobile", dev="tv", tag=("MOBILE = WEB ONLY", T("caution", 2))),
+    dict(k="ui", t0=T("use", 8) - 0.1, t1=T("caution", 0), key="connectors", dev="paper", stamp="CONNECTORS", hl=(T("use", 8), T("use", 18)), chips2=[("Gmail", T("use", 13)), ("Calendar", T("use", 14)), ("Docs", T("use", 16))]),
+    dict(k="ui", t0=T("caution", 0), t1=T("caution", 9), key="mobile", dev="tv", hl=(T("caution", 2), T("caution", 10)), tag=("MOBILE = WEB ONLY", T("caution", 2))),
     dict(k="robot", t0=T("caution", 9), t1=T("cta", 0), pose="stop", claim="USAGE LIMIT\nJALDI KHARCH\nHO SAKTI HAI", hl={"JALDI"}),
     dict(k="cta", t0=T("cta", 0), t1=TOTAL),
 ]

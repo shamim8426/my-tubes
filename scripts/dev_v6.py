@@ -75,8 +75,9 @@ def install(g):
         key = [k for ts, k in b["keys"] if t >= ts][-1] if b.get("keys") else b["key"]
         ks = b.get("keys") or [(b["t0"], b["key"])]; i = [n for n, (ts, k) in enumerate(ks) if t >= ts][-1]
         seg0 = max(ks[i][0], b["t0"]); seg1 = ks[i + 1][0] if i + 1 < len(ks) else b["t1"]
-        h0 = seg0 + 0.55; h1 = min(seg1 - 0.35, h0 + 2.6); hp = min(1, max(0, (t - h0) / max(0.3, h1 - h0)))
-        hp = hp * hp * (3 - 2 * hp)   # ease in-out so the marker speeds up and settles like a hand
+        hl = (b.get("hls") or {}).get(key) or b.get("hl")      # (t_start, t_end) = when the voice speaks that phrase -> marker follows the voice live
+        h0, h1 = hl if hl else (seg0 + 0.55, min(seg1 - 0.35, seg0 + 3.15))
+        hp = min(1, max(0, (t - h0) / max(0.3, h1 - h0)))
         dev, rot = DEV[b.get("dev", "phone")](key, lt, p, hp)
         e = ease_back(lt / 0.4) if lt < 0.4 else 1.0; sc = 0.92 + 0.08 * e
         cy = 790 + (1 - ease_out(min(1, lt / 0.4))) * 70 + 10 * math.sin(lt * 1.6)
