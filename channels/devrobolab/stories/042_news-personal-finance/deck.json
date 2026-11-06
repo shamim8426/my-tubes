@@ -1,0 +1,38 @@
+{
+ "tag": "AI News",
+ "music": {
+  "file": "shared/music/presentation/Funkorama.mp3",
+  "start": 6,
+  "rel": 12
+ },
+ "voice": {
+  "id": "Charon",
+  "style": "Speak like a friendly Indian tech YouTuber chatting casually in Hinglish. Natural conversational pace, warm and clear, a little energetic but not theatrical. No sing-song, no exaggerated emphasis."
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "voice": "Claude अब बताएगा कि आपके पैसे कहाँ गए! Anthropic ने नया Personal Finance feature निकाला है।"
+  },
+  {
+   "id": "avail",
+   "voice": "ये इसी हफ्ते beta में आ रहा है, अभी सिर्फ US के Pro, Max और Ultra plans पर।"
+  },
+  {
+   "id": "how",
+   "voice": "आप Plaid के ज़रिए अपने bank में खुद sign in करते हो। Claude को आपका bank password नहीं दिखता, और access सिर्फ read-only है।"
+  },
+  {
+   "id": "ask",
+   "voice": "फिर पूछो, पैसे कहाँ गए इस महीने? Claude खर्चे category में बाँटकर बताता है, और payday तक कितना बचेगा, ये भी।"
+  },
+  {
+   "id": "caution",
+   "voice": "ध्यान रखो! ये investment advice के लिए नहीं बना है। Claude गलती कर सकता है, इसलिए बड़े figures अपने bank से जाँच लो।"
+  },
+  {
+   "id": "cta",
+   "voice": "AI news का ऐसा update चाहिए? Comment में NEWS लिखो। DevRoboLab को follow करो, और comment में NEWS लिखो।"
+  }
+ ]
+}

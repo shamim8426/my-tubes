@@ -1188,5 +1188,16 @@
     "status": "todo",
     "audience": "A",
     "series": "claude-for-everyone"
+  },
+  {
+    "id": "news-claude-personal-finance-2026-11-06",
+    "title": "Claude Personal Finance (beta, US): bank accounts se paise ka hisaab",
+    "url": "https://claude.com/resources/articles/introducing-personal-finance-in-claude",
+    "summary": "Anthropic, Nov 5 2026: read-only bank/card connection via Plaid, beta this week on Pro/Max/Ultra in the US.",
+    "status": "built",
+    "story": "042_news-personal-finance",
+    "priority": "news",
+    "org": "Anthropic",
+    "audience": "A"
   }
 ]
