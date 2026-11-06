@@ -137,18 +137,17 @@ def ui_beat(base, t, b):
 # ---------- beats ----------
 QUERIES = ["Where did my money go?", "Left before payday?", "Any odd charges?"]
 B = [
-    dict(k="robot", t0=0.0, t1=T("hook", 8) - 0.1, pose="think", claim="CLAUDE BATAYEGA\nPAISE KAHAN\nGAYE", hl={"KAHAN"}, mini="img0"),
-    dict(k="ui", t0=T("hook", 8) - 0.1, t1=T("avail", 0), key="intro", tilt=True, over="queries"),
+    dict(k="robot", t0=0.0, t1=T("hook", 8) - 0.1, pose="think", claim="CLAUDE BATAYEGA\nPAISE KAHAN\nGAYE", hl={"KAHAN"}),
+    dict(k="ui", t0=T("hook", 8) - 0.1, t1=T("avail", 0), key="intro", dev="tv", over="queries"),
     dict(k="num", t0=T("avail", 0), t1=T("avail", 12) - 0.1, lines=("BETA", "THIS WEEK", "US ONLY")),
-    dict(k="ui", t0=T("avail", 12) - 0.1, t1=T("how", 0), key="avail", pill=("PRO / MAX / ULTRA", T("avail", 12))),
-    dict(k="ui", t0=T("how", 0), t1=T("how", 12) - 0.1, key="plaid", pill=("SIGN IN VIA PLAID", T("how", 1))),
+    dict(k="ui", t0=T("avail", 12) - 0.1, t1=T("how", 0), key="avail", dev="phone", pill=("PRO / MAX / ULTRA", T("avail", 12))),
+    dict(k="ui", t0=T("how", 0), t1=T("how", 12) - 0.1, key="plaid", dev="paper", stamp="PLAID", pill=("SIGN IN VIA PLAID", T("how", 1))),
     dict(k="robot", t0=T("how", 12) - 0.1, t1=T("ask", 0), pose="work", dark=True, chips=[("NO PASSWORD", T("how", 15)), ("READ-ONLY", T("how", 21))]),
     dict(k="robot", t0=T("ask", 0), t1=T("ask", 7) - 0.1, pose="work", prompt=("Where did my money go?", T("ask", 2), T("ask", 6))),
-    dict(k="ui", t0=T("ask", 7) - 0.1, t1=T("caution", 0), key="img1", pill=("SORTS BY CATEGORY", T("ask", 8))),
-    dict(k="robot", t0=T("caution", 0), t1=T("caution", 10) - 0.1, pose="stop", claim="INVESTMENT\nADVICE NAHI", hl={"NAHI"}, mini="noadvice"),
-    dict(k="ui", t0=T("caution", 10) - 0.1, t1=T("cta", 0), key="mistakes", tag=("CHECK WITH YOUR BANK", T("caution", 16))),
-    dict(k="ui", t0=T("cta", 0), t1=T("cta", 6) - 0.1, key="img0"),
-    dict(k="cta", t0=T("cta", 6) - 0.1, t1=TOTAL + 1),
+    dict(k="ui", t0=T("ask", 7) - 0.1, t1=T("caution", 0), key="img1", dev="tv", pill=("SORTS BY CATEGORY", T("ask", 8))),
+    dict(k="robot", t0=T("caution", 0), t1=T("caution", 10) - 0.1, pose="stop", claim="INVESTMENT\nADVICE NAHI", hl={"NAHI"}),
+    dict(k="ui", t0=T("caution", 10) - 0.1, t1=T("cta", 0), key="mistakes", dev="paper", stamp="CHECK!", tag=("CHECK WITH YOUR BANK", T("caution", 16))),
+    dict(k="cta", t0=T("cta", 0), t1=TOTAL + 1),
 ]
 EXACT_UI = sum(b["t1"] - b["t0"] for b in B if b["k"] in ("ui",)) + 0.0
 
@@ -298,6 +297,9 @@ def frame(t):
     # progress bar
     ImageDraw.Draw(base).rectangle([0, H - 12, int(W * t / TOTAL), H], fill=YEL + (255,))
     return blur_push(np.array(base.convert("RGB")), t)
+
+
+import dev_v6; dev_v6.install(globals())
 
 
 def main():

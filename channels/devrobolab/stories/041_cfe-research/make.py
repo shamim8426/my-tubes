@@ -137,18 +137,16 @@ def ui_beat(base, t, b):
 # ---------- beats ----------
 QUERIES = ["offsite venues", "travel prices", "hotel reviews", "team calendar"]
 B = [
-    dict(k="robot", t0=0.0, t1=T("hook", 6) - 0.1, pose="think", claim="CLAUDE KHUD\nKARTA HAI\nRESEARCH", hl={"RESEARCH"}, mini="intro"),
-    dict(k="ui", t0=T("hook", 6) - 0.1, t1=T("hook", 15), key="intro", tilt=True, over="queries"),
+    dict(k="robot", t0=0.0, t1=T("hook", 6) - 0.1, pose="think", claim="CLAUDE KHUD\nKARTA HAI\nRESEARCH", hl={"RESEARCH"}),
+    dict(k="ui", t0=T("hook", 6) - 0.1, t1=T("hook", 15), key="intro", dev="tv", over="queries"),
     dict(k="num", t0=T("hook", 15), t1=T("avail", 3) - 0.1),
-    dict(k="ui", t0=T("avail", 3) - 0.1, t1=T("avail", 13) - 0.15, key="avail", pill=("PAID PLANS", T("avail", 8))),
+    dict(k="ui", t0=T("avail", 3) - 0.1, t1=T("avail", 13) - 0.15, key="avail", dev="phone", pill=("PAID PLANS", T("avail", 8))),
     dict(k="robot", t0=T("avail", 13) - 0.15, t1=T("enable", 0), pose="work", chips=[("WEB", T("avail", 13)), ("DESKTOP", T("avail", 14)), ("MOBILE", T("avail", 16))]),
-    dict(k="ui", t0=T("enable", 0), t1=T("enable", 5) - 0.05, key="needweb", pill=("WEB SEARCH = ON", T("enable", 3))),
-    dict(k="ui", t0=T("enable", 5) - 0.05, t1=T("enable", 12) - 0.1, key="plus", pill2=("Research", 99)),
-    dict(k="ui", t0=T("enable", 12) - 0.1, t1=T("use", 0), key="indicator", pill2=("Research", T("enable", 14))),
+    dict(k="ui", t0=T("enable", 0), t1=T("use", 0), key="needweb", dev="phone", keys=[(0, "needweb"), (T("enable", 5) - 0.05, "plus"), (T("enable", 12) - 0.1, "indicator")], pill2=("Research", T("enable", 14))),
     dict(k="robot", t0=T("use", 0), t1=T("use", 8) - 0.1, pose="work", prompt=("Plan a team offsite", T("use", 3), T("use", 7))),
-    dict(k="ui", t0=T("use", 8) - 0.1, t1=T("caution", 0), key="connectors", chips2=[("Gmail", T("use", 13)), ("Calendar", T("use", 14)), ("Docs", T("use", 16))]),
-    dict(k="ui", t0=T("caution", 0), t1=T("caution", 9), key="mobile", tag=("MOBILE = WEB ONLY", T("caution", 2))),
-    dict(k="robot", t0=T("caution", 9), t1=T("cta", 0), pose="stop", claim="USAGE LIMIT\nJALDI KHARCH\nHO SAKTI HAI", hl={"JALDI"}, mini="limits"),
+    dict(k="ui", t0=T("use", 8) - 0.1, t1=T("caution", 0), key="connectors", dev="paper", stamp="CONNECTORS", chips2=[("Gmail", T("use", 13)), ("Calendar", T("use", 14)), ("Docs", T("use", 16))]),
+    dict(k="ui", t0=T("caution", 0), t1=T("caution", 9), key="mobile", dev="tv", tag=("MOBILE = WEB ONLY", T("caution", 2))),
+    dict(k="robot", t0=T("caution", 9), t1=T("cta", 0), pose="stop", claim="USAGE LIMIT\nJALDI KHARCH\nHO SAKTI HAI", hl={"JALDI"}),
     dict(k="cta", t0=T("cta", 0), t1=TOTAL),
 ]
 B[-1]["t1"] = TOTAL + 1
@@ -300,6 +298,9 @@ def frame(t):
     # progress bar
     ImageDraw.Draw(base).rectangle([0, H - 12, int(W * t / TOTAL), H], fill=YEL + (255,))
     return blur_push(np.array(base.convert("RGB")), t)
+
+
+import dev_v6; dev_v6.install(globals())
 
 
 def main():
