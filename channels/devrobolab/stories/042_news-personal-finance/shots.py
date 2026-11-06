@@ -44,18 +44,20 @@ with sync_playwright() as p:
     for y in range(0, 6000, 500):
         pg.evaluate(f"window.scrollTo(0,{y})"); pg.wait_for_timeout(500)
     pg.evaluate("window.scrollTo(0,0)"); pg.wait_for_timeout(1500)
-    pg.evaluate(JS, KEYS)
     art = pg.query_selector('div.text-rich-text--article')
+    art.screenshot(path=str(H / "raw/article_plain.png"))  # v6: same page WITHOUT yellow marks (highlight is animated in the video)
+    pg.evaluate(JS, KEYS)
     box = art.bounding_box(); print("article box", box)
-    rects = {}
+    rects = {}; lines = {}
     for k in KEYS:
         els = pg.query_selector_all(f'mark[data-k="{k}"]')
         if els:
             rs = [e.bounding_box() for e in els]; x0 = min(r["x"] for r in rs); y0 = min(r["y"] for r in rs); x1 = max(r["x"] + r["width"] for r in rs); y1 = max(r["y"] + r["height"] for r in rs)
             rects[k] = [x0 - box["x"], y0 - box["y"], x1 - x0, y1 - y0]
+            lines[k] = [[r[0] - box["x"], r[1] - box["y"], r[2], r[3]] for e in els for r in e.evaluate("e=>[...e.getClientRects()].map(r=>[r.x,r.y,r.width,r.height])")]
         else: rects[k] = None
     for n, im in enumerate([e for e in art.query_selector_all('img') if (e.bounding_box() or {}).get('height', 0) > 120]):
         r = im.bounding_box(); rects[f"img{n}"] = [r["x"] - box["x"], r["y"] - box["y"], r["width"], r["height"]]
     art.screenshot(path=str(H / "raw/article.png"))
-    json.dump({"box": box, "rects": rects}, open(H / "raw/rects.json", "w"), indent=1)
+    json.dump({"box": box, "rects": rects, "lines": lines}, open(H / "raw/rects.json", "w"), indent=1)
     print(json.dumps(rects, indent=1)); b.close()
