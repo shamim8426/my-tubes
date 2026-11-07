@@ -8,6 +8,12 @@ Project: D:\my-tubes (Windows). Python: D:\my-tubes\.venv\Scripts\python.exe -X 
 - Balance: `.venv\Scripts\python.exe -X utf8 -c "import sys; sys.path.insert(0,'scripts'); import cost_log; print(cost_log.remaining())"`. Below Rs 65 (floor Rs 50 + one run): no paid call, report "recharge".
 - Read: CLAUDE.md, channels/devrobolab/PLAN_DAILY.md (formats, slots, rules), DAILY_COMMON.md (voice, budget, real assets, upload, logging), shared/STYLE_LIBRARY.md sections 0, 9, 10 (look), channels/devrobolab/log.md last 30 lines, topic_queue.json.
 
+
+## 0a. WORK WINDOW (user 2026-11-07, binding): NO daytime work
+Work only in the morning (06:00-10:30 start) and at night (start 20:00-02:00), local time. If a task starts between 10:30 and 20:00 (the PC/app was off at the slot and opened late), do NOTHING: exit at once with the report "din ka time, kaam raat ko (retry 21:00 / 22:00)". Never start a new video after 02:00.
+Retry rule: if a slot was missed because the PC was not available, it is retried at 21:00 and, if still missing, at 22:00 by the task `devrobolab-retry-night` (it only does slots that have no upload today, one at a time, and exits if another DevRoboLab run is still running). After 22:00 the slot is skipped for today (no extra retries); the next day continues normally.
+Dates: a run that finishes after midnight counts for the day it started.
+
 ## 1. Make the video (own new story folder `channels/devrobolab/stories/<next free number>_<slug>/`)
 1. Topic: as the slot task says. Facts ONLY from the official page(s) (WebFetch); write `review/facts.md` (each fact + URL). Third-party things (e.g. a Zomato connector) are labelled as third-party/example on screen, never a real order, account or payment.
 2. Script `deck.json` (Hinglish in Devanagari + English tech words, same voice/style block as story 044). Long: 450-550 words (about 3 min). Short: 90-110 words (35-40 s). Hook in the first 2 s, one caution, short recap, rotating last-line CTA (different from the previous video in log.md).

@@ -12,14 +12,14 @@ Status: ACTIVE (user 2026-11-07): the 5 scheduled tasks below run every day and 
 
 ## Slots (IST) and rough work time
 | Time | Video | Format | Work | Upload (private) |
-| 08:00 | AI news | Short | about 1 h | about 09:15 |
-| 09:30 | Claude for Everyone feature | Long | about 2.5 h | about 12:00 |
-| 14:00 | Claude Code feature | Long | about 2.5 h | about 16:45 |
-| 21:00 | Daily life | Short | about 1-1.5 h (research first) | about 22:15 |
-| 23:00 | Short cut from one of the day's longs | Short | about 1 h | about 00:15 |
-(user 2026-11-07: mornings only the news Short + one feature long; daily-life Short at night 21:00.)
+| 08:00 | AI news | Short | about 1 h | about 09:00 |
+| 09:15 | Claude for Everyone feature | Long | about 2.5 h | about 11:45 |
+| 20:30 | Claude Code feature | Long | about 2.5 h | about 23:00 |
+| 23:00 | Daily life (Zomato first) | Short | about 1-1.5 h (research first) | about 00:15 |
+| 00:30 | Short cut from the latest long (last 24 h) | Short | about 1 h | about 01:30 |
+(user 2026-11-07: NO afternoon work; only morning and night from 20:00. They run one after the other; a task waits if the previous run is still running.)
 One run at a time, never in parallel. Each run: research from the official source, script, voice, build, self-review of frames, loudness check, private upload to the right playlist, topic_queue.json + log.md + sync, one status line to the user.
-Suggested public order for the user (Studio): news 09:30, Claude for Everyone 12:30, Claude Code 17:00, daily life 22:30. Thumbnails and going public are always the user's manual step.
+Suggested public order for the user (Studio): news 09:30, Claude for Everyone 12:30, Claude Code 23:30 or next morning, daily life next morning, cut Short next morning. Thumbnails and going public are always the user's manual step.
 
 ## Rules that stay
 - Upload PRIVATE only. Never public, never delete, never change security/permission settings.
@@ -53,8 +53,9 @@ After building a video: review it (frames every 3 s + the exact frame of every s
 Common steps for every task: `scheduled_tasks/RUN_COMMON.md`. Task prompts (backups): `scheduled_tasks/<taskId>.md`.
 | Task id | Cron (local) | Slot |
 | devrobolab-news-short | 47 7 * * * | 08:00 AI news Short |
-| devrobolab-cfe-long | 30 9 * * * | 09:30 Claude for Everyone long |
-| devrobolab-claude-code-long | 47 13 * * * | 14:00 Claude Code long |
-| devrobolab-daily-life-short | 0 21 * * * | 21:00 Daily-life Short |
-| devrobolab-long-cut-short | 47 22 * * * | 23:00 Short cut from today's long |
+| devrobolab-cfe-long | 10 9 * * * | 09:15 Claude for Everyone long |
+| devrobolab-claude-code-long | 20 20 * * * | 20:30 Claude Code long |
+| devrobolab-daily-life-short | 50 22 * * * | 23:00 Daily-life Short |
+| devrobolab-long-cut-short | 20 0 * * * | 00:30 Short cut from the latest long |
+| devrobolab-retry-night | 0 21,22 * * * | 21:00 and 22:00: do any slot that has no upload today (PC was off) |
 The old tasks (devrobolab-daily-videos, devrobolab-afternoon-videos, devrobolab-evening-videos, claude-news-watch) are NOT to be recreated.
