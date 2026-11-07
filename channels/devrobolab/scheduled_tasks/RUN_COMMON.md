@@ -37,3 +37,8 @@ Project: D:\my-tubes (Windows). Python: D:\my-tubes\.venv\Scripts\python.exe -X 
 - topic_queue.json (status uploaded, story, video_id, series, series_index), log.md line (URL, length, LUFS, cost, style variants, review findings fixed), then `powershell -NoProfile -ExecutionPolicy Bypass -File tools\sync.ps1 -Message "devrobolab <story>: uploaded private"`.
 - Final message (Hinglish, short): video link, private, playlist, cost (Rs), balance, mistakes found and fixed, anything the user must do in Studio (thumbnail, public).
 - Login (OAuth Testing mode) expired? Report "run tools/yt_auth.py" and stop before upload; leave the finished video in output/.
+
+## 4. LEARN IMMEDIATELY (user 2026-11-07, binding; also applies to every other task and session)
+The moment something is learned that other videos or channels can use (a mistake found in review, how it was fixed, a tool or Windows trap, a layout/sync/audio rule, a research result), run at once, in the middle of the work, never at the end and never waiting to be asked:
+`.venv\Scripts\python.exe -X utf8 tools\learn.py "<short title>" "<what was learned and what to do next time>"`
+It writes the line into shared/STYLE_LIBRARY.md (section 13) and pushes it to GitHub main by itself. Every run that found and fixed at least one mistake MUST have called it at least once (the review.md findings are the source). No secrets, no other creators' frames or words.

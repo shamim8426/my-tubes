@@ -225,3 +225,4 @@ are not affected.
 
 ## 17. Style library (user 2026-11-07, ALL channels)
 - Every learning from a video (style, edit, graphic, motion, sound, process) goes into `shared/STYLE_LIBRARY.md` (common file, read before building any video); reusable code/reference builds in `shared/style_library/`. Channel-specific looks link to it. Copyright limits (sections 10, 12) always win.
+- **Immediate and automatic (user 2026-11-07):** every session, agent, scheduled task and channel writes a new common learning the SAME MINUTE it learns it, with `python tools/learn.py "<title>" "<learning>"` (appends to STYLE_LIBRARY section 13 and pushes to GitHub main in one step). Never wait until the end of the task and never wait for the user to say "sync". Munshi checks that a run that had errors or fixes left at least one entry.

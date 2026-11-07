@@ -120,6 +120,7 @@ econcile_balance.py <AI Studio balance ₹>` (pehli baar checkpoint), Long 03 ke
 
 ## Style library (user 2026-11-07, SAB channels)
 - Video ki har learning (style, edit, graphics, motion, sound, process) common file `shared/STYLE_LIBRARY.md` me likho (shared/RULES.md 17); koi bhi video banane se pehle use padho. Reusable code `shared/style_library/` me.
+- **TURANT likho + sync (user 2026-11-07, hamesha, sab sessions/agents/channels):** jaise hi kuch seekho jo aur videos/channels ke kaam aaye (galti mili, fix kiya, tool/Windows ki dikkat, style niyam, study ka natija) usi waqt, kaam ke beech me, ye ek command chalao, user ke kehne ka intezaar kabhi nahi: `.venv\Scripts\python.exe -X utf8 tools\learn.py "<chhota title>" "<kya seekha, agli baar kya karna>"` (ye STYLE_LIBRARY section 13 me likhta hai aur turant GitHub main par push karta hai). Bade seekh ko baad me proper section me bhi likho. Secret/key kabhi nahi; doosron ke frame/shabd nahi, sirf tareeke.
 
 ## Study download (shared/RULES.md 12c)
 - Jab user link de kar kahe "isse seekho". yt-dlp bina login/cookies, sirf `study/` (git-ignored, kabhi sync nahi); koi bhi
