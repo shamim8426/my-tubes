@@ -1,0 +1,38 @@
+{
+ "tag": "Claude Feature 04",
+ "music": {
+  "file": "shared/music/presentation/Funkorama.mp3",
+  "start": 6,
+  "rel": 12
+ },
+ "voice": {
+  "id": "Charon",
+  "style": "Speak like a friendly Indian tech YouTuber chatting casually in Hinglish. Natural conversational pace, warm and clear, a little energetic but not theatrical. No sing-song, no exaggerated emphasis."
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "voice": "PDF या photo upload करके Claude से सवाल पूछना है? बस तीन step।"
+  },
+  {
+   "id": "how",
+   "voice": "Chat box के plus बटन पर click करो, Add files or photos चुनो, और file चुन लो। Drag and drop भी चलता है।"
+  },
+  {
+   "id": "types",
+   "voice": "PDF, Word, CSV, text और photos, सब चलते हैं। एक chat में बीस files तक।"
+  },
+  {
+   "id": "caution",
+   "voice": "ध्यान रखो! सौ page तक के PDF में Claude chart और तस्वीरें भी पढ़ता है। उससे बड़े PDF में सिर्फ text।"
+  },
+  {
+   "id": "tip",
+   "voice": "किसी page के बारे में पूछो तो PDF viewer वाला page number बताओ, किताब पर छपा नहीं।"
+  },
+  {
+   "id": "cta",
+   "voice": "File वाला tip काम आया? Save करो, और comment में FILES लिखो।"
+  }
+ ]
+}
