@@ -69,3 +69,8 @@ node_modules/
 
 # test videos: build work files (stills, stems, voice mix)
 channels/*/tests/*/_work/
+
+# secrets bundles must never be committed
+s.tgz
+*.tgz
+secrets*.tar*
