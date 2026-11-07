@@ -6,7 +6,7 @@ Status: ACTIVE (user 2026-11-07): the 5 scheduled tasks below run every day and 
 - AI news: SHORT (9:16, 35-40 s).
 - Claude for Everyone feature (Claude app, not Claude Code): LONG (16:9, about 3 min). Playlist PLEklr-qY9V3U, title "Claude Feature NN: ...".
 - Claude Code feature: LONG (16:9, about 3 min). Playlist PLGTgifZfJLow, title "Claude Code NN: ...". (This replaces "Claude Code Short only" in STYLE_LIBRARY/RESUME.)
-- Claude in daily life: SHORT. NEW playlist (name: user decides; not created yet). Example-led Shorts: how to connect a tool or connector and what to say to Claude (first topic: Zomato connector for ordering food; then Gmail drafts, Calendar questions, Drive/PDF questions).
+- Claude in daily life: SHORT. NEW playlist (name: user decides; not created yet). Example-led Shorts: how to connect a tool or connector and what to say to Claude (one video per type, list in the Topic order section below; first Zomato).
 - Fifth video: a Short cut from that day's long video (teaser, ends "Poora video channel par hai").
 - A feature long is never also its own full Short topic twice; the cut Short only shows the best part.
 
@@ -38,7 +38,19 @@ Suggested public order for the user (Studio): news and Claude for Everyone after
 ## Topic order
 - Claude for Everyone: queue items with series "claude-for-everyone" (tier A first). Done: 01-05 (Projects, Artifacts, Research, File upload, Memory). Next: image input, styles, resume/job, study help, email writing ...
 - Claude Code: queue items from code.claude.com docs (80+ todo). Done: 02 fast mode (Short). Next candidate: "Explore the .claude directory" (official page already read on 2026-11-07).
-- Daily life: first = Zomato connector (Settings > Connectors > Add custom connector; payment by QR per third-party guides; research first, label third-party), then Gmail drafts, Calendar summary, Drive/PDF questions.
+- Daily life (user 2026-11-07): ONE video per TYPE of everyday use, never a second video of the same type. Example: Zomato (food delivery) is done once; NO Swiggy or any other food-delivery app after it, and the same for every other type. Each Short shows how to connect/start it and how to use it in daily life, with one concrete example. Order (one each, skip a type that is already in log.md, then stop and tell the user when the list is finished; never loop back to a done type):
+  1. Food delivery: Zomato connector (Settings > Connectors > Add custom connector; payment by QR per third-party guides; research first, label third-party)
+  2. Email: Gmail search + reply drafts (Claude only drafts, you send)
+  3. Calendar: ask about your schedule (read questions only; Claude cannot create/change events)
+  4. Documents: ask questions about a Google Drive file or a PDF
+  5. Photos: fridge photo -> what can I cook
+  6. Money: understand a bill or expenses from a photo/PDF
+  7. Study: notes and a quiz from a chapter
+  8. Job: resume fix and interview practice
+  9. Travel: trip plan with web search
+  10. Shopping: compare two products with web search
+  11. Writing: Hindi-English message / translation
+  Every topic is checked first against an official or clearly reliable source; third-party items are labelled and never show a real order, account or payment; if it cannot be confirmed, skip that type and take the next.
 - News: from NEWS_WATCH.md as before.
 
 ## Open items for the user
