@@ -46,6 +46,9 @@ YouTube has a daily upload limit for the channel (error `uploadLimitExceeded`, s
 - Final message (Hinglish, short): video link, private, playlist, cost (Rs), balance, mistakes found and fixed, anything the user must do in Studio (thumbnail, public).
 - Login (OAuth Testing mode) expired? Report "run tools/yt_auth.py" and stop before upload; leave the finished video in output/.
 
+## 3a. ALWAYS PRIVATE + THUMBNAIL (user 2026-11-07, binding, no exception)
+Every upload is `privacy: private` and has its thumbnail set before the run ends. Order: build -> thumbnail PNG ready -> upload (private) -> `apply_thumbs.py <video id>` right away. After the thumbnail call verify with the API that the video is still `private` and the thumbnail call succeeded; write both in the log.md line ("UPLOADED private + thumbnail"). A video without a thumbnail is not finished: if thumbnails.set fails, retry once, then log the error and report it (still private). Never set public, never use publish_at, never change privacy: the user makes videos public in Studio.
+
 ## 4. LEARN IMMEDIATELY (user 2026-11-07, binding; also applies to every other task and session)
 The moment something is learned that other videos or channels can use (a mistake found in review, how it was fixed, a tool or Windows trap, a layout/sync/audio rule, a research result), run at once, in the middle of the work, never at the end and never waiting to be asked:
 `.venv\Scripts\python.exe -X utf8 tools\learn.py "<short title>" "<what was learned and what to do next time>"`
