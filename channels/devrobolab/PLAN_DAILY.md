@@ -13,12 +13,12 @@ Status: ACTIVE (user 2026-11-07): the 5 scheduled tasks below run every day and 
 ## Slots (IST) and rough work time
 | Time | Video | Format | Work | Upload (private) |
 | 08:00 | AI news | Short | about 1 h | about 09:15 |
-| 10:00 | Daily life | Short | about 1.5 h (research first) | about 11:45 |
+| 06:30 | Daily life | Short | about 1.5 h (research first) | by about 08:30 (user 2026-11-07) |
 | 14:00 | Claude Code feature | Long | about 2.5 h | about 16:45 |
 | 20:00 | Claude for Everyone feature | Long | about 2.5 h | about 22:45 |
 | 23:00 | Short cut from one of the day's longs | Short | about 1 h | about 00:15 |
 One run at a time, never in parallel. Each run: research from the official source, script, voice, build, self-review of frames, loudness check, private upload to the right playlist, topic_queue.json + log.md + sync, one status line to the user.
-Suggested public order for the user (Studio): news 09:30, daily life 12:30, Claude Code 17:00, Claude for Everyone 21:00. Thumbnails and going public are always the user's manual step.
+Suggested public order for the user (Studio): news 09:30, daily life 09:00, Claude Code 17:00, Claude for Everyone 21:00. Thumbnails and going public are always the user's manual step.
 
 ## Rules that stay
 - Upload PRIVATE only. Never public, never delete, never change security/permission settings.
@@ -52,7 +52,7 @@ After building a video: review it (frames every 3 s + the exact frame of every s
 Common steps for every task: `scheduled_tasks/RUN_COMMON.md`. Task prompts (backups): `scheduled_tasks/<taskId>.md`.
 | Task id | Cron (local) | Slot |
 | devrobolab-news-short | 47 7 * * * | 08:00 AI news Short |
-| devrobolab-daily-life-short | 47 9 * * * | 10:00 Daily-life Short |
+| devrobolab-daily-life-short | 30 6 * * * | 06:30 Daily-life Short, upload by 08:30 |
 | devrobolab-claude-code-long | 47 13 * * * | 14:00 Claude Code long |
 | devrobolab-cfe-long | 47 19 * * * | 20:00 Claude for Everyone long |
 | devrobolab-long-cut-short | 47 22 * * * | 23:00 Short cut from today's long |
