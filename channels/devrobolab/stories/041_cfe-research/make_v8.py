@@ -393,6 +393,67 @@ def demo_card(key, w, h, t, t0, spec, dur, z0=1.0, z1=1.3, r=40):
     lt = max(0.0, t - t0); return photo_dyn(screen_comp(key, demo_ui(key, lt, spec)), key, w, h, lt, dur, z0, z1, r)
 
 
+# ---- dark UI walkthrough (same look as Claude Feature 01/02: black theme, orange accent, cursor + click ripple, STEP banners) ----
+OR = (217, 119, 87)
+
+
+def walk_win(t, b):
+    w, h = 980, 860; im = Image.new("RGBA", (w, h), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
+    d.rounded_rectangle([0, 0, w - 1, h - 1], 30, fill=(18, 18, 18, 255), outline=(42, 42, 42, 255), width=2)
+    d.rounded_rectangle([0, 0, 210, h - 1], 30, fill=(12, 12, 12, 255)); d.rectangle([180, 0, 210, h], fill=(12, 12, 12, 255)); d.line([(210, 0), (210, h)], fill=(38, 38, 38, 255), width=2)
+    d.text((26, 28), "Assistant", font=PF(32, True), fill=(255, 255, 255, 255))
+    for k, nm in enumerate(["New chat", "Projects", "Artifacts", "Chats"]):
+        d.rounded_rectangle([16, 100 + 62 * k, 194, 148 + 62 * k], 12, fill=(30, 30, 30, 255) if k == 0 else None); d.text((34, 108 + 62 * k), nm, font=PF(24), fill=(235, 235, 235, 255) if k == 0 else (150, 150, 150, 255))
+    # web search toggle (top right)
+    on = ease_out((t - b["on"]) / 0.25) if t >= b["on"] else 0.0
+    d.text((w - 440, 24), "Web search", font=PF(30, True), fill=(235, 235, 235, 255))
+    d.rounded_rectangle([w - 200, 22, w - 40, 76], 27, fill=(int(58 + (OR[0] - 58) * on), int(58 + (OR[1] - 58) * on), int(58 + (OR[2] - 58) * on), 255))
+    kx = w - 200 + 27 + on * 106; d.ellipse([kx - 22, 27, kx + 22, 71], fill=(255, 255, 255, 255))
+    d.line([(210, 98), (w, 98)], fill=(38, 38, 38, 255), width=2)
+    d.text((250, 160), "How can I help you today?", font=PF(40, True), fill=(120, 120, 120, 255))
+    iy = h - 160
+    d.rounded_rectangle([240, iy, w - 36, iy + 100], 30, fill=(22, 22, 22, 255), outline=OR + (255,) if t >= b["menu"] else (60, 60, 60, 255), width=3)
+    d.ellipse([262, iy + 20, 322, iy + 80], fill=(48, 48, 48, 255)); d.line([(292, iy + 34), (292, iy + 66)], fill=(255, 255, 255, 255), width=6); d.line([(276, iy + 50), (308, iy + 50)], fill=(255, 255, 255, 255), width=6)
+    if t >= b["ind"]:
+        pp = ease_back((t - b["ind"]) / 0.3); c = chip("Research", 40, BLUE, pad=(26, 4), r=22); c = c.resize((max(1, int(c.width * min(1, pp))), max(1, int(c.height * min(1, pp)))))
+        im.alpha_composite(c, (345, iy + 50 - c.height // 2))
+    else: d.text((350, iy + 28), "Message...", font=PF(32), fill=(110, 110, 110, 255))
+    mt = b["menu"]
+    if t >= mt:
+        mp = min(1, ease_back((t - mt) / 0.28)); mw, mh = 520, 230; my = iy - 20 - mh; sel = t >= b["pick"]
+        menu = Image.new("RGBA", (mw, mh), (0, 0, 0, 0)); md = ImageDraw.Draw(menu); md.rounded_rectangle([0, 0, mw - 1, mh - 1], 22, fill=(27, 27, 27, 255), outline=(58, 58, 58, 255), width=2)
+        md.text((30, 26), "Add files or photos", font=PF(30), fill=(190, 190, 190, 255)); md.rounded_rectangle([14, 100, mw - 14, 208], 16, fill=OR + (255,) if sel else (40, 40, 40, 255))
+        md.text((34, 124), "Research", font=PF(36, True), fill=(17, 17, 17, 255) if sel else (235, 235, 235, 255))
+        im.alpha_composite(menu.resize((max(1, int(mw * (0.9 + 0.1 * mp))), max(1, int(mh * (0.9 + 0.1 * mp))))), (240, int(my + (1 - mp) * 20)))
+    return im
+
+
+def walk_cursor(t, b):
+    """cursor path in window coords: start -> web toggle (click) -> plus (click) -> Research item (click) -> rest"""
+    h = 860; iy = h - 160; pts = [(b["t0"], 700, 420), (b["on"] - 0.15, 790, 49), (b["menu"] - 0.2, 292, iy + 50), (b["pick"] - 0.15, 480, iy - 20 - 230 + 154), (b["t1"], 520, 360)]
+    for (ta, xa, ya), (tb, xb, yb) in zip(pts, pts[1:]):
+        if ta <= t <= tb: q = ease_io((t - ta) / max(0.05, tb - ta)); return xa + (xb - xa) * q, ya + (yb - ya) * q
+    return pts[-1][1], pts[-1][2]
+
+
+def walk_beat(base, t, b):
+    lt = t - b["t0"]; base.alpha_composite(Image.new("RGBA", (W, H), (0, 0, 0, 255)))
+    clicks = [b["on"], b["menu"], b["pick"]]; punch = max([0.035 * max(0, 1 - (t - c) / 0.3) for c in clicks if t >= c] or [0.0])
+    sc = 0.92 + 0.07 * ease_out(min(1, lt / 0.4)) + 0.05 * min(1, lt / 7.0) + punch
+    win = walk_win(t, b); cx, cy = walk_cursor(t, b)
+    place(base, shadow(980, 860, 30, 40, 40, 150), 540, 720, sc)
+    layer = Image.new("RGBA", win.size, (0, 0, 0, 0)); layer.alpha_composite(win)
+    place(layer, CUR, cx + 24, cy + 32)
+    for c in clicks:
+        if 0 <= t - c <= 0.5: rr = int(20 + 70 * (t - c) / 0.5); ImageDraw.Draw(layer).ellipse([cx - rr, cy - rr, cx + rr, cy + rr], outline=OR + (255,), width=6)
+    place(base, layer, 540, 720, sc)
+    for n, (txt, ts) in enumerate([("STEP 1  WEB SEARCH ON", b["t0"]), ("STEP 2  PLUS BUTTON", T("enable", 5)), ("STEP 3  CHOOSE RESEARCH", T("enable", 11))]):
+        te = [T("enable", 5), T("enable", 11), b["t1"]][n]
+        if ts <= t < te: pp = pop(t, ts + 0.05); place(base, chip(txt, 62, OR, (17, 17, 17), pad=(36, 8), r=26), 540, 215, 0.7 + 0.3 * pp, min(1, pp * 1.4))
+    if t >= b["ind"]: pp = pop(t, b["ind"]); place(base, chip("BLUE INDICATOR = ON", 54, (30, 30, 30), (255, 255, 255), pad=(34, 8), r=24), 540, 1215, 0.7 + 0.3 * pp, min(1, pp * 1.4))
+    place(base, chip("Illustration", 28, (40, 40, 40), (200, 200, 200), pad=(20, 5), r=12), 540, 1280)
+
+
 # ---------- beats (voice-synced) ----------
 def beats():
     B = []
@@ -432,8 +493,7 @@ def photo_beat(base, t, b):
             card_enter(base, spr, 540, cy, t, tt - 0.05, rot=rot, side=side)
             label(base, txt, 250 if k % 2 == 0 else 830, cy + 120, t, tt + 0.1, size=60)
     elif i == "mock":
-        spr = mock_chat(t, b)
-        card_enter(base, spr, 540, 700, t, b["t0"], dur=0.35); place(base, chip("Illustration", 30, (40, 44, 58), (235, 235, 240), pad=(22, 6), r=14), 540, 1180)
+        walk_beat(base, t, b)
     elif i == "ask":
         sp = dict(q="Plan a team offsite", ty=(T("use", 3) - b["t0"], T("use", 7) - b["t0"]), chip=0.0, rows=[], dur=0.7)
         card_enter(base, demo_card("web", 960, 760, t, b["t0"], sp, b["t1"] - b["t0"], 1.5, 1.9), 540, 620, t, b["t0"], rot=1.0)
@@ -481,8 +541,8 @@ def main():
     if len(sys.argv) > 1 and sys.argv[1] == "frames":
         for tt in [float(v) for v in sys.argv[2:]]: Image.fromarray(frame(tt)).save(HERE / f"review/h_{tt:05.1f}.png")
         return
-    build_audio(HERE / "audio/voice_v8.wav"); n = int(TOTAL * FPS)
-    encode((frame(i / FPS) for i in range(n)), n, HERE / "audio/voice_v8.wav", ROOT / deck["music"]["file"], HERE / "output/short_v8.mp4", music_start=deck["music"]["start"], music_gain_db=-22)
+    build_audio(HERE / "audio/voice_v9.wav"); n = int(TOTAL * FPS)
+    encode((frame(i / FPS) for i in range(n)), n, HERE / "audio/voice_v9.wav", ROOT / deck["music"]["file"], HERE / "output/short_v9.mp4", music_start=deck["music"]["start"], music_gain_db=-22)
 
 
 main()
