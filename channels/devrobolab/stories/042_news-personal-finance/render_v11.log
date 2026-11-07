@@ -1,0 +1,10 @@
+total 40.8s; beats: [('photo', 'hook1', 0.0, 2.6), ('photo', 'hook2', 2.6, 6.0), ('photo', 'avail', 6.0, 11.3), ('photo', 'fin', 11.3, 27.1), ('photo', 'caution', 27.1, 33.7), ('cta', None, 33.7, 41.8)]
+  frame 0/1224
+  frame 150/1224
+  frame 300/1224
+  frame 450/1224
+  frame 600/1224
+  frame 750/1224
+  frame 900/1224
+  frame 1050/1224
+  frame 1200/1224
