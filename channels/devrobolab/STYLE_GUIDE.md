@@ -140,3 +140,12 @@ Learnings behind these rules: brand/STYLE_LEARNINGS.md (numeric, abstract) and r
 
 ## Enhancements log 2026-11-05 (Day 2 style, 026)
 - STYLE OF THE DAY 'news bulletin + proof window' (details: research/daily/2026-11-05.md): 025 look plus a real official-page proof window (screenshot crop, key sentence in yellow marker, source line) on every claim, quote card where a page blocks automated browsers (no bot-check bypass), first card by 0.5 s, recap rows from 0.3 s. Helpers in stories/026_*/gen_deck.py (proof, quote); screenshots via stories/026_*/shots.py.
+
+## v7 FORMAT for feature-explainer Shorts (user 2026-11-07; Claude for Everyone and any "how to use this feature" Short; replaces the v6 document-card look)
+Reference build: stories/041_cfe-research/make_v10.py (Claude Feature 03, Research). Copy its helpers, do not start from scratch.
+1. EXPLAIN INSIDE A CLAUDE DEMO, like Claude Feature 01/02: every step that is DONE in Claude (switch a setting on, press +, choose the feature, type the question, searches/results, sources) is shown in the dark UI walkthrough: black theme, orange accent (#D97757), cursor + click ripple + punch-in, STEP banners, small 'Illustration' tag (it is our own animation, not a recording). Functions: walk_win / walk_scene / S_main in make_v10.py (state = times of the spoken words via T(scene, token)).
+2. What is said must be shown: web / Desktop / Mobile = three real-looking photos, one per word (slide-in cards with a label), and the screen in each photo PLAYS a mini demo (typing, searches, ticks; screen_comp warps the animated UI onto the photo screen). Photos are free Cloudflare flux (cf_image.py), no faces needed, no text.
+3. The source document is shown only ONCE and small (a paper note with the key line; marker follows the voice live). Never a full page, never repeated. Cards stay <= 960 px wide, nothing overlaps the caption chip or the source line.
+4. Motion everywhere: slow Ken Burns zoom on photos, click punch-in, cards slide in with overshoot, typing and rows fast (about 0.5 s). Editing stays calm: hard cuts, no whoosh / swipe sounds (voice + music only).
+5. Styles worth reusing from other builds: kinetic captions (current chunk only, key word yellow), big-number card, STEP banner chips, stamped paper note, usage meter, robot wave CTA.
+6. Each feature Short ends with the usual CTA (robot + COMMENT / KEYWORD / FOR LINK). Fact-check against the official page first; say 'page me nahi likha' if unknown.
