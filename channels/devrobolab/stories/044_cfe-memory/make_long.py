@@ -18,7 +18,7 @@ FMUK = str(ROOT / "shared/fonts/Mukta-ExtraBold.ttf"); FPOP = str(ROOT / "shared
 deck = json.load(open(HERE / "deck.json", encoding="utf-8")); WT = json.load(open(HERE / "wt.json", encoding="utf-8"))
 IDS = [s["id"] for s in deck["scenes"]]
 WAVES = [HERE / "audio/tts" / f"s_{i:02d}.wav" for i in range(len(IDS))]
-D = [LEAD + wav_dur(w) + AFTER for w in WAVES]; START = [sum(D[:i]) for i in range(len(D))]; TOTAL = sum(D)
+D = [LEAD + wav_dur(w) + AFTER for w in WAVES]; D[-1] += 3.0; START = [sum(D[:i]) for i in range(len(D))]; TOTAL = sum(D)
 SC = dict(zip(IDS, START)); DUR = dict(zip(IDS, D))
 
 
@@ -227,27 +227,20 @@ def pane_topics(sel=None, edit=False, deleted=False, hot_del=False):
     return f
 
 
-# ---------- beats ----------
-B = [
-    dict(id="hook_a", sid="hook", t0=0.0, t1=S("hook", 6.0)),
-    dict(id="hook_b", sid="hook", t0=S("hook", 6.0), t1=S("hook", 12.0)),
-    dict(id="hook_c", sid="hook", t0=S("hook", 12.0), t1=E("hook")),
-    dict(id="what_a", sid="what", t0=S("what", 0), t1=S("what", 8.0)),
-    dict(id="what_b", sid="what", t0=S("what", 8.0), t1=E("what")),
-    dict(id="who_a", sid="who", t0=S("who", 0), t1=S("who", 7.2)),
-    dict(id="who_b", sid="who", t0=S("who", 7.2), t1=E("who")),
-    dict(id="switch", sid="switch", t0=S("switch", 0), t1=E("switch")),
-    dict(id="see", sid="see", t0=S("see", 0), t1=E("see")),
-    dict(id="never", sid="never", t0=S("never", 0), t1=E("never")),
-    dict(id="private_a", sid="private", t0=S("private", 0), t1=S("private", 10.2)),
-    dict(id="private_b", sid="private", t0=S("private", 10.2), t1=E("private")),
-    dict(id="projects", sid="projects", t0=S("projects", 0), t1=E("projects")),
-    dict(id="caution_a", sid="caution", t0=S("caution", 0), t1=S("caution", 5.6)),
-    dict(id="caution_b", sid="caution", t0=S("caution", 5.6), t1=E("caution")),
-    dict(id="cta_a", sid="cta", t0=S("cta", 0), t1=S("cta", 9.0)),
-    dict(id="cta_b", sid="cta", t0=S("cta", 9.0), t1=TOTAL + 1),
-]
-GL = lambda text, col=WHITE: text
+# ---------- beats (v2: every action tied to the real word times T(scene, token)) ----------
+def _mk():
+    B = []
+    def add(i, sid, a, b): B.append(dict(id=i, sid=sid, t0=a, t1=b))
+    add("hook_a", "hook", 0.0, T("hook", 9) - 0.4); add("hook_b", "hook", T("hook", 9) - 0.4, T("hook", 26) - 0.1); add("hook_c", "hook", T("hook", 26) - 0.1, E("hook"))
+    add("what_a", "what", S("what", 0), T("what", 34) - 0.3); add("what_b", "what", T("what", 34) - 0.3, E("what"))
+    add("who_a", "who", S("who", 0), T("who", 18) - 0.3); add("who_b", "who", T("who", 18) - 0.3, E("who"))
+    add("switch", "switch", S("switch", 0), E("switch")); add("see", "see", S("see", 0), E("see")); add("never", "never", S("never", 0), E("never"))
+    add("private_a", "private", S("private", 0), T("private", 36) - 0.3); add("private_b", "private", T("private", 36) - 0.3, E("private"))
+    add("projects", "projects", S("projects", 0), E("projects"))
+    add("caution_a", "caution", S("caution", 0), T("caution", 19) - 0.2); add("caution_b", "caution", T("caution", 19) - 0.2, E("caution"))
+    add("cta_a", "cta", S("cta", 0), T("cta", 30) - 0.3); add("cta_b", "cta", T("cta", 30) - 0.3, TOTAL + 1)
+    return B
+B = _mk()
 
 
 def bubble(w, h, text, side="user", size=34):
@@ -258,178 +251,191 @@ def bubble(w, h, text, side="user", size=34):
 
 def b_hook_a(base, t, b):
     lt = t - b["t0"]; dur = b["t1"] - b["t0"]
-    enter(base, photo("hook", 760, 520, lt, dur), 520, 520, t, b["t0"] + 0.02, side=-1)
-    c = card(860, 520, 30, glow=False); d = ImageDraw.Draw(c); d.text((50, 40), "Day 1", font=F(30, "b"), fill=SKY + (255,)); d.text((50, 330), "Day 2", font=F(30, "b"), fill=SKY + (255,))
+    enter(base, photo("hook", 760, 520, lt, dur + 4), 520, 520, t, b["t0"] + 0.02, side=-1)
+    c = card(860, 520, 30); d = ImageDraw.Draw(c); d.text((50, 40), "Day 1", font=F(30, "b"), fill=SKY + (255,)); d.text((50, 330), "Day 2", font=F(30, "b"), fill=SKY + (255,))
     enter(base, c, 1400, 520, t, b["t0"] + 0.2, side=1)
-    place(base, bubble(740, 84, typed("My name is Rahul. I'm a student.", t, b["t0"] + 0.6, b["t0"] + 2.4)), 1400, 420, 1.0, fade(t, b["t0"] + 0.5))
-    if t > b["t0"] + 3.2: place(base, bubble(740, 84, typed("Hi! Who are you again?", t, b["t0"] + 3.3, b["t0"] + 4.6), "claude"), 1400, 640, 1.0, fade(t, b["t0"] + 3.2))
+    place(base, bubble(740, 84, typed("My name is Rahul. I'm a student.", t, 0.5, 2.2)), 1400, 420, 1.0, fade(t, 0.4))
+    t2 = T("hook", 9)
+    if t > t2: place(base, bubble(740, 84, typed("Hi! Who are you again?", t, t2 + 0.1, t2 + 1.0), "claude"), 1400, 640, 1.0, fade(t, t2))
 
 
 def b_hook_b(base, t, b):
-    for i, (a, c) in enumerate([("NAME", "naam"), ("WORK", "kaam"), ("LIKES", "pasand")]):
+    marks = [(T("hook", 13), "NAME", "naam", T("hook", 19)), (T("hook", 15), "WORK", "kaam", T("hook", 19) + 0.3), (T("hook", 18), "LIKES", "pasand", T("hook", 19) + 0.6)]
+    for i, (ta, a, c, tg) in enumerate(marks):
         x = 480 + 480 * i; y = 520
-        enter(base, card(400, 300, 30), x, y, t, b["t0"] + 0.3 * i, side=0)
+        enter(base, card(400, 300, 30), x, y, t, ta - 0.3, side=0)
         spr = Image.new("RGBA", (400, 300), (0, 0, 0, 0)); d = ImageDraw.Draw(spr)
         d.text((200, 110), a, font=F(54, "b"), fill=WHITE + (255,), anchor="mm"); d.text((200, 180), c, font=F(34, "p"), fill=DIM + (255,), anchor="mm")
-        enter(base, spr, x, y, t, b["t0"] + 0.3 * i)
-        if t >= b["t0"] + 1.5 + 0.5 * i: pp = pop(t, b["t0"] + 1.5 + 0.5 * i); place(base, pill("again?", 30, RED, INK, pad=(20, 6), kind="b"), x + 110, y - 160, 0.6 + 0.4 * pp, min(1, pp * 1.4), -6)
+        enter(base, spr, x, y, t, ta - 0.3)
+        if t >= tg: pp = pop(t, tg); place(base, pill("again?", 30, RED, INK, pad=(20, 6), kind="b"), x + 110, y - 160, 0.6 + 0.4 * pp, min(1, pp * 1.4), -6)
+    if t >= T("hook", 23): pp = pop(t, T("hook", 23)); place(base, pill("tired of repeating?", 34, (30, 30, 40), DIM, pad=(28, 10), kind="p", outline=OUT), 960, 780, 0.8 + 0.2 * pp, min(1, pp * 1.4))
 
 
 def b_hook_c(base, t, b):
-    place(base, pill("CLAUDE MEMORY", 84, (20, 24, 34), WHITE, pad=(60, 22), outline=SKY, kind="b", glow=True), W / 2, 430, 0.85 + 0.15 * pop(t, b["t0"]), min(1, fade(t, b["t0"], 0.2)))
-    for i, s in enumerate(["what it is", "on / off", "see and delete"]):
-        if t >= b["t0"] + 0.9 + 0.5 * i: pp = pop(t, b["t0"] + 0.9 + 0.5 * i); place(base, pill(s, 36, (20, 24, 34), SKY, pad=(30, 10), outline=OUT, kind="b"), 560 + 400 * i, 640, 0.7 + 0.3 * pp, min(1, pp * 1.4))
+    t0 = T("hook", 28) - 0.1
+    if t >= t0: place(base, pill("CLAUDE MEMORY", 84, (20, 24, 34), WHITE, pad=(60, 22), outline=SKY, kind="b", glow=True), W / 2, 430, 0.85 + 0.15 * pop(t, t0), min(1, fade(t, t0, 0.2)))
+    for i, (s, tt) in enumerate([("what it is", T("hook", 41)), ("on / off", T("hook", 44)), ("see and delete", T("hook", 53))]):
+        if t >= tt: pp = pop(t, tt); place(base, pill(s, 36, (20, 24, 34), SKY, pad=(30, 10), outline=OUT, kind="b"), 560 + 400 * i, 640, 0.7 + 0.3 * pp, min(1, pp * 1.4))
 
 
 def b_what_a(base, t, b):
-    lt = t - b["t0"]
     enter(base, card(520, 360, 28), 440, 500, t, b["t0"], side=-1); txt(base, (230, 360), "your chat", 28, DIM, "p")
-    for i, s in enumerate(["I'm a student", "working on a thesis", "keep answers short"]):
-        if t >= b["t0"] + 0.6 + 0.9 * i: place(base, bubble(430, 64, s, "user", 28), 440, 440 + 80 * i, 1.0, fade(t, b["t0"] + 0.6 + 0.9 * i))
-    d = ImageDraw.Draw(base)
-    if t >= b["t0"] + 3.4:
-        q = ease_out((t - b["t0"] - 3.4) / 0.6); d.line([(720, 500), (720 + 130 * q, 500)], fill=SKY + (255,), width=5); d.polygon([(850 * 1 + 0, 500), (830, 484), (830, 516)], fill=SKY + (int(255 * q),))
-    mem = card(520, 440, 28, glow=True); md = ImageDraw.Draw(mem); md.text((260, 50), "MEMORY", font=F(40, "b"), fill=SKY + (255,), anchor="mm")
-    enter(base, mem, 1330, 500, t, b["t0"] + 3.2, side=1)
-    for i, (a, c) in enumerate([("ROLE", "student"), ("PROJECT", "thesis"), ("STYLE", "short answers")]):
-        tt = b["t0"] + 4.2 + 1.1 * i
-        if t >= tt: pp = pop(t, tt); place(base, pill(f"{a}: {c}", 32, (30, 44, 62), WHITE, pad=(26, 9), hl=(a + ":",), kind="p", outline=SKY), 1330, 460 + 84 * i, 0.7 + 0.3 * pp, min(1, pp * 1.4))
+    ev = [(T("what", 16) - 0.2, "I'm a student", "ROLE", "student"), (T("what", 22) - 0.2, "working on a thesis", "PROJECT", "thesis"), (T("what", 30) - 0.2, "keep answers short", "STYLE", "short answers")]
+    for i, (tt, s, a, c) in enumerate(ev):
+        if t >= tt: place(base, bubble(430, 64, s, "user", 28), 440, 440 + 80 * i, 1.0, fade(t, tt))
+    d = ImageDraw.Draw(base); ta = T("what", 9)
+    if t >= ta:
+        q = ease_out((t - ta) / 0.6); d.line([(720, 500), (720 + 130 * q, 500)], fill=SKY + (255,), width=5); d.polygon([(850, 500), (830, 484), (830, 516)], fill=SKY + (int(255 * q),))
+    enter(base, card(520, 440, 28, glow=True), 1330, 500, t, ta, side=1)
+    place(base, pill("MEMORY", 40, (19, 23, 33), SKY, pad=(10, 2), kind="b"), 1330, 340, 1.0, fade(t, ta))
+    for i, (tt, s, a, c) in enumerate(ev):
+        if t >= tt + 0.5: pp = pop(t, tt + 0.5); place(base, pill(f"{a}: {c}", 32, (30, 44, 62), WHITE, pad=(26, 9), hl=(a + ":",), kind="p", outline=SKY), 1330, 440 + 84 * i, 0.7 + 0.3 * pp, min(1, pp * 1.4))
 
 
 def b_what_b(base, t, b):
-    lt = t - b["t0"]
     enter(base, card(1100, 360, 28), 960, 470, t, b["t0"], side=0)
-    place(base, bubble(900, 90, typed("Remember this: I prefer short answers.", t, b["t0"] + 0.6, b["t0"] + 2.6), "user", 36), 960, 420, 1.0, fade(t, b["t0"] + 0.5))
-    if t > b["t0"] + 3.0: place(base, bubble(900, 90, "Saved. I'll keep it in mind.", "claude", 36), 960, 540, 1.0, fade(t, b["t0"] + 3.0))
-    if t > b["t0"] + 3.6: pp = pop(t, b["t0"] + 3.6); place(base, pill("saved to memory", 30, SKY, INK, pad=(22, 7), kind="b"), 960, 700, 0.6 + 0.4 * pp, min(1, pp * 1.4))
+    ta = T("what", 41)
+    place(base, bubble(900, 90, typed("Remember this: I prefer short answers.", t, ta, T("what", 46)), "user", 36), 960, 420, 1.0, fade(t, ta - 0.1))
+    tb = T("what", 47)
+    if t > tb: place(base, bubble(900, 90, "Saved. I'll keep it in mind.", "claude", 36), 960, 540, 1.0, fade(t, tb))
+    tc = T("what", 50)
+    if t > tc: pp = pop(t, tc); place(base, pill("saved to memory", 30, SKY, INK, pad=(22, 7), kind="b"), 960, 700, 0.6 + 0.4 * pp, min(1, pp * 1.4))
 
 
 def b_who_a(base, t, b):
-    place(base, pill("ON BY DEFAULT", 64, (20, 24, 34), SKY, pad=(50, 16), outline=SKY, kind="b", glow=True), W / 2, 270, 0.85 + 0.15 * pop(t, b["t0"]), fade(t, b["t0"], 0.2))
-    for i, s in enumerate(["Free", "Pro", "Max", "Ultra"]):
-        tt = b["t0"] + 1.0 + 0.8 * i; x = 390 + 380 * i; enter(base, card(300, 200, 28, glow=t >= tt + 0.3), x, 560, t, tt, side=0)
+    for i, (s, tt) in enumerate([("Free", T("who", 5)), ("Pro", T("who", 6)), ("Max", T("who", 7)), ("Ultra", T("who", 9))]):
+        x = 390 + 380 * i; enter(base, card(300, 200, 28, glow=t >= tt + 0.3), x, 560, t, tt - 0.2, side=0)
         spr = Image.new("RGBA", (300, 200), (0, 0, 0, 0)); d = ImageDraw.Draw(spr); d.text((150, 85), s, font=F(54, "b"), fill=WHITE + (255,), anchor="mm")
         if t >= tt + 0.3: d.ellipse([200, 125, 260, 185], fill=SKY + (255,)); d.line([(214, 156), (228, 170), (250, 138)], fill=INK + (255,), width=7)
-        enter(base, spr, x, 560, t, tt)
+        enter(base, spr, x, 560, t, tt - 0.2)
+    tt = T("who", 14) - 0.1
+    if t >= tt: place(base, pill("ON BY DEFAULT", 64, (20, 24, 34), SKY, pad=(50, 16), outline=SKY, kind="b", glow=True), W / 2, 270, 0.85 + 0.15 * pop(t, tt), fade(t, tt, 0.2))
 
 
 def b_who_b(base, t, b):
-    for i, (s, c) in enumerate([("WEB", "claude.ai"), ("DESKTOP", "Claude Desktop"), ("MOBILE", "latest app version")]):
-        tt = b["t0"] + 0.2 + 0.6 * i; x = 440 + 520 * i; enter(base, card(420, 260, 28), x, 460, t, tt, side=0)
-        spr = Image.new("RGBA", (420, 260), (0, 0, 0, 0)); d = ImageDraw.Draw(spr); d.text((210, 100), s, font=F(48, "b"), fill=SKY + (255,), anchor="mm"); d.text((210, 170), c, font=F(28, "p"), fill=DIM + (255,), anchor="mm"); enter(base, spr, x, 460, t, tt)
-    if t >= b["t0"] + 2.6: pp = pop(t, b["t0"] + 2.6); place(base, pill("Team / Enterprise: the owner decides", 34, (30, 30, 40), DIM, pad=(30, 12), outline=OUT, kind="p"), W / 2, 740, 0.7 + 0.3 * pp, min(1, pp * 1.4))
+    for i, (s, c, tt) in enumerate([("WEB", "claude.ai", T("who", 18)), ("DESKTOP", "Claude Desktop", T("who", 19) + 0.5), ("MOBILE", "latest app version", T("who", 21))]):
+        x = 440 + 520 * i; enter(base, card(420, 260, 28), x, 460, t, tt - 0.2, side=0)
+        spr = Image.new("RGBA", (420, 260), (0, 0, 0, 0)); d = ImageDraw.Draw(spr); d.text((210, 100), s, font=F(48, "b"), fill=SKY + (255,), anchor="mm"); d.text((210, 170), c, font=F(28, "p"), fill=DIM + (255,), anchor="mm"); enter(base, spr, x, 460, t, tt - 0.2)
+    tt = T("who", 32)
+    if t >= tt: pp = pop(t, tt); place(base, pill("Team / Enterprise: the owner decides", 34, (30, 30, 40), DIM, pad=(30, 12), outline=OUT, kind="p"), W / 2, 740, 0.7 + 0.3 * pp, min(1, pp * 1.4))
 
 
 def b_switch(base, t, b):
-    sid = "switch"; o = SC[sid]; u = DUR[sid] / 24.9
-    t_side = o + 3.0 * u; t_toggle = o + 8.0 * u; t_pause = o + 13.0 * u; t_reset = o + 18.0 * u
+    sid = "switch"
+    t_s1 = T(sid, 10); t_side = T(sid, 15) + 0.1; t_s2 = T(sid, 19); t_toggle = T(sid, 28); t_s3 = T(sid, 30); t_pause = T(sid, 33); t_reset_pick = T(sid, 55); t_reset = T(sid, 57)
     sel = 2 if t >= t_side else 0
     menu = ease_out((t - t_toggle) / 0.3) if t >= t_toggle else 0.0
-    pick = "reset" if t >= t_reset else ("pause" if t >= t_pause else None)
+    pick = "reset" if t >= t_reset_pick else ("pause" if t >= t_pause else None)
     win = ui_window(sel, pane_your_claude(on=True, menu=menu, pick=pick) if sel == 2 else None)
     enter(base, win, 960, 565, t, b["t0"], dur=0.3)
-    st = "STEP 3   Pause  or  Reset" if t >= t_pause - 0.5 else ("STEP 2   toggle: Generate memory from chats" if t >= t_toggle - 1.5 else "STEP 1   Settings  >  Your Claude")
-    step(base, t, o + 0.8 * u, st)
-    if t >= t_pause: place(base, pill("keeps old memory, stops using it", 28, (30, 44, 62), SKY, pad=(22, 7), kind="p", outline=SKY), 1180, 830, 1.0, fade(t, t_pause) if t < t_reset else 0.0)
-    if t >= t_reset: pp = pop(t, t_reset); place(base, pill("deletes ALL memory. cannot be undone", 28, (70, 28, 36), RED, pad=(22, 7), kind="p", outline=RED), 1180, 830, 0.8 + 0.2 * pp, min(1, pp * 1.4))
-    pts = sorted([(o, 1200, 300), (t_side - 0.9, 1200, 300), (t_side, 400, 545), (t_toggle - 0.8, 400, 545), (t_toggle, 1568, 440), (t_pause - 0.8, 1568, 440), (t_pause, 1350, 594), (t_reset - 0.8, 1350, 594), (t_reset, 1350, 700)])
-    cursor_path(base, t, pts, clicks=(t_side, t_toggle, t_pause, t_reset)); illu(base)
+    st = "STEP 3   Pause  or  Reset" if t >= t_s3 else ("STEP 2   toggle: Generate memory from chats" if t >= t_s2 else "STEP 1   Settings  >  Your Claude")
+    step(base, t, t_s1 - 0.2, st)
+    if t >= t_pause and t < t_reset_pick: place(base, pill("keeps old memory, stops using it", 28, (30, 44, 62), SKY, pad=(22, 7), kind="p", outline=SKY), 1180, 830, 1.0, fade(t, t_pause))
+    if t >= t_reset_pick: pp = pop(t, t_reset_pick); place(base, pill("deletes ALL memory. cannot be undone", 28, (70, 28, 36), RED, pad=(22, 7), kind="p", outline=RED), 1180, 830, 0.8 + 0.2 * pp, min(1, pp * 1.4))
+    pts = sorted([(b["t0"], 1200, 300), (t_side - 0.8, 1200, 300), (t_side, 400, 545), (t_toggle - 1.0, 400, 545), (t_toggle - 0.1, 1568, 440), (t_pause - 0.6, 1568, 440), (t_pause, 1350, 594), (t_reset_pick - 0.5, 1350, 594), (t_reset_pick, 1350, 700)])
+    cursor_path(base, t, pts, clicks=(t_side, t_toggle, t_reset)); illu(base)
 
 
 def b_see(base, t, b):
-    sid = "see"; o = SC[sid]; u = DUR[sid] / 20.2
-    t_man = o + 3.0 * u; t_row = o + 7.5 * u; t_edit = o + 11.0 * u; t_del = o + 13.8 * u; t_chat = o + 15.2 * u
+    sid = "see"
+    t_s1 = T(sid, 13); t_man = T(sid, 24); t_row = T(sid, 31) + 0.2; t_edit = T(sid, 38); t_del = T(sid, 46); t_chat = T(sid, 50)
     if t < t_chat:
-        if t < t_man: pane = pane_your_claude(on=True, manage_hot=t >= t_man - 0.8)
+        if t < t_man: pane = pane_your_claude(on=True, manage_hot=t >= t_man - 0.6)
         else:
             sel = "College" if t >= t_row else None
             pane = pane_topics(sel, edit=(t_edit <= t < t_del), deleted=(t >= t_del), hot_del=(t >= t_del - 0.3))
         win = ui_window(2, pane); enter(base, win, 960, 565, t, b["t0"], dur=0.3)
-        st = "STEP 2   open a topic: read, Edit or Delete" if t >= t_man + 0.2 else "STEP 1   Manage  (next to Your memory)"
-        step(base, t, o + 0.8 * u, st)
-        pts = sorted([(o, 1100, 300), (t_man - 0.9, 1100, 300), (t_man, 1545, 580), (t_man + 1.0, 1545, 580), (t_row, 1000, 724), (t_edit - 0.8, 1000, 724), (t_edit, 1070, 832), (t_del - 0.8, 1070, 832), (t_del, 1305, 832), (t_chat, 1305, 832)])
+        st = "STEP 2   open a topic: read, Edit or Delete" if t >= T(sid, 26) else "STEP 1   Manage  (next to Your memory)"
+        step(base, t, t_s1, st)
+        pts = sorted([(b["t0"], 1100, 300), (t_man - 0.7, 1100, 300), (t_man, 1545, 580), (t_man + 0.6, 1545, 580), (t_row - 0.5, 1000, 724), (t_edit - 0.8, 1000, 724), (t_edit, 1070, 832), (t_del - 0.6, 1070, 832), (t_del, 1305, 832), (t_chat, 1305, 832)])
         cursor_path(base, t, pts, clicks=(t_man, t_row, t_edit, t_del)); illu(base)
     else:
-        c = card(1300, 620, 30); d = ImageDraw.Draw(c); enter(base, c, 960, 520, t, t_chat, dur=0.3)
+        c = card(1300, 620, 30); enter(base, c, 960, 520, t, t_chat, dur=0.3)
         step(base, t, t_chat + 0.2, "or just tell Claude in chat")
-        place(base, bubble(1000, 90, typed("Forget my college name.", t, t_chat + 0.6, t_chat + 1.8), "user", 38), 960, 440, 1.0, fade(t, t_chat + 0.5))
-        if t > t_chat + 2.2: place(base, bubble(1000, 90, "Done. From the next chat I won't remember it.", "claude", 34), 960, 570, 1.0, fade(t, t_chat + 2.2))
+        place(base, bubble(1000, 90, typed("Forget my college name.", t, T(sid, 54), T(sid, 59)), "user", 38), 960, 440, 1.0, fade(t, t_chat + 0.4))
+        tr = T(sid, 64)
+        if t > tr: place(base, bubble(1000, 90, "Done. From the next chat I won't remember it.", "claude", 34), 960, 570, 1.0, fade(t, tr))
         illu(base)
 
 
 def b_never(base, t, b):
-    cols = [("SAVED", SKY, ["your role", "your projects", "how you like answers"], 0.3),
-            ("NOT BY DEFAULT", AMB, ["health", "religion", "politics"], 2.6),
-            ("NEVER SAVED", RED, ["government ID numbers", "bank account numbers", "even if you ask"], 6.0)]
-    u = DUR["never"] / 14.2
-    for i, (title, col, rows, ts) in enumerate(cols):
-        x = 360 + 600 * i; tt = b["t0"] + ts * u
+    sid = "never"
+    cols = [("SAVED", SKY, ["your role", "your projects", "how you like answers"], [0.3, 0.8, 1.3]),
+            ("NOT BY DEFAULT", AMB, ["health", "religion", "politics"], [T(sid, 9), T(sid, 10), T(sid, 12)]),
+            ("NEVER SAVED", RED, ["government ID numbers", "bank account numbers", "even if you ask"], [T(sid, 34), T(sid, 39), T(sid, 29)])]
+    for i, (title, col, rows, rts) in enumerate(cols):
+        x = 360 + 600 * i; tt = (b["t0"] + 0.1) if i == 0 else (T(sid, 9) - 0.3 if i == 1 else T(sid, 25) - 0.3)
         enter(base, card(520, 520, 30, outline=col), x, 540, t, tt, side=0)
         spr = Image.new("RGBA", (520, 520), (0, 0, 0, 0)); d = ImageDraw.Draw(spr); d.text((260, 60), title, font=F(38, "b"), fill=col + (255,), anchor="mm")
         for j, r in enumerate(rows):
-            rt = tt + 0.5 + 0.5 * j
+            rt = rts[j]
             if t >= rt: a = fade(t, rt); d.rounded_rectangle([30, 120 + 120 * j, 490, 120 + 120 * j + 90], 18, fill=(24, 30, 42, int(255 * a)), outline=col + (int(255 * a),), width=2); d.text((260, 165 + 120 * j), r, font=F(30, "p"), fill=WHITE + (int(255 * a),), anchor="mm")
         enter(base, spr, x, 540, t, tt)
 
 
 def b_private_a(base, t, b):
-    u = (b["t1"] - b["t0"]) / 10.2; o = b["t0"]
-    place(base, pill("ONE CHAT WITHOUT MEMORY", 34, SKY, INK, pad=(30, 9), kind="b"), W / 2, 150, 1.0, fade(t, o))
+    sid = "private"; o = b["t0"]
+    t_two = T(sid, 11); t_new = T(sid, 15); t_plus = T(sid, 18) + 0.05; t_msg = T(sid, 21); t_mem = T(sid, 26); t_off = T(sid, 27) + 0.1; t_later = T(sid, 30)
     c = card(1300, 560, 30); enter(base, c, 960, 560, t, o, dur=0.3)
-    # input pill + plus button + menu
+    if t >= t_two: place(base, pill("2 ways to keep a chat private", 34, SKY, INK, pad=(30, 9), kind="b"), W / 2, 150, 1.0, fade(t, t_two))
+    if t >= t_new: place(base, pill("New chat", 30, (30, 44, 62), WHITE, pad=(24, 8), kind="b", outline=SKY), 410, 330, 1.0, fade(t, t_new - 0.1))
     place(base, pill("Message Claude...", 32, (26, 31, 45), DIM, pad=(40, 14), outline=OUT, kind="p"), 1120, 760, 1.0, fade(t, o))
-    tp = o + 2.0 * u; place(base, pill("+", 46, (36, 44, 62), SKY, pad=(26, 4), outline=SKY, kind="b"), 480, 760)
-    if t >= tp:
-        pp = ease_out((t - tp) / 0.3); m = card(520, 190, 22, fill=(24, 30, 44), outline=SKY); md = ImageDraw.Draw(m); md.text((50, 50), "Add files or photos", font=F(30, "p"), fill=DIM + (255,)); md.text((50, 112), "Memory", font=F(34, "b"), fill=WHITE + (255,))
-        on = t < o + 5.2 * u; toggle(md, 400, 112, on, 90, 46); place(base, m, 700, 600, 0.85 + 0.15 * pp, min(1, pp * 1.5))
-    if t >= o + 5.2 * u: place(base, pill("OFF before the first message", 30, (30, 44, 62), SKY, pad=(24, 8), kind="p", outline=SKY), 1250, 470, 1.0, fade(t, o + 5.2 * u))
-    if t >= o + 7.2 * u: place(base, pill("cannot be changed later", 28, (70, 28, 36), RED, pad=(22, 7), kind="p", outline=RED), 1250, 540, 1.0, fade(t, o + 7.2 * u))
-    pts = [(o, 1500, 300), (tp - 0.7, 1500, 300), (tp, 485, 770), (o + 4.4 * u, 485, 770), (o + 5.0 * u, 1040, 660)]
-    cursor_path(base, t, sorted(pts), clicks=(tp, o + 5.0 * u)); illu(base)
+    place(base, pill("+", 46, (36, 44, 62), SKY, pad=(26, 4), outline=(SKY if t >= t_plus - 0.2 else OUT), kind="b"), 480, 760)
+    if t >= t_plus:
+        pp = ease_out((t - t_plus) / 0.3); m = card(520, 190, 22, fill=(24, 30, 44), outline=SKY); md = ImageDraw.Draw(m); md.text((50, 50), "Add files or photos", font=F(30, "p"), fill=DIM + (255,)); md.text((50, 112), "Memory", font=F(34, "b"), fill=WHITE + (255,))
+        toggle(md, 400, 112, t < t_off, 90, 46); place(base, m, 700, 600, 0.85 + 0.15 * pp, min(1, pp * 1.5))
+    if t >= t_msg: place(base, pill("BEFORE the first message", 30, (30, 44, 62), SKY, pad=(24, 8), kind="p", outline=SKY), 1250, 440, 1.0, fade(t, t_msg))
+    if t >= t_off: place(base, pill("Memory OFF for this chat", 30, SKY, INK, pad=(24, 8), kind="b"), 1250, 510, 1.0, fade(t, t_off))
+    if t >= t_later: place(base, pill("cannot be changed later", 28, (70, 28, 36), RED, pad=(22, 7), kind="p", outline=RED), 1250, 580, 1.0, fade(t, t_later))
+    pts = sorted([(o, 1500, 300), (t_new, 1500, 300), (t_plus - 0.6, 760, 560), (t_plus, 485, 770), (t_mem - 0.5, 485, 770), (t_off - 0.1, 885, 640)])
+    cursor_path(base, t, pts, clicks=(t_plus, t_off)); illu(base)
 
 
 def b_private_b(base, t, b):
-    o = b["t0"]; place(base, pill("INCOGNITO CHAT", 34, SKY, INK, pad=(30, 9), kind="b"), W / 2, 150, 1.0, fade(t, o))
+    sid = "private"; o = b["t0"]; t_click = T(sid, 42); t_m = T(sid, 48); t_h = T(sid, 53)
+    place(base, pill("2   INCOGNITO CHAT", 34, SKY, INK, pad=(30, 9), kind="b"), W / 2, 150, 1.0, fade(t, o))
     c = card(1300, 560, 30); enter(base, c, 960, 560, t, o, dur=0.3)
     gx, gy = 1560, 330; d = ImageDraw.Draw(base)
-    d.ellipse([gx - 40, gy - 40, gx + 40, gy + 40], outline=SKY + (255,), width=4); d.pieslice([gx - 18, gy - 24, gx + 18, gy + 12], 180, 360, fill=SKY + (255,)); d.rectangle([gx - 18, gy - 6, gx + 18, gy + 22], fill=SKY + (255,)); [d.ellipse([gx - 18 + 12 * i, gy + 14, gx - 6 + 12 * i, gy + 28], fill=SKY + (255,)) for i in range(3)]; d.ellipse([gx - 9, gy - 10, gx - 3, gy - 2], fill=INK + (255,)); d.ellipse([gx + 3, gy - 10, gx + 9, gy - 2], fill=INK + (255,))
-    if 0 <= (t - o - 1.4) <= 0.45: rr = int(20 + 50 * (t - o - 1.4) / 0.45); d.ellipse([gx - rr, gy - rr, gx + rr, gy + rr], outline=SKY + (255,), width=4)
-    place(base, pill("ghost icon, top right", 28, (20, 24, 34), DIM, pad=(20, 6), kind="p", outline=OUT), 1380, 410, 1.0, fade(t, o + 0.4))
-    if t >= o + 1.6:
-        pp = pop(t, o + 1.6)
-        for i, s in enumerate(["not saved to memory", "not saved to chat history"]): place(base, pill(s, 34, (30, 44, 62), WHITE, pad=(28, 10), kind="b", outline=SKY, hl=("not",), hlc=SKY), 960, 540 + 100 * i, 0.7 + 0.3 * pp, min(1, pp * 1.4))
-    cursor_path(base, t, [(o, 1200, 800), (o + 1.0, 1200, 800), (o + 1.4, gx, gy)], clicks=(o + 1.4,)); illu(base)
+    d.ellipse([gx - 40, gy - 40, gx + 40, gy + 40], outline=SKY + (255,), width=4); d.pieslice([gx - 18, gy - 24, gx + 18, gy + 12], 180, 360, fill=SKY + (255,)); d.rectangle([gx - 18, gy - 6, gx + 18, gy + 22], fill=SKY + (255,))
+    for i in range(3): d.ellipse([gx - 18 + 12 * i, gy + 14, gx - 6 + 12 * i, gy + 28], fill=SKY + (255,))
+    d.ellipse([gx - 9, gy - 10, gx - 3, gy - 2], fill=INK + (255,)); d.ellipse([gx + 3, gy - 10, gx + 9, gy - 2], fill=INK + (255,))
+    if 0 <= (t - t_click) <= 0.45: rr = int(20 + 50 * (t - t_click) / 0.45); d.ellipse([gx - rr, gy - rr, gx + rr, gy + rr], outline=SKY + (255,), width=4)
+    if t >= T(sid, 37): place(base, pill("ghost icon, top right", 28, (20, 24, 34), DIM, pad=(20, 6), kind="p", outline=OUT), 1380, 410, 1.0, fade(t, T(sid, 37)))
+    for i, (s, tt) in enumerate([("not saved to memory", t_m), ("not saved to chat history", t_h)]):
+        if t >= tt: pp = pop(t, tt); place(base, pill(s, 34, (30, 44, 62), WHITE, pad=(28, 10), kind="b", outline=SKY, hl=("not",), hlc=SKY), 960, 540 + 100 * i, 0.7 + 0.3 * pp, min(1, pp * 1.4))
+    cursor_path(base, t, [(o, 1200, 800), (t_click - 0.9, 1200, 800), (t_click, gx, gy)], clicks=(t_click,)); illu(base)
 
 
 def b_projects(base, t, b):
-    o = b["t0"]; u = (b["t1"] - o) / 13.4
-    enter(base, card(900, 120, 28, outline=SKY, glow=True), 960, 250, t, o, side=0); txt(base, (960, 250), "your normal account memory", 34, SKY, "b", "mm")
-    for i, (n, col) in enumerate([("PROJECT A", SKY), ("PROJECT B", AMB)]):
-        x = 520 + 880 * i; tt = o + 1.2 * u + 1.0 * i; enter(base, card(560, 300, 28, outline=col), x, 560, t, tt, side=0)
+    sid = "projects"; o = b["t0"]; t_b = T(sid, 23); t_sw = T(sid, 35); t_off = T(sid, 38) + 0.2
+    enter(base, card(900, 120, 28, outline=SKY, glow=True), 960, 250, t, T(sid, 17) - 0.3, side=0)
+    if t >= T(sid, 17) - 0.3: txt(base, (960, 250), "your normal account memory", 34, SKY, "b", "mm", fade(t, T(sid, 17) - 0.2))
+    for i, (n, col, tt) in enumerate([("PROJECT A", SKY, T(sid, 1)), ("PROJECT B", AMB, T(sid, 3) + 0.5)]):
+        x = 520 + 880 * i; enter(base, card(560, 300, 28, outline=col), x, 560, t, tt, side=0)
         spr = Image.new("RGBA", (560, 300), (0, 0, 0, 0)); d = ImageDraw.Draw(spr); d.text((280, 60), n, font=F(40, "b"), fill=col + (255,), anchor="mm"); d.rounded_rectangle([60, 120, 500, 220], 18, fill=(26, 32, 46, 255), outline=col + (255,), width=2); d.text((280, 170), "its own memory", font=F(30, "p"), fill=WHITE + (255,), anchor="mm"); enter(base, spr, x, 560, t, tt)
-    dd = ImageDraw.Draw(base); t_off = o + 8.5 * u
-    for i in range(2):
-        x = 520 + 880 * i; ok = (t < t_off) if i == 0 else False
-        if t >= o + 3.6 * u: dd.line([(x, 310), (x, 410)], fill=((SKY if (i == 0 and ok) else (RED if i == 1 else SKY)) + (255,)), width=4)
-    if t >= o + 3.6 * u: place(base, pill("A uses A + account memory, never B", 30, (20, 24, 34), WHITE, pad=(26, 9), kind="p", outline=OUT), 1340, 800, 1.0, fade(t, o + 3.6 * u))
-    if t >= t_off:
-        pp = pop(t, t_off); sw = card(560, 110, 26, fill=(24, 30, 44), outline=SKY); d = ImageDraw.Draw(sw); d.text((50, 30), "Use account memory", font=F(32, "b"), fill=WHITE + (255,)); toggle(d, 420, 28, False, 90, 46); place(base, sw, 520, 800, 0.8 + 0.2 * pp, min(1, pp * 1.4))
-        step(base, t, t_off, "OFF = this project is fully separate", y=150)
+    dd = ImageDraw.Draw(base)
+    if t >= T(sid, 15): dd.line([(520, 310), (520, 410)], fill=SKY + (255,), width=4)
+    if t >= t_b: dd.line([(1400, 310), (1400, 410)], fill=RED + (255,), width=4); place(base, pill("X  never project B", 28, (70, 28, 36), RED, pad=(22, 7), kind="p", outline=RED), 1400, 330, 1.0, fade(t, t_b))
+    if t >= T(sid, 15): place(base, pill("A uses A + account memory", 30, (20, 24, 34), WHITE, pad=(26, 9), kind="p", outline=OUT), 1340, 800, 1.0, fade(t, T(sid, 15)))
+    if t >= t_sw:
+        pp = pop(t, t_sw); sw = card(560, 110, 26, fill=(24, 30, 44), outline=SKY); d = ImageDraw.Draw(sw); d.text((50, 30), "Use account memory", font=F(32, "b"), fill=WHITE + (255,)); toggle(d, 420, 28, t < t_off, 90, 46); place(base, sw, 520, 800, 0.8 + 0.2 * pp, min(1, pp * 1.4))
+    if t >= t_off: step(base, t, t_off, "OFF = this project is fully separate", y=150)
 
 
 def b_caution_a(base, t, b):
-    o = b["t0"]; enter(base, photo("trash", 700, 470, t - o, b["t1"] - o), 560, 500, t, o, side=-1)
+    sid = "caution"; o = b["t0"]; t_del = T(sid, 10); t_mem = T(sid, 16)
+    enter(base, photo("trash", 700, 470, t - o, b["t1"] - o + 3), 560, 500, t, o, side=-1)
     c = card(780, 470, 28); enter(base, c, 1360, 500, t, o + 0.2, side=1)
-    place(base, pill("Chat: Trip plan", 32, (26, 31, 45), WHITE, pad=(26, 10), kind="p", outline=OUT), 1360, 400)
-    if t >= o + 1.8:
-        a = fade(t, o + 1.8, 0.3); ImageDraw.Draw(base).line([(1170, 400), (1550, 400)], fill=RED + (int(255 * a),), width=6)
+    if t >= T(sid, 8): place(base, pill("Chat: Trip plan", 32, (26, 31, 45), WHITE, pad=(26, 10), kind="p", outline=OUT), 1360, 400, 1.0, fade(t, T(sid, 8)))
+    if t >= t_del:
+        a = fade(t, t_del, 0.3); ImageDraw.Draw(base).line([(1170, 400), (1550, 400)], fill=RED + (int(255 * a),), width=6)
         place(base, pill("chat deleted", 26, RED, INK, pad=(18, 5), kind="b"), 1630, 355, 1.0, a, 5)
-    if t >= o + 2.6: pp = pop(t, o + 2.6); place(base, pill("memory from it: still there", 34, (30, 44, 62), SKY, pad=(28, 10), kind="b", outline=SKY), 1360, 580, 0.7 + 0.3 * pp, min(1, pp * 1.4))
+    if t >= t_mem: pp = pop(t, t_mem); place(base, pill("memory from it: still there", 34, (30, 44, 62), SKY, pad=(28, 10), kind="b", outline=SKY), 1360, 580, 0.7 + 0.3 * pp, min(1, pp * 1.4))
 
 
 ART = Image.open(HERE / "raw/article_plain.png").convert("RGB"); RJ = json.load(open(HERE / "raw/rects.json"))
 def note(hp, w=1300, h=420):
-    rx, ry, rw, rh = RJ["rects"]["delete"]; s0 = (w - 80) / ART.width; s = s0; a = ART.resize((int(ART.width * s), int(ART.height * s)), Image.LANCZOS)
+    rx, ry, rw, rh = RJ["rects"]["delete"]; s = (w - 80) / ART.width; a = ART.resize((int(ART.width * s), int(ART.height * s)), Image.LANCZOS)
     lines = RJ.get("lines", {}).get("delete") or []
     if lines and hp > 0:
         tot = sum(l[2] for l in lines); done = 0.0; layer = Image.new("RGB", a.size, (255, 255, 255)); d = ImageDraw.Draw(layer)
@@ -443,29 +449,33 @@ def note(hp, w=1300, h=420):
 
 
 def b_caution_b(base, t, b):
-    o = b["t0"]; dur = b["t1"] - o; hp = min(1, max(0, (t - o - 0.6) / max(0.3, dur - 1.8)))
+    sid = "caution"; o = b["t0"]; hp = min(1, max(0, (t - T(sid, 19)) / max(0.3, T(sid, 28) - T(sid, 19))))
     enter(base, note(hp), 960, 470, t, o, side=0)
     place(base, pill("Official page: support.claude.com  /  Claude's chat search and memory", 26, (20, 24, 34), (200, 208, 224), pad=(22, 6), kind="p", outline=OUT), 960, 740, 1.0, fade(t, o + 0.3))
-    if t >= o + 1.0: pp = pop(t, o + 1.0); place(base, pill("delete the memory separately", 36, SKY, INK, pad=(30, 10), kind="b"), 960, 830, 0.7 + 0.3 * pp, min(1, pp * 1.4))
+    t1 = T(sid, 22)
+    if t >= t1: pp = pop(t, t1); place(base, pill("delete the memory separately", 36, SKY, INK, pad=(30, 10), kind="b"), 960, 830, 0.7 + 0.3 * pp, min(1, pp * 1.4))
+    t2 = T(sid, 33)
+    if t >= t2: pp = pop(t, t2); place(base, pill("memory is part of data exports", 30, (30, 44, 62), WHITE, pad=(26, 9), kind="p", outline=SKY), 960, 900, 0.7 + 0.3 * pp, min(1, pp * 1.4))
 
 
 def b_cta_a(base, t, b):
-    o = b["t0"]; u = (b["t1"] - o) / 9.0
-    place(base, pill("3 THINGS TO REMEMBER", 52, (20, 24, 34), WHITE, pad=(50, 14), kind="b", outline=SKY, glow=True), W / 2, 230, 1.0, fade(t, o, 0.2))
-    for i, (n, s) in enumerate([("1", "Settings > Your Claude: the toggle"), ("2", "Manage: see, edit, delete topics"), ("3", "Incognito chat for private things")]):
-        tt = o + (0.9 + 2.2 * i) * u; y = 430 + 150 * i; enter(base, card(1100, 110, 26), 960, y, t, tt, side=0)
-        spr = Image.new("RGBA", (1100, 110), (0, 0, 0, 0)); d = ImageDraw.Draw(spr); d.rounded_rectangle([24, 22, 90, 88], 14, fill=SKY + (255,)); d.text((57, 55), n, font=F(40, "b"), fill=INK + (255,), anchor="mm"); d.text((130, 55), s, font=F(38, "p"), fill=WHITE + (255,), anchor="lm"); enter(base, spr, 960, y, t, tt)
+    sid = "cta"
+    place(base, pill("3 THINGS TO REMEMBER", 52, (20, 24, 34), WHITE, pad=(50, 14), kind="b", outline=SKY, glow=True), W / 2, 230, 1.0, fade(t, T(sid, 3) - 0.2, 0.2))
+    for i, (n, s, tt) in enumerate([("1", "Settings > Your Claude: the toggle", T(sid, 5)), ("2", "Manage: see, edit, delete topics", T(sid, 13)), ("3", "Incognito chat for private things", T(sid, 23))]):
+        y = 430 + 150 * i; enter(base, card(1100, 110, 26), 960, y, t, tt - 0.2, side=0)
+        spr = Image.new("RGBA", (1100, 110), (0, 0, 0, 0)); d = ImageDraw.Draw(spr); d.rounded_rectangle([24, 22, 90, 88], 14, fill=SKY + (255,)); d.text((57, 55), n, font=F(40, "b"), fill=INK + (255,), anchor="mm"); d.text((130, 55), s, font=F(38, "p"), fill=WHITE + (255,), anchor="lm"); enter(base, spr, 960, y, t, tt - 0.2)
 
 
 def b_cta_b(base, t, b):
-    o = b["t0"]
-    place(base, pill("Comment", 60, (20, 24, 34), WHITE, pad=(40, 12), kind="b", outline=OUT), 960, 300, 0.8 + 0.2 * pop(t, o + 0.6), min(1, fade(t, o + 0.6, 0.2)))
-    place(base, pill("MEMORY", 120, SKY, INK, pad=(60, 14), kind="b", glow=True), 960, 450, 0.8 + 0.2 * pop(t, o + 0.9), min(1, fade(t, o + 0.9, 0.2)))
-    place(base, pill("Follow DevRoboLab", 54, (20, 24, 34), SKY, pad=(40, 12), kind="b", outline=OUT), 960, 600, 0.8 + 0.2 * pop(t, o + 1.3), min(1, fade(t, o + 1.3, 0.2)))
-    if t >= o + 2.6:
+    sid = "cta"; t1, t2, t3 = T(sid, 35), T(sid, 37), T(sid, 40)
+    if t >= t1: place(base, pill("Comment", 60, (20, 24, 34), WHITE, pad=(40, 12), kind="b", outline=OUT), 960, 300, 0.8 + 0.2 * pop(t, t1), min(1, fade(t, t1, 0.2)))
+    if t >= t2: place(base, pill("MEMORY", 120, SKY, INK, pad=(60, 14), kind="b", glow=True), 960, 450, 0.8 + 0.2 * pop(t, t2), min(1, fade(t, t2, 0.2)))
+    if t >= t3: place(base, pill("Follow DevRoboLab", 54, (20, 24, 34), SKY, pad=(40, 12), kind="b", outline=OUT), 960, 600, 0.8 + 0.2 * pop(t, t3), min(1, fade(t, t3, 0.2)))
+    tt = t3 + 0.9
+    if t >= tt:
         for i, s in enumerate(["Watch next", "Subscribe"]):
-            enter(base, card(640, 150, 28, glow=True), 560 + 800 * i, 830, t, o + 2.6 + 0.3 * i, side=0)
-            spr = Image.new("RGBA", (640, 150), (0, 0, 0, 0)); ImageDraw.Draw(spr).text((320, 75), s, font=F(40, "b"), fill=WHITE + (255,), anchor="mm"); enter(base, spr, 560 + 800 * i, 830, t, o + 2.6 + 0.3 * i)
+            enter(base, card(640, 150, 28, glow=True), 560 + 800 * i, 830, t, tt + 0.3 * i, side=0)
+            spr = Image.new("RGBA", (640, 150), (0, 0, 0, 0)); ImageDraw.Draw(spr).text((320, 75), s, font=F(40, "b"), fill=WHITE + (255,), anchor="mm"); enter(base, spr, 560 + 800 * i, 830, t, tt + 0.3 * i)
 
 
 FN = {k[2:]: v for k, v in globals().items() if k.startswith("b_")}
