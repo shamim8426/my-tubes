@@ -49,6 +49,12 @@
       "noor_musafir_v2": 20,
       "noor_musafir_v3": 12
     },
+    "channel_daily_cap_inr": {
+      "_help": "HARD spend limit per channel PER DAY, GST samet (cost_log channel column). A day runs 05:00 to 04:59 local time (a night run that ends after midnight belongs to the day it started). Paid Gemini calls stop (gemini_keys.post) when spent + margin would pass the cap. null/missing = no daily cap. User 2026-11-07: DevRoboLab Rs 30 per day for ALL its videos; other channels are decided later.",
+      "day_starts_hour": 5,
+      "margin_inr": 1.0,
+      "devrobolab": 30
+    },
     "channel_cap_inr": {
       "_help": "Own spend limit per channel (cost_log 'channel' column, GST samet). null = no cap, only counted. All channels share one Gemini key and balance.",
       "jugnu-stories": null,

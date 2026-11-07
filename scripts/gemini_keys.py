@@ -66,6 +66,25 @@ class FreeQuotaOver(RuntimeError):
     """free_only call got 429 (or has no free key): stop, never spend."""
 
 
+class DailyCapOver(RuntimeError):
+    """The channel's daily spend cap (shared/pricing.json budget.channel_daily_cap_inr) would be crossed: no paid call."""
+
+
+def _daily_guard(out, label="Gemini"):
+    import cost_log, pricing
+    ch = channel_for(out)
+    if not ch:
+        return
+    cfg = pricing.config()["budget"].get("channel_daily_cap_inr") or {}
+    cap = cfg.get(ch)
+    if cap is None:
+        return
+    spent = cost_log.channel_spent_day(ch)
+    if spent + cfg.get("margin_inr", 1.0) > cap:
+        raise DailyCapOver(f"{label}: DAILY CAP: channel {ch} has spent Rs {spent:.2f} today (cap Rs {cap}, margin Rs {cfg.get('margin_inr', 1.0)}). "
+                           f"No paid call; finish tomorrow or ask the user (shared/pricing.json budget.channel_daily_cap_inr).")
+
+
 def post(endpoint: str, body: dict, out, timeout=90, label="Gemini", free_only=False):
     """POST with free-first fallback. Returns (response, tier). free_only: never the paid key (stop instead)."""
     keys = keys_for(out, body.get("model", ""))
@@ -78,6 +97,8 @@ def post(endpoint: str, body: dict, out, timeout=90, label="Gemini", free_only=F
             raise FreeQuotaOver(f"{label}: free key quota used up (429); paid key not allowed here")
         return r, "free"
     for i, (tier, key) in enumerate(keys):
+        if tier == "paid":
+            _daily_guard(out, label)
         r = _post(endpoint, body, key, timeout)
         if r.status_code == 429 and tier == "free" and i + 1 < len(keys):
             print(f"{label}: free key quota (429) -> same request on the paid key")

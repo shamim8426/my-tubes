@@ -24,3 +24,5 @@ VISUAL STANDARD v2 (user 2026-11-05, replaces the small proof-window look for NE
 STYLE v7 (user 2026-11-07, feature-explainer Shorts: Claude for Everyone and any "how to use it" video): read STYLE_GUIDE.md section "v7 FORMAT" before building. Explain inside a dark Claude UI demo (cursor + clicks + STEP banners), device photos with playing demo screens, document shown once and small, no swipe sounds. Reference: stories/041_cfe-research/make_v10.py.
 
 PLAN 2026-11-07 (user): see channels/devrobolab/PLAN_DAILY.md. It SUPERSEDES the DAILY PLAN and the Claude Code Short-only lines: formats = news Short, Claude for Everyone long, Claude Code long, daily-life Short (new playlist), plus a Short cut from a long. Plan only; no scheduled tasks until the user says so.
+
+MONEY OVERRIDE (user 2026-11-07, binding, replaces every 'Rs 15 per run' above): DevRoboLab spends at most Rs 30 PER DAY for ALL its videos together (day = 05:00-04:59), floor Rs 50. Check `python scripts/daily_spend.py devrobolab` before each paid step; the code also blocks paid Gemini calls over the cap.

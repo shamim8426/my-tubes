@@ -78,6 +78,20 @@ def channel_spent(key: str, rows=None) -> float:
     return sum(charge_inr(r) for r in rows if (r.get("channel") or DEFAULT_CHANNEL) == key)
 
 
+def day_key(ts: str) -> str:
+    """The spending day of a cost_log timestamp: a day runs from day_starts_hour (05:00) to the next 04:59, so a night run that ends after midnight belongs to the day it started."""
+    from datetime import timedelta
+    hour = (pricing.config()["budget"].get("channel_daily_cap_inr") or {}).get("day_starts_hour", 5)
+    return (datetime.strptime(ts[:19], "%Y-%m-%d %H:%M:%S") - timedelta(hours=hour)).date().isoformat()
+
+
+def channel_spent_day(key: str, day: str | None = None, rows=None) -> float:
+    """What one channel has spent on one spending day (GST as charge_inr). day=None: the current spending day."""
+    rows = _rows() if rows is None else rows
+    day = day or day_key(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+    return sum(charge_inr(r) for r in rows if (r.get("channel") or DEFAULT_CHANNEL) == key and day_key(r["timestamp"]) == day)
+
+
 def record_call(file: Path, model: str, size: str, cost: dict, when: datetime | None = None,
                 usage: dict | None = None) -> dict:
     """Log one paid call. cost = pricing.image_cost()/tts_cost() result (estimated_usd, actual_usd, tokens)."""

@@ -103,6 +103,10 @@ def check(story: str, next_cost_inr: float):
     if ch_limit is not None and cost_log.channel_spent(key) + nxt > ch_limit:
         sys.exit(f"OVER CHANNEL CAP: channel {key} has spent ₹{cost_log.channel_spent(key):.2f}; +₹{nxt:.2f} would "
                  f"cross its ₹{ch_limit:.0f} cap (shared/pricing.json budget.channel_cap_inr). ASK the user.")
+    dcfg = (cfg["budget"].get("channel_daily_cap_inr") or {})
+    dcap = dcfg.get(key)
+    if dcap is not None and cost_log.channel_spent_day(key) + nxt + dcfg.get("margin_inr", 1.0) > dcap:
+        sys.exit(f"OVER DAILY CAP: channel {key} has spent Rs {cost_log.channel_spent_day(key):.2f} today; +Rs {nxt:.2f} would cross its Rs {dcap} per-day cap (shared/pricing.json budget.channel_daily_cap_inr). Stop paid work for today.")
     floor = cfg["budget"]["floor_inr"]
     if left - nxt < floor:
         sys.exit(f"STOP (RULES 14/15): balance ₹{left:.2f} would drop below ₹{floor:.0f}. ASK the user to recharge Google credits.")

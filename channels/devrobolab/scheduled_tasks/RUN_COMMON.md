@@ -5,7 +5,7 @@ Project: D:\my-tubes (Windows). Python: D:\my-tubes\.venv\Scripts\python.exe -X 
 ## 0. Before anything
 - `git -C D:\my-tubes pull --ff-only` (main). If git is half-merged or `.git\sync.lock` exists, stop and report.
 - Another DevRoboLab run still running (status running in list_task_runs)? Then wait for it; never two runs in parallel.
-- Balance: `.venv\Scripts\python.exe -X utf8 -c "import sys; sys.path.insert(0,'scripts'); import cost_log; print(cost_log.remaining())"`. Below Rs 65 (floor Rs 50 + one run): no paid call, report "recharge".
+- Money: `.venv\Scripts\python.exe -X utf8 scripts\daily_spend.py devrobolab` (today's spend vs the Rs 30/day cap, balance vs the Rs 50 floor). Exit code 1 / "STOP" = no paid call at all today (daily cap) or "recharge" (balance near the floor): free steps only, report. Run it at the start and again before every paid step (voice, any paid image). The code also stops a paid Gemini call itself when Rs 30/day would be crossed (gemini_keys.DailyCapOver), so never try to work around it. Rough costs: voice about Rs 0.4-0.7 per scene, a long about Rs 3, a Short about Rs 1; plan so that the day's videos fit in Rs 30 (free Cloudflare photos, free TTS key first).
 - Read: CLAUDE.md, channels/devrobolab/PLAN_DAILY.md (formats, slots, rules), DAILY_COMMON.md (voice, budget, real assets, upload, logging), shared/STYLE_LIBRARY.md sections 0, 9, 10 (look), channels/devrobolab/log.md last 30 lines, topic_queue.json.
 
 
@@ -15,12 +15,12 @@ Project: D:\my-tubes (Windows). Python: D:\my-tubes\.venv\Scripts\python.exe -X 
 - If a task starts between 07:00 and 20:00 (the PC/app was off at the slot and opened late), do NOTHING: exit at once with the report "din ka time, kaam raat ko (retry 21:00 / 22:00)".
 - Retry rule: a slot missed because the PC was not available is retried at 21:00 and, if still missing, at 22:00 by the task `devrobolab-retry-night` (only slots with no upload today, one at a time; exits if another DevRoboLab run is still running). After 22:00 the slot is skipped for today; the next day continues normally.
 - A run that finishes after midnight counts for the day it started.
-- Money: each run Rs 15 at most, never below the Rs 50 floor (unchanged).
+- Money (user 2026-11-07, binding): DevRoboLab spends at most **Rs 30 PER DAY in total for ALL its videos**, and the account balance never goes below the **Rs 50 floor**. A day runs 05:00-04:59 (a night run that ends after midnight belongs to the day it started). Other channels' limits are decided separately.
 
 ## 1. Make the video (own new story folder `channels/devrobolab/stories/<next free number>_<slug>/`)
 1. Topic: as the slot task says. Facts ONLY from the official page(s) (WebFetch); write `review/facts.md` (each fact + URL). Third-party things (e.g. a Zomato connector) are labelled as third-party/example on screen, never a real order, account or payment.
 2. Script `deck.json` (Hinglish in Devanagari + English tech words, same voice/style block as story 044). Long: 450-550 words (about 3 min). Short: 90-110 words (35-40 s). Hook in the first 2 s, one caution, short recap, rotating last-line CTA (different from the previous video in log.md).
-3. Voice: copy `tts.py` + `wordtimes.py` from stories/044_cfe-memory; `tts.py` (free key), if the free quota is used up `tts.py --paid` (per-run cap Rs 15, never below floor). Then `wordtimes.py` -> wt.json.
+3. Voice: copy `tts.py` + `wordtimes.py` from stories/044_cfe-memory; `tts.py` (free key), if the free quota is used up `tts.py --paid` (Rs 30/day cap for the channel, never below the Rs 50 floor). Then `wordtimes.py` -> wt.json.
 4. Build: LONG = copy `stories/044_cfe-memory/make_final.py` (16:9, per-beat zoom K, dark UI/terminal demo, chapter badge, Chromium Hindi captions `build_caps()`, every on-screen action tied to `T(scene, token)` = the time the word is spoken). SHORT = same helpers at 1080x1920 (see stories/045_cfe-file-upload for a 9:16 build): full-screen showing area, no face, no robot box (robot only for a moment at hook/CTA), small caption strip at the bottom. Pick a NEW highlight colour (not the previous video's) and log it. Free Cloudflare photos only (scripts/cf_image.py), no text in images.
 
 ## 2. Self-review, then fix ONLY the broken parts (user rule 2026-11-07)
