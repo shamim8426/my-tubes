@@ -1018,9 +1018,11 @@
     "title": "Memory: Claude ko aapki baatein yaad rakhna",
     "url": "https://support.claude.com/en/",
     "summary": "Claude (non-Code) feature for ordinary people; find the exact official page first.",
-    "status": "todo",
+    "status": "uploaded",
     "audience": "A",
-    "series": "claude-for-everyone"
+    "series": "claude-for-everyone",
+    "series_index": 5,
+    "video_id": "zfOBSjw3RA0"
   },
   {
     "id": "cfe-styles",
