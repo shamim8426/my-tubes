@@ -582,6 +582,11 @@ def main():
     if len(sys.argv) > 1 and sys.argv[1] == "frames":
         for tt in [float(v) for v in sys.argv[2:]]: Image.fromarray(frame(tt)).save(HERE / f"review/F_{tt:06.1f}.png")
         return
+    if len(sys.argv) > 4 and sys.argv[1] == "range":   # python make_final.py range <t0> <t1> <out.mp4>: re-render ONLY this time range (video only) for tools/splice_video.py
+        t0, t1, outp = float(sys.argv[2]), float(sys.argv[3]), Path(sys.argv[4]); n0, n1 = int(round(t0 * FPS)), int(round(t1 * FPS)); outp.parent.mkdir(parents=True, exist_ok=True)
+        pr = subprocess.Popen(["ffmpeg", "-y", "-v", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-", "-c:v", "libx264", "-preset", "medium", "-crf", "18", "-pix_fmt", "yuv420p", "-colorspace", "bt709", "-color_primaries", "bt709", "-color_trc", "bt709", str(outp)], stdin=subprocess.PIPE)
+        for i in range(n0, n1): pr.stdin.write(frame(i / FPS).tobytes())
+        pr.stdin.close(); pr.wait(); print("range rendered", t0, t1, outp); return
     build_audio(HERE / "audio/voice_final.wav"); n = int(TOTAL * FPS)
     encode((frame(i / FPS) for i in range(n)), n, HERE / "audio/voice_final.wav", ROOT / deck["music"]["file"], HERE / "output/long_final.mp4", music_start=deck["music"]["start"], music_gain_db=-22)
 

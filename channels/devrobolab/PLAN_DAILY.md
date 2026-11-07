@@ -1,6 +1,6 @@
 # DevRoboLab daily plan (user 2026-11-07; SUPERSEDES the older DAILY PLAN lines in DAILY_COMMON.md and RESUME.md)
 
-Status: PLAN ONLY. No scheduled tasks exist on this account. The user said: "sirf plan likho" (do not create tasks yet). Run a slot only when the user asks ("agla video", "aaj ka batch"), until the user says to switch on the tasks.
+Status: ACTIVE (user 2026-11-07): the 5 scheduled tasks below run every day and upload PRIVATE; the user makes videos public in Studio. The user can still ask for a video any time.
 
 ## Formats (decided)
 - AI news: SHORT (9:16, 35-40 s).
@@ -44,3 +44,16 @@ Suggested public order for the user (Studio): news 09:30, daily life 12:30, Clau
 - Name of the daily-life series/playlist (then create the playlist).
 - When to switch on the 4-5 scheduled tasks (08:00, 10:00, 14:00, 20:00, 23:00).
 - Studio: thumbnail for Claude Feature 05 (https://youtu.be/zfOBSjw3RA0); public when ready.
+
+## Review and partial fix (user 2026-11-07, every video)
+After building a video: review it (frames every 3 s + the exact frame of every spoken action word, Hindi matras, blank frames, overlaps, cut text, sizes, loudness, length, facts), write the mistakes in `review/review.md`, then fix ONLY those parts: change the code for those scenes, re-render only that time range (`make_final.py range t0 t1 output/part.mp4`) and splice it into the finished video (`tools/splice_video.py orig part t0 t1 out`, frame accurate, audio unchanged; tested on 044: same 5166 frames, 172.2 s). Re-check the fixed ranges. Max 2 rounds; still wrong = no upload, report. Full re-render only if the script/voice changes.
+
+## Scheduled tasks (user 2026-11-07: "schedule me add kar do taki upload tak ka kaam apne aap ho")
+Common steps for every task: `scheduled_tasks/RUN_COMMON.md`. Task prompts (backups): `scheduled_tasks/<taskId>.md`.
+| Task id | Cron (local) | Slot |
+| devrobolab-news-short | 47 7 * * * | 08:00 AI news Short |
+| devrobolab-daily-life-short | 47 9 * * * | 10:00 Daily-life Short |
+| devrobolab-claude-code-long | 47 13 * * * | 14:00 Claude Code long |
+| devrobolab-cfe-long | 47 19 * * * | 20:00 Claude for Everyone long |
+| devrobolab-long-cut-short | 47 22 * * * | 23:00 Short cut from today's long |
+The old tasks (devrobolab-daily-videos, devrobolab-afternoon-videos, devrobolab-evening-videos, claude-news-watch) are NOT to be recreated.
