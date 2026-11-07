@@ -35,3 +35,5 @@ User's plan for the next work (in this order):
 Always: only the existing background music (Funkorama) + voice, NO whoosh/swipe sounds; calm normal editing; what is said must be seen with motion; upload private only; after each upload topic_queue.json + log.md + sync. Cloud container needs `.venv/bin/pip install opencv-python-headless playwright pillow numpy yt-dlp` once.
 
 UPDATE 2026-11-07 (later): the AI-news Short 042 v11 look is APPROVED as the framework: read shared/STYLE_LIBRARY.md section 0 (format fixed; style variants + last-line CTA rotate every video; per-series rules for News, Claude for Everyone, Claude Code Short-only). 042 v11 is uploaded (private) as https://youtu.be/B9f8_sC0elI; the old 042 was deleted. Badar Munir study is done (STYLE_LIBRARY section 8).
+
+## PLAN 2026-11-07 (read first): channels/devrobolab/PLAN_DAILY.md supersedes the older plan lines above (Claude Code is now LONG, new daily-life Short series, timing slots). Plan only: no scheduled tasks created; run videos when the user asks.
