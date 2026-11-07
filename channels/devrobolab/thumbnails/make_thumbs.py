@@ -1,209 +1,264 @@
-r"""DevRoboLab thumbnails v2 (2026-11-07): HTML -> PNG with real Chrome (Playwright). Faceless, big words, a visual of the video's own topic,
-a different colour + background style + visual layout per video. Long = 1280x720 (16:9), Short = 1080x1920 (9:16).
+r"""DevRoboLab thumbnails v3 (2026-11-07, user-approved look): LIGHT clean background, SMALL words (2 lines, one highlighted), the DevRoboLab robot, and a picture that shows how it works.
+Long = 1280x720 (16:9), Short = 1080x1920 (9:16). One robot pose/side, background colour and picture type per video.
     .venv\Scripts\python -X utf8 channels\devrobolab\thumbnails\make_thumbs.py [video_id ...]      (no ids = all in VIDEOS)
-Rules: <= 4 big words readable at 160 px width; text only claims what the video's title says; no real person, no real logo; bottom-right free for the time stamp."""
+HARD RULE (user 2026-11-07): the channel name (DevRoboLab) must NEVER overlap any other content. Every render is checked: the brand box is measured against the tag, the title, the picture and the robot,
+and everything must stay inside the frame; a thumbnail that fails the check is NOT written as OK (the run prints FAIL and apply_thumbs.py refuses it)."""
 import base64
+import re
 import sys
 from pathlib import Path
 
 HERE = Path(__file__).parent
 ROOT = HERE.parents[2]
 FONTS = ROOT / "shared/fonts"
+MASCOT = ROOT / "channels/devrobolab/mascot/cut"
 OUT = HERE / "out"; OUT.mkdir(exist_ok=True)
 
 CSS = """
-@font-face{font-family:PX;src:url('%(px)s');font-weight:800}
-@font-face{font-family:PB;src:url('%(pb)s');font-weight:700}
-@font-face{font-family:PM;src:url('%(pm)s');font-weight:500}
-@font-face{font-family:MO;src:url('%(mo)s');font-weight:700}
+@font-face{font-family:PX;src:url('@@PX@@');font-weight:800}
+@font-face{font-family:PB;src:url('@@PB@@');font-weight:700}
+@font-face{font-family:PM;src:url('@@PM@@');font-weight:500}
+@font-face{font-family:MO;src:url('@@MO@@');font-weight:700}
 *{box-sizing:border-box;margin:0;padding:0}
-body{overflow:hidden;position:relative;font-family:PB,sans-serif;background:var(--bg);color:var(--fg)}
-body.land{width:1280px;height:720px}
-body.port{width:1080px;height:1920px}
-.s-dark{--bg:#05070d;--fg:#fff;--card:rgba(18,23,36,.94);--cfg:#fff;--line:var(--ac);--sub:rgba(255,255,255,.7)}
-.s-light{--bg:#f6f1e6;--fg:#10131c;--card:#ffffff;--cfg:#10131c;--line:#10131c;--sub:rgba(16,19,28,.65)}
-.s-color{--bg:var(--ac);--fg:#0b0f19;--card:#0b0f19;--cfg:#fff;--line:#0b0f19;--sub:rgba(11,15,25,.7)}
-.bg{position:absolute;inset:0}
-.s-dark .bg{background:radial-gradient(900px 640px at 82%% 45%%,color-mix(in srgb,var(--ac) 36%%,transparent),transparent 62%%),linear-gradient(135deg,#070b16,#04060b)}
-.s-light .bg{background:radial-gradient(700px 500px at 85%% 20%%,color-mix(in srgb,var(--ac) 40%%,transparent),transparent 65%%),repeating-linear-gradient(0deg,rgba(0,0,0,.025) 0 2px,transparent 2px 6px)}
-.s-color .bg{background:radial-gradient(900px 700px at 20%% 0%%,rgba(255,255,255,.35),transparent 60%%),var(--ac)}
-.grid{position:absolute;inset:0;background-image:linear-gradient(rgba(127,127,127,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(127,127,127,.09) 1px,transparent 1px);background-size:64px 64px}
-.tag{position:absolute;font:700 28px PB;letter-spacing:2px;color:#05070d;background:var(--ac);padding:10px 22px;border-radius:999px}
-.s-light .tag{color:#0b0f19}.s-color .tag{background:#0b0f19;color:var(--ac)}
-.words{position:absolute;font-family:PX;font-weight:800;line-height:1.0;text-transform:uppercase}
-.wl{display:block;white-space:nowrap;width:max-content}
-.s-dark .words{text-shadow:0 8px 0 rgba(0,0,0,.45)}
-.w2{color:var(--ac)}
-.s-dark .w2{text-shadow:0 0 36px color-mix(in srgb,var(--ac) 65%%,transparent),0 8px 0 rgba(0,0,0,.45)}
-.s-light .w2,.s-color .w2{background:#0b0f19;color:var(--ac);padding:.02em .2em;border-radius:.16em}
-.s-light .w2{background:var(--ac);color:#0b0f19}
-.brand{position:absolute;font:800 28px PX;letter-spacing:1px}
-.brand span{color:var(--ac)}.s-light .brand span{color:#0b0f19;background:var(--ac);padding:0 6px;border-radius:6px}.s-color .brand span{color:#fff}
-.land .tag{left:56px;top:40px}.land .words{left:56px;top:112px;width:700px}.land .brand{left:58px;bottom:34px}
-.land .vis{position:absolute;left:770px;top:72px;width:470px}
-.port .tag{left:60px;top:70px;font-size:40px;padding:14px 30px}.port .words{left:60px;top:190px;width:960px}.port .brand{left:60px;bottom:70px;font-size:40px}
-.port .vis{position:absolute;left:35px;top:520px;width:470px;zoom:2.0}
-.card{background:var(--card);color:var(--cfg);border:3px solid var(--line);border-radius:30px;padding:24px;box-shadow:0 26px 54px rgba(0,0,0,.35)}
-.s-dark .card{box-shadow:0 0 56px color-mix(in srgb,var(--ac) 42%%,transparent),0 26px 54px rgba(0,0,0,.6)}
-.rot{transform:rotate(3deg)}.rotl{transform:rotate(-3deg)}
-.bub{background:rgba(127,127,127,.18);border:2px solid rgba(127,127,127,.3);border-radius:20px;padding:14px 18px;font:500 26px PM;margin-bottom:10px}
-.bub.me{background:color-mix(in srgb,var(--ac) 35%%,transparent);border-color:var(--ac)}
-.chip{display:inline-block;background:rgba(127,127,127,.15);border:2px solid var(--ac);border-radius:999px;padding:7px 16px;font:700 24px PB;margin:0 8px 9px 0}
-.s-light .chip,.s-color .chip{border-color:var(--cfg)}
-.chip b{color:var(--ac)}.s-light .chip b{color:#0b0f19;background:var(--ac);padding:0 6px;border-radius:6px}
-.hd{font:800 26px PX;letter-spacing:2px;color:var(--ac);margin-bottom:12px;display:flex;justify-content:space-between;align-items:center}
-.s-light .hd{color:#0b0f19}
-.red{background:#ff4d5e;color:#fff;font:800 20px PX;padding:5px 12px;border-radius:10px;transform:rotate(-3deg)}
-.sw{width:104px;height:54px;border-radius:54px;background:var(--ac);position:relative;box-shadow:0 0 24px var(--ac)}.sw i{position:absolute;right:5px;top:5px;width:44px;height:44px;border-radius:50%%;background:#fff}
-.tr{display:flex;align-items:center;justify-content:space-between;margin-top:12px;font:700 24px PB}
-.win .dots{display:flex;gap:8px;margin-bottom:14px}.win .dots i{width:14px;height:14px;border-radius:50%%;background:#ff5f57}.win .dots i:nth-child(2){background:#febc2e}.win .dots i:nth-child(3){background:#28c840}
-.mono{font:700 26px MO;line-height:1.6;white-space:pre}.mono .p{color:var(--ac)}.s-light .mono .p,.s-color .mono .p{color:#0f8a4b}.mono .ok{color:#34d96b}.mono .dm{opacity:.6}
-.row{display:flex;align-items:center;gap:14px;padding:12px 14px;border:2px solid rgba(127,127,127,.3);border-radius:16px;margin-bottom:10px;font:700 26px PB}
-.row .t{width:34px;height:34px;border-radius:50%%;border:3px solid var(--line);display:flex;align-items:center;justify-content:center;font:800 22px PX;flex:none}
-.row.on .t{background:var(--ac);color:#0b0f19;border-color:var(--ac)}
-.s-color .row.on .t{background:#fff;color:#0b0f19;border-color:#fff}
-.big{font:800 190px PX;line-height:1;text-align:center;color:var(--ac)}
-.s-light .big{color:#10131c}.s-color .big{color:#fff}
-.bsub{font:700 34px PB;text-align:center;margin-top:8px;opacity:.9}
-.vs{display:flex;gap:14px;align-items:stretch}.vs .c{flex:1;border:3px solid var(--line);border-radius:22px;padding:16px;text-align:center}
-.vs .c h5{font:800 26px PX;color:var(--ac);margin-bottom:8px}.s-light .vs .c h5{color:#0b0f19}.vs .c p{font:700 22px PB}
-.bar{height:46px;border-radius:46px;background:rgba(127,127,127,.25);overflow:hidden;margin:10px 0}.bar i{display:block;height:100%%;background:var(--ac);border-radius:46px}
-.ph{width:300px;margin:0 auto;border:8px solid #111;border-radius:44px;background:var(--card);padding:18px;box-shadow:0 26px 54px rgba(0,0,0,.45);color:var(--cfg)}
+:root{--ink:#14213d;--y:#FFC800}
+body{position:relative;overflow:hidden;font-family:PB,sans-serif;color:var(--ink);background:var(--bg)}
+body.land{width:1280px;height:720px}body.port{width:1080px;height:1920px}
+.dots{position:absolute;inset:0;background-image:radial-gradient(rgba(20,33,61,.11) 2px,transparent 2px);background-size:34px 34px}
+.blob{position:absolute;border-radius:50%;background:var(--blob)}
+.tag{position:absolute;font:700 26px PB;letter-spacing:2px;background:var(--ink);color:var(--y);padding:9px 22px;border-radius:999px;white-space:nowrap}
+.ttl{position:absolute;font-family:PX;font-weight:800;line-height:1.1}
+.ttl .l{display:block;white-space:nowrap;width:max-content}
+mark{background:var(--y);color:var(--ink);padding:0 .12em;border-radius:.14em}
+.brand{position:absolute;font:800 26px PX;white-space:nowrap}.brand span{background:var(--y);padding:0 6px;border-radius:6px}
+img.robot{position:absolute}
+.vis{position:absolute}
+.card{background:#fff;border:4px solid var(--ink);border-radius:24px;box-shadow:8px 8px 0 var(--ink);padding:18px;color:var(--ink)}
+.bub{font:700 28px PB;line-height:1.2}
+.lab{font:700 24px PB;margin:12px 0 0 6px}
+.lab b{background:var(--ink);color:var(--y);border-radius:50%;display:inline-block;width:34px;height:34px;line-height:34px;text-align:center;font-size:22px;margin-right:8px}
+.arr{display:block;margin:6px auto}
+.hd{background:var(--y);padding:10px 14px;font:800 22px PX;display:flex;justify-content:space-between;align-items:center;gap:8px;white-space:nowrap}
+.red{background:#ff4d5e;color:#fff;font:800 16px PX;padding:4px 9px;border-radius:8px;white-space:nowrap}
+.rowi{font:700 26px PB;padding:6px 0;display:flex;align-items:center;gap:10px}
+.chip{display:inline-block;background:#fff;border:3px solid var(--ink);border-radius:999px;padding:5px 14px;font:700 22px PB;margin:0 6px 8px 0}
+.row{display:flex;align-items:center;gap:12px;padding:10px 12px;border:3px solid var(--ink);border-radius:16px;margin-bottom:10px;font:700 26px PB;background:#fff}
+.row .t{width:34px;height:34px;border-radius:50%;border:3px solid var(--ink);display:flex;align-items:center;justify-content:center;font:800 20px PX;flex:none;background:#fff}
+.row.on .t{background:var(--y)}
+.mono{font:700 24px MO;line-height:1.6;white-space:pre}
+.win{background:#0f172a;color:#e6edf7;border-radius:24px;border:4px solid var(--ink);box-shadow:8px 8px 0 var(--ink);padding:16px 20px}
+.win .dots3{display:flex;gap:8px;margin-bottom:10px}.win .dots3 i{width:14px;height:14px;border-radius:50%;background:#ff5f57}.win .dots3 i:nth-child(2){background:#febc2e}.win .dots3 i:nth-child(3){background:#28c840}
+.win .mono .p,.win .mono .ok{color:#7cf0a8}.win .mono .dm{opacity:.55}
+.big{font:800 150px PX;line-height:1;text-align:center}
+.bsub{font:700 30px PB;text-align:center;margin-top:6px}
+.bar{height:54px;border-radius:54px;background:#e5e7eb;border:4px solid var(--ink);overflow:hidden;margin:8px 0 16px}.bar i{display:flex;align-items:center;justify-content:flex-end;height:100%;padding-right:16px;font:800 28px PX}
+.vs{display:flex;gap:10px}.vs .c{flex:1;border:3px solid var(--ink);border-radius:18px;padding:12px 6px;text-align:center;background:#fff}
+.vs .c h5{font:800 22px PX;background:var(--y);border-radius:8px;padding:2px 6px;display:inline-block;margin-bottom:6px}.vs .c p{font:700 22px PB}
+.ph{border:8px solid #111;border-radius:40px;background:#fff;padding:16px;box-shadow:8px 8px 0 var(--ink);width:320px;margin:0 auto}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.f{border:4px solid var(--ink);border-radius:18px;background:#fff;box-shadow:6px 6px 0 var(--ink);padding:12px}
+.f b{font:800 20px PX;border-radius:8px;padding:3px 9px;display:inline-block}.f div{font:700 22px PB;margin-top:6px}
+.land .tag{left:40px;top:36px}
+.land .brand{right:40px;top:40px}
+.port .tag{left:60px;top:70px;font-size:32px;padding:11px 26px}
+.port .brand{right:60px;top:76px;font-size:40px}
+.port .ttl{left:60px;top:190px}
+.port .vis{left:30px;top:330px;width:470px;zoom:2.0}
 """
 
-HTML = """<style>%(css)s</style><body class="%(cls)s s-%(style)s" style="--ac:%(ac)s"><div class=bg></div><div class=grid></div>
-<div class=tag>%(tag)s</div>
-<div class=words>%(words)s</div>
-<div class=vis>%(vis)s</div>
-<div class=brand>Dev<span>Robo</span>Lab</div>
-<script>
-const MAXW=%(maxw)d;
-function fit(){document.querySelectorAll('.wl').forEach(el=>{let fs=parseInt(el.dataset.s);el.style.fontSize=fs+'px';let g=0;while(el.getBoundingClientRect().width>MAXW&&fs>24&&g<200){fs-=2;el.style.fontSize=fs+'px';g++}})}
-document.fonts.ready.then(fit);
-</script></body>"""
+THEMES = {"cream": ("#FFFAEB", "#FFE680"), "sky": ("#E8F3FF", "#BFE0FF"), "mint": ("#E6FAF0", "#BFF0D6"), "pink": ("#FFEAF2", "#FFC6DD"),
+          "lav": ("#F0EBFF", "#D5C8FF"), "peach": ("#FFF0E3", "#FFD3A8"), "lime": ("#F4FAD9", "#DDF08A")}
 
 
-def chat(me, bot, chips, toggle=None, red=None):
-    c = "".join(f'<span class=chip><b>{a}</b> {b}</span>' for a, b in chips)
-    t = f'<div class=tr><span>{toggle}</span><div class=sw><i></i></div></div>' if toggle else ""
-    r = f'<span class=red>{red}</span>' if red else ""
-    return (f'<div class="card rot"><div class="bub me">{me}</div><div class=bub>{bot}</div>'
-            f'<div style="border:2px dashed var(--line);border-radius:20px;padding:14px;margin-top:4px"><div class=hd><span>MEMORY</span>{r}</div>{c}{t}</div></div>')
+def _mk(t):
+    return re.sub(r"\*(.+?)\*", r"<mark>\1</mark>", t)
 
 
-def chat2(me, bot, chips):
-    c = "".join(f'<span class=chip>{x}</span>' for x in chips)
-    return f'<div class="card rot"><div class="bub me">{me}</div><div class=bub>{bot}</div><div style="margin-top:8px">{c}</div></div>'
+def flow(items):
+    out = []
+    for i, (cap, html, tint) in enumerate(items):
+        pad = 0 if html.startswith("<div class=hd") else 18
+        out.append(f'<div class=card style="background:{tint};padding:{pad}px;overflow:hidden">{html}</div><div class=lab><b>{i + 1}</b>{cap}</div>')
+        if i < len(items) - 1:
+            out.append('<svg class=arr width="40" height="34" viewBox="0 0 40 34"><path d="M20 2v24M8 16l12 14 12-14" fill="none" stroke="#14213d" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>')
+    return "".join(out)
 
 
-def term(title, lines):
-    body = "\n".join(lines)
-    return f'<div class="card win rotl"><div class=dots><i></i><i></i><i></i></div><div class=hd><span>{title}</span></div><div class=mono>{body}</div></div>'
+FOLDER = '<svg width="26" height="20" viewBox="0 0 26 20"><path d="M1 3h8l3 3h13v13H1z" fill="#FFC800" stroke="#14213d" stroke-width="2"/></svg>'
+
+
+def row_flow(items):
+    cols = []
+    for i, (cap, html, tint) in enumerate(items):
+        pad = 0 if html.startswith("<div class=hd") else 18
+        cols.append(f'<div style="flex:{1.45 if "class=hd" in html else 1}"><div class=card style="background:{tint};padding:{pad}px;overflow:hidden">{html}</div><div class=lab><b>{i + 1}</b>{cap}</div></div>')
+        if i < len(items) - 1:
+            cols.append('<svg width="44" height="40" viewBox="0 0 56 40" style="flex:none;margin-top:46px"><path d="M2 20h40M30 6l14 14-14 14" fill="none" stroke="#14213d" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg>')
+    return '<!--w820--><div style="display:flex;align-items:flex-start;gap:8px">' + "".join(cols) + '</div>'
+
+
+def memory_flow():
+    return row_flow([("Aap bolte ho", '<div class=bub>Mera naam Rahul hai</div>', "#fff"),
+                 ("Claude yaad rakhta hai", f'<div class=hd>MEMORY<span class=red>DELETE &#10005;</span></div><div style="padding:10px 16px"><div class=rowi>{FOLDER} Role: student</div><div class=rowi>{FOLDER} Project: thesis</div><div class=rowi>{FOLDER} Style: short</div></div>', "#fff"),
+                 ("Agli chat me bhi", '<div class=bub>Hi Rahul! Yaad hai</div>', "#E8F7EC")])
+
+
+def files(items):
+    f = "".join(f'<div class=f><b style="background:{c}">{n}</b><div>{d}</div></div>' for n, c, d in items)
+    return f'<div style="margin-bottom:10px"><svg width="130" height="88" viewBox="0 0 440 280"><path d="M10 40q0-20 20-20h110l30 34h250q20 0 20 20v176q0 20-20 20H30q-20 0-20-20z" fill="#FFC800" stroke="#14213d" stroke-width="10" stroke-linejoin="round"/></svg></div><div class=fgrid>{f}</div>'
+
+
+def bars(rows):
+    out = "".join(f'<div style="font:700 28px PB">{label}</div><div class=bar><i style="width:{pct}%;background:{col}">{txt}</i></div>' for label, pct, txt, col in rows)
+    return f'<div class=card>{out}</div>'
 
 
 def steps(items, done=None):
-    done = done if done is not None else len(items)
-    rows = "".join(f'<div class="row {"on" if i < done else ""}"><div class=t>{"&#10003;" if i < done else i + 1}</div>{x}</div>' for i, x in enumerate(items))
-    return f'<div class="card rot">{rows}</div>'
+    done = len(items) if done is None else done
+    return "".join(f'<div class="row {"on" if i < done else ""}"><div class=t>{"&#10003;" if i < done else i + 1}</div>{x}</div>' for i, x in enumerate(items))
 
 
-def versus(cols):
-    c = "".join(f'<div class=c><h5>{a}</h5><p>{b}</p></div>' for a, b in cols)
-    return f'<div class="card rotl"><div class=vs>{c}</div></div>'
+def term(title, lines):
+    return f'<div class=win><div class=dots3><i></i><i></i><i></i></div><div style="font:800 22px PX;color:#FFC800;margin-bottom:8px">{title}</div><div class=mono>{chr(10).join(lines)}</div></div>'
 
 
-def bignum(big, sub, chips=(), size=190):
+def big(num, sub, chips=(), size=150):
     c = "".join(f'<span class=chip>{x}</span>' for x in chips)
-    return f'<div class="card rot" style="text-align:center"><div class=big style="font-size:{size}px">{big}</div><div class=bsub>{sub}</div><div style="margin-top:14px">{c}</div></div>'
-
-
-def tree(items):
-    rows = "\n".join(items)
-    return f'<div class="card win rotl"><div class=dots><i></i><i></i><i></i></div><div class=mono>{rows}</div></div>'
+    return f'<div class=card style="text-align:center"><div class=big style="font-size:{size}px">{num}</div><div class=bsub>{sub}</div><div style="margin-top:12px">{c}</div></div>'
 
 
 def meter(label, pct, chips):
     c = "".join(f'<span class=chip>{x}</span>' for x in chips)
-    return f'<div class="card rot"><div class=hd><span>{label}</span><span>{pct}%</span></div><div class=bar><i style="width:{pct}%"></i></div><div style="margin-top:12px">{c}</div></div>'
+    return f'<div class=card><div style="font:800 24px PX;display:flex;justify-content:space-between"><span>{label}</span><span>{pct}%</span></div><div class=bar><i style="width:{pct}%;background:#FFC800"></i></div><div>{c}</div></div>'
 
 
 def phone(title, rows, chips=()):
-    r = "".join(f'<div class=row>{x}</div>' for x in rows)
+    r = "".join(f'<div class=row style="margin-bottom:8px">{x}</div>' for x in rows)
     c = "".join(f'<span class=chip>{x}</span>' for x in chips)
-    return f'<div class="ph rot"><div class=hd><span>{title}</span></div>{r}<div>{c}</div></div>'
+    return f'<div class=ph><div style="font:800 24px PX;margin-bottom:8px">{title}</div>{r}<div>{c}</div></div>'
 
 
-ACC = ["#5BC8FF", "#B8F03C", "#FF8A3D", "#FF5CAA", "#3DFFB5", "#FFD23D", "#9B7BFF", "#FF5B5B", "#3DD6FF", "#C8FF3D"]
+def versus(cols):
+    c = "".join(f'<div class=c><h5>{a}</h5><p>{b}</p></div>' for a, b in cols)
+    return f'<div class=card><div class=vs>{c}</div></div>'
+
+
 P, L = "port", "land"
-# (video id, orientation, style, accent index, tag, (w1, w2, w3), visual html). IDs are checked against the channel list before upload.
+# (video id, orientation, theme, robot pose, robot side (l/r), tag, (line1, line2), picture html)
 VIDEOS = [
-    ("zfOBSjw3RA0", L, "dark", 0, "CLAUDE FEATURE 05", ("CLAUDE KO", "SAB YAAD", "HAI?"),
-     chat("Mera naam Rahul hai", "Hi Rahul! Yaad hai", [("ROLE", "student"), ("PROJECT", "thesis"), ("STYLE", "short answers")], "Generate memory", "DELETE &#10005;")),
-    ("E-yaXp_ZgMw", L, "color", 5, "CLAUDE CODE 03", ("AAPKA .CLAUDE", "FOLDER", "KYA HAI?"),
-     tree(['<span class=p>.claude/</span>', '  CLAUDE.md      <span class=ok>&#10003;</span>', '  settings.json  <span class=ok>&#10003;</span>', '  skills/        <span class=ok>&#10003;</span>', '  agents/        <span class=ok>&#10003;</span>'])),
-    ("nHhmmwqwMtw", L, "dark", 3, "AI NEWS", ("AAJ KI", "5 AI", "KHABREIN"),
-     bignum("5", "badi khabrein", ["Gemini 4", "Mistral", "Ollama", "ElevenLabs"])),
-    ("GpVCvYrwqd4", P, "dark", 4, "CLAUDE CODE HOOKS", ("FILE EDIT", "KE BAAD", "AUTO FORMAT"),
-     term("hook", ['<span class=p>&gt;</span> app.py edit hui', '<span class=dm>hook chala...</span>', 'app.py <span class=ok>formatted &#10003;</span>'])),
-    ("z9LEeI0YNKo", P, "color", 2, "CLAUDE CODE CHECKPOINTS", ("ESC ESC", "SE SAB", "UNDO"), bignum("Esc Esc", "ek jhatke me undo", ["Checkpoints"], 112)),
-    ("jQWCNgezK38", P, "light", 6, "CLAUDE CODE MEMORY", ("~CLAUDE.md", "KO SAB", "YAAD HAI"),
-     term("CLAUDE.md", ['# Project', '- tests: npm test', '- style: short answers', '<span class=ok>&#10003; har session me padha</span>'])),
-    ("yl0Cjc4E_1w", P, "dark", 1, "CLAUDE CODE SKILLS", ("EK BAAR", "LIKHO", "BAAR BAAR CHALAO"), steps(["Skill likho", "/skill-name likho", "Baar baar chalao"])),
-    ("XdC3f07GzXw", P, "color", 7, "CLAUDE CODE SUBAGENTS", ("BADA KAAM", "HELPER KO", "DO"),
-     steps(["Main Claude", "Helper 1: files dhundo", "Helper 2: test chalao"], 3)),
-    ("XjGT3YxVC3Q", P, "dark", 8, "CLAUDE CODE MCP", ("TOOLS SE", "SEEDHA", "CONNECT"),
-     term("mcp", ['<span class=p>$</span> claude mcp add ...', '<span class=ok>tool connected &#10003;</span>', 'ab Claude use kar sakta hai'])),
-    ("whEYixIMx0Q", P, "light", 9, "CLAUDE CODE TOOLS", ("KAUN POOCHTA", "KAUN", "NAHI?"),
-     versus([("READ", "bina pooche"), ("EDIT", "pooch ke"), ("BASH", "pooch ke")])),
-    ("s5jjwxwXVQg", P, "dark", 2, "PERMISSION MODES", ("SHIFT+TAB", "SE", "CONTROL"), steps(["Normal: pooche", "Auto-accept edits", "Plan mode"], 3)),
-    ("Xxp98DvODfk", P, "color", 0, "CLAUDE CODE WORKTREES", ("PARALLEL", "SESSIONS", "ALAG FOLDER"),
-     tree(['<span class=p>repo/</span>', '  worktree-a/  <span class=ok>session 1</span>', '  worktree-b/  <span class=ok>session 2</span>'])),
-    ("MG3qhsH0guE", P, "dark", 5, "CLAUDE CODE SESSIONS", ("RESUME", "NAAM AUR", "BRANCH"),
-     term("sessions", ['<span class=p>$</span> claude --resume', 'session: fix-login <span class=ok>&#10003;</span>', 'branch: fix/login'])),
-    ("dwekrfHuLXI", P, "light", 3, "CLAUDE CODE STATUS LINE", ("CONTEXT AUR", "COST", "DIKHAO"), meter("CONTEXT", 62, ["model", "cost", "branch"])),
-    ("ag6O1FR5Qqw", P, "dark", 6, "CLAUDE CODE", ("~claude -p", "SCRIPT ME", "CHALAO"),
-     term("script", ['<span class=p>$</span> claude -p "summary"', '<span class=ok>output &#8594; file &#10003;</span>'])),
-    ("uXhFF5o4Qz4", P, "color", 4, "CLAUDE CODE PLUGINS", ("EK UNIT ME", "SKILLS HOOKS", "MCP"),
-     tree(['<span class=p>my-plugin/</span>', '  skills/  <span class=ok>&#10003;</span>', '  hooks/   <span class=ok>&#10003;</span>', '  .mcp.json <span class=ok>&#10003;</span>'])),
-    ("vbCJlFz2TmU", P, "dark", 7, "CLAUDE CODE CONTEXT", ("COMPACT KE", "BAAD KYA", "BACHTA?"), meter("COMPACT", 28, ["summary", "CLAUDE.md", "files"])),
-    ("BHwc7iL1ujk", P, "light", 8, "CLAUDE CODE", ("CLAUDE CODE", "KYA HAI?", "5 JAGAH"), bignum("5", "jagah chalta hai", ["helper"])),
-    ("R5eSmgK_xrM", P, "dark", 1, "CLAUDE CODE QUICKSTART", ("4 STEPS", "ME", "SHURU"), steps(["Install", "Login", "Folder kholo", "Pehla prompt"], 4)),
-    ("9fmGXDSdZus", P, "color", 9, "CLAUDE CODE", ("3 PHASES", "MAGIC", "TRICK"), bignum("3", "phases", ["magic trick"])),
-    ("p2iHbx76Bzo", P, "dark", 3, "KAUNSA KAB?", ("~CLAUDE.md", "SKILL YA", "HOOK?"), versus([("CLAUDE.md", "hamesha"), ("SKILL", "jab chaho"), ("HOOK", "apne aap")])),
-    ("vve7vJpP04Y", P, "light", 0, "CLAUDE CODE LOGIN", ("LOGIN KAB", "KHATAM", "HOGA?"), bignum("&#8987;", "ab pata chalega", ["login"])),
-    ("DF-KEvEcHm4", P, "dark", 4, "CLAUDE CODE", ("BUG FIX", "3 SIMPLE", "STEPS"), steps(["Bug batao", "Fix karwao", "Test chalao"], 3)),
-    ("tMsznaDv0dU", P, "color", 5, "AI NEWS", ("IMAGE SE", "GIF", "BAN GAYA"), phone("ChatGPT", ["Image", "&#8595;", "GIF &#10003;"], ["naya feature"])),
-    ("ZLfCsEMZReI", P, "dark", 6, "CLAUDE FEATURE 01", ("CLAUDE", "PROJECTS", "STEP BY STEP"), steps(["Project banao", "Files jodo", "Instructions likho"], 3)),
-    ("UVgiYp0N6g0", P, "light", 2, "CLAUDE FEATURE 02", ("CHAT SE", "ARTIFACT", "BANAO"), chat2("Ek calculator banao", "Artifact ready &#10003;", ["Artifact", "chat se"])),
-    ("1t6XbC5RCMg", P, "dark", 8, "CLAUDE FEATURE 03", ("CLAUDE KHUD", "RESEARCH", "KARTA HAI"), steps(["Web search", "Sources check", "Report ready"], 3)),
-    ("B9f8_sC0elI", P, "color", 3, "AI NEWS", ("PAISE KA", "HISAAB", "CLAUDE SE"), phone("Kharcha", ["Food", "Rent"], ["category"])),
-    ("5eH-XqR6SQ0", P, "dark", 5, "CLAUDE CODE 02", ("/FAST", "2.5x", "TEZ"), bignum("2.5x", "/fast se tez", ["Opus"])),
-    ("lXYyyQmxVfg", P, "light", 1, "CLAUDE FEATURE 04", ("PDF AUR PHOTO", "UPLOAD", "KARO"), chat2("Is PDF me kya hai?", "Ye raha summary &#10003;", ["PDF", "PHOTO"])),
+    ("zfOBSjw3RA0", L, "cream", "think", "l", "CLAUDE FEATURE 05", ("Claude ko sab", "*yaad* hai?"), memory_flow()),
+    ("E-yaXp_ZgMw", L, "sky", "work", "r", "CLAUDE CODE 03", ("Aapke *.claude*", "folder me kya hai?"),
+     files([("CLAUDE.md", "#FFC800", "instructions"), ("settings.json", "#7CC6FF", "permissions"), ("skills/", "#8FE3A8", "reusable prompts"), ("agents/", "#FF9EC4", "helpers")])),
+    ("nHhmmwqwMtw", L, "pink", "wave", "l", "AI NEWS", ("Aaj ki *5 AI*", "khabrein"), big("5", "badi khabrein", ["Gemini 4", "Mistral", "Ollama", "ElevenLabs"], 120)),
+    ("GpVCvYrwqd4", P, "mint", "work", "r", "CLAUDE CODE HOOKS", ("File edit ke baad", "*auto format*"), term("hook", ['<span class=p>&gt;</span> app.py edit hui', '<span class=dm>hook chala...</span>', 'app.py <span class=ok>formatted &#10003;</span>'])),
+    ("z9LEeI0YNKo", P, "peach", "thumbs", "r", "CLAUDE CODE CHECKPOINTS", ("*Esc Esc* se", "sab undo"), big("Esc Esc", "ek jhatke me undo", ["Checkpoints"], 100)),
+    ("jQWCNgezK38", P, "lav", "think", "l", "CLAUDE CODE MEMORY", ("CLAUDE.md ko", "sab *yaad* hai"), term("CLAUDE.md", ['# Project', '- tests: npm test', '- style: short answers', '<span class=ok>&#10003; har session me padha</span>'])),
+    ("yl0Cjc4E_1w", P, "lime", "wave", "r", "CLAUDE CODE SKILLS", ("Ek baar likho,", "*baar baar* chalao"), steps(["Skill likho", "/skill-name likho", "Baar baar chalao"])),
+    ("XdC3f07GzXw", P, "pink", "work", "l", "CLAUDE CODE SUBAGENTS", ("Bada kaam", "*helper* ko do"), steps(["Main Claude", "Helper 1: files dhundo", "Helper 2: test chalao"])),
+    ("XjGT3YxVC3Q", P, "sky", "think", "r", "CLAUDE CODE MCP", ("Tools se", "*seedha* connect"), term("mcp", ['<span class=p>$</span> claude mcp add ...', '<span class=ok>tool connected &#10003;</span>', 'ab Claude use kar sakta hai'])),
+    ("whEYixIMx0Q", P, "cream", "stop", "l", "CLAUDE CODE TOOLS", ("Kaun poochta,", "*kaun nahi?*"), versus([("READ", "bina pooche"), ("EDIT", "pooch ke"), ("BASH", "pooch ke")])),
+    ("s5jjwxwXVQg", P, "mint", "wave", "r", "PERMISSION MODES", ("*Shift+Tab* se", "control"), steps(["Normal: pooche", "Auto-accept edits", "Plan mode"])),
+    ("Xxp98DvODfk", P, "lav", "work", "l", "CLAUDE CODE WORKTREES", ("*Parallel* sessions,", "alag folder"), term("worktrees", ['<span class=p>repo/</span>', '  worktree-a/  <span class=ok>session 1</span>', '  worktree-b/  <span class=ok>session 2</span>'])),
+    ("MG3qhsH0guE", P, "peach", "thumbs", "r", "CLAUDE CODE SESSIONS", ("*Resume*, naam", "aur branch"), term("sessions", ['<span class=p>$</span> claude --resume', 'session: fix-login <span class=ok>&#10003;</span>', 'branch: fix/login'])),
+    ("dwekrfHuLXI", P, "lime", "think", "l", "CLAUDE CODE STATUS LINE", ("*Context* aur cost", "hamesha dikhao"), meter("CONTEXT", 62, ["model", "cost", "branch"])),
+    ("ag6O1FR5Qqw", P, "sky", "work", "r", "CLAUDE CODE", ("*claude -p*", "script me chalao"), term("script", ['<span class=p>$</span> claude -p "summary"', '<span class=ok>output &#8594; file &#10003;</span>'])),
+    ("uXhFF5o4Qz4", P, "pink", "wave", "l", "CLAUDE CODE PLUGINS", ("Ek unit me", "*skills, hooks, MCP*"), term("my-plugin", ['<span class=p>my-plugin/</span>', '  skills/   <span class=ok>&#10003;</span>', '  hooks/    <span class=ok>&#10003;</span>', '  .mcp.json <span class=ok>&#10003;</span>'])),
+    ("vbCJlFz2TmU", P, "cream", "stop", "r", "CLAUDE CODE CONTEXT", ("*Compact* ke baad", "kya bachta hai?"), meter("COMPACT", 28, ["summary", "CLAUDE.md", "files"])),
+    ("BHwc7iL1ujk", P, "mint", "wave", "l", "CLAUDE CODE", ("Claude Code", "*kya hai?* 5 jagah"), big("5", "jagah chalta hai", ["helper"], 150)),
+    ("R5eSmgK_xrM", P, "lav", "thumbs", "r", "CLAUDE CODE QUICKSTART", ("*4 steps* me", "shuru karo"), steps(["Install", "Login", "Folder kholo", "Pehla prompt"])),
+    ("9fmGXDSdZus", P, "peach", "think", "l", "CLAUDE CODE", ("*3 phases*", "ka magic trick"), big("3", "phases", ["magic trick"], 170)),
+    ("p2iHbx76Bzo", P, "lime", "work", "r", "KAUNSA KAB?", ("CLAUDE.md,", "*Skill ya Hook?*"), versus([("CLAUDE.md", "hamesha"), ("SKILL", "jab chaho"), ("HOOK", "apne aap")])),
+    ("vve7vJpP04Y", P, "sky", "stop", "l", "CLAUDE CODE LOGIN", ("Login kab", "*khatam* hoga?"), big("&#8987;", "ab pata chalega", ["login"], 130)),
+    ("DF-KEvEcHm4", P, "mint", "work", "r", "CLAUDE CODE", ("Bug fix:", "*3 simple steps*"), steps(["Bug batao", "Fix karwao", "Test chalao"])),
+    ("tMsznaDv0dU", P, "pink", "wave", "l", "AI NEWS", ("Image se", "*GIF* ban gaya"), phone("ChatGPT", ["Image", "&#8595;", "GIF &#10003;"], ["naya feature"])),
+    ("ZLfCsEMZReI", P, "cream", "thumbs", "r", "CLAUDE FEATURE 01", ("Claude *Projects*", "step by step"), steps(["Project banao", "Files jodo", "Instructions likho"])),
+    ("UVgiYp0N6g0", P, "lav", "think", "l", "CLAUDE FEATURE 02", ("Chat se", "*Artifact* banao"), flow([("Aap bolte ho", '<div class=bub>Ek calculator banao</div>', "#fff"), ("Claude banata hai", '<div class=bub>Artifact ready &#10003;</div>', "#E8F7EC")])),
+    ("1t6XbC5RCMg", P, "peach", "work", "r", "CLAUDE FEATURE 03", ("Claude khud", "*research* karta hai"), steps(["Web search", "Sources check", "Report ready"])),
+    ("B9f8_sC0elI", P, "lime", "wave", "l", "AI NEWS", ("Paise ka *hisaab*", "Claude se"), phone("Kharcha", ["Food", "Rent"], ["category"])),
+    ("5eH-XqR6SQ0", P, "mint", "thumbs", "r", "CLAUDE CODE 02", ("Claude Code", "ab *2.5x* tez"), bars([("Normal", 40, "1x", "#9aa3b2"), ("/fast", 100, "2.5x", "#FFC800")])),
+    ("lXYyyQmxVfg", P, "sky", "think", "l", "CLAUDE FEATURE 04", ("PDF aur photo", "*upload* karo"), flow([("Aap upload karte ho", '<div class=bub>PDF + photo</div>', "#fff"), ("Claude jawab deta hai", '<div class=bub>Ye raha summary &#10003;</div>', "#E8F7EC")])),
 ]
-SIZES = {L: (1280, 720, 700, [(104, 84), (166, 122), (176, 168)]), P: (1080, 1920, 960, [(112, 100), (220, 200), (190, 170)])}
+
+HTML = """<style>%(css)s</style><body class="%(cls)s" style="--bg:%(bg)s;--blob:%(blob)s"><div class=dots></div>
+%(blob_html)s
+<div class=tag>%(tag)s</div>
+<div class=ttl style="%(ttl_style)s">%(ttl)s</div>
+<div class=vis style="%(vis_style)s">%(vis)s</div>
+<img class=robot src="%(robot)s" style="%(robot_style)s">
+<div class=brand>Dev<span>Robo</span>Lab</div>
+<script>
+const MAXW=%(maxw)d;
+function fit(){document.querySelectorAll('.ttl .l').forEach(el=>{let fs=parseInt(el.dataset.s);el.style.fontSize=fs+'px';let g=0;while(el.getBoundingClientRect().width>MAXW&&fs>24&&g<200){fs-=2;el.style.fontSize=fs+'px';g++}})}
+function fitvis(){const v=document.querySelector('.vis');if(!document.body.classList.contains('port'))return;let z=2.0,g=0;
+const place=()=>{v.style.zoom=z;v.style.left=(60/z)+'px';v.style.top=(555/z)+'px'};place();
+while((v.getBoundingClientRect().bottom>1210||v.getBoundingClientRect().right>1030)&&z>1.1&&g<60){z-=0.05;place();g++}}
+document.fonts.ready.then(()=>{fit();fitvis()});
+</script></body>"""
+
+MEASURE = """() => { const r = s => { const e = document.querySelector(s); if(!e) return null; const b = e.getBoundingClientRect(); return [b.left,b.top,b.right,b.bottom]; };
+  return {brand:r('.brand'), tag:r('.tag'), ttl:r('.ttl'), vis:r('.vis'), robot:r('img.robot'), W:innerWidth, H:innerHeight}; }"""
+
+
+def check(m):
+    """brand must not overlap anything; tag/title/picture/brand inside the frame (the robot may bleed at the bottom/side on purpose)"""
+    probs = []
+    b = m["brand"]
+    def hit(a, c, pad=6): return not (a[2] + pad <= c[0] or c[2] + pad <= a[0] or a[3] + pad <= c[1] or c[3] + pad <= a[1])
+    for k in ("tag", "ttl", "vis", "robot"):
+        if m[k] and hit(b, m[k]): probs.append(f"brand overlaps {k}")
+    for k in ("tag", "ttl", "vis", "brand"):
+        r = m[k]
+        if r and (r[0] < 0 or r[1] < 0 or r[2] > m["W"] + 1 or r[3] > m["H"] + 1): probs.append(f"{k} cut by the frame {[round(x) for x in r]}")
+    for a, c in (("tag", "ttl"), ("ttl", "vis"), ("tag", "vis")):
+        if m[a] and m[c] and hit(m[a], m[c], 0): probs.append(f"{a} overlaps {c}")
+    return probs
 
 
 def render(vid_list):
     from playwright.sync_api import sync_playwright
-    def b64(n): return "data:font/ttf;base64," + base64.b64encode((FONTS / n).read_bytes()).decode()
-    css = CSS % dict(px=b64("Poppins-ExtraBold.ttf"), pb=b64("Poppins-Bold.ttf"), pm=b64("Poppins-Medium.ttf"), mo=b64("IBMPlexMono-Bold.ttf"))
-    outs = []
+    def b64(p, mime): return f"data:{mime};base64," + base64.b64encode(Path(p).read_bytes()).decode()
+    css = (CSS.replace("@@PX@@", b64(FONTS / "Poppins-ExtraBold.ttf", "font/ttf")).replace("@@PB@@", b64(FONTS / "Poppins-Bold.ttf", "font/ttf"))
+           .replace("@@PM@@", b64(FONTS / "Poppins-Medium.ttf", "font/ttf")).replace("@@MO@@", b64(FONTS / "IBMPlexMono-Bold.ttf", "font/ttf")))
+    robots = {p: b64(MASCOT / f"{p}.png", "image/png") for p in ("think", "work", "wave", "thumbs", "stop")}
+    results = {}
     with sync_playwright() as p:
         b = p.chromium.launch()
-        for vid, ori, style, ai, tag, w, vis in VIDEOS:
+        for vid, ori, theme, pose, side, tag, lines, vis in VIDEOS:
             if vid_list and vid not in vid_list: continue
-            W, H, maxw, fs = SIZES[ori]
-            idx = 0 if ori == L else 1
-            words = "".join(f'<span class="wl w{i + 1}" data-s="{fs[i][0]}" style="font-size:{fs[i][0]}px{";text-transform:none" if x.startswith("~") else ""}">{x.lstrip("~")}</span>' for i, x in enumerate(w))
-            html = HTML % dict(css=css, cls="land" if ori == L else "port", style=style, ac=ACC[ai], tag=tag, words=words, vis=vis, maxw=maxw)
+            bg, blob = THEMES[theme]
+            if ori == L:
+                W, H, maxw, fs = 1280, 720, 560, 62
+                robot_style = ("left:14px;bottom:-14px;height:520px" if side == "l" else "right:14px;bottom:-14px;height:520px")
+                ttl_style = "left:430px;top:36px;" if side == "l" else "left:40px;top:100px;"
+                vw = int(re.match(r"<!--w(\d+)-->", vis).group(1)) if vis.startswith("<!--w") else 520
+                vis_style = f"left:430px;top:215px;width:{min(vw, 820)}px;" if side == "l" else f"left:40px;top:260px;width:{vw}px;"
+                blob_html = f'<div class=blob style="{"left:-120px" if side == "l" else "right:-120px"};top:140px;width:640px;height:640px"></div>'
+            else:
+                W, H, maxw, fs = 1080, 1920, 960, 104
+                robot_style = ("left:20px;bottom:30px;height:650px" if side == "l" else "right:20px;bottom:30px;height:650px")
+                ttl_style = ""; vis_style = ""
+                blob_html = f'<div class=blob style="{"left:-120px" if side == "l" else "right:-120px"};top:1180px;width:840px;height:840px"></div>'
+            ttl = "".join(f'<span class=l data-s="{fs}" style="font-size:{fs}px">{_mk(x)}</span>' for x in lines)
+            html = HTML % dict(css=css, cls="land" if ori == L else "port", bg=bg, blob=blob, blob_html=blob_html, tag=tag, ttl_style=ttl_style, ttl=ttl, vis_style=vis_style, vis=vis,
+                               robot=robots[pose], robot_style=robot_style, maxw=maxw)
             pg = b.new_page(viewport={"width": W, "height": H}, device_scale_factor=1)
             pg.set_content(html); pg.evaluate("document.fonts.ready"); pg.wait_for_timeout(500)
+            m = pg.evaluate(MEASURE); probs = check(m)
             out = OUT / f"{vid}_{'16x9' if ori == L else '9x16'}.png"
-            pg.screenshot(path=str(out)); pg.close(); outs.append(out)
+            failtxt = OUT / f"{vid}.FAIL.txt"
+            if probs:
+                failtxt.write_text("; ".join(probs), encoding="utf-8")
+                if out.exists(): out.unlink()
+                pg.screenshot(path=str(OUT / f"{vid}.failed.png")); print("FAIL", vid, probs)
+            else:
+                for f in (failtxt, OUT / f"{vid}.failed.png"):
+                    if f.exists(): f.unlink()
+                pg.screenshot(path=str(out)); print("ok  ", vid)
+            results[vid] = probs; pg.close()
         b.close()
-    return outs
+    return results
 
 
 if __name__ == "__main__":
-    o = render(sys.argv[1:])
-    print(len(o), "thumbnails ->", OUT)
+    r = render(sys.argv[1:])
+    bad = [k for k, v in r.items() if v]
+    print(len(r) - len(bad), "ok,", len(bad), "FAIL", bad)
