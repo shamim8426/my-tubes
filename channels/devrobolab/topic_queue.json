@@ -37,11 +37,12 @@
     "title": "Explore the .claude directory",
     "url": "https://code.claude.com/docs/en/claude-directory.md",
     "summary": "Where Claude Code reads CLAUDE.md, settings.json, hooks, skills, commands, subagents, workflows, rules, and auto memory. Explore the .claude directory in your project and ~/.claude in your home directory.",
-    "status": "built",
+    "status": "uploaded",
     "story": "046_cc-claude-directory",
     "audience": "B",
     "series": "claude-code-features",
-    "series_index": 3
+    "series_index": 3,
+    "video_id": "E-yaXp_ZgMw"
   },
   {
     "id": "context-window",
