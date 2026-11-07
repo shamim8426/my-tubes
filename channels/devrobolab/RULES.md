@@ -11,6 +11,7 @@ Only the rules special to this channel. Read `shared/RULES.md` first; everything
 - No claims about prices, limits or availability unless the page states them; say "docs ke hisaab se" when unsure.
 
 ## Look (STYLE_GUIDE.md v2 is binding)
+- NEWEST, overrides older look rules for FEATURE-EXPLAINER Shorts (user 2026-11-07): STYLE_GUIDE.md section "v7 FORMAT" (explain inside a dark Claude UI demo like Claude Feature 01/02, device photos whose screens play the demo, source document shown once and small, no swipe sounds). Reference build: stories/041_cfe-research/make_v10.py.
 - White background, black + yellow text, robot mascot, conversational Hinglish (Roman script), Funkorama music (Kevin MacLeod, CC BY 4.0).
 - First 6-7 s = picture story (scene type `stage`), never plain text. Every video adds at least one new enhancement; layouts differ from the previous video.
 - Music credit line in every description: "Music: Funkorama by Kevin MacLeod (incompetech.com), CC BY 4.0".
