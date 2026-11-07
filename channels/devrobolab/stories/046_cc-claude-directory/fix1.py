@@ -1,0 +1,11 @@
+﻿m = open("mid.py", encoding="utf-8").read()
+m = m.replace('KB = {"hook_a": 1.2, "hook_b": 1.3, "what_a": 1.15, "what_b": 1.15, "two_a": 1.25, "demo": 1.12, "choose": 1.2, "extras": 1.12, "mine_a": 1.2, "mine_b": 1.25,\n      "data_a": 1.2, "data_b": 1.25,',
+              'KB = {"hook_a": 1.0, "hook_b": 1.2, "what_a": 1.12, "what_b": 1.12, "two_a": 1.2, "demo": 1.08, "choose": 1.2, "extras": 1.12, "mine_a": 1.1, "mine_b": 1.25,\n      "data_a": 1.05, "data_b": 1.2,')
+m = m.replace('500, 190, 1.0, fade(t, o, 0.25))\n    enter(base, photo("team"', '500, 235, 1.0, fade(t, o, 0.25))\n    enter(base, photo("team"').replace('500, 190, 1.0, fade(t, o, 0.25))\n    enter(base, photo("home", 700, 380', '500, 235, 1.0, fade(t, o, 0.25))\n    enter(base, photo("home", 700, 380')
+m = m.replace('("CLAUDE.md", ["instructions for Claude", "loaded every session"], T("two", 12), 520, SKY, T("two", 17))', '("CLAUDE.md", ["instructions for Claude", "loaded every session"], 0.6, 520, SKY, T("two", 17))')
+m = m.replace('("settings.json", ["permissions  -  hooks", "env variables  -  model"], T("two", 29), 1400, AMB, T("two", 31))', '("settings.json", ["permissions  -  hooks", "env variables  -  model"], 0.9, 1400, AMB, T("two", 31))')
+m = m.replace('enter(base, fcard(name, "", col, 600, 360, 50), x, 520, t, ta - 0.3, side=0)', 'enter(base, fcard(name, "", col, 600, 360, 50), x, 520, t, o + ta - 0.3, side=0)').replace('        enter(base, spr, x, 520, t, ta - 0.3)\n    if t < T("two", 12) - 0.3:', '        enter(base, spr, x, 520, t, o + ta - 0.3)\n    if False:')
+open("mid.py", "w", encoding="utf-8").write(m)
+a = open("asm.py", encoding="utf-8").read()
+a = a.replace('src = head + "\\n" + mid', 'old_b = \'place(base, pill(c[1].upper(), 26, (20, 24, 34), WHITE, pad=(18, 6), outline=OUT, kind="p"), 86 + 36 + 100, 70, absolute=True)\'\nassert old_b in head\nhead = head.replace(old_b, \'_pb = pill(c[1].upper(), 26, (20, 24, 34), WHITE, pad=(18, 6), outline=OUT, kind="p"); place(base, _pb, 86 + 36 + _pb.width / 2 + 2, 70, absolute=True)\')\nsrc = head + "\\n" + mid')
+open("asm.py", "w", encoding="utf-8").write(a)

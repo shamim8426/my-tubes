@@ -1,0 +1,54 @@
+{
+ "tag": "Claude Code 03",
+ "music": {
+  "file": "shared/music/presentation/Funkorama.mp3",
+  "start": 6,
+  "rel": 12
+ },
+ "voice": {
+  "id": "Charon",
+  "style": "Speak like a friendly Indian tech YouTuber chatting casually in Hinglish. Natural conversational pace, warm and clear, a little energetic but not theatrical. No sing-song, no exaggerated emphasis."
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "voice": "सोचो, आपने Claude Code को एक बार बताया कि हमेशा tests चलाओ, और अगली बार वो फिर पूछ रहा है। ऐसी बातें आखिर कहाँ लिखते हैं? जवाब है, .claude folder। आज के video में देखेंगे कि इसमें कौन सी files होती हैं, कौन सी आपको सच में बदलनी हैं, और किन बातों का ध्यान रखना है।"
+  },
+  {
+   "id": "what",
+   "voice": "Claude Code अपनी instructions, settings, skills, subagents और memory दो जगह से पढ़ता है। पहली जगह, आपके project का .claude folder। इसे आप git में commit करते हो, तो पूरी team को वही मिलता है। दूसरी जगह, आपके home folder का .claude। ये आपकी पर्सनल configuration है, और आपके सारे projects पर लागू होती है। Windows पर इसका मतलब है, USERPROFILE के अंदर .claude folder।"
+  },
+  {
+   "id": "two",
+   "voice": "अच्छी बात ये है कि ज़्यादातर लोग सिर्फ दो files बदलते हैं। CLAUDE.md, जिसमें Claude के लिए instructions होती हैं और जो हर session में load होती है। और settings.json, जिसमें permissions, hooks, environment variables और model के defaults आते हैं। बाकी folder optional है, ज़रूरत पड़े तब जोड़ो।"
+  },
+  {
+   "id": "demo",
+   "voice": "अब terminal में देखते हैं। project में जाकर ls .claude चलाओ, तो settings.json, rules, skills और agents जैसे नाम दिखेंगे। फिर settings.json खोलो, तो उसमें permissions की list मिलेगी, जैसे npm test को allow करना। फिर CLAUDE.md खोलो, और सादी भाषा में लिखो कि tests किस command से चलते हैं। बस, अगले session से Claude ये पढ़ लेगा।"
+  },
+  {
+   "id": "choose",
+   "voice": "अब सवाल, कौन सी बात किस file में जाए? Claude को project का context और नियम देने हों, तो CLAUDE.md। किसी tool call को allow या block करना हो, या hooks और environment variables चाहिए, तो settings.json। team के साथ MCP servers share करने हों, तो .mcp.json। और अपनी निजी settings git से बाहर रखनी हों, तो settings.local.json।"
+  },
+  {
+   "id": "extras",
+   "voice": "कुछ और चीज़ें भी optional हैं। skills folder में हर skill की अपनी SKILL.md होती है, जिसे आप slash और नाम से चलाते हो। agents folder में subagents की files होती हैं, हर एक का अपना prompt और tools। rules folder में topic के हिसाब से instructions रहती हैं, जिन्हें चाहो तो कुछ paths तक सीमित कर सकते हो। और output-styles से Claude के जवाब का अंदाज़ बदलता है।"
+  },
+  {
+   "id": "mine",
+   "voice": "अपनी निजी preferences के लिए CLAUDE.local.md बना सकते हो। इसे खुद बनाना पड़ता है, और gitignore में डालना आपका काम है। अगर आपके repo में पहले से AGENTS.md है, तो Claude Code उसे CLAUDE.md की जगह पढ़ सकता है। और याद रखो, organization की managed settings आपकी files से ऊपर रहती हैं।"
+  },
+  {
+   "id": "data",
+   "voice": "अब एक ज़रूरी चेतावनी। .claude folder में Claude Code काम करते हुए data भी लिखता है, जैसे transcripts और prompt history। ये सब plain text में होता है, encrypted नहीं। अगर कोई tool आपकी env file पढ़े, तो उसकी value भी transcript में चली जाती है। ये transcripts by default तीस दिन बाद अपने आप हट जाते हैं, और cleanupPeriodDays से आप ये बदल सकते हो।"
+  },
+  {
+   "id": "purge",
+   "voice": "सफाई करनी हो तो claude purge चलाओ, पहले dry-run के साथ, ताकि पहले plan दिख जाए कि क्या हटेगा। इससे उस project के transcripts और memory हटते हैं। लेकिन claude.json, settings.json और plugins folder कभी delete मत करना, क्योंकि उनमें आपका account, preferences और plugins हैं।"
+  },
+  {
+   "id": "cta",
+   "voice": "तो तीन बातें याद रखो। एक, project का .claude team के लिए, और home का .claude सिर्फ आपके लिए। दो, ज़्यादातर काम CLAUDE.md और settings.json से हो जाता है। तीन, transcripts plain text हैं, इसलिए secrets से सावधान। काम की लगी? दोस्त को भेजो, और comment में DIRECTORY लिखो। DevRoboLab को follow करना मत भूलना।"
+  }
+ ]
+}
