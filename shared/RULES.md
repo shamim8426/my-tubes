@@ -222,3 +222,6 @@ are not affected.
   roop me dikhaye gaye hain." A fictional story on such a channel says "काल्पनिक कहानी" clearly in the title or opening.
 - YouTube look-ups for saturation: `tools/yt_read.py` (read-only, max 10 searches per day); real photos are never used as
   image references.
+
+## 17. Style library (user 2026-11-07, ALL channels)
+- Every learning from a video (style, edit, graphic, motion, sound, process) goes into `shared/STYLE_LIBRARY.md` (common file, read before building any video); reusable code/reference builds in `shared/style_library/`. Channel-specific looks link to it. Copyright limits (sections 10, 12) always win.

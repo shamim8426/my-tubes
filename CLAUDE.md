@@ -118,6 +118,9 @@ econcile_balance.py <AI Studio balance ₹>` (pehli baar checkpoint), Long 03 ke
 
 - Image style: story 008 se **cut-out** (`image_style: cutout_v3`): kirdaar = `characters/<id>/<id>_<pose>.png` hu-ba-hu, background-only image (free pehle) par `tools/compose_scene.py` (story ka `cutout_scenes.json`) se; AI kirdaar KABHI nahi banata (gen_scenes / painted.py rok dete hain). Stories 005-007: **Jugnu Painted** (`channels/jugnu-stories/brand/STYLE_PAINTED.md`; channel.json `image_style`). `gen_scenes.py` style block + `characters/<naam>/sheet_painted.png` refs apne aap lagata hai (nayi painted sheet ~₹6, story budget se). Kisi studio/film/anime/artist ka naam KAHIN nahi (RULES 12a); `tools/name_guard.py` prompts aur upload metadata check karta hai (naam mila = BLOCK).
 
+## Style library (user 2026-11-07, SAB channels)
+- Video ki har learning (style, edit, graphics, motion, sound, process) common file `shared/STYLE_LIBRARY.md` me likho (shared/RULES.md 17); koi bhi video banane se pehle use padho. Reusable code `shared/style_library/` me.
+
 ## Study download (shared/RULES.md 12c)
 - Jab user link de kar kahe "isse seekho". yt-dlp bina login/cookies, sirf `study/` (git-ignored, kabhi sync nahi); koi bhi
   resolution, frames + Whisper (transcript sirf `study/` me, temporary). Analysis ke baad (max 24 h) sab mitao, log.md +
