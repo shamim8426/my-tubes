@@ -1,0 +1,33 @@
+{
+  "channel_key": "reality-check",
+  "display_name": "Reality Check - Asli",
+  "title_suffix": "| Reality Check - Asli",
+  "brand_label": "Reality Check - Asli",
+  "handle": "@RealityCheck-Asli",
+  "former_names": [
+    "जुगनू स्टोरीज़ | Jugnu Stories (key jugnu-stories, paused 2026-11-07)",
+    "दादी की कहानियाँ (Dadi Ki Kahaniyan)",
+    "दादी जासूस",
+    "किस्सागो | Kissago"
+  ],
+  "channel_id": "UCy071_4g4vGemktFHybqkhQ",
+  "_channel_id_note": "SAME YouTube channel as jugnu-stories (user renamed it in Studio, 2026-11-07). The ID is kept on purpose; the uploader's channel-ID check stays on. Old 11 Jugnu videos: user sets them private in Studio, never deleted.",
+  "secrets_dir": "secrets/reality-check",
+  "_secrets_note": "This channel's own OAuth client_secret.json + token.json (gitignored). Login ONCE (user, browser): python tools/yt_auth.py reality-check - sign in with the account that owns this channel. yt_auth refuses a secrets_dir that is not secrets/<channel_key>, so Jugnu's token is not shared.",
+  "made_for_kids": false,
+  "contains_synthetic_media": true,
+  "category_id": "27",
+  "default_language": "hi",
+  "publish_times_ist": {
+    "long": "19:00",
+    "short": "20:00"
+  },
+  "short_after_long_min": 60,
+  "api_audited": false,
+  "_publish_note": "shared/RULES.md section 8 (2026-10-21): decided right after the upload from the IST clock. Long: 19:00-23:59 -> public now, 00:00-18:59 -> 19:00 same day; one long per day (else next free day). Short of a long: long + 60 min (19:00 -> 20:00; after 23:59 -> public now). api_audited false -> upload private + STUDIO ACTION message; true -> tools/youtube_upload.py sets public/publishAt itself.",
+  "playlists": {},
+  "long_target_minutes": [18, 20],
+  "short_max_seconds": 40,
+  "youtube_title": "Reality Check - Asli",
+  "_format_note": "User 2026-11-07: movies are only a RESEARCH starting point (which science idea/question people love), never the video format. Videos are original, source-backed explainers (Hinglish, 18-20 min Long + Shorts). Start with science; widen to other topics after ~10-15 videos. See channel_bible.md."
+}

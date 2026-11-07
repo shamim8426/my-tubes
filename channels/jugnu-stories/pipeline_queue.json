@@ -1,5 +1,6 @@
 {
   "_help": "Stage tracker (shared/RULES.md section 14, only checkpoint = script approval). Stages: script_approved -> assets -> images -> tts -> preview -> final -> uploaded -> short_uploaded -> done; or stopped/vetoed (reason in 'stopped').",
+  "paused": "2026-11-07 (user): channel paused, no new stage starts. Story 006 stays on hold. YouTube channel is now Reality Check - Asli (channels/reality-check).",
   "stories": {
     "003_mitthu-ne-sab-bata-diya": {
       "video": "long",

@@ -28,7 +28,13 @@ User sirf "resume karo" likhe to yahi karo: pehle sirf padho, kuch mat badlo, ko
      (agent `nigraan-jugnu` / `nigraan-noor`, data `tools/yt_analytics.py <key> fetch`, read-only, ₹0).
 3. Phir user ke agle kaam ka intezaar, ya jo kaam pipeline_queue/log me adhoora ho uska agla kadam batao.
 
-## Jugnu Stories (channel key: jugnu-stories; pehle "दादी की कहानियाँ")
+## Reality Check - Asli (channel key: reality-check, handle @RealityCheck-Asli; user 2026-11-07)
+- Wahi YouTube channel (channel_id same) jo pehle Jugnu Stories tha. Hinglish science explainers (baad me aur topics), Long 18-20 min + Shorts, bina chehre ke. Movies sirf research ka sanket hain (kaun sa science idea logon ko khinchta hai), video ka format "movie vs reality" NAHI, aur koi movie clip/poster/dialogue/music nahi.
+- Kuch bhi karne se pehle padho: `channels/reality-check/channel_bible.md`, `RULES.md` (har tathya `[F#]` + 2+ sources, Munshi FACT CHECK), `channel_brief.md`. Topic: Khoji scout -> dossier -> Kalam REAL STORY MODE style script. Khula: per-video kharcha cap (Jugnu ka Rs120 yahan kam hai; tab tak sirf free sources, koi paid call nahi), awaaz/look.
+- Upload tab tak nahi jab tak user `python tools/yt_auth.py reality-check` se ek baar login na kare (apna secrets/reality-check; Jugnu ka token share nahi hota).
+
+## Jugnu Stories (channel key: jugnu-stories; pehle "दादी की कहानियाँ") — PAUSED 2026-11-07 (user)
+- Koi naya Jugnu video/stage nahi (channel.json `paused: true`, pipeline_queue note). Kuch delete nahi; ye YouTube channel ab Reality Check - Asli hai. Neeche ke Jugnu niyam sirf purane kaam/resume ke liye.
 Title suffix aur thumbnail label `channels/jugnu-stories/channel.json` (`title_suffix`, `brand_label`) se lo.
 Har script, case file aur image prompt se pehle [channels/jugnu-stories/channel_bible.md](channels/jugnu-stories/channel_bible.md) padho aur uske rules exactly follow karo:
 - Permanent characters ka look kabhi mat badlo — bible ke exact descriptions use karo.

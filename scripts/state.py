@@ -21,7 +21,7 @@ ROOT = Path(__file__).resolve().parent.parent
 STATE = ROOT / "shared" / "state"
 STATUS = ROOT / "shared" / "status.md"
 INCIDENTS = ROOT / "shared" / "incidents.md"
-CHANNELS = ["jugnu-stories", "noor-e-raah"]
+CHANNELS = ["jugnu-stories", "noor-e-raah", "reality-check"]
 PAID = {"sheets", "images", "tts", "thumbnail"}  # stages that may spend money (Gemini)
 LIMIT_MIN = {"sheets": 30, "images": 60, "tts": 60, "music_sfx": 15, "shots": 15, "edit": 20, "build_long": 60, "build_short": 30,
              "thumbnail": 15, "upload": 30, "comments": 10, "sync": 10, "status": 10}
