@@ -4,6 +4,32 @@
 
 Code that is shared lives in `scripts/` and `tools/`; ready-to-copy reference builds live in `shared/style_library/`.
 
+## 0. APPROVED FRAMEWORK (user 2026-11-07, after AI news Short 042 v11 was approved: "ye format aage rahega") - master summary for ALL channels, Shorts and long videos
+**The FORMAT stays the same in every video; the STYLE changes a little each time** (so the videos do not all look the same).
+
+**0.1 The format (do not change).** Reference builds: `stories/042_news-personal-finance/make_v11.py` (news), `stories/041_cfe-research/make_v10.py` (Claude app feature). Every scene = what is said is SHOWN, with motion, in 1-4 clean boxes/cards: (a) a real-looking photo card with slow Ken Burns + claim chips; (b) a phone / laptop whose SCREEN plays the spoken fact or demo; (c) fact chips popping on their words (THIS WEEK, BETA, US ONLY, PRO / MAX / ULTRA); (d) ONE continuous dark app/terminal demo with cursor, click punch-in and STEP banners; (e) one small paper note with the live marker (key line only); (f) a number card / usage meter when a number matters; (g) robot CTA. Calm editing, cards <= 960 px wide, nothing oversized or overlapping, captions = one chip at a time, voice + the existing music only, no whoosh/swipe sounds.
+
+**0.2 What must change from video to video (pick 2-3 each time, log them in log.md as `style variants:`; never repeat the previous video's combination).**
+- Background: cream / light grey / pale blue glow / dark; position of the glow.
+- Card shape: plain rounded, slightly tilted, polaroid with white border, card with tape corners, split screen 9:16 (top 45 % proof, bottom robot/photo; Badar Munir study, section 8).
+- Chip style: black-on-yellow, white-on-black, outline only, orange (app theme), one accent colour per video; chip corner radius.
+- Motion: photo zoom direction and pan, card entry (slide from left / right / below / scale pop), parallax on a phone or a person (`tools/parallax.py` depth motion), floating/bobbing device, slow rotation of a phone, hand/finger tap.
+- Transitions: hard cut, 6-frame slide, soft cross-dissolve; at most one special per video.
+- Layout order of the scenes (hook as claim / hook as demo / hook as number), different comparison or number card.
+- Intro/outro: opening line shape and the CTA.
+
+**0.3 Last line (CTA / tagline) ALWAYS rotates.** Never the same wording as the previous three videos of the channel; write which one was used in log.md (`cta: <text>`). Keep the keyword mechanic (`Comment: <KEYWORD>`) but vary the sentence, e.g. "Aisi AI news roz chahiye? Follow karo, aur comment me NEWS likho." / "Kaam ki lagi? Dost ko bhejo, aur NEWS comment karo." / "Agla update miss na ho, follow karo." / "Link chahiye? Comment me NEWS." / "Save kar lo, kaam aayega." / "Aapko kya aur samajhna hai? Comment me batao." The robot pose and the CTA card layout also change a little.
+
+**0.4 Per series (what the format means there).**
+- AI NEWS Short: facts shown through REAL things: the company logo only if its press page allows it (small, unmodified; needs a row in `shared/assets_license.csv`), a phone/device whose screen shows the written fact, how it works as written or visual steps, photo cards of people/objects with motion. Optional split screen. No third-party news footage (RULES 10).
+- CLAUDE FOR EVERYONE (app features): dark Claude app demo like Claude Feature 01/02 (where the feature lives, how to navigate: cursor, clicks, STEP banners). Anything said that is NOT on the Claude screen = extra visual (photo card, AI motion image, chips, small HTML) in the same format. Playlist PLEklr-qY9V3U, title "Claude Feature NN: ...".
+- CLAUDE CODE (SHORT ONLY, no long): terminal demo = dark terminal window with typed commands, output lines, permission chips, same cursor/step framework (`walk_*` ideas applied to a terminal; build the terminal window like `walk_win`). Anything said outside the terminal = photo cards / AI motion images / chips in the same format. Playlist PLGTgifZfJLow.
+- Motion in the background: phones tilt/float/parallax, people shown with slow Ken Burns or depth parallax; a spoken thing about a person or a device is always shown moving.
+
+**0.5 Long videos and other channels.** Same framework, longer: chapter title cards, one calm 15-25 s demo take with cursor + zoom (not cut every 3 s), BEFORE/AFTER side by side, numbered cards, a number card early, a formula/recap card at the end, split screen or presenter box if the channel has a presenter (faceless channels: mascot). Cut rhythm: Shorts a new picture every 1.5-3 s; long about 5 s average with demos allowed to run. Each channel keeps its own brand colours, mascot, fonts and music (`channels/<key>/brand/`); the framework and the variation rule are common. Study learnings (section 8) are principles only; never copy another creator's frames, words, audio or titles (RULES 10, 12, 12c).
+
+**0.6 Checklist before a render:** every spoken thing has a visual in the same second; 2-3 style variants chosen and different from the last video; CTA wording new; nothing wider than 960 px, nothing overlapping the caption; no extra sounds; stills contact sheet checked; then render, upload private, log (`style variants:` and `cta:`).
+
 ## 1. Showing a source document (articles, docs pages)
 - NEVER show the whole page, never repeat the same page card. User: "har baar sara document dikhana zaroori nahi, bas kabhi bahut important point dikhao."
 - Show only ONE crop of the key block, small, on a taped paper note (or inside a phone / TV news frame): `scripts/dev_v6.py` (phone, paper, tv frames); the screenshot comes from `stories/<n>/shots.py` (own Playwright capture; also saves `raw/article_plain.png` without marks + per-line rects `lines` in `raw/rects.json`).
@@ -41,7 +67,7 @@ Code that is shared lives in `scripts/` and `tools/`; ready-to-copy reference bu
 
 ## 7. Index of builds that use these ideas
 - `stories/041_cfe-research/make_v10.py` (Claude Feature 03): photos + playing screens + dark walkthrough + live marker note.
-- `stories/042_news-personal-finance/make.py` + `scripts/dev_v6.py`: AI news Short with device / paper / TV crops (v6; not yet moved to v7).
+- `stories/042_news-personal-finance/make_v11.py`: AI news Short in the approved framework (section 0): phone with the spoken fact, chips, dark Claude demo, bank photo + note, robot CTA. (`make.py` + `scripts/dev_v6.py` = old v6 device/paper/TV crops.)
 - `stories/039_cfe02-demo`, `stories/040_cfe03-artifacts`: the original dark UI walkthroughs (HTML based).
 
 ## 8. Study: "Badar Munir" style (RULES 12c, 2026-11-07; principles only, nothing copied)

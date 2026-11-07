@@ -149,3 +149,5 @@ Reference build: stories/041_cfe-research/make_v10.py (Claude Feature 03, Resear
 4. Motion everywhere: slow Ken Burns zoom on photos, click punch-in, cards slide in with overshoot, typing and rows fast (about 0.5 s). Editing stays calm: hard cuts, no whoosh / swipe sounds (voice + music only).
 5. Styles worth reusing from other builds: kinetic captions (current chunk only, key word yellow), big-number card, STEP banner chips, stamped paper note, usage meter, robot wave CTA.
 6. Each feature Short ends with the usual CTA (robot + COMMENT / KEYWORD / FOR LINK). Fact-check against the official page first; say 'page me nahi likha' if unknown.
+
+## APPROVED FRAMEWORK (user 2026-11-07): see shared/STYLE_LIBRARY.md section 0. News Shorts follow stories/042_news-personal-finance/make_v11.py; the format stays, 2-3 style variants and the CTA wording change every video (log `style variants:` and `cta:` in log.md).
