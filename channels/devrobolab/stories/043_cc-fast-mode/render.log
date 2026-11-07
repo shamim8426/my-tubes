@@ -1,0 +1,9 @@
+total 37.0s; beats: [('p', 'hook', 0.0, 5.3), ('p', 'what', 5.3, 10.7), ('p', 'how', 10.7, 19.5), ('p', 'caution', 19.5, 27.2), ('p', 'tip', 27.2, 32.3), ('cta', None, 32.3, 38.0)]
+  frame 0/1108
+  frame 150/1108
+  frame 300/1108
+  frame 450/1108
+  frame 600/1108
+  frame 750/1108
+  frame 900/1108
+  frame 1050/1108

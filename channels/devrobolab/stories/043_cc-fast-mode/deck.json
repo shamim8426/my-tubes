@@ -1,0 +1,38 @@
+{
+ "tag": "Claude Code 02",
+ "music": {
+  "file": "shared/music/presentation/Funkorama.mp3",
+  "start": 6,
+  "rel": 12
+ },
+ "voice": {
+  "id": "Charon",
+  "style": "Speak like a friendly Indian tech YouTuber chatting casually in Hinglish. Natural conversational pace, warm and clear, a little energetic but not theatrical. No sing-song, no exaggerated emphasis."
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "voice": "Claude Code को ढाई गुना तक तेज़ करना है? बस एक command, slash fast।"
+  },
+  {
+   "id": "what",
+   "voice": "ये Fast mode है। Model वही Opus रहता है, quality भी same, बस जवाब तेज़ आते हैं।"
+  },
+  {
+   "id": "how",
+   "voice": "Terminal में slash fast लिखो, Space दबाओ, फिर Enter। स्क्रीन पर Fast mode ON दिखेगा, और prompt के पास एक छोटा आइकन।"
+  },
+  {
+   "id": "caution",
+   "voice": "ध्यान रखो! ये सिर्फ Opus पर चलता है, और हर token का दाम ज़्यादा है। Subscription में ये usage credits से कटता है।"
+  },
+  {
+   "id": "tip",
+   "voice": "इसलिए session की शुरुआत में चालू करो, और खर्चा ज़्यादा लगे तो फिर slash fast से बंद कर दो।"
+  },
+  {
+   "id": "cta",
+   "voice": "ऐसे Claude Code tips चाहिए? Follow करो, और comment में FAST लिखो।"
+  }
+ ]
+}
