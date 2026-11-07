@@ -37,3 +37,9 @@
 - Method: ffmpeg scene-detect (cut counts) + contact sheets. No transcript.
 - Learnt: STYLE_LIBRARY section 8 (cut rhythm, split-screen Short layout, small 1-3 word captions, box layouts, hard cuts + zoom-in). Principles only.
 - Status: study files deleted on 2026-11-07.
+
+## 2026-11-07 - Long-video presentation study (RULES 12c)
+- Videos (channel Make First Million - Badar Munir): https://www.youtube.com/watch?v=XQbkr-drXvg (user's link), 1wT7qk7i6W8, cYNWpD55b4g, EritYvkqSLo, ahABYLGdxKg. Downloaded with tools/yt-dlp.exe, no cookies, 720p, into study/ (git-ignored).
+- Method: ffmpeg scene detect (cuts per video) + 25-frame contact sheets. No transcript.
+- Learnt: STYLE_LIBRARY section 10 (presentation types, sketch vs dark-neon themes, long demo scenes, caption layers, big-number cards, chapter badge, end card). Principles only.
+- Status: study files deleted on 2026-11-07.
