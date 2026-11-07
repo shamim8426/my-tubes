@@ -9,10 +9,13 @@ Project: D:\my-tubes (Windows). Python: D:\my-tubes\.venv\Scripts\python.exe -X 
 - Read: CLAUDE.md, channels/devrobolab/PLAN_DAILY.md (formats, slots, rules), DAILY_COMMON.md (voice, budget, real assets, upload, logging), shared/STYLE_LIBRARY.md sections 0, 9, 10 (look), channels/devrobolab/log.md last 30 lines, topic_queue.json.
 
 
-## 0a. WORK WINDOW (user 2026-11-07, binding): NO daytime work
-Work only in the morning (06:00-10:30 start) and at night (start 20:00-02:00), local time. If a task starts between 10:30 and 20:00 (the PC/app was off at the slot and opened late), do NOTHING: exit at once with the report "din ka time, kaam raat ko (retry 21:00 / 22:00)". Never start a new video after 02:00.
-Retry rule: if a slot was missed because the PC was not available, it is retried at 21:00 and, if still missing, at 22:00 by the task `devrobolab-retry-night` (it only does slots that have no upload today, one at a time, and exits if another DevRoboLab run is still running). After 22:00 the slot is skipped for today (no extra retries); the next day continues normally.
-Dates: a run that finishes after midnight counts for the day it started.
+## 0a. WORK WINDOW (user 2026-11-07, binding): NO daytime work, morning work done by 09:00
+- Morning: everything must be FINISHED (uploaded) by 09:00 local time, nothing runs after 09:00 until night. Morning start window 05:00-07:00 only (news Short about 05:30, Claude for Everyone long about 06:30). A long that starts after 06:45 cannot finish by 09:00: do nothing, report "subah ka time nikal gaya, raat ko retry". Check the clock at the build stage: if the video cannot be uploaded by 09:00, STOP, do not upload a half-checked video, keep the files and report (the night retry does it).
+- Night: start 20:00-23:00 only, and never start a new video after 23:00.
+- If a task starts between 07:00 and 20:00 (the PC/app was off at the slot and opened late), do NOTHING: exit at once with the report "din ka time, kaam raat ko (retry 21:00 / 22:00)".
+- Retry rule: a slot missed because the PC was not available is retried at 21:00 and, if still missing, at 22:00 by the task `devrobolab-retry-night` (only slots with no upload today, one at a time; exits if another DevRoboLab run is still running). After 22:00 the slot is skipped for today; the next day continues normally.
+- A run that finishes after midnight counts for the day it started.
+- Money: each run Rs 15 at most, never below the Rs 50 floor (unchanged).
 
 ## 1. Make the video (own new story folder `channels/devrobolab/stories/<next free number>_<slug>/`)
 1. Topic: as the slot task says. Facts ONLY from the official page(s) (WebFetch); write `review/facts.md` (each fact + URL). Third-party things (e.g. a Zomato connector) are labelled as third-party/example on screen, never a real order, account or payment.
