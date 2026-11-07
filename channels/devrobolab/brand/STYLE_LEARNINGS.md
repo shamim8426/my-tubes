@@ -66,3 +66,6 @@ Our system: scenes statement/chips/flow/docs/code/list/compare/hub/cta/stage; st
 - The brand name is spoken and shown at the same moment; one brand mark on a clean background; faint watermark line at the bottom through the whole video.
 - Visual change inside the ending: roughly every 3-4 s (keyword card -> resource mock-up -> pages -> brand mark), all on the plain pale background, no new colours.
 - What we take (principles only): end with a short, concrete REASON to follow (a promise of value), say and show the channel name together, give the brand mark one clean hero moment, keep each sentence short, stop on the last word. What we do NOT take: the comment-keyword + ebook trade as a pattern, the gated 'only followers receive it' wording, the crown logo idea, the pale grey background, or any of their sentences. Our endings are original, in our look (robot, Follow pill with a cursor click, bell, dust burst), and only promise what we really deliver.
+
+## 2026-11-07 Study (Badar Munir editing style)
+See shared/STYLE_LIBRARY.md section 8. Apply to AI-news Shorts: split screen (top proof, bottom mascot), 1-3 word captions at the seam, new top picture every 2-3 s, 2-4 small boxes, hard cuts + zoom-in, no copied footage/words.
