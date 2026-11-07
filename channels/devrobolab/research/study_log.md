@@ -31,3 +31,9 @@
 - Method: 4 fps contact sheets, 1 fps frames, Whisper small (Hindi) transcript.
 - Learnt: face-cam <-> real UI card rotation every 2.5-3 s, blur-push transitions, opaque caption chips (2-3 words), money-rain overlay on the "free" claim, 3D-tilt card entry, stacked "Comment KEYWORD for link" CTA twice spoken. Written to channels/devrobolab/brand/STYLE_V5.md (abstract only).
 - Status: deleted on 2026-11-06 (study/s2 removed).
+
+## 2026-11-07 - Editing-style study (RULES 12c)
+- Videos: https://www.youtube.com/watch?v=F0tixc-XwbE, anlxZeqPEWI, F1F3zDFlgOI, 32oA8jbuptk, 8sJWjTijMWM (Shorts) from channel Badar Munir; https://www.youtube.com/watch?v=RDOy_HkTWyY (edit tutorial, other channel). Downloaded with tools/yt-dlp.exe, no cookies, 720p, into study/ (git-ignored).
+- Method: ffmpeg scene-detect (cut counts) + contact sheets. No transcript.
+- Learnt: STYLE_LIBRARY section 8 (cut rhythm, split-screen Short layout, small 1-3 word captions, box layouts, hard cuts + zoom-in). Principles only.
+- Status: study files deleted on 2026-11-07.
