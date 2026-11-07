@@ -997,7 +997,7 @@
     "title": "PDF aur files upload karke sawaal poochna",
     "url": "https://support.claude.com/en/",
     "summary": "Claude (non-Code) feature for ordinary people; find the exact official page first.",
-    "status": "built",
+    "status": "uploaded",
     "audience": "A",
     "series": "claude-for-everyone",
     "story": "045_cfe-file-upload",
