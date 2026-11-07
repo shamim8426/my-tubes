@@ -49,3 +49,9 @@
 - Method: ffmpeg 1 fps contact sheets + rough Whisper transcript.
 - Learnt: STYLE_LIBRARY section 12b (10 effects translated to our faceless look, countdown structure, progress bar + counter badge, outro funnel method). Principles only.
 - Status: study files deleted on 2026-11-07.
+
+## 2026-11-07 - "Clean editorial" Short + channel thumbnails study (RULES 12c)
+- Video: https://youtube.com/shorts/RKZOKc51wz4 (86 s, 9:16, channel InsiderForce) and the public thumbnails of 11 of its videos (i.ytimg.com). Downloaded with tools/yt-dlp.exe, no cookies, into study/ (git-ignored).
+- Method: ffmpeg 1 fps contact sheets + scene-cut count; thumbnails viewed as a contact sheet.
+- Learnt: STYLE_LIBRARY section 12c (kinetic mixed-weight captions, soft-shadow cards, badge clusters, black label, watermark; thumbnail = strongest frame on a blurred copy). Principles only.
+- Status: study files deleted on 2026-11-07.
