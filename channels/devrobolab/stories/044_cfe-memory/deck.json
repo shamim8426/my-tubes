@@ -1,0 +1,54 @@
+{
+ "tag": "Claude Feature 05",
+ "music": {
+  "file": "shared/music/presentation/Funkorama.mp3",
+  "start": 6,
+  "rel": 12
+ },
+ "voice": {
+  "id": "Charon",
+  "style": "Speak like a friendly Indian tech YouTuber chatting casually in Hinglish. Natural conversational pace, warm and clear, a little energetic but not theatrical. No sing-song, no exaggerated emphasis."
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "voice": "सोचो, आप रोज़ Claude से बात करते हो, और हर बार उसे अपना नाम, अपना काम, और अपनी पसंद दोबारा बतानी पड़ती है। थक गए न? Claude का Memory feature इसी का हल है। आज इस video में देखेंगे कि Memory क्या है, कैसे चालू या बंद होती है, और आप उसे कैसे देख और साफ़ कर सकते हो।"
+  },
+  {
+   "id": "what",
+   "voice": "Memory का मतलब है कि Claude आपकी बातचीत से छोटे-छोटे topics याद रखता है। जैसे आप student हो या teacher, आप किस project पर काम कर रहे हो, और आपको जवाब कैसे पसंद हैं। और अगर आप चाहो, तो chat में बस बोल दो, remember this, और Claude वो बात सेव कर लेता है।"
+  },
+  {
+   "id": "who",
+   "voice": "अच्छी बात ये है कि Free, Pro, Max और Ultra, सब plans पर Memory by default चालू है। web, Desktop और mobile app, तीनों पर। बस app को latest version पर रखो। Team और Enterprise में ये तय करना owner के हाथ में है।"
+  },
+  {
+   "id": "switch",
+   "voice": "अब देखते हैं इसे बंद या चालू कैसे करते हैं। पहले Settings खोलो, फिर Your Claude पर जाओ। यहाँ Generate memory from chats नाम का toggle दिखेगा। इसे दबाओगे तो दो options आएंगे। Pause memory का मतलब है कि पुरानी memory बची रहेगी, पर Claude उसे इस्तेमाल नहीं करेगा, और नई भी नहीं बनाएगा। और Reset memory दबाया तो सारी memory हमेशा के लिए मिट जाएगी, और वापस नहीं आएगी। इसलिए Reset सोच-समझकर दबाना।"
+  },
+  {
+   "id": "see",
+   "voice": "अब ये भी जानो कि Claude को आपके बारे में क्या-क्या याद है। Settings में Your Claude खोलो, और Your memory के पास Manage दबाओ। यहाँ Topics की list दिखेगी। किसी topic को खोलकर पढ़ सकते हो। Edit आइकन से उसे बदल सकते हो, या Delete दबाकर हटा सकते हो। या chat में सीधे बोल दो, ये बात भूल जाओ, और अगली chat से Claude उसे भूल जाएगा।"
+  },
+  {
+   "id": "never",
+   "voice": "अब सवाल ये कि Claude क्या याद नहीं रखता। सेहत, धर्म या राजनीति जैसी संवेदनशील बातें by default सेव नहीं होतीं। और कुछ चीज़ें तो कभी सेव नहीं होतीं, चाहे आप खुद कहो, जैसे सरकारी ID के नंबर, और bank account के नंबर।"
+  },
+  {
+   "id": "private",
+   "voice": "कभी एक chat ऐसी चाहिए जो memory में जाए ही नहीं? दो तरीके हैं। पहला, नई chat खोलो, plus दबाओ, और पहला message भेजने से पहले Memory बंद कर दो। बाद में ये बदल नहीं सकते। दूसरा, ऊपर कोने में ghost आइकन दबाकर Incognito chat खोलो। ये न memory में जाती है, न history में।"
+  },
+  {
+   "id": "projects",
+   "voice": "हर project की अपनी अलग memory होती है। Project के अंदर Claude उस project की memory और आपकी normal memory इस्तेमाल करता है, दूसरे projects की नहीं। पूरा अलग रखना हो तो project page पर Use account memory बंद कर दो।"
+  },
+  {
+   "id": "caution",
+   "voice": "अब एक ज़रूरी बात, ध्यान रखो! अगर आप कोई chat delete करते हो, तो उससे बनी memory नहीं मिटती। उसे अलग से Manage में जाकर delete करना पड़ता है। और memory आपके data export में भी शामिल होती है।"
+  },
+  {
+   "id": "cta",
+   "voice": "तो याद रखो, तीन बातें। Memory कहाँ से चालू या बंद करनी है। Manage में जाकर क्या याद है वो देखना और हटाना। और private बात के लिए Incognito chat। ऐसे और Claude features चाहिए? Comment में MEMORY लिखो, और DevRoboLab को follow करो।"
+  }
+ ]
+}

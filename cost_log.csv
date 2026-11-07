@@ -1282,3 +1282,18 @@ timestamp,file,model,size,cost_usd,cost_inr,today_total_inr,remaining_inr,channe
 2026-11-07 13:09:44,channels/devrobolab/stories/043_cc-fast-mode/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 7.6s free,0.00000,0.00,0.00,539.66,devrobolab,0.17,0.0000,0.00,29,190
 2026-11-07 13:09:48,channels/devrobolab/stories/043_cc-fast-mode/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 5.0s,0.00114,0.11,0.13,539.54,devrobolab,0.12,0.1096,0.02,22,125
 2026-11-07 13:09:52,channels/devrobolab/stories/043_cc-fast-mode/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 4.6s,0.00104,0.10,0.25,539.42,devrobolab,0.11,0.1007,0.02,17,115
+2026-11-07 13:26:11,channels/devrobolab/stories/044_cfe-memory/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 18.9s free,0.00000,0.00,0.25,539.42,devrobolab,0.42,0.0000,0.00,74,472
+2026-11-07 13:26:44,channels/devrobolab/stories/044_cfe-memory/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 16.0s free,0.00000,0.00,0.25,539.42,devrobolab,0.36,0.0000,0.00,66,399
+2026-11-07 13:26:54,channels/devrobolab/stories/044_cfe-memory/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 13.9s,0.00316,0.30,0.61,539.06,devrobolab,0.31,0.3049,0.05,55,348
+2026-11-07 13:27:08,channels/devrobolab/stories/044_cfe-memory/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 24.9s,0.00565,0.54,1.25,538.41,devrobolab,0.55,0.5449,0.10,97,622
+2026-11-07 13:27:19,channels/devrobolab/stories/044_cfe-memory/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 20.2s,0.00460,0.44,1.77,537.89,devrobolab,0.45,0.4437,0.08,87,506
+2026-11-07 13:27:28,channels/devrobolab/stories/044_cfe-memory/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 14.2s,0.00323,0.31,2.14,537.52,devrobolab,0.32,0.3118,0.06,55,356
+2026-11-07 13:27:39,channels/devrobolab/stories/044_cfe-memory/audio/tts/s_06.wav,gemini-3.8-flash-tts,tts 19.5s,0.00443,0.43,2.65,537.02,devrobolab,0.43,0.4273,0.08,72,488
+2026-11-07 13:27:48,channels/devrobolab/stories/044_cfe-memory/audio/tts/s_07.wav,gemini-3.8-flash-tts,tts 13.4s,0.00304,0.29,2.99,536.67,devrobolab,0.30,0.2932,0.05,46,335
+2026-11-07 13:27:57,channels/devrobolab/stories/044_cfe-memory/audio/tts/s_08.wav,gemini-3.8-flash-tts,tts 11.8s,0.00267,0.26,3.30,536.37,devrobolab,0.26,0.2576,0.05,47,294
+2026-11-07 13:28:08,channels/devrobolab/stories/044_cfe-memory/audio/tts/s_09.wav,gemini-3.8-flash-tts,tts 15.4s,0.00349,0.34,3.69,535.97,devrobolab,0.34,0.3373,0.06,60,385
+2026-11-07 13:28:26,channels/devrobolab/stories/044_cfe-memory/raw/photos/hook.png,cf-flux-2-klein-4b,1344x768 free,0.00000,0.00,3.69,535.97,devrobolab,0.00,0.0000,0.00,,
+2026-11-07 13:28:37,channels/devrobolab/stories/044_cfe-memory/raw/photos/notebook.png,cf-flux-2-klein-4b,1344x768 free,0.00000,0.00,3.69,535.97,devrobolab,0.00,0.0000,0.00,,
+2026-11-07 13:28:45,channels/devrobolab/stories/044_cfe-memory/raw/photos/laptop.png,cf-flux-2-klein-4b,1344x768 free,0.00000,0.00,3.69,535.97,devrobolab,0.00,0.0000,0.00,,
+2026-11-07 13:28:54,channels/devrobolab/stories/044_cfe-memory/raw/photos/folders.png,cf-flux-2-klein-4b,1344x768 free,0.00000,0.00,3.69,535.97,devrobolab,0.00,0.0000,0.00,,
+2026-11-07 13:29:03,channels/devrobolab/stories/044_cfe-memory/raw/photos/trash.png,cf-flux-2-klein-4b,1344x768 free,0.00000,0.00,3.69,535.97,devrobolab,0.00,0.0000,0.00,,
