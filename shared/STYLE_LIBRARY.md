@@ -2,6 +2,12 @@
 
 **Standing rule (user 2026-11-07):** every learning from a video (style, edit, graphic, motion, sound, layout, process) is written HERE, in this common file, not only in one channel's folder, so every channel and every session can use it. After each video: add or update an entry (date, channel, what worked / what the user disliked, the code that does it). Channel-specific look stays in `channels/<key>/STYLE_GUIDE.md` or `brand/`, but must link here when the idea can be reused. Read this file before building any video. Copyright and originality limits (RULES 10, 12, 12a, 12c) always win: we only take abstract principles from other channels, never their frames, audio, words or titles.
 
+## WHERE LEARNINGS LIVE (common, for ALL channels; GitHub https://github.com/shamim8426/my-tubes, branch main)
+- This file `shared/STYLE_LIBRARY.md`: sections 0-12 = the tidy, ordered learnings and approved rules (look, edits, sound, process, errors fixed, studies); section 13 = the inbox where new learnings land by themselves (`tools/learn.py`, pushed to GitHub the same minute). The night task `learning-night-tidy` (02:15) merges duplicates, moves good ones into sections 1-12 and deletes useless ones (log: `shared/style_library/TIDY_LOG.md`, rules: `shared/style_library/TIDY_RULES.md`).
+- Reference code: `shared/style_library/` (e.g. `long_video_make_final.py`); tools: `tools/learn.py`, `tools/splice_video.py`, `scripts/daily_spend.py`.
+- Rules: `shared/RULES.md` (17 = this library), `CLAUDE.md`. Per-channel study logs and looks: `channels/<key>/research/study_log.md`, `channels/<key>/brand/`. DevRoboLab plan: `channels/devrobolab/PLAN_DAILY.md`.
+- Not in GitHub on purpose: videos, secrets, study downloads (git-ignored).
+
 Code that is shared lives in `scripts/` and `tools/`; ready-to-copy reference builds live in `shared/style_library/`.
 
 ## 0. APPROVED FRAMEWORK (user 2026-11-07, after AI news Short 042 v11 was approved: "ye format aage rahega") - master summary for ALL channels, Shorts and long videos

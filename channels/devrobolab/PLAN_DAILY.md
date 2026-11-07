@@ -70,4 +70,5 @@ Common steps for every task: `scheduled_tasks/RUN_COMMON.md`. Task prompts (back
 | devrobolab-daily-life-short | 50 22 * * * | 23:00 Daily-life Short |
 | devrobolab-long-cut-short | 20 0 * * * | 00:30 Short cut from the latest long |
 | devrobolab-retry-night | 0 21,22 * * * | 21:00 and 22:00: do any slot that has no upload today (PC was off) |
+| learning-night-tidy | 5 2 * * * | 02:15 night tidy of the common learnings (all channels; see shared/style_library/TIDY_RULES.md) |
 The old tasks (devrobolab-daily-videos, devrobolab-afternoon-videos, devrobolab-evening-videos, claude-news-watch) are NOT to be recreated.
