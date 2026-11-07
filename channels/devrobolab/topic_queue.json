@@ -809,7 +809,7 @@
     "title": "Speed up responses with fast mode",
     "url": "https://code.claude.com/docs/en/fast-mode.md",
     "summary": "Get faster Opus responses in Claude Code by toggling fast mode.",
-    "status": "built",
+    "status": "uploaded",
     "story": "043_cc-fast-mode",
     "audience": "A",
     "series_index": 2,
