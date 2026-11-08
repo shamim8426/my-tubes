@@ -4,7 +4,7 @@ User talks Hindi/Hinglish. KEEP REPLIES SHORT (3-5 lines, only the key point + w
 
 ## Work place
 - Worktree: D:\my-tubes\.claude\worktrees\devrobolab-042-041-upload-eb9807 (branch claude/science-eda238). Python: D:\my-tubes\.venv\Scripts\python.exe -X utf8. Secrets live in D:\my-tubes\secrets (reality-check token done). ffmpeg in tools/ffmpeg.
-- NEVER git commit/push/sync unless the user says so. NEVER put videos/footage in git (4.3 GB untracked footage2/footage). tools/learn.py fails ("diverged") because ~90 uncommitted files collide with 4 log files changed on origin/main; safest fix = WIP commit + manual merge (needs user OK).
+- GIT (updated 2026-11-09): notes, learnings, STATE.md and tools ARE committed and pushed to GitHub main (user OK'd this; tools/learn.py works again). Still NEVER commit media (videos, footage, audio, cache; footage2/footage are 4 GB, untracked). Other git actions (sync scripts, big commits) only if the user asks. The old 'learn.py diverged' problem is fixed.
 
 ## Channel
 - YouTube channel renamed by user to **Possibilities**, handle @PossibilitiesHindi (was Reality Check - Asli; same channel_id UCy071_4g4vGemktFHybqkhQ; folder/key stays channels/reality-check). Tagline: "Kya ho sakta hai?". DP + banner (black + bright yellow, option E) are set by the user; channel description/keywords updated via API (no "Reality Check" left). Brand code: tools/rc_brand_final.py (+ rc_brand_variants*.py), files in channels/reality-check/brand/.
