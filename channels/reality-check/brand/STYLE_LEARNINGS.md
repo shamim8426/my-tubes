@@ -1,0 +1,24 @@
+# Reality Check - Asli: STYLE LEARNINGS (principles only, RULES 12c; no frames, script text, titles or channel names)
+
+## 2026-11-08 - study of two long Hindi space explainers (Ref A ~21:43 presenter-led; Ref B ~15:21 faceless stock/CG montage). Rs 0.
+Measured (ffmpeg scene detect 0.25, cuts closer than 0.6 s merged; dissolves/continuous camera moves are NOT counted, so these are minimums):
+- Ref A: 160 shots, avg 8.1 s, median 5.9 s, min 0.7, max 38 (a long talking hold). Cuts/min 3-18, mean 7.4. Only 17 shots <1.5 s, 15 shots >20 s (all presenter holds).
+- Ref B: 248 shots, avg 3.7 s, median 2.8 s, min 0.7, max 33. Cuts/min 7-26 (fast 5-9 min = 22-26, calm start/end 7-14). Shot mix: 37 <1.5 s, 99 at 1.5-3, 81 at 3-6, 20 at 6-10, 12 >10.
+- Loudness of the voice+music mix: Ref A -15.0 LUFS integrated (LRA 3.8, true peak -0.3); Ref B -18.8 LUFS. Ref A: zero silent gaps >0.4 s at -45 dB (Ref B not measured), so the bed never drops out; breath space comes from a short visual pause, not from dead air.
+Explanation method (what makes Ref A "explain well"):
+1. Scale first, feeling second: start with the number problem (distance, time at normal speed, time at the best speed), reach "this is disappointing", THEN open the idea ("what if there was a shortcut"). Every idea is introduced by the problem it solves.
+2. One idea = question -> picture -> one-line rule -> one number. Hard parts are simplified by a physical hand-held analogy (a piece of paper with two dots, folded) or a stripped-down diagram (a grid with one ball), never by more words.
+3. Hard material is shown as hard, briefly, then dismissed in one line (a screen of equations for 2-3 s, "do not worry, one idea"); the viewer feels the difficulty and then relief.
+4. Numbers come as a ladder (1 value, then the next, then the shocking one) and the label appears exactly on the spoken number word, held ~3-4 s, same box style every time (bright box, bottom third).
+5. Names/years appear as a lower-third chip at the moment the person/date is spoken; a source page (article screenshot) with the key phrase highlighted in yellow appears while the claim is read - the highlight moves while the sentence is read.
+6. Repeated key term = same big text word on screen each time it is a new section, in the same style; used as chapter markers inside the talk, not as decoration.
+7. Opinion/limit statements ("purely theoretical") get a big 1-2 word kicker, placed beside the face/subject, not over it.
+Visualization rules (both refs):
+- Every statement type has its own picture type: scale -> zoom-out/zoom-in continuous growth (an object grows over 4-6 s, never a static card); speed -> streaks; time -> clock/timeline; mechanism -> clean vector/3D diagram with ONE moving part; history -> archival still with slow push-in + name/year chip; proof -> source-page screenshot with highlight; map claims -> flat map with two labelled points and a line drawn between them (draw-on over 2-3 s).
+- Motion is always present: a still never sits without a slow push (1.00 -> 1.06 over its length) or a parallax/zoom; Ref B keeps a moving star-streak/camera drift behind almost every shot.
+- Visual pace follows information: calm opening (cuts/min ~8-12), highest density where the explanation is hardest (22-26), then settles for the conclusion. Do not hold one cut rate for 18 minutes.
+- Weak/generic footage is hidden by: short duration (<=3 s), continuous motion, colour flash/dissolve in and out, a number or keyword label on top, and never reusing the same clip for a different claim. Ref B reuses galaxy shots and generic cabin shots - that reads as filler; we avoid it by drawing our own graphic per claim.
+Editing/transitions: mostly hard cuts; the "bridge" between an explanation block and the next is a 4-8 frame colour flash/wipe (warm yellow/red) or a quick glitch, used only at block boundaries (about 1 per 30-60 s), not on every cut. Backdrop stays one consistent dark star-field; accent colours (cyan, magenta, yellow) are few and fixed per meaning.
+Text overlays: number/keyword labels sit in the lower third or left third, small (about 5-6% of frame height for the label line), bold sans, one colour box or one accent colour; big kicker words are 12-15% of frame height. Max 2 text items on screen. Corner channel mark small, constant.
+Audio: voice on top, music bed always present but ducked; SFX are mostly whooshes/hits on the flash transitions and number labels. Voice level hot and even (-15 to -19 LUFS mix, LRA under 4 LU).
+Thumbnail/title shape (principles): one large object or portal with warm glow on a dark space background, a person/vehicle in silhouette for scale, 3-5 big words in the lower third or top-left (yellow box + white), strong contrast, mix of English keyword + Hindi question; question or "is it possible?" framing; title in the first 40 chars has the keyword and a question.

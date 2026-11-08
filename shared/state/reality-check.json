@@ -1,0 +1,12 @@
+{
+ "story": "tts",
+ "stage": "--paid",
+ "status": "done",
+ "started": "2026-11-08T13:36:07",
+ "finished": "2026-11-08T13:46:43",
+ "pid": 32412,
+ "paid": true,
+ "cost": null,
+ "note": null,
+ "last_error": "2026-11-08T01:46:47 tts: daily TTS request limit (100/day Tier 1) hit at line 92 of 160; resume after reset"
+}

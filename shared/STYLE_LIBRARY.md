@@ -1,5 +1,7 @@
 # STYLE LIBRARY (ALL channels) - styles, edits, graphics, motions, sound and process learnings from our own videos
 
+**Long documentary / explainer videos: follow the procedure in `shared/DOCUMENTARY_PLAYBOOK.md` (shot table, statement-to-visual lookup, rhythm, footage, sound, build chain, Munshi checklist).**
+
 **Standing rule (user 2026-11-07):** every learning from a video (style, edit, graphic, motion, sound, layout, process) is written HERE, in this common file, not only in one channel's folder, so every channel and every session can use it. After each video: add or update an entry (date, channel, what worked / what the user disliked, the code that does it). Channel-specific look stays in `channels/<key>/STYLE_GUIDE.md` or `brand/`, but must link here when the idea can be reused. Read this file before building any video. Copyright and originality limits (RULES 10, 12, 12a, 12c) always win: we only take abstract principles from other channels, never their frames, audio, words or titles.
 
 ## WHERE LEARNINGS LIVE (common, for ALL channels; GitHub https://github.com/shamim8426/my-tubes, branch main)
