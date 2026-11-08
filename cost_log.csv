@@ -1317,3 +1317,12 @@ timestamp,file,model,size,cost_usd,cost_inr,today_total_inr,remaining_inr,channe
 2026-11-07 20:39:21,channels/devrobolab/stories/046_cc-claude-directory/audio/tts/s_07.wav,gemini-3.8-flash-tts,tts 21.4s,0.00485,0.47,4.70,534.96,devrobolab,0.48,0.4677,0.08,81,534
 2026-11-07 20:39:33,channels/devrobolab/stories/046_cc-claude-directory/audio/tts/s_08.wav,gemini-3.8-flash-tts,tts 18.3s,0.00416,0.40,5.18,534.49,devrobolab,0.41,0.4011,0.07,68,458
 2026-11-07 20:39:46,channels/devrobolab/stories/046_cc-claude-directory/audio/tts/s_09.wav,gemini-3.8-flash-tts,tts 24.0s,0.00545,0.53,5.80,533.87,devrobolab,0.53,0.5262,0.09,87,601
+2026-11-08 05:32:32,channels/devrobolab/stories/047_news-gemini-omni/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 5.0s free,0.00000,0.00,0.00,533.87,devrobolab,0.12,0.0000,0.00,20,125
+2026-11-08 05:32:40,channels/devrobolab/stories/047_news-gemini-omni/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 8.9s free,0.00000,0.00,0.00,533.87,devrobolab,0.20,0.0000,0.00,33,223
+2026-11-08 05:32:54,channels/devrobolab/stories/047_news-gemini-omni/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 5.5s,0.00125,0.12,0.14,533.73,devrobolab,0.13,0.1210,0.02,23,138
+2026-11-08 05:33:01,channels/devrobolab/stories/047_news-gemini-omni/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 7.2s free,0.00000,0.00,0.14,533.73,devrobolab,0.16,0.0000,0.00,25,181
+2026-11-08 05:33:11,channels/devrobolab/stories/047_news-gemini-omni/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 6.4s,0.00144,0.14,0.31,533.56,devrobolab,0.14,0.1392,0.03,22,159
+2026-11-08 05:33:18,channels/devrobolab/stories/047_news-gemini-omni/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 6.0s free,0.00000,0.00,0.31,533.56,devrobolab,0.14,0.0000,0.00,20,149
+2026-11-08 05:33:27,channels/devrobolab/stories/047_news-gemini-omni/audio/tts/s_06.wav,gemini-3.8-flash-tts,tts 4.0s free,0.00000,0.00,0.31,533.56,devrobolab,0.09,0.0000,0.00,17,101
+2026-11-08 05:33:59,channels/devrobolab/stories/047_news-gemini-omni/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 6.1s,0.00139,0.13,0.47,533.40,devrobolab,0.14,0.1342,0.02,27,153
+2026-11-08 05:34:22,channels/devrobolab/stories/047_news-gemini-omni/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 6.2s,0.00141,0.14,0.63,533.24,devrobolab,0.14,0.1357,0.02,23,155

@@ -1,0 +1,42 @@
+{
+ "tag": "AI News",
+ "music": {
+  "file": "shared/music/presentation/Funkorama.mp3",
+  "start": 6,
+  "rel": 12
+ },
+ "voice": {
+  "id": "Charon",
+  "style": "Speak like a friendly Indian tech YouTuber chatting casually in Hinglish. Natural conversational pace, warm and clear, a little energetic but not theatrical. No sing-song, no exaggerated emphasis."
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "voice": "Google ने AI video की limit पंद्रह second कर दी, और दाम तीस percent कम!"
+  },
+  {
+   "id": "what",
+   "voice": "नाम है Gemini Omni 1.2 Flash। पहले clip दस second की थी, अब तीन से पंद्रह second तक।"
+  },
+  {
+   "id": "price",
+   "voice": "Price भी गिरा है। Google के मुताबिक seven सेंट प्रति second, 720p video के लिए।"
+  },
+  {
+   "id": "edit",
+   "voice": "एक clip को बार-बार बदल भी सकते हो। Background, light या मौसम, बिना शुरू से बनाए।"
+  },
+  {
+   "id": "where",
+   "voice": "Gemini API, AI Studio और Google Vids में है। Gemini app में सिर्फ Ultra वालों को।"
+  },
+  {
+   "id": "caution",
+   "voice": "ध्यान रखो! तेज़ sports action और complex physics पर Google खुद कहता है, काम जारी है।"
+  },
+  {
+   "id": "cta",
+   "voice": "AI news चाहिए? Follow करो, और comment में OMNI लिखो।"
+  }
+ ]
+}
