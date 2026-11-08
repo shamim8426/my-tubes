@@ -182,3 +182,4 @@ Watched frame by frame (1 fps contact sheets + a rough transcript). The video is
 
 ## 13. Learning inbox (added automatically the moment something is learned; newest last; move good ones into the sections above when tidying)
 (empty: tidied 2026-11-08; new learnings are appended here by `tools/learn.py`)
+- 2026-11-08 05:37 **TTS 100 requests/day cap and re-voicing**: Gemini TTS (paid key too, Tier 1) stops at 100 requests per day. Several earlier runs plus re-voiced lines can use it up. Never delete an existing scene wav before the new one is made: when a script is too long, shorten the text BEFORE the first voice run, and re-voice only lines that really changed. Check script length (about 2.5 words/s) first.
