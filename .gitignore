@@ -74,3 +74,5 @@ channels/*/tests/*/_work/
 s.tgz
 *.tgz
 secrets*.tar*
+# regenerable thumbnail renders (make_thumbs.py)
+channels/devrobolab/thumbnails/out/

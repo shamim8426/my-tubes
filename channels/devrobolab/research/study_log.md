@@ -43,3 +43,15 @@
 - Method: ffmpeg scene detect (cuts per video) + 25-frame contact sheets. No transcript.
 - Learnt: STYLE_LIBRARY section 10 (presentation types, sketch vs dark-neon themes, long demo scenes, caption layers, big-number cards, chapter badge, end card). Principles only.
 - Status: study files deleted on 2026-11-07.
+
+## 2026-11-07 - "10 video effects" Short study (RULES 12c)
+- Video: https://youtube.com/shorts/dP2WBIIPcfE (86 s, 9:16, channel SkillPay). Downloaded with tools/yt-dlp.exe, no cookies, into study/ (git-ignored).
+- Method: ffmpeg 1 fps contact sheets + rough Whisper transcript.
+- Learnt: STYLE_LIBRARY section 12b (10 effects translated to our faceless look, countdown structure, progress bar + counter badge, outro funnel method). Principles only.
+- Status: study files deleted on 2026-11-07.
+
+## 2026-11-07 - "Clean editorial" Short + channel thumbnails study (RULES 12c)
+- Videos: https://youtube.com/shorts/RKZOKc51wz4, qGuDcRRJAD4, OGrLbo3dskw, ELsXhePjBxI, irXFtcohTco (86-103 s, 9:16, channel InsiderForce) and the public thumbnails of 11 of its videos (i.ytimg.com). Downloaded with tools/yt-dlp.exe, no cookies, into study/ (git-ignored).
+- Method: ffmpeg 1 fps contact sheets + scene-cut count; thumbnails viewed as a contact sheet.
+- Learnt: STYLE_LIBRARY section 12c (kinetic mixed-weight captions, soft-shadow cards, badge clusters, black label, watermark; thumbnail = strongest frame on a blurred copy). Principles only.
+- Status: study files deleted on 2026-11-07.

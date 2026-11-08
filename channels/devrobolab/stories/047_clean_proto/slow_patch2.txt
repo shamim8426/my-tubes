@@ -1,0 +1,5 @@
+(HERE / "audio/tts_slow").mkdir(parents=True, exist_ok=True)
+for _w in list(WAVES):
+    _o = HERE / "audio/tts_slow" / _w.name
+    if not _o.exists(): subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(_w), "-filter:a", f"atempo={1 / SLOW:.4f}", str(_o)], check=True)
+WAVES = [HERE / "audio/tts_slow" / w.name for w in WAVES]

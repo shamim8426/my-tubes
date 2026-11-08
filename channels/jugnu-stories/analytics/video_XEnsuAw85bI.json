@@ -13,7 +13,7 @@
  },
  "is_short": true,
  "totals": {
-  "views": 0,
+  "views": 1,
   "engagedViews": 0,
   "estimatedMinutesWatched": 0,
   "averageViewDuration": 0,
@@ -23,7 +23,13 @@
   "comments": 0,
   "shares": 0
  },
- "traffic": [],
+ "traffic": [
+  {
+   "insightTrafficSourceType": "YT_SEARCH",
+   "views": 1,
+   "estimatedMinutesWatched": 0
+  }
+ ],
  "retention": [],
  "daily": [
   {
@@ -55,7 +61,52 @@
    "day": "2026-10-26",
    "views": 0,
    "estimatedMinutesWatched": 0
+  },
+  {
+   "day": "2026-10-27",
+   "views": 1,
+   "estimatedMinutesWatched": 0
+  },
+  {
+   "day": "2026-10-28",
+   "views": 0,
+   "estimatedMinutesWatched": 0
+  },
+  {
+   "day": "2026-10-29",
+   "views": 0,
+   "estimatedMinutesWatched": 0
+  },
+  {
+   "day": "2026-10-30",
+   "views": 0,
+   "estimatedMinutesWatched": 0
+  },
+  {
+   "day": "2026-10-31",
+   "views": 0,
+   "estimatedMinutesWatched": 0
+  },
+  {
+   "day": "2026-11-01",
+   "views": 0,
+   "estimatedMinutesWatched": 0
+  },
+  {
+   "day": "2026-11-02",
+   "views": 0,
+   "estimatedMinutesWatched": 0
+  },
+  {
+   "day": "2026-11-03",
+   "views": 0,
+   "estimatedMinutesWatched": 0
+  },
+  {
+   "day": "2026-11-04",
+   "views": 0,
+   "estimatedMinutesWatched": 0
   }
  ],
- "fetched": "2026-10-29T16:29:48"
+ "fetched": "2026-11-07T19:10:38"
 }
