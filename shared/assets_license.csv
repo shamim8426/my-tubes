@@ -172,3 +172,25 @@ shared/music/clean/Wholesome.mp3,https://incompetech.com/music/royalty-free/musi
 shared/music/clean/Airport_Lounge.mp3,https://incompetech.com/music/royalty-free/music.html,Kevin MacLeod,CC BY 4.0,"""Airport Lounge"" Kevin MacLeod (incompetech.com) Licensed under Creative Commons: By Attribution 4.0 License http://creativecommons.org/licenses/by/4.0/",2026-11-08
 shared/music/clean/Bossa_Antigua.mp3,https://incompetech.com/music/royalty-free/music.html,Kevin MacLeod,CC BY 4.0,"""Bossa Antigua"" Kevin MacLeod (incompetech.com) Licensed under Creative Commons: By Attribution 4.0 License http://creativecommons.org/licenses/by/4.0/",2026-11-08
 shared/music/clean/Lightless_Dawn.mp3,https://incompetech.com/music/royalty-free/music.html,Kevin MacLeod,CC BY 4.0,"""Lightless Dawn"" Kevin MacLeod (incompetech.com) Licensed under Creative Commons: By Attribution 4.0 License http://creativecommons.org/licenses/by/4.0/",2026-11-08
+shared/sfx/rc/rc_whoosh.wav,own: synthesised by tools/rc_sound.py (numpy) - whoosh,Reality Check - Asli,own,,2026-11-08
+shared/sfx/rc/rc_whoosh_soft.wav,own: synthesised by tools/rc_sound.py (numpy) - whoosh_soft,Reality Check - Asli,own,,2026-11-08
+shared/sfx/rc/rc_blip.wav,own: synthesised by tools/rc_sound.py (numpy) - blip,Reality Check - Asli,own,,2026-11-08
+shared/sfx/rc/rc_subhit.wav,own: synthesised by tools/rc_sound.py (numpy) - subhit,Reality Check - Asli,own,,2026-11-08
+shared/sfx/rc/rc_impact.wav,own: synthesised by tools/rc_sound.py (numpy) - impact,Reality Check - Asli,own,,2026-11-08
+shared/sfx/rc/rc_riser.wav,own: synthesised by tools/rc_sound.py (numpy) - riser,Reality Check - Asli,own,,2026-11-08
+shared/sfx/rc/rc_chime.wav,own: synthesised by tools/rc_sound.py (numpy) - chime,Reality Check - Asli,own,,2026-11-08
+shared/sfx/rc/rc_ping.wav,own: synthesised by tools/rc_sound.py (numpy) - ping,Reality Check - Asli,own,,2026-11-08
+shared/sfx/rc/rc_radar.wav,own: synthesised by tools/rc_sound.py (numpy) - radar,Reality Check - Asli,own,,2026-11-08
+shared/sfx/rc/rc_whirr.wav,own: synthesised by tools/rc_sound.py (numpy) - whirr,Reality Check - Asli,own,,2026-11-08
+shared/sfx/rc/rc_ticks.wav,own: synthesised by tools/rc_sound.py (numpy) - ticks,Reality Check - Asli,own,,2026-11-08
+shared/sfx/rc/rc_flip.wav,own: synthesised by tools/rc_sound.py (numpy) - flip,Reality Check - Asli,own,,2026-11-08
+shared/sfx/rc/rc_thud.wav,own: synthesised by tools/rc_sound.py (numpy) - thud,Reality Check - Asli,own,,2026-11-08
+shared/sfx/rc/rc_debris.wav,own: synthesised by tools/rc_sound.py (numpy) - debris,Reality Check - Asli,own,,2026-11-08
+shared/sfx/rc/rc_resolve.wav,own: synthesised by tools/rc_sound.py (numpy) - resolve,Reality Check - Asli,own,,2026-11-08
+shared/sfx/rc/rc_space_drone.wav,own: synthesised by tools/rc_sound.py (numpy) - ambience space_drone,Reality Check - Asli,own,,2026-11-08
+shared/sfx/rc/rc_room_tone.wav,own: synthesised by tools/rc_sound.py (numpy) - ambience room_tone,Reality Check - Asli,own,,2026-11-08
+shared/music/rc/rc_bed_curious.wav,"own: synthesised by tools/rc_sound.py (numpy) - ambient pad bed 'curious', no melody",Reality Check - Asli,own,,2026-11-08
+shared/music/rc/rc_bed_tense.wav,"own: synthesised by tools/rc_sound.py (numpy) - ambient pad bed 'tense', no melody",Reality Check - Asli,own,,2026-11-08
+shared/music/rc/rc_bed_calm.wav,"own: synthesised by tools/rc_sound.py (numpy) - ambient pad bed 'calm', no melody",Reality Check - Asli,own,,2026-11-08
+shared/music/rc/rc_bed_mystery.wav,"own: synthesised by tools/rc_sound.py (numpy) - ambient pad bed 'mystery', no melody",Reality Check - Asli,own,,2026-11-08
+shared/music/rc/rc_bed_hopeful.wav,"own: synthesised by tools/rc_sound.py (numpy) - ambient pad bed 'hopeful', no melody",Reality Check - Asli,own,,2026-11-08
