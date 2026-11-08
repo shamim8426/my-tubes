@@ -1208,5 +1208,15 @@
     "priority": "news",
     "org": "Anthropic",
     "audience": "A"
+  },
+  {
+    "id": "news-gemini-omni-1-2-flash",
+    "title": "AI news Short: Gemini Omni 1.2 Flash (15 s clips, 30% cheaper)",
+    "url": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/",
+    "summary": "Google Gemini Omni 1.2 Flash: 3-15 s video, $0.07/s 720p, conversational editing.",
+    "status": "uploaded",
+    "story": "047_news-gemini-omni",
+    "audience": "A",
+    "priority": "news"
   }
 ]
