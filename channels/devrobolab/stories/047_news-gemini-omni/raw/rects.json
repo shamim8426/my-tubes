@@ -1,0 +1,44 @@
+{
+ "len": [
+  246.4375,
+  535.125,
+  123.125,
+  30,
+  "Longer clips up to "
+ ],
+ "price": [
+  316.890625,
+  540.125,
+  45.09375,
+  20,
+  "d the price 30% from Gemini Omni 1.1 making it available at "
+ ],
+ "cut": [
+  605.59375,
+  540.15625,
+  36.078125,
+  20,
+  "ti-turn conversational editing. This update lowers costs by "
+ ],
+ "edit": [
+  239.078125,
+  540.15625,
+  108.484375,
+  20,
+  "ideo creation, improved reference adherence, and multi-turn "
+ ],
+ "where": [
+  48,
+  540.15625,
+  92.15625,
+  20,
+  "start using these capabilities today across the Gemini API, "
+ ],
+ "caution": [
+  480.15625,
+  540.125,
+  81.0625,
+  20,
+  "While development is ongoing to further improve things like "
+ ]
+}

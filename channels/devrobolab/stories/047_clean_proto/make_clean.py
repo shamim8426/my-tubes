@@ -7,7 +7,8 @@ import numpy as np
 from PIL import Image, ImageDraw, ImageFilter
 
 HERE = Path(__file__).parent; ROOT = HERE.parents[3]
-SRC = ROOT / "channels/devrobolab/stories/043_cc-fast-mode"
+import os
+SRC = Path(os.environ["CLEAN_SRC"]) if os.environ.get("CLEAN_SRC") else ROOT / "channels/devrobolab/stories/043_cc-fast-mode"
 sys.path.insert(0, str(ROOT / "scripts"))
 from photo_video import ease_out, ease_back, ease_io, wav_dur
 import subprocess
@@ -16,7 +17,17 @@ W, H, FPS = 1080, 1920, 30
 LEAD, AFTER = 0.05, 0.05
 deck = json.load(open(SRC / "deck.json", encoding="utf-8")); WT = json.load(open(SRC / "wt.json", encoding="utf-8"))
 IDS = [s["id"] for s in deck["scenes"]]
+SLOW = 1.10  # voice slowed by this factor (user: video too fast); word times scale with it
+for _s in WT.values():
+    for _t in _s["tokens"]:
+        for _j in range(1, len(_t)):
+            if isinstance(_t[_j], (int, float)): _t[_j] *= SLOW
 WAVES = [SRC / "audio/tts" / f"s_{i:02d}.wav" for i in range(len(IDS))]
+(SRC / "audio/tts_slow").mkdir(parents=True, exist_ok=True)
+for _w in list(WAVES):
+    _o = SRC / "audio/tts_slow" / _w.name
+    if not _o.exists(): subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(_w), "-filter:a", f"atempo={1 / SLOW:.4f}", str(_o)], check=True)
+WAVES = [SRC / "audio/tts_slow" / w.name for w in WAVES]
 D = [LEAD + wav_dur(w) + AFTER for w in WAVES]; D[-1] += 1.2; START = [sum(D[:i]) for i in range(len(D))]; TOTAL = sum(D)
 SC = dict(zip(IDS, START))
 def T(sid, k): toks = WT[sid]["tokens"]; return SC[sid] + LEAD + toks[min(k, len(toks) - 1)][1]

@@ -53,3 +53,13 @@ Every upload is `privacy: private` and has its thumbnail set before the run ends
 The moment something is learned that other videos or channels can use (a mistake found in review, how it was fixed, a tool or Windows trap, a layout/sync/audio rule, a research result), run at once, in the middle of the work, never at the end and never waiting to be asked:
 `.venv\Scripts\python.exe -X utf8 tools\learn.py "<short title>" "<what was learned and what to do next time>"`
 It writes the line into shared/STYLE_LIBRARY.md (section 13) and pushes it to GitHub main by itself. Every run that found and fixed at least one mistake MUST have called it at least once (the review.md findings are the source). No secrets, no other creators' frames or words.
+
+## Fresh style per video (user 2026-11-08, binding)
+- Before building EACH new video (Short or Long): pick ONE recent InsiderForce video not studied before (list in `research/study_log.md`), study it per RULES 12c (download only into git-ignored `study/`, frames every ~1.5 s, principles only: presentation, motion, graphics, pacing; never their frames/words/names), apply a few of its techniques to this video, log which in log.md (`style from study: ...`), write the learning with `tools/learn.py`, delete `study/`.
+- Result: editing style and presentation differ from video to video. Keep: picture area on top, text at the bottom, big non-overlapping phrases, Hinglish in Roman letters for on-screen text, a new picture every ~3 s entering from different sides, slower pace than v2, no more than one idea per beat, not crowded.
+- If the YouTube download is blocked (sign-in/bot check): do not retry endlessly; use the last learnings and say so in log.md.
+
+## Ending line and visuals (user 2026-11-08, binding)
+- Never ask viewers to comment a word. Ending = follow/subscribe only, and a DIFFERENT closing line every video (check the last lines in log.md; do not repeat). Ending shows the robot + a "+ Follow" card, no comment card.
+- Every spoken claim needs a real picture: official-page screenshot crop with the key phrase marked yellow (capture.py in stories/047_news-gemini-omni, Playwright, own page only), money shown as numbers/bars, an edit/demo that really changes on screen. Not only text cards.
+- Captions: whole phrase fades in at once and stays for its sentence (no word-by-word flicker); picture changes at most every ~4-5 s, 2 pictures per scene.
