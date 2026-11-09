@@ -63,3 +63,6 @@ It writes the line into shared/STYLE_LIBRARY.md (section 13) and pushes it to Gi
 - Never ask viewers to comment a word. Ending = follow/subscribe only, and a DIFFERENT closing line every video (check the last lines in log.md; do not repeat). Ending shows the robot + a "+ Follow" card, no comment card.
 - Every spoken claim needs a real picture: official-page screenshot crop with the key phrase marked yellow (capture.py in stories/047_news-gemini-omni, Playwright, own page only), money shown as numbers/bars, an edit/demo that really changes on screen. Not only text cards.
 - Captions: whole phrase fades in at once and stays for its sentence (no word-by-word flicker); picture changes at most every ~4-5 s, 2 pictures per scene.
+
+## 5. NO VIDEO FILES IN GIT (user 2026-11-09, binding)
+Never `git add`/commit any video (mp4/mov/webm/mkv, incl. part/fixed/360p copies); only images if needed. Videos are built, uploaded to YouTube and stay local only (already git-ignored). Do not delete existing local videos unless the normal process already does. Before every sync check `git status` that no video is staged.
