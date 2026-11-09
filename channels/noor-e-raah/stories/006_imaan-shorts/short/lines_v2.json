@@ -1,0 +1,9 @@
+[
+ {"n":1,"img":"v2_man_sad","who":"man","voice":"Charon","text":"अम्मी, मैंने सब कुछ करके देख लिया… फिर भी कुछ नहीं बदला।","style":"A tired, discouraged young Indian man speaking softly in Hindi, sad, heavy, a little hopeless"},
+ {"n":2,"img":"v2_mom_calm","who":"mom","voice":"Sulafat","text":"बेटा, जब रास्ता बंद लगे, तब भी अल्लाह पर भरोसा मत छोड़ना।","style":"A loving middle-aged Indian mother speaking in Hindi, warm, calm, gentle, reassuring, slow"},
+ {"n":3,"img":"v2_man_sad","who":"man","voice":"Charon","text":"लेकिन अम्मी… और कितना इंतज़ार करूँ?","style":"A tired, discouraged young Indian man speaking softly in Hindi, voice breaking slightly, pleading"},
+ {"n":4,"img":"v2_mom_calm","who":"mom","voice":"Sulafat","text":"क़ुरआन कहता है: बेशक, हर मुश्किल के साथ आसानी है।","style":"A loving middle-aged Indian mother speaking in Hindi, warm, calm, firm and comforting, slow, not singing or chanting"},
+ {"n":5,"img":"v2_man_sad","who":"man","voice":"Charon","text":"बिस्मिल्लाह… मैं एक बार फिर कोशिश करूँगा।","style":"A young Indian man in Hindi, quietly determined, soft and resolved, hopeful"},
+ {"n":6,"img":"v2_man_happy","who":"man","voice":"Charon","text":"अम्मी! इंटरव्यू वालों का फ़ोन आया है… मेरी नौकरी लग गई!","style":"A young Indian man in Hindi, overjoyed, excited, laughing breathlessly with happiness"},
+ {"n":7,"img":"v2_mom_happy","who":"mom","voice":"Sulafat","text":"देखा बेटा? सब्र का फल हमेशा मीठा होता है।","style":"A loving middle-aged Indian mother in Hindi, tearful happy smile in her voice, warm, proud, gentle"}
+]

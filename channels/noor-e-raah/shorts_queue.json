@@ -1,0 +1,55 @@
+{
+ "_help": "Noor Imaan Shorts queue (user 2026-11-09): pick the first status=planned; lesson-first, cute, fictional ordinary characters (never Prophet/Sahabi/Quran-named person/angel). Any ayah/hadith used must be verified (Tanzil Arabic bytes; hadith sahih with source) at script time.",
+ "items": [
+  {
+   "n": 3,
+   "key": "sabr-ka-phal",
+   "theme": "Sabr (patience) - girl fails exam, nani, 94:6",
+   "status": "built",
+   "file": "stories/006_imaan-shorts/short/imaan_short_03_cute.mp4",
+   "note": "built 2026-11-09, not yet uploaded"
+  },
+  {
+   "n": 4,
+   "key": "shukr-ek-khajoor",
+   "theme": "Shukr - poor boy shares his only date with a hungry child; barkat comes back",
+   "status": "planned"
+  },
+  {
+   "n": 5,
+   "key": "imandari-ka-inaam",
+   "theme": "Imandari - young shopkeeper returns extra change; honesty is rewarded",
+   "status": "planned"
+  },
+  {
+   "n": 6,
+   "key": "dua-ki-taqat",
+   "theme": "Dua - little girl asks for something small every night; patience in waiting",
+   "status": "planned"
+  },
+  {
+   "n": 7,
+   "key": "maaf-karna",
+   "theme": "Maaf karna - two brothers stop talking, the younger one makes the first move",
+   "status": "planned"
+  },
+  {
+   "n": 8,
+   "key": "tawakkul-kisan",
+   "theme": "Tawakkul - farmer does his part, then trusts Allah and waits for rain",
+   "status": "planned"
+  },
+  {
+   "n": 9,
+   "key": "walidain-ki-khidmat",
+   "theme": "Walidain ki khidmat - husband and wife care for an ill mother; family peace",
+   "status": "planned"
+  },
+  {
+   "n": 10,
+   "key": "sachchi-dosti",
+   "theme": "Sachchi dosti - a girl helps a classmate in secret and asks nothing back",
+   "status": "planned"
+  }
+ ]
+}

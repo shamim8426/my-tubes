@@ -44,3 +44,8 @@ Rules live in `channels/noor-e-raah/RULES.md` (sections 1c, 2, 2a); this file re
 - Hindi name + hook line + chip: libass (Mukta ExtraBold). Hook = one short, true, respectful line; "*word*" in yellow.
   No fear, no false promise, no "ban/halal/haram" claims, no person image. YouTube's time stamp covers the bottom-right.
 - Three layouts (A left column, B centred, C hook-first); Nigraan compares CTR later (learnings.md).
+
+## 6. "Imaan Shorts" talking close-up (user 2026-11-09, playlist imaan_short PLdhrP4DE-lC8; RULES 2c)
+- Look: cute 3D storybook faces (huge glossy eyes, round cheeks), warm lamp light, face close-ups; characters speak in first person (no narrator); Hindi subtitle box low-middle (above the Shorts UI), ayah Arabic + source at the top via libass.
+- Free pipeline in `stories/006_imaan-shorts/short/`: gen_v3.py (CF flux, reference via input_image_0), tts_v3.py, talk.py (audio-driven mouth), build_v3.py. Full-motion route: Kaggle LTX-Video (`kaggle/ltx_full`), prompt must name the motion, guidance 5, 73-81 frames; queue may stall.
+- Learnings (tools/learn.py was blocked: main diverged from origin): CF reference image keeps one face; PIL has no Raqm on Windows -> libass; parallax.MAX_SECONDS=20 or video drifts; LTX 97 frames OOM on T4.

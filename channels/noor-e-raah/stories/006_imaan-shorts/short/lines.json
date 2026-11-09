@@ -1,0 +1,51 @@
+[
+ {
+  "n": 1,
+  "img": "s1",
+  "voice": "Sulafat",
+  "text": "अम्मी… भूख लगी है।",
+  "style": "A small hungry child, soft, tired, sad, in Hindi, very short"
+ },
+ {
+  "n": 2,
+  "img": "s2",
+  "voice": "Algieba",
+  "text": "घर में बस एक रोटी बची थी। माँ ने मुस्कुराकर कहा, आओ बेटी, मिलकर खा लेते हैं।",
+  "style": "Calm warm storyteller, gentle, unhurried"
+ },
+ {
+  "n": 3,
+  "img": "s3",
+  "voice": "Algieba",
+  "text": "तभी दरवाज़े पर दस्तक हुई। एक थका हुआ बुज़ुर्ग मुसाफ़िर खड़े थे।",
+  "style": "Calm warm storyteller, gentle, unhurried"
+ },
+ {
+  "n": 4,
+  "img": "s4",
+  "voice": "Sulafat",
+  "text": "लीजिए बाबा, ये हमारी तरफ़ से। अल्लाह बड़ा मेहरबान है।",
+  "style": "Kind young mother, soft, warm, caring, in Hindi"
+ },
+ {
+  "n": 6,
+  "img": "s6",
+  "voice": "Algieba",
+  "text": "अगली सुबह पड़ोसी गरम खाने की पूरी देग लेकर आए। इतना कि सब का पेट भर गया।",
+  "style": "Calm warm storyteller, a little joyful, gentle"
+ },
+ {
+  "n": 7,
+  "img": "ayah",
+  "voice": "Algieba",
+  "text": "क़ुरआन कहता है, सूरह अल-इन्शिराह, आयत छह: बेशक, हर मुश्किल के साथ आसानी है।",
+  "style": "Calm respectful teacher, warm, steady, clear; not singing or chanting"
+ },
+ {
+  "n": 8,
+  "img": "ayah",
+  "voice": "Sulafat",
+  "text": "आपकी सबसे बड़ी मुश्किल कौन सी है? कमेंट में लिखिए।",
+  "style": "Soft warm curious Indian Hindi-speaking woman asking a question"
+ }
+]

@@ -13,6 +13,7 @@ close details - hands/feet, no full figures or faces acting a scene (2026-10-26;
 form; Musafir + worship only from behind/far); style choice from the tests pending (`brand/STYLE_NOOR.md`).
 
 ## Awaazein + roles (RULES 1b, channel.json "voices")
+FROM 2026-11-10 (RULES 1d): ONE narrator only (Algieba), no questions, no tilawat disclaimer, tempo 1.15, reuse existing images. (Old: USTAAD + SAWAAL.)
 USTAAD = Algieba (aayat, bhaavarth, matlab, parichay, shan-e-nuzul; only he makes religious claims, with sources).
 SAWAAL = Sulafat (questions — from 002 max 3-4, 3-3.5 min apart; misaal; short summaries). Tempo 1.08 in render.
 
@@ -49,3 +50,7 @@ choose), pin comment. Next: 4 Shorts of Al-Fatiha (needs a 9:16 renderer), then 
 - 2026-10-24 Format final: no tilawat; saral bhaavarth; two voices.
 - 2026-10-25 Music continuous + swoosh; style a default for 001; Musafir v3; questions max 3-4, 3-3.5 min apart;
   Shorts never cut an ayah; Arabic via libass.
+
+
+## Daily plan (user 2026-11-09)
+Nightly after 02:00 IST: one Long (surah, RULES 1d) + one Short (Imaan Shorts, RULES 2c/2d), both private. Tasks: noor-daily-short, noor-daily-long; runbooks `scheduled_tasks/`.

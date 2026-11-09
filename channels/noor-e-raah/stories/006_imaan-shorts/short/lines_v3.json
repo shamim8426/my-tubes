@@ -1,0 +1,9 @@
+[
+ {"n":1,"img":"v3_girl_sad","who":"girl","voice":"Leda","text":"नानी, मैंने इतनी मेहनत की… फिर भी मैं फ़ेल हो गई।","style":"A sweet young Indian girl of about 12 speaking in Hindi, sad, tearful, small trembling voice"},
+ {"n":2,"img":"v3_nani_calm","who":"nani","voice":"Gacrux","text":"बेटी, जब रास्ता बंद लगे, तब भी अल्लाह पर भरोसा मत छोड़ना।","style":"A loving elderly Indian grandmother speaking in Hindi, warm, calm, gentle, reassuring, slow"},
+ {"n":3,"img":"v3_girl_sad","who":"girl","voice":"Leda","text":"लेकिन नानी… और कितना इंतज़ार करूँ?","style":"A sweet young Indian girl of about 12 speaking in Hindi, sniffling, pleading, voice breaking slightly"},
+ {"n":4,"img":"v3_nani_calm","who":"nani","voice":"Gacrux","text":"क़ुरआन कहता है: बेशक, हर मुश्किल के साथ आसानी है।","style":"A loving elderly Indian grandmother speaking in Hindi, warm, calm, firm and comforting, slow, not singing or chanting"},
+ {"n":5,"img":"v3_girl_sad","who":"girl","voice":"Leda","text":"बिस्मिल्लाह… मैं फिर से इम्तिहान दूँगी।","style":"A sweet young Indian girl of about 12 in Hindi, quietly determined, soft, hopeful"},
+ {"n":6,"img":"v3_girl_happy","who":"girl","voice":"Leda","text":"नानी! रिज़ल्ट आ गया… मैं पास हो गई, पूरे स्कूल में फ़र्स्ट!","style":"A sweet young Indian girl of about 12 in Hindi, overjoyed, excited, giggling with happiness"},
+ {"n":7,"img":"v3_nani_happy","who":"nani","voice":"Gacrux","text":"देखा बेटी? सब्र का फल हमेशा मीठा होता है।","style":"A loving elderly Indian grandmother in Hindi, tearful happy smile in her voice, warm, proud, gentle"}
+]
