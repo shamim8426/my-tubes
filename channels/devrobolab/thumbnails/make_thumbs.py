@@ -1,4 +1,4 @@
-r"""DevRoboLab thumbnails v3 (2026-11-07, user-approved look): LIGHT clean background, SMALL words (2 lines, one highlighted), the DevRoboLab robot, and a picture that shows how it works.
+﻿r"""DevRoboLab thumbnails v3 (2026-11-07, user-approved look): LIGHT clean background, SMALL words (2 lines, one highlighted), the DevRoboLab robot, and a picture that shows how it works.
 Long = 1280x720 (16:9), Short = 1080x1920 (9:16). One robot pose/side, background colour and picture type per video.
     .venv\Scripts\python -X utf8 channels\devrobolab\thumbnails\make_thumbs.py [video_id ...]      (no ids = all in VIDEOS)
 HARD RULE (user 2026-11-07): the channel name (DevRoboLab) must NEVER overlap any other content. Every render is checked: the brand box is measured against the tag, the title, the picture and the robot,
@@ -146,6 +146,7 @@ P, L = "port", "land"
 # (video id, orientation, theme, robot pose, robot side (l/r), tag, (line1, line2), picture html)
 VIDEOS = [
     ("zfOBSjw3RA0", L, "cream", "think", "l", "CLAUDE FEATURE 05", ("Claude ko sab", "*yaad* hai?"), memory_flow()),
+    ("qdRnSC9QQEI", L, "lav", "think", "l", "CLAUDE CODE 04", ("Model badla,", "*cache* toota?"), meter("CACHE HIT RATE", 94, ["cache read", "cheap"])),
     ("E-yaXp_ZgMw", L, "sky", "work", "r", "CLAUDE CODE 03", ("Aapke *.claude*", "folder me kya hai?"),
      files([("CLAUDE.md", "#FFC800", "instructions"), ("settings.json", "#7CC6FF", "permissions"), ("skills/", "#8FE3A8", "reusable prompts"), ("agents/", "#FF9EC4", "helpers")])),
     ("nHhmmwqwMtw", L, "pink", "wave", "l", "AI NEWS", ("Aaj ki *5 AI*", "khabrein"), big("5", "badi khabrein", ["Gemini 4", "Mistral", "Ollama", "ElevenLabs"], 120)),

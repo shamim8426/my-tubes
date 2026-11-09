@@ -1,0 +1,44 @@
+[
+ {
+  "n": 1,
+  "img": "images/v3_girl_sad.png",
+  "motion": "A cute young girl in a pink headscarf looks sadly into the camera with teary eyes, then glances down and sighs, her shoulders rise and fall, small natural head movements, she blinks slowly, tears glisten.",
+  "seed": 21
+ },
+ {
+  "n": 2,
+  "img": "images/v3_nani_calm.png",
+  "motion": "A sweet elderly grandmother in a floral headscarf smiles warmly and nods gently, slowly tilts her head with loving compassion, blinks softly, subtle breathing.",
+  "seed": 22
+ },
+ {
+  "n": 3,
+  "img": "images/v3_girl_sad.png",
+  "motion": "The cute girl in the pink headscarf looks up at the camera with pleading teary eyes, her chin trembles, she sniffles and tilts her head slightly, blinks slowly.",
+  "seed": 23
+ },
+ {
+  "n": 4,
+  "img": "images/v3_nani_calm.png",
+  "motion": "The grandmother looks into the camera with calm confidence, gives one slow reassuring nod, a soft smile, her eyes shine, gentle breathing.",
+  "seed": 24
+ },
+ {
+  "n": 5,
+  "img": "images/v3_girl_sad.png",
+  "motion": "The cute girl takes a deep breath, her eyes close for a moment, then she opens them with quiet determination, lifts her chin slightly and gives a small nod.",
+  "seed": 25
+ },
+ {
+  "n": 6,
+  "img": "images/v3_girl_happy.png",
+  "motion": "The cute girl bursts with joy, bouncing slightly with excitement, a big joyful smile, sparkling eyes, her head bobs happily, she blinks.",
+  "seed": 26
+ },
+ {
+  "n": 7,
+  "img": "images/v3_nani_happy.png",
+  "motion": "The grandmother smiles proudly with tearful happy eyes, slowly nods, gentle breathing, a soft blink.",
+  "seed": 27
+ }
+]
