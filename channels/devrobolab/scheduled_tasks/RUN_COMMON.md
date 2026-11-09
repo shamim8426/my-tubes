@@ -66,3 +66,17 @@ It writes the line into shared/STYLE_LIBRARY.md (section 13) and pushes it to Gi
 
 ## 5. NO VIDEO FILES IN GIT (user 2026-11-09, binding)
 Never `git add`/commit any video (mp4/mov/webm/mkv, incl. part/fixed/360p copies); only images if needed. Videos are built, uploaded to YouTube and stay local only (already git-ignored). Do not delete existing local videos unless the normal process already does. Before every sync check `git status` that no video is staged.
+
+## Thumbnails: no robot (user 2026-11-08, binding)
+- Do NOT put the DevRoboLab robot/cartoon on any thumbnail (it makes viewers expect a cartoon video). Thumbnail = clear topic title (one highlighted phrase), a picture that shows the topic, and a short curiosity tagline box. `thumbnails/make_thumbs.py` already does this; add a line to `TAGLINES` for every new video.
+
+## News videos: multiple major stories (user 2026-11-08, binding)
+- A news video covers the 3-4 MAJOR AI news items of the moment (not one story), presented as a numbered roundup (1, 2, 3, 4), each with its own official-source picture/screenshot. Pick only major news (official source for each, facts checked); a single story only if it is clearly the one big news of the day.
+- Mind the Short cap: keep each item to ~8-10 s, so total stays near the cap; if 4 items do not fit, do 3, or make a Long.
+
+## Thumbnails: tool symbols (user 2026-11-08, binding)
+- When a thumbnail names tools/products (Ollama, Gemini, ...), show their symbol as a simple picture tile (own drawn mark + name), not text chips. Max 3-5 tiles, not crowded. Helper: `logos()` + `ICONS` in `thumbnails/make_thumbs.py` (add an icon there for a new tool).
+
+## Thumbnail wording (user 2026-11-08, binding)
+- Professional English title words on thumbnails (e.g. "5 AI Updates", "Worth Knowing Today"). Never "khabrein"/"khabar" or "Aaj ki ... " style filler.
+- Keep the yellow highlight on one title phrase and a tagline box listing model/tool names (user liked this look, 2026-11-08). Never write meta text about the video format (e.g. "all in one video"). Big symbol tiles for tools, not crowded.
