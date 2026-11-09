@@ -33,6 +33,7 @@ for s in (tl if RENDER else []):
     for f in range(n):
         k=f-lead_f
         o=float(env[k]) if 0<=k<len(env) else 0.0
+        if l['n']==7: o=0.0  # mouth patch glitched on nani_happy: still + sway
         fr=tk.frame(o)
         p=f/max(n-1,1); e=0.5-0.5*math.cos(math.pi*p)
         z=z0+(z1-z0)*e
