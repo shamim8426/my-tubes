@@ -1,0 +1,5 @@
+SLOW = 1.18  # voice slowed by this factor (user: video too fast); word times scale with it
+for _s in WT.values():
+    for _t in _s["tokens"]:
+        for _j in range(1, len(_t)):
+            if isinstance(_t[_j], (int, float)): _t[_j] *= SLOW

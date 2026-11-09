@@ -1,0 +1,2692 @@
+{
+ "_note": "Per-shot overrides on top of footage_map.md (rc_real_look.py). segs = one entry per cut (equal time split); crop = fractions x0,y0,x1,y1 of the SOURCE frame (hides baked text / pillarbox). exact = tin..tout window used as is.",
+ "1": {
+  "status": "REAL",
+  "segs": [
+   {
+    "file": "footage/jhuapl_dart_impact_replay.mp4",
+    "tin": 29.0,
+    "tout": 34.2,
+    "speed": 1.0,
+    "z0": 1.0,
+    "z1": 1.06,
+    "crop": [
+     0.2333,
+     0.0,
+     0.7667,
+     1.0
+    ],
+    "credit": "NASA/Johns Hopkins APL"
+   }
+  ]
+ },
+ "2": {
+  "status": "REAL",
+  "segs": [
+   {
+    "file": "footage/pia25329_dart_at_didymos_illustration.jpg",
+    "credit": "NASA/JHUAPL/S. Gribben (illustration)"
+   },
+   {
+    "file": "footage/jhuapl_dart_collision_still.jpg",
+    "credit": "NASA/Johns Hopkins APL (illustration)"
+   },
+   {
+    "file": "footage/jhuapl_dart_impact_zoom_illustration.jpg",
+    "credit": "NASA/JHUAPL/J. Emmerich (illustration)"
+   }
+  ]
+ },
+ "3": {
+  "status": "REAL-BG",
+  "segs": [
+   {
+    "file": "footage/draco_penultimate_image.png",
+    "credit": "NASA/Johns Hopkins APL (DRACO)"
+   }
+  ]
+ },
+ "4": {
+  "scene": {
+   "type": "dhakka_main",
+   "sync": 4,
+   "mix": [
+    {
+     "a": 0,
+     "b": 2.8,
+     "mode": "real",
+     "file": "footage/jhuapl_dart_impact_replay.mp4",
+     "credit": "NASA/Johns Hopkins APL",
+     "tin": 22,
+     "tout": 24.8,
+     "cap": "Real DART footage: final approach",
+     "crop": [
+      0.2333,
+      0.0,
+      0.7667,
+      1.0
+     ]
+    }
+   ]
+  }
+ },
+ "8": {
+  "scene": {
+   "type": "dhakka_main",
+   "sync": 4,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage/draco_didymos_northup.png",
+     "credit": "NASA/Johns Hopkins APL",
+     "dim": 0.5,
+     "k": 3
+    }
+   ]
+  }
+ },
+ "15": {
+  "scene": {
+   "type": "airburst_years",
+   "sync": 15,
+   "mix": [
+    {
+     "a": 0,
+     "b": 3.4,
+     "mode": "real",
+     "file": "footage2/earth/airglow_iss.mp4",
+     "credit": "NASA/GOLD, ISS",
+     "tin": 0.5,
+     "tout": 4.0,
+     "cap": "Atmosphere seen from the ISS"
+    },
+    {
+     "a": 3.4,
+     "b": null,
+     "mode": "under",
+     "file": "footage2/earth/black_marble_night.mp4",
+     "credit": "NASA Earth Observatory",
+     "tin": 24,
+     "tout": 27.400000000000006,
+     "dim": 0.5,
+     "k": 1
+    }
+   ]
+  }
+ },
+ "16": {
+  "scene": {
+   "type": "airburst_city",
+   "sync": 16,
+   "kt": 5,
+   "label": "5 kt = 5,000 t TNT",
+   "sub": "1 kt = 1,000 ton TNT",
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage2/earth/orion_earth_timelapse.mp4",
+     "credit": "NASA/Orion",
+     "tin": 40,
+     "tout": 46.4,
+     "dim": 0.5,
+     "k": 2
+    }
+   ]
+  }
+ },
+ "17": {
+  "scene": {
+   "type": "chely",
+   "sync": 17,
+   "mix": [
+    {
+     "a": 0,
+     "b": 3.0,
+     "mode": "real",
+     "file": "footage2/history_impacts/chelyabinsk_bolide_plume.mp4",
+     "credit": "NASA Goddard (Suomi NPP)",
+     "tin": 19,
+     "tout": 22.2,
+     "cap": "Real: Chelyabinsk trail from orbit",
+     "crop": [
+      0,
+      0.14,
+      1,
+      1
+     ]
+    }
+   ]
+  }
+ },
+ "18": {
+  "scene": {
+   "type": "chely",
+   "sync": 17,
+   "mix": [
+    {
+     "a": 0,
+     "b": 3.2,
+     "mode": "real",
+     "file": "footage2/meteors/whatsup_perseids_2021.mp4",
+     "credit": "NASA/JPL-Caltech (What's Up)",
+     "tin": 28,
+     "tout": 31.4,
+     "cap": "Real meteors",
+     "crop": [
+      0,
+      0,
+      1,
+      0.9
+     ]
+    }
+   ]
+  }
+ },
+ "19": {
+  "scene": {
+   "type": "chely",
+   "sync": 17,
+   "mix": [
+    {
+     "a": 2.2,
+     "b": 5.5,
+     "mode": "real",
+     "file": "footage2/history_impacts/chelyabinsk_bolide_plume.mp4",
+     "credit": "NASA Goddard (Suomi NPP)",
+     "tin": 118,
+     "tout": 121.4,
+     "crop": [
+      0,
+      0.14,
+      1,
+      1
+     ]
+    }
+   ]
+  }
+ },
+ "20": {
+  "scene": {
+   "type": "chely",
+   "sync": 17
+  }
+ },
+ "30": {
+  "scene": {
+   "type": "size_ladder",
+   "sync": 28
+  }
+ },
+ "35": {
+  "scene": {
+   "type": "rare_ladder",
+   "sync": 35
+  }
+ },
+ "28": {
+  "scene": {
+   "type": "size_ladder",
+   "sync": 28,
+   "mix": [
+    {
+     "a": 0,
+     "b": 3.0,
+     "mode": "real",
+     "file": "footage2/history_impacts/chelyabinsk_bolide_plume.mp4",
+     "credit": "NASA Goddard (Suomi NPP)",
+     "tin": 100,
+     "tout": 103.2,
+     "crop": [
+      0,
+      0.14,
+      1,
+      1
+     ]
+    }
+   ]
+  }
+ },
+ "36": {
+  "scene": {
+   "type": "rare_ladder",
+   "sync": 35
+  }
+ },
+ "63": {
+  "scene": {
+   "type": "survey_sky",
+   "sync": 63,
+   "flash": true,
+   "mix": [
+    {
+     "a": 0,
+     "b": 2.6,
+     "mode": "real",
+     "file": "footage2/meteors/whatsup_perseids_2022.mp4",
+     "credit": "NASA/JPL-Caltech (What's Up)",
+     "tin": 34.0,
+     "tout": 36.8,
+     "cap": "Telescope"
+    }
+   ]
+  }
+ },
+ "39": {
+  "scene": {
+   "type": "can_we_push",
+   "sync": 39,
+   "flash": true,
+   "mix": [
+    {
+     "a": 0,
+     "b": 3.6,
+     "mode": "real",
+     "file": "footage/nasa_dart_recap_large.mp4",
+     "credit": "NASA (DART launch)",
+     "tin": 37.5,
+     "tout": 41.2,
+     "cap": "Real: DART launch"
+    }
+   ]
+  }
+ },
+ "45": {
+  "scene": {
+   "type": "safe_target",
+   "sync": 44,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage/draco_didymos_northup.png",
+     "credit": "NASA/Johns Hopkins APL",
+     "dim": 0.5,
+     "k": 1
+    }
+   ]
+  }
+ },
+ "50": {
+  "scene": {
+   "type": "push_basic",
+   "sync": 49,
+   "mix": [
+    {
+     "a": 0,
+     "b": 2.8,
+     "mode": "real",
+     "file": "footage/jhuapl_dart_impact_replay.mp4",
+     "credit": "NASA/Johns Hopkins APL",
+     "tin": 31.4,
+     "tout": 34.2,
+     "cap": "Real: DART's last seconds",
+     "crop": [
+      0.2333,
+      0.0,
+      0.7667,
+      1.0
+     ]
+    }
+   ]
+  }
+ },
+ "59": {
+  "scene": {
+   "type": "still_orbiting",
+   "sync": 59,
+   "mix": [
+    {
+     "a": 0,
+     "b": 3.4,
+     "mode": "real",
+     "file": "footage/draco_dimorphos_mosaic.png",
+     "credit": "NASA/Johns Hopkins APL",
+     "k": 2
+    },
+    {
+     "a": 3.4,
+     "b": null,
+     "mode": "under",
+     "file": "footage/draco_last_image_both_asteroids.png",
+     "credit": "NASA/Johns Hopkins APL",
+     "dim": 0.5,
+     "k": 14
+    }
+   ]
+  }
+ },
+ "125": {
+  "scene": {
+   "type": "method_demo",
+   "sync": 125,
+   "kind": "kinetic",
+   "ttl": "tareeka 1: kinetic impactor (DART wala dhakka)",
+   "need": "sabse achha tab chalta hai jab pind ko hum jaante hon|aur chetavani ka samay ho",
+   "mix": [
+    {
+     "a": 0,
+     "b": 4.0,
+     "mode": "real",
+     "file": "footage/jhuapl_dart_impact_replay.mp4",
+     "credit": "NASA/Johns Hopkins APL",
+     "tin": 22.0,
+     "tout": 26.0,
+     "cap": "Real: DART (kinetic impactor)",
+     "crop": [
+      0.2333,
+      0.0,
+      0.7667,
+      1.0
+     ]
+    }
+   ]
+  }
+ },
+ "68": {
+  "scene": {
+   "type": "dots_found",
+   "sync": 67,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage/pia25253_neo_surveyor_starfield.jpg",
+     "credit": "NASA/JPL-Caltech",
+     "dim": 0.5,
+     "k": 1
+    }
+   ]
+  }
+ },
+ "72": {
+  "scene": {
+   "type": "goals",
+   "sync": 72,
+   "mix": [
+    {
+     "a": 0,
+     "b": 3.0,
+     "mode": "real",
+     "file": "footage2/asteroids/neowise_legacy.mp4",
+     "credit": "NASA/JPL-Caltech (What's Up)",
+     "tin": 160.5,
+     "tout": 163.7,
+     "crop": [
+      0,
+      0.1,
+      1,
+      1
+     ]
+    }
+   ]
+  }
+ },
+ "76": {
+  "scene": {
+   "type": "neo_surveyor",
+   "sync": 76,
+   "mix": [
+    {
+     "a": 0,
+     "b": 4.2,
+     "mode": "real",
+     "file": "footage2/asteroids/neowise_legacy.mp4",
+     "credit": "NASA/JPL-Caltech (What's Up)",
+     "tin": 122,
+     "tout": 126.4,
+     "cap": "Real: NEOWISE infrared telescope",
+     "crop": [
+      0,
+      0.1,
+      1,
+      1
+     ]
+    }
+   ]
+  }
+ },
+ "79": {
+  "scene": {
+   "type": "neo_surveyor",
+   "sync": 76,
+   "mix": [
+    {
+     "a": 0,
+     "b": 3.0,
+     "mode": "real",
+     "file": "footage2/asteroids/neowise_legacy.mp4",
+     "credit": "NASA/JPL-Caltech (What's Up)",
+     "tin": 126.4,
+     "tout": 129.6,
+     "crop": [
+      0,
+      0.1,
+      1,
+      1
+     ]
+    },
+    {
+     "a": 3.0,
+     "b": null,
+     "mode": "under",
+     "file": "footage2/surveys/neowise_opens_eyes.jpg",
+     "credit": "NASA/JPL-Caltech",
+     "dim": 0.5,
+     "k": 11
+    }
+   ]
+  }
+ },
+ "81": {
+  "scene": {
+   "type": "yr4_chart",
+   "sync": 81,
+   "mix": [
+    {
+     "a": 0,
+     "b": 3.6,
+     "mode": "real",
+     "file": "footage2/asteroids/neowise_legacy.mp4",
+     "credit": "NASA/JPL-Caltech (What's Up)",
+     "tin": 73.5,
+     "tout": 77.3,
+     "crop": [
+      0,
+      0.1,
+      1,
+      1
+     ]
+    },
+    {
+     "a": 3.6,
+     "b": null,
+     "mode": "under",
+     "file": "footage/pia25253_neo_surveyor_starfield.jpg",
+     "credit": "NASA/JPL-Caltech",
+     "dim": 0.5,
+     "k": 13
+    }
+   ]
+  }
+ },
+ "160": {
+  "segs": [
+   {
+    "file": "footage2/asteroids/neowise_legacy.mp4",
+    "tin": 154,
+    "tout": 158,
+    "speed": 1.0,
+    "z0": 1.0,
+    "z1": 1.06,
+    "credit": "NASA/JPL-Caltech (NEOWISE)",
+    "crop": [
+     0,
+     0.1,
+     1,
+     1
+    ]
+   },
+   {
+    "file": "footage2/asteroids/neowise_legacy.mp4",
+    "tin": 158,
+    "tout": 162,
+    "speed": 1.0,
+    "z0": 1.06,
+    "z1": 1.0,
+    "credit": "NASA/JPL-Caltech (NEOWISE)",
+    "crop": [
+     0,
+     0.1,
+     1,
+     1
+    ]
+   }
+  ]
+ },
+ "94": {
+  "scene": {
+   "type": "apophis",
+   "sync": 89,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage2/radar/goldstone_2017ye5.jpg",
+     "credit": "NASA/JPL-Caltech",
+     "dim": 0.5,
+     "k": 5
+    }
+   ]
+  }
+ },
+ "158": {
+  "scene": {
+   "type": "final3",
+   "sync": 157,
+   "mix": [
+    {
+     "a": 0,
+     "b": 4.0,
+     "mode": "real",
+     "file": "footage2/earth/iss_aurora_kopra.jpg",
+     "credit": "NASA/ISS"
+    },
+    {
+     "a": 4.0,
+     "b": null,
+     "mode": "under",
+     "file": "footage2/earth/black_marble_night.mp4",
+     "credit": "NASA Earth Observatory",
+     "tin": 24,
+     "tout": 29.639999999999873,
+     "dim": 0.5,
+     "k": 13
+    }
+   ]
+  }
+ },
+ "97": {
+  "scene": {
+   "type": "recap_dials",
+   "sync": 97,
+   "flash": true,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage/draco_didymos_northup.png",
+     "credit": "NASA/Johns Hopkins APL",
+     "dim": 0.5
+    }
+   ]
+  }
+ },
+ "133": {
+  "scene": {
+   "type": "nuclear",
+   "sync": 131,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage2/scale_analogies/castle_bravo_blast.jpg",
+     "credit": "US DOE (public domain)",
+     "dim": 0.5,
+     "k": 2
+    }
+   ]
+  }
+ },
+ "137": {
+  "scene": {
+   "type": "nuclear_caveats",
+   "sync": 134
+  }
+ },
+ "5": {
+  "scene": {
+   "type": "dhakka_main",
+   "sync": 4,
+   "flash": true,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage/draco_dimorphos_mosaic.png",
+     "credit": "NASA/Johns Hopkins APL",
+     "dim": 0.5,
+     "k": 0
+    }
+   ]
+  }
+ },
+ "6": {
+  "scene": {
+   "type": "dhakka_main",
+   "sync": 4,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage/draco_dimorphos_mosaic.png",
+     "credit": "NASA/Johns Hopkins APL",
+     "dim": 0.5
+    }
+   ]
+  }
+ },
+ "7": {
+  "scene": {
+   "type": "dhakka_main",
+   "sync": 4,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage/draco_system_northup.png",
+     "credit": "NASA/Johns Hopkins APL",
+     "dim": 0.5,
+     "k": 2
+    }
+   ]
+  }
+ },
+ "14": {
+  "scene": {
+   "type": "earth_incoming",
+   "sync": 14,
+   "flash": true,
+   "mix": [
+    {
+     "a": 0,
+     "b": 2.0,
+     "mode": "real",
+     "file": "footage2/earth/iss_earth_views_hq.mp4",
+     "credit": "NASA (ISS)",
+     "tin": 57,
+     "tout": 59
+    }
+   ]
+  }
+ },
+ "21": {
+  "scene": {
+   "type": "chely",
+   "sync": 17,
+   "punch": 0.05
+  }
+ },
+ "22": {
+  "scene": {
+   "type": "unseen",
+   "sync": 22,
+   "mix": [
+    {
+     "a": 0,
+     "b": 2.5,
+     "mode": "real",
+     "file": "footage2/comets/sungrazers_sdo.mp4",
+     "credit": "NASA/ESA SOHO",
+     "tin": 86,
+     "tout": 88.6,
+     "cap": "Real: the sky next to the Sun (SOHO)"
+    }
+   ]
+  }
+ },
+ "23": {
+  "scene": {
+   "type": "unseen",
+   "sync": 22
+  }
+ },
+ "24": {
+  "scene": {
+   "type": "tunguska_date",
+   "sync": 24
+  }
+ },
+ "25": {
+  "scene": {
+   "type": "airburst_side",
+   "sync": 25,
+   "punch": 0.05
+  }
+ },
+ "26": {
+  "scene": {
+   "type": "trees_top",
+   "sync": 26
+  }
+ },
+ "27": {
+  "scene": {
+   "type": "estimate_swarm",
+   "sync": 27
+  }
+ },
+ "29": {
+  "scene": {
+   "type": "size_ladder",
+   "sync": 28
+  }
+ },
+ "31": {
+  "scene": {
+   "type": "size_ladder",
+   "sync": 28
+  }
+ },
+ "32": {
+  "scene": {
+   "type": "size_ladder",
+   "sync": 28,
+   "mix": [
+    {
+     "a": 3.6,
+     "b": null,
+     "mode": "real",
+     "file": "footage2/craters/chicxulub_yucatan_relief.jpg",
+     "credit": "NASA/JPL",
+     "cap": "Real: Chicxulub, Mexico (radar relief)"
+    }
+   ]
+  }
+ },
+ "33": {
+  "scene": {
+   "type": "extinction",
+   "sync": 33,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage2/craters/chicxulub_yucatan_relief.jpg",
+     "credit": "NASA/JPL",
+     "dim": 0.5,
+     "k": 1
+    }
+   ]
+  }
+ },
+ "34": {
+  "scene": {
+   "type": "extinction",
+   "sync": 33,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage2/earth/iss_earth_views_hq.mp4",
+     "credit": "NASA (ISS)",
+     "tin": 29,
+     "tout": 32.75999999999999,
+     "dim": 0.5,
+     "k": 4
+    }
+   ]
+  }
+ },
+ "37": {
+  "scene": {
+   "type": "known_unknown",
+   "sync": 37,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage2/earth/black_marble_night.mp4",
+     "credit": "NASA Earth Observatory",
+     "tin": 24,
+     "tout": 29.639999999999986,
+     "dim": 0.5,
+     "k": 5
+    }
+   ]
+  }
+ },
+ "38": {
+  "scene": {
+   "type": "known_unknown",
+   "sync": 37,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage2/earth/orion_earth_timelapse.mp4",
+     "credit": "NASA/Orion",
+     "tin": 40,
+     "tout": 44.0,
+     "dim": 0.5,
+     "k": 6
+    }
+   ]
+  }
+ },
+ "40": {
+  "scene": {
+   "type": "acronym",
+   "sync": 40
+  }
+ },
+ "41": {
+  "scene": {
+   "type": "pair_scale",
+   "sync": 41
+  }
+ },
+ "42": {
+  "scene": {
+   "type": "pair_scale",
+   "sync": 41
+  }
+ },
+ "43": {
+  "scene": {
+   "type": "pair_scale",
+   "sync": 41,
+   "punch": 0.05
+  }
+ },
+ "44": {
+  "scene": {
+   "type": "safe_target",
+   "sync": 44,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage/draco_system_northup.png",
+     "credit": "NASA/Johns Hopkins APL",
+     "dim": 0.5
+    }
+   ]
+  }
+ },
+ "47": {
+  "scene": {
+   "type": "journey",
+   "sync": 47,
+   "mix": [
+    {
+     "a": 0,
+     "b": 2.8,
+     "mode": "real",
+     "file": "footage/nasa_dart_recap_large.mp4",
+     "credit": "NASA (DART launch)",
+     "tin": 42.0,
+     "tout": 44.9
+    }
+   ]
+  }
+ },
+ "48": {
+  "status": "REAL",
+  "segs": [
+   {
+    "file": "footage/jhuapl_dart_impact_replay.mp4",
+    "tin": 26.0,
+    "tout": 34.4,
+    "speed": 1.0,
+    "z0": 1.0,
+    "z1": 1.06,
+    "crop": [
+     0.2333,
+     0.0,
+     0.7667,
+     1.0
+    ],
+    "credit": "NASA/Johns Hopkins APL"
+   }
+  ]
+ },
+ "49": {
+  "scene": {
+   "type": "push_basic",
+   "sync": 49,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage/draco_final_image.png",
+     "credit": "NASA/Johns Hopkins APL",
+     "dim": 0.5,
+     "k": 4
+    }
+   ]
+  }
+ },
+ "51": {
+  "scene": {
+   "type": "crit73",
+   "sync": 51,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage/draco_last_image_both_asteroids.png",
+     "credit": "NASA/Johns Hopkins APL",
+     "dim": 0.5,
+     "k": 6
+    }
+   ]
+  }
+ },
+ "52": {
+  "scene": {
+   "type": "crit73",
+   "sync": 51,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage/jhuapl_dart_before_impact_closeup.png",
+     "credit": "NASA/Johns Hopkins APL",
+     "dim": 0.5,
+     "k": 7
+    }
+   ]
+  }
+ },
+ "53": {
+  "scene": {
+   "type": "result_orbit",
+   "sync": 53,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage/draco_dimorphos_mosaic.png",
+     "credit": "NASA/Johns Hopkins APL",
+     "dim": 0.5,
+     "k": 8
+    }
+   ]
+  }
+ },
+ "54": {
+  "scene": {
+   "type": "result_orbit",
+   "sync": 53,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage/draco_dimorphos_northup.png",
+     "credit": "NASA/Johns Hopkins APL",
+     "dim": 0.5,
+     "k": 9
+    }
+   ]
+  }
+ },
+ "55": {
+  "scene": {
+   "type": "result_orbit",
+   "sync": 53,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage/draco_system_northup.png",
+     "credit": "NASA/Johns Hopkins APL",
+     "dim": 0.5,
+     "k": 10
+    }
+   ]
+  }
+ },
+ "56": {
+  "scene": {
+   "type": "result_orbit",
+   "sync": 53,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage/draco_didymos_northup.png",
+     "credit": "NASA/Johns Hopkins APL",
+     "dim": 0.5,
+     "k": 11
+    }
+   ]
+  }
+ },
+ "57": {
+  "scene": {
+   "type": "two_methods",
+   "sync": 57,
+   "mix": [
+    {
+     "a": 0,
+     "b": 3.4,
+     "mode": "real",
+     "file": "footage/jhuapl_observing_campaign_telescopes.png",
+     "credit": "NASA/JHUAPL",
+     "cap": "Real: telescopes that watched Dimorphos"
+    },
+    {
+     "a": 3.4,
+     "b": null,
+     "mode": "under",
+     "file": "footage/draco_final_image.png",
+     "credit": "NASA/Johns Hopkins APL",
+     "dim": 0.5,
+     "k": 12
+    }
+   ]
+  }
+ },
+ "58": {
+  "scene": {
+   "type": "two_methods",
+   "sync": 57,
+   "mix": [
+    {
+     "a": 0,
+     "b": 3.2,
+     "mode": "real",
+     "file": "footage/jhuapl_orbit_period_lightcurve.jpg",
+     "credit": "NASA/JHUAPL/Czech Acad. Sci.",
+     "cap": "Real light curve data"
+    }
+   ]
+  }
+ },
+ "60": {
+  "scene": {
+   "type": "still_orbiting",
+   "sync": 59,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage/jhuapl_dart_before_impact_closeup.png",
+     "credit": "NASA/Johns Hopkins APL",
+     "dim": 0.5,
+     "k": 15
+    }
+   ]
+  }
+ },
+ "61": {
+  "scene": {
+   "type": "clue",
+   "sync": 61,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage/draco_dimorphos_mosaic.png",
+     "credit": "NASA/Johns Hopkins APL",
+     "dim": 0.5,
+     "k": 16
+    }
+   ]
+  }
+ },
+ "62": {
+  "scene": {
+   "type": "clue",
+   "sync": 61,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage/draco_dimorphos_northup.png",
+     "credit": "NASA/Johns Hopkins APL",
+     "dim": 0.5,
+     "k": 17
+    }
+   ]
+  }
+ },
+ "64": {
+  "scene": {
+   "type": "survey_sky",
+   "sync": 63
+  }
+ },
+ "65": {
+  "scene": {
+   "type": "survey_sky",
+   "sync": 63,
+   "mix": [
+    {
+     "a": 0,
+     "b": 3.2,
+     "mode": "real",
+     "file": "footage2/surveys/catalina_small_asteroid.jpg",
+     "credit": "NASA/JPL-Caltech/CSS-Univ. of Arizona",
+     "cap": "Real: Catalina survey image"
+    }
+   ]
+  }
+ },
+ "66": {
+  "scene": {
+   "type": "survey_sky",
+   "sync": 63,
+   "mix": [
+    {
+     "a": 0,
+     "b": 3.6,
+     "mode": "real",
+     "file": "footage2/surveys/catalina_2018la.jpg",
+     "credit": "NASA/JPL-Caltech/CSS-Univ. of Arizona",
+     "k": 1
+    }
+   ]
+  }
+ },
+ "67": {
+  "scene": {
+   "type": "dots_found",
+   "sync": 67,
+   "mix": [
+    {
+     "a": 0,
+     "b": 3.0,
+     "mode": "real",
+     "file": "footage2/asteroids/neowise_legacy.mp4",
+     "credit": "NASA/JPL-Caltech (What's Up)",
+     "tin": 98,
+     "tout": 101.2,
+     "crop": [
+      0,
+      0.1,
+      1,
+      1
+     ]
+    },
+    {
+     "a": 3.0,
+     "b": null,
+     "mode": "under",
+     "file": "footage2/asteroids/neowise_legacy.mp4",
+     "credit": "NASA/JPL-Caltech (What's Up)",
+     "tin": 73.5,
+     "tout": 76.74000000000001,
+     "dim": 0.5,
+     "k": 0
+    }
+   ]
+  }
+ },
+ "69": {
+  "scene": {
+   "type": "dots_found",
+   "sync": 67,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage2/asteroids/neowise_legacy.mp4",
+     "credit": "NASA/JPL-Caltech (What's Up)",
+     "tin": 154,
+     "tout": 158.96000000000004,
+     "crop": [
+      0,
+      0.1,
+      1,
+      1
+     ],
+     "dim": 0.5,
+     "k": 2
+    }
+   ]
+  }
+ },
+ "70": {
+  "scene": {
+   "type": "dots_found",
+   "sync": 67,
+   "mix": [
+    {
+     "a": 0,
+     "b": 3.0,
+     "mode": "real",
+     "file": "footage2/asteroids/neowise_legacy.mp4",
+     "credit": "NASA/JPL-Caltech (What's Up)",
+     "tin": 50.5,
+     "tout": 53.7,
+     "crop": [
+      0,
+      0.1,
+      1,
+      1
+     ]
+    },
+    {
+     "a": 3.0,
+     "b": null,
+     "mode": "under",
+     "file": "footage2/surveys/neowise_new_find.jpg",
+     "credit": "NASA/JPL-Caltech",
+     "dim": 0.5,
+     "k": 3
+    }
+   ]
+  }
+ },
+ "71": {
+  "scene": {
+   "type": "dots_found",
+   "sync": 67,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage2/asteroids/neowise_legacy.mp4",
+     "credit": "NASA/JPL-Caltech (What's Up)",
+     "tin": 98,
+     "tout": 105.95999999999998,
+     "crop": [
+      0,
+      0.1,
+      1,
+      1
+     ],
+     "dim": 0.5,
+     "k": 4
+    }
+   ]
+  }
+ },
+ "73": {
+  "scene": {
+   "type": "goals",
+   "sync": 72,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage2/asteroids/neowise_legacy.mp4",
+     "credit": "NASA/JPL-Caltech (What's Up)",
+     "tin": 73.5,
+     "tout": 79.10000000000002,
+     "crop": [
+      0,
+      0.1,
+      1,
+      1
+     ],
+     "dim": 0.5,
+     "k": 6
+    }
+   ]
+  }
+ },
+ "74": {
+  "scene": {
+   "type": "goals",
+   "sync": 72,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage/pia25253_neo_surveyor_starfield.jpg",
+     "credit": "NASA/JPL-Caltech",
+     "dim": 0.5,
+     "k": 7
+    }
+   ]
+  }
+ },
+ "75": {
+  "scene": {
+   "type": "goals",
+   "sync": 72,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage2/asteroids/neowise_legacy.mp4",
+     "credit": "NASA/JPL-Caltech (What's Up)",
+     "tin": 154,
+     "tout": 160.67999999999995,
+     "crop": [
+      0,
+      0.1,
+      1,
+      1
+     ],
+     "dim": 0.5,
+     "k": 8
+    }
+   ]
+  }
+ },
+ "77": {
+  "scene": {
+   "type": "neo_surveyor",
+   "sync": 76,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage2/surveys/neowise_new_find.jpg",
+     "credit": "NASA/JPL-Caltech",
+     "dim": 0.5,
+     "k": 9
+    }
+   ]
+  }
+ },
+ "78": {
+  "scene": {
+   "type": "neo_surveyor",
+   "sync": 76,
+   "mix": [
+    {
+     "a": 0,
+     "b": 3.4,
+     "mode": "real",
+     "file": "footage/pia26388_neo_surveyor_concept.jpg",
+     "credit": "NASA/JPL-Caltech (concept)"
+    },
+    {
+     "a": 3.4,
+     "b": null,
+     "mode": "under",
+     "file": "footage2/asteroids/neowise_legacy.mp4",
+     "credit": "NASA/JPL-Caltech (What's Up)",
+     "tin": 98,
+     "tout": 101.63999999999996,
+     "dim": 0.5,
+     "k": 10
+    }
+   ]
+  }
+ },
+ "80": {
+  "scene": {
+   "type": "neo_surveyor",
+   "sync": 76,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage2/asteroids/neowise_legacy.mp4",
+     "credit": "NASA/JPL-Caltech (What's Up)",
+     "tin": 73.5,
+     "tout": 82.22000000000003,
+     "crop": [
+      0,
+      0.1,
+      1,
+      1
+     ],
+     "dim": 0.5,
+     "k": 12
+    }
+   ]
+  }
+ },
+ "82": {
+  "scene": {
+   "type": "yr4_chart",
+   "sync": 81,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage2/asteroids/neowise_legacy.mp4",
+     "credit": "NASA/JPL-Caltech (What's Up)",
+     "tin": 154,
+     "tout": 161.12,
+     "crop": [
+      0,
+      0.1,
+      1,
+      1
+     ],
+     "dim": 0.5,
+     "k": 14
+    }
+   ]
+  }
+ },
+ "83": {
+  "scene": {
+   "type": "yr4_chart",
+   "sync": 81,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage2/surveys/neowise_new_find.jpg",
+     "credit": "NASA/JPL-Caltech",
+     "dim": 0.5,
+     "k": 15
+    }
+   ]
+  }
+ },
+ "84": {
+  "scene": {
+   "type": "yr4_chart",
+   "sync": 81,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage2/asteroids/neowise_legacy.mp4",
+     "credit": "NASA/JPL-Caltech (What's Up)",
+     "tin": 98,
+     "tout": 107.03999999999996,
+     "crop": [
+      0,
+      0.1,
+      1,
+      1
+     ],
+     "dim": 0.5,
+     "k": 16
+    }
+   ]
+  }
+ },
+ "85": {
+  "scene": {
+   "type": "yr4_chart",
+   "sync": 81,
+   "mix": [
+    {
+     "a": 0,
+     "b": 3.6,
+     "mode": "real",
+     "file": "footage2/asteroids/neowise_legacy.mp4",
+     "credit": "NASA/JPL-Caltech (What's Up)",
+     "tin": 154,
+     "tout": 157.8,
+     "crop": [
+      0,
+      0.1,
+      1,
+      1
+     ]
+    },
+    {
+     "a": 3.6,
+     "b": null,
+     "mode": "under",
+     "file": "footage2/surveys/neowise_opens_eyes.jpg",
+     "credit": "NASA/JPL-Caltech",
+     "dim": 0.5,
+     "k": 17
+    }
+   ]
+  }
+ },
+ "86": {
+  "scene": {
+   "type": "yr4_chart",
+   "sync": 81,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage2/asteroids/neowise_legacy.mp4",
+     "credit": "NASA/JPL-Caltech (What's Up)",
+     "tin": 73.5,
+     "tout": 78.41999999999996,
+     "crop": [
+      0,
+      0.1,
+      1,
+      1
+     ],
+     "dim": 0.5,
+     "k": 18
+    }
+   ]
+  }
+ },
+ "87": {
+  "scene": {
+   "type": "yr4_chart",
+   "sync": 81,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage/pia25253_neo_surveyor_starfield.jpg",
+     "credit": "NASA/JPL-Caltech",
+     "dim": 0.5,
+     "k": 19
+    }
+   ]
+  }
+ },
+ "88": {
+  "scene": {
+   "type": "film_vs_real",
+   "sync": 88,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage2/asteroids/neowise_legacy.mp4",
+     "credit": "NASA/JPL-Caltech (What's Up)",
+     "tin": 154,
+     "tout": 163.84000000000003,
+     "crop": [
+      0,
+      0.1,
+      1,
+      1
+     ],
+     "dim": 0.5,
+     "k": 20
+    }
+   ]
+  }
+ },
+ "89": {
+  "scene": {
+   "type": "apophis",
+   "sync": 89,
+   "mix": [
+    {
+     "a": 0,
+     "b": 4.2,
+     "mode": "real",
+     "file": "footage/svs_apophis_beauty_1080p.mp4",
+     "credit": "NASA/Goddard SVS (animation)",
+     "tin": 0.2,
+     "tout": 4.6,
+     "cap": "Apophis (NASA animation)"
+    }
+   ]
+  }
+ },
+ "90": {
+  "scene": {
+   "type": "apophis",
+   "sync": 89,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage/pia24168_apophis_radar.jpg",
+     "credit": "NASA/JPL-Caltech, NSF/AUI/GBO",
+     "dim": 0.55
+    }
+   ]
+  }
+ },
+ "91": {
+  "scene": {
+   "type": "apophis",
+   "sync": 89,
+   "mix": [
+    {
+     "a": 0,
+     "b": 3.6,
+     "mode": "real",
+     "file": "footage/svs_apophis_beauty_1080p.mp4",
+     "credit": "NASA/Goddard SVS (animation)",
+     "tin": 4.6,
+     "tout": 8.4
+    },
+    {
+     "a": 3.6,
+     "b": null,
+     "mode": "under",
+     "file": "footage/pia24168_apophis_radar.jpg",
+     "credit": "NASA/JPL-Caltech, NSF/AUI/GBO",
+     "dim": 0.5,
+     "k": 2
+    }
+   ]
+  }
+ },
+ "92": {
+  "scene": {
+   "type": "apophis",
+   "sync": 89,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage2/radar/goldstone_peanut_asteroid.jpg",
+     "credit": "NASA/JPL-Caltech",
+     "dim": 0.5,
+     "k": 3
+    }
+   ]
+  }
+ },
+ "93": {
+  "scene": {
+   "type": "apophis",
+   "sync": 89,
+   "mix": [
+    {
+     "a": 0,
+     "b": 4.2,
+     "mode": "real",
+     "file": "footage/pia23195_apophis.jpg",
+     "credit": "NASA/JPL-Caltech (illustration)"
+    },
+    {
+     "a": 4.2,
+     "b": null,
+     "mode": "under",
+     "file": "footage/svs_apophis_beauty_1080p.mp4",
+     "credit": "NASA/Goddard SVS (animation)",
+     "tin": 0.2,
+     "tout": 6.039999999999963,
+     "dim": 0.5,
+     "k": 4
+    }
+   ]
+  }
+ },
+ "95": {
+  "scene": {
+   "type": "apophis",
+   "sync": 89,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage/pia24168_apophis_radar.jpg",
+     "credit": "NASA/JPL-Caltech, NSF/AUI/GBO",
+     "dim": 0.55,
+     "k": 1
+    }
+   ]
+  }
+ },
+ "96": {
+  "scene": {
+   "type": "apophis",
+   "sync": 89,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage2/radar/goldstone_peanut_asteroid.jpg",
+     "credit": "NASA/JPL-Caltech",
+     "dim": 0.5,
+     "k": 7
+    }
+   ]
+  }
+ },
+ "98": {
+  "scene": {
+   "type": "recap_dials",
+   "sync": 97,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage/draco_didymos_northup.png",
+     "credit": "NASA/Johns Hopkins APL",
+     "dim": 0.5,
+     "k": 19
+    }
+   ]
+  }
+ },
+ "99": {
+  "scene": {
+   "type": "push_full",
+   "sync": 99,
+   "mix": [
+    {
+     "a": 0,
+     "b": 3.0,
+     "mode": "real",
+     "file": "footage/jhuapl_dart_impact_replay.mp4",
+     "credit": "NASA/Johns Hopkins APL",
+     "tin": 31.2,
+     "tout": 34.4,
+     "cap": "Real: DART's last images",
+     "crop": [
+      0.2333,
+      0.0,
+      0.7667,
+      1.0
+     ]
+    },
+    {
+     "a": 3.0,
+     "b": null,
+     "mode": "under",
+     "file": "footage/draco_final_image.png",
+     "credit": "NASA/Johns Hopkins APL",
+     "dim": 0.5,
+     "k": 20
+    }
+   ]
+  }
+ },
+ "100": {
+  "scene": {
+   "type": "push_full",
+   "sync": 99,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage/draco_last_image_all_dimorphos.png",
+     "credit": "NASA/Johns Hopkins APL",
+     "dim": 0.5,
+     "k": 21
+    }
+   ]
+  }
+ },
+ "101": {
+  "scene": {
+   "type": "push_full",
+   "sync": 99,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage/draco_dimorphos_northup.png",
+     "credit": "NASA/Johns Hopkins APL",
+     "dim": 0.5
+    }
+   ]
+  }
+ },
+ "102": {
+  "scene": {
+   "type": "push_full",
+   "sync": 99,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage/jhuapl_dart_before_impact_closeup.png",
+     "credit": "NASA/Johns Hopkins APL",
+     "dim": 0.5,
+     "k": 23
+    }
+   ]
+  }
+ },
+ "103": {
+  "scene": {
+   "type": "push_full",
+   "sync": 99,
+   "mix": [
+    {
+     "a": 0,
+     "b": 3.2,
+     "mode": "real",
+     "file": "footage/draco_final_image.png",
+     "credit": "NASA/Johns Hopkins APL",
+     "cap": "Real: Dimorphos boulders, DRACO camera"
+    },
+    {
+     "a": 3.2,
+     "b": null,
+     "mode": "under",
+     "file": "footage/draco_dimorphos_mosaic.png",
+     "credit": "NASA/Johns Hopkins APL",
+     "dim": 0.5,
+     "k": 24
+    }
+   ]
+  }
+ },
+ "104": {
+  "scene": {
+   "type": "push_full",
+   "sync": 99,
+   "flash": true,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage/draco_dimorphos_northup.png",
+     "credit": "NASA/Johns Hopkins APL",
+     "dim": 0.5,
+     "k": 25
+    }
+   ]
+  }
+ },
+ "105": {
+  "scene": {
+   "type": "push_full",
+   "sync": 99,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage/jhuapl_llnl_impact_simulation.png",
+     "credit": "NASA/JHUAPL/LLNL (simulation)",
+     "dim": 0.5
+    }
+   ]
+  }
+ },
+ "106": {
+  "scene": {
+   "type": "push_full",
+   "sync": 99,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage/draco_didymos_northup.png",
+     "credit": "NASA/Johns Hopkins APL",
+     "dim": 0.5,
+     "k": 27
+    }
+   ]
+  }
+ },
+ "107": {
+  "scene": {
+   "type": "push_full",
+   "sync": 99,
+   "mix": [
+    {
+     "a": 0,
+     "b": 3.2,
+     "mode": "real",
+     "file": "footage/draco_last_image_all_dimorphos.png",
+     "credit": "NASA/Johns Hopkins APL",
+     "k": 1
+    },
+    {
+     "a": 3.2,
+     "b": null,
+     "mode": "under",
+     "file": "footage/draco_final_image.png",
+     "credit": "NASA/Johns Hopkins APL",
+     "dim": 0.5,
+     "k": 28
+    }
+   ]
+  }
+ },
+ "108": {
+  "scene": {
+   "type": "push_full",
+   "sync": 99,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage/draco_last_image_all_dimorphos.png",
+     "credit": "NASA/Johns Hopkins APL",
+     "dim": 0.5,
+     "k": 29
+    }
+   ]
+  }
+ },
+ "109": {
+  "scene": {
+   "type": "push_full",
+   "sync": 99,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage/draco_dimorphos_mosaic.png",
+     "credit": "NASA/Johns Hopkins APL",
+     "dim": 0.5,
+     "k": 1
+    }
+   ]
+  }
+ },
+ "110": {
+  "scene": {
+   "type": "push_full",
+   "sync": 99,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage/jhuapl_dart_before_impact_closeup.png",
+     "credit": "NASA/Johns Hopkins APL",
+     "dim": 0.5,
+     "k": 31
+    }
+   ]
+  }
+ },
+ "111": {
+  "scene": {
+   "type": "ejecta",
+   "sync": 111,
+   "mix": [
+    {
+     "a": 0,
+     "b": 2.6,
+     "mode": "real",
+     "file": "footage/jhuapl_dart_impact_replay.mp4",
+     "credit": "NASA/Johns Hopkins APL",
+     "tin": 33.0,
+     "tout": 34.4,
+     "cap": "Real: impact flash",
+     "crop": [
+      0.2333,
+      0.0,
+      0.7667,
+      1.0
+     ],
+     "speed": 0.55
+    },
+    {
+     "a": 2.6,
+     "b": null,
+     "mode": "under",
+     "file": "footage/draco_dimorphos_mosaic.png",
+     "credit": "NASA/Johns Hopkins APL",
+     "dim": 0.5,
+     "k": 32
+    }
+   ]
+  }
+ },
+ "112": {
+  "scene": {
+   "type": "ejecta",
+   "sync": 111,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage/draco_dimorphos_northup.png",
+     "credit": "NASA/Johns Hopkins APL",
+     "dim": 0.5,
+     "k": 33
+    }
+   ]
+  }
+ },
+ "113": {
+  "scene": {
+   "type": "ejecta",
+   "sync": 111,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage/draco_system_northup.png",
+     "credit": "NASA/Johns Hopkins APL",
+     "dim": 0.5,
+     "k": 34
+    }
+   ]
+  }
+ },
+ "114": {
+  "scene": {
+   "type": "ejecta",
+   "sync": 111,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage/draco_didymos_northup.png",
+     "credit": "NASA/Johns Hopkins APL",
+     "dim": 0.5,
+     "k": 35
+    }
+   ]
+  }
+ },
+ "115": {
+  "scene": {
+   "type": "mass_unknown",
+   "sync": 115,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage/draco_final_image.png",
+     "credit": "NASA/Johns Hopkins APL",
+     "dim": 0.5,
+     "k": 36
+    }
+   ]
+  }
+ },
+ "116": {
+  "scene": {
+   "type": "mass_unknown",
+   "sync": 115,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage/draco_system_northup.png",
+     "credit": "NASA/Johns Hopkins APL",
+     "dim": 0.5,
+     "k": 2
+    }
+   ]
+  }
+ },
+ "117": {
+  "scene": {
+   "type": "mass_unknown",
+   "sync": 115,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage/draco_last_image_both_asteroids.png",
+     "credit": "NASA/Johns Hopkins APL",
+     "dim": 0.5,
+     "k": 38
+    }
+   ]
+  }
+ },
+ "118": {
+  "scene": {
+   "type": "mass_unknown",
+   "sync": 115,
+   "mix": [
+    {
+     "a": 0,
+     "b": 3.4,
+     "mode": "real",
+     "file": "footage/draco_last_image_both_asteroids.png",
+     "credit": "NASA/Johns Hopkins APL"
+    },
+    {
+     "a": 3.4,
+     "b": null,
+     "mode": "under",
+     "file": "footage/jhuapl_dart_before_impact_closeup.png",
+     "credit": "NASA/Johns Hopkins APL",
+     "dim": 0.5,
+     "k": 39
+    }
+   ]
+  }
+ },
+ "119": {
+  "scene": {
+   "type": "solar_orbit",
+   "sync": 119,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage/draco_dimorphos_mosaic.png",
+     "credit": "NASA/Johns Hopkins APL",
+     "dim": 0.5,
+     "k": 40
+    }
+   ]
+  }
+ },
+ "120": {
+  "scene": {
+   "type": "solar_orbit",
+   "sync": 119,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage2/sun/gradient_sun.mp4",
+     "credit": "NASA/SDO",
+     "tin": 43,
+     "tout": 55,
+     "dim": 0.5
+    }
+   ]
+  }
+ },
+ "121": {
+  "scene": {
+   "type": "solar_orbit",
+   "sync": 119,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage/draco_system_northup.png",
+     "credit": "NASA/Johns Hopkins APL",
+     "dim": 0.5,
+     "k": 42
+    }
+   ]
+  }
+ },
+ "122": {
+  "scene": {
+   "type": "summary3",
+   "sync": 122,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage/draco_didymos_northup.png",
+     "credit": "NASA/Johns Hopkins APL",
+     "dim": 0.5,
+     "k": 43
+    }
+   ]
+  }
+ },
+ "123": {
+  "scene": {
+   "type": "summary3",
+   "sync": 122,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage/draco_final_image.png",
+     "credit": "NASA/Johns Hopkins APL",
+     "dim": 0.5,
+     "k": 44
+    }
+   ]
+  }
+ },
+ "124": {
+  "scene": {
+   "type": "summary3",
+   "sync": 122,
+   "flash": true,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage/draco_last_image_all_dimorphos.png",
+     "credit": "NASA/Johns Hopkins APL",
+     "dim": 0.5,
+     "k": 45
+    }
+   ]
+  }
+ },
+ "126": {
+  "scene": {
+   "type": "tractor_demo",
+   "sync": 126,
+   "punch": 0.05
+  }
+ },
+ "127": {
+  "scene": {
+   "type": "tractor_demo",
+   "sync": 126
+  }
+ },
+ "128": {
+  "scene": {
+   "type": "laser_demo",
+   "sync": 128,
+   "punch": 0.05
+  }
+ },
+ "129": {
+  "scene": {
+   "type": "exercise",
+   "sync": 129
+  }
+ },
+ "130": {
+  "scene": {
+   "type": "exercise",
+   "sync": 129,
+   "punch": 0.05
+  }
+ },
+ "131": {
+  "scene": {
+   "type": "nuclear",
+   "sync": 131,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage2/scale_analogies/castle_bravo_blast.jpg",
+     "credit": "US DOE (public domain)",
+     "dim": 0.5,
+     "k": 0
+    }
+   ]
+  }
+ },
+ "132": {
+  "scene": {
+   "type": "nuclear",
+   "sync": 131,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage2/scale_analogies/castle_romeo.jpg",
+     "credit": "US DOE (public domain)",
+     "dim": 0.5,
+     "k": 1
+    }
+   ]
+  }
+ },
+ "134": {
+  "scene": {
+   "type": "nuclear_caveats",
+   "sync": 134
+  }
+ },
+ "135": {
+  "scene": {
+   "type": "nuclear_caveats",
+   "sync": 134,
+   "punch": 0.05
+  }
+ },
+ "136": {
+  "scene": {
+   "type": "nuclear_caveats",
+   "sync": 134
+  }
+ },
+ "138": {
+  "scene": {
+   "type": "film_plan",
+   "sync": 138
+  }
+ },
+ "139": {
+  "scene": {
+   "type": "film_plan",
+   "sync": 138,
+   "punch": 0.05
+  }
+ },
+ "140": {
+  "scene": {
+   "type": "film_plan",
+   "sync": 138
+  }
+ },
+ "141": {
+  "scene": {
+   "type": "hera",
+   "sync": 141,
+   "flash": true,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage/draco_last_image_both_asteroids.png",
+     "credit": "NASA/Johns Hopkins APL",
+     "dim": 0.5,
+     "k": 46
+    }
+   ]
+  }
+ },
+ "142": {
+  "scene": {
+   "type": "hera",
+   "sync": 141,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage/jhuapl_dart_before_impact_closeup.png",
+     "credit": "NASA/Johns Hopkins APL",
+     "dim": 0.5,
+     "k": 47
+    }
+   ]
+  }
+ },
+ "143": {
+  "scene": {
+   "type": "hera",
+   "sync": 141,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage/draco_dimorphos_northup.png",
+     "credit": "NASA/Johns Hopkins APL",
+     "dim": 0.5,
+     "k": 1
+    }
+   ]
+  }
+ },
+ "144": {
+  "scene": {
+   "type": "hera",
+   "sync": 141,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage/draco_dimorphos_northup.png",
+     "credit": "NASA/Johns Hopkins APL",
+     "dim": 0.5,
+     "k": 49
+    }
+   ]
+  }
+ },
+ "145": {
+  "scene": {
+   "type": "hera",
+   "sync": 141,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage/draco_system_northup.png",
+     "credit": "NASA/Johns Hopkins APL",
+     "dim": 0.5,
+     "k": 50
+    }
+   ]
+  }
+ },
+ "146": {
+  "scene": {
+   "type": "hera",
+   "sync": 141,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage/draco_last_image_both_asteroids.png",
+     "credit": "NASA/Johns Hopkins APL",
+     "dim": 0.5,
+     "k": 2
+    }
+   ]
+  }
+ },
+ "147": {
+  "scene": {
+   "type": "hera",
+   "sync": 141,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage/draco_final_image.png",
+     "credit": "NASA/Johns Hopkins APL",
+     "dim": 0.5,
+     "k": 52
+    }
+   ]
+  }
+ },
+ "148": {
+  "scene": {
+   "type": "hera",
+   "sync": 141,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage/draco_last_image_all_dimorphos.png",
+     "credit": "NASA/Johns Hopkins APL",
+     "dim": 0.5,
+     "k": 53
+    }
+   ]
+  }
+ },
+ "149": {
+  "scene": {
+   "type": "unknowns",
+   "sync": 149,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage/draco_last_image_both_asteroids.png",
+     "credit": "NASA/Johns Hopkins APL",
+     "dim": 0.5,
+     "k": 54
+    }
+   ]
+  }
+ },
+ "150": {
+  "scene": {
+   "type": "unknowns",
+   "sync": 149,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage/jhuapl_dart_before_impact_closeup.png",
+     "credit": "NASA/Johns Hopkins APL",
+     "dim": 0.5,
+     "k": 55
+    }
+   ]
+  }
+ },
+ "151": {
+  "scene": {
+   "type": "unknowns",
+   "sync": 149,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage/draco_dimorphos_mosaic.png",
+     "credit": "NASA/Johns Hopkins APL",
+     "dim": 0.5,
+     "k": 56
+    }
+   ]
+  }
+ },
+ "152": {
+  "scene": {
+   "type": "verdict",
+   "sync": 152,
+   "flash": true,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage2/earth/iss_earth_views_hq.mp4",
+     "credit": "NASA (ISS)",
+     "tin": 86,
+     "tout": 90.0,
+     "dim": 0.5,
+     "k": 7
+    }
+   ]
+  }
+ },
+ "153": {
+  "scene": {
+   "type": "verdict",
+   "sync": 152,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage2/earth/iss_earth_views_hq.mp4",
+     "credit": "NASA (ISS)",
+     "tin": 29,
+     "tout": 36.960000000000036,
+     "dim": 0.5,
+     "k": 8
+    }
+   ]
+  }
+ },
+ "154": {
+  "scene": {
+   "type": "verdict",
+   "sync": 152,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage2/earth/black_marble_night.mp4",
+     "credit": "NASA Earth Observatory",
+     "tin": 24,
+     "tout": 31.720000000000027,
+     "dim": 0.5,
+     "k": 9
+    }
+   ]
+  }
+ },
+ "155": {
+  "scene": {
+   "type": "verdict",
+   "sync": 152,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage2/earth/orion_earth_timelapse.mp4",
+     "credit": "NASA/Orion",
+     "tin": 40,
+     "tout": 48.7199999999998,
+     "dim": 0.5,
+     "k": 10
+    }
+   ]
+  }
+ },
+ "156": {
+  "scene": {
+   "type": "verdict",
+   "sync": 152,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage2/earth/iss_earth_views_hq.mp4",
+     "credit": "NASA (ISS)",
+     "tin": 86,
+     "tout": 97.96000000000004,
+     "dim": 0.5,
+     "k": 11
+    }
+   ]
+  }
+ },
+ "157": {
+  "scene": {
+   "type": "final3",
+   "sync": 157,
+   "mix": [
+    {
+     "a": 0,
+     "b": 3.6,
+     "mode": "real",
+     "file": "footage2/earth/orion_earth_timelapse.mp4",
+     "credit": "NASA/Orion",
+     "tin": 60,
+     "tout": 63.6
+    },
+    {
+     "a": 3.6,
+     "b": null,
+     "mode": "under",
+     "file": "footage2/earth/iss_earth_views_hq.mp4",
+     "credit": "NASA (ISS)",
+     "tin": 29,
+     "tout": 34.19999999999995,
+     "dim": 0.5,
+     "k": 12
+    }
+   ]
+  }
+ },
+ "159": {
+  "scene": {
+   "type": "final3",
+   "sync": 157,
+   "mix": [
+    {
+     "a": 0,
+     "b": null,
+     "mode": "under",
+     "file": "footage2/earth/orion_earth_2026.jpg",
+     "credit": "NASA/Orion",
+     "dim": 0.6
+    }
+   ]
+  }
+ }
+}

@@ -1386,3 +1386,250 @@ timestamp,file,model,size,cost_usd,cost_inr,today_total_inr,remaining_inr,channe
 2026-11-09 20:38:58,channels/devrobolab/stories/049_cc-prompt-caching/audio/tts/s_07.wav,gemini-3.8-flash-tts,tts 16.7s,0.00380,0.37,3.03,529.89,devrobolab,0.37,0.3662,0.07,66,418
 2026-11-09 20:39:11,channels/devrobolab/stories/049_cc-prompt-caching/audio/tts/s_08.wav,gemini-3.8-flash-tts,tts 21.4s,0.00485,0.47,3.58,529.33,devrobolab,0.48,0.4685,0.08,80,535
 2026-11-09 20:39:23,channels/devrobolab/stories/049_cc-prompt-caching/audio/tts/s_09.wav,gemini-3.8-flash-tts,tts 18.2s,0.00414,0.40,4.05,528.86,devrobolab,0.41,0.3995,0.07,71,456
+2026-11-08 11:20:58,channels/devrobolab/stories/047_news-gemini-omni/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 6.0s free,0.00000,0.00,0.63,533.24,devrobolab,0.14,0.0000,0.00,22,149
+2026-11-08 11:21:29,channels/devrobolab/stories/047_news-gemini-omni/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 6.0s free,0.00000,0.00,0.63,533.24,devrobolab,0.14,0.0000,0.00,20,150
+2026-11-08 12:04:45,channels/devrobolab/stories/047_news-gemini-omni/audio/tts/s_06.wav,gemini-3.8-flash-tts,tts 3.9s,0.00088,0.09,0.73,533.14,devrobolab,0.09,0.0850,0.02,16,97
+2026-11-07 22:49:57,channels/reality-check/stories/001_asteroid-defence/audio/voice_test/gemini_Charon.wav,gemini-3.8-flash-tts,tts 89.2s free,0.00000,0.00,3.69,535.97,reality-check,1.97,0.0000,0.00,365,2231
+2026-11-07 22:50:24,channels/reality-check/stories/001_asteroid-defence/audio/voice_test/gemini_Kore.wav,gemini-3.8-flash-tts,tts 105.0s free,0.00000,0.00,3.69,535.97,reality-check,2.31,0.0000,0.00,365,2625
+2026-11-07 23:02:44,channels/reality-check/stories/001_asteroid-defence/audio/voice_test/gemini_Fenrir.wav,gemini-3.8-flash-tts,tts 94.8s,0.02152,2.08,6.15,533.52,reality-check,2.09,2.0768,0.37,365,2371
+2026-11-07 23:03:11,channels/reality-check/stories/001_asteroid-defence/audio/voice_test/gemini_Algenib.wav,gemini-3.8-flash-tts,tts 100.9s,0.02289,2.21,8.75,530.91,reality-check,2.22,2.2088,0.40,365,2523
+2026-11-07 23:03:39,channels/reality-check/stories/001_asteroid-defence/audio/voice_test/gemini_Zephyr.wav,gemini-3.8-flash-tts,tts 102.5s,0.02325,2.24,11.40,528.27,reality-check,2.26,2.2436,0.40,365,2563
+2026-11-07 23:04:25,channels/reality-check/stories/001_asteroid-defence/audio/voice_test/gemini_Orus.wav,gemini-3.8-flash-tts,tts 92.4s,0.02098,2.02,13.79,525.88,reality-check,2.04,2.0247,0.36,365,2311
+2026-11-07 23:04:53,channels/reality-check/stories/001_asteroid-defence/audio/voice_test/gemini_Alnilam.wav,gemini-3.8-flash-tts,tts 100.8s,0.02286,2.21,16.39,523.27,reality-check,2.22,2.2062,0.40,365,2520
+2026-11-07 23:05:23,channels/reality-check/stories/001_asteroid-defence/audio/voice_test/gemini_Sadaltager.wav,gemini-3.8-flash-tts,tts 97.2s,0.02205,2.13,18.90,520.76,reality-check,2.14,2.1281,0.38,365,2430
+2026-11-08 01:32:21,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_001.wav,gemini-3.8-flash-tts,tts 4.9s free,0.00000,0.00,0.00,520.76,reality-check,0.11,0.0000,0.00,18,123
+2026-11-08 01:32:31,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_002.wav,gemini-3.8-flash-tts,tts 5.2s,0.00118,0.11,0.13,520.63,reality-check,0.12,0.1138,0.02,18,130
+2026-11-08 01:32:39,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_003.wav,gemini-3.8-flash-tts,tts 4.4s free,0.00000,0.00,0.13,520.63,reality-check,0.10,0.0000,0.00,14,110
+2026-11-08 01:32:48,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_004.wav,gemini-3.8-flash-tts,tts 7.6s,0.00173,0.17,0.33,520.43,reality-check,0.17,0.1671,0.03,25,191
+2026-11-08 01:32:56,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_005.wav,gemini-3.8-flash-tts,tts 2.6s,0.00060,0.06,0.40,520.36,reality-check,0.06,0.0579,0.01,11,66
+2026-11-08 01:33:04,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_006.wav,gemini-3.8-flash-tts,tts 4.9s,0.00111,0.11,0.53,520.24,reality-check,0.11,0.1069,0.02,20,122
+2026-11-08 01:33:13,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_007.wav,gemini-3.8-flash-tts,tts 3.9s,0.00089,0.09,0.63,520.13,reality-check,0.09,0.0860,0.02,18,98
+2026-11-08 01:33:22,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_008.wav,gemini-3.8-flash-tts,tts 6.4s,0.00146,0.14,0.79,519.97,reality-check,0.15,0.1407,0.03,19,161
+2026-11-08 01:33:30,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_009.wav,gemini-3.8-flash-tts,tts 2.9s,0.00066,0.06,0.87,519.89,reality-check,0.07,0.0639,0.01,10,73
+2026-11-08 01:33:39,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_010.wav,gemini-3.8-flash-tts,tts 5.2s,0.00117,0.11,1.00,519.76,reality-check,0.12,0.1129,0.02,18,129
+2026-11-08 01:33:48,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_011.wav,gemini-3.8-flash-tts,tts 6.3s,0.00143,0.14,1.17,519.60,reality-check,0.14,0.1384,0.02,25,158
+2026-11-08 01:33:58,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_012.wav,gemini-3.8-flash-tts,tts 4.8s,0.00110,0.11,1.29,519.47,reality-check,0.11,0.1059,0.02,16,121
+2026-11-08 01:34:07,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_013.wav,gemini-3.8-flash-tts,tts 5.9s,0.00133,0.13,1.44,519.32,reality-check,0.13,0.1286,0.02,20,147
+2026-11-08 01:34:14,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_014.wav,gemini-3.8-flash-tts,tts 3.8s,0.00087,0.08,1.54,519.22,reality-check,0.09,0.0840,0.02,12,96
+2026-11-08 01:34:24,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_015.wav,gemini-3.8-flash-tts,tts 6.8s,0.00154,0.15,1.72,519.05,reality-check,0.15,0.1489,0.03,25,170
+2026-11-08 01:34:33,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_016.wav,gemini-3.8-flash-tts,tts 6.4s,0.00145,0.14,1.88,518.88,reality-check,0.14,0.1400,0.03,21,160
+2026-11-08 01:34:43,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_017.wav,gemini-3.8-flash-tts,tts 6.6s,0.00151,0.15,2.05,518.71,reality-check,0.15,0.1455,0.03,27,166
+2026-11-08 01:34:52,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_018.wav,gemini-3.8-flash-tts,tts 7.6s,0.00171,0.17,2.25,518.51,reality-check,0.17,0.1653,0.03,24,189
+2026-11-08 01:35:01,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_019.wav,gemini-3.8-flash-tts,tts 5.5s,0.00124,0.12,2.39,518.37,reality-check,0.12,0.1198,0.02,17,137
+2026-11-08 01:35:10,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_020.wav,gemini-3.8-flash-tts,tts 5.0s,0.00113,0.11,2.52,518.24,reality-check,0.11,0.1094,0.02,18,125
+2026-11-08 01:35:20,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_021.wav,gemini-3.8-flash-tts,tts 8.2s,0.00187,0.18,2.73,518.03,reality-check,0.19,0.1804,0.03,31,206
+2026-11-08 01:35:27,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_022.wav,gemini-3.8-flash-tts,tts 4.7s,0.00106,0.10,2.85,517.91,reality-check,0.11,0.1023,0.02,15,117
+2026-11-08 01:35:36,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_023.wav,gemini-3.8-flash-tts,tts 2.4s,0.00054,0.05,2.91,517.85,reality-check,0.06,0.0517,0.01,9,59
+2026-11-08 01:35:45,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_024.wav,gemini-3.8-flash-tts,tts 6.8s,0.00155,0.15,3.09,517.67,reality-check,0.15,0.1497,0.03,25,171
+2026-11-08 01:35:53,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_025.wav,gemini-3.8-flash-tts,tts 8.7s,0.00199,0.19,3.32,517.45,reality-check,0.20,0.1916,0.03,28,219
+2026-11-08 01:36:03,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_026.wav,gemini-3.8-flash-tts,tts 7.6s,0.00172,0.17,3.51,517.25,reality-check,0.17,0.1662,0.03,25,190
+2026-11-08 01:36:12,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_027.wav,gemini-3.8-flash-tts,tts 7.1s,0.00162,0.16,3.70,517.07,reality-check,0.16,0.1559,0.03,27,178
+2026-11-08 01:36:23,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_028.wav,gemini-3.8-flash-tts,tts 6.6s,0.00151,0.15,3.87,516.89,reality-check,0.15,0.1453,0.03,24,166
+2026-11-08 01:36:31,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_029.wav,gemini-3.8-flash-tts,tts 3.3s,0.00075,0.07,3.95,516.81,reality-check,0.08,0.0719,0.01,15,82
+2026-11-08 01:36:39,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_030.wav,gemini-3.8-flash-tts,tts 6.0s,0.00136,0.13,4.11,516.65,reality-check,0.14,0.1314,0.02,23,150
+2026-11-08 01:36:46,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_031.wav,gemini-3.8-flash-tts,tts 4.9s,0.00111,0.11,4.23,516.53,reality-check,0.11,0.1075,0.02,15,123
+2026-11-08 01:36:56,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_032.wav,gemini-3.8-flash-tts,tts 7.6s,0.00171,0.17,4.43,516.33,reality-check,0.17,0.1655,0.03,28,189
+2026-11-08 01:37:06,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_033.wav,gemini-3.8-flash-tts,tts 5.7s,0.00130,0.13,4.58,516.18,reality-check,0.13,0.1252,0.02,21,143
+2026-11-08 01:37:14,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_034.wav,gemini-3.8-flash-tts,tts 3.8s,0.00085,0.08,4.68,516.09,reality-check,0.09,0.0823,0.01,14,94
+2026-11-08 01:37:24,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_035.wav,gemini-3.8-flash-tts,tts 5.6s,0.00126,0.12,4.82,515.94,reality-check,0.13,0.1219,0.02,25,139
+2026-11-08 01:37:33,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_036.wav,gemini-3.8-flash-tts,tts 3.2s,0.00074,0.07,4.90,515.86,reality-check,0.08,0.0709,0.01,12,81
+2026-11-08 01:37:43,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_037.wav,gemini-3.8-flash-tts,tts 5.6s,0.00128,0.12,5.05,515.71,reality-check,0.13,0.1236,0.02,24,141
+2026-11-08 01:37:52,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_038.wav,gemini-3.8-flash-tts,tts 4.0s,0.00091,0.09,5.15,515.61,reality-check,0.09,0.0876,0.02,16,100
+2026-11-08 01:38:01,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_039.wav,gemini-3.8-flash-tts,tts 7.2s,0.00164,0.16,5.34,515.42,reality-check,0.16,0.1585,0.03,27,181
+2026-11-08 01:38:10,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_040.wav,gemini-3.8-flash-tts,tts 4.5s,0.00103,0.10,5.46,515.31,reality-check,0.10,0.0991,0.02,19,113
+2026-11-08 01:38:19,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_041.wav,gemini-3.8-flash-tts,tts 6.8s,0.00153,0.15,5.63,515.13,reality-check,0.15,0.1481,0.03,27,169
+2026-11-08 01:38:28,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_042.wav,gemini-3.8-flash-tts,tts 6.9s,0.00156,0.15,5.81,514.95,reality-check,0.16,0.1507,0.03,27,172
+2026-11-08 01:38:39,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_043.wav,gemini-3.8-flash-tts,tts 8.5s,0.00193,0.19,6.03,514.73,reality-check,0.19,0.1866,0.03,33,213
+2026-11-08 01:38:48,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_044.wav,gemini-3.8-flash-tts,tts 7.7s,0.00175,0.17,6.23,514.53,reality-check,0.17,0.1688,0.03,25,193
+2026-11-08 01:38:57,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_045.wav,gemini-3.8-flash-tts,tts 7.5s,0.00171,0.16,6.42,514.34,reality-check,0.17,0.1647,0.03,29,188
+2026-11-08 01:39:05,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_046.wav,gemini-3.8-flash-tts,tts 3.7s,0.00084,0.08,6.52,514.24,reality-check,0.09,0.0814,0.01,14,93
+2026-11-08 01:39:14,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_047.wav,gemini-3.8-flash-tts,tts 5.6s,0.00126,0.12,6.66,514.10,reality-check,0.13,0.1216,0.02,19,139
+2026-11-08 01:39:24,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_048.wav,gemini-3.8-flash-tts,tts 6.8s,0.00153,0.15,6.84,513.93,reality-check,0.15,0.1480,0.03,26,169
+2026-11-08 01:39:33,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_049.wav,gemini-3.8-flash-tts,tts 5.7s,0.00129,0.12,6.98,513.78,reality-check,0.13,0.1244,0.02,23,142
+2026-11-08 01:39:41,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_050.wav,gemini-3.8-flash-tts,tts 2.8s,0.00064,0.06,7.06,513.71,reality-check,0.07,0.0621,0.01,9,71
+2026-11-08 01:39:52,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_051.wav,gemini-3.8-flash-tts,tts 7.1s,0.00160,0.15,7.24,513.52,reality-check,0.16,0.1548,0.03,23,177
+2026-11-08 01:39:59,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_052.wav,gemini-3.8-flash-tts,tts 2.2s,0.00049,0.05,7.29,513.47,reality-check,0.05,0.0473,0.01,9,54
+2026-11-08 01:40:08,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_053.wav,gemini-3.8-flash-tts,tts 6.1s,0.00139,0.13,7.45,513.31,reality-check,0.14,0.1337,0.02,18,153
+2026-11-08 01:40:16,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_054.wav,gemini-3.8-flash-tts,tts 6.0s,0.00136,0.13,7.61,513.15,reality-check,0.14,0.1314,0.02,23,150
+2026-11-08 01:40:24,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_055.wav,gemini-3.8-flash-tts,tts 6.9s,0.00157,0.15,7.79,512.98,reality-check,0.16,0.1516,0.03,28,173
+2026-11-08 01:40:33,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_056.wav,gemini-3.8-flash-tts,tts 5.3s,0.00121,0.12,7.92,512.84,reality-check,0.12,0.1164,0.02,19,133
+2026-11-08 01:40:42,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_057.wav,gemini-3.8-flash-tts,tts 8.2s,0.00187,0.18,8.14,512.63,reality-check,0.18,0.1805,0.03,33,206
+2026-11-08 01:40:52,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_058.wav,gemini-3.8-flash-tts,tts 4.2s,0.00096,0.09,8.25,512.52,reality-check,0.10,0.0929,0.02,18,106
+2026-11-08 01:41:01,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_059.wav,gemini-3.8-flash-tts,tts 7.2s,0.00163,0.16,8.43,512.33,reality-check,0.16,0.1572,0.03,35,179
+2026-11-08 01:41:09,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_060.wav,gemini-3.8-flash-tts,tts 4.8s,0.00108,0.10,8.55,512.21,reality-check,0.11,0.1040,0.02,14,119
+2026-11-08 01:41:18,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_061.wav,gemini-3.8-flash-tts,tts 7.1s,0.00162,0.16,8.74,512.02,reality-check,0.16,0.1559,0.03,27,178
+2026-11-08 01:41:28,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_062.wav,gemini-3.8-flash-tts,tts 8.4s,0.00192,0.18,8.96,511.81,reality-check,0.19,0.1848,0.03,33,211
+2026-11-08 01:41:37,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_063.wav,gemini-3.8-flash-tts,tts 4.9s,0.00111,0.11,9.08,511.68,reality-check,0.11,0.1068,0.02,18,122
+2026-11-08 01:41:46,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_064.wav,gemini-3.8-flash-tts,tts 7.8s,0.00177,0.17,9.28,511.48,reality-check,0.18,0.1709,0.03,33,195
+2026-11-08 01:41:56,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_065.wav,gemini-3.8-flash-tts,tts 6.0s,0.00136,0.13,9.44,511.32,reality-check,0.14,0.1315,0.02,25,150
+2026-11-08 01:42:06,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_066.wav,gemini-3.8-flash-tts,tts 8.3s,0.00188,0.18,9.65,511.11,reality-check,0.19,0.1811,0.03,27,207
+2026-11-08 01:42:15,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_067.wav,gemini-3.8-flash-tts,tts 6.2s,0.00141,0.14,9.81,510.95,reality-check,0.14,0.1365,0.02,21,156
+2026-11-08 01:42:24,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_068.wav,gemini-3.8-flash-tts,tts 5.8s,0.00131,0.13,9.96,510.80,reality-check,0.13,0.1260,0.02,19,144
+2026-11-08 01:42:32,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_069.wav,gemini-3.8-flash-tts,tts 5.0s,0.00113,0.11,10.09,510.67,reality-check,0.11,0.1086,0.02,19,124
+2026-11-08 01:42:45,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_070.wav,gemini-3.8-flash-tts,tts 6.8s,0.00154,0.15,10.27,510.50,reality-check,0.15,0.1490,0.03,28,170
+2026-11-08 01:42:56,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_071.wav,gemini-3.8-flash-tts,tts 8.0s,0.00180,0.17,10.47,510.29,reality-check,0.18,0.1741,0.03,27,199
+2026-11-08 01:43:05,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_072.wav,gemini-3.8-flash-tts,tts 4.2s,0.00094,0.09,10.58,510.18,reality-check,0.10,0.0909,0.02,12,104
+2026-11-08 01:43:14,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_073.wav,gemini-3.8-flash-tts,tts 5.6s,0.00127,0.12,10.72,510.04,reality-check,0.13,0.1227,0.02,22,140
+2026-11-08 01:43:22,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_074.wav,gemini-3.8-flash-tts,tts 7.8s,0.00178,0.17,10.93,509.84,reality-check,0.18,0.1714,0.03,24,196
+2026-11-08 01:43:33,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_075.wav,gemini-3.8-flash-tts,tts 6.7s,0.00152,0.15,11.10,509.66,reality-check,0.15,0.1462,0.03,25,167
+2026-11-08 01:43:44,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_076.wav,gemini-3.8-flash-tts,tts 8.0s,0.00182,0.18,11.31,509.46,reality-check,0.18,0.1751,0.03,30,200
+2026-11-08 01:43:54,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_077.wav,gemini-3.8-flash-tts,tts 5.0s,0.00114,0.11,11.44,509.33,reality-check,0.12,0.1105,0.02,22,126
+2026-11-08 01:44:04,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_078.wav,gemini-3.8-flash-tts,tts 7.0s,0.00160,0.15,11.62,509.14,reality-check,0.16,0.1541,0.03,26,176
+2026-11-08 01:44:14,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_079.wav,gemini-3.8-flash-tts,tts 6.3s,0.00143,0.14,11.78,508.98,reality-check,0.14,0.1376,0.02,25,157
+2026-11-08 01:44:24,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_080.wav,gemini-3.8-flash-tts,tts 8.7s,0.00199,0.19,12.01,508.76,reality-check,0.20,0.1917,0.03,32,219
+2026-11-08 01:44:34,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_081.wav,gemini-3.8-flash-tts,tts 8.3s,0.00189,0.18,12.22,508.54,reality-check,0.19,0.1823,0.03,34,208
+2026-11-08 01:44:43,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_082.wav,gemini-3.8-flash-tts,tts 7.1s,0.00161,0.16,12.41,508.36,reality-check,0.16,0.1558,0.03,24,178
+2026-11-08 01:44:52,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_083.wav,gemini-3.8-flash-tts,tts 4.5s,0.00103,0.10,12.52,508.24,reality-check,0.10,0.0990,0.02,18,113
+2026-11-08 01:45:04,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_084.wav,gemini-3.8-flash-tts,tts 9.0s,0.00204,0.20,12.76,508.01,reality-check,0.20,0.1973,0.04,22,226
+2026-11-08 01:45:12,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_085.wav,gemini-3.8-flash-tts,tts 7.3s,0.00165,0.16,12.94,507.82,reality-check,0.16,0.1591,0.03,22,182
+2026-11-08 01:45:22,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_086.wav,gemini-3.8-flash-tts,tts 4.9s,0.00112,0.11,13.07,507.69,reality-check,0.11,0.1079,0.02,23,123
+2026-11-08 01:45:31,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_087.wav,gemini-3.8-flash-tts,tts 7.8s,0.00177,0.17,13.27,507.49,reality-check,0.18,0.1706,0.03,25,195
+2026-11-08 01:45:42,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_088.wav,gemini-3.8-flash-tts,tts 9.8s,0.00223,0.22,13.53,507.24,reality-check,0.22,0.2152,0.04,33,246
+2026-11-08 01:45:50,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_089.wav,gemini-3.8-flash-tts,tts 4.2s,0.00095,0.09,13.63,507.13,reality-check,0.10,0.0913,0.02,20,104
+2026-11-08 01:46:00,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_090.wav,gemini-3.8-flash-tts,tts 7.2s,0.00162,0.16,13.82,506.94,reality-check,0.16,0.1565,0.03,22,179
+2026-11-08 01:46:08,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_091.wav,gemini-3.8-flash-tts,tts 7.6s,0.00171,0.17,14.01,506.75,reality-check,0.17,0.1654,0.03,27,189
+2026-11-08 02:03:22,channels/reality-check/stories/001_asteroid-defence/audio/lite_test/lite_line_91.wav,gemini-3.8-flash-lite-tts,tts 7.3s free,0.00000,0.00,14.01,506.75,reality-check,0.17,0.0000,0.00,27,183
+2026-11-08 02:03:29,channels/reality-check/stories/001_asteroid-defence/audio/lite_test/lite_line_92.wav,gemini-3.8-flash-lite-tts,tts 6.7s free,0.00000,0.00,14.01,506.75,reality-check,0.15,0.0000,0.00,22,168
+2026-11-08 02:03:37,channels/reality-check/stories/001_asteroid-defence/audio/lite_test/lite_line_93.wav,gemini-3.8-flash-lite-tts,tts 8.7s free,0.00000,0.00,14.01,506.75,reality-check,0.20,0.0000,0.00,35,217
+2026-11-08 02:08:00,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_092.wav,gemini-3.8-flash-lite-tts,tts 6.4s free,0.00000,0.00,14.01,506.75,reality-check,0.14,0.0000,0.00,22,160
+2026-11-08 02:08:10,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_093.wav,gemini-3.8-flash-lite-tts,tts 10.1s free,0.00000,0.00,14.01,506.75,reality-check,0.23,0.0000,0.00,35,253
+2026-11-08 02:08:18,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_094.wav,gemini-3.8-flash-lite-tts,tts 4.4s free,0.00000,0.00,14.01,506.75,reality-check,0.10,0.0000,0.00,16,112
+2026-11-08 02:08:26,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_095.wav,gemini-3.8-flash-lite-tts,tts 7.9s free,0.00000,0.00,14.01,506.75,reality-check,0.18,0.0000,0.00,30,197
+2026-11-08 02:08:35,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_096.wav,gemini-3.8-flash-lite-tts,tts 8.6s free,0.00000,0.00,14.01,506.75,reality-check,0.19,0.0000,0.00,36,216
+2026-11-08 02:08:45,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_097.wav,gemini-3.8-flash-lite-tts,tts 4.7s free,0.00000,0.00,14.01,506.75,reality-check,0.11,0.0000,0.00,16,117
+2026-11-08 02:08:55,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_098.wav,gemini-3.8-flash-lite-tts,tts 4.4s free,0.00000,0.00,14.01,506.75,reality-check,0.10,0.0000,0.00,13,111
+2026-11-08 02:09:05,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_099.wav,gemini-3.8-flash-lite-tts,tts 8.0s,0.00181,0.17,14.22,506.54,reality-check,0.18,0.1742,0.03,29,199
+2026-11-08 02:09:15,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_100.wav,gemini-3.8-flash-lite-tts,tts 8.7s,0.00197,0.19,14.44,506.32,reality-check,0.19,0.1898,0.03,27,217
+2026-11-08 02:09:24,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_101.wav,gemini-3.8-flash-lite-tts,tts 6.8s,0.00155,0.15,14.62,506.14,reality-check,0.15,0.1500,0.03,30,171
+2026-11-08 02:09:33,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_102.wav,gemini-3.8-flash-lite-tts,tts 5.0s free,0.00000,0.00,14.62,506.14,reality-check,0.11,0.0000,0.00,16,126
+2026-11-08 02:09:42,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_103.wav,gemini-3.8-flash-lite-tts,tts 7.5s free,0.00000,0.00,14.62,506.14,reality-check,0.17,0.0000,0.00,32,188
+2026-11-08 02:09:52,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_104.wav,gemini-3.8-flash-lite-tts,tts 8.6s,0.00194,0.19,14.84,505.92,reality-check,0.19,0.1874,0.03,31,214
+2026-11-08 02:10:01,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_105.wav,gemini-3.8-flash-lite-tts,tts 8.1s,0.00183,0.18,15.05,505.71,reality-check,0.18,0.1766,0.03,25,202
+2026-11-08 02:10:11,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_106.wav,gemini-3.8-flash-lite-tts,tts 7.0s,0.00159,0.15,15.23,505.53,reality-check,0.16,0.1530,0.03,20,175
+2026-11-08 02:10:20,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_107.wav,gemini-3.8-flash-lite-tts,tts 9.0s,0.00204,0.20,15.46,505.30,reality-check,0.20,0.1966,0.04,24,225
+2026-11-08 02:10:29,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_108.wav,gemini-3.8-flash-lite-tts,tts 11.1s,0.00252,0.24,15.75,505.01,reality-check,0.25,0.2432,0.04,36,278
+2026-11-08 02:10:38,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_109.wav,gemini-3.8-flash-lite-tts,tts 6.6s,0.00148,0.14,15.92,504.84,reality-check,0.15,0.1433,0.03,17,164
+2026-11-08 02:10:49,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_110.wav,gemini-3.8-flash-lite-tts,tts 8.9s,0.00202,0.20,16.15,504.61,reality-check,0.20,0.1951,0.04,29,223
+2026-11-08 02:10:59,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_111.wav,gemini-3.8-flash-lite-tts,tts 6.8s,0.00153,0.15,16.32,504.44,reality-check,0.15,0.1478,0.03,22,169
+2026-11-08 02:11:08,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_112.wav,gemini-3.8-flash-lite-tts,tts 7.4s,0.00169,0.16,16.51,504.25,reality-check,0.17,0.1629,0.03,29,186
+2026-11-08 02:11:18,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_113.wav,gemini-3.8-flash-lite-tts,tts 5.6s,0.00128,0.12,16.66,504.10,reality-check,0.13,0.1234,0.02,19,141
+2026-11-08 02:11:26,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_114.wav,gemini-3.8-flash-lite-tts,tts 11.0s,0.00248,0.24,16.94,503.82,reality-check,0.24,0.2395,0.04,31,274
+2026-11-08 02:11:34,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_115.wav,gemini-3.8-flash-lite-tts,tts 4.6s,0.00105,0.10,17.06,503.70,reality-check,0.11,0.1014,0.02,14,116
+2026-11-08 02:11:43,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_116.wav,gemini-3.8-flash-lite-tts,tts 6.6s,0.00150,0.14,17.23,503.53,reality-check,0.15,0.1444,0.03,23,165
+2026-11-08 02:11:50,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_117.wav,gemini-3.8-flash-lite-tts,tts 4.0s,0.00092,0.09,17.34,503.42,reality-check,0.09,0.0884,0.02,14,101
+2026-11-08 02:11:59,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_118.wav,gemini-3.8-flash-lite-tts,tts 7.6s,0.00173,0.17,17.53,503.23,reality-check,0.17,0.1670,0.03,24,191
+2026-11-08 02:12:08,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_119.wav,gemini-3.8-flash-lite-tts,tts 7.3s,0.00165,0.16,17.72,503.04,reality-check,0.16,0.1593,0.03,26,182
+2026-11-08 02:12:16,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_120.wav,gemini-3.8-flash-lite-tts,tts 4.4s,0.00102,0.10,17.84,502.92,reality-check,0.10,0.0981,0.02,17,112
+2026-11-08 02:12:25,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_121.wav,gemini-3.8-flash-lite-tts,tts 9.0s,0.00204,0.20,18.07,502.69,reality-check,0.20,0.1967,0.04,27,225
+2026-11-08 02:12:35,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_122.wav,gemini-3.8-flash-lite-tts,tts 7.9s,0.00179,0.17,18.27,502.49,reality-check,0.18,0.1725,0.03,29,197
+2026-11-08 02:12:43,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_123.wav,gemini-3.8-flash-lite-tts,tts 9.0s,0.00204,0.20,18.51,502.26,reality-check,0.20,0.1971,0.04,35,225
+2026-11-08 02:12:53,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_124.wav,gemini-3.8-flash-lite-tts,tts 7.1s,0.00161,0.16,18.69,502.07,reality-check,0.16,0.1558,0.03,25,178
+2026-11-08 02:13:02,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_125.wav,gemini-3.8-flash-lite-tts,tts 11.2s,0.00253,0.24,18.98,501.78,reality-check,0.25,0.2442,0.04,40,279
+2026-11-08 02:13:11,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_126.wav,gemini-3.8-flash-lite-tts,tts 10.4s,0.00236,0.23,19.25,501.52,reality-check,0.23,0.2275,0.04,36,260
+2026-11-08 02:13:21,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_127.wav,gemini-3.8-flash-lite-tts,tts 5.4s,0.00123,0.12,19.39,501.38,reality-check,0.12,0.1188,0.02,15,136
+2026-11-08 02:13:29,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_128.wav,gemini-3.8-flash-lite-tts,tts 9.0s,0.00204,0.20,19.62,501.14,reality-check,0.20,0.1971,0.04,35,225
+2026-11-08 02:13:39,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_129.wav,gemini-3.8-flash-lite-tts,tts 6.8s,0.00153,0.15,19.79,500.97,reality-check,0.15,0.1480,0.03,26,169
+2026-11-08 02:13:47,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_130.wav,gemini-3.8-flash-lite-tts,tts 8.6s,0.00196,0.19,20.02,500.75,reality-check,0.19,0.1890,0.03,30,216
+2026-11-08 02:13:55,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_131.wav,gemini-3.8-flash-lite-tts,tts 9.1s,0.00206,0.20,20.25,500.51,reality-check,0.20,0.1987,0.04,32,227
+2026-11-08 02:14:04,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_132.wav,gemini-3.8-flash-lite-tts,tts 9.3s,0.00210,0.20,20.49,500.27,reality-check,0.21,0.2030,0.04,31,232
+2026-11-08 02:14:12,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_133.wav,gemini-3.8-flash-lite-tts,tts 7.6s,0.00171,0.17,20.69,500.08,reality-check,0.17,0.1651,0.03,20,189
+2026-11-08 02:14:22,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_134.wav,gemini-3.8-flash-lite-tts,tts 7.0s,0.00158,0.15,20.87,499.90,reality-check,0.16,0.1523,0.03,24,174
+2026-11-08 02:14:32,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_135.wav,gemini-3.8-flash-lite-tts,tts 8.2s,0.00186,0.18,21.08,499.68,reality-check,0.18,0.1796,0.03,32,205
+2026-11-08 02:14:40,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_136.wav,gemini-3.8-flash-lite-tts,tts 7.0s,0.00160,0.15,21.26,499.50,reality-check,0.16,0.1541,0.03,25,176
+2026-11-08 02:14:49,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_137.wav,gemini-3.8-flash-lite-tts,tts 6.7s,0.00151,0.15,21.43,499.33,reality-check,0.15,0.1461,0.03,23,167
+2026-11-08 02:14:59,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_138.wav,gemini-3.8-flash-lite-tts,tts 7.7s,0.00174,0.17,21.63,499.13,reality-check,0.17,0.1681,0.03,28,192
+2026-11-08 02:15:09,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_139.wav,gemini-3.8-flash-lite-tts,tts 9.5s,0.00215,0.21,21.87,498.89,reality-check,0.21,0.2074,0.04,33,237
+2026-11-08 02:15:17,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_140.wav,gemini-3.8-flash-lite-tts,tts 6.5s,0.00148,0.14,22.04,498.72,reality-check,0.15,0.1426,0.03,22,163
+2026-11-08 02:15:27,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_141.wav,gemini-3.8-flash-lite-tts,tts 6.7s,0.00151,0.15,22.22,498.55,reality-check,0.15,0.1460,0.03,20,167
+2026-11-08 02:15:35,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_142.wav,gemini-3.8-flash-lite-tts,tts 7.4s,0.00167,0.16,22.41,498.36,reality-check,0.17,0.1612,0.03,29,184
+2026-11-08 02:15:44,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_143.wav,gemini-3.8-flash-lite-tts,tts 7.2s,0.00164,0.16,22.59,498.17,reality-check,0.16,0.1585,0.03,27,181
+2026-11-08 02:15:53,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_144.wav,gemini-3.8-flash-lite-tts,tts 6.5s,0.00148,0.14,22.76,498.00,reality-check,0.15,0.1425,0.03,19,163
+2026-11-08 02:16:03,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_145.wav,gemini-3.8-flash-lite-tts,tts 8.6s,0.00196,0.19,22.98,497.78,reality-check,0.19,0.1890,0.03,30,216
+2026-11-08 02:16:11,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_146.wav,gemini-3.8-flash-lite-tts,tts 8.6s,0.00195,0.19,23.21,497.56,reality-check,0.19,0.1884,0.03,35,215
+2026-11-08 02:16:20,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_147.wav,gemini-3.8-flash-lite-tts,tts 4.2s,0.00096,0.09,23.32,497.45,reality-check,0.10,0.0929,0.02,17,106
+2026-11-08 02:16:30,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_148.wav,gemini-3.8-flash-lite-tts,tts 7.6s,0.00172,0.17,23.51,497.25,reality-check,0.17,0.1662,0.03,25,190
+2026-11-08 02:16:40,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_149.wav,gemini-3.8-flash-lite-tts,tts 6.5s,0.00148,0.14,23.68,497.08,reality-check,0.15,0.1427,0.03,24,163
+2026-11-08 02:16:50,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_150.wav,gemini-3.8-flash-lite-tts,tts 10.8s,0.00244,0.24,23.96,496.80,reality-check,0.24,0.2355,0.04,39,269
+2026-11-08 02:17:00,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_151.wav,gemini-3.8-flash-lite-tts,tts 9.5s,0.00215,0.21,24.20,496.56,reality-check,0.21,0.2076,0.04,37,237
+2026-11-08 02:17:09,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_152.wav,gemini-3.8-flash-lite-tts,tts 4.4s,0.00100,0.10,24.32,496.45,reality-check,0.10,0.0961,0.02,12,110
+2026-11-08 02:17:19,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_153.wav,gemini-3.8-flash-lite-tts,tts 9.4s,0.00213,0.21,24.56,496.20,reality-check,0.21,0.2055,0.04,30,235
+2026-11-08 02:17:29,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_154.wav,gemini-3.8-flash-lite-tts,tts 8.1s,0.00183,0.18,24.77,495.99,reality-check,0.18,0.1768,0.03,28,202
+2026-11-08 02:17:40,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_155.wav,gemini-3.8-flash-lite-tts,tts 8.9s,0.00202,0.20,25.00,495.76,reality-check,0.20,0.1951,0.04,30,223
+2026-11-08 02:17:50,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_156.wav,gemini-3.8-flash-lite-tts,tts 13.1s,0.00297,0.29,25.34,495.43,reality-check,0.29,0.2869,0.05,43,328
+2026-11-08 02:18:00,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_157.wav,gemini-3.8-flash-lite-tts,tts 9.3s,0.00210,0.20,25.58,495.19,reality-check,0.21,0.2030,0.04,32,232
+2026-11-08 02:18:10,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_158.wav,gemini-3.8-flash-lite-tts,tts 9.8s,0.00221,0.21,25.83,494.93,reality-check,0.22,0.2137,0.04,36,244
+2026-11-08 02:18:18,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_159.wav,gemini-3.8-flash-lite-tts,tts 5.8s,0.00131,0.13,25.98,494.78,reality-check,0.13,0.1268,0.02,17,145
+2026-11-08 02:18:27,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_160.wav,gemini-3.8-flash-lite-tts,tts 7.8s,0.00178,0.17,26.18,494.58,reality-check,0.18,0.1717,0.03,30,196
+2026-11-08 11:02:41,channels/reality-check/stories/001_asteroid-defence/long/lookdev/sample/a1.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,26.18,494.58,reality-check,0.00,0.0000,0.00,,
+2026-11-08 11:02:53,channels/reality-check/stories/001_asteroid-defence/long/lookdev/sample/a2.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,26.18,494.58,reality-check,0.00,0.0000,0.00,,
+2026-11-08 12:12:59,channels/reality-check/stories/001_asteroid-defence/long/ai_stills/shot_024.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,26.18,494.58,reality-check,0.00,0.0000,0.00,,
+2026-11-08 12:13:08,channels/reality-check/stories/001_asteroid-defence/long/ai_stills/shot_026.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,26.18,494.58,reality-check,0.00,0.0000,0.00,,
+2026-11-08 13:36:18,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_092.wav,gemini-3.8-flash-tts,tts 5.8s free,0.00000,0.00,26.18,494.58,reality-check,0.13,0.0000,0.00,22,144
+2026-11-08 13:36:28,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_093.wav,gemini-3.8-flash-tts,tts 10.0s free,0.00000,0.00,26.18,494.58,reality-check,0.22,0.0000,0.00,35,251
+2026-11-08 13:36:35,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_094.wav,gemini-3.8-flash-tts,tts 3.9s free,0.00000,0.00,26.18,494.58,reality-check,0.09,0.0000,0.00,16,98
+2026-11-08 13:36:43,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_095.wav,gemini-3.8-flash-tts,tts 7.0s free,0.00000,0.00,26.18,494.58,reality-check,0.16,0.0000,0.00,30,175
+2026-11-08 13:36:52,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_096.wav,gemini-3.8-flash-tts,tts 8.2s free,0.00000,0.00,26.18,494.58,reality-check,0.19,0.0000,0.00,36,206
+2026-11-08 13:37:00,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_097.wav,gemini-3.8-flash-tts,tts 3.8s,0.00086,0.08,26.28,494.48,reality-check,0.09,0.0833,0.01,16,95
+2026-11-08 13:37:08,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_098.wav,gemini-3.8-flash-tts,tts 3.9s,0.00089,0.09,26.38,494.38,reality-check,0.09,0.0857,0.02,13,98
+2026-11-08 13:37:16,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_099.wav,gemini-3.8-flash-tts,tts 7.4s,0.00169,0.16,26.57,494.19,reality-check,0.17,0.1629,0.03,29,186
+2026-11-08 13:37:24,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_100.wav,gemini-3.8-flash-tts,tts 8.4s free,0.00000,0.00,26.57,494.19,reality-check,0.19,0.0000,0.00,27,210
+2026-11-08 13:37:32,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_101.wav,gemini-3.8-flash-tts,tts 6.4s free,0.00000,0.00,26.57,494.19,reality-check,0.14,0.0000,0.00,30,159
+2026-11-08 13:37:39,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_102.wav,gemini-3.8-flash-tts,tts 4.8s free,0.00000,0.00,26.57,494.19,reality-check,0.11,0.0000,0.00,16,119
+2026-11-08 13:37:48,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_103.wav,gemini-3.8-flash-tts,tts 7.1s free,0.00000,0.00,26.57,494.19,reality-check,0.16,0.0000,0.00,32,177
+2026-11-08 13:37:57,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_104.wav,gemini-3.8-flash-tts,tts 8.8s,0.00200,0.19,26.80,493.96,reality-check,0.20,0.1934,0.03,31,221
+2026-11-08 13:38:06,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_105.wav,gemini-3.8-flash-tts,tts 8.0s,0.00180,0.17,27.01,493.76,reality-check,0.18,0.1740,0.03,25,199
+2026-11-08 13:38:14,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_106.wav,gemini-3.8-flash-tts,tts 6.5s,0.00148,0.14,27.17,493.59,reality-check,0.15,0.1425,0.03,20,163
+2026-11-08 13:38:23,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_107.wav,gemini-3.8-flash-tts,tts 7.6s free,0.00000,0.00,27.17,493.59,reality-check,0.17,0.0000,0.00,24,189
+2026-11-08 13:38:32,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_108.wav,gemini-3.8-flash-tts,tts 10.0s,0.00227,0.22,27.43,493.33,reality-check,0.22,0.2189,0.04,36,250
+2026-11-08 13:38:41,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_109.wav,gemini-3.8-flash-tts,tts 7.2s free,0.00000,0.00,27.43,493.33,reality-check,0.16,0.0000,0.00,17,180
+2026-11-08 13:38:50,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_110.wav,gemini-3.8-flash-tts,tts 7.1s,0.00161,0.16,27.61,493.15,reality-check,0.16,0.1551,0.03,29,177
+2026-11-08 13:39:00,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_111.wav,gemini-3.8-flash-tts,tts 7.0s,0.00159,0.15,27.80,492.97,reality-check,0.16,0.1530,0.03,22,175
+2026-11-08 13:39:09,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_112.wav,gemini-3.8-flash-tts,tts 7.6s,0.00172,0.17,27.99,492.77,reality-check,0.17,0.1655,0.03,29,189
+2026-11-08 13:39:18,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_113.wav,gemini-3.8-flash-tts,tts 5.4s,0.00122,0.12,28.13,492.63,reality-check,0.12,0.1173,0.02,19,134
+2026-11-08 13:39:28,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_114.wav,gemini-3.8-flash-tts,tts 11.3s,0.00255,0.25,28.42,492.34,reality-check,0.25,0.2464,0.04,31,282
+2026-11-08 13:39:36,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_115.wav,gemini-3.8-flash-tts,tts 5.0s,0.00113,0.11,28.55,492.21,reality-check,0.11,0.1092,0.02,14,125
+2026-11-08 13:39:43,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_116.wav,gemini-3.8-flash-tts,tts 6.2s free,0.00000,0.00,28.55,492.21,reality-check,0.14,0.0000,0.00,23,154
+2026-11-08 13:39:51,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_117.wav,gemini-3.8-flash-tts,tts 3.5s,0.00080,0.08,28.64,492.12,reality-check,0.08,0.0771,0.01,14,88
+2026-11-08 13:39:59,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_118.wav,gemini-3.8-flash-tts,tts 7.6s,0.00173,0.17,28.84,491.93,reality-check,0.17,0.1670,0.03,24,191
+2026-11-08 13:40:08,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_119.wav,gemini-3.8-flash-tts,tts 7.5s,0.00170,0.16,29.03,491.73,reality-check,0.17,0.1645,0.03,26,188
+2026-11-08 13:40:17,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_120.wav,gemini-3.8-flash-tts,tts 5.1s,0.00116,0.11,29.16,491.60,reality-check,0.12,0.1120,0.02,17,128
+2026-11-08 13:40:26,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_121.wav,gemini-3.8-flash-tts,tts 7.6s,0.00171,0.17,29.36,491.40,reality-check,0.17,0.1654,0.03,27,189
+2026-11-08 13:40:35,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_122.wav,gemini-3.8-flash-tts,tts 9.5s,0.00216,0.21,29.60,491.16,reality-check,0.21,0.2081,0.04,29,238
+2026-11-08 13:40:44,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_123.wav,gemini-3.8-flash-tts,tts 8.5s,0.00193,0.19,29.82,490.94,reality-check,0.19,0.1867,0.03,35,213
+2026-11-08 13:40:53,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_124.wav,gemini-3.8-flash-tts,tts 7.0s,0.00160,0.15,30.01,490.76,reality-check,0.16,0.1541,0.03,25,176
+2026-11-08 13:41:03,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_125.wav,gemini-3.8-flash-tts,tts 12.2s,0.00276,0.27,30.32,490.44,reality-check,0.27,0.2660,0.05,40,304
+2026-11-08 13:41:14,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_126.wav,gemini-3.8-flash-tts,tts 10.2s,0.00230,0.22,30.58,490.18,reality-check,0.23,0.2223,0.04,36,254
+2026-11-08 13:41:21,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_127.wav,gemini-3.8-flash-tts,tts 4.4s,0.00100,0.10,30.70,490.07,reality-check,0.10,0.0963,0.02,15,110
+2026-11-08 13:41:30,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_128.wav,gemini-3.8-flash-tts,tts 10.3s,0.00233,0.22,30.96,489.80,reality-check,0.23,0.2249,0.04,35,257
+2026-11-08 13:41:39,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_129.wav,gemini-3.8-flash-tts,tts 6.1s,0.00139,0.13,31.12,489.64,reality-check,0.14,0.1341,0.02,26,153
+2026-11-08 13:41:49,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_130.wav,gemini-3.8-flash-tts,tts 8.2s,0.00185,0.18,31.33,489.43,reality-check,0.18,0.1786,0.03,30,204
+2026-11-08 13:41:59,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_131.wav,gemini-3.8-flash-tts,tts 9.8s,0.00223,0.22,31.58,489.18,reality-check,0.22,0.2152,0.04,32,246
+2026-11-08 13:42:09,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_132.wav,gemini-3.8-flash-tts,tts 10.1s,0.00228,0.22,31.84,488.92,reality-check,0.23,0.2204,0.04,31,252
+2026-11-08 13:42:17,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_133.wav,gemini-3.8-flash-tts,tts 6.4s,0.00145,0.14,32.01,488.75,reality-check,0.14,0.1399,0.03,20,160
+2026-11-08 13:42:26,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_134.wav,gemini-3.8-flash-tts,tts 6.0s,0.00135,0.13,32.16,488.60,reality-check,0.14,0.1306,0.02,24,149
+2026-11-08 13:42:35,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_135.wav,gemini-3.8-flash-tts,tts 8.4s,0.00191,0.18,32.38,488.38,reality-check,0.19,0.1839,0.03,32,210
+2026-11-08 13:42:43,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_136.wav,gemini-3.8-flash-tts,tts 6.4s,0.00145,0.14,32.55,488.22,reality-check,0.15,0.1402,0.03,25,160
+2026-11-08 13:42:52,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_137.wav,gemini-3.8-flash-tts,tts 6.8s,0.00155,0.15,32.72,488.04,reality-check,0.15,0.1496,0.03,23,171
+2026-11-08 13:43:01,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_138.wav,gemini-3.8-flash-tts,tts 7.0s,0.00158,0.15,32.90,487.86,reality-check,0.16,0.1525,0.03,28,174
+2026-11-08 13:43:10,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_139.wav,gemini-3.8-flash-tts,tts 9.1s,0.00206,0.20,33.14,487.63,reality-check,0.20,0.1987,0.04,33,227
+2026-11-08 13:43:19,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_140.wav,gemini-3.8-flash-tts,tts 6.7s,0.00151,0.15,33.31,487.45,reality-check,0.15,0.1461,0.03,22,167
+2026-11-08 13:43:28,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_141.wav,gemini-3.8-flash-tts,tts 6.3s,0.00142,0.14,33.47,487.29,reality-check,0.14,0.1373,0.02,20,157
+2026-11-08 13:43:37,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_142.wav,gemini-3.8-flash-tts,tts 6.8s,0.00154,0.15,33.65,487.12,reality-check,0.15,0.1490,0.03,29,170
+2026-11-08 13:43:45,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_143.wav,gemini-3.8-flash-tts,tts 6.8s,0.00154,0.15,33.82,486.94,reality-check,0.15,0.1489,0.03,27,170
+2026-11-08 13:43:54,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_144.wav,gemini-3.8-flash-tts,tts 5.3s,0.00121,0.12,33.96,486.80,reality-check,0.12,0.1164,0.02,19,133
+2026-11-08 13:44:02,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_145.wav,gemini-3.8-flash-tts,tts 7.6s,0.00173,0.17,34.16,486.61,reality-check,0.17,0.1665,0.03,30,190
+2026-11-08 13:44:12,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_146.wav,gemini-3.8-flash-tts,tts 9.9s,0.00225,0.22,34.41,486.35,reality-check,0.22,0.2171,0.04,35,248
+2026-11-08 13:44:20,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_147.wav,gemini-3.8-flash-tts,tts 4.1s,0.00093,0.09,34.52,486.24,reality-check,0.09,0.0894,0.02,17,102
+2026-11-08 13:44:31,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_148.wav,gemini-3.8-flash-tts,tts 7.1s,0.00161,0.15,34.70,486.06,reality-check,0.16,0.1549,0.03,25,177
+2026-11-08 13:44:39,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_149.wav,gemini-3.8-flash-tts,tts 6.8s,0.00155,0.15,34.88,485.88,reality-check,0.15,0.1497,0.03,24,171
+2026-11-08 13:44:49,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_150.wav,gemini-3.8-flash-tts,tts 10.3s,0.00234,0.23,35.14,485.62,reality-check,0.23,0.2260,0.04,39,258
+2026-11-08 13:44:58,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_151.wav,gemini-3.8-flash-tts,tts 9.4s,0.00214,0.21,35.39,485.37,reality-check,0.21,0.2068,0.04,37,236
+2026-11-08 13:45:07,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_152.wav,gemini-3.8-flash-tts,tts 4.0s,0.00091,0.09,35.49,485.27,reality-check,0.09,0.0874,0.02,12,100
+2026-11-08 13:45:18,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_153.wav,gemini-3.8-flash-tts,tts 8.0s,0.00181,0.17,35.70,485.06,reality-check,0.18,0.1743,0.03,30,199
+2026-11-08 13:45:27,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_154.wav,gemini-3.8-flash-tts,tts 7.7s,0.00175,0.17,35.90,484.87,reality-check,0.17,0.1690,0.03,28,193
+2026-11-08 13:45:38,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_155.wav,gemini-3.8-flash-tts,tts 8.7s,0.00199,0.19,36.12,484.64,reality-check,0.20,0.1916,0.03,30,219
+2026-11-08 13:45:46,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_156.wav,gemini-3.8-flash-tts,tts 12.0s,0.00271,0.26,36.43,484.33,reality-check,0.27,0.2618,0.05,43,299
+2026-11-08 13:45:56,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_157.wav,gemini-3.8-flash-tts,tts 8.8s,0.00200,0.19,36.66,484.10,reality-check,0.20,0.1935,0.03,32,221
+2026-11-08 13:46:04,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_158.wav,gemini-3.8-flash-tts,tts 9.6s,0.00219,0.21,36.91,483.85,reality-check,0.22,0.2110,0.04,36,241
+2026-11-08 13:46:13,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_159.wav,gemini-3.8-flash-tts,tts 5.1s,0.00116,0.11,37.04,483.72,reality-check,0.12,0.1120,0.02,17,128
+2026-11-08 13:46:22,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_160.wav,gemini-3.8-flash-tts,tts 7.1s,0.00161,0.16,37.22,483.54,reality-check,0.16,0.1552,0.03,30,177

@@ -1,0 +1,5 @@
+PROPOSED (pick after the Nigraan check; thumbnail text: "7 MIN? NAHI, 33"):
+1. DART Ka Dhakka: 7 Minute Ka Hisaab, 33 Kaise Ho Gaya?   <- recommended (question in first 40 characters, matches thumbnail, no false promise)
+2. Kya Hum Asteroid Ko Sach Mein Mod Sakte Hain? DART Ka Asli Result
+3. 7 Minute Socha Tha, Nikle 33: Asteroid Ko Dhakka Dene Ki Asli Kahani
+Credits for the description: NASA/Johns Hopkins APL (DART/DRACO imagery shown in the intro and as small insets), NASA SVS; thumbnail asteroid and flash are own render (no NASA image used).

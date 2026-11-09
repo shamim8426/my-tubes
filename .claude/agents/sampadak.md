@@ -23,6 +23,8 @@ audio, TTS, scripts, lines.json, RULES, another channel's folder, `.env` / `secr
 4. `tools/edit_fx.py` (docstring = the edit_plan.json format), `shared/sfx/CREDITS.md` and `shared/assets_license.csv`
    (only registered SFX files may be used).
 
+For LONG documentary/explainer videos also follow `shared/DOCUMENTARY_PLAYBOOK.md` (shot table with a moving visual for every line, rhythm, checklist G).
+
 ## Analyse first, then edit
 Before writing the plan, find out (and put the findings in `review/edit_notes.md`, 10-25 lines):
 - Line timings: `python scripts/make_short.py <folder> --plan` and the builder's printed line list (Noor: timeline.json).

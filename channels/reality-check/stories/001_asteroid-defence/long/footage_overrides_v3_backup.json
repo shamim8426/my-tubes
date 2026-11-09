@@ -1,0 +1,1012 @@
+{
+ "_note": "Per-shot overrides on top of footage_map.md (rc_real_look.py). segs = one entry per cut (equal time split); crop = fractions x0,y0,x1,y1 of the SOURCE frame (hides baked text / pillarbox). exact = tin..tout window used as is.",
+ "1": {
+  "status": "REAL",
+  "segs": [
+   {
+    "file": "footage/jhuapl_dart_impact_replay.mp4",
+    "tin": 29.0,
+    "tout": 34.2,
+    "speed": 1.0,
+    "z0": 1.0,
+    "z1": 1.06,
+    "crop": [
+     0.2333,
+     0.0,
+     0.7667,
+     1.0
+    ],
+    "credit": "NASA/Johns Hopkins APL"
+   }
+  ]
+ },
+ "2": {
+  "status": "REAL",
+  "segs": [
+   {
+    "file": "footage/pia25329_dart_at_didymos_illustration.jpg",
+    "credit": "NASA/JHUAPL/S. Gribben (illustration)"
+   },
+   {
+    "file": "footage/jhuapl_dart_collision_still.jpg",
+    "credit": "NASA/Johns Hopkins APL (illustration)"
+   },
+   {
+    "file": "footage/jhuapl_dart_impact_zoom_illustration.jpg",
+    "credit": "NASA/JHUAPL/J. Emmerich (illustration)"
+   }
+  ]
+ },
+ "3": {
+  "status": "REAL-BG",
+  "segs": [
+   {
+    "file": "footage/draco_penultimate_image.png",
+    "credit": "NASA/Johns Hopkins APL (DRACO)"
+   }
+  ]
+ },
+ "4": {
+  "scene": {
+   "type": "dhakka_main",
+   "sync": 4
+  }
+ },
+ "8": {
+  "scene": {
+   "type": "dhakka_main",
+   "sync": 4
+  }
+ },
+ "15": {
+  "scene": {
+   "type": "airburst_years",
+   "sync": 15
+  }
+ },
+ "16": {
+  "scene": {
+   "type": "airburst_city",
+   "sync": 16,
+   "kt": 5,
+   "label": "5 kt = 5,000 t TNT",
+   "sub": "1 kt = 1,000 ton TNT"
+  }
+ },
+ "17": {
+  "scene": {
+   "type": "chely",
+   "sync": 17
+  }
+ },
+ "18": {
+  "scene": {
+   "type": "chely",
+   "sync": 17
+  }
+ },
+ "19": {
+  "scene": {
+   "type": "chely",
+   "sync": 17
+  }
+ },
+ "20": {
+  "scene": {
+   "type": "chely",
+   "sync": 17
+  }
+ },
+ "30": {
+  "scene": {
+   "type": "size_ladder",
+   "sync": 28
+  }
+ },
+ "35": {
+  "scene": {
+   "type": "rare_ladder",
+   "sync": 35
+  }
+ },
+ "28": {
+  "scene": {
+   "type": "size_ladder",
+   "sync": 28
+  }
+ },
+ "36": {
+  "scene": {
+   "type": "rare_ladder",
+   "sync": 35
+  }
+ },
+ "63": {
+  "scene": {
+   "type": "survey_sky",
+   "sync": 63,
+   "flash": true
+  }
+ },
+ "39": {
+  "scene": {
+   "type": "can_we_push",
+   "sync": 39,
+   "flash": true
+  }
+ },
+ "45": {
+  "scene": {
+   "type": "safe_target",
+   "sync": 44
+  }
+ },
+ "50": {
+  "scene": {
+   "type": "push_basic",
+   "sync": 49
+  }
+ },
+ "59": {
+  "scene": {
+   "type": "still_orbiting",
+   "sync": 59
+  }
+ },
+ "125": {
+  "scene": {
+   "type": "method_demo",
+   "sync": 125,
+   "kind": "kinetic",
+   "ttl": "tareeka 1: kinetic impactor (DART wala dhakka)",
+   "need": "sabse achha tab chalta hai jab pind ko hum jaante hon|aur chetavani ka samay ho"
+  }
+ },
+ "68": {
+  "scene": {
+   "type": "dots_found",
+   "sync": 67
+  }
+ },
+ "72": {
+  "scene": {
+   "type": "goals",
+   "sync": 72
+  }
+ },
+ "76": {
+  "scene": {
+   "type": "neo_surveyor",
+   "sync": 76
+  }
+ },
+ "79": {
+  "scene": {
+   "type": "neo_surveyor",
+   "sync": 76
+  }
+ },
+ "81": {
+  "scene": {
+   "type": "yr4_chart",
+   "sync": 81
+  }
+ },
+ "160": {
+  "segs": [
+   {
+    "file": "footage2/asteroids/neowise_legacy.mp4",
+    "tin": 154,
+    "tout": 158,
+    "speed": 1.0,
+    "z0": 1.0,
+    "z1": 1.06,
+    "credit": "NASA/JPL-Caltech (NEOWISE)",
+    "crop": [
+     0,
+     0.1,
+     1,
+     1
+    ]
+   },
+   {
+    "file": "footage2/asteroids/neowise_legacy.mp4",
+    "tin": 158,
+    "tout": 162,
+    "speed": 1.0,
+    "z0": 1.06,
+    "z1": 1.0,
+    "credit": "NASA/JPL-Caltech (NEOWISE)",
+    "crop": [
+     0,
+     0.1,
+     1,
+     1
+    ]
+   }
+  ]
+ },
+ "94": {
+  "scene": {
+   "type": "apophis",
+   "sync": 89
+  }
+ },
+ "158": {
+  "scene": {
+   "type": "final3",
+   "sync": 157
+  }
+ },
+ "97": {
+  "scene": {
+   "type": "recap_dials",
+   "sync": 97,
+   "flash": true
+  }
+ },
+ "133": {
+  "scene": {
+   "type": "nuclear",
+   "sync": 131
+  }
+ },
+ "137": {
+  "scene": {
+   "type": "nuclear_caveats",
+   "sync": 134
+  }
+ },
+ "5": {
+  "scene": {
+   "type": "dhakka_main",
+   "sync": 4,
+   "flash": true
+  }
+ },
+ "6": {
+  "scene": {
+   "type": "dhakka_main",
+   "sync": 4
+  }
+ },
+ "7": {
+  "scene": {
+   "type": "dhakka_main",
+   "sync": 4
+  }
+ },
+ "14": {
+  "scene": {
+   "type": "earth_incoming",
+   "sync": 14,
+   "flash": true
+  }
+ },
+ "21": {
+  "scene": {
+   "type": "chely",
+   "sync": 17
+  }
+ },
+ "22": {
+  "scene": {
+   "type": "unseen",
+   "sync": 22
+  }
+ },
+ "23": {
+  "scene": {
+   "type": "unseen",
+   "sync": 22
+  }
+ },
+ "24": {
+  "scene": {
+   "type": "tunguska_date",
+   "sync": 24
+  }
+ },
+ "25": {
+  "scene": {
+   "type": "airburst_side",
+   "sync": 25
+  }
+ },
+ "26": {
+  "scene": {
+   "type": "trees_top",
+   "sync": 26
+  }
+ },
+ "27": {
+  "scene": {
+   "type": "estimate_swarm",
+   "sync": 27
+  }
+ },
+ "29": {
+  "scene": {
+   "type": "size_ladder",
+   "sync": 28
+  }
+ },
+ "31": {
+  "scene": {
+   "type": "size_ladder",
+   "sync": 28
+  }
+ },
+ "32": {
+  "scene": {
+   "type": "size_ladder",
+   "sync": 28
+  }
+ },
+ "33": {
+  "scene": {
+   "type": "extinction",
+   "sync": 33
+  }
+ },
+ "34": {
+  "scene": {
+   "type": "extinction",
+   "sync": 33
+  }
+ },
+ "37": {
+  "scene": {
+   "type": "known_unknown",
+   "sync": 37
+  }
+ },
+ "38": {
+  "scene": {
+   "type": "known_unknown",
+   "sync": 37
+  }
+ },
+ "40": {
+  "scene": {
+   "type": "acronym",
+   "sync": 40
+  }
+ },
+ "41": {
+  "scene": {
+   "type": "pair_scale",
+   "sync": 41
+  }
+ },
+ "42": {
+  "scene": {
+   "type": "pair_scale",
+   "sync": 41
+  }
+ },
+ "43": {
+  "scene": {
+   "type": "pair_scale",
+   "sync": 41
+  }
+ },
+ "44": {
+  "scene": {
+   "type": "safe_target",
+   "sync": 44
+  }
+ },
+ "47": {
+  "scene": {
+   "type": "journey",
+   "sync": 47
+  }
+ },
+ "48": {
+  "status": "REAL",
+  "segs": [
+   {
+    "file": "footage/jhuapl_dart_impact_replay.mp4",
+    "tin": 26.0,
+    "tout": 34.4,
+    "speed": 1.0,
+    "z0": 1.0,
+    "z1": 1.06,
+    "crop": [
+     0.2333,
+     0.0,
+     0.7667,
+     1.0
+    ],
+    "credit": "NASA/Johns Hopkins APL"
+   }
+  ]
+ },
+ "49": {
+  "scene": {
+   "type": "push_basic",
+   "sync": 49
+  }
+ },
+ "51": {
+  "scene": {
+   "type": "crit73",
+   "sync": 51
+  }
+ },
+ "52": {
+  "scene": {
+   "type": "crit73",
+   "sync": 51
+  }
+ },
+ "53": {
+  "scene": {
+   "type": "result_orbit",
+   "sync": 53
+  }
+ },
+ "54": {
+  "scene": {
+   "type": "result_orbit",
+   "sync": 53
+  }
+ },
+ "55": {
+  "scene": {
+   "type": "result_orbit",
+   "sync": 53
+  }
+ },
+ "56": {
+  "scene": {
+   "type": "result_orbit",
+   "sync": 53
+  }
+ },
+ "57": {
+  "scene": {
+   "type": "two_methods",
+   "sync": 57
+  }
+ },
+ "58": {
+  "scene": {
+   "type": "two_methods",
+   "sync": 57
+  }
+ },
+ "60": {
+  "scene": {
+   "type": "still_orbiting",
+   "sync": 59
+  }
+ },
+ "61": {
+  "scene": {
+   "type": "clue",
+   "sync": 61
+  }
+ },
+ "62": {
+  "scene": {
+   "type": "clue",
+   "sync": 61
+  }
+ },
+ "64": {
+  "scene": {
+   "type": "survey_sky",
+   "sync": 63
+  }
+ },
+ "65": {
+  "scene": {
+   "type": "survey_sky",
+   "sync": 63
+  }
+ },
+ "66": {
+  "scene": {
+   "type": "survey_sky",
+   "sync": 63
+  }
+ },
+ "67": {
+  "scene": {
+   "type": "dots_found",
+   "sync": 67
+  }
+ },
+ "69": {
+  "scene": {
+   "type": "dots_found",
+   "sync": 67
+  }
+ },
+ "70": {
+  "scene": {
+   "type": "dots_found",
+   "sync": 67
+  }
+ },
+ "71": {
+  "scene": {
+   "type": "dots_found",
+   "sync": 67
+  }
+ },
+ "73": {
+  "scene": {
+   "type": "goals",
+   "sync": 72
+  }
+ },
+ "74": {
+  "scene": {
+   "type": "goals",
+   "sync": 72
+  }
+ },
+ "75": {
+  "scene": {
+   "type": "goals",
+   "sync": 72
+  }
+ },
+ "77": {
+  "scene": {
+   "type": "neo_surveyor",
+   "sync": 76
+  }
+ },
+ "78": {
+  "scene": {
+   "type": "neo_surveyor",
+   "sync": 76
+  }
+ },
+ "80": {
+  "scene": {
+   "type": "neo_surveyor",
+   "sync": 76
+  }
+ },
+ "82": {
+  "scene": {
+   "type": "yr4_chart",
+   "sync": 81
+  }
+ },
+ "83": {
+  "scene": {
+   "type": "yr4_chart",
+   "sync": 81
+  }
+ },
+ "84": {
+  "scene": {
+   "type": "yr4_chart",
+   "sync": 81
+  }
+ },
+ "85": {
+  "scene": {
+   "type": "yr4_chart",
+   "sync": 81
+  }
+ },
+ "86": {
+  "scene": {
+   "type": "yr4_chart",
+   "sync": 81
+  }
+ },
+ "87": {
+  "scene": {
+   "type": "yr4_chart",
+   "sync": 81
+  }
+ },
+ "88": {
+  "scene": {
+   "type": "film_vs_real",
+   "sync": 88
+  }
+ },
+ "89": {
+  "scene": {
+   "type": "apophis",
+   "sync": 89
+  }
+ },
+ "90": {
+  "scene": {
+   "type": "apophis",
+   "sync": 89
+  }
+ },
+ "91": {
+  "scene": {
+   "type": "apophis",
+   "sync": 89
+  }
+ },
+ "92": {
+  "scene": {
+   "type": "apophis",
+   "sync": 89
+  }
+ },
+ "93": {
+  "scene": {
+   "type": "apophis",
+   "sync": 89
+  }
+ },
+ "95": {
+  "scene": {
+   "type": "apophis",
+   "sync": 89
+  }
+ },
+ "96": {
+  "scene": {
+   "type": "apophis",
+   "sync": 89
+  }
+ },
+ "98": {
+  "scene": {
+   "type": "recap_dials",
+   "sync": 97
+  }
+ },
+ "99": {
+  "scene": {
+   "type": "push_full",
+   "sync": 99
+  }
+ },
+ "100": {
+  "scene": {
+   "type": "push_full",
+   "sync": 99
+  }
+ },
+ "101": {
+  "scene": {
+   "type": "push_full",
+   "sync": 99
+  }
+ },
+ "102": {
+  "scene": {
+   "type": "push_full",
+   "sync": 99
+  }
+ },
+ "103": {
+  "scene": {
+   "type": "push_full",
+   "sync": 99
+  }
+ },
+ "104": {
+  "scene": {
+   "type": "push_full",
+   "sync": 99,
+   "flash": true
+  }
+ },
+ "105": {
+  "scene": {
+   "type": "push_full",
+   "sync": 99
+  }
+ },
+ "106": {
+  "scene": {
+   "type": "push_full",
+   "sync": 99
+  }
+ },
+ "107": {
+  "scene": {
+   "type": "push_full",
+   "sync": 99
+  }
+ },
+ "108": {
+  "scene": {
+   "type": "push_full",
+   "sync": 99
+  }
+ },
+ "109": {
+  "scene": {
+   "type": "push_full",
+   "sync": 99
+  }
+ },
+ "110": {
+  "scene": {
+   "type": "push_full",
+   "sync": 99
+  }
+ },
+ "111": {
+  "scene": {
+   "type": "ejecta",
+   "sync": 111
+  }
+ },
+ "112": {
+  "scene": {
+   "type": "ejecta",
+   "sync": 111
+  }
+ },
+ "113": {
+  "scene": {
+   "type": "ejecta",
+   "sync": 111
+  }
+ },
+ "114": {
+  "scene": {
+   "type": "ejecta",
+   "sync": 111
+  }
+ },
+ "115": {
+  "scene": {
+   "type": "mass_unknown",
+   "sync": 115
+  }
+ },
+ "116": {
+  "scene": {
+   "type": "mass_unknown",
+   "sync": 115
+  }
+ },
+ "117": {
+  "scene": {
+   "type": "mass_unknown",
+   "sync": 115
+  }
+ },
+ "118": {
+  "scene": {
+   "type": "mass_unknown",
+   "sync": 115
+  }
+ },
+ "119": {
+  "scene": {
+   "type": "solar_orbit",
+   "sync": 119
+  }
+ },
+ "120": {
+  "scene": {
+   "type": "solar_orbit",
+   "sync": 119
+  }
+ },
+ "121": {
+  "scene": {
+   "type": "solar_orbit",
+   "sync": 119
+  }
+ },
+ "122": {
+  "scene": {
+   "type": "summary3",
+   "sync": 122
+  }
+ },
+ "123": {
+  "scene": {
+   "type": "summary3",
+   "sync": 122
+  }
+ },
+ "124": {
+  "scene": {
+   "type": "summary3",
+   "sync": 122,
+   "flash": true
+  }
+ },
+ "126": {
+  "scene": {
+   "type": "tractor_demo",
+   "sync": 126
+  }
+ },
+ "127": {
+  "scene": {
+   "type": "tractor_demo",
+   "sync": 126
+  }
+ },
+ "128": {
+  "scene": {
+   "type": "laser_demo",
+   "sync": 128
+  }
+ },
+ "129": {
+  "scene": {
+   "type": "exercise",
+   "sync": 129
+  }
+ },
+ "130": {
+  "scene": {
+   "type": "exercise",
+   "sync": 129
+  }
+ },
+ "131": {
+  "scene": {
+   "type": "nuclear",
+   "sync": 131
+  }
+ },
+ "132": {
+  "scene": {
+   "type": "nuclear",
+   "sync": 131
+  }
+ },
+ "134": {
+  "scene": {
+   "type": "nuclear_caveats",
+   "sync": 134
+  }
+ },
+ "135": {
+  "scene": {
+   "type": "nuclear_caveats",
+   "sync": 134
+  }
+ },
+ "136": {
+  "scene": {
+   "type": "nuclear_caveats",
+   "sync": 134
+  }
+ },
+ "138": {
+  "scene": {
+   "type": "film_plan",
+   "sync": 138
+  }
+ },
+ "139": {
+  "scene": {
+   "type": "film_plan",
+   "sync": 138
+  }
+ },
+ "140": {
+  "scene": {
+   "type": "film_plan",
+   "sync": 138
+  }
+ },
+ "141": {
+  "scene": {
+   "type": "hera",
+   "sync": 141,
+   "flash": true
+  }
+ },
+ "142": {
+  "scene": {
+   "type": "hera",
+   "sync": 141
+  }
+ },
+ "143": {
+  "scene": {
+   "type": "hera",
+   "sync": 141
+  }
+ },
+ "144": {
+  "scene": {
+   "type": "hera",
+   "sync": 141
+  }
+ },
+ "145": {
+  "scene": {
+   "type": "hera",
+   "sync": 141
+  }
+ },
+ "146": {
+  "scene": {
+   "type": "hera",
+   "sync": 141
+  }
+ },
+ "147": {
+  "scene": {
+   "type": "hera",
+   "sync": 141
+  }
+ },
+ "148": {
+  "scene": {
+   "type": "hera",
+   "sync": 141
+  }
+ },
+ "149": {
+  "scene": {
+   "type": "unknowns",
+   "sync": 149
+  }
+ },
+ "150": {
+  "scene": {
+   "type": "unknowns",
+   "sync": 149
+  }
+ },
+ "151": {
+  "scene": {
+   "type": "unknowns",
+   "sync": 149
+  }
+ },
+ "152": {
+  "scene": {
+   "type": "verdict",
+   "sync": 152,
+   "flash": true
+  }
+ },
+ "153": {
+  "scene": {
+   "type": "verdict",
+   "sync": 152
+  }
+ },
+ "154": {
+  "scene": {
+   "type": "verdict",
+   "sync": 152
+  }
+ },
+ "155": {
+  "scene": {
+   "type": "verdict",
+   "sync": 152
+  }
+ },
+ "156": {
+  "scene": {
+   "type": "verdict",
+   "sync": 152
+  }
+ },
+ "157": {
+  "scene": {
+   "type": "final3",
+   "sync": 157
+  }
+ },
+ "159": {
+  "scene": {
+   "type": "final3",
+   "sync": 157
+  }
+ }
+}

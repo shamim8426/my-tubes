@@ -1,0 +1,15 @@
+{
+ "_note": "user 2026-11-08: cut teaser/comment lines; silent holds over key footage (builder shows footage with its own sound)",
+ "skip_lines": [
+  9,
+  10,
+  11,
+  12,
+  13,
+  160
+ ],
+ "hold_after": {
+  "2": 5.0,
+  "5": 2.5
+ }
+}

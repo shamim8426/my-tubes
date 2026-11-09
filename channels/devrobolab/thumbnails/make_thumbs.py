@@ -178,6 +178,7 @@ VIDEOS = [
     ("5eH-XqR6SQ0", P, "mint", "thumbs", "r", "CLAUDE CODE 02", ("Claude Code", "ab *2.5x* tez"), bars([("Normal", 40, "1x", "#9aa3b2"), ("/fast", 100, "2.5x", "#FFC800")])),
     ("W8fkKh9uFAc", P, "peach", "thumbs", "l", "AI NEWS", ("Sirf *65 MB* ka", "AI awaaz"), big("65 MB", "bina internet chalta hai", ["Phonon", "offline"], 110)),
     ("lXYyyQmxVfg", P, "sky", "think", "l", "CLAUDE FEATURE 04", ("PDF aur photo", "*upload* karo"), flow([("Aap upload karte ho", '<div class=bub>PDF + photo</div>', "#fff"), ("Claude jawab deta hai", '<div class=bub>Ye raha summary &#10003;</div>', "#E8F7EC")])),
+    ("oQni7skZzgs", P, "lav", "wave", "r", "AI NEWS", ("Google AI video", "*15 second* ka"), bars([("Pehle", 66, "10 s", "#9aa3b2"), ("Ab", 100, "15 s", "#7B5CF6")])),
 ]
 
 HTML = """<style>%(css)s</style><body class="%(cls)s" style="--bg:%(bg)s;--blob:%(blob)s"><div class=dots></div>

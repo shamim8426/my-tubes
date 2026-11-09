@@ -1,0 +1,12 @@
+{
+ "_help": "Stage tracker (shared/RULES.md 14). Stages: script_approved -> look_test -> assets -> tts -> build -> final -> upload.",
+ "stories": {
+  "001_asteroid-defence": {
+   "video": "long",
+   "stage": "tts_partial",
+   "updated": "2026-11-08",
+   "note": "Script v2 approved. TTS Kore: lines 1-91 = main model gemini-3.8-flash-tts (final). Lines 92-160 made on lite model as DRAFT only (daily 100-request limit hit). User decision 2026-11-08: redo lines 92-160 on the main model after the quota resets (~13:30 IST 2026-11-08) so the voice stays identical. How: move audio/tts_cache/line_092..160.wav to audio/tts_cache_lite_draft/, then run rc_tts.py WITHOUT GEMINI_TTS_MODEL (est Rs12, 69 requests). Cap Rs120 set.",
+   "budget_cap_inr": null
+  }
+ }
+}

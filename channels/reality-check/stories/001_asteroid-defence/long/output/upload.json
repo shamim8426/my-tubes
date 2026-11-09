@@ -1,0 +1,26 @@
+{
+    "channel_key":  "reality-check",
+    "channel_name":  "Reality Check - Asli",
+    "channel_id":  "UCy071_4g4vGemktFHybqkhQ",
+    "format":  "long",
+    "parent_video_id":  null,
+    "title":  "DART Ka Dhakka: 7 Minute Ka Hisaab, 33 Kaise Ho Gaya?",
+    "description":  "DART ke baad asteroid ka chakkar sirf 7 minute badalna tha. Nateeja 33 minute nikla. Ye video simple Hindi me samjhata hai ki dhakka kaise kaam karta hai, mudne ka hisaab kaise lagta hai, aur aage asteroid se bachne ke kaun se tareeke hain.\n\nIs video me: Chelyabinsk aur Tunguska, 5 kilotan ki taqat, DART mission aur Dimorphos, kaale pattharon ko dhoondhna, 2024 YR4 aur Apophis, aur asteroid ko hataane ke chaar tareeke.\n\nSources (official pages):\nNASA Planetary Defense: https://www.nasa.gov/planetarydefense/\nNASA DART mission: https://www.nasa.gov/mission/dart/\nNASA / JPL CNEOS: https://cneos.jpl.nasa.gov/\nESA Hera mission: https://www.esa.int/Hera\n\nUnofficial channel, not affiliated with NASA, ESA or any space agency.\n\nCredits: NASA, NASA/JPL-Caltech, NASA/Johns Hopkins APL, NASA/Johnson Space Center, NASA/Bill Ingalls, NASA SVS, USGS, US DOE (public domain; credit lines also appear on screen).\nNote: parts of this video are our own animations and AI illustrations (labelled on screen), not real footage. Voice is synthetic.\n\n#Asteroid #DART #NASA #Hinglish #Science",
+    "tags":  [
+                 "DART",
+                 "NASA",
+                 "asteroid",
+                 "planetary defence",
+                 "Dimorphos",
+                 "Apophis",
+                 "Hinglish science",
+                 "Reality Check"
+             ],
+    "video":  "001_long_final.mp4",
+    "thumbnail":  "001_thumbnail.png",
+    "language":  "hi",
+    "made_for_kids":  false,
+    "contains_synthetic_media":  true,
+    "category_id":  "27",
+    "privacy":  "private"
+}

@@ -1,10 +1,11 @@
 {
   "channel_key": "reality-check",
-  "display_name": "Reality Check - Asli",
-  "title_suffix": "| Reality Check - Asli",
-  "brand_label": "Reality Check - Asli",
-  "handle": "@RealityCheck-Asli",
+  "display_name": "Possibilities",
+  "title_suffix": "| Possibilities",
+  "brand_label": "Possibilities",
+  "handle": "@PossibilitiesHindi",
   "former_names": [
+    "Reality Check - Asli (renamed 2026-11-08 by user; tagline: Kya ho sakta hai?)",
     "जुगनू स्टोरीज़ | Jugnu Stories (key jugnu-stories, paused 2026-11-07)",
     "दादी की कहानियाँ (Dadi Ki Kahaniyan)",
     "दादी जासूस",
@@ -26,7 +27,10 @@
   "api_audited": false,
   "_publish_note": "shared/RULES.md section 8 (2026-10-21): decided right after the upload from the IST clock. Long: 19:00-23:59 -> public now, 00:00-18:59 -> 19:00 same day; one long per day (else next free day). Short of a long: long + 60 min (19:00 -> 20:00; after 23:59 -> public now). api_audited false -> upload private + STUDIO ACTION message; true -> tools/youtube_upload.py sets public/publishAt itself.",
   "playlists": {},
-  "long_target_minutes": [18, 20],
+  "long_target_minutes": [
+    18,
+    20
+  ],
   "short_max_seconds": 40,
   "youtube_title": "Reality Check - Asli",
   "_format_note": "User 2026-11-07: movies are only a RESEARCH starting point (which science idea/question people love), never the video format. Videos are original, source-backed explainers (Hinglish, 18-20 min Long + Shorts). Start with science; widen to other topics after ~10-15 videos. See channel_bible.md."
