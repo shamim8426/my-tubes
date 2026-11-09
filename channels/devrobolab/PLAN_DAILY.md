@@ -1,3 +1,13 @@
+# DevRoboLab daily plan
+
+## OVERRIDE (user 2026-11-09, binding, beats everything below): 4 SHORTS per day, NO longs
+| Slot | Task id | Video |
+| 05:30 | devrobolab-news-short | AI news Short (3-4 major items) |
+| 06:30 | devrobolab-cfe-long (renamed: Claude Code Short) | Claude Code feature Short, done by 09:00 |
+| 20:30 | devrobolab-claude-code-long (renamed: Claude Feature Short) | Claude for Everyone feature Short |
+| 22:50 | devrobolab-daily-life-short | Daily-life Short (one per type) |
+Disabled: devrobolab-long-cut-short (no longs). All Shorts 9:16, 35-40 s, private upload + thumbnail (no robot). Task ids keep the old names; their prompts are the new plan.
+
 # DevRoboLab daily plan (user 2026-11-07; SUPERSEDES the older DAILY PLAN lines in DAILY_COMMON.md and RESUME.md)
 
 Status: ACTIVE (user 2026-11-07): the 5 scheduled tasks below run every day and upload PRIVATE; the user makes videos public in Studio. The user can still ask for a video any time.
