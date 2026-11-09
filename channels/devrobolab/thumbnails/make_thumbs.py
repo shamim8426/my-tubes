@@ -175,6 +175,7 @@ VIDEOS = [
     ("1t6XbC5RCMg", P, "peach", "work", "r", "CLAUDE FEATURE 03", ("Claude khud", "*research* karta hai"), steps(["Web search", "Sources check", "Report ready"])),
     ("B9f8_sC0elI", P, "lime", "wave", "l", "AI NEWS", ("Paise ka *hisaab*", "Claude se"), phone("Kharcha", ["Food", "Rent"], ["category"])),
     ("5eH-XqR6SQ0", P, "mint", "thumbs", "r", "CLAUDE CODE 02", ("Claude Code", "ab *2.5x* tez"), bars([("Normal", 40, "1x", "#9aa3b2"), ("/fast", 100, "2.5x", "#FFC800")])),
+    ("W8fkKh9uFAc", P, "peach", "thumbs", "l", "AI NEWS", ("Sirf *65 MB* ka", "AI awaaz"), big("65 MB", "bina internet chalta hai", ["Phonon", "offline"], 110)),
     ("lXYyyQmxVfg", P, "sky", "think", "l", "CLAUDE FEATURE 04", ("PDF aur photo", "*upload* karo"), flow([("Aap upload karte ho", '<div class=bub>PDF + photo</div>', "#fff"), ("Claude jawab deta hai", '<div class=bub>Ye raha summary &#10003;</div>', "#E8F7EC")])),
 ]
 
