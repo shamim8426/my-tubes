@@ -1,0 +1,13 @@
+{
+ "id": "shamimali9334/noor-ltx-full",
+ "title": "noor-ltx-full",
+ "code_file": "script.py",
+ "language": "python",
+ "kernel_type": "script",
+ "is_private": true,
+ "enable_gpu": true,
+ "enable_internet": true,
+ "dataset_sources": [],
+ "competition_sources": [],
+ "kernel_sources": []
+}

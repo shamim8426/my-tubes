@@ -94,3 +94,5 @@
 2026-11-04 | 005_an-nas | final R1 | PASS | 0 BLOCKER; Arabic == Tanzil, -14.1 LUFS/TP -1.4; uploaded PRIVATE 5EjERhAwqRI, thumbnail ok, comment task 19:05 IST
 2026-11-04 | 005_an-nas | studio_action | pending | 5EjERhAwqRI: 2026-11-04 19:00 IST par SCHEDULE karo (user), video ek baar dekhna, comment pin 19:05
 2026-11-04 | 005_an-nas | ASLI KUL KHARCHA | ₹13.12 + GST ₹2.36 = ₹15.48 (andaza tha ₹13.48; 64 paid calls, 0 bina usage = andaza) | target ₹100, hard limit ₹120
+2026-11-09 | 006_imaan-shorts | imaan_short_03_cute.mp4 (44 s, Sana + Nani, ayah 94:6) built, mouth-animation; user chose it over full-motion (Kaggle queue stalled). Cost ~Rs1 (TTS paid after free quota). Playlist imaan_shorts PLdhrP4DE-lC8 created. Munshi review NOT done, not uploaded, contains_synthetic_media must be true before upload.
+2026-11-10 | 006_imaan-shorts short 03 | Munshi final R1 + upload | PASS-WITH-NOTES | Arabic 94:6 == Tanzil (codepoints), shot7 clean, -14.6 LUFS; uploaded PRIVATE https://youtu.be/IAblU-7CQ_8, synthetic=true, playlist PLdhrP4DE-lC8 ok, cost Rs0 extra. Minor: flat mouth overlay at ~23s, thin ayah over hijab edge

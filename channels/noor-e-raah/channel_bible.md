@@ -5,6 +5,7 @@ Har video ek surah: uska parichay, shan-e-nuzul, aayat-dar-aayat tarjuma aur sar
 Format aur sakht niyam: `channels/noor-e-raah/RULES.md` (section 1–3). Tilawat nahi; bahut dheema instrumental music (RULES 1c), Arabic aayat par music band.
 
 ## 2. Awaaz
+- **2026-11-09 UPDATE (RULES 1d): ek hi narrator (Algieba), koi sawaal nahi, koi tilawat-disclaimer nahi, thodi tez raftaar. Neeche ka do-awaaz hissa purani videos ke liye.**
 - Do awaazein, bari-bari baat-cheet, aam bolchaal ki bhasha (RULES 1b; audition `characters/voices/audition_2026-10-24/`):
   - **USTAAD** — Gemini **Algieba**: aayat, bhaavarth, matlab, parichay, shan-e-nuzul. Deeni baat sirf yahi kehta hai,
     sources se.

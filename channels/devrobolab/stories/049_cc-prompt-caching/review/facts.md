@@ -1,0 +1,12 @@
+# Facts - source: https://code.claude.com/docs/en/prompt-caching (official, read 2026-11-09)
+- Without caching the API reprocesses full history each turn; with caching it re-reads at the cached token rate and processes only what changed. Automatic.
+- Match is on the prefix, exact; a change anywhere recomputes everything after it. Layers: system prompt (tool defs) -> project context (CLAUDE.md, memory, unscoped rules; changes at session start, /clear, /compact) -> conversation (every turn).
+- Each model has its own cache; /model switch = full uncached next request. /model asks to confirm only while cache is warm.
+- Fast mode and standard speed have separate caches; turn it on at session start.
+- Tool definitions are in the system layer; MCP add/remove invalidates when tools are loaded upfront (tool search off); with tool search (default on supported models) it does not.
+- Many images: oldest removed in batches, one slower turn per batch.
+- Keeps cache: editing repo files, editing CLAUDE.md mid-session (but does not apply until /clear, /compact, restart), permission mode, output style, skills/commands, /recap, /rewind.
+- /compact: new summary; cheap while cache warm; costliest when resuming an old session after TTL.
+- TTL: subscription within plan usage = 1 hour main conversation; API key / credits / cloud provider = 5 minutes. promptCacheTtl setting (5m or 1h), v2.1.242+.
+- Check: cache_read_input_tokens / cache_creation_input_tokens; /usage shows 'Prompt cache (main)' line with hit ratio (v2.1.251+).
+- DISABLE_PROMPT_CACHING=1 only for debugging; normally leave on.

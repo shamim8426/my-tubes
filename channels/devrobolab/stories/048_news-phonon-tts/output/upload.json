@@ -1,0 +1,17 @@
+{
+  "channel_key": "devrobolab",
+  "channel_name": "DevRoboLab",
+  "channel_id": "UCpElgKdJOgQiyfwdGXz6GmA",
+  "format": "short",
+  "parent_video_id": null,
+  "title": "Sirf 65 MB ka AI voice model, bina internet ke #shorts",
+  "description": "AI news: Gradium ka Phonon, ek chhota text-to-speech model jo aapke apne device par chalta hai, bina server ya network ke. Size lagbhag 65 MB aur 75 MB, 100 se zyada built-in voices, English, French, German, Spanish aur Portuguese. Pehle 2 hafte me 2,00,000 se zyada download. Dhyan rahe: page me Hindi ka zikr nahi hai; Phonon 31m (English) Apache 2.0 hai, baaki models CC BY-NC (non-commercial).\n\nSource (official blog post):\nhttps://huggingface.co/blog/phonon-tts\n\nUnofficial channel, not affiliated with Gradium or Hugging Face.\n\nNote: blog crops are our own capture of the page (key lines highlighted). Photos are free AI-generated illustrations, not real product shots. Synthetic voice.\n\nMusic: \"Funkorama\" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttp://creativecommons.org/licenses/by/4.0/\n\n#shorts #Phonon #TTS #AINews #Hinglish",
+  "tags": ["Phonon", "Phonon TTS", "Gradium", "on-device TTS", "text to speech", "AI news", "Hinglish", "Hindi tech", "Shorts"],
+  "video": "short.mp4",
+  "language": "hi",
+  "made_for_kids": false,
+  "contains_synthetic_media": true,
+  "category_id": "28",
+  "privacy": "private",
+  "api_audited": false
+}

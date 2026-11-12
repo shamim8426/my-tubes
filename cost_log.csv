@@ -1326,6 +1326,66 @@ timestamp,file,model,size,cost_usd,cost_inr,today_total_inr,remaining_inr,channe
 2026-11-08 05:33:27,channels/devrobolab/stories/047_news-gemini-omni/audio/tts/s_06.wav,gemini-3.8-flash-tts,tts 4.0s free,0.00000,0.00,0.31,533.56,devrobolab,0.09,0.0000,0.00,17,101
 2026-11-08 05:33:59,channels/devrobolab/stories/047_news-gemini-omni/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 6.1s,0.00139,0.13,0.47,533.40,devrobolab,0.14,0.1342,0.02,27,153
 2026-11-08 05:34:22,channels/devrobolab/stories/047_news-gemini-omni/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 6.2s,0.00141,0.14,0.63,533.24,devrobolab,0.14,0.1357,0.02,23,155
+2026-11-08 11:29:57,.claude/worktrees/devrobolab-042-041-upload-eb9807/channels/reality-check/stories/001_asteroid-defence/long/ai_stills/shot_021.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.63,533.24,jugnu-stories,0.00,0.0000,0.00,,
+2026-11-08 11:30:16,.claude/worktrees/devrobolab-042-041-upload-eb9807/channels/reality-check/stories/001_asteroid-defence/long/ai_stills/shot_061.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.63,533.24,jugnu-stories,0.00,0.0000,0.00,,
+2026-11-08 11:30:29,.claude/worktrees/devrobolab-042-041-upload-eb9807/channels/reality-check/stories/001_asteroid-defence/long/ai_stills/shot_112.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.63,533.24,jugnu-stories,0.00,0.0000,0.00,,
+2026-11-08 11:30:39,.claude/worktrees/devrobolab-042-041-upload-eb9807/channels/reality-check/stories/001_asteroid-defence/long/ai_stills/shot_111.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.63,533.24,jugnu-stories,0.00,0.0000,0.00,,
+2026-11-08 11:30:50,.claude/worktrees/devrobolab-042-041-upload-eb9807/channels/reality-check/stories/001_asteroid-defence/long/ai_stills/shot_141.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.63,533.24,jugnu-stories,0.00,0.0000,0.00,,
+2026-11-08 13:48:34,channels/devrobolab/stories/047_news-gemini-omni/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 6.1s,0.00139,0.13,0.78,533.08,devrobolab,0.14,0.1339,0.02,22,153
+2026-11-08 13:49:01,channels/devrobolab/stories/047_news-gemini-omni/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 6.6s,0.00150,0.15,0.95,532.91,devrobolab,0.15,0.1451,0.03,20,166
+2026-11-08 13:56:30,channels/devrobolab/stories/047_news-gemini-omni/raw/photos/hook.png,cf-flux-2-klein-4b,1344x768 free,0.00000,0.00,0.95,532.91,devrobolab,0.00,0.0000,0.00,,
+2026-11-08 13:56:56,channels/devrobolab/stories/047_news-gemini-omni/raw/photos/sport.png,cf-flux-2-klein-4b,1344x768 free,0.00000,0.00,0.95,532.91,devrobolab,0.00,0.0000,0.00,,
+2026-11-08 13:57:16,channels/devrobolab/stories/047_news-gemini-omni/raw/photos/devices.png,cf-flux-2-klein-4b,1344x768 free,0.00000,0.00,0.95,532.91,devrobolab,0.00,0.0000,0.00,,
+2026-11-09 05:37:03,channels/devrobolab/stories/048_news-phonon-tts/raw/photos/hook.png,cf-flux-2-klein-4b,1344x768 free,0.00000,0.00,0.00,532.91,devrobolab,0.00,0.0000,0.00,,
+2026-11-09 05:37:11,channels/devrobolab/stories/048_news-phonon-tts/raw/photos/globe.png,cf-flux-2-klein-4b,1344x768 free,0.00000,0.00,0.00,532.91,devrobolab,0.00,0.0000,0.00,,
+2026-11-09 05:37:21,channels/devrobolab/stories/048_news-phonon-tts/raw/photos/mic.png,cf-flux-2-klein-4b,1344x768 free,0.00000,0.00,0.00,532.91,devrobolab,0.00,0.0000,0.00,,
+2026-11-09 05:37:29,channels/devrobolab/stories/048_news-phonon-tts/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 5.4s free,0.00000,0.00,0.00,532.91,devrobolab,0.12,0.0000,0.00,24,134
+2026-11-09 05:37:43,channels/devrobolab/stories/048_news-phonon-tts/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 7.6s,0.00173,0.17,0.20,532.72,devrobolab,0.17,0.1666,0.03,32,190
+2026-11-09 05:37:51,channels/devrobolab/stories/048_news-phonon-tts/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 6.6s,0.00149,0.14,0.37,532.55,devrobolab,0.15,0.1440,0.03,32,164
+2026-11-09 05:38:02,channels/devrobolab/stories/048_news-phonon-tts/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 7.9s,0.00180,0.17,0.57,532.34,devrobolab,0.18,0.1733,0.03,28,198
+2026-11-09 05:38:10,channels/devrobolab/stories/048_news-phonon-tts/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 7.5s,0.00171,0.16,0.77,532.15,devrobolab,0.17,0.1648,0.03,32,188
+2026-11-09 05:38:16,channels/devrobolab/stories/048_news-phonon-tts/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 3.4s free,0.00000,0.00,0.77,532.15,devrobolab,0.08,0.0000,0.00,18,84
+2026-11-09 11:39:52,channels/noor-e-raah/stories/006_imaan-shorts/images/s1.png,cf-flux-2-klein-4b,768x1344 free,0.00000,0.00,0.77,532.15,noor-e-raah,0.00,0.0000,0.00,,
+2026-11-09 11:40:07,channels/noor-e-raah/stories/006_imaan-shorts/images/s2.png,cf-flux-2-klein-4b,768x1344 free,0.00000,0.00,0.77,532.15,noor-e-raah,0.00,0.0000,0.00,,
+2026-11-09 11:40:22,channels/noor-e-raah/stories/006_imaan-shorts/images/s3.png,cf-flux-2-klein-4b,768x1344 free,0.00000,0.00,0.77,532.15,noor-e-raah,0.00,0.0000,0.00,,
+2026-11-09 11:40:31,channels/noor-e-raah/stories/006_imaan-shorts/images/s4.png,cf-flux-2-klein-4b,768x1344 free,0.00000,0.00,0.77,532.15,noor-e-raah,0.00,0.0000,0.00,,
+2026-11-09 11:40:45,channels/noor-e-raah/stories/006_imaan-shorts/images/s5.png,cf-flux-2-klein-4b,768x1344 free,0.00000,0.00,0.77,532.15,noor-e-raah,0.00,0.0000,0.00,,
+2026-11-09 11:40:56,channels/noor-e-raah/stories/006_imaan-shorts/images/s6.png,cf-flux-2-klein-4b,768x1344 free,0.00000,0.00,0.77,532.15,noor-e-raah,0.00,0.0000,0.00,,
+2026-11-09 11:41:21,channels/noor-e-raah/stories/006_imaan-shorts/audio/l01.wav,gemini-3.8-flash-tts,tts 2.8s free,0.00000,0.00,0.77,532.15,noor-e-raah,0.06,0.0000,0.00,8,70
+2026-11-09 11:41:30,channels/noor-e-raah/stories/006_imaan-shorts/audio/l02.wav,gemini-3.8-flash-tts,tts 9.0s free,0.00000,0.00,0.77,532.15,noor-e-raah,0.20,0.0000,0.00,24,225
+2026-11-09 11:41:40,channels/noor-e-raah/stories/006_imaan-shorts/audio/l08.wav,gemini-3.8-flash-tts,tts 4.0s free,0.00000,0.00,0.77,532.15,noor-e-raah,0.09,0.0000,0.00,14,101
+2026-11-09 11:45:09,channels/noor-e-raah/stories/006_imaan-shorts/audio/l03.wav,gemini-3.8-flash-tts,tts 6.7s free,0.00000,0.00,0.77,532.15,noor-e-raah,0.15,0.0000,0.00,25,168
+2026-11-09 11:45:53,channels/noor-e-raah/stories/006_imaan-shorts/audio/l04.wav,gemini-3.8-flash-tts,tts 4.4s,0.00102,0.10,0.88,532.03,noor-e-raah,0.10,0.0981,0.02,18,112
+2026-11-09 11:46:02,channels/noor-e-raah/stories/006_imaan-shorts/audio/l05.wav,gemini-3.8-flash-tts,tts 9.3s,0.00210,0.20,1.12,531.79,noor-e-raah,0.20,0.2026,0.04,22,232
+2026-11-09 11:46:11,channels/noor-e-raah/stories/006_imaan-shorts/audio/l06.wav,gemini-3.8-flash-tts,tts 7.7s,0.00174,0.17,1.32,531.59,noor-e-raah,0.17,0.1677,0.03,20,192
+2026-11-09 11:46:20,channels/noor-e-raah/stories/006_imaan-shorts/audio/l07.wav,gemini-3.8-flash-tts,tts 8.4s,0.00190,0.18,1.54,531.38,noor-e-raah,0.19,0.1838,0.03,29,210
+2026-11-09 12:53:58,channels/noor-e-raah/stories/006_imaan-shorts/audio/v2_l01.wav,gemini-3.8-flash-tts,tts 6.1s,0.00139,0.13,1.69,531.22,noor-e-raah,0.14,0.1337,0.02,17,153
+2026-11-09 12:54:08,channels/noor-e-raah/stories/006_imaan-shorts/audio/v2_l02.wav,gemini-3.8-flash-tts,tts 5.8s,0.00132,0.13,1.84,531.07,noor-e-raah,0.13,0.1277,0.02,18,146
+2026-11-09 12:54:17,channels/noor-e-raah/stories/006_imaan-shorts/audio/v2_l03.wav,gemini-3.8-flash-tts,tts 3.5s,0.00079,0.08,1.93,530.98,noor-e-raah,0.08,0.0761,0.01,12,87
+2026-11-09 12:54:32,channels/noor-e-raah/stories/006_imaan-shorts/audio/v2_l04.wav,gemini-3.8-flash-tts,tts 5.7s,0.00129,0.12,2.08,530.83,noor-e-raah,0.13,0.1250,0.02,16,143
+2026-11-09 12:54:41,channels/noor-e-raah/stories/006_imaan-shorts/audio/v2_l05.wav,gemini-3.8-flash-tts,tts 4.0s,0.00090,0.09,2.18,530.73,noor-e-raah,0.09,0.0867,0.02,15,99
+2026-11-09 12:54:49,channels/noor-e-raah/stories/006_imaan-shorts/audio/v2_l06.wav,gemini-3.8-flash-tts,tts 5.6s,0.00126,0.12,2.33,530.59,noor-e-raah,0.12,0.1215,0.02,16,139
+2026-11-09 12:54:58,channels/noor-e-raah/stories/006_imaan-shorts/audio/v2_l07.wav,gemini-3.8-flash-tts,tts 5.2s,0.00117,0.11,2.46,530.45,noor-e-raah,0.12,0.1128,0.02,15,129
+2026-11-09 14:29:03,channels/noor-e-raah/stories/006_imaan-shorts/audio/v3_l01.wav,gemini-3.8-flash-tts,tts 5.2s free,0.00000,0.00,2.46,530.45,noor-e-raah,0.12,0.0000,0.00,17,129
+2026-11-09 14:29:10,channels/noor-e-raah/stories/006_imaan-shorts/audio/v3_l02.wav,gemini-3.8-flash-tts,tts 8.1s free,0.00000,0.00,2.46,530.45,noor-e-raah,0.18,0.0000,0.00,18,202
+2026-11-09 14:29:18,channels/noor-e-raah/stories/006_imaan-shorts/audio/v3_l03.wav,gemini-3.8-flash-tts,tts 4.3s free,0.00000,0.00,2.46,530.45,noor-e-raah,0.10,0.0000,0.00,12,108
+2026-11-09 14:29:25,channels/noor-e-raah/stories/006_imaan-shorts/audio/v3_l04.wav,gemini-3.8-flash-tts,tts 6.9s free,0.00000,0.00,2.46,530.45,noor-e-raah,0.15,0.0000,0.00,16,172
+2026-11-09 14:29:33,channels/noor-e-raah/stories/006_imaan-shorts/audio/v3_l05.wav,gemini-3.8-flash-tts,tts 3.5s free,0.00000,0.00,2.46,530.45,noor-e-raah,0.08,0.0000,0.00,17,88
+2026-11-09 14:29:41,channels/noor-e-raah/stories/006_imaan-shorts/audio/v3_l06.wav,gemini-3.8-flash-tts,tts 5.5s free,0.00000,0.00,2.46,530.45,noor-e-raah,0.12,0.0000,0.00,22,137
+2026-11-09 14:29:50,channels/noor-e-raah/stories/006_imaan-shorts/audio/v3_l07.wav,gemini-3.8-flash-tts,tts 5.2s,0.00118,0.11,2.59,530.32,noor-e-raah,0.12,0.1136,0.02,15,130
+2026-11-09 20:36:56,channels/devrobolab/stories/049_cc-prompt-caching/raw/photos/hook.png,cf-flux-2-klein-4b,1344x768 free,0.00000,0.00,2.59,530.32,devrobolab,0.00,0.0000,0.00,,
+2026-11-09 20:37:04,channels/devrobolab/stories/049_cc-prompt-caching/raw/photos/what.png,cf-flux-2-klein-4b,1344x768 free,0.00000,0.00,2.59,530.32,devrobolab,0.00,0.0000,0.00,,
+2026-11-09 20:37:14,channels/devrobolab/stories/049_cc-prompt-caching/raw/photos/clock.png,cf-flux-2-klein-4b,1344x768 free,0.00000,0.00,2.59,530.32,devrobolab,0.00,0.0000,0.00,,
+2026-11-09 20:37:25,channels/devrobolab/stories/049_cc-prompt-caching/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 14.2s free,0.00000,0.00,2.59,530.32,devrobolab,0.32,0.0000,0.00,60,355
+2026-11-09 20:37:37,channels/devrobolab/stories/049_cc-prompt-caching/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 19.8s free,0.00000,0.00,2.59,530.32,devrobolab,0.44,0.0000,0.00,77,496
+2026-11-09 20:37:49,channels/devrobolab/stories/049_cc-prompt-caching/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 20.8s free,0.00000,0.00,2.59,530.32,devrobolab,0.46,0.0000,0.00,76,521
+2026-11-09 20:38:01,channels/devrobolab/stories/049_cc-prompt-caching/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 24.8s free,0.00000,0.00,2.59,530.32,devrobolab,0.55,0.0000,0.00,88,621
+2026-11-09 20:38:12,channels/devrobolab/stories/049_cc-prompt-caching/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 19.7s free,0.00000,0.00,2.59,530.32,devrobolab,0.44,0.0000,0.00,74,492
+2026-11-09 20:38:34,channels/devrobolab/stories/049_cc-prompt-caching/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 19.7s free,0.00000,0.00,2.59,530.32,devrobolab,0.44,0.0000,0.00,82,492
+2026-11-09 20:38:45,channels/devrobolab/stories/049_cc-prompt-caching/audio/tts/s_06.wav,gemini-3.8-flash-tts,tts 21.3s free,0.00000,0.00,2.59,530.32,devrobolab,0.48,0.0000,0.00,80,533
+2026-11-09 20:38:58,channels/devrobolab/stories/049_cc-prompt-caching/audio/tts/s_07.wav,gemini-3.8-flash-tts,tts 16.7s,0.00380,0.37,3.03,529.89,devrobolab,0.37,0.3662,0.07,66,418
+2026-11-09 20:39:11,channels/devrobolab/stories/049_cc-prompt-caching/audio/tts/s_08.wav,gemini-3.8-flash-tts,tts 21.4s,0.00485,0.47,3.58,529.33,devrobolab,0.48,0.4685,0.08,80,535
+2026-11-09 20:39:23,channels/devrobolab/stories/049_cc-prompt-caching/audio/tts/s_09.wav,gemini-3.8-flash-tts,tts 18.2s,0.00414,0.40,4.05,528.86,devrobolab,0.41,0.3995,0.07,71,456
 2026-11-08 11:20:58,channels/devrobolab/stories/047_news-gemini-omni/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 6.0s free,0.00000,0.00,0.63,533.24,devrobolab,0.14,0.0000,0.00,22,149
 2026-11-08 11:21:29,channels/devrobolab/stories/047_news-gemini-omni/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 6.0s free,0.00000,0.00,0.63,533.24,devrobolab,0.14,0.0000,0.00,20,150
 2026-11-08 12:04:45,channels/devrobolab/stories/047_news-gemini-omni/audio/tts/s_06.wav,gemini-3.8-flash-tts,tts 3.9s,0.00088,0.09,0.73,533.14,devrobolab,0.09,0.0850,0.02,16,97

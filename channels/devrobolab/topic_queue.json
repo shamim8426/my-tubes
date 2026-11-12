@@ -57,9 +57,12 @@
     "title": "How Claude Code uses prompt caching",
     "url": "https://code.claude.com/docs/en/prompt-caching.md",
     "summary": "Claude Code manages prompt caching automatically. See why a model switch triggers a slow uncached turn, what `/compact` costs, why CLAUDE.md edits don't apply mid-session, and how to check your cache hit rate.",
-    "status": "todo",
-    "story": null,
-    "audience": "C"
+    "status": "uploaded",
+    "story": "049_cc-prompt-caching",
+    "audience": "C",
+    "video_id": "qdRnSC9QQEI",
+    "series": "claude-code-features",
+    "series_index": 4
   },
   {
     "id": "memory",

@@ -1,4 +1,4 @@
-r"""DevRoboLab thumbnails v3 (2026-11-07, user-approved look): LIGHT clean background, SMALL words (2 lines, one highlighted), the DevRoboLab robot, and a picture that shows how it works.
+﻿r"""DevRoboLab thumbnails v3 (2026-11-07, user-approved look): LIGHT clean background, SMALL words (2 lines, one highlighted), the DevRoboLab robot, and a picture that shows how it works.
 Long = 1280x720 (16:9), Short = 1080x1920 (9:16). One robot pose/side, background colour and picture type per video.
     .venv\Scripts\python -X utf8 channels\devrobolab\thumbnails\make_thumbs.py [video_id ...]      (no ids = all in VIDEOS)
 HARD RULE (user 2026-11-07): the channel name (DevRoboLab) must NEVER overlap any other content. Every render is checked: the brand box is measured against the tag, the title, the picture and the robot,
@@ -29,9 +29,18 @@ body.land{width:1280px;height:720px}body.port{width:1080px;height:1920px}
 .ttl{position:absolute;font-family:PX;font-weight:800;line-height:1.1}
 .ttl .l{display:block;white-space:nowrap;width:max-content}
 mark{background:var(--y);color:var(--ink);padding:0 .12em;border-radius:.14em}
+.tl:empty{display:none}
 .brand{position:absolute;font:800 26px PX;white-space:nowrap}.brand span{background:var(--y);padding:0 6px;border-radius:6px}
 img.robot{position:absolute}
 .vis{position:absolute}
+.lgrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;width:580px}
+.lg{background:#fff;border:4px solid var(--ink);border-radius:22px;box-shadow:6px 6px 0 var(--ink);padding:14px 8px 10px;text-align:center}
+.ic{width:116px;height:116px;margin:0 auto 6px}.ic svg{width:100%;height:100%}
+.ic.plus{font:800 90px/116px PX;color:var(--ink)}
+.ln{font:700 24px PB}
+.tl{position:absolute;font:800 44px PX;line-height:1.2;background:var(--ink);color:#fff;padding:22px 30px;border-radius:24px;box-shadow:8px 8px 0 var(--y)}
+.land .tl{left:40px;top:400px;width:580px;font-size:36px}
+.port .tl{left:60px;top:1610px;width:960px}
 .card{background:#fff;border:4px solid var(--ink);border-radius:24px;box-shadow:8px 8px 0 var(--ink);padding:18px;color:var(--ink)}
 .bub{font:700 28px PB;line-height:1.2}
 .lab{font:700 24px PB;margin:12px 0 0 6px}
@@ -144,11 +153,25 @@ def versus(cols):
 
 P, L = "port", "land"
 # (video id, orientation, theme, robot pose, robot side (l/r), tag, (line1, line2), picture html)
+ICONS = {
+ "Gemini": '<svg viewBox="0 0 100 100"><defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4285F4"/><stop offset="1" stop-color="#9B72CB"/></linearGradient></defs><path d="M50 4 C54 32 68 46 96 50 C68 54 54 68 50 96 C46 68 32 54 4 50 C32 46 46 32 50 4Z" fill="url(#g1)"/></svg>',
+ "Mistral": '<svg viewBox="0 0 100 100"><g><rect x="8" y="14" width="20" height="20" fill="#FFD800"/><rect x="72" y="14" width="20" height="20" fill="#FFD800"/><rect x="8" y="38" width="20" height="20" fill="#FFAF00"/><rect x="30" y="38" width="20" height="20" fill="#FF8205"/><rect x="50" y="38" width="20" height="20" fill="#FF8205"/><rect x="72" y="38" width="20" height="20" fill="#FFAF00"/><rect x="8" y="62" width="20" height="20" fill="#FA500F"/><rect x="50" y="62" width="20" height="20" fill="#FA500F"/><rect x="72" y="62" width="20" height="20" fill="#E10500"/></g></svg>',
+ "Ollama": '<svg viewBox="0 0 100 100"><g fill="#fff" stroke="#14213d" stroke-width="5" stroke-linejoin="round"><rect x="26" y="6" width="14" height="30" rx="7"/><rect x="60" y="6" width="14" height="30" rx="7"/><rect x="18" y="26" width="64" height="62" rx="30"/></g><ellipse cx="50" cy="66" rx="14" ry="10" fill="#f1ede6" stroke="#14213d" stroke-width="4"/><circle cx="38" cy="52" r="4.5" fill="#14213d"/><circle cx="62" cy="52" r="4.5" fill="#14213d"/><ellipse cx="50" cy="62" rx="5" ry="3.5" fill="#14213d"/></svg>',
+ "ElevenLabs": '<svg viewBox="0 0 100 100"><rect x="30" y="14" width="14" height="72" rx="7" fill="#14213d"/><rect x="56" y="14" width="14" height="72" rx="7" fill="#14213d"/></svg>',
+ "Claude": '<svg viewBox="0 0 100 100"><g stroke="#D97757" stroke-width="9" stroke-linecap="round"><path d="M50 8V92M8 50H92M20 20L80 80M80 20L20 80"/></g></svg>',
+}
+
+
+def logos(items, extra=None):
+    t = "".join(f'<div class=lg><div class=ic>{ICONS[n]}</div><div class=ln>{n}</div></div>' for n in items)
+    if extra: t += f'<div class=lg><div class="ic plus">{extra}</div><div class=ln>aur bhi</div></div>'
+    return f'<div class=lgrid>{t}</div>'
 VIDEOS = [
     ("zfOBSjw3RA0", L, "cream", "think", "l", "CLAUDE FEATURE 05", ("Claude ko sab", "*yaad* hai?"), memory_flow()),
+    ("qdRnSC9QQEI", L, "lav", "think", "l", "CLAUDE CODE 04", ("Model badla,", "*cache* toota?"), meter("CACHE HIT RATE", 94, ["cache read", "cheap"])),
     ("E-yaXp_ZgMw", L, "sky", "work", "r", "CLAUDE CODE 03", ("Aapke *.claude*", "folder me kya hai?"),
      files([("CLAUDE.md", "#FFC800", "instructions"), ("settings.json", "#7CC6FF", "permissions"), ("skills/", "#8FE3A8", "reusable prompts"), ("agents/", "#FF9EC4", "helpers")])),
-    ("nHhmmwqwMtw", L, "pink", "wave", "l", "AI NEWS", ("Aaj ki *5 AI*", "khabrein"), big("5", "badi khabrein", ["Gemini 4", "Mistral", "Ollama", "ElevenLabs"], 120)),
+    ("nHhmmwqwMtw", L, "pink", "wave", "l", "AI NEWS", ("*5 AI Updates*", "Worth Knowing Today"), logos(["Gemini", "Mistral", "Ollama", "ElevenLabs", "Claude"], None)),
     ("GpVCvYrwqd4", P, "mint", "work", "r", "CLAUDE CODE HOOKS", ("File edit ke baad", "*auto format*"), term("hook", ['<span class=p>&gt;</span> app.py edit hui', '<span class=dm>hook chala...</span>', 'app.py <span class=ok>formatted &#10003;</span>'])),
     ("z9LEeI0YNKo", P, "peach", "thumbs", "r", "CLAUDE CODE CHECKPOINTS", ("*Esc Esc* se", "sab undo"), big("Esc Esc", "ek jhatke me undo", ["Checkpoints"], 100)),
     ("jQWCNgezK38", P, "lav", "think", "l", "CLAUDE CODE MEMORY", ("CLAUDE.md ko", "sab *yaad* hai"), term("CLAUDE.md", ['# Project', '- tests: npm test', '- style: short answers', '<span class=ok>&#10003; har session me padha</span>'])),
@@ -175,23 +198,27 @@ VIDEOS = [
     ("1t6XbC5RCMg", P, "peach", "work", "r", "CLAUDE FEATURE 03", ("Claude khud", "*research* karta hai"), steps(["Web search", "Sources check", "Report ready"])),
     ("B9f8_sC0elI", P, "lime", "wave", "l", "AI NEWS", ("Paise ka *hisaab*", "Claude se"), phone("Kharcha", ["Food", "Rent"], ["category"])),
     ("5eH-XqR6SQ0", P, "mint", "thumbs", "r", "CLAUDE CODE 02", ("Claude Code", "ab *2.5x* tez"), bars([("Normal", 40, "1x", "#9aa3b2"), ("/fast", 100, "2.5x", "#FFC800")])),
+    ("W8fkKh9uFAc", P, "peach", "thumbs", "l", "AI NEWS", ("Sirf *65 MB* ka", "AI awaaz"), big("65 MB", "bina internet chalta hai", ["Phonon", "offline"], 110)),
     ("lXYyyQmxVfg", P, "sky", "think", "l", "CLAUDE FEATURE 04", ("PDF aur photo", "*upload* karo"), flow([("Aap upload karte ho", '<div class=bub>PDF + photo</div>', "#fff"), ("Claude jawab deta hai", '<div class=bub>Ye raha summary &#10003;</div>', "#E8F7EC")])),
     ("oQni7skZzgs", P, "lav", "wave", "r", "AI NEWS", ("Google AI video", "*15 second* ka"), bars([("Pehle", 66, "10 s", "#9aa3b2"), ("Ab", 100, "15 s", "#7B5CF6")])),
 ]
+
+TAGLINES = {"oQni7skZzgs": "Ab edit karo, shuru se banane ki zaroorat nahi", "nHhmmwqwMtw": "Gemini, Mistral, Ollama +2"}
 
 HTML = """<style>%(css)s</style><body class="%(cls)s" style="--bg:%(bg)s;--blob:%(blob)s"><div class=dots></div>
 %(blob_html)s
 <div class=tag>%(tag)s</div>
 <div class=ttl style="%(ttl_style)s">%(ttl)s</div>
 <div class=vis style="%(vis_style)s">%(vis)s</div>
-<img class=robot src="%(robot)s" style="%(robot_style)s">
+
+<div class=tl>%(tl)s</div>
 <div class=brand>Dev<span>Robo</span>Lab</div>
 <script>
 const MAXW=%(maxw)d;
 function fit(){document.querySelectorAll('.ttl .l').forEach(el=>{let fs=parseInt(el.dataset.s);el.style.fontSize=fs+'px';let g=0;while(el.getBoundingClientRect().width>MAXW&&fs>24&&g<200){fs-=2;el.style.fontSize=fs+'px';g++}})}
-function fitvis(){const v=document.querySelector('.vis');if(!document.body.classList.contains('port'))return;let z=2.0,g=0;
+function fitvis(){const v=document.querySelector('.vis');if(!document.body.classList.contains('port'))return;let z=2.7,g=0;
 const place=()=>{v.style.zoom=z;v.style.left=(60/z)+'px';v.style.top=(555/z)+'px'};place();
-while((v.getBoundingClientRect().bottom>1210||v.getBoundingClientRect().right>1030)&&z>1.1&&g<60){z-=0.05;place();g++}}
+while((v.getBoundingClientRect().bottom>1560||v.getBoundingClientRect().right>1030)&&z>1.1&&g<60){z-=0.05;place();g++}}
 document.fonts.ready.then(()=>{fit();fitvis()});
 </script></body>"""
 
@@ -204,7 +231,7 @@ def check(m):
     probs = []
     b = m["brand"]
     def hit(a, c, pad=6): return not (a[2] + pad <= c[0] or c[2] + pad <= a[0] or a[3] + pad <= c[1] or c[3] + pad <= a[1])
-    for k in ("tag", "ttl", "vis", "robot"):
+    for k in ("tag", "ttl", "vis"):
         if m[k] and hit(b, m[k]): probs.append(f"brand overlaps {k}")
     for k in ("tag", "ttl", "vis", "brand"):
         r = m[k]
@@ -219,7 +246,7 @@ def render(vid_list):
     def b64(p, mime): return f"data:{mime};base64," + base64.b64encode(Path(p).read_bytes()).decode()
     css = (CSS.replace("@@PX@@", b64(FONTS / "Poppins-ExtraBold.ttf", "font/ttf")).replace("@@PB@@", b64(FONTS / "Poppins-Bold.ttf", "font/ttf"))
            .replace("@@PM@@", b64(FONTS / "Poppins-Medium.ttf", "font/ttf")).replace("@@MO@@", b64(FONTS / "IBMPlexMono-Bold.ttf", "font/ttf")))
-    robots = {p: b64(MASCOT / f"{p}.png", "image/png") for p in ("think", "work", "wave", "thumbs", "stop")}
+
     results = {}
     with sync_playwright() as p:
         b = p.chromium.launch()
@@ -229,18 +256,18 @@ def render(vid_list):
             if ori == L:
                 W, H, maxw, fs = 1280, 720, 560, 62
                 robot_style = ("left:14px;bottom:-14px;height:520px" if side == "l" else "right:14px;bottom:-14px;height:520px")
-                ttl_style = "left:430px;top:36px;" if side == "l" else "left:40px;top:100px;"
+                ttl_style = "left:40px;top:170px;"
                 vw = int(re.match(r"<!--w(\d+)-->", vis).group(1)) if vis.startswith("<!--w") else 520
-                vis_style = f"left:430px;top:215px;width:{min(vw, 820)}px;" if side == "l" else f"left:40px;top:260px;width:{vw}px;"
-                blob_html = f'<div class=blob style="{"left:-120px" if side == "l" else "right:-120px"};top:140px;width:640px;height:640px"></div>'
+                vis_style = f"left:660px;top:130px;width:{min(vw, 580)}px;"
+                blob_html = f'<div class=blob style="{"right:-140px"};top:60px;width:700px;height:700px"></div>'
             else:
                 W, H, maxw, fs = 1080, 1920, 960, 104
                 robot_style = ("left:20px;bottom:30px;height:650px" if side == "l" else "right:20px;bottom:30px;height:650px")
                 ttl_style = ""; vis_style = ""
-                blob_html = f'<div class=blob style="{"left:-120px" if side == "l" else "right:-120px"};top:1180px;width:840px;height:840px"></div>'
+                blob_html = f'<div class=blob style="{"left:-120px" if side == "l" else "right:-120px"};top:760px;width:1000px;height:1000px"></div>'
             ttl = "".join(f'<span class=l data-s="{fs}" style="font-size:{fs}px">{_mk(x)}</span>' for x in lines)
-            html = HTML % dict(css=css, cls="land" if ori == L else "port", bg=bg, blob=blob, blob_html=blob_html, tag=tag, ttl_style=ttl_style, ttl=ttl, vis_style=vis_style, vis=vis,
-                               robot=robots[pose], robot_style=robot_style, maxw=maxw)
+            html = HTML % dict(css=css, cls="land" if ori == L else "port", bg=bg, blob=blob, blob_html=blob_html, tag=tag, ttl_style=ttl_style, ttl=ttl, tl=TAGLINES.get(vid, ""), vis_style=vis_style, vis=vis,
+                               maxw=maxw)
             pg = b.new_page(viewport={"width": W, "height": H}, device_scale_factor=1)
             pg.set_content(html); pg.evaluate("document.fonts.ready"); pg.wait_for_timeout(500)
             m = pg.evaluate(MEASURE); probs = check(m)

@@ -1,0 +1,4 @@
+# Review 048 (2026-11-09, frames every 2.5 s of the finished video + every spoken action word)
+Checked: sync of chips to words (65 MB, NO INTERNET, 100+ VOICES, 200,000+, language chips, HINDI NOT LISTED) OK; Hindi matras OK; no blank frame > 0.5 s; length 39.8 s (<= 40); loudness -15.1 LUFS (spec -14 +-1: 0.1 low, same as 045/047), peak -1.3 dBFS; facts match facts.md.
+Found and fixed BEFORE render (layout round 1, from preview frames): 'MB' overlapped '75' on the size card; 'BY GRADIUM' chip overlapped the note; source tag and note were hidden by the caption strip in caution; caution scene empty for 1.6 s (HINDI chip + note moved earlier).
+Rough spots left (minor, carry-over): source tag covers last line of the note in scene 'what'; size card is empty ~1 s at scene start (numbers on the word).

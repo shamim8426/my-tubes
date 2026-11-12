@@ -1,0 +1,38 @@
+{
+ "tag": "AI News",
+ "music": {
+  "file": "shared/music/presentation/Funkorama.mp3",
+  "start": 6,
+  "rel": 12
+ },
+ "voice": {
+  "id": "Charon",
+  "style": "Speak like a friendly Indian tech YouTuber chatting casually in Hinglish. Natural conversational pace, warm and clear, a little energetic but not theatrical. No sing-song, no exaggerated emphasis."
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "voice": "सिर्फ़ पैंसठ MB का AI voice model, और ये बिना internet के तुम्हारे device पर चलता है!"
+  },
+  {
+   "id": "what",
+   "voice": "नाम है Phonon। ये एक छोटा text-to-speech model है। Gradium ने बनाया है, और ये तुम्हारे अपने device पर चलता है।"
+  },
+  {
+   "id": "size",
+   "voice": "साइज़ सिर्फ़ पैंसठ से पचहत्तर MB। सौ से ज़्यादा built-in voices हैं, और अपनी voice भी बना सकते हो।"
+  },
+  {
+   "id": "langs",
+   "voice": "English, French, German, Spanish और Portuguese बोलता है। पहले दो हफ़्ते में दो लाख से ज़्यादा download हुए।"
+  },
+  {
+   "id": "caution",
+   "voice": "ध्यान रखो! पेज में Hindi का ज़िक्र नहीं है। और commercial use के लिए सिर्फ़ Phonon इकतीस m English वाला मॉडल free है।"
+  },
+  {
+   "id": "cta",
+   "voice": "काम की news लगी? Follow करो, और comment में PHONON लिखो।"
+  }
+ ]
+}
