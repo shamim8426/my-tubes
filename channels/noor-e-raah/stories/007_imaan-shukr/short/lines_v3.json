@@ -1,0 +1,106 @@
+[
+ {
+  "n": 1,
+  "img": "s_boy_calm",
+  "who": "boy",
+  "voice": "Puck",
+  "text": "अम्मी, आज घर में बस एक ही खजूर है।",
+  "style": "A sweet young Indian boy of about 10 speaking in Hindi, a little worried and quiet, soft"
+ },
+ {
+  "n": 2,
+  "img": "s_ammi_calm",
+  "who": "ammi",
+  "voice": "Sulafat",
+  "text": "कोई बात नहीं बेटा, जो मिला उस पर अल्लाह का शुक्र करो।",
+  "style": "A loving Indian mother speaking in Hindi, warm, gentle, calm and reassuring, slow"
+ },
+ {
+  "n": 3,
+  "img": "s_boy_calm",
+  "who": "boy",
+  "voice": "Puck",
+  "text": "जी अम्मी। बिस्मिल्लाह… अरे, वो छोटी बच्ची रो रही है!",
+  "style": "A sweet young Indian boy of about 10 speaking in Hindi, obedient, then suddenly concerned"
+ },
+ {
+  "n": 4,
+  "img": "s_girl_sad",
+  "who": "girl",
+  "voice": "Leda",
+  "text": "मुझे बहुत भूख लगी है… कल से कुछ नहीं खाया।",
+  "style": "A sweet little Indian girl of about 6 speaking in Hindi, tearful, tiny trembling voice"
+ },
+ {
+  "n": 5,
+  "img": "s_boy_calm",
+  "who": "boy",
+  "voice": "Puck",
+  "text": "लो, ये मेरी खजूर तुम खा लो।",
+  "style": "A sweet young Indian boy of about 10 speaking in Hindi, kind, gentle, soft smile in the voice"
+ },
+ {
+  "n": 6,
+  "img": "s_girl_sad",
+  "who": "girl",
+  "voice": "Leda",
+  "text": "लेकिन भैया, ये तो तुम्हारी आख़िरी खजूर है!",
+  "style": "A sweet little Indian girl of about 6 speaking in Hindi, surprised, sniffling"
+ },
+ {
+  "n": 7,
+  "img": "s_boy_calm",
+  "who": "boy",
+  "voice": "Puck",
+  "text": "कोई बात नहीं। जब मैं बाँटता हूँ, तो मेरा दिल भर जाता है।",
+  "style": "A sweet young Indian boy of about 10 speaking in Hindi, warm, content, sincere"
+ },
+ {
+  "n": 8,
+  "img": "s_girl_happy",
+  "who": "girl",
+  "voice": "Leda",
+  "text": "शुक्रिया भैया! अल्लाह तुम्हें बहुत बरकत दे।",
+  "style": "A sweet little Indian girl of about 6 speaking in Hindi, overjoyed, thankful, giggling"
+ },
+ {
+  "n": 9,
+  "img": "s_ammi_happy",
+  "who": "ammi",
+  "voice": "Sulafat",
+  "text": "बेटा, देखो! पड़ोसी खजूरों की पूरी टोकरी दे गए हैं!",
+  "style": "A loving Indian mother speaking in Hindi, warm, gentle, surprised and delighted"
+ },
+ {
+  "n": 10,
+  "img": "s_boy_happy",
+  "who": "boy",
+  "voice": "Puck",
+  "text": "अलहमदुलिल्लाह! अम्मी, कल तो बस एक खजूर थी।",
+  "style": "A sweet young Indian boy of about 10 speaking in Hindi, amazed, joyful, excited"
+ },
+ {
+  "n": 11,
+  "img": "s_ammi_calm",
+  "who": "ammi",
+  "voice": "Sulafat",
+  "text": "क़ुरआन कहता है: अगर तुम शुक्र करोगे, तो अल्लाह तुम्हें और देगा।",
+  "style": "A loving Indian mother speaking in Hindi, warm, gentle, calm, firm and comforting, slow, not singing or chanting"
+ },
+ {
+  "n": 12,
+  "img": "s_boy_happy",
+  "who": "boy",
+  "voice": "Puck",
+  "text": "तो अब मैं हर हाल में शुक्र करूँगा, और बाँटूँगा भी।",
+  "style": "A sweet young Indian boy of about 10 speaking in Hindi, determined, happy, bright"
+ },
+ {
+  "n": 13,
+  "img": "s_ammi_happy",
+  "who": "ammi",
+  "voice": "Sulafat",
+  "text": "शाबाश बेटा! शुक्र करने वाला दिल कभी ख़ाली नहीं रहता।",
+  "style": "A loving Indian mother speaking in Hindi, warm, gentle, proud, tearful happy smile in her voice, slow"
+ }
+]

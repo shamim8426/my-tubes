@@ -1,0 +1,15 @@
+{
+ "tag": "AI News",
+ "music": {"file": "shared/music/presentation/Funkorama.mp3", "start": 6, "rel": 12},
+ "voice": {
+  "id": "Charon",
+  "style": "Speak like a friendly Indian tech YouTuber chatting casually in Hinglish. Natural conversational pace, warm and clear, a little energetic but not theatrical. No sing-song, no exaggerated emphasis."
+ },
+ "scenes": [
+  {"id": "hook", "voice": "तीन बड़ी AI updates, सिर्फ़ चालीस सेकंड में!"},
+  {"id": "carbon", "voice": "एक। Google ने Gemini 4 Carbon निकाला, अपना सबसे strong model। अभी दो dollar input, दस dollar output, लेकिन तीस November के बाद दाम दुगना।"},
+  {"id": "fable", "voice": "दो। Claude Fable 5.2 अब Claude Code में default Fable model है। दस लाख token का context, और आठ और चालीस dollar प्रति million token।"},
+  {"id": "decisions", "voice": "तीन। Gemini Decisions API, एक request में हज़ार yes या no सवाल। डेढ़ सौ से ढाई सौ milliseconds में जवाब।"},
+  {"id": "cta", "voice": "रोज़ की AI news चाहिए? DevRoboLab को Follow करो।"}
+ ]
+}
