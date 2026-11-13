@@ -47,3 +47,12 @@ After the limit resets: short demand check of the 5 scenario ideas, pick one, sc
 ## Status 2026-11-13
 - Claude weekly limit reset on Thu 2026-11-12: now ~10% used; next reset Thu 2026-11-19 13:30 IST. Old chat had ~440k tokens, so the user is starting a NEW chat from this file.
 - NEXT: (1) short demand check of the 5 scenario ideas (~20 min, Rs 0; yt_read has 10 searches/day), (2) user picks the topic, (3) script with sources (Kalam style, plain spoken Hindi), (4) audition 2-3 MALE Gemini voices, (5) shot table per DOCUMENTARY_PLAYBOOK.md, then build with the proven pipeline. Give a time/token estimate before each big step. Short replies.
+
+## Video 002: Great Dying (started 2026-11-13, user picked it)
+- Topic: end-Permian mass extinction ("96% of life lost"), past-science documentary. Topic research: research/interest_map_2026-11-13.md (top areas: deep ocean, earth science, extinction, brain/sleep, longevity; space/asteroid max 1 in 5 videos) and research/demand_check_2026-11-13.md.
+- User's wishes for 002: MALE voice; real documentary feel, "like watching a movie"; good footage + clear explanation; graphics good-looking and MID-TONE (not very dark like 001, not too light); editing clean so people understand; reuse what worked in 001. Length 10-14 min.
+- Flow: dossier + script -> user approves script (only checkpoint) -> male voice audition -> shot table (playbook) -> build -> Munshi check BEFORE publish.
+
+## Decision 2026-11-13: narrator voice = Charon (male)
+- User chose Gemini voice **Charon** for 002 and the channel going forward (samples: stories/002_great-dying/audio/voice_test/). Run TTS with `tools/rc_tts.py <story> --voice Charon` (default in the tool is still Kore); style prompt used for the test: male documentary narrator, everyday spoken Hindi, calm, warm, natural pace, slight emphasis on numbers, not theatrical. 90 s sample = 226 words, free key, Rs 0.
+- 002 script still awaits the user's approval (voiceover_clean.txt); Munshi FACT CHECK of 14 VERIFY gates recommended before TTS.
