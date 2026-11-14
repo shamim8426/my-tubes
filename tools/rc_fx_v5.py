@@ -39,20 +39,37 @@ def _norm(x):
     return (x / (np.abs(x).max() + 1e-9)).astype(np.float32)
 
 
+def _click(ms=6, lo=1200, hi=3200, seed=21):
+    n = int(ms / 1000 * SR)
+    r = np.random.default_rng(seed)
+    c = RS.fft_filter(np.pad(r.standard_normal(n), (0, 64)), lo=lo, hi=hi, order=2)[: n + 64]
+    c = c * np.exp(-np.arange(len(c)) / SR / 0.002)
+    return c / (np.abs(c).max() + 1e-9)
+
+
 def boom(f_end=38, f_start=62, tau=0.45, dur=2.2):
     n = int(dur * SR)
     t = np.arange(n) / SR
     f = f_end + (f_start - f_end) * np.exp(-t / 0.08)
     ph = 2 * np.pi * np.cumsum(f) / SR
     env = np.minimum(t / 0.008, 1) * np.exp(-t / tau)
-    x = (np.sin(ph) + 0.125 * np.sin(2 * ph)) * env
-    return _norm(_lp(x, 400))
+    # sub fundamental + upper harmonics (80-200 Hz) so small speakers still reproduce the hit, plus a soft click on the attack
+    x = (np.sin(ph) + 0.55 * np.sin(2 * ph) + 0.35 * np.sin(3 * ph) + 0.2 * np.sin(4 * ph)) * env
+    x = _lp(x, 400)
+    x = x / (np.abs(x).max() + 1e-9)
+    c = _click()
+    x[: len(c)] += 0.12 * c
+    return _norm(x)
 
 
 def thud():
     n = int(0.4 * SR)
     t = np.arange(n) / SR
-    x = np.sin(2 * np.pi * 68 * t) * np.minimum(t / 0.01, 1) * np.exp(-t / 0.12)
+    env = np.minimum(t / 0.01, 1) * np.exp(-t / 0.12)
+    x = (np.sin(2 * np.pi * 68 * t) + 0.55 * np.sin(2 * np.pi * 136 * t) + 0.3 * np.sin(2 * np.pi * 204 * t)) * env
+    x = x / (np.abs(x).max() + 1e-9)
+    c = _click(5, 1500, 3500, 22)
+    x[: len(c)] += 0.12 * c
     return _norm(x)
 
 

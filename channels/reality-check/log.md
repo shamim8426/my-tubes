@@ -39,3 +39,6 @@
 
 ## 2026-11-15 002 Long final reference-style mix (private)
 - New video 6p7p7PprJ64 (https://youtu.be/6p7p7PprJ64): one beatless bed family (Ancient Rite + Lightless Dawn, 10 regions), 8 music-off ramps, sub booms/thuds only, no whoosh/riser/ticks/ambience. -14.1 LUFS, TP -1.6, 752.2 s, video copied. Earlier private videos left for the user to delete.
+
+## 2026-11-15 002 Long speaker-calibrated mix (private)
+- New video brHBu3zV5jI (https://youtu.be/brHBu3zV5jI): music calibrated in the 150 Hz-8 kHz speaker band (median -11.5 LU under voice, range -14.7..-8.4 per 30 s), mid EQ boost, booms with upper harmonics, off-ramps to -22 dB. -14.1 LUFS, TP -1.5, 752.2 s. Earlier private videos left for the user to delete.

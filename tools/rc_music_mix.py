@@ -148,6 +148,12 @@ def main():
     # filters: high-pass 60 Hz, low-pass 9 kHz (zero-phase FFT, smooth skirts)
     for ch in (0, 1):
         music[:, ch] = RS.fft_filter(music[:, ch], lo=60, hi=9000)
+    if cfg.get("mid_eq", True):                                      # make the bed audible on small speakers: cut the sub rumble, lift the 200-2000 Hz pad/string range
+        f_ = np.fft.rfftfreq(N, 1 / SR)
+        gdb_ = -cfg.get("sub_cut_db", 9.0) / (1 + (f_ / 130.0) ** 3) + cfg.get("mid_boost_db", 9.0) * np.exp(-0.5 * (np.log2(np.maximum(f_, 1) / 800.0) / 1.3) ** 2)
+        gl_ = 10 ** (gdb_ / 20)
+        for ch in (0, 1):
+            music[:, ch] = np.fft.irfft(np.fft.rfft(music[:, ch]) * gl_, N).astype(np.float32)
     # slow leveler: the tracks have loud and near-silent passages; keep the music loudness steady so it stays light but audible everywhere
     blk = SR // RS.CR
     nb = N // blk
@@ -198,10 +204,19 @@ def main():
     env_db += cfg.get("end_swell_db", 0.0) * np.exp(-0.5 * ((tt - (total - 6.0)) / 1.8) ** 2)       # drone swell when the voice stops
     gain_chk = env_db.copy()
     music *= RS.env_interp(10 ** (env_db / 20), N)[:, None]
-    ml = RS.lufs((music * (spm > 0.5)[:, None]))
-    g = 10 ** ((vl - a.below - ml) / 20)
+    sm_ = spm > 0.5
+    if cfg.get("band_cal", True):                # calibrate on a speaker-simulated signal (150 Hz - 8 kHz): phones/laptops cannot play the sub
+        vb = RS.fft_filter(voice, lo=150, hi=8000)
+        mb = RS.fft_filter(music.mean(1), lo=150, hi=8000)
+        vlb, mlb = RS.lufs(vb[sm_]), RS.lufs(mb[sm_])
+        g = 10 ** ((vlb - a.below - mlb) / 20)
+        print(f"speaker band (150-8k): voice {vlb:.1f} LUFS, music before cal {mlb:.1f} -> music = voice - {a.below:g} LU in that band")
+    else:
+        ml = RS.lufs((music * sm_[:, None]))
+        g = 10 ** ((vl - a.below - ml) / 20)
     music *= g
-    print(f"voice {vl:.1f} LUFS; music in speech {ml + 20 * np.log10(g):.1f} LUFS (= voice - {a.below:g} LU)")
+    ml = RS.lufs((music * sm_[:, None]))
+    print(f"voice {vl:.1f} LUFS; music (full band) in speech {ml:.1f} LUFS")
     # smoothness check of the APPLIED music gain (env + section level + leveler, 100 Hz): max change per 1 s, designed off ramps listed separately
     Gtot = env_db[:nb] + stepdb[:nb] + gdb
     d1 = np.abs(Gtot[RS.CR:] - Gtot[:-RS.CR])
@@ -242,6 +257,9 @@ def main():
         snd = synth_fx(kind)
         RS.place(music, snd, t0, 10 ** ((vpk + rel) / 20))
         fxlog.append((t0, kind, rel, note))
+    cdir0 = ROOT / "cache/reality-check" / a.story / "music"
+    cdir0.mkdir(parents=True, exist_ok=True)
+    write_wav(cdir0 / "music_only.wav", music)
     if cfg.get("plan"):                        # v5: events from the sound event plan (reference-study recipes)
         import rc_fx_v5 as FX
         evs, _ = FX.parse_plan(str(ROOT / cfg["plan"]))

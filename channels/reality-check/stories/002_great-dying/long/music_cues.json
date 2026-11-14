@@ -4,7 +4,7 @@
  "lev_max_down": 12,
  "lev_max_up": 12,
  "gap_boost_db": 3,
- "big_gap_db": 2.5,
+ "big_gap_db": 4.5,
  "big_gap_min": 0.6,
  "section_swell_db": 1.5,
  "pre_dip_db": 0,
@@ -109,7 +109,7 @@
    "track": "shared/music/doc2/Ancient_Rite.mp3",
    "off": 0,
    "name": "Ancient Rite (open)",
-   "gain_db": 3.5,
+   "gain_db": 4.5,
    "hi": 3500
   },
   {
@@ -117,7 +117,7 @@
    "track": "shared/music/clean/Lightless_Dawn.mp3",
    "off": 0,
    "name": "Lightless Dawn A",
-   "gain_db": 0.0,
+   "gain_db": 0,
    "hi": 4500,
    "xf": 4.5
   },
@@ -126,7 +126,7 @@
    "track": "shared/music/clean/Lightless_Dawn.mp3",
    "off": 140,
    "name": "Lightless Dawn B (catastrophe)",
-   "gain_db": 0.5,
+   "gain_db": 0,
    "hi": 3500,
    "xf": 5.0
   },
@@ -135,7 +135,7 @@
    "track": "shared/music/doc2/Ancient_Rite.mp3",
    "off": 0,
    "name": "Ancient Rite (evidence, quiet)",
-   "gain_db": -3.5,
+   "gain_db": 1.0,
    "hi": 2500,
    "xf": 4.5
   },
@@ -144,7 +144,7 @@
    "track": "shared/music/clean/Lightless_Dawn.mp3",
    "off": 265,
    "name": "Lightless Dawn C (lava, denser)",
-   "gain_db": 1.5,
+   "gain_db": 1.0,
    "hi": 6500,
    "xf": 4.5
   },
@@ -153,7 +153,7 @@
    "track": "shared/music/doc2/Ancient_Rite.mp3",
    "off": 10,
    "name": "Ancient Rite (four killers)",
-   "gain_db": 0.0,
+   "gain_db": 1.0,
    "hi": 4500,
    "xf": 5.0
   },
@@ -162,7 +162,7 @@
    "track": "shared/music/clean/Lightless_Dawn.mp3",
    "off": 90,
    "name": "Lightless Dawn D (uncertainty, quiet)",
-   "gain_db": -3.0,
+   "gain_db": -0.5,
    "hi": 3000,
    "xf": 4.5
   },
@@ -171,7 +171,7 @@
    "track": "shared/music/doc2/Ancient_Rite.mp3",
    "off": 5,
    "name": "Ancient Rite (hope, brighter)",
-   "gain_db": 0.5,
+   "gain_db": 0,
    "hi": 7500,
    "xf": 2.4
   },
@@ -180,7 +180,7 @@
    "track": "shared/music/clean/Lightless_Dawn.mp3",
    "off": 200,
    "name": "Lightless Dawn E (why it matters)",
-   "gain_db": -1.0,
+   "gain_db": 0,
    "hi": 4000,
    "xf": 3.2
   },
@@ -189,7 +189,7 @@
    "track": "shared/music/doc2/Ancient_Rite.mp3",
    "off": 40,
    "name": "Ancient Rite (ending drone)",
-   "gain_db": 3.5,
+   "gain_db": 4.5,
    "hi": 3500,
    "xf": 4.5
   }
@@ -198,7 +198,7 @@
  "sub_rel": -10.0,
  "riser_rel": -9.0,
  "impact_rel": -5.0,
- "mid_gap_db": 1.5,
+ "mid_gap_db": 3.0,
  "sfx_removed": [
   {
    "t": 3.9,
@@ -360,7 +360,7 @@
  "risers": false,
  "plan": "channels/reality-check/stories/002_great-dying/long/sound_event_plan.md",
  "off_release": 1.2,
- "off_depth_db": 30.0,
+ "off_depth_db": 22.0,
  "off_down": 2.5,
  "off_up": 3.0,
  "event_types": [
@@ -368,5 +368,9 @@
   "BOOM-soft",
   "THUD"
  ],
- "end_swell_db": 4.0
+ "end_swell_db": 4.0,
+ "mid_eq": true,
+ "sub_cut_db": 9.0,
+ "mid_boost_db": 9.0,
+ "band_cal": true
 }
