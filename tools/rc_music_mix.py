@@ -55,7 +55,7 @@ def synth_fx(kind, seed=7):
         n = int(2.8 * SR); t = np.arange(n) / SR
         sub = np.sin(2 * np.pi * np.cumsum(32 + 70 * np.exp(-t * 6)) / SR) * np.exp(-t / 0.9)
         thump = np.sin(2 * np.pi * np.cumsum(70 + 160 * np.exp(-t * 18)) / SR) * np.exp(-t / 0.28)
-        nz = RS.fft_filter(r.standard_normal(n), lo=60, hi=1600) * np.exp(-t / 0.35) * 0.5
+        nz = RS.fft_filter(r.standard_normal(n), lo=40, hi=220) * np.exp(-t / 0.35) * 0.5   # low only: no noise sweep
         x = sub + 0.8 * thump + nz
         x[:int(0.004 * SR)] *= np.linspace(0, 1, int(0.004 * SR))
     elif kind == "riser":     # 1.6 s tension build: rising filtered noise + rising tone, cut at the top
@@ -219,7 +219,8 @@ def main():
         put_fx("whoosh" if "whoosh" in q["kind"] else "subhit", q["t"], cfg.get("sfx_rel", -11.0) if "whoosh" in q["kind"] else cfg.get("sub_rel", -10.0), f"graphic start line {q.get('line', '')}")
     for rv in cfg.get("reveals", []):        # riser into + low impact at every big reveal
         rt = rv["t"]
-        put_fx("riser", rt - 1.6, cfg.get("riser_rel", -9.0), "riser into " + rv["why"])
+        if cfg.get("risers", True):
+            put_fx("riser", rt - 1.6, cfg.get("riser_rel", -9.0), "riser into " + rv["why"])
         put_fx("impact", rt, cfg.get("impact_rel", -5.0), "impact " + rv["why"])
     cdir = ROOT / "cache/reality-check" / a.story / "music"
     cdir.mkdir(parents=True, exist_ok=True)

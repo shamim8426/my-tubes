@@ -30,3 +30,6 @@
 ## 2026-11-14 002 Long re-uploaded with new music (private)
 - New video oAXx6tF2dcI (https://youtu.be/oAXx6tF2dcI), private, music v4 dark ambient + synthesised whoosh/riser/impact; -14.1 LUFS, TP -1.6, 752.2 s, video stream copied (no re-render). Old gpyr_A-5B2Q left for the user to delete in Studio.
 - Not done: per-event sound design (lava/eruption rumble, sea, wind, ticks, ambient beds); only graphic whoosh/sub-hits, risers and impacts at reveals.
+
+## 2026-11-14 002 Long re-uploaded without whooshes (private)
+- New video kvAh1W9erEU (https://youtu.be/kvAh1W9erEU): all whooshes, sub-hits and risers removed; impacts kept as low sub boom only; music cues and swells kept. -14.1 LUFS, TP -1.6, 752.2 s, video copied. oAXx6tF2dcI and gpyr_A-5B2Q left for the user to delete.
