@@ -95,3 +95,15 @@ Mistakes made on 2026-11-08 (do not repeat):
 8. A/V sync checked (shot starts vs timing json; video duration = audio duration).
 9. The delivered file is the post-`rc_sound` remux (not `_oldsound`), a frame of it was opened, 360p copy < 28 MB for review.
 10. Cost and quota logged (TTS requests today, story spend vs cap); `log.md` + `carry_over.md` updated; STYLE_LIBRARY gets any new learning.
+
+## H. CRAFT STANDARD (user 2026-11-14, from video 002 on): I decide music, editing grammar and explanation method myself, like a professional documentary editor. Do not ask the user to choose these.
+Music (a score, not a bed):
+1. Write a cue sheet from the script's emotional arc BEFORE picking tracks: hook (suspense, sparse) -> world/context (warm wonder) -> trouble rising (pulse, low strings, percussion) -> peak/reveal (impact hit, full swell) -> explanation (restrained, steady) -> hope/recovery (uplifting) -> why it matters (serious) -> end (resolution, long fade). At least 3 clearly different energy levels per film; one recurring theme returns at start/end.
+2. Pick real melodic tracks with progression (not minimal piano loops, drones, meditation tracks, ostinato 'trance' loops, white-noise pads). Check objectively: tempo, onset density, spectral centroid, RMS dynamics over time, self-similarity (repetitiveness). Reject tracks that sound the same all through.
+3. Music is audible but subordinate: about 20-24 LU under the voice on speech (never near-silent for minutes, never drowning), side-chain duck on speech, swell +3 to +6 dB in silent holds and at section changes, hits aligned to reveals (e.g. the big number), silence just before a key number so it lands. Crossfade tracks 4-6 s on the section boundary.
+4. Send the user VIDEO clips with the mix (never audio-only), 3 moods: opening, peak, ending. Free commercial-safe sources only; log licence rows + description credit.
+Editing grammar (documentary):
+5. Sequence: establishing wide -> detail -> context; every line its own picture, never repeat an image except as a deliberate callback; motivated cuts only; hard cuts for energy, dissolves for time passing/section change; J-cut/L-cut (picture leads or trails the voice by 0.3-0.5 s); slow push-ins/parallax on stills; one consistent colour grade (mid-tone), subtle vignette/grain.
+6. Explaining: show the idea in a HALF/side/bottom panel over live footage, never a full-screen block; build step by step (one new element per beat), analogy first then number, scale comparison for big numbers, say the key number once and show it once; maps: globe/zoom-in to the region, pins and labels appear on the spoken word; chapter titles at section changes.
+7. Structure: hook in 15 s (the question/most striking fact), promise, evidence, mechanism, counter-view/uncertainty (label estimates), so-what, short takeaway; a one-line recap about every 3 minutes; plain spoken Hindi.
+Process: before every new video, re-read this section, write the cue sheet and the shot table, make a 60 s sample with picture + music (not audio-only), get the user's OK, then build.
