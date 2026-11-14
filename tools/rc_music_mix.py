@@ -17,6 +17,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
 import rc_sound as RS  # noqa: E402
 
+SMOOTH_TXT = []
 SR = RS.SR
 FF = RS.find_ff()
 
@@ -121,19 +122,23 @@ def main():
     vl = RS.lufs(voice[spm > 0.5])
     # ---- music stem from the cue map
     cues = cfg["cues"]
-    xf = cfg.get("xf", 5.0)
+    xf = cfg.get("xf", 4.5)
     music = np.zeros((N, 2), np.float32)
     for i, c in enumerate(cues):
-        t0 = c["t"]
-        t1 = cues[i + 1]["t"] if i + 1 < len(cues) else total
-        a0, a1 = max(0.0, t0 - (xf / 2 if i else 0)), min(total, t1 + xf / 2)
+        t0 = c["t"] if i else 0.0                                   # cue t = START of its equal-power fade-in (cue changes begin 0.5-1 s before a line / inside a music-off hold)
+        xin = c.get("xf", xf)
+        nxt = cues[i + 1] if i + 1 < len(cues) else None
+        xout = nxt.get("xf", xf) if nxt else 0.0
+        t1 = (nxt["t"] + xout) if nxt else total
+        a0, a1 = max(0.0, t0), min(total, t1)
         seg = full_track(c["track"], c.get("off", 0.0), a1 - a0)
         n = len(seg)
         win = np.ones(n)
-        r = int(xf * SR)
         if i:
-            win[:r] = np.sin(np.linspace(0, np.pi / 2, min(r, n)))[: min(r, n)]
-        if i + 1 < len(cues):
+            r = int(xin * SR)
+            win[:r] = np.sin(np.linspace(0, np.pi / 2, r))[: min(r, n)]
+        if nxt:
+            r = int(xout * SR)
             win[-r:] = np.cos(np.linspace(0, np.pi / 2, r))[:r] if n >= r else win[-r:]
         i0 = int(a0 * SR)
         music[i0:i0 + n] += (seg * win[:, None])[: N - i0]
@@ -161,46 +166,63 @@ def main():
     kk = np.ones(int(5 * RS.CR)) / int(5 * RS.CR)
     stepdb = np.convolve(np.pad(step, (len(kk) // 2, len(kk) // 2), mode="edge"), kk, mode="valid")[: nc]
     music *= RS.env_interp(10 ** (stepdb / 20), N)[:, None]
-    # envelope: speech 0 dB, silent holds +3 dB, small dip on key numbers, fades
+    # envelope (all gradual): speech-gap swell with slow rise / medium fall, cosine ramps for music-off windows, dB fades at both ends
     gap = 1.0 - sp
-    env_db = cfg.get('gap_boost_db', 3.0) * RS.smooth_env(gap, 0.5, 1.2)
-    num = np.zeros(nc)
-    byline = {l["line"]: l for l in lines}
-    for n_ in cfg.get("number_lines", []):
-        l = byline.get(n_)
-        if l:
-            num[int((l["start"] - 0.3) * RS.CR): int((l["end"] + 0.2) * RS.CR)] = 1.0
-    env_db += -cfg.get('number_dip_db', 3.0) * RS.smooth_env(num, 0.5, 0.9)
-    # swell at section changes, near-silence just before key numbers (the number then lands), bigger swell in silent holds
-    for c in cues[1:]:
-        env_db += cfg.get("section_swell_db", 4.0) * np.exp(-0.5 * ((np.arange(nc) / RS.CR - c["t"]) / 2.5) ** 2)
-    pre = np.zeros(nc)
-    for n_ in cfg.get("pre_dip_lines", []):
-        l = byline.get(n_)
-        if l:
-            pre[int((l["start"] - 1.0) * RS.CR): int((l["start"] + 0.6) * RS.CR)] = 1.0
-    env_db += -cfg.get("pre_dip_db", 14.0) * RS.smooth_env(pre, 0.25, 0.6)
-    big = np.zeros(nc)                      # every silent hold >= big_gap_min: the music swells hard (+12..18 dB) so the contrast is audible
-    huge = np.zeros(nc)
+    env_db = np.zeros(nc)
+    g1 = np.zeros(nc)
+    g2 = np.zeros(nc)
     for l0, l1 in zip(lines[:-1], lines[1:]):
         g_ = l1["start"] - l0["end"]
         if g_ >= cfg.get("big_gap_min", 0.6):
-            (huge if g_ >= 1.2 else big)[int((l0["end"] + 0.05) * RS.CR): int((l1["start"] - 0.05) * RS.CR)] = 1.0
-    env_db += cfg.get("mid_gap_db", 12.0) * RS.smooth_env(big, 0.12, 0.35)
-    env_db += cfg.get("big_gap_db", 16.0) * RS.smooth_env(huge, 0.12, 0.4)
-    off = np.zeros(nc)                      # music FULLY OFF at pivot lines (question / reversal / answer), next cue starts as the gap ends
-    for a0_, a1_ in cfg.get("off_windows", []):
-        off[int(a0_ * RS.CR): int(a1_ * RS.CR)] = 1.0
-    env_db += -70.0 * RS.smooth_env(off, 0.15, cfg.get("off_release", 0.25))
-    fi, fo = cfg.get("fade_in", 4.0), cfg.get("fade_out", 12.0)
-    t = np.arange(nc) / RS.CR
-    env_db += 20 * np.log10(np.clip(np.minimum(t / fi, 1.0), 1e-3, 1)) * (t < fi)
-    env_db += 20 * np.log10(np.clip(np.minimum((total - t) / fo, 1.0), 1e-3, 1)) * (t > total - fo)
+            (g2 if g_ >= 1.2 else g1)[int((l0["end"] + 0.1) * RS.CR): int((l1["start"] - 0.1) * RS.CR)] = 1.0
+    env_db += cfg.get("mid_gap_db", 2.5) * RS.smooth_env(g1, 1.0, 0.8) + cfg.get("big_gap_db", 3.5) * RS.smooth_env(g2, 1.0, 0.8)
+    for c in cues[1:]:                                              # gentle swell as a new cue arrives
+        env_db += cfg.get("section_swell_db", 2.0) * np.exp(-0.5 * ((np.arange(nc) / RS.CR - (c["t"] + 2.0)) / 2.5) ** 2)
+    tt = np.arange(nc) / RS.CR
+    ramp_ids = np.zeros(nc, bool)
+    depth, dn, up = cfg.get("off_depth_db", 36.0), cfg.get("off_down", 2.5), cfg.get("off_up", 3.0)
+    for a0_, a1_ in cfg.get("off_windows", []):                     # cosine ramp down BEFORE the pivot line, hold low, cosine ramp up AFTER (no steps)
+        d = np.zeros(nc)
+        m1 = (tt >= a0_ - dn) & (tt < a0_)
+        d[m1] = 0.5 - 0.5 * np.cos(np.pi * (tt[m1] - (a0_ - dn)) / dn)
+        d[(tt >= a0_) & (tt <= a1_)] = 1.0
+        m2 = (tt > a1_) & (tt < a1_ + up)
+        d[m2] = 0.5 + 0.5 * np.cos(np.pi * (tt[m2] - a1_) / up)
+        env_db += -depth * d
+        ramp_ids |= m1 | m2
+    fi, fo = cfg.get("fade_in", 5.0), cfg.get("fade_out", 14.0)
+    env_db += -24.0 * np.clip(1 - tt / fi, 0, 1) - 45.0 * np.clip(1 - (total - tt) / fo, 0, 1)
+    gain_chk = env_db.copy()
     music *= RS.env_interp(10 ** (env_db / 20), N)[:, None]
     ml = RS.lufs((music * (spm > 0.5)[:, None]))
     g = 10 ** ((vl - a.below - ml) / 20)
     music *= g
     print(f"voice {vl:.1f} LUFS; music in speech {ml + 20 * np.log10(g):.1f} LUFS (= voice - {a.below:g} LU)")
+    # smoothness check of the APPLIED music gain (env + section level + leveler, 100 Hz): max change per 1 s, designed off ramps listed separately
+    Gtot = env_db[:nb] + stepdb[:nb] + gdb
+    d1 = np.abs(Gtot[RS.CR:] - Gtot[:-RS.CR])
+    rid = ramp_ids[:nb]
+    in_ramp = rid[RS.CR:] | rid[:-RS.CR]
+    bad = [(round(i / RS.CR, 1), round(float(d1[i]), 1)) for i in np.where((d1 > cfg.get("max_db_per_s", 6.0)) & ~in_ramp)[0]]
+    mx = float(d1[~in_ramp].max())
+    mr = float(d1[in_ramp].max()) if in_ramp.any() else 0.0
+    sm_txt = f"gain smoothness: max {mx:.1f} dB/s outside the designed off ramps ({len(bad)} 1-s windows over {cfg.get('max_db_per_s', 6.0)} dB/s), off ramps (cosine, designed) max {mr:.1f} dB/s"
+    print(sm_txt)
+    if bad:
+        print("  violations at t(s),dB/s:", bad[:20])
+    import os
+    if os.environ.get("RC_CHECK_ONLY"):
+        parts = dict(env=env_db[:nb], step=stepdb[:nb], lev=gdb, ramp=rid)
+        np.savez(ROOT / "cache/reality-check" / a.story / "music/gain_parts.npz", **parts)
+        cl = []
+        for t_, v_ in bad:
+            if not cl or t_ - cl[-1][1] > 1.5:
+                cl.append([t_, t_, v_])
+            else:
+                cl[-1][1] = t_; cl[-1][2] = max(cl[-1][2], v_)
+        print("violation clusters (start,end,max dB/s):", [(float(x), float(y), z) for x, y, z in cl])
+        raise SystemExit
+    SMOOTH_TXT.append(sm_txt + ("; violations: %s" % bad[:30] if bad else ""))
     for h in (cfg.get("hits", []) if not cfg.get("plan") else []):            # impact stingers aligned to reveals (placed after calibration, level relative to the voice)
         hs = load_track(h["file"], 0, h.get("len", 3.0))
         fade = np.linspace(1, 0, len(hs)) ** 1.5

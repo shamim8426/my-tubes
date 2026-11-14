@@ -1,14 +1,14 @@
 {
- "xf": 5,
+ "xf": 4.5,
  "number_dip_db": 2,
  "lev_max_down": 12,
  "lev_max_up": 12,
  "gap_boost_db": 3,
- "big_gap_db": 9.0,
+ "big_gap_db": 2.5,
  "big_gap_min": 0.6,
- "section_swell_db": 3,
+ "section_swell_db": 1.5,
  "pre_dip_db": 0,
- "fade_in": 2,
+ "fade_in": 8.0,
  "fade_out": 14,
  "number_lines": [
   22,
@@ -105,83 +105,82 @@
  ],
  "cues": [
   {
-   "t": 0.0,
+   "t": 0,
    "track": "shared/music/doc2/Disquiet.mp3",
    "off": 0,
    "name": "Disquiet",
-   "gain_db": 3.5,
-   "arc": "hook / mystery (1-5): suspenseful sparse strings, near-full level at the open"
+   "gain_db": 2.0
   },
   {
-   "t": 32.9,
+   "t": 27.7,
    "track": "shared/music/noor/Quietude_Sections_Merged.mp3",
-   "off": 30,
-   "name": "Quietude - Ambient Synth Soundscape (The Imperfectionist)",
+   "off": 0,
+   "name": "Quietude",
    "gain_db": 0,
-   "arc": "the living Permian world (6-16): warm ambient pad, lighter"
+   "xf": 4.5
   },
   {
-   "t": 109.8,
-   "track": "shared/music/doc2/Gathering_Darkness.mp3",
-   "off": 0,
-   "name": "Gathering Darkness",
-   "gain_db": 2.5,
-   "arc": "disaster begins, numbers (17-33): dark strings, rising density"
-  },
-  {
-   "t": 234.6,
-   "track": "shared/music/doc2/Dark_Fog.mp3",
-   "off": 15,
-   "name": "Dark Fog",
-   "gain_db": -1.5,
-   "arc": "evidence: layers, ash, carbon (34-45): calm dark pad, quieter (analytical)"
-  },
-  {
-   "t": 319.3,
-   "track": "shared/music/doc2/Impact_Prelude.mp3",
-   "off": 0,
-   "name": "Impact Prelude",
-   "gain_db": 3,
-   "arc": "Siberian lava and gas (49-58): heavy, dark, powerful, impact hits"
-  },
-  {
-   "t": 406.9,
+   "t": 108.9,
    "track": "shared/music/doc2/Giant_Wyrm.mp3",
-   "off": 0,
+   "off": 20,
    "name": "Giant Wyrm",
-   "gain_db": 2.0,
-   "arc": "the four killers (59-76): low strings, driving tension"
+   "gain_db": 2.5,
+   "xf": 4.5
   },
   {
-   "t": 548.6,
+   "t": 229.7,
+   "track": "shared/music/doc2/Ancient_Rite.mp3",
+   "off": 0,
+   "name": "Ancient Rite",
+   "gain_db": 1.5,
+   "xf": 4.5
+  },
+  {
+   "t": 312.7,
+   "track": "shared/music/clean/Lightless_Dawn.mp3",
+   "off": 120,
+   "name": "Lightless Dawn",
+   "gain_db": 2.5,
+   "xf": 4.5
+  },
+  {
+   "t": 406.11,
+   "track": "shared/music/doc2/Disquiet.mp3",
+   "off": 70,
+   "name": "Disquiet 2",
+   "gain_db": 2.5,
+   "xf": 4.5
+  },
+  {
+   "t": 545.9,
    "track": "shared/music/doc2/Inspired.mp3",
    "off": 0,
    "name": "Inspired",
-   "gain_db": 2.0,
-   "arc": "survivors and recovery (77-89): brighter, hopeful"
+   "gain_db": 1.5,
+   "xf": 2.4
   },
   {
-   "t": 636.0,
-   "track": "shared/music/clean/Lightless_Dawn.mp3",
-   "off": 40,
-   "name": "Lightless Dawn",
-   "gain_db": 0.0,
-   "arc": "why it matters today (90-98): serious, restrained deep pad"
+   "t": 632.5,
+   "track": "shared/music/doc/Meditation_Impromptu_01.mp3",
+   "off": 0,
+   "name": "Meditation Impromptu 01",
+   "gain_db": -2.0,
+   "xf": 3.2
   },
   {
-   "t": 704.6,
+   "t": 698.0,
    "track": "shared/music/noor/Quietude_Sections_Merged.mp3",
    "off": 200,
-   "name": "Quietude (reprise of the world pad)",
-   "gain_db": 3.5,
-   "arc": "ending (99-104): resolution, drone swell when the voice stops, long fade"
+   "name": "Quietude reprise",
+   "gain_db": 0.5,
+   "xf": 4.5
   }
  ],
  "sfx_rel": -11.0,
  "sub_rel": -10.0,
  "riser_rel": -9.0,
  "impact_rel": -5.0,
- "mid_gap_db": 5.0,
+ "mid_gap_db": 1.5,
  "sfx_removed": [
   {
    "t": 3.9,
@@ -343,5 +342,8 @@
  "risers": false,
  "plan": "channels/reality-check/stories/002_great-dying/long/sound_event_plan.md",
  "off_release": 1.2,
- "amb_boost": 6.0
+ "amb_boost": 6.0,
+ "off_depth_db": 26.0,
+ "off_down": 3.0,
+ "off_up": 3.5
 }
