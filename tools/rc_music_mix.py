@@ -4,6 +4,7 @@ Writes (cache/reality-check/<story>/music/): music_stem.wav, mix_norm.wav (voice
 Does NOT touch the video.  Music: high-pass 60 Hz, low-pass 9 kHz, calibrated to (voice LUFS - below) in speech, +3 dB in silent holds, extra dip on key numbers, fades.
 Cue file: {"xf": 5, "fade_in": 4, "fade_out": 12, "cues": [{"t": 0, "track": "shared/music/doc/X.mp3", "off": 0, "name": "...", "arc": "..."}, ...], "number_lines": [22, 24, ...]}"""
 import argparse
+import re
 import json
 import subprocess
 import sys
@@ -190,7 +191,7 @@ def main():
     off = np.zeros(nc)                      # music FULLY OFF at pivot lines (question / reversal / answer), next cue starts as the gap ends
     for a0_, a1_ in cfg.get("off_windows", []):
         off[int(a0_ * RS.CR): int(a1_ * RS.CR)] = 1.0
-    env_db += -70.0 * RS.smooth_env(off, 0.15, 0.25)
+    env_db += -70.0 * RS.smooth_env(off, 0.15, cfg.get("off_release", 0.25))
     fi, fo = cfg.get("fade_in", 4.0), cfg.get("fade_out", 12.0)
     t = np.arange(nc) / RS.CR
     env_db += 20 * np.log10(np.clip(np.minimum(t / fi, 1.0), 1e-3, 1)) * (t < fi)
@@ -200,7 +201,7 @@ def main():
     g = 10 ** ((vl - a.below - ml) / 20)
     music *= g
     print(f"voice {vl:.1f} LUFS; music in speech {ml + 20 * np.log10(g):.1f} LUFS (= voice - {a.below:g} LU)")
-    for h in cfg.get("hits", []):            # impact stingers aligned to reveals (placed after calibration, level relative to the voice)
+    for h in (cfg.get("hits", []) if not cfg.get("plan") else []):            # impact stingers aligned to reveals (placed after calibration, level relative to the voice)
         hs = load_track(h["file"], 0, h.get("len", 3.0))
         fade = np.linspace(1, 0, len(hs)) ** 1.5
         hs = hs * fade[:, None]
@@ -215,13 +216,47 @@ def main():
         snd = synth_fx(kind)
         RS.place(music, snd, t0, 10 ** ((vpk + rel) / 20))
         fxlog.append((t0, kind, rel, note))
-    for q in cfg.get("sfx", []):             # whoosh / sub-hit on every graphic start
-        put_fx("whoosh" if "whoosh" in q["kind"] else "subhit", q["t"], cfg.get("sfx_rel", -11.0) if "whoosh" in q["kind"] else cfg.get("sub_rel", -10.0), f"graphic start line {q.get('line', '')}")
-    for rv in cfg.get("reveals", []):        # riser into + low impact at every big reveal
-        rt = rv["t"]
-        if cfg.get("risers", True):
-            put_fx("riser", rt - 1.6, cfg.get("riser_rel", -9.0), "riser into " + rv["why"])
-        put_fx("impact", rt, cfg.get("impact_rel", -5.0), "impact " + rv["why"])
+    if cfg.get("plan"):                        # v5: events from the sound event plan (reference-study recipes)
+        import rc_fx_v5 as FX
+        evs, _ = FX.parse_plan(str(ROOT / cfg["plan"]))
+        lend = {l["line"]: l["end"] for l in lines}
+        booms = [e["t"] for e in evs if e["type"].startswith("BOOM")]
+        cnt = {}
+        for e in evs:
+            end = None
+            if e["type"] == "RISE":
+                end = min([b_ for b_ in booms if 0.5 < b_ - e["t"] < 2.6] or [e["t"] + 1.8])
+            elif e["type"] == "AMB":
+                m_ = re.search(r"by (\d+(?:\.\d)?) s", e["text"])
+                end = float(m_[1]) if m_ else lend.get(e["line"] + (1 if re.search(r"lines? \d+-\d+", e["text"]) else 0), e["t"] + 6)
+                nb = [b_ for b_ in booms if 0 < b_ - e["t"] < 12]
+                if nb:
+                    end = min(end, nb[0] + 0.4)
+            snd = FX.render(e, end)
+            i0 = int((e["t"] - (len(snd) / SR if e["type"] == "RISE" and False else 0)) * SR)
+            if e["type"] == "RISE":
+                i0 = int((end - len(snd) / SR) * SR)
+            g_ = 10 ** ((vpk + e["rel"] + (cfg.get("amb_boost", 0.0) if e["type"] == "AMB" else 0.0)) / 20)
+            mono = snd * g_
+            if i0 + len(mono) > N:
+                mono = mono[: N - i0]
+            music[i0:i0 + len(mono), 0] += mono
+            music[i0:i0 + len(mono), 1] += mono
+            cnt[e["type"]] = cnt.get(e["type"], 0) + 1
+            fxlog.append((e["t"], e["type"], e["rel"], e["text"][:40]))
+        print("events placed:", cnt)
+        for w_ in cfg.get("off_windows", []):          # new cue starts with a soft hit at the end of each music-off window
+            if not any(abs(e["t"] - w_[1]) < 1.5 and e["type"].startswith("BOOM") for e in evs):
+                snd = FX.render({"type": "BOOM-soft"}) * 10 ** ((vpk - 8.0) / 20)
+                i0 = int(w_[1] * SR)
+                music[i0:i0 + len(snd), 0] += snd[: N - i0]
+                music[i0:i0 + len(snd), 1] += snd[: N - i0]
+                fxlog.append((w_[1], "BOOM-soft", -8.0, "cue-start hit after music-off"))
+    else:
+        for q in cfg.get("sfx", []):
+            put_fx("whoosh" if "whoosh" in q["kind"] else "subhit", q["t"], cfg.get("sfx_rel", -11.0) if "whoosh" in q["kind"] else cfg.get("sub_rel", -10.0), f"graphic start line {q.get('line', '')}")
+    (ROOT / "cache/reality-check" / a.story / "music").mkdir(parents=True, exist_ok=True)
+    (ROOT / "cache/reality-check" / a.story / "music/fx_log.json").write_text(json.dumps(fxlog), encoding="utf-8")
     cdir = ROOT / "cache/reality-check" / a.story / "music"
     cdir.mkdir(parents=True, exist_ok=True)
     write_wav(cdir / "music_stem.wav", music)
@@ -230,7 +265,6 @@ def main():
     raw.write_bytes(mix.astype("<f4").tobytes())
     base = ["-f", "f32le", "-ar", str(SR), "-ac", "2", "-i", str(raw)]
     p = subprocess.run([FF, "-hide_banner", *base, "-af", "loudnorm=I=-14:TP=-1.5:LRA=11:print_format=json", "-f", "null", "-"], capture_output=True, text=True)
-    import re
     js = json.loads(re.findall(r"\{[^{}]*\"input_i\"[^{}]*\}", p.stderr, re.S)[-1])
     ln = (f"loudnorm=I=-14:TP=-1.5:LRA=11:measured_I={js['input_i']}:measured_TP={js['input_tp']}:measured_LRA={js['input_lra']}:measured_thresh={js['input_thresh']}"
           f":offset={js['target_offset']}:linear=true,alimiter=limit=0.82:level=disabled,aresample=48000")

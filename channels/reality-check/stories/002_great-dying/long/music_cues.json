@@ -4,7 +4,7 @@
  "lev_max_down": 12,
  "lev_max_up": 12,
  "gap_boost_db": 3,
- "big_gap_db": 16.0,
+ "big_gap_db": 9.0,
  "big_gap_min": 0.6,
  "section_swell_db": 3,
  "pre_dip_db": 0,
@@ -27,36 +27,36 @@
  ],
  "off_windows": [
   [
-   27.26,
-   36.29
+   27.4,
+   32.9
   ],
   [
-   228.17,
-   233.38
+   229.4,
+   234.6
   ],
   [
-   312.41,
-   320.94
+   312.4,
+   319.3
   ],
   [
-   376.03,
-   381.04
+   375.9,
+   380.4
   ],
   [
-   499.16,
-   505.53
+   499.2,
+   504.9
   ],
   [
-   544.32,
-   549.37
+   545.6,
+   548.6
   ],
   [
-   631.03,
-   636.72
+   632.2,
+   636.0
   ],
   [
-   697.68,
-   705.53
+   697.7,
+   704.6
   ]
  ],
  "hits": [
@@ -113,7 +113,7 @@
    "arc": "hook / mystery (1-5): suspenseful sparse strings, near-full level at the open"
   },
   {
-   "t": 35.8,
+   "t": 32.9,
    "track": "shared/music/noor/Quietude_Sections_Merged.mp3",
    "off": 30,
    "name": "Quietude - Ambient Synth Soundscape (The Imperfectionist)",
@@ -121,7 +121,7 @@
    "arc": "the living Permian world (6-16): warm ambient pad, lighter"
   },
   {
-   "t": 103.7,
+   "t": 109.8,
    "track": "shared/music/doc2/Gathering_Darkness.mp3",
    "off": 0,
    "name": "Gathering Darkness",
@@ -129,7 +129,7 @@
    "arc": "disaster begins, numbers (17-33): dark strings, rising density"
   },
   {
-   "t": 228.5,
+   "t": 234.6,
    "track": "shared/music/doc2/Dark_Fog.mp3",
    "off": 15,
    "name": "Dark Fog",
@@ -137,7 +137,7 @@
    "arc": "evidence: layers, ash, carbon (34-45): calm dark pad, quieter (analytical)"
   },
   {
-   "t": 335.5,
+   "t": 319.3,
    "track": "shared/music/doc2/Impact_Prelude.mp3",
    "off": 0,
    "name": "Impact Prelude",
@@ -153,7 +153,7 @@
    "arc": "the four killers (59-76): low strings, driving tension"
   },
   {
-   "t": 544.6,
+   "t": 548.6,
    "track": "shared/music/doc2/Inspired.mp3",
    "off": 0,
    "name": "Inspired",
@@ -161,7 +161,7 @@
    "arc": "survivors and recovery (77-89): brighter, hopeful"
   },
   {
-   "t": 631.3,
+   "t": 636.0,
    "track": "shared/music/clean/Lightless_Dawn.mp3",
    "off": 40,
    "name": "Lightless Dawn",
@@ -169,7 +169,7 @@
    "arc": "why it matters today (90-98): serious, restrained deep pad"
   },
   {
-   "t": 698.0,
+   "t": 704.6,
    "track": "shared/music/noor/Quietude_Sections_Merged.mp3",
    "off": 200,
    "name": "Quietude (reprise of the world pad)",
@@ -177,61 +177,11 @@
    "arc": "ending (99-104): resolution, drone swell when the voice stops, long fade"
   }
  ],
- "reveals": [
-  {
-   "t": 24.2,
-   "why": "THE GREAT DYING card"
-  },
-  {
-   "t": 35.77,
-   "why": "pivot answer after line 5"
-  },
-  {
-   "t": 138.0,
-   "why": "96% moment"
-  },
-  {
-   "t": 232.86,
-   "why": "pivot answer after line 34"
-  },
-  {
-   "t": 320.42,
-   "why": "pivot answer after line 46"
-  },
-  {
-   "t": 335.6,
-   "why": "lava section"
-  },
-  {
-   "t": 380.52,
-   "why": "pivot answer after line 54"
-  },
-  {
-   "t": 505.01,
-   "why": "pivot answer after line 71"
-  },
-  {
-   "t": 548.85,
-   "why": "pivot answer after line 77"
-  },
-  {
-   "t": 636.2,
-   "why": "pivot answer after line 90"
-  },
-  {
-   "t": 700.5,
-   "why": "ending"
-  },
-  {
-   "t": 705.01,
-   "why": "pivot answer after line 99"
-  }
- ],
  "sfx_rel": -11.0,
  "sub_rel": -10.0,
  "riser_rel": -9.0,
  "impact_rel": -5.0,
- "mid_gap_db": 12.0,
+ "mid_gap_db": 5.0,
  "sfx_removed": [
   {
    "t": 3.9,
@@ -390,5 +340,8 @@
   }
  ],
  "sfx": [],
- "risers": false
+ "risers": false,
+ "plan": "channels/reality-check/stories/002_great-dying/long/sound_event_plan.md",
+ "off_release": 1.2,
+ "amb_boost": 6.0
 }
