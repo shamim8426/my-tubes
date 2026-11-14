@@ -4,10 +4,10 @@
  "lev_max_down": 12,
  "lev_max_up": 12,
  "gap_boost_db": 3,
- "big_gap_db": 9,
- "big_gap_min": 1.2,
+ "big_gap_db": 16.0,
+ "big_gap_min": 0.6,
  "section_swell_db": 3,
- "pre_dip_db": 12,
+ "pre_dip_db": 0,
  "fade_in": 2,
  "fade_out": 14,
  "number_lines": [
@@ -27,79 +27,79 @@
  ],
  "off_windows": [
   [
-   26.8,
-   30.0
+   27.26,
+   36.29
   ],
   [
-   227.6,
-   231.0
+   228.17,
+   233.38
   ],
   [
-   312.0,
-   315.5
+   312.41,
+   320.94
   ],
   [
-   375.8,
-   378.5
+   376.03,
+   381.04
   ],
   [
-   498.8,
-   502.0
+   499.16,
+   505.53
   ],
   [
-   543.6,
-   546.6
+   544.32,
+   549.37
   ],
   [
-   630.5,
-   634.0
+   631.03,
+   636.72
   ],
   [
-   697.2,
-   700.5
+   697.68,
+   705.53
   ]
  ],
  "hits": [
   {
    "t": 24.2,
    "file": "shared/music/doc2/Discovery_Hit.mp3",
-   "rel": -15,
+   "rel": -9,
    "why": "THE GREAT DYING card"
   },
   {
    "t": 138.0,
    "file": "shared/music/doc2/Discovery_Hit.mp3",
-   "rel": -17,
+   "rel": -11,
    "why": "96% moment"
   },
   {
    "t": 315.5,
    "file": "shared/music/doc2/Discovery_Hit.mp3",
-   "rel": -15,
+   "rel": -9,
    "why": "Siberia reveal after the pivot"
   },
   {
    "t": 335.6,
    "file": "shared/music/doc2/Discovery_Hit.mp3",
-   "rel": -13,
+   "rel": -7,
    "why": "lava section"
   },
   {
    "t": 378.5,
    "file": "shared/music/doc2/Discovery_Hit.mp3",
-   "rel": -16,
+   "rel": -10,
    "why": "the answer: gas"
   },
   {
    "t": 546.6,
    "file": "shared/music/doc2/Discovery_Hit.mp3",
-   "rel": -17,
+   "rel": -11,
    "why": "hope"
   },
   {
    "t": 700.5,
    "file": "shared/music/doc2/Discovery_Hit.mp3",
-   "rel": -17,
+   "rel": -11,
    "why": "closing"
   }
  ],
@@ -107,151 +107,156 @@
   {
    "t": 3.9,
    "kind": "subhit",
-   "rel": -21,
    "line": 1
   },
   {
    "t": 19.99,
    "kind": "whoosh_soft",
-   "rel": -23,
    "line": 4
+  },
+  {
+   "t": 36.39,
+   "kind": "whoosh_soft",
+   "line": 6
   },
   {
    "t": 65.36,
    "kind": "whoosh_soft",
-   "rel": -23,
    "line": 11
   },
   {
    "t": 98.97,
    "kind": "whoosh_soft",
-   "rel": -23,
    "line": 16
+  },
+  {
+   "t": 110.25,
+   "kind": "whoosh_soft",
+   "line": 18
   },
   {
    "t": 129.12,
    "kind": "subhit",
-   "rel": -21,
    "line": 21
   },
   {
    "t": 151.55,
    "kind": "subhit",
-   "rel": -21,
    "line": 24
   },
   {
    "t": 169.17,
    "kind": "subhit",
-   "rel": -21,
    "line": 26
   },
   {
    "t": 197.01,
    "kind": "whoosh_soft",
-   "rel": -23,
    "line": 30
   },
   {
    "t": 215.28,
    "kind": "whoosh_soft",
-   "rel": -23,
    "line": 33
+  },
+  {
+   "t": 229.07,
+   "kind": "whoosh_soft",
+   "line": 34
   },
   {
    "t": 246.3,
    "kind": "whoosh_soft",
-   "rel": -23,
    "line": 37
   },
   {
    "t": 261.8,
    "kind": "whoosh_soft",
-   "rel": -23,
    "line": 39
   },
   {
    "t": 280.74,
    "kind": "whoosh_soft",
-   "rel": -23,
    "line": 41
   },
   {
    "t": 300.93,
    "kind": "whoosh_soft",
-   "rel": -23,
    "line": 44
   },
   {
    "t": 341.75,
    "kind": "whoosh_soft",
-   "rel": -23,
    "line": 50
   },
   {
    "t": 357.93,
    "kind": "whoosh_soft",
-   "rel": -23,
    "line": 52
+  },
+  {
+   "t": 368.32,
+   "kind": "whoosh_soft",
+   "line": 53
   },
   {
    "t": 381.14,
    "kind": "whoosh_soft",
-   "rel": -23,
    "line": 55
   },
   {
    "t": 409.91,
    "kind": "whoosh_soft",
-   "rel": -23,
    "line": 60
   },
   {
    "t": 434.98,
    "kind": "whoosh_soft",
-   "rel": -23,
    "line": 63
   },
   {
    "t": 454.65,
    "kind": "subhit",
-   "rel": -21,
    "line": 66
   },
   {
    "t": 510.48,
    "kind": "whoosh_soft",
-   "rel": -23,
    "line": 73
+  },
+  {
+   "t": 545.22,
+   "kind": "whoosh_soft",
+   "line": 77
   },
   {
    "t": 605.63,
    "kind": "whoosh_soft",
-   "rel": -23,
    "line": 86
+  },
+  {
+   "t": 631.93,
+   "kind": "whoosh_soft",
+   "line": 90
   },
   {
    "t": 642.77,
    "kind": "whoosh_soft",
-   "rel": -23,
    "line": 92
   },
   {
    "t": 661.57,
    "kind": "subhit",
-   "rel": -21,
    "line": 94
   },
   {
    "t": 678.35,
    "kind": "subhit",
-   "rel": -21,
    "line": 96
   },
   {
    "t": 705.63,
    "kind": "subhit",
-   "rel": -21,
    "line": 100
   }
  ],
@@ -328,5 +333,60 @@
    "gain_db": 3.5,
    "arc": "ending (99-104): resolution, drone swell when the voice stops, long fade"
   }
- ]
+ ],
+ "reveals": [
+  {
+   "t": 24.2,
+   "why": "THE GREAT DYING card"
+  },
+  {
+   "t": 35.77,
+   "why": "pivot answer after line 5"
+  },
+  {
+   "t": 138.0,
+   "why": "96% moment"
+  },
+  {
+   "t": 232.86,
+   "why": "pivot answer after line 34"
+  },
+  {
+   "t": 320.42,
+   "why": "pivot answer after line 46"
+  },
+  {
+   "t": 335.6,
+   "why": "lava section"
+  },
+  {
+   "t": 380.52,
+   "why": "pivot answer after line 54"
+  },
+  {
+   "t": 505.01,
+   "why": "pivot answer after line 71"
+  },
+  {
+   "t": 548.85,
+   "why": "pivot answer after line 77"
+  },
+  {
+   "t": 636.2,
+   "why": "pivot answer after line 90"
+  },
+  {
+   "t": 700.5,
+   "why": "ending"
+  },
+  {
+   "t": 705.01,
+   "why": "pivot answer after line 99"
+  }
+ ],
+ "sfx_rel": -11.0,
+ "sub_rel": -10.0,
+ "riser_rel": -9.0,
+ "impact_rel": -5.0,
+ "mid_gap_db": 12.0
 }

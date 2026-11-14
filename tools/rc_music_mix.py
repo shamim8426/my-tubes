@@ -43,6 +43,51 @@ def full_track(path, off, need):
     return out[: int(need * SR)]
 
 
+# ---------------------------------------------------------------- synthesised, clearly audible effects (own work, no licence issue)
+def _env(n, a, d):
+    t = np.arange(n) / SR
+    return np.minimum(t / a, 1.0) * np.exp(-t / d)
+
+
+def synth_fx(kind, seed=7):
+    r = np.random.default_rng(seed)
+    if kind == "impact":      # low boom: sub sweep + body thump + dark noise burst, 2.8 s tail
+        n = int(2.8 * SR); t = np.arange(n) / SR
+        sub = np.sin(2 * np.pi * np.cumsum(32 + 70 * np.exp(-t * 6)) / SR) * np.exp(-t / 0.9)
+        thump = np.sin(2 * np.pi * np.cumsum(70 + 160 * np.exp(-t * 18)) / SR) * np.exp(-t / 0.28)
+        nz = RS.fft_filter(r.standard_normal(n), lo=60, hi=1600) * np.exp(-t / 0.35) * 0.5
+        x = sub + 0.8 * thump + nz
+        x[:int(0.004 * SR)] *= np.linspace(0, 1, int(0.004 * SR))
+    elif kind == "riser":     # 1.6 s tension build: rising filtered noise + rising tone, cut at the top
+        n = int(1.6 * SR); t = np.arange(n) / SR; u = t / 1.6
+        nz = r.standard_normal(n)
+        lo, hi = 250 + 3500 * u ** 2, 700 + 6500 * u ** 2
+        X = np.fft.rfft(nz); f = np.fft.rfftfreq(n, 1 / SR)
+        out = np.zeros(n)
+        for k in range(8):                       # time-varying band via 8 segments crossfaded
+            c = (k + 0.5) / 8
+            m = (f > 250 + 3500 * c ** 2) & (f < 700 + 6500 * c ** 2)
+            band = np.fft.irfft(X * m, n)
+            out += band * np.exp(-0.5 * ((u - c) / 0.09) ** 2)
+        tone = np.sin(2 * np.pi * np.cumsum(90 + 520 * u ** 2) / SR) * 0.35
+        x = (out / (np.abs(out).max() + 1e-9) * 0.9 + tone) * (u ** 1.8)
+        x[-int(0.03 * SR):] *= np.linspace(1, 0, int(0.03 * SR))
+    elif kind == "whoosh":    # 0.9 s band sweep, rises then falls
+        n = int(0.9 * SR); t = np.arange(n) / SR; u = t / 0.9
+        nz = r.standard_normal(n); X = np.fft.rfft(nz); f = np.fft.rfftfreq(n, 1 / SR)
+        out = np.zeros(n)
+        for k in range(8):
+            c = (k + 0.5) / 8
+            m = (f > 200 + 2600 * c) & (f < 500 + 4200 * c)
+            out += np.fft.irfft(X * m, n) * np.exp(-0.5 * ((u - c) / 0.11) ** 2)
+        x = out / (np.abs(out).max() + 1e-9) * np.sin(np.pi * u) ** 1.5
+    else:                     # subhit: short low thud with air
+        n = int(1.1 * SR); t = np.arange(n) / SR
+        x = np.sin(2 * np.pi * np.cumsum(38 + 90 * np.exp(-t * 14)) / SR) * np.exp(-t / 0.3)
+        x += 0.35 * RS.fft_filter(r.standard_normal(n), lo=300, hi=3000) * np.exp(-t / 0.08)
+    return (x / (np.abs(x).max() + 1e-9)).astype(np.float32)
+
+
 def write_wav(path, x):
     y = (np.clip(x, -1, 1) * 32767).astype("<i2")
     with wave.open(str(path), "wb") as w:
@@ -134,11 +179,14 @@ def main():
         if l:
             pre[int((l["start"] - 1.0) * RS.CR): int((l["start"] + 0.6) * RS.CR)] = 1.0
     env_db += -cfg.get("pre_dip_db", 14.0) * RS.smooth_env(pre, 0.25, 0.6)
-    big = np.zeros(nc)                      # silent holds >= 1.2 s between lines: the music rises (reference: ~18-20 dB when the voice stops; we use big_gap_db)
+    big = np.zeros(nc)                      # every silent hold >= big_gap_min: the music swells hard (+12..18 dB) so the contrast is audible
+    huge = np.zeros(nc)
     for l0, l1 in zip(lines[:-1], lines[1:]):
-        if l1["start"] - l0["end"] >= cfg.get("big_gap_min", 1.2):
-            big[int((l0["end"] + 0.15) * RS.CR): int((l1["start"] - 0.1) * RS.CR)] = 1.0
-    env_db += cfg.get("big_gap_db", 8.0) * RS.smooth_env(big, 0.4, 1.0)
+        g_ = l1["start"] - l0["end"]
+        if g_ >= cfg.get("big_gap_min", 0.6):
+            (huge if g_ >= 1.2 else big)[int((l0["end"] + 0.05) * RS.CR): int((l1["start"] - 0.05) * RS.CR)] = 1.0
+    env_db += cfg.get("mid_gap_db", 12.0) * RS.smooth_env(big, 0.12, 0.35)
+    env_db += cfg.get("big_gap_db", 16.0) * RS.smooth_env(huge, 0.12, 0.4)
     off = np.zeros(nc)                      # music FULLY OFF at pivot lines (question / reversal / answer), next cue starts as the gap ends
     for a0_, a1_ in cfg.get("off_windows", []):
         off[int(a0_ * RS.CR): int(a1_ * RS.CR)] = 1.0
@@ -160,11 +208,19 @@ def main():
         i0 = int(h["t"] * SR)
         music[i0:i0 + len(hs)] += hs[: N - i0]
     vr = 20 * np.log10(np.sqrt((voice[spm > 0.5] ** 2).mean()) + 1e-9)
-    for q in cfg.get("sfx", []):             # soft whoosh / sub-hit on graphic starts (never on sentence starts)
-        snd = RS.load_sfx(q["kind"])
-        pk = np.abs(snd).max() + 1e-9
-        gsfx = 10 ** ((vr + q.get("rel", -24)) / 20) / pk
-        RS.place(music, snd, q["t"], gsfx)
+    vpk = 20 * np.log10(np.abs(voice).max() + 1e-9)          # voice peak (dBFS): effect levels below are peak-vs-voice-peak
+    fxlog = []
+
+    def put_fx(kind, t0, rel, note):
+        snd = synth_fx(kind)
+        RS.place(music, snd, t0, 10 ** ((vpk + rel) / 20))
+        fxlog.append((t0, kind, rel, note))
+    for q in cfg.get("sfx", []):             # whoosh / sub-hit on every graphic start
+        put_fx("whoosh" if "whoosh" in q["kind"] else "subhit", q["t"], cfg.get("sfx_rel", -11.0) if "whoosh" in q["kind"] else cfg.get("sub_rel", -10.0), f"graphic start line {q.get('line', '')}")
+    for rv in cfg.get("reveals", []):        # riser into + low impact at every big reveal
+        rt = rv["t"]
+        put_fx("riser", rt - 1.6, cfg.get("riser_rel", -9.0), "riser into " + rv["why"])
+        put_fx("impact", rt, cfg.get("impact_rel", -5.0), "impact " + rv["why"])
     cdir = ROOT / "cache/reality-check" / a.story / "music"
     cdir.mkdir(parents=True, exist_ok=True)
     write_wav(cdir / "music_stem.wav", music)
