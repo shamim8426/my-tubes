@@ -23,6 +23,7 @@ def main():
     cfg = json.loads((ld / "music_cues.json").read_text(encoding="utf-8"))
     plan = (ld / "sound_event_plan.md").read_text(encoding="utf-8")
     evs, _ = FX.parse_plan(str(ld / "sound_event_plan.md"))
+    evs = [e for e in evs if e["type"] in cfg.get("event_types", [e["type"]])]
     plan_start = {}
     for row in plan.split("## 5.")[1].splitlines():
         m = re.match(r"\|\s*(\d+)\s*\|\s*(\d+):(\d\d\.\d)\s*\|", row)

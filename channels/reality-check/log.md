@@ -36,3 +36,6 @@
 
 ## 2026-11-14 002 Long v5 sound design (private)
 - New video bANqH0-X-8Y (https://youtu.be/bANqH0-X-8Y): events from long/sound_event_plan.md (BOOM 4, BOOM-soft 12 +cue hits, THUD 25, RISE 4 sub-only, AIR 9, TICK 61, CLOCK 11, AMB 15, 8 music-off windows); no whoosh/sweep. -14.1 LUFS, TP -1.6, 752.2 s. Earlier private videos (gpyr_A-5B2Q, oAXx6tF2dcI, kvAh1W9erEU) left for the user to delete.
+
+## 2026-11-15 002 Long final reference-style mix (private)
+- New video 6p7p7PprJ64 (https://youtu.be/6p7p7PprJ64): one beatless bed family (Ancient Rite + Lightless Dawn, 10 regions), 8 music-off ramps, sub booms/thuds only, no whoosh/riser/ticks/ambience. -14.1 LUFS, TP -1.6, 752.2 s, video copied. Earlier private videos left for the user to delete.

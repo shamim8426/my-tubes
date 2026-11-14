@@ -8,8 +8,8 @@
  "big_gap_min": 0.6,
  "section_swell_db": 1.5,
  "pre_dip_db": 0,
- "fade_in": 8.0,
- "fade_out": 14,
+ "fade_in": 6.0,
+ "fade_out": 12.0,
  "number_lines": [
   22,
   24,
@@ -106,73 +106,91 @@
  "cues": [
   {
    "t": 0,
-   "track": "shared/music/doc2/Disquiet.mp3",
+   "track": "shared/music/doc2/Ancient_Rite.mp3",
    "off": 0,
-   "name": "Disquiet",
-   "gain_db": 2.0
+   "name": "Ancient Rite (open)",
+   "gain_db": 3.5,
+   "hi": 3500
   },
   {
    "t": 27.7,
-   "track": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "track": "shared/music/clean/Lightless_Dawn.mp3",
    "off": 0,
-   "name": "Quietude",
-   "gain_db": 0,
+   "name": "Lightless Dawn A",
+   "gain_db": 0.0,
+   "hi": 4500,
    "xf": 4.5
   },
   {
    "t": 108.9,
-   "track": "shared/music/doc2/Giant_Wyrm.mp3",
-   "off": 20,
-   "name": "Giant Wyrm",
-   "gain_db": 2.5,
-   "xf": 4.5
+   "track": "shared/music/clean/Lightless_Dawn.mp3",
+   "off": 140,
+   "name": "Lightless Dawn B (catastrophe)",
+   "gain_db": 0.5,
+   "hi": 3500,
+   "xf": 5.0
   },
   {
    "t": 229.7,
    "track": "shared/music/doc2/Ancient_Rite.mp3",
    "off": 0,
-   "name": "Ancient Rite",
-   "gain_db": 1.5,
+   "name": "Ancient Rite (evidence, quiet)",
+   "gain_db": -3.5,
+   "hi": 2500,
    "xf": 4.5
   },
   {
    "t": 312.7,
    "track": "shared/music/clean/Lightless_Dawn.mp3",
-   "off": 120,
-   "name": "Lightless Dawn",
-   "gain_db": 2.5,
+   "off": 265,
+   "name": "Lightless Dawn C (lava, denser)",
+   "gain_db": 1.5,
+   "hi": 6500,
    "xf": 4.5
   },
   {
    "t": 406.11,
-   "track": "shared/music/doc2/Disquiet.mp3",
-   "off": 70,
-   "name": "Disquiet 2",
-   "gain_db": 2.5,
+   "track": "shared/music/doc2/Ancient_Rite.mp3",
+   "off": 10,
+   "name": "Ancient Rite (four killers)",
+   "gain_db": 0.0,
+   "hi": 4500,
+   "xf": 5.0
+  },
+  {
+   "t": 499.5,
+   "track": "shared/music/clean/Lightless_Dawn.mp3",
+   "off": 90,
+   "name": "Lightless Dawn D (uncertainty, quiet)",
+   "gain_db": -3.0,
+   "hi": 3000,
    "xf": 4.5
   },
   {
    "t": 545.9,
-   "track": "shared/music/doc2/Inspired.mp3",
-   "off": 0,
-   "name": "Inspired",
-   "gain_db": 1.5,
+   "track": "shared/music/doc2/Ancient_Rite.mp3",
+   "off": 5,
+   "name": "Ancient Rite (hope, brighter)",
+   "gain_db": 0.5,
+   "hi": 7500,
    "xf": 2.4
   },
   {
    "t": 632.5,
-   "track": "shared/music/doc/Meditation_Impromptu_01.mp3",
-   "off": 0,
-   "name": "Meditation Impromptu 01",
-   "gain_db": -2.0,
+   "track": "shared/music/clean/Lightless_Dawn.mp3",
+   "off": 200,
+   "name": "Lightless Dawn E (why it matters)",
+   "gain_db": -1.0,
+   "hi": 4000,
    "xf": 3.2
   },
   {
    "t": 698.0,
-   "track": "shared/music/noor/Quietude_Sections_Merged.mp3",
-   "off": 200,
-   "name": "Quietude reprise",
-   "gain_db": 0.5,
+   "track": "shared/music/doc2/Ancient_Rite.mp3",
+   "off": 40,
+   "name": "Ancient Rite (ending drone)",
+   "gain_db": 3.5,
+   "hi": 3500,
    "xf": 4.5
   }
  ],
@@ -342,8 +360,13 @@
  "risers": false,
  "plan": "channels/reality-check/stories/002_great-dying/long/sound_event_plan.md",
  "off_release": 1.2,
- "amb_boost": 6.0,
- "off_depth_db": 26.0,
- "off_down": 3.0,
- "off_up": 3.5
+ "off_depth_db": 30.0,
+ "off_down": 2.5,
+ "off_up": 3.0,
+ "event_types": [
+  "BOOM",
+  "BOOM-soft",
+  "THUD"
+ ],
+ "end_swell_db": 4.0
 }

@@ -132,6 +132,9 @@ def main():
         t1 = (nxt["t"] + xout) if nxt else total
         a0, a1 = max(0.0, t0), min(total, t1)
         seg = full_track(c["track"], c.get("off", 0.0), a1 - a0)
+        if c.get("hi"):                                              # brightness of this region (same track family, only the colour changes)
+            for ch in (0, 1):
+                seg[:, ch] = RS.fft_filter(seg[:, ch], hi=c["hi"], order=2)
         n = len(seg)
         win = np.ones(n)
         if i:
@@ -192,6 +195,7 @@ def main():
         ramp_ids |= m1 | m2
     fi, fo = cfg.get("fade_in", 5.0), cfg.get("fade_out", 14.0)
     env_db += -24.0 * np.clip(1 - tt / fi, 0, 1) - 45.0 * np.clip(1 - (total - tt) / fo, 0, 1)
+    env_db += cfg.get("end_swell_db", 0.0) * np.exp(-0.5 * ((tt - (total - 6.0)) / 1.8) ** 2)       # drone swell when the voice stops
     gain_chk = env_db.copy()
     music *= RS.env_interp(10 ** (env_db / 20), N)[:, None]
     ml = RS.lufs((music * (spm > 0.5)[:, None]))
@@ -244,6 +248,7 @@ def main():
         lend = {l["line"]: l["end"] for l in lines}
         booms = [e["t"] for e in evs if e["type"].startswith("BOOM")]
         cnt = {}
+        evs = [e for e in evs if e["type"] in cfg.get("event_types", ["BOOM", "BOOM-soft", "THUD", "RISE", "AIR", "TICK", "CLOCK", "AMB"])]
         for e in evs:
             end = None
             if e["type"] == "RISE":
@@ -269,11 +274,11 @@ def main():
         print("events placed:", cnt)
         for w_ in cfg.get("off_windows", []):          # new cue starts with a soft hit at the end of each music-off window
             if not any(abs(e["t"] - w_[1]) < 1.5 and e["type"].startswith("BOOM") for e in evs):
-                snd = FX.render({"type": "BOOM-soft"}) * 10 ** ((vpk - 8.0) / 20)
+                snd = FX.render({"type": "BOOM"}) * 10 ** ((vpk - 6.0) / 20)
                 i0 = int(w_[1] * SR)
                 music[i0:i0 + len(snd), 0] += snd[: N - i0]
                 music[i0:i0 + len(snd), 1] += snd[: N - i0]
-                fxlog.append((w_[1], "BOOM-soft", -8.0, "cue-start hit after music-off"))
+                fxlog.append((w_[1], "BOOM", -6.0, "cue-start boom after music-off"))
     else:
         for q in cfg.get("sfx", []):
             put_fx("whoosh" if "whoosh" in q["kind"] else "subhit", q["t"], cfg.get("sfx_rel", -11.0) if "whoosh" in q["kind"] else cfg.get("sub_rel", -10.0), f"graphic start line {q.get('line', '')}")
