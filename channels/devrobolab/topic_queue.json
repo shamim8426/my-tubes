@@ -94,27 +94,36 @@
     "title": "Prompt library",
     "url": "https://code.claude.com/docs/en/prompt-library.md",
     "summary": "Copy-paste prompts for Claude Code, tagged by task and role.",
-    "status": "todo",
-    "story": null,
-    "audience": "A"
+    "status": "uploaded",
+    "story": "052_cc-prompt-library",
+    "audience": "A",
+    "video_id": "TqMSePuzBDU",
+    "series": "claude-code-features",
+    "series_index": 5
   },
   {
     "id": "best-practices",
     "title": "Best practices for Claude Code",
     "url": "https://code.claude.com/docs/en/best-practices.md",
     "summary": "Get more out of Claude Code: tell Claude what it can't see, give it a check to run, and enforce the rules that can't have exceptions.",
-    "status": "todo",
-    "story": null,
-    "audience": "A"
+    "status": "uploaded",
+    "story": "055_cc-best-practices",
+    "audience": "A",
+    "video_id": "pgwgAsMB-P0",
+    "series": "claude-code-features",
+    "series_index": 6
   },
   {
     "id": "platforms",
     "title": "Platforms and integrations",
     "url": "https://code.claude.com/docs/en/platforms.md",
     "summary": "Choose where to run Claude Code and what to connect it to. Compare the CLI, Desktop, VS Code, JetBrains, web, mobile, and integrations like Chrome, Slack, and CI/CD.",
-    "status": "todo",
-    "story": null,
-    "audience": "A"
+    "status": "uploaded",
+    "story": "060_cc-platforms",
+    "audience": "A",
+    "video_id": "7JbuBihcvcQ",
+    "series": "claude-code-features",
+    "series_index": 7
   },
   {
     "id": "remote-control",
@@ -1037,7 +1046,8 @@
     "summary": "Claude (non-Code) feature for ordinary people; find the exact official page first.",
     "status": "todo",
     "audience": "A",
-    "series": "claude-for-everyone"
+    "series": "claude-for-everyone",
+    "note": "official styles help article returns 404 (2026-11-12); skip unless a new page appears"
   },
   {
     "id": "cfe-resume-job",
@@ -1069,11 +1079,14 @@
   {
     "id": "cfe-voice-mode",
     "title": "Voice mode: bol kar baat karna",
-    "url": "https://support.claude.com/en/",
+    "url": "https://support.claude.com/en/articles/11101966-use-voice-mode",
     "summary": "Claude (non-Code) feature for ordinary people; find the exact official page first.",
-    "status": "todo",
+    "status": "uploaded",
     "audience": "B",
-    "series": "claude-for-everyone"
+    "series": "claude-for-everyone",
+    "series_index": 6,
+    "story": "050_cfe-voice-mode",
+    "video_id": "XdzDMRTrPfA"
   },
   {
     "id": "cfe-mobile-app",
@@ -1123,11 +1136,14 @@
   {
     "id": "cfe-privacy-settings",
     "title": "Privacy: aapka data aur settings",
-    "url": "https://support.claude.com/en/",
+    "url": "https://support.claude.com/en/articles/12260368-use-incognito-chats",
     "summary": "Claude (non-Code) feature for ordinary people; find the exact official page first.",
-    "status": "todo",
+    "status": "uploaded",
     "audience": "A",
-    "series": "claude-for-everyone"
+    "series": "claude-for-everyone",
+    "story": "056_cfe-privacy",
+    "video_id": "cqWoLFjTP2Y",
+    "series_index": 8
   },
   {
     "id": "cfe-wrong-answers",
@@ -1197,9 +1213,12 @@
     "title": "Usage limits samajhna: kab kitna milta hai",
     "url": "https://support.claude.com/en/",
     "summary": "Claude (non-Code) feature for ordinary people; find the exact official page first.",
-    "status": "todo",
+    "status": "uploaded",
     "audience": "A",
-    "series": "claude-for-everyone"
+    "series": "claude-for-everyone",
+    "story": "053_cfe-usage-limits",
+    "video_id": "o93cpNeVYmo",
+    "series_index": 7
   },
   {
     "id": "news-claude-personal-finance-2026-11-06",
@@ -1223,5 +1242,49 @@
     "priority": "news",
     "org": "Google",
     "audience": "A"
+  },
+  {
+    "id": "news-roundup-carbon-fable52-decisions-2026-11-12",
+    "title": "3 AI updates: Gemini 4 Carbon, Fable 5.2, Decisions API",
+    "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/",
+    "summary": "Roundup: Gemini 4 Carbon (Nov 10), Claude Fable 5.2 default in Claude Code 2.1.321, Gemini Decisions API (Nov 11).",
+    "status": "uploaded",
+    "story": "050_news-carbon-fable-decisions",
+    "video_id": "UaI9m00Q82k",
+    "priority": "news"
+  },
+  {
+    "id": "news-roundup-hydrogen-android-tabletop-2026-11-13",
+    "title": "3 Google AI updates: Hydrogen, Android, Tabletop",
+    "url": "https://blog.google/products-and-platforms/products/search/gemini-4-hydrogen-search-upgrade/",
+    "summary": "Roundup: Gemini 4 Hydrogen in Search (Nov 12), Gemini Intelligence on Android (Nov 10), Tabletop Labs (Nov 11).",
+    "status": "uploaded",
+    "story": "051_news-hydrogen-android-tabletop",
+    "video_id": "tQLX2wNlo-g",
+    "priority": "news"
+  },
+  {
+    "id": "daily-life-02-gmail",
+    "title": "Claude in daily life 02: Gmail connector",
+    "url": "https://claude.com/docs/connectors/google/gmail",
+    "summary": "Connect Gmail, ask about mails, draft reply text; official pages conflict on send",
+    "status": "uploaded",
+    "story": "057_life-gmail",
+    "video_id": "VqFpEnY_SWc",
+    "priority": "daily-life",
+    "series": "daily-life",
+    "series_index": 2
+  },
+  {
+    "id": "daily-life-03-calendar",
+    "title": "Claude in daily life 03: Google Calendar connector",
+    "url": "https://claude.com/docs/connectors/google/calendar",
+    "summary": "Connect Google Calendar, ask schedule and conflict questions; official pages conflict on read-only vs create/change events",
+    "status": "uploaded",
+    "story": "058_life-calendar",
+    "video_id": "8lXDxYk0-gg",
+    "priority": "daily-life",
+    "series": "daily-life",
+    "series_index": 3
   }
 ]

@@ -1,0 +1,332 @@
+{
+ "xf": 5,
+ "number_dip_db": 2,
+ "lev_max_down": 12,
+ "lev_max_up": 12,
+ "gap_boost_db": 3,
+ "big_gap_db": 9,
+ "big_gap_min": 1.2,
+ "section_swell_db": 3,
+ "pre_dip_db": 12,
+ "fade_in": 2,
+ "fade_out": 14,
+ "number_lines": [
+  22,
+  24,
+  25,
+  61,
+  65,
+  94,
+  97,
+  101
+ ],
+ "pre_dip_lines": [
+  22,
+  25,
+  97
+ ],
+ "off_windows": [
+  [
+   26.8,
+   30.0
+  ],
+  [
+   227.6,
+   231.0
+  ],
+  [
+   312.0,
+   315.5
+  ],
+  [
+   375.8,
+   378.5
+  ],
+  [
+   498.8,
+   502.0
+  ],
+  [
+   543.6,
+   546.6
+  ],
+  [
+   630.5,
+   634.0
+  ],
+  [
+   697.2,
+   700.5
+  ]
+ ],
+ "hits": [
+  {
+   "t": 24.2,
+   "file": "shared/music/doc2/Discovery_Hit.mp3",
+   "rel": -15,
+   "why": "THE GREAT DYING card"
+  },
+  {
+   "t": 138.0,
+   "file": "shared/music/doc2/Discovery_Hit.mp3",
+   "rel": -17,
+   "why": "96% moment"
+  },
+  {
+   "t": 315.5,
+   "file": "shared/music/doc2/Discovery_Hit.mp3",
+   "rel": -15,
+   "why": "Siberia reveal after the pivot"
+  },
+  {
+   "t": 335.6,
+   "file": "shared/music/doc2/Discovery_Hit.mp3",
+   "rel": -13,
+   "why": "lava section"
+  },
+  {
+   "t": 378.5,
+   "file": "shared/music/doc2/Discovery_Hit.mp3",
+   "rel": -16,
+   "why": "the answer: gas"
+  },
+  {
+   "t": 546.6,
+   "file": "shared/music/doc2/Discovery_Hit.mp3",
+   "rel": -17,
+   "why": "hope"
+  },
+  {
+   "t": 700.5,
+   "file": "shared/music/doc2/Discovery_Hit.mp3",
+   "rel": -17,
+   "why": "closing"
+  }
+ ],
+ "sfx": [
+  {
+   "t": 3.9,
+   "kind": "subhit",
+   "rel": -21,
+   "line": 1
+  },
+  {
+   "t": 19.99,
+   "kind": "whoosh_soft",
+   "rel": -23,
+   "line": 4
+  },
+  {
+   "t": 65.36,
+   "kind": "whoosh_soft",
+   "rel": -23,
+   "line": 11
+  },
+  {
+   "t": 98.97,
+   "kind": "whoosh_soft",
+   "rel": -23,
+   "line": 16
+  },
+  {
+   "t": 129.12,
+   "kind": "subhit",
+   "rel": -21,
+   "line": 21
+  },
+  {
+   "t": 151.55,
+   "kind": "subhit",
+   "rel": -21,
+   "line": 24
+  },
+  {
+   "t": 169.17,
+   "kind": "subhit",
+   "rel": -21,
+   "line": 26
+  },
+  {
+   "t": 197.01,
+   "kind": "whoosh_soft",
+   "rel": -23,
+   "line": 30
+  },
+  {
+   "t": 215.28,
+   "kind": "whoosh_soft",
+   "rel": -23,
+   "line": 33
+  },
+  {
+   "t": 246.3,
+   "kind": "whoosh_soft",
+   "rel": -23,
+   "line": 37
+  },
+  {
+   "t": 261.8,
+   "kind": "whoosh_soft",
+   "rel": -23,
+   "line": 39
+  },
+  {
+   "t": 280.74,
+   "kind": "whoosh_soft",
+   "rel": -23,
+   "line": 41
+  },
+  {
+   "t": 300.93,
+   "kind": "whoosh_soft",
+   "rel": -23,
+   "line": 44
+  },
+  {
+   "t": 341.75,
+   "kind": "whoosh_soft",
+   "rel": -23,
+   "line": 50
+  },
+  {
+   "t": 357.93,
+   "kind": "whoosh_soft",
+   "rel": -23,
+   "line": 52
+  },
+  {
+   "t": 381.14,
+   "kind": "whoosh_soft",
+   "rel": -23,
+   "line": 55
+  },
+  {
+   "t": 409.91,
+   "kind": "whoosh_soft",
+   "rel": -23,
+   "line": 60
+  },
+  {
+   "t": 434.98,
+   "kind": "whoosh_soft",
+   "rel": -23,
+   "line": 63
+  },
+  {
+   "t": 454.65,
+   "kind": "subhit",
+   "rel": -21,
+   "line": 66
+  },
+  {
+   "t": 510.48,
+   "kind": "whoosh_soft",
+   "rel": -23,
+   "line": 73
+  },
+  {
+   "t": 605.63,
+   "kind": "whoosh_soft",
+   "rel": -23,
+   "line": 86
+  },
+  {
+   "t": 642.77,
+   "kind": "whoosh_soft",
+   "rel": -23,
+   "line": 92
+  },
+  {
+   "t": 661.57,
+   "kind": "subhit",
+   "rel": -21,
+   "line": 94
+  },
+  {
+   "t": 678.35,
+   "kind": "subhit",
+   "rel": -21,
+   "line": 96
+  },
+  {
+   "t": 705.63,
+   "kind": "subhit",
+   "rel": -21,
+   "line": 100
+  }
+ ],
+ "cues": [
+  {
+   "t": 0.0,
+   "track": "shared/music/doc2/Disquiet.mp3",
+   "off": 0,
+   "name": "Disquiet",
+   "gain_db": 3.5,
+   "arc": "hook / mystery (1-5): suspenseful sparse strings, near-full level at the open"
+  },
+  {
+   "t": 35.8,
+   "track": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "off": 30,
+   "name": "Quietude - Ambient Synth Soundscape (The Imperfectionist)",
+   "gain_db": 0,
+   "arc": "the living Permian world (6-16): warm ambient pad, lighter"
+  },
+  {
+   "t": 103.7,
+   "track": "shared/music/doc2/Gathering_Darkness.mp3",
+   "off": 0,
+   "name": "Gathering Darkness",
+   "gain_db": 2.5,
+   "arc": "disaster begins, numbers (17-33): dark strings, rising density"
+  },
+  {
+   "t": 228.5,
+   "track": "shared/music/doc2/Dark_Fog.mp3",
+   "off": 15,
+   "name": "Dark Fog",
+   "gain_db": -1.5,
+   "arc": "evidence: layers, ash, carbon (34-45): calm dark pad, quieter (analytical)"
+  },
+  {
+   "t": 335.5,
+   "track": "shared/music/doc2/Impact_Prelude.mp3",
+   "off": 0,
+   "name": "Impact Prelude",
+   "gain_db": 3,
+   "arc": "Siberian lava and gas (49-58): heavy, dark, powerful, impact hits"
+  },
+  {
+   "t": 406.9,
+   "track": "shared/music/doc2/Giant_Wyrm.mp3",
+   "off": 0,
+   "name": "Giant Wyrm",
+   "gain_db": 2.0,
+   "arc": "the four killers (59-76): low strings, driving tension"
+  },
+  {
+   "t": 544.6,
+   "track": "shared/music/doc2/Inspired.mp3",
+   "off": 0,
+   "name": "Inspired",
+   "gain_db": 2.0,
+   "arc": "survivors and recovery (77-89): brighter, hopeful"
+  },
+  {
+   "t": 631.3,
+   "track": "shared/music/clean/Lightless_Dawn.mp3",
+   "off": 40,
+   "name": "Lightless Dawn",
+   "gain_db": 0.0,
+   "arc": "why it matters today (90-98): serious, restrained deep pad"
+  },
+  {
+   "t": 698.0,
+   "track": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "off": 200,
+   "name": "Quietude (reprise of the world pad)",
+   "gain_db": 3.5,
+   "arc": "ending (99-104): resolution, drone swell when the voice stops, long fade"
+  }
+ ]
+}

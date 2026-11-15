@@ -1,0 +1,40 @@
+# Documentary craft research (music, editing, free music sources) - 2026-11-14
+
+Method note: web search only (no deep page fetches). Many sources are creator blogs / vendors, not official. Numbers marked (heuristic) are not authoritative. Kurzgesagt/Vox/Veritasium/Wendover internal mixing numbers were NOT found publicly; items below for them are inference.
+
+## 1. Music scoring
+
+- Spotting: decide per scene whether music adds subtext, creates tension, or marks a change; if silence lets the beat land better, leave it out. Source: documentary.org composers confab https://documentary.org/index%2ephp/feature/composers-confab-creating-best-score-your-film ; PremiumBeat https://www.premiumbeat.com/blog/wp-json/wp/v2/posts/74753
+- Silence before a reveal: cues that follow silence hit harder; fading music out acts as a spotlight on what comes next; a gap makes the next entrance feel intentional. Caveat: if ambient sound is diagnostic to a scene, do not strip it. Sources: NPR training https://www.npr.org/sections/npr-training/2025/05/31/g-s1-67187/score-best-practices-for-using-music-in-audio-storytelling ; Krotos https://krotos.studio/blog/no-sound-in-sound-design
+- Level under narration: no universal rule (DVinfo thread https://www.dvinfo.net/forum/all-things-audio/143948-music-audio-documentary.html). Broadcast starting points: voice -6 to -12 dB, SFX -12 to -18 dB, underscore about -18 dB (Larry Jordan https://larryjordan.com/articles/audio-checkerboarding-and-levels/). Another forum practice: voice about -14 dB, music peaks near -6 dB when no voice. Treat as starting points; set by ear and measure integrated LUFS (YouTube normalises ~-14 LUFS). Our existing channel rule (music 12-14 LU under voice) is consistent with these.
+- Avoid vocals and busy mid-range arrangements under narration; low-end mud swallows voice on big speakers (AudioNetwork https://blog.audionetwork.com/the-edit/knowledge-base/music-for-documentary-filmmakers ; Krotos). Stems help: duck/strip mids, keep pad + low pulse.
+- Kurzgesagt: each video has its own composed score by Epic Mountain (Munich), made for the specific video, mood tailored per episode (https://kurzgesagt.org/youtube/). Takeaway: one consistent sonic identity per video (one theme + variations), not random tracks per section.
+- Cue structure that follows from the sources (inference): cold open short/sparse; theme enters at the thesis; energy rises by layering (add pulse/percussion, then strings/synth) not by tempo jumps; drop to near-silence before the key reveal; resolve to the theme/low drone at the end; each section boundary gets a swell/hit or a 1-2 s music dip, with new cue starting on the section's first beat.
+- "Cinematic" vs "meditation loop" (inference, consistent with spotting sources): loops are static (same energy, same texture, no entrances/exits). Cinematic = cues with starts and ends, dynamics tied to narration beats, silence, and motifs that return. Practical: use 3-5 distinct cues per 12 min, crossfade 2-4 s, never loop a 2-min track 6 times audibly.
+- Genres that fit science documentary: hybrid orchestral (strings + sub-hit), ambient pad + soft percussion, pulsed/arpeggiated synths for tech/space, piano-led for human/emotional beats.
+- Track length handling: edit tracks to need (cut on bar lines, extend with stems/loop of a middle section, tail-out with reverb), do not just fade at an arbitrary second.
+
+## 2. Editing grammar and retention
+
+(Mostly vendor/creator blogs; YouTube Creator Academy was not surfaced. Check own Studio retention graph.)
+- Hook: first 30 s decide the viewer; early drop-off figures quoted 30-45% (heuristic, sources conflict). Tease the payoff fast, no long intro/logo. https://1of10.com/blog/how-to-hook-viewers-in-the-first-30-seconds-of-a-youtube-video ; https://vidiq.com/blog/post/audience-retention-secrets-youtube/
+- Pattern interrupts: sources range from visual change every 8-12 s inside the hook, a reset at 25-35 s, to every 30-45 s overall. Suggested shape: tighter cuts (reset every 10-20 s) in the intro, then widen to 25-40 s between cuts once hooked. Over-editing (constant zoom/whoosh/jump cuts) tires viewers. https://air.io/en/youtube-hacks/advanced-retention-editing-cutting-patterns-that-keep-viewers-past-minute-8
+- Retention targets: sources quote 70% as benchmark but conflict; ignore as a hard goal. Use your own graph, find dips and fix those seconds (https://www.opus.pro/blog/youtube-retention-graphs-explained).
+- Open loops: pose a question early, deliver the payoff later, and do resolve it honestly (matches our no-teaser, no-clickbait channel rule).
+- Practical grammar (standard editing practice, not from a single cited source): hard cut as default; J-cut (next shot's audio leads) and L-cut at section changes to keep flow; dissolve only for time passage; B-roll must illustrate the exact words (no generic filler), hold 3-6 s for footage, shorter for graphics, longer for a complex map/infographic so it can be read; keep a consistent colour grade across footage + AI scenes (one LUT/grade pass); infographics in a consistent safe area (side or lower third panel) so they do not cover the subject; maps: north-up, label first then zoom, highlight the region with colour/glow, show scale.
+
+## 3. Free music sources
+
+- Pixabay Music: Pixabay licence = free commercial and non-commercial use, no attribution needed, but no standalone redistribution; items with brands/logos etc. may carry extra rights. Uploads are open, so tracks can be fingerprinted in Content ID by the composer and claims can still occur; a Pixabay licence certificate (when logged in) helps dispute. Keep download date + URL + certificate per track. https://pixabay.com/service/license/ ; https://pixabay.com/service/faq/ ; (Content ID statements from competitor blogs: https://www.foximusic.com/blog/need-background-music-that-wont-trigger-content-id/)
+- YouTube Audio Library: filter "Attribution not required" for no-credit tracks; "Attribution required" tracks are CC and need credit in description. Licence is written for use in YouTube videos; use outside YouTube is unclear (sources disagree) - check per track. Official: https://support.google.com/youtube/answer/4523596 ; https://support.google.com/youtube/answer/3376882
+- Kevin MacLeod / incompetech: free for monetised YouTube under CC BY 4.0 with attribution (title, "Kevin MacLeod (incompetech.com)", licence line with CC BY 4.0 link). Search by genre/feel and "Cinematic"/"Dark"/"Calming" categories. Very widely used, so Content ID claims occur; he states claims should be released via YouTube, typically within 72 h. https://incompetech.com/music/royalty-free/faq.html ; https://incompetech.com/music/royalty-free/youtube-contentid.html
+- Uppbeat free tier: monetised YouTube allowed with a per-video credit string in the description; free plan reportedly 3 downloads/month (older sources say 10) and about 25-50% of catalog; a new download+credit per video. Paid plans remove credit. Verify on pricing page. https://uppbeat.io/ ; https://makerstack.co/reviews/uppbeat-review/
+- Free Music Archive: tracks carry per-track licences (CC0, CC BY, and also NC/ND variants). Use only CC0 or CC BY; reject NC and ND. NOT verified in this pass (no source fetched) - check the licence badge on each track.
+- Search by mood/energy: each site has mood, genre, tempo/BPM filters; practical queries: "cinematic ambient", "documentary", "epic hybrid", "space", "tension", "wonder", "build". Audition against the narration, not solo.
+
+## Risk / process notes
+- Content ID risk exists for every free source above; no source can guarantee zero claims. Keep licence proof per track in shared/assets_license.csv; prefer lesser-known tracks and Audio Library "no attribution" tracks; claims on a monetised video can be disputed with the licence page/certificate.
+- Do not use tracks that need attribution without adding the exact credit text to the description.
+
+## Gaps
+- No public numeric mixing data for Kurzgesagt/Vox/Nat Geo/BBC Earth/Veritasium/Wendover; no official YouTube retention doc fetched; FMA terms unverified.

@@ -50,6 +50,7 @@ def main():
     ap.add_argument("story")
     ap.add_argument("--voice", default="Kore")
     ap.add_argument("--dry", action="store_true")
+    ap.add_argument("--style", default="", help="TTS direction text; default = built-in STYLE")
     a = ap.parse_args()
     sd = ROOT / "channels/reality-check/stories" / a.story
     lines = units((sd / "script/voiceover_clean.txt").read_text(encoding="utf-8"))
@@ -69,7 +70,7 @@ def main():
         out = cache / f"line_{i + 1:03d}.wav"
         for attempt in (1, 2, 3):
             try:
-                r = gemini_tts.speak(lines[i]["text"], a.voice, STYLE, out)
+                r = gemini_tts.speak(lines[i]["text"], a.voice, a.style or STYLE, out)
                 print(f"[{n}/{len(todo)}] line {i + 1} {r['seconds']:.1f}s usd {r['usd']:.4f}", flush=True)
                 break
             except Exception as e:  # noqa: BLE001
@@ -102,6 +103,9 @@ def main():
         t += dur
         pcm += b"\x00" * (int(0.45 * SR) * 2)
         t += 0.45
+        if cuts.get("apply_hold") and (i + 1) in hold:          # silent hold after this line (e.g. [विराम] pivot, 2-3 s)
+            pcm += b"\x00" * (int(hold[i + 1] * SR) * 2)
+            t += hold[i + 1]
     with wave.open(str(sd / "audio/voiceover_full.wav"), "wb") as w:
         w.setnchannels(1), w.setsampwidth(2), w.setframerate(SR), w.writeframes(bytes(pcm))
     (sd / "audio/voiceover_timing.json").write_text(json.dumps(timing, ensure_ascii=False, indent=1), encoding="utf-8")

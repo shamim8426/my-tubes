@@ -1,3 +1,7 @@
+# OVERRIDE (user 2026-11-15, latest): upload PUBLIC directly (not private), Long may cover multiple items of the topic type. See RUN_COMMON.md section 10.
+
+# OVERRIDE (user 2026-11-15): every day 3 Shorts + 1 LONG (>= 5 min, detailed). The Long replaces ONE slot per day and rotates: 2026-11-16 Claude Feature, 11-17 Daily-life, 11-18 AI news, 11-19 Claude Code, then repeats. Full rule: scheduled_tasks/RUN_COMMON.md section 9. This replaces "4 Shorts, no longs" below.
+
 # DevRoboLab daily plan
 
 ## OVERRIDE (user 2026-11-09, binding, beats everything below): 4 SHORTS per day, NO longs
@@ -6,14 +10,14 @@
 | 06:30 | devrobolab-cfe-long (renamed: Claude Code Short) | Claude Code feature Short, done by 09:00 |
 | 20:30 | devrobolab-claude-code-long (renamed: Claude Feature Short) | Claude for Everyone feature Short |
 | 22:50 | devrobolab-daily-life-short | Daily-life Short (one per type) |
-Disabled: devrobolab-long-cut-short (no longs). All Shorts 9:16, 35-40 s, private upload + thumbnail (no robot). Task ids keep the old names; their prompts are the new plan.
+Disabled: devrobolab-long-cut-short (no longs). All Shorts 9:16, 50-60 s, private upload + thumbnail (no robot). Task ids keep the old names; their prompts are the new plan.
 
 # DevRoboLab daily plan (user 2026-11-07; SUPERSEDES the older DAILY PLAN lines in DAILY_COMMON.md and RESUME.md)
 
 Status: ACTIVE (user 2026-11-07): the 5 scheduled tasks below run every day and upload PRIVATE; the user makes videos public in Studio. The user can still ask for a video any time.
 
 ## Formats (decided)
-- AI news: SHORT (9:16, 35-40 s).
+- AI news: SHORT (9:16, 50-60 s).
 - Claude for Everyone feature (Claude app, not Claude Code): LONG (16:9, about 3 min). Playlist PLEklr-qY9V3U, title "Claude Feature NN: ...".
 - Claude Code feature: LONG (16:9, about 3 min). Playlist PLGTgifZfJLow, title "Claude Code NN: ...". (This replaces "Claude Code Short only" in STYLE_LIBRARY/RESUME.)
 - Claude in daily life: SHORT. NEW playlist (name: user decides; not created yet). Example-led Shorts: how to connect a tool or connector and what to say to Claude (one video per type, list in the Topic order section below; first Zomato).
@@ -37,7 +41,7 @@ Suggested public order for the user (Studio): news and Claude for Everyone after
 - Facts only from official sources (support.claude.com, claude.com docs, anthropic.com, code.claude.com). Third-party items (e.g. Zomato) are labelled as examples/third-party, with no real order, account or payment ever shown; a company logo only small and only if its own page allows media use.
 - MONEY (user 2026-11-07, binding): DevRoboLab spends at most **Rs 30 per day in total (all videos)**; floor **Rs 50** (balance Rs 536 on 2026-11-07, about Rs 3 per long and Rs 1 per Short, so the day's 5 videos need about Rs 10-15). Free key / free Cloudflare first, paid only when needed. Enforced in code: `shared/pricing.json budget.channel_daily_cap_inr` (day = 05:00-04:59), `gemini_keys.post` stops paid calls, `python scripts/daily_spend.py devrobolab` shows today's spend. Other channels' limits: the user decides separately.
 - Sync timing/words: every action on screen is tied to the real word times (wordtimes.py -> wt.json, T(scene, token)). Hindi captions are rendered by Chromium (`build_caps()` in `stories/044_cfe-memory/make_final.py`) because Pillow here has no raqm. Reference build for longs: `make_final.py` (per-beat zoom K, no blank frames).
-- Self-review before upload: frame sheet every 3 s; fail = no upload, report instead (checks: Hindi matras, blank frames, overlaps, cut text, sync of each spoken step, loudness -14 +-1, length 2:00-6:00 long / <= 40 s news Short).
+- Self-review before upload: frame sheet every 3 s; fail = no upload, report instead (checks: Hindi matras, blank frames, overlaps, cut text, sync of each spoken step, loudness -14 +-1, length 2:00-6:00 long / <= 60 s news Short (min 50 s)).
 
 ## Things that can stop the automatic runs (tell the user)
 - PC/app must be on at the slot time; if it was off the run still does the same work when it starts.
