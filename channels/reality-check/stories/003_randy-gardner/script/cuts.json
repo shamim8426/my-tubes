@@ -1,0 +1,8 @@
+{
+ "_note": "003 sample: [\u0935\u093f\u0930\u093e\u092e] after line 6 = 2.5 s silent hold",
+ "skip_lines": [],
+ "hold_after": {
+  "6": 2.5
+ },
+ "apply_hold": true
+}

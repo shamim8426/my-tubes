@@ -31,6 +31,9 @@ def main():
     ap.add_argument("story")
     ap.add_argument("--track", default="shared/music/doc2/Ancient_Rite.mp3")
     ap.add_argument("--end", type=float, default=60.0)
+    ap.add_argument("--below", type=float, default=11.5, help="body music LU under the voice in the 150 Hz-8 kHz speaker band")
+    ap.add_argument("--tag", default="ref_sample")
+    ap.add_argument("--off", type=float, default=0.0, help="start offset into the track (s)")
     a = ap.parse_args()
     sd = next((ROOT / "channels/reality-check/stories").glob(a.story + "_*"))
     ld = sd / "long"
@@ -46,9 +49,24 @@ def main():
     spm = RS.env_interp(sp, N)
     vl = RS.lufs(voice[spm > 0.5])
     # ---- one bed, looped only if shorter than the sample
-    bed = MM.full_track(a.track, 0.0, total)
+    bed = MM.full_track(a.track, a.off, total)
     for ch in (0, 1):
         bed[:, ch] = RS.fft_filter(bed[:, ch], lo=45, hi=9000)
+    f_ = np.fft.rfftfreq(N, 1 / SR)                                  # small-speaker audibility: cut sub rumble, lift the 200-2000 Hz range
+    gl_ = 10 ** ((-14.0 / (1 + (f_ / 140.0) ** 3) + 9.0 * np.exp(-0.5 * (np.log2(np.maximum(f_, 1) / 800.0) / 1.3) ** 2)) / 20)
+    for ch in (0, 1):
+        bed[:, ch] = np.fft.irfft(np.fft.rfft(bed[:, ch]) * gl_, N).astype(np.float32)
+    # slow leveler on the speaker band: tracks with big swells/drops are held steady (8 s smoothing, +-8 dB), so only our envelope shapes the level
+    mbl = RS.fft_filter(bed.mean(1), lo=150, hi=8000)
+    blk = SR // CR
+    nb = N // blk
+    edb = 10 * np.log10((mbl[: nb * blk] ** 2).reshape(nb, blk).mean(1) + 1e-10)
+    k = np.ones(8 * CR) / (8 * CR)
+    sm = np.convolve(np.pad(edb, (len(k) // 2, len(k) // 2), mode="edge"), k, mode="valid")[:nb]
+    gdb = np.clip(np.median(sm) - sm, -8, 8)
+    k2 = np.ones(4 * CR) / (4 * CR)
+    gdb = np.convolve(np.pad(gdb, (len(k2) // 2, len(k2) // 2), mode="edge"), k2, mode="valid")[:nb]
+    bed[: nb * blk] *= np.repeat(10 ** (gdb / 20), blk)[:, None]
     t = np.arange(nc) / CR
     # pivot: L5 "ye hua kaise?" -> music off while the narrator continues (hold 27.4-32.9), 2 s down, 2.5 s up
     off0, off1 = by[5]["start"] - 0.2, by[6]["start"] - 2.9            # 27.4 .. 32.9
@@ -56,7 +74,7 @@ def main():
     d += cos_ramp(t, off0 - 2.0, off0, True) * cos_ramp(t, off1, off1 + 2.5, False)
     d = np.where((t >= off0) & (t <= off1), 1.0, d)
     d = np.where(t > off1 + 2.5, 0.0, d)
-    depth = 30.0
+    depth = 22.0
     env_db = -depth * d
     # open section a little louder (about 12 LU under the voice), body 15.5; changes over 3 s (brightness/density change = level only, same bed)
     open_db = 3.5 * cos_ramp(t, off0 - 2.0 - 3.0, off0 - 2.0, False)
@@ -64,11 +82,13 @@ def main():
     env_db += -24.0 * np.clip(1 - t / 6.0, 0, 1)                         # fade in over 6 s
     env_db += -45.0 * np.clip(1 - (total - t) / 1.5, 0, 1) if False else 0
     bed *= RS.env_interp(10 ** (env_db / 20), N)[:, None]
-    # calibrate so the BODY (after the pivot, 36-60 s speech) sits 15.5 LU under the voice
-    body = (spm > 0.5) & (np.arange(N) / SR > by[6]["start"])
-    ml = RS.lufs(bed[body])
-    g = 10 ** ((vl - 15.5 - ml) / 20)
-    bed *= g
+    # calibrate on the speaker band (150 Hz-8 kHz): open section (speech before the pivot) sits (below - 3.5) LU under the voice, the body (after) below LU
+    pre = (spm > 0.5) & (np.arange(N) / SR < off0 - 2.0)
+    vb = RS.fft_filter(voice, lo=150, hi=8000)
+    mb = RS.fft_filter(bed.mean(1), lo=150, hi=8000)
+    g = 10 ** ((RS.lufs(vb[pre]) - (a.below - 3.5) - RS.lufs(mb[pre])) / 20)
+    gfull = 10 ** ((RS.lufs(voice[pre]) - 8.0 - RS.lufs(bed.mean(1)[pre])) / 20)    # cap: full band never closer than 8 LU to the voice (no boomy bass on good speakers)
+    bed *= min(g, gfull)
     # ---- sub events only: opening soft boom, thud on the caption landing, title-card boom, section boom after the pivot (+ the plan's tick on the timeline pin at -24 dB)
     vpk = 20 * np.log10(np.abs(voice).max() + 1e-9)
     evs, _ = FX.parse_plan(str(ld / "sound_event_plan.md"))
@@ -103,7 +123,7 @@ def main():
     bed[:, 0] += out
     bed[:, 1] += out
     mix = np.stack([voice, voice], 1) + bed
-    cdir = ROOT / "cache/reality-check" / a.story / "ref_sample"
+    cdir = ROOT / "cache/reality-check" / a.story / a.tag
     cdir.mkdir(parents=True, exist_ok=True)
     raw = cdir / "mix_raw.f32"
     raw.write_bytes(mix.astype("<f4").tobytes())
@@ -128,7 +148,9 @@ def main():
         a_, b_ = s0 * SR, min((s0 + 10) * SR, N)
         mk = (spm[a_:b_] > 0.5)
         if mk.sum() > SR // 2:
-            rep.append(f"  {s0:2d}-{s0 + 10:2d} s: music {RS.lufs(music_only[a_:b_][mk]) - RS.lufs(voice[a_:b_][mk]):6.1f} LU vs voice (speech frames)")
+            mbb = RS.fft_filter(music_only[a_:b_].mean(1), lo=150, hi=8000)
+            vbb = RS.fft_filter(voice[a_:b_], lo=150, hi=8000)
+            rep.append(f"  {s0:2d}-{s0 + 10:2d} s: music {RS.lufs(mbb[mk]) - RS.lufs(vbb[mk]):6.1f} LU vs voice in 150Hz-8kHz speaker band (full band {RS.lufs(music_only[a_:b_][mk]) - RS.lufs(voice[a_:b_][mk]):.1f})")
     rep.append("events (type, line, mix time, time from timing json, delta s, level vs voice peak):")
     for ty, ln_, tm, tj, rel in rows:
         rep.append(f"  {ty:9s} L{ln_:<3d} {tm:6.2f}  {tj:6.2f}  {tm - tj:+.2f}  {rel:+.0f} dB   (line {by[ln_]['start']:.2f}-{by[ln_]['end']:.2f})")
