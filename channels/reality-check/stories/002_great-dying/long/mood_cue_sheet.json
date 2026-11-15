@@ -1,0 +1,19 @@
+{
+ "_note": "002 cue sheet written from the script meaning (2026-11-15). Section = first line of a new mood; pivot lines = music-off while the narrator continues.",
+ "pivot_lines": [5, 34, 46, 54, 71, 77, 90, 99],
+ "sections": [
+  {"line": 1, "mood": "curious_mystery", "why": "hook: an almost empty earth, 'how did this happen?'"},
+  {"line": 6, "mood": "calm_wonder", "why": "what the Permian world was like: Pangaea, forests, reefs"},
+  {"line": 18, "mood": "rising_tension", "why": "252 million years ago life starts dying; what extinction means"},
+  {"line": 22, "mood": "danger_dark", "why": "the numbers: 96 percent, 81 percent, 70 percent of land animals"},
+  {"line": 30, "mood": "time_night", "why": "how fast? 60,000 years, the 24-hour film"},
+  {"line": 35, "mood": "curious_mystery", "why": "how do we know? the answer is in the stones"},
+  {"line": 47, "mood": "danger_dark", "why": "Siberian Traps: lava for thousands of years"},
+  {"line": 55, "mood": "discovery_awe", "why": "the answer: not lava but gas"},
+  {"line": 59, "mood": "rising_tension", "why": "the four killers"},
+  {"line": 72, "mood": "reflective_serious", "why": "how big the damage was is not settled"},
+  {"line": 78, "mood": "hope_recovery", "why": "survivors, slow recovery"},
+  {"line": 91, "mood": "reflective_serious", "why": "does it matter today? what studies say"},
+  {"line": 100, "mood": "ending_resolution", "why": "the pattern is the same; the world grew from the few that survived"}
+ ]
+}

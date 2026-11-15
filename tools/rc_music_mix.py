@@ -157,7 +157,8 @@ def main():
     # slow leveler: the tracks have loud and near-silent passages; keep the music loudness steady so it stays light but audible everywhere
     blk = SR // RS.CR
     nb = N // blk
-    e = (music[: nb * blk] ** 2).mean(1).reshape(nb, blk).mean(1) + 1e-10
+    lv_src = RS.fft_filter(music.mean(1), lo=150, hi=8000) if cfg.get("band_cal") else music.mean(1)   # level what phones hear
+    e = (lv_src[: nb * blk] ** 2).reshape(nb, blk).mean(1) + 1e-10
     edb = 10 * np.log10(e)
     k = np.ones(int(8 * RS.CR)) / int(8 * RS.CR)
     sm = np.convolve(np.pad(edb, (len(k) // 2, len(k) // 2), mode="edge"), k, mode="valid")[: nb]
@@ -166,12 +167,25 @@ def main():
     gdb = np.convolve(np.pad(gdb, (len(k2) // 2, len(k2) // 2), mode="edge"), k2, mode="valid")[: nb]
     music[: nb * blk] *= np.repeat(10 ** (gdb / 20), blk)[:, None]
     # per-section energy: cue "energy" 1-5 -> relative level, smoothed across the section change (real dynamics between sections)
+    cue_norm = {}
+    if cfg.get("per_cue_norm", cfg.get("band_cal", False)):       # every cue region at the same speaker-band level before mood gains (tracks differ a lot)
+        mb_ = RS.fft_filter(music.mean(1), lo=150, hi=8000)
+        lv = {}
+        for i, c in enumerate(cues):
+            i0_ = int((c["t"] + c.get("xf", xf)) * SR)
+            i1_ = int((cues[i + 1]["t"] if i + 1 < len(cues) else total - 12) * SR)
+            if i1_ - i0_ > 3 * SR:
+                lv[i] = RS.lufs(mb_[i0_:i1_])
+        if lv:
+            med_ = float(np.median(list(lv.values())))
+            cue_norm = {i: float(np.clip(med_ - v, -12, 12)) for i, v in lv.items()}
+            print("per-cue band normalisation (dB):", {cues[i]["name"][:28]: round(v, 1) for i, v in cue_norm.items()})
     EN = {1: -2.0, 2: 0.0, 3: 1.5, 4: 3.0, 5: 4.5}
     step = np.zeros(nc)
     for i, c in enumerate(cues):
         a0 = int(c["t"] * RS.CR)
         a1 = int((cues[i + 1]["t"] if i + 1 < len(cues) else total) * RS.CR)
-        step[a0:a1] = c["gain_db"] if "gain_db" in c else EN.get(c.get("energy", 2), 0.0)
+        step[a0:a1] = (c["gain_db"] if "gain_db" in c else EN.get(c.get("energy", 2), 0.0)) + cue_norm.get(i, 0.0)
     kk = np.ones(int(5 * RS.CR)) / int(5 * RS.CR)
     stepdb = np.convolve(np.pad(step, (len(kk) // 2, len(kk) // 2), mode="edge"), kk, mode="valid")[: nc]
     music *= RS.env_interp(10 ** (stepdb / 20), N)[:, None]
@@ -298,6 +312,14 @@ def main():
                 music[i0:i0 + len(snd), 1] += snd[: N - i0]
                 fxlog.append((w_[1], "BOOM", -6.0, "cue-start boom after music-off"))
     else:
+        if cfg.get("booms"):                    # sub booms only at section starts (selector plan)
+            import rc_fx_v5 as FX
+            for b_ in cfg["booms"]:
+                snd = FX.render({"type": "BOOM"}) * 10 ** ((vpk + b_.get("rel", -6.0)) / 20)
+                i0 = int(b_["t"] * SR)
+                music[i0:i0 + len(snd), 0] += snd[: N - i0]
+                music[i0:i0 + len(snd), 1] += snd[: N - i0]
+                fxlog.append((b_["t"], "BOOM", b_.get("rel", -6.0), b_.get("why", "")))
         for q in cfg.get("sfx", []):
             put_fx("whoosh" if "whoosh" in q["kind"] else "subhit", q["t"], cfg.get("sfx_rel", -11.0) if "whoosh" in q["kind"] else cfg.get("sub_rel", -10.0), f"graphic start line {q.get('line', '')}")
     (ROOT / "cache/reality-check" / a.story / "music").mkdir(parents=True, exist_ok=True)
