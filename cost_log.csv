@@ -1867,3 +1867,22 @@ timestamp,file,model,size,cost_usd,cost_inr,today_total_inr,remaining_inr,channe
 2026-11-15 12:13:23,channels/reality-check/stories/003_randy-gardner/long/ai/a12_pillow_moon.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,1.92,354.38,reality-check,0.00,0.0000,0.00,,
 2026-11-15 12:13:23,channels/reality-check/stories/003_randy-gardner/long/ai/a11_bed_made.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,1.92,354.38,reality-check,0.00,0.0000,0.00,,
 2026-11-15 12:13:33,channels/reality-check/stories/003_randy-gardner/long/ai/a13_register.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,1.92,354.38,reality-check,0.00,0.0000,0.00,,
+2026-11-12 21:54:20,channels/devrobolab/stories/050_news-carbon-fable-decisions/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 3.3s free,0.00000,0.00,0.00,476.33,devrobolab,0.08,0.0000,0.00,12,82
+2026-11-12 21:54:32,channels/devrobolab/stories/050_news-carbon-fable-decisions/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 11.0s free,0.00000,0.00,0.00,476.33,devrobolab,0.25,0.0000,0.00,35,275
+2026-11-12 21:54:43,channels/devrobolab/stories/050_news-carbon-fable-decisions/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 11.0s free,0.00000,0.00,0.00,476.33,devrobolab,0.25,0.0000,0.00,35,275
+2026-11-12 21:54:50,channels/devrobolab/stories/050_cfe-voice-mode/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 4.6s free,0.00000,0.00,0.00,476.33,devrobolab,0.11,0.0000,0.00,18,115
+2026-11-12 21:55:22,channels/devrobolab/stories/050_cfe-voice-mode/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 6.9s free,0.00000,0.00,0.00,476.33,devrobolab,0.16,0.0000,0.00,30,172
+2026-11-12 21:55:32,channels/devrobolab/stories/050_cfe-voice-mode/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 6.6s free,0.00000,0.00,0.00,476.33,devrobolab,0.15,0.0000,0.00,32,165
+2026-11-12 21:55:36,channels/noor-e-raah/stories/007_imaan-shukr/audio/v3_l01.wav,gemini-3.8-flash-tts,tts 3.4s free,0.00000,0.00,0.00,476.33,noor-e-raah,0.08,0.0000,0.00,15,85
+2026-11-12 21:55:41,channels/devrobolab/stories/050_cfe-voice-mode/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 6.8s free,0.00000,0.00,0.00,476.33,devrobolab,0.15,0.0000,0.00,29,169
+2026-11-12 21:55:47,channels/noor-e-raah/stories/007_imaan-shukr/audio/v3_l02.wav,gemini-3.8-flash-tts,tts 5.1s free,0.00000,0.00,0.00,476.33,noor-e-raah,0.11,0.0000,0.00,15,128
+2026-11-12 21:55:51,channels/devrobolab/stories/050_cfe-voice-mode/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 7.0s free,0.00000,0.00,0.00,476.33,devrobolab,0.16,0.0000,0.00,28,174
+2026-11-12 21:55:54,channels/devrobolab/stories/050_news-carbon-fable-decisions/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 7.7s,0.00174,0.17,0.20,476.13,devrobolab,0.17,0.1680,0.03,25,192
+2026-11-12 21:55:56,channels/noor-e-raah/stories/007_imaan-shukr/audio/v3_l03.wav,gemini-3.8-flash-tts,tts 5.5s free,0.00000,0.00,0.20,476.13,noor-e-raah,0.12,0.0000,0.00,20,138
+2026-11-12 21:56:00,channels/devrobolab/stories/050_cfe-voice-mode/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 4.4s,0.00101,0.10,0.31,476.02,devrobolab,0.10,0.0975,0.02,23,111
+2026-11-12 21:56:04,channels/devrobolab/stories/050_news-carbon-fable-decisions/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 3.5s,0.00079,0.08,0.40,475.93,devrobolab,0.08,0.0763,0.01,16,87
+2026-11-12 21:56:06,channels/noor-e-raah/stories/007_imaan-shukr/audio/v3_l04.wav,gemini-3.8-flash-tts,tts 5.6s,0.00127,0.12,0.55,475.78,noor-e-raah,0.12,0.1223,0.02,14,140
+2026-11-12 21:56:15,channels/noor-e-raah/stories/007_imaan-shukr/audio/v3_l05.wav,gemini-3.8-flash-tts,tts 3.2s,0.00073,0.07,0.63,475.70,noor-e-raah,0.07,0.0701,0.01,12,80
+2026-11-12 21:56:25,channels/noor-e-raah/stories/007_imaan-shukr/audio/v3_l06.wav,gemini-3.8-flash-tts,tts 3.6s free,0.00000,0.00,0.63,475.70,noor-e-raah,0.08,0.0000,0.00,15,90
+2026-11-12 21:56:37,channels/noor-e-raah/stories/007_imaan-shukr/audio/v3_l07.wav,gemini-3.8-flash-tts,tts 4.9s free,0.00000,0.00,0.63,475.70,noor-e-raah,0.11,0.0000,0.00,19,122
+2026-11-12 21:56:49,channels/noor-e-raah/stories/007_imaan-shukr/audio/v3_l08.wav,gemini-3.8-flash-tts,tts 4.0s free,0.00000,0.00,0.63,475.70,noor-e-raah,0.09,0.0000,0.00,12,101

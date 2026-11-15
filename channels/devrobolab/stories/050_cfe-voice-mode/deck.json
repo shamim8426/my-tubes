@@ -1,0 +1,13 @@
+{
+ "tag": "Claude Feature 06",
+ "music": {"file": "shared/music/presentation/Funkorama.mp3", "start": 6, "rel": 12},
+ "voice": {"id": "Charon", "style": "Speak like a friendly Indian tech YouTuber chatting casually in Hinglish. Natural conversational pace, warm and clear, a little energetic but not theatrical. No sing-song, no exaggerated emphasis."},
+ "scenes": [
+  {"id": "hook", "voice": "टाइप नहीं करना? Claude से बोलकर बात करो! ये है voice mode।"},
+  {"id": "start", "voice": "Chat box में sound wave icon पर click करो, एक voice चुनो, और बोलना शुरू करो। Phone में ये icon mic के पास है।"},
+  {"id": "modes", "voice": "Hands-free में Claude तुम्हारे रुकते ही जवाब देता है। शोर वाली जगह हो तो push-to-talk चुनो, बटन दबाकर बोलो।"},
+  {"id": "extra", "voice": "Text और voice एक ही chat में बदल सकते हो, बात आगे चलती है। Language Settings से चुनो, दूसरी languages beta में हैं।"},
+  {"id": "caution", "voice": "ध्यान रखो! Voice की बातें भी usage limit में गिनी जाती हैं। Audio रखा नहीं जाता, सिर्फ़ transcript chat में रहता है।"},
+  {"id": "cta", "voice": "Voice mode try किया? DevRoboLab को follow करो, कल नया feature लेकर आऊँगा।"}
+ ]
+}
