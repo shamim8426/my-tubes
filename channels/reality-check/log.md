@@ -42,3 +42,6 @@
 
 ## 2026-11-15 002 Long speaker-calibrated mix (private)
 - New video brHBu3zV5jI (https://youtu.be/brHBu3zV5jI): music calibrated in the 150 Hz-8 kHz speaker band (median -11.5 LU under voice, range -14.7..-8.4 per 30 s), mid EQ boost, booms with upper harmonics, off-ramps to -22 dB. -14.1 LUFS, TP -1.5, 752.2 s. Earlier private videos left for the user to delete.
+
+## 2026-11-15 003 Randy Gardner: 60 s sample (lines 1-8)
+- TTS Charon 13 lines (free key ran out, most on paid key), 16 Cloudflare flux images free. Bed: Ossuary 6 - Air (Kevin MacLeod, CC BY 4.0), speaker-band calibrated. Output long/output/003_sample_60s.mp4 + 360p copy (not uploaded). Permanent channel bed = Ossuary 6 - Air (user pick 2026-11-15).

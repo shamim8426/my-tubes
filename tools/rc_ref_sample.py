@@ -43,6 +43,7 @@ def main():
     N = int(total * SR)
     nc = int(total * CR) + 2
     voice = RS.load_audio(sd / "audio/voiceover_full.wav", 1)[:, 0][:N]
+    voice = np.pad(voice, (0, max(0, N - len(voice))))
     sp = np.zeros(nc)
     for l in lines:
         sp[int(l["start"] * CR): min(nc, int(l["end"] * CR) + 1)] = 1.0
@@ -69,21 +70,27 @@ def main():
     bed[: nb * blk] *= np.repeat(10 ** (gdb / 20), blk)[:, None]
     t = np.arange(nc) / CR
     # pivot: L5 "ye hua kaise?" -> music off while the narrator continues (hold 27.4-32.9), 2 s down, 2.5 s up
-    off0, off1 = by[5]["start"] - 0.2, by[6]["start"] - 2.9            # 27.4 .. 32.9
+    sj = ld / "sound_events.json"
+    SEV = json.loads(sj.read_text(encoding="utf-8")) if sj.exists() else None
+    if SEV:
+        o = SEV["off"]
+        off0, off1, dn, up = by[o["line_from"]]["start"] - o.get("lead", 0.3), by[o["line_to"]]["start"], o.get("down", 2.5), o.get("up", 3.0)
+    else:
+        off0, off1, dn, up = by[5]["start"] - 0.2, by[6]["start"] - 2.9, 2.0, 2.5            # 002: 27.4 .. 32.9
     d = np.zeros(nc)
-    d += cos_ramp(t, off0 - 2.0, off0, True) * cos_ramp(t, off1, off1 + 2.5, False)
+    d += cos_ramp(t, off0 - dn, off0, True) * cos_ramp(t, off1, off1 + up, False)
     d = np.where((t >= off0) & (t <= off1), 1.0, d)
-    d = np.where(t > off1 + 2.5, 0.0, d)
+    d = np.where(t > off1 + up, 0.0, d)
     depth = 22.0
     env_db = -depth * d
     # open section a little louder (about 12 LU under the voice), body 15.5; changes over 3 s (brightness/density change = level only, same bed)
-    open_db = 3.5 * cos_ramp(t, off0 - 2.0 - 3.0, off0 - 2.0, False)
+    open_db = 3.5 * cos_ramp(t, off0 - dn - 3.0, off0 - dn, False)
     env_db += open_db
     env_db += -24.0 * np.clip(1 - t / 6.0, 0, 1)                         # fade in over 6 s
     env_db += -45.0 * np.clip(1 - (total - t) / 1.5, 0, 1) if False else 0
     bed *= RS.env_interp(10 ** (env_db / 20), N)[:, None]
     # calibrate on the speaker band (150 Hz-8 kHz): open section (speech before the pivot) sits (below - 3.5) LU under the voice, the body (after) below LU
-    pre = (spm > 0.5) & (np.arange(N) / SR < off0 - 2.0)
+    pre = (spm > 0.5) & (np.arange(N) / SR < off0 - dn)
     vb = RS.fft_filter(voice, lo=150, hi=8000)
     mb = RS.fft_filter(bed.mean(1), lo=150, hi=8000)
     g = 10 ** ((RS.lufs(vb[pre]) - (a.below - 3.5) - RS.lufs(mb[pre])) / 20)
@@ -91,9 +98,14 @@ def main():
     bed *= min(g, gfull)
     # ---- sub events only: opening soft boom, thud on the caption landing, title-card boom, section boom after the pivot (+ the plan's tick on the timeline pin at -24 dB)
     vpk = 20 * np.log10(np.abs(voice).max() + 1e-9)
-    evs, _ = FX.parse_plan(str(ld / "sound_event_plan.md"))
+    if SEV:
+        evs = [dict(type=e["type"], line=e["line"], t=by[e["line"]]["start"] + e["offset"], rel=float(e["rel"]), text=e.get("why", "")) for e in SEV["events"]]
+    else:
+        evs, _ = FX.parse_plan(str(ld / "sound_event_plan.md"))
     plan = {}
-    txt = (ld / "sound_event_plan.md").read_text(encoding="utf-8")
+    txt = (ld / "sound_event_plan.md").read_text(encoding="utf-8") if not SEV else "## 5.\n"
+    if SEV:
+        plan = {e["line"]: by[e["line"]]["start"] for e in evs}
     for row in txt.split("## 5.")[1].splitlines():
         m = re.match(r"\|\s*(\d+)\s*\|\s*(\d+):(\d\d\.\d)\s*\|", row)
         if m:
@@ -108,7 +120,7 @@ def main():
             keep.append(e)
     # the section start after the pivot gets a full sub boom (2.2 s tail) instead of the soft one
     for e in keep:
-        if e["line"] == 6 and e["type"] == "BOOM-soft":
+        if not SEV and e["line"] == 6 and e["type"] == "BOOM-soft":
             e["type"], e["rel"] = "BOOM", -6.0
     out = np.zeros(N, np.float32)
     rows = []
@@ -118,7 +130,7 @@ def main():
         sg = snd[: N - i0] * 10 ** ((vpk + e["rel"]) / 20)
         out[i0:i0 + len(sg)] += sg
         l = by[e["line"]]
-        rows.append((e["type"], e["line"], e["t"], l["start"] + (e["t"] - plan[e["line"]]), e["rel"]))
+        rows.append((e["type"], e["line"], e["t"], (l["start"] + (e["t"] - plan[e["line"]])) if not SEV else l["start"] + next(x["offset"] for x in SEV["events"] if x["line"] == e["line"] and x["type"] == e["type"]), e["rel"]))
     music_only = bed.copy()
     bed[:, 0] += out
     bed[:, 1] += out
@@ -154,7 +166,7 @@ def main():
     rep.append("events (type, line, mix time, time from timing json, delta s, level vs voice peak):")
     for ty, ln_, tm, tj, rel in rows:
         rep.append(f"  {ty:9s} L{ln_:<3d} {tm:6.2f}  {tj:6.2f}  {tm - tj:+.2f}  {rel:+.0f} dB   (line {by[ln_]['start']:.2f}-{by[ln_]['end']:.2f})")
-    rep.append(f"music-off hold {off0:.1f}-{off1:.1f} s (L5 'ye hua kaise?' line {by[5]['start']:.2f}-{by[5]['end']:.2f}); section boom at L6 start {by[6]['start']:.2f}")
+    rep.append(f"music-off hold {off0:.1f}-{off1:.1f} s, ramp down {dn} s before, up {up} s after")
     e = subprocess.run([MM.FF, "-hide_banner", "-nostats", "-i", str(cdir / "mix_norm.wav"), "-filter_complex", "ebur128=peak=true", "-f", "null", "-"], capture_output=True, text=True).stderr
     rep += [x.strip() for x in e.splitlines() if re.search(r"^\s+(I|Peak):", x)][-2:]
     (cdir / "report.txt").write_text("\n".join(rep), encoding="utf-8")

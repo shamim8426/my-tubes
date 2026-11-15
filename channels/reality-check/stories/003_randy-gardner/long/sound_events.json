@@ -1,0 +1,9 @@
+{
+ "_note": "003 sample (lines 1-8): times from audio/voiceover_timing.json. Music off from 0.3 s before L6 (pivot question) through the [विराम] hold; returns over 3 s with a sub boom at L7 (new section).",
+ "off": {"line_from": 6, "lead": 0.3, "line_to": 7, "down": 2.5, "up": 3.0},
+ "events": [
+  {"type": "BOOM-soft", "line": 1, "offset": 0.3, "rel": -8, "why": "opening"},
+  {"type": "THUD", "line": 4, "offset": 2.1, "rel": -13, "why": "San Diego 1964 caption lands"},
+  {"type": "BOOM", "line": 7, "offset": 0.0, "rel": -6, "why": "new section after the pivot"}
+ ]
+}
