@@ -56,7 +56,7 @@ names or product wording are reused. Study files are deleted within 24 h (see re
 - Pattern interrupt every 5-8 s: face <-> UI <-> b-roll rotation, one overlay, one big-number or name card; never three same-type segments in a row.
 - One concrete example prompt/task typed live on screen (about 3 s of cursor + text) beats three abstract adjectives.
 
-## 9. Merge with LONG_FORM_LEARNINGS (what carries over to a 35-40 s Short)
+## 9. Merge with LONG_FORM_LEARNINGS (what carries over to a 50-60 s Short)
 - Numbers before concepts: one big-number card in the first 10 s (price, count, date).
 - One named everyday example (not a person): carry a single task through the Short ("write an email", "find a headphone under X").
 - Source line (3% height) under every real screenshot; official page only (RULES: no unverified claims).
@@ -71,4 +71,4 @@ names or product wording are reused. Study files are deleted within 24 h (see re
 5. Caption chips: opaque, 2-3 words, 66-75% height, correct spelling; key word tinted.
 6. End: stacked CTA lock-up (KEYWORD word gradient/yellow) for the last 4 s, spoken twice; pinned comment has the link.
 7. Loudness -14 LUFS, music low, soft whooshes on blur transitions only.
-8. Length 35-40 s; a new picture at least every 3 s; no caption longer than 3 words at once.
+8. Length 50-60 s; a new picture at least every 4 s; no caption longer than 3 words at once.
