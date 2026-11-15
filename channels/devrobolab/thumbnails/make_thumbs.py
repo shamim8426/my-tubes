@@ -167,6 +167,14 @@ def logos(items, extra=None):
     if extra: t += f'<div class=lg><div class="ic plus">{extra}</div><div class=ln>aur bhi</div></div>'
     return f'<div class=lgrid>{t}</div>'
 VIDEOS = [
+    ("8lXDxYk0-gg", P, "peach", "think", "l", "CLAUDE IN DAILY LIFE 03", ("Schedule ke sawaal,", "*Claude* se poochho"), steps(["Calendar connect karo", "Chat me poocho", "Conflict dekho"])),
+    ("7JbuBihcvcQ", P, "cream", "think", "l", "CLAUDE CODE 07", ("Kahan chalayein?", "*Claude Code* ke 6 raaste"), steps(["Terminal ya IDE", "Desktop ya Web", "Phone se bhi"])),
+    ("VqFpEnY_SWc", P, "lime", "think", "r", "CLAUDE IN DAILY LIFE 02", ("Mails dhoondho,", "*Claude* se reply"), steps(["Gmail connect karo", "Chat me poocho", "Reply draft padho"])),
+    ("cqWoLFjTP2Y", P, "mint", "think", "r", "CLAUDE FEATURE 08", ("Chat private?", "*Incognito* aur toggle"), steps(["Settings > Privacy", "Toggle off", "Ghost icon"])),
+    ("pgwgAsMB-P0", P, "lav", "think", "l", "CLAUDE CODE 06", ("Done bola,", "*check* kiya?"), steps(["Check do", "Pass/fail dekho", "Evidence mango"])),
+    ("kt2n1bc4qTY", P, "sky", "think", "r", "CLAUDE IN DAILY LIFE 01", ("Khana order", "*Claude* se karo"), steps(["Connectors kholo", "Zomato jodo", "Chat me bolo"])),
+    ("o93cpNeVYmo", P, "pink", "think", "r", "CLAUDE FEATURE 07", ("Limit khatam?", "*Usage limit* samjho"), meter("USAGE LIMIT", 100, ["resets every 5 hours", "weekly limit"])),
+    ("TqMSePuzBDU", P, "peach", "think", "l", "CLAUDE CODE 05", ("Kya likhein?", "*Prompt library* se lo"), term("claude  -  Terminal", ["> give me an overview", "  of this codebase", "> why is the build", "  failing? @build.log"])),
     ("zfOBSjw3RA0", L, "cream", "think", "l", "CLAUDE FEATURE 05", ("Claude ko sab", "*yaad* hai?"), memory_flow()),
     ("qdRnSC9QQEI", L, "lav", "think", "l", "CLAUDE CODE 04", ("Model badla,", "*cache* toota?"), meter("CACHE HIT RATE", 94, ["cache read", "cheap"])),
     ("E-yaXp_ZgMw", L, "sky", "work", "r", "CLAUDE CODE 03", ("Aapke *.claude*", "folder me kya hai?"),
@@ -200,10 +208,14 @@ VIDEOS = [
     ("5eH-XqR6SQ0", P, "mint", "thumbs", "r", "CLAUDE CODE 02", ("Claude Code", "ab *2.5x* tez"), bars([("Normal", 40, "1x", "#9aa3b2"), ("/fast", 100, "2.5x", "#FFC800")])),
     ("W8fkKh9uFAc", P, "peach", "thumbs", "l", "AI NEWS", ("Sirf *65 MB* ka", "AI awaaz"), big("65 MB", "bina internet chalta hai", ["Phonon", "offline"], 110)),
     ("lXYyyQmxVfg", P, "sky", "think", "l", "CLAUDE FEATURE 04", ("PDF aur photo", "*upload* karo"), flow([("Aap upload karte ho", '<div class=bub>PDF + photo</div>', "#fff"), ("Claude jawab deta hai", '<div class=bub>Ye raha summary &#10003;</div>', "#E8F7EC")])),
+    ("UaI9m00Q82k", P, "mint", "think", "l", "AI NEWS", ("*3 AI Updates*", "Worth Knowing Today"), logos(["Gemini", "Claude"], None)),
     ("oQni7skZzgs", P, "lav", "wave", "r", "AI NEWS", ("Google AI video", "*15 second* ka"), bars([("Pehle", 66, "10 s", "#9aa3b2"), ("Ab", 100, "15 s", "#7B5CF6")])),
+    ("tQLX2wNlo-g", P, "lime", "think", "l", "AI NEWS", ("*3 Google Updates*", "Search, Android, Labs"), logos(["Gemini"], "+2")),
+    ("vOhjs6dAL9o", P, "cream", "think", "l", "AI NEWS", ("*3 AI Updates*", "Code Mode, llama, Robots"), logos(["Claude", "Gemini"], None)),
+    ("XdzDMRTrPfA", P, "mint", "wave", "r", "CLAUDE FEATURE 06", ("Type nahi,", "*bol kar* poochho"), flow([("Aap bolte ho", '<div class=bub>Sound wave icon dabao</div>', "#fff"), ("Claude jawab deta hai", '<div class=bub>Voice mode ON &#10003;</div>', "#E8F7EC")])),
 ]
 
-TAGLINES = {"oQni7skZzgs": "Ab edit karo, shuru se banane ki zaroorat nahi", "nHhmmwqwMtw": "Gemini, Mistral, Ollama +2"}
+TAGLINES = {"8lXDxYk0-gg": "Calendar connector, step by step", "7JbuBihcvcQ": "CLI, IDE, Desktop, Web: official guide", "vOhjs6dAL9o": "Code Mode, llama.cpp 1.0, Gemini Robotics", "VqFpEnY_SWc": "Gmail connector, step by step", "cqWoLFjTP2Y": "2 privacy settings, official pages", "pgwgAsMB-P0": "Test, goal, Stop hook: official tareeke", "kt2n1bc4qTY": "Zomato connector, step by step","o93cpNeVYmo": "5-hour session + weekly limit, bachane ke tips","TqMSePuzBDU": "Copy-paste prompts, official docs", "tQLX2wNlo-g": "Gemini 4 Hydrogen, Android, Tabletop", "UaI9m00Q82k": "Gemini 4 Carbon, Fable 5.2, Decisions API", "XdzDMRTrPfA": "Hands-free ya push-to-talk: kaunsa kab?", "oQni7skZzgs": "Ab edit karo, shuru se banane ki zaroorat nahi", "nHhmmwqwMtw": "Gemini, Mistral, Ollama +2"}
 
 HTML = """<style>%(css)s</style><body class="%(cls)s" style="--bg:%(bg)s;--blob:%(blob)s"><div class=dots></div>
 %(blob_html)s
@@ -290,3 +302,4 @@ if __name__ == "__main__":
     r = render(sys.argv[1:])
     bad = [k for k, v in r.items() if v]
     print(len(r) - len(bad), "ok,", len(bad), "FAIL", bad)
+
