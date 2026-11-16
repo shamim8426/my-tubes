@@ -1633,6 +1633,240 @@ timestamp,file,model,size,cost_usd,cost_inr,today_total_inr,remaining_inr,channe
 2026-11-08 13:46:04,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_158.wav,gemini-3.8-flash-tts,tts 9.6s,0.00219,0.21,36.91,483.85,reality-check,0.22,0.2110,0.04,36,241
 2026-11-08 13:46:13,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_159.wav,gemini-3.8-flash-tts,tts 5.1s,0.00116,0.11,37.04,483.72,reality-check,0.12,0.1120,0.02,17,128
 2026-11-08 13:46:22,channels/reality-check/stories/001_asteroid-defence/audio/tts_cache/line_160.wav,gemini-3.8-flash-tts,tts 7.1s,0.00161,0.16,37.22,483.54,reality-check,0.16,0.1552,0.03,30,177
+2026-11-13 17:29:44,channels/reality-check/stories/002_great-dying/audio/voice_test/male_Charon.wav,gemini-3.8-flash-tts,tts 87.7s free,0.00000,0.00,0.00,476.33,reality-check,1.94,0.0000,0.00,341,2193
+2026-11-13 17:30:13,channels/reality-check/stories/002_great-dying/audio/voice_test/male_Orus.wav,gemini-3.8-flash-tts,tts 92.2s free,0.00000,0.00,0.00,476.33,reality-check,2.03,0.0000,0.00,341,2305
+2026-11-13 17:30:44,channels/reality-check/stories/002_great-dying/audio/voice_test/male_Iapetus.wav,gemini-3.8-flash-tts,tts 91.2s free,0.00000,0.00,0.00,476.33,reality-check,2.01,0.0000,0.00,341,2280
+2026-11-13 18:42:51,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_001.wav,gemini-3.8-flash-tts,tts 6.6s free,0.00000,0.00,0.00,476.33,reality-check,0.15,0.0000,0.00,22,166
+2026-11-13 18:43:03,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_002.wav,gemini-3.8-flash-tts,tts 5.5s free,0.00000,0.00,0.00,476.33,reality-check,0.13,0.0000,0.00,17,138
+2026-11-13 18:43:13,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_003.wav,gemini-3.8-flash-tts,tts 5.9s free,0.00000,0.00,0.00,476.33,reality-check,0.13,0.0000,0.00,24,147
+2026-11-13 18:43:23,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_004.wav,gemini-3.8-flash-tts,tts 7.7s free,0.00000,0.00,0.00,476.33,reality-check,0.17,0.0000,0.00,25,193
+2026-11-13 18:43:33,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_005.wav,gemini-3.8-flash-tts,tts 6.9s free,0.00000,0.00,0.00,476.33,reality-check,0.16,0.0000,0.00,21,172
+2026-11-13 18:43:42,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_006.wav,gemini-3.8-flash-tts,tts 2.9s,0.00066,0.06,0.08,476.26,reality-check,0.07,0.0639,0.01,11,73
+2026-11-13 18:43:52,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_007.wav,gemini-3.8-flash-tts,tts 7.0s free,0.00000,0.00,0.08,476.26,reality-check,0.16,0.0000,0.00,26,174
+2026-11-13 18:44:03,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_008.wav,gemini-3.8-flash-tts,tts 8.0s free,0.00000,0.00,0.08,476.26,reality-check,0.18,0.0000,0.00,29,201
+2026-11-13 18:44:14,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_009.wav,gemini-3.8-flash-tts,tts 6.4s,0.00145,0.14,0.24,476.09,reality-check,0.15,0.1404,0.03,29,160
+2026-11-13 18:44:23,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_010.wav,gemini-3.8-flash-tts,tts 2.4s,0.00055,0.05,0.30,476.03,reality-check,0.06,0.0526,0.01,10,60
+2026-11-13 18:44:32,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_011.wav,gemini-3.8-flash-tts,tts 5.6s,0.00126,0.12,0.45,475.88,reality-check,0.13,0.1216,0.02,19,139
+2026-11-13 18:44:42,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_012.wav,gemini-3.8-flash-tts,tts 4.2s free,0.00000,0.00,0.45,475.88,reality-check,0.10,0.0000,0.00,14,104
+2026-11-13 18:44:51,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_013.wav,gemini-3.8-flash-tts,tts 9.4s free,0.00000,0.00,0.45,475.88,reality-check,0.21,0.0000,0.00,38,234
+2026-11-13 18:45:01,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_014.wav,gemini-3.8-flash-tts,tts 6.1s free,0.00000,0.00,0.45,475.88,reality-check,0.14,0.0000,0.00,25,153
+2026-11-13 18:45:12,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_015.wav,gemini-3.8-flash-tts,tts 6.2s,0.00140,0.13,0.61,475.72,reality-check,0.14,0.1349,0.02,23,154
+2026-11-13 18:45:22,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_016.wav,gemini-3.8-flash-tts,tts 4.9s free,0.00000,0.00,0.61,475.72,reality-check,0.11,0.0000,0.00,22,122
+2026-11-13 18:45:30,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_017.wav,gemini-3.8-flash-tts,tts 4.6s,0.00104,0.10,0.72,475.61,reality-check,0.10,0.1006,0.02,16,115
+2026-11-13 18:45:41,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_018.wav,gemini-3.8-flash-tts,tts 6.3s,0.00142,0.14,0.89,475.44,reality-check,0.14,0.1375,0.02,23,157
+2026-11-13 18:45:50,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_019.wav,gemini-3.8-flash-tts,tts 6.4s,0.00145,0.14,1.05,475.28,reality-check,0.14,0.1402,0.03,25,160
+2026-11-13 18:46:00,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_020.wav,gemini-3.8-flash-tts,tts 4.8s,0.00110,0.11,1.18,475.15,reality-check,0.11,0.1061,0.02,22,121
+2026-11-13 18:46:10,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_021.wav,gemini-3.8-flash-tts,tts 6.0s,0.00137,0.13,1.33,475.00,reality-check,0.14,0.1321,0.02,19,151
+2026-11-13 18:46:19,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_022.wav,gemini-3.8-flash-tts,tts 5.2s,0.00117,0.11,1.47,474.86,reality-check,0.12,0.1130,0.02,21,129
+2026-11-13 18:46:30,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_023.wav,gemini-3.8-flash-tts,tts 9.9s,0.00225,0.22,1.72,474.61,reality-check,0.22,0.2172,0.04,38,248
+2026-11-13 18:46:41,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_024.wav,gemini-3.8-flash-tts,tts 8.3s,0.00189,0.18,1.94,474.39,reality-check,0.19,0.1823,0.03,35,208
+2026-11-13 18:46:51,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_025.wav,gemini-3.8-flash-tts,tts 8.0s,0.00181,0.18,2.14,474.19,reality-check,0.18,0.1751,0.03,29,200
+2026-11-13 18:47:01,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_026.wav,gemini-3.8-flash-tts,tts 7.6s,0.00172,0.17,2.34,473.99,reality-check,0.17,0.1663,0.03,26,190
+2026-11-13 18:47:11,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_027.wav,gemini-3.8-flash-tts,tts 5.1s,0.00116,0.11,2.47,473.86,reality-check,0.12,0.1121,0.02,20,128
+2026-11-13 18:47:20,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_028.wav,gemini-3.8-flash-tts,tts 3.8s,0.00087,0.08,2.57,473.76,reality-check,0.09,0.0842,0.02,17,96
+2026-11-13 18:47:30,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_029.wav,gemini-3.8-flash-tts,tts 9.9s,0.00225,0.22,2.83,473.50,reality-check,0.22,0.2172,0.04,38,248
+2026-11-13 18:47:39,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_030.wav,gemini-3.8-flash-tts,tts 3.8s,0.00085,0.08,2.93,473.40,reality-check,0.09,0.0822,0.01,12,94
+2026-11-13 18:47:48,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_031.wav,gemini-3.8-flash-tts,tts 5.9s,0.00133,0.13,3.08,473.25,reality-check,0.13,0.1287,0.02,21,147
+2026-11-13 18:48:00,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_032.wav,gemini-3.8-flash-tts,tts 7.1s,0.00161,0.15,3.26,473.07,reality-check,0.16,0.1549,0.03,24,177
+2026-11-13 18:48:11,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_033.wav,gemini-3.8-flash-tts,tts 12.6s,0.00286,0.28,3.59,472.74,reality-check,0.28,0.2764,0.05,41,316
+2026-11-13 18:48:20,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_034.wav,gemini-3.8-flash-tts,tts 4.0s,0.00090,0.09,3.69,472.64,reality-check,0.09,0.0868,0.02,18,99
+2026-11-13 18:48:28,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_035.wav,gemini-3.8-flash-tts,tts 1.8s,0.00042,0.04,3.74,472.59,reality-check,0.04,0.0404,0.01,9,46
+2026-11-13 18:48:39,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_036.wav,gemini-3.8-flash-tts,tts 10.1s,0.00229,0.22,4.00,472.33,reality-check,0.23,0.2207,0.04,39,252
+2026-11-13 18:48:50,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_037.wav,gemini-3.8-flash-tts,tts 6.8s,0.00153,0.15,4.17,472.16,reality-check,0.15,0.1479,0.03,23,169
+2026-11-13 18:49:01,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_038.wav,gemini-3.8-flash-tts,tts 7.8s,0.00178,0.17,4.37,471.96,reality-check,0.18,0.1717,0.03,31,196
+2026-11-13 18:49:11,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_039.wav,gemini-3.8-flash-tts,tts 5.4s,0.00123,0.12,4.51,471.82,reality-check,0.12,0.1183,0.02,21,135
+2026-11-13 18:49:22,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_040.wav,gemini-3.8-flash-tts,tts 5.6s,0.00128,0.12,4.66,471.67,reality-check,0.13,0.1236,0.02,24,141
+2026-11-13 18:49:33,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_041.wav,gemini-3.8-flash-tts,tts 10.0s,0.00227,0.22,4.92,471.41,reality-check,0.22,0.2189,0.04,36,250
+2026-11-13 18:49:45,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_042.wav,gemini-3.8-flash-tts,tts 7.2s,0.00162,0.16,5.10,471.23,reality-check,0.16,0.1568,0.03,27,179
+2026-11-13 18:49:56,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_043.wav,gemini-3.8-flash-tts,tts 8.3s,0.00188,0.18,5.32,471.01,reality-check,0.19,0.1815,0.03,35,207
+2026-11-13 18:50:07,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_044.wav,gemini-3.8-flash-tts,tts 6.5s,0.00148,0.14,5.49,470.84,reality-check,0.15,0.1429,0.03,27,163
+2026-11-13 18:50:16,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_045.wav,gemini-3.8-flash-tts,tts 5.4s,0.00122,0.12,5.62,470.71,reality-check,0.12,0.1173,0.02,20,134
+2026-11-13 18:50:26,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_046.wav,gemini-3.8-flash-tts,tts 7.3s,0.00165,0.16,5.81,470.52,reality-check,0.16,0.1593,0.03,26,182
+2026-11-13 18:50:37,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_047.wav,gemini-3.8-flash-tts,tts 7.2s,0.00164,0.16,6.00,470.33,reality-check,0.16,0.1578,0.03,31,180
+2026-11-13 18:50:47,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_048.wav,gemini-3.8-flash-tts,tts 6.9s,0.00157,0.15,6.18,470.15,reality-check,0.16,0.1518,0.03,33,173
+2026-11-13 18:50:57,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_049.wav,gemini-3.8-flash-tts,tts 5.2s,0.00119,0.11,6.31,470.02,reality-check,0.12,0.1145,0.02,16,131
+2026-11-13 18:51:08,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_050.wav,gemini-3.8-flash-tts,tts 8.9s,0.00202,0.20,6.54,469.79,reality-check,0.20,0.1952,0.04,32,223
+2026-11-13 18:51:18,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_051.wav,gemini-3.8-flash-tts,tts 6.4s,0.00144,0.14,6.71,469.62,reality-check,0.14,0.1393,0.03,25,159
+2026-11-13 18:51:28,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_052.wav,gemini-3.8-flash-tts,tts 9.0s,0.00205,0.20,6.94,469.39,reality-check,0.20,0.1980,0.04,35,226
+2026-11-13 18:51:39,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_053.wav,gemini-3.8-flash-tts,tts 8.2s,0.00185,0.18,7.15,469.18,reality-check,0.18,0.1787,0.03,31,204
+2026-11-13 18:51:48,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_054.wav,gemini-3.8-flash-tts,tts 3.8s,0.00085,0.08,7.25,469.08,reality-check,0.09,0.0822,0.01,11,94
+2026-11-13 18:51:58,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_055.wav,gemini-3.8-flash-tts,tts 3.6s,0.00081,0.08,7.34,468.99,reality-check,0.08,0.0778,0.01,10,89
+2026-11-13 18:52:09,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_056.wav,gemini-3.8-flash-tts,tts 7.6s,0.00172,0.17,7.54,468.79,reality-check,0.17,0.1655,0.03,29,189
+2026-11-13 18:52:20,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_057.wav,gemini-3.8-flash-tts,tts 7.2s,0.00164,0.16,7.72,468.61,reality-check,0.16,0.1585,0.03,28,181
+2026-11-13 18:52:31,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_058.wav,gemini-3.8-flash-tts,tts 6.2s,0.00140,0.14,7.88,468.45,reality-check,0.14,0.1350,0.02,26,154
+2026-11-13 18:52:41,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_059.wav,gemini-3.8-flash-tts,tts 2.0s,0.00045,0.04,7.93,468.40,reality-check,0.05,0.0438,0.01,8,50
+2026-11-13 18:52:52,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_060.wav,gemini-3.8-flash-tts,tts 7.6s,0.00171,0.17,8.13,468.20,reality-check,0.17,0.1652,0.03,21,189
+2026-11-13 18:53:04,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_061.wav,gemini-3.8-flash-tts,tts 7.0s,0.00160,0.15,8.31,468.02,reality-check,0.16,0.1540,0.03,24,176
+2026-11-13 18:53:15,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_062.wav,gemini-3.8-flash-tts,tts 9.1s,0.00207,0.20,8.55,467.78,reality-check,0.21,0.1999,0.04,38,228
+2026-11-13 18:53:24,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_063.wav,gemini-3.8-flash-tts,tts 4.6s,0.00105,0.10,8.67,467.66,reality-check,0.11,0.1014,0.02,14,116
+2026-11-13 18:53:36,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_064.wav,gemini-3.8-flash-tts,tts 7.6s,0.00173,0.17,8.86,467.47,reality-check,0.17,0.1669,0.03,21,191
+2026-11-13 18:53:46,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_065.wav,gemini-3.8-flash-tts,tts 6.0s,0.00137,0.13,9.02,467.31,reality-check,0.14,0.1321,0.02,20,151
+2026-11-13 18:53:57,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_066.wav,gemini-3.8-flash-tts,tts 7.8s,0.00178,0.17,9.22,467.11,reality-check,0.18,0.1717,0.03,30,196
+2026-11-13 18:54:08,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_067.wav,gemini-3.8-flash-tts,tts 8.6s,0.00196,0.19,9.44,466.89,reality-check,0.19,0.1891,0.03,32,216
+2026-11-13 18:54:18,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_068.wav,gemini-3.8-flash-tts,tts 4.6s,0.00104,0.10,9.56,466.77,reality-check,0.11,0.1007,0.02,18,115
+2026-11-13 18:54:30,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_069.wav,gemini-3.8-flash-tts,tts 8.8s,0.00199,0.19,9.79,466.54,reality-check,0.20,0.1918,0.03,34,219
+2026-11-13 18:54:43,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_070.wav,gemini-3.8-flash-tts,tts 13.3s,0.00302,0.29,10.13,466.20,reality-check,0.30,0.2918,0.05,54,333
+2026-11-13 18:54:54,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_071.wav,gemini-3.8-flash-tts,tts 5.1s,0.00116,0.11,10.27,466.06,reality-check,0.12,0.1120,0.02,18,128
+2026-11-13 18:55:04,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_072.wav,gemini-3.8-flash-tts,tts 4.4s,0.00101,0.10,10.38,465.95,reality-check,0.10,0.0972,0.02,17,111
+2026-11-13 18:55:16,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_073.wav,gemini-3.8-flash-tts,tts 9.0s,0.00205,0.20,10.61,465.72,reality-check,0.20,0.1977,0.04,29,226
+2026-11-13 18:55:25,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_074.wav,gemini-3.8-flash-tts,tts 7.4s,0.00168,0.16,10.81,465.53,reality-check,0.17,0.1620,0.03,27,185
+2026-11-13 18:55:38,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_075.wav,gemini-3.8-flash-tts,tts 8.4s,0.00191,0.18,11.02,465.31,reality-check,0.19,0.1840,0.03,34,210
+2026-11-13 18:55:49,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_076.wav,gemini-3.8-flash-tts,tts 7.2s,0.00163,0.16,11.21,465.12,reality-check,0.16,0.1577,0.03,28,180
+2026-11-13 18:56:01,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_077.wav,gemini-3.8-flash-tts,tts 3.8s,0.00086,0.08,11.31,465.02,reality-check,0.09,0.0831,0.01,12,95
+2026-11-13 18:56:13,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_078.wav,gemini-3.8-flash-tts,tts 4.8s,0.00108,0.10,11.43,464.90,reality-check,0.11,0.1042,0.02,17,119
+2026-11-13 18:56:26,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_079.wav,gemini-3.8-flash-tts,tts 8.8s,0.00201,0.19,11.66,464.67,reality-check,0.20,0.1935,0.03,33,221
+2026-11-13 18:56:38,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_080.wav,gemini-3.8-flash-tts,tts 6.8s,0.00154,0.15,11.83,464.50,reality-check,0.15,0.1489,0.03,27,170
+2026-11-13 18:56:50,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_081.wav,gemini-3.8-flash-tts,tts 5.2s,0.00117,0.11,11.97,464.36,reality-check,0.12,0.1133,0.02,26,129
+2026-11-13 18:57:02,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_082.wav,gemini-3.8-flash-tts,tts 3.7s,0.00083,0.08,12.06,464.27,reality-check,0.08,0.0805,0.01,12,92
+2026-11-13 18:57:17,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_083.wav,gemini-3.8-flash-tts,tts 4.4s,0.00100,0.10,12.18,464.15,reality-check,0.10,0.0964,0.02,17,110
+2026-11-13 18:57:32,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_084.wav,gemini-3.8-flash-tts,tts 13.1s,0.00297,0.29,12.51,463.82,reality-check,0.29,0.2864,0.05,50,327
+2026-11-13 18:57:45,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_085.wav,gemini-3.8-flash-tts,tts 5.9s,0.00133,0.13,12.67,463.66,reality-check,0.13,0.1287,0.02,21,147
+2026-11-13 18:57:59,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_086.wav,gemini-3.8-flash-tts,tts 3.8s,0.00087,0.08,12.77,463.57,reality-check,0.09,0.0840,0.02,13,96
+2026-11-13 18:58:10,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_087.wav,gemini-3.8-flash-tts,tts 4.5s,0.00102,0.10,12.88,463.45,reality-check,0.10,0.0989,0.02,16,113
+2026-11-13 18:58:21,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_088.wav,gemini-3.8-flash-tts,tts 7.5s,0.00170,0.16,13.08,463.25,reality-check,0.17,0.1644,0.03,24,188
+2026-11-13 18:58:34,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_089.wav,gemini-3.8-flash-tts,tts 7.8s,0.00176,0.17,13.28,463.05,reality-check,0.17,0.1698,0.03,27,194
+2026-11-13 18:58:45,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_090.wav,gemini-3.8-flash-tts,tts 4.4s,0.00102,0.10,13.39,462.94,reality-check,0.10,0.0981,0.02,18,112
+2026-11-13 18:58:56,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_091.wav,gemini-3.8-flash-tts,tts 4.6s,0.00105,0.10,13.51,462.82,reality-check,0.11,0.1009,0.02,21,115
+2026-11-13 18:59:09,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_092.wav,gemini-3.8-flash-tts,tts 10.1s,0.00229,0.22,13.77,462.56,reality-check,0.23,0.2214,0.04,35,253
+2026-11-13 18:59:22,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_093.wav,gemini-3.8-flash-tts,tts 8.7s,0.00197,0.19,14.00,462.33,reality-check,0.20,0.1901,0.03,34,217
+2026-11-13 18:59:36,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_094.wav,gemini-3.8-flash-tts,tts 9.8s,0.00223,0.22,14.25,462.08,reality-check,0.22,0.2152,0.04,32,246
+2026-11-13 18:59:48,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_095.wav,gemini-3.8-flash-tts,tts 6.0s,0.00137,0.13,14.41,461.92,reality-check,0.14,0.1323,0.02,24,151
+2026-11-13 19:00:00,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_096.wav,gemini-3.8-flash-tts,tts 7.1s,0.00162,0.16,14.59,461.74,reality-check,0.16,0.1559,0.03,27,178
+2026-11-13 19:00:11,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_097.wav,gemini-3.8-flash-tts,tts 4.9s,0.00111,0.11,14.72,461.61,reality-check,0.11,0.1067,0.02,16,122
+2026-11-13 19:00:23,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_098.wav,gemini-3.8-flash-tts,tts 6.9s,0.00156,0.15,14.89,461.44,reality-check,0.16,0.1508,0.03,29,172
+2026-11-13 19:00:36,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_099.wav,gemini-3.8-flash-tts,tts 6.6s,0.00150,0.14,15.07,461.27,reality-check,0.15,0.1446,0.03,27,165
+2026-11-13 19:00:50,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_100.wav,gemini-3.8-flash-tts,tts 7.7s,0.00175,0.17,15.26,461.07,reality-check,0.17,0.1690,0.03,28,193
+2026-11-13 19:01:04,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_101.wav,gemini-3.8-flash-tts,tts 10.8s,0.00246,0.24,15.54,460.79,reality-check,0.24,0.2372,0.04,38,271
+2026-11-13 19:01:17,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_102.wav,gemini-3.8-flash-tts,tts 4.2s,0.00095,0.09,15.65,460.68,reality-check,0.10,0.0921,0.02,18,105
+2026-11-13 19:01:30,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_103.wav,gemini-3.8-flash-tts,tts 6.7s,0.00152,0.15,15.83,460.51,reality-check,0.15,0.1462,0.03,24,167
+2026-11-13 19:01:40,channels/reality-check/stories/002_great-dying/audio/tts_cache/line_104.wav,gemini-3.8-flash-tts,tts 7.5s,0.00170,0.16,16.02,460.31,reality-check,0.17,0.1644,0.03,24,188
+2026-11-14 03:25:34,channels/reality-check/stories/002_great-dying/long/ai/L002_0.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,460.31,reality-check,0.00,0.0000,0.00,,
+2026-11-14 03:25:37,channels/reality-check/stories/002_great-dying/long/ai/L001_0.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,460.31,reality-check,0.00,0.0000,0.00,,
+2026-11-14 03:25:39,channels/reality-check/stories/002_great-dying/long/ai/L002_1.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,460.31,reality-check,0.00,0.0000,0.00,,
+2026-11-14 03:25:47,channels/reality-check/stories/002_great-dying/long/ai/L003_0.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,460.31,reality-check,0.00,0.0000,0.00,,
+2026-11-14 03:25:51,channels/reality-check/stories/002_great-dying/long/ai/L003_1.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,460.31,reality-check,0.00,0.0000,0.00,,
+2026-11-14 03:25:54,channels/reality-check/stories/002_great-dying/long/ai/L005_0.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,460.31,reality-check,0.00,0.0000,0.00,,
+2026-11-14 03:26:01,channels/reality-check/stories/002_great-dying/long/ai/L005_1.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,460.31,reality-check,0.00,0.0000,0.00,,
+2026-11-14 03:26:06,channels/reality-check/stories/002_great-dying/long/ai/L010_0.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,460.31,reality-check,0.00,0.0000,0.00,,
+2026-11-14 03:26:10,channels/reality-check/stories/002_great-dying/long/ai/L011_0.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,460.31,reality-check,0.00,0.0000,0.00,,
+2026-11-14 03:26:16,channels/reality-check/stories/002_great-dying/long/ai/L012_0.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,460.31,reality-check,0.00,0.0000,0.00,,
+2026-11-14 03:26:27,channels/reality-check/stories/002_great-dying/long/ai/L013_0.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,460.31,reality-check,0.00,0.0000,0.00,,
+2026-11-14 03:26:27,channels/reality-check/stories/002_great-dying/long/ai/L013_1.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,460.31,reality-check,0.00,0.0000,0.00,,
+2026-11-14 03:26:31,channels/reality-check/stories/002_great-dying/long/ai/L014_0.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,460.31,reality-check,0.00,0.0000,0.00,,
+2026-11-14 03:26:39,channels/reality-check/stories/002_great-dying/long/ai/L015_0.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,460.31,reality-check,0.00,0.0000,0.00,,
+2026-11-14 03:26:43,channels/reality-check/stories/002_great-dying/long/ai/L016_0.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,460.31,reality-check,0.00,0.0000,0.00,,
+2026-11-14 03:26:46,channels/reality-check/stories/002_great-dying/long/ai/L017_0.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,460.31,reality-check,0.00,0.0000,0.00,,
+2026-11-14 03:26:53,channels/reality-check/stories/002_great-dying/long/ai/L018_0.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,460.31,reality-check,0.00,0.0000,0.00,,
+2026-11-14 03:26:55,channels/reality-check/stories/002_great-dying/long/ai/L019_0.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,460.31,reality-check,0.00,0.0000,0.00,,
+2026-11-14 03:26:59,channels/reality-check/stories/002_great-dying/long/ai/L020_0.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,460.31,reality-check,0.00,0.0000,0.00,,
+2026-11-14 03:27:10,channels/reality-check/stories/002_great-dying/long/ai/L021_0.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,460.31,reality-check,0.00,0.0000,0.00,,
+2026-11-14 03:27:11,channels/reality-check/stories/002_great-dying/long/ai/L022_0.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,460.31,reality-check,0.00,0.0000,0.00,,
+2026-11-14 03:27:15,channels/reality-check/stories/002_great-dying/long/ai/L023_0.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,460.31,reality-check,0.00,0.0000,0.00,,
+2026-11-14 03:27:25,channels/reality-check/stories/002_great-dying/long/ai/L024_0.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,460.31,reality-check,0.00,0.0000,0.00,,
+2026-11-14 03:27:26,channels/reality-check/stories/002_great-dying/long/ai/L024_1.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,460.31,reality-check,0.00,0.0000,0.00,,
+2026-11-14 03:27:30,channels/reality-check/stories/002_great-dying/long/ai/L025_0.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,460.31,reality-check,0.00,0.0000,0.00,,
+2026-11-14 03:27:40,channels/reality-check/stories/002_great-dying/long/ai/L025_1.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,460.31,reality-check,0.00,0.0000,0.00,,
+2026-11-14 03:27:44,channels/reality-check/stories/002_great-dying/long/ai/L026_0.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,460.31,reality-check,0.00,0.0000,0.00,,
+2026-11-14 03:27:45,channels/reality-check/stories/002_great-dying/long/ai/L026_1.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,460.31,reality-check,0.00,0.0000,0.00,,
+2026-11-14 03:27:52,channels/reality-check/stories/002_great-dying/long/ai/L027_0.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,460.31,reality-check,0.00,0.0000,0.00,,
+2026-11-14 03:28:01,channels/reality-check/stories/002_great-dying/long/ai/L028_0.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,460.31,reality-check,0.00,0.0000,0.00,,
+2026-11-14 03:28:05,channels/reality-check/stories/002_great-dying/long/ai/L029_0.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,460.31,reality-check,0.00,0.0000,0.00,,
+2026-11-14 03:28:08,channels/reality-check/stories/002_great-dying/long/ai/L029_1.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,460.31,reality-check,0.00,0.0000,0.00,,
+2026-11-14 03:28:14,channels/reality-check/stories/002_great-dying/long/ai/L030_0.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,460.31,reality-check,0.00,0.0000,0.00,,
+2026-11-14 03:28:24,channels/reality-check/stories/002_great-dying/long/ai/L031_0.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,460.31,reality-check,0.00,0.0000,0.00,,
+2026-11-14 03:28:24,channels/reality-check/stories/002_great-dying/long/ai/L032_0.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,460.31,reality-check,0.00,0.0000,0.00,,
+2026-11-14 03:28:31,channels/reality-check/stories/002_great-dying/long/ai/L033_0.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,460.31,reality-check,0.00,0.0000,0.00,,
+2026-11-14 03:28:39,channels/reality-check/stories/002_great-dying/long/ai/L033_1.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,460.31,reality-check,0.00,0.0000,0.00,,
+2026-11-14 03:28:41,channels/reality-check/stories/002_great-dying/long/ai/L033_2.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,460.31,reality-check,0.00,0.0000,0.00,,
+2026-11-14 03:28:48,channels/reality-check/stories/002_great-dying/long/ai/L034_0.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,460.31,reality-check,0.00,0.0000,0.00,,
+2026-11-14 03:28:54,channels/reality-check/stories/002_great-dying/long/ai/L035_0.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,460.31,reality-check,0.00,0.0000,0.00,,
+2026-11-14 03:28:58,channels/reality-check/stories/002_great-dying/long/ai/L036_0.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,460.31,reality-check,0.00,0.0000,0.00,,
+2026-11-14 03:29:03,channels/reality-check/stories/002_great-dying/long/ai/L036_1.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,460.31,reality-check,0.00,0.0000,0.00,,
+2026-11-14 03:29:07,channels/reality-check/stories/002_great-dying/long/ai/L037_0.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,460.31,reality-check,0.00,0.0000,0.00,,
+2026-11-14 03:29:13,channels/reality-check/stories/002_great-dying/long/ai/L038_0.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,460.31,reality-check,0.00,0.0000,0.00,,
+2026-11-14 03:29:21,channels/reality-check/stories/002_great-dying/long/ai/L038_1.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,460.31,reality-check,0.00,0.0000,0.00,,
+2026-11-14 03:29:29,channels/reality-check/stories/002_great-dying/long/ai/L039_0.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,460.31,reality-check,0.00,0.0000,0.00,,
+2026-11-14 03:29:33,channels/reality-check/stories/002_great-dying/long/ai/L040_0.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,460.31,reality-check,0.00,0.0000,0.00,,
+2026-11-14 03:29:38,channels/reality-check/stories/002_great-dying/long/ai/L041_0.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,460.31,reality-check,0.00,0.0000,0.00,,
+2026-11-14 03:29:43,channels/reality-check/stories/002_great-dying/long/ai/L041_1.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,460.31,reality-check,0.00,0.0000,0.00,,
+2026-11-14 03:29:48,channels/reality-check/stories/002_great-dying/long/ai/L042_0.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,460.31,reality-check,0.00,0.0000,0.00,,
+2026-11-14 03:30:06,channels/reality-check/stories/002_great-dying/long/ai/L043_1.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,460.31,reality-check,0.00,0.0000,0.00,,
+2026-11-14 03:30:11,channels/reality-check/stories/002_great-dying/long/ai/L043_0.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,460.31,reality-check,0.00,0.0000,0.00,,
+2026-11-14 03:30:12,channels/reality-check/stories/002_great-dying/long/ai/L044_0.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,460.31,reality-check,0.00,0.0000,0.00,,
+2026-11-14 03:30:24,channels/reality-check/stories/002_great-dying/long/ai/L045_0.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,460.31,reality-check,0.00,0.0000,0.00,,
+2026-11-14 03:30:28,channels/reality-check/stories/002_great-dying/long/ai/L047_0.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,460.31,reality-check,0.00,0.0000,0.00,,
+2026-11-14 03:30:47,channels/reality-check/stories/002_great-dying/long/ai/L047_1.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,460.31,reality-check,0.00,0.0000,0.00,,
+2026-11-14 03:30:57,channels/reality-check/stories/002_great-dying/long/ai/L048_0.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,460.31,reality-check,0.00,0.0000,0.00,,
+2026-11-14 12:10:35,channels/reality-check/stories/002_great-dying/long/ai/paid_tmp_L080.png,gemini-nano-banana-2.1,1K,0.03922,3.78,4.47,455.84,reality-check,3.25,3.7848,0.68,82,1853
+2026-11-14 12:10:37,channels/reality-check/stories/002_great-dying/long/ai/paid_tmp_L079.png,gemini-nano-banana-2.1,1K,0.04402,4.25,9.48,450.83,reality-check,3.25,4.2478,0.76,81,2493
+2026-11-14 12:11:02,channels/reality-check/stories/002_great-dying/long/ai/paid_tmp_L083.png,gemini-nano-banana-2.1,1K,0.04129,3.98,14.18,446.13,reality-check,3.25,3.9850,0.72,85,2129
+2026-11-14 12:11:02,channels/reality-check/stories/002_great-dying/long/ai/paid_tmp_L082.png,gemini-nano-banana-2.1,1K,0.04626,4.46,19.45,440.86,reality-check,3.25,4.4641,0.80,80,2792
+2026-11-14 12:11:29,channels/reality-check/stories/002_great-dying/long/ai/paid_tmp_L084.png,gemini-nano-banana-2.1,1K,0.04624,4.46,24.71,435.60,reality-check,3.25,4.4618,0.80,74,2790
+2026-11-14 12:11:32,channels/reality-check/stories/002_great-dying/long/ai/paid_tmp_L088.png,gemini-nano-banana-2.1,1K,0.04369,4.22,29.69,430.62,reality-check,3.25,4.2163,0.76,73,2451
+2026-11-14 12:11:54,channels/reality-check/stories/002_great-dying/long/ai/paid_tmp_L089.png,gemini-nano-banana-2.1,1K,0.04386,4.23,34.68,425.63,reality-check,3.25,4.2321,0.76,77,2472
+2026-11-14 12:11:58,channels/reality-check/stories/002_great-dying/long/ai/paid_tmp_L074.png,gemini-nano-banana-2.1,1K,0.04437,4.28,39.73,420.58,reality-check,3.25,4.2816,0.77,79,2540
+2026-11-14 12:12:23,channels/reality-check/stories/002_great-dying/long/ai/paid_tmp_L078.png,gemini-nano-banana-2.1,1K,0.04677,4.51,45.06,415.25,reality-check,3.26,4.5130,0.81,93,2857
+2026-11-14 12:12:30,channels/reality-check/stories/002_great-dying/long/ai/paid_tmp_L076.png,gemini-nano-banana-2.1,1K,0.04658,4.49,50.36,409.95,reality-check,3.26,4.4946,0.81,81,2834
+2026-11-14 12:13:18,channels/reality-check/stories/002_great-dying/long/ai/paid_tmp_L065.png,gemini-nano-banana-2.1,1K,0.04358,4.21,55.33,404.98,reality-check,3.25,4.2054,0.76,78,2435
+2026-11-14 12:13:26,channels/reality-check/stories/002_great-dying/long/ai/paid_tmp_L068.png,gemini-nano-banana-2.1,1K,0.04425,4.27,60.36,399.95,reality-check,3.25,4.2697,0.77,72,2525
+2026-11-14 12:13:53,channels/reality-check/stories/002_great-dying/long/ai/paid_tmp_L070.png,gemini-nano-banana-2.1,1K,0.04187,4.04,65.13,395.18,reality-check,3.25,4.0407,0.73,80,2207
+2026-11-14 12:13:57,channels/reality-check/stories/002_great-dying/long/ai/paid_tmp_L064.png,gemini-nano-banana-2.1,1K,0.03884,3.75,69.56,390.76,reality-check,3.25,3.7482,0.67,79,1803
+2026-11-14 12:14:42,channels/reality-check/stories/002_great-dying/long/ai/paid_tmp_L063.png,gemini-nano-banana-2.1,1K,0.04226,4.08,74.37,385.94,reality-check,3.25,4.0782,0.73,79,2259
+2026-11-14 12:15:28,channels/reality-check/stories/002_great-dying/long/ai/paid_tmp_L067.png,gemini-nano-banana-2.1,1K,0.04237,4.09,79.19,381.12,reality-check,3.25,4.0885,0.74,75,2274
+2026-11-14 12:16:21,channels/reality-check/stories/002_great-dying/long/ai/paid_tmp_L066.png,gemini-nano-banana-2.1,1K,0.04378,4.22,84.18,376.13,reality-check,3.25,4.2250,0.76,78,2462
+2026-11-14 12:16:50,channels/reality-check/stories/002_great-dying/long/ai/paid_tmp_L062.png,gemini-nano-banana-2.1,1K,0.04710,4.55,89.54,370.77,reality-check,3.25,4.5456,0.82,78,2905
+2026-11-14 12:16:51,channels/reality-check/stories/002_great-dying/long/ai/paid_tmp_L072.png,gemini-nano-banana-2.1,1K,0.04366,4.21,94.51,365.80,reality-check,3.25,4.2137,0.76,75,2447
+2026-11-14 12:17:28,channels/reality-check/stories/002_great-dying/long/ai/paid_tmp_L073.png,gemini-nano-banana-2.1,1K,0.04039,3.90,99.11,361.20,reality-check,3.25,3.8977,0.70,72,2011
+2026-11-14 12:17:56,channels/reality-check/stories/002_great-dying/long/ai/paid_tmp_L060.png,gemini-nano-banana-2.1,1K,0.04307,4.16,104.02,356.29,reality-check,3.25,4.1564,0.75,79,2367
+2026-11-15 03:46:41,channels/reality-check/stories/002_great-dying/long/ai/L062_1.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,356.29,reality-check,0.00,0.0000,0.00,,
+2026-11-15 03:46:43,channels/reality-check/stories/002_great-dying/long/ai/L056_1.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,356.29,reality-check,0.00,0.0000,0.00,,
+2026-11-15 03:46:43,channels/reality-check/stories/002_great-dying/long/ai/L050_1.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,356.29,reality-check,0.00,0.0000,0.00,,
+2026-11-15 03:46:51,channels/reality-check/stories/002_great-dying/long/ai/L064_1.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,356.29,reality-check,0.00,0.0000,0.00,,
+2026-11-15 03:46:54,channels/reality-check/stories/002_great-dying/long/ai/L067_1.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,356.29,reality-check,0.00,0.0000,0.00,,
+2026-11-15 03:46:55,channels/reality-check/stories/002_great-dying/long/ai/L070_1.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,356.29,reality-check,0.00,0.0000,0.00,,
+2026-11-15 03:47:01,channels/reality-check/stories/002_great-dying/long/ai/L070_2.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,356.29,reality-check,0.00,0.0000,0.00,,
+2026-11-15 03:47:05,channels/reality-check/stories/002_great-dying/long/ai/L073_1.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,356.29,reality-check,0.00,0.0000,0.00,,
+2026-11-15 03:47:07,channels/reality-check/stories/002_great-dying/long/ai/L074_1.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,356.29,reality-check,0.00,0.0000,0.00,,
+2026-11-15 03:47:11,channels/reality-check/stories/002_great-dying/long/ai/L075_1.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,356.29,reality-check,0.00,0.0000,0.00,,
+2026-11-15 03:47:17,channels/reality-check/stories/002_great-dying/long/ai/L076_1.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,356.29,reality-check,0.00,0.0000,0.00,,
+2026-11-15 03:47:20,channels/reality-check/stories/002_great-dying/long/ai/L079_1.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,356.29,reality-check,0.00,0.0000,0.00,,
+2026-11-15 03:47:23,channels/reality-check/stories/002_great-dying/long/ai/L084_1.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,356.29,reality-check,0.00,0.0000,0.00,,
+2026-11-15 03:47:28,channels/reality-check/stories/002_great-dying/long/ai/L084_2.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,356.29,reality-check,0.00,0.0000,0.00,,
+2026-11-15 03:47:33,channels/reality-check/stories/002_great-dying/long/ai/L088_1.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,356.29,reality-check,0.00,0.0000,0.00,,
+2026-11-15 03:47:35,channels/reality-check/stories/002_great-dying/long/ai/L089_1.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,356.29,reality-check,0.00,0.0000,0.00,,
+2026-11-15 03:47:40,channels/reality-check/stories/002_great-dying/long/ai/L094_1.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,356.29,reality-check,0.00,0.0000,0.00,,
+2026-11-15 03:47:44,channels/reality-check/stories/002_great-dying/long/ai/L100_1.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,356.29,reality-check,0.00,0.0000,0.00,,
+2026-11-15 03:47:46,channels/reality-check/stories/002_great-dying/long/ai/L101_1.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,356.29,reality-check,0.00,0.0000,0.00,,
+2026-11-15 03:47:51,channels/reality-check/stories/002_great-dying/long/ai/L104_1.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,356.29,reality-check,0.00,0.0000,0.00,,
+2026-11-15 12:11:08,channels/reality-check/stories/003_randy-gardner/audio/tts_cache/line_001.wav,gemini-3.8-flash-tts,tts 4.8s free,0.00000,0.00,0.00,356.29,reality-check,0.11,0.0000,0.00,17,121
+2026-11-15 12:11:17,channels/reality-check/stories/003_randy-gardner/audio/tts_cache/line_002.wav,gemini-3.8-flash-tts,tts 9.5s,0.00215,0.21,0.24,356.05,reality-check,0.21,0.2074,0.04,33,237
+2026-11-15 12:11:27,channels/reality-check/stories/003_randy-gardner/audio/tts_cache/line_003.wav,gemini-3.8-flash-tts,tts 5.2s,0.00119,0.11,0.38,355.91,reality-check,0.12,0.1147,0.02,20,131
+2026-11-15 12:11:38,channels/reality-check/stories/003_randy-gardner/audio/tts_cache/line_004.wav,gemini-3.8-flash-tts,tts 6.7s,0.00153,0.15,0.55,355.74,reality-check,0.15,0.1474,0.03,31,168
+2026-11-15 12:11:48,channels/reality-check/stories/003_randy-gardner/audio/tts_cache/line_005.wav,gemini-3.8-flash-tts,tts 5.3s,0.00121,0.12,0.69,355.60,reality-check,0.12,0.1164,0.02,19,133
+2026-11-15 12:11:57,channels/reality-check/stories/003_randy-gardner/audio/tts_cache/line_006.wav,gemini-3.8-flash-tts,tts 6.8s,0.00154,0.15,0.87,355.43,reality-check,0.15,0.1489,0.03,27,170
+2026-11-15 12:12:06,channels/reality-check/stories/003_randy-gardner/audio/tts_cache/line_007.wav,gemini-3.8-flash-tts,tts 5.6s,0.00127,0.12,1.01,355.28,reality-check,0.13,0.1229,0.02,27,140
+2026-11-15 12:12:17,channels/reality-check/stories/003_randy-gardner/audio/tts_cache/line_008.wav,gemini-3.8-flash-tts,tts 9.0s free,0.00000,0.00,1.01,355.28,reality-check,0.20,0.0000,0.00,35,225
+2026-11-15 12:12:28,channels/reality-check/stories/003_randy-gardner/audio/tts_cache/line_009.wav,gemini-3.8-flash-tts,tts 10.1s,0.00229,0.22,1.27,355.02,reality-check,0.23,0.2214,0.04,35,253
+2026-11-15 12:12:36,channels/reality-check/stories/003_randy-gardner/long/ai/a01_bedroom_night.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,1.27,355.02,reality-check,0.00,0.0000,0.00,,
+2026-11-15 12:12:37,channels/reality-check/stories/003_randy-gardner/audio/tts_cache/line_010.wav,gemini-3.8-flash-tts,tts 8.7s free,0.00000,0.00,1.27,355.02,reality-check,0.20,0.0000,0.00,37,217
+2026-11-15 12:12:38,channels/reality-check/stories/003_randy-gardner/long/ai/a02a_clock_3am.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,1.27,355.02,reality-check,0.00,0.0000,0.00,,
+2026-11-15 12:12:37,channels/reality-check/stories/003_randy-gardner/long/ai/a02b_notebook.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,1.27,355.02,reality-check,0.00,0.0000,0.00,,
+2026-11-15 12:12:46,channels/reality-check/stories/003_randy-gardner/long/ai/a02c_hallway_shadow.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,1.27,355.02,reality-check,0.00,0.0000,0.00,,
+2026-11-15 12:12:46,channels/reality-check/stories/003_randy-gardner/audio/tts_cache/line_011.wav,gemini-3.8-flash-tts,tts 7.6s,0.00173,0.17,1.47,354.82,reality-check,0.17,0.1674,0.03,31,191
+2026-11-15 12:12:48,channels/reality-check/stories/003_randy-gardner/long/ai/a03_pinball.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,1.47,354.82,reality-check,0.00,0.0000,0.00,,
+2026-11-15 12:12:50,channels/reality-check/stories/003_randy-gardner/long/ai/a04a_street_night.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,1.47,354.82,reality-check,0.00,0.0000,0.00,,
+2026-11-15 12:12:57,channels/reality-check/stories/003_randy-gardner/audio/tts_cache/line_012.wav,gemini-3.8-flash-tts,tts 6.8s,0.00155,0.15,1.65,354.65,reality-check,0.16,0.1497,0.03,24,171
+2026-11-15 12:12:58,channels/reality-check/stories/003_randy-gardner/long/ai/a04b_traffic_light.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,1.65,354.65,reality-check,0.00,0.0000,0.00,,
+2026-11-15 12:12:59,channels/reality-check/stories/003_randy-gardner/long/ai/a05_moon_rooftops.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,1.65,354.65,reality-check,0.00,0.0000,0.00,,
+2026-11-15 12:13:00,channels/reality-check/stories/003_randy-gardner/long/ai/a06_phone_bed.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,1.65,354.65,reality-check,0.00,0.0000,0.00,,
+2026-11-15 12:13:07,channels/reality-check/stories/003_randy-gardner/audio/tts_cache/line_013.wav,gemini-3.8-flash-tts,tts 10.5s,0.00238,0.23,1.92,354.38,reality-check,0.24,0.2294,0.04,38,262
+2026-11-15 12:13:09,channels/reality-check/stories/003_randy-gardner/long/ai/a07_school.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,1.92,354.38,reality-check,0.00,0.0000,0.00,,
+2026-11-15 12:13:11,channels/reality-check/stories/003_randy-gardner/long/ai/a08_science_fair.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,1.92,354.38,reality-check,0.00,0.0000,0.00,,
+2026-11-15 12:13:13,channels/reality-check/stories/003_randy-gardner/long/ai/a09_hourglass.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,1.92,354.38,reality-check,0.00,0.0000,0.00,,
+2026-11-15 12:13:21,channels/reality-check/stories/003_randy-gardner/long/ai/a10_stopwatch.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,1.92,354.38,reality-check,0.00,0.0000,0.00,,
+2026-11-15 12:13:23,channels/reality-check/stories/003_randy-gardner/long/ai/a12_pillow_moon.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,1.92,354.38,reality-check,0.00,0.0000,0.00,,
+2026-11-15 12:13:23,channels/reality-check/stories/003_randy-gardner/long/ai/a11_bed_made.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,1.92,354.38,reality-check,0.00,0.0000,0.00,,
+2026-11-15 12:13:33,channels/reality-check/stories/003_randy-gardner/long/ai/a13_register.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,1.92,354.38,reality-check,0.00,0.0000,0.00,,
 2026-11-12 21:54:20,channels/devrobolab/stories/050_news-carbon-fable-decisions/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 3.3s free,0.00000,0.00,0.00,476.33,devrobolab,0.08,0.0000,0.00,12,82
 2026-11-12 21:54:32,channels/devrobolab/stories/050_news-carbon-fable-decisions/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 11.0s free,0.00000,0.00,0.00,476.33,devrobolab,0.25,0.0000,0.00,35,275
 2026-11-12 21:54:43,channels/devrobolab/stories/050_news-carbon-fable-decisions/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 11.0s free,0.00000,0.00,0.00,476.33,devrobolab,0.25,0.0000,0.00,35,275

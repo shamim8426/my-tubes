@@ -236,7 +236,9 @@ def main():
     d1 = np.abs(Gtot[RS.CR:] - Gtot[:-RS.CR])
     rid = ramp_ids[:nb]
     in_ramp = rid[RS.CR:] | rid[:-RS.CR]
-    bad = [(round(i / RS.CR, 1), round(float(d1[i]), 1)) for i in np.where((d1 > cfg.get("max_db_per_s", 6.0)) & ~in_ramp)[0]]
+    bad = [(round(i / RS.CR, 1), round(float(d1[i]), 1)) for i in np.where(d1 > cfg.get("max_db_per_s", 6.0))[0]]   # ramps included: nothing may change faster (user 2026-11-15)
+    if bad:
+        print(f"WARNING: {len(bad)} 1-s windows change faster than {cfg.get('max_db_per_s', 6.0)} dB/s (music must fade gradually): first {bad[:5]}")
     mx = float(d1[~in_ramp].max())
     mr = float(d1[in_ramp].max()) if in_ramp.any() else 0.0
     sm_txt = f"gain smoothness: max {mx:.1f} dB/s outside the designed off ramps ({len(bad)} 1-s windows over {cfg.get('max_db_per_s', 6.0)} dB/s), off ramps (cosine, designed) max {mr:.1f} dB/s"
