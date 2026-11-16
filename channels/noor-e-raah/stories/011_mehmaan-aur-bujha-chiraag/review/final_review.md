@@ -18,6 +18,9 @@ B1. Line 4 (~21.7-27 s) SFX `shared/sfx/history/camel_bell_162811.mp3` is NOT a 
 ## MAJOR (free fixes: swap image file under the line key, re-render only that clip)
 M1. L7 "एक आदमी नबी ﷺ के पास आया" shows 010's `09_telling_story` = a hooded woman (Khawla scene) — wrong gender. Use `stories/009_asma-khajoor-ki-guthliyan/images/19_night_desert_road.png` (empty road into town).
 M2. L18 "पत्नी ने ... चिराग़ जलाया" (night, inside) shows a DAYTIME street of men. Use `stories/009_asma-khajoor-ki-guthliyan/images/18_provisions_bag.png` (clay lamp lit beside food bundle, night interior; no glass).
+    Provenance: images/18_lamp_light.png (copied 01:46) matches NO file anywhere in the repo (md5 + size search), has no
+    cost_log row, and does not match its own prompt (hands lighting a lamp). Source unknown = cannot prove licence, so the
+    swap in M2 is REQUIRED before upload (if it cannot be swapped, treat as copyright doubt = stop and ask the user).
 M3. L33 market: glass hurricane lanterns (hanging + on ground) and a castle on the hill (RULES 2g). Use `stories/010_khawla-allah-ne-sun-li/images/19_morning_market.png` (simple palm-roof stalls, no lanterns; fits "देने के लिए अमीर होना ज़रूरी नहीं").
 M4. L17 couple scene: glass hurricane lantern on the wall left of the couple. Fix: crop `17_couple_talk.png` to x 43%-100%, y 22%-79% (removes lantern, keeps both backs) and resize to 1920x1080; or accept as MINOR if the crop is too soft.
 
