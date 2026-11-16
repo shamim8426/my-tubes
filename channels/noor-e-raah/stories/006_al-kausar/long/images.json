@@ -1,0 +1,159 @@
+{
+ "_help": "Al-Kausar images (006). 0 NEW; all reuse/reuse_id+rect, Rs0 (RULES 1d). ayah 1 = whole surah, ayah 2..4 = 108:1..108:3.",
+ "images": [
+  {
+   "id": "05_dawn_horizon",
+   "start": {
+    "line": 3
+   },
+   "reuse": "channels/noor-e-raah/stories/002_ayatul-kursi/images/05_dawn_horizon.png"
+  },
+  {
+   "id": "04_dawn_sand_ridge",
+   "start": {
+    "line": 4
+   },
+   "reuse": "channels/noor-e-raah/stories/003_al-ikhlas/images/04_dawn_sand_ridge.png"
+  },
+  {
+   "id": "11_sunrays_clouds",
+   "start": {
+    "ayah": 1
+   },
+   "reuse": "channels/noor-e-raah/stories/002_ayatul-kursi/images/11_sunrays_clouds.png"
+  },
+  {
+   "id": "11_sunrays_clouds_b",
+   "start": {
+    "line": 6
+   },
+   "reuse_id": "11_sunrays_clouds",
+   "rect": {
+    "fx": 0.5,
+    "fy": 0.4,
+    "zc": 1.5
+   }
+  },
+  {
+   "id": "03_makka_valley_night",
+   "start": {
+    "line": 8
+   },
+   "reuse": "channels/noor-e-raah/stories/003_al-ikhlas/images/03_makka_valley_night.png"
+  },
+  {
+   "id": "03_makka_valley_night_b",
+   "start": {
+    "line": 9
+   },
+   "reuse_id": "03_makka_valley_night",
+   "rect": {
+    "fx": 0.5,
+    "fy": 0.75,
+    "zc": 1.5
+   }
+  },
+  {
+   "id": "05_paths_to_oasis",
+   "start": {
+    "line": 10
+   },
+   "reuse": "channels/noor-e-raah/stories/003_al-ikhlas/images/05_paths_to_oasis.png"
+  },
+  {
+   "id": "09_morning_palm_path",
+   "start": {
+    "line": 11
+   },
+   "reuse": "channels/noor-e-raah/stories/003_al-ikhlas/images/09_morning_palm_path.png"
+  },
+  {
+   "id": "06_oasis_spring",
+   "start": {
+    "ayah": 2
+   },
+   "reuse": "channels/noor-e-raah/stories/002_ayatul-kursi/images/06_oasis_spring.png"
+  },
+  {
+   "id": "06_oasis_spring_b",
+   "start": {
+    "line": 16
+   },
+   "reuse_id": "06_oasis_spring",
+   "rect": {
+    "fx": 0.5,
+    "fy": 0.65,
+    "zc": 1.5
+   }
+  },
+  {
+   "id": "05_dawn_horizon_b",
+   "start": {
+    "ayah": 3
+   },
+   "reuse_id": "05_dawn_horizon",
+   "rect": {
+    "fx": 0.3,
+    "fy": 0.6,
+    "zc": 1.4
+   }
+  },
+  {
+   "id": "02_lamp_single_flame",
+   "start": {
+    "line": 22
+   },
+   "reuse": "channels/noor-e-raah/stories/003_al-ikhlas/images/02_lamp_single_flame.png"
+  },
+  {
+   "id": "09_lit_door",
+   "start": {
+    "ayah": 4
+   },
+   "reuse": "channels/noor-e-raah/stories/002_ayatul-kursi/images/09_lit_door.png"
+  },
+  {
+   "id": "09_lit_door_b",
+   "start": {
+    "line": 28
+   },
+   "reuse_id": "09_lit_door",
+   "rect": {
+    "fx": 0.5,
+    "fy": 0.5,
+    "zc": 1.6
+   }
+  },
+  {
+   "id": "04_dawn_sand_ridge_b",
+   "start": {
+    "line": 31
+   },
+   "reuse_id": "04_dawn_sand_ridge",
+   "rect": {
+    "fx": 0.7,
+    "fy": 0.55,
+    "zc": 1.4
+   }
+  },
+  {
+   "id": "08_empty_room_morning",
+   "start": {
+    "line": 33
+   },
+   "reuse": "channels/noor-e-raah/stories/003_al-ikhlas/images/08_empty_room_morning.png"
+  },
+  {
+   "id": "09_morning_palm_path_b",
+   "start": {
+    "line": 34
+   },
+   "reuse_id": "09_morning_palm_path",
+   "rect": {
+    "fx": 0.7,
+    "fy": 0.5,
+    "zc": 1.4
+   }
+  }
+ ]
+}

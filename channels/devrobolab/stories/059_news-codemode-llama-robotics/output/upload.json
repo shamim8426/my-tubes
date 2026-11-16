@@ -1,0 +1,17 @@
+{
+  "channel_key": "devrobolab",
+  "channel_name": "DevRoboLab",
+  "channel_id": "UCpElgKdJOgQiyfwdGXz6GmA",
+  "format": "short",
+  "parent_video_id": null,
+  "title": "3 AI updates: Code Mode, llama.cpp 1.0, Robotics #shorts",
+  "description": "3 AI updates in under a minute, in simple words.\n\n1. Claude Code ka Code Mode (experimental, default me band): Claude har tool call ka result padhne ke bajaye JavaScript likhta hai jo kai tool calls ek hi step me chala deta hai.\n2. llama.cpp 1.0: AI models apne computer par chalane wala tool. Ab API badalne par major version badlega, yaani developers ke liye zyada bharosa.\n3. Gemini Robotics 2.5 (Google DeepMind): robots ke liye AI model. Google ke hisaab se purane baselines se 30% se 100% zyada success rate. Abhi sirf robotics partners ko mil raha hai.\n\nSources (official pages):\nhttps://code.claude.com/docs/en/code-mode\nhttps://huggingface.co/blog/ggml-org/llama-cpp-v1\nhttps://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/\n\nUnofficial channel, not affiliated with Anthropic, ggml or Google.\n\nNote: page crops are our own capture of the official pages (key lines highlighted). Photos are free AI-generated illustrations, not real product shots. Synthetic voice.\n\nMusic: \"Funkorama\" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttp://creativecommons.org/licenses/by/4.0/\n\n#shorts #ClaudeCode #llamacpp #Gemini #AINews #Hinglish",
+  "tags": ["Claude Code", "Code Mode", "llama.cpp", "Gemini Robotics 2.5", "AI news", "Hinglish", "Hindi tech", "Shorts"],
+  "video": "short.mp4",
+  "language": "hi",
+  "made_for_kids": false,
+  "contains_synthetic_media": true,
+  "category_id": "28",
+  "privacy": "private",
+  "api_audited": false
+}

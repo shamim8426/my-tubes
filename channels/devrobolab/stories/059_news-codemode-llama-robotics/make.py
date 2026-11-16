@@ -1,0 +1,263 @@
+"""059 AI news roundup (Code Mode / llama.cpp 1.0 / Gemini Robotics 2.5; ICE-BLUE dotted bg + BLUE accent). Prev 051 (mint+green). ORIGINAL: 051 AI news roundup (Hydrogen / Gemini on Android / Tabletop; MINT bg + GREEN accent). Prev: 050 AI news roundup: Carbon / Fable 5.2 / Decisions API (Hugging Face / Gradium). Engine of 047; NEW variants: LAVENDER dotted bg + violet glow, accent=VIOLET; ORIGINAL 047 docstring: Engine/look family of 045 (PIL+OpenCV frames -> photo_video.encode), NEW style variants:
+ICE-BLUE background with diagonal stripes + teal glow, accent = TEAL (chips ink-on-teal, key words teal), polaroid photo cards (white border, tilt),
+6-frame horizontal slide transitions, tinting photo for the edit demo, robot only in CTA. Official blog crops = small taped notes with a LIVE yellow marker.
+Run: python make.py [frames t1 t2 ...]   (needs audio/tts/s_*.wav, wt.json, raw/blocks, raw/photos)"""
+import json, math, re, sys, wave
+from pathlib import Path
+import cv2, numpy as np
+from PIL import Image, ImageDraw, ImageFont, ImageFilter, ImageChops
+HERE = Path(__file__).parent; ROOT = HERE.parents[3]
+sys.path.insert(0, str(ROOT / "scripts"))
+from photo_video import W, H, FPS, ease_out, ease_back, ease_io, wav_dur, encode
+
+LEAD, AFTER, TAIL = 0.05, 0.10, 0.6
+FONT = str(ROOT / "shared/fonts/Mukta-ExtraBold.ttf")
+YEL = (255, 214, 10); INK = (14, 24, 38); TEAL = (96, 172, 248); TEALD = (30, 100, 190); RED = (225, 45, 57); NAVY = (24, 44, 78); WHITE = (255, 255, 255)
+deck = json.load(open(HERE / "deck.json", encoding="utf-8")); WT = json.load(open(HERE / "wt.json", encoding="utf-8"))
+IDS = [s["id"] for s in deck["scenes"]]
+WAVES = [HERE / "audio/tts" / f"s_{i:02d}.wav" for i in range(len(IDS))]
+D = [LEAD + wav_dur(w) + AFTER for w in WAVES]; D[-1] += TAIL; START = [sum(D[:i]) for i in range(len(D))]; TOTAL = sum(D)
+SC = dict(zip(IDS, START))
+
+
+def T(scene, k):
+    toks = WT[scene]["tokens"]; return SC[scene] + LEAD + toks[min(k, len(toks) - 1)][1]
+
+
+_fc = {}
+def font(sz):
+    if sz not in _fc: _fc[sz] = ImageFont.truetype(FONT, sz)
+    return _fc[sz]
+def PF(sz, bold=False): return ImageFont.truetype(str(ROOT / ("shared/fonts/Poppins-Bold.ttf" if bold else "shared/fonts/Poppins-Medium.ttf")), sz)
+
+
+def chip(text, size, fill, color=WHITE, pad=(34, 14), r=26, hl=None, hlcolor=TEAL, outline=None):
+    f = font(size); words = text.split(" "); sp = f.getlength(" ")
+    wl = [f.getlength(w) for w in words]; tw = int(sum(wl) + sp * (len(words) - 1)); asc, desc = f.getmetrics()
+    im = Image.new("RGBA", (tw + 2 * pad[0], asc + desc + 2 * pad[1]), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
+    d.rounded_rectangle([0, 0, im.width - 1, im.height - 1], r, fill=fill + (255,), outline=(outline + (255,)) if outline else None, width=5); x = pad[0]
+    for w, l in zip(words, wl):
+        d.text((x, pad[1]), w, font=f, fill=(hlcolor if hl and w.strip(",.?!।") in hl else color) + (255,)); x += l + sp
+    return im
+
+
+def place(base, spr, cx, cy, scale=1.0, alpha=1.0, rot=0):
+    if scale <= 0.01 or alpha <= 0.01: return
+    if abs(scale - 1) > 1e-3: spr = spr.resize((max(1, int(spr.width * scale)), max(1, int(spr.height * scale))), Image.LANCZOS)
+    if rot: spr = spr.rotate(rot, resample=Image.BICUBIC, expand=True)
+    if alpha < 1: a = spr.getchannel("A").point(lambda v: int(v * alpha)); spr = spr.copy(); spr.putalpha(a)
+    base.alpha_composite(spr, (int(cx - spr.width / 2), int(cy - spr.height / 2)))
+
+
+def pop(t, t0, dur=0.28): return ease_back((t - t0) / dur) if t >= t0 else 0.0
+def rounded(img, r):
+    m = Image.new("L", img.size, 0); ImageDraw.Draw(m).rounded_rectangle([0, 0, img.width - 1, img.height - 1], r, fill=255)
+    o = img.convert("RGBA"); o.putalpha(m); return o
+def shadow(w, h, r=36, off=30, blur=24, a=95):
+    sh = Image.new("RGBA", (w + 160, h + 160), (0, 0, 0, 0)); ImageDraw.Draw(sh).rounded_rectangle([80, 80 + off, 80 + w, 80 + h + off], r, fill=(0, 0, 0, a)); return sh.filter(ImageFilter.GaussianBlur(blur))
+
+
+def card_enter(base, spr, cx, cy, t, t0, rot=0.0, side=0, dur=0.34):
+    lt = t - t0
+    if lt < 0: return
+    e = ease_back(lt / dur) if lt < dur else 1.0; q = ease_out(min(1, lt / dur))
+    dx = side * (1 - q) * 520; dy = (1 - q) * (140 if side == 0 else 0); sc = 0.9 + 0.1 * e; w, h = spr.size
+    place(base, shadow(w, h), cx + dx, cy + dy, sc, min(1, q * 1.5), rot); place(base, spr, cx + dx, cy + dy, sc, min(1, q * 1.5), rot)
+
+
+# ---------- NEW look: ice-blue bg, diagonal stripes, teal glow ----------
+def bg_ice():
+    im = Image.new("RGB", (W, H), (236, 244, 255)); d = ImageDraw.Draw(im)
+    for yy in range(30, H, 70):
+        for xx in range(30 + (35 if (yy // 70) % 2 else 0), W, 70): d.ellipse([xx - 4, yy - 4, xx + 4, yy + 4], fill=(208, 224, 246))
+    g = Image.new("RGB", (W, H), (0, 0, 0)); ImageDraw.Draw(g).ellipse([520, -300, 1500, 700], fill=(166, 204, 250)); g = g.filter(ImageFilter.GaussianBlur(160))
+    return ImageChops.screen(im, ImageChops.multiply(g, Image.new("RGB", (W, H), (150, 150, 150)))).convert("RGBA")
+BG = bg_ice()
+MASC = {k: Image.open(ROOT / f"channels/devrobolab/mascot/cut/{k}.png").convert("RGBA") for k in ("wave", "think", "stop")}
+def robot(name, h): m = MASC[name]; return m.resize((int(m.width * h / m.height), h), Image.LANCZOS)
+
+PHOTO = {k: Image.open(HERE / f"raw/photos/{k}.png").convert("RGB") for k in ("code", "devices", "chip")}
+_cov = {}
+
+
+def polaroid(key, w, h, lt, dur, z0=1.0, z1=1.15, fx=0.5, fy=0.5, tint=None, bt=26, bb=84):
+    """photo with slow push-in inside a white polaroid frame (w x h = photo area); tint=(r,g,b,amount)"""
+    src = PHOTO[key]; ck = (key, w, h)
+    if ck not in _cov:
+        s = max(1.5 * w / src.width, 1.5 * h / src.height); _cov[ck] = src.resize((int(src.width * s), int(src.height * s)), Image.LANCZOS)
+    cov = _cov[ck]; p = ease_io(min(1, max(0, lt / dur))); z = z0 + (z1 - z0) * p; ww, wh = w * 1.5 / z, h * 1.5 / z
+    cx = min(max(cov.width * fx, ww / 2), cov.width - ww / 2); cy = min(max(cov.height * fy, wh / 2), cov.height - wh / 2)
+    im = cov.crop((int(cx - ww / 2), int(cy - wh / 2), int(cx + ww / 2), int(cy + wh / 2))).resize((w, h), Image.BILINEAR)
+    if tint:
+        a = np.array(im).astype(np.float32); c = np.array(tint[:3], np.float32)
+        im = Image.fromarray(np.clip(a * (1 - tint[3]) + (a * c / 255.0) * tint[3] + c * 0.12 * tint[3], 0, 255).astype(np.uint8))
+    fr = Image.new("RGBA", (w + 2 * bt, h + bt + bb), (0, 0, 0, 0)); d = ImageDraw.Draw(fr); d.rounded_rectangle([0, 0, fr.width - 1, fr.height - 1], 18, fill=(255, 255, 255, 255), outline=(205, 215, 226, 255), width=3)
+    fr.alpha_composite(rounded(im, 8), (bt, bt)); return fr
+
+
+def tape(im, x, y, rot=-6):
+    t = Image.new("RGBA", (130, 44), TEAL + (190,)); im.alpha_composite(t.rotate(rot, expand=True), (x, y))
+
+
+# ---- small official-page note with LIVE marker ----
+BLK = json.load(open(HERE / "raw/blocks.json", encoding="utf-8")); _blk = {}
+def note(key, w, hp, maxh=330):
+    if key not in _blk: _blk[key] = Image.open(HERE / f"raw/blocks/{key}.png").convert("RGB")
+    a0 = _blk[key]; s = (w - 60) / a0.width; a = a0.resize((int(a0.width * s), int(a0.height * s)), Image.LANCZOS); k = 2 * s
+    lines = BLK[key]["lines"]
+    if lines and hp > 0:
+        tot = sum(l[2] for l in lines); done = 0.0; layer = Image.new("RGB", a.size, (255, 255, 255)); d = ImageDraw.Draw(layer)
+        for x, y, lw, lh in lines:
+            f0 = done / tot; f1 = (done + lw) / tot; done += lw; q = min(1, max(0, (hp - f0) / (f1 - f0)))
+            if q > 0: d.rounded_rectangle([x * k - 4, y * k - 2, (x + lw * q) * k + 4, (y + lh) * k + 2], 5, fill=YEL)
+        a = ImageChops.multiply(a, layer)
+    cy = float(np.mean([l[1] + l[3] / 2 for l in lines])) * k if lines else a.height / 2; h = min(maxh, a.height + 50)
+    pitch = 37.5 * k; nvis = max(1, int((h - 50) / pitch + 0.1)); total = max(1, round(a.height / pitch)); first = int(min(l[1] for l in lines) / 37.5) if lines else 0
+    i0 = max(0, min(total - nvis, first - (1 if nvis > 3 else 0))); y0 = int(i0 * pitch); h = int(nvis * pitch) + 50
+    pg = a.crop((0, y0, a.width, y0 + h - 50)).convert("RGBA"); sheet = Image.new("RGBA", (w, h), (0, 0, 0, 0)); d = ImageDraw.Draw(sheet)
+    d.rounded_rectangle([0, 0, w - 1, h - 1], 14, fill=(255, 254, 250, 255), outline=(200, 212, 224, 255), width=3); sheet.alpha_composite(pg, (30, 30)); tape(sheet, 40, -18, 6); tape(sheet, w - 170, -18, -6)
+    return sheet
+
+
+def src_tag(base, t, t0, y=1290, text="Source: huggingface.co/blog/phonon-tts"):
+    if t >= t0: place(base, chip(text, 30, NAVY, (225, 236, 248), pad=(24, 6), r=16), 540, y)
+
+
+# ---- captions (single strip, white on ink, key words teal) ----
+def caption_chunks():
+    out = []
+    for sid in IDS:
+        toks = WT[sid]["tokens"]; segs = []; cur = []
+        for k, (tk, _) in enumerate(toks):
+            cur.append(k)
+            if re.search(r"[,।?!]$", tk): segs.append(cur); cur = []
+        if cur: segs.append(cur)
+        for sg in segs:
+            n = len(sg); k = -(-n // 3); sizes = [n // k + (1 if j < n % k else 0) for j in range(k)]; i = 0
+            for z in sizes:
+                idx = sg[i:i + z]; out.append((SC[sid] + LEAD + toks[idx[0]][1], " ".join(toks[k][0] for k in idx))); i += z
+    ends = [c[0] for c in out[1:]] + [TOTAL]
+    return [(a, min(b, a + 1.5), txt) for (a, txt), b in zip(out, ends)]
+CAPS = caption_chunks()
+KEY = {"Code", "Mode,", "JavaScript", "experimental", "default", "llama.cpp", "1.0", "major", "Robotics", "2.5,", "partners", "success", "follow", "एक।", "दो।", "तीन।", "तीन", "बंद"}
+_cap = {}
+def caption(base, t):
+    for a, b, txt in CAPS:
+        if a - 0.04 <= t < b:
+            if txt not in _cap: _cap[txt] = chip(txt, 54, INK, WHITE, pad=(34, 12), r=28, hl=KEY, hlcolor=TEAL)
+            place(base, _cap[txt], 540, 1470, 0.94 + 0.06 * ease_out((t - a) / 0.12)); return
+
+
+def key_chip(txt, size=104, fill=TEAL, color=INK, pad=(40, 4), r=34): return chip(txt, size, fill, color, pad=pad, r=r)
+def pc(base, txt, cx, cy, t, t0, size=90, fill=TEAL, color=INK, rot=0, pad=(40, 4)):
+    if t >= t0 - 0.02: pp = pop(t, t0); place(base, key_chip(txt, size, fill, color, pad), cx, cy, 0.6 + 0.4 * pp, min(1, pp * 1.4), rot)
+
+
+# ---------------- scenes ----------------
+def title_chip(base, t, key, tok, txt, size=70):
+    pc(base, txt, 540, 215, t, T(key, tok) - 0.1, size, INK, WHITE, pad=(36, 6))
+
+
+def s_hook(base, t, b):
+    lt = t - b["t0"]; base.alpha_composite(BG)
+    card_enter(base, polaroid("chip", 860, 640, lt, 7.5, fx=0.5, fy=0.5), 540, 640, t, b["t0"], rot=-1.8, dur=0.01)
+    pc(base, "3 AI UPDATES", 540, 1130, t, T("hook", 2) - 0.05, 92, rot=-3)
+    pc(base, "CLAUDE  LLAMA  GEMINI", 540, 1290, t, T("hook", 9) - 0.05, 66, INK, TEAL, rot=2)
+    place(base, chip("AI NEWS ROUNDUP", 52, INK, WHITE, pad=(32, 6), r=24), 540, 250, 1.0)
+
+
+def two_notes(base, t, ka, kb, w, ta, tb, sw, tn, ts, mh=270):
+    """note ka until sw (marker over token times ta=(t0,t1)), then kb (marker tb); tn = enter time, ts = (rot1, rot2)"""
+    if t < sw:
+        hp = (t - ta[0]) / max(0.3, ta[1] - ta[0]); card_enter(base, note(ka, w, min(1, max(0, hp)), mh), 540, 1200, t, tn, rot=ts[0], side=1)
+    else:
+        hp = (t - tb[0]) / max(0.3, tb[1] - tb[0]); card_enter(base, note(kb, w, min(1, max(0, hp)), 270), 540, 1200, t, sw - 0.1, rot=ts[1], side=-1, dur=0.2)
+
+
+def s_codemode(base, t, b):
+    lt = t - b["t0"]; base.alpha_composite(BG); k = "codemode"
+    title_chip(base, t, k, 6, "1  CLAUDE CODE: CODE MODE", 62)
+    card_enter(base, polaroid("code", 780, 340, lt, 17, z0=1.0, z1=1.12), 540, 520, t, b["t0"] + 0.1, rot=-1.2, dur=0.01)
+    pc(base, "EXPERIMENTAL FEATURE", 540, 800, t, T(k, 8) - 0.05, 56, TEAL, INK, rot=-1.5, pad=(30, 4))
+    two_notes(base, t, "cm_a", "cm_b", 880, (T(k, 22), T(k, 31)), (T(k, 39), T(k, 42)), T(k, 38), T(k, 3) - 0.2, (0.8, -0.8))
+    if t < T(k, 38):
+        pc(base, "BEFORE: 1 CALL, 1 RESULT", 540, 900, t, T(k, 11) - 0.05, 56, INK, WHITE, rot=-1.5, pad=(30, 4))
+        pc(base, "NOW: CODE RUNS MANY CALLS", 540, 1000, t, T(k, 25) - 0.05, 54, YEL, INK, rot=1.5, pad=(30, 4))
+    else:
+        pc(base, "OFF BY DEFAULT", 540, 950, t, T(k, 40) - 0.05, 80, RED, WHITE, rot=-2, pad=(36, 4))
+    src_tag(base, t, T(k, 3), 1372, "Source: code.claude.com/docs (Code Mode)")
+
+
+def s_llama(base, t, b):
+    lt = t - b["t0"]; base.alpha_composite(BG); k = "llama"
+    title_chip(base, t, k, 1, "2  LLAMA.CPP 1.0", 70)
+    card_enter(base, polaroid("devices", 780, 340, lt, 13, z0=1.0, z1=1.12, fx=0.4), 540, 520, t, b["t0"] + 0.1, rot=1.2, dur=0.01)
+    pc(base, "RUN AI ON YOUR OWN PC", 540, 800, t, T(k, 12) - 0.05, 56, TEAL, INK, rot=1.5, pad=(30, 4))
+    two_notes(base, t, "ll_a", "ll_b", 800, (T(k, 14), T(k, 19)), (T(k, 21), T(k, 31)), T(k, 20), T(k, 2) - 0.2, (-0.8, 0.8), mh=205)
+    if t < T(k, 20):
+        pc(base, "A TOOL FOR LOCAL AI", 540, 900, t, T(k, 9) - 0.05, 60, YEL, INK, rot=-2, pad=(30, 4))
+    else:
+        pc(base, "API CHANGE = NEW MAJOR VERSION", 540, 900, t, T(k, 24) - 0.05, 46, YEL, INK, rot=-2, pad=(26, 4))
+        pc(base, "MORE TRUST FOR DEVS", 540, 1000, t, T(k, 30) - 0.05, 62, INK, WHITE, rot=1.5, pad=(30, 4))
+    src_tag(base, t, T(k, 2), 1372, "Source: huggingface.co/blog (llama.cpp v1.0.0)")
+
+
+def s_robot(base, t, b):
+    lt = t - b["t0"]; base.alpha_composite(BG); k = "robot"
+    title_chip(base, t, k, 5, "3  GEMINI ROBOTICS 2.5", 66)
+    card_enter(base, polaroid("chip", 780, 340, lt, 13, z0=1.0, z1=1.12, fx=0.5, fy=0.4), 540, 520, t, b["t0"] + 0.1, rot=-1.0, dur=0.01)
+    pc(base, "AI MODEL FOR ROBOTS", 540, 800, t, T(k, 7) - 0.05, 56, TEAL, INK, rot=-1.5, pad=(30, 4))
+    two_notes(base, t, "gr_a", "gr_b", 900, (T(k, 18), T(k, 25)), (T(k, 28), T(k, 34)), T(k, 26), T(k, 4) - 0.2, (0.8, -0.8))
+    if t < T(k, 26):
+        pc(base, "30% TO 100% HIGHER SUCCESS", 540, 900, t, T(k, 20) - 0.05, 50, YEL, INK, rot=-2, pad=(26, 4))
+        pc(base, "VS OLDER BASELINES", 540, 1000, t, T(k, 17) - 0.05, 56, INK, WHITE, rot=1.5, pad=(30, 4))
+    else:
+        pc(base, "ROBOTICS PARTNERS ONLY", 540, 950, t, T(k, 28) - 0.05, 60, RED, WHITE, rot=1.5, pad=(30, 4))
+    src_tag(base, t, T(k, 4), 1372, "Source: deepmind.google/blog (Gemini Robotics 2.5)")
+
+
+def s_cta(base, t, b):
+    lt = t - b["t0"]; base.alpha_composite(BG)
+    place(base, robot("wave", 780), 540, 620 + 8 * math.sin(lt * 3.5), 0.94 + 0.06 * ease_out(lt / 0.3))
+    pc(base, "DAILY AI UPDATES", 540, 1090, t, T("cta", 2) - 0.1, 84, TEAL, INK, rot=-1.5, pad=(46, 6))
+    pc(base, "FOLLOW", 540, 1250, t, T("cta", 8) - 0.1, 84, INK, WHITE, rot=1.5, pad=(46, 6))
+
+
+def beats():
+    return [dict(k=k, t0=SC[k], t1=(SC[IDS[i + 1]] if i + 1 < len(IDS) else TOTAL + 1)) for i, k in enumerate(IDS)]
+B = beats(); FN = dict(hook=s_hook, codemode=s_codemode, llama=s_llama, robot=s_robot, cta=s_cta)
+SR = 24000; TR = 0.2
+
+
+def build_audio(out):
+    n = int(TOTAL * SR) + SR; a = np.zeros(n, dtype=np.float32)
+    for i, w in enumerate(WAVES):
+        with wave.open(str(w)) as f: x = np.frombuffer(f.readframes(f.getnframes()), dtype=np.int16).astype(np.float32) / 32768
+        s = int((START[i] + LEAD) * SR); a[s:s + len(x)] += x
+    with wave.open(str(out), "wb") as f:
+        f.setnchannels(1); f.setsampwidth(2); f.setframerate(SR); f.writeframes((np.clip(a, -1, 1) * 32767).astype(np.int16).tobytes())
+
+
+def render_beat(t, bi):
+    b = B[bi]; base = Image.new("RGBA", (W, H)); FN[b["k"]](base, t, b); return base
+
+
+def frame(t):
+    bi = next((i for i, x in enumerate(B) if x["t0"] <= t < x["t1"]), len(B) - 1)
+    if bi > 0 and t - B[bi]["t0"] < TR:  # 6-frame horizontal slide
+        q = ease_io((t - B[bi]["t0"]) / TR); old = render_beat(B[bi]["t0"] - 1e-3, bi - 1); new = render_beat(t, bi)
+        base = Image.new("RGBA", (W, H)); base.alpha_composite(old, (-int(q * W), 0)); base.alpha_composite(new, (int((1 - q) * W), 0))
+    else: base = render_beat(t, bi)
+    caption(base, t); return np.array(base.convert("RGB"))
+
+
+def main():
+    print(f"total {TOTAL:.1f}s; beats:", [(x['k'], round(x['t0'], 1), round(x['t1'], 1)) for x in B])
+    if len(sys.argv) > 1 and sys.argv[1] == "frames":
+        for tt in [float(v) for v in sys.argv[2:]]: Image.fromarray(frame(tt)).save(HERE / f"review/d_{tt:05.1f}.png")
+        return
+    build_audio(HERE / "audio/voice_059.wav"); n = int(TOTAL * FPS)
+    encode((frame(i / FPS) for i in range(n)), n, HERE / "audio/voice_059.wav", ROOT / deck["music"]["file"], HERE / "output/short.mp4", music_start=deck["music"]["start"], music_gain_db=-22)
+
+
+main()

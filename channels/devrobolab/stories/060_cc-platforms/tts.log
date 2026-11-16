@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "D:\my-tubes\channels\devrobolab\stories\060_cc-platforms\tts.py", line 11, in <module>
+    r = gemini_tts.speak(s["voice"], d["voice"]["id"], d["voice"]["style"], f, free_only=not paid)
+  File "D:\my-tubes\scripts\gemini_tts.py", line 58, in speak
+    r, tier = gemini_keys.post(ENDPOINT, body, out, timeout=90, label="Gemini TTS",
+              ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                               free_only=free_only)  # free key first for free channels
+                               ^^^^^^^^^^^^^^^^^^^^
+  File "D:\my-tubes\scripts\gemini_keys.py", line 97, in post
+    raise FreeQuotaOver(f"{label}: free key quota used up (429); paid key not allowed here")
+gemini_keys.FreeQuotaOver: Gemini TTS: free key quota used up (429); paid key not allowed here

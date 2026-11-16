@@ -1,0 +1,38 @@
+{
+ "tag": "Claude in daily life 03",
+ "music": {
+  "file": "shared/music/presentation/Funkorama.mp3",
+  "start": 6,
+  "rel": 12
+ },
+ "voice": {
+  "id": "Charon",
+  "style": "Speak like a friendly Indian tech YouTuber chatting casually in Hinglish. Natural conversational pace, warm and clear, a little energetic but not theatrical. No sing-song, no exaggerated emphasis."
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "voice": "कल की meetings याद रखनी हैं, या जानना है कि अगले हफ़्ते कब खाली हैं? Claude आपका Google Calendar पढ़कर ये बता सकता है।"
+  },
+  {
+   "id": "connect",
+   "voice": "पहले Calendar connect कीजिए। claude.ai में Customize खोलिए, Connectors में जाइए, और Google Calendar के आगे Connect दबाइए। फिर अपने Google account से sign in करके permission दे दीजिए। ये बस एक बार करना है।"
+  },
+  {
+   "id": "use",
+   "voice": "अब chat में plus दबाइए, Connectors में Google Calendar को on कीजिए, और सीधे पूछिए: कल मेरी कौन सी meetings हैं? Claude आपका calendar पढ़कर जवाब देगा, और दिखाएगा कि कौन से events से ये जानकारी ली।"
+  },
+  {
+   "id": "more",
+   "voice": "आप और भी पूछ सकते हैं। जैसे, अगले हफ़्ते कोई meeting टकरा रही है? या budget review में कौन आ रहा है? Claude समय और नाम, दोनों बता देगा।"
+  },
+  {
+   "id": "caution",
+   "voice": "ध्यान रखिए, Claude के official pages में Calendar की permission अलग लिखी है। एक page सिर्फ़ पढ़ने की बात करता है, दूसरा बदलाव की। इसलिए approval माँगे, तो पढ़कर ही हाँ कीजिए।"
+  },
+  {
+   "id": "cta",
+   "voice": "ऐसी और आसान AI tips के लिए, हमें follow कीजिए।"
+  }
+ ]
+}

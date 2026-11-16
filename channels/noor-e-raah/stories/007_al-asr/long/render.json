@@ -1,0 +1,45 @@
+{
+ "_note": "Al-Asr screen config for scripts/noor_render.py (cards from the script's SCREEN notes; title from surah_titles.json ref 103; end card = last spoken line 50, last cue 51 -> end_from 50). tempo 1.11 (user 2026-11-13).",
+ "title_ar": "سُورَةُ ٱلْعَصْرِ",
+ "title_hi": "सूरह अल-अस्र",
+ "series": "नूर-ए-राह",
+ "tagline": "क़ुरआन, आसान ज़बान में।",
+ "end_from": 50,
+ "cards": [
+  {
+   "line": 4,
+   "until": 4,
+   "y": 100,
+   "stack": true,
+   "items": [
+    "सूरह अल-अस्र · क़ुरआन की 103वीं सूरह",
+    "3 आयतें"
+   ]
+  },
+  {
+   "line": 47,
+   "until": 49,
+   "y": 100,
+   "items": [
+    "1. वक़्त की क़ीमत पहचानिए"
+   ]
+  },
+  {
+   "line": 48,
+   "until": 49,
+   "y": 210,
+   "items": [
+    "2. ईमान + अच्छे काम"
+   ]
+  },
+  {
+   "line": 49,
+   "until": 49,
+   "y": 320,
+   "items": [
+    "3. हक़ और सब्र की याद दिलाते रहिए"
+   ]
+  }
+ ],
+ "tempo": 1.11
+}

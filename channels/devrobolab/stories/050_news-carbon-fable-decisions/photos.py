@@ -1,12 +1,12 @@
-import sys
+﻿import sys
 from pathlib import Path
 H = Path(__file__).parent; ROOT = H.parents[3]
 sys.path.insert(0, str(ROOT / "scripts"))
 from cf_image import generate
 P = {
- "hook": "realistic product photo of a small wireless speaker and a smartphone on a clean desk next to a laptop, soft studio light, shallow depth of field, no text, no logos, no people",
- "globe": "realistic photo of a desk globe, over-ear headphones and a notebook on a bright desk, soft daylight, shallow depth of field, no text, no people",
- "mic": "realistic product photo of a studio microphone with a pop filter on a boom arm, soft warm light, blurred background, no text, no logos, no people",
+ "chip": "realistic macro photo of a glowing computer processor chip on a dark circuit board, blue and violet light, shallow depth of field, no text, no logos, no people",
+ "server": "realistic photo of a modern data center aisle with server racks and soft blue lights, clean, no text, no logos, no people",
+ "code": "realistic photo of a laptop on a desk showing a dark code editor, soft warm light, shallow depth of field, no readable text, no logos, no people",
 }
 for k, pr in P.items():
     out = H / f"raw/photos/{k}.png"

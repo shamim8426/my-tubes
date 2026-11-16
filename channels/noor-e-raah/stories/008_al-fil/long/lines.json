@@ -1,0 +1,935 @@
+[
+ {
+  "kind": "section",
+  "name": "HEADER"
+ },
+ {
+  "kind": "section",
+  "name": "INTRO (`part: intro`, hook)"
+ },
+ {
+  "kind": "screen",
+  "section": "INTRO (`part: intro`, hook)",
+  "ayah": null,
+  "note": "SCREEN: subah ki pehli roshni me registan ka lamba khaali raasta, door kshitij; ऊपर Arabic title سُورَةُ ٱلْفِيلِ (font se) aur neeche chhota caption \"हाथी वालों का वाक़िया\". Pehla frame bina awaaz ke samajh aaye: khaali lamba raasta."
+ },
+ {
+  "kind": "cue",
+  "n": 1,
+  "type": "music",
+  "value": "soft: Soaring — intro + parichay",
+  "section": "INTRO (`part: intro`, hook)",
+  "ayah": null
+ },
+ {
+  "kind": "cue",
+  "n": 2,
+  "type": "ambience",
+  "value": "halki registani hawa (Freesound CC0)",
+  "section": "INTRO (`part: intro`, hook)",
+  "ayah": null
+ },
+ {
+  "kind": "line",
+  "n": 3,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "INTRO (`part: intro`, hook)",
+  "ayah": null,
+  "text": "एक लश्कर हाथी के साथ काबा ढहाने निकला — और उसकी चाल बेकार हो गई। ये है सूरह अल-फ़ील।",
+  "tags": [
+   "P5",
+   "N3"
+  ]
+ },
+ {
+  "kind": "section",
+  "name": "1. SURAH KA PARICHAY"
+ },
+ {
+  "kind": "screen",
+  "section": "1. SURAH KA PARICHAY",
+  "ayah": null,
+  "note": "SCREEN: chhota card: \"सूरह अल-फ़ील · क़ुरआन की 105वीं सूरह\" + \"5 आयतें\"; peeche sunehri ghaati"
+ },
+ {
+  "kind": "line",
+  "n": 4,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "1. SURAH KA PARICHAY",
+  "ayah": null,
+  "text": "अल-फ़ील यानी हाथी। पहली आयत के \"अस्हाबिल फ़ील\", यानी हाथी वालों, से इसका नाम है। ये मक्की सूरह है।",
+  "tags": [
+   "P1",
+   "P2"
+  ]
+ },
+ {
+  "kind": "ayah",
+  "ayah": 1
+ },
+ {
+  "kind": "screen",
+  "section": "1. SURAH KA PARICHAY",
+  "ayah": 1,
+  "note": "SCREEN: badlon se utarti sunehri kirnein; poori surah Arabic me (5 ayat) — swoosh ke saath aati hai"
+ },
+ {
+  "kind": "cue",
+  "n": 5,
+  "type": "music",
+  "value": "swoosh — ARABIC ON SCREEN",
+  "section": "1. SURAH KA PARICHAY",
+  "ayah": 1
+ },
+ {
+  "kind": "arabic",
+  "ayah": 1,
+  "text": "أَلَمْ تَرَ كَيْفَ فَعَلَ رَبُّكَ بِأَصْحَٰبِ ٱلْفِيلِ أَلَمْ يَجْعَلْ كَيْدَهُمْ فِى تَضْلِيلٍ وَأَرْسَلَ عَلَيْهِمْ طَيْرًا أَبَابِيلَ تَرْمِيهِم بِحِجَارَةٍ مِّن سِجِّيلٍ فَجَعَلَهُمْ كَعَصْفٍ مَّأْكُولٍۭ"
+ },
+ {
+  "kind": "line",
+  "n": 6,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "1. SURAH KA PARICHAY",
+  "ayah": 1,
+  "text": "ये रही पूरी सूरह। पाँच छोटी आयतें, एक ही बहाव — याद दिलाना, चाल का बेकार होना, परिंदे, कंकर, और बर्बादी।",
+  "tags": [
+   "P6"
+  ]
+ },
+ {
+  "kind": "cue",
+  "n": 7,
+  "type": "music",
+  "value": "continue: River Flute — matlab",
+  "section": "1. SURAH KA PARICHAY",
+  "ayah": 1
+ },
+ {
+  "kind": "section",
+  "name": "2. SHAN-E-NUZUL"
+ },
+ {
+  "kind": "screen",
+  "section": "2. SHAN-E-NUZUL",
+  "ayah": null,
+  "note": "SCREEN: Makka-jaisi ghaati ki raat, kaale pahaad, khaali raasta; koi insaan nahi, koi gumbad/minar nahi"
+ },
+ {
+  "kind": "line",
+  "n": 8,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "2. SHAN-E-NUZUL",
+  "ayah": null,
+  "text": "इस सूरह का कोई अलग सबब-ए-नुज़ूल माने हुए तफ़्सीर में नहीं मिलता। सूरह ख़ुद एक जाने-माने वाक़िये, अस्हाबिल फ़ील, की तरफ़ इशारा करती है।",
+  "tags": [
+   "N1"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 9,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "2. SHAN-E-NUZUL",
+  "ayah": null,
+  "text": "रिवायतों के मुताबिक़ यमन का हाकिम अबरहा हाथी के साथ अपना लश्कर लेकर काबा ढहाने निकला।",
+  "tags": [
+   "N3"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 10,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "2. SHAN-E-NUZUL",
+  "ayah": null,
+  "text": "रिवायत में आता है कि हाथी आगे बढ़ने से रुक गया और बैठ गया।",
+  "tags": [
+   "N5"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 11,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "2. SHAN-E-NUZUL",
+  "ayah": null,
+  "text": "ये वाक़िया उस साल हुआ, जिसे अरब \"आमुल फ़ील\", यानी हाथी का साल, कहते थे।",
+  "tags": [
+   "N2"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 12,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "2. SHAN-E-NUZUL",
+  "ayah": null,
+  "text": "इब्ने इसहाक़ की रिवायत के मुताबिक़, जो इब्ने कसीर ने दी है, नबी सल्लल्लाहु अलैहि वसल्लम ने ये एहसान क़ुरैश को याद दिलाया।",
+  "tags": [
+   "N1",
+   "M7"
+  ]
+ },
+ {
+  "kind": "section",
+  "name": "3. AAYAT-DAR-AAYAT"
+ },
+ {
+  "kind": "screen",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": null,
+  "note": "SCREEN (har Arabic block): Arabic bade Amiri font me (Tanzil Uthmani, bytes unchanged), uske neeche UCHARAN (Devanagari), upar chhota label \"सरल भावार्थ — माने हुए तर्जुमों के आधार पर\" (sirf BHAAVARTH line par), neeche Hindi caption. Har jumla alag Arabic block. Koi insaan/farishta ka roop nahi."
+ },
+ {
+  "kind": "ayah",
+  "ayah": 2
+ },
+ {
+  "kind": "screen",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 2,
+  "note": "SCREEN: subah ka khaali raasta, door kshitij, dhoop; koi insaan nahi"
+ },
+ {
+  "kind": "cue",
+  "n": 13,
+  "type": "music",
+  "value": "swoosh — ARABIC ON SCREEN",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 2
+ },
+ {
+  "kind": "arabic",
+  "ayah": 2,
+  "text": "أَلَمْ تَرَ كَيْفَ فَعَلَ رَبُّكَ"
+ },
+ {
+  "kind": "line",
+  "n": 14,
+  "speaker": "ustaad",
+  "role": "ucharan",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 2,
+  "text": "अलम तरा कैफ़ा फ़अला रब्बुक",
+  "tags": [
+   "U1"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 15,
+  "speaker": "ustaad",
+  "role": "bhaavarth",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 2,
+  "text": "पहली आयत: क्या तुमने नहीं देखा, तुम्हारे रब ने क्या किया।",
+  "tags": [
+   "T2"
+  ]
+ },
+ {
+  "kind": "cue",
+  "n": 16,
+  "type": "music",
+  "value": "continue: River Flute — matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 2
+ },
+ {
+  "kind": "line",
+  "n": 17,
+  "speaker": "ustaad",
+  "role": "matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 2,
+  "text": "ये वाक़िया इतना मशहूर था कि मानो सबने देखा हो। \"रब\" यानी अल्लाह।",
+  "tags": [
+   "M1"
+  ]
+ },
+ {
+  "kind": "ayah",
+  "ayah": 3
+ },
+ {
+  "kind": "screen",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 3,
+  "note": "SCREEN: wahi raasta, doosra crop; koi insaan nahi"
+ },
+ {
+  "kind": "cue",
+  "n": 18,
+  "type": "music",
+  "value": "swoosh — ARABIC ON SCREEN",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 3
+ },
+ {
+  "kind": "arabic",
+  "ayah": 3,
+  "text": "بِأَصْحَٰبِ ٱلْفِيلِ"
+ },
+ {
+  "kind": "line",
+  "n": 19,
+  "speaker": "ustaad",
+  "role": "ucharan",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 3,
+  "text": "बि अस्हाबिल फ़ील",
+  "tags": [
+   "U2"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 20,
+  "speaker": "ustaad",
+  "role": "bhaavarth",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 3,
+  "text": "हाथी वालों के साथ।",
+  "tags": [
+   "T2"
+  ]
+ },
+ {
+  "kind": "cue",
+  "n": 21,
+  "type": "music",
+  "value": "continue: River Flute — matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 3
+ },
+ {
+  "kind": "line",
+  "n": 22,
+  "speaker": "ustaad",
+  "role": "matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 3,
+  "text": "हाथी वाले यानी अबरहा का लश्कर, जो यमन से काबा ढहाने आया था।",
+  "tags": [
+   "K2"
+  ]
+ },
+ {
+  "kind": "ayah",
+  "ayah": 4
+ },
+ {
+  "kind": "screen",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 4,
+  "note": "SCREEN: khaali maidan me door ek chhota nishaan; koi insaan nahi"
+ },
+ {
+  "kind": "cue",
+  "n": 23,
+  "type": "music",
+  "value": "swoosh — ARABIC ON SCREEN",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 4
+ },
+ {
+  "kind": "arabic",
+  "ayah": 4,
+  "text": "أَلَمْ يَجْعَلْ كَيْدَهُمْ"
+ },
+ {
+  "kind": "line",
+  "n": 24,
+  "speaker": "ustaad",
+  "role": "ucharan",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 4,
+  "text": "अलम यज्अल कैदहुम",
+  "tags": [
+   "U3"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 25,
+  "speaker": "ustaad",
+  "role": "bhaavarth",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 4,
+  "text": "दूसरी आयत, पहला हिस्सा: क्या उसने उनकी चाल को",
+  "tags": [
+   "T2"
+  ]
+ },
+ {
+  "kind": "cue",
+  "n": 26,
+  "type": "music",
+  "value": "continue: River Flute — matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 4
+ },
+ {
+  "kind": "line",
+  "n": 27,
+  "speaker": "ustaad",
+  "role": "matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 4,
+  "text": "\"कैद\" यानी चाल, साज़िश — काबा ढहाने का मंसूबा।",
+  "tags": [
+   "K3"
+  ]
+ },
+ {
+  "kind": "ayah",
+  "ayah": 5
+ },
+ {
+  "kind": "screen",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 5,
+  "note": "SCREEN: wahi maidan, doosra crop; koi insaan nahi"
+ },
+ {
+  "kind": "cue",
+  "n": 28,
+  "type": "music",
+  "value": "swoosh — ARABIC ON SCREEN",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 5
+ },
+ {
+  "kind": "arabic",
+  "ayah": 5,
+  "text": "فِى تَضْلِيلٍ"
+ },
+ {
+  "kind": "line",
+  "n": 29,
+  "speaker": "ustaad",
+  "role": "ucharan",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 5,
+  "text": "फ़ी तज़्लील",
+  "tags": [
+   "U4"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 30,
+  "speaker": "ustaad",
+  "role": "bhaavarth",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 5,
+  "text": "दूसरा हिस्सा: बेकार नहीं कर दिया।",
+  "tags": [
+   "T2"
+  ]
+ },
+ {
+  "kind": "cue",
+  "n": 31,
+  "type": "music",
+  "value": "continue: River Flute — matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 5
+ },
+ {
+  "kind": "line",
+  "n": 32,
+  "speaker": "ustaad",
+  "role": "matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 5,
+  "text": "\"तज़्लील\" यानी बेकार, ग़लत रास्ते पर। उनकी चाल अपने मक़सद तक पहुँची ही नहीं।",
+  "tags": [
+   "K4"
+  ]
+ },
+ {
+  "kind": "ayah",
+  "ayah": 6
+ },
+ {
+  "kind": "screen",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 6,
+  "note": "SCREEN: dhalte aasman ka khula kshitij; koi insaan nahi, koi parinda ka chitra nahi"
+ },
+ {
+  "kind": "cue",
+  "n": 33,
+  "type": "music",
+  "value": "swoosh — ARABIC ON SCREEN",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 6
+ },
+ {
+  "kind": "arabic",
+  "ayah": 6,
+  "text": "وَأَرْسَلَ عَلَيْهِمْ"
+ },
+ {
+  "kind": "line",
+  "n": 34,
+  "speaker": "ustaad",
+  "role": "ucharan",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 6,
+  "text": "व अर्सला अलैहिम",
+  "tags": [
+   "U5"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 35,
+  "speaker": "ustaad",
+  "role": "bhaavarth",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 6,
+  "text": "तीसरी आयत, पहला हिस्सा: और उन पर भेजे।",
+  "tags": [
+   "T2"
+  ]
+ },
+ {
+  "kind": "cue",
+  "n": 36,
+  "type": "music",
+  "value": "continue: River Flute — matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 6
+ },
+ {
+  "kind": "line",
+  "n": 37,
+  "speaker": "ustaad",
+  "role": "matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 6,
+  "text": "यानी अल्लाह ने उन पर परिंदे भेजे।",
+  "tags": [
+   "K5"
+  ]
+ },
+ {
+  "kind": "ayah",
+  "ayah": 7
+ },
+ {
+  "kind": "screen",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 7,
+  "note": "SCREEN: wahi aasman, doosra crop; koi insaan nahi"
+ },
+ {
+  "kind": "cue",
+  "n": 38,
+  "type": "music",
+  "value": "swoosh — ARABIC ON SCREEN",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 7
+ },
+ {
+  "kind": "arabic",
+  "ayah": 7,
+  "text": "طَيْرًا أَبَابِيلَ"
+ },
+ {
+  "kind": "line",
+  "n": 39,
+  "speaker": "ustaad",
+  "role": "ucharan",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 7,
+  "text": "तैरन अबाबील",
+  "tags": [
+   "U6"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 40,
+  "speaker": "ustaad",
+  "role": "bhaavarth",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 7,
+  "text": "दूसरा हिस्सा: परिंदों के झुंड।",
+  "tags": [
+   "T2"
+  ]
+ },
+ {
+  "kind": "cue",
+  "n": 41,
+  "type": "music",
+  "value": "continue: River Flute — matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 7
+ },
+ {
+  "kind": "line",
+  "n": 42,
+  "speaker": "ustaad",
+  "role": "matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 7,
+  "text": "तफ़्सीरों में \"अबाबील\" का मतलब झुंड के झुंड आया है, यानी एक के पीछे एक।",
+  "tags": [
+   "K6"
+  ]
+ },
+ {
+  "kind": "ayah",
+  "ayah": 8
+ },
+ {
+  "kind": "screen",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 8,
+  "note": "SCREEN: patthar-ghati ke bade patthar; koi insaan nahi"
+ },
+ {
+  "kind": "cue",
+  "n": 43,
+  "type": "music",
+  "value": "swoosh — ARABIC ON SCREEN",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 8
+ },
+ {
+  "kind": "arabic",
+  "ayah": 8,
+  "text": "تَرْمِيهِم بِحِجَارَةٍ"
+ },
+ {
+  "kind": "line",
+  "n": 44,
+  "speaker": "ustaad",
+  "role": "ucharan",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 8,
+  "text": "तरमीहिम बि हिजारतिम",
+  "tags": [
+   "U7"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 45,
+  "speaker": "ustaad",
+  "role": "bhaavarth",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 8,
+  "text": "चौथी आयत, पहला हिस्सा: जो उन पर कंकर-पत्थर फेंकते थे।",
+  "tags": [
+   "T2"
+  ]
+ },
+ {
+  "kind": "cue",
+  "n": 46,
+  "type": "music",
+  "value": "continue: River Flute — matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 8
+ },
+ {
+  "kind": "line",
+  "n": 47,
+  "speaker": "ustaad",
+  "role": "matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 8,
+  "text": "यानी वो परिंदे उन पर कंकर फेंकते थे।",
+  "tags": [
+   "K7"
+  ]
+ },
+ {
+  "kind": "ayah",
+  "ayah": 9
+ },
+ {
+  "kind": "screen",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 9,
+  "note": "SCREEN: sookhi zameen, khaali raasta; koi insaan nahi"
+ },
+ {
+  "kind": "cue",
+  "n": 48,
+  "type": "music",
+  "value": "swoosh — ARABIC ON SCREEN",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 9
+ },
+ {
+  "kind": "arabic",
+  "ayah": 9,
+  "text": "مِّن سِجِّيلٍ"
+ },
+ {
+  "kind": "line",
+  "n": 49,
+  "speaker": "ustaad",
+  "role": "ucharan",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 9,
+  "text": "मिन सिज्जील",
+  "tags": [
+   "U8"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 50,
+  "speaker": "ustaad",
+  "role": "bhaavarth",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 9,
+  "text": "दूसरा हिस्सा: सिज्जील के।",
+  "tags": [
+   "T2"
+  ]
+ },
+ {
+  "kind": "cue",
+  "n": 51,
+  "type": "music",
+  "value": "continue: River Flute — matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 9
+ },
+ {
+  "kind": "line",
+  "n": 52,
+  "speaker": "ustaad",
+  "role": "matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 9,
+  "text": "तफ़्सीरों में \"सिज्जील\" का मतलब पकी हुई मिट्टी का कंकर-पत्थर आया है।",
+  "tags": [
+   "K8"
+  ]
+ },
+ {
+  "kind": "ayah",
+  "ayah": 10
+ },
+ {
+  "kind": "screen",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 10,
+  "note": "SCREEN: khaali kamra, subah ki roshni; koi insaan nahi"
+ },
+ {
+  "kind": "cue",
+  "n": 53,
+  "type": "music",
+  "value": "swoosh — ARABIC ON SCREEN",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 10
+ },
+ {
+  "kind": "arabic",
+  "ayah": 10,
+  "text": "فَجَعَلَهُمْ"
+ },
+ {
+  "kind": "line",
+  "n": 54,
+  "speaker": "ustaad",
+  "role": "ucharan",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 10,
+  "text": "फ़जअलहुम",
+  "tags": [
+   "U9"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 55,
+  "speaker": "ustaad",
+  "role": "bhaavarth",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 10,
+  "text": "पाँचवीं आयत, पहला हिस्सा: फिर उन्हें कर दिया।",
+  "tags": [
+   "T2"
+  ]
+ },
+ {
+  "kind": "cue",
+  "n": 56,
+  "type": "music",
+  "value": "continue: River Flute — matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 10
+ },
+ {
+  "kind": "line",
+  "n": 57,
+  "speaker": "ustaad",
+  "role": "matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 10,
+  "text": "यानी अल्लाह ने उन्हें एक अंजाम तक पहुँचा दिया।",
+  "tags": [
+   "K9"
+  ]
+ },
+ {
+  "kind": "ayah",
+  "ayah": 11
+ },
+ {
+  "kind": "screen",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 11,
+  "note": "SCREEN: wahi khaali kamra, crop; koi insaan nahi"
+ },
+ {
+  "kind": "cue",
+  "n": 58,
+  "type": "music",
+  "value": "swoosh — ARABIC ON SCREEN",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 11
+ },
+ {
+  "kind": "arabic",
+  "ayah": 11,
+  "text": "كَعَصْفٍ مَّأْكُولٍۭ"
+ },
+ {
+  "kind": "line",
+  "n": 59,
+  "speaker": "ustaad",
+  "role": "ucharan",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 11,
+  "text": "कअस्फ़िम मअकूल",
+  "tags": [
+   "U10"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 60,
+  "speaker": "ustaad",
+  "role": "bhaavarth",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 11,
+  "text": "दूसरा हिस्सा: खाए हुए भूसे जैसा।",
+  "tags": [
+   "T2"
+  ]
+ },
+ {
+  "kind": "cue",
+  "n": 61,
+  "type": "music",
+  "value": "continue: River Flute — matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 11
+ },
+ {
+  "kind": "line",
+  "n": 62,
+  "speaker": "ustaad",
+  "role": "matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 11,
+  "text": "\"खाया हुआ भूसा\" यानी वो चीज़, जो पूरी तरह बर्बाद और कमज़ोर हो गई।",
+  "tags": [
+   "K10"
+  ]
+ },
+ {
+  "kind": "section",
+  "name": "4. SEEKH"
+ },
+ {
+  "kind": "screen",
+  "section": "4. SEEKH",
+  "ayah": null,
+  "note": "SCREEN: subah ka sunehra ujala, khula raasta; seekh ke teen chhote cards font se"
+ },
+ {
+  "kind": "line",
+  "n": 63,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "4. SEEKH",
+  "ayah": null,
+  "text": "पहली सीख: ताक़तवर की ताक़त अल्लाह के सामने कुछ नहीं।",
+  "tags": [
+   "M6"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 64,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "4. SEEKH",
+  "ayah": null,
+  "text": "दूसरी: किसी की चाल अल्लाह के फ़ैसले को नहीं रोक सकती।",
+  "tags": [
+   "M6"
+  ]
+ },
+ {
+  "kind": "line",
+  "n": 65,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "4. SEEKH",
+  "ayah": null,
+  "text": "तीसरी: अल्लाह अपने घर की हिफ़ाज़त ख़ुद करता है।",
+  "tags": [
+   "M6",
+   "P5"
+  ]
+ },
+ {
+  "kind": "screen",
+  "section": "4. SEEKH",
+  "ayah": null,
+  "note": "SCREEN (end, aakhri ~15 s end-screen area khaali): tagline card \"क़ुरआन, आसान ज़बान में।\" + chhota card \"Arabic text: Tanzil Project, tanzil.net\" + \"सरल भावार्थ — माने हुए तर्जुमों के आधार पर\""
+ },
+ {
+  "kind": "line",
+  "n": 66,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "4. SEEKH",
+  "ayah": null,
+  "text": "अगली बार, नूर-ए-राह में: सूरह अल-काफ़िरून।",
+  "tags": [
+   "NEXT"
+  ]
+ },
+ {
+  "kind": "cue",
+  "n": 67,
+  "type": "music",
+  "value": "River Flute dheere fade-out; aakhri ~3 s sirf gentle breeze",
+  "section": "4. SEEKH",
+  "ayah": null
+ }
+]

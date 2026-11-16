@@ -1,0 +1,13 @@
+{
+ "tag": "Claude Feature 07",
+ "music": {"file": "shared/music/presentation/Funkorama.mp3", "start": 6, "rel": 12},
+ "voice": {"id": "Charon", "style": "Speak like a friendly Indian tech YouTuber chatting casually in Hinglish. Natural conversational pace, warm and clear, a little energetic but not theatrical. No sing-song, no exaggerated emphasis."},
+ "scenes": [
+  {"id": "hook", "voice": "Claude पर limit आ गई? चलो समझते हैं usage limit कैसे चलती है।"},
+  {"id": "session", "voice": "Paid plans में session limit होती है, जो पाँच घंटे में reset होती है। पहला message भेजते ही घड़ी शुरू हो जाती है।"},
+  {"id": "weekly", "voice": "इसके ऊपर weekly limit भी होती है। ये claude.ai, Claude Code और Desktop, सब जगह मिलाकर गिनी जाती है।"},
+  {"id": "tips", "voice": "Usage बचाना है? Thinking या effort कम रखो, ज़रूरत न हो तो web search और connectors बंद करो, और लंबी chat की जगह नई chat खोलो।"},
+  {"id": "check", "voice": "अपना usage देखना हो तो Settings में Usage खोलो। वहाँ बचा हुआ समय और अगला weekly reset दिखता है।"},
+  {"id": "cta", "voice": "काम की लगी? DevRoboLab को follow करो, रोज़ नया tip मिलेगा।"}
+ ]
+}

@@ -1,3 +1,5 @@
+# OVERRIDE (user 2026-11-15, LATEST, beats everything below): every day 2 SHORTS + 1 LONG, driven by analytics (search how-to + news with a hard number). Slots: Long 21:19, how-to Short 22:33, news Short 23:54; devrobolab-cfe-long disabled. Full rule: scheduled_tasks/RUN_COMMON.md section 11.
+
 # OVERRIDE (user 2026-11-15, latest): upload PUBLIC directly (not private), Long may cover multiple items of the topic type. See RUN_COMMON.md section 10.
 
 # OVERRIDE (user 2026-11-15): every day 3 Shorts + 1 LONG (>= 5 min, detailed). The Long replaces ONE slot per day and rotates: 2026-11-16 Claude Feature, 11-17 Daily-life, 11-18 AI news, 11-19 Claude Code, then repeats. Full rule: scheduled_tasks/RUN_COMMON.md section 9. This replaces "4 Shorts, no longs" below.

@@ -2,7 +2,7 @@
  "id": "gLUM0zcECSk",
  "title": "आधी बात, पूरा हंगामा! मिट्ठू ने सब बता दिया | किस्सागो",
  "published": "2026-10-19T14:10:15Z",
- "privacy": "public",
+ "privacy": "private",
  "seconds": 297,
  "statistics": {
   "viewCount": "2",
@@ -121,7 +121,37 @@
    "day": "2026-11-04",
    "views": 0,
    "estimatedMinutesWatched": 0
+  },
+  {
+   "day": "2026-11-05",
+   "views": 0,
+   "estimatedMinutesWatched": 0
+  },
+  {
+   "day": "2026-11-06",
+   "views": 0,
+   "estimatedMinutesWatched": 0
+  },
+  {
+   "day": "2026-11-07",
+   "views": 0,
+   "estimatedMinutesWatched": 0
+  },
+  {
+   "day": "2026-11-08",
+   "views": 0,
+   "estimatedMinutesWatched": 0
+  },
+  {
+   "day": "2026-11-09",
+   "views": 0,
+   "estimatedMinutesWatched": 0
+  },
+  {
+   "day": "2026-11-10",
+   "views": 0,
+   "estimatedMinutesWatched": 0
   }
  ],
- "fetched": "2026-11-07T19:10:52"
+ "fetched": "2026-11-13T23:20:56"
 }

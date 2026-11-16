@@ -1,0 +1,752 @@
+{
+ "title": "अस्मा बिन्ते अबू बक्र: मेहनत, सब्र और ज़ातुन्-निताक़ैन",
+ "voice": "Charon",
+ "style": "Calm, warm, clear Hindi documentary narrator for an Islamic history video about a hardworking woman. Respectful, gentle emotion, normal conversational pace, not rushed, not slow, correct Urdu sounds (ज़, फ़, क़, ख़, ग़).",
+ "tempo": 1.0,
+ "ambience": "shared/sfx/history/wind_desert_675710.mp3",
+ "music": "shared/music/noor/River_Flute.mp3",
+ "lines": [
+  {
+   "n": 1,
+   "img": "01_market_day",
+   "preset": "pan_right",
+   "text": "कल्पना कीजिए: मदीना की सुबह। बाज़ार में भीड़, ऊँटों पर लदा सामान, खजूर और अनाज बेचने वालों की आवाज़ें।",
+   "motion": true,
+   "overlay": [
+    [
+     "dust",
+     0.15
+    ]
+   ],
+   "amb": [
+    [
+     "shared/sfx/history/market_crowd_139981.mp3",
+     -13
+    ]
+   ],
+   "sfx": [
+    [
+     "shared/sfx/history/camel_bell_162811.mp3",
+     1.0,
+     -14
+    ]
+   ],
+   "music": "shared/music/clean/Lightless_Dawn.mp3",
+   "gold": [
+    "मदीना"
+   ]
+  },
+  {
+   "n": 2,
+   "img": "01_madinah_market",
+   "preset": "pull_out",
+   "text": "उस दौर का मदीना कुछ ऐसा रहा होगा: कच्ची ईंटों के घर, खजूर के बाग़ और कुओं से पानी भरती सादा ज़िंदगी।",
+   "motion": false,
+   "overlay": [
+    [
+     "dust",
+     0.15
+    ]
+   ],
+   "amb": [
+    [
+     "shared/sfx/history/crowd_far_675054.mp3",
+     -18
+    ]
+   ],
+   "sfx": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "gold": [
+    "सादा ज़िंदगी"
+   ]
+  },
+  {
+   "n": 3,
+   "img": "02_palm_grove",
+   "preset": "pan_left",
+   "text": "माना जाता है कि यहाँ बहुत से लोगों की रोज़ी खजूर के बाग़ों और खेती से जुड़ी थी, और दिन की शुरुआत सुबह के उजाले के साथ होती थी।",
+   "motion": true,
+   "overlay": [
+    [
+     "dust",
+     0.15
+    ]
+   ],
+   "amb": [
+    [
+     "shared/sfx/history/palm_leaves_378725.mp3",
+     -16
+    ]
+   ],
+   "sfx": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "gold": [
+    "खजूर"
+   ]
+  },
+  {
+   "n": 4,
+   "img": "02_house_morning",
+   "preset": "push_in",
+   "text": "इसी शहर में रहती थीं अस्मा बिन्त अबू बक्र रज़ियल्लाहु अन्हा, अपने शौहर ज़ुबैर रज़ियल्लाहु अन्हु के साथ।",
+   "motion": true,
+   "overlay": [
+    [
+     "dust",
+     0.15
+    ]
+   ],
+   "amb": [
+    [
+     "shared/sfx/birds_841386.mp3",
+     -16
+    ]
+   ],
+   "sfx": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "gold": [
+    "अस्मा"
+   ]
+  },
+  {
+   "n": 5,
+   "img": "03_mudbrick_house",
+   "preset": "pan_right",
+   "text": "अस्मा, अबू बक्र रज़ियल्लाहु अन्हु की बेटी थीं, जो रसूलुल्लाह सल्लल्लाहु अलैहि व सल्लम के बहुत क़रीबी साथी थे।",
+   "motion": false,
+   "overlay": [
+    [
+     "dust",
+     0.15
+    ]
+   ],
+   "amb": [
+    [
+     "shared/sfx/history/wind_desert_623604.mp3",
+     -20
+    ]
+   ],
+   "sfx": [],
+   "music": "shared/music/noor/River_Flute.mp3"
+  },
+  {
+   "n": 6,
+   "img": "02_house_morning",
+   "preset": "pull_out",
+   "text": "मगर अस्मा और ज़ुबैर का घर बहुत सादा था। इस सादगी का हाल अस्मा ख़ुद अपनी ज़बान से बताती हैं।",
+   "motion": false,
+   "overlay": [
+    [
+     "dust",
+     0.15
+    ]
+   ],
+   "amb": [
+    [
+     "shared/sfx/history/well_water_164050.mp3",
+     -22
+    ]
+   ],
+   "sfx": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "gold": [
+    "सादा"
+   ]
+  },
+  {
+   "n": 7,
+   "img": "03_horse_stall",
+   "preset": "pan_left",
+   "text": "वो कहती हैं: जब ज़ुबैर ने मुझसे निकाह किया, उनके पास न ज़मीन थी, न कोई ग़ुलाम, न कुछ और, सिवाय पानी ढोने वाले एक ऊँट और एक घोड़े के।",
+   "motion": true,
+   "overlay": [
+    [
+     "dust",
+     0.15
+    ]
+   ],
+   "amb": [
+    [
+     "shared/sfx/history/palm_leaves_378725.mp3",
+     -17
+    ]
+   ],
+   "sfx": [
+    [
+     "shared/sfx/history/horse_neigh_826753.mp3",
+     2.0,
+     -13
+    ]
+   ],
+   "music": "shared/music/seekh/Peaceful_Desolation.mp3",
+   "gold": [
+    "घोड़े",
+    "ऊँट"
+   ]
+  },
+  {
+   "n": 8,
+   "img": "04_horse_stall",
+   "preset": "push_in",
+   "text": "मैं घोड़े को चारा देती थी और उसकी देखभाल करती थी।",
+   "motion": false,
+   "overlay": [
+    [
+     "dust",
+     0.15
+    ]
+   ],
+   "amb": [
+    [
+     "shared/sfx/history/goat_sheep_191812.mp3",
+     -24
+    ]
+   ],
+   "sfx": [],
+   "music": "shared/music/seekh/Peaceful_Desolation.mp3",
+   "gold": [
+    "देखभाल"
+   ]
+  },
+  {
+   "n": 9,
+   "img": "07_well_water",
+   "preset": "pan_right",
+   "text": "मैं कुएँ से पानी खींचती थी। जब चमड़े का डोल फट जाता, तो उसे ख़ुद सिल लेती थी, और आटा भी ख़ुद गूँधती थी।",
+   "motion": true,
+   "overlay": [
+    [
+     "dust",
+     0.15
+    ]
+   ],
+   "amb": [
+    [
+     "shared/sfx/history/well_water_164050.mp3",
+     -14
+    ]
+   ],
+   "sfx": [],
+   "music": "shared/music/seekh/Peaceful_Desolation.mp3",
+   "gold": [
+    "पानी"
+   ]
+  },
+  {
+   "n": 10,
+   "img": "06_grinding_stones",
+   "preset": "pull_out",
+   "text": "आज जो काम मशीनें चंद मिनटों में कर देती हैं, उस दौर में उनमें पूरा वक़्त और पूरी ताक़त लगती थी।",
+   "motion": false,
+   "overlay": [
+    [
+     "dust",
+     0.15
+    ]
+   ],
+   "amb": [
+    [
+     "shared/sfx/history/fire_crackle_508110.mp3",
+     -24
+    ]
+   ],
+   "sfx": [
+    [
+     "shared/sfx/history/stone_grind_354093.mp3",
+     0.5,
+     -13
+    ]
+   ],
+   "music": "shared/music/seekh/Peaceful_Desolation.mp3"
+  },
+  {
+   "n": 11,
+   "img": "12_land_plot_palms",
+   "preset": "pan_left",
+   "text": "इसके अलावा ज़ुबैर की एक ज़मीन भी थी, जो रसूलुल्लाह सल्लल्लाहु अलैहि व सल्लम ने उन्हें दी थी।",
+   "motion": false,
+   "overlay": [
+    [
+     "dust",
+     0.15
+    ]
+   ],
+   "amb": [
+    [
+     "shared/sfx/history/palm_leaves_865353.mp3",
+     -18
+    ]
+   ],
+   "sfx": [],
+   "music": "shared/music/seekh/Peaceful_Desolation.mp3",
+   "gold": [
+    "ज़मीन"
+   ]
+  },
+  {
+   "n": 12,
+   "img": "05_head_load_path",
+   "preset": "push_in",
+   "text": "अस्मा उस ज़मीन से खजूर की गुठलियाँ अपने सिर पर रखकर घर लाया करती थीं।",
+   "motion": true,
+   "overlay": [
+    [
+     "dust",
+     0.15
+    ]
+   ],
+   "amb": [
+    [
+     "shared/sfx/history/wind_desert_623604.mp3",
+     -18
+    ]
+   ],
+   "sfx": [
+    [
+     "shared/sfx/history/steps_sand_414310.mp3",
+     0.2,
+     -12
+    ]
+   ],
+   "music": "shared/music/seekh/Peaceful_Desolation.mp3",
+   "gold": [
+    "खजूर की गुठलियाँ"
+   ]
+  },
+  {
+   "n": 13,
+   "img": "13_long_road_far",
+   "preset": "pan_right",
+   "text": "वो ज़मीन घर से दो तिहाई फ़रसख़ दूर थी, यानी लगभग तीन किलोमीटर का अंदाज़ा।",
+   "motion": false,
+   "overlay": [
+    [
+     "dust",
+     0.15
+    ]
+   ],
+   "amb": [
+    [
+     "shared/sfx/history/wind_desert_675710.mp3",
+     -18
+    ]
+   ],
+   "sfx": [
+    [
+     "shared/sfx/history/steps_sand_560950.mp3",
+     0.5,
+     -13
+    ]
+   ],
+   "music": "shared/music/seekh/Peaceful_Desolation.mp3",
+   "gold": [
+    "तीन किलोमीटर"
+   ]
+  },
+  {
+   "n": 14,
+   "img": "04_woman_noon",
+   "preset": "pull_out",
+   "text": "सिर पर बोझ लिए, ये सफ़र वो बार-बार तय करती थीं।",
+   "motion": true,
+   "overlay": [
+    [
+     "dust",
+     0.15
+    ]
+   ],
+   "amb": [
+    [
+     "shared/sfx/history/wind_desert_623604.mp3",
+     -18
+    ]
+   ],
+   "sfx": [
+    [
+     "shared/sfx/history/steps_sand_414310.mp3",
+     0.2,
+     -12
+    ],
+    [
+     "shared/sfx/history/steps_sand_414310.mp3",
+     3.5,
+     -12
+    ]
+   ],
+   "music": "shared/music/seekh/Peaceful_Desolation.mp3"
+  },
+  {
+   "n": 15,
+   "img": "15_road_tracks",
+   "preset": "pan_left",
+   "text": "एक दिन इसी रास्ते पर रसूलुल्लाह सल्लल्लाहु अलैहि व सल्लम अपने कुछ साथियों के साथ मिले।",
+   "motion": true,
+   "overlay": [
+    [
+     "dust",
+     0.15
+    ]
+   ],
+   "amb": [
+    [
+     "shared/sfx/history/palm_leaves_378725.mp3",
+     -17
+    ]
+   ],
+   "sfx": [
+    [
+     "shared/sfx/history/hooves_434803.mp3",
+     0.5,
+     -16
+    ]
+   ],
+   "music": "shared/music/seekh/Touching_Moments_Two_Higher.mp3"
+  },
+  {
+   "n": 16,
+   "img": "14_camel_kneeling",
+   "preset": "push_in",
+   "text": "उन्होंने अस्मा को बुलाया और ऊँट को बिठाने की आवाज़ दी, ताकि उन्हें अपने पीछे सवार कर लें।",
+   "motion": false,
+   "overlay": [
+    [
+     "dust",
+     0.15
+    ]
+   ],
+   "amb": [
+    [
+     "shared/sfx/history/wind_desert_675710.mp3",
+     -20
+    ]
+   ],
+   "sfx": [
+    [
+     "shared/sfx/history/camel_groan_330774.mp3",
+     3.0,
+     -13
+    ]
+   ],
+   "music": "shared/music/seekh/Touching_Moments_Two_Higher.mp3",
+   "gold": [
+    "ऊँट"
+   ]
+  },
+  {
+   "n": 17,
+   "img": "15_road_tracks",
+   "preset": "pan_right",
+   "text": "मगर अस्मा को मर्दों के साथ चलने में शर्म आई। उन्हें ज़ुबैर की ग़ैरत का भी ख़याल आया, जो बहुत ग़ैरतमंद इंसान थे।",
+   "motion": true,
+   "overlay": [
+    [
+     "dust",
+     0.15
+    ]
+   ],
+   "amb": [
+    [
+     "shared/sfx/history/palm_leaves_378725.mp3",
+     -17
+    ]
+   ],
+   "sfx": [],
+   "music": "shared/music/seekh/Touching_Moments_Two_Higher.mp3",
+   "gold": [
+    "शर्म",
+    "ग़ैरत"
+   ]
+  },
+  {
+   "n": 18,
+   "img": "18_footprints_leaving",
+   "preset": "pull_out",
+   "text": "रसूलुल्लाह सल्लल्लाहु अलैहि व सल्लम ने उनकी शर्म को समझा, और आगे बढ़ गए।",
+   "motion": false,
+   "overlay": [
+    [
+     "dust",
+     0.15
+    ]
+   ],
+   "amb": [
+    [
+     "shared/sfx/history/wind_desert_675710.mp3",
+     -20
+    ]
+   ],
+   "sfx": [
+    [
+     "shared/sfx/history/camel_bell_578543.mp3",
+     0.5,
+     -18
+    ]
+   ],
+   "music": "shared/music/seekh/Touching_Moments_Two_Higher.mp3"
+  },
+  {
+   "n": 19,
+   "img": "06_grinding_stones",
+   "preset": "pan_left",
+   "text": "अस्मा ने घर आकर ज़ुबैर को बताया। वो बोले: अल्लाह की क़सम, तुम्हारा सिर पर गुठलियाँ उठाना मुझे उनके साथ सवार होने से ज़्यादा भारी लगता है।",
+   "motion": true,
+   "overlay": [
+    [
+     "dust",
+     0.15
+    ]
+   ],
+   "amb": [
+    [
+     "shared/sfx/history/fire_crackle_508110.mp3",
+     -24
+    ]
+   ],
+   "sfx": [],
+   "music": "shared/music/seekh/Touching_Moments_Two_Higher.mp3",
+   "gold": [
+    "अल्लाह की क़सम"
+   ]
+  },
+  {
+   "n": 20,
+   "img": "16_doorway_lamp",
+   "preset": "push_in",
+   "text": "ये रिवायत हमें उस दौर की सादा ज़िंदगी दिखाती है, जिसमें मेहनत और इज़्ज़त साथ-साथ चलती थीं।",
+   "motion": false,
+   "overlay": [
+    [
+     "dust",
+     0.15
+    ]
+   ],
+   "amb": [
+    [
+     "shared/sfx/history/night_crickets_254270.mp3",
+     -20
+    ]
+   ],
+   "sfx": [],
+   "music": "shared/music/seekh/Touching_Moments_Two_Higher.mp3",
+   "gold": [
+    "मेहनत",
+    "इज़्ज़त"
+   ]
+  },
+  {
+   "n": 21,
+   "img": "22_stable_morning",
+   "preset": "pan_right",
+   "text": "कुछ समय बाद अबू बक्र रज़ियल्लाहु अन्हु ने घोड़े की देखभाल के लिए एक ख़िदमतगार भेज दिया।",
+   "motion": false,
+   "overlay": [
+    [
+     "dust",
+     0.15
+    ]
+   ],
+   "amb": [
+    [
+     "shared/sfx/history/crowd_far_867051.mp3",
+     -24
+    ]
+   ],
+   "sfx": [
+    [
+     "shared/sfx/history/wood_door_390123.mp3",
+     0.4,
+     -15
+    ]
+   ],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3"
+  },
+  {
+   "n": 22,
+   "img": "07_night_house",
+   "preset": "pull_out",
+   "text": "अस्मा कहती हैं, ऐसा लगा जैसे उन्होंने मुझे आज़ाद कर दिया।",
+   "motion": true,
+   "overlay": [
+    [
+     "dust",
+     0.15
+    ]
+   ],
+   "amb": [
+    [
+     "shared/sfx/history/night_crickets_254270.mp3",
+     -17
+    ]
+   ],
+   "sfx": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "gold": [
+    "आज़ाद"
+   ]
+  },
+  {
+   "n": 23,
+   "img": "17_mountain_night_route",
+   "preset": "pan_left",
+   "text": "अस्मा की ज़िंदगी का एक और बड़ा वाक़िआ हिजरत के वक़्त का है। जब रसूलुल्लाह सल्लल्लाहु अलैहि व सल्लम और अबू बक्र रज़ियल्लाहु अन्हु मक्का से रवाना हुए, तो उनका सफ़र का खाना अस्मा ने तैयार किया।",
+   "motion": false,
+   "overlay": [
+    [
+     "dust",
+     0.15
+    ]
+   ],
+   "amb": [
+    [
+     "shared/sfx/history/wind_desert_675710.mp3",
+     -18
+    ]
+   ],
+   "sfx": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "gold": [
+    "हिजरत"
+   ]
+  },
+  {
+   "n": 24,
+   "img": "18_provisions_bag",
+   "preset": "push_in",
+   "text": "खाने की थैली और पानी की मशक बाँधने के लिए उनके पास कोई रस्सी नहीं थी। तब अबू बक्र रज़ियल्लाहु अन्हु के कहने पर उन्होंने अपना कमरबंद दो हिस्सों में बाँट लिया।",
+   "motion": true,
+   "overlay": [
+    [
+     "dust",
+     0.15
+    ]
+   ],
+   "amb": [
+    [
+     "shared/sfx/history/fire_crackle_508110.mp3",
+     -24
+    ]
+   ],
+   "sfx": [
+    [
+     "shared/sfx/history/cloth_rustle_493264.mp3",
+     3.0,
+     -12
+    ]
+   ],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "gold": [
+    "कमरबंद"
+   ]
+  },
+  {
+   "n": 25,
+   "img": "19_night_desert_road",
+   "preset": "pan_right",
+   "text": "इसी वजह से उन्हें ज़ातुन्-निताक़ैन कहा गया, यानी दो कमरबंदों वाली।",
+   "motion": false,
+   "overlay": [
+    [
+     "dust",
+     0.15
+    ]
+   ],
+   "amb": [
+    [
+     "shared/sfx/history/night_crickets_268962.mp3",
+     -20
+    ],
+    [
+     "shared/sfx/history/wind_desert_623604.mp3",
+     -22
+    ]
+   ],
+   "sfx": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "gold": [
+    "ज़ातुन्-निताक़ैन"
+   ]
+  },
+  {
+   "n": 26,
+   "img": "20_makkah_hills_dawn",
+   "preset": "pull_out",
+   "text": "अस्मा रज़ियल्लाहु अन्हा ने लंबी उम्र पाई। मक्का में सन तिहत्तर हिजरी में उनका इंतिक़ाल हुआ, और वो लगभग सौ साल की मानी जाती हैं।",
+   "motion": false,
+   "overlay": [
+    [
+     "dust",
+     0.15
+    ]
+   ],
+   "amb": [
+    [
+     "shared/sfx/history/wind_desert_675710.mp3",
+     -22
+    ]
+   ],
+   "sfx": [],
+   "music": "shared/music/noor/Soaring.mp3"
+  },
+  {
+   "n": 27,
+   "img": "21_sunrise_palms",
+   "preset": "pan_left",
+   "text": "उनकी कहानी से हमें सादगी, मेहनत और सब्र का सबक़ मिलता है।",
+   "motion": true,
+   "overlay": [
+    [
+     "dust",
+     0.15
+    ]
+   ],
+   "amb": [
+    [
+     "shared/sfx/birds_841386.mp3",
+     -18
+    ]
+   ],
+   "sfx": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "gold": [
+    "सादगी",
+    "मेहनत",
+    "सब्र"
+   ]
+  },
+  {
+   "n": 28,
+   "img": "08_night_town",
+   "preset": "push_in",
+   "text": "मेहनत और सब्र की ये कहानी सहीह बुख़ारी में ख़ुद अस्मा की ज़बानी दर्ज है।",
+   "motion": true,
+   "overlay": [
+    [
+     "dust",
+     0.15
+    ]
+   ],
+   "amb": [
+    [
+     "shared/sfx/history/night_crickets_254270.mp3",
+     -17
+    ],
+    [
+     "shared/sfx/history/crowd_far_675054.mp3",
+     -26
+    ]
+   ],
+   "sfx": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "gold": [
+    "मेहनत",
+    "सब्र"
+   ],
+   "src": "सहीह बुख़ारी 5224 · सहीह मुस्लिम 2182a · हिजरत वाक़िआ: बुख़ारी 3907"
+  }
+ ],
+ "music_vol": 0.5,
+ "amp": 0.08,
+ "amb_db": -6,
+ "sfx_db": -3,
+ "duck": true
+}

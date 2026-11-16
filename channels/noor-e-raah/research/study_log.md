@@ -5,3 +5,5 @@
 - Learn (pattern only, nothing copied): big emotional contrast in one frame, high saturation, readable in a small phone thumbnail. We do NOT show any Prophet/Sahaba as a person (our rule), so our contrast comes from places/objects/light.
 
 - 2026-11-09 | youtube.com/shorts/BOgaMv1eG70 | "ALLAH never let you down" | viewed in browser only (no download). Learned: 3D storybook look, warm golden light, face close-ups, top subtitle line, soft music, 3-word emotional title, hook->test->trust->calm end. Nothing copied.
+
+2026-11-13 | study | reference Short (hadith myth-busting, 37 s, 9:16) | downloaded to study/ (bino login), frames viewed, files deleted same day | learnings in brand/STYLE_NOOR.md section 7; no frame/audio/script kept

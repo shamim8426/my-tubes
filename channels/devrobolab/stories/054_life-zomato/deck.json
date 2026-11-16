@@ -1,0 +1,13 @@
+{
+ "tag": "Claude in daily life 01",
+ "music": {"file": "shared/music/presentation/Funkorama.mp3", "start": 6, "rel": 12},
+ "voice": {"id": "Charon", "style": "Speak like a friendly Indian tech YouTuber chatting casually in Hinglish. Natural conversational pace, warm and clear, a little energetic but not theatrical. No sing-song, no exaggerated emphasis."},
+ "scenes": [
+  {"id": "hook", "voice": "खाना order करना है, पर app खोले बिना? Claude से हो सकता है। Example देखो।"},
+  {"id": "connect", "voice": "Claude में Customize खोलो, Connectors में जाओ, Add custom connector दबाओ, Zomato का server URL डालो, फिर sign in करो।"},
+  {"id": "use", "voice": "अब chat में बोलो: मेरे पास तीन सौ रुपये हैं, पास के veg restaurant दिखाओ। फिर कहो, menu से दो item cart में डालो।"},
+  {"id": "pay", "voice": "Payment QR code से तुम खुद करते हो। Claude पैसे नहीं देता।"},
+  {"id": "caution", "voice": "ध्यान रखना, ये Zomato का third-party connector है, और उनके page पर लिखा है कि ये अभी सिर्फ testing के लिए है। सिर्फ भरोसे के server जोड़ो।"},
+  {"id": "cta", "voice": "रोज़ के काम में Claude सीखना है? DevRoboLab को follow करो।"}
+ ]
+}

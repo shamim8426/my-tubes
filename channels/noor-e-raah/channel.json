@@ -16,6 +16,7 @@
     "short": "20:00"
   },
   "short_after_long_min": 60,
+  "short_max_seconds": 75,
   "api_audited": false,
   "_publish_note": "shared/RULES.md section 8 (2026-10-21): decided right after the upload from the IST clock. Long: 19:00-23:59 -> public now, 00:00-18:59 -> 19:00 same day; one long per day (else next free day). Short of a long: long + 60 min (19:00 -> 20:00; after 23:59 -> public now). api_audited false -> upload private + STUDIO ACTION message; true -> tools/youtube_upload.py sets public/publishAt itself.",
   "playlists": {
@@ -28,9 +29,9 @@
   "voices": {
     "_help": "RULES 1b (user 2026-10-24): two speakers in a conversation; audition characters/voices/audition_2026-10-24/",
     "ustaad": {
-      "voice": "Algieba",
+      "voice": "Charon",
       "role": "aayat, bhaavarth, matlab, parichay, shan-e-nuzul (only voice for religious claims)",
-      "style": "Calm, respectful Indian Hindi-Urdu teacher explaining the Quran to a family in everyday language: warm, steady and clear, correct Urdu nuqta sounds (ज़, फ़, क़, ख़, ग़), unhurried pace, gentle reverence, no drama, never singing or chanting"
+      "style": "Calm, respectful Indian Hindi-Urdu teacher explaining the Quran to a family in everyday language: warm, steady and clear, correct Urdu nuqta sounds (ज़, फ़, क़, ख़, ग़), clear, steady, slightly brisk, not slow, gentle reverence, no drama, never singing or chanting"
     },
     "sawaal": {
       "voice": "Sulafat",
@@ -73,5 +74,12 @@
   },
   "image_style": "noor_cinematic_painted",
   "_image_style_note": "User 2026-10-25: style a (cinematic painted) is the default. Style block: scripts/noor_look_test.py STYLES['a_cinematic_painted']. No people, no text in images; Arabic/Hindi only via fonts.",
-  "_upload_note": "User 2026-10-25: made_for_kids false; synthetic flag false + description line 'Is video ke drishya aur awaaz AI ki madad se banaye gaye hain.'; category 27 Education."
+  "_upload_note": "User 2026-10-25: made_for_kids false; synthetic flag false + description line 'Is video ke drishya aur awaaz AI ki madad se banaye gaye hain.'; category 27 Education.",
+  "history_publish_window_ist": {
+    "start": "00:00",
+    "end": "09:00",
+    "fallback_schedule": "07:00",
+    "one_per_day": true,
+    "note": "user 2026-11-15; effective only after api_audited true, until then private + Studio schedule"
+  }
 }

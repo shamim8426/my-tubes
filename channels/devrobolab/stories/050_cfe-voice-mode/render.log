@@ -1,0 +1,9 @@
+total 36.8s; beats: [('hook', 0.0, 4.7), ('start', 4.7, 11.7), ('modes', 11.7, 18.4), ('extra', 18.4, 25.3), ('caution', 25.3, 32.3), ('cta', 32.3, 37.8)]
+  frame 0/1104
+  frame 150/1104
+  frame 300/1104
+  frame 450/1104
+  frame 600/1104
+  frame 750/1104
+  frame 900/1104
+  frame 1050/1104

@@ -1,0 +1,25 @@
+{
+  "channel_key": "devrobolab",
+  "channel_name": "DevRoboLab",
+  "channel_id": "UCpElgKdJOgQiyfwdGXz6GmA",
+  "format": "short",
+  "parent_video_id": null,
+  "title": "Claude se khana order karo: Zomato connector kaise jodein #shorts",
+  "description": "Claude in daily life 01: Claude me Zomato connector jodkar khana order karne ka example. Steps: Customize, Connectors, Add custom connector, server URL daalo, sign in. Phir chat me bolo, jaise Rs 300 me paas ke veg restaurant dikhao, ya menu se 2 item cart me daalo. Payment QR code se tum khud karte ho. Dhyan rakho: Zomato ka ye connector third-party hai aur unke page par likha hai ki ye abhi sirf testing ke liye hai. Sirf bharose ke server jodo. Screens in the video are our own illustrations (example only), no real order, account or payment.\n\nSources:\nClaude help (official): https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp\nZomato (third-party): https://github.com/Zomato/mcp-server-manifest\n\nUnofficial channel, not affiliated with Anthropic or Zomato. Synthetic voice.\n\nMusic: \"Funkorama\" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttp://creativecommons.org/licenses/by/4.0/\n\n#shorts #Claude #ClaudeConnectors #Zomato #AI #Hinglish",
+  "tags": [
+    "Claude",
+    "Claude connectors",
+    "Zomato",
+    "Claude in daily life",
+    "AI tools",
+    "Hinglish",
+    "Hindi tech",
+    "Shorts"
+  ],
+  "video": "short.mp4",
+  "language": "hi",
+  "made_for_kids": false,
+  "contains_synthetic_media": true,
+  "category_id": "28",
+  "privacy": "private"
+}

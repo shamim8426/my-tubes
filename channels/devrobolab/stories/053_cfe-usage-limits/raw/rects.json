@@ -1,0 +1,30 @@
+{
+ "session": [
+  503.390625,
+  490.203125,
+  165,
+  19,
+  "limit to reset. Paid plans have two types of usage limits: a session limit that "
+ ],
+ "weekly": [
+  700.75,
+  490.203125,
+  95.828125,
+  19,
+  ", and "
+ ],
+ "check": [
+  914.03125,
+  490.296875,
+  126.828125,
+  19,
+  ""
+ ],
+ "tips": [
+  348,
+  490.984375,
+  126.3125,
+  19,
+  ""
+ ]
+}

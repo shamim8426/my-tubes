@@ -1,0 +1,13 @@
+{
+ "tag": "Claude Code 05",
+ "music": {"file": "shared/music/presentation/Funkorama.mp3", "start": 6, "rel": 12},
+ "voice": {"id": "Charon", "style": "Speak like a friendly Indian tech YouTuber chatting casually in Hinglish. Natural conversational pace, warm and clear, a little energetic but not theatrical. No sing-song, no exaggerated emphasis."},
+ "scenes": [
+  {"id": "hook", "voice": "Claude Code में क्या लिखें, समझ नहीं आता? Official prompt library में copy-paste prompts मिलते हैं।"},
+  {"id": "what", "voice": "ये docs का एक page है, जहाँ prompts task और role के हिसाब से tag किए हैं। Copy करो, Claude Code में paste करो।"},
+  {"id": "patterns", "voice": "तीन पैटर्न सीखो। पहला, steps नहीं, outcome बताओ। दूसरा, check का तरीका दो, जैसे run करके confirm करो। तीसरा, at-sign से file दिखाओ।"},
+  {"id": "caution", "voice": "ध्यान रखो! ये scripts नहीं, सिर्फ starting points हैं। Why this works खोलकर पैटर्न समझो, और अपना prompt लिखो।"},
+  {"id": "tip", "voice": "काम का prompt मिले तो उसे skill बना लो, फिर वो slash command से चलेगा।"},
+  {"id": "cta", "voice": "Claude Code सीखते रहना है? DevRoboLab को Follow करो, रोज़ नया tip आएगा।"}
+ ]
+}

@@ -1,0 +1,17 @@
+{
+  "channel_key": "devrobolab",
+  "channel_name": "DevRoboLab",
+  "channel_id": "UCpElgKdJOgQiyfwdGXz6GmA",
+  "format": "short",
+  "parent_video_id": null,
+  "title": "Claude Code 05: Prompt library se copy-paste prompts #shorts",
+  "description": "Claude Code 05: Prompt library. Claude Code docs me copy-paste prompts hain, task aur role ke hisaab se tag kiye hue. Teen pattern: steps nahi outcome batao, check karne ka tareeka do (run karke confirm karo), aur @ se file dikhao. Ye scripts nahi, starting points hain: Why this works kholkar pattern samjho aur apna prompt likho. Kaam ka prompt mile to use skill bana lo, phir wo slash command se chalega.\n\nSource (official):\nhttps://code.claude.com/docs/en/prompt-library\n\nUnofficial channel, not affiliated with Anthropic.\n\nNote: the docs crops are our own capture of the official page (key lines highlighted). The terminal window is an illustration using the page's example prompts. Synthetic voice.\n\nMusic: \"Funkorama\" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttp://creativecommons.org/licenses/by/4.0/\n\n#shorts #ClaudeCode #Prompts #Claude #AI #Hinglish",
+  "tags": ["Claude Code", "Claude Code prompt library", "Claude Code prompts", "Claude tips", "AI tools", "Hinglish", "Hindi tech", "Shorts"],
+  "video": "short.mp4",
+  "language": "hi",
+  "made_for_kids": false,
+  "contains_synthetic_media": true,
+  "category_id": "28",
+  "privacy": "private",
+  "playlist_id": "PLGTgifZfJLow"
+}

@@ -1,0 +1,12 @@
+total 55.0s; beats: [('hook', 0, 7.6), ('codemode', 7.6, 24.9), ('llama', 24.9, 37.8), ('robot', 37.8, 51.2), ('cta', 51.2, 56.0)]
+  frame 0/1650
+  frame 150/1650
+  frame 300/1650
+  frame 450/1650
+  frame 600/1650
+  frame 750/1650
+  frame 900/1650
+  frame 1050/1650
+  frame 1200/1650
+  frame 1350/1650
+  frame 1500/1650

@@ -1,0 +1,412 @@
+{
+ "story": "007_al-asr",
+ "channel": "noor-e-raah",
+ "made_by": "Khoji MODE 3",
+ "date": "2026-11-13",
+ "note": "Arabic overwritten from the local Tanzil Uthmani file bytes 2026-11-13 (Sanchalak, scripted), sha256 computed. Source of Arabic = bytes read directly from the local Tanzil Uthmani file (see TANZIL_FILE), Bismillah prefix of 103:1 stripped. Tafseer/translation pages accessed 2026-11-13 via WebFetch (summarising fetch tool), so wording is a digest. Licence page last opened 2026-11-03 (005).",
+ "surah": {
+  "number": 103,
+  "name_ar": "العصر",
+  "name_tr": "Al-'Asr",
+  "ayat_count": 3,
+  "note_bismillah": "Tanzil file line 103|1 begins with the Bismillah; stripped"
+ },
+ "ayat": [
+  {
+   "ayah": 1,
+   "ref": "103:1",
+   "text": "بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ وَٱلْعَصْرِ",
+   "words": 1,
+   "sha256_utf8": "1ee866045c6731d23c6f5ec000074185162bd324afe4fa965887cba4a174dd2d",
+   "translit_tanzil": "WaalAAasri",
+   "translit_q411": "Wal' asr",
+   "text_stripped": "وَٱلْعَصْرِ",
+   "sha256_utf8_stripped": "78869f0afaa443cf820dc6957322f700d4afb4fe46eba58f6ded73935a0cd51e"
+  },
+  {
+   "ayah": 2,
+   "ref": "103:2",
+   "text": "إِنَّ ٱلْإِنسَٰنَ لَفِى خُسْرٍ",
+   "words": 4,
+   "sha256_utf8": "011a365b4ada26ae3a030e081b8adb640ee96f6418e190c129c1833fcc37b16c",
+   "translit_tanzil": "Inna alinsana lafee khusrin",
+   "translit_q411": "Innal insaana lafee khusr"
+  },
+  {
+   "ayah": 3,
+   "ref": "103:3",
+   "text": "إِلَّا ٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّٰلِحَٰتِ وَتَوَاصَوْا۟ بِٱلْحَقِّ وَتَوَاصَوْا۟ بِٱلصَّبْرِ",
+   "words": 9,
+   "sha256_utf8": "a3c9590c0ab1837671140d59ca71d2deac68dcd67fb0defcd743c03b68708a65",
+   "translit_tanzil": "Illa allatheena amanoo waAAamiloo alssalihati watawasaw bialhaqqi watawasaw bialssabri",
+   "translit_q411": "Il lal lazeena aamanu wa 'amilus saali haati wa tawa saw bil haqqi wa tawa saw bis sabr"
+  }
+ ],
+ "ayat_normalisation": "none - never NFC/NFKC",
+ "pc_check": "(1) compute sha256 (UTF-8) of the 3 ayah strings above (no BOM/newline) and write into ayat[].sha256_utf8; byte-compare with tanzil.net quran-uthmani 103:1-3 (strip Bismillah prefix of 103:1). (2) libass/Amiri render check: 103:2 khanjari alif + alif maksura; 103:3 small-circle sukoon on waw-alif words, double khanjari alif in alssalihati, shadda. (3) confirm the order-of-revelation number (quran.com says 13) against a second accepted list, else keep 'pata nahi'. (4) find Tabarani's number/grade/narrator for the Sahaba-parting report (N3); until then 'riwayat me aata hai', no name. (5) Hadith 'every person starts the day selling his soul' (Muslim) - number only if ever used (currently C5, not used).",
+ "source_keys": {
+  "TANZIL_FILE": {
+   "url": "local: .claude/worktrees/hi-30f55e/channels/noor-e-raah/stories/006_imaan-shorts/research/quran-uthmani.txt (Tanzil quran-uthmani, lines 6177-6179 = 103|1..3)",
+   "publisher": "Tanzil Project (tanzil.net) Uthmani text, CC BY 3.0, verbatim",
+   "published": "unknown",
+   "accessed": "2026-11-13",
+   "type": "text_snapshot",
+   "opened": true
+  },
+  "TANZIL_LIC": {
+   "url": "https://tanzil.net/docs/text_license",
+   "publisher": "Tanzil Project - CC BY 3.0, verbatim, no change, credit + link; opened 2026-11-03 in 005",
+   "published": "unknown",
+   "accessed": "2026-11-03",
+   "type": "licence",
+   "opened": true,
+   "note": "not re-opened 2026-11-13"
+  },
+  "TR_FAROOQKHAN": {
+   "url": "https://raw.githubusercontent.com/fawazahmed0/quran-api/1/editions/hin-suhelfarooqkhan/103.json",
+   "publisher": "Tanzil hi.hindi (Suhel Farooq Khan) via fawazahmed0/quran-api",
+   "published": "unknown",
+   "accessed": "2026-11-13",
+   "type": "translation",
+   "opened": true
+  },
+  "TR_FAROOQ": {
+   "url": "https://raw.githubusercontent.com/fawazahmed0/quran-api/1/editions/hin-muhammadfarooqk/103.json",
+   "publisher": "Muhammad Farooq Khan Hindi via fawazahmed0/quran-api",
+   "published": "unknown",
+   "accessed": "2026-11-13",
+   "type": "translation",
+   "opened": true
+  },
+  "TR_MAHMUD": {
+   "url": "https://raw.githubusercontent.com/fawazahmed0/quran-api/1/editions/urd-mahmoodulhassan/103.json",
+   "publisher": "Mahmud al-Hasan Urdu (PD) via fawazahmed0/quran-api",
+   "published": "unknown",
+   "accessed": "2026-11-13",
+   "type": "translation",
+   "opened": true
+  },
+  "LA_TANZIL": {
+   "url": "https://raw.githubusercontent.com/fawazahmed0/quran-api/1/editions/ara-quran-la/103.json",
+   "publisher": "Tanzil ara-quran-la Latin transliteration via fawazahmed0/quran-api",
+   "published": "unknown",
+   "accessed": "2026-11-13",
+   "type": "transliteration",
+   "opened": true
+  },
+  "LA_Q411": {
+   "url": "https://raw.githubusercontent.com/fawazahmed0/quran-api/1/editions/ara-quran-la1/103.json",
+   "publisher": "quran411 ara-quran-la1 Latin transliteration via fawazahmed0/quran-api",
+   "published": "unknown",
+   "accessed": "2026-11-13",
+   "type": "transliteration",
+   "opened": true
+  },
+  "IK_EN_103": {
+   "url": "https://raw.githubusercontent.com/spa5k/tafsir_api/main/tafsir/en-tafisr-ibn-kathir/103/1.json",
+   "publisher": "Tafsir Ibn Kathir (EN, abridged) 103: no Makki/Madani verdict, no occasion of revelation; 'Amr bin al-'As + Musaylima anecdote as intro (Kharaiti, Masawi' al-Akhlaq); 'asr = time of human acts (Zayd bin Aslam via Malik: evening); insan in khusr = loss/destruction; 4 exceptions (iman in heart, deeds with limbs, urging truth = obedience/avoid forbidden, urging patience = bearing harm); Tabarani: Companions reciting before parting; Shafi'i quote",
+   "published": "unknown",
+   "accessed": "2026-11-13",
+   "type": "tafseer",
+   "opened": true
+  },
+  "QT_103": {
+   "url": "https://raw.githubusercontent.com/spa5k/tafsir_api/main/tafsir/ar-tafseer-al-qurtubi/103/1.json",
+   "publisher": "Tafsir al-Qurtubi (AR) 103: 'wa hiya thalath ayat'; 'wa hiya makkiyya'; 'Qatada: madaniyya, and it is reported from Ibn 'Abbas'; 'asr views (dahr/Ibn 'Abbas; night+day; morning+evening; late day - al-Hasan, Qatada; 'Asr prayer - Muqatil; Prophet's era; Rabb al-'Asr); fiqh of oath (Malik, Shafi'i); no occasion of revelation; khusr/exception not discussed on the page",
+   "published": "unknown",
+   "accessed": "2026-11-13",
+   "type": "tafseer",
+   "opened": true
+  },
+  "TB_103": {
+   "url": "https://raw.githubusercontent.com/spa5k/tafsir_api/main/tafsir/ar-tafsir-al-tabari/103/1.json",
+   "publisher": "Tafsir al-Tabari (AR) 103: 'asr = dahr/time (preferred), Ibn 'Abbas 'an hour of the day', al-Hasan 'evening'; insan collective; khusr = halaka wa nuqsan; 'Ali's recitation additions; exception = believers (Mujahid); haqq = Allah's Book, sabr = obedience (Qatada, al-Hasan); no occasion of revelation, no Makki/Madani verdict",
+   "published": "unknown",
+   "accessed": "2026-11-13",
+   "type": "tafseer",
+   "opened": true
+  },
+  "MQ_103": {
+   "url": "https://raw.githubusercontent.com/spa5k/tafsir_api/main/tafsir/en-tafsir-maarif-ul-quran/103/1.json",
+   "publisher": "Ma'ariful Qur'an (EN) 103: no Makki/Madani verdict, no occasion; time = life's capital; khusr; 4 qualities (citing Ibn Kathir); tawasi from wasiyya; haqq/sabr meanings; Ibn Taymiyya analysis; Companions recited before parting (Tabarani, narrator 'Ubaidullah ibn Hisn); Shafi'i quote; hadith on selling one's soul (no collection given)",
+   "published": "unknown",
+   "accessed": "2026-11-13",
+   "type": "tafseer",
+   "opened": true
+  },
+  "QCOM_103": {
+   "url": "https://quran.com/surah/103/info",
+   "publisher": "Quran.com surah info 103: Meccan (most commentators); 13th revealed, after Al-Sharh, before Al-'Adiyat; 3 ayat; names Surat al-'Asr / wa-l-'Asr; 'revealed early in the mission' summary",
+   "published": "unknown",
+   "accessed": "2026-11-13",
+   "type": "reference",
+   "opened": true,
+   "note": "reference site, not a tafseer book: used only as a second source for Makki/names/order, order number needs PC confirm"
+  },
+  "ALIM_103": {
+   "url": "https://www.alim.org/surah-info/103",
+   "publisher": "Alim.org surah info 103 (Malik introduction): 'great majority of the commentators' say Makki; Mujahid, Qatadah, Muqatil say Madani; no order/other names",
+   "published": "unknown",
+   "accessed": "2026-11-13",
+   "type": "reference",
+   "opened": true
+  },
+  "SUNNAH_MUSLIM": {
+   "url": "https://sunnah.com/ (Muslim, 'every person goes out in the morning selling his soul')",
+   "publisher": "cited without collection by Ma'ariful 103; sunnah.com NOT opened",
+   "published": "unknown",
+   "accessed": "2026-11-13",
+   "type": "hadith",
+   "opened": false,
+   "note": "not used in video (C5)"
+  }
+ },
+ "facts": [
+  {
+   "id": "T1",
+   "claim": "Arabic 103:1-3 = Tanzil Uthmani bytes (ayat[]); CC BY 3.0, verbatim, credit Tanzil Project + link; sha256 on PC",
+   "grade": "licence ALLOWED",
+   "confidence": "pakka",
+   "sources": [
+    "TANZIL_FILE",
+    "TANZIL_LIC"
+   ]
+  },
+  {
+   "id": "T2",
+   "claim": "Hindi = saral bhaavarth from 3 accepted translations (Suhel Farooq Khan, Muhammad Farooq Khan, Mahmud al-Hasan PD); nothing copied; T1's 'namaz-e-asr' for 103:1 is one disputed sense and not taken",
+   "grade": "decision (001)",
+   "confidence": "pakka",
+   "sources": [
+    "TR_FAROOQKHAN",
+    "TR_FAROOQ",
+    "TR_MAHMUD"
+   ]
+  },
+  {
+   "id": "T3",
+   "claim": "Latin transliteration for the Devanagari ucharan (Tanzil ara-quran-la + quran411 ara-quran-la1), both read; ucharan.md tags U1-U6",
+   "grade": "helper",
+   "confidence": "pakka",
+   "sources": [
+    "LA_TANZIL",
+    "LA_Q411"
+   ]
+  },
+  {
+   "id": "P1",
+   "claim": "Surah 103 = Al-'Asr (العصر), named from the first word; 103rd surah; 3 ayat; juz 30",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "TANZIL_FILE",
+    "QT_103",
+    "QCOM_103"
+   ]
+  },
+  {
+   "id": "P2",
+   "claim": "Makki/Madani: Qurtubi 'wa hiya makkiyya', Qatada (also reported from Ibn 'Abbas) madani; Alim: great majority makki, Mujahid/Qatadah/Muqatil madani; quran.com: most commentators Meccan. Tabari, IK EN, Ma'ariful: no verdict. Video: 'zyadatar ulama ke mutabiq makki; Qatada waghaira ne madani kaha'",
+   "grade": "ikhtilaaf",
+   "confidence": "pakka",
+   "sources": [
+    "QT_103",
+    "ALIM_103",
+    "QCOM_103"
+   ]
+  },
+  {
+   "id": "P3",
+   "claim": "Order of revelation: quran.com '13th, after Al-Sharh, before Al-'Adiyat' - single opened source; not in any tafseer page",
+   "grade": "pata nahi",
+   "confidence": "anumaan",
+   "sources": [
+    "QCOM_103"
+   ]
+  },
+  {
+   "id": "P4",
+   "claim": "Other names: only 'Surat al-'Asr' and 'Surat wa-l-'Asr' (both from the first word); no separate name in any tafseer",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "QCOM_103",
+    "QT_103",
+    "ALIM_103"
+   ]
+  },
+  {
+   "id": "P5",
+   "claim": "Main message: oath by time -> every human in loss -> exceptions: iman, righteous deeds, urging one another to truth, urging one another to patience",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "IK_EN_103",
+    "TB_103",
+    "MQ_103"
+   ]
+  },
+  {
+   "id": "P6",
+   "claim": "Imam Shafi'i: if people pondered this surah it would suffice them; the surah is short yet comprehensive",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "IK_EN_103",
+    "MQ_103"
+   ]
+  },
+  {
+   "id": "N1",
+   "claim": "No occasion of revelation (sabab-e-nuzul) is given for Surah 103 in Tabari, Ibn Kathir EN, Qurtubi, Ma'ariful",
+   "grade": "maana hua (negative)",
+   "confidence": "pakka",
+   "sources": [
+    "TB_103",
+    "IK_EN_103",
+    "QT_103",
+    "MQ_103"
+   ]
+  },
+  {
+   "id": "N2",
+   "claim": "Soft context (not tafseer): quran.com 'revealed early in the Prophet's mission, summarising the whole message'; Alim: subject matter suggests early Makkan period. Not in the video as a claim",
+   "grade": "anumaan",
+   "confidence": "anumaan",
+   "sources": [
+    "QCOM_103",
+    "ALIM_103"
+   ]
+  },
+  {
+   "id": "N3",
+   "claim": "Report (Tabarani): when two Companions met they did not part until one had recited this surah to the other and given the salam; narrator's name varies (Abdullah/Ubaidullah bin Hisn); number/grade not given - PC check",
+   "grade": "maana hua (PC confirm)",
+   "confidence": "pakka",
+   "sources": [
+    "IK_EN_103",
+    "MQ_103"
+   ]
+  },
+  {
+   "id": "N4",
+   "claim": "Safe script line: N1 (no specific occasion) + P2 (mostly Makki) + optional N3, no name, no Musaylima anecdote",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "N1",
+    "P2",
+    "N3"
+   ]
+  },
+  {
+   "id": "Z1",
+   "claim": "No sahih virtue (fazilat) report for reciting 103 was opened; no fazilat claim in the video",
+   "grade": "pata nahi",
+   "confidence": "anumaan",
+   "sources": [
+    "QT_103",
+    "IK_EN_103",
+    "MQ_103"
+   ]
+  },
+  {
+   "id": "M1",
+   "claim": "103:1 K1 - al-'Asr = time/era; Allah swears by it. Tabari: dahr (evening, night, day, not restricted); IK: the time of human acts; Ma'ariful: time = capital of life; Qurtubi: dahr (Ibn 'Abbas) among many views",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "TB_103",
+    "IK_EN_103",
+    "MQ_103",
+    "QT_103"
+   ]
+  },
+  {
+   "id": "K2",
+   "claim": "103:1 - ikhtilaaf: some took 'asr as the last part of the day or the 'Asr prayer (Qatada, al-Hasan, Muqatil - Qurtubi); Tabari prefers the general 'time'",
+   "grade": "ikhtilaaf",
+   "confidence": "pakka",
+   "sources": [
+    "QT_103",
+    "TB_103"
+   ]
+  },
+  {
+   "id": "M2",
+   "claim": "103:2 K3 - insan = humankind in general (Tabari); khusr = loss/ruin (Tabari 'halaka wa nuqsan'; IK 'loss and destruction'; Ma'ariful)",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "TB_103",
+    "IK_EN_103",
+    "MQ_103"
+   ]
+  },
+  {
+   "id": "M3",
+   "claim": "103:3 j1 K4 - the exception: those who believe (Mujahid in Tabari: affirm tawhid; IK: in the heart; Ma'ariful: iman)",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "TB_103",
+    "IK_EN_103",
+    "MQ_103"
+   ]
+  },
+  {
+   "id": "K5",
+   "claim": "103:3 j2 - righteous deeds (IK: with the limbs; Tabari/Mujahid: obligations done, forbidden avoided; Ma'ariful: righteous deeds)",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "IK_EN_103",
+    "TB_103",
+    "MQ_103"
+   ]
+  },
+  {
+   "id": "K6",
+   "claim": "103:3 j3 - tawasaw bil-haqq: urging one another to the truth (haq = what Allah's Book teaches - Qatada/al-Hasan in Tabari; IK: enjoining good, forbidding evil; Ma'ariful: true faith + good deeds); tawasi from wasiyya",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "TB_103",
+    "IK_EN_103",
+    "MQ_103"
+   ]
+  },
+  {
+   "id": "K7",
+   "claim": "103:3 j4 - tawasaw bis-sabr: urging one another to patience (sabr = staying in obedience - Qatada/al-Hasan in Tabari; IK: enduring people's harm; Ma'ariful: abstaining from sin, staying with good deeds)",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "TB_103",
+    "IK_EN_103",
+    "MQ_103"
+   ]
+  },
+  {
+   "id": "M4",
+   "claim": "Whole surah order: oath by time -> all humans in loss -> four exceptions; first two for one's own improvement, last two for others (IK, Ma'ariful); concise yet comprehensive (Shafi'i)",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "IK_EN_103",
+    "MQ_103",
+    "TB_103"
+   ]
+  },
+  {
+   "id": "M5",
+   "claim": "Ma'ariful: time as the 'capital of life', continually spent - single-source image, only as a [MISAAL] idea, not as tafseer",
+   "grade": "anumaan (single source)",
+   "confidence": "anumaan",
+   "sources": [
+    "MQ_103"
+   ]
+  }
+ ],
+ "pc_check_done_2026-11-13": "(1) sha256 of stripped 103:1 computed (sha256_utf8_stripped). (4) Tabarani number/grade NOT confirmable (dorar blocked, no search hit): script line 10 DROPPED, lines renumbered 1..51, end_from 50."
+}

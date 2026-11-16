@@ -13,7 +13,7 @@ close details - hands/feet, no full figures or faces acting a scene (2026-10-26;
 form; Musafir + worship only from behind/far); style choice from the tests pending (`brand/STYLE_NOOR.md`).
 
 ## Awaazein + roles (RULES 1b, channel.json "voices")
-FROM 2026-11-10 (RULES 1d): ONE narrator only (Algieba), no questions, no tilawat disclaimer, tempo 1.15, reuse existing images. (Old: USTAAD + SAWAAL.)
+FROM 2026-11-10 (RULES 1d): ONE narrator only (Charon from 2026-11-13, was Algieba), no questions, no tilawat disclaimer, tempo 1.11, reuse existing images. (Old: USTAAD + SAWAAL.)
 USTAAD = Algieba (aayat, bhaavarth, matlab, parichay, shan-e-nuzul; only he makes religious claims, with sources).
 SAWAAL = Sulafat (questions — from 002 max 3-4, 3-3.5 min apart; misaal; short summaries). Tempo 1.08 in render.
 
@@ -54,3 +54,6 @@ choose), pin comment. Next: 4 Shorts of Al-Fatiha (needs a 9:16 renderer), then 
 
 ## Daily plan (user 2026-11-09)
 Nightly after 02:00 IST: one Long (surah, RULES 1d) + one Short (Imaan Shorts, RULES 2c/2d), both private. Tasks: noor-daily-short, noor-daily-long; runbooks `scheduled_tasks/`.
+2026-11-13: 007 Al-Asr script (51 lines, Tabarani line dropped) + TTS + thumbnail v3 done, video not built yet; next: Munshi TTS/audio review, edit, build_long.
+
+2026-11-13: 007 Al-Asr Long uploaded PRIVATE https://youtu.be/G10QXNZTxLQ (3:28.8, -14.1 LUFS, tempo 1.11, 12-13 reused images, 0 new, thumbnail v3C, story cost Rs 4.74 incl GST). Munshi final R1 PASS-WITH-NOTES. User decides public/schedule in Studio; first comment (task StoryChannel-Comment-G10QXNZTxLQ waits 3 h) must be posted via tools/post_comment.py if the task expires before it goes public. Next: 008 al-fil.

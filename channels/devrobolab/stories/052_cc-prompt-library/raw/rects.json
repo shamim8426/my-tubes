@@ -1,0 +1,30 @@
+{
+ "tag": [
+  308.5625,
+  243,
+  178.53125,
+  20,
+  "Copy-paste prompts for Claude Code, "
+ ],
+ "start": [
+  267.5625,
+  406.40625,
+  257.09375,
+  20,
+  ". They\u2019re "
+ ],
+ "outcome": [
+  20,
+  490.140625,
+  283.734375,
+  20,
+  ""
+ ],
+ "skill": [
+  886.671875,
+  490.109375,
+  84.8125,
+  20,
+  "ks for your project, the next step is making it repeatable: "
+ ]
+}

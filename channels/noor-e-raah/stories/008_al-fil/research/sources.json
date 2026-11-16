@@ -1,0 +1,412 @@
+{
+ "story": "008_al-fil",
+ "channel": "noor-e-raah",
+ "made_by": "Khoji MODE 3",
+ "date": "2026-11-14",
+ "note": "Arabic = bytes copied from the local Tanzil Uthmani file (see TANZIL_FILE) via Grep output, Bismillah prefix of 105:1 stripped; sha256 NOT computed (no code run) - PC must compute and byte-compare. Tafseer/translation pages accessed 2026-11-14 via WebFetch (summarising fetch tool), so wording is a digest. Licence page last opened 2026-11-03 (005).",
+ "surah": {
+  "number": 105,
+  "name_ar": "الفيل",
+  "name_tr": "Al-Fil",
+  "ayat_count": 5,
+  "note_bismillah": "Tanzil file line 105|1 begins with the Bismillah; stripped"
+ },
+ "ayat": [
+  {
+   "ayah": 1,
+   "ref": "105:1",
+   "text": "أَلَمْ تَرَ كَيْفَ فَعَلَ رَبُّكَ بِأَصْحَٰبِ ٱلْفِيلِ",
+   "words": 7,
+   "sha256_utf8": "0ce8280f64ec0a895a721066bb417b81a2d5a22672ea5d76131e6c2982308630",
+   "translit_tanzil": "Alam tara kayfa faAAala rabbuka biashabi alfeeli",
+   "translit_q411": "Alam tara kaifa fa'ala rabbuka bi ashaabil feel"
+  },
+  {
+   "ayah": 2,
+   "ref": "105:2",
+   "text": "أَلَمْ يَجْعَلْ كَيْدَهُمْ فِى تَضْلِيلٍ",
+   "words": 5,
+   "sha256_utf8": "4695b751b2752b02fc411f3481d552ffdbae4c6125c2feb1a96f84eff0ae01c3",
+   "translit_tanzil": "Alam yajAAal kaydahum fee tadleelin",
+   "translit_q411": "Alam yaj'al kai dahum fee tad leel"
+  },
+  {
+   "ayah": 3,
+   "ref": "105:3",
+   "text": "وَأَرْسَلَ عَلَيْهِمْ طَيْرًا أَبَابِيلَ",
+   "words": 4,
+   "sha256_utf8": "28fc4a80e7e164328f51003c4b3639ff13538c783c7d7e12bb5aa947ffd34d69",
+   "translit_tanzil": "Waarsala AAalayhim tayran ababeela",
+   "translit_q411": "Wa arsala 'alaihim tairan abaabeel"
+  },
+  {
+   "ayah": 4,
+   "ref": "105:4",
+   "text": "تَرْمِيهِم بِحِجَارَةٍ مِّن سِجِّيلٍ",
+   "words": 4,
+   "sha256_utf8": "4ad1529a0512aceb209c30316e11d25cddbb5a01d8e2b2065918c0d32b172bec",
+   "translit_tanzil": "Tarmeehim bihijaratin min sijjeelin",
+   "translit_q411": "Tar meehim bi hi jaaratim min sij jeel"
+  },
+  {
+   "ayah": 5,
+   "ref": "105:5",
+   "text": "فَجَعَلَهُمْ كَعَصْفٍ مَّأْكُولٍۭ",
+   "words": 3,
+   "sha256_utf8": "d71c76e1305afee3bff13afdd68e1a53e58c7a9a6e2b2ec93d2abba1247b82b7",
+   "translit_tanzil": "FajaAAalahum kaAAasfin makoolin",
+   "translit_q411": "Faja 'alahum ka'asfim m'akool"
+  }
+ ],
+ "ayat_normalisation": "none - never NFC/NFKC",
+ "pc_check": "(1) compute sha256 (UTF-8, no BOM/newline) of the 5 ayah strings, write into ayat[].sha256_utf8; byte-compare with Tanzil file lines 6189-6193 (strip Bismillah prefix of 105:1) and tanzil.net quran-uthmani. (2) libass/Amiri render check: khanjari alif in biashabi, alif maksura in fee, shadda in rabbuka/min/sijjeel, small iqlab meem + waw-hamza in 105:5. (3) confirm order-of-revelation number (quran.com says 19, after Al-Kafirun, before Al-Falaq) against a second accepted list, else 'pata nahi'. (4) 'Surat A-lam Tara' second name: second source or drop. (5) open real tafseer pages (IK/Tabari/Qurtubi/Ma'ariful) to confirm the digests, esp. N4 (Abdul-Muttalib line, Ibn Ishaq) and N5 (elephant stopped). (6) hadith numbers (Bukhari she-camel, Conquest-of-Makka) only if ever used: currently C8, not used.",
+ "source_keys": {
+  "TANZIL_FILE": {
+   "url": "local: .claude/worktrees/hi-30f55e/channels/noor-e-raah/stories/006_imaan-shorts/research/quran-uthmani.txt (Tanzil quran-uthmani, lines 6189-6193 = 105|1..5)",
+   "publisher": "Tanzil Project (tanzil.net) Uthmani text, CC BY 3.0, verbatim",
+   "published": "unknown",
+   "accessed": "2026-11-14",
+   "type": "text_snapshot",
+   "opened": true
+  },
+  "TANZIL_LIC": {
+   "url": "https://tanzil.net/docs/text_license",
+   "publisher": "Tanzil Project - CC BY 3.0, verbatim, no change, credit + link; opened 2026-11-03 in 005",
+   "published": "unknown",
+   "accessed": "2026-11-03",
+   "type": "licence",
+   "opened": true,
+   "note": "not re-opened 2026-11-14"
+  },
+  "TR_FAROOQKHAN": {
+   "url": "https://raw.githubusercontent.com/fawazahmed0/quran-api/1/editions/hin-suhelfarooqkhan/105.json",
+   "publisher": "Tanzil hi.hindi (Suhel Farooq Khan) via fawazahmed0/quran-api",
+   "published": "unknown",
+   "accessed": "2026-11-14",
+   "type": "translation",
+   "opened": true
+  },
+  "TR_FAROOQ": {
+   "url": "https://raw.githubusercontent.com/fawazahmed0/quran-api/1/editions/hin-muhammadfarooqk/105.json",
+   "publisher": "Muhammad Farooq Khan Hindi via fawazahmed0/quran-api",
+   "published": "unknown",
+   "accessed": "2026-11-14",
+   "type": "translation",
+   "opened": true
+  },
+  "TR_MAHMUD": {
+   "url": "https://raw.githubusercontent.com/fawazahmed0/quran-api/1/editions/urd-mahmoodulhassan/105.json",
+   "publisher": "Mahmud al-Hasan Urdu (PD) via fawazahmed0/quran-api",
+   "published": "unknown",
+   "accessed": "2026-11-14",
+   "type": "translation",
+   "opened": true
+  },
+  "LA_TANZIL": {
+   "url": "https://raw.githubusercontent.com/fawazahmed0/quran-api/1/editions/ara-quran-la/105.json",
+   "publisher": "Tanzil ara-quran-la Latin transliteration via fawazahmed0/quran-api",
+   "published": "unknown",
+   "accessed": "2026-11-14",
+   "type": "transliteration",
+   "opened": true
+  },
+  "LA_Q411": {
+   "url": "https://raw.githubusercontent.com/fawazahmed0/quran-api/1/editions/ara-quran-la1/105.json",
+   "publisher": "quran411 ara-quran-la1 Latin transliteration via fawazahmed0/quran-api",
+   "published": "unknown",
+   "accessed": "2026-11-14",
+   "type": "transliteration",
+   "opened": true
+  },
+  "IK_EN_105": {
+   "url": "https://raw.githubusercontent.com/spa5k/tafsir_api/main/tafsir/en-tafisr-ibn-kathir/105/1.json",
+   "publisher": "Tafsir Ibn Kathir (EN, abridged) 105: no Makki/Madani verdict, no separate occasion; Prophet born that year (most popular opinion); Abraha, Al-Qullays church, Abdul-Muttalib 'the House has its Lord' (Ibn Ishaq); elephant Mahmud knelt; birds from the sea; word meanings ababil (Ibn 'Abbas, Dahhak, Hasan, Qatada, Mujahid, Ibn Zayd), sijjil (Ibn Hisham, Yunus, Abu 'Ubaydah), 'asf ma'kul (Sa'id bin Jubayr, Hasan, Ibn 'Abbas, Ibn Zayd); Prophet recalled this favour to Quraysh (Ibn Ishaq)",
+   "published": "unknown",
+   "accessed": "2026-11-14",
+   "type": "tafseer",
+   "opened": true
+  },
+  "TB_105": {
+   "url": "https://raw.githubusercontent.com/spa5k/tafsir_api/main/tafsir/ar-tafsir-al-tabari/105/1.json",
+   "publisher": "Tafsir al-Tabari (AR) 105: ashab al-fil = Abraha's army; kayd fi tadlil; ababil (no singular; Ibn 'Abbas, Ibn Mas'ud, Hasan, Qatada, Mujahid, Ibn Zayd); sijjil = stone+clay (Ibn 'Abbas via 'Ikrima; Tabari rejects 'name of the lowest heaven'); 'asf ma'kul (Ibn 'Abbas, Mujahid, Qatada, Ibn Zayd); long Abraha narration after Ibn Ishaq; some chains flagged weak by editors; no Makki/Madani verdict",
+   "published": "unknown",
+   "accessed": "2026-11-14",
+   "type": "tafseer",
+   "opened": true
+  },
+  "QT_105": {
+   "url": "https://raw.githubusercontent.com/spa5k/tafsir_api/main/tafsir/ar-tafseer-al-qurtubi/105/1.json",
+   "publisher": "Tafsir al-Qurtubi (AR) 105: five verses; Makki by consensus (ijma'); detailed Abraha story (Qulleys, Nasa'a man, Dhu Nafr, Nufayl, Abu Righal, 200 camels, Abdul-Muttalib); year-of-elephant dating variants (Muqatil 40 y, Kalbi/'Ubayd bin 'Umayr 23 y); Prophet born in Year of the Elephant (variant 'Day of the Elephant', Mawardi); does not explain ababil/sijjil/asf",
+   "published": "unknown",
+   "accessed": "2026-11-14",
+   "type": "tafseer",
+   "opened": true
+  },
+  "MQ_105": {
+   "url": "https://raw.githubusercontent.com/spa5k/tafsir_api/main/tafsir/en-tafsir-maarif-ul-quran/105/1.json",
+   "publisher": "Ma'ariful Qur'an (EN) 105: no Makki/Madani verdict; Abraha + cathedral; Prophet born that year (popular historical view, citing IK); 'alam tara' wording explained (widely witnessed event); elephant Mahmud refused to enter; irhas not mu'jiza; Waqidi/Aisha/Asma reports (not used)",
+   "published": "unknown",
+   "accessed": "2026-11-14",
+   "type": "tafseer",
+   "opened": true
+  },
+  "QCOM_105": {
+   "url": "https://quran.com/surah/105/info",
+   "publisher": "Quran.com surah info 105: Makkan by consensus; 19th revealed, after Al-Kafirun, before Al-Falaq (minority: before Quraysh); 5 verses; other name 'Surat A-lam Tara'; summary: reminds Quraysh of the event, affirms Makka's sanctity",
+   "published": "unknown",
+   "accessed": "2026-11-14",
+   "type": "reference",
+   "opened": true,
+   "note": "reference site, not a tafseer book: order number + second name need PC confirm"
+  },
+  "ALIM_105": {
+   "url": "https://www.alim.org/surah-info/105",
+   "publisher": "Alim.org surah info 105: Maududi 'unanimously Makki', Malik 'very early stage at Makkah'; no order number/other names; ~60,000 troops and 570-571 CE (single source, not used)",
+   "published": "unknown",
+   "accessed": "2026-11-14",
+   "type": "reference",
+   "opened": true
+  }
+ },
+ "facts": [
+  {
+   "id": "T1",
+   "claim": "Arabic 105:1-5 = Tanzil Uthmani bytes (ayat[]); CC BY 3.0, verbatim, credit Tanzil Project + link; sha256 on PC",
+   "grade": "licence ALLOWED",
+   "confidence": "pakka",
+   "sources": [
+    "TANZIL_FILE",
+    "TANZIL_LIC"
+   ]
+  },
+  {
+   "id": "T2",
+   "claim": "Hindi = saral bhaavarth from 3 accepted translations (Suhel Farooq Khan, Muhammad Farooq Khan, Mahmud al-Hasan PD); nothing copied; 'ai rasool' and 'kharanj' (T1) not taken",
+   "grade": "decision (001)",
+   "confidence": "pakka",
+   "sources": [
+    "TR_FAROOQKHAN",
+    "TR_FAROOQ",
+    "TR_MAHMUD"
+   ]
+  },
+  {
+   "id": "T3",
+   "claim": "Latin transliteration for the Devanagari ucharan (Tanzil ara-quran-la + quran411 ara-quran-la1), both read; ucharan.md tags U1-U10",
+   "grade": "helper",
+   "confidence": "pakka",
+   "sources": [
+    "LA_TANZIL",
+    "LA_Q411"
+   ]
+  },
+  {
+   "id": "P1",
+   "claim": "Surah 105 = Al-Fil (الفيل), named from 'ashab al-fil' in the first verse; 105th surah; 5 ayat; juz 30",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "TANZIL_FILE",
+    "QT_105",
+    "QCOM_105"
+   ]
+  },
+  {
+   "id": "P2",
+   "claim": "Makki: Qurtubi 'by consensus'; quran.com Makkan by consensus; Alim (Maududi) unanimously Makki; no madani view found",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "QT_105",
+    "QCOM_105",
+    "ALIM_105"
+   ]
+  },
+  {
+   "id": "P3",
+   "claim": "Order of revelation: quran.com '19th, after Al-Kafirun, before Al-Falaq' - single opened source",
+   "grade": "pata nahi",
+   "confidence": "anumaan",
+   "sources": [
+    "QCOM_105"
+   ]
+  },
+  {
+   "id": "P4",
+   "claim": "Other name 'Surat A-lam Tara' (from first words) - quran.com only",
+   "grade": "pata nahi (single source)",
+   "confidence": "anumaan",
+   "sources": [
+    "QCOM_105"
+   ]
+  },
+  {
+   "id": "P5",
+   "claim": "Main message: Allah reminded Quraysh of the event; the army that came to destroy the Ka'ba was brought to nothing; Allah protects His House",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "QCOM_105",
+    "MQ_105",
+    "QT_105",
+    "IK_EN_105"
+   ]
+  },
+  {
+   "id": "P6",
+   "claim": "Surah flow: question -> scheme brought to nothing -> flocks of birds -> stones of baked clay -> like eaten husks",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "TB_105",
+    "IK_EN_105"
+   ]
+  },
+  {
+   "id": "N1",
+   "claim": "No separate sabab-e-nuzul: the surah itself refers to the Year of the Elephant event; Ibn Ishaq (in IK): the Prophet reminded Quraysh of this favour of Allah",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "IK_EN_105",
+    "TB_105",
+    "QT_105"
+   ]
+  },
+  {
+   "id": "N2",
+   "claim": "The event is in the 'Year of the Elephant', the year the Prophet was born according to the popular view (IK EN, Qurtubi, Ma'ariful); gap between event and birth disputed (Muqatil 40 y, Kalbi/'Ubayd 23 y in Qurtubi) - no CE year in the video",
+   "grade": "maana hua (year link) + ikhtilaaf (gap)",
+   "confidence": "pakka",
+   "sources": [
+    "IK_EN_105",
+    "QT_105",
+    "MQ_105"
+   ]
+  },
+  {
+   "id": "N3",
+   "claim": "Abraha, Abyssinian governor of Yemen, built the church Al-Qullays in San'a to turn Arab pilgrimage from the Ka'ba, vowed to destroy the Ka'ba and marched with an elephant; cause of the church incident differs (not used)",
+   "grade": "maana hua (core)",
+   "confidence": "pakka",
+   "sources": [
+    "IK_EN_105",
+    "TB_105",
+    "QT_105",
+    "MQ_105"
+   ]
+  },
+  {
+   "id": "N4",
+   "claim": "Abdul-Muttalib, leader of Quraysh, to Abraha (via Ibn Ishaq): the House has its Lord who will protect it; ~200 camels; some chains weak per editors - only this one line, 'riwayat me aata hai'",
+   "grade": "maana hua (one line)",
+   "confidence": "pakka",
+   "sources": [
+    "IK_EN_105",
+    "TB_105",
+    "QT_105",
+    "MQ_105"
+   ]
+  },
+  {
+   "id": "N5",
+   "claim": "The elephant (named Mahmud) knelt/refused to advance towards Makka",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "IK_EN_105",
+    "TB_105",
+    "MQ_105",
+    "QT_105"
+   ]
+  },
+  {
+   "id": "Z1",
+   "claim": "No sahih virtue (fazilat) report for reciting 105 opened; no fazilat claim in the video",
+   "grade": "pata nahi",
+   "confidence": "anumaan",
+   "sources": [
+    "QT_105",
+    "IK_EN_105",
+    "TB_105",
+    "MQ_105"
+   ]
+  },
+  {
+   "id": "M1",
+   "claim": "105:1 j1-j2 - 'alam tara' = 'did you not see/know' (event widely known); ashab al-fil = Abraha's elephant army",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "MQ_105",
+    "IK_EN_105",
+    "TB_105",
+    "QT_105"
+   ]
+  },
+  {
+   "id": "M2",
+   "claim": "105:2 j1 - kayd = scheme/plot (to destroy the Ka'ba)",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "TB_105",
+    "IK_EN_105"
+   ]
+  },
+  {
+   "id": "M3",
+   "claim": "105:2 j2 - tadleel = brought to nothing / led astray from its aim (Tabari)",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "TB_105",
+    "IK_EN_105",
+    "QT_105"
+   ]
+  },
+  {
+   "id": "M4",
+   "claim": "105:3 - Allah sent upon them flocks of birds; ababil = flock after flock (Ibn 'Abbas, Hasan, Qatada, Mujahid; no singular per Tabari)",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "TB_105",
+    "IK_EN_105",
+    "QT_105"
+   ]
+  },
+  {
+   "id": "M5",
+   "claim": "105:4 - they pelted them with stones of sijjeel = baked clay (Ibn 'Abbas via 'Ikrima: stone and clay; Ibn Hisham: hard)",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "TB_105",
+    "IK_EN_105",
+    "MQ_105"
+   ]
+  },
+  {
+   "id": "M6",
+   "claim": "105:5 - 'asf ma'kul = eaten husk/straw (Ibn 'Abbas, Mujahid, Qatada, Sa'id bin Jubayr, Hasan); they were left like it - utterly ruined",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "TB_105",
+    "IK_EN_105"
+   ]
+  },
+  {
+   "id": "M7",
+   "claim": "Whole surah: Allah's power over any scheme; protection of His House; reminder to Quraysh (IK/Qurtubi/Ma'ariful)",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "IK_EN_105",
+    "QT_105",
+    "MQ_105"
+   ]
+  }
+ ]
+}

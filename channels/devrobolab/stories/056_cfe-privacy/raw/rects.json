@@ -1,0 +1,34 @@
+{
+ "priv_toggle": [
+  118.78125,
+  489.6875,
+  203.140625,
+  21,
+  "Under "
+ ],
+ "priv_notundo": null,
+ "priv_plans": null,
+ "inc_ghost": [
+  817.6875,
+  490.203125,
+  76.75,
+  19,
+  "g a new chat with Claude outside of a project, you'll see a "
+ ],
+ "inc_label": [
+  96.4375,
+  520.9375,
+  97.671875,
+  18,
+  "Use "
+ ],
+ "inc_nosave": [
+  674.296875,
+  419.453125,
+  230.578125,
+  19,
+  "Incognito chats are temporary conversations that "
+ ],
+ "inc_reopen": null,
+ "inc_proj": null
+}

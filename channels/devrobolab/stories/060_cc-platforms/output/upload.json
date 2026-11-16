@@ -1,0 +1,28 @@
+{
+  "channel_key": "devrobolab",
+  "channel_name": "DevRoboLab",
+  "channel_id": "UCpElgKdJOgQiyfwdGXz6GmA",
+  "format": "short",
+  "parent_video_id": null,
+  "title": "Claude Code 07: Claude Code kahan chalayein? #shorts",
+  "description": "Claude Code 07: Platforms and integrations. Claude Code ko kahan chalayein: terminal (CLI), VS Code, JetBrains, Desktop app, Web ya phone? Official docs ke hisaab se: CLI sabse complete hai (scripting aur Agent SDK sirf CLI me), VS Code/JetBrains me badlav seedha editor me dikhte hain, Desktop me visual review aur parallel sessions hain, Web par task cloud me chalta hai aur disconnect hone par bhi chalta rahta hai. Chrome, GitHub Actions aur Slack jaise integrations bhi jod sakte ho. Har surface par har feature nahi milta, isliye apne kaam ke hisaab se chuno.\n\nSource (official):\nhttps://code.claude.com/docs/en/platforms\n\nUnofficial channel, not affiliated with Anthropic.\n\nNote: the docs crops are our own capture of the official page (key lines highlighted). The terminal, editor and progress-bar visuals are illustrations using example content. Synthetic voice.\n\nMusic: \"Funkorama\" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttp://creativecommons.org/licenses/by/4.0/\n\n#shorts #ClaudeCode #Claude #AI #Hinglish",
+  "tags": [
+    "Claude Code",
+    "Claude Code VS Code",
+    "Claude Code CLI",
+    "Claude Code web",
+    "Claude Code Desktop",
+    "Claude tips",
+    "AI tools",
+    "Hinglish",
+    "Hindi tech",
+    "Shorts"
+  ],
+  "video": "short.mp4",
+  "language": "hi",
+  "made_for_kids": false,
+  "contains_synthetic_media": true,
+  "category_id": "28",
+  "privacy": "private",
+  "playlist_id": "PLGTgifZfJLow"
+}

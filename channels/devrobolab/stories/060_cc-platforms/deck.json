@@ -1,0 +1,14 @@
+{
+ "tag": "Claude Code 07",
+ "music": {"file": "shared/music/presentation/Funkorama.mp3", "start": 6, "rel": 12},
+ "voice": {"id": "Charon", "style": "Speak like a friendly Indian tech YouTuber chatting casually in Hinglish. Natural conversational pace, warm and clear, a little energetic but not theatrical. No sing-song, no exaggerated emphasis."},
+ "scenes": [
+  {"id": "hook", "voice": "Claude Code को कहाँ चलाएँ? Terminal में, VS Code में, या फोन से? Official docs में सबका जवाब है।"},
+  {"id": "cli", "voice": "पहला, CLI। ये terminal में चलता है, यानी वो window जहाँ commands लिखते हैं। ये सबसे complete है। Scripting और Agent SDK सिर्फ यहीं मिलते हैं।"},
+  {"id": "ide", "voice": "Terminal पसंद नहीं? तो VS Code या JetBrains extension लो। बदलाव सीधे editor में दिखते हैं। और Desktop app में visual review और parallel sessions मिलते हैं।"},
+  {"id": "web", "voice": "Web पर Claude cloud में चलता है। आप disconnect भी हो जाओ, तब भी task चलता रहता है। फोन से task शुरू करो, और बाद में देख लो।"},
+  {"id": "tools", "voice": "और tools जोड़ने हैं? Chrome से browser चलवाओ, GitHub Actions से CI में review कराओ, और Slack में at Claude लिखकर काम दे दो।"},
+  {"id": "caution", "voice": "ध्यान रखो! हर surface पर हर feature नहीं मिलता। कुछ चीज़ें सिर्फ CLI में हैं। इसलिए अपने काम के हिसाब से चुनो।"},
+  {"id": "cta", "voice": "Claude Code के और tips चाहिए? तो हमारे channel को follow कीजिए।"}
+ ]
+}

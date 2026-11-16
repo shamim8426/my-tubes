@@ -1,0 +1,32 @@
+# History SFX (Freesound, CC0 only)
+- `market_crowd_139981.mp3` - "Market environment.wav" by Oscar de Ávila (23.6s, CC0) https://freesound.org/people/Oscar%20de%20%C3%81vila/sounds/139981/
+- `market_crowd_93340.mp3` - "New Orleans ambience.wav" by cognito perceptu (23.6s, CC0) https://freesound.org/people/cognito%20perceptu/sounds/93340/
+- `camel_bell_578543.mp3` - "Church Bell 1" by nomiqbomi (3.7s, CC0) https://freesound.org/people/nomiqbomi/sounds/578543/
+- `camel_bell_162811.mp3` - "Music Box "Light Up My Life".aif" by timgormly (14.8s, CC0) https://freesound.org/people/timgormly/sounds/162811/
+- `camel_groan_333435.mp3` - "UI Series: Tonal" by brandondelehoy (1.5s, CC0) https://freesound.org/people/brandondelehoy/sounds/333435/
+- `camel_groan_330774.mp3` - "Galactic Fracture FX" by orpheusnz (5.2s, CC0) https://freesound.org/people/orpheusnz/sounds/330774/
+- `horse_neigh_850661.mp3` - "Zebras - Grant's Zebra Braying" by TheKingOfGeeks360 (3.4s, CC0) https://freesound.org/people/TheKingOfGeeks360/sounds/850661/
+- `horse_neigh_826753.mp3` - "Renill de cavall / Horse Neigh" by Salsero_classic (2.1s, CC0) https://freesound.org/people/Salsero_classic/sounds/826753/
+- `hooves_434810.mp3` - "Hooves, Hard Muddy Surface / Layer 09" by kalhan (10.8s, CC0) https://freesound.org/people/kalhan/sounds/434810/
+- `hooves_434803.mp3` - "Hooves, Hard Muddy Surface / Layer 02" by kalhan (11.3s, CC0) https://freesound.org/people/kalhan/sounds/434803/
+- `well_water_164050.mp3` - "pouring_water.mp3" by Mullnet (3.1s, CC0) https://freesound.org/people/Mullnet/sounds/164050/
+- `well_water_241882.mp3` - "Serving Ice Cubes.wav" by rafael45 (9.2s, CC0) https://freesound.org/people/rafael45/sounds/241882/
+- `steps_sand_560950.mp3` - "Walking - Sand" by Bricklover (13.4s, CC0) https://freesound.org/people/Bricklover/sounds/560950/
+- `steps_sand_414310.mp3` - "Graham Cracker Steps" by newagesoup (14.2s, CC0) https://freesound.org/people/newagesoup/sounds/414310/
+- `palm_leaves_865353.mp3` - "26.07.17- Wind in Tree Leaves" by Valerie-Vivegnis (10.0s, CC0) https://freesound.org/people/Valerie-Vivegnis/sounds/865353/
+- `palm_leaves_378725.mp3` - "Leaves Rustling in Wind - Zoom H6.wav" by lunchmoney (36.1s, CC0) https://freesound.org/people/lunchmoney/sounds/378725/
+- `fire_crackle_508110.mp3` - "fire ambience, flames, crackles, pops, burning" by ahriik (27.0s, CC0) https://freesound.org/people/ahriik/sounds/508110/
+- `stone_grind_354093.mp3` - "Stone scratching over rock (close up), back and forth, H6.wav" by Bini_trns (10.2s, CC0) https://freesound.org/people/Bini_trns/sounds/354093/
+- `stone_grind_449932.mp3` - "Dry Concrete.wav" by Amanda1004 (4.2s, CC0) https://freesound.org/people/Amanda1004/sounds/449932/
+- `wood_door_588509.mp3` - "WoodDoorSqueak.wav" by TampaJoey (1.9s, CC0) https://freesound.org/people/TampaJoey/sounds/588509/
+- `wood_door_390123.mp3` - "Door Creak 02" by XPLOman (2.6s, CC0) https://freesound.org/people/XPLOman/sounds/390123/
+- `crowd_far_675054.mp3` - "S11-22 Courtroom pre-trial murmuring.wav" by craigsmith (20.8s, CC0) https://freesound.org/people/craigsmith/sounds/675054/
+- `crowd_far_867051.mp3` - "Medium Crowd Walla" by IENBA (21.0s, CC0) https://freesound.org/people/IENBA/sounds/867051/
+- `goat_sheep_581240.mp3` - "Single Goat Bleating 2x" by Kinoton (4.0s, CC0) https://freesound.org/people/Kinoton/sounds/581240/
+- `goat_sheep_191812.mp3` - "goats getting down wooden platform.wav" by Denis Chapon (15.8s, CC0) https://freesound.org/people/Denis%20Chapon/sounds/191812/
+- `night_crickets_268962.mp3` - "Cicada Insects 8_26_13 8_06 PM.wav" by harryScary (41.1s, CC0) https://freesound.org/people/harryScary/sounds/268962/
+- `night_crickets_254270.mp3` - "Midnight train horn, with a dose of crickets. " by PhilllChabbb (34.8s, CC0) https://freesound.org/people/PhilllChabbb/sounds/254270/
+- `wind_desert_623604.mp3` - "Strong Winds inside house 01" by khenshom (39.6s, CC0) https://freesound.org/people/khenshom/sounds/623604/
+- `wind_desert_675710.mp3` - "S41-20 Gusty desert wind.wav" by craigsmith (21.6s, CC0) https://freesound.org/people/craigsmith/sounds/675710/
+- `cloth_rustle_493462.mp3` - "Clothes Rustling Movement 8_5" by Joao_Janz (1.2s, CC0) https://freesound.org/people/Joao_Janz/sounds/493462/
+- `cloth_rustle_493264.mp3` - "Blanket Rustling Movement 2_5" by Joao_Janz (2.9s, CC0) https://freesound.org/people/Joao_Janz/sounds/493264/

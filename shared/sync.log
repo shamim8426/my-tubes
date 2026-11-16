@@ -345,3 +345,66 @@
 2026-11-10 14:09:04  another sync is running, skipped
 2026-11-10 14:09:04  another sync is running, skipped
 2026-11-10 14:09:25  pushed: auto: session end  (repo pack size 3,201 MB)
+2026-11-12 22:19:14  another sync is running, skipped
+2026-11-12 22:24:46  another sync is running, skipped
+2026-11-12 22:26:49  another sync is running, skipped
+2026-11-12 22:42:23  no changes
+2026-11-12 22:44:18  no changes
+2026-11-12 23:04:09  no changes
+2026-11-12 23:50:12  no changes
+2026-11-12 23:50:38  no changes
+2026-11-12 23:55:04  comment: cHq4TvAWAWo is private, retry in 15 min (1/12)
+2026-11-13 00:06:12  no changes
+2026-11-13 00:10:04  comment: cHq4TvAWAWo is private, retry in 15 min (2/12)
+2026-11-13 00:25:04  comment: cHq4TvAWAWo is private, retry in 15 min (3/12)
+2026-11-13 00:36:09  no changes
+2026-11-13 00:40:05  comment: cHq4TvAWAWo is private, retry in 15 min (4/12)
+2026-11-13 00:55:06  comment: cHq4TvAWAWo is private, retry in 15 min (5/12)
+2026-11-13 01:10:06  comment: cHq4TvAWAWo is private, retry in 15 min (6/12)
+2026-11-13 01:25:07  comment: cHq4TvAWAWo is private, retry in 15 min (7/12)
+2026-11-13 01:40:07  comment: cHq4TvAWAWo is private, retry in 15 min (8/12)
+2026-11-13 01:55:07  comment: cHq4TvAWAWo is private, retry in 15 min (9/12)
+2026-11-13 02:10:08  comment: cHq4TvAWAWo is private, retry in 15 min (10/12)
+2026-11-13 02:25:08  comment: cHq4TvAWAWo is private, retry in 15 min (11/12)
+2026-11-13 02:40:08  ERROR: comment for cHq4TvAWAWo not posted: video still private after 12 tries (set it Public/Scheduled in Studio, then run tools/post_comment.py --job channels\noor-e-raah\stories\006_al-kausar\long\output\upload.json)
+2026-11-13 04:52:46  no changes
+2026-11-13 04:53:13  no changes
+2026-11-13 04:53:31  no changes
+2026-11-13 04:57:25  comment: G10QXNZTxLQ is private, retry in 15 min (1/12)
+2026-11-13 05:12:25  comment: G10QXNZTxLQ is private, retry in 15 min (2/12)
+2026-11-13 05:27:26  comment: G10QXNZTxLQ is private, retry in 15 min (3/12)
+2026-11-13 05:42:26  comment: G10QXNZTxLQ is private, retry in 15 min (4/12)
+2026-11-13 05:48:12  no changes
+2026-11-13 05:57:26  comment: G10QXNZTxLQ is private, retry in 15 min (5/12)
+2026-11-13 06:03:37  no changes
+2026-11-13 06:12:27  comment: G10QXNZTxLQ is private, retry in 15 min (6/12)
+2026-11-13 06:27:27  comment: G10QXNZTxLQ is private, retry in 15 min (7/12)
+2026-11-13 06:42:27  comment: G10QXNZTxLQ is private, retry in 15 min (8/12)
+2026-11-13 06:44:29  no changes
+2026-11-13 06:57:27  comment: G10QXNZTxLQ is private, retry in 15 min (9/12)
+2026-11-13 06:59:49  no changes
+2026-11-13 07:12:28  comment: G10QXNZTxLQ is private, retry in 15 min (10/12)
+2026-11-13 07:27:28  comment: G10QXNZTxLQ is private, retry in 15 min (11/12)
+2026-11-13 07:42:28  ERROR: comment for G10QXNZTxLQ not posted: video still private after 12 tries (set it Public/Scheduled in Studio, then run tools/post_comment.py --job channels\noor-e-raah\stories\007_al-asr\long\output\upload.json)
+2026-11-13 21:50:03  no changes
+2026-11-13 22:00:56  no changes
+2026-11-14 02:00:19  no changes
+2026-11-14 02:45:09  no changes
+2026-11-14 21:39:47  no changes
+2026-11-14 21:40:18  no changes
+2026-11-14 21:56:07  no changes
+2026-11-14 22:54:06  no changes
+2026-11-14 23:09:26  no changes
+2026-11-15 01:24:39  no changes
+2026-11-15 01:31:18  no changes
+2026-11-15 01:49:56  no changes
+2026-11-15 02:08:04  no changes
+2026-11-15 02:47:49  no changes
+2026-11-15 02:52:41  comment: V3oXzLv13r4 is private, retry in 15 min (1/12)
+2026-11-15 03:03:05  no changes
+2026-11-15 03:07:41  comment: V3oXzLv13r4 is private, retry in 15 min (2/12)
+2026-11-15 03:22:41  comment: V3oXzLv13r4 is private, retry in 15 min (3/12)
+2026-11-15 04:26:11  no changes
+2026-11-15 12:58:30  no changes
+2026-11-15 17:51:48  comment: 7fikMFw0OUQ is private, retry in 15 min (1/12)
+2026-11-16 22:51:03  another sync is running, skipped

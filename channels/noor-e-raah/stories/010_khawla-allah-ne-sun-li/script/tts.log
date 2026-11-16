@@ -1,0 +1,75 @@
+Gemini TTS: free key quota (429) -> same request on the paid key
+tts 1 ok
+Gemini TTS: free key quota (429) -> same request on the paid key
+tts 2 ok
+tts 3 ok
+Gemini TTS: free key quota (429) -> same request on the paid key
+tts 4 ok
+Gemini TTS: free key quota (429) -> same request on the paid key
+tts 5 ok
+Gemini TTS: free key quota (429) -> same request on the paid key
+tts 6 ok
+Gemini TTS: free key quota (429) -> same request on the paid key
+tts 7 ok
+Gemini TTS: free key quota (429) -> same request on the paid key
+tts 8 ok
+Gemini TTS: free key quota (429) -> same request on the paid key
+tts 9 ok
+Gemini TTS: free key quota (429) -> same request on the paid key
+tts 10 ok
+Gemini TTS: free key quota (429) -> same request on the paid key
+tts 11 ok
+Gemini TTS: free key quota (429) -> same request on the paid key
+tts 12 ok
+Gemini TTS: free key quota (429) -> same request on the paid key
+tts 13 ok
+Gemini TTS: free key quota (429) -> same request on the paid key
+tts 14 ok
+Gemini TTS: free key quota (429) -> same request on the paid key
+tts 15 ok
+Gemini TTS: free key quota (429) -> same request on the paid key
+tts 16 ok
+Gemini TTS: free key quota (429) -> same request on the paid key
+tts 17 ok
+Gemini TTS: free key quota (429) -> same request on the paid key
+tts 18 ok
+Gemini TTS: free key quota (429) -> same request on the paid key
+tts 19 ok
+Gemini TTS: free key quota (429) -> same request on the paid key
+tts 20 ok
+Gemini TTS: free key quota (429) -> same request on the paid key
+tts 21 ok
+Gemini TTS: free key quota (429) -> same request on the paid key
+tts 22 ok
+Gemini TTS: free key quota (429) -> same request on the paid key
+tts 23 ok
+total 202.2 s; 23 motion shots of 23
+Loading weights:   0%|          | 0/287 [00:00<?, ?it/s]Loading weights:   7%|▋         | 21/287 [00:00<00:01, 209.01it/s]Loading weights:  17%|█▋        | 50/287 [00:00<00:00, 251.40it/s]Loading weights:  32%|███▏      | 91/287 [00:00<00:00, 321.03it/s]Loading weights: 100%|██████████| 287/287 [00:00<00:00, 795.76it/s]
+[ WARN:0@505.891] global loadsave.cpp:278 cv::findDecoder imread_('D:\my-tubes\channels\noor-e-raah\stories\010_khawla-allah-ne-sun-li\images\03_house_hearth.png'): can't open/read file: check file path/integrity
+Traceback (most recent call last):
+  File "D:\my-tubes\scripts\history_build.py", line 207, in <module>
+    main()
+    ~~~~^^
+  File "D:\my-tubes\scripts\history_build.py", line 95, in main
+    parallax.render_clip(D / f"images/{l['img']}.png", c, seconds=d, preset=l.get("preset", PRESETS[i % 4]),
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                         fmt="long", mode="auto" if l.get("motion") else "zoom", overlays=ov, amp=float(l.get("amp", cfg.get("amp", 0.08))))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\my-tubes\tools\parallax.py", line 435, in render_clip
+    frames, info = shot_frames(img_path, W, H, n, preset, None, amp, mode, overlays, cx, cy)
+                   ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\my-tubes\tools\parallax.py", line 352, in shot_frames
+    img, dep = _source(Path(img_path), W, H, cx, cy, rect)
+               ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\my-tubes\tools\parallax.py", line 340, in _source
+    dep = depth_map(img_path)
+  File "D:\my-tubes\tools\parallax.py", line 89, in depth_map
+    h = hashlib.sha256(img_path.read_bytes()).hexdigest()[:10]
+                       ~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\ashamim\AppData\Local\Programs\Python\Python314\Lib\pathlib\__init__.py", line 777, in read_bytes
+    with self.open(mode='rb', buffering=0) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ashamim\AppData\Local\Programs\Python\Python314\Lib\pathlib\__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'D:\\my-tubes\\channels\\noor-e-raah\\stories\\010_khawla-allah-ne-sun-li\\images\\03_house_hearth.png'

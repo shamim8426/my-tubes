@@ -1,0 +1,17 @@
+{
+  "channel_key": "devrobolab",
+  "channel_name": "DevRoboLab",
+  "channel_id": "UCpElgKdJOgQiyfwdGXz6GmA",
+  "format": "short",
+  "parent_video_id": null,
+  "title": "3 AI updates: Gemini 4 Carbon, Fable 5.2, Decisions API #shorts",
+  "description": "AI news roundup in 40 seconds.\n\n1. Google ne Gemini 4 Carbon launch kiya, apna sabse strong model. Introductory price $2 per million input tokens aur $10 per million output tokens; 30 November 2026 ke baad $4 aur $20.\n2. Claude Fable 5.2 ab Claude Code me default Fable model hai: 1M context, $8 / $40 per million tokens.\n3. Gemini Decisions API: ek request me 1,000 tak yes/no, choice ya rubric sawal, 150-250 ms end-to-end, $0.10 per 1M input tokens.\n\nSources (official pages):\nhttps://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/\nhttps://code.claude.com/docs/en/changelog\nhttps://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/\n\nUnofficial channel, not affiliated with Google or Anthropic.\n\nNote: page crops are our own capture of the official pages (key lines highlighted). Photos are free AI-generated illustrations, not real product shots. Synthetic voice.\n\nMusic: \"Funkorama\" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttp://creativecommons.org/licenses/by/4.0/\n\n#shorts #Gemini #Claude #AINews #Hinglish",
+  "tags": ["Gemini 4 Carbon", "Claude Fable 5.2", "Gemini Decisions API", "AI news", "Hinglish", "Hindi tech", "Shorts"],
+  "video": "short.mp4",
+  "language": "hi",
+  "made_for_kids": false,
+  "contains_synthetic_media": true,
+  "category_id": "28",
+  "privacy": "private",
+  "api_audited": false
+}

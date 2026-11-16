@@ -1,0 +1,568 @@
+[
+ {
+  "kind": "section",
+  "name": "HEADER"
+ },
+ {
+  "kind": "section",
+  "name": "INTRO (`part: intro`, hook)"
+ },
+ {
+  "kind": "screen",
+  "section": "INTRO (`part: intro`, hook)",
+  "ayah": null,
+  "note": "SCREEN: subah se pehle ka sahara, door aasmaan me pehli roshni; ऊपर Arabic title سُورَةُ ٱلْكَوْثَرِ (font se) aur neeche chhota caption \"एक ताने का जवाब\". Pehla frame bina awaaz ke samajh aaye: andhera, door pehli roshni."
+ },
+ {
+  "kind": "cue",
+  "n": 1,
+  "type": "music",
+  "value": "soft: Soaring — intro + parichay",
+  "section": "INTRO (`part: intro`, hook)",
+  "ayah": null
+ },
+ {
+  "kind": "cue",
+  "n": 2,
+  "type": "ambience",
+  "value": "halki raat ki hawa, dheere se subah ki chidiyaan (Freesound CC0)",
+  "section": "INTRO (`part: intro`, hook)",
+  "ayah": null
+ },
+ {
+  "kind": "line",
+  "n": 3,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "INTRO (`part: intro`, hook)",
+  "ayah": null,
+  "text": "जब नबी सल्लल्लाहु अलैहि वसल्लम को ताना दिया गया, तो जवाब में तीन आयतें उतरीं। ये है सूरह अल-कौसर।",
+  "tags": [
+   "N1"
+  ],
+  "audio": "audio/tts/003_ustaad.wav",
+  "seconds": 8.72,
+  "tts_ok": true
+ },
+ {
+  "kind": "section",
+  "name": "1. SURAH KA PARICHAY"
+ },
+ {
+  "kind": "screen",
+  "section": "1. SURAH KA PARICHAY",
+  "ayah": null,
+  "note": "SCREEN: chhota card: \"सूरह अल-कौसर · क़ुरआन की 108वीं सूरह · 3 आयतें\"; peeche subah ka aasmaan"
+ },
+ {
+  "kind": "line",
+  "n": 4,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "1. SURAH KA PARICHAY",
+  "ayah": null,
+  "text": "सूरह अल-कौसर में \"कौसर\" का मतलब है — बहुत ज़्यादा भलाई, बहुतायत। इसी नाम से सूरह की पहचान है, और यही इसकी पहली बात भी।",
+  "tags": [
+   "P1"
+  ],
+  "audio": "audio/tts/004_ustaad.wav",
+  "seconds": 10.4,
+  "tts_ok": true
+ },
+ {
+  "kind": "ayah",
+  "ayah": 1
+ },
+ {
+  "kind": "screen",
+  "section": "1. SURAH KA PARICHAY",
+  "ayah": 1,
+  "note": "SCREEN: subah ki pehli lau, khula sahara; poori surah Arabic me (3 ayat) — swoosh ke saath aati hai"
+ },
+ {
+  "kind": "cue",
+  "n": 5,
+  "type": "music",
+  "value": "swoosh — ARABIC ON SCREEN",
+  "section": "1. SURAH KA PARICHAY",
+  "ayah": 1
+ },
+ {
+  "kind": "arabic",
+  "ayah": 1,
+  "text": "إِنَّآ أَعْطَيْنَٰكَ ٱلْكَوْثَرَ فَصَلِّ لِرَبِّكَ وَٱنْحَرْ إِنَّ شَانِئَكَ هُوَ ٱلْأَبْتَرُ"
+ },
+ {
+  "kind": "line",
+  "n": 6,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "1. SURAH KA PARICHAY",
+  "ayah": 1,
+  "text": "ये रही पूरी सूरह — तीन छोटी आयतें, और तीन बातें: अल्लाह की अता, शुक्र में इबादत, और ताने का जवाब।",
+  "tags": [
+   "P5",
+   "M4"
+  ],
+  "audio": "audio/tts/006_ustaad.wav",
+  "seconds": 9.56,
+  "tts_ok": true
+ },
+ {
+  "kind": "cue",
+  "n": 7,
+  "type": "music",
+  "value": "continue: River Flute — matlab",
+  "section": "1. SURAH KA PARICHAY",
+  "ayah": 1
+ },
+ {
+  "kind": "section",
+  "name": "2. SHAN-E-NUZUL"
+ },
+ {
+  "kind": "screen",
+  "section": "2. SHAN-E-NUZUL",
+  "ayah": null,
+  "note": "SCREEN: Makka-jaisi ghaati raat me, kaale pahaad, khaali raasta; koi insaan nahi, koi gumbad/minar nahi"
+ },
+ {
+  "kind": "line",
+  "n": 8,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "2. SHAN-E-NUZUL",
+  "ayah": null,
+  "text": "तफ़्सीर की रिवायतों में आता है कि कुछ विरोधी नबी सल्लल्लाहु अलैहि वसल्लम को \"अबतर\" यानी जड़-कटा कहकर ताना देते थे। ये सूरह उसी ताने का जवाब है। तबरी, इब्ने कसीर और माआरिफ़ुल क़ुरआन, तीनों में ये रिवायत मिलती है।",
+  "tags": [
+   "N1"
+  ],
+  "audio": "audio/tts/008_ustaad.wav",
+  "seconds": 16.52,
+  "tts_ok": true
+ },
+ {
+  "kind": "line",
+  "n": 9,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "2. SHAN-E-NUZUL",
+  "ayah": null,
+  "text": "किसी एक नाम पर रिवायतें एक नहीं हैं, इसलिए हम कोई नाम नहीं लेते। तबरी के मुताबिक़ आयत किसी ख़ास शख़्स के बारे में उतरी हो, तब भी इसका मतलब आम है।",
+  "tags": [
+   "N1"
+  ],
+  "audio": "audio/tts/009_ustaad.wav",
+  "seconds": 11.4,
+  "tts_ok": true
+ },
+ {
+  "kind": "line",
+  "n": 10,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "2. SHAN-E-NUZUL",
+  "ayah": null,
+  "text": "ये सूरह मक्की है या मदनी — इस पर उलमा में इख़्तिलाफ़ है। कुछ इसे मक्की कहते हैं, कुछ मदनी।",
+  "tags": [
+   "P2"
+  ],
+  "audio": "audio/tts/010_ustaad.wav",
+  "seconds": 7.28,
+  "tts_ok": true
+ },
+ {
+  "kind": "line",
+  "n": 11,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "2. SHAN-E-NUZUL",
+  "ayah": null,
+  "text": "मुस्लिम की रिवायत में अनस बिन मालिक रज़ियल्लाहु अन्हु बताते हैं कि एक बार नबी सल्लल्लाहु अलैहि वसल्लम ने हल्की सी ऊँघ के बाद मुस्कुराकर सिर उठाया और ये सूरह पढ़ी।",
+  "tags": [
+   "N2"
+  ],
+  "audio": "audio/tts/011_ustaad.wav",
+  "seconds": 11.84,
+  "tts_ok": true
+ },
+ {
+  "kind": "section",
+  "name": "3. AAYAT-DAR-AAYAT"
+ },
+ {
+  "kind": "screen",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": null,
+  "note": "SCREEN (har Arabic block): Arabic bade Amiri font me (Tanzil Uthmani, bytes unchanged), uske neeche UCHARAN (Devanagari), upar chhota label \"सरल भावार्थ — माने हुए तर्जुमों के आधार पर\" (sirf BHAAVARTH line par), neeche Hindi caption. Har ayah alag Arabic block. Koi insaan/farishta/jannat ka roop nahi."
+ },
+ {
+  "kind": "ayah",
+  "ayah": 2
+ },
+ {
+  "kind": "screen",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 2,
+  "note": "SCREEN: saaf bahta paani, oasis, subah ki roshni — \"ata\"; koi insaan nahi"
+ },
+ {
+  "kind": "cue",
+  "n": 12,
+  "type": "music",
+  "value": "swoosh — ARABIC ON SCREEN",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 2
+ },
+ {
+  "kind": "arabic",
+  "ayah": 2,
+  "text": "إِنَّآ أَعْطَيْنَٰكَ ٱلْكَوْثَرَ"
+ },
+ {
+  "kind": "line",
+  "n": 13,
+  "speaker": "ustaad",
+  "role": "ucharan",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 2,
+  "text": "इन्ना अअतैनाकल कौसर",
+  "tags": [],
+  "audio": "audio/tts/013_ustaad.wav",
+  "seconds": 3.72,
+  "tts_ok": true
+ },
+ {
+  "kind": "line",
+  "n": 14,
+  "speaker": "ustaad",
+  "role": "bhaavarth",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 2,
+  "text": "पहली आयत: बेशक हमने तुम्हें कौसर दिया।",
+  "tags": [
+   "T2"
+  ],
+  "audio": "audio/tts/014_ustaad.wav",
+  "seconds": 4.28,
+  "tts_ok": true
+ },
+ {
+  "kind": "cue",
+  "n": 15,
+  "type": "music",
+  "value": "continue: River Flute — matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 2
+ },
+ {
+  "kind": "line",
+  "n": 16,
+  "speaker": "ustaad",
+  "role": "matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 2,
+  "text": "\"कौसर\" यानी बहुत ज़्यादा भलाई, जो अल्लाह ने नबी सल्लल्लाहु अलैहि वसल्लम को दी। रिवायतों में इसमें जन्नत की एक नहर भी बताई गई है।",
+  "tags": [
+   "M1"
+  ],
+  "audio": "audio/tts/016_ustaad.wav",
+  "seconds": 9.04,
+  "tts_ok": true
+ },
+ {
+  "kind": "line",
+  "n": 17,
+  "speaker": "ustaad",
+  "role": "matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 2,
+  "text": "इब्ने अब्बास रज़ियल्लाहु अन्हुमा के मुताबिक़ ये वो भलाई है जो अल्लाह ने दी — और नहर उसी भलाई का एक हिस्सा है।",
+  "tags": [
+   "M1"
+  ],
+  "audio": "audio/tts/017_ustaad.wav",
+  "seconds": 8.2,
+  "tts_ok": true
+ },
+ {
+  "kind": "ayah",
+  "ayah": 3
+ },
+ {
+  "kind": "screen",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 3,
+  "note": "SCREEN: subah ka khula maidan, ek diya; koi insaan nahi, koi janwar nahi"
+ },
+ {
+  "kind": "cue",
+  "n": 18,
+  "type": "music",
+  "value": "swoosh — ARABIC ON SCREEN",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 3
+ },
+ {
+  "kind": "arabic",
+  "ayah": 3,
+  "text": "فَصَلِّ لِرَبِّكَ وَٱنْحَرْ"
+ },
+ {
+  "kind": "line",
+  "n": 19,
+  "speaker": "ustaad",
+  "role": "ucharan",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 3,
+  "text": "फ़सल्लि लिरब्बिका वन्हर",
+  "tags": [],
+  "audio": "audio/tts/019_ustaad.wav",
+  "seconds": 3.0,
+  "tts_ok": true
+ },
+ {
+  "kind": "line",
+  "n": 20,
+  "speaker": "ustaad",
+  "role": "bhaavarth",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 3,
+  "text": "दूसरी आयत: तो अपने रब के लिए ही नमाज़ अदा करो और उसी के लिए क़ुर्बानी दो।",
+  "tags": [
+   "T2"
+  ],
+  "audio": "audio/tts/020_ustaad.wav",
+  "seconds": 6.76,
+  "tts_ok": true
+ },
+ {
+  "kind": "cue",
+  "n": 21,
+  "type": "music",
+  "value": "continue: River Flute — matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 3
+ },
+ {
+  "kind": "line",
+  "n": 22,
+  "speaker": "ustaad",
+  "role": "matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 3,
+  "text": "इब्ने कसीर के मुताबिक़ इबादत और क़ुर्बानी सिर्फ़ अल्लाह के लिए है, उसी का नाम लेकर — मुश्रिकों की तरह बुतों के लिए नहीं।",
+  "tags": [
+   "M2"
+  ],
+  "audio": "audio/tts/022_ustaad.wav",
+  "seconds": 8.92,
+  "tts_ok": true
+ },
+ {
+  "kind": "line",
+  "n": 23,
+  "speaker": "ustaad",
+  "role": "matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 3,
+  "text": "तबरी के मुताबिक़ ये बात एक नमाज़ या एक क़ुर्बानी तक सीमित नहीं। अता आम है, इसलिए इबादत का हुक्म भी आम है।",
+  "tags": [
+   "M2",
+   "M4"
+  ],
+  "audio": "audio/tts/023_ustaad.wav",
+  "seconds": 9.2,
+  "tts_ok": true
+ },
+ {
+  "kind": "ayah",
+  "ayah": 4
+ },
+ {
+  "kind": "screen",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 4,
+  "note": "SCREEN: pehle andhera kone me band darwaza, phir darwaze ke kinaron se subah ki roshni; koi insaan nahi"
+ },
+ {
+  "kind": "cue",
+  "n": 24,
+  "type": "music",
+  "value": "swoosh — ARABIC ON SCREEN",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 4
+ },
+ {
+  "kind": "arabic",
+  "ayah": 4,
+  "text": "إِنَّ شَانِئَكَ هُوَ ٱلْأَبْتَرُ"
+ },
+ {
+  "kind": "line",
+  "n": 25,
+  "speaker": "ustaad",
+  "role": "ucharan",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 4,
+  "text": "इन्ना शानिअका हुवल अब्तर",
+  "tags": [],
+  "audio": "audio/tts/025_ustaad.wav",
+  "seconds": 3.4,
+  "tts_ok": true
+ },
+ {
+  "kind": "line",
+  "n": 26,
+  "speaker": "ustaad",
+  "role": "bhaavarth",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 4,
+  "text": "तीसरी आयत: बेशक तुमसे बैर रखने वाला ही जड़-कटा, बे-निशान है।",
+  "tags": [
+   "T2"
+  ],
+  "audio": "audio/tts/026_ustaad.wav",
+  "seconds": 6.2,
+  "tts_ok": true
+ },
+ {
+  "kind": "cue",
+  "n": 27,
+  "type": "music",
+  "value": "continue: River Flute — matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 4
+ },
+ {
+  "kind": "line",
+  "n": 28,
+  "speaker": "ustaad",
+  "role": "matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 4,
+  "text": "\"शानिअ\" यानी बैर और नफ़रत रखने वाला। \"अबतर\" यानी कटा हुआ, जिसका कोई ज़िक्र बाक़ी न रहे।",
+  "tags": [
+   "M3"
+  ],
+  "audio": "audio/tts/028_ustaad.wav",
+  "seconds": 9.36,
+  "tts_ok": true
+ },
+ {
+  "kind": "line",
+  "n": 29,
+  "speaker": "ustaad",
+  "role": "matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 4,
+  "text": "इब्ने कसीर के मुताबिक़ नबी सल्लल्लाहु अलैहि वसल्लम का ज़िक्र अल्लाह ने क़यामत तक बाक़ी रखा — यानी ताना देने वाला बे-निशान हुआ, और नबी सल्लल्लाहु अलैहि वसल्लम का ज़िक्र बाक़ी रहा।",
+  "tags": [
+   "M3",
+   "M5"
+  ],
+  "audio": "audio/tts/029_ustaad.wav",
+  "seconds": 12.52,
+  "tts_ok": true
+ },
+ {
+  "kind": "line",
+  "n": 30,
+  "speaker": "ustaad",
+  "role": "matlab",
+  "section": "3. AAYAT-DAR-AAYAT",
+  "ayah": 4,
+  "text": "माआरिफ़ुल क़ुरआन इसे \"रूहानी सिलसिला\" कहता है। यानी अल्लाह की दी हुई भलाई के सामने दुश्मन का ताना कुछ नहीं। और तरतीब देखिए: पहले अता, फिर शुक्र में इबादत, फिर ताने का जवाब।",
+  "tags": [
+   "M5",
+   "M4"
+  ],
+  "audio": "audio/tts/030_ustaad.wav",
+  "seconds": 15.16,
+  "tts_ok": true
+ },
+ {
+  "kind": "section",
+  "name": "4. SEEKH"
+ },
+ {
+  "kind": "screen",
+  "section": "4. SEEKH",
+  "ayah": null,
+  "note": "SCREEN: subah ka sunehra ujala, khula raasta; seekh ke teen chhote cards font se"
+ },
+ {
+  "kind": "line",
+  "n": 31,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "4. SEEKH",
+  "ayah": null,
+  "text": "पहली सीख: अल्लाह की दी हुई भलाई को गिनिए और उस पर शुक्र कीजिए। तबरी के मुताबिक़ अता आम है, इसलिए इबादत का हुक्म भी आम है।",
+  "tags": [
+   "M4"
+  ],
+  "audio": "audio/tts/031_ustaad.wav",
+  "seconds": 10.44,
+  "tts_ok": true
+ },
+ {
+  "kind": "line",
+  "n": 32,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "4. SEEKH",
+  "ayah": null,
+  "text": "दूसरी: नमाज़ और क़ुर्बानी — इबादत सिर्फ़ उसी रब के लिए है, किसी और के लिए नहीं। यही इस सूरह का दूसरा सबक़ है।",
+  "tags": [
+   "M2"
+  ],
+  "audio": "audio/tts/032_ustaad.wav",
+  "seconds": 9.04,
+  "tts_ok": true
+ },
+ {
+  "kind": "line",
+  "n": 33,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "4. SEEKH",
+  "ayah": null,
+  "text": "तीसरी: ताने का जवाब बैर नहीं, भरोसा और शुक्र है — बाक़ी फ़ैसला अल्लाह पर।",
+  "tags": [
+   "M5"
+  ],
+  "audio": "audio/tts/033_ustaad.wav",
+  "seconds": 6.92,
+  "tts_ok": true
+ },
+ {
+  "kind": "screen",
+  "section": "4. SEEKH",
+  "ayah": null,
+  "note": "SCREEN (end, aakhri ~15 s end-screen area khaali): tagline card \"क़ुरआन, आसान ज़बान में।\" + chhota card \"Arabic text: Tanzil Project, tanzil.net\" + \"सरल भावार्थ — माने हुए तर्जुमों के आधार पर\""
+ },
+ {
+  "kind": "line",
+  "n": 34,
+  "speaker": "ustaad",
+  "role": "",
+  "section": "4. SEEKH",
+  "ayah": null,
+  "text": "अगली बार, नूर-ए-राह में: सूरह अल-अस्र।",
+  "tags": [
+   "NEXT"
+  ],
+  "audio": "audio/tts/034_ustaad.wav",
+  "seconds": 3.88,
+  "tts_ok": true
+ },
+ {
+  "kind": "cue",
+  "n": 35,
+  "type": "music",
+  "value": "River Flute dheere fade-out; aakhri ~3 s sirf gentle breeze",
+  "section": "4. SEEKH",
+  "ayah": null
+ }
+]

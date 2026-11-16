@@ -1,0 +1,408 @@
+{
+ "title": "ख़ौला: अल्लाह ने एक औरत की बात सुन ली",
+ "voice": "Charon",
+ "style": "Calm, warm, clear Hindi storyteller for an Islamic history video. Simple everyday spoken Hindi, gentle emotion, normal conversational pace, correct Urdu sounds (ज़, फ़, क़, ख़, ग़).",
+ "tempo": 1.0,
+ "ambience": "shared/sfx/history/wind_desert_675710.mp3",
+ "music": "shared/music/seekh/Peaceful_Desolation.mp3",
+ "music_vol": 0.5,
+ "amp": 0.08,
+ "amb_db": -6,
+ "sfx_db": -3,
+ "duck": true,
+ "ayah_ar": "قَدْ سَمِعَ ٱللَّهُ قَوْلَ ٱلَّتِى تُجَٰدِلُكَ فِى زَوْجِهَا وَتَشْتَكِىٓ إِلَى ٱللَّهِ",
+ "ayah_src": "सूरह अल-मुजादला 58:1",
+ "lines": [
+  {
+   "n": 1,
+   "text": "एक औरत का घर टूटने वाला था। उसे समझ नहीं आ रहा था कि अब वो क्या करे।",
+   "img": "01_night_lane",
+   "motion": true,
+   "preset": "pan_right",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/seekh/Peaceful_Desolation.mp3",
+   "ayah": false
+  },
+  {
+   "n": 2,
+   "text": "ये बहुत पुरानी बात है, मदीना शहर की। उस औरत का नाम था ख़ौला। उनके पति का नाम था औस।",
+   "img": "02_palm_morning",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/seekh/Peaceful_Desolation.mp3",
+   "ayah": false
+  },
+  {
+   "n": 3,
+   "text": "उनके कई बच्चे थे। घर में गुज़ारा जैसे-तैसे चल रहा था। एक दिन किसी बात पर औस को बहुत ग़ुस्सा आ गया।",
+   "img": "03_family_hearth",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/seekh/Peaceful_Desolation.mp3",
+   "ayah": false
+  },
+  {
+   "n": 4,
+   "text": "उस ज़माने में एक बुरा रिवाज़ था। अगर पति ग़ुस्से में पत्नी से कह दे, तू मेरे लिए मेरी माँ जैसी है, तो माना जाता था कि अब वो उसकी पत्नी नहीं रही।",
+   "img": "04_angry_husband",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/seekh/Peaceful_Desolation.mp3",
+   "ayah": false
+  },
+  {
+   "n": 5,
+   "text": "पर पति उसे छोड़ता भी नहीं था। यानी औरत न पत्नी रहती, न आज़ाद होती। बीच में अटकी रह जाती थी।",
+   "img": "05_stuck_rope",
+   "motion": true,
+   "preset": "pan_right",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/seekh/Peaceful_Desolation.mp3",
+   "ayah": false
+  },
+  {
+   "n": 6,
+   "text": "औस ने ग़ुस्से में वही बात कह दी। ख़ौला घबरा गईं। वो सोचने लगीं, अब मेरा और मेरे बच्चों का क्या होगा?",
+   "img": "06_empty_room",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/seekh/Peaceful_Desolation.mp3",
+   "ayah": false
+  },
+  {
+   "n": 7,
+   "text": "उन्हें सबसे ज़्यादा बच्चों की फ़िक्र थी। अगर बच्चे पिता के पास रहे, तो उन्हें कौन सँभालेगा? अगर मेरे पास रहे, तो खाना कहाँ से आएगा?",
+   "img": "07_kids_clothes",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/seekh/Peaceful_Desolation.mp3",
+   "ayah": false
+  },
+  {
+   "n": 8,
+   "text": "ख़ौला हिम्मत करके अल्लाह के नबी ﷺ के पास गईं। उन्होंने अपनी पूरी बात बताई।",
+   "img": "08_woman_walking",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/seekh/Peaceful_Desolation.mp3",
+   "ayah": false
+  },
+  {
+   "n": 9,
+   "text": "उन्होंने कहा कि उन्होंने अपनी जवानी और अपना सब कुछ इस घर में लगा दिया, और अब बुढ़ापे में पति ने ये कह दिया। नबी ﷺ ने ध्यान से उनकी बात सुनी। उस वक़्त तक इस बारे में कोई नया हुक्म नहीं आया था।",
+   "img": "09_telling_story",
+   "motion": true,
+   "preset": "pan_right",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/seekh/Peaceful_Desolation.mp3",
+   "ayah": false
+  },
+  {
+   "n": 10,
+   "text": "ख़ौला रो पड़ीं। वो बार-बार अपनी बात कहती रहीं। और साथ ही अल्लाह से दुआ करती रहीं।",
+   "img": "10_hands_raised",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/seekh/Touching_Moments_Two_Higher.mp3",
+   "ayah": false
+  },
+  {
+   "n": 11,
+   "text": "और फिर, अल्लाह ने उनकी बात सुन ली।",
+   "img": "11_light_ray",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/seekh/Touching_Moments_Two_Higher.mp3",
+   "ayah": false
+  },
+  {
+   "n": 12,
+   "text": "क़ुरआन में अल्लाह ने साफ़ कहा कि उसने उस औरत की बात सुनी, जो अपने पति के बारे में शिकायत कर रही थी।",
+   "img": "12_ayah_card",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/seekh/Touching_Moments_Two_Higher.mp3",
+   "ayah": true
+  },
+  {
+   "n": 13,
+   "text": "यानी जिस बात को लोग छोटी समझ रहे थे, उसे अल्लाह ने ख़ुद सुना।",
+   "img": "13_open_sky",
+   "motion": true,
+   "preset": "pan_right",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/seekh/Touching_Moments_Two_Higher.mp3",
+   "ayah": false
+  },
+  {
+   "n": 14,
+   "text": "अल्लाह ने कह दिया कि वो रिवाज़ ग़लत है। पत्नी को माँ कह देने से वो माँ नहीं बन जाती। पुराना बुरा रिवाज़ ख़त्म हो गया।",
+   "img": "14_old_custom_falls",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": false
+  },
+  {
+   "n": 15,
+   "text": "जिसने ग़ुस्से में ऐसी ग़लत बात कही, उसके लिए एक सज़ा तय हुई। पहले, किसी ग़ुलाम को आज़ाद करे।",
+   "img": "15a_broken_chain",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": false
+  },
+  {
+   "n": 16,
+   "text": "अगर न कर सके, तो लगातार दो महीने रोज़े रखे।",
+   "img": "15b_moon_nights",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": false
+  },
+  {
+   "n": 17,
+   "text": "अगर ये भी न हो सके, तो साठ ग़रीबों को खाना खिलाए।",
+   "img": "17_family_door",
+   "motion": true,
+   "preset": "pan_right",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": false
+  },
+  {
+   "n": 18,
+   "text": "कुछ रिवायतों में आता है कि औस के पास ये करने का सामान नहीं था, तब नबी ﷺ ने खजूरें देकर उनकी मदद की।",
+   "img": "16_dates_basket",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": false
+  },
+  {
+   "n": 19,
+   "text": "इस तरह ख़ौला का घर बच गया। बच्चों को माँ और पिता, दोनों मिले।",
+   "img": "17_door_opens",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": false
+  },
+  {
+   "n": 20,
+   "text": "नबी ﷺ की पत्नी आइशा رضي الله عنها उसी कमरे में थीं। उन्होंने बाद में बताया कि ख़ौला की कुछ बातें उन्होंने सुनीं, और कुछ वो सुन नहीं पाईं। पर अल्लाह ने सब सुन लिया।",
+   "img": "18_night_stars",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": false
+  },
+  {
+   "n": 21,
+   "text": "इस कहानी से हम क्या सीखते हैं? पहली बात, कोई भी इंसान अकेला नहीं है। जब कोई नहीं सुनता, तब भी अल्लाह सुनता है।",
+   "img": "19_morning_market",
+   "motion": true,
+   "preset": "pan_right",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": false
+  },
+  {
+   "n": 22,
+   "text": "दूसरी बात, एक औरत की हिम्मत ने समाज का एक बुरा रिवाज़ बदलवा दिया। कभी-कभी बदलाव की शुरुआत एक अकेली आवाज़ से होती है।",
+   "img": "20_palm_walk",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": false
+  },
+  {
+   "n": 23,
+   "text": "अगली बार अगर आपको लगे कि कोई आपकी बात नहीं सुन रहा, तो ख़ौला को याद करना।",
+   "img": "21_moon_night",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": false
+  }
+ ]
+}

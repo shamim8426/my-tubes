@@ -1,0 +1,13 @@
+{
+ "tag": "Claude Feature 08",
+ "music": {"file": "shared/music/presentation/Funkorama.mp3", "start": 6, "rel": 12},
+ "voice": {"id": "Charon", "style": "Speak like a friendly Indian tech YouTuber chatting casually in Hinglish. Natural conversational pace, warm and clear, a little energetic but not theatrical. No sing-song, no exaggerated emphasis."},
+ "scenes": [
+  {"id": "hook", "voice": "क्या आप Claude से निजी बातें पूछते हैं? तो ये दो privacy settings ज़रूर जान लीजिए, ताकि आपकी चैट आपके कंट्रोल में रहे।"},
+  {"id": "train", "voice": "पहली setting है, Help Improve our AI models. अपने नाम पर क्लिक करके Settings में जाइए, फिर Privacy चुनिए, और इस toggle को off कर दीजिए। इसके बाद आपकी नई चैट्स, आगे की model training में इस्तेमाल नहीं होंगी।"},
+  {"id": "caution1", "voice": "ध्यान रखिए, ये पुरानी training वापस नहीं लेता। जो data पहले ही training में जा चुका है, वो वहीं रहेगा। ये setting Free, Pro और Max plans के लिए है।"},
+  {"id": "incog", "voice": "दूसरा तरीका है, incognito chat. ऊपर दाएँ कोने में ghost icon पर क्लिक कीजिए। स्क्रीन पर काला border और Incognito chat लिखा दिखेगा। ये चैट history और memory में save नहीं होती, और training में भी इस्तेमाल नहीं होती।"},
+  {"id": "caution2", "voice": "लेकिन बंद करने के बाद ये चैट दोबारा नहीं खुलती, इसलिए ज़रूरी बात पहले copy कर लीजिए। और ये Projects के अंदर काम नहीं करता।"},
+  {"id": "cta", "voice": "ऐसी और उपयोगी जानकारी के लिए, हमें follow कीजिए।"}
+ ]
+}

@@ -1,0 +1,66 @@
+# ---------------- scenes ----------------
+def title_chip(base, t, key, tok, txt, size=70):
+    pc(base, txt, 540, 215, t, T(key, tok) - 0.1, size, INK, WHITE, pad=(36, 6))
+
+
+def s_hook(base, t, b):
+    lt = t - b["t0"]; base.alpha_composite(BG)
+    card_enter(base, polaroid("chip", 860, 640, lt, 7.5, fx=0.5, fy=0.55), 540, 640, t, b["t0"], rot=-1.8, dur=0.01)
+    pc(base, "3 AI UPDATES", 340, 1130, t, T("hook", 0) + 0.05, 104, rot=-3)
+    pc(base, "IN 40 SECONDS", 690, 1290, t, T("hook", 5) - 0.05, 84, INK, TEAL, rot=2)
+    place(base, chip("AI NEWS ROUNDUP", 52, INK, WHITE, pad=(32, 6), r=24), 540, 250, 1.0)
+
+
+def s_carbon(base, t, b):
+    lt = t - b["t0"]; base.alpha_composite(BG)
+    title_chip(base, t, "carbon", 3, "1  GEMINI 4 CARBON")
+    card_enter(base, polaroid("chip", 780, 340, lt, 11, z0=1.0, z1=1.12), 540, 520, t, b["t0"] + 0.1, rot=-1.2, dur=0.01)
+    pc(base, "GOOGLE'S STRONGEST MODEL", 540, 850, t, T("carbon", 8) - 0.05, 56, TEAL, INK, rot=-1.5, pad=(30, 4))
+    sw = T("carbon", 11)
+    if t < sw:
+        hp = (t - T("carbon", 7)) / max(0.3, T("carbon", 10) - T("carbon", 7))
+        card_enter(base, note("carbon_a", 900, min(1, max(0, hp)), 260), 540, 1255, t, T("carbon", 6) - 0.2, rot=0.8, side=1)
+    else:
+        hp = (t - T("carbon", 12)) / max(0.3, T("carbon", 17) - T("carbon", 12))
+        card_enter(base, note("carbon_p", 900, min(1, max(0, hp)), 260), 540, 1255, t, sw - 0.1, rot=-0.8, side=-1, dur=0.2)
+    pc(base, "$2 INPUT", 330, 960, t, T("carbon", 12) - 0.05, 76, YEL, INK, rot=-2)
+    pc(base, "$10 OUTPUT", 750, 960, t, T("carbon", 15) - 0.05, 76, INK, WHITE, rot=2)
+    pc(base, "NOV 30: PRICE x2", 540, 1075, t, T("carbon", 19) - 0.05, 66, RED, WHITE, rot=-1, pad=(34, 4))
+    src_tag(base, t, T("carbon", 6), 1412, "Source: blog.google (Gemini 4 Carbon)")
+
+
+def s_fable(base, t, b):
+    lt = t - b["t0"]; base.alpha_composite(BG)
+    title_chip(base, t, "fable", 3, "2  CLAUDE FABLE 5.2")
+    card_enter(base, polaroid("code", 780, 340, lt, 11, z0=1.0, z1=1.12), 540, 520, t, b["t0"] + 0.1, rot=1.2, dur=0.01)
+    pc(base, "DEFAULT IN CLAUDE CODE", 540, 850, t, T("fable", 8) - 0.05, 56, TEAL, INK, rot=1.5, pad=(30, 4))
+    hp = (t - T("fable", 8)) / max(0.3, T("fable", 11) - T("fable", 8))
+    card_enter(base, note("fable", 900, min(1, max(0, hp)), 260), 540, 1255, t, T("fable", 4) - 0.2, rot=-0.8, side=1)
+    pc(base, "1M CONTEXT", 330, 960, t, T("fable", 12) - 0.05, 76, YEL, INK, rot=-2)
+    pc(base, "$8 IN / $40 OUT", 700, 1075, t, T("fable", 18) - 0.05, 66, INK, WHITE, rot=2, pad=(30, 4))
+    src_tag(base, t, T("fable", 4), 1412, "Source: code.claude.com (changelog)")
+
+
+def s_decisions(base, t, b):
+    lt = t - b["t0"]; base.alpha_composite(BG)
+    title_chip(base, t, "decisions", 2, "3  GEMINI DECISIONS API", 62)
+    card_enter(base, polaroid("server", 780, 340, lt, 8, z0=1.0, z1=1.12), 540, 520, t, b["t0"] + 0.1, rot=-1.0, dur=0.01)
+    pc(base, "1,000 YES/NO QUESTIONS", 540, 850, t, T("decisions", 7) - 0.05, 54, TEAL, INK, rot=-1.5, pad=(30, 4))
+    sw = T("decisions", 12)
+    if t < sw:
+        hp = (t - T("decisions", 7)) / max(0.3, T("decisions", 11) - T("decisions", 7))
+        card_enter(base, note("dec_a", 900, min(1, max(0, hp)), 260), 540, 1255, t, T("decisions", 3) - 0.2, rot=0.8, side=1)
+    else:
+        hp = (t - T("decisions", 15)) / max(0.3, T("decisions", 19) - T("decisions", 15))
+        card_enter(base, note("dec_l", 900, min(1, max(0, hp)), 260), 540, 1255, t, sw - 0.1, rot=-0.8, side=-1, dur=0.2)
+    pc(base, "150-250 ms", 540, 975, t, T("decisions", 15) - 0.05, 84, YEL, INK, rot=-2)
+    src_tag(base, t, T("decisions", 3), 1412, "Source: blog.google (Decisions API)")
+
+
+def s_cta(base, t, b):
+    lt = t - b["t0"]; base.alpha_composite(BG)
+    place(base, robot("wave", 780), 540, 620 + 8 * math.sin(lt * 3.5), 0.94 + 0.06 * ease_out(lt / 0.3))
+    pc(base, "DAILY AI NEWS", 540, 1090, t, T("cta", 2) - 0.1, 84, TEAL, INK, rot=-1.5, pad=(46, 6))
+    pc(base, "FOLLOW", 540, 1250, t, T("cta", 7) - 0.1, 84, INK, WHITE, rot=1.5, pad=(46, 6))
+
+

@@ -1,0 +1,2 @@
+# GROWTH LOG (growth manager appends one entry per run: date, numbers read, decision, change made, old value so it can be undone)
+- 2026-11-15 baseline: 46 videos, 1,142 views, 6 subs (all gained 10-31..11-04, none since), 185 watch minutes. Traffic: Shorts feed 738, search 177, channel page 56, subscribers 8. Long 18 views total. Best Shorts: claude -p 135, Google video 15 s 130, Quickstart 82, 65 MB voice model 68 (78% watched). Snapshot: growth/snapshots/2026-11-15.md. 14-day review due 2026-11-29.

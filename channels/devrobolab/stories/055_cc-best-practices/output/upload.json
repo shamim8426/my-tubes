@@ -1,0 +1,27 @@
+{
+  "channel_key": "devrobolab",
+  "channel_name": "DevRoboLab",
+  "channel_id": "UCpElgKdJOgQiyfwdGXz6GmA",
+  "format": "short",
+  "parent_video_id": null,
+  "title": "Claude Code 06: Claude ko check do, done sach me done #shorts",
+  "description": "Claude Code 06: Best practices. Claude Code ne kaha done, par kaam adhura? Official best practices page ka hal: Claude ko ek aisa check do jo pass ya fail bataye (test, build, linter). Teen tareeke: prompt me likho (tests pass hone tak chalao), /goal se condition set karo, ya Stop hook lagao jo check pass hone tak rukne nahi dega. Sirf done sunkar mat mano, evidence mango: kaun sa command chala aur uska output. Jo rule kabhi nahi tootna chahiye, use CLAUDE.md me nahi, hook me daalo.\n\nSource (official):\nhttps://code.claude.com/docs/en/best-practices\n\nUnofficial channel, not affiliated with Anthropic.\n\nNote: the docs crops are our own capture of the official page (key lines highlighted). The terminal windows are illustrations using example commands. Synthetic voice.\n\nMusic: \"Funkorama\" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttp://creativecommons.org/licenses/by/4.0/\n\n#shorts #ClaudeCode #BestPractices #Claude #AI #Hinglish",
+  "tags": [
+    "Claude Code",
+    "Claude Code best practices",
+    "Claude Code hooks",
+    "Claude Code goal",
+    "Claude tips",
+    "AI tools",
+    "Hinglish",
+    "Hindi tech",
+    "Shorts"
+  ],
+  "video": "short.mp4",
+  "language": "hi",
+  "made_for_kids": false,
+  "contains_synthetic_media": true,
+  "category_id": "28",
+  "privacy": "private",
+  "playlist_id": "PLGTgifZfJLow"
+}

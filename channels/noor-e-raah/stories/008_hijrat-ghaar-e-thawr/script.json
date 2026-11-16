@@ -1,0 +1,108 @@
+{
+ "title": "ग़ार-ए-सौर: जब दो के साथ तीसरा अल्लाह था",
+ "voice": "Charon",
+ "style": "Calm, clear, natural Hindi documentary narrator for an Islamic history video. Respectful, restrained emotion, normal conversational pace, not rushed, not slow, correct Urdu sounds (ज़, फ़, क़, ख़, ग़).",
+ "tempo": 1.0,
+ "ayah_ar": "لَا تَحْزَنْ إِنَّ ٱللَّهَ مَعَنَا",
+ "ayah_src": "सूरह अत-तौबा · आयत 9:40",
+ "ambience": "shared/sfx/noor/night_wind_crickets_felixblume_165526.mp3",
+ "music": "shared/music/noor/River_Flute.mp3",
+ "lines": [
+  {
+   "n": 1,
+   "img": "01_thawr_night",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.2
+    ]
+   ],
+   "text": "रात का सन्नाटा। मक्का के दक्षिण में एक पथरीली पहाड़ी, जबल-ए-सौर। और उसकी एक गुफ़ा में दो लोग छिपे हैं।"
+  },
+  {
+   "n": 2,
+   "img": "02_torches_far",
+   "preset": "pan_right",
+   "text": "ये हिजरत का वक़्त है। पहली हिजरी, यानी कोई छह सौ बाईस ईसवी। क़ुरैश ने इन्हें पकड़ने पर सौ ऊँटों का इनाम रखा था।"
+  },
+  {
+   "n": 3,
+   "img": "03_cave_mouth",
+   "preset": "push_in",
+   "text": "नबी सल्लल्लाहु अलैहि व सल्लम और अबू बक्र रज़ियल्लाहु अन्हु ने इसी गुफ़ा में तीन रातें गुज़ारीं।"
+  },
+  {
+   "n": 4,
+   "img": "04_goats_dusk",
+   "preset": "pan_left",
+   "text": "अबू बक्र के बेटे अब्दुल्लाह रात को मक्का की ख़बरें लाते थे, और उनके आज़ाद किए हुए ग़ुलाम आमिर बकरियों का ताज़ा दूध।"
+  },
+  {
+   "n": 5,
+   "img": "05_search_dust",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.3
+    ]
+   ],
+   "sfx": [
+    [
+     "shared/sfx/steps_682886.mp3",
+     0.3,
+     -10
+    ]
+   ],
+   "text": "फिर एक दिन तलाश करने वाले गुफ़ा के पास आ पहुँचे।"
+  },
+  {
+   "n": 6,
+   "img": "06_moonlit_rocks",
+   "preset": "push_in",
+   "text": "सही बुख़ारी में आता है कि अबू बक्र रज़ियल्लाहु अन्हु ने कहा, अगर इनमें से कोई अपने पैरों की तरफ़ नीचे देख ले, तो हमें देख लेगा।"
+  },
+  {
+   "n": 7,
+   "img": "07_cave_dark",
+   "preset": "pull_out",
+   "text": "नबी सल्लल्लाहु अलैहि व सल्लम ने फ़रमाया: ऐ अबू बक्र, उन दो के बारे में तुम्हारा क्या गुमान है, जिनका तीसरा अल्लाह है?"
+  },
+  {
+   "n": 8,
+   "img": "07_cave_dark",
+   "preset": "pan_right",
+   "text": "क़ुरआन में इसी गुफ़ा का ज़िक्र है:"
+  },
+  {
+   "n": 9,
+   "img": "08_stars",
+   "ayah": true,
+   "preset": "push_in",
+   "text": "ग़म न करो,\nबेशक अल्लाह हमारे साथ है।"
+  },
+  {
+   "n": 10,
+   "img": "09_dawn_camels",
+   "motion": true,
+   "preset": "pan_right",
+   "sfx": [
+    [
+     "shared/sfx/noor/wind_birds_petebuchwald_288899.mp3",
+     0.0,
+     -12
+    ]
+   ],
+   "text": "तीसरी रात बीतने पर सुबह-सुबह गाइड दो ऊँटनियाँ लेकर गुफ़ा पर आ गया, और मदीने का सफ़र शुरू हुआ।"
+  },
+  {
+   "n": 11,
+   "img": "10_horizon_sunrise",
+   "preset": "push_in",
+   "text": "इस वाक़िये से सीख मिलती है कि डर के वक़्त भी अल्लाह पर भरोसा रखना चाहिए।"
+  }
+ ]
+}

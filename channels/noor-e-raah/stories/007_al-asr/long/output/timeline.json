@@ -1,0 +1,1020 @@
+{
+ "lines": [
+  {
+   "kind": "line",
+   "n": 3,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "INTRO (`part: intro`, hook)",
+   "ayah": null,
+   "text": "तीन आयतें — वक़्त की क़सम, इंसान का घाटा, और घाटे से बचने का रास्ता। ये है सूरह अल-अस्र।",
+   "tags": [
+    "P5"
+   ],
+   "audio": "audio/tts/003_ustaad.wav",
+   "seconds": 9.2,
+   "tts_ok": true,
+   "start": 0.8,
+   "end": 9.088
+  },
+  {
+   "kind": "line",
+   "n": 4,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "1. SURAH KA PARICHAY",
+   "ayah": null,
+   "text": "\"अस्र\" का मतलब है ज़माना, वक़्त। पहली आयत के इसी शब्द से सूरह का नाम है।",
+   "tags": [
+    "P1",
+    "M1"
+   ],
+   "audio": "audio/tts/004_ustaad.wav",
+   "seconds": 7.0,
+   "tts_ok": true,
+   "start": 10.238,
+   "end": 16.545
+  },
+  {
+   "kind": "line",
+   "n": 6,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "1. SURAH KA PARICHAY",
+   "ayah": 1,
+   "text": "ये रही पूरी सूरह। इसमें घाटे से बचने की चार बातें आती हैं।",
+   "tags": [
+    "P5",
+    "M4"
+   ],
+   "audio": "audio/tts/006_ustaad.wav",
+   "seconds": 5.44,
+   "tts_ok": true,
+   "start": 19.495,
+   "end": 24.395
+  },
+  {
+   "kind": "line",
+   "n": 8,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "2. SHAN-E-NUZUL",
+   "ayah": null,
+   "text": "इस सूरह के उतरने का कोई ख़ास वाक़िया माने हुए तफ़्सीरों में नहीं मिलता।",
+   "tags": [
+    "N1"
+   ],
+   "audio": "audio/tts/008_ustaad.wav",
+   "seconds": 5.44,
+   "tts_ok": true,
+   "start": 26.345,
+   "end": 31.246
+  },
+  {
+   "kind": "line",
+   "n": 9,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "2. SHAN-E-NUZUL",
+   "ayah": null,
+   "text": "ज़्यादातर उलमा के मुताबिक़ ये मक्की सूरह है। क़तादा वग़ैरह कुछ ने इसे मदनी भी कहा है।",
+   "tags": [
+    "P2"
+   ],
+   "audio": "audio/tts/009_ustaad.wav",
+   "seconds": 6.36,
+   "tts_ok": true,
+   "start": 31.596,
+   "end": 37.326
+  },
+  {
+   "kind": "line",
+   "n": 11,
+   "speaker": "ustaad",
+   "role": "ucharan",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 2,
+   "text": "वल अस्र",
+   "tags": [],
+   "audio": "audio/tts/011_ustaad.wav",
+   "seconds": 1.64,
+   "tts_ok": true,
+   "start": 41.076,
+   "end": 42.554
+  },
+  {
+   "kind": "line",
+   "n": 12,
+   "speaker": "ustaad",
+   "role": "bhaavarth",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 2,
+   "text": "पहली आयत: वक़्त की क़सम, ज़माने की क़सम।",
+   "tags": [
+    "T2"
+   ],
+   "audio": "audio/tts/012_ustaad.wav",
+   "seconds": 4.36,
+   "tts_ok": true,
+   "start": 42.904,
+   "end": 46.832
+  },
+  {
+   "kind": "line",
+   "n": 14,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 2,
+   "text": "अल्लाह ने उस वक़्त की क़सम खाई जिसमें इंसान जीता है और अपने अच्छे-बुरे काम करता है।",
+   "tags": [
+    "M1"
+   ],
+   "audio": "audio/tts/014_ustaad.wav",
+   "seconds": 7.44,
+   "tts_ok": true,
+   "start": 47.982,
+   "end": 54.684
+  },
+  {
+   "kind": "line",
+   "n": 15,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 2,
+   "text": "तबरी के मुताबिक़ यहाँ \"अस्र\" का मतलब पूरा ज़माना है — शाम, दिन और रात, सब।",
+   "tags": [
+    "M1"
+   ],
+   "audio": "audio/tts/015_ustaad.wav",
+   "seconds": 8.16,
+   "tts_ok": true,
+   "start": 55.034,
+   "end": 62.386
+  },
+  {
+   "kind": "line",
+   "n": 16,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 2,
+   "text": "कुछ उलमा ने इसका मतलब दिन का आख़िरी हिस्सा या अस्र की नमाज़ भी लिया है।",
+   "tags": [
+    "K2"
+   ],
+   "audio": "audio/tts/016_ustaad.wav",
+   "seconds": 5.04,
+   "tts_ok": true,
+   "start": 62.736,
+   "end": 67.276
+  },
+  {
+   "kind": "line",
+   "n": 18,
+   "speaker": "ustaad",
+   "role": "ucharan",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 3,
+   "text": "इन्नल इन्साना लफ़ी ख़ुस्र",
+   "tags": [],
+   "audio": "audio/tts/018_ustaad.wav",
+   "seconds": 3.08,
+   "tts_ok": true,
+   "start": 70.226,
+   "end": 73.001
+  },
+  {
+   "kind": "line",
+   "n": 19,
+   "speaker": "ustaad",
+   "role": "bhaavarth",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 3,
+   "text": "दूसरी आयत: हर इंसान घाटे में पड़ा हुआ है।",
+   "tags": [
+    "T2"
+   ],
+   "audio": "audio/tts/019_ustaad.wav",
+   "seconds": 4.28,
+   "tts_ok": true,
+   "start": 73.351,
+   "end": 77.207
+  },
+  {
+   "kind": "line",
+   "n": 21,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 3,
+   "text": "तबरी के मुताबिक़ यहाँ \"इंसान\" किसी एक आदमी के लिए नहीं, पूरी इंसानियत के लिए है।",
+   "tags": [
+    "M2"
+   ],
+   "audio": "audio/tts/021_ustaad.wav",
+   "seconds": 6.72,
+   "tts_ok": true,
+   "start": 78.357,
+   "end": 84.411
+  },
+  {
+   "kind": "line",
+   "n": 22,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 3,
+   "text": "\"ख़ुस्र\" यानी नुक़सान, घाटा, बर्बादी। इब्ने कसीर भी इसका यही मतलब बताते हैं।",
+   "tags": [
+    "M2"
+   ],
+   "audio": "audio/tts/022_ustaad.wav",
+   "seconds": 6.48,
+   "tts_ok": true,
+   "start": 84.761,
+   "end": 90.599
+  },
+  {
+   "kind": "line",
+   "n": 24,
+   "speaker": "ustaad",
+   "role": "ucharan",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 4,
+   "text": "इल्लल लज़ीना आमनू",
+   "tags": [],
+   "audio": "audio/tts/024_ustaad.wav",
+   "seconds": 2.24,
+   "tts_ok": true,
+   "start": 93.549,
+   "end": 95.567
+  },
+  {
+   "kind": "line",
+   "n": 25,
+   "speaker": "ustaad",
+   "role": "bhaavarth",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 4,
+   "text": "तीसरी आयत, पहला हिस्सा: मगर वो लोग, जो ईमान लाए।",
+   "tags": [
+    "T2"
+   ],
+   "audio": "audio/tts/025_ustaad.wav",
+   "seconds": 5.64,
+   "tts_ok": true,
+   "start": 95.917,
+   "end": 100.998
+  },
+  {
+   "kind": "line",
+   "n": 27,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 4,
+   "text": "\"मगर\" यहाँ अपवाद है — घाटे से बचने वाले लोग। पहली बात ईमान है।",
+   "tags": [
+    "M3"
+   ],
+   "audio": "audio/tts/027_ustaad.wav",
+   "seconds": 6.72,
+   "tts_ok": true,
+   "start": 102.148,
+   "end": 108.202
+  },
+  {
+   "kind": "line",
+   "n": 28,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 4,
+   "text": "तबरी में मुजाहिद के हवाले से इसका मतलब तौहीद को मानना आया है, और इब्ने कसीर के मुताबिक़ ईमान दिल से।",
+   "tags": [
+    "M3"
+   ],
+   "audio": "audio/tts/028_ustaad.wav",
+   "seconds": 8.36,
+   "tts_ok": true,
+   "start": 108.552,
+   "end": 116.083
+  },
+  {
+   "kind": "line",
+   "n": 30,
+   "speaker": "ustaad",
+   "role": "ucharan",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 5,
+   "text": "व अमिलुस सालिहात",
+   "tags": [],
+   "audio": "audio/tts/030_ustaad.wav",
+   "seconds": 2.32,
+   "tts_ok": true,
+   "start": 119.033,
+   "end": 121.123
+  },
+  {
+   "kind": "line",
+   "n": 31,
+   "speaker": "ustaad",
+   "role": "bhaavarth",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 5,
+   "text": "और जिन्होंने अच्छे काम किए।",
+   "tags": [
+    "T2"
+   ],
+   "audio": "audio/tts/031_ustaad.wav",
+   "seconds": 2.32,
+   "tts_ok": true,
+   "start": 121.473,
+   "end": 123.564
+  },
+  {
+   "kind": "line",
+   "n": 33,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 5,
+   "text": "यानी ईमान के साथ नेक अमल — अच्छे काम करना।",
+   "tags": [
+    "K5"
+   ],
+   "audio": "audio/tts/033_ustaad.wav",
+   "seconds": 4.2,
+   "tts_ok": true,
+   "start": 124.714,
+   "end": 128.497
+  },
+  {
+   "kind": "line",
+   "n": 34,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 5,
+   "text": "तबरी के मुताबिक़ इनमें फ़र्ज़ पूरे करना और गुनाह से बचना भी आता है।",
+   "tags": [
+    "K5"
+   ],
+   "audio": "audio/tts/034_ustaad.wav",
+   "seconds": 5.36,
+   "tts_ok": true,
+   "start": 128.847,
+   "end": 133.676
+  },
+  {
+   "kind": "line",
+   "n": 36,
+   "speaker": "ustaad",
+   "role": "ucharan",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 6,
+   "text": "व तवासौ बिल हक़्क़",
+   "tags": [],
+   "audio": "audio/tts/036_ustaad.wav",
+   "seconds": 2.32,
+   "tts_ok": true,
+   "start": 136.626,
+   "end": 138.716
+  },
+  {
+   "kind": "line",
+   "n": 37,
+   "speaker": "ustaad",
+   "role": "bhaavarth",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 6,
+   "text": "और एक-दूसरे को हक़ की बात याद दिलाते रहे।",
+   "tags": [
+    "T2"
+   ],
+   "audio": "audio/tts/037_ustaad.wav",
+   "seconds": 3.28,
+   "tts_ok": true,
+   "start": 139.066,
+   "end": 142.021
+  },
+  {
+   "kind": "line",
+   "n": 39,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 6,
+   "text": "\"हक़\" यानी वो सच, जो अल्लाह की किताब और दीन से साबित है। तबरी में क़तादा और हसन के हवाले से यही आता है।",
+   "tags": [
+    "K6"
+   ],
+   "audio": "audio/tts/039_ustaad.wav",
+   "seconds": 8.0,
+   "tts_ok": true,
+   "start": 143.171,
+   "end": 150.378
+  },
+  {
+   "kind": "line",
+   "n": 40,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 6,
+   "text": "इब्ने कसीर के मुताबिक़ इसमें भलाई की बात कहना और बुराई से रोकना भी शामिल है।",
+   "tags": [
+    "K6"
+   ],
+   "audio": "audio/tts/040_ustaad.wav",
+   "seconds": 5.76,
+   "tts_ok": true,
+   "start": 150.728,
+   "end": 155.918
+  },
+  {
+   "kind": "line",
+   "n": 42,
+   "speaker": "ustaad",
+   "role": "ucharan",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 7,
+   "text": "व तवासौ बिस सब्र",
+   "tags": [],
+   "audio": "audio/tts/042_ustaad.wav",
+   "seconds": 2.24,
+   "tts_ok": true,
+   "start": 158.868,
+   "end": 160.886
+  },
+  {
+   "kind": "line",
+   "n": 43,
+   "speaker": "ustaad",
+   "role": "bhaavarth",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 7,
+   "text": "और एक-दूसरे को सब्र की बात याद दिलाते रहे।",
+   "tags": [
+    "T2"
+   ],
+   "audio": "audio/tts/043_ustaad.wav",
+   "seconds": 3.68,
+   "tts_ok": true,
+   "start": 161.236,
+   "end": 164.551
+  },
+  {
+   "kind": "line",
+   "n": 45,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 7,
+   "text": "\"सब्र\" यानी अल्लाह की इताअत पर जमे रहना। तबरी में क़तादा और हसन से यही आता है।",
+   "tags": [
+    "K7"
+   ],
+   "audio": "audio/tts/045_ustaad.wav",
+   "seconds": 7.0,
+   "tts_ok": true,
+   "start": 165.701,
+   "end": 172.007
+  },
+  {
+   "kind": "line",
+   "n": 46,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 7,
+   "text": "इब्ने कसीर और माआरिफ़ुल क़ुरआन के मुताबिक़ पहली दो बातें अपने सुधार की हैं, और आख़िरी दो दूसरों के साथ मिलकर निभाने की।",
+   "tags": [
+    "M4"
+   ],
+   "audio": "audio/tts/046_ustaad.wav",
+   "seconds": 9.6,
+   "tts_ok": true,
+   "start": 172.357,
+   "end": 181.006
+  },
+  {
+   "kind": "line",
+   "n": 47,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "4. SEEKH",
+   "ayah": null,
+   "text": "पहली सीख: वक़्त की क़ीमत पहचानिए। ये वही वक़्त है जिसमें हम जीते हैं और अपने काम करते हैं।",
+   "tags": [
+    "M1"
+   ],
+   "audio": "audio/tts/047_ustaad.wav",
+   "seconds": 7.64,
+   "tts_ok": true,
+   "start": 182.156,
+   "end": 189.039
+  },
+  {
+   "kind": "line",
+   "n": 48,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "4. SEEKH",
+   "ayah": null,
+   "text": "दूसरी: घाटे से बचने के लिए ईमान और अच्छे काम, दोनों चाहिए।",
+   "tags": [
+    "M3",
+    "K5"
+   ],
+   "audio": "audio/tts/048_ustaad.wav",
+   "seconds": 5.68,
+   "tts_ok": true,
+   "start": 189.389,
+   "end": 194.506
+  },
+  {
+   "kind": "line",
+   "n": 49,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "4. SEEKH",
+   "ayah": null,
+   "text": "तीसरी: अकेले नहीं — एक-दूसरे को हक़ और सब्र की बात याद दिलाते रहिए।",
+   "tags": [
+    "M4",
+    "K6",
+    "K7"
+   ],
+   "audio": "audio/tts/049_ustaad.wav",
+   "seconds": 6.04,
+   "tts_ok": true,
+   "start": 194.856,
+   "end": 200.297
+  },
+  {
+   "kind": "line",
+   "n": 50,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "4. SEEKH",
+   "ayah": null,
+   "text": "अगली बार, नूर-ए-राह में: सूरह अल-फ़ील।",
+   "tags": [
+    "NEXT"
+   ],
+   "audio": "audio/tts/050_ustaad.wav",
+   "seconds": 4.56,
+   "tts_ok": true,
+   "start": 200.647,
+   "end": 204.755
+  }
+ ],
+ "ayat": [
+  {
+   "ayah": 1,
+   "fade": 16.544594594594592,
+   "a0": 17.144594594594594,
+   "swoosh": 16.644594594594594,
+   "text": "وَٱلْعَصْرِ إِنَّ ٱلْإِنسَٰنَ لَفِى خُسْرٍ إِلَّا ٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّٰلِحَٰتِ وَتَوَاصَوْا۟ بِٱلْحَقِّ وَتَوَاصَوْا۟ بِٱلصَّبْرِ",
+   "off": 25.195495495495496
+  },
+  {
+   "ayah": 2,
+   "fade": 38.126126126126124,
+   "a0": 38.726126126126125,
+   "swoosh": 38.226126126126125,
+   "text": "وَٱلْعَصْرِ",
+   "off": 47.63153153153153
+  },
+  {
+   "ayah": 3,
+   "fade": 67.27612612612613,
+   "a0": 67.87612612612612,
+   "swoosh": 67.37612612612612,
+   "text": "إِنَّ ٱلْإِنسَٰنَ لَفِى خُسْرٍ",
+   "off": 78.00675675675673
+  },
+  {
+   "ayah": 4,
+   "fade": 90.5986486486486,
+   "a0": 91.1986486486486,
+   "swoosh": 90.6986486486486,
+   "text": "إِلَّا ٱلَّذِينَ ءَامَنُوا۟",
+   "off": 101.79774774774768
+  },
+  {
+   "ayah": 5,
+   "fade": 116.08333333333324,
+   "a0": 116.68333333333324,
+   "swoosh": 116.18333333333324,
+   "text": "وَعَمِلُوا۟ ٱلصَّٰلِحَٰتِ",
+   "off": 124.3635135135134
+  },
+  {
+   "ayah": 6,
+   "fade": 133.67612612612598,
+   "a0": 134.27612612612597,
+   "swoosh": 133.77612612612597,
+   "text": "وَتَوَاصَوْا۟ بِٱلْحَقِّ",
+   "off": 142.82117117117102
+  },
+  {
+   "ayah": 7,
+   "fade": 155.9175675675674,
+   "a0": 156.5175675675674,
+   "swoosh": 156.0175675675674,
+   "text": "وَتَوَاصَوْا۟ بِٱلصَّبْرِ",
+   "off": 165.3509009009007
+  }
+ ],
+ "music": [
+  {
+   "track": "Soaring",
+   "start": 0.8,
+   "fin": 1.5,
+   "end": 26.695495495495496,
+   "fout": 1.5
+  },
+  {
+   "track": "River Flute",
+   "start": 25.195495495495496,
+   "fin": 2.5,
+   "end": 207.75540540540518,
+   "fout": 3.0
+  }
+ ],
+ "amb": [
+  {
+   "names": [
+    "breeze"
+   ],
+   "start": 0.0,
+   "end": 208.75540540540518
+  }
+ ],
+ "end": 208.755,
+ "fade_at": {
+  "1": 16.544594594594592,
+  "2": 38.126126126126124,
+  "3": 67.27612612612613,
+  "4": 90.5986486486486,
+  "5": 116.08333333333324,
+  "6": 133.67612612612598,
+  "7": 155.9175675675674
+ },
+ "shots": [
+  {
+   "img": "07_sea_horizon_dusk.png",
+   "id": "07_sea_horizon_dusk",
+   "start": 0.0,
+   "end": 4.969,
+   "move": "push_in",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "07_sea_horizon_dusk.png",
+   "id": "07_sea_horizon_dusk",
+   "start": 4.969,
+   "end": 9.938,
+   "move": "pan_right",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "23_golden_valley_full_light.png",
+   "id": "23_golden_valley_full_light",
+   "start": 9.938,
+   "end": 16.545,
+   "move": "pull_out",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "11_sunrays_clouds.png",
+   "id": "11_sunrays_clouds",
+   "start": 16.545,
+   "end": 19.195,
+   "move": "pan_left",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "11_sunrays_clouds.png",
+   "id": "11_sunrays_clouds_b",
+   "start": 19.195,
+   "end": 26.045,
+   "move": "gentle_orbit",
+   "fx": 0.5,
+   "fy": 0.4,
+   "zc": 1.5
+  },
+  {
+   "img": "03_makka_valley_night.png",
+   "id": "03_makka_valley_night",
+   "start": 26.045,
+   "end": 31.296,
+   "move": "push_in",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "03_makka_valley_night.png",
+   "id": "03_makka_valley_night_b",
+   "start": 31.296,
+   "end": 38.126,
+   "move": "pan_left",
+   "fx": 0.5,
+   "fy": 0.75,
+   "zc": 1.5
+  },
+  {
+   "img": "04_date_palm_path.png",
+   "id": "04_date_palm_path",
+   "start": 38.126,
+   "end": 43.662,
+   "move": "pull_out",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "04_date_palm_path.png",
+   "id": "04_date_palm_path",
+   "start": 43.662,
+   "end": 49.198,
+   "move": "pan_right",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "04_date_palm_path.png",
+   "id": "04_date_palm_path",
+   "start": 49.198,
+   "end": 54.734,
+   "move": "push_in",
+   "fx": 0.62,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "04_date_palm_path.png",
+   "id": "04_date_palm_path_b",
+   "start": 54.734,
+   "end": 61.005,
+   "move": "pan_right",
+   "fx": 0.5,
+   "fy": 0.6,
+   "zc": 1.5
+  },
+  {
+   "img": "04_date_palm_path.png",
+   "id": "04_date_palm_path_b",
+   "start": 61.005,
+   "end": 67.276,
+   "move": "pull_out",
+   "fx": 0.5,
+   "fy": 0.6,
+   "zc": 1.5
+  },
+  {
+   "img": "10_ring_in_desert.png",
+   "id": "10_ring_in_desert",
+   "start": 67.276,
+   "end": 73.004,
+   "move": "pan_left",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "10_ring_in_desert.png",
+   "id": "10_ring_in_desert",
+   "start": 73.004,
+   "end": 78.733,
+   "move": "gentle_orbit",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "10_ring_in_desert.png",
+   "id": "10_ring_in_desert",
+   "start": 78.733,
+   "end": 84.461,
+   "move": "push_in",
+   "fx": 0.62,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "10_ring_in_desert.png",
+   "id": "10_ring_in_desert_b",
+   "start": 84.461,
+   "end": 90.599,
+   "move": "pan_left",
+   "fx": 0.5,
+   "fy": 0.62,
+   "zc": 1.6
+  },
+  {
+   "img": "02_lamp_single_flame.png",
+   "id": "02_lamp_single_flame",
+   "start": 90.599,
+   "end": 96.97,
+   "move": "pull_out",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "02_lamp_single_flame.png",
+   "id": "02_lamp_single_flame",
+   "start": 96.97,
+   "end": 103.341,
+   "move": "pan_right",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "02_lamp_single_flame.png",
+   "id": "02_lamp_single_flame",
+   "start": 103.341,
+   "end": 109.712,
+   "move": "push_in",
+   "fx": 0.62,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "02_lamp_single_flame.png",
+   "id": "02_lamp_single_flame",
+   "start": 109.712,
+   "end": 116.083,
+   "move": "pan_right",
+   "fx": 0.5,
+   "fy": 0.45,
+   "zc": 1.25
+  },
+  {
+   "img": "03_madina_dawn_houses.png",
+   "id": "03_madina_dawn_houses",
+   "start": 116.083,
+   "end": 121.948,
+   "move": "pull_out",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "03_madina_dawn_houses.png",
+   "id": "03_madina_dawn_houses",
+   "start": 121.948,
+   "end": 127.812,
+   "move": "pan_left",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "03_madina_dawn_houses.png",
+   "id": "03_madina_dawn_houses",
+   "start": 127.812,
+   "end": 133.676,
+   "move": "gentle_orbit",
+   "fx": 0.62,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "05_paths_to_oasis.png",
+   "id": "05_paths_to_oasis_b",
+   "start": 133.676,
+   "end": 141.09,
+   "move": "push_in",
+   "fx": 0.3,
+   "fy": 0.6,
+   "zc": 1.5
+  },
+  {
+   "img": "05_paths_to_oasis.png",
+   "id": "05_paths_to_oasis_b",
+   "start": 141.09,
+   "end": 148.504,
+   "move": "pan_left",
+   "fx": 0.3,
+   "fy": 0.6,
+   "zc": 1.5
+  },
+  {
+   "img": "05_paths_to_oasis.png",
+   "id": "05_paths_to_oasis_b",
+   "start": 148.504,
+   "end": 155.918,
+   "move": "pull_out",
+   "fx": 0.3,
+   "fy": 0.6,
+   "zc": 1.5
+  },
+  {
+   "img": "09_lit_door.png",
+   "id": "09_lit_door",
+   "start": 155.918,
+   "end": 162.402,
+   "move": "pan_right",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "09_lit_door.png",
+   "id": "09_lit_door",
+   "start": 162.402,
+   "end": 168.887,
+   "move": "push_in",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "09_lit_door.png",
+   "id": "09_lit_door",
+   "start": 168.887,
+   "end": 175.371,
+   "move": "pan_right",
+   "fx": 0.62,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "09_lit_door.png",
+   "id": "09_lit_door",
+   "start": 175.371,
+   "end": 181.856,
+   "move": "pull_out",
+   "fx": 0.5,
+   "fy": 0.45,
+   "zc": 1.25
+  },
+  {
+   "img": "04_dawn_sand_ridge.png",
+   "id": "04_dawn_sand_ridge",
+   "start": 181.856,
+   "end": 189.089,
+   "move": "pan_left",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "08_empty_room_morning.png",
+   "id": "08_empty_room_morning",
+   "start": 189.089,
+   "end": 194.556,
+   "move": "gentle_orbit",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "05_dawn_horizon.png",
+   "id": "05_dawn_horizon",
+   "start": 194.556,
+   "end": 200.347,
+   "move": "push_in",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "23_golden_valley_full_light.png",
+   "id": "23_golden_valley_full_light_b",
+   "start": 200.347,
+   "end": 204.551,
+   "move": "pan_left",
+   "fx": 0.7,
+   "fy": 0.5,
+   "zc": 1.4
+  },
+  {
+   "img": "23_golden_valley_full_light.png",
+   "id": "23_golden_valley_full_light_b",
+   "start": 204.551,
+   "end": 208.755,
+   "move": "pull_out",
+   "fx": 0.7,
+   "fy": 0.5,
+   "zc": 1.4
+  }
+ ]
+}

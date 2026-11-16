@@ -1,12 +1,12 @@
 {
- "story": "005_an-nas",
- "stage": "upload",
- "status": "done",
- "started": "2026-11-04T01:44:24",
- "finished": "2026-11-04T01:44:24",
- "pid": 27724,
- "paid": false,
+ "story": "008_al-fil",
+ "stage": "tts",
+ "status": "failed",
+ "started": "2026-11-14T04:33:51",
+ "finished": "2026-11-14T04:40:38",
+ "pid": 22900,
+ "paid": true,
  "cost": null,
- "note": null,
- "last_error": "2026-11-04T00:42:23 render: None"
+ "note": "Gemini TTS 429 daily limit 100 req/day (free + paid key) after 3 of 42 lines; retry in ~8h50m",
+ "last_error": "2026-11-14T04:40:38 tts: Gemini TTS 429 daily limit 100 req/day (free + paid key) after 3 of 42 lines; retry in ~8h50m"
 }

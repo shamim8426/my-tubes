@@ -171,9 +171,9 @@ New images that are generic (landscapes, objects) are added to the library after
 - Reference (look only): study_log.md 2026-11-09.
 
 ## 1d. LONG video format update (user 2026-11-09, every Noor long from 2026-11-10; overrides 1b and the [NOTE] line of 1)
-- **ONE narrator only** (Gemini Algieba, the old USTAAD). No SAWAAL voice, **no questions asked in the video at all**, no conversation. Explain the surah straight to the point: parichay -> shan-e-nuzul (sourced) -> aayat-dar-aayat (Arabic + ucharan + bhaavarth + matlab) -> seekh. A comment question at the very end is NOT used either.
+- **ONE narrator only** (Gemini Charon from 2026-11-13 (user choice; was Algieba), the old USTAAD). No SAWAAL voice, **no questions asked in the video at all**, no conversation. Explain the surah straight to the point: parichay -> shan-e-nuzul (sourced) -> aayat-dar-aayat (Arabic + ucharan + bhaavarth + matlab) -> seekh. A comment question at the very end is NOT used either.
 - **Remove the opening disclaimer** ("ye tilawat nahi hai / sahi tilawat kisi qari se sunein") and any repeat of it. No tilawat is still the rule (RULES 1), but we do not talk about it in the video. The ucharan lines stay (plain reading, shown on screen).
-- **Slightly faster narration:** tempo 1.15 (was 1.08; render.json "tempo"), and the TTS style line says "clear, steady, slightly brisk, not slow".
+- **Slightly faster narration:** tempo 1.11 (user 2026-11-13, was 1.15 and before that 1.08; render.json "tempo"), and the TTS style line says "clear, steady, slightly brisk, not slow".
 - **No new images for longs:** reuse `image_library.md` and earlier stories' `images/` (`"reuse"` in long/images.json). New image only if a needed scene truly does not exist (then free Cloudflare first, log why). Image spend for a long target = Rs 0.
 - Munshi: a SAWAAL voice, a question line, the disclaimer, or a new paid image without a logged reason = MAJOR.
 - Daily: one Long + one Short (2c) per day, private upload. Runs happen at night after 02:00 IST (tasks `noor-daily-short`, `noor-daily-long`); runbooks in `scheduled_tasks/`.
@@ -183,3 +183,29 @@ New images that are generic (landscapes, objects) are added to the library after
 - Motion: audio-driven mouth + eye/head sway on close-ups (`stories/006_imaan-shorts/short/talk.py`), plus camera motion; Kaggle LTX full-motion clips only as an optional bonus when a GPU is free in time (queue can stall for hours).
 - **Cost cap Rs 20 per Short** (actual, GST incl.), free first (Cloudflare images with reference via input_image_0, free Gemini TTS key); paid only after the free quota is gone; stop paid calls at Rs 20 and log it.
 - Story queue: `shorts_queue.json` (pick the next `planned`, mark it `uploaded`). Script goes through Munshi before assets.
+
+## 2e. History format depiction policy (user 2026-11-13; UPDATED user 2026-11-15; overrides RULES 2/2a ONLY for History videos, `noor-daily-history`)
+- The Prophet ﷺ (and every Nabi): never shown in any form: no face, body, silhouette, shadow, avatar, stand-in. Use places, objects, light, other people's reactions.
+- Sahaba / Sahabiyat (named, e.g. Khawla, Aws, Zubayr, Asma, Aisha): NO visible face. Show them either (a) from behind, or (b) with soft white light over the face area, or (c) far away / hands only. Never a portrait.
+- Ordinary people of that time (townspeople, crowds, traders, unnamed): faces ARE allowed, small or large, any angle (user 2026-11-15). Period-accurate simple clothing, respectful.
+- Angels, Allah: never. Quran/hadith text exact (Tanzil bytes; hadith numbers from sunnah.com numbering).
+- Munshi: Prophet shown, or a Sahabi's face visible = BLOCKER. Ordinary people's faces are fine.
+
+## 2f. History scripts: simple everyday Hindi (user 2026-11-15, ALWAYS)
+- Narration must be plain, spoken Hindi that an ordinary person with no background can follow. Short sentences. Explain in today's language, never in the language of that era.
+- Avoid heavy Urdu/Arabic/Sanskrit words (e.g. zihar, kaffara, jahiliyat, fariyaad, mamla, hukm). If an old custom or term is needed, explain it in one plain sentence first. Prefer: "बुरा रिवाज़", "सज़ा", "फ़ैसला", "शिकायत".
+- Each scene's picture must show what the narrator says in that line (scene-matched images). Munshi checks both: simple language and image-line match.
+- Show the full script to the user before any image/TTS work.
+- History video cost: only TTS (Charon) is paid. Images: free (Cloudflare flux, or CC0/free-licence photos after the user approves the download list). No paid Gemini images unless the user says so.
+
+## 2g. History visuals must be people-driven (user 2026-11-15, ALWAYS)
+- The story must be shown through PEOPLE living it (emotion, hands, kids, conversation, close-ups, reactions), not only houses/trees/objects. Viewer should feel they are watching someone's story. Reference look: `brand/reference_style/people_style_sheet1.png`, `people_style_sheet2.png` (warm earthy tones, cinematic close/medium shots, one consistent shawl/turban look per character).
+- Faces per RULES 2e: ordinary people show faces; named Sahaba use back view or soft white light over the face; Prophet never in any form.
+- Fix when copying the reference style: no domes/minarets/towers/castle walls (anachronistic; Madinah then = low mud-brick houses, palm trunks), no modern lantern/furniture/books.
+- Per line: pick a shot of a person doing what the line says (close-up reaction, two-person talk, kids, back view walking), then 2-3 establishing/object shots at most.
+
+## 2h. Surah (daily Long) videos: people-driven form (user 2026-11-15; overrides 2/2a "no faces" and "Musafir only from behind" for SURAH Longs)
+- Same form as History (2g): each ayah/jumla block gets one big image of ordinary FICTIONAL people living the meaning (emotion, close-ups, kids, family, work, dua), warm cinematic look like `brand/reference_style/`. Faces allowed for these ordinary people. Clothing/look consistent per character within a video.
+- Still NEVER: any Nabi, Sahabi/Sahabiyat, Quran-named person, angel, Allah in any form; no recitation audio; modest dress; correct dua/namaz posture (RULES 2/2a other lines stay). Setting: generic, not claimed as a specific named place/time; no domes/minarets unless a mosque is the point.
+- Images (user 2026-11-15, no ChatGPT, I make all images myself): (1) free Cloudflare flux first (daily free quota, `scripts/cf_image.py`); (2) when the free quota is exhausted, paid Gemini for at most 3-4 images per video, people shots first; log the cost. Beyond 4 paid images only if the user says so. Otherwise only TTS costs money.
+- Script language: simple everyday Hindi (2f); Arabic exact from Tanzil.

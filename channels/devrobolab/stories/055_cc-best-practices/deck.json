@@ -1,0 +1,13 @@
+{
+ "tag": "Claude Code 06",
+ "music": {"file": "shared/music/presentation/Funkorama.mp3", "start": 6, "rel": 12},
+ "voice": {"id": "Charon", "style": "Speak like a friendly Indian tech YouTuber chatting casually in Hinglish. Natural conversational pace, warm and clear, a little energetic but not theatrical. No sing-song, no exaggerated emphasis."},
+ "scenes": [
+  {"id": "hook", "voice": "Claude Code ने कहा done, पर काम अधूरा निकला? Official best practices में इसका हल है।"},
+  {"id": "what", "voice": "बात सीधी है। Claude को एक ऐसा check दो, जो pass या fail बताए। जैसे test, build या linter।"},
+  {"id": "levels", "voice": "तीन तरीके हैं। पहला, prompt में लिखो, tests pass होने तक चलाओ। दूसरा, slash goal से condition सेट करो। तीसरा, Stop hook लगाओ, जो check पास होने तक रुकने नहीं देगा।"},
+  {"id": "caution", "voice": "ध्यान रखो! सिर्फ done सुनकर मत मानो। Evidence माँगो, यानी कौन सा command चला और उसका output।"},
+  {"id": "tip", "voice": "जो नियम कभी नहीं टूटना चाहिए, उसे CLAUDE.md में नहीं, hook में डालो।"},
+  {"id": "cta", "voice": "Claude Code के और tips चाहिए? DevRoboLab को Follow करो।"}
+ ]
+}

@@ -1,0 +1,34 @@
+{
+ "tag": "AI News",
+ "music": {
+  "file": "shared/music/presentation/Funkorama.mp3",
+  "start": 6,
+  "rel": 12
+ },
+ "voice": {
+  "id": "Charon",
+  "style": "Speak like a friendly Indian tech YouTuber chatting casually in Hinglish. Natural conversational pace, warm and clear, a little energetic but not theatrical. No sing-song, no exaggerated emphasis."
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "voice": "तीन बड़ी Google updates, सिर्फ़ चालीस सेकंड में!"
+  },
+  {
+   "id": "hydrogen",
+   "voice": "एक। Google Search में आया Gemini 4 Hydrogen, Search का अब तक का सबसे बड़ा model upgrade। और यह सब users के लिए globally available है।"
+  },
+  {
+   "id": "android",
+   "voice": "दो। Android पर Gemini Intelligence के नए features। Rambler आपकी बोली हुई बात को साफ़ text बना देता है, और task automation अब India में भी आ रहा है।"
+  },
+  {
+   "id": "tabletop",
+   "voice": "तीन। Tabletop, Google Labs का नया experiment। Group के साथ trip plan या expense split बनाओ। अभी सिर्फ़ US में, waitlist पर।"
+  },
+  {
+   "id": "cta",
+   "voice": "AI में आगे रहना है? DevRoboLab को Follow करो।"
+  }
+ ]
+}

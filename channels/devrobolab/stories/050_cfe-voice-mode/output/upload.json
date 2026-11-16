@@ -1,0 +1,26 @@
+{
+  "channel_key": "devrobolab",
+  "channel_name": "DevRoboLab",
+  "channel_id": "UCpElgKdJOgQiyfwdGXz6GmA",
+  "format": "short",
+  "parent_video_id": null,
+  "title": "Claude Feature 06: Type nahi, bol kar Claude se baat karo #shorts",
+  "description": "Claude Feature 06 (Claude for Everyone): voice mode. Chat box me sound wave icon par click karo (phone me mic ke paas), ek voice chuno aur bolna shuru karo. Hands-free mode default hai: Claude aapke rukne par jawab deta hai. Shor wali jagah push-to-talk chuno: button dabao aur bolo. Text aur voice ek hi chat me badal sakte ho. Non-English languages abhi beta me hain. Voice conversations regular usage limit me ginti hain, audio default me save nahi hota, sirf transcript chat history me rehta hai.\n\nSource (official):\nhttps://support.claude.com/en/articles/11101966-use-voice-mode\n\nUnofficial channel, not affiliated with Anthropic.\n\nNote: the docs crop is our own capture of the official help page (key line highlighted). The app screens are illustrations. Synthetic voice.\n\nMusic: \"Funkorama\" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttp://creativecommons.org/licenses/by/4.0/\n\n#shorts #Claude #ClaudeVoiceMode #ClaudeForEveryone #AI #Hinglish",
+  "tags": [
+    "Claude",
+    "Claude voice mode",
+    "Claude for Everyone",
+    "Claude app tutorial",
+    "AI tools",
+    "Hinglish",
+    "Hindi tech",
+    "Shorts"
+  ],
+  "video": "short.mp4",
+  "language": "hi",
+  "made_for_kids": false,
+  "contains_synthetic_media": true,
+  "category_id": "28",
+  "privacy": "private",
+  "playlist_id": "PLEklr-qY9V3U"
+}

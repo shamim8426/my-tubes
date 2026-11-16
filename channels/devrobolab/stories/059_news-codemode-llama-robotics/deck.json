@@ -1,0 +1,34 @@
+{
+ "tag": "AI News",
+ "music": {
+  "file": "shared/music/presentation/Funkorama.mp3",
+  "start": 6,
+  "rel": 12
+ },
+ "voice": {
+  "id": "Charon",
+  "style": "Speak like a friendly Indian tech YouTuber chatting casually in Hinglish. Natural conversational pace, warm and clear, a little energetic but not theatrical. No sing-song, no exaggerated emphasis."
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "voice": "आज की तीन बड़ी AI updates, आसान भाषा में! Claude Code, llama.cpp और Gemini Robotics।"
+  },
+  {
+   "id": "codemode",
+   "voice": "एक। Claude Code में आया Code Mode, एक experimental feature। पहले Claude हर tool call का result पढ़कर अगला कदम चुनता था। अब वह JavaScript लिखता है, जो कई tool calls एक ही step में चला देती है। यह default में बंद है।"
+  },
+  {
+   "id": "llama",
+   "voice": "दो। llama.cpp का version 1.0 आ गया। llama.cpp वह tool है, जिससे AI models अपने ही computer पर चलते हैं। अब API बदलने पर major version बदलेगा, यानी developers के लिए ज़्यादा भरोसा।"
+  },
+  {
+   "id": "robot",
+   "voice": "तीन। Google DeepMind का Gemini Robotics 2.5, robots के लिए AI model। Google के मुताबिक पुराने baselines से success rate तीस से सौ प्रतिशत ज़्यादा है। अभी यह सिर्फ़ robotics partners को मिल रहा है।"
+  },
+  {
+   "id": "cta",
+   "voice": "रोज़ की AI updates के लिए, channel को follow कीजिए।"
+  }
+ ]
+}

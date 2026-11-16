@@ -1,0 +1,16 @@
+{
+  "channel_key": "devrobolab",
+  "channel_name": "DevRoboLab",
+  "channel_id": "UCpElgKdJOgQiyfwdGXz6GmA",
+  "format": "short",
+  "parent_video_id": null,
+  "title": "Claude se Gmail ke mails dhoondho aur reply likhwao #shorts",
+  "description": "Claude in daily life 02: Claude me Gmail connector jodkar apne mails dhoondhne aur reply ka draft likhwane ka example. Steps: claude.ai me Customize, Connectors, Gmail ke aage Connect, Google se sign in, permission do. Phir chat me plus, Connectors, Gmail on karke poocho, jaise Sarah ne project deadline ke baare me kya likha tha. Claude mails me dhoondhkar jawab deta hai aur links dikhata hai. Reply ka text Claude bana deta hai, aap padhkar badlo aur khud bhejo. Dhyan rakho: Claude ke official pages me Gmail ki permissions alag-alag likhi hain (ek page read-only batata hai, doosra draft aur send), isliye apni connector setting dekho aur koi bhi mail bhejne se pehle khud jaancho. Screens in the video are our own illustrations (example only), no real mail or account.\n\nSources (official):\nhttps://claude.com/docs/connectors/google/gmail\nhttps://support.claude.com/en/articles/10166901-use-google-workspace-connectors\n\nUnofficial channel, not affiliated with Anthropic or Google. Synthetic voice.\n\nMusic: \"Funkorama\" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttp://creativecommons.org/licenses/by/4.0/\n\n#shorts #Claude #ClaudeConnectors #Gmail #AI #Hinglish",
+  "tags": ["Claude", "Claude connectors", "Gmail", "Claude in daily life", "AI tools", "Hinglish", "Hindi tech", "Shorts"],
+  "video": "short.mp4",
+  "language": "hi",
+  "made_for_kids": false,
+  "contains_synthetic_media": true,
+  "category_id": "28",
+  "privacy": "private"
+}

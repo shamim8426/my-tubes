@@ -1,4 +1,4 @@
-"""048 AI news Short: Phonon TTS (Hugging Face / Gradium). Engine of 047; NEW variants: LAVENDER dotted bg + violet glow, accent=VIOLET; ORIGINAL 047 docstring: Engine/look family of 045 (PIL+OpenCV frames -> photo_video.encode), NEW style variants:
+"""050 AI news roundup: Carbon / Fable 5.2 / Decisions API (Hugging Face / Gradium). Engine of 047; NEW variants: LAVENDER dotted bg + violet glow, accent=VIOLET; ORIGINAL 047 docstring: Engine/look family of 045 (PIL+OpenCV frames -> photo_video.encode), NEW style variants:
 ICE-BLUE background with diagonal stripes + teal glow, accent = TEAL (chips ink-on-teal, key words teal), polaroid photo cards (white border, tilt),
 6-frame horizontal slide transitions, tinting photo for the edit demo, robot only in CTA. Official blog crops = small taped notes with a LIVE yellow marker.
 Run: python make.py [frames t1 t2 ...]   (needs audio/tts/s_*.wav, wt.json, raw/blocks, raw/photos)"""
@@ -12,7 +12,7 @@ from photo_video import W, H, FPS, ease_out, ease_back, ease_io, wav_dur, encode
 
 LEAD, AFTER, TAIL = 0.05, 0.10, 0.6
 FONT = str(ROOT / "shared/fonts/Mukta-ExtraBold.ttf")
-YEL = (255, 214, 10); INK = (14, 24, 38); TEAL = (176, 140, 255); TEALD = (110, 70, 210); RED = (225, 45, 57); NAVY = (24, 44, 78); WHITE = (255, 255, 255)
+YEL = (255, 214, 10); INK = (14, 24, 38); TEAL = (255, 150, 90); TEALD = (210, 95, 40); RED = (225, 45, 57); NAVY = (24, 44, 78); WHITE = (255, 255, 255)
 deck = json.load(open(HERE / "deck.json", encoding="utf-8")); WT = json.load(open(HERE / "wt.json", encoding="utf-8"))
 IDS = [s["id"] for s in deck["scenes"]]
 WAVES = [HERE / "audio/tts" / f"s_{i:02d}.wav" for i in range(len(IDS))]
@@ -67,16 +67,16 @@ def card_enter(base, spr, cx, cy, t, t0, rot=0.0, side=0, dur=0.34):
 
 # ---------- NEW look: ice-blue bg, diagonal stripes, teal glow ----------
 def bg_ice():
-    im = Image.new("RGB", (W, H), (241, 236, 252)); d = ImageDraw.Draw(im)
+    im = Image.new("RGB", (W, H), (253, 244, 234)); d = ImageDraw.Draw(im)
     for yy in range(30, H, 70):
-        for xx in range(30 + (35 if (yy // 70) % 2 else 0), W, 70): d.ellipse([xx - 4, yy - 4, xx + 4, yy + 4], fill=(222, 212, 245))
-    g = Image.new("RGB", (W, H), (0, 0, 0)); ImageDraw.Draw(g).ellipse([520, -300, 1500, 700], fill=(200, 175, 255)); g = g.filter(ImageFilter.GaussianBlur(160))
+        for xx in range(30 + (35 if (yy // 70) % 2 else 0), W, 70): d.ellipse([xx - 4, yy - 4, xx + 4, yy + 4], fill=(246, 224, 204))
+    g = Image.new("RGB", (W, H), (0, 0, 0)); ImageDraw.Draw(g).ellipse([520, -300, 1500, 700], fill=(255, 196, 150)); g = g.filter(ImageFilter.GaussianBlur(160))
     return ImageChops.screen(im, ImageChops.multiply(g, Image.new("RGB", (W, H), (150, 150, 150)))).convert("RGBA")
 BG = bg_ice()
 MASC = {k: Image.open(ROOT / f"channels/devrobolab/mascot/cut/{k}.png").convert("RGBA") for k in ("wave", "think", "stop")}
 def robot(name, h): m = MASC[name]; return m.resize((int(m.width * h / m.height), h), Image.LANCZOS)
 
-PHOTO = {k: Image.open(HERE / f"raw/photos/{k}.png").convert("RGB") for k in ("hook", "globe", "mic")}
+PHOTO = {k: Image.open(HERE / f"raw/photos/{k}.png").convert("RGB") for k in ("chip", "server", "code")}
 _cov = {}
 
 
@@ -112,7 +112,8 @@ def note(key, w, hp, maxh=330):
             if q > 0: d.rounded_rectangle([x * k - 4, y * k - 2, (x + lw * q) * k + 4, (y + lh) * k + 2], 5, fill=YEL)
         a = ImageChops.multiply(a, layer)
     cy = float(np.mean([l[1] + l[3] / 2 for l in lines])) * k if lines else a.height / 2; h = min(maxh, a.height + 50)
-    y0 = int(max(0, min(a.height - (h - 50), cy - (h - 50) * 0.5)))
+    pitch = 37.5 * k; nvis = max(1, int((h - 50) / pitch)); total = max(1, round(a.height / pitch)); first = int(min(l[1] for l in lines) / 37.5) if lines else 0
+    i0 = max(0, min(total - nvis, first - (1 if nvis > 3 else 0))); y0 = int(i0 * pitch); h = int(nvis * pitch) + 50
     pg = a.crop((0, y0, a.width, y0 + h - 50)).convert("RGBA"); sheet = Image.new("RGBA", (w, h), (0, 0, 0, 0)); d = ImageDraw.Draw(sheet)
     d.rounded_rectangle([0, 0, w - 1, h - 1], 14, fill=(255, 254, 250, 255), outline=(200, 212, 224, 255), width=3); sheet.alpha_composite(pg, (30, 30)); tape(sheet, 40, -18, 6); tape(sheet, w - 170, -18, -6)
     return sheet
@@ -138,7 +139,7 @@ def caption_chunks():
     ends = [c[0] for c in out[1:]] + [TOTAL]
     return [(a, min(b, a + 1.5), txt) for (a, txt), b in zip(out, ends)]
 CAPS = caption_chunks()
-KEY = {"पैंसठ", "पचहत्तर", "MB", "MB।", "सौ", "दो", "लाख", "Hindi", "free", "commercial", "ध्यान", "PHONON", "Follow", "internet", "device", "download", "इकतीस", "voices", "Phonon", "Phonon।"}
+KEY = {"Carbon", "Fable", "5.2", "Decisions", "API,", "dollar", "दुगना।", "default", "हज़ार", "yes", "no", "Follow", "एक।", "दो।", "तीन।", "तीन", "चालीस", "strong", "Gemini"}
 _cap = {}
 def caption(base, t):
     for a, b, txt in CAPS:
@@ -153,78 +154,74 @@ def pc(base, txt, cx, cy, t, t0, size=90, fill=TEAL, color=INK, rot=0, pad=(40, 
 
 
 # ---------------- scenes ----------------
+def title_chip(base, t, key, tok, txt, size=70):
+    pc(base, txt, 540, 215, t, T(key, tok) - 0.1, size, INK, WHITE, pad=(36, 6))
+
+
 def s_hook(base, t, b):
     lt = t - b["t0"]; base.alpha_composite(BG)
-    card_enter(base, polaroid("hook", 860, 640, lt, 7.5, fx=0.5, fy=0.55), 540, 640, t, b["t0"], rot=-1.8, dur=0.01)
-    pc(base, "ONLY 65 MB", 340, 1130, t, T("hook", 1) - 0.05, 104, rot=-3)
-    pc(base, "NO INTERNET", 690, 1290, t, T("hook", 9) - 0.05, 84, INK, TEAL, rot=2)
-    place(base, chip("AI VOICE NEWS", 52, INK, WHITE, pad=(32, 6), r=24), 540, 250, 1.0)
+    card_enter(base, polaroid("chip", 860, 640, lt, 7.5, fx=0.5, fy=0.55), 540, 640, t, b["t0"], rot=-1.8, dur=0.01)
+    pc(base, "3 AI UPDATES", 420, 1130, t, T("hook", 0) + 0.05, 104, rot=-3)
+    pc(base, "IN 40 SECONDS", 690, 1290, t, T("hook", 5) - 0.05, 84, INK, TEAL, rot=2)
+    place(base, chip("AI NEWS ROUNDUP", 52, INK, WHITE, pad=(32, 6), r=24), 540, 250, 1.0)
 
 
-def s_what(base, t, b):
+def s_carbon(base, t, b):
     lt = t - b["t0"]; base.alpha_composite(BG)
-    pc(base, "PHONON", 540, 250, t, T("what", 2) - 0.1, 90, INK, WHITE, pad=(40, 6))
-    card_enter(base, polaroid("mic", 800, 440, lt, 8, z0=1.0, z1=1.12), 540, 640, t, b["t0"] + 0.1, rot=-1.2, dur=0.01)
-    pc(base, "TEXT TO SPEECH", 340, 960, t, T("what", 6) - 0.1, 62, TEAL, INK, rot=-2, pad=(30, 4))
-    pc(base, "BY GRADIUM", 720, 1040, t, T("what", 9) - 0.05, 62, INK, WHITE, rot=2, pad=(30, 4))
-    hp = (t - T("what", 15)) / max(0.3, T("what", 20) - T("what", 15))
-    card_enter(base, note("device", 900, min(1, max(0, hp)), 300), 540, 1245, t, T("what", 14) - 0.2, rot=0.8, side=1)
-    src_tag(base, t, T("what", 14), 1412)
-
-
-def s_size(base, t, b):
-    lt = t - b["t0"]; base.alpha_composite(BG)
-    card = Image.new("RGBA", (900, 470), (0, 0, 0, 0)); d = ImageDraw.Draw(card); d.rounded_rectangle([0, 0, 899, 469], 44, fill=INK + (255,)); tape(card, 60, -16, -5)
-    d.text((50, 30), "MODEL SIZE", font=PF(44, True), fill=(180, 170, 215, 255))
-    if t >= T("size", 2): d.text((50, 110), "65 - 75", font=PF(165, True), fill=TEAL + (255,)); d.text((660, 262), "MB", font=PF(84, True), fill=WHITE + (255,))
-    if t >= T("size", 5): d.text((50, 370), "small enough for a phone", font=PF(46, True), fill=(205, 200, 235, 255))
-    card_enter(base, card, 540, 450, t, b["t0"] + 0.1, rot=-0.8, dur=0.01)
-    pc(base, "100+ VOICES", 340, 800, t, T("size", 6) - 0.05, 84, YEL, INK, rot=-2)
-    pc(base, "MAKE YOUR OWN", 690, 930, t, T("size", 13) - 0.05, 66, INK, WHITE, rot=2, pad=(30, 4))
-    sw = T("size", 6)
+    title_chip(base, t, "carbon", 3, "1  GEMINI 4 CARBON")
+    card_enter(base, polaroid("chip", 780, 340, lt, 11, z0=1.0, z1=1.12), 540, 520, t, b["t0"] + 0.1, rot=-1.2, dur=0.01)
+    pc(base, "GOOGLE'S STRONGEST MODEL", 540, 830, t, T("carbon", 8) - 0.05, 56, TEAL, INK, rot=-1.5, pad=(30, 4))
+    sw = T("carbon", 11)
     if t < sw:
-        hp = (t - T("size", 1)) / max(0.3, T("size", 5) - T("size", 1))
-        card_enter(base, note("size", 800, min(1, max(0, hp)), 320), 540, 1190, t, T("size", 1) - 0.2, rot=0.8, side=1)
+        hp = (t - T("carbon", 7)) / max(0.3, T("carbon", 10) - T("carbon", 7))
+        card_enter(base, note("carbon_a", 800, min(1, max(0, hp)), 270), 540, 1215, t, T("carbon", 6) - 0.2, rot=0.8, side=1)
     else:
-        hp = (t - sw) / max(0.3, T("size", 11) - sw)
-        card_enter(base, note("voices", 800, min(1, max(0, hp)), 320), 540, 1190, t, sw - 0.1, rot=-0.8, side=-1, dur=0.2)
-    src_tag(base, t, T("size", 1), 1385)
+        hp = (t - T("carbon", 12)) / max(0.3, T("carbon", 17) - T("carbon", 12))
+        card_enter(base, note("carbon_p", 800, min(1, max(0, hp)), 270), 540, 1215, t, sw - 0.1, rot=-0.8, side=-1, dur=0.2)
+    pc(base, "$2 INPUT", 290, 935, t, T("carbon", 12) - 0.05, 70, YEL, INK, rot=-2)
+    pc(base, "$10 OUTPUT", 780, 935, t, T("carbon", 15) - 0.05, 70, INK, WHITE, rot=2)
+    pc(base, "NOV 30: PRICE x2", 540, 1035, t, T("carbon", 19) - 0.05, 66, RED, WHITE, rot=-1, pad=(34, 4))
+    src_tag(base, t, T("carbon", 6), 1372, "Source: blog.google (Gemini 4 Carbon)")
 
 
-def s_langs(base, t, b):
+def s_fable(base, t, b):
     lt = t - b["t0"]; base.alpha_composite(BG)
-    card_enter(base, polaroid("globe", 800, 400, lt, 8, z0=1.0, z1=1.12), 540, 380, t, b["t0"], rot=1.2, dur=0.01)
-    items = (("ENGLISH", T("langs", 0), 330, 780), ("FRENCH", T("langs", 1), 740, 780), ("GERMAN", T("langs", 2), 330, 890),
-             ("SPANISH", T("langs", 3) + 0.15, 740, 890), ("PORTUGUESE", T("langs", 5), 540, 1000))
-    for txt, ts, x, y in items:
-        if t >= ts - 0.02:
-            pp = pop(t, ts); place(base, chip(txt, 56, WHITE, INK, pad=(32, 4), r=30, outline=TEAL), x, y, 0.8 + 0.2 * min(1, pp), min(1, pp * 1.4), rot=0)
-    pc(base, "200,000+ DOWNLOADS", 540, 1130, t, T("langs", 12) - 0.05, 66, INK, TEAL, rot=-1.5, pad=(34, 4))
-    hp = (t - T("langs", 12)) / max(0.3, T("langs", 17) - T("langs", 12))
-    card_enter(base, note("dl", 780, min(1, max(0, hp)), 140), 540, 1290, t, T("langs", 11) - 0.2, rot=0.8, side=1)
+    title_chip(base, t, "fable", 3, "2  CLAUDE FABLE 5.2")
+    card_enter(base, polaroid("code", 780, 340, lt, 11, z0=1.0, z1=1.12), 540, 520, t, b["t0"] + 0.1, rot=1.2, dur=0.01)
+    pc(base, "DEFAULT IN CLAUDE CODE", 540, 830, t, T("fable", 8) - 0.05, 56, TEAL, INK, rot=1.5, pad=(30, 4))
+    hp = (t - T("fable", 8)) / max(0.3, T("fable", 11) - T("fable", 8))
+    card_enter(base, note("fable", 900, min(1, max(0, hp)), 270), 540, 1215, t, T("fable", 4) - 0.2, rot=-0.8, side=1)
+    pc(base, "1M CONTEXT", 330, 935, t, T("fable", 12) - 0.05, 76, YEL, INK, rot=-2)
+    pc(base, "$8 IN / $40 OUT", 680, 1040, t, T("fable", 18) - 0.05, 66, INK, WHITE, rot=2, pad=(30, 4))
+    src_tag(base, t, T("fable", 4), 1372, "Source: code.claude.com (changelog)")
 
 
-def s_caution(base, t, b):
+def s_decisions(base, t, b):
     lt = t - b["t0"]; base.alpha_composite(BG)
-    pc(base, "CAUTION", 540, 280, t, b["t0"] + 0.1, 100, YEL, INK, rot=-2)
-    pc(base, "HINDI: NOT LISTED", 540, 440, t, T("caution", 2) - 0.1, 76, RED, WHITE, rot=1.5, pad=(36, 6))
-    pc(base, "ONLY 31m EN = FREE FOR BUSINESS", 540, 590, t, T("caution", 14) - 0.1, 50, INK, WHITE, rot=-1, pad=(30, 6))
-    pc(base, "OTHERS = NON-COMMERCIAL", 540, 700, t, T("caution", 14) + 1.0, 54, INK, TEAL, rot=1, pad=(30, 6))
-    hp = (t - T("caution", 14)) / max(0.3, T("caution", 22) - T("caution", 14))
-    card_enter(base, note("lic", 880, min(1, max(0, hp)), 520), 540, 1090, t, T("caution", 3) - 0.2, rot=-0.8, side=-1)
-    src_tag(base, t, T("caution", 3), 1385)
+    title_chip(base, t, "decisions", 2, "3  GEMINI DECISIONS API", 62)
+    card_enter(base, polaroid("server", 780, 340, lt, 8, z0=1.0, z1=1.12), 540, 520, t, b["t0"] + 0.1, rot=-1.0, dur=0.01)
+    pc(base, "1,000 YES/NO QUESTIONS", 540, 830, t, T("decisions", 7) - 0.05, 54, TEAL, INK, rot=-1.5, pad=(30, 4))
+    sw = T("decisions", 12)
+    if t < sw:
+        hp = (t - T("decisions", 7)) / max(0.3, T("decisions", 11) - T("decisions", 7))
+        card_enter(base, note("dec_a", 900, min(1, max(0, hp)), 270), 540, 1215, t, T("decisions", 3) - 0.2, rot=0.8, side=1)
+    else:
+        hp = (t - T("decisions", 15)) / max(0.3, T("decisions", 19) - T("decisions", 15))
+        card_enter(base, note("dec_l", 900, min(1, max(0, hp)), 270), 540, 1215, t, sw - 0.1, rot=-0.8, side=-1, dur=0.2)
+    pc(base, "150-250 ms", 540, 945, t, T("decisions", 15) - 0.05, 84, YEL, INK, rot=-2)
+    src_tag(base, t, T("decisions", 3), 1372, "Source: blog.google (Decisions API)")
 
 
 def s_cta(base, t, b):
     lt = t - b["t0"]; base.alpha_composite(BG)
     place(base, robot("wave", 780), 540, 620 + 8 * math.sin(lt * 3.5), 0.94 + 0.06 * ease_out(lt / 0.3))
-    pc(base, "FOLLOW", 540, 1090, t, T("cta", 4) - 0.1, 84, INK, WHITE, rot=-1.5, pad=(46, 6))
-    pc(base, "COMMENT  PHONON", 540, 1250, t, T("cta", 8) - 0.1, 84, TEAL, INK, rot=1.5, pad=(46, 6))
+    pc(base, "DAILY AI NEWS", 540, 1090, t, T("cta", 2) - 0.1, 84, TEAL, INK, rot=-1.5, pad=(46, 6))
+    pc(base, "FOLLOW", 540, 1250, t, T("cta", 7) - 0.1, 84, INK, WHITE, rot=1.5, pad=(46, 6))
 
 
 def beats():
     return [dict(k=k, t0=SC[k], t1=(SC[IDS[i + 1]] if i + 1 < len(IDS) else TOTAL + 1)) for i, k in enumerate(IDS)]
-B = beats(); FN = dict(hook=s_hook, what=s_what, size=s_size, langs=s_langs, caution=s_caution, cta=s_cta)
+B = beats(); FN = dict(hook=s_hook, carbon=s_carbon, fable=s_fable, decisions=s_decisions, cta=s_cta)
 SR = 24000; TR = 0.2
 
 
@@ -255,8 +252,8 @@ def main():
     if len(sys.argv) > 1 and sys.argv[1] == "frames":
         for tt in [float(v) for v in sys.argv[2:]]: Image.fromarray(frame(tt)).save(HERE / f"review/d_{tt:05.1f}.png")
         return
-    build_audio(HERE / "audio/voice_048.wav"); n = int(TOTAL * FPS)
-    encode((frame(i / FPS) for i in range(n)), n, HERE / "audio/voice_048.wav", ROOT / deck["music"]["file"], HERE / "output/short.mp4", music_start=deck["music"]["start"], music_gain_db=-22)
+    build_audio(HERE / "audio/voice_050.wav"); n = int(TOTAL * FPS)
+    encode((frame(i / FPS) for i in range(n)), n, HERE / "audio/voice_050.wav", ROOT / deck["music"]["file"], HERE / "output/short.mp4", music_start=deck["music"]["start"], music_gain_db=-22)
 
 
 main()

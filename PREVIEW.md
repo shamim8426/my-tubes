@@ -1,28 +1,12 @@
 # Preview — Jugnu Stories
 
-**Budget bacha:** ₹127.78  ·  **Last image:** 2026-10-30 07:08:10
+**Budget bacha:** ₹263.79  ·  **Last image:** 2026-11-15 17:31:57
 
 ## Characters
 
-### dadi_sheet — ₹3.24 · 2026-10-17 15:10:59
+### cast_lineup
 
-![dadi_sheet](channels/jugnu-stories/characters/dadi_sheet.png)
-
-### golu_sheet — ₹3.24 · 2026-10-17 15:15:02
-
-![golu_sheet](channels/jugnu-stories/characters/golu_sheet.png)
-
-### mitthu_sheet — ₹3.24 · 2026-10-17 15:15:23
-
-![mitthu_sheet](channels/jugnu-stories/characters/mitthu_sheet.png)
-
-### pandey_sheet — ₹3.24 · 2026-10-17 15:15:49
-
-![pandey_sheet](channels/jugnu-stories/characters/pandey_sheet.png)
-
-### sharma_sheet — ₹3.24 · 2026-10-19 16:38:04
-
-![sharma_sheet](channels/jugnu-stories/characters/sharma_sheet.png)
+![cast_lineup](channels/jugnu-stories/characters/cast_lineup.png)
 
 ### cadhai_prop — ₹3.24 · 2026-10-17 23:00:22
 
@@ -57,6 +41,30 @@
 ![mishra_sheet](channels/jugnu-stories/stories/004_chhat-par-bhoot/characters/mishra_sheet.png)
 
 ## Scenes
+
+### 01_hook
+
+![01_hook](channels/devrobolab/stories/002_claude-features/images/01_hook.png)
+
+### 02_plan
+
+![02_plan](channels/devrobolab/stories/002_claude-features/images/02_plan.png)
+
+### 03_subagents
+
+![03_subagents](channels/devrobolab/stories/002_claude-features/images/03_subagents.png)
+
+### 04_skills
+
+![04_skills](channels/devrobolab/stories/002_claude-features/images/04_skills.png)
+
+### 05_hooks
+
+![05_hooks](channels/devrobolab/stories/002_claude-features/images/05_hooks.png)
+
+### 06_mcp
+
+![06_mcp](channels/devrobolab/stories/002_claude-features/images/06_mcp.png)
 
 ### scene_01 — ₹3.24 · 2026-10-17 23:09:04
 
@@ -466,6 +474,26 @@
 
 ![scene_13](channels/jugnu-stories/stories/007_bachchon-ki-adalat/images/scene_13.png)
 
+### bg_aangan — ₹0.00 · 2026-11-01 23:39:41
+
+![bg_aangan](channels/jugnu-stories/tests/rocket_short/images/bg_aangan.png)
+
+### bg_cabin — ₹0.00 · 2026-11-01 23:39:57
+
+![bg_cabin](channels/jugnu-stories/tests/rocket_short/images/bg_cabin.png)
+
+### bg_earth — ₹0.00 · 2026-11-01 23:41:32
+
+![bg_earth](channels/jugnu-stories/tests/rocket_short/images/bg_earth.png)
+
+### bg_earth_v1
+
+![bg_earth_v1](channels/jugnu-stories/tests/rocket_short/images/bg_earth_v1.png)
+
+### bg_earth_v2
+
+![bg_earth_v2](channels/jugnu-stories/tests/rocket_short/images/bg_earth_v2.png)
+
 ### dawn_valley — ₹4.18 · 2026-10-24 23:22:39
 
 ![dawn_valley](channels/noor-e-raah/samples/sync_sample/images/dawn_valley.png)
@@ -677,3 +705,583 @@
 ### thumb_scene_a — ₹4.42 · 2026-10-30 07:08:10
 
 ![thumb_scene_a](channels/noor-e-raah/stories/003_al-ikhlas/images/thumb_scene_a.png)
+
+### 01_night_stars_dunes
+
+![01_night_stars_dunes](channels/noor-e-raah/stories/004_al-falaq/images/01_night_stars_dunes.png)
+
+### 01_one_star_night
+
+![01_one_star_night](channels/noor-e-raah/stories/004_al-falaq/images/01_one_star_night.png)
+
+### 02_lamp_on_stone
+
+![02_lamp_on_stone](channels/noor-e-raah/stories/004_al-falaq/images/02_lamp_on_stone.png)
+
+### 02_lamp_single_flame
+
+![02_lamp_single_flame](channels/noor-e-raah/stories/004_al-falaq/images/02_lamp_single_flame.png)
+
+### 03_madina_dawn_houses
+
+![03_madina_dawn_houses](channels/noor-e-raah/stories/004_al-falaq/images/03_madina_dawn_houses.png)
+
+### 03_makka_valley_night
+
+![03_makka_valley_night](channels/noor-e-raah/stories/004_al-falaq/images/03_makka_valley_night.png)
+
+### 04_date_palm_path
+
+![04_date_palm_path](channels/noor-e-raah/stories/004_al-falaq/images/04_date_palm_path.png)
+
+### 04_dawn_sand_ridge
+
+![04_dawn_sand_ridge](channels/noor-e-raah/stories/004_al-falaq/images/04_dawn_sand_ridge.png)
+
+### 05_dawn_horizon
+
+![05_dawn_horizon](channels/noor-e-raah/stories/004_al-falaq/images/05_dawn_horizon.png)
+
+### 05_paths_to_oasis
+
+![05_paths_to_oasis](channels/noor-e-raah/stories/004_al-falaq/images/05_paths_to_oasis.png)
+
+### 06_milkyway_desert
+
+![06_milkyway_desert](channels/noor-e-raah/stories/004_al-falaq/images/06_milkyway_desert.png)
+
+### 07_moonlit_rooftops_lamp
+
+![07_moonlit_rooftops_lamp](channels/noor-e-raah/stories/004_al-falaq/images/07_moonlit_rooftops_lamp.png)
+
+### 08_empty_room_morning
+
+![08_empty_room_morning](channels/noor-e-raah/stories/004_al-falaq/images/08_empty_room_morning.png)
+
+### 08_vast_panorama
+
+![08_vast_panorama](channels/noor-e-raah/stories/004_al-falaq/images/08_vast_panorama.png)
+
+### 09_morning_palm_path
+
+![09_morning_palm_path](channels/noor-e-raah/stories/004_al-falaq/images/09_morning_palm_path.png)
+
+### 10_ring_in_desert
+
+![10_ring_in_desert](channels/noor-e-raah/stories/004_al-falaq/images/10_ring_in_desert.png)
+
+### 11_sunrays_clouds
+
+![11_sunrays_clouds](channels/noor-e-raah/stories/004_al-falaq/images/11_sunrays_clouds.png)
+
+### 12_bedtime_room_lamp
+
+![12_bedtime_room_lamp](channels/noor-e-raah/stories/004_al-falaq/images/12_bedtime_room_lamp.png)
+
+### thumb_scene_a — ₹0.00 · 2026-10-31 10:59:21
+
+![thumb_scene_a](channels/noor-e-raah/stories/004_al-falaq/images/thumb_scene_a.png)
+
+### 01_one_star_night
+
+![01_one_star_night](channels/noor-e-raah/stories/005_an-nas/images/01_one_star_night.png)
+
+### 02_lamp_on_stone
+
+![02_lamp_on_stone](channels/noor-e-raah/stories/005_an-nas/images/02_lamp_on_stone.png)
+
+### 04_dawn_sand_ridge
+
+![04_dawn_sand_ridge](channels/noor-e-raah/stories/005_an-nas/images/04_dawn_sand_ridge.png)
+
+### 05_night_lamp_path
+
+![05_night_lamp_path](channels/noor-e-raah/stories/005_an-nas/images/05_night_lamp_path.png)
+
+### 06_makka_night_houses
+
+![06_makka_night_houses](channels/noor-e-raah/stories/005_an-nas/images/06_makka_night_houses.png)
+
+### 06_milkyway_desert
+
+![06_milkyway_desert](channels/noor-e-raah/stories/005_an-nas/images/06_milkyway_desert.png)
+
+### 07_moonlit_rooftops_lamp
+
+![07_moonlit_rooftops_lamp](channels/noor-e-raah/stories/005_an-nas/images/07_moonlit_rooftops_lamp.png)
+
+### 07_rocky_valley_moon
+
+![07_rocky_valley_moon](channels/noor-e-raah/stories/005_an-nas/images/07_rocky_valley_moon.png)
+
+### 08_empty_room_morning
+
+![08_empty_room_morning](channels/noor-e-raah/stories/005_an-nas/images/08_empty_room_morning.png)
+
+### 09_lit_door
+
+![09_lit_door](channels/noor-e-raah/stories/005_an-nas/images/09_lit_door.png)
+
+### 09_morning_palm_path
+
+![09_morning_palm_path](channels/noor-e-raah/stories/005_an-nas/images/09_morning_palm_path.png)
+
+### 09_single_lamp_dark
+
+![09_single_lamp_dark](channels/noor-e-raah/stories/005_an-nas/images/09_single_lamp_dark.png)
+
+### 11_shuttered_window_night — ₹0.00 · 2026-11-03 23:22:23
+
+![11_shuttered_window_night](channels/noor-e-raah/stories/005_an-nas/images/11_shuttered_window_night.png)
+
+### 12_bedtime_room_lamp
+
+![12_bedtime_room_lamp](channels/noor-e-raah/stories/005_an-nas/images/12_bedtime_room_lamp.png)
+
+### 12_dawn_hijaz_valley_lamp — ₹0.00 · 2026-11-03 23:21:57
+
+![12_dawn_hijaz_valley_lamp](channels/noor-e-raah/stories/005_an-nas/images/12_dawn_hijaz_valley_lamp.png)
+
+### 18_lamp_toward_light
+
+![18_lamp_toward_light](channels/noor-e-raah/stories/005_an-nas/images/18_lamp_toward_light.png)
+
+### 22_path_fading_tracks
+
+![22_path_fading_tracks](channels/noor-e-raah/stories/005_an-nas/images/22_path_fading_tracks.png)
+
+### 23_golden_valley_full_light
+
+![23_golden_valley_full_light](channels/noor-e-raah/stories/005_an-nas/images/23_golden_valley_full_light.png)
+
+### thumb_scene_a — ₹0.00 · 2026-11-04 01:34:37
+
+![thumb_scene_a](channels/noor-e-raah/stories/005_an-nas/images/thumb_scene_a.png)
+
+### 02_lamp_single_flame
+
+![02_lamp_single_flame](channels/noor-e-raah/stories/006_al-kausar/images/02_lamp_single_flame.png)
+
+### 03_makka_valley_night
+
+![03_makka_valley_night](channels/noor-e-raah/stories/006_al-kausar/images/03_makka_valley_night.png)
+
+### 04_dawn_sand_ridge
+
+![04_dawn_sand_ridge](channels/noor-e-raah/stories/006_al-kausar/images/04_dawn_sand_ridge.png)
+
+### 05_dawn_horizon
+
+![05_dawn_horizon](channels/noor-e-raah/stories/006_al-kausar/images/05_dawn_horizon.png)
+
+### 05_paths_to_oasis
+
+![05_paths_to_oasis](channels/noor-e-raah/stories/006_al-kausar/images/05_paths_to_oasis.png)
+
+### 06_oasis_spring
+
+![06_oasis_spring](channels/noor-e-raah/stories/006_al-kausar/images/06_oasis_spring.png)
+
+### 08_empty_room_morning
+
+![08_empty_room_morning](channels/noor-e-raah/stories/006_al-kausar/images/08_empty_room_morning.png)
+
+### 09_lit_door
+
+![09_lit_door](channels/noor-e-raah/stories/006_al-kausar/images/09_lit_door.png)
+
+### 09_morning_palm_path
+
+![09_morning_palm_path](channels/noor-e-raah/stories/006_al-kausar/images/09_morning_palm_path.png)
+
+### 11_sunrays_clouds
+
+![11_sunrays_clouds](channels/noor-e-raah/stories/006_al-kausar/images/11_sunrays_clouds.png)
+
+### thumb_scene_a — ₹0.00 · 2026-11-12 23:02:45
+
+![thumb_scene_a](channels/noor-e-raah/stories/006_al-kausar/images/thumb_scene_a.png)
+
+### ayah
+
+![ayah](channels/noor-e-raah/stories/006_imaan-shorts/images/ayah.png)
+
+### s1 — ₹0.00 · 2026-11-09 11:39:52
+
+![s1](channels/noor-e-raah/stories/006_imaan-shorts/images/s1.png)
+
+### s2 — ₹0.00 · 2026-11-09 11:40:07
+
+![s2](channels/noor-e-raah/stories/006_imaan-shorts/images/s2.png)
+
+### s3 — ₹0.00 · 2026-11-09 11:40:22
+
+![s3](channels/noor-e-raah/stories/006_imaan-shorts/images/s3.png)
+
+### s4 — ₹0.00 · 2026-11-09 11:40:31
+
+![s4](channels/noor-e-raah/stories/006_imaan-shorts/images/s4.png)
+
+### s5 — ₹0.00 · 2026-11-09 11:40:45
+
+![s5](channels/noor-e-raah/stories/006_imaan-shorts/images/s5.png)
+
+### s6 — ₹0.00 · 2026-11-09 11:40:56
+
+![s6](channels/noor-e-raah/stories/006_imaan-shorts/images/s6.png)
+
+### v2_man_happy
+
+![v2_man_happy](channels/noor-e-raah/stories/006_imaan-shorts/images/v2_man_happy.png)
+
+### v2_man_sad
+
+![v2_man_sad](channels/noor-e-raah/stories/006_imaan-shorts/images/v2_man_sad.png)
+
+### v2_mom_calm
+
+![v2_mom_calm](channels/noor-e-raah/stories/006_imaan-shorts/images/v2_mom_calm.png)
+
+### v2_mom_happy
+
+![v2_mom_happy](channels/noor-e-raah/stories/006_imaan-shorts/images/v2_mom_happy.png)
+
+### v3_girl_happy
+
+![v3_girl_happy](channels/noor-e-raah/stories/006_imaan-shorts/images/v3_girl_happy.png)
+
+### v3_girl_sad
+
+![v3_girl_sad](channels/noor-e-raah/stories/006_imaan-shorts/images/v3_girl_sad.png)
+
+### v3_nani_calm
+
+![v3_nani_calm](channels/noor-e-raah/stories/006_imaan-shorts/images/v3_nani_calm.png)
+
+### v3_nani_happy
+
+![v3_nani_happy](channels/noor-e-raah/stories/006_imaan-shorts/images/v3_nani_happy.png)
+
+### 02_lamp_single_flame
+
+![02_lamp_single_flame](channels/noor-e-raah/stories/007_al-asr/images/02_lamp_single_flame.png)
+
+### 03_madina_dawn_houses
+
+![03_madina_dawn_houses](channels/noor-e-raah/stories/007_al-asr/images/03_madina_dawn_houses.png)
+
+### 03_makka_valley_night
+
+![03_makka_valley_night](channels/noor-e-raah/stories/007_al-asr/images/03_makka_valley_night.png)
+
+### 04_date_palm_path
+
+![04_date_palm_path](channels/noor-e-raah/stories/007_al-asr/images/04_date_palm_path.png)
+
+### 04_dawn_sand_ridge
+
+![04_dawn_sand_ridge](channels/noor-e-raah/stories/007_al-asr/images/04_dawn_sand_ridge.png)
+
+### 05_dawn_horizon
+
+![05_dawn_horizon](channels/noor-e-raah/stories/007_al-asr/images/05_dawn_horizon.png)
+
+### 05_paths_to_oasis
+
+![05_paths_to_oasis](channels/noor-e-raah/stories/007_al-asr/images/05_paths_to_oasis.png)
+
+### 07_sea_horizon_dusk
+
+![07_sea_horizon_dusk](channels/noor-e-raah/stories/007_al-asr/images/07_sea_horizon_dusk.png)
+
+### 08_empty_room_morning
+
+![08_empty_room_morning](channels/noor-e-raah/stories/007_al-asr/images/08_empty_room_morning.png)
+
+### 09_lit_door
+
+![09_lit_door](channels/noor-e-raah/stories/007_al-asr/images/09_lit_door.png)
+
+### 10_ring_in_desert
+
+![10_ring_in_desert](channels/noor-e-raah/stories/007_al-asr/images/10_ring_in_desert.png)
+
+### 11_sunrays_clouds
+
+![11_sunrays_clouds](channels/noor-e-raah/stories/007_al-asr/images/11_sunrays_clouds.png)
+
+### 23_golden_valley_full_light
+
+![23_golden_valley_full_light](channels/noor-e-raah/stories/007_al-asr/images/23_golden_valley_full_light.png)
+
+### thumb_scene_a — ₹0.00 · 2026-11-13 04:19:16
+
+![thumb_scene_a](channels/noor-e-raah/stories/007_al-asr/images/thumb_scene_a.png)
+
+### s_ammi_calm
+
+![s_ammi_calm](channels/noor-e-raah/stories/007_imaan-shukr/images/s_ammi_calm.png)
+
+### s_ammi_happy
+
+![s_ammi_happy](channels/noor-e-raah/stories/007_imaan-shukr/images/s_ammi_happy.png)
+
+### s_boy_calm
+
+![s_boy_calm](channels/noor-e-raah/stories/007_imaan-shukr/images/s_boy_calm.png)
+
+### s_boy_happy
+
+![s_boy_happy](channels/noor-e-raah/stories/007_imaan-shukr/images/s_boy_happy.png)
+
+### s_girl_happy
+
+![s_girl_happy](channels/noor-e-raah/stories/007_imaan-shukr/images/s_girl_happy.png)
+
+### s_girl_sad
+
+![s_girl_sad](channels/noor-e-raah/stories/007_imaan-shukr/images/s_girl_sad.png)
+
+### 01_thawr_night
+
+![01_thawr_night](channels/noor-e-raah/stories/008_hijrat-ghaar-e-thawr/images/01_thawr_night.png)
+
+### 02_torches_far
+
+![02_torches_far](channels/noor-e-raah/stories/008_hijrat-ghaar-e-thawr/images/02_torches_far.png)
+
+### 03_cave_mouth
+
+![03_cave_mouth](channels/noor-e-raah/stories/008_hijrat-ghaar-e-thawr/images/03_cave_mouth.png)
+
+### 04_goats_dusk
+
+![04_goats_dusk](channels/noor-e-raah/stories/008_hijrat-ghaar-e-thawr/images/04_goats_dusk.png)
+
+### 05_search_dust
+
+![05_search_dust](channels/noor-e-raah/stories/008_hijrat-ghaar-e-thawr/images/05_search_dust.png)
+
+### 06_moonlit_rocks
+
+![06_moonlit_rocks](channels/noor-e-raah/stories/008_hijrat-ghaar-e-thawr/images/06_moonlit_rocks.png)
+
+### 07_cave_dark
+
+![07_cave_dark](channels/noor-e-raah/stories/008_hijrat-ghaar-e-thawr/images/07_cave_dark.png)
+
+### 08_stars
+
+![08_stars](channels/noor-e-raah/stories/008_hijrat-ghaar-e-thawr/images/08_stars.png)
+
+### 09_dawn_camels
+
+![09_dawn_camels](channels/noor-e-raah/stories/008_hijrat-ghaar-e-thawr/images/09_dawn_camels.png)
+
+### 10_horizon_sunrise
+
+![10_horizon_sunrise](channels/noor-e-raah/stories/008_hijrat-ghaar-e-thawr/images/10_horizon_sunrise.png)
+
+### 01_madinah_market — ₹0.00 · 2026-11-13 23:21:29
+
+![01_madinah_market](channels/noor-e-raah/stories/009_asma-khajoor-ki-guthliyan/images/01_madinah_market.png)
+
+### 01_market_day
+
+![01_market_day](channels/noor-e-raah/stories/009_asma-khajoor-ki-guthliyan/images/01_market_day.png)
+
+### 02_house_morning
+
+![02_house_morning](channels/noor-e-raah/stories/009_asma-khajoor-ki-guthliyan/images/02_house_morning.png)
+
+### 02_palm_grove — ₹0.00 · 2026-11-13 23:13:51
+
+![02_palm_grove](channels/noor-e-raah/stories/009_asma-khajoor-ki-guthliyan/images/02_palm_grove.png)
+
+### 03_horse_stall
+
+![03_horse_stall](channels/noor-e-raah/stories/009_asma-khajoor-ki-guthliyan/images/03_horse_stall.png)
+
+### 03_mudbrick_house — ₹0.00 · 2026-11-13 23:14:17
+
+![03_mudbrick_house](channels/noor-e-raah/stories/009_asma-khajoor-ki-guthliyan/images/03_mudbrick_house.png)
+
+### 04_horse_stall — ₹0.00 · 2026-11-13 23:14:38
+
+![04_horse_stall](channels/noor-e-raah/stories/009_asma-khajoor-ki-guthliyan/images/04_horse_stall.png)
+
+### 04_woman_noon
+
+![04_woman_noon](channels/noor-e-raah/stories/009_asma-khajoor-ki-guthliyan/images/04_woman_noon.png)
+
+### 05_head_load_path — ₹0.00 · 2026-11-13 23:21:42
+
+![05_head_load_path](channels/noor-e-raah/stories/009_asma-khajoor-ki-guthliyan/images/05_head_load_path.png)
+
+### 05_road_camel
+
+![05_road_camel](channels/noor-e-raah/stories/009_asma-khajoor-ki-guthliyan/images/05_road_camel.png)
+
+### 06_grinding_stones — ₹0.00 · 2026-11-13 23:15:06
+
+![06_grinding_stones](channels/noor-e-raah/stories/009_asma-khajoor-ki-guthliyan/images/06_grinding_stones.png)
+
+### 07_night_house
+
+![07_night_house](channels/noor-e-raah/stories/009_asma-khajoor-ki-guthliyan/images/07_night_house.png)
+
+### 07_well_water — ₹0.00 · 2026-11-13 23:15:18
+
+![07_well_water](channels/noor-e-raah/stories/009_asma-khajoor-ki-guthliyan/images/07_well_water.png)
+
+### 08_dusk_town — ₹0.00 · 2026-11-13 23:15:31
+
+![08_dusk_town](channels/noor-e-raah/stories/009_asma-khajoor-ki-guthliyan/images/08_dusk_town.png)
+
+### 08_night_town
+
+![08_night_town](channels/noor-e-raah/stories/009_asma-khajoor-ki-guthliyan/images/08_night_town.png)
+
+### 12_land_plot_palms — ₹3.88 · 2026-11-14 23:20:15
+
+![12_land_plot_palms](channels/noor-e-raah/stories/009_asma-khajoor-ki-guthliyan/images/12_land_plot_palms.png)
+
+### 13_long_road_far — ₹3.65 · 2026-11-15 00:31:02
+
+![13_long_road_far](channels/noor-e-raah/stories/009_asma-khajoor-ki-guthliyan/images/13_long_road_far.png)
+
+### 14_camel_kneeling — ₹3.95 · 2026-11-14 23:20:35
+
+![14_camel_kneeling](channels/noor-e-raah/stories/009_asma-khajoor-ki-guthliyan/images/14_camel_kneeling.png)
+
+### 15_road_tracks — ₹4.17 · 2026-11-15 00:31:29
+
+![15_road_tracks](channels/noor-e-raah/stories/009_asma-khajoor-ki-guthliyan/images/15_road_tracks.png)
+
+### 16_doorway_lamp — ₹4.30 · 2026-11-15 00:32:12
+
+![16_doorway_lamp](channels/noor-e-raah/stories/009_asma-khajoor-ki-guthliyan/images/16_doorway_lamp.png)
+
+### 17_mountain_night_route — ₹4.32 · 2026-11-14 23:20:57
+
+![17_mountain_night_route](channels/noor-e-raah/stories/009_asma-khajoor-ki-guthliyan/images/17_mountain_night_route.png)
+
+### 18_footprints_leaving — ₹4.00 · 2026-11-15 00:31:50
+
+![18_footprints_leaving](channels/noor-e-raah/stories/009_asma-khajoor-ki-guthliyan/images/18_footprints_leaving.png)
+
+### 18_provisions_bag — ₹3.95 · 2026-11-14 23:21:18
+
+![18_provisions_bag](channels/noor-e-raah/stories/009_asma-khajoor-ki-guthliyan/images/18_provisions_bag.png)
+
+### 19_night_desert_road — ₹4.11 · 2026-11-14 23:21:38
+
+![19_night_desert_road](channels/noor-e-raah/stories/009_asma-khajoor-ki-guthliyan/images/19_night_desert_road.png)
+
+### 20_makkah_hills_dawn — ₹3.72 · 2026-11-15 00:32:50
+
+![20_makkah_hills_dawn](channels/noor-e-raah/stories/009_asma-khajoor-ki-guthliyan/images/20_makkah_hills_dawn.png)
+
+### 21_sunrise_palms — ₹4.18 · 2026-11-14 23:22:00
+
+![21_sunrise_palms](channels/noor-e-raah/stories/009_asma-khajoor-ki-guthliyan/images/21_sunrise_palms.png)
+
+### 22_stable_morning — ₹3.67 · 2026-11-15 00:32:30
+
+![22_stable_morning](channels/noor-e-raah/stories/009_asma-khajoor-ki-guthliyan/images/22_stable_morning.png)
+
+### 99_thumbA
+
+![99_thumbA](channels/noor-e-raah/stories/009_asma-khajoor-ki-guthliyan/images/99_thumbA.png)
+
+### 01_night_lane — ₹0.00 · 2026-11-15 12:48:38
+
+![01_night_lane](channels/noor-e-raah/stories/010_khawla-allah-ne-sun-li/images/01_night_lane.png)
+
+### 02_palm_morning — ₹0.00 · 2026-11-15 12:49:24
+
+![02_palm_morning](channels/noor-e-raah/stories/010_khawla-allah-ne-sun-li/images/02_palm_morning.png)
+
+### 03_house_hearth — ₹4.28 · 2026-11-15 13:18:58
+
+![03_house_hearth](channels/noor-e-raah/stories/010_khawla-allah-ne-sun-li/images/03_house_hearth.png)
+
+### 04_closed_door — ₹0.00 · 2026-11-15 12:50:10
+
+![04_closed_door](channels/noor-e-raah/stories/010_khawla-allah-ne-sun-li/images/04_closed_door.png)
+
+### 05_stuck_rope — ₹4.56 · 2026-11-15 13:19:35
+
+![05_stuck_rope](channels/noor-e-raah/stories/010_khawla-allah-ne-sun-li/images/05_stuck_rope.png)
+
+### 06_empty_room — ₹0.00 · 2026-11-15 12:50:38
+
+![06_empty_room](channels/noor-e-raah/stories/010_khawla-allah-ne-sun-li/images/06_empty_room.png)
+
+### 07_kids_clothes — ₹0.00 · 2026-11-15 12:50:48
+
+![07_kids_clothes](channels/noor-e-raah/stories/010_khawla-allah-ne-sun-li/images/07_kids_clothes.png)
+
+### 08_woman_walking — ₹0.00 · 2026-11-15 12:51:01
+
+![08_woman_walking](channels/noor-e-raah/stories/010_khawla-allah-ne-sun-li/images/08_woman_walking.png)
+
+### 09_mosque_wall — ₹0.00 · 2026-11-15 12:51:14
+
+![09_mosque_wall](channels/noor-e-raah/stories/010_khawla-allah-ne-sun-li/images/09_mosque_wall.png)
+
+### 10_hands_raised — ₹0.00 · 2026-11-15 12:51:30
+
+![10_hands_raised](channels/noor-e-raah/stories/010_khawla-allah-ne-sun-li/images/10_hands_raised.png)
+
+### 11_light_ray — ₹0.00 · 2026-11-15 12:51:43
+
+![11_light_ray](channels/noor-e-raah/stories/010_khawla-allah-ne-sun-li/images/11_light_ray.png)
+
+### 12_ayah_card — ₹4.10 · 2026-11-15 13:19:56
+
+![12_ayah_card](channels/noor-e-raah/stories/010_khawla-allah-ne-sun-li/images/12_ayah_card.png)
+
+### 13_open_sky — ₹4.08 · 2026-11-15 13:20:15
+
+![13_open_sky](channels/noor-e-raah/stories/010_khawla-allah-ne-sun-li/images/13_open_sky.png)
+
+### 14_old_custom_falls — ₹4.35 · 2026-11-15 13:20:57
+
+![14_old_custom_falls](channels/noor-e-raah/stories/010_khawla-allah-ne-sun-li/images/14_old_custom_falls.png)
+
+### 15a_broken_chain — ₹0.00 · 2026-11-15 12:52:47
+
+![15a_broken_chain](channels/noor-e-raah/stories/010_khawla-allah-ne-sun-li/images/15a_broken_chain.png)
+
+### 15b_moon_nights — ₹0.00 · 2026-11-15 12:53:03
+
+![15b_moon_nights](channels/noor-e-raah/stories/010_khawla-allah-ne-sun-li/images/15b_moon_nights.png)
+
+### 15c_food_cloth — ₹0.00 · 2026-11-15 12:53:17
+
+![15c_food_cloth](channels/noor-e-raah/stories/010_khawla-allah-ne-sun-li/images/15c_food_cloth.png)
+
+### 16_dates_basket — ₹0.00 · 2026-11-15 12:53:36
+
+![16_dates_basket](channels/noor-e-raah/stories/010_khawla-allah-ne-sun-li/images/16_dates_basket.png)
+
+### 17_door_opens — ₹4.34 · 2026-11-15 13:21:22
+
+![17_door_opens](channels/noor-e-raah/stories/010_khawla-allah-ne-sun-li/images/17_door_opens.png)
+
+### 18_night_stars — ₹0.00 · 2026-11-15 12:54:27
+
+![18_night_stars](channels/noor-e-raah/stories/010_khawla-allah-ne-sun-li/images/18_night_stars.png)
+
+### 19_morning_market — ₹4.08 · 2026-11-15 13:21:43
+
+![19_morning_market](channels/noor-e-raah/stories/010_khawla-allah-ne-sun-li/images/19_morning_market.png)
+
+### 20_palm_walk — ₹0.00 · 2026-11-15 12:54:59
+
+![20_palm_walk](channels/noor-e-raah/stories/010_khawla-allah-ne-sun-li/images/20_palm_walk.png)
+
+### 21_moon_night — ₹0.00 · 2026-11-15 12:55:13
+
+![21_moon_night](channels/noor-e-raah/stories/010_khawla-allah-ne-sun-li/images/21_moon_night.png)

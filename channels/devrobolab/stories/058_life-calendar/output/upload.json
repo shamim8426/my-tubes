@@ -1,0 +1,25 @@
+{
+  "channel_key": "devrobolab",
+  "channel_name": "DevRoboLab",
+  "channel_id": "UCpElgKdJOgQiyfwdGXz6GmA",
+  "format": "short",
+  "parent_video_id": null,
+  "title": "Claude se calendar ke sawaal aur meeting conflict poochho #shorts",
+  "description": "Claude in daily life 03: Claude me Google Calendar connector jodkar apne schedule ke sawaal poochhne ka example. Steps: claude.ai me Customize, Connectors, Google Calendar ke aage Connect, Google se sign in, permission do. Phir chat me plus, Connectors, Google Calendar on karke poochho, jaise kal meri kaun si meetings hain ya agle hafte koi conflict hai. Claude calendar dekhkar jawab deta hai aur event ke links dikhata hai. Dhyan rakho: Claude ke official pages me Calendar ki permissions alag-alag likhi hain (ek page read-only batata hai, doosra event banana ya badalna bhi), isliye apni connector setting dekho aur Claude kisi badlav se pehle jo approval maange use dhyan se padho. Screens in the video are our own illustrations (example only), no real calendar or account.\n\nSources (official):\nhttps://claude.com/docs/connectors/google/calendar\nhttps://support.claude.com/en/articles/10166901-use-google-workspace-connectors\n\nUnofficial channel, not affiliated with Anthropic or Google. Synthetic voice.\n\nMusic: \"Funkorama\" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttp://creativecommons.org/licenses/by/4.0/\n\n#shorts #Claude #ClaudeConnectors #GoogleCalendar #AI #Hinglish",
+  "tags": [
+    "Claude",
+    "Claude connectors",
+    "Google Calendar",
+    "Claude in daily life",
+    "AI tools",
+    "Hinglish",
+    "Hindi tech",
+    "Shorts"
+  ],
+  "video": "short_v2_beat.mp4",
+  "language": "hi",
+  "made_for_kids": false,
+  "contains_synthetic_media": true,
+  "category_id": "28",
+  "privacy": "private"
+}

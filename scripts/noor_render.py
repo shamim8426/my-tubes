@@ -85,6 +85,8 @@ def load_cfg(story: Path) -> dict:
     cfg.setdefault("series", SERIES_DEFAULT)
     cfg.setdefault("tagline", TAGLINE_DEFAULT)
     cfg.setdefault("cards", [])
+    global TEMPO
+    TEMPO = float(cfg.get("tempo", 1.08))  # RULES 1d: longs from 2026-11-10 use render.json "tempo": 1.15
     return cfg
 
 

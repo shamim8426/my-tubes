@@ -1,0 +1,13 @@
+{
+ "tag": "Claude in daily life 02",
+ "music": {"file": "shared/music/presentation/Funkorama.mp3", "start": 6, "rel": 12},
+ "voice": {"id": "Charon", "style": "Speak like a friendly Indian tech YouTuber chatting casually in Hinglish. Natural conversational pace, warm and clear, a little energetic but not theatrical. No sing-song, no exaggerated emphasis."},
+ "scenes": [
+  {"id": "hook", "voice": "रोज़ सैकड़ों emails में से, एक ज़रूरी mail ढूँढने में समय जाता है? Claude ये आपके लिए कर सकता है। चलिए example देखते हैं।"},
+  {"id": "connect", "voice": "पहले Gmail connect कीजिए। claude.ai में Customize खोलिए, Connectors में जाइए, Gmail के आगे Connect दबाइए, और अपने Google account से sign in करके permission दे दीजिए। ये बस एक बार करना होता है।"},
+  {"id": "use", "voice": "अब chat में plus दबाइए, Connectors में Gmail को on कीजिए, और सीधे पूछिए: Sarah ने project deadline के बारे में क्या लिखा था? Claude आपके emails में ढूँढकर जवाब देगा, और उन mails के links भी दिखाएगा।"},
+  {"id": "draft", "voice": "फिर कहिए, इस mail का polite reply लिख दो, कि मैं शुक्रवार तक भेज दूँगा। Claude reply का text बना देगा। आप उसे पढ़िए, बदलिए, और खुद भेजिए।"},
+  {"id": "caution", "voice": "ध्यान रखिए, Claude के official pages में Gmail की permissions अलग-अलग लिखी हैं। इसलिए अपनी connector setting देखिए, और कोई भी mail भेजने से पहले खुद ज़रूर जाँचिए।"},
+  {"id": "cta", "voice": "अगर ये मददगार लगा, तो आगे के tips के लिए follow कीजिए।"}
+ ]
+}

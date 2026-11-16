@@ -49,3 +49,4 @@
 ## 005_an-nas (FINAL R1, 2026-11-04) - open
 - open | contains_synthetic_media=false though images/voice are AI (as 003/004); consider true.
 - open | listen once to TTS lines 23/47/48/53 (Whisper garbled, text present); thumbnail Arabic glow/slant heavy; first voice at 1.06 s.
+- open | 006_al-kausar long | line 31 (seekh) repeats line 23 sentence verbatim; Arabic 10-word line ~35 px from screen edges; thumbnail Arabic via Amiri (no raqm on PC) - no regeneration needed

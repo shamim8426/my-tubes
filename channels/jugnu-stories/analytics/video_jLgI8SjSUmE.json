@@ -2,14 +2,14 @@
  "id": "jLgI8SjSUmE",
  "title": "बच्चों की अदालत! कटघरे में पांडे जी, शर्मा जी और दादी | किस्सागो",
  "published": "2026-10-22T13:55:32Z",
- "privacy": "public",
+ "privacy": "private",
  "seconds": 233,
  "statistics": {
   "viewCount": "5",
   "likeCount": "0",
   "dislikeCount": "0",
   "favoriteCount": "0",
-  "commentCount": "1"
+  "commentCount": "0"
  },
  "is_short": false,
  "totals": {
@@ -111,7 +111,37 @@
    "day": "2026-11-04",
    "views": 0,
    "estimatedMinutesWatched": 0
+  },
+  {
+   "day": "2026-11-05",
+   "views": 0,
+   "estimatedMinutesWatched": 0
+  },
+  {
+   "day": "2026-11-06",
+   "views": 0,
+   "estimatedMinutesWatched": 0
+  },
+  {
+   "day": "2026-11-07",
+   "views": 0,
+   "estimatedMinutesWatched": 0
+  },
+  {
+   "day": "2026-11-08",
+   "views": 0,
+   "estimatedMinutesWatched": 0
+  },
+  {
+   "day": "2026-11-09",
+   "views": 0,
+   "estimatedMinutesWatched": 0
+  },
+  {
+   "day": "2026-11-10",
+   "views": 0,
+   "estimatedMinutesWatched": 0
   }
  ],
- "fetched": "2026-11-07T19:10:33"
+ "fetched": "2026-11-13T23:20:38"
 }

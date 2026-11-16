@@ -5,16 +5,118 @@
  "privacy": "public",
  "seconds": 341,
  "statistics": {
-  "viewCount": "5",
+  "viewCount": "16",
   "likeCount": "1",
   "dislikeCount": "0",
   "favoriteCount": "0",
   "commentCount": "0"
  },
  "is_short": false,
- "totals": {},
- "traffic": [],
+ "totals": {
+  "views": 16,
+  "engagedViews": 9,
+  "estimatedMinutesWatched": 22,
+  "averageViewDuration": 144,
+  "averageViewPercentage": 42.44,
+  "subscribersGained": 0,
+  "likes": 1,
+  "comments": 0,
+  "shares": 0
+ },
+ "traffic": [
+  {
+   "insightTrafficSourceType": "YT_SEARCH",
+   "views": 6,
+   "estimatedMinutesWatched": 2
+  },
+  {
+   "insightTrafficSourceType": "SUBSCRIBER",
+   "views": 5,
+   "estimatedMinutesWatched": 4
+  },
+  {
+   "insightTrafficSourceType": "YT_CHANNEL",
+   "views": 2,
+   "estimatedMinutesWatched": 7
+  },
+  {
+   "insightTrafficSourceType": "RELATED_VIDEO",
+   "views": 2,
+   "estimatedMinutesWatched": 6
+  },
+  {
+   "insightTrafficSourceType": "YT_OTHER_PAGE",
+   "views": 1,
+   "estimatedMinutesWatched": 0
+  },
+  {
+   "insightTrafficSourceType": "NO_LINK_OTHER",
+   "views": 0,
+   "estimatedMinutesWatched": 0
+  }
+ ],
  "retention": [],
- "daily": [],
- "fetched": "2026-10-31T10:19:25"
+ "daily": [
+  {
+   "day": "2026-10-30",
+   "views": 4,
+   "estimatedMinutesWatched": 10
+  },
+  {
+   "day": "2026-10-31",
+   "views": 6,
+   "estimatedMinutesWatched": 0
+  },
+  {
+   "day": "2026-11-01",
+   "views": 2,
+   "estimatedMinutesWatched": 4
+  },
+  {
+   "day": "2026-11-02",
+   "views": 0,
+   "estimatedMinutesWatched": 0
+  },
+  {
+   "day": "2026-11-03",
+   "views": 0,
+   "estimatedMinutesWatched": 0
+  },
+  {
+   "day": "2026-11-04",
+   "views": 0,
+   "estimatedMinutesWatched": 0
+  },
+  {
+   "day": "2026-11-05",
+   "views": 2,
+   "estimatedMinutesWatched": 0
+  },
+  {
+   "day": "2026-11-06",
+   "views": 0,
+   "estimatedMinutesWatched": 0
+  },
+  {
+   "day": "2026-11-07",
+   "views": 0,
+   "estimatedMinutesWatched": 0
+  },
+  {
+   "day": "2026-11-08",
+   "views": 2,
+   "estimatedMinutesWatched": 5
+  },
+  {
+   "day": "2026-11-09",
+   "views": 0,
+   "estimatedMinutesWatched": 0
+  },
+  {
+   "day": "2026-11-10",
+   "views": 0,
+   "estimatedMinutesWatched": 0
+  }
+ ],
+ "fetched": "2026-11-13T23:20:02"
 }

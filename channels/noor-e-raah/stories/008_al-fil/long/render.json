@@ -1,0 +1,45 @@
+{
+ "_note": "Al-Fil screen config for scripts/noor_render.py (cards from the script's SCREEN notes; title from surah_titles.json ref 105; end card = last spoken line 66, last cue 67 -> end_from 66). tempo 1.11 (user 2026-11-13).",
+ "title_ar": "سُورَةُ ٱلْفِيلِ",
+ "title_hi": "सूरह अल-फ़ील",
+ "series": "नूर-ए-राह",
+ "tagline": "क़ुरआन, आसान ज़बान में।",
+ "end_from": 66,
+ "cards": [
+  {
+   "line": 4,
+   "until": 4,
+   "y": 100,
+   "stack": true,
+   "items": [
+    "सूरह अल-फ़ील · क़ुरआन की 105वीं सूरह",
+    "5 आयतें"
+   ]
+  },
+  {
+   "line": 63,
+   "until": 65,
+   "y": 100,
+   "items": [
+    "1. ताक़त अल्लाह के सामने कुछ नहीं"
+   ]
+  },
+  {
+   "line": 64,
+   "until": 65,
+   "y": 210,
+   "items": [
+    "2. चाल अल्लाह का फ़ैसला नहीं रोकती"
+   ]
+  },
+  {
+   "line": 65,
+   "until": 65,
+   "y": 320,
+   "items": [
+    "3. अल्लाह अपने घर की हिफ़ाज़त करता है"
+   ]
+  }
+ ],
+ "tempo": 1.11
+}

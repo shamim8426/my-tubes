@@ -1,3 +1,5 @@
+# RETIRED (user 2026-11-15): Imaan Short series stopped, task removed. Shorts are now cut from the Longs: see SHORT_FROM_LONG.md.
+
 # Noor daily Short runbook (user 2026-11-09). Task `noor-daily-short`, nightly after 02:00 IST. Hinglish to the user.
 Read first: CLAUDE.md, channels/noor-e-raah/RULES.md (1, 2, 2c, 2d, 3 Munshi), brand/STYLE_NOOR.md section 6, shorts_queue.json, log.md (last 30 lines), shared/pricing.json.
 Never publish (private only). Hard cap Rs 20 actual (GST incl.) per Short, balance floor Rs 50; free first, paid only after free quota (log why). No Prophet/Sahabi/Quran-named person/angel; no Allah depiction/voice.
@@ -15,3 +17,5 @@ Steps (one story per run; if today's Short is already uploaded, stop):
 6. Munshi final check on the video (frames, Arabic == Tanzil, subtitles safe area, no cut sentence, <= Rs 20, name_guard). BLOCKER -> fix free and recheck.
 7. Upload PRIVATE with tools/youtube_upload.py for channel noor-e-raah (see skill youtube-publish; api_audited false -> private + STUDIO ACTION note). Title: <hook in Hindi> | Noor-e-Raah (no reference-video wording). Description: lesson, source of any ayah/hadith, "AI-generated animation and voice". contains_synthetic_media = true. Add to playlist imaan_shorts (PLdhrP4DE-lC8) via tools/yt_playlist.py patterns / playlistItems.insert.
 8. Log: channels/noor-e-raah/log.md (story, cost, video id, STUDIO ACTION: set public yourself), shorts_queue.json status=uploaded, cost with scripts/story_budget.py. Sync: powershell -NoProfile -ExecutionPolicy Bypass -File tools\sync.ps1 -Message "noor short <NN>: uploaded private". Stalls: do not wait more than 2 hours for any one step; if a step cannot be done, write the reason in log.md and stop.
+
+(user 2026-11-15) Night series: this Short runs at 00:30 IST daily (history 02:30, surah Long 04:10). Publishing follows DAILY_HISTORY 7h: auto public/schedule inside 00:00-09:00 IST only after channel.json api_audited is true; until then upload PRIVATE and give a Studio action line. No ChatGPT images (RULES 2h image order).

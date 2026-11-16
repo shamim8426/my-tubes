@@ -1,0 +1,5 @@
+# Facts 059 (AI news roundup), fetched 2026-11-15 (official pages only)
+1. Claude Code, Code Mode (docs, v2.1.323, 2026-11-12): "Code Mode is experimental and off by default." Instead of asking for each tool call and reading each result, "Claude writes a piece of JavaScript that makes the tool calls" and Claude Code runs it in your session; several tool calls in one step. https://code.claude.com/docs/en/code-mode
+2. llama.cpp v1.0.0 (2026-11-13): llama.cpp runs multi-modal LLMs on a wide range of hardware; "Moving forward, both llama.cpp and ggml will reflect API and ABI incompatibilities with major-version bumps." https://huggingface.co/blog/ggml-org/llama-cpp-v1
+3. Gemini Robotics 2.5 (Google DeepMind, 2026-11-10): "Compared to previous baselines" it achieves a "30% to 100% higher success rate depending on the type of task" and 20% to 30% faster; "rolling out to our robotics partners" (not broadly public). https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/
+Not used: ChatGPT Wallet (OpenAI page blocked, 403; no primary source readable).

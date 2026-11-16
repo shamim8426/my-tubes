@@ -14,9 +14,9 @@
 
 | Ayah | Arabic (Tanzil, fetch se) | shabd |
 |---|---|---|
-| 108:1 | إِنَّآ أَعْطَيْنَٰكَ ٱلْكَوْثَرَ | 3 |
-| 108:2 | فَصَلِّ لِرَبِّكَ وَٱنْحَرْ | 3 |
-| 108:3 | إِنَّ شَانِئَكَ هُوَ ٱلْأَبْتَرُ | 4 |
+| 108:1 | إِنَّآ أَعْطَيْنَٰكَ ٱلْكَوْثَرَ | 3 |
+| 108:2 | فَصَلِّ لِرَبِّكَ وَٱنْحَرْ | 3 |
+| 108:3 | إِنَّ شَانِئَكَ هُوَ ٱلْأَبْتَرُ | 4 |
 
 - **PC par karo:** (a) tanzil.net quran-uthmani se 108:1-3 byte-milaan (BOM + Bismillah hatao), sha256 nikalo; (b) libass/Amiri render zoom: 108:1 `إِنَّآ` (maddah) aur `أَعْطَيْنَٰكَ` (khanjari alif), 108:2 shadda `فَصَلِّ`/`لِرَبِّكَ`, 108:3 `ٱلْأَبْتَرُ`. (c) Note: fetch ka dusra response edition-naam "quran-uthmani-quran-academy" dikha raha tha - PC par pakka karo ki text Tanzil Uthmani hi hai (shadda/maddah ka order).
 ### 1.2 Hindi [T2] - SARAL BHAAVARTH

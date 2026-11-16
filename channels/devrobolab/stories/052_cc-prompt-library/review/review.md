@@ -1,0 +1,1 @@
+﻿Review 2026-11-13: frames every 2 s checked (render + pre-render sheets). Found+fixed before render: empty lower half in hook/what/tip, terminal too tall in patterns, keycaps overlapping terminal, chip near edge. Length 37.7 s, -15.1 LUFS, TP -1.5. Facts PASS (facts.md). No range splice needed.

@@ -1,0 +1,45 @@
+{
+ "_note": "Al-Kausar screen config for scripts/noor_render.py (cards from the script's SCREEN notes; title from surah_titles.json ref 108; end card = last spoken line 34, last cue 35 -> end_from 34). tempo 1.11 (user 2026-11-13).",
+ "title_ar": "سُورَةُ ٱلْكَوْثَرِ",
+ "title_hi": "सूरह अल-कौसर",
+ "series": "नूर-ए-राह",
+ "tagline": "क़ुरआन, आसान ज़बान में।",
+ "end_from": 34,
+ "cards": [
+  {
+   "line": 4,
+   "until": 4,
+   "y": 100,
+   "stack": true,
+   "items": [
+    "सूरह अल-कौसर · क़ुरआन की 108वीं सूरह",
+    "3 आयतें"
+   ]
+  },
+  {
+   "line": 31,
+   "until": 33,
+   "y": 100,
+   "items": [
+    "1. अल्लाह की दी भलाई पर शुक्र"
+   ]
+  },
+  {
+   "line": 32,
+   "until": 33,
+   "y": 210,
+   "items": [
+    "2. इबादत सिर्फ़ उसी रब के लिए"
+   ]
+  },
+  {
+   "line": 33,
+   "until": 33,
+   "y": 320,
+   "items": [
+    "3. ताने का जवाब — भरोसा और शुक्र"
+   ]
+  }
+ ],
+ "tempo": 1.11
+}
