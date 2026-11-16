@@ -1,0 +1,20 @@
+{
+ "_note": "Noor daily History topic ledger (DAILY_HISTORY step 1). Pick the first 'planned'; mark 'in_progress' then 'uploaded'. Sources = where the core incident is reported (verify again in the dossier). Created 2026-11-17 by noor-daily-history.",
+ "done": [
+  {"story": "008_hijrat-ghaar-e-thawr", "topic": "Hijrat, Ghaar-e-Thawr", "status": "uploaded"},
+  {"story": "009_asma-khajoor-ki-guthliyan", "topic": "Asma bint Abi Bakr, date stones on her head", "status": "uploaded", "video": "V3oXzLv13r4"},
+  {"story": "010_khawla-allah-ne-sun-li", "topic": "Khawla bint Thalaba, Surah al-Mujadila 58:1", "status": "uploaded", "video": "7fikMFw0OUQ"}
+ ],
+ "queue": [
+  {"id": "mehmaan-bujha-chiraag", "topic": "Ansari couple feed the Prophet's hungry guest, put out the lamp; ayah 59:9", "sources": ["Bukhari 3798", "Bukhari 4889", "Muslim 2054a-c"], "grade": "sahih", "status": "in_progress", "story": "011_mehmaan-aur-bujha-chiraag"},
+  {"id": "umm-sulaym-sabr", "topic": "Umm Sulaym and Abu Talha: the death of their little son, her patience", "sources": ["Bukhari 5470", "Muslim 2144"], "grade": "sahih", "status": "planned"},
+  {"id": "kaab-tabuk-tauba", "topic": "Ka'b ibn Malik stays behind from Tabuk, 50 nights of boycott, tauba accepted (9:118)", "sources": ["Bukhari 4418", "Muslim 2769"], "grade": "sahih", "status": "planned"},
+  {"id": "masjid-saaf-karne-wali", "topic": "The woman who cleaned the mosque; the Prophet asked about her grave", "sources": ["Bukhari 458", "Muslim 956"], "grade": "sahih", "status": "planned"},
+  {"id": "thumama-ibn-uthal", "topic": "Thumama ibn Uthal tied in the mosque, freed, accepts Islam by choice", "sources": ["Bukhari 4372", "Muslim 1764"], "grade": "sahih", "status": "planned"},
+  {"id": "jabir-khandaq-dawat", "topic": "Jabir's small meal at the Trench that fed everyone", "sources": ["Bukhari 4101", "Muslim 2039"], "grade": "sahih", "status": "planned"},
+  {"id": "abdullah-umm-maktum-abasa", "topic": "Abdullah ibn Umm Maktum, the blind man, and Surah Abasa 80:1-2", "sources": ["Tirmidhi 3331 (hasan gharib)", "Muwatta 15/8"], "grade": "hasan; check grading", "status": "planned"},
+  {"id": "uthman-bir-rumah", "topic": "Uthman buys the well of Rumah for everyone", "sources": ["Bukhari (ta'liq, Kitab al-Musaqat)", "Tirmidhi 3703", "Nasai 3608"], "grade": "hasan; check grading", "status": "planned"},
+  {"id": "ansar-khajoor-bant", "topic": "Ansar offer to share their palm groves with the Muhajirin (brotherhood in Madinah)", "sources": ["Bukhari 2325", "Bukhari 3780"], "grade": "sahih", "status": "planned"},
+  {"id": "abu-dharr-islam", "topic": "Abu Dharr comes to Makkah looking for the truth", "sources": ["Bukhari 3522", "Muslim 2474"], "grade": "sahih", "status": "planned"}
+ ]
+}

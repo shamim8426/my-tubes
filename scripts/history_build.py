@@ -108,7 +108,8 @@ def main():
     for k, (l, a, st, d) in enumerate(tl, 1):
         e = min(st + d - 0.05, TOTAL)
         if l.get("ayah"):
-            ev.append(r"Dialogue: 0,%s,%s,Ayah,,0,0,0,,{\pos(960,330)\fad(300,200)}%s" % (ts(st), ts(e), cfg["ayah_ar"]))
+            fs = r"\fs%d" % int(cfg["ayah_fs"]) if cfg.get("ayah_fs") else ""  # smaller Arabic keeps a long ayah on one line (no overlap)
+            ev.append(r"Dialogue: 0,%s,%s,Ayah,,0,0,0,,{\pos(960,%d)\fad(300,200)%s}%s" % (ts(st), ts(e), int(cfg.get("ayah_y", 330)), fs, cfg["ayah_ar"]))
             ev.append(r"Dialogue: 0,%s,%s,Tr,,0,0,0,,{\pos(960,560)\fad(300,200)}%s" % (ts(st), ts(e), l["text"].replace("\n", r"\N")))
             ev.append(r"Dialogue: 0,%s,%s,Src,,0,0,0,,{\pos(960,860)\fad(300,200)}%s" % (ts(st), ts(e), cfg.get("ayah_src", "")))
         else:

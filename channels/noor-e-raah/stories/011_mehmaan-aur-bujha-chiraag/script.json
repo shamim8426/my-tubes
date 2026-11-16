@@ -1,0 +1,908 @@
+{
+ "title": "मेहमान और बुझा हुआ चिराग़",
+ "voice": "Charon",
+ "style": "Calm, warm, clear Hindi storyteller for an Islamic history video. Simple everyday spoken Hindi, gentle emotion, normal conversational pace, correct Urdu sounds (ज़, फ़, क़, ख़, ग़).",
+ "tempo": 1.0,
+ "music": "shared/music/seekh/Peaceful_Desolation.mp3",
+ "music_vol": 0.5,
+ "amp": 0.08,
+ "amb_db": -6,
+ "sfx_db": -3,
+ "duck": true,
+ "ayah_ar": "وَيُؤْثِرُونَ عَلَىٰٓ أَنفُسِهِمْ وَلَوْ كَانَ بِهِمْ خَصَاصَةٌ",
+ "ayah_src": "सूरह अल-हश्र 59:9",
+ "ayah_fs": 120,
+ "lines": [
+  {
+   "n": 1,
+   "text": "उस रात एक घर में सिर्फ़ बच्चों का थोड़ा सा खाना बचा था। और उसी रात, उस घर में एक भूखा मेहमान आया।",
+   "img": "01_night_house",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [],
+   "amb": [
+    [
+     "shared/sfx/history/night_crickets_254270.mp3",
+     -4
+    ]
+   ],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "भूखा मेहमान"
+   ]
+  },
+  {
+   "n": 2,
+   "text": "फिर उस घर के पति-पत्नी ने जो किया, उसकी तारीफ़ ख़ुद क़ुरआन में आई।",
+   "img": "02_lamp_glow",
+   "motion": true,
+   "preset": "pan_right",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [],
+   "amb": [
+    [
+     "shared/sfx/history/night_crickets_254270.mp3",
+     -4
+    ]
+   ],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "क़ुरआन"
+   ]
+  },
+  {
+   "n": 3,
+   "text": "ये बात मदीना शहर की है, इस्लाम के शुरू के दिनों की।",
+   "img": "03_madinah_morning",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [],
+   "amb": [
+    [
+     "shared/sfx/history/palm_leaves_378725.mp3",
+     -6
+    ]
+   ],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": [
+    "मदीना"
+   ]
+  },
+  {
+   "n": 4,
+   "text": "उन दिनों मक्का से बहुत से मुसलमान, अपना घर-बार छोड़ कर मदीना आए थे।",
+   "img": "04_travelers",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [
+    [
+     "shared/sfx/history/camel_bell_162811.mp3",
+     0.5,
+     -10
+    ]
+   ],
+   "amb": [
+    [
+     "shared/sfx/history/wind_desert_675710.mp3",
+     -6
+    ]
+   ],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": []
+  },
+  {
+   "n": 5,
+   "text": "मदीना के जिन लोगों ने इनकी मदद की, उन्हें अंसार कहा जाता है। अंसार का मतलब है, मदद करने वाले।",
+   "img": "05_welcome_house",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [],
+   "amb": [
+    [
+     "shared/sfx/history/palm_leaves_378725.mp3",
+     -6
+    ]
+   ],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": [
+    "अंसार"
+   ]
+  },
+  {
+   "n": 6,
+   "text": "अंसार ने इन लोगों को अपने घरों में जगह दी, और अपने खजूर के बाग़ों के फल में भी हिस्सेदार बनाया।",
+   "img": "06_palm_share",
+   "motion": true,
+   "preset": "pan_right",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [],
+   "amb": [
+    [
+     "shared/sfx/history/palm_leaves_378725.mp3",
+     -6
+    ]
+   ],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": [],
+   "src": "सहीह बुख़ारी 2325"
+  },
+  {
+   "n": 7,
+   "text": "एक दिन एक आदमी नबी ﷺ के पास आया। उसने बताया कि वो बहुत भूखा और थका हुआ है।",
+   "img": "07_tired_man",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [],
+   "amb": [
+    [
+     "shared/sfx/history/wind_desert_675710.mp3",
+     -6
+    ]
+   ],
+   "music": "shared/music/seekh/Peaceful_Desolation.mp3",
+   "ayah": false,
+   "gold": [],
+   "src": "सहीह बुख़ारी 4889"
+  },
+  {
+   "n": 8,
+   "text": "नबी ﷺ ने अपनी पत्नियों के घर संदेसा भेजा, कि मेहमान के लिए कुछ खाना हो तो दे दें।",
+   "img": "08_messenger_walk",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [
+    [
+     "shared/sfx/history/steps_sand_414310.mp3",
+     0.3,
+     -8
+    ]
+   ],
+   "amb": [
+    [
+     "shared/sfx/history/wind_desert_675710.mp3",
+     -6
+    ]
+   ],
+   "music": "shared/music/seekh/Peaceful_Desolation.mp3",
+   "ayah": false,
+   "gold": []
+  },
+  {
+   "n": 9,
+   "text": "एक-एक करके हर घर से एक ही जवाब आया। हमारे पास पानी के सिवा कुछ नहीं है।",
+   "img": "09_water_pot",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [],
+   "amb": [
+    [
+     "shared/sfx/history/wind_desert_675710.mp3",
+     -6
+    ]
+   ],
+   "music": "shared/music/seekh/Peaceful_Desolation.mp3",
+   "ayah": false,
+   "gold": [
+    "पानी"
+   ],
+   "src": "सहीह मुस्लिम 2054"
+  },
+  {
+   "n": 10,
+   "text": "यानी उस दिन नबी ﷺ के अपने घर में भी, सिर्फ़ पानी था।",
+   "img": "10_empty_bowl",
+   "motion": true,
+   "preset": "pan_right",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [],
+   "amb": [
+    [
+     "shared/sfx/history/wind_desert_675710.mp3",
+     -6
+    ]
+   ],
+   "music": "shared/music/seekh/Peaceful_Desolation.mp3",
+   "ayah": false,
+   "gold": []
+  },
+  {
+   "n": 11,
+   "text": "तब नबी ﷺ ने वहाँ बैठे लोगों से पूछा, आज रात इस मेहमान को अपने घर कौन ले जाएगा?",
+   "img": "11_courtyard",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [],
+   "amb": [
+    [
+     "shared/sfx/history/crowd_far_675054.mp3",
+     -8
+    ]
+   ],
+   "music": "shared/music/seekh/Peaceful_Desolation.mp3",
+   "ayah": false,
+   "gold": [],
+   "src": "सहीह बुख़ारी 3798"
+  },
+  {
+   "n": 12,
+   "text": "अंसार में से एक आदमी खड़ा हुआ, और बोला, मैं ले जाऊँगा।",
+   "img": "12_man_stands",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [
+    [
+     "shared/sfx/history/cloth_rustle_493264.mp3",
+     0.2,
+     -8
+    ]
+   ],
+   "amb": [
+    [
+     "shared/sfx/history/crowd_far_675054.mp3",
+     -8
+    ]
+   ],
+   "music": "shared/music/seekh/Peaceful_Desolation.mp3",
+   "ayah": false,
+   "gold": [
+    "मैं ले जाऊँगा"
+   ]
+  },
+  {
+   "n": 13,
+   "text": "सहीह मुस्लिम की एक रिवायत में, उनका नाम अबू तल्हा आता है।",
+   "img": "13_two_walk",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [
+    [
+     "shared/sfx/history/steps_sand_560950.mp3",
+     0.2,
+     -8
+    ]
+   ],
+   "amb": [
+    [
+     "shared/sfx/history/wind_desert_675710.mp3",
+     -6
+    ]
+   ],
+   "music": "shared/music/seekh/Peaceful_Desolation.mp3",
+   "ayah": false,
+   "gold": [
+    "अबू तल्हा"
+   ],
+   "src": "सहीह मुस्लिम 2054"
+  },
+  {
+   "n": 14,
+   "text": "वो मेहमान को साथ लेकर अपने घर पहुँचे, और पत्नी से कहा, ये अल्लाह के रसूल ﷺ का मेहमान है। इसकी अच्छी ख़ातिर करो।",
+   "img": "14_door_arrive",
+   "motion": true,
+   "preset": "pan_right",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [
+    [
+     "shared/sfx/history/wood_door_390123.mp3",
+     0.3,
+     -6
+    ]
+   ],
+   "amb": [
+    [
+     "shared/sfx/history/night_crickets_254270.mp3",
+     -4
+    ]
+   ],
+   "music": "shared/music/seekh/Peaceful_Desolation.mp3",
+   "ayah": false,
+   "gold": []
+  },
+  {
+   "n": 15,
+   "text": "पत्नी ने बताया, घर में बच्चों के खाने के सिवा कुछ नहीं है।",
+   "img": "15_wife_hearth",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [],
+   "amb": [
+    [
+     "shared/sfx/history/fire_crackle_508110.mp3",
+     -6
+    ]
+   ],
+   "music": "shared/music/seekh/Peaceful_Desolation.mp3",
+   "ayah": false,
+   "gold": [
+    "बच्चों के खाने"
+   ]
+  },
+  {
+   "n": 16,
+   "text": "अब हालत ये थी, कि अगर मेहमान को खिलाएँ, तो बच्चे भूखे रहें। और घर वालों के अपने लिए तो कुछ था ही नहीं।",
+   "img": "16_small_pot",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [],
+   "amb": [
+    [
+     "shared/sfx/history/fire_crackle_508110.mp3",
+     -6
+    ]
+   ],
+   "music": "shared/music/seekh/Peaceful_Desolation.mp3",
+   "ayah": false,
+   "gold": []
+  },
+  {
+   "n": 17,
+   "text": "पति ने कहा, खाना तैयार करो, और चिराग़ जलाओ। बच्चे खाना माँगें, तो उन्हें किसी तरह बहला कर सुला देना।",
+   "img": "17_couple_talk",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [],
+   "amb": [
+    [
+     "shared/sfx/history/fire_crackle_508110.mp3",
+     -6
+    ]
+   ],
+   "music": "shared/music/seekh/Peaceful_Desolation.mp3",
+   "ayah": false,
+   "gold": [],
+   "src": "सहीह बुख़ारी 3798"
+  },
+  {
+   "n": 18,
+   "text": "पत्नी ने वैसा ही किया। उसने खाना तैयार किया, और चिराग़ जलाया।",
+   "img": "18_lamp_light",
+   "motion": true,
+   "preset": "pan_right",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [],
+   "amb": [
+    [
+     "shared/sfx/history/fire_crackle_508110.mp3",
+     -6
+    ]
+   ],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "चिराग़"
+   ]
+  },
+  {
+   "n": 19,
+   "text": "फिर माँ ने बच्चों को बहला कर सुला दिया।",
+   "img": "19_kids_sleep",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [],
+   "amb": [
+    [
+     "shared/sfx/history/night_crickets_254270.mp3",
+     -4
+    ]
+   ],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": []
+  },
+  {
+   "n": 20,
+   "text": "फिर तीनों खाने के लिए बैठे। मेहमान, और घर के पति-पत्नी।",
+   "img": "20_three_sit",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [],
+   "amb": [
+    [
+     "shared/sfx/history/night_crickets_254270.mp3",
+     -4
+    ]
+   ],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": []
+  },
+  {
+   "n": 21,
+   "text": "तभी पत्नी उठी, जैसे चिराग़ ठीक करने जा रही हो। और उसने चिराग़ बुझा दिया।",
+   "img": "21_lamp_out",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [
+    [
+     "shared/sfx/history/cloth_rustle_493462.mp3",
+     0.4,
+     -8
+    ]
+   ],
+   "amb": [
+    [
+     "shared/sfx/history/night_crickets_254270.mp3",
+     -4
+    ]
+   ],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "चिराग़ बुझा दिया"
+   ],
+   "src": "सहीह बुख़ारी 3798"
+  },
+  {
+   "n": 22,
+   "text": "कमरे में अँधेरा हो गया।",
+   "img": "22_dark_room",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [],
+   "amb": [
+    [
+     "shared/sfx/history/night_crickets_254270.mp3",
+     -4
+    ]
+   ],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": []
+  },
+  {
+   "n": 23,
+   "text": "अँधेरे में पति-पत्नी ऐसे दिखाते रहे, जैसे वो भी साथ में खा रहे हों।",
+   "img": "23_pretend",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [],
+   "amb": [
+    [
+     "shared/sfx/history/night_crickets_254270.mp3",
+     -4
+    ]
+   ],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [],
+   "src": "सहीह मुस्लिम 2054"
+  },
+  {
+   "n": 24,
+   "text": "मेहमान ने आराम से खाना खाया।",
+   "img": "24_guest_eats",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [],
+   "amb": [
+    [
+     "shared/sfx/history/night_crickets_254270.mp3",
+     -4
+    ]
+   ],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": []
+  },
+  {
+   "n": 25,
+   "text": "और वो दोनों, उस रात भूखे ही सो गए।",
+   "img": "25_sleep_hungry",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [],
+   "amb": [
+    [
+     "shared/sfx/history/night_crickets_254270.mp3",
+     -4
+    ]
+   ],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "भूखे ही सो गए"
+   ],
+   "src": "सहीह बुख़ारी 3798"
+  },
+  {
+   "n": 26,
+   "text": "रात बीती, और सुबह हुई।",
+   "img": "26_dawn",
+   "motion": true,
+   "preset": "pan_right",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [],
+   "amb": [
+    [
+     "shared/sfx/history/palm_leaves_378725.mp3",
+     -6
+    ]
+   ],
+   "music": "shared/music/clean/Lightless_Dawn.mp3",
+   "ayah": false,
+   "gold": []
+  },
+  {
+   "n": 27,
+   "text": "फिर वो अंसारी, नबी ﷺ के पास गए।",
+   "img": "27_walk_morning",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [
+    [
+     "shared/sfx/history/steps_sand_414310.mp3",
+     0.3,
+     -8
+    ]
+   ],
+   "amb": [
+    [
+     "shared/sfx/history/palm_leaves_378725.mp3",
+     -6
+    ]
+   ],
+   "music": "shared/music/clean/Lightless_Dawn.mp3",
+   "ayah": false,
+   "gold": []
+  },
+  {
+   "n": 28,
+   "text": "नबी ﷺ ने उनसे कहा, कि रात को तुम दोनों ने जो किया, वो अल्लाह को बहुत पसंद आया।",
+   "img": "28_light_door",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/seekh/Touching_Moments_Two_Higher.mp3",
+   "ayah": false,
+   "gold": [
+    "अल्लाह को बहुत पसंद आया"
+   ],
+   "src": "सहीह बुख़ारी 3798"
+  },
+  {
+   "n": 29,
+   "text": "और उन्हीं के बारे में, क़ुरआन की ये आयत उतरी।",
+   "img": "29_light_ray",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/seekh/Touching_Moments_Two_Higher.mp3",
+   "ayah": false,
+   "gold": [],
+   "src": "सहीह बुख़ारी 3798"
+  },
+  {
+   "n": 30,
+   "text": "वो दूसरों को अपने से पहले रखते हैं, चाहे ख़ुद तंगी में हों।",
+   "img": "30_ayah_card",
+   "motion": true,
+   "preset": "pan_right",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/seekh/Touching_Moments_Two_Higher.mp3",
+   "ayah": true,
+   "gold": []
+  },
+  {
+   "n": 31,
+   "text": "यानी अपनी ज़रूरत होते हुए भी, दूसरे की ज़रूरत पहले पूरी करना। क़ुरआन ने इसी बात की तारीफ़ की।",
+   "img": "31_sharing_bread",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/seekh/Touching_Moments_Two_Higher.mp3",
+   "ayah": false,
+   "gold": []
+  },
+  {
+   "n": 32,
+   "text": "उसी आयत में आगे आता है, कि जो अपने दिल की कंजूसी से बच गया, वही असल में कामयाब है।",
+   "img": "32_open_hand",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/seekh/Touching_Moments_Two_Higher.mp3",
+   "ayah": false,
+   "gold": [
+    "कामयाब"
+   ],
+   "src": "क़ुरआन 59:9"
+  },
+  {
+   "n": 33,
+   "text": "इस कहानी से हम क्या सीखते हैं? पहली बात, देने के लिए अमीर होना ज़रूरी नहीं। उस घर में बस बच्चों का खाना था, फिर भी उन्होंने दिया।",
+   "img": "33_market_give",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [],
+   "amb": [
+    [
+     "shared/sfx/history/market_crowd_93340.mp3",
+     -10
+    ]
+   ],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": false,
+   "gold": [
+    "अमीर होना ज़रूरी नहीं"
+   ]
+  },
+  {
+   "n": 34,
+   "text": "दूसरी बात, उन्होंने मेहमान को पता ही नहीं चलने दिया। चिराग़ इसलिए बुझाया, ताकि उसे लगे कि घर वाले भी साथ खा रहे हैं।",
+   "img": "34_dark_lamp",
+   "motion": true,
+   "preset": "pan_right",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [],
+   "amb": [
+    [
+     "shared/sfx/history/night_crickets_254270.mp3",
+     -4
+    ]
+   ],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": false,
+   "gold": [
+    "पता ही नहीं चलने दिया"
+   ]
+  },
+  {
+   "n": 35,
+   "text": "तीसरी बात, अच्छा काम चुपचाप भी हो, तो अल्लाह उसे देखता है। उस अँधेरे कमरे की बात, अल्लाह ने क़ुरआन में हमेशा के लिए रख दी।",
+   "img": "35_night_stars",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [],
+   "amb": [
+    [
+     "shared/sfx/history/night_crickets_254270.mp3",
+     -4
+    ]
+   ],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": false,
+   "gold": [
+    "अल्लाह उसे देखता है"
+   ]
+  },
+  {
+   "n": 36,
+   "text": "अगली बार जब आपके पास कम हो, और कोई ज़रूरतमंद सामने आए, तो उस बुझे हुए चिराग़ को याद करना।",
+   "img": "36_lamp_end",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [],
+   "amb": [
+    [
+     "shared/sfx/history/night_crickets_254270.mp3",
+     -4
+    ]
+   ],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": false,
+   "gold": [
+    "बुझे हुए चिराग़"
+   ]
+  }
+ ]
+}
