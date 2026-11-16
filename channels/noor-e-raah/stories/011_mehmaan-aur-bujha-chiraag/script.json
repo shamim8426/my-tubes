@@ -28,7 +28,7 @@
    "sfx": [],
    "amb": [
     [
-     "shared/sfx/history/night_crickets_254270.mp3",
+     "shared/sfx/history/night_crickets_268962.mp3",
      -4
     ]
    ],
@@ -53,7 +53,7 @@
    "sfx": [],
    "amb": [
     [
-     "shared/sfx/history/night_crickets_254270.mp3",
+     "shared/sfx/history/night_crickets_268962.mp3",
      -4
     ]
    ],
@@ -100,13 +100,7 @@
      0.12
     ]
    ],
-   "sfx": [
-    [
-     "shared/sfx/history/camel_bell_162811.mp3",
-     0.5,
-     -10
-    ]
-   ],
+   "sfx": [],
    "amb": [
     [
      "shared/sfx/history/wind_desert_675710.mp3",
@@ -376,7 +370,7 @@
    ],
    "amb": [
     [
-     "shared/sfx/history/night_crickets_254270.mp3",
+     "shared/sfx/history/night_crickets_268962.mp3",
      -4
     ]
    ],
@@ -496,7 +490,7 @@
    "sfx": [],
    "amb": [
     [
-     "shared/sfx/history/night_crickets_254270.mp3",
+     "shared/sfx/history/night_crickets_268962.mp3",
      -4
     ]
    ],
@@ -519,7 +513,7 @@
    "sfx": [],
    "amb": [
     [
-     "shared/sfx/history/night_crickets_254270.mp3",
+     "shared/sfx/history/night_crickets_268962.mp3",
      -4
     ]
    ],
@@ -548,7 +542,7 @@
    ],
    "amb": [
     [
-     "shared/sfx/history/night_crickets_254270.mp3",
+     "shared/sfx/history/night_crickets_268962.mp3",
      -4
     ]
    ],
@@ -574,7 +568,7 @@
    "sfx": [],
    "amb": [
     [
-     "shared/sfx/history/night_crickets_254270.mp3",
+     "shared/sfx/history/night_crickets_268962.mp3",
      -4
     ]
    ],
@@ -597,7 +591,7 @@
    "sfx": [],
    "amb": [
     [
-     "shared/sfx/history/night_crickets_254270.mp3",
+     "shared/sfx/history/night_crickets_268962.mp3",
      -4
     ]
    ],
@@ -621,7 +615,7 @@
    "sfx": [],
    "amb": [
     [
-     "shared/sfx/history/night_crickets_254270.mp3",
+     "shared/sfx/history/night_crickets_268962.mp3",
      -4
     ]
    ],
@@ -644,7 +638,7 @@
    "sfx": [],
    "amb": [
     [
-     "shared/sfx/history/night_crickets_254270.mp3",
+     "shared/sfx/history/night_crickets_268962.mp3",
      -4
     ]
    ],
@@ -751,7 +745,7 @@
    "n": 30,
    "text": "वो दूसरों को अपने से पहले रखते हैं, चाहे ख़ुद तंगी में हों।",
    "img": "30_ayah_card",
-   "motion": true,
+   "motion": false,
    "preset": "pan_right",
    "overlay": [
     [
@@ -819,7 +813,7 @@
    "sfx": [],
    "amb": [
     [
-     "shared/sfx/history/market_crowd_93340.mp3",
+     "shared/sfx/history/market_crowd_139981.mp3",
      -10
     ]
    ],
@@ -844,7 +838,7 @@
    "sfx": [],
    "amb": [
     [
-     "shared/sfx/history/night_crickets_254270.mp3",
+     "shared/sfx/history/night_crickets_268962.mp3",
      -4
     ]
    ],
@@ -869,7 +863,7 @@
    "sfx": [],
    "amb": [
     [
-     "shared/sfx/history/night_crickets_254270.mp3",
+     "shared/sfx/history/night_crickets_268962.mp3",
      -4
     ]
    ],
@@ -894,7 +888,7 @@
    "sfx": [],
    "amb": [
     [
-     "shared/sfx/history/night_crickets_254270.mp3",
+     "shared/sfx/history/night_crickets_268962.mp3",
      -4
     ]
    ],

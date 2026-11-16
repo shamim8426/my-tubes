@@ -1,0 +1,8 @@
+file 'D:/my-tubes/channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/work_short/s01.wav'
+file 'D:/my-tubes/channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/work_short/s15.wav'
+file 'D:/my-tubes/channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/work_short/s17.wav'
+file 'D:/my-tubes/channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/work_short/s21.wav'
+file 'D:/my-tubes/channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/work_short/s25.wav'
+file 'D:/my-tubes/channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/work_short/s28.wav'
+file 'D:/my-tubes/channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/work_short/s29.wav'
+file 'D:/my-tubes/channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/work_short/s30.wav'

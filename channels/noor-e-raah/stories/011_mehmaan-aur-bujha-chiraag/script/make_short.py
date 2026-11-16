@@ -63,7 +63,7 @@ for l, st, d, v, a in segs:
         ev.append(r"Dialogue: 0,%s,%s,Ayah,,0,0,0,,{\pos(540,420)\fad(300,200)}%s" % (ts(st), ts(e), cfg["ayah_ar"]))
         ev.append(r"Dialogue: 0,%s,%s,Src,,0,0,0,,{\pos(540,600)\fad(300,200)}%s" % (ts(st), ts(e), cfg.get("ayah_src", "")))
     if l.get("src") and not l.get("ayah"):
-        ev.append(r"Dialogue: 0,%s,%s,Src,,0,0,0,,{\pos(540,1560)\fad(200,150)}%s" % (ts(s0), ts(e), l["src"]))
+        ev.append(r"Dialogue: 0,%s,%s,Src,,0,0,0,,{\pos(540,345)\fad(200,150)}%s" % (ts(s0), ts(e), l["src"]))
     ev.append(f"Dialogue: 0,{ts(s0)},{ts(e)},Sub,,0,0,0,,{txt}")
 ev.append(r"Dialogue: 0,%s,%s,Src,,0,0,0,,{\pos(540,300)\fad(300,0)}पूरी कहानी: चैनल पर लंबी वीडियो" % (ts(T - 3.5), ts(T)))
 (W / "subs.ass").write_text(head + "\n".join(ev) + "\n", encoding="utf-8")
@@ -77,5 +77,7 @@ r = subprocess.run([FF, "-y", "-loglevel", "error", "-f", "concat", "-safe", "0"
 print("OK" if r.returncode == 0 else r.stderr[-800:], out / "short.mp4")
 srt = []
 for k, (l, st, d, v, a) in enumerate(segs, 1):
-    srt.append(f"{k}\n{ts(st).replace('.', ',')} --> {ts(st + d - 0.05).replace('.', ',')}\n{l['text']}\n")
+    ms0, ms1 = int(round(st * 1000)), int(round((st + d - 0.05) * 1000))
+    f = lambda m: f"00:{m // 60000:02d}:{m // 1000 % 60:02d},{m % 1000:03d}"
+    srt.append(f"{k}\n{f(ms0)} --> {f(ms1)}\n{l['text']}\n")
 (out / "short.srt").write_text("\n".join(srt), encoding="utf-8")

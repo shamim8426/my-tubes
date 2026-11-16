@@ -50,3 +50,11 @@
 - open | contains_synthetic_media=false though images/voice are AI (as 003/004); consider true.
 - open | listen once to TTS lines 23/47/48/53 (Whisper garbled, text present); thumbnail Arabic glow/slant heavy; first voice at 1.06 s.
 - open | 006_al-kausar long | line 31 (seekh) repeats line 23 sentence verbatim; Arabic 10-word line ~35 px from screen edges; thumbnail Arabic via Amiri (no raqm on PC) - no regeneration needed
+
+## 011_mehmaan-aur-bujha-chiraag (FINAL R1, 2026-11-17) - open
+- open | shared/sfx/history is mislabeled (keyword search): camel_bell_162811 = music box "Light Up My Life" (commercial song, NEVER use), camel_bell_578543 = church bell, night_crickets_254270 = train horn + crickets, market_crowd_93340 = New Orleans ambience, crowd_far_675054 = courtroom murmur, horse_neigh_850661 = zebra, well_water_241882 = ice cubes, camel_groan_* = UI/sci-fi FX, stone_grind_449932 = concrete. Move the bad ones to _to_delete/ and re-pick by real title.
+- done 2026-11-17 | scripts/history_build.py srt now HH:MM:SS,mmm (010 old srt still centiseconds).
+- done 2026-11-17 | history ayah card motion false in 011 (make it the builder default for ayah cards).
+- open | reused images carry their old meaning (010 woman/angry husband, 009 market with glass lanterns + castle): check gender/time-of-day/anachronism before reuse.
+- open | 011 R2 MINOR (no regen): L11/L12 same image; L14 'angry husband' pose; L15 daylight door in night scene (also in Short at ~10-15 s); L24 daylight courtyard; L25 wall lanterns look modern (also in Short ~32-36 s); L8 fortress, L3 tiled roofs.
+- open | Short-from-Long ayah card: Arabic Amiri 84 px reads small with a large empty card below; next time ~110-120 px and Arabic + Hindi centred on the card (keep Tanzil bytes, no crop).

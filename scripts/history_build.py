@@ -47,6 +47,11 @@ def ts(x):
     return f"{h}:{m:02d}:{s:05.2f}"
 
 
+def srt_ts(x):  # SRT needs HH:MM:SS,mmm (ASS-style centiseconds made YouTube captions run early)
+    ms = int(round(x * 1000))
+    return f"{ms // 3600000:02d}:{ms // 60000 % 60:02d}:{ms // 1000 % 60:02d},{ms % 1000:03d}"
+
+
 def esc(p):
     return Path(p).resolve().as_posix().replace(":", "\\:")
 
@@ -119,7 +124,7 @@ def main():
             ev.append(f"Dialogue: 0,{ts(st)},{ts(e)},Sub,,0,0,0,,{txt}")
             if l.get("src"):  # small source tag under the caption, e.g. hadith number
                 ev.append(r"Dialogue: 0,%s,%s,Src,,0,0,0,,{\pos(960,1030)\fad(200,150)}%s" % (ts(st), ts(e), l["src"]))
-        srt.append(f"{k}\n{ts(st).replace('.', ',')} --> {ts(e).replace('.', ',')}\n{l['text']}\n")
+        srt.append(f"{k}\n{srt_ts(st)} --> {srt_ts(e)}\n{l['text']}\n")
     (W / "subs.ass").write_text(head + "\n".join(ev) + "\n", encoding="utf-8")
     (D / "output/video.srt").write_text("\n".join(srt), encoding="utf-8")
     # ---- voice track

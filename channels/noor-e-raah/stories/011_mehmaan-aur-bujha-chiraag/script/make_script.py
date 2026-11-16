@@ -6,14 +6,14 @@ QU = "shared/music/noor/Quietude_Sections_Merged.mp3"; RF = "shared/music/noor/R
 PD = "shared/music/seekh/Peaceful_Desolation.mp3"; TM = "shared/music/seekh/Touching_Moments_Two_Higher.mp3"
 LD = "shared/music/clean/Lightless_Dawn.mp3"; SO = "shared/music/noor/Soaring.mp3"
 H = "shared/sfx/history/"
-CR = [H + "night_crickets_254270.mp3", -4]; FI = [H + "fire_crackle_508110.mp3", -6]; WI = [H + "wind_desert_675710.mp3", -6]
-PL = [H + "palm_leaves_378725.mp3", -6]; CF = [H + "crowd_far_675054.mp3", -8]; MK = [H + "market_crowd_93340.mp3", -10]
+CR = [H + "night_crickets_268962.mp3", -4]; FI = [H + "fire_crackle_508110.mp3", -6]; WI = [H + "wind_desert_675710.mp3", -6]
+PL = [H + "palm_leaves_378725.mp3", -6]; CF = [H + "crowd_far_675054.mp3", -8]; MK = [H + "market_crowd_139981.mp3", -10]
 # (img, text, music, amb, sfx, src, gold)
 L = [
 ("01_night_house", "उस रात एक घर में सिर्फ़ बच्चों का थोड़ा सा खाना बचा था। और उसी रात, उस घर में एक भूखा मेहमान आया।", QU, [CR], [], None, ["भूखा मेहमान"]),
 ("02_lamp_glow", "फिर उस घर के पति-पत्नी ने जो किया, उसकी तारीफ़ ख़ुद क़ुरआन में आई।", QU, [CR], [], None, ["क़ुरआन"]),
 ("03_madinah_morning", "ये बात मदीना शहर की है, इस्लाम के शुरू के दिनों की।", RF, [PL], [], None, ["मदीना"]),
-("04_travelers", "उन दिनों मक्का से बहुत से मुसलमान, अपना घर-बार छोड़ कर मदीना आए थे।", RF, [WI], [[H + "camel_bell_162811.mp3", 0.5, -10]], None, []),
+("04_travelers", "उन दिनों मक्का से बहुत से मुसलमान, अपना घर-बार छोड़ कर मदीना आए थे।", RF, [WI], [], None, []),
 ("05_welcome_house", "मदीना के जिन लोगों ने इनकी मदद की, उन्हें अंसार कहा जाता है। अंसार का मतलब है, मदद करने वाले।", RF, [PL], [], None, ["अंसार"]),
 ("06_palm_share", "अंसार ने इन लोगों को अपने घरों में जगह दी, और अपने खजूर के बाग़ों के फल में भी हिस्सेदार बनाया।", RF, [PL], [], "सहीह बुख़ारी 2325", []),
 ("07_tired_man", "एक दिन एक आदमी नबी ﷺ के पास आया। उसने बताया कि वो बहुत भूखा और थका हुआ है।", PD, [WI], [], "सहीह बुख़ारी 4889", []),
@@ -51,7 +51,7 @@ P = ["push_in", "pan_right", "pull_out", "pan_left"]
 PUSH = {"01_night_house", "21_lamp_out", "22_dark_room", "28_light_door", "36_lamp_end"}
 lines = []
 for i, (img, t, m, amb, sfx, src, gold) in enumerate(L):
-    l = {"n": i + 1, "text": t, "img": img, "motion": True, "preset": "push_in" if img in PUSH else P[i % 4],
+    l = {"n": i + 1, "text": t, "img": img, "motion": img != "30_ayah_card", "preset": "push_in" if img in PUSH else P[i % 4],
          "overlay": [["dust", 0.12]], "sfx": sfx, "amb": amb, "music": m, "ayah": img == "30_ayah_card", "gold": gold}
     if src:
         l["src"] = src
