@@ -227,3 +227,14 @@ New images that are generic (landscapes, objects) are added to the library after
 - ENDING: NO "next video" announcement and no teaser about the next surah/story at the end ([NEXT] tags are dropped everywhere). The video ends with the story itself (surah: the very short meaning summary). Straight story-telling, nothing before/after it.
 - MUSIC: WARM + peaceful instrumental, one track per video (2j set; River_Flute = warmest default, Quietude for night/sukoon stories, Soaring for hope).
 - SERIES ORDER: series_queue.json is the truth. Al-Fil (008) is DONE (Long M7UXpH-W3IY + Short TJStQvexbfM, private 2026-11-17); the demo stories/012_alfil_toon_demo is a sample only, never to be uploaded. Next surah = the first `planned` item (al-kafirun).
+
+## 2l. STORY VIDEO TEMPLATE = sample 013 (user approved 2026-11-17; every history/story video from the next Charon-available run)
+- Reference: stories/013_teen-musafir-gufa-sample (script/make_script.py, images/, output/gufa_sample_720.mp4). Copy its structure.
+- Script: simple Hindi story-telling in SHORT phrase lines (one line = one sentence/phrase, ~3-4 s); the sample's wording style (direct speech like "पहले ने कहा: ...", no teaser, no question, no lesson line); last line = source line only (e.g. "ये वाक़िआ सहीह बुख़ारी और सहीह मुस्लिम की हदीस में आया है।"); ~150-190 words.
+- Images: faceless storybook style (RULES 2j), 5-7 scene images per story, each line shows exactly what it says; 2-3 lines share one image with different motion presets (push_in/pan_right/pull_out/pan_left) so the picture changes every phrase; per-line `gold` keywords (the key word of the phrase highlighted).
+- Music: ONE warm track (River_Flute default). No next-video teaser.
+- Voice: Charon only (RULES 2k): if Charon/free quota is out and the balance is under the Rs 50 floor, do not build a final; log and stop. Sample builds with Edge are never uploaded.
+- Facts: Khoji dossier + Munshi before any upload (sample 013's hadith facts are unverified).
+
+## 2m. SURAH videos use the SAME template (user 2026-11-17)
+- Surah/ayah videos follow 2i + 2j + 2l together: for each ayah the narrator reads it once (Arabic exact Tanzil bytes on screen + ucharan), then explains the meaning as story-telling in SHORT phrase lines (like sample 013), with 2-4 faceless-storybook scene images per ayah that show what the ayah describes (ayah's meaning/theme decides the scene), keyword `gold` highlights, ONE warm music track, no word-by-word, no questions, no lesson line, no next-video teaser, very short final summary. Reference for the look: stories/012_alfil_toon_demo (ayah card layout) + stories/013 (phrase-line story style). Charon only (2k).

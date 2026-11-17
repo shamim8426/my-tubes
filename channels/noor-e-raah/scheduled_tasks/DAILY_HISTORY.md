@@ -24,3 +24,5 @@ Weekly-limit note: this task + noor-daily-short + noor-daily-long + DevRoboLab a
 (user 2026-11-17, ALWAYS) FOLLOW RULES 2i (storytelling v2: ayah read once then story-style Hindi explanation, 2-4 scene-matched images per ayah, up to 5:00, one single soft music track, no questions, no lesson, short final summary; history stories: script and images match line by line). It overrides any older line here that says reuse-only images, word-by-word blocks or per-line music cues.
 
 (user 2026-11-17, ALWAYS) FOLLOW RULES 2k: Charon-only finals (preflight; if Charon unavailable wait/retry, never Edge), NO next-video announcement at the end, warm music, next surah = first planned item of series_queue (al-kafirun; al-fil is done).
+
+(user 2026-11-17, ALWAYS) Story videos follow RULES 2l (template = stories/013_teen-musafir-gufa-sample; faceless images, phrase lines, gold keywords, one warm track, source-line ending, Charon only).

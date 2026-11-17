@@ -8,7 +8,7 @@ for l in cfg["lines"]:
     out = S/"audio"/f"l{l['n']:02d}.wav"
     if out.exists(): continue
     try:
-        gemini_tts.speak(l["text"], cfg["voice"], cfg["style"], out, free_only=True)
+        gemini_tts.speak(l["text"], cfg["voice"], cfg["style"], out, free_only=False)
         print("tts", l["n"], "ok", flush=True)
     except Exception as e:
         print("STOP", l["n"], str(e)[:150]); break

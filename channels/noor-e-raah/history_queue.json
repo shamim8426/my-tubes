@@ -3,7 +3,8 @@
  "done": [
   {"story": "008_hijrat-ghaar-e-thawr", "topic": "Hijrat, Ghaar-e-Thawr", "status": "uploaded"},
   {"story": "009_asma-khajoor-ki-guthliyan", "topic": "Asma bint Abi Bakr, date stones on her head", "status": "uploaded", "video": "V3oXzLv13r4"},
-  {"story": "010_khawla-allah-ne-sun-li", "topic": "Khawla bint Thalaba, Surah al-Mujadila 58:1", "status": "uploaded", "video": "7fikMFw0OUQ"}
+  {"story": "010_khawla-allah-ne-sun-li", "topic": "Khawla bint Thalaba, Surah al-Mujadila 58:1", "status": "uploaded", "video": "7fikMFw0OUQ"},
+  {"story": "013_teen-musafir-gufa-sample", "topic": "Three men in the cave, three sincere duas (Bukhari 2272, Muslim 2743)", "status": "uploaded", "long_id": "hcS8zjiYeJ4", "short_id": "w-b1kltrLHc", "date": "2026-11-18"}
  ],
  "queue": [
   {"id": "mehmaan-bujha-chiraag", "topic": "Ansari couple feed the Prophet's hungry guest, put out the lamp; ayah 59:9", "sources": ["Bukhari 3798", "Bukhari 4889", "Muslim 2054a-c"], "grade": "sahih", "status": "uploaded", "story": "011_mehmaan-aur-bujha-chiraag", "long_id": "IXyFUmgacck", "short_id": "YWppRkQgPyc", "v1_ids": {"long_id": "GCvLJ8jAS0Y", "short_id": "RoKAMWLpInE", "note": "superseded by v2 (RULES 2i single music track); user deletes v1 in Studio"}},

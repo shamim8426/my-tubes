@@ -1,6 +1,6 @@
 # Preview — Jugnu Stories
 
-**Budget bacha:** ₹45.50  ·  **Last image:** 2026-11-18 00:33:23
+**Budget bacha:** ₹561.92  ·  **Last image:** 2026-11-18 01:56:40
 
 ## Characters
 
@@ -1554,7 +1554,7 @@
 
 ![4_gold_turn_away](channels/noor-e-raah/stories/013_teen-musafir-gufa-sample/images/4_gold_turn_away.png)
 
-### 5_field_herd — ₹4.61 · 2026-11-18 00:33:01
+### 5_field_herd — ₹4.28 · 2026-11-18 01:56:40
 
 ![5_field_herd](channels/noor-e-raah/stories/013_teen-musafir-gufa-sample/images/5_field_herd.png)
 

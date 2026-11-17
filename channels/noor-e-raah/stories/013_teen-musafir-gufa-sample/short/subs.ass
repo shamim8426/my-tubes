@@ -1,0 +1,20 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 0
+
+[V4+ Styles]
+Format: Name,Fontname,Fontsize,PrimaryColour,SecondaryColour,OutlineColour,BackColour,Bold,Italic,Underline,StrikeOut,ScaleX,ScaleY,Spacing,Angle,BorderStyle,Outline,Shadow,Alignment,MarginL,MarginR,MarginV,Encoding
+Style: Cap,Mukta Bold,64,&H00FFFFFF,&H00FFFFFF,&H00000000,&H90000000,0,0,0,0,100,100,0,0,1,4,2,2,70,70,330,1
+
+[Events]
+Format: Layer,Start,End,Style,Name,MarginL,MarginR,MarginV,Effect,Text
+Dialogue: 0,0:00:00.00,0:00:10.20,Cap,,0,0,0,,दूसरे ने कहा: ऐ अल्लाह, मेरी एक चचेरी बहन थी, जिसे मैं बहुत चाहता था। मैं एक बड़े गुनाह के क़रीब पहुँच गया।
+Dialogue: 0,0:00:10.25,0:00:18.21,Cap,,0,0,0,,तब उस बहन ने कहा: अल्लाह से डरो। मैं रुक गया, और जो कुछ उसे दिया था, वो भी छोड़ दिया।
+Dialogue: 0,0:00:18.26,0:00:23.30,Cap,,0,0,0,,ऐ अल्लाह, अगर ये मैंने तेरे डर से किया, तो हमें निकाल दे।
+Dialogue: 0,0:00:23.35,0:00:28.15,Cap,,0,0,0,,चट्टान और खिसकी, पर वो अब भी बाहर नहीं निकल सकते थे।
+Dialogue: 0,0:00:28.20,0:00:34.04,Cap,,0,0,0,,तीसरे ने कहा: मेरा एक मज़दूर अपनी मज़दूरी लिए बिना चला गया।
+Dialogue: 0,0:00:34.09,0:00:39.97,Cap,,0,0,0,,मैंने उसकी मज़दूरी का अनाज बो दिया। फ़सल से गायें और एक चरवाहा हो गया।
+Dialogue: 0,0:00:40.02,0:00:48.18,Cap,,0,0,0,,वो आया तो मैंने कहा: ये सब ले जाओ। वो बोला: मुझसे मज़ाक़ मत करो। मैंने कहा: मज़ाक़ नहीं है।
+Dialogue: 0,0:00:48.23,0:00:53.83,Cap,,0,0,0,,और फिर चट्टान पूरी हट गई, और वो तीनों चलकर बाहर निकल आए।

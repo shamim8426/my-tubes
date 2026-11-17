@@ -2314,3 +2314,41 @@ timestamp,file,model,size,cost_usd,cost_inr,today_total_inr,remaining_inr,channe
 2026-11-18 00:33:23,channels/noor-e-raah/stories/013_teen-musafir-gufa-sample/images/6_rock_open.png,gemini-nano-banana-2.1,1K,0.04124,3.98,31.33,45.50,noor-e-raah,3.27,3.9800,0.72,166,2106
 2026-11-18 00:34:13,channels/noor-e-raah/stories/013_teen-musafir-gufa-sample/audio/l01.wav,gemini-3.8-flash-tts,tts 4.9s free,0.00000,0.00,31.33,45.50,noor-e-raah,0.11,0.0000,0.00,15,122
 2026-11-18 00:34:23,channels/noor-e-raah/stories/013_teen-musafir-gufa-sample/audio/l02.wav,gemini-3.8-flash-tts,tts 3.2s free,0.00000,0.00,31.33,45.50,noor-e-raah,0.07,0.0000,0.00,14,79
+2026-11-18 01:53:33,study/ttest.wav,gemini-3.8-flash-tts,tts 1.2s,0.00027,0.03,31.36,566.97,jugnu-stories,0.03,0.0262,0.00,4,30
+2026-11-18 01:56:40,channels/noor-e-raah/stories/013_teen-musafir-gufa-sample/images/5_field_herd.png,gemini-nano-banana-2.1,1K,0.04437,4.28,36.41,561.92,noor-e-raah,3.27,4.2813,0.77,202,2515
+2026-11-18 01:57:04,channels/noor-e-raah/stories/013_teen-musafir-gufa-sample/audio/l01.wav,gemini-3.8-flash-tts,tts 6.6s free,0.00000,0.00,36.41,561.92,noor-e-raah,0.15,0.0000,0.00,23,164
+2026-11-18 01:57:11,channels/noor-e-raah/stories/013_teen-musafir-gufa-sample/audio/l02.wav,gemini-3.8-flash-tts,tts 6.1s,0.00139,0.13,36.57,561.76,noor-e-raah,0.14,0.1343,0.02,29,153
+2026-11-18 01:57:18,channels/noor-e-raah/stories/013_teen-musafir-gufa-sample/audio/l03.wav,gemini-3.8-flash-tts,tts 6.1s,0.00139,0.13,36.73,561.60,noor-e-raah,0.14,0.1340,0.02,24,153
+2026-11-18 01:57:24,channels/noor-e-raah/stories/013_teen-musafir-gufa-sample/audio/l04.wav,gemini-3.8-flash-tts,tts 9.0s free,0.00000,0.00,36.73,561.60,noor-e-raah,0.20,0.0000,0.00,28,225
+2026-11-18 01:57:32,channels/noor-e-raah/stories/013_teen-musafir-gufa-sample/audio/l05.wav,gemini-3.8-flash-tts,tts 9.9s,0.00225,0.22,36.98,561.34,noor-e-raah,0.22,0.2168,0.04,29,248
+2026-11-18 01:57:40,channels/noor-e-raah/stories/013_teen-musafir-gufa-sample/audio/l06.wav,gemini-3.8-flash-tts,tts 7.3s,0.00165,0.16,37.17,561.16,noor-e-raah,0.16,0.1592,0.03,24,182
+2026-11-18 01:57:49,channels/noor-e-raah/stories/013_teen-musafir-gufa-sample/audio/l07.wav,gemini-3.8-flash-tts,tts 10.4s,0.00235,0.23,37.44,560.89,noor-e-raah,0.23,0.2267,0.04,36,259
+2026-11-18 01:57:55,channels/noor-e-raah/stories/013_teen-musafir-gufa-sample/audio/l08.wav,gemini-3.8-flash-tts,tts 7.0s,0.00159,0.15,37.62,560.71,noor-e-raah,0.16,0.1532,0.03,25,175
+2026-11-18 01:58:03,channels/noor-e-raah/stories/013_teen-musafir-gufa-sample/audio/l09.wav,gemini-3.8-flash-tts,tts 5.0s,0.00114,0.11,37.75,560.58,noor-e-raah,0.11,0.1103,0.02,18,126
+2026-11-18 01:58:11,channels/noor-e-raah/stories/013_teen-musafir-gufa-sample/audio/l10.wav,gemini-3.8-flash-tts,tts 9.9s free,0.00000,0.00,37.75,560.58,noor-e-raah,0.22,0.0000,0.00,36,248
+2026-11-18 01:58:20,channels/noor-e-raah/stories/013_teen-musafir-gufa-sample/audio/l11.wav,gemini-3.8-flash-tts,tts 8.4s,0.00191,0.18,37.97,560.36,noor-e-raah,0.19,0.1847,0.03,30,211
+2026-11-18 01:58:29,channels/noor-e-raah/stories/013_teen-musafir-gufa-sample/audio/l12.wav,gemini-3.8-flash-tts,tts 6.0s,0.00136,0.13,38.12,560.21,noor-e-raah,0.13,0.1313,0.02,21,150
+2026-11-18 01:58:38,channels/noor-e-raah/stories/013_teen-musafir-gufa-sample/audio/l13.wav,gemini-3.8-flash-tts,tts 4.5s,0.00103,0.10,38.24,560.09,noor-e-raah,0.10,0.0991,0.02,19,113
+2026-11-18 01:58:46,channels/noor-e-raah/stories/013_teen-musafir-gufa-sample/audio/l14.wav,gemini-3.8-flash-tts,tts 7.7s,0.00174,0.17,38.44,559.89,noor-e-raah,0.17,0.1680,0.03,26,192
+2026-11-18 01:58:53,channels/noor-e-raah/stories/013_teen-musafir-gufa-sample/audio/l15.wav,gemini-3.8-flash-tts,tts 6.8s,0.00153,0.15,38.61,559.72,noor-e-raah,0.15,0.1479,0.03,23,169
+2026-11-18 01:59:00,channels/noor-e-raah/stories/013_teen-musafir-gufa-sample/audio/l16.wav,gemini-3.8-flash-tts,tts 8.8s,0.00200,0.19,38.84,559.49,noor-e-raah,0.20,0.1935,0.03,32,221
+2026-11-18 01:59:08,channels/noor-e-raah/stories/013_teen-musafir-gufa-sample/audio/l17.wav,gemini-3.8-flash-tts,tts 6.1s,0.00138,0.13,39.00,559.33,noor-e-raah,0.14,0.1328,0.02,17,152
+2026-11-18 01:59:16,channels/noor-e-raah/stories/013_teen-musafir-gufa-sample/audio/l18.wav,gemini-3.8-flash-tts,tts 9.4s,0.00214,0.21,39.24,559.09,noor-e-raah,0.21,0.2069,0.04,41,236
+2026-11-18 01:59:41,channels/noor-e-raah/stories/013_teen-musafir-gufa-sample/audio/l01.wav,gemini-3.8-flash-tts,tts 5.6s,0.00126,0.12,39.38,558.94,noor-e-raah,0.13,0.1218,0.02,23,139
+2026-11-18 01:59:49,channels/noor-e-raah/stories/013_teen-musafir-gufa-sample/audio/l02.wav,gemini-3.8-flash-tts,tts 5.6s,0.00128,0.12,39.53,558.80,noor-e-raah,0.13,0.1236,0.02,23,141
+2026-11-18 01:59:55,channels/noor-e-raah/stories/013_teen-musafir-gufa-sample/audio/l03.wav,gemini-3.8-flash-tts,tts 6.1s,0.00138,0.13,39.69,558.64,noor-e-raah,0.14,0.1332,0.02,24,152
+2026-11-18 02:00:02,channels/noor-e-raah/stories/013_teen-musafir-gufa-sample/audio/l04.wav,gemini-3.8-flash-tts,tts 4.8s,0.00108,0.10,39.81,558.52,noor-e-raah,0.11,0.1041,0.02,16,119
+2026-11-18 02:00:10,channels/noor-e-raah/stories/013_teen-musafir-gufa-sample/audio/l05.wav,gemini-3.8-flash-tts,tts 7.5s,0.00170,0.16,40.00,558.32,noor-e-raah,0.17,0.1638,0.03,28,187
+2026-11-18 02:00:17,channels/noor-e-raah/stories/013_teen-musafir-gufa-sample/audio/l06.wav,gemini-3.8-flash-tts,tts 5.5s,0.00124,0.12,40.15,558.18,noor-e-raah,0.12,0.1201,0.02,23,137
+2026-11-18 02:00:24,channels/noor-e-raah/stories/013_teen-musafir-gufa-sample/audio/l07.wav,gemini-3.8-flash-tts,tts 6.5s,0.00147,0.14,40.31,558.01,noor-e-raah,0.15,0.1418,0.03,22,162
+2026-11-18 02:00:32,channels/noor-e-raah/stories/013_teen-musafir-gufa-sample/audio/l08.wav,gemini-3.8-flash-tts,tts 6.0s,0.00135,0.13,40.47,557.86,noor-e-raah,0.13,0.1304,0.02,21,149
+2026-11-18 02:00:38,channels/noor-e-raah/stories/013_teen-musafir-gufa-sample/audio/l09.wav,gemini-3.8-flash-tts,tts 4.8s,0.00109,0.11,40.59,557.74,noor-e-raah,0.11,0.1051,0.02,18,120
+2026-11-18 02:00:47,channels/noor-e-raah/stories/013_teen-musafir-gufa-sample/audio/l10.wav,gemini-3.8-flash-tts,tts 9.8s,0.00223,0.22,40.84,557.48,noor-e-raah,0.22,0.2153,0.04,34,246
+2026-11-18 02:00:53,channels/noor-e-raah/stories/013_teen-musafir-gufa-sample/audio/l11.wav,gemini-3.8-flash-tts,tts 7.6s,0.00171,0.17,41.04,557.29,noor-e-raah,0.17,0.1655,0.03,28,189
+2026-11-18 02:00:59,channels/noor-e-raah/stories/013_teen-musafir-gufa-sample/audio/l12.wav,gemini-3.8-flash-tts,tts 4.6s,0.00105,0.10,41.16,557.17,noor-e-raah,0.11,0.1016,0.02,17,116
+2026-11-18 02:01:06,channels/noor-e-raah/stories/013_teen-musafir-gufa-sample/audio/l13.wav,gemini-3.8-flash-tts,tts 4.4s,0.00101,0.10,41.27,557.05,noor-e-raah,0.10,0.0973,0.02,19,111
+2026-11-18 02:01:14,channels/noor-e-raah/stories/013_teen-musafir-gufa-sample/audio/l14.wav,gemini-3.8-flash-tts,tts 5.4s,0.00123,0.12,41.41,556.91,noor-e-raah,0.12,0.1191,0.02,20,136
+2026-11-18 02:01:21,channels/noor-e-raah/stories/013_teen-musafir-gufa-sample/audio/l15.wav,gemini-3.8-flash-tts,tts 5.5s,0.00124,0.12,41.56,556.77,noor-e-raah,0.12,0.1201,0.02,23,137
+2026-11-18 02:01:28,channels/noor-e-raah/stories/013_teen-musafir-gufa-sample/audio/l16.wav,gemini-3.8-flash-tts,tts 7.8s,0.00176,0.17,41.76,556.57,noor-e-raah,0.17,0.1700,0.03,31,194
+2026-11-18 02:01:36,channels/noor-e-raah/stories/013_teen-musafir-gufa-sample/audio/l17.wav,gemini-3.8-flash-tts,tts 5.4s,0.00122,0.12,41.90,556.43,noor-e-raah,0.12,0.1181,0.02,17,135
+2026-11-18 02:01:44,channels/noor-e-raah/stories/013_teen-musafir-gufa-sample/audio/l18.wav,gemini-3.8-flash-tts,tts 6.9s,0.00157,0.15,42.08,556.25,noor-e-raah,0.16,0.1518,0.03,33,173

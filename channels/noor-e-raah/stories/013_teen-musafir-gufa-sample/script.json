@@ -13,7 +13,7 @@
  "lines": [
   {
    "n": 1,
-   "text": "तीन आदमी सफ़र में थे। अचानक तेज़ बारिश होने लगी।",
+   "text": "रसूलुल्लाह ﷺ ने पिछली क़ौमों के तीन आदमियों का वाक़िआ बताया।",
    "img": "1_rain_cave",
    "motion": true,
    "preset": "push_in",
@@ -28,12 +28,12 @@
    "music": "shared/music/noor/River_Flute.mp3",
    "ayah": false,
    "gold": [
-    "बारिश"
+    "तीन"
    ]
   },
   {
    "n": 2,
-   "text": "वो भागकर पहाड़ की एक गुफा में छिप गए।",
+   "text": "वो सफ़र में थे। तेज़ बारिश हुई, तो वो पहाड़ की एक गुफा में चले गए।",
    "img": "1_rain_cave",
    "motion": true,
    "preset": "pan_right",
@@ -48,7 +48,7 @@
    "music": "shared/music/noor/River_Flute.mp3",
    "ayah": false,
    "gold": [
-    "गुफा"
+    "बारिश"
    ]
   },
   {
@@ -73,7 +73,7 @@
   },
   {
    "n": 4,
-   "text": "तब एक ने कहा: अब सिर्फ़ अपने सच्चे अच्छे कामों का वास्ता देकर, अल्लाह से दुआ करो।",
+   "text": "वो बोले: अब बस अपने नेक कामों के सहारे अल्लाह से दुआ करो।",
    "img": "2_rock_blocks",
    "motion": true,
    "preset": "pan_left",
@@ -93,7 +93,7 @@
   },
   {
    "n": 5,
-   "text": "पहले ने कहा: ऐ अल्लाह, मेरे बूढ़े माँ-बाप थे।",
+   "text": "पहले ने कहा: ऐ अल्लाह, मेरे बूढ़े माँ-बाप थे। मैं उनसे पहले किसी को दूध नहीं पिलाता था।",
    "img": "3_parents_bowl",
    "motion": true,
    "preset": "push_in",
@@ -113,7 +113,7 @@
   },
   {
    "n": 6,
-   "text": "एक रात मैं देर से आया, और वो सो चुके थे।",
+   "text": "एक दिन मैं चारे की तलाश में दूर निकल गया। देर से लौटा, तो वो सो चुके थे।",
    "img": "3_parents_bowl",
    "motion": true,
    "preset": "pan_right",
@@ -127,11 +127,13 @@
    "amb": [],
    "music": "shared/music/noor/River_Flute.mp3",
    "ayah": false,
-   "gold": []
+   "gold": [
+    "देर"
+   ]
   },
   {
    "n": 7,
-   "text": "मैं दूध का प्याला लिए, सुबह तक उनके सिरहाने खड़ा रहा।",
+   "text": "मैं प्याला लिए सुबह तक उनके सिरहाने खड़ा रहा। मैं उन्हें जगाना नहीं चाहता था।",
    "img": "3_parents_bowl",
    "motion": true,
    "preset": "pull_out",
@@ -151,7 +153,7 @@
   },
   {
    "n": 8,
-   "text": "अगर ये काम तेरे लिए था, तो हमें इस मुसीबत से निकाल दे।",
+   "text": "ऐ अल्लाह, अगर ये मैंने तेरी ख़ुशी के लिए किया, तो हमें इस मुसीबत से निकाल।",
    "img": "3_parents_bowl",
    "motion": true,
    "preset": "pan_left",
@@ -166,12 +168,12 @@
    "music": "shared/music/noor/River_Flute.mp3",
    "ayah": false,
    "gold": [
-    "तेरे"
+    "ख़ुशी"
    ]
   },
   {
    "n": 9,
-   "text": "चट्टान थोड़ी सी खिसकी, पर रास्ता अब भी बंद था।",
+   "text": "चट्टान थोड़ी सी खिसकी, पर इतनी नहीं कि वो निकल सकें।",
    "img": "2_rock_blocks",
    "motion": true,
    "preset": "push_in",
@@ -191,7 +193,7 @@
   },
   {
    "n": 10,
-   "text": "दूसरे ने कहा: मुझे एक बहुत बड़ी बुराई का मौक़ा मिला था।",
+   "text": "दूसरे ने कहा: ऐ अल्लाह, मेरी एक चचेरी बहन थी, जिसे मैं बहुत चाहता था। मैं एक बड़े गुनाह के क़रीब पहुँच गया।",
    "img": "4_gold_turn_away",
    "motion": true,
    "preset": "pan_right",
@@ -206,15 +208,35 @@
    "music": "shared/music/noor/River_Flute.mp3",
    "ayah": false,
    "gold": [
-    "बुराई"
+    "गुनाह"
    ]
   },
   {
    "n": 11,
-   "text": "पर मुझे अल्लाह का डर याद आया, और मैं पीछे हट गया।",
+   "text": "तब उस बहन ने कहा: अल्लाह से डरो। मैं रुक गया, और जो कुछ उसे दिया था, वो भी छोड़ दिया।",
    "img": "4_gold_turn_away",
    "motion": true,
    "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": [
+    "डरो"
+   ]
+  },
+  {
+   "n": 12,
+   "text": "ऐ अल्लाह, अगर ये मैंने तेरे डर से किया, तो हमें निकाल दे।",
+   "img": "4_gold_turn_away",
+   "motion": true,
+   "preset": "pan_left",
    "overlay": [
     [
      "dust",
@@ -230,11 +252,31 @@
    ]
   },
   {
-   "n": 12,
-   "text": "तीसरे ने कहा: एक मज़दूर अपनी मज़दूरी छोड़कर चला गया था।",
+   "n": 13,
+   "text": "चट्टान और खिसकी, पर वो अब भी बाहर नहीं निकल सकते थे।",
+   "img": "2_rock_blocks",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": [
+    "खिसकी"
+   ]
+  },
+  {
+   "n": 14,
+   "text": "तीसरे ने कहा: मेरा एक मज़दूर अपनी मज़दूरी लिए बिना चला गया।",
    "img": "5_field_herd",
    "motion": true,
-   "preset": "pan_left",
+   "preset": "pan_right",
    "overlay": [
     [
      "dust",
@@ -250,9 +292,49 @@
    ]
   },
   {
-   "n": 13,
-   "text": "मैंने उसका पैसा बढ़ाया, और सालों बाद उसे सब कुछ लौटा दिया।",
+   "n": 15,
+   "text": "मैंने उसकी मज़दूरी का अनाज बो दिया। फ़सल से गायें और एक चरवाहा हो गया।",
    "img": "5_field_herd",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": [
+    "गायें"
+   ]
+  },
+  {
+   "n": 16,
+   "text": "वो आया तो मैंने कहा: ये सब ले जाओ। वो बोला: मुझसे मज़ाक़ मत करो। मैंने कहा: मज़ाक़ नहीं है।",
+   "img": "5_field_herd",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": [
+    "मज़ाक़"
+   ]
+  },
+  {
+   "n": 17,
+   "text": "और फिर चट्टान पूरी हट गई, और वो तीनों चलकर बाहर निकल आए।",
+   "img": "6_rock_open",
    "motion": true,
    "preset": "push_in",
    "overlay": [
@@ -266,35 +348,15 @@
    "music": "shared/music/noor/River_Flute.mp3",
    "ayah": false,
    "gold": [
-    "सब"
+    "पूरी"
    ]
   },
   {
-   "n": 14,
-   "text": "और फिर चट्टान पूरी तरह हट गई। तीनों सलामत बाहर निकल आए।",
+   "n": 18,
+   "text": "ये हदीस सहीह बुख़ारी और सहीह मुस्लिम में अब्दुल्लाह इब्ने उमर रज़ियल्लाहु अन्हु से आई है।",
    "img": "6_rock_open",
    "motion": true,
    "preset": "pan_right",
-   "overlay": [
-    [
-     "dust",
-     0.08
-    ]
-   ],
-   "sfx": [],
-   "amb": [],
-   "music": "shared/music/noor/River_Flute.mp3",
-   "ayah": false,
-   "gold": [
-    "सलामत"
-   ]
-  },
-  {
-   "n": 15,
-   "text": "ये वाक़िआ सहीह बुख़ारी और सहीह मुस्लिम की हदीस में आया है।",
-   "img": "6_rock_open",
-   "motion": true,
-   "preset": "pull_out",
    "overlay": [
     [
      "dust",
