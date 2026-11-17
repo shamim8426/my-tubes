@@ -1,0 +1,311 @@
+{
+ "title": "Teen musafir aur gufa (sample)",
+ "voice": "Charon",
+ "style": "Calm, warm, clear Hindi storyteller. Simple spoken Hindi, gentle emotion, normal conversational pace, correct Urdu sounds.",
+ "tempo": 1.0,
+ "ambience": "shared/sfx/history/wind_desert_675710.mp3",
+ "music": "shared/music/noor/River_Flute.mp3",
+ "music_vol": 0.5,
+ "amp": 0.08,
+ "amb_db": -6,
+ "sfx_db": -3,
+ "duck": true,
+ "lines": [
+  {
+   "n": 1,
+   "text": "तीन आदमी सफ़र में थे। अचानक तेज़ बारिश होने लगी।",
+   "img": "1_rain_cave",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": [
+    "बारिश"
+   ]
+  },
+  {
+   "n": 2,
+   "text": "वो भागकर पहाड़ की एक गुफा में छिप गए।",
+   "img": "1_rain_cave",
+   "motion": true,
+   "preset": "pan_right",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": [
+    "गुफा"
+   ]
+  },
+  {
+   "n": 3,
+   "text": "तभी पहाड़ से एक बड़ी चट्टान लुढ़की, और गुफा का मुँह बंद हो गया।",
+   "img": "2_rock_blocks",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": [
+    "चट्टान"
+   ]
+  },
+  {
+   "n": 4,
+   "text": "तब एक ने कहा: अब सिर्फ़ अपने सच्चे अच्छे कामों का वास्ता देकर, अल्लाह से दुआ करो।",
+   "img": "2_rock_blocks",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": [
+    "अल्लाह"
+   ]
+  },
+  {
+   "n": 5,
+   "text": "पहले ने कहा: ऐ अल्लाह, मेरे बूढ़े माँ-बाप थे।",
+   "img": "3_parents_bowl",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": [
+    "माँ-बाप"
+   ]
+  },
+  {
+   "n": 6,
+   "text": "एक रात मैं देर से आया, और वो सो चुके थे।",
+   "img": "3_parents_bowl",
+   "motion": true,
+   "preset": "pan_right",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": []
+  },
+  {
+   "n": 7,
+   "text": "मैं दूध का प्याला लिए, सुबह तक उनके सिरहाने खड़ा रहा।",
+   "img": "3_parents_bowl",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": [
+    "सुबह"
+   ]
+  },
+  {
+   "n": 8,
+   "text": "अगर ये काम तेरे लिए था, तो हमें इस मुसीबत से निकाल दे।",
+   "img": "3_parents_bowl",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": [
+    "तेरे"
+   ]
+  },
+  {
+   "n": 9,
+   "text": "चट्टान थोड़ी सी खिसकी, पर रास्ता अब भी बंद था।",
+   "img": "2_rock_blocks",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": [
+    "खिसकी"
+   ]
+  },
+  {
+   "n": 10,
+   "text": "दूसरे ने कहा: मुझे एक बहुत बड़ी बुराई का मौक़ा मिला था।",
+   "img": "4_gold_turn_away",
+   "motion": true,
+   "preset": "pan_right",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": [
+    "बुराई"
+   ]
+  },
+  {
+   "n": 11,
+   "text": "पर मुझे अल्लाह का डर याद आया, और मैं पीछे हट गया।",
+   "img": "4_gold_turn_away",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": [
+    "डर"
+   ]
+  },
+  {
+   "n": 12,
+   "text": "तीसरे ने कहा: एक मज़दूर अपनी मज़दूरी छोड़कर चला गया था।",
+   "img": "5_field_herd",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": [
+    "मज़दूर"
+   ]
+  },
+  {
+   "n": 13,
+   "text": "मैंने उसका पैसा बढ़ाया, और सालों बाद उसे सब कुछ लौटा दिया।",
+   "img": "5_field_herd",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": [
+    "सब"
+   ]
+  },
+  {
+   "n": 14,
+   "text": "और फिर चट्टान पूरी तरह हट गई। तीनों सलामत बाहर निकल आए।",
+   "img": "6_rock_open",
+   "motion": true,
+   "preset": "pan_right",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": [
+    "सलामत"
+   ]
+  },
+  {
+   "n": 15,
+   "text": "ये वाक़िआ सहीह बुख़ारी और सहीह मुस्लिम की हदीस में आया है।",
+   "img": "6_rock_open",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": []
+  }
+ ]
+}

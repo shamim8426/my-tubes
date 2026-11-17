@@ -8,3 +8,13 @@ What it does (to implement in our own look):
 5. STORY SHAPE: hook question in first 2 s -> the confusion -> the key term -> scene-by-scene answer with one everyday example (waking at fajr) -> one historical anecdote (a Sahabi decision, shown with white-glow head, source pill) -> resolution scene on the golden path -> final one-line takeaway.
 6. SOUND: one steady soft bed, clear male narration, no loud effects.
 How we adopt it (our own design, never theirs): own character set (own colours/outfits; no yellow-hoodie / red-checked-headcloth clones), own backgrounds, own props, our own words and sources (RULES 12c HARD list). Faceless characters for ALL people incl. Sahaba (white-glow head); Prophet never shown at all; no questions/lesson per user rule 2i; captions in simple Hindi (Devanagari word-by-word).
+
+## STUDY 2026-11-17 #2: story Short (Prophet-story explainer, 2:58, 9:16) - audio/script SYNC METHOD ONLY (RULES 12c; no frames/words/voice kept; study files + transcript deleted)
+How audio, script and picture are matched (what to copy as a TECHNIQUE):
+1. Narration = one continuous voice, sentence by sentence (3-6 s each). Each sentence is cut into 2-5 word PHRASES; a new picture appears at every phrase/sentence boundary (a cut every ~2-4 s).
+2. The picture shows the NOUN/ACTION being said at that instant (word "drilling" -> a drilling rig shot at that word; "three floors, a door on each" -> interior-floors shot; "pairs of animals" -> animals entering; "water above the mountains" -> wave-over-mountain shot). Picture changes exactly on the keyword, not before.
+3. Captions: small centred 2-4 word chunks (translated, not the same words as the audio), appearing together with their phrase; they never run ahead of the voice.
+4. Keyword POP: a few key words ("TODAY", "EXPLAINED", "HUNDREDS" ...) are shown as big coloured words at the exact moment (+-0.2 s) the speaker says that word (found by word timestamps).
+5. SILENT BEATS: 2-3 times the voice stops for 5-10 s while a big visual + sound effect plays (a count label, a storm); this gives pacing and lets the viewer absorb.
+6. Hook = first 7 s (title word + strongest claim); ending = last 12 s a call back to the main point.
+How we implement (our own way): (a) run faster-whisper word timestamps on OUR Charon audio per line (numpy input, not file path) -> word times; (b) make caption chunks (3-5 Devanagari words) + keyword list per line in script.json (`gold`); (c) cut each line's image into 2-4 crops/zooms that change on keyword times (2-4 s each, free; new image only per ayah/scene); (d) 1-2 silent beats with soft SFX; (e) captions in our own Hindi wording, same words as audio.

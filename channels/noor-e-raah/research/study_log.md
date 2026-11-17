@@ -9,3 +9,5 @@
 2026-11-13 | study | reference Short (hadith myth-busting, 37 s, 9:16) | downloaded to study/ (bino login), frames viewed, files deleted same day | learnings in brand/STYLE_NOOR.md section 7; no frame/audio/script kept
 
 2026-11-17 | study VbQhUaktudQ (user link, story-explainer Short) | frames viewed (3 contact sheets), no transcript kept | study files deleted | method notes in brand/STYLE_LEARNINGS.md
+
+2026-11-17 | study A8n8OCntGzw (user link, story Short with word-level audio/caption sync) | frames + Whisper word timestamps (temporary) | study files deleted | method notes in brand/STYLE_LEARNINGS.md
