@@ -3,7 +3,7 @@
  "voice": "Charon",
  "style": "Calm, warm, clear Hindi storyteller for an Islamic history video. Simple everyday spoken Hindi, gentle emotion, normal conversational pace, correct Urdu sounds (ज़, फ़, क़, ख़, ग़).",
  "tempo": 1.0,
- "music": "shared/music/seekh/Peaceful_Desolation.mp3",
+ "music": "shared/music/noor/River_Flute.mp3",
  "music_vol": 0.5,
  "amp": 0.08,
  "amb_db": -6,
@@ -32,7 +32,7 @@
      -4
     ]
    ],
-   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "music": "shared/music/noor/River_Flute.mp3",
    "ayah": false,
    "gold": [
     "भूखा मेहमान"
@@ -57,7 +57,7 @@
      -4
     ]
    ],
-   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "music": "shared/music/noor/River_Flute.mp3",
    "ayah": false,
    "gold": [
     "क़ुरआन"
@@ -179,7 +179,7 @@
      -6
     ]
    ],
-   "music": "shared/music/seekh/Peaceful_Desolation.mp3",
+   "music": "shared/music/noor/River_Flute.mp3",
    "ayah": false,
    "gold": [],
    "src": "सहीह बुख़ारी 4889"
@@ -209,7 +209,7 @@
      -6
     ]
    ],
-   "music": "shared/music/seekh/Peaceful_Desolation.mp3",
+   "music": "shared/music/noor/River_Flute.mp3",
    "ayah": false,
    "gold": []
   },
@@ -232,7 +232,7 @@
      -6
     ]
    ],
-   "music": "shared/music/seekh/Peaceful_Desolation.mp3",
+   "music": "shared/music/noor/River_Flute.mp3",
    "ayah": false,
    "gold": [
     "पानी"
@@ -258,7 +258,7 @@
      -6
     ]
    ],
-   "music": "shared/music/seekh/Peaceful_Desolation.mp3",
+   "music": "shared/music/noor/River_Flute.mp3",
    "ayah": false,
    "gold": []
   },
@@ -281,7 +281,7 @@
      -8
     ]
    ],
-   "music": "shared/music/seekh/Peaceful_Desolation.mp3",
+   "music": "shared/music/noor/River_Flute.mp3",
    "ayah": false,
    "gold": [],
    "src": "सहीह बुख़ारी 3798"
@@ -311,7 +311,7 @@
      -8
     ]
    ],
-   "music": "shared/music/seekh/Peaceful_Desolation.mp3",
+   "music": "shared/music/noor/River_Flute.mp3",
    "ayah": false,
    "gold": [
     "मैं ले जाऊँगा"
@@ -342,7 +342,7 @@
      -6
     ]
    ],
-   "music": "shared/music/seekh/Peaceful_Desolation.mp3",
+   "music": "shared/music/noor/River_Flute.mp3",
    "ayah": false,
    "gold": [
     "अबू तल्हा"
@@ -374,7 +374,7 @@
      -4
     ]
    ],
-   "music": "shared/music/seekh/Peaceful_Desolation.mp3",
+   "music": "shared/music/noor/River_Flute.mp3",
    "ayah": false,
    "gold": []
   },
@@ -397,7 +397,7 @@
      -6
     ]
    ],
-   "music": "shared/music/seekh/Peaceful_Desolation.mp3",
+   "music": "shared/music/noor/River_Flute.mp3",
    "ayah": false,
    "gold": [
     "बच्चों के खाने"
@@ -422,7 +422,7 @@
      -6
     ]
    ],
-   "music": "shared/music/seekh/Peaceful_Desolation.mp3",
+   "music": "shared/music/noor/River_Flute.mp3",
    "ayah": false,
    "gold": []
   },
@@ -445,7 +445,7 @@
      -6
     ]
    ],
-   "music": "shared/music/seekh/Peaceful_Desolation.mp3",
+   "music": "shared/music/noor/River_Flute.mp3",
    "ayah": false,
    "gold": [],
    "src": "सहीह बुख़ारी 3798"
@@ -469,7 +469,7 @@
      -6
     ]
    ],
-   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "music": "shared/music/noor/River_Flute.mp3",
    "ayah": false,
    "gold": [
     "चिराग़"
@@ -494,7 +494,7 @@
      -4
     ]
    ],
-   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "music": "shared/music/noor/River_Flute.mp3",
    "ayah": false,
    "gold": []
   },
@@ -517,7 +517,7 @@
      -4
     ]
    ],
-   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "music": "shared/music/noor/River_Flute.mp3",
    "ayah": false,
    "gold": []
   },
@@ -546,7 +546,7 @@
      -4
     ]
    ],
-   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "music": "shared/music/noor/River_Flute.mp3",
    "ayah": false,
    "gold": [
     "चिराग़ बुझा दिया"
@@ -572,7 +572,7 @@
      -4
     ]
    ],
-   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "music": "shared/music/noor/River_Flute.mp3",
    "ayah": false,
    "gold": []
   },
@@ -595,7 +595,7 @@
      -4
     ]
    ],
-   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "music": "shared/music/noor/River_Flute.mp3",
    "ayah": false,
    "gold": [],
    "src": "सहीह मुस्लिम 2054"
@@ -619,7 +619,7 @@
      -4
     ]
    ],
-   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "music": "shared/music/noor/River_Flute.mp3",
    "ayah": false,
    "gold": []
   },
@@ -642,7 +642,7 @@
      -4
     ]
    ],
-   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "music": "shared/music/noor/River_Flute.mp3",
    "ayah": false,
    "gold": [
     "भूखे ही सो गए"
@@ -668,7 +668,7 @@
      -6
     ]
    ],
-   "music": "shared/music/clean/Lightless_Dawn.mp3",
+   "music": "shared/music/noor/River_Flute.mp3",
    "ayah": false,
    "gold": []
   },
@@ -697,7 +697,7 @@
      -6
     ]
    ],
-   "music": "shared/music/clean/Lightless_Dawn.mp3",
+   "music": "shared/music/noor/River_Flute.mp3",
    "ayah": false,
    "gold": []
   },
@@ -715,7 +715,7 @@
    ],
    "sfx": [],
    "amb": [],
-   "music": "shared/music/seekh/Touching_Moments_Two_Higher.mp3",
+   "music": "shared/music/noor/River_Flute.mp3",
    "ayah": false,
    "gold": [
     "अल्लाह को बहुत पसंद आया"
@@ -736,7 +736,7 @@
    ],
    "sfx": [],
    "amb": [],
-   "music": "shared/music/seekh/Touching_Moments_Two_Higher.mp3",
+   "music": "shared/music/noor/River_Flute.mp3",
    "ayah": false,
    "gold": [],
    "src": "सहीह बुख़ारी 3798"
@@ -755,7 +755,7 @@
    ],
    "sfx": [],
    "amb": [],
-   "music": "shared/music/seekh/Touching_Moments_Two_Higher.mp3",
+   "music": "shared/music/noor/River_Flute.mp3",
    "ayah": true,
    "gold": []
   },
@@ -773,7 +773,7 @@
    ],
    "sfx": [],
    "amb": [],
-   "music": "shared/music/seekh/Touching_Moments_Two_Higher.mp3",
+   "music": "shared/music/noor/River_Flute.mp3",
    "ayah": false,
    "gold": []
   },
@@ -791,7 +791,7 @@
    ],
    "sfx": [],
    "amb": [],
-   "music": "shared/music/seekh/Touching_Moments_Two_Higher.mp3",
+   "music": "shared/music/noor/River_Flute.mp3",
    "ayah": false,
    "gold": [
     "कामयाब"
@@ -817,7 +817,7 @@
      -10
     ]
    ],
-   "music": "shared/music/noor/Soaring.mp3",
+   "music": "shared/music/noor/River_Flute.mp3",
    "ayah": false,
    "gold": [
     "अमीर होना ज़रूरी नहीं"
@@ -842,7 +842,7 @@
      -4
     ]
    ],
-   "music": "shared/music/noor/Soaring.mp3",
+   "music": "shared/music/noor/River_Flute.mp3",
    "ayah": false,
    "gold": [
     "पता ही नहीं चलने दिया"
@@ -867,7 +867,7 @@
      -4
     ]
    ],
-   "music": "shared/music/noor/Soaring.mp3",
+   "music": "shared/music/noor/River_Flute.mp3",
    "ayah": false,
    "gold": [
     "अल्लाह उसे देखता है"
@@ -892,7 +892,7 @@
      -4
     ]
    ],
-   "music": "shared/music/noor/Soaring.mp3",
+   "music": "shared/music/noor/River_Flute.mp3",
    "ayah": false,
    "gold": [
     "बुझे हुए चिराग़"

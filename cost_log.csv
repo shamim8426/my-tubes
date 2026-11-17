@@ -2294,3 +2294,5 @@ timestamp,file,model,size,cost_usd,cost_inr,today_total_inr,remaining_inr,channe
 2026-11-17 21:26:24,channels/devrobolab/stories/061_cfe-usage-saving/audio/tts/s_07.wav,gemini-3.8-flash-tts,tts 26.4s free,0.00000,0.00,28.87,112.96,devrobolab,0.59,0.0000,0.00,99,660
 2026-11-17 21:26:40,channels/devrobolab/stories/061_cfe-usage-saving/audio/tts/s_08.wav,gemini-3.8-flash-tts,tts 27.0s free,0.00000,0.00,28.87,112.96,devrobolab,0.60,0.0000,0.00,106,676
 2026-11-17 21:26:56,channels/devrobolab/stories/061_cfe-usage-saving/audio/tts/s_09.wav,gemini-3.8-flash-tts,tts 26.8s free,0.00000,0.00,28.87,112.96,devrobolab,0.60,0.0000,0.00,102,671
+2026-11-17 22:06:36,channels/noor-e-raah/stories/011_toon_style_test/images/A_door.png,gemini-nano-banana-2.1,1K,0.04483,4.33,33.97,107.86,noor-e-raah,3.28,4.3266,0.78,245,2569
+2026-11-17 22:07:00,channels/noor-e-raah/stories/011_toon_style_test/images/B_dua.png,gemini-nano-banana-2.1,1K,0.04638,4.48,39.26,102.57,noor-e-raah,3.28,4.4761,0.81,213,2782

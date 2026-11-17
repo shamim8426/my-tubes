@@ -9,3 +9,5 @@ Format = the existing surah explainer (kept as-is) EXCEPT (RULES 1d): ONE narrat
 (user 2026-11-15) Publishing follows DAILY_HISTORY 7h: auto public/schedule inside 00:00-09:00 IST only after channel.json api_audited is true; until then upload PRIVATE and give a Studio action line.
 
 (user 2026-11-15) AFTER the Long is uploaded: cut one Short from it per channels/noor-e-raah/scheduled_tasks/SHORT_FROM_LONG.md (Rs 0). Daily total 4 videos = 2 Longs + 2 Shorts. The Imaan Short series is retired.
+
+(user 2026-11-17, ALWAYS) FOLLOW RULES 2i (storytelling v2: ayah read once then story-style Hindi explanation, 2-4 scene-matched images per ayah, up to 5:00, one single soft music track, no questions, no lesson, short final summary; history stories: script and images match line by line). It overrides any older line here that says reuse-only images, word-by-word blocks or per-line music cues.

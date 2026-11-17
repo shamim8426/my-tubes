@@ -1,0 +1,100 @@
+{
+ "title": "toon style test",
+ "voice": "Charon",
+ "style": "calm",
+ "tempo": 1.0,
+ "ambience": "shared/sfx/history/wind_desert_675710.mp3",
+ "music": "shared/music/seekh/Peaceful_Desolation.mp3",
+ "music_vol": 0.5,
+ "amp": 0.08,
+ "amb_db": -6,
+ "sfx_db": -3,
+ "duck": true,
+ "lines": [
+  {
+   "n": 1,
+   "text": "मदीना की एक सुबह। ख़ौला के घर के दरवाज़े पर, उनके पति औस ग़ुस्से में खड़े थे।",
+   "img": "A_door",
+   "motion": true,
+   "preset": "pan_right",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/seekh/Peaceful_Desolation.mp3",
+   "ayah": false
+  },
+  {
+   "n": 2,
+   "text": "ग़ुस्से में उन्होंने एक ऐसी बात कह दी, जो उस ज़माने में रिश्ता तोड़ने जैसी मानी जाती थी।",
+   "img": "A_door",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/seekh/Peaceful_Desolation.mp3",
+   "ayah": false
+  },
+  {
+   "n": 3,
+   "text": "ख़ौला के पीछे उनके छोटे बच्चे सहमे हुए देख रहे थे। अब इनका क्या होगा?",
+   "img": "A_door",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/seekh/Peaceful_Desolation.mp3",
+   "ayah": false
+  },
+  {
+   "n": 4,
+   "text": "ख़ौला कुछ देर चुप रहीं। फिर वो अकेले बैठीं, और दोनों हाथ उठाकर अल्लाह से अपना दुख कह दिया।",
+   "img": "B_dua",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/seekh/Peaceful_Desolation.mp3",
+   "ayah": false
+  },
+  {
+   "n": 5,
+   "text": "और फिर, अल्लाह ने उनकी बात सुन ली।",
+   "img": "B_dua",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.12
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/seekh/Peaceful_Desolation.mp3",
+   "ayah": false
+  }
+ ]
+}

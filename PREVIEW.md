@@ -1,6 +1,6 @@
 # Preview — Jugnu Stories
 
-**Budget bacha:** ₹112.96  ·  **Last image:** 2026-11-17 05:38:54
+**Budget bacha:** ₹102.57  ·  **Last image:** 2026-11-17 22:07:00
 
 ## Characters
 
@@ -1378,57 +1378,17 @@
 
 ![03_madinah_morning](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/03_madinah_morning.png)
 
-### 04_travelers
-
-![04_travelers](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/04_travelers.png)
-
-### 05_welcome_house
-
-![05_welcome_house](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/05_welcome_house.png)
-
 ### 06_palm_share
 
 ![06_palm_share](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/06_palm_share.png)
-
-### 07_tired_man
-
-![07_tired_man](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/07_tired_man.png)
-
-### 08_messenger_walk
-
-![08_messenger_walk](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/08_messenger_walk.png)
-
-### 09_water_pot
-
-![09_water_pot](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/09_water_pot.png)
-
-### 10_empty_bowl
-
-![10_empty_bowl](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/10_empty_bowl.png)
 
 ### 11_courtyard
 
 ![11_courtyard](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/11_courtyard.png)
 
-### 12_man_stands
-
-![12_man_stands](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/12_man_stands.png)
-
-### 13_two_walk
-
-![13_two_walk](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/13_two_walk.png)
-
-### 14_door_arrive
-
-![14_door_arrive](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/14_door_arrive.png)
-
 ### 15_wife_hearth
 
 ![15_wife_hearth](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/15_wife_hearth.png)
-
-### 16_small_pot
-
-![16_small_pot](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/16_small_pot.png)
 
 ### 17_couple_talk
 
@@ -1438,41 +1398,13 @@
 
 ![18_lamp_light](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/18_lamp_light.png)
 
-### 19_kids_sleep
-
-![19_kids_sleep](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/19_kids_sleep.png)
-
-### 20_three_sit
-
-![20_three_sit](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/20_three_sit.png)
-
-### 21_lamp_out
-
-![21_lamp_out](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/21_lamp_out.png)
-
-### 22_dark_room
-
-![22_dark_room](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/22_dark_room.png)
-
 ### 23_pretend
 
 ![23_pretend](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/23_pretend.png)
 
-### 24_guest_eats
-
-![24_guest_eats](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/24_guest_eats.png)
-
-### 25_sleep_hungry
-
-![25_sleep_hungry](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/25_sleep_hungry.png)
-
 ### 26_dawn
 
 ![26_dawn](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/26_dawn.png)
-
-### 27_walk_morning
-
-![27_walk_morning](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/27_walk_morning.png)
 
 ### 28_light_door
 
@@ -1486,26 +1418,18 @@
 
 ![30_ayah_card](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/30_ayah_card.png)
 
-### 31_sharing_bread
-
-![31_sharing_bread](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/31_sharing_bread.png)
-
-### 32_open_hand
-
-![32_open_hand](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/32_open_hand.png)
-
 ### 33_market_give
 
 ![33_market_give](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/33_market_give.png)
-
-### 34_dark_lamp
-
-![34_dark_lamp](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/34_dark_lamp.png)
 
 ### 35_night_stars
 
 ![35_night_stars](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/35_night_stars.png)
 
-### 36_lamp_end
+### A_door — ₹4.33 · 2026-11-17 22:06:36
 
-![36_lamp_end](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/36_lamp_end.png)
+![A_door](channels/noor-e-raah/stories/011_toon_style_test/images/A_door.png)
+
+### B_dua — ₹4.48 · 2026-11-17 22:07:00
+
+![B_dua](channels/noor-e-raah/stories/011_toon_style_test/images/B_dua.png)

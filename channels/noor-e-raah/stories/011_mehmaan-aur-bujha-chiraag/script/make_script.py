@@ -5,6 +5,7 @@ ROOT = S.parents[3]
 QU = "shared/music/noor/Quietude_Sections_Merged.mp3"; RF = "shared/music/noor/River_Flute.mp3"
 PD = "shared/music/seekh/Peaceful_Desolation.mp3"; TM = "shared/music/seekh/Touching_Moments_Two_Higher.mp3"
 LD = "shared/music/clean/Lightless_Dawn.mp3"; SO = "shared/music/noor/Soaring.mp3"
+ONE = RF  # RULES 2i (user 2026-11-17): one soft track for the whole video
 H = "shared/sfx/history/"
 CR = [H + "night_crickets_268962.mp3", -4]; FI = [H + "fire_crackle_508110.mp3", -6]; WI = [H + "wind_desert_675710.mp3", -6]
 PL = [H + "palm_leaves_378725.mp3", -6]; CF = [H + "crowd_far_675054.mp3", -8]; MK = [H + "market_crowd_139981.mp3", -10]
@@ -52,7 +53,7 @@ PUSH = {"01_night_house", "21_lamp_out", "22_dark_room", "28_light_door", "36_la
 lines = []
 for i, (img, t, m, amb, sfx, src, gold) in enumerate(L):
     l = {"n": i + 1, "text": t, "img": img, "motion": img != "30_ayah_card", "preset": "push_in" if img in PUSH else P[i % 4],
-         "overlay": [["dust", 0.12]], "sfx": sfx, "amb": amb, "music": m, "ayah": img == "30_ayah_card", "gold": gold}
+         "overlay": [["dust", 0.12]], "sfx": sfx, "amb": amb, "music": ONE, "ayah": img == "30_ayah_card", "gold": gold}
     if src:
         l["src"] = src
     lines.append(l)
@@ -61,7 +62,7 @@ a = [x for x in tz.read_text(encoding="utf-8").splitlines() if x.startswith("59|
 i0 = a.index("وَيُؤْثِرُونَ"); i1 = a.index("خَصَاصَةٌ") + len("خَصَاصَةٌ")
 cfg = {"title": "मेहमान और बुझा हुआ चिराग़", "voice": "Charon",
        "style": "Calm, warm, clear Hindi storyteller for an Islamic history video. Simple everyday spoken Hindi, gentle emotion, normal conversational pace, correct Urdu sounds (ज़, फ़, क़, ख़, ग़).",
-       "tempo": 1.0, "music": PD, "music_vol": 0.5, "amp": 0.08, "amb_db": -6, "sfx_db": -3, "duck": True,
+       "tempo": 1.0, "music": ONE, "music_vol": 0.5, "amp": 0.08, "amb_db": -6, "sfx_db": -3, "duck": True,
        "ayah_ar": a[i0:i1], "ayah_src": "सूरह अल-हश्र 59:9", "ayah_fs": 120, "lines": lines}
 (S / "script.json").write_text(json.dumps(cfg, ensure_ascii=False, indent=1), encoding="utf-8")
 print(len(lines), "lines", sum(len(l["text"].split()) for l in lines), "words")
