@@ -1,12 +1,12 @@
 {
  "story": "008_al-fil",
- "stage": "tts",
- "status": "failed",
- "started": "2026-11-14T04:33:51",
- "finished": "2026-11-14T04:40:38",
- "pid": 22900,
- "paid": true,
+ "stage": "build_long",
+ "status": "done",
+ "started": "2026-11-17T05:39:39",
+ "finished": "2026-11-17T05:56:46",
+ "pid": 31316,
+ "paid": false,
  "cost": null,
- "note": "Gemini TTS 429 daily limit 100 req/day (free + paid key) after 3 of 42 lines; retry in ~8h50m",
+ "note": null,
  "last_error": "2026-11-14T04:40:38 tts: Gemini TTS 429 daily limit 100 req/day (free + paid key) after 3 of 42 lines; retry in ~8h50m"
 }

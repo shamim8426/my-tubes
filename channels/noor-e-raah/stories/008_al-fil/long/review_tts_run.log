@@ -1,0 +1,94 @@
+  3 ustaad   7.5s takes=0 OK
+  4 ustaad   8.8s takes=0 OK
+  6 ustaad  12.5s takes=0 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+  8 ustaad   9.2s takes=3 MISSING ['सबब-ए-नुज़ूल', 'ख़ुद']
+Gemini TTS: free key quota (429) -> same request on the paid key
+  9 ustaad   7.3s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 10 ustaad   5.1s takes=1 OK
+ 11 ustaad   6.2s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+Gemini TTS: free key quota (429) -> same request on the paid key
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 12 ustaad   9.0s takes=3 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 14 ustaad   2.8s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 15 ustaad   4.8s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 17 ustaad   5.3s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 19 ustaad   3.4s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 20 ustaad   1.7s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 22 ustaad   6.0s takes=2 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 24 ustaad   2.2s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 25 ustaad   5.0s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+Gemini TTS: free key quota (429) -> same request on the paid key
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 27 ustaad   4.6s takes=3 MISSING ['ढहाने']
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 29 ustaad   2.6s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 30 ustaad   3.6s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 32 ustaad   6.1s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 34 ustaad   2.2s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 35 ustaad   4.7s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 37 ustaad   2.6s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 39 ustaad   1.8s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 40 ustaad   3.0s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 42 ustaad   6.1s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 44 ustaad   2.8s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 45 ustaad   5.0s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 47 ustaad   2.9s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 49 ustaad   1.9s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 50 ustaad   3.2s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 52 ustaad   5.0s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 54 ustaad   1.7s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 55 ustaad   3.9s takes=2 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 57 ustaad   3.7s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 59 ustaad   2.2s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 60 ustaad   3.6s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 62 ustaad   5.5s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 63 ustaad   4.7s takes=1 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+Gemini TTS: free key quota (429) -> same request on the paid key
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 64 ustaad   5.2s takes=3 MISSING ['अल्लाह']
+Gemini TTS: free key quota (429) -> same request on the paid key
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 65 ustaad   4.2s takes=2 OK
+Gemini TTS: free key quota (429) -> same request on the paid key
+ 66 ustaad   4.0s takes=1 OK
+# TTS report — 008_al-fil
+
+Lines: 42; total voice 193.4s; Whisper OK 39/42
+
+2026-11-17 | 008_al-fil | ASLI KUL KHARCHA | ₹4.77 + GST ₹0.86 = ₹5.63 (andaza tha ₹6.11; 53 paid calls, 0 bina usage = andaza) | target ₹100, hard limit ₹120

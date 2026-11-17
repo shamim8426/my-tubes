@@ -57,3 +57,5 @@ Nightly after 02:00 IST: one Long (surah, RULES 1d) + one Short (Imaan Shorts, R
 2026-11-13: 007 Al-Asr script (51 lines, Tabarani line dropped) + TTS + thumbnail v3 done, video not built yet; next: Munshi TTS/audio review, edit, build_long.
 
 2026-11-13: 007 Al-Asr Long uploaded PRIVATE https://youtu.be/G10QXNZTxLQ (3:28.8, -14.1 LUFS, tempo 1.11, 12-13 reused images, 0 new, thumbnail v3C, story cost Rs 4.74 incl GST). Munshi final R1 PASS-WITH-NOTES. User decides public/schedule in Studio; first comment (task StoryChannel-Comment-G10QXNZTxLQ waits 3 h) must be posted via tools/post_comment.py if the task expires before it goes public. Next: 008 al-fil.
+
+2026-11-17: 008 Al-Fil Long uploaded PRIVATE https://youtu.be/M7UXpH-W3IY (3:54) + Short TJStQvexbfM (0:41), first surah Long in RULES 2h people form (4 paid Gemini images, Cloudflare quota empty), story cost Rs25.52 incl GST. Next: 009 surah per series_queue (Al-Kafirun announced at the end of 008).

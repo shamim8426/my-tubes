@@ -1,6 +1,6 @@
 # Preview — Jugnu Stories
 
-**Budget bacha:** ₹263.79  ·  **Last image:** 2026-11-15 17:31:57
+**Budget bacha:** ₹112.96  ·  **Last image:** 2026-11-17 05:38:54
 
 ## Characters
 
@@ -1042,6 +1042,70 @@
 
 ![s_girl_sad](channels/noor-e-raah/stories/007_imaan-shukr/images/s_girl_sad.png)
 
+### 02_lamp_single_flame
+
+![02_lamp_single_flame](channels/noor-e-raah/stories/008_al-fil/images/02_lamp_single_flame.png)
+
+### 03_madina_dawn_houses
+
+![03_madina_dawn_houses](channels/noor-e-raah/stories/008_al-fil/images/03_madina_dawn_houses.png)
+
+### 03_makka_valley_night
+
+![03_makka_valley_night](channels/noor-e-raah/stories/008_al-fil/images/03_makka_valley_night.png)
+
+### 04_dawn_sand_ridge
+
+![04_dawn_sand_ridge](channels/noor-e-raah/stories/008_al-fil/images/04_dawn_sand_ridge.png)
+
+### 05_dawn_horizon
+
+![05_dawn_horizon](channels/noor-e-raah/stories/008_al-fil/images/05_dawn_horizon.png)
+
+### 05_paths_to_oasis
+
+![05_paths_to_oasis](channels/noor-e-raah/stories/008_al-fil/images/05_paths_to_oasis.png)
+
+### 07_sea_horizon_dusk
+
+![07_sea_horizon_dusk](channels/noor-e-raah/stories/008_al-fil/images/07_sea_horizon_dusk.png)
+
+### 08_empty_room_morning
+
+![08_empty_room_morning](channels/noor-e-raah/stories/008_al-fil/images/08_empty_room_morning.png)
+
+### 09_lit_door
+
+![09_lit_door](channels/noor-e-raah/stories/008_al-fil/images/09_lit_door.png)
+
+### 10_ring_in_desert
+
+![10_ring_in_desert](channels/noor-e-raah/stories/008_al-fil/images/10_ring_in_desert.png)
+
+### 11_sunrays_clouds
+
+![11_sunrays_clouds](channels/noor-e-raah/stories/008_al-fil/images/11_sunrays_clouds.png)
+
+### 23_golden_valley_full_light
+
+![23_golden_valley_full_light](channels/noor-e-raah/stories/008_al-fil/images/23_golden_valley_full_light.png)
+
+### p01_grandpa_story — ₹4.16 · 2026-11-17 05:37:38
+
+![p01_grandpa_story](channels/noor-e-raah/stories/008_al-fil/images/p01_grandpa_story.png)
+
+### p05_fallen_stones — ₹4.10 · 2026-11-17 05:38:01
+
+![p05_fallen_stones](channels/noor-e-raah/stories/008_al-fil/images/p05_fallen_stones.png)
+
+### p06_kids_birds — ₹4.24 · 2026-11-17 05:38:29
+
+![p06_kids_birds](channels/noor-e-raah/stories/008_al-fil/images/p06_kids_birds.png)
+
+### p11_chaff_hands — ₹4.36 · 2026-11-17 05:38:54
+
+![p11_chaff_hands](channels/noor-e-raah/stories/008_al-fil/images/p11_chaff_hands.png)
+
 ### 01_thawr_night
 
 ![01_thawr_night](channels/noor-e-raah/stories/008_hijrat-ghaar-e-thawr/images/01_thawr_night.png)
@@ -1202,9 +1266,17 @@
 
 ![02_palm_morning](channels/noor-e-raah/stories/010_khawla-allah-ne-sun-li/images/02_palm_morning.png)
 
+### 03_family_hearth
+
+![03_family_hearth](channels/noor-e-raah/stories/010_khawla-allah-ne-sun-li/images/03_family_hearth.png)
+
 ### 03_house_hearth — ₹4.28 · 2026-11-15 13:18:58
 
 ![03_house_hearth](channels/noor-e-raah/stories/010_khawla-allah-ne-sun-li/images/03_house_hearth.png)
+
+### 04_angry_husband
+
+![04_angry_husband](channels/noor-e-raah/stories/010_khawla-allah-ne-sun-li/images/04_angry_husband.png)
 
 ### 04_closed_door — ₹0.00 · 2026-11-15 12:50:10
 
@@ -1229,6 +1301,10 @@
 ### 09_mosque_wall — ₹0.00 · 2026-11-15 12:51:14
 
 ![09_mosque_wall](channels/noor-e-raah/stories/010_khawla-allah-ne-sun-li/images/09_mosque_wall.png)
+
+### 09_telling_story
+
+![09_telling_story](channels/noor-e-raah/stories/010_khawla-allah-ne-sun-li/images/09_telling_story.png)
 
 ### 10_hands_raised — ₹0.00 · 2026-11-15 12:51:30
 
@@ -1270,6 +1346,10 @@
 
 ![17_door_opens](channels/noor-e-raah/stories/010_khawla-allah-ne-sun-li/images/17_door_opens.png)
 
+### 17_family_door
+
+![17_family_door](channels/noor-e-raah/stories/010_khawla-allah-ne-sun-li/images/17_family_door.png)
+
 ### 18_night_stars — ₹0.00 · 2026-11-15 12:54:27
 
 ![18_night_stars](channels/noor-e-raah/stories/010_khawla-allah-ne-sun-li/images/18_night_stars.png)
@@ -1285,3 +1365,147 @@
 ### 21_moon_night — ₹0.00 · 2026-11-15 12:55:13
 
 ![21_moon_night](channels/noor-e-raah/stories/010_khawla-allah-ne-sun-li/images/21_moon_night.png)
+
+### 01_night_house — ₹0.00 · 2026-11-17 01:42:46
+
+![01_night_house](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/01_night_house.png)
+
+### 02_lamp_glow — ₹0.00 · 2026-11-17 01:43:02
+
+![02_lamp_glow](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/02_lamp_glow.png)
+
+### 03_madinah_morning — ₹0.00 · 2026-11-17 01:43:16
+
+![03_madinah_morning](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/03_madinah_morning.png)
+
+### 04_travelers
+
+![04_travelers](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/04_travelers.png)
+
+### 05_welcome_house
+
+![05_welcome_house](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/05_welcome_house.png)
+
+### 06_palm_share
+
+![06_palm_share](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/06_palm_share.png)
+
+### 07_tired_man
+
+![07_tired_man](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/07_tired_man.png)
+
+### 08_messenger_walk
+
+![08_messenger_walk](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/08_messenger_walk.png)
+
+### 09_water_pot
+
+![09_water_pot](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/09_water_pot.png)
+
+### 10_empty_bowl
+
+![10_empty_bowl](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/10_empty_bowl.png)
+
+### 11_courtyard
+
+![11_courtyard](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/11_courtyard.png)
+
+### 12_man_stands
+
+![12_man_stands](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/12_man_stands.png)
+
+### 13_two_walk
+
+![13_two_walk](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/13_two_walk.png)
+
+### 14_door_arrive
+
+![14_door_arrive](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/14_door_arrive.png)
+
+### 15_wife_hearth
+
+![15_wife_hearth](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/15_wife_hearth.png)
+
+### 16_small_pot
+
+![16_small_pot](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/16_small_pot.png)
+
+### 17_couple_talk
+
+![17_couple_talk](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/17_couple_talk.png)
+
+### 18_lamp_light
+
+![18_lamp_light](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/18_lamp_light.png)
+
+### 19_kids_sleep
+
+![19_kids_sleep](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/19_kids_sleep.png)
+
+### 20_three_sit
+
+![20_three_sit](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/20_three_sit.png)
+
+### 21_lamp_out
+
+![21_lamp_out](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/21_lamp_out.png)
+
+### 22_dark_room
+
+![22_dark_room](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/22_dark_room.png)
+
+### 23_pretend
+
+![23_pretend](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/23_pretend.png)
+
+### 24_guest_eats
+
+![24_guest_eats](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/24_guest_eats.png)
+
+### 25_sleep_hungry
+
+![25_sleep_hungry](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/25_sleep_hungry.png)
+
+### 26_dawn
+
+![26_dawn](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/26_dawn.png)
+
+### 27_walk_morning
+
+![27_walk_morning](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/27_walk_morning.png)
+
+### 28_light_door
+
+![28_light_door](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/28_light_door.png)
+
+### 29_light_ray
+
+![29_light_ray](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/29_light_ray.png)
+
+### 30_ayah_card
+
+![30_ayah_card](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/30_ayah_card.png)
+
+### 31_sharing_bread
+
+![31_sharing_bread](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/31_sharing_bread.png)
+
+### 32_open_hand
+
+![32_open_hand](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/32_open_hand.png)
+
+### 33_market_give
+
+![33_market_give](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/33_market_give.png)
+
+### 34_dark_lamp
+
+![34_dark_lamp](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/34_dark_lamp.png)
+
+### 35_night_stars
+
+![35_night_stars](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/35_night_stars.png)
+
+### 36_lamp_end
+
+![36_lamp_end](channels/noor-e-raah/stories/011_mehmaan-aur-bujha-chiraag/images/36_lamp_end.png)

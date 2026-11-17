@@ -1,5 +1,5 @@
 {
- "_help": "Al-Fil images (008). 0 NEW; all reuse/reuse_id+rect, Rs0 (RULES 1d). ayah 1 = whole surah; ayah 2-3 = 105:1 jumle 1-2; 4-5 = 105:2; 6-7 = 105:3; 8-9 = 105:4; 10-11 = 105:5.",
+ "_help": "008 Al-Fil images v2 (RULES 2h, 2026-11-17): people image per ayah block (4 new paid Gemini, Cloudflare free quota empty at 05:36 IST); intro/parichay/shan-e-nuzul = reused places (RULES 2). Old plan: images_places.json.",
  "images": [
   {
    "id": "04_dawn_sand_ridge",
@@ -16,23 +16,11 @@
    "reuse": "channels/noor-e-raah/stories/005_an-nas/images/23_golden_valley_full_light.png"
   },
   {
-   "id": "11_sunrays_clouds",
+   "id": "p01_grandpa_story",
    "start": {
     "ayah": 1
    },
-   "reuse": "channels/noor-e-raah/stories/002_ayatul-kursi/images/11_sunrays_clouds.png"
-  },
-  {
-   "id": "11_sunrays_clouds_b",
-   "start": {
-    "line": 6
-   },
-   "reuse_id": "11_sunrays_clouds",
-   "rect": {
-    "fx": 0.5,
-    "fy": 0.4,
-    "zc": 1.5
-   }
+   "new": "paid Gemini 1K (free quota empty), RULES 2h people image"
   },
   {
    "id": "03_makka_valley_night",
@@ -73,59 +61,68 @@
    }
   },
   {
-   "id": "05_dawn_horizon",
+   "id": "p01_grandpa_story_b",
    "start": {
     "ayah": 2
    },
-   "reuse": "channels/noor-e-raah/stories/002_ayatul-kursi/images/05_dawn_horizon.png"
+   "new": "paid Gemini 1K (free quota empty), RULES 2h people image",
+   "reuse_id": "p01_grandpa_story",
+   "rect": {
+    "fx": 0.66,
+    "fy": 0.35,
+    "zc": 1.5
+   }
   },
   {
-   "id": "05_dawn_horizon_b",
+   "id": "p01_grandpa_story_c",
    "start": {
     "ayah": 3
    },
-   "reuse_id": "05_dawn_horizon",
+   "new": "paid Gemini 1K (free quota empty), RULES 2h people image",
+   "reuse_id": "p01_grandpa_story",
    "rect": {
-    "fx": 0.5,
+    "fx": 0.28,
     "fy": 0.6,
     "zc": 1.5
    }
   },
   {
-   "id": "10_ring_in_desert",
+   "id": "p05_fallen_stones",
    "start": {
     "ayah": 4
    },
-   "reuse": "channels/noor-e-raah/stories/002_ayatul-kursi/images/10_ring_in_desert.png"
+   "new": "paid Gemini 1K (free quota empty), RULES 2h people image"
   },
   {
-   "id": "10_ring_in_desert_b",
+   "id": "p05_fallen_stones_b",
    "start": {
     "ayah": 5
    },
-   "reuse_id": "10_ring_in_desert",
+   "new": "paid Gemini 1K (free quota empty), RULES 2h people image",
+   "reuse_id": "p05_fallen_stones",
    "rect": {
-    "fx": 0.5,
-    "fy": 0.62,
-    "zc": 1.6
+    "fx": 0.62,
+    "fy": 0.55,
+    "zc": 1.4
    }
   },
   {
-   "id": "07_sea_horizon_dusk",
+   "id": "p06_kids_birds",
    "start": {
     "ayah": 6
    },
-   "reuse": "channels/noor-e-raah/stories/003_al-ikhlas/images/07_sea_horizon_dusk.png"
+   "new": "paid Gemini 1K (free quota empty), RULES 2h people image"
   },
   {
-   "id": "07_sea_horizon_dusk_b",
+   "id": "p06_kids_birds_b",
    "start": {
     "ayah": 7
    },
-   "reuse_id": "07_sea_horizon_dusk",
+   "new": "paid Gemini 1K (free quota empty), RULES 2h people image",
+   "reuse_id": "p06_kids_birds",
    "rect": {
-    "fx": 0.5,
-    "fy": 0.3,
+    "fx": 0.45,
+    "fy": 0.25,
     "zc": 1.5
    }
   },
@@ -154,22 +151,29 @@
    }
   },
   {
-   "id": "08_empty_room_morning",
+   "id": "p11_chaff_hands_b",
    "start": {
     "ayah": 10
    },
-   "reuse": "channels/noor-e-raah/stories/003_al-ikhlas/images/08_empty_room_morning.png"
+   "new": "paid Gemini 1K (free quota empty), RULES 2h people image",
+   "reuse_id": "p11_chaff_hands",
+   "rect": {
+    "fx": 0.25,
+    "fy": 0.25,
+    "zc": 1.7
+   }
   },
   {
-   "id": "08_empty_room_morning_b",
+   "id": "p11_chaff_hands_c",
    "start": {
     "ayah": 11
    },
-   "reuse_id": "08_empty_room_morning",
+   "new": "paid Gemini 1K (free quota empty), RULES 2h people image",
+   "reuse_id": "p11_chaff_hands",
    "rect": {
-    "fx": 0.5,
-    "fy": 0.7,
-    "zc": 1.6
+    "fx": 0.15,
+    "fy": 0.3,
+    "zc": 1.7
    }
   },
   {

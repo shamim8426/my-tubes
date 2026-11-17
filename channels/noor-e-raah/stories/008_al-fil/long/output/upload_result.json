@@ -1,0 +1,13 @@
+{
+  "video_id": "M7UXpH-W3IY",
+  "url": "https://youtu.be/M7UXpH-W3IY",
+  "studio_url": "https://studio.youtube.com/video/M7UXpH-W3IY/edit",
+  "uploaded_at": "2026-11-17T01:22:49.263859+00:00",
+  "publish_at": null,
+  "thumbnail_ok": true,
+  "captions_ok": true,
+  "comment_task": "StoryChannel-Comment-M7UXpH-W3IY",
+  "comment_task_at": "2026-11-17T01:27+00:00",
+  "status": "private - user decides public/schedule in Studio",
+  "studio_action": "pending: user sets public/schedule in Studio; first-comment task waits max 3 h for public, else run tools/post_comment.py --job <upload.json> after publishing, then pin"
+}

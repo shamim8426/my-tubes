@@ -166,3 +166,4 @@
 2026-11-07 | channel | PAUSED (user) | Jugnu Stories paused, nothing deleted. Same YouTube channel (ID kept) renamed 'Reality Check - Asli' -> channels/reality-check. channel.json paused:true, pipeline_queue paused note. Old 11 videos: user sets private in Studio. Story 006 stays on hold | Rs0
 =======
 >>>>>>> Stashed changes
+2026-11-17 | channels/noor-e-raah/stories/008_al-fil | ASLI KUL KHARCHA | ₹0.00 + GST ₹0.00 = ₹0.00 (andaza tha ₹0.00; 0 paid calls, 0 bina usage = andaza) | target ₹100, hard limit ₹120

@@ -1,0 +1,25 @@
+learnings.md (Nigraan) LAGU KARO:
+  - [2026-10-29, HINT / kam data, test karo] **Hook ka vaada 30-40 s ke andar poora karo**: hook ke turant baad pehli
+    aayat (Arabic + bhaavarth); parichay/naam/ginti/shan-e-nuzul ki raayein max 30-40 s ya aayaton ke beech chhote tukde.
+    Saboot: kmYyRGdykjY (Al-Fatiha), 18 engaged viewers: 14-19 s par 100%->72% (hook ke baad "पहले नाम..."),
+    33-38 s par ->50% (ginti wali line), pehli aayat 2:20 par tab tak 33% bache; AVD 2:38 / 33.4%.
+    Naapna: agli video ka retention @30 s aur @2:00 is se upar ho.
+  - [2026-10-30, HINT / kam data] **Title/hook/thumbnail (003 Al-Ikhlas)**: title me search shabd pehle ("Surah Al-Ikhlas ka
+    Matlab Hindi Mein"); thumbnail <= 3-4 bade shabd + ek chehra-rahit emotion/diya, high contrast; pehle frame bina awaaz
+    samajh aaye. Saboot: kmYyRGdykjY 214 views, 44 engaged (20.6%), @30 s retention 54.5%, AVD 115 s / 24.3% (fetch 2026-10-30).
+    Naapna: 003 ka @30 s > 60% aur AVD% > 30%.
+  - [2026-10-31, HINT / kam data] **Pre-004 (Al-Falaq) brief** (fetch 2026-10-31; Analytics data sirf 28 Oct tak):
+    (1) Pehle 30-40 s me hook ka vaada + pehli aayat (upar wali LAGU KARO) — abhi bhi ek hi video ka saboot.
+    (2) Title me search shabd pehle + thumbnail <= 3-4 shabd (upar). (3) Thumbnail pehle frame bina awaaz samajh aaye.
+    (4) Naye videos ko shuruat me push chahiye: Al-Fatiha ke 261 views me 259 SUBSCRIBER-source (1 subscriber!), 0 search/browse
+    -> 004 ke baad bhi community/Shorts se traffic lao (user se poochho). (5) Naapna: 004 ke 48 h me >= 500 impressions aaye tab hi seekh pakki.
+    Saboot: rRtM7wFIVcA public counter 3 views, 3fj1U_Q4Ku8 5 views (31 Oct, 1-2 din baad) = bahut kam data.
+length 234.0s (3:54.0), lines 42, ayat 11, shots 38 (4.1-7.9s), music segments 2, ambience 1
+Hindi text engine: libass
+edit_plan: look soft_glow, vignette 0.1, grain 1.5
+video: 4 chunks of 60s, 0 already done, 4 parallel workers
+  chunk 4/4 rendered (848s)
+  chunk 3/4 rendered (931s)
+  chunk 2/4 rendered (933s)
+  chunk 1/4 rendered (937s)
+OK channels/noor-e-raah/stories/008_al-fil/long/output/008_al-fil_final.mp4  234.0s  -14.5 LUFS

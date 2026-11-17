@@ -1,0 +1,1233 @@
+{
+ "lines": [
+  {
+   "kind": "line",
+   "n": 3,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "INTRO (`part: intro`, hook)",
+   "ayah": null,
+   "text": "एक लश्कर हाथी के साथ काबा ढहाने निकला — और उसकी चाल बेकार हो गई। ये है सूरह अल-फ़ील।",
+   "tags": [
+    "P5",
+    "N3"
+   ],
+   "audio": "audio/tts/003_ustaad.wav",
+   "seconds": 7.52,
+   "tts_ok": true,
+   "start": 0.8,
+   "end": 7.575
+  },
+  {
+   "kind": "line",
+   "n": 4,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "1. SURAH KA PARICHAY",
+   "ayah": null,
+   "text": "अल-फ़ील यानी हाथी। पहली आयत के \"अस्हाबिल फ़ील\", यानी हाथी वालों, से इसका नाम है। ये मक्की सूरह है।",
+   "tags": [
+    "P1",
+    "P2"
+   ],
+   "audio": "audio/tts/004_ustaad.wav",
+   "seconds": 8.8,
+   "tts_ok": true,
+   "start": 8.725,
+   "end": 16.653
+  },
+  {
+   "kind": "line",
+   "n": 6,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "1. SURAH KA PARICHAY",
+   "ayah": 1,
+   "text": "ये रही पूरी सूरह। पाँच छोटी आयतें, एक ही बहाव — याद दिलाना, चाल का बेकार होना, परिंदे, कंकर, और बर्बादी।",
+   "tags": [
+    "P6"
+   ],
+   "audio": "audio/tts/006_ustaad.wav",
+   "seconds": 12.48,
+   "tts_ok": true,
+   "start": 19.603,
+   "end": 30.846
+  },
+  {
+   "kind": "line",
+   "n": 8,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "2. SHAN-E-NUZUL",
+   "ayah": null,
+   "text": "इस सूरह का कोई अलग सबब-ए-नुज़ूल माने हुए तफ़्सीर में नहीं मिलता। सूरह ख़ुद एक जाने-माने वाक़िये, अस्हाबिल फ़ील, की तरफ़ इशारा करती है।",
+   "tags": [
+    "N1"
+   ],
+   "audio": "audio/tts/008_ustaad.wav",
+   "seconds": 9.24,
+   "tts_ok": true,
+   "start": 32.796,
+   "end": 41.12
+  },
+  {
+   "kind": "line",
+   "n": 9,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "2. SHAN-E-NUZUL",
+   "ayah": null,
+   "text": "रिवायतों के मुताबिक़ यमन का हाकिम अबरहा हाथी के साथ अपना लश्कर लेकर काबा ढहाने निकला।",
+   "tags": [
+    "N3"
+   ],
+   "audio": "audio/tts/009_ustaad.wav",
+   "seconds": 7.28,
+   "tts_ok": true,
+   "start": 41.47,
+   "end": 48.029
+  },
+  {
+   "kind": "line",
+   "n": 10,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "2. SHAN-E-NUZUL",
+   "ayah": null,
+   "text": "रिवायत में आता है कि हाथी आगे बढ़ने से रुक गया और बैठ गया।",
+   "tags": [
+    "N5"
+   ],
+   "audio": "audio/tts/010_ustaad.wav",
+   "seconds": 5.08,
+   "tts_ok": true,
+   "start": 48.379,
+   "end": 52.955
+  },
+  {
+   "kind": "line",
+   "n": 11,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "2. SHAN-E-NUZUL",
+   "ayah": null,
+   "text": "ये वाक़िया उस साल हुआ, जिसे अरब \"आमुल फ़ील\", यानी हाथी का साल, कहते थे।",
+   "tags": [
+    "N2"
+   ],
+   "audio": "audio/tts/011_ustaad.wav",
+   "seconds": 6.2,
+   "tts_ok": true,
+   "start": 53.305,
+   "end": 58.891
+  },
+  {
+   "kind": "line",
+   "n": 12,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "2. SHAN-E-NUZUL",
+   "ayah": null,
+   "text": "इब्ने इसहाक़ की रिवायत के मुताबिक़, जो इब्ने कसीर ने दी है, नबी सल्लल्लाहु अलैहि वसल्लम ने ये एहसान क़ुरैश को याद दिलाया।",
+   "tags": [
+    "N1",
+    "M7"
+   ],
+   "audio": "audio/tts/012_ustaad.wav",
+   "seconds": 9.04,
+   "tts_ok": true,
+   "start": 59.241,
+   "end": 67.385
+  },
+  {
+   "kind": "line",
+   "n": 14,
+   "speaker": "ustaad",
+   "role": "ucharan",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 2,
+   "text": "अलम तरा कैफ़ा फ़अला रब्बुक",
+   "tags": [
+    "U1"
+   ],
+   "audio": "audio/tts/014_ustaad.wav",
+   "seconds": 2.84,
+   "tts_ok": true,
+   "start": 71.135,
+   "end": 73.694
+  },
+  {
+   "kind": "line",
+   "n": 15,
+   "speaker": "ustaad",
+   "role": "bhaavarth",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 2,
+   "text": "पहली आयत: क्या तुमने नहीं देखा, तुम्हारे रब ने क्या किया।",
+   "tags": [
+    "T2"
+   ],
+   "audio": "audio/tts/015_ustaad.wav",
+   "seconds": 4.8,
+   "tts_ok": true,
+   "start": 74.044,
+   "end": 78.368
+  },
+  {
+   "kind": "line",
+   "n": 17,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 2,
+   "text": "ये वाक़िया इतना मशहूर था कि मानो सबने देखा हो। \"रब\" यानी अल्लाह।",
+   "tags": [
+    "M1"
+   ],
+   "audio": "audio/tts/017_ustaad.wav",
+   "seconds": 5.28,
+   "tts_ok": true,
+   "start": 79.518,
+   "end": 84.275
+  },
+  {
+   "kind": "line",
+   "n": 19,
+   "speaker": "ustaad",
+   "role": "ucharan",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 3,
+   "text": "बि अस्हाबिल फ़ील",
+   "tags": [
+    "U2"
+   ],
+   "audio": "audio/tts/019_ustaad.wav",
+   "seconds": 3.36,
+   "tts_ok": true,
+   "start": 87.225,
+   "end": 90.252
+  },
+  {
+   "kind": "line",
+   "n": 20,
+   "speaker": "ustaad",
+   "role": "bhaavarth",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 3,
+   "text": "हाथी वालों के साथ।",
+   "tags": [
+    "T2"
+   ],
+   "audio": "audio/tts/020_ustaad.wav",
+   "seconds": 1.72,
+   "tts_ok": true,
+   "start": 90.602,
+   "end": 92.151
+  },
+  {
+   "kind": "line",
+   "n": 22,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 3,
+   "text": "हाथी वाले यानी अबरहा का लश्कर, जो यमन से काबा ढहाने आया था।",
+   "tags": [
+    "K2"
+   ],
+   "audio": "audio/tts/022_ustaad.wav",
+   "seconds": 6.0,
+   "tts_ok": true,
+   "start": 93.301,
+   "end": 98.707
+  },
+  {
+   "kind": "line",
+   "n": 24,
+   "speaker": "ustaad",
+   "role": "ucharan",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 4,
+   "text": "अलम यज्अल कैदहुम",
+   "tags": [
+    "U3"
+   ],
+   "audio": "audio/tts/024_ustaad.wav",
+   "seconds": 2.2,
+   "tts_ok": true,
+   "start": 101.657,
+   "end": 103.639
+  },
+  {
+   "kind": "line",
+   "n": 25,
+   "speaker": "ustaad",
+   "role": "bhaavarth",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 4,
+   "text": "दूसरी आयत, पहला हिस्सा: क्या उसने उनकी चाल को",
+   "tags": [
+    "T2"
+   ],
+   "audio": "audio/tts/025_ustaad.wav",
+   "seconds": 5.0,
+   "tts_ok": true,
+   "start": 103.989,
+   "end": 108.493
+  },
+  {
+   "kind": "line",
+   "n": 27,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 4,
+   "text": "\"कैद\" यानी चाल, साज़िश — काबा ढहाने का मंसूबा।",
+   "tags": [
+    "K3"
+   ],
+   "audio": "audio/tts/027_ustaad.wav",
+   "seconds": 4.64,
+   "tts_ok": true,
+   "start": 109.643,
+   "end": 113.823
+  },
+  {
+   "kind": "line",
+   "n": 29,
+   "speaker": "ustaad",
+   "role": "ucharan",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 5,
+   "text": "फ़ी तज़्लील",
+   "tags": [
+    "U4"
+   ],
+   "audio": "audio/tts/029_ustaad.wav",
+   "seconds": 2.56,
+   "tts_ok": true,
+   "start": 116.773,
+   "end": 119.08
+  },
+  {
+   "kind": "line",
+   "n": 30,
+   "speaker": "ustaad",
+   "role": "bhaavarth",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 5,
+   "text": "दूसरा हिस्सा: बेकार नहीं कर दिया।",
+   "tags": [
+    "T2"
+   ],
+   "audio": "audio/tts/030_ustaad.wav",
+   "seconds": 3.56,
+   "tts_ok": true,
+   "start": 119.43,
+   "end": 122.637
+  },
+  {
+   "kind": "line",
+   "n": 32,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 5,
+   "text": "\"तज़्लील\" यानी बेकार, ग़लत रास्ते पर। उनकी चाल अपने मक़सद तक पहुँची ही नहीं।",
+   "tags": [
+    "K4"
+   ],
+   "audio": "audio/tts/032_ustaad.wav",
+   "seconds": 6.08,
+   "tts_ok": true,
+   "start": 123.787,
+   "end": 129.264
+  },
+  {
+   "kind": "line",
+   "n": 34,
+   "speaker": "ustaad",
+   "role": "ucharan",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 6,
+   "text": "व अर्सला अलैहिम",
+   "tags": [
+    "U5"
+   ],
+   "audio": "audio/tts/034_ustaad.wav",
+   "seconds": 2.16,
+   "tts_ok": true,
+   "start": 132.214,
+   "end": 134.16
+  },
+  {
+   "kind": "line",
+   "n": 35,
+   "speaker": "ustaad",
+   "role": "bhaavarth",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 6,
+   "text": "तीसरी आयत, पहला हिस्सा: और उन पर भेजे।",
+   "tags": [
+    "T2"
+   ],
+   "audio": "audio/tts/035_ustaad.wav",
+   "seconds": 4.68,
+   "tts_ok": true,
+   "start": 134.51,
+   "end": 138.727
+  },
+  {
+   "kind": "line",
+   "n": 37,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 6,
+   "text": "यानी अल्लाह ने उन पर परिंदे भेजे।",
+   "tags": [
+    "K5"
+   ],
+   "audio": "audio/tts/037_ustaad.wav",
+   "seconds": 2.56,
+   "tts_ok": true,
+   "start": 139.877,
+   "end": 142.183
+  },
+  {
+   "kind": "line",
+   "n": 39,
+   "speaker": "ustaad",
+   "role": "ucharan",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 7,
+   "text": "तैरन अबाबील",
+   "tags": [
+    "U6"
+   ],
+   "audio": "audio/tts/039_ustaad.wav",
+   "seconds": 1.8,
+   "tts_ok": true,
+   "start": 145.133,
+   "end": 146.755
+  },
+  {
+   "kind": "line",
+   "n": 40,
+   "speaker": "ustaad",
+   "role": "bhaavarth",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 7,
+   "text": "दूसरा हिस्सा: परिंदों के झुंड।",
+   "tags": [
+    "T2"
+   ],
+   "audio": "audio/tts/040_ustaad.wav",
+   "seconds": 2.96,
+   "tts_ok": true,
+   "start": 147.105,
+   "end": 149.771
+  },
+  {
+   "kind": "line",
+   "n": 42,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 7,
+   "text": "तफ़्सीरों में \"अबाबील\" का मतलब झुंड के झुंड आया है, यानी एक के पीछे एक।",
+   "tags": [
+    "K6"
+   ],
+   "audio": "audio/tts/042_ustaad.wav",
+   "seconds": 6.08,
+   "tts_ok": true,
+   "start": 150.921,
+   "end": 156.399
+  },
+  {
+   "kind": "line",
+   "n": 44,
+   "speaker": "ustaad",
+   "role": "ucharan",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 8,
+   "text": "तरमीहिम बि हिजारतिम",
+   "tags": [
+    "U7"
+   ],
+   "audio": "audio/tts/044_ustaad.wav",
+   "seconds": 2.76,
+   "tts_ok": true,
+   "start": 159.349,
+   "end": 161.835
+  },
+  {
+   "kind": "line",
+   "n": 45,
+   "speaker": "ustaad",
+   "role": "bhaavarth",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 8,
+   "text": "चौथी आयत, पहला हिस्सा: जो उन पर कंकर-पत्थर फेंकते थे।",
+   "tags": [
+    "T2"
+   ],
+   "audio": "audio/tts/045_ustaad.wav",
+   "seconds": 5.0,
+   "tts_ok": true,
+   "start": 162.185,
+   "end": 166.69
+  },
+  {
+   "kind": "line",
+   "n": 47,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 8,
+   "text": "यानी वो परिंदे उन पर कंकर फेंकते थे।",
+   "tags": [
+    "K7"
+   ],
+   "audio": "audio/tts/047_ustaad.wav",
+   "seconds": 2.88,
+   "tts_ok": true,
+   "start": 167.84,
+   "end": 170.434
+  },
+  {
+   "kind": "line",
+   "n": 49,
+   "speaker": "ustaad",
+   "role": "ucharan",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 9,
+   "text": "मिन सिज्जील",
+   "tags": [
+    "U8"
+   ],
+   "audio": "audio/tts/049_ustaad.wav",
+   "seconds": 1.92,
+   "tts_ok": true,
+   "start": 173.384,
+   "end": 175.114
+  },
+  {
+   "kind": "line",
+   "n": 50,
+   "speaker": "ustaad",
+   "role": "bhaavarth",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 9,
+   "text": "दूसरा हिस्सा: सिज्जील के।",
+   "tags": [
+    "T2"
+   ],
+   "audio": "audio/tts/050_ustaad.wav",
+   "seconds": 3.24,
+   "tts_ok": true,
+   "start": 175.464,
+   "end": 178.383
+  },
+  {
+   "kind": "line",
+   "n": 52,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 9,
+   "text": "तफ़्सीरों में \"सिज्जील\" का मतलब पकी हुई मिट्टी का कंकर-पत्थर आया है।",
+   "tags": [
+    "K8"
+   ],
+   "audio": "audio/tts/052_ustaad.wav",
+   "seconds": 5.04,
+   "tts_ok": true,
+   "start": 179.533,
+   "end": 184.073
+  },
+  {
+   "kind": "line",
+   "n": 54,
+   "speaker": "ustaad",
+   "role": "ucharan",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 10,
+   "text": "फ़जअलहुम",
+   "tags": [
+    "U9"
+   ],
+   "audio": "audio/tts/054_ustaad.wav",
+   "seconds": 1.68,
+   "tts_ok": true,
+   "start": 187.023,
+   "end": 188.537
+  },
+  {
+   "kind": "line",
+   "n": 55,
+   "speaker": "ustaad",
+   "role": "bhaavarth",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 10,
+   "text": "पाँचवीं आयत, पहला हिस्सा: फिर उन्हें कर दिया।",
+   "tags": [
+    "T2"
+   ],
+   "audio": "audio/tts/055_ustaad.wav",
+   "seconds": 3.92,
+   "tts_ok": true,
+   "start": 188.887,
+   "end": 192.418
+  },
+  {
+   "kind": "line",
+   "n": 57,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 10,
+   "text": "यानी अल्लाह ने उन्हें एक अंजाम तक पहुँचा दिया।",
+   "tags": [
+    "K9"
+   ],
+   "audio": "audio/tts/057_ustaad.wav",
+   "seconds": 3.72,
+   "tts_ok": true,
+   "start": 193.568,
+   "end": 196.92
+  },
+  {
+   "kind": "line",
+   "n": 59,
+   "speaker": "ustaad",
+   "role": "ucharan",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 11,
+   "text": "कअस्फ़िम मअकूल",
+   "tags": [
+    "U10"
+   ],
+   "audio": "audio/tts/059_ustaad.wav",
+   "seconds": 2.2,
+   "tts_ok": true,
+   "start": 199.87,
+   "end": 201.852
+  },
+  {
+   "kind": "line",
+   "n": 60,
+   "speaker": "ustaad",
+   "role": "bhaavarth",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 11,
+   "text": "दूसरा हिस्सा: खाए हुए भूसे जैसा।",
+   "tags": [
+    "T2"
+   ],
+   "audio": "audio/tts/060_ustaad.wav",
+   "seconds": 3.56,
+   "tts_ok": true,
+   "start": 202.202,
+   "end": 205.409
+  },
+  {
+   "kind": "line",
+   "n": 62,
+   "speaker": "ustaad",
+   "role": "matlab",
+   "section": "3. AAYAT-DAR-AAYAT",
+   "ayah": 11,
+   "text": "\"खाया हुआ भूसा\" यानी वो चीज़, जो पूरी तरह बर्बाद और कमज़ोर हो गई।",
+   "tags": [
+    "K10"
+   ],
+   "audio": "audio/tts/062_ustaad.wav",
+   "seconds": 5.48,
+   "tts_ok": true,
+   "start": 206.559,
+   "end": 211.496
+  },
+  {
+   "kind": "line",
+   "n": 63,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "4. SEEKH",
+   "ayah": null,
+   "text": "पहली सीख: ताक़तवर की ताक़त अल्लाह के सामने कुछ नहीं।",
+   "tags": [
+    "M6"
+   ],
+   "audio": "audio/tts/063_ustaad.wav",
+   "seconds": 4.68,
+   "tts_ok": true,
+   "start": 212.646,
+   "end": 216.862
+  },
+  {
+   "kind": "line",
+   "n": 64,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "4. SEEKH",
+   "ayah": null,
+   "text": "दूसरी: किसी की चाल अल्लाह के फ़ैसले को नहीं रोक सकती।",
+   "tags": [
+    "M6"
+   ],
+   "audio": "audio/tts/064_ustaad.wav",
+   "seconds": 5.2,
+   "tts_ok": true,
+   "start": 217.212,
+   "end": 221.897
+  },
+  {
+   "kind": "line",
+   "n": 65,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "4. SEEKH",
+   "ayah": null,
+   "text": "तीसरी: अल्लाह अपने घर की हिफ़ाज़त ख़ुद करता है।",
+   "tags": [
+    "M6",
+    "P5"
+   ],
+   "audio": "audio/tts/065_ustaad.wav",
+   "seconds": 4.16,
+   "tts_ok": true,
+   "start": 222.247,
+   "end": 225.995
+  },
+  {
+   "kind": "line",
+   "n": 66,
+   "speaker": "ustaad",
+   "role": "",
+   "section": "4. SEEKH",
+   "ayah": null,
+   "text": "अगली बार, नूर-ए-राह में: सूरह अल-काफ़िरून।",
+   "tags": [
+    "NEXT"
+   ],
+   "audio": "audio/tts/066_ustaad.wav",
+   "seconds": 4.04,
+   "tts_ok": true,
+   "start": 226.345,
+   "end": 229.984
+  }
+ ],
+ "ayat": [
+  {
+   "ayah": 1,
+   "fade": 16.6527027027027,
+   "a0": 17.252702702702702,
+   "swoosh": 16.752702702702702,
+   "text": "أَلَمْ تَرَ كَيْفَ فَعَلَ رَبُّكَ بِأَصْحَٰبِ ٱلْفِيلِ أَلَمْ يَجْعَلْ كَيْدَهُمْ فِى تَضْلِيلٍ وَأَرْسَلَ عَلَيْهِمْ طَيْرًا أَبَابِيلَ تَرْمِيهِم بِحِجَارَةٍ مِّن سِجِّيلٍ فَجَعَلَهُمْ كَعَصْفٍ مَّأْكُولٍۭ",
+   "off": 31.645945945945947
+  },
+  {
+   "ayah": 2,
+   "fade": 68.18513513513513,
+   "a0": 68.78513513513512,
+   "swoosh": 68.28513513513512,
+   "text": "أَلَمْ تَرَ كَيْفَ فَعَلَ رَبُّكَ",
+   "off": 79.16801801801799
+  },
+  {
+   "ayah": 3,
+   "fade": 84.27477477477474,
+   "a0": 84.87477477477474,
+   "swoosh": 84.37477477477474,
+   "text": "بِأَصْحَٰبِ ٱلْفِيلِ",
+   "off": 92.9513513513513
+  },
+  {
+   "ayah": 4,
+   "fade": 98.7067567567567,
+   "a0": 99.3067567567567,
+   "swoosh": 98.8067567567567,
+   "text": "أَلَمْ يَجْعَلْ كَيْدَهُمْ",
+   "off": 109.29324324324318
+  },
+  {
+   "ayah": 5,
+   "fade": 113.82342342342335,
+   "a0": 114.42342342342334,
+   "swoosh": 113.92342342342334,
+   "text": "فِى تَضْلِيلٍ",
+   "off": 123.43693693693685
+  },
+  {
+   "ayah": 6,
+   "fade": 129.26441441441432,
+   "a0": 129.8644144144143,
+   "swoosh": 129.3644144144143,
+   "text": "وَأَرْسَلَ عَلَيْهِمْ",
+   "off": 139.52657657657647
+  },
+  {
+   "ayah": 7,
+   "fade": 142.18288288288278,
+   "a0": 142.78288288288277,
+   "swoosh": 142.28288288288277,
+   "text": "طَيْرًا أَبَابِيلَ",
+   "off": 150.57117117117104
+  },
+  {
+   "ayah": 8,
+   "fade": 156.3986486486485,
+   "a0": 156.9986486486485,
+   "swoosh": 156.4986486486485,
+   "text": "تَرْمِيهِم بِحِجَارَةٍ",
+   "off": 167.48963963963948
+  },
+  {
+   "ayah": 9,
+   "fade": 170.43423423423405,
+   "a0": 171.03423423423405,
+   "swoosh": 170.53423423423405,
+   "text": "مِّن سِجِّيلٍ",
+   "off": 179.1828828828827
+  },
+  {
+   "ayah": 10,
+   "fade": 184.07342342342324,
+   "a0": 184.67342342342323,
+   "swoosh": 184.17342342342323,
+   "text": "فَجَعَلَهُمْ",
+   "off": 193.21846846846827
+  },
+  {
+   "ayah": 11,
+   "fade": 196.91981981981962,
+   "a0": 197.51981981981962,
+   "swoosh": 197.01981981981962,
+   "text": "كَعَصْفٍ مَّأْكُولٍۭ",
+   "off": 206.2090090090088
+  }
+ ],
+ "music": [
+  {
+   "track": "Soaring",
+   "start": 0.8,
+   "fin": 1.5,
+   "end": 33.14594594594595,
+   "fout": 1.5
+  },
+  {
+   "track": "River Flute",
+   "start": 31.645945945945947,
+   "fin": 2.5,
+   "end": 232.98423423423404,
+   "fout": 3.0
+  }
+ ],
+ "amb": [
+  {
+   "names": [
+    "breeze"
+   ],
+   "start": 0.0,
+   "end": 233.98423423423404
+  }
+ ],
+ "end": 233.984,
+ "fade_at": {
+  "1": 16.6527027027027,
+  "2": 68.18513513513513,
+  "3": 84.27477477477474,
+  "4": 98.7067567567567,
+  "5": 113.82342342342335,
+  "6": 129.26441441441432,
+  "7": 142.18288288288278,
+  "8": 156.3986486486485,
+  "9": 170.43423423423405,
+  "10": 184.07342342342324,
+  "11": 196.91981981981962
+ },
+ "shots": [
+  {
+   "img": "04_dawn_sand_ridge.png",
+   "id": "04_dawn_sand_ridge",
+   "start": 0.0,
+   "end": 4.212,
+   "move": "push_in",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "04_dawn_sand_ridge.png",
+   "id": "04_dawn_sand_ridge",
+   "start": 4.212,
+   "end": 8.425,
+   "move": "pan_right",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "23_golden_valley_full_light.png",
+   "id": "23_golden_valley_full_light",
+   "start": 8.425,
+   "end": 12.539,
+   "move": "pull_out",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "23_golden_valley_full_light.png",
+   "id": "23_golden_valley_full_light",
+   "start": 12.539,
+   "end": 16.653,
+   "move": "pan_left",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "p01_grandpa_story.png",
+   "id": "p01_grandpa_story",
+   "start": 16.653,
+   "end": 24.574,
+   "move": "gentle_orbit",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "p01_grandpa_story.png",
+   "id": "p01_grandpa_story",
+   "start": 24.574,
+   "end": 32.496,
+   "move": "push_in",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "03_makka_valley_night.png",
+   "id": "03_makka_valley_night",
+   "start": 32.496,
+   "end": 36.833,
+   "move": "pan_left",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "03_makka_valley_night.png",
+   "id": "03_makka_valley_night",
+   "start": 36.833,
+   "end": 41.17,
+   "move": "pull_out",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "03_makka_valley_night.png",
+   "id": "03_makka_valley_night_b",
+   "start": 41.17,
+   "end": 48.079,
+   "move": "pan_right",
+   "fx": 0.5,
+   "fy": 0.75,
+   "zc": 1.5
+  },
+  {
+   "img": "05_paths_to_oasis.png",
+   "id": "05_paths_to_oasis",
+   "start": 48.079,
+   "end": 53.51,
+   "move": "push_in",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "05_paths_to_oasis.png",
+   "id": "05_paths_to_oasis",
+   "start": 53.51,
+   "end": 58.941,
+   "move": "pan_right",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "05_paths_to_oasis.png",
+   "id": "05_paths_to_oasis_b",
+   "start": 58.941,
+   "end": 63.563,
+   "move": "pull_out",
+   "fx": 0.3,
+   "fy": 0.6,
+   "zc": 1.5
+  },
+  {
+   "img": "05_paths_to_oasis.png",
+   "id": "05_paths_to_oasis_b",
+   "start": 63.563,
+   "end": 68.185,
+   "move": "pan_left",
+   "fx": 0.3,
+   "fy": 0.6,
+   "zc": 1.5
+  },
+  {
+   "img": "p01_grandpa_story.png",
+   "id": "p01_grandpa_story_b",
+   "start": 68.185,
+   "end": 73.548,
+   "move": "gentle_orbit",
+   "fx": 0.66,
+   "fy": 0.35,
+   "zc": 1.5
+  },
+  {
+   "img": "p01_grandpa_story.png",
+   "id": "p01_grandpa_story_b",
+   "start": 73.548,
+   "end": 78.912,
+   "move": "push_in",
+   "fx": 0.66,
+   "fy": 0.35,
+   "zc": 1.5
+  },
+  {
+   "img": "p01_grandpa_story.png",
+   "id": "p01_grandpa_story_b",
+   "start": 78.912,
+   "end": 84.275,
+   "move": "pan_left",
+   "fx": 0.66,
+   "fy": 0.35,
+   "zc": 1.5
+  },
+  {
+   "img": "p01_grandpa_story.png",
+   "id": "p01_grandpa_story_c",
+   "start": 84.275,
+   "end": 91.491,
+   "move": "pull_out",
+   "fx": 0.28,
+   "fy": 0.6,
+   "zc": 1.5
+  },
+  {
+   "img": "p01_grandpa_story.png",
+   "id": "p01_grandpa_story_c",
+   "start": 91.491,
+   "end": 98.707,
+   "move": "pan_right",
+   "fx": 0.28,
+   "fy": 0.6,
+   "zc": 1.5
+  },
+  {
+   "img": "p05_fallen_stones.png",
+   "id": "p05_fallen_stones",
+   "start": 98.707,
+   "end": 106.265,
+   "move": "push_in",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "p05_fallen_stones.png",
+   "id": "p05_fallen_stones",
+   "start": 106.265,
+   "end": 113.823,
+   "move": "pan_right",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "p05_fallen_stones.png",
+   "id": "p05_fallen_stones_b",
+   "start": 113.823,
+   "end": 121.544,
+   "move": "pull_out",
+   "fx": 0.62,
+   "fy": 0.55,
+   "zc": 1.4
+  },
+  {
+   "img": "p05_fallen_stones.png",
+   "id": "p05_fallen_stones_b",
+   "start": 121.544,
+   "end": 129.264,
+   "move": "pan_left",
+   "fx": 0.62,
+   "fy": 0.55,
+   "zc": 1.4
+  },
+  {
+   "img": "p06_kids_birds.png",
+   "id": "p06_kids_birds",
+   "start": 129.264,
+   "end": 135.724,
+   "move": "gentle_orbit",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "p06_kids_birds.png",
+   "id": "p06_kids_birds",
+   "start": 135.724,
+   "end": 142.183,
+   "move": "push_in",
+   "fx": 0.38,
+   "fy": 0.5,
+   "zc": 1.15
+  },
+  {
+   "img": "p06_kids_birds.png",
+   "id": "p06_kids_birds_b",
+   "start": 142.183,
+   "end": 149.291,
+   "move": "pan_left",
+   "fx": 0.45,
+   "fy": 0.25,
+   "zc": 1.5
+  },
+  {
+   "img": "p06_kids_birds.png",
+   "id": "p06_kids_birds_b",
+   "start": 149.291,
+   "end": 156.399,
+   "move": "pull_out",
+   "fx": 0.45,
+   "fy": 0.25,
+   "zc": 1.5
+  },
+  {
+   "img": "03_makka_valley_night.png",
+   "id": "03_makka_valley_night_c",
+   "start": 156.399,
+   "end": 163.416,
+   "move": "pan_right",
+   "fx": 0.2,
+   "fy": 0.4,
+   "zc": 1.6
+  },
+  {
+   "img": "03_makka_valley_night.png",
+   "id": "03_makka_valley_night_c",
+   "start": 163.416,
+   "end": 170.434,
+   "move": "push_in",
+   "fx": 0.2,
+   "fy": 0.4,
+   "zc": 1.6
+  },
+  {
+   "img": "04_dawn_sand_ridge.png",
+   "id": "04_dawn_sand_ridge_b",
+   "start": 170.434,
+   "end": 177.254,
+   "move": "pan_right",
+   "fx": 0.7,
+   "fy": 0.7,
+   "zc": 1.5
+  },
+  {
+   "img": "04_dawn_sand_ridge.png",
+   "id": "04_dawn_sand_ridge_b",
+   "start": 177.254,
+   "end": 184.073,
+   "move": "pull_out",
+   "fx": 0.7,
+   "fy": 0.7,
+   "zc": 1.5
+  },
+  {
+   "img": "p11_chaff_hands.png",
+   "id": "p11_chaff_hands_b",
+   "start": 184.073,
+   "end": 190.497,
+   "move": "pan_left",
+   "fx": 0.25,
+   "fy": 0.25,
+   "zc": 1.7
+  },
+  {
+   "img": "p11_chaff_hands.png",
+   "id": "p11_chaff_hands_b",
+   "start": 190.497,
+   "end": 196.92,
+   "move": "gentle_orbit",
+   "fx": 0.25,
+   "fy": 0.25,
+   "zc": 1.7
+  },
+  {
+   "img": "p11_chaff_hands.png",
+   "id": "p11_chaff_hands_c",
+   "start": 196.92,
+   "end": 204.633,
+   "move": "push_in",
+   "fx": 0.15,
+   "fy": 0.3,
+   "zc": 1.7
+  },
+  {
+   "img": "p11_chaff_hands.png",
+   "id": "p11_chaff_hands_c",
+   "start": 204.633,
+   "end": 212.346,
+   "move": "pan_left",
+   "fx": 0.15,
+   "fy": 0.3,
+   "zc": 1.7
+  },
+  {
+   "img": "09_lit_door.png",
+   "id": "09_lit_door",
+   "start": 212.346,
+   "end": 216.912,
+   "move": "pull_out",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "02_lamp_single_flame.png",
+   "id": "02_lamp_single_flame",
+   "start": 216.912,
+   "end": 221.947,
+   "move": "pan_right",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "03_madina_dawn_houses.png",
+   "id": "03_madina_dawn_houses",
+   "start": 221.947,
+   "end": 226.045,
+   "move": "push_in",
+   "fx": 0.5,
+   "fy": 0.5,
+   "zc": 1.0
+  },
+  {
+   "img": "23_golden_valley_full_light.png",
+   "id": "23_golden_valley_full_light_b",
+   "start": 226.045,
+   "end": 233.984,
+   "move": "pan_right",
+   "fx": 0.7,
+   "fy": 0.5,
+   "zc": 1.4
+  }
+ ]
+}

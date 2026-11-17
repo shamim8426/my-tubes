@@ -40,7 +40,10 @@
   "tags": [
    "P5",
    "N3"
-  ]
+  ],
+  "audio": "audio/tts/003_ustaad.wav",
+  "seconds": 7.52,
+  "tts_ok": true
  },
  {
   "kind": "section",
@@ -63,7 +66,10 @@
   "tags": [
    "P1",
    "P2"
-  ]
+  ],
+  "audio": "audio/tts/004_ustaad.wav",
+  "seconds": 8.8,
+  "tts_ok": true
  },
  {
   "kind": "ayah",
@@ -98,7 +104,10 @@
   "text": "ये रही पूरी सूरह। पाँच छोटी आयतें, एक ही बहाव — याद दिलाना, चाल का बेकार होना, परिंदे, कंकर, और बर्बादी।",
   "tags": [
    "P6"
-  ]
+  ],
+  "audio": "audio/tts/006_ustaad.wav",
+  "seconds": 12.48,
+  "tts_ok": true
  },
  {
   "kind": "cue",
@@ -128,7 +137,10 @@
   "text": "इस सूरह का कोई अलग सबब-ए-नुज़ूल माने हुए तफ़्सीर में नहीं मिलता। सूरह ख़ुद एक जाने-माने वाक़िये, अस्हाबिल फ़ील, की तरफ़ इशारा करती है।",
   "tags": [
    "N1"
-  ]
+  ],
+  "audio": "audio/tts/008_ustaad.wav",
+  "seconds": 9.24,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -140,7 +152,10 @@
   "text": "रिवायतों के मुताबिक़ यमन का हाकिम अबरहा हाथी के साथ अपना लश्कर लेकर काबा ढहाने निकला।",
   "tags": [
    "N3"
-  ]
+  ],
+  "audio": "audio/tts/009_ustaad.wav",
+  "seconds": 7.28,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -152,7 +167,10 @@
   "text": "रिवायत में आता है कि हाथी आगे बढ़ने से रुक गया और बैठ गया।",
   "tags": [
    "N5"
-  ]
+  ],
+  "audio": "audio/tts/010_ustaad.wav",
+  "seconds": 5.08,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -164,7 +182,10 @@
   "text": "ये वाक़िया उस साल हुआ, जिसे अरब \"आमुल फ़ील\", यानी हाथी का साल, कहते थे।",
   "tags": [
    "N2"
-  ]
+  ],
+  "audio": "audio/tts/011_ustaad.wav",
+  "seconds": 6.2,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -177,7 +198,10 @@
   "tags": [
    "N1",
    "M7"
-  ]
+  ],
+  "audio": "audio/tts/012_ustaad.wav",
+  "seconds": 9.04,
+  "tts_ok": true
  },
  {
   "kind": "section",
@@ -222,7 +246,10 @@
   "text": "अलम तरा कैफ़ा फ़अला रब्बुक",
   "tags": [
    "U1"
-  ]
+  ],
+  "audio": "audio/tts/014_ustaad.wav",
+  "seconds": 2.84,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -234,7 +261,10 @@
   "text": "पहली आयत: क्या तुमने नहीं देखा, तुम्हारे रब ने क्या किया।",
   "tags": [
    "T2"
-  ]
+  ],
+  "audio": "audio/tts/015_ustaad.wav",
+  "seconds": 4.8,
+  "tts_ok": true
  },
  {
   "kind": "cue",
@@ -254,7 +284,10 @@
   "text": "ये वाक़िया इतना मशहूर था कि मानो सबने देखा हो। \"रब\" यानी अल्लाह।",
   "tags": [
    "M1"
-  ]
+  ],
+  "audio": "audio/tts/017_ustaad.wav",
+  "seconds": 5.28,
+  "tts_ok": true
  },
  {
   "kind": "ayah",
@@ -289,7 +322,10 @@
   "text": "बि अस्हाबिल फ़ील",
   "tags": [
    "U2"
-  ]
+  ],
+  "audio": "audio/tts/019_ustaad.wav",
+  "seconds": 3.36,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -301,7 +337,10 @@
   "text": "हाथी वालों के साथ।",
   "tags": [
    "T2"
-  ]
+  ],
+  "audio": "audio/tts/020_ustaad.wav",
+  "seconds": 1.72,
+  "tts_ok": true
  },
  {
   "kind": "cue",
@@ -321,7 +360,10 @@
   "text": "हाथी वाले यानी अबरहा का लश्कर, जो यमन से काबा ढहाने आया था।",
   "tags": [
    "K2"
-  ]
+  ],
+  "audio": "audio/tts/022_ustaad.wav",
+  "seconds": 6.0,
+  "tts_ok": true
  },
  {
   "kind": "ayah",
@@ -356,7 +398,10 @@
   "text": "अलम यज्अल कैदहुम",
   "tags": [
    "U3"
-  ]
+  ],
+  "audio": "audio/tts/024_ustaad.wav",
+  "seconds": 2.2,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -368,7 +413,10 @@
   "text": "दूसरी आयत, पहला हिस्सा: क्या उसने उनकी चाल को",
   "tags": [
    "T2"
-  ]
+  ],
+  "audio": "audio/tts/025_ustaad.wav",
+  "seconds": 5.0,
+  "tts_ok": true
  },
  {
   "kind": "cue",
@@ -388,7 +436,10 @@
   "text": "\"कैद\" यानी चाल, साज़िश — काबा ढहाने का मंसूबा।",
   "tags": [
    "K3"
-  ]
+  ],
+  "audio": "audio/tts/027_ustaad.wav",
+  "seconds": 4.64,
+  "tts_ok": true
  },
  {
   "kind": "ayah",
@@ -423,7 +474,10 @@
   "text": "फ़ी तज़्लील",
   "tags": [
    "U4"
-  ]
+  ],
+  "audio": "audio/tts/029_ustaad.wav",
+  "seconds": 2.56,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -435,7 +489,10 @@
   "text": "दूसरा हिस्सा: बेकार नहीं कर दिया।",
   "tags": [
    "T2"
-  ]
+  ],
+  "audio": "audio/tts/030_ustaad.wav",
+  "seconds": 3.56,
+  "tts_ok": true
  },
  {
   "kind": "cue",
@@ -455,7 +512,10 @@
   "text": "\"तज़्लील\" यानी बेकार, ग़लत रास्ते पर। उनकी चाल अपने मक़सद तक पहुँची ही नहीं।",
   "tags": [
    "K4"
-  ]
+  ],
+  "audio": "audio/tts/032_ustaad.wav",
+  "seconds": 6.08,
+  "tts_ok": true
  },
  {
   "kind": "ayah",
@@ -490,7 +550,10 @@
   "text": "व अर्सला अलैहिम",
   "tags": [
    "U5"
-  ]
+  ],
+  "audio": "audio/tts/034_ustaad.wav",
+  "seconds": 2.16,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -502,7 +565,10 @@
   "text": "तीसरी आयत, पहला हिस्सा: और उन पर भेजे।",
   "tags": [
    "T2"
-  ]
+  ],
+  "audio": "audio/tts/035_ustaad.wav",
+  "seconds": 4.68,
+  "tts_ok": true
  },
  {
   "kind": "cue",
@@ -522,7 +588,10 @@
   "text": "यानी अल्लाह ने उन पर परिंदे भेजे।",
   "tags": [
    "K5"
-  ]
+  ],
+  "audio": "audio/tts/037_ustaad.wav",
+  "seconds": 2.56,
+  "tts_ok": true
  },
  {
   "kind": "ayah",
@@ -557,7 +626,10 @@
   "text": "तैरन अबाबील",
   "tags": [
    "U6"
-  ]
+  ],
+  "audio": "audio/tts/039_ustaad.wav",
+  "seconds": 1.8,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -569,7 +641,10 @@
   "text": "दूसरा हिस्सा: परिंदों के झुंड।",
   "tags": [
    "T2"
-  ]
+  ],
+  "audio": "audio/tts/040_ustaad.wav",
+  "seconds": 2.96,
+  "tts_ok": true
  },
  {
   "kind": "cue",
@@ -589,7 +664,10 @@
   "text": "तफ़्सीरों में \"अबाबील\" का मतलब झुंड के झुंड आया है, यानी एक के पीछे एक।",
   "tags": [
    "K6"
-  ]
+  ],
+  "audio": "audio/tts/042_ustaad.wav",
+  "seconds": 6.08,
+  "tts_ok": true
  },
  {
   "kind": "ayah",
@@ -624,7 +702,10 @@
   "text": "तरमीहिम बि हिजारतिम",
   "tags": [
    "U7"
-  ]
+  ],
+  "audio": "audio/tts/044_ustaad.wav",
+  "seconds": 2.76,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -636,7 +717,10 @@
   "text": "चौथी आयत, पहला हिस्सा: जो उन पर कंकर-पत्थर फेंकते थे।",
   "tags": [
    "T2"
-  ]
+  ],
+  "audio": "audio/tts/045_ustaad.wav",
+  "seconds": 5.0,
+  "tts_ok": true
  },
  {
   "kind": "cue",
@@ -656,7 +740,10 @@
   "text": "यानी वो परिंदे उन पर कंकर फेंकते थे।",
   "tags": [
    "K7"
-  ]
+  ],
+  "audio": "audio/tts/047_ustaad.wav",
+  "seconds": 2.88,
+  "tts_ok": true
  },
  {
   "kind": "ayah",
@@ -691,7 +778,10 @@
   "text": "मिन सिज्जील",
   "tags": [
    "U8"
-  ]
+  ],
+  "audio": "audio/tts/049_ustaad.wav",
+  "seconds": 1.92,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -703,7 +793,10 @@
   "text": "दूसरा हिस्सा: सिज्जील के।",
   "tags": [
    "T2"
-  ]
+  ],
+  "audio": "audio/tts/050_ustaad.wav",
+  "seconds": 3.24,
+  "tts_ok": true
  },
  {
   "kind": "cue",
@@ -723,7 +816,10 @@
   "text": "तफ़्सीरों में \"सिज्जील\" का मतलब पकी हुई मिट्टी का कंकर-पत्थर आया है।",
   "tags": [
    "K8"
-  ]
+  ],
+  "audio": "audio/tts/052_ustaad.wav",
+  "seconds": 5.04,
+  "tts_ok": true
  },
  {
   "kind": "ayah",
@@ -758,7 +854,10 @@
   "text": "फ़जअलहुम",
   "tags": [
    "U9"
-  ]
+  ],
+  "audio": "audio/tts/054_ustaad.wav",
+  "seconds": 1.68,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -770,7 +869,10 @@
   "text": "पाँचवीं आयत, पहला हिस्सा: फिर उन्हें कर दिया।",
   "tags": [
    "T2"
-  ]
+  ],
+  "audio": "audio/tts/055_ustaad.wav",
+  "seconds": 3.92,
+  "tts_ok": true
  },
  {
   "kind": "cue",
@@ -790,7 +892,10 @@
   "text": "यानी अल्लाह ने उन्हें एक अंजाम तक पहुँचा दिया।",
   "tags": [
    "K9"
-  ]
+  ],
+  "audio": "audio/tts/057_ustaad.wav",
+  "seconds": 3.72,
+  "tts_ok": true
  },
  {
   "kind": "ayah",
@@ -825,7 +930,10 @@
   "text": "कअस्फ़िम मअकूल",
   "tags": [
    "U10"
-  ]
+  ],
+  "audio": "audio/tts/059_ustaad.wav",
+  "seconds": 2.2,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -837,7 +945,10 @@
   "text": "दूसरा हिस्सा: खाए हुए भूसे जैसा।",
   "tags": [
    "T2"
-  ]
+  ],
+  "audio": "audio/tts/060_ustaad.wav",
+  "seconds": 3.56,
+  "tts_ok": true
  },
  {
   "kind": "cue",
@@ -857,7 +968,10 @@
   "text": "\"खाया हुआ भूसा\" यानी वो चीज़, जो पूरी तरह बर्बाद और कमज़ोर हो गई।",
   "tags": [
    "K10"
-  ]
+  ],
+  "audio": "audio/tts/062_ustaad.wav",
+  "seconds": 5.48,
+  "tts_ok": true
  },
  {
   "kind": "section",
@@ -879,7 +993,10 @@
   "text": "पहली सीख: ताक़तवर की ताक़त अल्लाह के सामने कुछ नहीं।",
   "tags": [
    "M6"
-  ]
+  ],
+  "audio": "audio/tts/063_ustaad.wav",
+  "seconds": 4.68,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -891,7 +1008,10 @@
   "text": "दूसरी: किसी की चाल अल्लाह के फ़ैसले को नहीं रोक सकती।",
   "tags": [
    "M6"
-  ]
+  ],
+  "audio": "audio/tts/064_ustaad.wav",
+  "seconds": 5.2,
+  "tts_ok": true
  },
  {
   "kind": "line",
@@ -904,7 +1024,10 @@
   "tags": [
    "M6",
    "P5"
-  ]
+  ],
+  "audio": "audio/tts/065_ustaad.wav",
+  "seconds": 4.16,
+  "tts_ok": true
  },
  {
   "kind": "screen",
@@ -922,7 +1045,10 @@
   "text": "अगली बार, नूर-ए-राह में: सूरह अल-काफ़िरून।",
   "tags": [
    "NEXT"
-  ]
+  ],
+  "audio": "audio/tts/066_ustaad.wav",
+  "seconds": 4.04,
+  "tts_ok": true
  },
  {
   "kind": "cue",

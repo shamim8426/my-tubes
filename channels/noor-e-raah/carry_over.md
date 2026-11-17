@@ -58,3 +58,9 @@
 - open | reused images carry their old meaning (010 woman/angry husband, 009 market with glass lanterns + castle): check gender/time-of-day/anachronism before reuse.
 - open | 011 R2 MINOR (no regen): L11/L12 same image; L14 'angry husband' pose; L15 daylight door in night scene (also in Short at ~10-15 s); L24 daylight courtyard; L25 wall lanterns look modern (also in Short ~32-36 s); L8 fortress, L3 tiled roofs.
 - open | Short-from-Long ayah card: Arabic Amiri 84 px reads small with a large empty card below; next time ~110-120 px and Arabic + Hindi centred on the card (keep Tanzil bytes, no crop).
+
+## 2026-11-17 | 008_al-fil (Munshi final R1, MINOR) | open
+- 105:5 blocks (Long 3:04-3:31 + Short body): p11_chaff_hands crops (fx 0.25/0.15, zc 1.7) cut out the hands + chaff -> next time crop on the subject (fx ~0.6, fy ~0.5) when choosing rects in images.json.
+- Music 17.7 LU under the voice (stem method; target ~19 LU) -> check MUSIC_BELOW in noor_render.py.
+- Short-from-Long Arabic small (Long frame scaled to 1080 wide); Short 41.4 s (complete-ayah rule kept it over 40 s).
+- upload.json chapters: first chapter must be >= 10 s (0:00 -> 0:08 was 8 s; merged by Munshi) -> make the chapter writer merge chapters shorter than 10 s.
