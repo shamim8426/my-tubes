@@ -1108,12 +1108,17 @@
   },
   {
     "id": "cfe-web-search",
-    "title": "Web search: taaza jaankari ke saath jawab",
-    "url": "https://support.claude.com/en/",
-    "summary": "Claude (non-Code) feature for ordinary people; find the exact official page first.",
-    "status": "todo",
+    "title": "Claude me web search kaise on karein: 2 clicks + source links #shorts",
+    "url": "https://support.claude.com/en/articles/10684626-enabling-and-using-web-search",
+    "summary": "How-to Short (54 s): + button, Web search, checkmark; citations; Team/Enterprise owner, free usage limit, new Claude experience has no toggle.",
+    "status": "uploaded",
     "audience": "B",
-    "series": "claude-for-everyone"
+    "series": "claude-kaise-karein",
+    "story": "062_cfe-web-search",
+    "video_id": "5rJyDtzaRmc",
+    "series_index": 1,
+    "format": "short",
+    "uploaded": "2026-11-17"
   },
   {
     "id": "cfe-extended-thinking",

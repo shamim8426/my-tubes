@@ -10,3 +10,11 @@
 | 6 | 19.6-28 | Tips crop heading cut at the top | Crop box moved up 15 px |
 | 7 | 33.5-36 | Team scene empty below the chips for ~2.5 s | 'Owner > sab members' chip until the path chips start |
 All checked again on review/fix_*.png: fixed.
+
+## Round 1 (full render, review/final_sheet_*.png every 3 s + review/act_sheet_*.png at action words)
+- Loudness -15.6 LUFS (out of band) -> two-pass loudnorm audio remux -> -14.7 LUFS, peak -1.4 dBFS. fixed
+- 18.0-19.6 'OFF: CLICK AGAIN' chip sat on top of the still-open menu -> menu closes on the word. fixed (range 7.34-19.64 re-rendered + spliced)
+- 32.3-33.4 caution scene: only the title chip for ~1 s -> Team crop enters at scene start. fixed (range 32.30-48.24 re-rendered + spliced)
+- Action words checked on screen at their spoken time: plus (10.4), Web search (13.0), tick (15.3), off (18.2), search the web (25.3), citations (27.4), Organization settings path (37.8), web search usage (39.7), follow (53.2): all PASS.
+- Length 53.9 s (50-60 PASS), 1618 frames after splice, captions Roman Hinglish (no Devanagari on screen), no overlap/cut text, beginner check PASS (citations defined, steps shown one by one), facts = review/facts.md F1-F11 PASS, name_guard OK.
+Verdict: PASS, upload.
