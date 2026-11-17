@@ -62,7 +62,7 @@ a = [x for x in tz.read_text(encoding="utf-8").splitlines() if x.startswith("59|
 i0 = a.index("وَيُؤْثِرُونَ"); i1 = a.index("خَصَاصَةٌ") + len("خَصَاصَةٌ")
 cfg = {"title": "मेहमान और बुझा हुआ चिराग़", "voice": "Charon",
        "style": "Calm, warm, clear Hindi storyteller for an Islamic history video. Simple everyday spoken Hindi, gentle emotion, normal conversational pace, correct Urdu sounds (ज़, फ़, क़, ख़, ग़).",
-       "tempo": 1.0, "music": ONE, "music_vol": 0.5, "amp": 0.08, "amb_db": -6, "sfx_db": -3, "duck": True,
+       "tempo": 1.0, "music": ONE, "music_vol": 0.65, "amp": 0.08, "amb_db": -6, "sfx_db": -3, "duck": True,
        "ayah_ar": a[i0:i1], "ayah_src": "सूरह अल-हश्र 59:9", "ayah_fs": 120, "lines": lines}
 (S / "script.json").write_text(json.dumps(cfg, ensure_ascii=False, indent=1), encoding="utf-8")
 print(len(lines), "lines", sum(len(l["text"].split()) for l in lines), "words")

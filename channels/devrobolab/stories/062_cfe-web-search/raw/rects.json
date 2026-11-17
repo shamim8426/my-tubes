@@ -1,0 +1,75 @@
+{
+ "ws_text": "Skip to main content\nAPI docs\nRelease notes\nHow to get support\nEnglish\nFrançais\nDeutsch\nBahasa Indonesia\nItaliano\n日本語\n한국어\nPortuguês\nPусский\n简体中文\nEspañol\n繁體中文\nEnglish\nSearch\nCtrl K\nClaude\nRelease notes\nGet started with Claude\nAccount management\nConversation management\nFeatures and capabilities\nWhat are artifacts and how do I use them?\nShare artifacts\nGet started with Claude Data\nGet started with Claude Docs\nGet started with Claude Design\nSet up your design system in Claude Design\nMove from standalone Claude Design to Claude\nWhen should I use web search, extended thinking, and research?\nEnable and use web search\nUse research on Claude\nCan Claude produce images?\nUpload files to Claude\nCreate and edit files with Claude\nHow does Claude handle mathematical equations and calculations?\nWhat are projects?\nRetrieval augmented generation (RAG) for projects\nWhat are skills?\nUse skills in Claude\nHow to create custom skills\nUse plugins in Claude\nBrowse skills, connectors, and plugins in one directory\nManage plugins, skills, and connectors from one Plugins page\nUse Claude in Xcode\nUse Claude in Microsoft Foundry\nVisual and interactive content\nCustom visuals in chat and Cowork\nAvailable beta and research preview features\nSee your monthly recap\nGet started with Claude Science\nUse Salesforce in Claude\nSet up Salesforce in Claude for your organization\nUse Claude in Google Docs, Sheets, and Slides\nClaude Docs keyboard shortcuts\nUse artifacts with a keyboard or screen reader\nGet started with Claude Duet\nHow to use Link by Stripe with Claude Duet\nHow to use Shop Pay with Claude Duet\nGet started with Claude Sheets\nGet started with Claude Whiteboards\nUse the cloud browser in Claude\nPersonalization and settings\nTroubleshooting\nUsage and limits\nPro, Max, and Ultra plans\nTeam and Enterprise plans\nIdentity management (SSO, JIT, SCIM)\nClaude Cowork\nClaude Code\nClaude Desktop\nClaude Mobile apps\nClaude API and Console\nConnectors\nClaude in Chrome\nClaude for Education\nPrivacy and legal\nSafeguards\nAmazon Bedrock\nAll Collections\nClaude\nFeatures and capabilities\nEnable and use web search\nEnable and use web search\nUpdated over a week ago\nCopy for LLM\n\nYou can have Claude search the internet to provide you with up-to-date information and insights when using the following models:\n\nFable 5.2\n\nHaiku 5.5\n\nSonnet 5.5\n\nOpus 5.5\n\nFable 5.1\n\nOpus 5\n\nSonnet 5\n\nFable 5\n\nOpus 4.8\n\nOpus 4.7\n\nSonnet 4.6\n\nOpus 4.6\n\nHaiku 4.5 \n\nWeb search expands Claude's knowledge with real-time data, helping you make better-informed decisions with current information.\n\n \n\nTo access this feature on a Team or Enterprise plan account:\n\nAn Owner or Primary Owner must first enable web search for the entire workspace in Organization settings > Capabilities. \n\n  \n\nOnce this is enabled at the workspace level, any member of the organization can switch it on while starting a chat by clicking the “+” button in the lower left corner of the chat window and selecting “Web search.\" Users can toggle this off for chats that don’t require web search capabilities.\n\nNote: If you have the new Claude experience, there's no web search toggle. Claude searches the web when it helps.\n\n \n\nEnable web search in a chat\n\nClick on the “+” button in the lower left corner of the chat window.\n\nFind \"Web search” in the dropdown and click on it.\n\nA checkmark will appear next to “Web search” when it’s enabled.\n\nYou can disable the feature at any time by clicking “Web search” again.\n\n \n\nHow web search works\n\nWhen you ask about topics that benefit from current information, Claude invokes a search tool to inform and ground its generated responses with content from the live web. Every response includes citations, so you can easily verify sources yourself.\n\n \n\nDuring a search\n\nWhen Claude searches the web:\n\nYou'll see an indicator that Claude is searching the web.\n\nClaude processes multiple sources to find relevant content.\n\nClaude provides a conversational response that includes:\n\nDirect citations to sources\n\nSource links for further reading\n\nRelevant quotes when appropriate\n\n \n\nWeb fetch and direct links\n\nWhen “Web search” is toggled on, Claude can also retrieve content directly from web pages when provided with specific URLs. This feature, called web fetch, allows Claude to access and analyze the full content of articles, blog posts, and other web pages you want to discuss.\n\nImportant note for free Claude accounts: When you provide Claude with a direct link to a long article or document and ask it to analyze or summarize the contents, the entire article is retrieved into Claude's context window. This can consume a significant portion of your usage limit, especially for lengthy content. For example, asking Claude to summarize a 10,000-word article will use substantially more of your context window than a regular web search query.\n\n \n\nImage results\n\nWhen web search is enabled, Claude can also search for and display images directly in your conversation. You don't need to enable a separate setting—image results are part of web search.\n\n \n\nFor example, you might ask Claude to:\n\nShow you what a recipe looks like before you start cooking\n\nFind photos of a product you're considering\n\nHelp identify a plant, insect, or object by searching for visual matches\n\nCompare what similar items look like side by side\n\nClaude selects images from web search results, powered by Bing, and displays them alongside its text response. Each image includes a source link so you can visit the original page for more details.\n\n \n\nImage search is powered by Bing (Microsoft Privacy Statement).\n\n \n\nClaude can also display interactive content in search results. For more detailed information, see here: Visual and interactive content.\n\n \n\nManage usage on free Claude accounts\n\nAs a free user, you have usage limits that reset every five hours. Since web search and fetch both contribute to these limits, here are some tips to make the most of your capacity:\n\nBe mindful of direct links: Before asking Claude to analyze a long article via ",
+ "ws_plus": [
+  693.1875,
+  490.203125,
+  70.5625,
+  19,
+  "zation can switch it on while starting a chat by clicking the “+” button in the "
+ ],
+ "ws_toggle": [
+  324,
+  490.203125,
+  87.03125,
+  19,
+  ""
+ ],
+ "ws_check": [
+  362.234375,
+  490.703125,
+  82.5,
+  19,
+  "A "
+ ],
+ "ws_cite": [
+  455.515625,
+  490.453125,
+  65.6875,
+  19,
+  "its generated responses with content from the live web. Every response includes "
+ ],
+ "ws_cap": [
+  324,
+  490.703125,
+  85.0625,
+  19,
+  "“Web search.\" Users can toggle this off for chats that don’t require web search "
+ ],
+ "ws_limits": null,
+ "ws_newexp": [
+  494.71875,
+  490.953125,
+  87.125,
+  19,
+  " If you have the "
+ ],
+ "ws_tip": [
+  348,
+  490.390625,
+  112.171875,
+  19,
+  "wers?\" or \"What are the latest developments in quantum computing?\", Claude will "
+ ],
+ "ws_verify": [
+  477.453125,
+  490.546875,
+  120.734375,
+  19,
+  "Claude processes "
+ ],
+ "blog_text": "Skip to main content\nContact sales\nTry Claude\n\nClaude Resources\n\nClaude can now search the web\n\nClaude can now search the web to deliver up-to-date, cited information in conversational responses across all plans.\n\nCategory\nProduct updates\nProduct\nClaude Platform\nDate\nMarch 20, 2025\nReading time\n3 min\nShare\nCopy link\n\nUpdate: Web search is now available globally on all Claude plans. (May 27, 2025)\n\nYou can now use Claude to search the internet to provide more up-to-date and relevant responses. With web search, Claude has access to the latest events and information, boosting its accuracy on tasks that benefit from the most recent data.\n\n‍\n\nWhen Claude incorporates information from the web into its responses, it provides direct citations so you can easily fact check sources. Instead of finding search results yourself, Claude processes and delivers relevant sources in a conversational format. This enhancement expands Claude's extensive knowledge base with real-time insights, providing answers based on more current information.\n\nPopular ways to use Claude with web search:\n\nSales teams can transform account planning and drive higher win rates through informed conversations with prospects by analyzing industry trends to learn key initiatives and pain points.\nFinancial analysts can assess current market data, earnings reports, and industry trends to make better investment decisions and inform financial model assumptions.\nResearchers can build stronger grant proposals and literature reviews by searching across primary sources on the web, spotting emerging trends and identifying gaps in the current literature.\nShoppers can compare product features, prices, and reviews across multiple sources to make more informed purchase decisions.\nGetting started\n\nWeb search is available now in feature preview for all paid Claude users in the United States. Support for users on our free plan and more countries is coming soon. To get started, toggle on web search in your profile settings and start a conversation with Claude 3.7 Sonnet. When applicable, Claude will search the web to inform its response.\n\nRelated articles\n\nExplore more product news and best practices for teams building with Claude.\n\nArticle\nNov 12, 2026\nOperate Claude Managed Agents inside your security perimeter\n\nIntroducing self-hosted Claude Managed Agents. Now you can run agents in your own environment, whether that’s in your own cloud or on-premise. You host the agents, credentials, and session history, and choose where requests to Claude are sent.\n\nClaude Platform\nClaude Managed Agents\nArticle\nNov 12, 2026\nIntroducing Claude for Manufacturing\n\nA new plugin with 17 skills and four connectors helps manufacturers draft quotes, quality reports, and supplier requests from the systems they already run.\n\nArticle\nNov 12, 2026\nIntroducing Claude Meetings\n\nAdd Claude to your video call and get the work started while you talk\n\nArticle\nNov 10, 2026\nYour apps can now open in Claude, and Claude can work in them\n\nOur partners can now embed their apps directly in Claude, so you and Claude can work in the same tool, on the same screen, without switching tabs.\n\nClaude apps\nMCP\nTransform how your organization operates with Claude\nSee pricing\nContact sales\nGet the developer newsletter\n\nProduct updates, how-tos, community spotlights, and more. Delivered monthly to your inbox.\n\nPlease provide your email address if you'd like to receive our monthly developer newsletter. You can unsubscribe at any time.\n\n© 2026 Anthropic PBC\n\nProducts\nClaude\nClaude Code\nClaude Cowork\nClaude Duet\nClaude Tag\nClaude Science\nClaude Security\nCode Review\nDownload app\nPricing\nLog in\nCapabilities\nArtifacts\nDesign\nConnectors\nPlugins\nSkills\nExtensions\nClaude in Chrome\nClaude for Google Workspace\nClaude for Microsoft 365\nModels\nMythos (including Fable)\nOpus\nSonnet\nHaiku\nEnterprise\nOverview\nClaude Code for Enterprise\nDepartments\nCustomer support\nCybersecurity\nLegal\nSales\nIndustries\nFinancial advisors\nFinancial services\nGovernment\nHealthcare\nHigher education\nK-12 teachers\nLife sciences\nNonprofits\nSmall business\nPrograms\nCampus\nFrontier Academy\nScientists\nStartups\nDevelopers\nDeveloper docs\nDeveloper blog\nCommunity\nConsole\nEngineering at Anthropic\nPlatform\nOverview\nMarketplace\nClaude on AWS\nGoogle Cloud\nMicrosoft Foundry\nManaged Agents\nResources\nOverview\nArticles\nWebinars\nClaude partner network\nClaude Academy\nCustomer stories\nEvents\nPowered by Claude\nService partners\nHelp and security\nAvailability\nCheck files\nRegional compliance\nReport abuse\nSecurity and compliance\nStatus\nSupport center\nCompany\nAnthropic\nCareers\nPolicy\nResearch\nAnthropic news\nPolicy on the AI Exponential\nResponsible Scaling Policy\nTransparency\nTerms and policies\nPrivacy choices\nPrivacy policy\nResponsible disclosure policy\nTerms of service: Commercial\nTerms of service: Consumer\nTerms of Service: US K-12\nData Processing Agreement: US K-12\nUsage Policy\nAdd to Preferred Sources\nEnglish",
+ "blog_global": [
+  535.734375,
+  889.015625,
+  158.03125,
+  24,
+  "Web search is now "
+ ],
+ "blog_latest": [
+  410.40625,
+  708.25,
+  122.984375,
+  24,
+  "re up-to-date and relevant responses. With web search, Claude has access to the "
+ ]
+}

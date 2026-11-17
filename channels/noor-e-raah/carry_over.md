@@ -64,3 +64,4 @@
 - Music 17.7 LU under the voice (stem method; target ~19 LU) -> check MUSIC_BELOW in noor_render.py.
 - Short-from-Long Arabic small (Long frame scaled to 1080 wide); Short 41.4 s (complete-ayah rule kept it over 40 s).
 - upload.json chapters: first chapter must be >= 10 s (0:00 -> 0:08 was 8 s; merged by Munshi) -> make the chapter writer merge chapters shorter than 10 s.
+- open | 011 v2 (2026-11-17): RULES 2j "faceless storybook" image style not met (v2 reuses v1 realistic images; Cloudflare free quota empty, history = no paid images). Next history story: generate in 2j style (ref stories/011_toon_style_test/images). Music bed after duck ~18 dB under voice (RMS) - fine for 2i, keep.

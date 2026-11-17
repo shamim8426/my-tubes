@@ -1,0 +1,27 @@
+{
+  "channel_key": "devrobolab",
+  "channel_name": "DevRoboLab",
+  "channel_id": "UCpElgKdJOgQiyfwdGXz6GmA",
+  "format": "short",
+  "parent_video_id": null,
+  "title": "Claude me web search kaise on karein: 2 clicks + source links #shorts",
+  "description": "Claude me web search kaise on karein? Sirf 2 clicks, aur har jawab ke saath source links (citations).\n\nSteps (official Help Center ke hisaab se):\n1. Chat window ke neeche baayein kone me \"+\" button dabaiye.\n2. Dropdown me \"Web search\" par click kijiye.\n3. \"Web search\" ke aage checkmark (tick) dikhe, to web search on hai. Band karne ke liye dobara \"Web search\" par click kijiye.\nTip: pakka search karwana ho to prompt me \"Search the web\" likhiye. Jawab ke citations kholkar zaroori baat khud jaanchiye.\n\nDhyan rakhiye:\n- Team ya Enterprise plan me pehle Owner ya Primary Owner ko Organization settings, phir Capabilities me web search on karna hota hai.\n- Free plan me web search aur fetch aapki usage limit me gine jaate hain.\n- Naye Claude experience me web search toggle nahi hota, Claude zaroorat par khud web search karta hai.\n\nChapters:\n0:00 Web search on kaise karein\n0:07 3 steps\n0:19 Sawaal aur citations\n0:32 Dhyan rakhiye\n0:48 Agla tip\n\nSources (official):\nhttps://support.claude.com/en/articles/10684626-enabling-and-using-web-search\nhttps://claude.com/blog/web-search\n\nPoora video (Claude Roz Ke Kaam): Claude usage limit bachane ke 7 tareeke https://youtu.be/0rPgNXoYT6Y\n\nRoz 2 Shorts aur 1 video: Claude Kaise Karein\n\nUnofficial channel, not affiliated with Anthropic.\n\nNote: the page crops are our own capture of the official Help Center page (key words highlighted). The chat box, menu, answer card and usage meter are illustrations, not the real app. Synthetic voice.\n\nMusic: \"Funkorama\" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttp://creativecommons.org/licenses/by/4.0/\n\n#shorts #Claude #ClaudeWebSearch #ClaudeKaiseKarein #AI #Hinglish",
+  "tags": [
+    "Claude web search",
+    "Claude me web search kaise on karein",
+    "Claude web search on",
+    "Claude citations",
+    "Claude kaise use karein",
+    "Claude tutorial Hindi",
+    "AI tools",
+    "Hinglish",
+    "Shorts"
+  ],
+  "video": "short.mp4",
+  "language": "hi",
+  "made_for_kids": false,
+  "contains_synthetic_media": true,
+  "category_id": "28",
+  "privacy": "public",
+  "playlist_id": "PLEklr-qY9V3U"
+}

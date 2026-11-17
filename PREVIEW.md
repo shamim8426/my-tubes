@@ -1,6 +1,6 @@
 # Preview — Jugnu Stories
 
-**Budget bacha:** ₹102.57  ·  **Last image:** 2026-11-17 22:07:00
+**Budget bacha:** ₹76.97  ·  **Last image:** 2026-11-17 22:39:24
 
 ## Characters
 
@@ -1433,3 +1433,23 @@
 ### B_dua — ₹4.48 · 2026-11-17 22:07:00
 
 ![B_dua](channels/noor-e-raah/stories/011_toon_style_test/images/B_dua.png)
+
+### 1_army — ₹4.45 · 2026-11-17 22:37:31
+
+![1_army](channels/noor-e-raah/stories/012_alfil_toon_demo/images/1_army.png)
+
+### 2_kaaba — ₹4.49 · 2026-11-17 22:38:03
+
+![2_kaaba](channels/noor-e-raah/stories/012_alfil_toon_demo/images/2_kaaba.png)
+
+### 3_elephant_sits — ₹4.38 · 2026-11-17 22:38:33
+
+![3_elephant_sits](channels/noor-e-raah/stories/012_alfil_toon_demo/images/3_elephant_sits.png)
+
+### 4_birds — ₹4.27 · 2026-11-17 22:38:59
+
+![4_birds](channels/noor-e-raah/stories/012_alfil_toon_demo/images/4_birds.png)
+
+### 5_night_valley — ₹4.10 · 2026-11-17 22:39:24
+
+![5_night_valley](channels/noor-e-raah/stories/012_alfil_toon_demo/images/5_night_valley.png)

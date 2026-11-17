@@ -1,0 +1,12 @@
+{
+ "tag": "Claude Roz Ke Kaam: web search",
+ "music": {"file": "shared/music/presentation/Funkorama.mp3", "start": 6, "rel": 12},
+ "voice": {"id": "Charon", "style": "Speak like a friendly Indian tech YouTuber chatting casually in Hinglish. Natural conversational pace, warm and clear, a little energetic but not theatrical. No sing-song, no exaggerated emphasis."},
+ "scenes": [
+  {"id": "hook", "voice": "Claude से आज की ताज़ा जानकारी चाहिए? दो clicks में web search on कीजिए, और जवाब के साथ source links भी पाइए।"},
+  {"id": "steps", "voice": "पहला, chat box के नीचे बाएँ कोने में plus बटन दबाइए। दूसरा, list में Web search पर click कीजिए। उसके आगे tick mark दिखे, तो search on है। बंद करना हो, तो दोबारा Web search पर click कीजिए।"},
+  {"id": "use", "voice": "अब कोई ताज़ा सवाल पूछिए, जैसे आज की कोई बड़ी खबर। पक्का search करवाना हो, तो सवाल में लिखिए, search the web. जवाब में citations आएँगे, यानी हर बात के साथ उसका source link, ताकि आप खुद जाँच सकें।"},
+  {"id": "note", "voice": "ध्यान रखिए, Team या Enterprise plan में पहले owner को Organization settings में इसे चालू करना होता है। Free plan में web search आपकी usage limit में गिना जाता है। और अगर plus में ये option न दिखे, तो नए Claude में, Claude ज़रूरत पड़ने पर खुद search करता है।"},
+  {"id": "cta", "voice": "अगला tip: Claude में extended thinking. ऐसे आसान Claude tips के लिए, follow कीजिए।"}
+ ]
+}

@@ -6,7 +6,7 @@
   {"story": "010_khawla-allah-ne-sun-li", "topic": "Khawla bint Thalaba, Surah al-Mujadila 58:1", "status": "uploaded", "video": "7fikMFw0OUQ"}
  ],
  "queue": [
-  {"id": "mehmaan-bujha-chiraag", "topic": "Ansari couple feed the Prophet's hungry guest, put out the lamp; ayah 59:9", "sources": ["Bukhari 3798", "Bukhari 4889", "Muslim 2054a-c"], "grade": "sahih", "status": "uploaded", "story": "011_mehmaan-aur-bujha-chiraag", "long_id": "GCvLJ8jAS0Y", "short_id": "RoKAMWLpInE"},
+  {"id": "mehmaan-bujha-chiraag", "topic": "Ansari couple feed the Prophet's hungry guest, put out the lamp; ayah 59:9", "sources": ["Bukhari 3798", "Bukhari 4889", "Muslim 2054a-c"], "grade": "sahih", "status": "uploaded", "story": "011_mehmaan-aur-bujha-chiraag", "long_id": "IXyFUmgacck", "short_id": "YWppRkQgPyc", "v1_ids": {"long_id": "GCvLJ8jAS0Y", "short_id": "RoKAMWLpInE", "note": "superseded by v2 (RULES 2i single music track); user deletes v1 in Studio"}},
   {"id": "umm-sulaym-sabr", "topic": "Umm Sulaym and Abu Talha: the death of their little son, her patience", "sources": ["Bukhari 5470", "Muslim 2144"], "grade": "sahih", "status": "planned"},
   {"id": "kaab-tabuk-tauba", "topic": "Ka'b ibn Malik stays behind from Tabuk, 50 nights of boycott, tauba accepted (9:118)", "sources": ["Bukhari 4418", "Muslim 2769"], "grade": "sahih", "status": "planned"},
   {"id": "masjid-saaf-karne-wali", "topic": "The woman who cleaned the mosque; the Prophet asked about her grave", "sources": ["Bukhari 458", "Muslim 956"], "grade": "sahih", "status": "planned"},
