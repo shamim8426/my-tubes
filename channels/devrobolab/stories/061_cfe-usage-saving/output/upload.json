@@ -1,0 +1,27 @@
+{
+  "channel_key": "devrobolab",
+  "channel_name": "DevRoboLab",
+  "channel_id": "UCpElgKdJOgQiyfwdGXz6GmA",
+  "format": "long",
+  "parent_video_id": null,
+  "title": "Claude usage limit jaldi khatam? Limit bachane ke 7 aasan tareeke",
+  "description": "Claude usage limit jaldi khatam ho jaati hai? Is video me Claude ki official help pages se 7 aasan tareeke, 3 poore examples ke saath: limit kaise kaam karti hai (5 ghante ka session + weekly limit, Settings me Usage), kaun si cheezein zyada usage khaati hain, aur limit khatam ho jaaye to kya karein.\n\nChapters:\n0:00 Limit beech kaam me khatam?\n0:26 Usage limit kaise kaam karti hai\n1:05 Kya zyada usage khaata hai\n1:33 Tip 1-2: plan + ek message (Example 1)\n2:04 Tip 3: saaf aur poora prompt (Example 2)\n2:46 Tip 4: Projects aur cache (Example 3)\n3:24 Tip 5-6: effort kam, faltu tools band\n3:55 Tip 7: lambi chat ki jagah nayi chat\n4:22 Limit khatam ho gayi to kya karein\n4:50 Recap\n\nSources (official):\nhttps://support.claude.com/en/articles/9797557-usage-limit-best-practices\nhttps://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work\nhttps://support.claude.com/en/articles/9517075-what-are-projects\n\nShort version (5-hour session + weekly limit): https://youtu.be/o93cpNeVYmo\nRoz 2 Shorts aur 1 video: Claude Roz Ke Kaam\nAgla video: Claude Projects kaise banayein aur use karein, step by step.\n\nUnofficial channel, not affiliated with Anthropic. Limits can change; always check the Usage page in Settings of your own account.\n\nNote: the Settings, chat and project screens in this video are our own illustrations with example numbers (not a recording). The official page screenshots are our own captures with the key line highlighted. Synthetic voice.\n\nMusic: \"Funkorama\" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttp://creativecommons.org/licenses/by/4.0/\n\n#Claude #ClaudeUsageLimit #ClaudeAI #AI #Hinglish",
+  "tags": [
+    "Claude usage limit",
+    "Claude limit reached",
+    "Claude usage limit kaise bachaye",
+    "Claude tips Hindi",
+    "Claude Projects",
+    "Claude AI Hindi",
+    "Claude for everyone",
+    "AI tools Hindi",
+    "Hinglish"
+  ],
+  "video": "long_final_ln.mp4",
+  "language": "hi",
+  "made_for_kids": false,
+  "contains_synthetic_media": true,
+  "category_id": "28",
+  "privacy": "public",
+  "playlist_id": "PLEklr-qY9V3U"
+}

@@ -1,0 +1,54 @@
+{
+ "tag": "Claude Roz Ke Kaam",
+ "music": {
+  "file": "shared/music/presentation/Funkorama.mp3",
+  "start": 6,
+  "rel": 12
+ },
+ "voice": {
+  "id": "Charon",
+  "style": "Speak like a friendly Indian tech YouTuber chatting casually in Hinglish. Natural conversational pace, warm and clear, a little energetic but not theatrical. No sing-song, no exaggerated emphasis."
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "voice": "Claude के साथ ज़रूरी काम चल रहा है, और अचानक message आता है, कि आपकी usage limit पूरी हो गई। अब घंटों इंतज़ार। ये बहुत लोगों के साथ होता है। अच्छी बात ये है, कि Claude की official help page खुद बताती है, कि limit को लंबा कैसे चलाएं। आज इस video में सात आसान तरीके देखेंगे, तीन पूरे examples के साथ। पहले समझेंगे limit काम कैसे करती है, फिर कौन सी चीज़ें ज़्यादा usage खाती हैं, और आख़िर में, limit खत्म हो जाए तो क्या करें।"
+  },
+  {
+   "id": "how",
+   "voice": "पहले basic बात। Claude के paid plans में दो तरह की usage limit होती है। पहली, session limit, जो हर पाँच घंटे में reset होती है। ये पाँच घंटे आपके पहले message से गिने जाते हैं, और फिर limit पूरी वापस मिल जाती है। दूसरी, weekly limit, जो हफ्ते में एक बार, आपके account के तय दिन और समय पर reset होती है। हाँ, verified Ultra accounts में पाँच घंटे वाली limit नहीं होती। और ध्यान दो, claude.ai, Claude Code और Claude Desktop, तीनों का usage एक ही limit में जुड़ता है। अपना usage देखने के लिए Settings खोलो, फिर Usage पर जाओ। वहाँ Current session का progress bar दिखेगा, कि कितना इस्तेमाल हुआ, कितना समय बचा है, और weekly reset कब होगा।"
+  },
+  {
+   "id": "eats",
+   "voice": "अब सवाल ये, कि usage जल्दी खत्म क्यों होता है? Official page के हिसाब से कई चीज़ें असर डालती हैं। आपका message कितना लंबा है, file कितनी बड़ी है, और chat कितनी लंबी हो चुकी है। Web search और Research जैसे tools। कौन सा model चुना है, और effort level कितना है। Artifacts बनाना, और कई steps वाले काम, जैसे code चलाना, या files बनाना। मतलब हर message का खर्च एक जैसा नहीं होता। अब इन्हीं बातों को समझकर, सात तरीके देखते हैं।"
+  },
+  {
+   "id": "batch",
+   "voice": "पहला तरीका, chat शुरू करने से पहले plan करो। सोचो कि आपको ठीक-ठीक क्या चाहिए, और जो background जानकारी है, वो शुरू में ही दे दो। दूसरा तरीका, मिलते-जुलते सवाल एक ही message में भेजो। Official page खुद यही example देती है। मान लो आपके पास गणित के पाँच सवाल हैं। अगर आप पाँच अलग messages भेजते हो, तो पाँच बार आना-जाना होता है। इसकी जगह पाँचों सवाल एक message में लिखो, और साथ में बोलो, हर सवाल का हल step by step समझाओ। काम वही, पर messages पाँच की जगह सिर्फ़ एक।"
+  },
+  {
+   "id": "clear",
+   "voice": "तीसरा तरीका, साफ़ और पूरा लिखो, और भेजने से पहले एक बार पढ़ लो। सवाल अधूरा हो, तो Claude को वापस पूछना पड़ता है, और हर सवाल-जवाब में usage जाता है। Example देखो। कोई लिखता है, एक email लिख दो। अब Claude पूछेगा, किसको, किस बारे में, कैसा tone? तीन-चार messages ऐसे ही चले गए। इसकी जगह एक बार में लिखो, मेरे manager को email लिखो, शुक्रवार की छुट्टी के लिए, वजह परिवार का function, tone polite और छोटा, पाँच lines में। एक ही message में पूरा जवाब। और कोई लंबा text edit करवाना हो, तो टुकड़ों में नहीं, पूरा text एक ही message में भेजो। Coding के लिए भी यही नियम है, पहले message में ही अपना पूरा setup बताओ, और पूरा code एक साथ भेजो।"
+  },
+  {
+   "id": "projects",
+   "voice": "चौथा तरीका, बार-बार काम आने वाली files के लिए Projects इस्तेमाल करो। जब आप कोई document Project में upload करते हो, तो वो cache हो जाता है। और जब तक वो cache में है, उस हिस्से का usage नए content से कम गिना जाता है। Example, मान लो आप exam की तैयारी कर रहे हो। एक Project बनाओ, और उसमें अपने chapter के PDF notes डालो। अब उसी Project में chat खोलकर पूछो, इस chapter के ज़रूरी points बताओ। फिर, दस सवालों का quiz बनाओ। फिर, मेरे गलत जवाब समझाओ। हर बार PDF दोबारा upload नहीं करनी पड़ती। बस एक बात याद रखो, कुछ देर काम न करो तो cache खत्म हो जाता है, और लंबे break के बाद पहला message वो content फिर से पूरा गिनता है।"
+  },
+  {
+   "id": "settings",
+   "voice": "पाँचवाँ तरीका, हर काम पर पूरी ताकत मत लगाओ। रोज़ के आसान कामों के लिए effort level कम रखो, क्योंकि higher effort ज़्यादा tokens खर्च करता है। जिन models में thinking का toggle है, वहाँ ज़रूरत न हो तो thinking बंद कर दो। छठा तरीका, जो tools नहीं चाहिए, उन्हें बंद रखो। Gmail या Calendar जैसे जोड़े हुए apps, जब उस chat में काम के न हों, तो बंद कर दो। और अगर ताज़ा जानकारी नहीं चाहिए, तो Claude को बोल दो, web search मत करना। Official page के मुताबिक, tools और connectors बहुत tokens खाते हैं।"
+  },
+  {
+   "id": "newchat",
+   "voice": "सातवाँ तरीका, लंबी chat को समझदारी से संभालो। बहुत लंबी बातचीत ज़्यादा usage लेती है। तो जब chat बहुत बड़ी हो जाए, और limit पास हो, तो नई chat शुरू करो। उसी chat में हो, तो पुरानी बात दोबारा paste मत करो, बस लिखो, as mentioned earlier, यानी जैसा पहले बताया। और paid plans पर Claude पुरानी chats search कर सकता है, और memory भी इस्तेमाल कर सकता है, तो हर बार अपनी पूरी जानकारी दोबारा देने की ज़रूरत नहीं।"
+  },
+  {
+   "id": "limit",
+   "voice": "फिर भी limit खत्म हो जाए, तो तीन रास्ते हैं। पहला, reset का इंतज़ार करो, Settings में Usage पर समय दिख जाएगा। दूसरा, plan upgrade करो, नए plan की limit तुरंत लागू होती है। तीसरा, paid plan पर usage credits चालू करो, तब काम रुकने की जगह credits पर चलता रहता है। अब एक ज़रूरी बात, ध्यान रखो। Anthropic अपनी मर्ज़ी से limits बदल सकता है, इसलिए किसी पक्के message count पर भरोसा मत करो। हमेशा Settings में Usage पर अपना असली हिसाब देखो।"
+  },
+  {
+   "id": "cta",
+   "voice": "तो याद रखो, सात तरीके। पहले plan करो, और मिलते-जुलते सवाल एक message में भेजो। साफ़ लिखो, और भेजने से पहले पढ़ो। बार-बार वाली files Project में रखो। आसान काम पर effort कम रखो, और फालतू tools बंद। और बहुत लंबी chat की जगह नई chat। अगले video में देखेंगे, Claude Projects कैसे बनाएं और use करें, step by step। Claude से कम limit में ज़्यादा काम करवाना सीखते रहना है, तो follow कीजिए।"
+  }
+ ]
+}

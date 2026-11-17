@@ -1286,5 +1286,18 @@
     "priority": "daily-life",
     "series": "daily-life",
     "series_index": 3
+  },
+  {
+    "id": "cfe-usage-saving-long",
+    "title": "Claude usage limit jaldi khatam? Limit bachane ke 7 aasan tareeke",
+    "url": "https://support.claude.com/en/articles/9797557-usage-limit-best-practices",
+    "summary": "Long (5:21): how limits work, what uses more, 7 official tips with 3 worked examples, what to do when the limit is hit.",
+    "status": "uploaded",
+    "audience": "A",
+    "series": "claude-roz-ke-kaam",
+    "story": "061_cfe-usage-saving",
+    "video_id": "0rPgNXoYT6Y",
+    "series_index": 1,
+    "format": "long"
   }
 ]
