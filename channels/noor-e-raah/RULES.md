@@ -238,3 +238,8 @@ New images that are generic (landscapes, objects) are added to the library after
 
 ## 2m. SURAH videos use the SAME template (user 2026-11-17)
 - Surah/ayah videos follow 2i + 2j + 2l together: for each ayah the narrator reads it once (Arabic exact Tanzil bytes on screen + ucharan), then explains the meaning as story-telling in SHORT phrase lines (like sample 013), with 2-4 faceless-storybook scene images per ayah that show what the ayah describes (ayah's meaning/theme decides the scene), keyword `gold` highlights, ONE warm music track, no word-by-word, no questions, no lesson line, no next-video teaser, very short final summary. Reference for the look: stories/012_alfil_toon_demo (ayah card layout) + stories/013 (phrase-line story style). Charon only (2k).
+
+## 2n. STORY LENGTH + SAMPLES (user 2026-11-17/18, ALL story videos)
+- Every story Long must be 4:00-5:00 minutes (never 1-2 min). Choose a story with enough real, sourced content for that length (decide the story carefully first; Khoji dossier must show enough safe facts; if a story only supports ~2 min, pick another story or a fuller one). At ~2.3 words/s Charon pace that is ~550-700 spoken words, ~30-45 phrase lines, 7-10 scene images.
+- The Short is then cut from that 4-5 min Long (35-59 s, best/deepest consecutive part) and uploaded with it.
+- SAMPLES / demos / tests are NEVER uploaded. Upload only a real story that meets 2n and passed Munshi, from the scheduled/real runs, or when the user says "upload karo". (2026-11-18 mistake: sample 013 gufa was uploaded private; user did not want it.)

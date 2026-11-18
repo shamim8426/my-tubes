@@ -1,0 +1,22 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name,Fontname,Fontsize,PrimaryColour,SecondaryColour,OutlineColour,BackColour,Bold,Italic,Underline,StrikeOut,ScaleX,ScaleY,Spacing,Angle,BorderStyle,Outline,Shadow,Alignment,MarginL,MarginR,MarginV,Encoding
+Style: Cap,Mukta Bold,66,&H00FFFFFF,&H00FFFFFF,&H8C0A0C14,&H8C0A0C14,0,0,0,0,100,100,0,0,3,14,0,2,170,170,400,1
+Style: Tag,Mukta Bold,52,&H0078C8F0,&H00FFFFFF,&H90000000,&H00000000,0,0,0,0,100,100,0,0,1,3,1,8,60,60,330,1
+
+[Events]
+Format: Layer,Start,End,Style,Name,MarginL,MarginR,MarginV,Effect,Text
+Dialogue: 0,0:00:03.85,0:00:07.25,Cap,,0,0,0,,{\1c&H0078C8F0&}कह दो{\1c&HFFFFFF&}, ऐ इनकार करने वालो।
+Dialogue: 0,0:00:07.30,0:00:11.94,Cap,,0,0,0,,ये जवाब {\1c&H0078C8F0&}अल्लाह के हुक्म{\1c&HFFFFFF&} से दिया गया, अपनी तरफ़ से नहीं।
+Dialogue: 0,0:00:11.99,0:00:19.11,Cap,,0,0,0,,और ये बात उस वक़्त के उन ख़ास लोगों से कही गई, जो अपनी {\1c&H0078C8F0&}ज़िद{\1c&HFFFFFF&} पर अड़े हुए थे।
+Dialogue: 0,0:00:23.33,0:00:28.89,Cap,,0,0,0,,मैं उनकी इबादत {\1c&H0078C8F0&}नहीं करता{\1c&HFFFFFF&}, जिनकी तुम इबादत करते हो।
+Dialogue: 0,0:00:28.94,0:00:35.02,Cap,,0,0,0,,वो बुत, जिनके आगे तुम झुकते हो, मैं उनके आगे {\1c&H0078C8F0&}नहीं झुकता{\1c&HFFFFFF&}।
+Dialogue: 0,0:00:39.56,0:00:45.00,Cap,,0,0,0,,और न तुम {\1c&H0078C8F0&}उसकी{\1c&HFFFFFF&} इबादत करने वाले हो, जिसकी मैं इबादत करता हूँ।
+Dialogue: 0,0:00:45.05,0:00:51.83,Cap,,0,0,0,,मैं {\1c&H0078C8F0&}सिर्फ़ एक अल्लाह{\1c&HFFFFFF&} की इबादत करता हूँ, उसके साथ किसी को साझी नहीं बनाता।
+Dialogue: 0,0:00:00.00,0:00:51.88,Tag,,0,0,0,,सूरह अल-काफ़िरून 109:1-3

@@ -1,0 +1,683 @@
+{
+ "story": "009_al-kafirun",
+ "channel": "noor-e-raah",
+ "made_by": "Khoji MODE 3",
+ "date": "2026-11-18",
+ "note": "Arabic = bytes copied from the local Tanzil Uthmani v1.1 file (TANZIL_FILE, lines 6208-6213 = 109|1..6) via Grep output, Bismillah prefix of 109:1 stripped; sha256 NOT computed (no code run allowed for Khoji) - PC must compute and byte-compare. Cross-check: api.alquran.cloud quran-uthmani (older Tanzil build) has 109:4 'عَابِدٌۭ' with U+06ED small meem after the tanween; local Tanzil 1.1 has 'عَابِدٌ' without it - USE THE LOCAL TANZIL 1.1 BYTES (newer, licence block in the same file). Tafseer/translation pages accessed 2026-11-18 via WebFetch (summarising fetch tool), so wording is a digest. sunnah.com returned HTTP 403 today: hadith numbers/grades were read from the fawazahmed0 hadith-api mirror (sunnah.com-style numbering) + a web search snippet of sunnah.com/muslim:726; Munshi opens sunnah.com on the PC. | PC 2026-11-18: Khoji copy was NFC-composed (U+0622 for U+0627+U+0653 in 109:2-5); replaced by exact Tanzil file bytes, sha256 filled.",
+ "surah": {
+  "number": 109,
+  "name_ar": "الكافرون",
+  "name_tr": "Al-Kafirun",
+  "ayat_count": 6,
+  "revelation_order_tanzil": 18,
+  "type_tanzil": "Meccan",
+  "note_bismillah": "Tanzil file line 109|1 begins with the Bismillah; stripped"
+ },
+ "ayat": [
+  {
+   "ayah": 1,
+   "ref": "109:1",
+   "text": "قُلْ يَٰٓأَيُّهَا ٱلْكَٰفِرُونَ",
+   "words": 3,
+   "sha256_utf8": "be9f508c529b82909fb32f5bf6dd08dd46d77d629aff29dc379ffa8314c16dd7",
+   "translit_tanzil": "Qul ya ayyuha alkafiroona",
+   "translit_q411": "Qul yaa-ai yuhal kaafiroon"
+  },
+  {
+   "ayah": 2,
+   "ref": "109:2",
+   "text": "لَآ أَعْبُدُ مَا تَعْبُدُونَ",
+   "words": 4,
+   "sha256_utf8": "564a2851da9a6af3b2fbecd3029dfef078358d1dea74feacb792cf3659d1b395",
+   "translit_tanzil": "La aAAbudu ma taAAbudoona",
+   "translit_q411": "Laa a'budu ma t'abudoon"
+  },
+  {
+   "ayah": 3,
+   "ref": "109:3",
+   "text": "وَلَآ أَنتُمْ عَٰبِدُونَ مَآ أَعْبُدُ",
+   "words": 5,
+   "sha256_utf8": "ba161220449478089ae88e071cc1700baa22e7d4e6fdba075f6f9e5451b02777",
+   "translit_tanzil": "Wala antum AAabidoona ma aAAbudu",
+   "translit_q411": "Wa laa antum 'aabidoona maa a'bud"
+  },
+  {
+   "ayah": 4,
+   "ref": "109:4",
+   "text": "وَلَآ أَنَا۠ عَابِدٌ مَّا عَبَدتُّمْ",
+   "words": 5,
+   "sha256_utf8": "163a348e4433fe8ae8536f136b48c057439a45c9d5b42e19af9b6f553d0fac4a",
+   "translit_tanzil": "Wala ana AAabidun ma AAabadtum",
+   "translit_q411": "Wa laa ana 'abidum maa 'abattum"
+  },
+  {
+   "ayah": 5,
+   "ref": "109:5",
+   "text": "وَلَآ أَنتُمْ عَٰبِدُونَ مَآ أَعْبُدُ",
+   "words": 5,
+   "sha256_utf8": "ba161220449478089ae88e071cc1700baa22e7d4e6fdba075f6f9e5451b02777",
+   "translit_tanzil": "Wala antum AAabidoona ma aAAbudu",
+   "translit_q411": "Wa laa antum 'aabidoona ma a'bud"
+  },
+  {
+   "ayah": 6,
+   "ref": "109:6",
+   "text": "لَكُمْ دِينُكُمْ وَلِىَ دِينِ",
+   "words": 4,
+   "sha256_utf8": "dd12685269732fde12e671c993313ffe0cd56cb555c16be189bacfaa3823cfe3",
+   "translit_tanzil": "Lakum deenukum waliya deeni",
+   "translit_q411": "Lakum deenukum wa liya deen"
+  }
+ ],
+ "ayat_normalisation": "none - never NFC/NFKC",
+ "pc_check": "(1) compute sha256 (UTF-8, no BOM/newline) of the 6 ayah strings, write into ayat[].sha256_utf8; byte-compare with TANZIL_FILE lines 6208-6213 (strip Bismillah of 109:1) and a fresh tanzil.net quran-uthmani download (note the U+06ED difference in 109:4 seen on alquran.cloud). (2) 109:3 and 109:5 are byte-identical in Tanzil except Q411 'maa' vs 'ma' (translit only) - verify the Arabic is identical. (3) libass/Amiri render zoom: 109:1 'يَٰٓأَيُّهَا' (dagger alif + maddah), 'ٱلْكَٰفِرُونَ' (wasl + dagger alif); 109:2/3/5 'لَآ' 'مَآ' maddah; 109:4 'أَنَا۠' (small rounded zero U+06DF over alif), 'مَّا' shadda, 'عَبَدتُّمْ' shadda on ta; 109:6 'وَلِىَ' (alif maksura shape ya with fatha). (4) open sunnah.com for muslim:726, muslim:1218, abudawud:5055, tirmidhi:3403, abudawud:1256, tirmidhi:417, tirmidhi:431, tirmidhi:2893/2894/2895, bukhari:2620 and confirm number + grade text. (5) open real tafseer pages to confirm the digests (esp. N-items and K2 repetition views).",
+ "source_keys": {
+  "TANZIL_FILE": {
+   "url": "local: .claude/worktrees/hi-30f55e/channels/noor-e-raah/stories/006_imaan-shorts/research/quran-uthmani.txt (Tanzil quran-uthmani Version 1.1, lines 6208-6213 = 109|1..6; licence block lines 6239-6265)",
+   "publisher": "Tanzil Project (tanzil.net) Uthmani text v1.1, CC BY 3.0, verbatim",
+   "published": "Copyright (C) 2007-2026 Tanzil Project (per file block)",
+   "accessed": "2026-11-18",
+   "type": "text_snapshot",
+   "opened": true
+  },
+  "TANZIL_LIC": {
+   "url": "https://tanzil.net/docs/text_license",
+   "publisher": "Tanzil Project - CC BY 3.0; file block: 'Permission is granted to copy and distribute verbatim copies of this text, but CHANGING IT IS NOT ALLOWED'; source (Tanzil Project) clearly indicated + link to tanzil.net; notice kept in derived files",
+   "published": "unknown",
+   "accessed": "2026-11-18 (terms read from the file's own copyright block; web page last opened 2026-11-03 in 005)",
+   "type": "licence",
+   "opened": true
+  },
+  "TANZIL_META": {
+   "url": "https://tanzil.net/res/text/metadata/quran-data.js",
+   "publisher": "Tanzil metadata: [6207, 6, 18, 1, 'الكافرون', \"Al-Kaafiroon\", 'The Disbelievers', 'Meccan'] (6 ayat, revelation order 18, Meccan); also 105 Al-Fil order 19, 107 Al-Ma'un order 17",
+   "published": "unknown",
+   "accessed": "2026-11-18",
+   "type": "reference_metadata",
+   "opened": true
+  },
+  "ALQC_109": {
+   "url": "https://api.alquran.cloud/v1/surah/109/quran-uthmani",
+   "publisher": "alquran.cloud quran-uthmani (Tanzil-based, older build): revelationType Meccan, 6 ayahs; 109:4 has U+06ED (not used, cross-check only)",
+   "published": "unknown",
+   "accessed": "2026-11-18",
+   "type": "text_crosscheck",
+   "opened": true
+  },
+  "LA_TANZIL": {
+   "url": "https://raw.githubusercontent.com/fawazahmed0/quran-api/1/editions/ara-quran-la/109.json",
+   "publisher": "Tanzil ara-quran-la Latin transliteration via fawazahmed0/quran-api",
+   "published": "unknown",
+   "accessed": "2026-11-18",
+   "type": "transliteration",
+   "opened": true
+  },
+  "LA_Q411": {
+   "url": "https://raw.githubusercontent.com/fawazahmed0/quran-api/1/editions/ara-quran-la1/109.json",
+   "publisher": "quran411 ara-quran-la1 Latin transliteration via fawazahmed0/quran-api",
+   "published": "unknown",
+   "accessed": "2026-11-18",
+   "type": "transliteration",
+   "opened": true
+  },
+  "TR_FAROOQKHAN": {
+   "url": "https://raw.githubusercontent.com/fawazahmed0/quran-api/1/editions/hin-suhelfarooqkhan/109.json",
+   "publisher": "Tanzil hi.hindi (Suhel Farooq Khan) via fawazahmed0/quran-api",
+   "published": "unknown",
+   "accessed": "2026-11-18",
+   "type": "translation",
+   "opened": true
+  },
+  "TR_FAROOQ": {
+   "url": "https://raw.githubusercontent.com/fawazahmed0/quran-api/1/editions/hin-muhammadfarooqk/109.json",
+   "publisher": "Muhammad Farooq Khan Hindi via fawazahmed0/quran-api",
+   "published": "unknown",
+   "accessed": "2026-11-18",
+   "type": "translation",
+   "opened": true
+  },
+  "TR_MAHMUD": {
+   "url": "https://raw.githubusercontent.com/fawazahmed0/quran-api/1/editions/urd-mahmoodulhassan/109.json",
+   "publisher": "Mahmud al-Hasan Urdu (PD) via fawazahmed0/quran-api",
+   "published": "unknown",
+   "accessed": "2026-11-18",
+   "type": "translation",
+   "opened": true
+  },
+  "TR_SAHIH": {
+   "url": "https://raw.githubusercontent.com/fawazahmed0/quran-api/1/editions/eng-ummmuhammad/109.json",
+   "publisher": "Sahih International (Umm Muhammad) English via fawazahmed0/quran-api",
+   "published": "unknown",
+   "accessed": "2026-11-18",
+   "type": "translation",
+   "opened": true
+  },
+  "TR_HILALI": {
+   "url": "https://cdn.jsdelivr.net/gh/fawazahmed0/quran-api@1/editions/eng-muhammadtaqiudd/109.json",
+   "publisher": "Hilali & Muhsin Khan English via fawazahmed0/quran-api",
+   "published": "unknown",
+   "accessed": "2026-11-18",
+   "type": "translation",
+   "opened": true
+  },
+  "IK_EN_109": {
+   "url": "https://raw.githubusercontent.com/spa5k/tafsir_api/main/tafsir/en-tafisr-ibn-kathir/109/1.json",
+   "publisher": "Tafsir Ibn Kathir (EN, abridged) 109: no Makki/Madani verdict in this abridgement; Muslim (Jabir) tawaf 2 rak'ahs; Muslim (Abu Hurayra) Fajr sunnah; Ahmad (Ibn 'Umar) Fajr + Maghrib; quarter of Quran mentioned; offer 'it has been said' (worship our idols a year, we worship yours a year), no chain; repetition: first = objects of worship, second = manner of worship (ma masdariyya); Bukhari: lakum dinukum = kufr, wa liya din = Islam; cf. 10:41, 28:55; name 'Surat Qul ya Ayyuhal-Kafirun'",
+   "published": "unknown",
+   "accessed": "2026-11-18",
+   "type": "tafseer",
+   "opened": true
+  },
+  "TB_109": {
+   "url": "https://raw.githubusercontent.com/spa5k/tafsir_api/main/tafsir/ar-tafsir-al-tabari/109/1.json",
+   "publisher": "Tafsir al-Tabari (AR) 109: (a) Muhammad bin Musa al-Harashi - Abu Khalaf - Dawud - 'Ikrima - Ibn 'Abbas: wealth/marriage offer, else Lat and 'Uzza a year / your God a year; (b) Ya'qub - Ibn 'Ulayya - Ibn Ishaq - Sa'id bin Mina mawla al-Bakhtari: al-Walid bin al-Mughira, al-'As bin Wa'il, al-Aswad bin al-Muttalib, Umayya bin Khalaf proposed mutual worship; Tabari's own explanation: surah addresses specific mushrikeen, cuts off their hope of compromise; negation covers present, future and past; grammarians: repetition = emphasis (cf. 94:5-6); verse 6: their religion is theirs and his is his, he will never leave it; no Makki/Madani statement",
+   "published": "unknown",
+   "accessed": "2026-11-18",
+   "type": "tafseer",
+   "opened": true
+  },
+  "QT_109": {
+   "url": "https://raw.githubusercontent.com/spa5k/tafsir_api/main/tafsir/ar-tafseer-al-qurtubi/109/1.json",
+   "publisher": "Tafsir al-Qurtubi (AR) 109:1: Makki per Ibn Mas'ud, al-Hasan, 'Ikrima; Madani per one of two views of Ibn 'Abbas, Qatada, al-Dahhak; 6 ayat; nickname al-Muqashqishatan (with al-Ikhlas; al-Asma'i: cleanse from nifaq); virtues incl. third/quarter (Anas, al-Anbari), Farwa bin Nawfal before sleep, Jubayr bin Mut'im travel, Ibn 'Abbas 'most hateful to Iblis'; occasion: Ibn Ishaq etc. from Ibn 'Abbas (four leaders), Abu Salih from Ibn 'Abbas (touch idols), wealth/marriage version; al-Mawardi: reply to a specific group; repetition: emphasis (most), repeated requests, different times (al-Akhfash, al-Mubarrad), ma masdariyya",
+   "published": "unknown",
+   "accessed": "2026-11-18",
+   "type": "tafseer",
+   "opened": true
+  },
+  "QT_109_6": {
+   "url": "https://raw.githubusercontent.com/spa5k/tafsir_api/main/tafsir/ar-tafseer-al-qurtubi/109/6.json",
+   "publisher": "Tafsir al-Qurtubi (AR) 109:6: sense of threat (cf. 28:55); 'qila' abrogated by the sword verse / whole surah abrogated / not abrogated as it is khabar; din = recompense (alternative)",
+   "published": "unknown",
+   "accessed": "2026-11-18",
+   "type": "tafseer",
+   "opened": true
+  },
+  "MQ_109": {
+   "url": "https://raw.githubusercontent.com/spa5k/tafsir_api/main/tafsir/en-tafsir-maarif-ul-quran/109/1.json",
+   "publisher": "Ma'ariful Qur'an (EN) 109: offers (Ibn Ishaq via Ibn 'Abbas in Qurtubi; Tabarani via Ibn 'Abbas in Mazhari; Abu Salih) possibly at different times - surah ends compromise once and for all; repetition: Bukhari = present vs future; Ibn Kathir = objects vs manner; others = emphasis (Ibn Kathir/Ibn Jarir); verse 6 neither guarantees nor permits disbelief; Islam values tolerance, kindness, politeness, peace in human dealings but no compromise in tenets; treaties (8:61) allowed; majority: not abrogated; before-sleep hadith (Tirmidhi, Abu Dawud); Mazhari reports (Jubayr, scorpion) not used",
+   "published": "unknown",
+   "accessed": "2026-11-18",
+   "type": "tafseer",
+   "opened": true
+  },
+  "IA_109": {
+   "url": "https://quran-tafsir.net/ashour/sura109-aya1.html",
+   "publisher": "Ibn 'Ashur, al-Tahrir wa al-Tanwir 109 intro: names Qul ya ayyuha al-kafirun (al-Bukhari's title), al-Kafirun (mushafs), al-Muqashqisha (al-Kashshaf, al-Itqan; shared with al-Ikhlas), al-Ikhlas (shared), Surat al-'Ibada (Sakhawi, Jamal al-Qurra'), Surat al-Din (Fayruzabadi, Basa'ir); Makki by agreement per Ibn 'Atiyya and Ibn Kathir, Ibn al-Zubayr: Madani; 18th revealed, after al-Ma'un, before al-Fil; 6 ayat; occasion per al-Wahidi and Ibn Ishaq (four leaders, while he was doing tawaf); purpose: make them despair of any agreement; Islam does not mix with shirk",
+   "published": "unknown",
+   "accessed": "2026-11-18",
+   "type": "tafseer",
+   "opened": true
+  },
+  "WAHIDI_109": {
+   "url": "https://www.altafsir.com/AsbabAlnuzol.asp?SoraName=109&Ayah=1&search=yes&img=A&LanguageID=2",
+   "publisher": "al-Wahidi, Asbab al-Nuzul (EN, Guezzou) 109: matn only on the page (no isnad shown): Quraysh men proposed a year of their religion / a year of his; he refused ('I seek refuge in Allah from associating anything with Him'); surah revealed; he recited it in the Sacred Mosque and they despaired of him",
+   "published": "unknown",
+   "accessed": "2026-11-18",
+   "type": "asbab",
+   "opened": true
+  },
+  "BAGHAWI_FN": {
+   "url": "https://shamela.ws/book/41/3527",
+   "publisher": "Tafsir al-Baghawi (Tayba ed.) 8/561, editors' footnote citing Ibn Hajar, Fath al-Bari 8/333: Ibn Abi Hatim's Ibn 'Abbas narration of the offer - 'وفي إسناده أبو خلف عبد الله بن عيسى، وهو ضعيف'; heading: Makki (Ibn Mardawayh from Ibn 'Abbas, via al-Durr al-Manthur)",
+   "published": "unknown",
+   "accessed": "2026-11-18",
+   "type": "tafseer_footnote",
+   "opened": true
+  },
+  "TAFHEEM_109": {
+   "url": "https://www.islamicstudies.info/quran/tafheem-text/intro/Intro109.html",
+   "publisher": "Maududi, Tafheem-ul-Qur'an intro 109: majority Makki (Ibn Mas'ud, Hasan al-Basri, 'Ikrima); Ibn al-Zubayr Madani; Ibn 'Abbas/Qatada both reported; offers: Ibn 'Abbas (Ibn Jarir, Ibn Abi Hatim, Tabarani), Ibn 'Abbas ('Abd bin Humayd), Sa'id bin Mina (Ibn Jarir, Ibn Abi Hatim, Ibn Hisham), Wahb bin Munabbih; offers recurred so a final reply came; NOT a message of tolerance in matters of faith; virtues: Fajr/Maghrib sunnah (Ibn 'Umar), before sleep (Nawfal; Ahmad, Abu Dawud, Tirmidhi, Nasa'i ...)",
+   "published": "unknown",
+   "accessed": "2026-11-18",
+   "type": "tafseer",
+   "opened": true
+  },
+  "QCOM_109": {
+   "url": "https://quran.com/surah/109/info",
+   "publisher": "Quran.com surah info 109: Makkan by consensus; 18th revealed, after al-Ma'un, before al-Fil; 6 ayat; other names Qul ya ayyuha al-kafirun, al-'Ibada, al-Din, al-Ikhlas; theme: absolute disassociation from shirk, no compromise",
+   "published": "unknown",
+   "accessed": "2026-11-18",
+   "type": "reference",
+   "opened": true
+  },
+  "ALIM_109": {
+   "url": "https://www.alim.org/surah-info/109",
+   "publisher": "Alim.org surah info 109 (Maududi digest): most commentators Makki; Ibn al-Zubayr Madani; Ibn 'Abbas and Qatada both views; offers with sources as Tafheem",
+   "published": "unknown",
+   "accessed": "2026-11-18",
+   "type": "reference",
+   "opened": true
+  },
+  "IK_EN_60_8": {
+   "url": "https://raw.githubusercontent.com/spa5k/tafsir_api/main/tafsir/en-tafisr-ibn-kathir/60/8.json",
+   "publisher": "Tafsir Ibn Kathir (EN) 60:8: Allah does not forbid kindness and justice to those who did not fight Muslims over religion nor expelled them; Asma bint Abi Bakr and her mother (Ahmad; good relations in the Sahihayn)",
+   "published": "unknown",
+   "accessed": "2026-11-18",
+   "type": "tafseer",
+   "opened": true
+  },
+  "H_MUSLIM_726": {
+   "url": "https://sunnah.com/muslim:726",
+   "publisher": "Sahih Muslim 726 (in-book: Book 6, Hadith 120), Abu Hurayra: in the two rak'ahs (sunnah) of Fajr he recited Qul ya ayyuha al-kafirun and Qul huwa Allahu ahad. Confirmed via web search snippet of sunnah.com + Abu Dawud 1256 grading note 'Sahih Muslim (726)' (Zubair Ali Zai) in hadith-api; sunnah.com page itself 403 today",
+   "published": "unknown",
+   "accessed": "2026-11-18",
+   "type": "hadith",
+   "opened": false
+  },
+  "H_ABUDAWUD_1256": {
+   "url": "https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions/eng-abudawud/1256.json",
+   "publisher": "Sunan Abi Dawud 1256 (Book 5, Hadith 7), Abu Hurayra: Fajr sunnah with al-Kafirun + al-Ikhlas; grades: al-Albani Sahih, Muhyi al-Din 'Abd al-Hamid Sahih, Shu'ayb al-Arna'ut Sahih, Zubair Ali Zai 'Sahih Muslim (726)'; sunnah.com/abudawud:1256",
+   "published": "unknown",
+   "accessed": "2026-11-18",
+   "type": "hadith",
+   "opened": true
+  },
+  "H_MUSLIM_1218A": {
+   "url": "https://hadithunlocked.com/muslim:1218a",
+   "publisher": "Sahih Muslim 1218a (Jabir, Hajj of the Prophet): two rak'ahs at Maqam Ibrahim after tawaf with Qul huwa Allahu ahad and Qul ya ayyuha al-kafirun (narrator Ja'far: 'I do not know whether my father mentioned it except from the Prophet'); sunnah.com/muslim:1218a",
+   "published": "unknown",
+   "accessed": "2026-11-18",
+   "type": "hadith",
+   "opened": true
+  },
+  "H_ABUDAWUD_5055": {
+   "url": "https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions/eng-abudawud/5055.json",
+   "publisher": "Sunan Abi Dawud 5055 (Kitab al-Adab; Book 43, Hadith 283), Farwa bin Nawfal from his father: recite Qul ya ayyuha al-kafirun then sleep at its end, it is a declaration of freedom from shirk; grades: al-Albani Sahih, Muhyi al-Din Sahih, al-Arna'ut Hasan, Zubair Ali Zai Hasan; sunnah.com/abudawud:5055",
+   "published": "unknown",
+   "accessed": "2026-11-18",
+   "type": "hadith",
+   "opened": true
+  },
+  "H_TIRMIDHI_3403": {
+   "url": "https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions/eng-tirmidhi/3403.json",
+   "publisher": "Jami' al-Tirmidhi 3403 (Book 48, Hadith 34), Farwa bin Nawfal: what to say on going to bed - Qul ya ayyuha al-kafirun, a disavowal of shirk; Tirmidhi notes a chain variation (Shu'ba) and says the chain from Farwa's father is more correct; grades: Ahmad Shakir Sahih, al-Albani Sahih, Zubair Ali Zai Hasan; sunnah.com/tirmidhi:3403",
+   "published": "unknown",
+   "accessed": "2026-11-18",
+   "type": "hadith",
+   "opened": true
+  },
+  "H_TIRMIDHI_417": {
+   "url": "https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions/eng-tirmidhi/417.json",
+   "publisher": "Jami' al-Tirmidhi 417, Ibn 'Umar watched for a month: Fajr sunnah with al-Kafirun + al-Ikhlas; Shakir Sahih, al-Albani Sahih, Zubair Ali Zai Da'if",
+   "published": "unknown",
+   "accessed": "2026-11-18",
+   "type": "hadith",
+   "opened": true
+  },
+  "H_TIRMIDHI_431": {
+   "url": "https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions/eng-tirmidhi/431.json",
+   "publisher": "Jami' al-Tirmidhi 431, Ibn Mas'ud: many times in the 2 rak'ahs after Maghrib and before Fajr; Shakir Hasan Sahih, al-Albani Hasan Sahih, Zubair Ali Zai Da'if",
+   "published": "unknown",
+   "accessed": "2026-11-18",
+   "type": "hadith",
+   "opened": true
+  },
+  "H_TIRMIDHI_2893": {
+   "url": "https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions/eng-tirmidhi/2893.json",
+   "publisher": "Jami' al-Tirmidhi 2893: al-Zalzala half, al-Kafirun quarter, al-Ikhlas third; Shakir Hasan, Bashar 'Awwad Hasan, al-Albani Da'if, Zubair Ali Zai Da'if",
+   "published": "unknown",
+   "accessed": "2026-11-18",
+   "type": "hadith",
+   "opened": true
+  },
+  "H_TIRMIDHI_2894": {
+   "url": "https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions/eng-tirmidhi/2894.json",
+   "publisher": "Jami' al-Tirmidhi 2894 (Ibn 'Abbas): same 'quarter' wording; mirror shows Shakir Sahih, al-Albani Sahih, Zubair Ali Zai Da'if - grade CONFLICTS with 2893 and with what is commonly cited; PC/Munshi must open sunnah.com",
+   "published": "unknown",
+   "accessed": "2026-11-18",
+   "type": "hadith",
+   "opened": true
+  },
+  "H_TIRMIDHI_2895": {
+   "url": "https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions/eng-tirmidhi/2895.json",
+   "publisher": "Jami' al-Tirmidhi 2895 (Anas, marriage advice): al-Kafirun a quarter; Da'if by Shakir, al-Albani, Zubair Ali Zai",
+   "published": "unknown",
+   "accessed": "2026-11-18",
+   "type": "hadith",
+   "opened": true
+  },
+  "H_BUKHARI_2620": {
+   "url": "https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions/eng-bukhari/2620.json",
+   "publisher": "Sahih al-Bukhari 2620 (Book of Gifts), Asma' bint Abi Bakr: her mother, a mushrik, came; the Prophet told her to keep good relations with her mother; sunnah.com/bukhari:2620",
+   "published": "unknown",
+   "accessed": "2026-11-18",
+   "type": "hadith",
+   "opened": true
+  }
+ },
+ "facts": [
+  {
+   "id": "T1",
+   "claim": "Arabic 109:1-6 = Tanzil Uthmani v1.1 bytes (ayat[]); CC BY 3.0, verbatim, credit Tanzil Project + link; sha256 on PC",
+   "grade": "licence ALLOWED",
+   "confidence": "pakka",
+   "sources": [
+    "TANZIL_FILE",
+    "TANZIL_LIC"
+   ]
+  },
+  {
+   "id": "T2",
+   "claim": "Hindi = SARAL BHAAVARTH from accepted translations (Suhel Farooq Khan, Muhammad Farooq Khan, Mahmud al-Hasan PD; English check Sahih International, Hilali-Khan); nothing copied; '(ai rasool)' and Hilali's bracket additions not taken",
+   "grade": "decision (RULES 1a)",
+   "confidence": "pakka",
+   "sources": [
+    "TR_FAROOQKHAN",
+    "TR_FAROOQ",
+    "TR_MAHMUD",
+    "TR_SAHIH",
+    "TR_HILALI"
+   ]
+  },
+  {
+   "id": "T3",
+   "claim": "Latin transliteration for the Devanagari ucharan (Tanzil ara-quran-la + quran411 ara-quran-la1); ucharan.md rows U1-U6",
+   "grade": "helper",
+   "confidence": "pakka",
+   "sources": [
+    "LA_TANZIL",
+    "LA_Q411"
+   ]
+  },
+  {
+   "id": "P1",
+   "claim": "Name al-Kafirun (الكافرون = those who deny/disbelieve), taken from the word in ayah 1; surah 109 in the mushaf; 6 ayat; juz 30",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "TANZIL_FILE",
+    "TANZIL_META",
+    "QT_109",
+    "IA_109",
+    "TAFHEEM_109"
+   ]
+  },
+  {
+   "id": "P2",
+   "claim": "Makki per majority (Ibn Mas'ud, al-Hasan, 'Ikrima; Ibn 'Atiyya and Ibn Kathir 'by agreement'; quran.com 'by consensus'; Tanzil Meccan); Madani reported from Ibn al-Zubayr, and one of two views of Ibn 'Abbas, Qatada, al-Dahhak",
+   "grade": "ikhtilaaf (zyadatar: Makki)",
+   "confidence": "pakka",
+   "sources": [
+    "QT_109",
+    "IA_109",
+    "TAFHEEM_109",
+    "QCOM_109",
+    "TANZIL_META",
+    "BAGHAWI_FN"
+   ]
+  },
+  {
+   "id": "P3",
+   "claim": "Order of revelation 18 (after al-Ma'un, before al-Fil) in the standard list used by Tanzil/quran.com, also given by Ibn 'Ashur",
+   "grade": "maana hua (ek mash'hoor fehrist ke mutabiq)",
+   "confidence": "pakka",
+   "sources": [
+    "TANZIL_META",
+    "QCOM_109",
+    "IA_109"
+   ]
+  },
+  {
+   "id": "P4",
+   "claim": "Other names: 'Qul ya ayyuha al-kafirun' (al-Bukhari's title; Ibn Kathir); al-Muqashqisha (shared with al-Ikhlas; Qurtubi, Ibn 'Ashur citing al-Kashshaf/al-Itqan); Surat al-'Ibada and Surat al-Din (Ibn 'Ashur + quran.com)",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "IA_109",
+    "QT_109",
+    "IK_EN_109",
+    "QCOM_109"
+   ]
+  },
+  {
+   "id": "P5",
+   "claim": "Main message: clear and final separation in worship/belief between tawhid and shirk; no give-and-take in worship",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "IK_EN_109",
+    "TB_109",
+    "IA_109",
+    "MQ_109",
+    "TAFHEEM_109",
+    "QCOM_109"
+   ]
+  },
+  {
+   "id": "N1",
+   "claim": "Background (tafseer-level, not one narration): Makka's mushrik leaders hoped for / repeatedly sought a compromise with the Prophet in worship; the surah was revealed to end that hope finally",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "TB_109",
+    "IA_109",
+    "MQ_109",
+    "TAFHEEM_109",
+    "QT_109"
+   ]
+  },
+  {
+   "id": "N2",
+   "claim": "The surah answers a specific group of Makka's mushrikeen of that time (not a label for every non-Muslim)",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "TB_109",
+    "QT_109"
+   ]
+  },
+  {
+   "id": "N3",
+   "claim": "Narrated offer 'you worship our gods a year, we worship your God a year' (Tabari: Ibn 'Abbas via Abu Khalaf; Ibn Ishaq from Sa'id bin Mina; al-Wahidi; Wahb) - each chain weak or mursal (Abu Khalaf 'Abdullah bin 'Isa weak per Ibn Hajar, Fath al-Bari 8/333; Sa'id bin Mina a tabi'i = mursal)",
+   "grade": "chhoda gaya (sanad kamzor) - mash'hoor, sab badi tafseeron me",
+   "confidence": "vivaadit",
+   "sources": [
+    "TB_109",
+    "WAHIDI_109",
+    "IA_109",
+    "BAGHAWI_FN",
+    "IK_EN_109",
+    "QT_109",
+    "TAFHEEM_109"
+   ]
+  },
+  {
+   "id": "Z1",
+   "claim": "The Prophet recited al-Kafirun and al-Ikhlas in the two sunnah rak'ahs of Fajr (Muslim 726; Abu Dawud 1256 sahih)",
+   "grade": "maana hua (sahih)",
+   "confidence": "pakka",
+   "sources": [
+    "H_MUSLIM_726",
+    "H_ABUDAWUD_1256",
+    "IK_EN_109"
+   ]
+  },
+  {
+   "id": "Z2",
+   "claim": "He recited al-Ikhlas and al-Kafirun in the two rak'ahs at Maqam Ibrahim after tawaf (Muslim 1218a)",
+   "grade": "maana hua (sahih)",
+   "confidence": "pakka",
+   "sources": [
+    "H_MUSLIM_1218A",
+    "IK_EN_109"
+   ]
+  },
+  {
+   "id": "Z3",
+   "claim": "Recite al-Kafirun before sleep: it is a declaration of freedom (bara'at) from shirk (Abu Dawud 5055, Tirmidhi 3403)",
+   "grade": "maana hua (sahih/hasan)",
+   "confidence": "pakka",
+   "sources": [
+    "H_ABUDAWUD_5055",
+    "H_TIRMIDHI_3403",
+    "QT_109",
+    "MQ_109"
+   ]
+  },
+  {
+   "id": "Z4",
+   "claim": "Also in the 2 rak'ahs after Maghrib (Tirmidhi 431, Ibn Mas'ud) / Fajr a month (Tirmidhi 417, Ibn 'Umar)",
+   "grade": "ikhtilaaf (grade: Shakir/al-Albani sahih or hasan sahih, Zubair Ali Zai da'if) - video optional, safer skip",
+   "confidence": "vivaadit",
+   "sources": [
+    "H_TIRMIDHI_431",
+    "H_TIRMIDHI_417",
+    "TAFHEEM_109",
+    "IK_EN_109"
+   ]
+  },
+  {
+   "id": "Z5",
+   "claim": "'Equal to a quarter of the Quran' (Tirmidhi 2893/2894/2895)",
+   "grade": "chhoda gaya (grade disputed / da'if)",
+   "confidence": "vivaadit",
+   "sources": [
+    "H_TIRMIDHI_2893",
+    "H_TIRMIDHI_2894",
+    "H_TIRMIDHI_2895",
+    "QT_109"
+   ]
+  },
+  {
+   "id": "U1",
+   "claim": "109:1 - 'Say: O you who deny/disbelieve' - Allah tells the Prophet to address them",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "TR_FAROOQKHAN",
+    "TR_FAROOQ",
+    "TR_MAHMUD",
+    "TR_SAHIH",
+    "TB_109",
+    "IK_EN_109"
+   ]
+  },
+  {
+   "id": "U2",
+   "claim": "109:2 - I do not worship what you worship",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "TR_FAROOQKHAN",
+    "TR_FAROOQ",
+    "TR_MAHMUD",
+    "TR_SAHIH",
+    "IK_EN_109",
+    "TB_109"
+   ]
+  },
+  {
+   "id": "U3",
+   "claim": "109:3 - nor are you worshippers of the One I worship",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "TR_FAROOQKHAN",
+    "TR_FAROOQ",
+    "TR_MAHMUD",
+    "TR_SAHIH",
+    "IK_EN_109",
+    "TB_109"
+   ]
+  },
+  {
+   "id": "U4",
+   "claim": "109:4 - nor will I be a worshipper of what you have worshipped",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "TR_FAROOQKHAN",
+    "TR_FAROOQ",
+    "TR_MAHMUD",
+    "TR_SAHIH",
+    "IK_EN_109",
+    "TB_109"
+   ]
+  },
+  {
+   "id": "U5",
+   "claim": "109:5 - nor will you be worshippers of the One I worship",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "TR_FAROOQKHAN",
+    "TR_FAROOQ",
+    "TR_MAHMUD",
+    "TR_SAHIH",
+    "IK_EN_109",
+    "TB_109"
+   ]
+  },
+  {
+   "id": "U6",
+   "claim": "109:6 - for you your religion (din/way), for me mine",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "TR_FAROOQKHAN",
+    "TR_FAROOQ",
+    "TR_MAHMUD",
+    "TR_SAHIH",
+    "TB_109",
+    "IK_EN_109"
+   ]
+  },
+  {
+   "id": "K1",
+   "claim": "'Qul' = the reply is a command from Allah, not the Prophet's own offer; the address is to that group",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "TB_109",
+    "IA_109",
+    "TAFHEEM_109"
+   ]
+  },
+  {
+   "id": "K2",
+   "claim": "Why 2-5 repeat: (a) emphasis to cut off all hope (Qurtubi: most scholars; Tabari reports grammarians; Ma'ariful); (b) different times - now vs future/past (al-Bukhari per Ma'ariful; Tabari; Qurtubi: al-Akhfash, al-Mubarrad); (c) what is worshipped vs how worship is done (Ibn Kathir; Qurtubi 'ma masdariyya'; Ma'ariful)",
+   "grade": "ikhtilaaf (teen maane hue qaul, koi takraav nahi)",
+   "confidence": "pakka",
+   "sources": [
+    "QT_109",
+    "TB_109",
+    "IK_EN_109",
+    "MQ_109"
+   ]
+  },
+  {
+   "id": "K3",
+   "claim": "109:6 = clear separation in worship/belief; it is NOT approval of shirk / not 'all religions are the same' (al-Bukhari via Ibn Kathir: lakum dinukum = kufr, wa liya din = Islam; Ma'ariful: neither permits nor guarantees disbelief; Tafheem: not tolerance in matters of faith; Qurtubi: carries a warning, cf. 28:55)",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "IK_EN_109",
+    "MQ_109",
+    "TAFHEEM_109",
+    "QT_109_6",
+    "TB_109"
+   ]
+  },
+  {
+   "id": "K4",
+   "claim": "The separation is in worship/belief only; kindness, fair dealing, good relations and treaties with non-Muslims who do not fight remain (Ma'ariful on 109:6; Quran 60:8 with Ibn Kathir; Bukhari 2620)",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "MQ_109",
+    "IK_EN_60_8",
+    "H_BUKHARI_2620"
+   ]
+  },
+  {
+   "id": "K5",
+   "claim": "Abrogation of 109:6 (sword verse) - Qurtubi/Zad al-Masir 'qila' vs Ma'ariful 'majority: not abrogated'; din = recompense (Qurtubi alternative; Thanawi per Ma'ariful)",
+   "grade": "chhoda gaya (fiqh-bahs)",
+   "confidence": "vivaadit",
+   "sources": [
+    "QT_109_6",
+    "MQ_109"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,13 @@
+{
+  "video_id": "S6uelFj74Z8",
+  "url": "https://youtu.be/S6uelFj74Z8",
+  "studio_url": "https://studio.youtube.com/video/S6uelFj74Z8/edit",
+  "uploaded_at": "2026-11-18T00:22:33.779117+00:00",
+  "publish_at": null,
+  "captions_ok": true,
+  "comment_task": "StoryChannel-Comment-S6uelFj74Z8",
+  "comment_task_at": "2026-11-18T00:27+00:00",
+  "parent_video_id": "RkuSG9EZYXM",
+  "status": "private - user decides public/schedule in Studio (after the Long)",
+  "studio_action": "pending: user sets public/schedule in Studio after Long RkuSG9EZYXM; Related video = RkuSG9EZYXM; first-comment task waits max 3 h for public, else run tools/post_comment.py --job <upload.json> after publishing, then pin"
+}

@@ -17,3 +17,5 @@ Format = the existing surah explainer (kept as-is) EXCEPT (RULES 1d): ONE narrat
 (user 2026-11-17, ALWAYS) Story videos follow RULES 2l (template = stories/013_teen-musafir-gufa-sample; faceless images, phrase lines, gold keywords, one warm track, source-line ending, Charon only).
 
 (user 2026-11-17, ALWAYS) Surah videos: RULES 2m (same template as story videos; ayah read once, story-style phrase-line explanation, faceless scene images per ayah).
+
+(user 2026-11-18, ALWAYS) RULES 2n: story Long must be 4:00-5:00 (never 1-2 min), pick a story with enough sourced content; Short cut from it; samples/demos are never uploaded.

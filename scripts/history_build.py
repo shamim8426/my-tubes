@@ -114,13 +114,18 @@ def main():
         e = min(st + d - 0.05, TOTAL)
         if l.get("ayah"):
             fs = r"\fs%d" % int(cfg["ayah_fs"]) if cfg.get("ayah_fs") else ""  # smaller Arabic keeps a long ayah on one line (no overlap)
+            ob = int(cfg.get("ayah_outline", 0))  # optional dark outline: Arabic readable on a bright sky (009, 2026-11-18)
+            if ob:
+                fs += r"\bord%d\3c&H00180C06&" % ob
+            sb = r"\fs52\bord3" if ob else ""
             ev.append(r"Dialogue: 0,%s,%s,Ayah,,0,0,0,,{\pos(960,%d)\fad(300,200)%s}%s" % (ts(st), ts(e), int(l.get("ayah_y", cfg.get("ayah_y", 330))), fs, l.get("ar", cfg.get("ayah_ar", ""))))
             ev.append(r"Dialogue: 0,%s,%s,Tr,,0,0,0,,{\pos(960,%d)\fad(300,200)}%s" % (ts(st), ts(e), int(l.get("tr_y", 560)), l["text"].replace("\n", r"\N")))
-            ev.append(r"Dialogue: 0,%s,%s,Src,,0,0,0,,{\pos(960,%d)\fad(300,200)}%s" % (ts(st), ts(e), int(l.get("src_y", 860)), l.get("src", cfg.get("ayah_src", ""))))
+            ev.append(r"Dialogue: 0,%s,%s,Src,,0,0,0,,{\pos(960,%d)\fad(300,200)%s}%s" % (ts(st), ts(e), int(l.get("src_y", 860)), sb, l.get("src", cfg.get("ayah_src", ""))))
         else:
             txt = l["text"]
             for w in l.get("gold", []):  # keyword highlight (learned from reference style, 2026-11-13)
                 txt = txt.replace(w, r"{\1c&H0078C8F0&}" + w + r"{\1c&HFFFFFF&}")
+            txt = txt.replace("ﷺ", r"{\fnAmiri}" + "ﷺ" + r"{\fnMukta Bold}")  # Mukta has no U+FDFA (drew a box)
             ev.append(f"Dialogue: 0,{ts(st)},{ts(e)},Sub,,0,0,0,,{txt}")
             if l.get("src"):  # small source tag under the caption, e.g. hadith number
                 ev.append(r"Dialogue: 0,%s,%s,Src,,0,0,0,,{\pos(960,1030)\fad(200,150)}%s" % (ts(st), ts(e), l["src"]))

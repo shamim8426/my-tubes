@@ -26,3 +26,7 @@ Weekly-limit note: this task + noor-daily-short + noor-daily-long + DevRoboLab a
 (user 2026-11-17, ALWAYS) FOLLOW RULES 2k: Charon-only finals (preflight; if Charon unavailable wait/retry, never Edge), NO next-video announcement at the end, warm music, next surah = first planned item of series_queue (al-kafirun; al-fil is done).
 
 (user 2026-11-17, ALWAYS) Story videos follow RULES 2l (template = stories/013_teen-musafir-gufa-sample; faceless images, phrase lines, gold keywords, one warm track, source-line ending, Charon only).
+
+(user 2026-11-18, ALWAYS) RULES 2n: story Long must be 4:00-5:00 (never 1-2 min), pick a story with enough sourced content; Short cut from it; samples/demos are never uploaded.
+
+(user 2026-11-18, ALWAYS) Story topic order for the daily History task = channels/noor-e-raah/history_queue.json (first planned): next = Ashab-e-Kahf, then the king/sorcerer/boy story (Muslim 3005). Pick from the queue, do not choose another topic. 4:00-5:00 min (RULES 2n).

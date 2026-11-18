@@ -1,0 +1,934 @@
+{
+ "title": "Surah Al-Kafirun 109",
+ "voice": "Charon",
+ "style": "Calm, warm, clear Hindi storyteller. Simple spoken Hindi, gentle, steady, normal conversational pace, correct Urdu sounds. Read the Arabic-sound lines plainly and clearly, not as recitation, no tune.",
+ "tempo": 1.0,
+ "ambience": "",
+ "music": "shared/music/noor/River_Flute.mp3",
+ "music_vol": 0.5,
+ "amp": 0.08,
+ "amb_db": -6,
+ "sfx_db": -3,
+ "duck": true,
+ "ayah_fs": 165,
+ "ayah_outline": 6,
+ "ayah_src": "",
+ "lines": [
+  {
+   "n": 1,
+   "text": "क़ुरआन की एक छोटी सी सूरह है, जिसमें बस छह आयतें हैं।",
+   "img": "01_valley_evening",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": [
+    "छह आयतें"
+   ]
+  },
+  {
+   "n": 2,
+   "text": "इसका नाम है सूरह अल-काफ़िरून, यानी इनकार करने वाले।",
+   "img": "01_valley_evening",
+   "motion": true,
+   "preset": "pan_right",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": [
+    "अल-काफ़िरून"
+   ]
+  },
+  {
+   "n": 3,
+   "text": "ये क़ुरआन की एक सौ नौवीं सूरह है। ज़्यादातर उलमा के मुताबिक़ ये मक्का में उतरी, और कुछ उलमा से इसके मदीना में उतरने की राय भी नक़्ल है।",
+   "img": "01_valley_evening",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": [
+    "मक्का"
+   ]
+  },
+  {
+   "n": 4,
+   "text": "इसे अल-मुक़श्क़िशा भी कहा गया, यानी शिर्क से पाक कर देने वाली।",
+   "img": "04_light_valley",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": [
+    "अल-मुक़श्क़िशा"
+   ]
+  },
+  {
+   "n": 5,
+   "text": "और इसकी बात बिल्कुल साफ़ है: इबादत सिर्फ़ एक अल्लाह की, इसमें कोई मिलावट नहीं।",
+   "img": "04_light_valley",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": [
+    "एक अल्लाह"
+   ]
+  },
+  {
+   "n": 6,
+   "text": "उस वक़्त मक्का में लोग बुतों की पूजा करते थे।",
+   "img": "03_idols_shrine",
+   "motion": true,
+   "preset": "pan_right",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": [
+    "बुतों"
+   ]
+  },
+  {
+   "n": 7,
+   "text": "और क़ुरैश के सरदार अपने बुतों को छोड़ने को तैयार नहीं थे।",
+   "img": "03_idols_shrine",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": [
+    "तैयार नहीं"
+   ]
+  },
+  {
+   "n": 8,
+   "text": "क़ुरैश के सरदार चाहते थे, कि इबादत में कोई बीच का रास्ता निकल आए।",
+   "img": "02_chiefs_offer",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": [
+    "बीच का रास्ता"
+   ]
+  },
+  {
+   "n": 9,
+   "text": "कुछ तुम हमारी मानो, और कुछ हम तुम्हारी।",
+   "img": "03_idols_shrine",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": [
+    "कुछ हम तुम्हारी"
+   ]
+  },
+  {
+   "n": 10,
+   "text": "ऐसी पेशकश एक बार नहीं, कई बार हुई।",
+   "img": "02_chiefs_offer",
+   "motion": true,
+   "preset": "pan_right",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": [
+    "कई बार"
+   ]
+  },
+  {
+   "n": 11,
+   "text": "तब ये सूरह उतरी, उनकी इस उम्मीद का साफ़ और आख़िरी जवाब बनकर।",
+   "img": "04b_light_sky",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": [
+    "आख़िरी जवाब"
+   ]
+  },
+  {
+   "n": 12,
+   "text": "क़ुल या अय्युहल काफ़िरून।",
+   "img": "04b_light_sky",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": true,
+   "gold": [],
+   "ar": "قُلْ يَٰٓأَيُّهَا ٱلْكَٰفِرُونَ",
+   "src": "सूरह अल-काफ़िरून 109:1",
+   "ayah_y": 90,
+   "tr_y": 870,
+   "src_y": 300
+  },
+  {
+   "n": 13,
+   "text": "कह दो, ऐ इनकार करने वालो।",
+   "img": "04b_light_sky",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": [
+    "कह दो"
+   ]
+  },
+  {
+   "n": 14,
+   "text": "ये जवाब अल्लाह के हुक्म से दिया गया, अपनी तरफ़ से नहीं।",
+   "img": "04b_light_sky",
+   "motion": true,
+   "preset": "pan_right",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": [
+    "अल्लाह के हुक्म"
+   ]
+  },
+  {
+   "n": 15,
+   "text": "और ये बात उस वक़्त के उन ख़ास लोगों से कही गई, जो अपनी ज़िद पर अड़े हुए थे।",
+   "img": "02_chiefs_offer",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": [
+    "ज़िद"
+   ]
+  },
+  {
+   "n": 16,
+   "text": "ला अअबुदु मा तअबुदून।",
+   "img": "02_chiefs_offer",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": true,
+   "gold": [],
+   "ar": "لَآ أَعْبُدُ مَا تَعْبُدُونَ",
+   "src": "सूरह अल-काफ़िरून 109:2",
+   "ayah_y": 90,
+   "tr_y": 870,
+   "src_y": 300
+  },
+  {
+   "n": 17,
+   "text": "मैं उनकी इबादत नहीं करता, जिनकी तुम इबादत करते हो।",
+   "img": "03_idols_shrine",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": [
+    "नहीं करता"
+   ]
+  },
+  {
+   "n": 18,
+   "text": "वो बुत, जिनके आगे तुम झुकते हो, मैं उनके आगे नहीं झुकता।",
+   "img": "03_idols_shrine",
+   "motion": true,
+   "preset": "pan_right",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": [
+    "नहीं झुकता"
+   ]
+  },
+  {
+   "n": 19,
+   "text": "व ला अन्तुम आबिदूना मा अअबुद।",
+   "img": "04b_light_sky",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": true,
+   "gold": [],
+   "ar": "وَلَآ أَنتُمْ عَٰبِدُونَ مَآ أَعْبُدُ",
+   "src": "सूरह अल-काफ़िरून 109:3",
+   "ayah_y": 90,
+   "tr_y": 870,
+   "src_y": 300
+  },
+  {
+   "n": 20,
+   "text": "और न तुम उसकी इबादत करने वाले हो, जिसकी मैं इबादत करता हूँ।",
+   "img": "06_family_dua",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": [
+    "उसकी"
+   ]
+  },
+  {
+   "n": 21,
+   "text": "मैं सिर्फ़ एक अल्लाह की इबादत करता हूँ, उसके साथ किसी को साझी नहीं बनाता।",
+   "img": "06_family_dua",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": [
+    "सिर्फ़ एक अल्लाह"
+   ]
+  },
+  {
+   "n": 22,
+   "text": "व ला अना आबिदुम मा अबत्तुम।",
+   "img": "03_idols_shrine",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": true,
+   "gold": [],
+   "ar": "وَلَآ أَنَا۠ عَابِدٌ مَّا عَبَدتُّمْ",
+   "src": "सूरह अल-काफ़िरून 109:4",
+   "ayah_y": 90,
+   "tr_y": 870,
+   "src_y": 300
+  },
+  {
+   "n": 23,
+   "text": "और न मैं कभी उनकी इबादत करने वाला हूँ, जिनकी तुमने इबादत की।",
+   "img": "05_two_paths",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": [
+    "कभी"
+   ]
+  },
+  {
+   "n": 24,
+   "text": "व ला अन्तुम आबिदूना मा अअबुद।",
+   "img": "09_dawn_walk",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": true,
+   "gold": [],
+   "ar": "وَلَآ أَنتُمْ عَٰبِدُونَ مَآ أَعْبُدُ",
+   "src": "सूरह अल-काफ़िरून 109:5",
+   "ayah_y": 90,
+   "tr_y": 870,
+   "src_y": 300
+  },
+  {
+   "n": 25,
+   "text": "और न तुम उसकी इबादत करने वाले हो, जिसकी मैं इबादत करता हूँ।",
+   "img": "09_dawn_walk",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": [
+    "उसकी"
+   ]
+  },
+  {
+   "n": 26,
+   "text": "ये बात सूरह में दो बार आई है।",
+   "img": "05_two_paths",
+   "motion": true,
+   "preset": "pan_right",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": [
+    "दो बार"
+   ]
+  },
+  {
+   "n": 27,
+   "text": "उलमा कहते हैं, ये दोहराना ज़ोर देने के लिए है, ताकि सौदे की हर उम्मीद ख़त्म हो जाए।",
+   "img": "05_two_paths",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": [
+    "ज़ोर"
+   ]
+  },
+  {
+   "n": 28,
+   "text": "कुछ कहते हैं: एक बार आज के लिए, और एक बार आगे के लिए। न आज, न कभी।",
+   "img": "05_two_paths",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": [
+    "न आज, न कभी"
+   ]
+  },
+  {
+   "n": 29,
+   "text": "और कुछ कहते हैं: फ़र्क़ सिर्फ़ इसमें नहीं कि किसकी इबादत, बल्कि इसमें भी कि कैसे इबादत।",
+   "img": "09_dawn_walk",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": [
+    "कैसे"
+   ]
+  },
+  {
+   "n": 30,
+   "text": "लकुम दीनुकुम व लिया दीन।",
+   "img": "10b_stars_sky",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": true,
+   "gold": [],
+   "ar": "لَكُمْ دِينُكُمْ وَلِىَ دِينِ",
+   "src": "सूरह अल-काफ़िरून 109:6",
+   "ayah_y": 90,
+   "tr_y": 870,
+   "src_y": 300
+  },
+  {
+   "n": 31,
+   "text": "तुम्हारे लिए तुम्हारा दीन, और मेरे लिए मेरा दीन।",
+   "img": "10b_stars_sky",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": [
+    "मेरा दीन"
+   ]
+  },
+  {
+   "n": 32,
+   "text": "इसका मतलब ये नहीं, कि सब रास्ते एक जैसे हैं।",
+   "img": "05_two_paths",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": [
+    "एक जैसे"
+   ]
+  },
+  {
+   "n": 33,
+   "text": "इसका मतलब है: इबादत और यक़ीन में साफ़ अलगाव। मेरा रास्ता अलग, तुम्हारा रास्ता अलग।",
+   "img": "05_two_paths",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": [
+    "साफ़ अलगाव"
+   ]
+  },
+  {
+   "n": 34,
+   "text": "पर ये अलगाव इबादत में है, बर्ताव में नहीं।",
+   "img": "07_neighbors",
+   "motion": true,
+   "preset": "pan_right",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": [
+    "बर्ताव में नहीं"
+   ]
+  },
+  {
+   "n": 35,
+   "text": "क़ुरआन की सूरह मुम्तहिना में है: जो लोग दीन की वजह से तुमसे नहीं लड़े,",
+   "img": "07_neighbors",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": [
+    "नहीं लड़े"
+   ]
+  },
+  {
+   "n": 36,
+   "text": "और जिन्होंने तुम्हें घरों से नहीं निकाला, अल्लाह तुम्हें उनके साथ भलाई और इंसाफ़ करने से नहीं रोकता।",
+   "img": "07_neighbors",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": [
+    "भलाई और इंसाफ़"
+   ]
+  },
+  {
+   "n": 37,
+   "text": "और सहीह बुख़ारी में है, कि एक सहाबिया की माँ उनसे मिलने आईं, जो मुसलमान नहीं थीं।",
+   "img": "01b_valley_hills",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": [
+    "माँ"
+   ]
+  },
+  {
+   "n": 38,
+   "text": "उन्होंने नबी ﷺ से पूछा, तो आप ﷺ ने फ़रमाया: हाँ, अपनी माँ के साथ अच्छा रिश्ता रखो।",
+   "img": "01b_valley_hills",
+   "motion": true,
+   "preset": "pan_right",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": [
+    "अच्छा रिश्ता"
+   ]
+  },
+  {
+   "n": 39,
+   "text": "सहीह मुस्लिम में आता है, कि नबी ﷺ ने फ़ज्र की दो सुन्नत रकअतों में,",
+   "img": "09b_dawn_sky",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": [
+    "फ़ज्र"
+   ]
+  },
+  {
+   "n": 40,
+   "text": "ये सूरह और सूरह इख़लास पढ़ीं।",
+   "img": "09b_dawn_sky",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": [
+    "सूरह इख़लास"
+   ]
+  },
+  {
+   "n": 41,
+   "text": "और हज में, तवाफ़ के बाद की दो रकअतों में भी।",
+   "img": "09b_dawn_sky",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": [
+    "तवाफ़"
+   ]
+  },
+  {
+   "n": 42,
+   "text": "अबू दाऊद और तिर्मिज़ी की एक हदीस में है, कि सोने से पहले ये सूरह पढ़ो,",
+   "img": "08_sleep_lamp",
+   "motion": true,
+   "preset": "pan_right",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": [
+    "सोने से पहले"
+   ]
+  },
+  {
+   "n": 43,
+   "text": "क्योंकि ये शिर्क से बरी होने का एलान है।",
+   "img": "08_sleep_lamp",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": [
+    "शिर्क से बरी"
+   ]
+  },
+  {
+   "n": 44,
+   "text": "तो पूरी सूरह का मतलब, बस इतना है:",
+   "img": "10b_stars_sky",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": []
+  },
+  {
+   "n": 45,
+   "text": "इबादत सिर्फ़ एक अल्लाह की, और इसमें कोई सौदा, कोई मिलावट नहीं।",
+   "img": "10b_stars_sky",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/River_Flute.mp3",
+   "ayah": false,
+   "gold": [
+    "कोई सौदा"
+   ]
+  }
+ ]
+}

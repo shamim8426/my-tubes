@@ -65,3 +65,10 @@
 - Short-from-Long Arabic small (Long frame scaled to 1080 wide); Short 41.4 s (complete-ayah rule kept it over 40 s).
 - upload.json chapters: first chapter must be >= 10 s (0:00 -> 0:08 was 8 s; merged by Munshi) -> make the chapter writer merge chapters shorter than 10 s.
 - open | 011 v2 (2026-11-17): RULES 2j "faceless storybook" image style not met (v2 reuses v1 realistic images; Cloudflare free quota empty, history = no paid images). Next history story: generate in 2j style (ref stories/011_toon_style_test/images). Music bed after duck ~18 dB under voice (RMS) - fine for 2i, keep.
+
+## 2026-11-18 | 009_al-kafirun (Munshi final R1, MINOR) | open
+- open | history_build.py captions: BorderStyle 3 box draws darker vertical stripes at every gold word / Amiri ﷺ run boundary (since 2026-11-13). Use BorderStyle 4 (one box per event) or an opaque BackColour.
+- open | Shots > 8 s on one move (009 L3 11.3 s, L36 10.2, L38 10.0, L33 9.0): split long lines into 2 presets.
+- open | Surah Long: first ayah at 1:09 (learnings 30-40 s) -> keep parichay + shan-e-nuzul <= 30 s; final summary 3-5 lines (009 had 2 after the TTS cap drop).
+- open | Short-from-Long make_short.py: blurred bg must come from a text-free part (no blurred/cut Arabic), caption MarginL/R ~170 (right 15% clear), hold 0.5 s after the last word before the fade, save cover.jpg.
+- open | Long audio after the alimiter step is 96 kHz: add -ar 48000. channel.json contains_synthetic_media=false is stale (jobs use true per SHORT_FROM_LONG). story_budget.py with a story path prints Rs0 while cost_log has Rs12.85 for 009.
