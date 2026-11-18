@@ -1304,5 +1304,20 @@
     "video_id": "0rPgNXoYT6Y",
     "series_index": 1,
     "format": "long"
+  },
+  {
+    "id": "news-gemini-tasks-long",
+    "title": "Gemini Tasks India me free: kaise on karein + 3 examples",
+    "url": "https://blog.google/innovation-and-ai/products/gemini-app/tasks-in-gemini-free-new-features/",
+    "summary": "Long (6:29) AI news deep dive: Tasks in Gemini (Google, 2026-11-17), free in 6 countries incl. India; what it is, who gets it, 4 steps to turn on, 3 worked examples, safety, US-only features, 15-task limit, turn off.",
+    "status": "uploaded",
+    "audience": "A",
+    "priority": "news",
+    "org": "Google",
+    "series": "ai-khabar-long",
+    "story": "063_news-gemini-tasks",
+    "video_id": "3ZHp9gwWV0g",
+    "series_index": 1,
+    "format": "long"
   }
 ]

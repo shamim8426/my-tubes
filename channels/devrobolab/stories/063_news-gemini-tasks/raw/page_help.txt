@@ -1,0 +1,133 @@
+https://support.google.com/gemini/answer/17094507?hl=en&co=GENIE.Platform%3DAndroid
+
+Manage your tasks & workflows in Gemini Apps
+
+You can now start tasks in the same place you start a chat. Assign Gemini tasks to automate complex workflows and manage schedules for ongoing tasks. Gemini can help handle tasks, using info from sources like Connected Apps, skills, chats, websites you’re signed into, Personal Intelligence, location, and more. Just tell Gemini your specific goals and when you want tasks completed.
+
+For example, you can create tasks for Gemini to help:
+
+Save you time: Gemini can declutter your inbox by summarizing or archiving newsletters, create an urgent to-do list after a vacation, and unsubscribe from email lists.
+Save you money: Gemini can monitor and alert you when the prices of flights and hotels drop within your budget.
+Deep dive on topics & create files: Gemini can pull research with cited sources and package results into downloadable files, like PDFs, documents, spreadsheets, and presentations.
+
+Tip: Schedules in tasks are different from schedules in chats. Learn how schedules in chats work.
+
+What you need
+
+To assign Gemini tasks, you must:
+
+Be 18 or over.
+Sign in to the Gemini app with a personal Google Account. For now, this feature isn’t available if you sign in with a work or school Google Account. Learn how to sign in to Gemini Apps.
+Have History on.
+
+Important: For now, tasks in Gemini are:
+
+Available without a Google AI subscription in Australia, Canada, India, Japan, South Korea, and the US.
+Available with a Google AI Pro or Ultra subscription everywhere else Gemini Apps are supported, except in the European Economic Area, Nigeria, Switzerland, and the United Kingdom.
+Only available in the Gemini mobile app, the Gemini app on Mac, and the Gemini web app at gemini.google.com.
+Before you assign tasks to Gemini
+​Be careful when you enter info directly in a task thread​
+Avoid scheduling tasks you find sensitive
+How tasks in Gemini work with a browser
+Get started with tasks in Gemini
+
+You can get help with setting up your first skills and tasks conversationally. Just enter “set up,” “get started,” or “interview me” in a task.
+
+Learn what Gemini can use for your tasks.
+
+Android phone & tablet ComputeriPhone & iPad
+Create a task
+On your phone or tablet, open the Gemini mobile app  or go to gemini.google.com.
+Above the text box, tap Task.
+In the text box, describe the task you want Gemini to manage.
+You can tell Gemini when to run the task, like around a specific time or after an event. Learn more about schedules.
+To specify an existing skill to use, enter @, then select the skill. Learn more about skills.
+You can ask Gemini to generate files, like PDFs, documents, and presentations. Learn about files Gemini can create.
+You can also tell Gemini to use a custom connected app. Learn how to connect custom apps.
+To change the Gemini model or thinking level, tap the model menu at the top. Learn about models and thinking levels.
+To add files to your task, tap Upload & tools , then one of the following options:
+Upload files 
+Add from Drive 
+Add Notebook 
+Tap Submit .
+Monitor your task regularly for any input Gemini may need from you. For example, if Gemini needs you to perform certain actions in its browser, it asks you to take over the task.
+
+Tip: You can also create and schedule tasks directly in a Live chat. Gemini can automatically detect complex task requests. If it doesn't, try saying, "start a task."
+
+Example tasks
+Declutter your inbox: Summarize or archive newsletters and unsubscribe from emails lists.
+Get a custom news digest: Go deep on the stories you care about and follow how they evolve
+Check & manage a task
+
+To check and manage a task, including any associated permissions and schedules, open the task thread and its work panel.
+
+Tip: You can also manage and ask about the progress of your tasks in a Live chat.
+
+Open the task thread & check the task’s progress
+Check files Gemini read or updated
+Pause & resume schedules in a thread
+View, edit, or download files Gemini created
+Monitor & take over a task
+
+Gemini can complete some of your tasks in a local or remote browser. For example, it can navigate to a website and interact with the page, like adding items to your cart. You can take control of the browser at any time. For certain actions, Gemini will ask you to take over the task.
+
+Sign in to websites
+Take over remote browser tasks
+Delete remote browser & computer data
+Delete remote browser data
+Delete remote code execution data
+Turn off task mode
+
+Important: When task mode is turned off:
+
+Your remote browser data and remote code execution data is deleted.
+Your Chrome browsing data is not erased. Learn how to delete your local browser data in Chrome.
+Schedules will not run as long as task mode is off or if your device is off.
+Your tasks, threads, schedules, or any related files that Gemini updated or created will not be deleted.
+
+To turn off Tasks in Gemini:
+
+On your phone or tablet, open the Gemini mobile app  or go to gemini.google.com.
+At the top, tap Menu .
+At the bottom, tap Settings   Task settings .
+Under “Use task mode to hand off work,” tap Turn off.
+
+Tips:
+
+Turning off task mode does not delete any past history from schedules, tasks, thread, or files that Gemini updated or created.
+Your schedules and tasks are paused and not deleted.
+Your chats are not deleted but you can manage them anytime in Gemini History.
+To turn task mode back on
+On your phone or tablet, open the Gemini mobile app  or go to gemini.google.com.
+Above the text box, tap Task.
+Follow the on-screen instructions.
+What Gemini can use to work on your tasks
+
+When you let Gemini work on tasks, it uses info from available sources, such as the features listed below, and info from websites it interacts with, including those you are logged into.
+
+Skills & schedules
+Connected Apps & other Google services
+Remote browser & computer
+Personal Intelligence
+Other Gemini features
+Limits on tasks you assign to Gemini
+
+Gemini Apps have compute-based usage limits that determine how much you can interact with Gemini tools and features. These usage limits increase with higher Google AI subscriptions. How much of your usage is consumed by tasks you assign to Gemini will depend on how many you assign each day and how complex each task is. If you’re close to your limit, Gemini lets you know. Learn more about limits in Gemini Apps.
+
+You can have up to 15 tasks running at a given time. You'll have to wait for tasks to be completed before making another request. Also, a schedule will not run if there are already 15 tasks running.
+
+How Gemini works with you to keep you & your info safe
+
+Gemini’s ability to handle tasks is experimental. As we continuously work to improve it, your supervision is important to help prevent unintended and potentially harmful actions.
+
+About possible risks of using agentic AI
+How Gemini helps you keep your info safe 
+Why your supervision is important & how to stop Gemini
+Common questions
+What's the difference between a task, schedule, and skill?
+Where did Spark go? I can't find it.
+What Workspace actions can Gemini perform for tasks?
+Related resources
+Find & manage your tasks in Gemini Apps
+Create & manage skills for Gemini Apps
+Create & manage schedules for tasks in Gemini

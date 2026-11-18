@@ -1,0 +1,68 @@
+https://blog.google/security/how-geminis-defense-in-depth-approach-works/
+
+Safety & Security
+
+How Gemini’s defense-in-depth approach works
+
+Nov 17, 2026
+
+|
+
+5 min read
+
+Gautham Thambidorai
+
+Vice President and Google Fellow
+
+Gemini can now carry out multi-step tasks on your behalf. It can browse websites, run code, and work across your files. Giving an agent the ability to act like this introduces new security risks, especially when it encounters untrusted content across the web, emails, and documents. That’s why we've invested further in defenses and safeguards with our multi-layer defense-in-depth architecture:
+
+Agent Compute Engine (Where it runs): Tasks run inside hardware-isolated cloud microVMs.
+Multi-stage prompt-injection defenses (What it reads): Pre-planner safety classifiers, model-level checks, and deterministic outbound link rules that help guard against hidden manipulation and data leakage.
+Policy Guardian (How it runs code): A rule-based fast path, an LLM-based vetting loop, and pre-execution checks that inspect Linux shell commands, scripts, file edits and outbound requests before execution.
+Action Safety Agent (What actions it takes): An agent that evaluates proposed actions in real time and is designed to require explicit confirmation before high-impact actions.
+User takeover (Where a human steps in): Direct browser handoffs for some sensitive actions, paired with protected authentication boundaries.
+
+To see how they work together in practice, suppose you open your email and get hit with a surprise electric bill. You ask Gemini: “Our electric bill was $389 last month. Check our utility portal and past billing statements in my email to see what happened.” Here’s how every layer works together as Gemini tracks down the answer.
+
+Agent Compute Engine isolated sandboxes
+
+To investigate that surprise bill, Gemini first needs a place to open your utility portal, download past PDF statements, and run its analysis. Where an agent runs matters just as much as how it reasons. By default, when Gemini browses websites or runs code, it executes inside Agent Compute Engine, Google Cloud’s hardware-isolated microVMs built specifically for agents.
+
+Multi-stage defense against prompt injection and data leakage
+
+Next, Gemini starts reviewing relevant materials, like your past billing emails, downloaded PDFs, and web pages explaining utility rate plans. An isolated sandbox locks down the compute environment, yet the agent still has to process untrusted external content inside it. Suppose a spoofed promotional email in your inbox or an unfamiliar webpage hides instructions telling Gemini to pull details from your emails and send them to an outside link. Because prompt injection cannot be solved by system prompts alone, we apply independent checks across incoming content, the model itself, and outbound requests in a few ways.
+
+Pre-planner safety classifiers: Before external content and tool outputs reach the planner, dedicated safety classifiers scan search results, web pages, emails, and files for hidden prompt-injection attempts.
+Model-level prompt injection checks: As Gemini reads those results, model-level checks look for signs of prompt injection and help ensure it treats websites, emails, and documents as information to read, not instructions to follow.
+Deterministic outbound link rules: Because no detector catches every injection attempt, deterministic policy rules outside the model (alongside Google Safe Browsing) restrict which URLs and external endpoints Gemini can open or pass information to, helping prevent untrusted content from quietly leaking private data through crafted links.
+
+Policy Guardian for overseeing commands, scripts, and files
+
+With your billing statements gathered, Gemini writes and runs scripts to parse the PDFs and line up hourly usage against peak-pricing windows. That is how it spots the real culprit: your heat pump has been kicking on around 4 p.m., right in the middle of peak rates. While preventing prompt injection attacks is critical, a more autonomous agent solving a multi-step problem can still attempt an unsafe shortcut, such as running an overly broad shell command or modifying files outside its task folder when an earlier step fails. To govern how Gemini executes multi-step work, Policy Guardian pairs a deterministic, rule-based fast path outside the model with an LLM safety judge and session-state tracking.
+
+Whenever Gemini uses its Linux shell or edits files, Policy Guardian inspects the command, file edit, and any referenced scripts before they run. Routine operations pass quickly through the rule-based fast path, while ambiguous or higher-risk commands are evaluated by the LLM safety judge against your original request and session history. Destructive commands or access to sensitive system paths are blocked while Gemini works normally on your task files. Flagging a step does not always require shutting down a task: when the planner proposes an overly broad or risky approach, Policy Guardian can return feedback so it tries a safer path, asks for your confirmation, or blocks the command when necessary.
+
+Action Safety Agent conducts real-time checks on consequential actions
+
+Once Gemini pinpoints the 4 p.m. heat pump spike, it can summarize the findings, compare alternative rate plans, or prepare a draft message to your utility provider on its own. For human oversight to work in practice, Gemini shouldn't interrupt you during routine research. But even if you have granted standing “Always allow” permissions for a tool or site, an independent safeguard still needs to catch high-impact external actions before they execute.
+
+While Policy Guardian governs code and files inside the sandbox, Action Safety Agent sits between the planner and external web and app tools to evaluate both the overall task and individual actions before they happen. Upfront checks block abusive external automation early, such as unauthorized web scraping, spam, bulk messaging, bulk purchasing, or platform manipulation. Right before a mutating action executes on a website or connected tool, Action Safety Agent compares three inputs: what you originally asked for, the steps taken so far, and the exact details of the action it is about to take. When an action carries real-world impact, it pauses and asks for your explicit confirmation.
+
+User takeover for some sensitive actions
+
+Earlier in this workflow, when Gemini first reached your utility portal’s sign-in page to download your statements, it paused and handed the live cloud browser directly to you. The same handoff applies if you later ask Gemini to log back in and switch your household to an off-peak rate plan. Gemini is designed to step back whenever it encounters a sign-in wall or account sign-up, and you can jump in to steer or stop a live browser session at any point.
+
+When a website supports Sign in with Google, you can connect your account with your permission. On web and Android in the U.S., Google Password Manager can also autofill saved logins on sites you approve directly into the sign-in field, without exposing your password in the chat or to our models. Once you complete the sign-in, you hand the browser back to Gemini to continue your task and you can clear saved remote browser logins anytime in Gemini settings.
+
+Continuously testing and advancing our safeguards across all layers
+
+Each of these layers is implemented assuming another layer could miss an edge case, which is why we test the entire system together against realistic attacks.
+
+Before launch, Google's security teams and Red Teams ran Gemini through end-to-end scenarios to expose real gaps and strengthen our defenses. They planted hidden prompt injections inside shared documents, emails, and web pages to see if Gemini would leak private data through the browser, bypass confirmation prompts, reveal system instructions, or abuse sandbox access.
+
+We turn what our Red Teams find into automated test suites that run continuously as our models and tools evolve. We conduct dedicated security reviews as part of our rollout process, and we also partner with outside security researchers through Google's AI Vulnerability Reward Program (AI VRP) to push agentic security forward.
+
+Securing AI agents never stops. Every new capability brings fresh edge cases that attackers seek to exploit. By combining Agent Compute Engine sandboxes, multi-stage prompt-injection defenses, Policy Guardian, Action Safety Agent, user takeover, and continuous vulnerability research and testing, we're making Gemini helpful every day while working to help keep you safe.
+
+Posted in:
+Safety & Security

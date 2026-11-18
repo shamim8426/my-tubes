@@ -1,0 +1,52 @@
+https://support.google.com/gemini/answer/17094710?hl=en&co=GENIE.Platform%3DAndroid
+
+Create & manage schedules for tasks in Gemini
+
+You can put your workflows on autopilot by adding schedules to your tasks. A schedule acts as the automated trigger for a task, telling Gemini exactly when to step in and execute your instructions. You can set these triggers based on time intervals, like every Monday morning, or based on certain conditions, like when an email arrives in your inbox.
+
+To get started, you can schedule a task conversationally with Gemini in a task thread or in a Live chat. Just describe what you want Gemini to do and when to do it. You can also visit the Scheduled page to create it yourself.
+
+Important: This article covers schedules in tasks, which is different from schedules in chats. Learn how schedules in chats work.
+
+What you need
+
+To assign Gemini tasks, you must:
+
+Be 18 or over.
+Sign in to the Gemini app with a personal Google Account. For now, this feature isn’t available if you sign in with a work or school Google Account. Learn how to sign in to Gemini Apps.
+Have History on.
+
+Important: For now, tasks in Gemini are:
+
+Available without a Google AI subscription in Australia, Canada, India, Japan, South Korea, and the US.
+Available with a Google AI Pro or Ultra subscription everywhere else Gemini Apps are supported, except in the European Economic Area, Nigeria, Switzerland, and the United Kingdom.
+Only available in the Gemini mobile app, the Gemini app on Mac, and the Gemini web app at gemini.google.com.
+Types of schedules
+With a Google AI Pro or Ultra subscription
+Without a Google AI subscription or with Google AI Plus
+Android phone & tablet ComputeriPhone & iPad
+Create a schedule
+
+Important: For now, the Schedules page and option to manually create time-based schedules is only available at gemini.google.com and not the Gemini mobile app.
+
+Create a schedule conversationally
+Create a time–based schedule using a blank template
+Manage your schedules
+
+Track the status of your schedules and modify settings as your needs change.
+
+Find your schedules & check their statuses
+Edit a schedule
+Pause or resume a schedule
+Delete a schedule
+Fix a problem
+I can’t create or turn on a schedule
+Why didn't my schedule run on time or run at all?
+Common questions
+What's the difference between a task, schedule, and skill?
+What happens to my schedules if I turn off task mode?
+How do time-based schedules work if I change time zones?
+Related resources
+Manage your tasks & workflows in Gemini Apps
+Find & manage your tasks in Gemini Apps
+Create & manage skills for Gemini Apps

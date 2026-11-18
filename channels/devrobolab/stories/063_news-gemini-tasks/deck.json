@@ -1,0 +1,62 @@
+{
+ "tag": "AI Khabar: ek number",
+ "music": {
+  "file": "shared/music/presentation/Funkorama.mp3",
+  "start": 6,
+  "rel": 12
+ },
+ "voice": {
+  "id": "Charon",
+  "style": "Speak like a friendly Indian tech YouTuber chatting casually in Hinglish. Natural conversational pace, warm and clear, a little energetic but not theatrical. No sing-song, no exaggerated emphasis."
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "voice": "Gemini अब सिर्फ़ सवालों के जवाब नहीं देगा, आपके काम भी पूरे करेगा। Google ने सत्रह November को Tasks in Gemini निकाला है। और बड़ी बात ये, कि ये छह देशों में बिना किसी subscription के, free मिल रहा है, और India उनमें से एक है। आज देखेंगे, Tasks है क्या, किसे मिलेगा, on कैसे करें, तीन पूरे examples, और safety की ज़रूरी बातें।"
+  },
+  {
+   "id": "what",
+   "voice": "पहले समझते हैं, Tasks है क्या। अब तक Gemini में chat था, सवाल पूछा, जवाब मिला। Task में आप Gemini को एक पूरा काम सौंपते हो, जिसमें कई steps होते हैं। Gemini background में उस पर काम करता है, और काम पूरा होते ही आपको बता देता है। Google की help page कुछ examples देती है। inbox साफ़ करना और newsletters archive करना। छुट्टी के बाद ज़रूरी कामों की to-do list बनाना। Flight या hotel का दाम आपके budget में आए, तो alert देना। और किसी topic पर research करके, sources के साथ, PDF बनाकर देना। इसके लिए Gemini आपके जोड़े हुए apps, जैसे Gmail और Calendar, और ज़रूरत हो तो browser भी इस्तेमाल करता है। पहले इस feature का नाम Spark था, और ये Google के नए Gemini 4 Hydrogen model पर चलता है।"
+  },
+  {
+   "id": "who",
+   "voice": "अब सबसे ज़रूरी सवाल, ये किसे मिलेगा? Official help page के मुताबिक, बिना Google AI subscription के, ये छह देशों में मिल रहा है। Australia, Canada, India, Japan, South Korea, और America। बाकी देशों में ये Google AI Pro या Ultra subscription के साथ मिलता है, पर European Economic Area, Nigeria, Switzerland और United Kingdom में अभी नहीं। तीन शर्तें भी हैं। उम्र अठारह साल या ज़्यादा। Personal Google account, office या school वाला account अभी नहीं चलता। और Gemini History on हो। ये Gemini के mobile app, Mac app, और gemini dot google dot com पर मिलता है। Google इसे धीरे-धीरे roll out कर रहा है, तो अभी न दिखे, तो कुछ दिन बाद फिर देखिए।"
+  },
+  {
+   "id": "start",
+   "voice": "अब देखते हैं, इसे शुरू कैसे करें। पहला step, Gemini का app खोलिए, या browser में gemini dot google dot com पर जाइए। दूसरा step, text box के ठीक ऊपर Chat और Task का toggle दिखेगा, उसमें Task पर tap कीजिए। पहली बार screen पर जो instructions आएँ, उन्हें follow कीजिए। तीसरा step, text box में अपना काम साफ़-साफ़ लिखिए, और ये भी बताइए, कि काम कब करना है। चौथा step, Submit दबाइए। अब task की thread खोलकर आप देख सकते हैं, कि काम कहाँ तक पहुँचा। अगर Gemini को आपसे कुछ चाहिए, जैसे किसी website पर login, तो वो रुककर आपसे पूछेगा।"
+  },
+  {
+   "id": "ex1",
+   "voice": "अब पहला example, inbox की सफ़ाई। मान लीजिए छुट्टी के बाद inbox में सैकड़ों mails जमा हैं। Task में लिखिए, मेरे inbox के सारे newsletters का छोटा summary बनाओ, उन्हें archive करो, और जो mails ज़रूरी हैं, उनसे एक to-do list बनाओ। Gemini आपके Gmail को पढ़कर एक summary देगा, और एक साफ़ list, जैसे, बिजली का bill भरना, दोस्त को जवाब देना, और meeting की तैयारी। ध्यान रखिए, किसी mail को delete करने या भेजने से पहले, Gemini आपसे confirmation माँगता है। आख़िरी फैसला आपका।"
+  },
+  {
+   "id": "ex2",
+   "voice": "दूसरा example, रोज़ सुबह की briefing। Tasks में schedule लग सकता है, किसी तय समय पर, जैसे हर Monday सुबह, या किसी घटना पर, जैसे कोई खास email आए तब। तो Task में लिखिए, हर सुबह मेरे आज के Calendar events, और रात भर में आए ज़रूरी emails का छोटा summary बनाकर दो। Gemini इसका schedule बना देगा, और हर सुबह तैयार summary मिलेगा। अगर कुछ दिन ज़रूरत न हो, तो उस schedule को pause कर सकते हैं, और बाद में फिर से resume।"
+  },
+  {
+   "id": "ex3",
+   "voice": "तीसरा example, research करके file बनाना। मान लीजिए आपको घर के लिए एक अच्छा air purifier चुनना है। Task में लिखिए, दस हज़ार रुपये तक के air purifiers पर research करो, हर एक के फायदे और कमियाँ लिखो, sources के links दो, और सब कुछ एक PDF में दो। Gemini अलग-अलग websites पढ़कर, sources के साथ एक PDF देगा, जिसे आप download कर सकते हैं। Help page के मुताबिक, ये PDF के अलावा documents, spreadsheets और presentations भी बना सकता है। पर याद रहे, research आपके फैसले की मदद है, आख़िरी जाँच आप खुद कीजिए।"
+  },
+  {
+   "id": "safety",
+   "voice": "अब safety, क्योंकि Gemini आपके email और websites पर काम करता है। Google के मुताबिक, हर task एक अलग, hardware-isolated virtual machine में चलता है, जो सिर्फ़ आपके account के लिए होती है। दूसरा, prompt injection से बचाव। यानी किसी email या web page में छुपा गलत निर्देश हो, तो filters उसे पकड़ने की कोशिश करते हैं, और Google Safe Browsing सीमित करता है, कि Gemini कौन से links खोल सके। तीसरा, ज़रूरी कामों से पहले confirmation। जैसे message भेजना, data delete करना, कुछ खरीदना, या कोई form submit करना। और browser में चल रहे काम का control आप कभी भी खुद ले सकते हैं।"
+  },
+  {
+   "id": "us",
+   "voice": "अब एक ज़रूरी सावधानी। Google के blog में कुछ बहुत बड़े examples हैं, जैसे Gemini का दुकानों को phone करना, Google Pay से checkout करना, text message से task देना, और email forward करके task देना। पर release notes के मुताबिक, ये advanced features अभी सिर्फ़ America में, English में शुरू हो रहे हैं। तो India में अभी app वाला Task mode, schedules और files मिलेंगे। News में दिखने वाली हर चीज़ अपने phone पर तुरंत मिल जाए, ये ज़रूरी नहीं।"
+  },
+  {
+   "id": "limits",
+   "voice": "अब limits। एक समय पर आप ज़्यादा से ज़्यादा पंद्रह tasks चला सकते हैं। पंद्रह tasks पहले से चल रहे हों, तो नया schedule भी नहीं चलेगा। Usage limit भी है, जितने ज़्यादा और मुश्किल tasks, उतना ज़्यादा usage, और limit पास आने पर Gemini बता देता है। Google साफ़ कहता है, कि ये feature अभी experimental है। Gemini गलती कर सकता है, और कुछ websites इसे रोक देती हैं, तब आख़िरी step आपको खुद करना पड़ सकता है। इसलिए हर task पर नज़र रखिए, और sensitive काम schedule पर मत छोड़िए।"
+  },
+  {
+   "id": "off",
+   "voice": "और अगर आप इसे बंद करना चाहें, तो Gemini app में ऊपर Menu खोलिए, नीचे Settings, फिर Task settings। वहाँ, use task mode to hand off work के नीचे, Turn off पर tap कीजिए। बंद करने पर remote browser का data और remote code execution का data delete हो जाता है। पर आपके tasks, threads और files delete नहीं होते, और schedules बस pause हो जाते हैं।"
+  },
+  {
+   "id": "cta",
+   "voice": "तो याद रखिए। Tasks in Gemini, India में बिना subscription के free है। Text box के ऊपर Task पर tap कीजिए, और अपना काम साफ़ लिखिए। Schedule से रोज़ के काम अपने आप होंगे। बड़े काम से पहले Gemini आपसे पूछेगा। एक साथ पंद्रह tasks तक। और advanced features अभी सिर्फ़ America में। कल के video में देखेंगे, Claude Code में CLAUDE dot md file कैसे लिखें। AI की ऐसी काम की ख़बरें आसान भाषा में चाहिए, तो follow ज़रूर कीजिए।"
+  }
+ ]
+}

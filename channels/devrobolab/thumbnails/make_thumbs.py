@@ -167,6 +167,7 @@ def logos(items, extra=None):
     if extra: t += f'<div class=lg><div class="ic plus">{extra}</div><div class=ln>aur bhi</div></div>'
     return f'<div class=lgrid>{t}</div>'
 VIDEOS = [
+    ("3ZHp9gwWV0g", L, "sky", "think", "l", "AI NEWS DEEP DIVE", ("Gemini Tasks", "*India me free*"), big("6", "countries me FREE", ["India", "15 tasks ek saath", "Task mode"], size=140)),
     ("5rJyDtzaRmc", P, "pink", "think", "l", "CLAUDE HOW-TO", ("Claude me web search", "*2 clicks* me on"), steps(["+ button dabao", "Web search chuno", "Tick dikhe = ON"])),
     ("0rPgNXoYT6Y", L, "lime", "think", "l", "CLAUDE ROZ KE KAAM", ("Claude ki limit", "jaldi *khatam*?"), meter("CURRENT SESSION", 92, ["1 message", "Projects", "low effort"])),
     ("8lXDxYk0-gg", P, "peach", "think", "l", "CLAUDE IN DAILY LIFE 03", ("Schedule ke sawaal,", "*Claude* se poochho"), steps(["Calendar connect karo", "Chat me poocho", "Conflict dekho"])),
@@ -217,7 +218,7 @@ VIDEOS = [
     ("XdzDMRTrPfA", P, "mint", "wave", "r", "CLAUDE FEATURE 06", ("Type nahi,", "*bol kar* poochho"), flow([("Aap bolte ho", '<div class=bub>Sound wave icon dabao</div>', "#fff"), ("Claude jawab deta hai", '<div class=bub>Voice mode ON &#10003;</div>', "#E8F7EC")])),
 ]
 
-TAGLINES = {"5rJyDtzaRmc": "Jawab ke saath source links", "0rPgNXoYT6Y": "7 tareeke + 3 examples", "8lXDxYk0-gg": "Calendar connector, step by step", "7JbuBihcvcQ": "CLI, IDE, Desktop, Web: official guide", "vOhjs6dAL9o": "Code Mode, llama.cpp 1.0, Gemini Robotics", "VqFpEnY_SWc": "Gmail connector, step by step", "cqWoLFjTP2Y": "2 privacy settings, official pages", "pgwgAsMB-P0": "Test, goal, Stop hook: official tareeke", "kt2n1bc4qTY": "Zomato connector, step by step","o93cpNeVYmo": "5-hour session + weekly limit, bachane ke tips","TqMSePuzBDU": "Copy-paste prompts, official docs", "tQLX2wNlo-g": "Gemini 4 Hydrogen, Android, Tabletop", "UaI9m00Q82k": "Gemini 4 Carbon, Fable 5.2, Decisions API", "XdzDMRTrPfA": "Hands-free ya push-to-talk: kaunsa kab?", "oQni7skZzgs": "Ab edit karo, shuru se banane ki zaroorat nahi", "nHhmmwqwMtw": "Gemini, Mistral, Ollama +2"}
+TAGLINES = {"3ZHp9gwWV0g": "On kaise karein + 3 examples", "5rJyDtzaRmc": "Jawab ke saath source links", "0rPgNXoYT6Y": "7 tareeke + 3 examples", "8lXDxYk0-gg": "Calendar connector, step by step", "7JbuBihcvcQ": "CLI, IDE, Desktop, Web: official guide", "vOhjs6dAL9o": "Code Mode, llama.cpp 1.0, Gemini Robotics", "VqFpEnY_SWc": "Gmail connector, step by step", "cqWoLFjTP2Y": "2 privacy settings, official pages", "pgwgAsMB-P0": "Test, goal, Stop hook: official tareeke", "kt2n1bc4qTY": "Zomato connector, step by step","o93cpNeVYmo": "5-hour session + weekly limit, bachane ke tips","TqMSePuzBDU": "Copy-paste prompts, official docs", "tQLX2wNlo-g": "Gemini 4 Hydrogen, Android, Tabletop", "UaI9m00Q82k": "Gemini 4 Carbon, Fable 5.2, Decisions API", "XdzDMRTrPfA": "Hands-free ya push-to-talk: kaunsa kab?", "oQni7skZzgs": "Ab edit karo, shuru se banane ki zaroorat nahi", "nHhmmwqwMtw": "Gemini, Mistral, Ollama +2"}
 
 HTML = """<style>%(css)s</style><body class="%(cls)s" style="--bg:%(bg)s;--blob:%(blob)s"><div class=dots></div>
 %(blob_html)s
