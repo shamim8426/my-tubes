@@ -135,3 +135,22 @@ Nigraan checks analytics every 2 days (task nigraan-devrobolab-2day) and writes 
 - Keep a living spec in `brand/INSIDERFORCE_STYLE.md` (concrete: durations in seconds, motion types, text size/position, colours, transition list, SFX moments, how a claim is shown). Before each video study one fresh InsiderForce video (RUN_COMMON "Fresh style per video"), ADD new concrete motions/techniques to that file, then apply ALL of the file to the new video. Each video should use more of their motion vocabulary than the last.
 - Brand elements that stay ours only where InsiderForce has no equivalent (channel name, robot mascot if used); otherwise defer to InsiderForce's way.
 - STILL FORBIDDEN (YouTube reused-content policy + shared/RULES.md 12c, not a style matter): their actual frames, clips, audio/voice, music, script wording, dialogue, exact titles/thumbnails, logo or channel name. Style, motion and structure = copy freely; content, words, footage, voice = ours only. Study files stay in git-ignored `study/` and are deleted within 24 h.
+
+## 15. NO DOCUMENT/SCREENSHOT SHOWING (user 2026-11-18, binding)
+- Do not justify claims by showing the source document or a page screenshot, and do not read out what a document says. Present the information yourself in the best way: animated graphics, diagrams, step-by-step UI mock-ups, numbers/cards, icons, demos, text callouts, whatever explains it best (InsiderForce-style, section 14). Sources are checked in research (facts.md), not displayed. A real screenshot only if it is truly the clearest way and not a plain white document page.
+
+## 16. SHOW THE WORKFLOW IN MOTION (user 2026-11-18, binding; refines section 15)
+- Instead of static screenshots, show how the feature works as a running workflow: step-by-step animated UI mock-up (cursor moves, clicks, typing, result appearing), flow arrows between steps, moving cards/icons.
+- Keep it simple and uncluttered: one normal workflow, 3-5 steps, one focus at a time, big readable elements, generous spacing. No dense screens.
+- Use good moving items (slide-ins, pops, highlights, progress lines) in InsiderForce style (section 14).
+
+## 17. LIGHT THEME, NO ROBOT, REAL MOTION (user 2026-11-18, binding; OVERRIDES white+black+yellow signature, robot/mascot lines, "marker/robot" identity in STYLE_GUIDE and LEARNING_PROCESS)
+- No robot/mascot anywhere (video, ending, thumbnail). Theme: flat white / very light grey background, near-black text, ONE soft accent colour used sparingly; no orange paper grid, no heavy coloured fills.
+- Build every video to the full spec in brand/INSIDERFORCE_STYLE.md: word-by-word mixed-weight text, soft-shadow white cards with moving content inside (UI mock-up workflow or free HD stock clips), icon-on-a-string, collage pop-ins, arrow lists, something new every 2-3 s.
+- Make each Short 30-45 s unless the topic truly needs more.
+- Next video = next NEW topic from topic_queue/news, never a re-make of an uploaded video.
+
+## 18. EVERY VISUAL MUST MATCH THE SCRIPT (user 2026-11-19, binding)
+- Show something only if it illustrates what the voice says at that moment. No filler/stock clips (typing hands, keyboards, desks, random b-roll), no tiny irrelevant clips, and never repeat the same clip or picture again and again.
+- Prefer drawn UI mock-ups / diagrams / icons of the exact thing being said. A stock clip is allowed only if it clearly shows the named thing (and then large, once).
+- Before rendering, check the contact sheet scene by scene: for each frame ask "does this match the words spoken here?"; fix any that do not.

@@ -1,0 +1,14 @@
+{
+ "tag": "AI Khabar: Claude Code website live link (AweShell)",
+ "music": {"file": "shared/music/presentation/Funkorama.mp3", "start": 6, "rel": 12},
+ "voice": {"id": "Charon", "style": "Speak like a friendly Indian tech YouTuber chatting casually in Hinglish. Natural conversational pace, warm and clear, a little energetic but not theatrical. No sing-song, no exaggerated emphasis."},
+ "scenes": [
+  {"id": "hook", "voice": "Claude Code से बनाई website को सबके लिए live करना है? बस एक tool, और आपको मिलता है एक public link।"},
+  {"id": "setup", "voice": "Tool का नाम है AweShell. एक prompt copy करके अपने agent को दीजिए, और setup agent खुद कर लेगा।"},
+  {"id": "publish", "voice": "फिर बस बोलिए, site publish करो। Agent आपकी files upload करता है, और आपको live link दे देता है।"},
+  {"id": "types", "voice": "एक HTML file हो, zip हो या पूरा build folder, सब चलता है। हाँ, limit है: हर file पच्चीस MB से कम, और कुल सौ MB तक।"},
+  {"id": "manual", "voice": "चाहें तो खुद भी कर सकते हैं। File या folder को वहाँ drag करके drop कीजिए, और link तैयार।"},
+  {"id": "agents", "voice": "यह Gemini, Codex और ऐसे हर agent के साथ चलता है जो commands चला सकता है।"},
+  {"id": "cta", "voice": "ऐसे और AI tricks के लिए follow कीजिए।"}
+ ]
+}

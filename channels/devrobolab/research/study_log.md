@@ -55,3 +55,8 @@
 - Method: ffmpeg 1 fps contact sheets + scene-cut count; thumbnails viewed as a contact sheet.
 - Learnt: STYLE_LIBRARY section 12c (kinetic mixed-weight captions, soft-shadow cards, badge clusters, black label, watermark; thumbnail = strongest frame on a blurred copy). Principles only.
 - Status: study files deleted on 2026-11-07.
+
+## 2026-11-18 - InsiderForce Shorts 23cUNfHdJcc and jlPVufdNQm4 (RULES 12c)
+- Downloaded with tools/yt-dlp.exe, no cookies, into study/ (git-ignored); one broken down at 30 fps (2,596 frames, motion curve + 24-frame sequences); transcript via local Whisper for structure only.
+- Learnt: brand/INSIDERFORCE_STYLE.md (principles only). Topic reused with own script and visuals: story 067. Facts from aweshell.ai/doc/cli-setup.md and the aweshell.ai landing page (limits 25 MB/file, 100 MB total, accepts html/zip/md/folder, agents Gemini/Codex/others).
+- Status: study files deleted 2026-11-18.

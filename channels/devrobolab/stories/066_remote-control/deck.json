@@ -1,0 +1,12 @@
+{
+ "tag": "Claude Code Kaise Karein: Remote Control",
+ "music": {"file": "shared/music/presentation/Funkorama.mp3", "start": 6, "rel": 12},
+ "voice": {"id": "Charon", "style": "Speak like a friendly Indian tech YouTuber chatting casually in Hinglish. Natural conversational pace, warm and clear, a little energetic but not theatrical. No sing-song, no exaggerated emphasis."},
+ "scenes": [
+  {"id": "hook", "voice": "अपना Claude Code session phone से चलाना है? बस एक command, और computer का session आपके phone में खुल जाएगा।"},
+  {"id": "steps", "voice": "Terminal में लिखिए, claude remote-control. Screen पर एक link आएगा, और spacebar दबाने पर QR code. उसे phone से scan कीजिए।"},
+  {"id": "phone", "voice": "अब Claude app या claude.ai slash code में आपका session दिखेगा। वहीं से message भेजिए, photo या file भी attach कर सकते हैं। Code आपके computer पर ही चलता है।"},
+  {"id": "note", "voice": "ध्यान रहे: Pro या Max जैसा paid plan चाहिए, API key से नहीं चलेगा। Computer चालू रहना चाहिए। Laptop sleep हो जाए, तो वापस आते ही reconnect हो जाता है।"},
+  {"id": "cta", "voice": "ऐसे और Claude Code tricks के लिए follow कीजिए।"}
+ ]
+}
