@@ -2489,3 +2489,8 @@ timestamp,file,model,size,cost_usd,cost_inr,today_total_inr,remaining_inr,channe
 2026-11-18 21:46:43,channels/devrobolab/stories/063_news-gemini-tasks/audio/tts/s_09.wav,gemini-3.8-flash-tts,tts 29.8s free,0.00000,0.00,54.95,543.38,devrobolab,0.66,0.0000,0.00,116,746
 2026-11-18 21:46:55,channels/devrobolab/stories/063_news-gemini-tasks/audio/tts/s_10.wav,gemini-3.8-flash-tts,tts 20.1s free,0.00000,0.00,54.95,543.38,devrobolab,0.45,0.0000,0.00,80,502
 2026-11-18 21:47:07,channels/devrobolab/stories/063_news-gemini-tasks/audio/tts/s_11.wav,gemini-3.8-flash-tts,tts 27.2s free,0.00000,0.00,54.95,543.38,devrobolab,0.61,0.0000,0.00,103,680
+2026-11-18 22:37:30,channels/devrobolab/stories/064_cc-custom-commands/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 9.5s free,0.00000,0.00,54.95,543.38,devrobolab,0.21,0.0000,0.00,34,238
+2026-11-18 22:37:42,channels/devrobolab/stories/064_cc-custom-commands/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 11.4s,0.00258,0.25,55.24,543.09,devrobolab,0.25,0.2485,0.04,39,284
+2026-11-18 22:37:55,channels/devrobolab/stories/064_cc-custom-commands/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 17.2s,0.00389,0.38,55.68,542.64,devrobolab,0.38,0.3757,0.07,65,429
+2026-11-18 22:38:07,channels/devrobolab/stories/064_cc-custom-commands/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 12.5s,0.00284,0.27,56.01,542.32,devrobolab,0.28,0.2742,0.05,48,313
+2026-11-18 22:38:18,channels/devrobolab/stories/064_cc-custom-commands/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 5.9s,0.00134,0.13,56.16,542.17,devrobolab,0.13,0.1288,0.02,24,147

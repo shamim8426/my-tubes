@@ -1,0 +1,34 @@
+{
+ "tag": "Claude Code Kaise Karein: custom slash command",
+ "music": {
+  "file": "shared/music/presentation/Funkorama.mp3",
+  "start": 6,
+  "rel": 12
+ },
+ "voice": {
+  "id": "Charon",
+  "style": "Speak like a friendly Indian tech YouTuber chatting casually in Hinglish. Natural conversational pace, warm and clear, a little energetic but not theatrical. No sing-song, no exaggerated emphasis."
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "voice": "Claude Code में हर बार वही लंबा prompt? उसे अपना slash command बना दीजिए। एक file, और फिर slash fix issue लिखते ही, Claude आपके steps follow करेगा।"
+  },
+  {
+   "id": "steps",
+   "voice": "पहला, project में folder बनाइए: dot claude, फिर skills, फिर fix issue. दूसरा, उसमें SKILL dot md file रखिए। Folder का नाम ही command बनता है।"
+  },
+  {
+   "id": "file",
+   "voice": "File में सबसे ऊपर, तीन dash वाली lines के बीच description लिखिए, यानी command क्या करता है। नीचे आसान steps लिखिए। जहाँ dollar ARGUMENTS हो, वहाँ आपका टाइप किया हिस्सा आता है। जैसे slash fix issue एक सौ तेईस, तो Claude को मिलता है, fix GitHub issue एक सौ तेईस."
+  },
+  {
+   "id": "note",
+   "voice": "ध्यान रखिए, session पहले से चल रहा था और skills folder नया बना, तो slash reload skills चलाइए। हर project के लिए, यही folder home के dot claude में बनाइए। पुरानी commands folder वाली files भी चलती हैं।"
+  },
+  {
+   "id": "cta",
+   "voice": "अगला tip: Claude Code में plan mode. ऐसी छोटी, काम की tricks के लिए, हमें follow कीजिए।"
+  }
+ ]
+}
