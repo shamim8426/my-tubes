@@ -1,0 +1,27 @@
+{
+  "channel_key": "devrobolab",
+  "channel_name": "DevRoboLab",
+  "channel_id": "UCpElgKdJOgQiyfwdGXz6GmA",
+  "format": "short",
+  "parent_video_id": null,
+  "title": "Claude Code me slash command kaise banayein: sirf 1 file #shorts",
+  "description": "Claude Code me apna (custom) slash command kaise banayein? Sirf 1 file: SKILL.md. Phir /fix-issue 123 likho aur Claude aapke steps follow karega.\n\nSteps (official Claude Code docs ke hisaab se):\n1. Project me folder banaiye: .claude/skills/fix-issue/\n2. Uske andar SKILL.md file rakhiye. Folder ka naam hi command banta hai: /fix-issue\n3. File me sabse upar --- lines ke beech \"description\" likhiye (command kya karta hai), neeche aasaan steps.\n4. Jahan $ARGUMENTS likha ho, wahan aapka type kiya hissa aata hai: /fix-issue 123 likhne par Claude ko milta hai \"Fix GitHub issue 123 ...\".\n\nDhyan rakhiye:\n- Session pehle se chal raha tha aur skills folder naya bana? Ek baar /reload-skills chalaiye.\n- Har project ke liye: home folder me ~/.claude/skills/ (sirf is project ke liye: .claude/skills/).\n- Purani .claude/commands/ wali files bhi chalti hain; naye kaam ke liye docs skills folder sujhate hain.\n\nChapters:\n0:00 Apna slash command\n0:09 Folder aur SKILL.md\n0:21 File me kya likhein ($ARGUMENTS)\n0:38 Dhyan rakhiye\n0:51 Agla tip: plan mode\n\nSources (official):\nhttps://code.claude.com/docs/en/skills\nhttps://code.claude.com/docs/en/commands\n\nPoora video (Claude Code): .claude folder me kaun si files hoti hain https://youtu.be/E-yaXp_ZgMw\n\nRoz 2 Shorts aur 1 video: Claude Code Kaise Karein\n\nUnofficial channel, not affiliated with Anthropic.\n\nNote: the page crops are our own capture of the official Claude Code docs (key words highlighted). The terminal, folder tree and SKILL.md editor are illustrations, not the real app. Synthetic voice.\n\nMusic: \"Funkorama\" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution 4.0 License\nhttp://creativecommons.org/licenses/by/4.0/\n\n#shorts #ClaudeCode #SlashCommand #ClaudeCodeKaiseKarein #AI #Hinglish",
+  "tags": [
+    "Claude Code slash command",
+    "Claude Code custom slash commands",
+    "Claude Code skills",
+    "SKILL.md",
+    "Claude Code kaise use karein",
+    "Claude Code tutorial Hindi",
+    "AI coding",
+    "Hinglish",
+    "Shorts"
+  ],
+  "video": "short.mp4",
+  "language": "hi",
+  "made_for_kids": false,
+  "contains_synthetic_media": true,
+  "category_id": "28",
+  "privacy": "public",
+  "playlist_id": "PLGTgifZfJLow"
+}

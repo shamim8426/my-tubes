@@ -1,0 +1,91 @@
+{
+ "sk_text": "Documentation Index\n\nFetch the complete documentation index at: /docs/llms.txt\n\nUse this file to discover all available pages before exploring further.\n\nSkip to main content\nClaude Code Docs home page\nSearch...\nNavigation\nSkills\nExtend Claude with skills\nSKILLS\nExtend Claude with skills\n\nCreate, manage, and share skills to extend Claude’s capabilities in Claude Code. Includes custom commands and bundled skills.\n\nCopy page\nSkills extend what Claude can do. Create a SKILL.md file with instructions, and Claude adds it to its toolkit. Claude uses skills when relevant, or you can invoke one directly with /skill-name.\nCreate a skill when you keep pasting the same instructions, checklist, or multi-step procedure into chat, or when a section of CLAUDE.md has grown into a procedure rather than a fact. Unlike CLAUDE.md content, a skill’s body loads only when it’s used, so long reference material costs almost nothing until you need it.\nFor built-in commands like /help and /compact, and bundled skills like /debug and /code-review, see the commands reference.\nCustom commands have been merged into skills. Your existing .claude/commands/ files keep working. Claude can invoke them without you typing the command. Edit a command to stop Claude from invoking it on its own, or convert a command that needs more than one file to a skill:\nStop Claude from invoking a command on its own: add disable-model-invocation: true to the command file’s frontmatter\nAdd supporting files such as scripts: convert the command to a skill. For example, move .claude/commands/deploy.md to .claude/skills/deploy/SKILL.md. The folder name becomes the command, so you still type /deploy.\nClaude Code skills follow the Agent Skills open standard, which works across multiple AI tools. Claude Code extends the standard with additional features like invocation control, subagent execution, and dynamic context injection. See Using skill frontmatter outside Claude Code for which frontmatter fields are part of the standard and which are Claude Code extensions.\nBundled skills\nClaude Code includes a set of bundled skills, such as /doctor, /code-review, /batch, /debug, /loop, and /claude-api. Bundled skills are prompt-based: they give Claude detailed instructions and let it orchestrate the work using its tools. Most built-in commands instead execute fixed logic directly.\nYou invoke a bundled skill by typing / followed by the skill name. Claude invokes some bundled skills automatically when relevant.\nMost bundled skills are available in every session. A few depend on a specific feature: /workflow-authoring, for example, is available only when dynamic workflows are enabled.\nTo turn bundled skills off, use the disableBundledSkills setting.\nThe /doctor setup checkup stays typable when disableBundledSkills is on. To hide it, set the DISABLE_DOCTOR_COMMAND environment variable or a skillOverrides entry of \"doctor\": \"off\".\nBundled skills are listed alongside built-in commands in the commands reference, marked Ski",
+ "sk_merged": [
+  69,
+  446.84375,
+  287.59375,
+  38,
+  ""
+ ],
+ "sk_project": [
+  327,
+  446.640625,
+  102.71875,
+  38,
+  ""
+ ],
+ "sk_personal": [
+  301,
+  446.640625,
+  129.40625,
+  38,
+  ""
+ ],
+ "sk_becomes": [
+  66,
+  442.25,
+  290.921875,
+  48,
+  " when you set one, "
+ ],
+ "sk_args": [
+  20,
+  456.21875,
+  108.359375,
+  20,
+  ""
+ ],
+ "sk_fixissue": [
+  37,
+  458.21875,
+  233.078125,
+  16,
+  ""
+ ],
+ "sk_frontmatter": null,
+ "sk_fm2": [
+  64.859375,
+  455.6875,
+  161.140625,
+  20,
+  " "
+ ],
+ "sk_reload": null,
+ "sk_reload2": [
+  28,
+  444.203125,
+  334.953125,
+  44,
+  "/"
+ ],
+ "sk_older": [
+  52,
+  441.640625,
+  334.953125,
+  48,
+  " "
+ ],
+ "sk_desc": null,
+ "cmd_text": "Documentation Index\n\nFetch the complete documentation index at: /docs/llms.txt\n\nUse this file to discover all available pages before exploring further.\n\nSkip to main content\nClaude Code Docs home page\nSearch...\nNavigation\nReference\nCommands\nREFERENCE\nCommands\n\nComplete reference for commands available in Claude Code, including built-in commands and bundled skills.\n\nCopy page\nCommands control Claude Code from inside a session. They provide a quick way to switch models, manage permissions, clear context, run a workflow, and more.\nType / to see the commands available to you, or type / followed by letters to filter. How the command menu matches what you type covers highlighting, typos, and the few commands Claude Code hides from the menu until you type their full name.\nA command is only recognized at the start of your message. Text that follows the command name becomes its arguments. At the terminal prompt, you can start one message with several skills: typing /skill-a /skill-b do XYZ loads both skills and passes the trailing text to each as arguments. Up to six skills can be chained.\nIf you send a command while Claude is responding, Claude Code queues it and runs it after the current turn finishes. Claude Code runs some commands immediately without interrupting the response, such as /status, /tasks, and /usage. In fullscreen rendering, Claude Code also opens dialog commands such as /theme and /help immediately. Before v2.1.234, Claude Code queued those dialogs until the turn finished.\nCommands across a typical workflow\nMost commands are useful at a specific point in a session, from setting up a project to shipping a change.\nFirst session in a repo. Run /init to generate a starter CLAUDE.md, then /memory to refine it. Use /mcp to set up any servers the project needs, ask Claude to create any subagents you want, and run /permissions to set your approval rules.\nDuring a task. /plan switches into plan mode before a large change. /model and /effort adjust which model you’re using and how much reasoning it applies. When the conversation gets long, /context shows what’s filling the window and /compact summarizes it to free space. Use /btw for a side question that shouldn’t add to the conversation history.\nRun work in parallel. Claude delegates side tasks to subagents, and /tasks lists the current session’s background work, including subagents that have finished. /background detaches the whole session to keep running as a background agent and frees your terminal. For a large change that spans the codebase, /batch decomposes it into independent units and runs each in its own worktree. See Run agents in parallel for how these approaches relate.\nBefore you ship. /diff shows what changed. /code-review checks the current diff for correctness bugs and can apply the findings with --fix; pass a PR number, such as /code-review high 1234, to review a pull request instead. /review is an alias. /code-review ultra runs a multi-agent review in the cloud. /security-review",
+ "cmd_own": [
+  20,
+  456.171875,
+  210.765625,
+  20,
+  ""
+ ],
+ "cmd_slash": [
+  87.40625,
+  456.21875,
+  283.6875,
+  20,
+  " "
+ ],
+ "cmd_rel": [
+  195.296875,
+  456.921875,
+  57.359375,
+  18,
+  ""
+ ]
+}
