@@ -26,21 +26,17 @@
    "short_id": "w-b1kltrLHc",
    "date": "2026-11-18",
    "note": "SAMPLE uploaded by mistake (private); user wants it deleted in Studio; too short (2 min) - not a real story (RULES 2n)"
+  },
+  {
+   "story": "014_ashab-e-kahf",
+   "topic": "Ashab-e-Kahf (the youths of the cave), Surah al-Kahf 18:9-26",
+   "status": "uploaded",
+   "long_id": "mT0O-uwlthk",
+   "short_id": "epHC_mBxEEg",
+   "date": "2026-11-19"
   }
  ],
  "queue": [
-  {
-   "id": "ashab-e-kahf",
-   "topic": "Ashab-e-Kahf (the youths of the cave), Surah al-Kahf 18:9-26",
-   "sources": [
-    "Quran 18:9-26",
-    "sahih tafseer (Ibn Kathir, Tabari - verify 2+ per fact)"
-   ],
-   "grade": "quran",
-   "status": "planned",
-   "priority": "user choice 2026-11-18 (first)",
-   "note": "4:00-5:00 min (RULES 2n); youths unnamed; no number/name claims beyond the Quran; Arabic only exact Tanzil bytes"
-  },
   {
    "id": "badshah-jadugar-ladka",
    "topic": "The king, the sorcerer and the boy (Ashab al-Ukhdud)",

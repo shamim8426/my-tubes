@@ -1,0 +1,1066 @@
+{
+ "title": "Ashab-e-Kahf (Surah al-Kahf 18:9-26)",
+ "voice": "Charon",
+ "style": "Calm, warm, clear Hindi storyteller telling a true story to a family. Simple spoken Hindi, gentle emotion, steady, normal conversational pace, correct Urdu sounds. Read the Arabic-sound lines plainly and clearly, not as recitation, no tune.",
+ "tempo": 1.02,
+ "ambience": "",
+ "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+ "music_vol": 0.5,
+ "amp": 0.08,
+ "amb_db": -6,
+ "sfx_db": -3,
+ "duck": true,
+ "ayah_fs": 120,
+ "ayah_outline": 6,
+ "ayah_src": "",
+ "lines": [
+  {
+   "n": 1,
+   "text": "कुछ नौजवान थे, जो अपना ईमान बचाने के लिए एक गुफा में जा छिपे।",
+   "img": "06_cave_mouth",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "ईमान"
+   ]
+  },
+  {
+   "n": 2,
+   "text": "वो सो गए। और जब जागे, तो बरसों बीत चुके थे।",
+   "img": "06_cave_mouth",
+   "motion": true,
+   "preset": "pan_right",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "बरसों"
+   ]
+  },
+  {
+   "n": 3,
+   "text": "ये वाक़िआ अल्लाह ने ख़ुद क़ुरआन की सूरह अल-कह्फ़ में बताया है।",
+   "img": "15_stars_cave",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "सूरह अल-कह्फ़"
+   ]
+  },
+  {
+   "n": 4,
+   "text": "कह्फ़ का मतलब है गुफा। इसलिए इन्हें अस्हाब-ए-कह्फ़, यानी गुफा वाले कहा जाता है।",
+   "img": "16_dawn_cave",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "गुफा वाले"
+   ]
+  },
+  {
+   "n": 5,
+   "text": "बहुत पुराने ज़माने की बात है। एक शहर के लोगों ने, अल्लाह के सिवा दूसरे ख़ुदा बना रखे थे।",
+   "img": "02_town_idols",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "दूसरे ख़ुदा"
+   ]
+  },
+  {
+   "n": 6,
+   "text": "उसी शहर में कुछ नौजवान थे, जो एक अल्लाह पर ईमान ले आए।",
+   "img": "03_youths_together",
+   "motion": true,
+   "preset": "pan_right",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "एक अल्लाह"
+   ]
+  },
+  {
+   "n": 7,
+   "text": "इन्नहुम फ़ित्यतुन आमनू बिरब्बिहिम व ज़िदनाहुम हुदा।",
+   "img": "03_youths_together",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": true,
+   "gold": [],
+   "ar": "إِنَّهُمْ فِتْيَةٌ ءَامَنُوا۟ بِرَبِّهِمْ وَزِدْنَٰهُمْ هُدًى",
+   "src": "सूरह अल-कह्फ़ 18:13",
+   "ayah_y": 90,
+   "tr_y": 870,
+   "src_y": 330
+  },
+  {
+   "n": 8,
+   "text": "अल्लाह फ़रमाता है: वो कुछ नौजवान थे, जो अपने रब पर ईमान लाए, और हमने उन्हें सही राह में और आगे बढ़ा दिया।",
+   "img": "03_youths_together",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "सही राह"
+   ]
+  },
+  {
+   "n": 9,
+   "text": "अल्लाह ने उनके दिल मज़बूत कर दिए।",
+   "img": "04_youths_stand",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "दिल मज़बूत"
+   ]
+  },
+  {
+   "n": 10,
+   "text": "वो खड़े हुए, और साफ़ कहा: हमारा रब वही है, जो आसमानों और ज़मीन का रब है।",
+   "img": "04_youths_stand",
+   "motion": true,
+   "preset": "pan_right",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "आसमानों और ज़मीन"
+   ]
+  },
+  {
+   "n": 11,
+   "text": "हम उसके सिवा किसी और को कभी नहीं पुकारेंगे। ऐसा करें, तो ये बहुत ग़लत बात होगी।",
+   "img": "04_youths_stand",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "कभी नहीं"
+   ]
+  },
+  {
+   "n": 12,
+   "text": "उन्होंने कहा: हमारे लोगों ने अल्लाह के सिवा दूसरे ख़ुदा बना लिए हैं।",
+   "img": "02_town_idols",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "हमारे लोगों"
+   ]
+  },
+  {
+   "n": 13,
+   "text": "पर इसकी कोई साफ़ दलील नहीं लाते। और जो अल्लाह पर झूठ बाँधे, उससे बड़ा ज़ालिम कोई नहीं।",
+   "img": "02_town_idols",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "झूठ"
+   ]
+  },
+  {
+   "n": 14,
+   "text": "फिर उन्होंने आपस में कहा: जब तुमने इन लोगों से, और इनके झूठे ख़ुदाओं से किनारा कर लिया है,",
+   "img": "05_leave_town",
+   "motion": true,
+   "preset": "pan_right",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "किनारा"
+   ]
+  },
+  {
+   "n": 15,
+   "text": "तो चलो, गुफा में पनाह लो।",
+   "img": "05_leave_town",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "गुफा"
+   ]
+  },
+  {
+   "n": 16,
+   "text": "तुम्हारा रब तुम पर अपनी रहमत फैला देगा, और तुम्हारा काम आसान कर देगा।",
+   "img": "05_leave_town",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "रहमत"
+   ]
+  },
+  {
+   "n": 17,
+   "text": "वो शहर छोड़कर निकले, और पहाड़ की एक गुफा में जा पहुँचे।",
+   "img": "06_cave_mouth",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "गुफा"
+   ]
+  },
+  {
+   "n": 18,
+   "text": "उनके साथ उनका एक कुत्ता भी था।",
+   "img": "05_leave_town",
+   "motion": true,
+   "preset": "pan_right",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "कुत्ता"
+   ]
+  },
+  {
+   "n": 19,
+   "text": "गुफा में पहुँचकर, उन्होंने अल्लाह से ये दुआ की।",
+   "img": "07_dua_cave",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "दुआ"
+   ]
+  },
+  {
+   "n": 20,
+   "text": "रब्बना आतिना मिल्लदुन्का रह्मतंव्व हय्यिअ लना मिन अम्रिना रशदा।",
+   "img": "07_dua_cave",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": true,
+   "gold": [],
+   "ar": "رَبَّنَآ ءَاتِنَا مِن لَّدُنكَ رَحْمَةً وَهَيِّئْ لَنَا مِنْ أَمْرِنَا رَشَدًا",
+   "src": "सूरह अल-कह्फ़ 18:10",
+   "ayah_y": 90,
+   "tr_y": 870,
+   "src_y": 330
+  },
+  {
+   "n": 21,
+   "text": "ऐ हमारे रब, हमें अपने पास से रहमत दे, और हमारे इस काम में हमारे लिए सही रास्ता बना दे।",
+   "img": "07_dua_cave",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "रहमत"
+   ]
+  },
+  {
+   "n": 22,
+   "text": "फिर अल्लाह ने उनके कानों पर पर्दा डाल दिया, और वो गहरी नींद सो गए।",
+   "img": "08_sleep_cave",
+   "motion": true,
+   "preset": "pan_right",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "गहरी नींद"
+   ]
+  },
+  {
+   "n": 23,
+   "text": "एक दिन नहीं, एक साल नहीं, बरसों-बरस तक।",
+   "img": "08_sleep_cave",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "बरसों-बरस"
+   ]
+  },
+  {
+   "n": 24,
+   "text": "सूरज निकलता, तो उनकी गुफा से दाईं तरफ़ हटकर निकल जाता।",
+   "img": "09_sun_cave",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "दाईं"
+   ]
+  },
+  {
+   "n": 25,
+   "text": "और डूबता, तो बाईं तरफ़ से कतराकर निकल जाता। और वो गुफा के अंदर एक खुली जगह में थे।",
+   "img": "09_sun_cave",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "बाईं"
+   ]
+  },
+  {
+   "n": 26,
+   "text": "ये अल्लाह की निशानियों में से एक निशानी थी।",
+   "img": "09_sun_cave",
+   "motion": true,
+   "preset": "pan_right",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "निशानी"
+   ]
+  },
+  {
+   "n": 27,
+   "text": "कोई उन्हें देखता, तो समझता कि वो जाग रहे हैं, जबकि वो सो रहे थे।",
+   "img": "08_sleep_cave",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "सो रहे"
+   ]
+  },
+  {
+   "n": 28,
+   "text": "अल्लाह उन्हें कभी दाईं, कभी बाईं करवट बदलवाता रहा।",
+   "img": "08_sleep_cave",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "करवट"
+   ]
+  },
+  {
+   "n": 29,
+   "text": "और उनका कुत्ता गुफा के मुँह पर, अपने दोनों अगले पैर फैलाए पड़ा था।",
+   "img": "10_dog_entrance",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "कुत्ता"
+   ]
+  },
+  {
+   "n": 30,
+   "text": "उन पर ऐसा रौब था, कि कोई झाँककर देखता, तो डरकर उल्टे पाँव भाग जाता।",
+   "img": "10_dog_entrance",
+   "motion": true,
+   "preset": "pan_right",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "डरकर"
+   ]
+  },
+  {
+   "n": 31,
+   "text": "फिर एक दिन, अल्लाह ने उन्हें जगा दिया।",
+   "img": "11_wake_talk",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "जगा"
+   ]
+  },
+  {
+   "n": 32,
+   "text": "एक ने पूछा: हम यहाँ कितनी देर रहे?",
+   "img": "11_wake_talk",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "कितनी देर"
+   ]
+  },
+  {
+   "n": 33,
+   "text": "दूसरों ने कहा: एक दिन, या दिन का कुछ हिस्सा।",
+   "img": "11_wake_talk",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "एक दिन"
+   ]
+  },
+  {
+   "n": 34,
+   "text": "फिर बोले: तुम्हारा रब ही बेहतर जानता है, कि हम कितना रहे।",
+   "img": "11_wake_talk",
+   "motion": true,
+   "preset": "pan_right",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "रब ही"
+   ]
+  },
+  {
+   "n": 35,
+   "text": "अब अपने में से किसी एक को, ये चाँदी के सिक्के देकर शहर भेजो।",
+   "img": "12_coins",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "चाँदी के सिक्के"
+   ]
+  },
+  {
+   "n": 36,
+   "text": "वो देखे कि सबसे पाक-साफ़ खाना कहाँ मिलता है, और वहाँ से कुछ ले आए।",
+   "img": "12_coins",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "पाक-साफ़"
+   ]
+  },
+  {
+   "n": 37,
+   "text": "पर बहुत होशियारी और नरमी से जाए, और किसी को हमारी ख़बर न होने दे।",
+   "img": "12_coins",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "होशियारी"
+   ]
+  },
+  {
+   "n": 38,
+   "text": "क्योंकि अगर उन्हें पता चल गया, तो वो हमें पत्थर मारेंगे, या ज़बरदस्ती अपने धर्म में लौटा लेंगे।",
+   "img": "04_youths_stand",
+   "motion": true,
+   "preset": "pan_right",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "पत्थर"
+   ]
+  },
+  {
+   "n": 39,
+   "text": "वो नौजवान शहर पहुँचा।",
+   "img": "13_market",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "शहर"
+   ]
+  },
+  {
+   "n": 40,
+   "text": "क़ुरआन समझाने वाले पुराने आलिम लिखते हैं, कि वहाँ सब बदल चुका था, और उसके बहुत पुराने सिक्के देखकर लोग हैरान रह गए।",
+   "img": "13_market",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "पुराने सिक्के"
+   ]
+  },
+  {
+   "n": 41,
+   "text": "फिर अल्लाह ने लोगों को उनकी ख़बर दे दी।",
+   "img": "14_people_cave",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "ख़बर"
+   ]
+  },
+  {
+   "n": 42,
+   "text": "ताकि लोग जान लें, कि अल्लाह का वादा सच्चा है, और क़ियामत के आने में कोई शक नहीं।",
+   "img": "14_people_cave",
+   "motion": true,
+   "preset": "pan_right",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "वादा सच्चा"
+   ]
+  },
+  {
+   "n": 43,
+   "text": "बाद में लोग उनकी गिनती पर भी बहस करने लगे।",
+   "img": "14_people_cave",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "गिनती"
+   ]
+  },
+  {
+   "n": 44,
+   "text": "कोई कहता: तीन थे, चौथा उनका कुत्ता। कोई कहता: पाँच थे, छठा उनका कुत्ता। ये सब अंदाज़े थे।",
+   "img": "14_people_cave",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "तीन",
+    "पाँच"
+   ]
+  },
+  {
+   "n": 45,
+   "text": "और कोई कहता: सात थे, आठवाँ उनका कुत्ता।",
+   "img": "14_people_cave",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "सात"
+   ]
+  },
+  {
+   "n": 46,
+   "text": "क़ुरआन में आया है: कहो, मेरा रब ही उनकी गिनती सबसे अच्छी तरह जानता है। उन्हें बहुत थोड़े लोग ही जानते हैं।",
+   "img": "15_stars_cave",
+   "motion": true,
+   "preset": "pan_right",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "मेरा रब ही"
+   ]
+  },
+  {
+   "n": 47,
+   "text": "व लबिसू फ़ी कह्फ़िहिम सलासा मिअतिन सिनीना वज़्दादू तिस्आ।",
+   "img": "16_dawn_cave",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": true,
+   "gold": [],
+   "ar": "وَلَبِثُوا۟ فِى كَهْفِهِمْ ثَلَٰثَ مِا۟ئَةٍ سِنِينَ وَٱزْدَادُوا۟ تِسْعًا",
+   "src": "सूरह अल-कह्फ़ 18:25",
+   "ayah_y": 90,
+   "tr_y": 870,
+   "src_y": 330
+  },
+  {
+   "n": 48,
+   "text": "और वो अपनी गुफा में तीन सौ साल रहे, और नौ साल और।",
+   "img": "16_dawn_cave",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "तीन सौ साल"
+   ]
+  },
+  {
+   "n": 49,
+   "text": "और साथ ही फ़रमाया: अल्लाह ही ख़ूब जानता है, कि वो कितना रहे। आसमानों और ज़मीन की हर छिपी बात, बस वही जानता है।",
+   "img": "16_dawn_cave",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "अल्लाह ही"
+   ]
+  },
+  {
+   "n": 50,
+   "text": "कुछ नौजवान, जिन्होंने पूरे शहर के ख़िलाफ़, अपने रब को चुना।",
+   "img": "06_cave_mouth",
+   "motion": true,
+   "preset": "pan_right",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "अपने रब"
+   ]
+  },
+  {
+   "n": 51,
+   "text": "और अल्लाह ने उन्हें अपनी रहमत में ऐसे छिपा लिया, कि सदियाँ गुज़र गईं।",
+   "img": "06_cave_mouth",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "रहमत"
+   ]
+  },
+  {
+   "n": 52,
+   "text": "ये वाक़िआ क़ुरआन की सूरह अल-कह्फ़, आयत नौ से छब्बीस में आया है।",
+   "img": "16_dawn_cave",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": []
+  }
+ ]
+}
