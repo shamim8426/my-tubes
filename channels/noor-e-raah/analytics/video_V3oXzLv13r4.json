@@ -1,0 +1,52 @@
+{
+ "id": "V3oXzLv13r4",
+ "title": "Asma bint Abi Bakr ki Kahani | Sir par Khajoor ki Guthliyan aur Do Kamarbandon Wali | Noor-e-Raah",
+ "published": "2026-11-15T05:43:19Z",
+ "privacy": "public",
+ "seconds": 245,
+ "statistics": {
+  "viewCount": "3",
+  "likeCount": "0",
+  "dislikeCount": "0",
+  "favoriteCount": "0",
+  "commentCount": "0"
+ },
+ "is_short": false,
+ "totals": {
+  "views": 2,
+  "engagedViews": 1,
+  "estimatedMinutesWatched": 0,
+  "averageViewDuration": 3,
+  "averageViewPercentage": 1.27,
+  "subscribersGained": 0,
+  "likes": 0,
+  "comments": 0,
+  "shares": 0
+ },
+ "traffic": [
+  {
+   "insightTrafficSourceType": "YT_CHANNEL",
+   "views": 1,
+   "estimatedMinutesWatched": 0
+  },
+  {
+   "insightTrafficSourceType": "YT_SEARCH",
+   "views": 1,
+   "estimatedMinutesWatched": 0
+  }
+ ],
+ "retention": [],
+ "daily": [
+  {
+   "day": "2026-11-15",
+   "views": 1,
+   "estimatedMinutesWatched": 0
+  },
+  {
+   "day": "2026-11-16",
+   "views": 1,
+   "estimatedMinutesWatched": 0
+  }
+ ],
+ "fetched": "2026-11-19T08:29:14"
+}

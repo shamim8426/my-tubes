@@ -5,7 +5,7 @@
  "privacy": "public",
  "seconds": 341,
  "statistics": {
-  "viewCount": "16",
+  "viewCount": "19",
   "likeCount": "1",
   "dislikeCount": "0",
   "favoriteCount": "0",
@@ -13,7 +13,7 @@
  },
  "is_short": false,
  "totals": {
-  "views": 16,
+  "views": 19,
   "engagedViews": 9,
   "estimatedMinutesWatched": 22,
   "averageViewDuration": 144,
@@ -26,7 +26,7 @@
  "traffic": [
   {
    "insightTrafficSourceType": "YT_SEARCH",
-   "views": 6,
+   "views": 9,
    "estimatedMinutesWatched": 2
   },
   {
@@ -116,7 +116,37 @@
    "day": "2026-11-10",
    "views": 0,
    "estimatedMinutesWatched": 0
+  },
+  {
+   "day": "2026-11-11",
+   "views": 0,
+   "estimatedMinutesWatched": 0
+  },
+  {
+   "day": "2026-11-12",
+   "views": 0,
+   "estimatedMinutesWatched": 0
+  },
+  {
+   "day": "2026-11-13",
+   "views": 2,
+   "estimatedMinutesWatched": 0
+  },
+  {
+   "day": "2026-11-14",
+   "views": 0,
+   "estimatedMinutesWatched": 0
+  },
+  {
+   "day": "2026-11-15",
+   "views": 0,
+   "estimatedMinutesWatched": 0
+  },
+  {
+   "day": "2026-11-16",
+   "views": 1,
+   "estimatedMinutesWatched": 0
   }
  ],
- "fetched": "2026-11-13T23:20:02"
+ "fetched": "2026-11-19T08:29:25"
 }

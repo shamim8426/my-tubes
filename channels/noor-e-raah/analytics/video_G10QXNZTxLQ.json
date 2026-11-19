@@ -5,16 +5,58 @@
  "privacy": "public",
  "seconds": 209,
  "statistics": {
-  "viewCount": "1",
-  "likeCount": "0",
+  "viewCount": "3",
+  "likeCount": "1",
   "dislikeCount": "0",
   "favoriteCount": "0",
   "commentCount": "0"
  },
  "is_short": false,
- "totals": {},
- "traffic": [],
+ "totals": {
+  "views": 1,
+  "engagedViews": 1,
+  "estimatedMinutesWatched": 3,
+  "averageViewDuration": 207,
+  "averageViewPercentage": 99.04,
+  "subscribersGained": 0,
+  "likes": 1,
+  "comments": 0,
+  "shares": 0
+ },
+ "traffic": [
+  {
+   "insightTrafficSourceType": "EXT_URL",
+   "views": 1,
+   "estimatedMinutesWatched": 3
+  },
+  {
+   "insightTrafficSourceType": "NO_LINK_OTHER",
+   "views": 0,
+   "estimatedMinutesWatched": 0
+  }
+ ],
  "retention": [],
- "daily": [],
- "fetched": "2026-11-13T23:19:54"
+ "daily": [
+  {
+   "day": "2026-11-13",
+   "views": 0,
+   "estimatedMinutesWatched": 0
+  },
+  {
+   "day": "2026-11-14",
+   "views": 1,
+   "estimatedMinutesWatched": 3
+  },
+  {
+   "day": "2026-11-15",
+   "views": 0,
+   "estimatedMinutesWatched": 0
+  },
+  {
+   "day": "2026-11-16",
+   "views": 0,
+   "estimatedMinutesWatched": 0
+  }
+ ],
+ "fetched": "2026-11-19T08:29:17"
 }

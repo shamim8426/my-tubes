@@ -5,7 +5,7 @@
  "privacy": "public",
  "seconds": 408,
  "statistics": {
-  "viewCount": "5",
+  "viewCount": "4",
   "likeCount": "0",
   "dislikeCount": "0",
   "favoriteCount": "0",
@@ -32,6 +32,11 @@
   {
    "insightTrafficSourceType": "RELATED_VIDEO",
    "views": 1,
+   "estimatedMinutesWatched": 0
+  },
+  {
+   "insightTrafficSourceType": "NO_LINK_OTHER",
+   "views": 0,
    "estimatedMinutesWatched": 0
   }
  ],
@@ -91,7 +96,37 @@
    "day": "2026-11-10",
    "views": 0,
    "estimatedMinutesWatched": 0
+  },
+  {
+   "day": "2026-11-11",
+   "views": 0,
+   "estimatedMinutesWatched": 0
+  },
+  {
+   "day": "2026-11-12",
+   "views": 0,
+   "estimatedMinutesWatched": 0
+  },
+  {
+   "day": "2026-11-13",
+   "views": 0,
+   "estimatedMinutesWatched": 0
+  },
+  {
+   "day": "2026-11-14",
+   "views": 0,
+   "estimatedMinutesWatched": 0
+  },
+  {
+   "day": "2026-11-15",
+   "views": 0,
+   "estimatedMinutesWatched": 0
+  },
+  {
+   "day": "2026-11-16",
+   "views": 0,
+   "estimatedMinutesWatched": 0
   }
  ],
- "fetched": "2026-11-13T23:19:59"
+ "fetched": "2026-11-19T08:29:23"
 }

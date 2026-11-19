@@ -1,0 +1,5 @@
+date,channel_id,video_id,device_type,operating_system,traffic_source_type,traffic_source_detail,video_thumbnail_impressions,video_thumbnail_impressions_ctr
+20261028,UCmw4fs9jN49GTq7wVSdYm6w,kmYyRGdykjY,101,2,3,what-to-watch,1,0
+20261028,UCmw4fs9jN49GTq7wVSdYm6w,kmYyRGdykjY,104,4,3,what-to-watch,168,0.035714285714285712
+20261028,UCmw4fs9jN49GTq7wVSdYm6w,kmYyRGdykjY,104,5,3,what-to-watch,6,0
+20261028,UCmw4fs9jN49GTq7wVSdYm6w,kmYyRGdykjY,104,4,5,unknown,2,0
