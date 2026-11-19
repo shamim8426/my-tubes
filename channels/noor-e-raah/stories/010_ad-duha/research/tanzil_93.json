@@ -1,0 +1,82 @@
+{
+ "source": "Tanzil quran-uthmani v1.1 (research/quran-uthmani.txt lines 6080-6090), bytes unchanged, Bismillah (first 4 words) of 93:1 stripped",
+ "ayat": [
+  {
+   "ayah": 1,
+   "ref": "93:1",
+   "text": "وَٱلضُّحَىٰ",
+   "words": 1,
+   "sha256_utf8": "6c2de41b97937f32c7f1eee3c1ef3d942c5a505d0690028583e43ee9751237b6"
+  },
+  {
+   "ayah": 2,
+   "ref": "93:2",
+   "text": "وَٱلَّيْلِ إِذَا سَجَىٰ",
+   "words": 3,
+   "sha256_utf8": "6e7c371bc75e3882e54c0843f61d2923b56bc36481701462af44fc2402435272"
+  },
+  {
+   "ayah": 3,
+   "ref": "93:3",
+   "text": "مَا وَدَّعَكَ رَبُّكَ وَمَا قَلَىٰ",
+   "words": 5,
+   "sha256_utf8": "a16a3dbf01b0132a20fb0e9152b369d2949126532760b0dc39d471685c37ed78"
+  },
+  {
+   "ayah": 4,
+   "ref": "93:4",
+   "text": "وَلَلْـَٔاخِرَةُ خَيْرٌ لَّكَ مِنَ ٱلْأُولَىٰ",
+   "words": 5,
+   "sha256_utf8": "10efcbad7b393f9b8833c1a5fb98a57845119a6761ec37076af554c1d915e685"
+  },
+  {
+   "ayah": 5,
+   "ref": "93:5",
+   "text": "وَلَسَوْفَ يُعْطِيكَ رَبُّكَ فَتَرْضَىٰٓ",
+   "words": 4,
+   "sha256_utf8": "af002defde3350ad342d953c3f3a0802bf1c63a6c6d7619c85b5e5e31f24c773"
+  },
+  {
+   "ayah": 6,
+   "ref": "93:6",
+   "text": "أَلَمْ يَجِدْكَ يَتِيمًا فَـَٔاوَىٰ",
+   "words": 4,
+   "sha256_utf8": "9cf860f8538c6e9a39b26c2f8bc798a293fa03ad3c8b931564f363bc1f684406"
+  },
+  {
+   "ayah": 7,
+   "ref": "93:7",
+   "text": "وَوَجَدَكَ ضَآلًّا فَهَدَىٰ",
+   "words": 3,
+   "sha256_utf8": "505be4d08c1509e5b0fa08dce327df7a5815749d5b1f0fcf9e2dc88772bf1718"
+  },
+  {
+   "ayah": 8,
+   "ref": "93:8",
+   "text": "وَوَجَدَكَ عَآئِلًا فَأَغْنَىٰ",
+   "words": 3,
+   "sha256_utf8": "278d1299019a4aca29e223792271a265d944f9c1e1170a8b69a393add18a8ac0"
+  },
+  {
+   "ayah": 9,
+   "ref": "93:9",
+   "text": "فَأَمَّا ٱلْيَتِيمَ فَلَا تَقْهَرْ",
+   "words": 4,
+   "sha256_utf8": "b123f44827a2c7b187ebd5bf8949c9abbad7734d3171d1fe1405ab93e3bbeafe"
+  },
+  {
+   "ayah": 10,
+   "ref": "93:10",
+   "text": "وَأَمَّا ٱلسَّآئِلَ فَلَا تَنْهَرْ",
+   "words": 4,
+   "sha256_utf8": "55fa789a5bf5f2491c3d2f43f324abd04665f32cf642acad014b7f4c9cfda945"
+  },
+  {
+   "ayah": 11,
+   "ref": "93:11",
+   "text": "وَأَمَّا بِنِعْمَةِ رَبِّكَ فَحَدِّثْ",
+   "words": 4,
+   "sha256_utf8": "8d2728d96282b15a3a4dff8e4fc4f9a13af4d3fe8258e8022aae354d2ef1cb78"
+  }
+ ]
+}

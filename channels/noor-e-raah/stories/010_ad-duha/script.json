@@ -1,0 +1,1169 @@
+{
+ "title": "Surah Ad-Duha 93",
+ "voice": "Charon",
+ "style": "Calm, warm, clear Hindi storyteller. Simple spoken Hindi, gentle, steady, normal conversational pace, correct Urdu sounds. Read the Arabic-sound lines plainly and clearly, not as recitation, no tune.",
+ "tempo": 1.1,
+ "ambience": "",
+ "music": "shared/music/noor/Soaring.mp3",
+ "music_vol": 0.12,
+ "amp": 0.08,
+ "amb_db": -6,
+ "sfx_db": -3,
+ "duck": true,
+ "ayah_fs": 165,
+ "ayah_outline": 6,
+ "ayah_src": "",
+ "lines": [
+  {
+   "n": 1,
+   "text": "कुछ रातें ऐसी आईं, जब आसमान से कोई पैग़ाम नहीं आया।",
+   "img": "02_still_night",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": false,
+   "gold": [
+    "कुछ रातें"
+   ]
+  },
+  {
+   "n": 2,
+   "text": "तब अल्लाह ने ये सूरह उतारी, तसल्ली बनकर।",
+   "img": "05_dawn_breaks",
+   "motion": true,
+   "preset": "pan_right",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": false,
+   "gold": [
+    "तसल्ली"
+   ]
+  },
+  {
+   "n": 3,
+   "text": "ये है सूरह अद-दुहा, क़ुरआन की तिरानवेवीं सूरह, ग्यारह छोटी आयतें।",
+   "img": "01_morning_sun",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": false,
+   "gold": [
+    "अद-दुहा"
+   ]
+  },
+  {
+   "n": 4,
+   "text": "ये मक्का में उतरी, नुबुव्वत के शुरुआती दौर में।",
+   "img": "01_morning_sun",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": false,
+   "gold": [
+    "मक्का"
+   ]
+  },
+  {
+   "n": 5,
+   "text": "दुहा यानी दिन चढ़े की रौशनी, जब धूप चारों तरफ़ फैल जाती है।",
+   "img": "01_morning_sun",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": false,
+   "gold": [
+    "दिन चढ़े"
+   ]
+  },
+  {
+   "n": 6,
+   "text": "सहीह बुख़ारी और सहीह मुस्लिम में आता है,",
+   "img": "02_still_night",
+   "motion": true,
+   "preset": "pan_right",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": false,
+   "gold": [
+    "सहीह बुख़ारी"
+   ]
+  },
+  {
+   "n": 7,
+   "text": "एक बार नबी ﷺ बीमार हुए, और दो-तीन रात, रात की नमाज़ के लिए नहीं उठ सके।",
+   "img": "03_empty_roof_dusk",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": false,
+   "gold": [
+    "बीमार"
+   ]
+  },
+  {
+   "n": 8,
+   "text": "उन्हीं दिनों, कुछ रातों तक वह्य भी नहीं आई।",
+   "img": "03_empty_roof_dusk",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": false,
+   "gold": [
+    "वह्य"
+   ]
+  },
+  {
+   "n": 9,
+   "text": "तब एक औरत ने ताना दिया, कि लगता है तुम्हें छोड़ दिया गया।",
+   "img": "04_dark_clouds_town",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": false,
+   "gold": [
+    "छोड़ दिया"
+   ]
+  },
+  {
+   "n": 10,
+   "text": "और मक्का के बुत पूजने वाले भी यही बात कहने लगे।",
+   "img": "04_dark_clouds_town",
+   "motion": true,
+   "preset": "pan_right",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": false,
+   "gold": [
+    "बुत पूजने वाले"
+   ]
+  },
+  {
+   "n": 11,
+   "text": "इसी के जवाब में ये सूरह उतरी।",
+   "img": "05_dawn_breaks",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": false,
+   "gold": [
+    "जवाब"
+   ]
+  },
+  {
+   "n": 12,
+   "text": "वज़्ज़ुहा।",
+   "img": "01_morning_sun",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": true,
+   "gold": [],
+   "ar": "وَٱلضُّحَىٰ",
+   "src": "सूरह अद-दुहा 93:1",
+   "ayah_y": 90,
+   "tr_y": 870,
+   "src_y": 300
+  },
+  {
+   "n": 13,
+   "text": "क़सम है दिन चढ़े की रौशनी की।",
+   "img": "01_morning_sun_c",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": false,
+   "gold": [
+    "रौशनी"
+   ]
+  },
+  {
+   "n": 14,
+   "text": "वल्लैलि इज़ा सजा।",
+   "img": "02_still_night",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": true,
+   "gold": [],
+   "ar": "وَٱلَّيْلِ إِذَا سَجَىٰ",
+   "src": "सूरह अद-दुहा 93:2",
+   "ayah_y": 90,
+   "tr_y": 870,
+   "src_y": 300
+  },
+  {
+   "n": 15,
+   "text": "और क़सम है रात की, जब वो ठहर कर सब पर छा जाए।",
+   "img": "02_still_night",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": false,
+   "gold": [
+    "रात"
+   ]
+  },
+  {
+   "n": 16,
+   "text": "हर चीज़ पर सन्नाटा, हर तरफ़ सुकून।",
+   "img": "02_still_night",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": false,
+   "gold": [
+    "सुकून"
+   ]
+  },
+  {
+   "n": 17,
+   "text": "क़ुरआन समझाने वाले आलिम लिखते हैं: जैसे दिन के बाद रात का आना नाराज़गी नहीं,",
+   "img": "05_dawn_breaks",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": false,
+   "gold": [
+    "नाराज़गी नहीं"
+   ]
+  },
+  {
+   "n": 18,
+   "text": "वैसे ही वह्य का कुछ रातें रुक जाना भी नाराज़गी नहीं था।",
+   "img": "05_dawn_breaks",
+   "motion": true,
+   "preset": "pan_right",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": false,
+   "gold": [
+    "रुक जाना"
+   ]
+  },
+  {
+   "n": 19,
+   "text": "मा वद्दअका रब्बुका व मा क़ला।",
+   "img": "r_04b_light_sky",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": true,
+   "gold": [],
+   "ar": "مَا وَدَّعَكَ رَبُّكَ وَمَا قَلَىٰ",
+   "src": "सूरह अद-दुहा 93:3",
+   "ayah_y": 90,
+   "tr_y": 870,
+   "src_y": 300
+  },
+  {
+   "n": 20,
+   "text": "तुम्हारे रब ने न तुम्हें छोड़ा, और न वो तुमसे नाराज़ हुआ।",
+   "img": "r_04b_light_sky",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": false,
+   "gold": [
+    "न तुम्हें छोड़ा"
+   ]
+  },
+  {
+   "n": 21,
+   "text": "एक तफ़्सीर के लफ़्ज़ों में: जब से तुमसे मुहब्बत की, तब से कभी नाराज़ नहीं हुआ।",
+   "img": "05_dawn_breaks",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": false,
+   "gold": [
+    "मुहब्बत"
+   ]
+  },
+  {
+   "n": 22,
+   "text": "व लल आख़िरतु ख़ैरुल लका मिनल ऊला।",
+   "img": "06_path_to_light",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": true,
+   "gold": [],
+   "ar": "وَلَلْـَٔاخِرَةُ خَيْرٌ لَّكَ مِنَ ٱلْأُولَىٰ",
+   "src": "सूरह अद-दुहा 93:4",
+   "ayah_y": 90,
+   "tr_y": 870,
+   "src_y": 300
+  },
+  {
+   "n": 23,
+   "text": "और आगे आने वाला वक़्त, तुम्हारे लिए पिछले से बेहतर है।",
+   "img": "06_path_to_light",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": false,
+   "gold": [
+    "बेहतर"
+   ]
+  },
+  {
+   "n": 24,
+   "text": "उलमा कहते हैं: आख़िरत दुनिया से कहीं बेहतर है, और हर आने वाला दौर पिछले से बेहतर होगा।",
+   "img": "06_path_to_light_c",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": false,
+   "gold": [
+    "हर आने वाला दौर"
+   ]
+  },
+  {
+   "n": 25,
+   "text": "व लसौफ़ा युअतीका रब्बुका फ़तरज़ा।",
+   "img": "07_blooming_oasis",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": true,
+   "gold": [],
+   "ar": "وَلَسَوْفَ يُعْطِيكَ رَبُّكَ فَتَرْضَىٰٓ",
+   "src": "सूरह अद-दुहा 93:5",
+   "ayah_y": 90,
+   "tr_y": 870,
+   "src_y": 300
+  },
+  {
+   "n": 26,
+   "text": "और तुम्हारा रब तुम्हें इतना देगा, कि तुम राज़ी हो जाओगे।",
+   "img": "07_blooming_oasis",
+   "motion": true,
+   "preset": "pan_right",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": false,
+   "gold": [
+    "राज़ी"
+   ]
+  },
+  {
+   "n": 27,
+   "text": "दुनिया में दीन की कामयाबी, और आख़िरत में शफ़ाअत और हौज़े कौसर।",
+   "img": "r_10b_stars_sky",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": false,
+   "gold": [
+    "शफ़ाअत"
+   ]
+  },
+  {
+   "n": 28,
+   "text": "सहीह मुस्लिम में है, कि एक बार नबी ﷺ ने हाथ उठाए, और रोते हुए कहा: ऐ अल्लाह, मेरी उम्मत, मेरी उम्मत।",
+   "img": "r_10b_stars_sky",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": false,
+   "gold": [
+    "मेरी उम्मत"
+   ]
+  },
+  {
+   "n": 29,
+   "text": "तो अल्लाह ने पैग़ाम भेजा: हम तुम्हें तुम्हारी उम्मत के बारे में राज़ी करेंगे, और दुखी नहीं करेंगे।",
+   "img": "r_10b_stars_sky",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": false,
+   "gold": [
+    "राज़ी करेंगे"
+   ]
+  },
+  {
+   "n": 30,
+   "text": "अलम यजिद्का यतीमन फ़आवा।",
+   "img": "08_shelter_lamp",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": true,
+   "gold": [],
+   "ar": "أَلَمْ يَجِدْكَ يَتِيمًا فَـَٔاوَىٰ",
+   "src": "सूरह अद-दुहा 93:6",
+   "ayah_y": 90,
+   "tr_y": 870,
+   "src_y": 300
+  },
+  {
+   "n": 31,
+   "text": "उसने तुम्हें यतीम पाया, तो ठिकाना दिया।",
+   "img": "08_shelter_lamp_c",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": false,
+   "gold": [
+    "ठिकाना"
+   ]
+  },
+  {
+   "n": 32,
+   "text": "वालिद पैदाइश से पहले चल बसे, माँ छह साल की उम्र में, और फिर पालने वाले दादा आठ साल की उम्र में।",
+   "img": "08_shelter_lamp",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": false,
+   "gold": [
+    "छह साल"
+   ]
+  },
+  {
+   "n": 33,
+   "text": "फिर चाचा अबू तालिब ने पाला, और नुबुव्वत के बाद भी हिफ़ाज़त की।",
+   "img": "08_shelter_lamp",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": false,
+   "gold": [
+    "हिफ़ाज़त"
+   ]
+  },
+  {
+   "n": 34,
+   "text": "व वजदका ज़ाल्लन फ़हदा।",
+   "img": "09_star_path",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": true,
+   "gold": [],
+   "ar": "وَوَجَدَكَ ضَآلًّا فَهَدَىٰ",
+   "src": "सूरह अद-दुहा 93:7",
+   "ayah_y": 90,
+   "tr_y": 870,
+   "src_y": 300
+  },
+  {
+   "n": 35,
+   "text": "और तुम्हें राह की तफ़्सील से अनजान पाया, तो राह दिखाई।",
+   "img": "09_star_path",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": false,
+   "gold": [
+    "राह दिखाई"
+   ]
+  },
+  {
+   "n": 36,
+   "text": "यानी नुबुव्वत से पहले, किताब और शरीअत की तफ़्सील मालूम न थी।",
+   "img": "09_star_path_c",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": false,
+   "gold": [
+    "तफ़्सील"
+   ]
+  },
+  {
+   "n": 37,
+   "text": "अल्लाह ने वह्य भेजी, और उसी को रौशनी बनाकर राह दिखाई।",
+   "img": "09_star_path",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": false,
+   "gold": [
+    "रौशनी"
+   ]
+  },
+  {
+   "n": 38,
+   "text": "व वजदका आइलन फ़अग़ना।",
+   "img": "10_full_well",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": true,
+   "gold": [],
+   "ar": "وَوَجَدَكَ عَآئِلًا فَأَغْنَىٰ",
+   "src": "सूरह अद-दुहा 93:8",
+   "ayah_y": 90,
+   "tr_y": 870,
+   "src_y": 300
+  },
+  {
+   "n": 39,
+   "text": "और तुम्हें तंगी में पाया, तो ख़ुशहाल कर दिया।",
+   "img": "10_full_well",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": false,
+   "gold": [
+    "ख़ुशहाल"
+   ]
+  },
+  {
+   "n": 40,
+   "text": "हज़रत ख़दीजा के साथ तिजारत में, अल्लाह ने बरकत दी।",
+   "img": "10_full_well",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": false,
+   "gold": [
+    "बरकत"
+   ]
+  },
+  {
+   "n": 41,
+   "text": "और सहीह हदीस में है: असली अमीरी माल की ज़्यादती नहीं, दिल की अमीरी है।",
+   "img": "07_blooming_oasis",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": false,
+   "gold": [
+    "दिल की अमीरी"
+   ]
+  },
+  {
+   "n": 42,
+   "text": "फ़अम्मल यतीमा फ़ला तक़हर।",
+   "img": "11_orphan_care",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": true,
+   "gold": [],
+   "ar": "فَأَمَّا ٱلْيَتِيمَ فَلَا تَقْهَرْ",
+   "src": "सूरह अद-दुहा 93:9",
+   "ayah_y": 90,
+   "tr_y": 870,
+   "src_y": 300
+  },
+  {
+   "n": 43,
+   "text": "तो यतीम पर सख़्ती मत करना।",
+   "img": "11_orphan_care",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": false,
+   "gold": [
+    "यतीम"
+   ]
+  },
+  {
+   "n": 44,
+   "text": "उसका हक़ न दबाओ, उसके लिए मेहरबान बाप जैसे बनो।",
+   "img": "11_orphan_care_c",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": false,
+   "gold": [
+    "मेहरबान बाप"
+   ]
+  },
+  {
+   "n": 45,
+   "text": "सहीह बुख़ारी में है, नबी ﷺ ने बताया: यतीम की परवरिश करने वाला, जन्नत में उनके इतना क़रीब होगा, जैसे हाथ की दो मिली हुई उंगलियाँ।",
+   "img": "11_orphan_care",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": false,
+   "gold": [
+    "दो मिली हुई उंगलियाँ"
+   ]
+  },
+  {
+   "n": 46,
+   "text": "व अम्मस साइला फ़ला तनहर।",
+   "img": "12_door_giving",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": true,
+   "gold": [],
+   "ar": "وَأَمَّا ٱلسَّآئِلَ فَلَا تَنْهَرْ",
+   "src": "सूरह अद-दुहा 93:10",
+   "ayah_y": 90,
+   "tr_y": 870,
+   "src_y": 300
+  },
+  {
+   "n": 47,
+   "text": "और माँगने वाले को मत झिड़को।",
+   "img": "12_door_giving",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": false,
+   "gold": [
+    "मत झिड़को"
+   ]
+  },
+  {
+   "n": 48,
+   "text": "दे सको तो कुछ दे दो, वरना नरमी से, अच्छे लफ़्ज़ों में मना करो।",
+   "img": "12_door_giving_c",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": false,
+   "gold": [
+    "नरमी"
+   ]
+  },
+  {
+   "n": 49,
+   "text": "और जो कुछ पूछने आए, उसे भी नरमी से जवाब दो।",
+   "img": "12_door_giving",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": false,
+   "gold": [
+    "पूछने"
+   ]
+  },
+  {
+   "n": 50,
+   "text": "व अम्मा बिनिअमति रब्बिका फ़हद्दिस।",
+   "img": "13_family_meal",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": true,
+   "gold": [],
+   "ar": "وَأَمَّا بِنِعْمَةِ رَبِّكَ فَحَدِّثْ",
+   "src": "सूरह अद-दुहा 93:11",
+   "ayah_y": 90,
+   "tr_y": 870,
+   "src_y": 300
+  },
+  {
+   "n": 51,
+   "text": "और अपने रब की नेमत का चर्चा करते रहो।",
+   "img": "13_family_meal",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": false,
+   "gold": [
+    "नेमत"
+   ]
+  },
+  {
+   "n": 52,
+   "text": "यही शुक्र है, घमंड नहीं: ज़बान से शुक्र, और दूसरों तक भलाई पहुँचाना।",
+   "img": "13_family_meal_c",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": false,
+   "gold": [
+    "शुक्र"
+   ]
+  },
+  {
+   "n": 53,
+   "text": "अबू दाऊद की हदीस में है: जो लोगों का शुक्रिया अदा नहीं करता, वो अल्लाह का शुक्र भी अदा नहीं करता।",
+   "img": "13_family_meal",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": false,
+   "gold": [
+    "शुक्रिया"
+   ]
+  },
+  {
+   "n": 54,
+   "text": "तो पूरी सूरह का मतलब बस इतना है:",
+   "img": "02_still_night",
+   "motion": true,
+   "preset": "pan_right",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": false,
+   "gold": []
+  },
+  {
+   "n": 55,
+   "text": "अंधेरी रात के बाद सुबह आती है, अल्लाह अपने बंदे को छोड़ता नहीं।",
+   "img": "05_dawn_breaks",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": false,
+   "gold": [
+    "छोड़ता नहीं"
+   ]
+  },
+  {
+   "n": 56,
+   "text": "और जैसे सहारा मिला, वैसे ही दूसरों का सहारा बनो, और हर नेमत पर शुक्र करो।",
+   "img": "01_morning_sun",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Soaring.mp3",
+   "ayah": false,
+   "gold": [
+    "हर नेमत पर शुक्र"
+   ]
+  }
+ ]
+}

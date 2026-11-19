@@ -73,3 +73,8 @@
 - open | Short-from-Long make_short.py: blurred bg must come from a text-free part (no blurred/cut Arabic), caption MarginL/R ~170 (right 15% clear), hold 0.5 s after the last word before the fade, save cover.jpg.
 - open | Long audio after the alimiter step is 96 kHz: add -ar 48000. channel.json contains_synthetic_media=false is stale (jobs use true per SHORT_FROM_LONG). story_budget.py with a story path prints Rs0 while cost_log has Rs12.85 for 009.
 - open | 2026-11-19 | 014_ashab-e-kahf final R1 MINOR: Long 4:57.5 (aim ~4:40 next); 07_dua_cave hands at shoulder height (prompt: hands in front of chest below chin); Short tag '18:11-18' -> write '18:11, 17-18'; Short holds only ~0.1 s after last word before fade (want 0.5 s); Short starts on connective 'फिर'; plus script-R1 image notes (02 bowing crowd, 08 five sleepers, 10 dog gloves, 13 faux text). Details: stories/014_ashab-e-kahf/review/final_review.md
+
+## 2026-11-19 | 010_ad-duha (Munshi final R1, MINOR) | open
+- open | Music level per track: Soaring (-18.8) and Quietude (-17.5 dBFS RMS) are ~10 dB louder than River_Flute (-28.9); music_vol 0.5 makes the bed ~4 dB under speech in pauses. Use ~0.16 for Soaring/Quietude or normalise the 3 tracks once. 014 (uploaded private) has this loud bed: re-mix/re-upload = user's call.
+- open | 010 L28 "हाथ उठाए": Whisper hears "हाथ अथ उठाए" twice (possible stutter); listen at 2:15-2:26, re-TTS if real.
+- open | 010: first ayah 0:54.6; shots > 8 s (L45 11.2, L28 10.1, L32 ~9); 93:9 Src label over a white blank head; thumbnail label "ग्यारह आयतें" too small at 160 px; Long TP -0.6 (limit -1.0).

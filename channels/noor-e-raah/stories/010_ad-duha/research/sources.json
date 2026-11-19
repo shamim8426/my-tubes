@@ -1,0 +1,918 @@
+{
+ "story": "010_ad-duha",
+ "channel": "noor-e-raah",
+ "made_by": "Khoji MODE 3",
+ "date": "2026-11-19",
+ "note": "Arabic = copied from the local Tanzil Uthmani v1.1 file (TANZIL_FILE, lines 6080-6090 = 93|1..11) via command output, Bismillah prefix of 93:1 stripped; sha256 NOT computed (no code run allowed for Khoji) - PC must overwrite ayat[].text with code-extracted bytes, compute sha256 and byte-compare (009 lesson: the Khoji copy may get NFC-composed U+0622 in 93:7, 93:8, 93:10). Tafseer/translation pages accessed 2026-11-19 via WebFetch (summarising fetch tool), so wording is a digest. sunnah.com not opened directly: hadith numbers/grades from the fawazahmed0 hadith-api mirror (sunnah.com numbering) and hadithunlocked.com (Muslim 1797, 202, 465); Munshi opens sunnah.com on the PC. Fath al-Bari (Ibn Hajar on the puppy report) not opened. Scheduled run, user not present, Rs0. | PC 2026-11-19: ayat[].text replaced by code-extracted Tanzil v1.1 file bytes (tanzil_93.json), sha256 filled; Khoji copy differed in ayat [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].",
+ "surah": {
+  "number": 93,
+  "name_ar": "الضحى",
+  "name_tr": "Ad-Duha",
+  "ayat_count": 11,
+  "revelation_order_tanzil": 11,
+  "type_tanzil": "Meccan",
+  "note_bismillah": "Tanzil file line 93|1 begins with the Bismillah; stripped"
+ },
+ "ayat": [
+  {
+   "ayah": 1,
+   "ref": "93:1",
+   "text": "وَٱلضُّحَىٰ",
+   "words": 1,
+   "sha256_utf8": "6c2de41b97937f32c7f1eee3c1ef3d942c5a505d0690028583e43ee9751237b6",
+   "translit_tanzil": "Waaldduha",
+   "translit_q411": "Wad duhaa"
+  },
+  {
+   "ayah": 2,
+   "ref": "93:2",
+   "text": "وَٱلَّيْلِ إِذَا سَجَىٰ",
+   "words": 3,
+   "sha256_utf8": "6e7c371bc75e3882e54c0843f61d2923b56bc36481701462af44fc2402435272",
+   "translit_tanzil": "Waallayli itha saja",
+   "translit_q411": "Wal laili iza sajaa"
+  },
+  {
+   "ayah": 3,
+   "ref": "93:3",
+   "text": "مَا وَدَّعَكَ رَبُّكَ وَمَا قَلَىٰ",
+   "words": 5,
+   "sha256_utf8": "a16a3dbf01b0132a20fb0e9152b369d2949126532760b0dc39d471685c37ed78",
+   "translit_tanzil": "Ma waddaAAaka rabbuka wama qala",
+   "translit_q411": "Ma wad da'aka rabbuka wa ma qalaa"
+  },
+  {
+   "ayah": 4,
+   "ref": "93:4",
+   "text": "وَلَلْـَٔاخِرَةُ خَيْرٌ لَّكَ مِنَ ٱلْأُولَىٰ",
+   "words": 5,
+   "sha256_utf8": "10efcbad7b393f9b8833c1a5fb98a57845119a6761ec37076af554c1d915e685",
+   "translit_tanzil": "Walalakhiratu khayrun laka mina aloola",
+   "translit_q411": "Walal-aakhiratu khairul laka minal-oola"
+  },
+  {
+   "ayah": 5,
+   "ref": "93:5",
+   "text": "وَلَسَوْفَ يُعْطِيكَ رَبُّكَ فَتَرْضَىٰٓ",
+   "words": 4,
+   "sha256_utf8": "af002defde3350ad342d953c3f3a0802bf1c63a6c6d7619c85b5e5e31f24c773",
+   "translit_tanzil": "Walasawfa yuAAteeka rabbuka fatarda",
+   "translit_q411": "Wa la sawfa y'uteeka rabbuka fatarda"
+  },
+  {
+   "ayah": 6,
+   "ref": "93:6",
+   "text": "أَلَمْ يَجِدْكَ يَتِيمًا فَـَٔاوَىٰ",
+   "words": 4,
+   "sha256_utf8": "9cf860f8538c6e9a39b26c2f8bc798a293fa03ad3c8b931564f363bc1f684406",
+   "translit_tanzil": "Alam yajidka yateeman faawa",
+   "translit_q411": "Alam ya jidka yateeman fa aawaa"
+  },
+  {
+   "ayah": 7,
+   "ref": "93:7",
+   "text": "وَوَجَدَكَ ضَآلًّا فَهَدَىٰ",
+   "words": 3,
+   "sha256_utf8": "505be4d08c1509e5b0fa08dce327df7a5815749d5b1f0fcf9e2dc88772bf1718",
+   "translit_tanzil": "Wawajadaka dallan fahada",
+   "translit_q411": "Wa wa jadaka daal lan fahada"
+  },
+  {
+   "ayah": 8,
+   "ref": "93:8",
+   "text": "وَوَجَدَكَ عَآئِلًا فَأَغْنَىٰ",
+   "words": 3,
+   "sha256_utf8": "278d1299019a4aca29e223792271a265d944f9c1e1170a8b69a393add18a8ac0",
+   "translit_tanzil": "Wawajadaka AAailan faaghna",
+   "translit_q411": "Wa wa jadaka 'aa-ilan fa aghnaa"
+  },
+  {
+   "ayah": 9,
+   "ref": "93:9",
+   "text": "فَأَمَّا ٱلْيَتِيمَ فَلَا تَقْهَرْ",
+   "words": 4,
+   "sha256_utf8": "b123f44827a2c7b187ebd5bf8949c9abbad7734d3171d1fe1405ab93e3bbeafe",
+   "translit_tanzil": "Faamma alyateema fala taqhar",
+   "translit_q411": "Fa am mal yateema fala taqhar"
+  },
+  {
+   "ayah": 10,
+   "ref": "93:10",
+   "text": "وَأَمَّا ٱلسَّآئِلَ فَلَا تَنْهَرْ",
+   "words": 4,
+   "sha256_utf8": "55fa789a5bf5f2491c3d2f43f324abd04665f32cf642acad014b7f4c9cfda945",
+   "translit_tanzil": "Waamma alssaila fala tanhar",
+   "translit_q411": "Wa am mas saa-ila fala tanhar"
+  },
+  {
+   "ayah": 11,
+   "ref": "93:11",
+   "text": "وَأَمَّا بِنِعْمَةِ رَبِّكَ فَحَدِّثْ",
+   "words": 4,
+   "sha256_utf8": "8d2728d96282b15a3a4dff8e4fc4f9a13af4d3fe8258e8022aae354d2ef1cb78",
+   "translit_tanzil": "Waamma biniAAmati rabbika fahaddith",
+   "translit_q411": "Wa amma bi ni'mati rabbika fahad dith"
+  }
+ ],
+ "ayat_normalisation": "none - never NFC/NFKC",
+ "pc_check": "(1) overwrite ayat[].text with code-extracted bytes from TANZIL_FILE lines 6080-6090 (strip Bismillah of 93:1), compute sha256 (UTF-8, no BOM/newline) into ayat[].sha256_utf8. (2) libass/Amiri render zoom: 93:1 'ٱلضُّحَىٰ'; 93:4 'وَلَلْـَٔاخِرَةُ' (tatweel U+0640 + hamza) and 'لَّكَ'; 93:5 'فَتَرْضَىٰٓ' (dagger alif + maddah); 93:6 'فَـَٔاوَىٰ' (tatweel + hamza); 93:7 'ضَآلًّا'; 93:8 'عَآئِلًا'; 93:10 'ٱلسَّآئِلَ'; 93:11 'فَحَدِّثْ'. (3) open sunnah.com for bukhari:4950, 4951, 4983, 1125, 5304, 6446; muslim:1797a/b, 202, 465 (which sub-number has 'wad-duha'); abudawud:4811; tirmidhi:1954; tirmidhi:2377 (only if K5 hadith is wanted). (4) open Fath al-Bari on Bukhari's tafsir of al-Duha for Ibn Hajar's verdict on the puppy report (C1 stays chhoda gaya either way). (5) open real tafseer pages to confirm the digests (Qurtubi 93:3 and 93:7, Ma'ariful 93 on parallelquran, Tafheem 93).",
+ "source_keys": {
+  "TANZIL_FILE": {
+   "url": "local: channels/noor-e-raah/stories/010_ad-duha/research/quran-uthmani.txt (Tanzil quran-uthmani Version 1.1, lines 6080-6090 = 93|1..11; licence block lines 6239-6266)",
+   "publisher": "Tanzil Project (tanzil.net) Uthmani text v1.1, CC BY 3.0, verbatim",
+   "published": "Copyright (C) 2007-2026 Tanzil Project (per file block)",
+   "accessed": "2026-11-19",
+   "type": "text_snapshot",
+   "opened": true
+  },
+  "TANZIL_LIC": {
+   "url": "https://tanzil.net/docs/text_license",
+   "publisher": "Tanzil Project - CC BY 3.0; file block: 'Permission is granted to copy and distribute verbatim copies of this text, but CHANGING IT IS NOT ALLOWED'; source (Tanzil Project) clearly indicated + link to tanzil.net; notice kept in derived files",
+   "published": "unknown",
+   "accessed": "2026-11-19 (terms read from the file's own copyright block; web page last opened 2026-11-03 in 005)",
+   "type": "licence",
+   "opened": true
+  },
+  "TANZIL_META": {
+   "url": "https://tanzil.net/res/text/metadata/quran-data.js",
+   "publisher": "Tanzil metadata: [6079, 11, 11, 1, 'الضحى', \"Ad-Dhuhaa\", 'The Morning Hours', 'Meccan'] (11 ayat, revelation order 11, Meccan); 89 Al-Fajr order 10, 94 Ash-Sharh order 12",
+   "published": "unknown",
+   "accessed": "2026-11-19",
+   "type": "reference_metadata",
+   "opened": true
+  },
+  "LA_TANZIL": {
+   "url": "https://raw.githubusercontent.com/fawazahmed0/quran-api/1/editions/ara-quran-la/93.json",
+   "publisher": "Tanzil ara-quran-la Latin transliteration via fawazahmed0/quran-api",
+   "published": "unknown",
+   "accessed": "2026-11-19",
+   "type": "transliteration",
+   "opened": true
+  },
+  "LA_Q411": {
+   "url": "https://raw.githubusercontent.com/fawazahmed0/quran-api/1/editions/ara-quran-la1/93.json",
+   "publisher": "quran411 ara-quran-la1 Latin transliteration via fawazahmed0/quran-api",
+   "published": "unknown",
+   "accessed": "2026-11-19",
+   "type": "transliteration",
+   "opened": true
+  },
+  "TR_FAROOQKHAN": {
+   "url": "https://raw.githubusercontent.com/fawazahmed0/quran-api/1/editions/hin-suhelfarooqkhan/93.json",
+   "publisher": "Tanzil hi.hindi (Suhel Farooq Khan) via fawazahmed0/quran-api",
+   "published": "unknown",
+   "accessed": "2026-11-19",
+   "type": "translation",
+   "opened": true
+  },
+  "TR_FAROOQ": {
+   "url": "https://raw.githubusercontent.com/fawazahmed0/quran-api/1/editions/hin-muhammadfarooqk/93.json",
+   "publisher": "Muhammad Farooq Khan Hindi via fawazahmed0/quran-api",
+   "published": "unknown",
+   "accessed": "2026-11-19",
+   "type": "translation",
+   "opened": true
+  },
+  "TR_MAHMUD": {
+   "url": "https://raw.githubusercontent.com/fawazahmed0/quran-api/1/editions/urd-mahmoodulhassan/93.json",
+   "publisher": "Shaikh-ul-Hind Mahmud al-Hasan Urdu (PD) via fawazahmed0/quran-api",
+   "published": "unknown",
+   "accessed": "2026-11-19",
+   "type": "translation",
+   "opened": true
+  },
+  "TR_SAHIH": {
+   "url": "https://raw.githubusercontent.com/fawazahmed0/quran-api/1/editions/eng-ummmuhammad/93.json",
+   "publisher": "Sahih International (Umm Muhammad) English via fawazahmed0/quran-api",
+   "published": "unknown",
+   "accessed": "2026-11-19",
+   "type": "translation",
+   "opened": true
+  },
+  "IK_EN_93": {
+   "url": "https://raw.githubusercontent.com/spa5k/tafsir_api/main/tafsir/en-tafisr-ibn-kathir/93/1.json",
+   "publisher": "Tafsir Ibn Kathir (EN, abridged) 93: Jundub (Ahmad, Bukhari, Muslim, Tirmidhi, Nasa'i, Ibn Abi Hatim, Ibn Jarir) - ill, did not stand a night or two, a woman's taunt; al-Aswad bin Qays variant: Jibril slow, idolaters said his Lord abandoned him; Ibn 'Abbas: 'a number of days'; duha = forenoon and its light; saja = settles, darkens (Mujahid, Qatada, Dahhak, Ibn Zayd); 93:4 most abstinent, rider-under-tree hadith (Tirmidhi hasan sahih); 93:5 pleased regarding his ummah, Kawthar, Ibn 'Abbas palaces (chain sahih to Ibn 'Abbas); 93:6 father died before birth, mother at 6, grandfather till 8, then Abu Talib; 93:7 cf. 42:52; 93:8 poor with dependents, made rich; poor-patient and rich-thankful; richness of soul (Bukhari, Muslim); 93:9 Qatada 'like a merciful father'; 93:10 seeker of knowledge, Ibn Ishaq, Qatada; 93:11 as you were poor and He enriched you; Abu Dawud 'not thankful to people', Tirmidhi sahih",
+   "published": "unknown",
+   "accessed": "2026-11-19",
+   "type": "tafseer",
+   "opened": true
+  },
+  "IK_AR_93": {
+   "url": "https://raw.githubusercontent.com/spa5k/tafsir_api/main/tafsir/ar-tafsir-ibn-kathir/93/1.json",
+   "publisher": "Tafsir Ibn Kathir (AR) 93 intro: takbir from al-Duha to the end via al-Bazzi (imam in qira'at, weak in hadith: Abu Hatim 'la uhaddithu 'anhu', al-'Uqayli 'munkar al-hadith'; footnote Dhahabi gharib, Abu Hatim munkar); takbir-in-joy reason 'not narrated with a chain'; Jundub a night or two / two or three; 'wuddi'a Muhammad'; Ibn 'Abbas 'days'; Khadija reports mursal, 'perhaps the mention of Khadija is not preserved'",
+   "published": "unknown",
+   "accessed": "2026-11-19",
+   "type": "tafseer",
+   "opened": true
+  },
+  "MQ_93": {
+   "url": "https://raw.githubusercontent.com/spa5k/tafsir_api/main/tafsir/en-tafsir-maarif-ul-quran/93/1.json (also 93/4.json, 93/6.json)",
+   "publisher": "Ma'ariful Qur'an (EN) 93: occasion - Jundub (Bukhari, Muslim, Tirmidhi), illness/tahajjud and Jibril's delay reconciled; taunter Umm Jamil per other reports; two pauses: first long = fatrat al-wahy, later short one (question about the soul without in sha Allah) linked to this surah; 93:4 two meanings (Hereafter vs this world; every later state better); 93:6 father died before birth leaving no wealth, grandfather then Abu Talib loved him more than their own children",
+   "published": "unknown",
+   "accessed": "2026-11-19",
+   "type": "tafseer",
+   "opened": true
+  },
+  "MQ_PQ_93": {
+   "url": "https://parallelquran.com/tafsir/maarif-ul-quran/?surah=93",
+   "publisher": "Ma'ariful Qur'an (EN) full surah 93: 93:7 dall has two meanings (stray / unaware) - here 'unaware': before his commission he did not know the divine Shari'ah, then granted prophethood and guided; 93:8 'a'il in need, enriched beginning with business partnership with Khadijah, after marriage her wealth in his service; 93:9 qahr = unfair cruel treatment of the weak; 93:10 sa'il = beggar and seeker of knowledge, give or decline politely, answer students kindly; 93:11 gratitude obligatory, speaking of favours is thanks, hadith 'not thankful to people'; takbir called a sunnah of the qurra (Mazhari) - not used",
+   "published": "unknown",
+   "accessed": "2026-11-19",
+   "type": "tafseer",
+   "opened": true
+  },
+  "QT_93_3": {
+   "url": "https://raw.githubusercontent.com/spa5k/tafsir_api/main/tafsir/ar-tafseer-al-qurtubi/93/3.json",
+   "publisher": "Tafsir al-Qurtubi (AR) 93:1-3: Makki bil-ijma', 11 ayat; duha = daytime (7:97-98), minority views (Musa, Mi'raj, sorcerers); saja = sakana (Qatada, Mujahid, Ibn Zayd, 'Ikrima; most common), ghashiya (Hasan, Ibn 'Abbas) etc.; reasons: Jundub (Bukhari most sahih: two-three nights, woman's taunt), Tirmidhi finger version, Tha'labi: Umm Jamil; Abu Imran al-Jawni; Khawla puppy; Jews' questions without in sha Allah; Muslims' question/knuckles; pause 12 days (Ibn Jurayj), 15 (Ibn 'Abbas), 25 (qila), 40 (Muqatil); wadda'a = farewell (tawdi'), qala = abghada, 'ma abghadaka rabbuka mundhu ahabbaka'; object dropped for verse-end (cf. 33:35); verse 3 = answer of the oath",
+   "published": "unknown",
+   "accessed": "2026-11-19",
+   "type": "tafseer",
+   "opened": true
+  },
+  "QT_93_5": {
+   "url": "https://raw.githubusercontent.com/spa5k/tafsir_api/main/tafsir/ar-tafseer-al-qurtubi/93/5.json",
+   "publisher": "Tafsir al-Qurtubi (AR) 93:4-5: Ibn Ishaq - what is with Allah after this life better; victory (falj) in this world and reward in the next; hawd and shafa'a; Ibn 'Abbas palaces; Sahih Muslim 'Allahumma ummati ummati' ... 'sanurdika fi ummatika'; 'I will not be pleased while one of my ummah is in the Fire' (no chain shown); 'Ali's 'most hopeful verse' report",
+   "published": "unknown",
+   "accessed": "2026-11-19",
+   "type": "tafseer",
+   "opened": true
+  },
+  "QT_93_7": {
+   "url": "https://raw.githubusercontent.com/spa5k/tafsir_api/main/tafsir/ar-tafseer-al-qurtubi/93/7.json",
+   "publisher": "Tafsir al-Qurtubi (AR) 93:7: first gloss 'ghafilan 'amma yuradu bika min amr al-nubuwwa' (cf. 12:3); al-Dahhak, Shahr bin Hawshab: unaware of the Quran and laws (42:52); many other views (among a misguided people; lost as a child; Halima; Iblis on a journey; Mi'raj; love; lone tree - Qurtubi prefers the lone-tree view); 'fa-amma al-shirk fala yuzannu bihi'; Kalbi/Suddi literal reading reported, editor's footnote: prophets are infallible before and after prophethood",
+   "published": "unknown",
+   "accessed": "2026-11-19",
+   "type": "tafseer",
+   "opened": true
+  },
+  "QT_93_9": {
+   "url": "https://raw.githubusercontent.com/spa5k/tafsir_api/main/tafsir/ar-tafseer-al-qurtubi/93/9.json",
+   "publisher": "Tafsir al-Qurtubi (AR) 93:9-11: al-Akhfash - do not overpower the orphan, give his right, remember your own orphanhood; Qatada 'kun lil-yatim kal-ab al-rahim'; orphan-care hadith (two fingers); sa'il = beggar (Qatada: small gift or gracious refusal) and seeker of religious knowledge (Sufyan); 93:11 Mujahid: ni'mah = Quran and prophethood; speaking of blessings and acknowledging them is gratitude; ruling general; takbir via al-Bazzi, Hakim calls the chain sahih, ahad sunnah",
+   "published": "unknown",
+   "accessed": "2026-11-19",
+   "type": "tafseer",
+   "opened": true
+  },
+  "TB_93_7": {
+   "url": "https://raw.githubusercontent.com/spa5k/tafsir_api/main/tafsir/ar-tafsir-al-tabari/93/7.json",
+   "publisher": "Tafsir al-Tabari (AR) 93:6-8: fa-awa = gave you a refuge and dwelling; 93:7 'ووجدك على غير الذي أنت عليه اليوم' (al-Suddi: his people's affair for forty years - not used, C10) and 'in a misguided people, then guided you'; 93:8 'a'il = poor then enriched; Qatada: his circumstances before being sent",
+   "published": "unknown",
+   "accessed": "2026-11-19",
+   "type": "tafseer",
+   "opened": true
+  },
+  "IA_93": {
+   "url": "https://quran-tafsir.net/ashour/sura93-aya1.html",
+   "publisher": "Ibn 'Ashur, al-Tahrir wa al-Tanwir 93 intro: names 'Surat al-Duha' (mushafs, Tirmidhi) and 'Surat wa-l-Duha' (Bukhari, many tafsirs), no Companion report on the name; Makki by agreement; 11th revealed, after al-Fajr, before al-Inshirah; 11 ayat; first of qisar al-mufassal; occasion Jundub (Sahihayn) two or three nights; Umm Jamil per Ibn 'Atiyya from Ibn 'Abbas, doubts Jundub heard it himself; purpose: refute the claim, promise, recall favours, command gratitude; duha = when sunlight spreads (symbol of revelation), night = time of his night prayer; saja = extends and covers",
+   "published": "unknown",
+   "accessed": "2026-11-19",
+   "type": "tafseer",
+   "opened": true
+  },
+  "TAFHEEM_93_INTRO": {
+   "url": "https://www.islamicstudies.info/quran/tafheem-text/intro/Intro93.html",
+   "publisher": "Maududi, Tafheem-ul-Qur'an intro 93: very early Makkan; pause in revelation distressed the Prophet; pause like night after day, natural; breaks more frequent early on; theme: comfort, not forsaken nor displeased, hardships a passing phase, favours recalled (orphan, unguided, in want), instruction on treating people",
+   "published": "unknown",
+   "accessed": "2026-11-19",
+   "type": "tafseer",
+   "opened": true
+  },
+  "TAFHEEM_93": {
+   "url": "https://www.islamicstudies.info/tafheem.php?sura=93&verse=1&to=11",
+   "publisher": "Maududi, Tafheem-ul-Qur'an notes 93:1-11: saja = peace and tranquillity of night; oath linked to the pause; reported pause 12 to 40 days; Umm Jamil reportedly; 93:4-5 growth of Islam; 93:6 father before birth, mother till six, grandfather, Abu Talib; 93:7 never in error of belief or action, free of idolatry and sin, lacked knowledge of the true faith's principles (42:52, 12:3); 93:8 father left a she-camel and a slave-girl, Khadijah's partnership then marriage, his own commercial skill; 93:10 beggar or seeker (Abu al-Darda', Hasan Basri, Sufyan Thawri prefer seeker); 93:11 ni'mah general, forms of gratitude",
+   "published": "unknown",
+   "accessed": "2026-11-19",
+   "type": "tafseer",
+   "opened": true
+  },
+  "QCOM_93": {
+   "url": "https://quran.com/surah/93/info",
+   "publisher": "Quran.com surah info 93: Makkan by unanimous agreement; 11 ayat; 11th revealed, after al-Fajr, before al-Inshirah; also Surat wa-l-Duha; theme: consolation during a pause in revelation; occasion: pause, finger injury, missed night prayer, Umm Jamil's taunt",
+   "published": "unknown",
+   "accessed": "2026-11-19",
+   "type": "reference",
+   "opened": true
+  },
+  "H_BUKHARI_4950": {
+   "url": "https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions/ara-bukhari/4950.json",
+   "publisher": "Sahih al-Bukhari 4950 (Book 65, Hadith 472), Jundub bin Sufyan: ill, did not get up two or three nights (لَيْلَتَيْنِ أَوْ ثَلاَثًا); 'فَجَاءَتِ امْرَأَةٌ' (unnamed in Arabic; the English mirror adds 'wife of Abu Lahab'); taunt; 93:1-3 revealed; sunnah.com/bukhari:4950",
+   "published": "unknown",
+   "accessed": "2026-11-19",
+   "type": "hadith",
+   "opened": true
+  },
+  "H_BUKHARI_4951": {
+   "url": "https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions/ara-bukhari/4951.json",
+   "publisher": "Sahih al-Bukhari 4951 (Book 65, Hadith 473), Jundub al-Bajali: a woman said 'يَا رَسُولَ اللَّهِ مَا أُرَى صَاحِبَكَ إِلاَّ أَبْطَأَكَ'; 93:3 revealed; sunnah.com/bukhari:4951",
+   "published": "unknown",
+   "accessed": "2026-11-19",
+   "type": "hadith",
+   "opened": true
+  },
+  "H_BUKHARI_4983": {
+   "url": "https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions/ara-bukhari/4983.json",
+   "publisher": "Sahih al-Bukhari 4983 (Book 66 Virtues of the Quran, Hadith 5), Jundub: ill, did not get up a night or two; 'فَأَتَتْهُ امْرَأَةٌ فَقَالَتْ يَا مُحَمَّدُ' ... surah revealed; sunnah.com/bukhari:4983",
+   "published": "unknown",
+   "accessed": "2026-11-19",
+   "type": "hadith",
+   "opened": true
+  },
+  "H_BUKHARI_1125": {
+   "url": "https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions/eng-bukhari/1125.json",
+   "publisher": "Sahih al-Bukhari 1125 (Book 19 Tahajjud, Hadith 5), Jundub bin 'Abdullah: Jibril delayed; a Quraysh woman said his devil had deserted him; 93:1-3 revealed; sunnah.com/bukhari:1125",
+   "published": "unknown",
+   "accessed": "2026-11-19",
+   "type": "hadith",
+   "opened": true
+  },
+  "H_MUSLIM_1797": {
+   "url": "https://hadithunlocked.com/muslim:1797a",
+   "publisher": "Sahih Muslim 1797a (al-Aswad bin Qays - Jundub): Jibril slow, the mushrikun said 'Muhammad has been forsaken', 93:1-3 revealed; 1797b: ill, did not stand two or three nights, a woman's taunt; 1797c chain note; Kitab al-Jihad wa al-Siyar, ch. 39; grade sahih (Muslim); sunnah.com/muslim:1797a",
+   "published": "unknown",
+   "accessed": "2026-11-19",
+   "type": "hadith",
+   "opened": true
+  },
+  "H_MUSLIM_202": {
+   "url": "https://hadithunlocked.com/muslim:202",
+   "publisher": "Sahih Muslim 202 ('Abdullah bin 'Amr): the Prophet recited Ibrahim's and 'Isa's words, raised his hands, 'my ummah', wept; Allah sent Jibril: 'سَنُرْضِيكَ فِي أُمَّتِكَ وَلاَ نَسُوءُكَ'; Kitab al-Iman ch. 89; sahih; sunnah.com/muslim:202",
+   "published": "unknown",
+   "accessed": "2026-11-19",
+   "type": "hadith",
+   "opened": true
+  },
+  "H_MUSLIM_465": {
+   "url": "https://hadithunlocked.com/muslim:465b",
+   "publisher": "Sahih Muslim 465 (Jabir, Mu'adh's long Isha recitation): Sufyan - Abu al-Zubayr - Jabir: 'اقْرَأ وَالشَّمْسِ وَضُحَاهَا وَالضُّحَى وَاللَّيْلِ إِذَا يَغْشَى وَسَبِّحْ اسْمَ رَبِّكَ الْأَعْلَى'; 465b (Layth) lists Shams, A'la, 'Alaq, Layl without al-Duha; sub-number on sunnah.com to be checked",
+   "published": "unknown",
+   "accessed": "2026-11-19",
+   "type": "hadith",
+   "opened": true
+  },
+  "H_BUKHARI_5304": {
+   "url": "https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions/eng-bukhari/5304.json",
+   "publisher": "Sahih al-Bukhari 5304 (Book 68, Hadith 53), Sahl: 'I and the one who looks after an orphan will be in Paradise like this' (index and middle fingers); sunnah.com/bukhari:5304",
+   "published": "unknown",
+   "accessed": "2026-11-19",
+   "type": "hadith",
+   "opened": true
+  },
+  "H_BUKHARI_6446": {
+   "url": "https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions/eng-bukhari/6446.json",
+   "publisher": "Sahih al-Bukhari 6446 (Book 81 Ar-Riqaq, Hadith 35), Abu Hurayra: richness is not abundance of goods, richness is self-contentment; sunnah.com/bukhari:6446",
+   "published": "unknown",
+   "accessed": "2026-11-19",
+   "type": "hadith",
+   "opened": true
+  },
+  "H_ABUDAWUD_4811": {
+   "url": "https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions/eng-abudawud/4811.json",
+   "publisher": "Sunan Abi Dawud 4811 (Book 43, Hadith 39), Abu Hurayra: whoever does not thank people does not thank Allah; al-Albani Sahih, Muhyi al-Din Sahih, al-Arna'ut Sahih, Zubair Ali Zai Isnad Sahih; sunnah.com/abudawud:4811",
+   "published": "unknown",
+   "accessed": "2026-11-19",
+   "type": "hadith",
+   "opened": true
+  },
+  "H_TIRMIDHI_1954": {
+   "url": "https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions/eng-tirmidhi/1954.json",
+   "publisher": "Jami' al-Tirmidhi 1954 (Book 27, Hadith 60), Abu Hurayra: same; Shakir Sahih, al-Albani Sahih, Bashar 'Awwad Sahih, Zubair Ali Zai Isnad Sahih; sunnah.com/tirmidhi:1954",
+   "published": "unknown",
+   "accessed": "2026-11-19",
+   "type": "hadith",
+   "opened": true
+  },
+  "TABARANI_21102": {
+   "url": "https://hadithunlocked.com/tabarani:21102",
+   "publisher": "al-Tabarani, al-Mu'jam al-Kabir 21102: Hafs bin Sa'id al-Qurashi - his mother - her mother Khawla (servant): a jirw (puppy) died under the bed, days without revelation, Khawla swept it out, surah revealed; page shows no grade (N/A)",
+   "published": "unknown",
+   "accessed": "2026-11-19",
+   "type": "hadith",
+   "opened": true
+  },
+  "FATH_BARI": {
+   "url": "Ibn Hajar, Fath al-Bari, Kitab al-Tafsir, Surat wa-l-Duha (page not opened)",
+   "publisher": "Ibn Hajar al-'Asqalani - reported verdict that making the puppy story the cause of this verse is gharib/shadh and rejected by the sahih report; WORDING NOT VERIFIED today",
+   "published": "unknown",
+   "accessed": "not opened",
+   "type": "hadith_commentary",
+   "opened": false
+  }
+ },
+ "facts": [
+  {
+   "id": "T1",
+   "claim": "Arabic 93:1-11 = Tanzil Uthmani v1.1 bytes (ayat[]); CC BY 3.0, verbatim, credit Tanzil Project + link; sha256 on PC",
+   "grade": "licence ALLOWED",
+   "confidence": "pakka",
+   "sources": [
+    "TANZIL_FILE",
+    "TANZIL_LIC"
+   ]
+  },
+  {
+   "id": "T2",
+   "claim": "Hindi = SARAL BHAAVARTH from accepted translations (Suhel Farooq Khan, Muhammad Farooq Khan, Shaikh-ul-Hind Mahmud al-Hasan PD; English check Sahih International); nothing copied; bracket additions '(ai rasool)', '(Abu Talib ki)' not taken",
+   "grade": "decision (RULES 1a)",
+   "confidence": "pakka",
+   "sources": [
+    "TR_FAROOQKHAN",
+    "TR_FAROOQ",
+    "TR_MAHMUD",
+    "TR_SAHIH"
+   ]
+  },
+  {
+   "id": "T3",
+   "claim": "Latin transliteration for the Devanagari ucharan (Tanzil ara-quran-la + quran411 ara-quran-la1); ucharan.md rows U1-U11",
+   "grade": "helper",
+   "confidence": "pakka",
+   "sources": [
+    "LA_TANZIL",
+    "LA_Q411"
+   ]
+  },
+  {
+   "id": "P1",
+   "claim": "Name al-Duha (forenoon, the spread of morning light), from the first word; surah 93; 11 ayat; juz 30",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "TANZIL_FILE",
+    "TANZIL_META",
+    "QT_93_3",
+    "IA_93",
+    "TAFHEEM_93_INTRO",
+    "QCOM_93"
+   ]
+  },
+  {
+   "id": "P2",
+   "claim": "Makki by consensus (Qurtubi ijma', Ibn 'Ashur ittifaq, quran.com unanimous, Tanzil Meccan); very early Makkan (Tafheem)",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "QT_93_3",
+    "IA_93",
+    "QCOM_93",
+    "TANZIL_META",
+    "TAFHEEM_93_INTRO"
+   ]
+  },
+  {
+   "id": "P3",
+   "claim": "Order of revelation 11 (after al-Fajr, before al-Sharh) in the standard list used by Tanzil/quran.com, also given by Ibn 'Ashur",
+   "grade": "maana hua (ek mash'hoor fehrist ke mutabiq)",
+   "confidence": "pakka",
+   "sources": [
+    "TANZIL_META",
+    "QCOM_93",
+    "IA_93"
+   ]
+  },
+  {
+   "id": "P4",
+   "claim": "Other name 'Surat wa-l-Duha' (Bukhari, many tafsirs; quran.com); no Companion report fixing the name",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "IA_93",
+    "QCOM_93"
+   ]
+  },
+  {
+   "id": "P5",
+   "claim": "Main message: consolation during a pause in revelation - not forsaken, not displeased; the future better; past favours recalled; gratitude through kindness to the orphan and the asker and speaking of Allah's blessing",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "QCOM_93",
+    "TAFHEEM_93_INTRO",
+    "IA_93",
+    "IK_EN_93"
+   ]
+  },
+  {
+   "id": "N1",
+   "claim": "Sahih: the Prophet was ill and did not stand for night prayer for one-two / two-three nights; an (unnamed) woman taunted that his 'devil' had left him; 93:1-3 revealed",
+   "grade": "maana hua (sahih)",
+   "confidence": "pakka",
+   "sources": [
+    "H_BUKHARI_4950",
+    "H_BUKHARI_4983",
+    "H_MUSLIM_1797",
+    "IK_EN_93",
+    "QT_93_3"
+   ]
+  },
+  {
+   "id": "N2",
+   "claim": "Sahih: Jibril was slow to come; the mushrikun said 'Muhammad has been forsaken' (Muslim 1797a); a Quraysh woman said it (Bukhari 1125)",
+   "grade": "maana hua (sahih)",
+   "confidence": "pakka",
+   "sources": [
+    "H_MUSLIM_1797",
+    "H_BUKHARI_1125",
+    "IK_EN_93",
+    "IK_AR_93"
+   ]
+  },
+  {
+   "id": "N3",
+   "claim": "Sahih: a woman said 'O Messenger of Allah, I think your companion has delayed coming to you'; 93:3 revealed (Bukhari 4951)",
+   "grade": "maana hua (sahih)",
+   "confidence": "pakka",
+   "sources": [
+    "H_BUKHARI_4951",
+    "IK_AR_93"
+   ]
+  },
+  {
+   "id": "N4",
+   "claim": "Who said it: unnamed in the sahih matn; Umm Jamil (Abu Lahab's wife) in other reports (Ibn 'Ashur via Ibn 'Atiyya/Ibn 'Abbas, Qurtubi via Tha'labi, Ma'ariful, Tafheem, quran.com); Khadija for the gentle wording - mursal, 'not preserved' (Ibn Kathir). Video: no name",
+   "grade": "ikhtilaaf",
+   "confidence": "vivaadit",
+   "sources": [
+    "H_BUKHARI_4950",
+    "H_MUSLIM_1797",
+    "IA_93",
+    "QT_93_3",
+    "MQ_93",
+    "TAFHEEM_93",
+    "QCOM_93",
+    "IK_AR_93"
+   ]
+  },
+  {
+   "id": "N5",
+   "claim": "Length of the pause: sahih one-two / two-three nights; Ibn 'Abbas 'days'; 12 (Ibn Jurayj), 15 (Ibn 'Abbas), 25 (qila), 40 (Muqatil) days per Qurtubi, who calls Bukhari's the most sahih; Tafheem '12 to 40 days'. Video: 'kuch raatein'",
+   "grade": "ikhtilaaf",
+   "confidence": "vivaadit",
+   "sources": [
+    "H_BUKHARI_4950",
+    "H_BUKHARI_4983",
+    "H_MUSLIM_1797",
+    "IK_EN_93",
+    "QT_93_3",
+    "TAFHEEM_93"
+   ]
+  },
+  {
+   "id": "N6",
+   "claim": "This short pause is distinct from the long 'fatrat al-wahy' after the first revelation (Ma'ariful: two pauses; Tafheem: early breaks frequent; Qurtubi/Ibn Kathir tie al-Duha to Jundub's short pause; Ibn 'Ashur does not link it to the fatra). Video must not call it 'the fatrat al-wahy'",
+   "grade": "ikhtilaaf",
+   "confidence": "vivaadit",
+   "sources": [
+    "MQ_93",
+    "TAFHEEM_93_INTRO",
+    "QT_93_3",
+    "IK_EN_93",
+    "IA_93"
+   ]
+  },
+  {
+   "id": "N7",
+   "claim": "Puppy (jirw) died under the bed, Khawla swept it out, surah revealed (Tabarani al-Kabir 21102; listed among views by Qurtubi) - chain through little-known narrators, no grade shown, contradicts the sahih cause; Ibn Hajar's rejection reported but not opened",
+   "grade": "chhoda gaya",
+   "confidence": "vivaadit",
+   "sources": [
+    "TABARANI_21102",
+    "QT_93_3",
+    "FATH_BARI"
+   ]
+  },
+  {
+   "id": "Z1",
+   "claim": "The Prophet told Mu'adh (long Isha recitation) to recite surahs like al-Shams, al-Duha, al-Layl, al-A'la (Sahih Muslim 465, Sufyan's narration via Abu al-Zubayr - Jabir)",
+   "grade": "maana hua (sahih) - single collection, video optional",
+   "confidence": "pakka",
+   "sources": [
+    "H_MUSLIM_465"
+   ]
+  },
+  {
+   "id": "Z2",
+   "claim": "Takbir after al-Duha to the end of the Quran (al-Bazzi report; Abu Hatim/al-'Uqayli weaken the narrator; 'takbir in joy' reason has no chain per Ibn Kathir; Hakim calls the chain sahih per Qurtubi; Ma'ariful: qurra sunnah)",
+   "grade": "chhoda gaya (grade ikhtilaaf; not for the video)",
+   "confidence": "vivaadit",
+   "sources": [
+    "IK_AR_93",
+    "QT_93_9",
+    "MQ_PQ_93"
+   ]
+  },
+  {
+   "id": "U1",
+   "claim": "93:1 - by the forenoon light",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "TR_FAROOQKHAN",
+    "TR_FAROOQ",
+    "TR_MAHMUD",
+    "TR_SAHIH",
+    "IK_EN_93",
+    "QT_93_3"
+   ]
+  },
+  {
+   "id": "U2",
+   "claim": "93:2 - and the night when it settles and covers (all)",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "TR_FAROOQKHAN",
+    "TR_FAROOQ",
+    "TR_MAHMUD",
+    "TR_SAHIH",
+    "IK_EN_93",
+    "QT_93_3"
+   ]
+  },
+  {
+   "id": "U3",
+   "claim": "93:3 - your Lord has neither left you nor become displeased",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "TR_FAROOQKHAN",
+    "TR_FAROOQ",
+    "TR_MAHMUD",
+    "TR_SAHIH",
+    "IK_EN_93",
+    "QT_93_3"
+   ]
+  },
+  {
+   "id": "U4",
+   "claim": "93:4 - what comes later (the Hereafter) is better for you than the first (this world)",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "TR_FAROOQKHAN",
+    "TR_FAROOQ",
+    "TR_MAHMUD",
+    "TR_SAHIH",
+    "IK_EN_93",
+    "MQ_93"
+   ]
+  },
+  {
+   "id": "U5",
+   "claim": "93:5 - your Lord will give you and you will be pleased",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "TR_FAROOQKHAN",
+    "TR_FAROOQ",
+    "TR_MAHMUD",
+    "TR_SAHIH",
+    "IK_EN_93",
+    "QT_93_5"
+   ]
+  },
+  {
+   "id": "U6",
+   "claim": "93:6 - did He not find you an orphan and give you refuge",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "TR_FAROOQKHAN",
+    "TR_FAROOQ",
+    "TR_MAHMUD",
+    "TR_SAHIH",
+    "TB_93_7",
+    "IK_EN_93"
+   ]
+  },
+  {
+   "id": "U7",
+   "claim": "93:7 - and found you unaware of the way and guided you",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "TR_FAROOQKHAN",
+    "TR_FAROOQ",
+    "TR_MAHMUD",
+    "TR_SAHIH",
+    "IK_EN_93",
+    "MQ_PQ_93"
+   ]
+  },
+  {
+   "id": "U8",
+   "claim": "93:8 - and found you in need and made you self-sufficient",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "TR_FAROOQKHAN",
+    "TR_FAROOQ",
+    "TR_MAHMUD",
+    "TR_SAHIH",
+    "TB_93_7",
+    "IK_EN_93"
+   ]
+  },
+  {
+   "id": "U9",
+   "claim": "93:9 - so do not oppress the orphan",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "TR_FAROOQKHAN",
+    "TR_FAROOQ",
+    "TR_MAHMUD",
+    "TR_SAHIH",
+    "IK_EN_93",
+    "QT_93_9"
+   ]
+  },
+  {
+   "id": "U10",
+   "claim": "93:10 - and do not repel the one who asks",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "TR_FAROOQKHAN",
+    "TR_FAROOQ",
+    "TR_MAHMUD",
+    "TR_SAHIH",
+    "IK_EN_93",
+    "QT_93_9"
+   ]
+  },
+  {
+   "id": "U11",
+   "claim": "93:11 - and speak of the blessing of your Lord",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "TR_FAROOQKHAN",
+    "TR_FAROOQ",
+    "TR_MAHMUD",
+    "TR_SAHIH",
+    "IK_EN_93",
+    "QT_93_9"
+   ]
+  },
+  {
+   "id": "K1",
+   "claim": "duha = forenoon when sunlight spreads; oath by that light, a sign of Allah's power",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "IK_EN_93",
+    "QT_93_3",
+    "IA_93",
+    "TAFHEEM_93"
+   ]
+  },
+  {
+   "id": "K2",
+   "claim": "saja = the night settles/becomes still and its darkness covers (Qatada, Mujahid, Ibn Zayd, 'Ikrima, Dahhak)",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "QT_93_3",
+    "IK_EN_93",
+    "TAFHEEM_93",
+    "IA_93"
+   ]
+  },
+  {
+   "id": "K3",
+   "claim": "Link of the oath to the pause: night after day is not displeasure; revelation like daylight, the pause like the night's rest",
+   "grade": "maana hua (2 tafseer)",
+   "confidence": "pakka",
+   "sources": [
+    "TAFHEEM_93_INTRO",
+    "TAFHEEM_93",
+    "IA_93"
+   ]
+  },
+  {
+   "id": "K4",
+   "claim": "wadda'a = bid farewell/leave; qala = hate/be displeased; object pronoun dropped for verse-end rhythm; verse 3 answers the oath; 'has not hated you since He loved you'",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "QT_93_3",
+    "IK_EN_93",
+    "TR_FAROOQKHAN",
+    "TR_FAROOQ",
+    "TR_MAHMUD"
+   ]
+  },
+  {
+   "id": "K5",
+   "claim": "93:4 two compatible meanings: Hereafter better than this world (Ibn Kathir, Ma'ariful a, Qurtubi/Ibn Ishaq); every later stage better than the earlier (Ma'ariful b, Tafheem)",
+   "grade": "ikhtilaaf (do qaul, koi takraav nahi)",
+   "confidence": "pakka",
+   "sources": [
+    "IK_EN_93",
+    "MQ_93",
+    "QT_93_5",
+    "TAFHEEM_93"
+   ]
+  },
+  {
+   "id": "K6",
+   "claim": "93:5 what will be given: success of the deen in this world (Qurtubi/Ibn Ishaq, Tafheem) and in the Hereafter intercession/Kawthar/being pleased regarding his ummah (Ibn Kathir, Qurtubi); Sahih Muslim 202 'sanurdika fi ummatika'",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "IK_EN_93",
+    "QT_93_5",
+    "H_MUSLIM_202",
+    "TAFHEEM_93"
+   ]
+  },
+  {
+   "id": "K7",
+   "claim": "Orphanhood: father died before birth, mother when he was 6, grandfather 'Abd al-Muttalib when he was 8, then uncle Abu Talib raised and protected him",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "IK_EN_93",
+    "TAFHEEM_93",
+    "MQ_93"
+   ]
+  },
+  {
+   "id": "K8",
+   "claim": "93:7 'dall' here = unaware (of the Book and details of the shariah before prophethood, cf. 42:52), NOT astray in belief/sin; he was free of idolatry and sin",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "IK_EN_93",
+    "MQ_PQ_93",
+    "QT_93_7",
+    "TAFHEEM_93",
+    "TB_93_7"
+   ]
+  },
+  {
+   "id": "K9",
+   "claim": "93:8 'a'il = in need (with dependents); enriched - trade partnership with Khadijah then marriage (Ma'ariful, Tafheem); poor-patient and rich-thankful (Ibn Kathir); true richness is contentment of the soul (Bukhari 6446)",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "IK_EN_93",
+    "MQ_PQ_93",
+    "TAFHEEM_93",
+    "TB_93_7",
+    "H_BUKHARI_6446"
+   ]
+  },
+  {
+   "id": "K10",
+   "claim": "93:9 do not oppress/humiliate the orphan or take his right; Qatada 'be like a merciful father to the orphan'; Bukhari 5304 orphan-carer with the Prophet in Paradise like two fingers",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "IK_EN_93",
+    "QT_93_9",
+    "MQ_PQ_93",
+    "TAFHEEM_93",
+    "H_BUKHARI_5304"
+   ]
+  },
+  {
+   "id": "K11",
+   "claim": "93:10 sa'il = (a) beggar - give a little or refuse gently (Qatada), (b) one who asks for knowledge/guidance - answer gently (Sufyan; Abu al-Darda', Hasan Basri, Sufyan Thawri per Tafheem)",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "IK_EN_93",
+    "QT_93_9",
+    "MQ_PQ_93",
+    "TAFHEEM_93"
+   ]
+  },
+  {
+   "id": "K12",
+   "claim": "93:11 speaking of Allah's blessing = gratitude (not pride); ni'mah = Quran/prophethood (Mujahid) and all blessings; Abu Dawud 4811 / Tirmidhi 1954 'whoever does not thank people does not thank Allah'",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "IK_EN_93",
+    "QT_93_9",
+    "TAFHEEM_93",
+    "MQ_PQ_93",
+    "H_ABUDAWUD_4811",
+    "H_TIRMIDHI_1954"
+   ]
+  },
+  {
+   "id": "K13",
+   "claim": "Three favours (6-8) mirrored by three commands (9-11): orphan -> orphan, unaware/guided -> the one who asks, in need/enriched -> speak of the blessing",
+   "grade": "maana hua",
+   "confidence": "pakka",
+   "sources": [
+    "QT_93_9",
+    "IK_EN_93",
+    "TAFHEEM_93",
+    "TAFHEEM_93_INTRO"
+   ]
+  }
+ ]
+}

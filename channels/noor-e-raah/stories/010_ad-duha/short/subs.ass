@@ -1,0 +1,22 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name,Fontname,Fontsize,PrimaryColour,SecondaryColour,OutlineColour,BackColour,Bold,Italic,Underline,StrikeOut,ScaleX,ScaleY,Spacing,Angle,BorderStyle,Outline,Shadow,Alignment,MarginL,MarginR,MarginV,Encoding
+Style: Cap,Mukta Bold,66,&H00FFFFFF,&H00FFFFFF,&H8C0A0C14,&H8C0A0C14,0,0,0,0,100,100,0,0,3,14,0,2,170,170,400,1
+Style: Tag,Mukta Bold,52,&H0078C8F0,&H00FFFFFF,&H90000000,&H00000000,0,0,0,0,100,100,0,0,1,3,1,8,60,60,330,1
+
+[Events]
+Format: Layer,Start,End,Style,Name,MarginL,MarginR,MarginV,Effect,Text
+Dialogue: 0,0:00:01.98,0:00:05.29,Cap,,0,0,0,,क़सम है दिन चढ़े की {\1c&H0078C8F0&}रौशनी{\1c&HFFFFFF&} की।
+Dialogue: 0,0:00:09.02,0:00:14.59,Cap,,0,0,0,,और क़सम है {\1c&H0078C8F0&}रात{\1c&HFFFFFF&} की, जब वो ठहर कर सब पर छा जाए।
+Dialogue: 0,0:00:14.64,0:00:19.22,Cap,,0,0,0,,हर चीज़ पर सन्नाटा, हर तरफ़ {\1c&H0078C8F0&}सुकून{\1c&HFFFFFF&}।
+Dialogue: 0,0:00:19.27,0:00:26.43,Cap,,0,0,0,,क़ुरआन समझाने वाले आलिम लिखते हैं: जैसे दिन के बाद रात का आना {\1c&H0078C8F0&}नाराज़गी नहीं{\1c&HFFFFFF&},
+Dialogue: 0,0:00:26.48,0:00:31.50,Cap,,0,0,0,,वैसे ही वह्य का कुछ रातें {\1c&H0078C8F0&}रुक जाना{\1c&HFFFFFF&} भी नाराज़गी नहीं था।
+Dialogue: 0,0:00:35.42,0:00:40.73,Cap,,0,0,0,,तुम्हारे रब ने {\1c&H0078C8F0&}न तुम्हें छोड़ा{\1c&HFFFFFF&}, और न वो तुमसे नाराज़ हुआ।
+Dialogue: 0,0:00:40.78,0:00:47.63,Cap,,0,0,0,,एक तफ़्सीर के लफ़्ज़ों में: जब से तुमसे {\1c&H0078C8F0&}मुहब्बत{\1c&HFFFFFF&} की, तब से कभी नाराज़ नहीं हुआ।
+Dialogue: 0,0:00:00.00,0:00:47.68,Tag,,0,0,0,,सूरह अद-दुहा 93:1-3

@@ -61,3 +61,5 @@ Nightly after 02:00 IST: one Long (surah, RULES 1d) + one Short (Imaan Shorts, R
 2026-11-13: 007 Al-Asr Long uploaded PRIVATE https://youtu.be/G10QXNZTxLQ (3:28.8, -14.1 LUFS, tempo 1.11, 12-13 reused images, 0 new, thumbnail v3C, story cost Rs 4.74 incl GST). Munshi final R1 PASS-WITH-NOTES. User decides public/schedule in Studio; first comment (task StoryChannel-Comment-G10QXNZTxLQ waits 3 h) must be posted via tools/post_comment.py if the task expires before it goes public. Next: 008 al-fil.
 
 2026-11-17: 008 Al-Fil Long uploaded PRIVATE https://youtu.be/M7UXpH-W3IY (3:54) + Short TJStQvexbfM (0:41), first surah Long in RULES 2h people form (4 paid Gemini images, Cloudflare quota empty), story cost Rs25.52 incl GST. Next: 009 surah per series_queue (Al-Kafirun announced at the end of 008).
+
+2026-11-19: 010 Ad-Duha Long uploaded PRIVATE https://youtu.be/aeb-ASeWlOo (4:54) + Short 7332dw93wCk (0:48, 93:1-3); RULES 2m template, 15 free Cloudflare images, Charon (flash-lite TTS), music Soaring at music_vol 0.12 (Soaring is ~10 dB louder than River_Flute), cost Rs8.78. Next: the next `planned` item of series_queue.json.
