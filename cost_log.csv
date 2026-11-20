@@ -2669,3 +2669,11 @@ timestamp,file,model,size,cost_usd,cost_inr,today_total_inr,remaining_inr,channe
 2026-11-19 04:36:28,channels/noor-e-raah/stories/010_ad-duha/audio/l45.wav,gemini-3.8-flash-lite-tts,tts 11.9s,0.00270,0.26,15.75,526.42,noor-e-raah,0.27,0.2609,0.05,43,298
 2026-11-19 04:36:36,channels/noor-e-raah/stories/010_ad-duha/audio/l53.wav,gemini-3.8-flash-lite-tts,tts 8.1s,0.00183,0.18,15.96,526.21,noor-e-raah,0.18,0.1769,0.03,30,202
 2026-11-19 04:42:13,channels/noor-e-raah/stories/010_ad-duha/audio/l28.wav,gemini-3.8-flash-lite-tts,tts 10.7s,0.00242,0.23,16.24,525.93,noor-e-raah,0.24,0.2335,0.04,34,267
+2026-11-19 22:11:42,channels/devrobolab/stories/068_cc-claude-md/audio/tts/s_00.wav,gemini-3.8-flash-tts,tts 23.0s free,0.00000,0.00,16.24,525.93,devrobolab,0.51,0.0000,0.00,89,575
+2026-11-19 22:11:57,channels/devrobolab/stories/068_cc-claude-md/audio/tts/s_01.wav,gemini-3.8-flash-tts,tts 24.9s free,0.00000,0.00,16.24,525.93,devrobolab,0.56,0.0000,0.00,107,622
+2026-11-19 22:12:14,channels/devrobolab/stories/068_cc-claude-md/audio/tts/s_02.wav,gemini-3.8-flash-tts,tts 35.0s free,0.00000,0.00,16.24,525.93,devrobolab,0.78,0.0000,0.00,146,874
+2026-11-19 22:12:29,channels/devrobolab/stories/068_cc-claude-md/audio/tts/s_03.wav,gemini-3.8-flash-tts,tts 32.3s free,0.00000,0.00,16.24,525.93,devrobolab,0.72,0.0000,0.00,119,808
+2026-11-19 22:12:48,channels/devrobolab/stories/068_cc-claude-md/audio/tts/s_04.wav,gemini-3.8-flash-tts,tts 44.7s free,0.00000,0.00,16.24,525.93,devrobolab,0.99,0.0000,0.00,148,1118
+2026-11-19 22:13:03,channels/devrobolab/stories/068_cc-claude-md/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 31.3s free,0.00000,0.00,16.24,525.93,devrobolab,0.70,0.0000,0.00,127,783
+2026-11-19 22:13:17,channels/devrobolab/stories/068_cc-claude-md/audio/tts/s_06.wav,gemini-3.8-flash-tts,tts 32.8s free,0.00000,0.00,16.24,525.93,devrobolab,0.73,0.0000,0.00,130,822
+2026-11-19 22:13:28,channels/devrobolab/stories/068_cc-claude-md/audio/tts/s_07.wav,gemini-3.8-flash-tts,tts 18.1s free,0.00000,0.00,16.24,525.93,devrobolab,0.40,0.0000,0.00,67,453

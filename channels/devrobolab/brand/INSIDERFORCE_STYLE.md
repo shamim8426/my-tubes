@@ -19,3 +19,13 @@ Each run: study one fresh InsiderForce Short (RUN_COMMON "Fresh style per video"
 - Contents of cards are real playing screen recordings, not stills. A URL pill with globe and copy icon appears when a link is produced.
 - Structure of the script: claim in first 4 s -> tool name -> one prompt copy -> what the agent does in 3 short steps -> supported file types -> manual drag-and-drop alternative -> what makes it different -> compatible agents -> follow call. About 25 spoken lines in 87 s; ours is 40-45 s.
 - Ours (067): same grammar with our own cube/gear/agent icons, animated site mock, drop zone, file cards, URL pill; no mascot.
+
+## 2026-11-19 study (one 101 s listicle Short, 608x1080 30 fps, ~28 scene changes = one every ~3.6 s; principles only)
+- ITEM NUMERAL: each list item opens with a GIANT numeral (about 30% of height, near-black, fading to transparent at its bottom edge) with the item name in bold under it, held ~1 s, then the item's card slides in. Ours: chapter opener = big numeral + chapter name for ~1.2 s on the chapter's first words.
+- STARBURST CORNERS: big soft orange ray bursts sit half outside the frame in two opposite corners on the hook and on a giant-number moment (frame "pulse"), then slide out. Ours: accent-colour rays on hook + big number beats only.
+- HUB DIAGRAM: one centre icon, thin lines draw out one by one to 3-5 satellite icons (each pops in at the end of its line) while the voice lists them. Ours: centre file/tool icon, satellites = places/options.
+- CHOOSER ROW: 3 small white cards in a row; the "selected" one scales up ~1.25x with a stronger shadow, then the selection moves to the next (shows automatic switching / picking).
+- GIANT NUMBER INSIDE A SENTENCE: the running caption stops and the key number appears 2.5x bigger on its own line ("95%"), rest of the sentence continues small below.
+- SPARKLE BULLETS: a heading line, then 3-4 items with a 4-point star bullet appear one per spoken word, left-aligned block centred on screen.
+- TILTED DARK CARDS: dark UI cards sit with a slight 3D tilt/rotation and a very large soft shadow on the light background; they drift slowly.
+- ITALIC EMPHASIS: one word in a sentence set in italic (e.g. "every single") instead of bold, for tone.

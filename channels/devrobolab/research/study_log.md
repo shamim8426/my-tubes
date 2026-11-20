@@ -60,3 +60,8 @@
 - Downloaded with tools/yt-dlp.exe, no cookies, into study/ (git-ignored); one broken down at 30 fps (2,596 frames, motion curve + 24-frame sequences); transcript via local Whisper for structure only.
 - Learnt: brand/INSIDERFORCE_STYLE.md (principles only). Topic reused with own script and visuals: story 067. Facts from aweshell.ai/doc/cli-setup.md and the aweshell.ai landing page (limits 25 MB/file, 100 MB total, accepts html/zip/md/folder, agents Gemini/Codex/others).
 - Status: study files deleted 2026-11-18.
+
+## 2026-11-19 - InsiderForce Short 7IiDEWOUc6c (RULES 12c)
+- Video: https://www.youtube.com/shorts/7IiDEWOUc6c (101 s, 608x1080). Downloaded with tools/yt-dlp.exe, no cookies/login, into study/if_7Ii (git-ignored); 1 fps contact sheets + scene-change count (28). No transcript.
+- Learnt: brand/INSIDERFORCE_STYLE.md section 2026-11-19 (item numeral opener, hub diagram, chooser row, giant number in caption, sparkle bullets, corner ray bursts, tilted dark cards). Principles only. Applied in story 068.
+- Status: study files deleted 2026-11-19.
