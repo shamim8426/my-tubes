@@ -1,0 +1,29 @@
+# 011 Al-Qadr: Munshi FINAL R1 (Long + Short quick check), 2026-11-20
+
+VERDICT: **PASS-WITH-NOTES** (0 BLOCKER, 0 MAJOR, 4 MINOR). Upload may go ahead.
+STOP condition: none. channel_id UCmw4fs9jN49GTq7wVSdYm6w == channel.json (both upload.json). Quietude CC BY 4.0 = assets_license.csv row 144, exact credit in both descriptions. Arabic = Tanzil CC BY 3.0, bytes unchanged.
+
+## Opened and measured
+- Long output/video.mp4: 1920x1080, 30 fps, H.264, AAC 48 kHz mono, 4:56.7 (RULES 2n 4:00-5:00 OK). ebur128: **-15.1 LUFS, LRA 3.4, TP -1.3 dBFS**. -15.1 is acceptable (within 1 dB of the -14 target, same as 014's -14.9; TP <= -1). No silence: longest 0.25 s window run under -45 dB = 0.25 s. End: last word ~295.2 s, then the bed fades (-29 -> -38 dB).
+- Short short/output/short.mp4: 1080x1920, 37.5 s (< 60), **-14.9 LUFS, LRA 3.3, TP -1.4**.
+- Music bed (same method as 010: 0.25 s windows, work/voice.wav < -60 dB = pause, > -30 dB = speech; mix measured): **Long bed 15.8 dB under speech** (speech -14.5, bed median -30.2, n=203, p90 -24.3, loudest pause -21.5). Short 16.0 dB. Calibration: the same script on 010's final gives 18.0 dB. So 011 is ~2 dB louder than 010; audible, continuous, not competing (014 was 3.7 dB). MINOR 1.
+- Arabic: 5/5 Ayah events in work/subs.ass == script.json `ar` == tanzil_97.json == raw research/quran-uthmani.txt 97|1-5 (97:1 = line minus 4-word Bismillah); sha256 5/5. Full-res frame review/final/ayah_L21.jpg (97:4, longest): Amiri, harakat on letters, outline, whole ayah, nothing cut. All 5 cards in the sheets.
+- Ucharan (Tr events) 5/5 == script text == ucharan.md Devanagari column.
+- SRT: 48 cues == 48 script lines, text identical, no overlaps, 0.00 -> 296.68. Script = R2-passed version (48 lines, 594 words, 0 "?").
+- One narrator Charon; no question, no disclaimer/tilawat line, no teaser, no lesson line; ends on the 4-line summary (L45-48). First ayah at 0:35.8 (learnings 30-40 s OK).
+- Voice onsets 0.22-0.35 s and tails 0.26-0.41 s in work/v*.wav (no clipped word).
+- Whisper small on the FINAL mix (my run): L25 "अल्लाह ने तय किया" present (with prompt; without prompt "रहाने" = mishear of the same sound). L41 "सफ़ेद-सा निकलता" present ("सफ़ेद साने कलता" = word-boundary mishear). L44 "ऐ अल्लाह" heard as "याल्ला" / "अल्लाह" = the two words run together, nothing dropped. L9/L17/L34/L48: क़->अ/प and फ़->प are Whisper nuqta mishears; all words there; last word ends 0.5-1.4 s before cue end. **No real missing word.**
+- Frames, one per line (review/final/sheet_long_1-3.jpg): Prophet/family lines L10, L30, L33, L35-L37, L39, L42, L43 have NO person (stars, valley, lamps, doors, town). Ayah 4 lines L21-L26 + L47: town, stars, pond, doors; no angel, no light-being (light column only on L3, L7-8, L46 = Quran coming down). L31 (lone man in qiyam from behind, hands at chest) = "whoever" line; L34 (small figures walking to a flat-roof prayer place) = night list; L44 family dua (seated, palms up in front of chest, from behind/side, child visible, mother covered) = ordinary family. Heads blank, modest dress, no dome/minaret, no AI letters. ﷺ renders as the proper ligature in Mukta captions (zoom_saw_L33.jpg).
+- Thumbnail = long/output/011_al-qadr_thumbnail_v3C.jpg (cmp identical), 1280x720. Hook "हज़ार महीनों से / बेहतर एक रात" = 97:3, honest; readable at 160x90 (thumb_check.jpg); bottom-right clear; no person.
+- upload.json (Long): title 82 chars, description 2110 chars (Tanzil CC BY 3.0 2007-2026 + updates link, bhaavarth basis, 7 tafseer, Quran 2:185/44:3, hadith numbers, exact Quietude credit, OFL fonts, AI note, no Prophet/angel depiction note), 15 tags (215 chars), made_for_kids false, contains_synthetic_media true, privacy private, no publish_at (api_audited false), channel_id OK. Short upload.json: title 63 chars ("क़द्र की रात, हज़ार महीनों से बेहतर | सूरह क़द्र 97:2-3 #shorts" = learnings Short-title pattern), same sources/credit, LONG_ID x3 (description link, first_comment, parent_video_id) to fill at upload, private, synthetic true. **name_guard: OK on both files.**
+- Short: lines 14-20 = 97:2 + 97:3 complete (Arabic whole in the panel, full ucharan, full bhaavarth, L18-L20 complete sentences); voice ends ~36.6 s, file 37.5 s (last word intact, 2b OK). Hook: 97:2 card + voice from 0.26 s, clean by 0.5 s; cover.jpg 1080x1920 = 1.0 s frame with the 97:2 card. Captions (Cap, MarginV 400) at ~72-80 % height, tag at ~17 % (inside 15-85 %). Blurred bg has no readable text.
+- Cost: cost_log 75 rows for 011 = Rs6.31 + GST 1.15 = **~Rs7.46** (58 Charon TTS, 17 free Cloudflare images). Cap OK.
+
+## MINOR (carry_over, no rebuild needed)
+1. Music bed 15.8 dB under speech (target ~18-19; 010 = 18.0 by the same method). Quietude (-17.5 dBFS RMS) is ~1.3 dB hotter than Soaring, so music_vol 0.12 is a bit high for it. Next Quietude video: music_vol **0.095** (-2 dB). Optional now (free, ~10 min): re-mix Long at 0.095 + same loudnorm (TP <= -1) + re-run short/make_short.py.
+2. Long description says "सहीह हदीसों से ... निशानी और दुआ"; the dua hadith (Tirmidhi 3513 / Ibn Majah 3850) has one da'if grading (dossier N11, script says only "हदीस में है"). Free text edit before upload (metadata only, no rebuild): "सहीह हदीसों से" -> "हदीसों से".
+3. Short first frame (t=0) is still the crossfade from the Long's L13 town image with a ghost of the 97:2 Arabic; the clean card appears ~0.3 s. Next Short: start the cut ~0.2 s later (voice onset 0.26 s, still safe) or take the first frame from inside L14.
+4. Thumbnail chip "पाँच आयतें" too small at 160 px (same as 010). Tanzil register row 140 still says 2007-2021 (description correctly says 2007-2026) - fix the register line.
+
+## Shan-e-nuzul / fact lines
+Unchanged from script R1/R2 (review/script_review.md table); srt text 48/48 == script.json; no sahih shan-e-nuzul claimed (N1), C1-C21/W1-W15 absent.

@@ -78,3 +78,9 @@
 - open | Music level per track: Soaring (-18.8) and Quietude (-17.5 dBFS RMS) are ~10 dB louder than River_Flute (-28.9); music_vol 0.5 makes the bed ~4 dB under speech in pauses. Use ~0.16 for Soaring/Quietude or normalise the 3 tracks once. 014 (uploaded private) has this loud bed: re-mix/re-upload = user's call.
 - open | 010 L28 "हाथ उठाए": Whisper hears "हाथ अथ उठाए" twice (possible stutter); listen at 2:15-2:26, re-TTS if real.
 - open | 010: first ayah 0:54.6; shots > 8 s (L45 11.2, L28 10.1, L32 ~9); 93:9 Src label over a white blank head; thumbnail label "ग्यारह आयतें" too small at 160 px; Long TP -0.6 (limit -1.0).
+
+## 2026-11-20 | 011_al-qadr (Munshi final R1, MINOR) | open
+- open | Quietude at music_vol 0.12 = bed 15.8 dB under speech (010 Soaring 0.12 = 18.0, same method). Next Quietude video: music_vol 0.095.
+- open | 011 Long description "सहीह हदीसों से ... और दुआ": dua hadith (Tirmidhi 3513 / Ibn Majah 3850) has one da'if grading -> "हदीसों से" (free metadata edit, ideally before upload).
+- open | Short cut start: t=0 frame is the crossfade from the previous Long image with a ghost of the ayah card; start ~0.2 s later (voice onset ~0.26 s) so frame 1 is the clean hook card.
+- open | Thumbnail chip "पाँच आयतें" too small at 160 px (also 010); assets_license.csv row 140 Tanzil years 2007-2021 -> 2007-2026.

@@ -1,0 +1,40 @@
+{
+ "source": "Tanzil quran-uthmani v1.1 (research/quran-uthmani.txt lines 6126-6130), bytes unchanged, Bismillah (first 4 words) of 97:1 stripped",
+ "ayat": [
+  {
+   "ayah": 1,
+   "ref": "97:1",
+   "text": "إِنَّآ أَنزَلْنَٰهُ فِى لَيْلَةِ ٱلْقَدْرِ",
+   "words": 5,
+   "sha256_utf8": "e74983d40b9868ed7965a8ebbe22637c8b6ab8aae7f1936d6045b38aa4aac374"
+  },
+  {
+   "ayah": 2,
+   "ref": "97:2",
+   "text": "وَمَآ أَدْرَىٰكَ مَا لَيْلَةُ ٱلْقَدْرِ",
+   "words": 5,
+   "sha256_utf8": "b733d7c19ede87734e9223ced2e7f23977bd9e975b5a8110f4c1ee3cd0c576ad"
+  },
+  {
+   "ayah": 3,
+   "ref": "97:3",
+   "text": "لَيْلَةُ ٱلْقَدْرِ خَيْرٌ مِّنْ أَلْفِ شَهْرٍ",
+   "words": 6,
+   "sha256_utf8": "acfc3e7f3cbc35cd7d6fd1fa8c3817373c7e3eec4590cade047ddc007e02b38b"
+  },
+  {
+   "ayah": 4,
+   "ref": "97:4",
+   "text": "تَنَزَّلُ ٱلْمَلَٰٓئِكَةُ وَٱلرُّوحُ فِيهَا بِإِذْنِ رَبِّهِم مِّن كُلِّ أَمْرٍ",
+   "words": 9,
+   "sha256_utf8": "526ef7f9a48464ce57959187d6c601e319de3d80c5dc7ad245d5e2032804c006"
+  },
+  {
+   "ayah": 5,
+   "ref": "97:5",
+   "text": "سَلَٰمٌ هِىَ حَتَّىٰ مَطْلَعِ ٱلْفَجْرِ",
+   "words": 5,
+   "sha256_utf8": "de379a461f99e80c5a7f116b20c42e27737b11f02f27ab930b9c3dbc359a6e65"
+  }
+ ]
+}

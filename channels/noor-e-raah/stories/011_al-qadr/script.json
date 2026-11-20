@@ -1,0 +1,991 @@
+{
+ "title": "Surah Al-Qadr 97",
+ "voice": "Charon",
+ "style": "Calm, warm, clear Hindi storyteller. Simple spoken Hindi, gentle, steady, normal conversational pace, correct Urdu sounds. Read the Arabic-sound lines plainly and clearly, not as recitation, no tune.",
+ "tempo": 1.1,
+ "ambience": "",
+ "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+ "music_vol": 0.12,
+ "amp": 0.08,
+ "amb_db": -6,
+ "sfx_db": -3,
+ "duck": true,
+ "ayah_fs": 165,
+ "ayah_outline": 6,
+ "ayah_src": "",
+ "lines": [
+  {
+   "n": 1,
+   "text": "साल में एक रात ऐसी आती है, जो हज़ार महीनों से बेहतर है।",
+   "img": "01_qadr_night",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "हज़ार महीनों"
+   ]
+  },
+  {
+   "n": 2,
+   "text": "हज़ार महीने, यानी तिरासी साल से भी ज़्यादा, एक पूरी उम्र।",
+   "img": "06_old_man_years",
+   "motion": true,
+   "preset": "pan_right",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "तिरासी साल"
+   ]
+  },
+  {
+   "n": 3,
+   "text": "उसी रात के बारे में, अल्लाह ने ये छोटी सी सूरह उतारी।",
+   "img": "04_sky_light_valley",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "छोटी सी सूरह"
+   ]
+  },
+  {
+   "n": 4,
+   "text": "ये है सूरह अल-क़द्र, क़ुरआन की सत्तानवेवीं सूरह, पाँच छोटी आयतें।",
+   "img": "01_qadr_night_c",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "अल-क़द्र"
+   ]
+  },
+  {
+   "n": 5,
+   "text": "मशहूर राय ये है कि ये मक्का में उतरी, और कुछ उलमा इसे मदीना की सूरह मानते हैं।",
+   "img": "02_mountain_night",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "मक्का"
+   ]
+  },
+  {
+   "n": 6,
+   "text": "क़ुरआन ख़ुद बताता है, कि वो रमज़ान के महीने में, एक बरकत वाली रात में उतरा।",
+   "img": "03_ramadan_lamps",
+   "motion": true,
+   "preset": "pan_right",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "रमज़ान"
+   ]
+  },
+  {
+   "n": 7,
+   "text": "इन्ना अनज़ल्नाहु फ़ी लैलतिल क़द्र।",
+   "img": "04_sky_light_valley",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": true,
+   "gold": [],
+   "ar": "إِنَّآ أَنزَلْنَٰهُ فِى لَيْلَةِ ٱلْقَدْرِ",
+   "src": "सूरह अल-क़द्र 97:1",
+   "ayah_y": 90,
+   "tr_y": 870,
+   "src_y": 300
+  },
+  {
+   "n": 8,
+   "text": "हमने इसे, यानी क़ुरआन को, क़द्र की रात में उतारा।",
+   "img": "04_sky_light_valley_c",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "यानी क़ुरआन को"
+   ]
+  },
+  {
+   "n": 9,
+   "text": "क़ुरआन समझाने वाले आलिम लिखते हैं, हज़रत इब्न अब्बास के मुताबिक़, पूरा क़ुरआन इस रात पहले आसमान पर उतारा गया।",
+   "img": "01_qadr_night",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "पहले आसमान"
+   ]
+  },
+  {
+   "n": 10,
+   "text": "फिर कई सालों में, थोड़ा-थोड़ा करके, नबी ﷺ पर उतरता रहा।",
+   "img": "02_mountain_night_c",
+   "motion": true,
+   "preset": "pan_right",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "थोड़ा-थोड़ा"
+   ]
+  },
+  {
+   "n": 11,
+   "text": "और इसी रात से, क़ुरआन का उतरना शुरू हुआ।",
+   "img": "02_mountain_night",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "शुरू"
+   ]
+  },
+  {
+   "n": 12,
+   "text": "क़द्र के दो मतलब हैं: इज़्ज़त और शान, और तक़दीर, यानी फ़ैसला।",
+   "img": "09_town_lamps_night",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "इज़्ज़त और शान"
+   ]
+  },
+  {
+   "n": 13,
+   "text": "और ये दोनों मतलब, इस एक रात में हैं।",
+   "img": "09_town_lamps_night_c",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "दोनों मतलब"
+   ]
+  },
+  {
+   "n": 14,
+   "text": "व मा अदराका मा लैलतुल क़द्र।",
+   "img": "05_looking_up_stars",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": true,
+   "gold": [],
+   "ar": "وَمَآ أَدْرَىٰكَ مَا لَيْلَةُ ٱلْقَدْرِ",
+   "src": "सूरह अल-क़द्र 97:2",
+   "ayah_y": 90,
+   "tr_y": 870,
+   "src_y": 300
+  },
+  {
+   "n": 15,
+   "text": "और तुम क्या जानो, क़द्र की रात कितनी बड़ी है!",
+   "img": "05_looking_up_stars_c",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "कितनी बड़ी"
+   ]
+  },
+  {
+   "n": 16,
+   "text": "लैलतुल क़द्रि ख़ैरुम मिन अल्फ़ि शह्र।",
+   "img": "06_old_man_years",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": true,
+   "gold": [],
+   "ar": "لَيْلَةُ ٱلْقَدْرِ خَيْرٌ مِّنْ أَلْفِ شَهْرٍ",
+   "src": "सूरह अल-क़द्र 97:3",
+   "ayah_y": 90,
+   "tr_y": 870,
+   "src_y": 300
+  },
+  {
+   "n": 17,
+   "text": "क़द्र की रात, हज़ार महीनों से बेहतर है।",
+   "img": "06_old_man_years_c",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "हज़ार महीनों से बेहतर"
+   ]
+  },
+  {
+   "n": 18,
+   "text": "हज़ार महीने, यानी तिरासी साल और चार महीने।",
+   "img": "06_old_man_years",
+   "motion": true,
+   "preset": "pan_right",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "चार महीने"
+   ]
+  },
+  {
+   "n": 19,
+   "text": "एक आदमी बचपन से बुढ़ापे तक जितना जीता है, उससे भी ज़्यादा।",
+   "img": "06_old_man_years_c",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "उससे भी ज़्यादा"
+   ]
+  },
+  {
+   "n": 20,
+   "text": "आलिम लिखते हैं: इस एक रात की इबादत, उन हज़ार महीनों की इबादत से बेहतर है, जिनमें ये रात न हो।",
+   "img": "07_night_prayer_far",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "एक रात की इबादत"
+   ]
+  },
+  {
+   "n": 21,
+   "text": "तनज़्ज़लुल मलाइकतु वर्रूहु फ़ीहा बिइज़्नि रब्बिहिम मिन कुल्लि अम्र।",
+   "img": "09_town_lamps_night",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": true,
+   "gold": [],
+   "ar": "تَنَزَّلُ ٱلْمَلَٰٓئِكَةُ وَٱلرُّوحُ فِيهَا بِإِذْنِ رَبِّهِم مِّن كُلِّ أَمْرٍ",
+   "src": "सूरह अल-क़द्र 97:4",
+   "ayah_y": 90,
+   "tr_y": 870,
+   "src_y": 300
+  },
+  {
+   "n": 22,
+   "text": "उस रात फ़रिश्ते और रूह, अपने रब के हुक्म से, हर काम के लिए उतरते हैं।",
+   "img": "09_town_lamps_night_c",
+   "motion": true,
+   "preset": "pan_right",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "अपने रब के हुक्म से"
+   ]
+  },
+  {
+   "n": 23,
+   "text": "रूह, यानी जिबरील अलैहिस्सलाम। उनका नाम अलग से, उनकी शान के लिए आया है।",
+   "img": "01_qadr_night",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "जिबरील"
+   ]
+  },
+  {
+   "n": 24,
+   "text": "फ़रिश्ते इस रात बहुत बड़ी तादाद में उतरते हैं, रहमत और बरकत के साथ।",
+   "img": "10_still_palms",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "रहमत और बरकत"
+   ]
+  },
+  {
+   "n": 25,
+   "text": "हर वो काम, जो अल्लाह ने तय किया, उसे लेकर वो उतरते हैं।",
+   "img": "14_closed_door_calm",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "तय किया"
+   ]
+  },
+  {
+   "n": 26,
+   "text": "आलिम लिखते हैं: साल भर के फ़ैसले, रोज़ी और उम्र, इसी रात फ़रिश्तों को सौंपे जाते हैं।",
+   "img": "14_closed_door_calm_c",
+   "motion": true,
+   "preset": "pan_right",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "साल भर के फ़ैसले"
+   ]
+  },
+  {
+   "n": 27,
+   "text": "सलामुन हिया हत्ता मतलइल फ़ज्र।",
+   "img": "10_still_palms",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": true,
+   "gold": [],
+   "ar": "سَلَٰمٌ هِىَ حَتَّىٰ مَطْلَعِ ٱلْفَجْرِ",
+   "src": "सूरह अल-क़द्र 97:5",
+   "ayah_y": 90,
+   "tr_y": 870,
+   "src_y": 300
+  },
+  {
+   "n": 28,
+   "text": "वो रात पूरी की पूरी सलामती है, फ़ज्र की रौशनी निकलने तक।",
+   "img": "10_still_palms_c",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "सलामती"
+   ]
+  },
+  {
+   "n": 29,
+   "text": "शुरू से आख़िर तक ख़ैर ही ख़ैर, उसमें कोई बुराई नहीं।",
+   "img": "09_town_lamps_night",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "ख़ैर ही ख़ैर"
+   ]
+  },
+  {
+   "n": 30,
+   "text": "सहीह बुख़ारी और सहीह मुस्लिम में है, नबी ﷺ ने फ़रमाया:",
+   "img": "03_ramadan_lamps",
+   "motion": true,
+   "preset": "pan_right",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "सहीह बुख़ारी"
+   ]
+  },
+  {
+   "n": 31,
+   "text": "जो इस रात ईमान के साथ, और सवाब की उम्मीद में इबादत में खड़ा रहे, उसके पिछले गुनाह माफ़ कर दिए जाते हैं।",
+   "img": "07_night_prayer_far",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "पिछले गुनाह माफ़"
+   ]
+  },
+  {
+   "n": 32,
+   "text": "ये रात, रमज़ान की आख़िरी दस रातों में आती है।",
+   "img": "13_masjid_night_far",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "आख़िरी दस रातों"
+   ]
+  },
+  {
+   "n": 33,
+   "text": "नबी ﷺ ने फ़रमाया: इसे आख़िरी दस की ताक़ रातों में तलाश करो।",
+   "img": "01_qadr_night_c",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "ताक़ रातों"
+   ]
+  },
+  {
+   "n": 34,
+   "text": "यानी इक्कीसवीं, तेईसवीं, पच्चीसवीं, सत्ताईसवीं और उनतीसवीं रात।",
+   "img": "13_masjid_night_far",
+   "motion": true,
+   "preset": "pan_right",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "इक्कीसवीं"
+   ]
+  },
+  {
+   "n": 35,
+   "text": "सहीह बुख़ारी में है, एक बार नबी ﷺ इस रात की ख़बर देने निकले।",
+   "img": "14_closed_door_calm",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "ख़बर देने"
+   ]
+  },
+  {
+   "n": 36,
+   "text": "दो आदमी आपस में झगड़ रहे थे, और उस रात की पक्की ख़बर उठा ली गई।",
+   "img": "14_closed_door_calm_c",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "पक्की ख़बर उठा ली गई"
+   ]
+  },
+  {
+   "n": 37,
+   "text": "आप ﷺ ने फ़रमाया: शायद यही तुम्हारे लिए बेहतर हो।",
+   "img": "01_qadr_night",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "बेहतर"
+   ]
+  },
+  {
+   "n": 38,
+   "text": "इसीलिए ठीक कौन सी रात है, ये छुपा कर रखा गया, ताकि लोग हर ताक़ रात में कोशिश करें।",
+   "img": "09_town_lamps_night",
+   "motion": true,
+   "preset": "pan_right",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "छुपा कर रखा गया"
+   ]
+  },
+  {
+   "n": 39,
+   "text": "सहीह बुख़ारी में है, आख़िरी दस रातें आतीं, तो नबी ﷺ पूरी मेहनत से इबादत में लग जाते, रात भर जागते, और घर वालों को भी जगाते।",
+   "img": "03_ramadan_lamps_c",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "रात भर जागते"
+   ]
+  },
+  {
+   "n": 40,
+   "text": "सहीह मुस्लिम में, इस रात की एक निशानी आई है:",
+   "img": "12_pale_sun",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "निशानी"
+   ]
+  },
+  {
+   "n": 41,
+   "text": "उसकी सुबह सूरज सफ़ेद-सा निकलता है, बिना तेज़ किरणों के।",
+   "img": "12_pale_sun_c",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "बिना तेज़ किरणों"
+   ]
+  },
+  {
+   "n": 42,
+   "text": "तिर्मिज़ी और इब्न माजा की हदीस में है, हज़रत आइशा को नबी ﷺ ने इस रात के लिए ये दुआ सिखाई:",
+   "img": "03_ramadan_lamps",
+   "motion": true,
+   "preset": "pan_right",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "ये दुआ"
+   ]
+  },
+  {
+   "n": 43,
+   "text": "अल्लाहुम्मा इन्नका अफ़ुव्वुन तुहिब्बुल अफ़्वा फ़अफ़ु अन्नी।",
+   "img": "09_town_lamps_night_c",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "अफ़ुव्वुन"
+   ]
+  },
+  {
+   "n": 44,
+   "text": "ऐ अल्लाह, तू बहुत माफ़ करने वाला है, माफ़ करना पसंद करता है, तो मुझे माफ़ कर दे।",
+   "img": "15_family_night_dua",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "मुझे माफ़ कर दे"
+   ]
+  },
+  {
+   "n": 45,
+   "text": "तो पूरी सूरह का मतलब बस इतना है:",
+   "img": "01_qadr_night",
+   "motion": true,
+   "preset": "push_in",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": []
+  },
+  {
+   "n": 46,
+   "text": "एक रात, जिसमें क़ुरआन उतरा, और जो हज़ार महीनों से बेहतर है।",
+   "img": "04_sky_light_valley",
+   "motion": true,
+   "preset": "pan_right",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "हज़ार महीनों से बेहतर"
+   ]
+  },
+  {
+   "n": 47,
+   "text": "उस रात फ़रिश्ते, अल्लाह के हुक्म से उतरते हैं,",
+   "img": "09_town_lamps_night",
+   "motion": true,
+   "preset": "pull_out",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "अल्लाह के हुक्म"
+   ]
+  },
+  {
+   "n": 48,
+   "text": "और फ़ज्र तक, पूरी रात सलामती ही सलामती है।",
+   "img": "11_fajr_breaks",
+   "motion": true,
+   "preset": "pan_left",
+   "overlay": [
+    [
+     "dust",
+     0.08
+    ]
+   ],
+   "sfx": [],
+   "amb": [],
+   "music": "shared/music/noor/Quietude_Sections_Merged.mp3",
+   "ayah": false,
+   "gold": [
+    "सलामती ही सलामती"
+   ]
+  }
+ ]
+}

@@ -2677,3 +2677,78 @@ timestamp,file,model,size,cost_usd,cost_inr,today_total_inr,remaining_inr,channe
 2026-11-19 22:13:03,channels/devrobolab/stories/068_cc-claude-md/audio/tts/s_05.wav,gemini-3.8-flash-tts,tts 31.3s free,0.00000,0.00,16.24,525.93,devrobolab,0.70,0.0000,0.00,127,783
 2026-11-19 22:13:17,channels/devrobolab/stories/068_cc-claude-md/audio/tts/s_06.wav,gemini-3.8-flash-tts,tts 32.8s free,0.00000,0.00,16.24,525.93,devrobolab,0.73,0.0000,0.00,130,822
 2026-11-19 22:13:28,channels/devrobolab/stories/068_cc-claude-md/audio/tts/s_07.wav,gemini-3.8-flash-tts,tts 18.1s free,0.00000,0.00,16.24,525.93,devrobolab,0.40,0.0000,0.00,67,453
+2026-11-20 11:19:59,channels/noor-e-raah/stories/011_al-qadr/audio/_test/charon_test.wav,gemini-3.8-flash-lite-tts,tts 4.8s free,0.00000,0.00,0.00,525.93,noor-e-raah,0.11,0.0000,0.00,21,119
+2026-11-20 11:21:02,channels/noor-e-raah/stories/011_al-qadr/images/01_qadr_night.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,525.93,noor-e-raah,0.00,0.0000,0.00,,
+2026-11-20 11:21:24,channels/noor-e-raah/stories/011_al-qadr/images/02_mountain_night.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,525.93,noor-e-raah,0.00,0.0000,0.00,,
+2026-11-20 11:21:38,channels/noor-e-raah/stories/011_al-qadr/images/03_ramadan_lamps.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,525.93,noor-e-raah,0.00,0.0000,0.00,,
+2026-11-20 11:21:51,channels/noor-e-raah/stories/011_al-qadr/images/04_sky_light_valley.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,525.93,noor-e-raah,0.00,0.0000,0.00,,
+2026-11-20 11:22:06,channels/noor-e-raah/stories/011_al-qadr/images/05_looking_up_stars.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,525.93,noor-e-raah,0.00,0.0000,0.00,,
+2026-11-20 11:22:19,channels/noor-e-raah/stories/011_al-qadr/images/06_old_man_years.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,525.93,noor-e-raah,0.00,0.0000,0.00,,
+2026-11-20 11:22:32,channels/noor-e-raah/stories/011_al-qadr/images/07_night_prayer_far.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,525.93,noor-e-raah,0.00,0.0000,0.00,,
+2026-11-20 11:22:52,channels/noor-e-raah/stories/011_al-qadr/images/08_dua_hands_lamp.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,525.93,noor-e-raah,0.00,0.0000,0.00,,
+2026-11-20 11:23:06,channels/noor-e-raah/stories/011_al-qadr/images/09_town_lamps_night.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,525.93,noor-e-raah,0.00,0.0000,0.00,,
+2026-11-20 11:23:18,channels/noor-e-raah/stories/011_al-qadr/images/10_still_palms.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,525.93,noor-e-raah,0.00,0.0000,0.00,,
+2026-11-20 11:23:34,channels/noor-e-raah/stories/011_al-qadr/images/11_fajr_breaks.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,525.93,noor-e-raah,0.00,0.0000,0.00,,
+2026-11-20 11:23:48,channels/noor-e-raah/stories/011_al-qadr/images/12_pale_sun.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,525.93,noor-e-raah,0.00,0.0000,0.00,,
+2026-11-20 11:24:03,channels/noor-e-raah/stories/011_al-qadr/images/13_masjid_night_far.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,525.93,noor-e-raah,0.00,0.0000,0.00,,
+2026-11-20 11:24:17,channels/noor-e-raah/stories/011_al-qadr/images/14_closed_door_calm.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,525.93,noor-e-raah,0.00,0.0000,0.00,,
+2026-11-20 11:24:33,channels/noor-e-raah/stories/011_al-qadr/images/15_family_night_dua.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,525.93,noor-e-raah,0.00,0.0000,0.00,,
+2026-11-20 11:24:46,channels/noor-e-raah/stories/011_al-qadr/images/thumb_scene.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,525.93,noor-e-raah,0.00,0.0000,0.00,,
+2026-11-20 11:25:59,channels/noor-e-raah/stories/011_al-qadr/images/08_dua_hands_lamp.png,cf-flux-2-klein-4b,1920x1088 free,0.00000,0.00,0.00,525.93,noor-e-raah,0.00,0.0000,0.00,,
+2026-11-20 11:39:59,channels/noor-e-raah/stories/011_al-qadr/audio/l01.wav,gemini-3.8-flash-lite-tts,tts 5.0s free,0.00000,0.00,0.00,525.93,noor-e-raah,0.12,0.0000,0.00,16,126
+2026-11-20 11:40:06,channels/noor-e-raah/stories/011_al-qadr/audio/l02.wav,gemini-3.8-flash-lite-tts,tts 6.3s free,0.00000,0.00,0.00,525.93,noor-e-raah,0.14,0.0000,0.00,18,157
+2026-11-20 11:40:14,channels/noor-e-raah/stories/011_al-qadr/audio/l03.wav,gemini-3.8-flash-lite-tts,tts 4.8s free,0.00000,0.00,0.00,525.93,noor-e-raah,0.11,0.0000,0.00,18,121
+2026-11-20 11:40:22,channels/noor-e-raah/stories/011_al-qadr/audio/l04.wav,gemini-3.8-flash-lite-tts,tts 7.1s free,0.00000,0.00,0.00,525.93,noor-e-raah,0.16,0.0000,0.00,26,177
+2026-11-20 11:40:29,channels/noor-e-raah/stories/011_al-qadr/audio/l05.wav,gemini-3.8-flash-lite-tts,tts 7.4s free,0.00000,0.00,0.00,525.93,noor-e-raah,0.17,0.0000,0.00,30,186
+2026-11-20 11:40:37,channels/noor-e-raah/stories/011_al-qadr/audio/l06.wav,gemini-3.8-flash-lite-tts,tts 6.7s free,0.00000,0.00,0.00,525.93,noor-e-raah,0.15,0.0000,0.00,27,168
+2026-11-20 11:40:44,channels/noor-e-raah/stories/011_al-qadr/audio/l07.wav,gemini-3.8-flash-lite-tts,tts 3.9s,0.00088,0.09,0.10,525.83,noor-e-raah,0.09,0.0851,0.02,17,97
+2026-11-20 11:40:52,channels/noor-e-raah/stories/011_al-qadr/audio/l08.wav,gemini-3.8-flash-lite-tts,tts 4.9s,0.00112,0.11,0.23,525.71,noor-e-raah,0.11,0.1076,0.02,17,123
+2026-11-20 11:41:01,channels/noor-e-raah/stories/011_al-qadr/audio/l09.wav,gemini-3.8-flash-lite-tts,tts 10.3s free,0.00000,0.00,0.23,525.71,noor-e-raah,0.23,0.0000,0.00,35,257
+2026-11-20 11:41:10,channels/noor-e-raah/stories/011_al-qadr/audio/l10.wav,gemini-3.8-flash-lite-tts,tts 6.8s free,0.00000,0.00,0.23,525.71,noor-e-raah,0.15,0.0000,0.00,20,170
+2026-11-20 11:41:20,channels/noor-e-raah/stories/011_al-qadr/audio/l11.wav,gemini-3.8-flash-lite-tts,tts 3.9s free,0.00000,0.00,0.23,525.71,noor-e-raah,0.09,0.0000,0.00,15,98
+2026-11-20 11:41:29,channels/noor-e-raah/stories/011_al-qadr/audio/l12.wav,gemini-3.8-flash-lite-tts,tts 7.3s free,0.00000,0.00,0.23,525.71,noor-e-raah,0.17,0.0000,0.00,26,183
+2026-11-20 11:41:38,channels/noor-e-raah/stories/011_al-qadr/audio/l13.wav,gemini-3.8-flash-lite-tts,tts 4.3s,0.00098,0.09,0.34,525.59,noor-e-raah,0.10,0.0944,0.02,12,108
+2026-11-20 11:41:51,channels/noor-e-raah/stories/011_al-qadr/audio/l14.wav,gemini-3.8-flash-lite-tts,tts 3.7s free,0.00000,0.00,0.34,525.59,noor-e-raah,0.09,0.0000,0.00,14,92
+2026-11-20 11:42:00,channels/noor-e-raah/stories/011_al-qadr/audio/l15.wav,gemini-3.8-flash-lite-tts,tts 5.4s,0.00121,0.12,0.48,525.46,noor-e-raah,0.12,0.1171,0.02,15,134
+2026-11-20 11:42:08,channels/noor-e-raah/stories/011_al-qadr/audio/l16.wav,gemini-3.8-flash-lite-tts,tts 7.2s,0.00164,0.16,0.66,525.27,noor-e-raah,0.16,0.1582,0.03,21,181
+2026-11-20 11:42:17,channels/noor-e-raah/stories/011_al-qadr/audio/l17.wav,gemini-3.8-flash-lite-tts,tts 4.1s free,0.00000,0.00,0.66,525.27,noor-e-raah,0.10,0.0000,0.00,19,103
+2026-11-20 11:42:25,channels/noor-e-raah/stories/011_al-qadr/audio/l18.wav,gemini-3.8-flash-lite-tts,tts 4.0s,0.00090,0.09,0.77,525.17,noor-e-raah,0.09,0.0866,0.02,12,99
+2026-11-20 11:42:33,channels/noor-e-raah/stories/011_al-qadr/audio/l19.wav,gemini-3.8-flash-lite-tts,tts 5.6s,0.00127,0.12,0.91,525.02,noor-e-raah,0.13,0.1223,0.02,14,140
+2026-11-20 11:42:41,channels/noor-e-raah/stories/011_al-qadr/audio/l20.wav,gemini-3.8-flash-lite-tts,tts 5.4s,0.00122,0.12,1.05,524.88,noor-e-raah,0.12,0.1181,0.02,17,135
+2026-11-20 11:42:49,channels/noor-e-raah/stories/011_al-qadr/audio/l21.wav,gemini-3.8-flash-lite-tts,tts 9.6s,0.00218,0.21,1.30,524.64,noor-e-raah,0.22,0.2099,0.04,31,240
+2026-11-20 11:42:57,channels/noor-e-raah/stories/011_al-qadr/audio/l22.wav,gemini-3.8-flash-lite-tts,tts 8.0s,0.00182,0.18,1.50,524.43,noor-e-raah,0.18,0.1760,0.03,30,201
+2026-11-20 11:43:05,channels/noor-e-raah/stories/011_al-qadr/audio/l23.wav,gemini-3.8-flash-lite-tts,tts 7.8s,0.00177,0.17,1.71,524.23,noor-e-raah,0.18,0.1707,0.03,27,195
+2026-11-20 11:43:12,channels/noor-e-raah/stories/011_al-qadr/audio/l24.wav,gemini-3.8-flash-lite-tts,tts 7.0s,0.00158,0.15,1.89,524.05,noor-e-raah,0.16,0.1523,0.03,25,174
+2026-11-20 11:43:21,channels/noor-e-raah/stories/011_al-qadr/audio/l25.wav,gemini-3.8-flash-lite-tts,tts 7.5s,0.00170,0.16,2.08,523.85,noor-e-raah,0.17,0.1645,0.03,25,188
+2026-11-20 11:43:31,channels/noor-e-raah/stories/011_al-qadr/audio/l26.wav,gemini-3.8-flash-lite-tts,tts 6.0s,0.00136,0.13,2.23,523.70,noor-e-raah,0.14,0.1311,0.02,18,150
+2026-11-20 11:43:40,channels/noor-e-raah/stories/011_al-qadr/audio/l27.wav,gemini-3.8-flash-lite-tts,tts 7.9s,0.00179,0.17,2.44,523.49,noor-e-raah,0.18,0.1725,0.03,30,197
+2026-11-20 11:43:51,channels/noor-e-raah/stories/011_al-qadr/audio/l28.wav,gemini-3.8-flash-lite-tts,tts 3.3s,0.00075,0.07,2.52,523.41,noor-e-raah,0.08,0.0728,0.01,15,83
+2026-11-20 11:44:00,channels/noor-e-raah/stories/011_al-qadr/audio/l29.wav,gemini-3.8-flash-lite-tts,tts 6.0s,0.00135,0.13,2.68,523.26,noor-e-raah,0.14,0.1303,0.02,19,149
+2026-11-20 11:44:19,channels/noor-e-raah/stories/011_al-qadr/audio/l30.wav,gemini-3.8-flash-lite-tts,tts 5.2s,0.00118,0.11,2.81,523.12,noor-e-raah,0.12,0.1139,0.02,20,130
+2026-11-20 11:44:28,channels/noor-e-raah/stories/011_al-qadr/audio/l31.wav,gemini-3.8-flash-lite-tts,tts 7.0s,0.00159,0.15,2.99,522.94,noor-e-raah,0.16,0.1538,0.03,20,176
+2026-11-20 11:44:37,channels/noor-e-raah/stories/011_al-qadr/audio/l32.wav,gemini-3.8-flash-lite-tts,tts 9.3s,0.00210,0.20,3.23,522.70,noor-e-raah,0.21,0.2030,0.04,32,232
+2026-11-20 11:44:44,channels/noor-e-raah/stories/011_al-qadr/audio/l33.wav,gemini-3.8-flash-lite-tts,tts 4.3s,0.00098,0.09,3.35,522.59,noor-e-raah,0.10,0.0947,0.02,18,108
+2026-11-20 11:44:52,channels/noor-e-raah/stories/011_al-qadr/audio/l34.wav,gemini-3.8-flash-lite-tts,tts 6.6s,0.00150,0.15,3.52,522.42,noor-e-raah,0.15,0.1452,0.03,22,166
+2026-11-20 11:45:02,channels/noor-e-raah/stories/011_al-qadr/audio/l35.wav,gemini-3.8-flash-lite-tts,tts 7.6s,0.00172,0.17,3.71,522.22,noor-e-raah,0.17,0.1655,0.03,29,189
+2026-11-20 11:45:10,channels/noor-e-raah/stories/011_al-qadr/audio/l36.wav,gemini-3.8-flash-lite-tts,tts 8.3s,0.00187,0.18,3.93,522.01,noor-e-raah,0.19,0.1808,0.03,21,207
+2026-11-20 11:45:18,channels/noor-e-raah/stories/011_al-qadr/audio/l37.wav,gemini-3.8-flash-lite-tts,tts 6.6s,0.00149,0.14,4.09,521.84,noor-e-raah,0.15,0.1435,0.03,23,164
+2026-11-20 11:45:25,channels/noor-e-raah/stories/011_al-qadr/audio/l38.wav,gemini-3.8-flash-lite-tts,tts 5.8s,0.00130,0.13,4.24,521.69,noor-e-raah,0.13,0.1257,0.02,14,144
+2026-11-20 11:45:32,channels/noor-e-raah/stories/011_al-qadr/audio/l39.wav,gemini-3.8-flash-lite-tts,tts 7.5s,0.00170,0.16,4.44,521.50,noor-e-raah,0.17,0.1636,0.03,25,187
+2026-11-20 11:45:40,channels/noor-e-raah/stories/011_al-qadr/audio/l40.wav,gemini-3.8-flash-lite-tts,tts 9.7s,0.00220,0.21,4.69,521.25,noor-e-raah,0.22,0.2120,0.04,37,242
+2026-11-20 11:45:47,channels/noor-e-raah/stories/011_al-qadr/audio/l41.wav,gemini-3.8-flash-lite-tts,tts 4.8s,0.00110,0.11,4.81,521.12,noor-e-raah,0.11,0.1059,0.02,16,121
+2026-11-20 11:45:56,channels/noor-e-raah/stories/011_al-qadr/audio/l42.wav,gemini-3.8-flash-lite-tts,tts 5.3s,0.00120,0.12,4.95,520.98,noor-e-raah,0.12,0.1162,0.02,14,133
+2026-11-20 11:46:03,channels/noor-e-raah/stories/011_al-qadr/audio/l43.wav,gemini-3.8-flash-lite-tts,tts 8.5s,0.00194,0.19,5.17,520.76,noor-e-raah,0.19,0.1868,0.03,37,213
+2026-11-20 11:46:11,channels/noor-e-raah/stories/011_al-qadr/audio/l44.wav,gemini-3.8-flash-lite-tts,tts 6.3s,0.00143,0.14,5.33,520.60,noor-e-raah,0.14,0.1377,0.02,28,157
+2026-11-20 11:46:19,channels/noor-e-raah/stories/011_al-qadr/audio/l45.wav,gemini-3.8-flash-lite-tts,tts 8.1s,0.00183,0.18,5.54,520.39,noor-e-raah,0.18,0.1767,0.03,26,202
+2026-11-20 11:46:25,channels/noor-e-raah/stories/011_al-qadr/audio/l46.wav,gemini-3.8-flash-lite-tts,tts 3.4s,0.00077,0.07,5.63,520.31,noor-e-raah,0.08,0.0744,0.01,11,85
+2026-11-20 11:46:33,channels/noor-e-raah/stories/011_al-qadr/audio/l47.wav,gemini-3.8-flash-lite-tts,tts 6.4s,0.00145,0.14,5.79,520.14,noor-e-raah,0.15,0.1399,0.03,19,160
+2026-11-20 11:46:40,channels/noor-e-raah/stories/011_al-qadr/audio/l48.wav,gemini-3.8-flash-lite-tts,tts 4.3s,0.00098,0.09,5.90,520.03,noor-e-raah,0.10,0.0947,0.02,18,108
+2026-11-20 11:46:48,channels/noor-e-raah/stories/011_al-qadr/audio/l49.wav,gemini-3.8-flash-lite-tts,tts 5.7s,0.00129,0.12,6.05,519.88,noor-e-raah,0.13,0.1250,0.02,16,143
+2026-11-20 11:57:23,channels/noor-e-raah/stories/011_al-qadr/audio/l02.wav,gemini-3.8-flash-lite-tts,tts 5.9s,0.00133,0.13,6.20,519.73,noor-e-raah,0.13,0.1285,0.02,18,147
+2026-11-20 11:57:31,channels/noor-e-raah/stories/011_al-qadr/audio/l05.wav,gemini-3.8-flash-lite-tts,tts 6.8s,0.00155,0.15,6.38,519.55,noor-e-raah,0.16,0.1499,0.03,29,171
+2026-11-20 11:57:38,channels/noor-e-raah/stories/011_al-qadr/audio/l11.wav,gemini-3.8-flash-lite-tts,tts 4.0s,0.00090,0.09,6.48,519.45,noor-e-raah,0.09,0.0867,0.02,15,99
+2026-11-20 11:57:46,channels/noor-e-raah/stories/011_al-qadr/audio/l24.wav,gemini-3.8-flash-lite-tts,tts 6.3s,0.00143,0.14,6.65,519.29,noor-e-raah,0.14,0.1384,0.02,25,158
+2026-11-20 11:57:53,channels/noor-e-raah/stories/011_al-qadr/audio/l36.wav,gemini-3.8-flash-lite-tts,tts 6.6s,0.00150,0.15,6.82,519.12,noor-e-raah,0.15,0.1452,0.03,21,166
+2026-11-20 11:58:01,channels/noor-e-raah/stories/011_al-qadr/audio/l39.wav,gemini-3.8-flash-lite-tts,tts 12.3s,0.00279,0.27,7.13,518.80,noor-e-raah,0.27,0.2688,0.05,45,307
+2026-11-20 11:58:08,channels/noor-e-raah/stories/011_al-qadr/audio/l41.wav,gemini-3.8-flash-lite-tts,tts 5.2s,0.00117,0.11,7.27,518.67,noor-e-raah,0.12,0.1129,0.02,18,129
+2026-11-20 11:58:16,channels/noor-e-raah/stories/011_al-qadr/audio/l43.wav,gemini-3.8-flash-lite-tts,tts 7.0s,0.00158,0.15,7.45,518.49,noor-e-raah,0.16,0.1525,0.03,28,174
